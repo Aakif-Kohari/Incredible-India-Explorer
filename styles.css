@@ -5,16 +5,17 @@
 
 /* Design Tokens & Theme Variables */
 :root {
-    --primary: hsl(27, 100%, 55%);
+    --primary: hsl(29, 47%, 20%);
     /* #FF9933 - Energy, courage (default primary) */
-    --primary-saffron: hsl(27, 100%, 55%);
+    --primary-saffron: hsl(31, 100%, 70%);
     /* #FF9933 - Energy, courage */
-    --primary-green: hsl(122, 90%, 28%);
+    --primary-green: hsl(136, 72%, 16%);
     /* #128807 - Prosperity, life */
-    --primary-gold: hsl(43, 85%, 52%);
+    --primary-gold: hsl(117, 56%, 64%);
     /* #FFB01F - Splendor, culture */
-    --primary-gold-alt: hsl(40, 75%, 48%);
-    --bg-dark-deep: hsl(222, 47%, 8%);
+    --primary-gold-alt: hsl(43, 60%, 18%);
+    --mixed-text: hsl(43, 100%, 70%);
+    --bg-dark-deep: hsl(221, 100%, 22%);
     /* #090D16 - Deep base bg */
     --bg-dark-card: rgba(30, 41, 59, 0.65);
     /* #1E293B with transparency */
@@ -43,6 +44,31 @@
     --border-radius-sm: 8px;
     --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     --transition-snappy: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* ------------------------------------------------------------------
+       Page-level shorthand tokens (referenced by 30+ page CSS files)
+       Defined here so page CSS files use var(--xxx) without fallback.
+       ------------------------------------------------------------------ */
+
+    /* Accent colour shorthands (aliases for the :root canonical names) */
+    --saffron: var(--primary-saffron);
+    --gold: var(--primary-gold);
+    --green: var(--primary-green);
+
+    /* Glassmorphism surface tokens (used by 20+ page CSS files) */
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.14);
+
+    /* Text colour tokens (used by 30+ page CSS files) */
+    --text-primary: #f5f5f5;
+    --text-secondary: #b7b7b7;
+    --muted-text: rgba(255, 255, 255, 0.6);
+
+    /* Page-level surface and typography tokens */
+    --bg-dark: #04172a;
+    --bg-primary: #111827;
+    --font-family: 'Outfit', sans-serif;
+    --primary-dark: #1a1a2e;
 }
 
 /* Base Reset & Typography */
@@ -125,7 +151,7 @@ button {
 
 .section-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -429,8 +455,9 @@ button {
     text-transform: uppercase;
     letter-spacing: 2px;
     color: var(--primary-gold);
-    display: block;
-    margin-bottom: 20px;
+    display: inline-block;
+    margin-top:100px;
+    margin-bottom: 40px;
 }
 
 .hero-title {
@@ -746,6 +773,7 @@ button {
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -1291,82 +1319,71 @@ button {
    FOOTER
    ========================================================================== */
 
-.footer {
-    background: hsl(222, 47%, 4%);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 60px 24px 30px;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 50px;
-    margin-bottom: 40px;
-}
-
-.footer-brand h3 {
-    font-size: 1.6rem;
-    margin-bottom: 15px;
-    background: var(--gradient-saffron-gold);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.footer-brand p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    max-width: 500px;
-}
-
 .footer-links {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    max-width: 420px;
+    justify-self: start;
 }
 
-.footer-links h4 {
-    font-size: 1.1rem;
-    margin-bottom: 18px;
+.footer-links h3 {
+    margin: 0 0 24px;
+    padding: 0;
     text-align: center;
 }
 
 .footer-links ul {
-    list-style: none;
-    padding: 0;
-    margin-left: 60px;
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 12px 35px;
-    justify-content: center;
+    margin-left: 50px !important;
+    padding-left: 0 !important;
+    transform: translateX(0) !important;
+}
+
+.footer-links {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
 }
 
 .footer-links li {
     margin: 0;
+    padding: 0;
+    text-align: left;
 }
 
 .footer-links a {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    text-decoration: none;
-    transition: var(--transition-snappy);
-}
-
-.footer-links a:hover {
-    color: var(--primary-gold);
-    padding-left: 5px;
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: left;
 }
 
 .footer-credits {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 50px auto 0;
     padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     text-align: center;
-    color: var(--text-muted);
-    font-size: 0.85rem;
 }
+
+.footer-credits p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-links {
+        max-width: 420px;
+    }
+
+    .footer-links ul {
+        grid-template-columns: repeat(2, 160px);
+    }
+}
+
+
+
 
 /* ==========================================================================
    DETAILS MODAL
@@ -7679,6 +7696,15 @@ body.light-theme {
     --gradient-card-border: linear-gradient(135deg, rgba(229, 231, 235, 1) 0%, rgba(209, 213, 219, 1) 100%);
     --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-glow: 0 0 20px rgba(245, 158, 11, 0.3);
+
+    /* Page-level shorthand token overrides for light theme */
+    --text-primary: #1a1a2e;
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --bg-dark: #f8fafc;
+    --bg-primary: #ffffff;
+    --muted-text: rgba(0, 0, 0, 0.6);
+    --primary-dark: #f0f0f5;
 }
 
 body.light-theme .navbar {
@@ -9297,6 +9323,31 @@ body.light-theme .search-key-hint kbd {
     --border-radius-sm: 8px;
     --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     --transition-snappy: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* ------------------------------------------------------------------
+       Page-level shorthand tokens (referenced by 30+ page CSS files)
+       Defined here so page CSS files use var(--xxx) without fallback.
+       ------------------------------------------------------------------ */
+
+    /* Accent colour shorthands (aliases for the :root canonical names) */
+    --saffron: var(--primary-saffron);
+    --gold: var(--primary-gold);
+    --green: var(--primary-green);
+
+    /* Glassmorphism surface tokens (used by 20+ page CSS files) */
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.14);
+
+    /* Text colour tokens (used by 30+ page CSS files) */
+    --text-primary: #f5f5f5;
+    --text-secondary: #b7b7b7;
+    --muted-text: rgba(255, 255, 255, 0.6);
+
+    /* Page-level surface and typography tokens */
+    --bg-dark: #0a1118;
+    --bg-primary: #111827;
+    --font-family: 'Outfit', sans-serif;
+    --primary-dark: #1a1a2e;
 }
 
 /* Base Reset & Typography */
@@ -9996,6 +10047,7 @@ button {
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -14777,7 +14829,7 @@ button {
 }
 
    CUISINE PAGE DETAILS DRAWER
-   ========================================================================== */
+  /* ========================================================================== */
 .filters-bar-wrapper {
     display: flex;
     justify-content: space-between;
@@ -16810,6 +16862,15 @@ body.light-theme {
     --gradient-card-border: linear-gradient(135deg, rgba(229, 231, 235, 1) 0%, rgba(209, 213, 219, 1) 100%);
     --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-glow: 0 0 20px rgba(245, 158, 11, 0.3);
+
+    /* Page-level shorthand token overrides for light theme */
+    --text-primary: #1a1a2e;
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --bg-dark: #f8fafc;
+    --bg-primary: #ffffff;
+    --muted-text: rgba(0, 0, 0, 0.6);
+    --primary-dark: #f0f0f5;
 }
 
 body.light-theme .navbar {
@@ -18178,7 +18239,7 @@ body.light-theme .hero-title .rotating-text {
 
 .app-toast-message {
     flex: 1;
-    font-family: var(--font-family, 'Outfit', sans-serif);
+    font-family: var(--font-family);
     font-size: 0.9rem;
     line-height: 1.4;
     color: #f0f0f0;
@@ -18264,9 +18325,9 @@ path[tabindex="0"]:focus-visible {
     padding: 12px 20px;
     border: none;
     border-radius: 12px;
-    background: linear-gradient(135deg, var(--saffron, #FF9933), var(--primary-gold, #FFB01F));
+    background: linear-gradient(135deg, var(--saffron), var(--primary-gold));
     color: #fff;
-    font-family: var(--font-family, 'Outfit', sans-serif);
+    font-family: var(--font-family);
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;

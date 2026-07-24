@@ -1,6 +1,12 @@
 const fs = require('fs');
 const path = require('path');
-const { mapData } = require('../data.js');
+
+// Load data.js - read file directly and evaluate to bypass any module caching issues
+const dataCode = fs.readFileSync(path.join(__dirname, '..', 'data.js'), 'utf8');
+const dataModule = { exports: {} };
+const dataFn = new Function('module', 'exports', 'require', '__dirname', '__filename', dataCode);
+dataFn(dataModule, dataModule.exports, require, __dirname, __filename);
+const { mapData } = dataModule.exports;
 
 const layoutPath = path.join(__dirname, 'layout.html');
 const layoutTemplate = fs.readFileSync(layoutPath, 'utf8');
@@ -27,6 +33,10 @@ locations.forEach(state => {
     const title = `${state.name} | Incredible India Explorer`;
     const description = state.description || `Explore ${state.name} in India`;
     const relativePath = '../../'; // since it will be in dist/states/
+    const BASE_URL = 'https://incredibleindiaexplorer.gov.in';
+    const ogImage = `${BASE_URL}/assets/Brihadeeswara_Temple.png`;
+    const ogUrl = `${BASE_URL}/states/${slug}.html`;
+    const ogType = 'place';
     
     let content = `
     <div style="max-width: 800px; margin: 40px auto; padding: 20px;" class="glass-card">
@@ -50,6 +60,11 @@ locations.forEach(state => {
     let pageHtml = layoutTemplate
         .replace(/\{\{title\}\}/g, title)
         .replace(/\{\{description\}\}/g, description)
+        .replace(/\{\{og_title\}\}/g, title)
+        .replace(/\{\{og_description\}\}/g, description)
+        .replace(/\{\{og_image\}\}/g, ogImage)
+        .replace(/\{\{og_url\}\}/g, ogUrl)
+        .replace(/\{\{og_type\}\}/g, ogType)
         .replace(/\{\{relative_path\}\}/g, relativePath)
         .replace(/\{\{extra_head\}\}/g, '')
         .replace(/\{\{extra_scripts\}\}/g, '')

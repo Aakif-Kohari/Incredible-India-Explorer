@@ -989,7 +989,7 @@ function loadSearchScript(callback, retries) {
         return;
     }
     const script = document.createElement('script');
-    script.src = getPathPrefix() + 'search-index.js';
+    script.src = getPathPrefix() + 'js-modules/search/search-index.js';
     script.onload = () => {
         if (callback) callback();
     };
