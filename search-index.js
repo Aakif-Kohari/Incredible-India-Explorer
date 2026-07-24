@@ -821,6 +821,12 @@ window.indiaSearchIndex = [
     description: "Test your geographic and cultural trivia knowledge of India's states to unlock border crossings.",
     url: "frontend/state-challenge/state-challenge.html?mode=trivia"
   },
+  {
+    title: "How the Indian Monsoon System Works",
+    category: "Climate & Science",
+    description: "Scientific explainer of monsoon meteorology — differential heating, wind reversals, Southwest vs. Northeast monsoon wind paths.",
+    url: "frontend/monsoon-explainer/index.html"
+  },
   // --- Ancient Trade Routes ---
   {
     title: "Ancient Indian Trade Network",
