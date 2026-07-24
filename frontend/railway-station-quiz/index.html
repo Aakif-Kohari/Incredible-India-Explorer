@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Station Identification Quiz — Name India's Great Railway Stations</title>
+<meta name="description" content="Identify famous Indian railway stations from their architecture, location clues and railway history. Three difficulty tiers, a hint system and live scoring.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <span class="crest" aria-hidden="true">&#9992;</span>
+    <p class="eyebrow">Indian Railways &middot; Heritage Line</p>
+    <h1>Station Identification Quiz</h1>
+    <p class="tagline">One illustration, three clues, twelve legendary platforms. Name the station before the board flips.</p>
+  </div>
+</header>
+
+<main class="board" id="main-content">
+
+  <!-- Split-flap departure board: the game's live status readout -->
+  <section class="departure-board" aria-label="Game status">
+    <div class="board-row">
+      <span class="board-label">Platform</span>
+      <span class="flap-value mono" id="tierFlap" aria-live="polite">EASY</span>
+    </div>
+    <div class="board-row">
+      <span class="board-label">Score</span>
+      <span class="flap-value mono" id="scoreFlap" aria-live="polite">000</span>
+    </div>
+    <div class="board-row">
+      <span class="board-label">Streak</span>
+      <span class="flap-value mono" id="streakFlap" aria-live="polite">00</span>
+    </div>
+    <div class="board-row">
+      <span class="board-label">Best</span>
+      <span class="flap-value mono" id="bestFlap" aria-live="polite">000</span>
+    </div>
+  </section>
+
+  <!-- Progress: one punched hole per answered question this round -->
+  <ol class="punch-track" id="punchTrack" aria-label="Round progress"></ol>
+
+  <section class="ticket-stage" aria-label="Current station">
+    <div class="ticket" id="ticketCard">
+      <span class="ticket-hole" aria-hidden="true"></span>
+      <p class="ticket-kicker">Ticket No. <span id="ticketNumber" class="mono">001</span> &middot; Difficulty: <span id="ticketTier">Easy</span></p>
+
+      <figure class="station-figure">
+        <div class="station-illustration" id="stationIllustration" role="img" aria-label="Architectural silhouette of the mystery station"></div>
+        <figcaption>Architectural silhouette &mdash; identify the station it belongs to</figcaption>
+      </figure>
+
+      <p class="clue-line" id="locationClue">
+        <strong>Location clue:</strong> <span id="locationClueText">Hidden &mdash; use a hint to reveal it</span>
+      </p>
+
+      <div class="stub" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="hint-rail" aria-label="Hints">
+    <h2 class="hint-title">Hints</h2>
+    <div class="hint-buttons">
+      <button type="button" class="hint-btn" id="hintLocation" data-cost="5">Reveal location <span class="cost">&minus;5</span></button>
+      <button type="button" class="hint-btn" id="hintEra" data-cost="10">Reveal era built <span class="cost">&minus;10</span></button>
+      <button type="button" class="hint-btn" id="hintStyle" data-cost="15">Reveal architecture style <span class="cost">&minus;15</span></button>
+    </div>
+    <p class="hint-echo" id="hintEcho" aria-live="polite">&nbsp;</p>
+  </section>
+
+  <section class="options" id="options" aria-label="Answer choices"></section>
+
+  <p class="feedback" id="feedback" aria-live="assertive">&nbsp;</p>
+
+  <section class="history-panel" id="historyPanel" hidden>
+    <h2>Railway history</h2>
+    <p id="historyFact"></p>
+  </section>
+
+  <div class="controls">
+    <button type="button" class="primary-btn" id="nextBtn" disabled>Next station &rarr;</button>
+    <button type="button" class="ghost-btn" id="resetBtn">Reset round</button>
+  </div>
+
+</main>
+
+<footer class="colophon">
+  <p>Facts and dates are drawn from India's public railway heritage record. Difficulty rises from well-known terminals to lesser-known heritage halts.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
