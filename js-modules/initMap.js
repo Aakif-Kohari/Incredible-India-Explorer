@@ -277,39 +277,39 @@ function initInteractiveMap() {
             return `
                 <div style="margin-top:20px;">
                     <div style="margin-bottom:12px;">
-                        <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:4px; font-weight:600; color:var(--muted-text);">
+                        <div class="meter-label-row">
                             <span>Heritage Richness</span>
                             <span>${metrics.heritage}/10</span>
                         </div>
-                        <div style="background:rgba(255,255,255,0.08); height:6px; border-radius:3px; overflow:hidden;">
-                            <div style="background:var(--saffron); width:${metrics.heritage * 10}%; height:100%; border-radius:3px;"></div>
+                        <div class="meter-track">
+                            <div class="meter-bar meter-bar-saffron" style="width:${metrics.heritage * 10}%;"></div>
                         </div>
                     </div>
                     <div style="margin-bottom:12px;">
-                        <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:4px; font-weight:600; color:var(--muted-text);">
+                        <div class="meter-label-row">
                             <span>Culinary Diversity</span>
                             <span>${metrics.cuisine}/10</span>
                         </div>
-                        <div style="background:rgba(255,255,255,0.08); height:6px; border-radius:3px; overflow:hidden;">
-                            <div style="background:var(--primary-gold); width:${metrics.cuisine * 10}%; height:100%; border-radius:3px;"></div>
+                        <div class="meter-track">
+                            <div class="meter-bar meter-bar-gold" style="width:${metrics.cuisine * 10}%;"></div>
                         </div>
                     </div>
                     <div style="margin-bottom:12px;">
-                        <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:4px; font-weight:600; color:var(--muted-text);">
+                        <div class="meter-label-row">
                             <span>Tourist Access & Transit</span>
                             <span>${metrics.access}/10</span>
                         </div>
-                        <div style="background:rgba(255,255,255,0.08); height:6px; border-radius:3px; overflow:hidden;">
-                            <div style="background:#00f2fe; width:${metrics.access * 10}%; height:100%; border-radius:3px;"></div>
+                        <div class="meter-track">
+                            <div class="meter-bar meter-bar-cyan" style="width:${metrics.access * 10}%;"></div>
                         </div>
                     </div>
                     <div style="margin-bottom:20px;">
-                        <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:4px; font-weight:600; color:var(--muted-text);">
+                        <div class="meter-label-row">
                             <span>Artistic Traditions</span>
                             <span>${metrics.art}/10</span>
                         </div>
-                        <div style="background:rgba(255,255,255,0.08); height:6px; border-radius:3px; overflow:hidden;">
-                            <div style="background:var(--green); width:${metrics.art * 10}%; height:100%; border-radius:3px;"></div>
+                        <div class="meter-track">
+                            <div class="meter-bar meter-bar-green" style="width:${metrics.art * 10}%;"></div>
                         </div>
                     </div>
                 </div>
