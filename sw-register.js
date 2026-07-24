@@ -125,12 +125,53 @@
   };
 
   /* ------------------------------------------------------------------
+     Offline Status Bar Notification & Sync Indicator
+     ------------------------------------------------------------------ */
+
+  function setupOfflineBanner() {
+    var banner = document.createElement('div');
+    banner.id = 'offline-status-banner';
+    banner.style.position = 'fixed';
+    banner.style.bottom = '16px';
+    banner.style.left = '50%';
+    banner.style.transform = 'translateX(-50%)';
+    banner.style.backgroundColor = '#e11d48';
+    banner.style.color = '#ffffff';
+    banner.style.padding = '10px 20px';
+    banner.style.borderRadius = '50px';
+    banner.style.fontSize = '0.9rem';
+    banner.style.fontWeight = '600';
+    banner.style.boxShadow = '0 10px 25px rgba(0,0,0,0.4)';
+    banner.style.zIndex = '999999';
+    banner.style.display = 'none';
+    banner.innerText = '📡 You are currently offline — serving cached content';
+
+    document.body.appendChild(banner);
+
+    function updateNetworkStatus() {
+      if (!navigator.onLine) {
+        banner.style.display = 'block';
+      } else {
+        banner.style.display = 'none';
+      }
+    }
+
+    window.addEventListener('offline', updateNetworkStatus);
+    window.addEventListener('online', updateNetworkStatus);
+    updateNetworkStatus();
+  }
+
+  /* ------------------------------------------------------------------
      Auto-register on window load
      ------------------------------------------------------------------ */
 
   if (document.readyState === 'complete') {
     registerServiceWorker();
+    setupOfflineBanner();
   } else {
-    window.addEventListener('load', registerServiceWorker);
+    window.addEventListener('load', function () {
+      registerServiceWorker();
+      setupOfflineBanner();
+    });
   }
 })();
