@@ -822,20 +822,16 @@ window.indiaSearchIndex = [
     url: "frontend/state-challenge/state-challenge.html?mode=trivia"
   },
   {
-    title: "Evolution of the Indian Constitution",
-    category: "Civics & History",
-    description: "Scroll-driven animated timeline mapping the Constituent Assembly (1946), adoption (1950), and landmark constitutional amendments.",
-    url: "frontend/constitution-timeline/index.html"
-    title: "Border Neighbors Quiz",
-    category: "Interactive Quizzes",
-    description: "Name and select all states sharing a land border with a target Indian state. Earn partial-credit points!",
-    url: "frontend/border-neighbors-quiz/index.html"
+    title: "How the Indian Monsoon System Works",
+    category: "Climate & Science",
+    description: "Scientific explainer of monsoon meteorology — differential heating, wind reversals, Southwest vs. Northeast monsoon wind paths.",
+    url: "frontend/monsoon-explainer/index.html"
   },
   {
-    title: "Union Territory Sorter",
-    category: "Interactive Games",
-    description: "Drag or tap to categorize all 28 States and 8 Union Territories into their correct bins with instant feedback.",
-    url: "frontend/union-territory-sorter/index.html"
+    title: "Journey of the Ganges: Scrollytelling",
+    category: "Rivers & Geography",
+    description: "Source-to-sea guided narrative following the Ganges River from Gangotri Glacier to the Bay of Bengal through scroll-synced map animations.",
+    url: "frontend/ganges-scrollytelling/index.html"
   },
   // --- Ancient Trade Routes ---
   {
