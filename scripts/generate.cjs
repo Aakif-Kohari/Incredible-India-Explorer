@@ -35,6 +35,7 @@ locations.forEach(state => {
     // Dynamic Content
     const title = `${state.name} | Incredible India Explorer`;
     const description = state.description || `Explore ${state.name} in India`;
+    const story = state.story || `Discover the story and heritage of ${state.name}.`;
     const relativePath = '../../'; // since it will be in dist/states/
     const BASE_URL = 'https://incredibleindiaexplorer.gov.in';
     const ogImage = `${BASE_URL}/assets/Brihadeeswara_Temple.png`;
@@ -53,7 +54,7 @@ locations.forEach(state => {
         </div>
         <div style="margin-top: 20px;">
             <h3>Story</h3>
-            <p>${state.story.replace(/\n/g, '<br>')}</p>
+            <p>${story.replace(/\n/g, '<br>')}</p>
         </div>
         <a href="../../index.html" class="btn btn-primary" style="margin-top: 20px; display: inline-block;">Back to Home</a>
     </div>
