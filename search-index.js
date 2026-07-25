@@ -1057,6 +1057,18 @@ window.indiaSearchIndex = [
     description: "Explore the Ramayana, Krishna, and Buddhist circuits with interactive map, distance calculator, and duration estimation.",
     url: "frontend/up-pilgrimage/up-pilgrimage.html"
   },
+  // --- The Green Revolution in India ---
+  {
+    title: "Animated Explainer: The Green Revolution in India",
+    category: "Agriculture & History",
+    description: "Explains the 1960s-70s agricultural transformation — HYV seeds, tubewell irrigation expansion, animated yield-increase chart, and balanced ecological analysis.",
+    url: "frontend/green-revolution/green-revolution.html"
+  },
+  {
+    title: "India Agricultural Yields & Green Revolution Guide",
+    category: "Agricultural History",
+    description: "Interactive before/after yield comparison chart, 4 technological pillars, and balanced dual framing of food security vs groundwater considerations.",
+    url: "frontend/green-revolution/green-revolution.html"
   // --- History of Indian Railways Timeline ---
   {
     title: "Animated Timeline: History of Indian Railways",
