@@ -14,13 +14,8 @@ const layoutTemplate = fs.readFileSync(layoutPath, 'utf8');
 const distDir = path.join(__dirname, '..', 'dist');
 const statesDir = path.join(distDir, 'states');
 
-// Ensure directories exist
-if (!fs.existsSync(distDir)) {
-    fs.mkdirSync(distDir);
-}
-if (!fs.existsSync(statesDir)) {
-    fs.mkdirSync(statesDir);
-}
+// Ensure output directory exists
+fs.mkdirSync(statesDir, { recursive: true });
 
 // Escape dynamic text before inserting it into generated HTML
 function escapeHtml(value) {
