@@ -5,11 +5,11 @@ the `guide-moderation.html` dashboard.
 
 ## Roles
 
-| Role        | Can do |
-|-------------|--------|
-| `user`      | Create/edit their own guides, rate, report |
-| `moderator` | Everything a user can, plus approve/reject any guide, resolve reports, unpublish a guide |
-| `admin`     | Everything a moderator can, plus grant/change roles |
+| Role          | Can do                                                                                     |
+| ------------- | ------------------------------------------------------------------------------------------ |
+| `user`        | Create/edit their own guides, rate, report                                                 |
+| `moderator`   | Everything a user can, plus approve/reject any guide, resolve reports, unpublish a guide   |
+| `admin`       | Everything a moderator can, plus grant/change roles                                        |
 
 Roles are stored per user id in `localStorage` under
 `incredible-india-user-roles` (see `getUserRole`, `setUserRole` in
@@ -33,7 +33,7 @@ setUserRole(myAdminUid, otherUserUid, USER_ROLES.MODERATOR);
 
 ## Guide lifecycle
 
-```
+```text
  draft --submit--> pending --approve--> published
    ^                  |  \
    |               reject  (edit on published guide)

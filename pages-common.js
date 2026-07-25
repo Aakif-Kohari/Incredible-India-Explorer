@@ -1,6 +1,6 @@
 /* ==========================================================================
    NEW PAGES - SHARED APPLICATION LOGIC
-   Common to: rivers.html, currency-history.html, tribes.html
+   Common to: rivers.html, currency-history.html, frontend/tribes/frontend/tribes/tribes.html
    Pure Vanilla JavaScript - no external dependencies.
    ========================================================================== */
 
@@ -378,7 +378,8 @@ function initTribesPage() {
     const detailPanel = document.getElementById('tribes-detail-panel');
     const modalBackdrop = document.getElementById('tribes-modal-backdrop');
     const searchInput = document.getElementById('tribes-search-input');
-    const regionSelect = document.getElementById('tribes-region-select');
+    const stateSelect = document.getElementById('tribes-state-select');
+    const languageSelect = document.getElementById('tribes-language-select');
     const sortSelect = document.getElementById('tribes-sort-select');
     const resetBtn = document.getElementById('tribes-reset-btn');
     const rowArrow = document.getElementById('tribes-row-arrow');
@@ -390,6 +391,23 @@ function initTribesPage() {
     let currentList = [...TRIBES_DATA];
     let windowStart = 0;
     let activeTab = 'traditions';
+
+    function populateDropdowns() {
+        if (stateSelect) {
+            const allStates = new Set();
+            TRIBES_DATA.forEach(t => t.states.forEach(s => allStates.add(s)));
+            const sortedStates = Array.from(allStates).sort();
+            stateSelect.innerHTML = '<option value="all">All States</option>' + 
+                sortedStates.map(s => `<option value="${s}">${s}</option>`).join('');
+        }
+        if (languageSelect) {
+            const allLangs = new Set();
+            TRIBES_DATA.forEach(t => allLangs.add(t.language));
+            const sortedLangs = Array.from(allLangs).sort();
+            languageSelect.innerHTML = '<option value="all">All Languages</option>' + 
+                sortedLangs.map(l => `<option value="${l}">${l}</option>`).join('');
+        }
+    }
 
     function renderRegions() {
         regionGrid.innerHTML = REGIONS_DATA.map(r => `
@@ -432,11 +450,12 @@ function initTribesPage() {
 
         cardsRow.innerHTML = items.map((t, idx) => {
             const enter = animateLast && idx === count - 1 ? ' card-enter' : '';
+            const isSaved = window.Journey && window.Journey.isSaved ? window.Journey.isSaved('tribe-' + t.id) : false;
             return `
             <div class="tribe-card${enter}" data-id="${t.id}">
                 <div class="tribe-card-img-wrap">
                     <img src="${t.image}" alt="${t.name} tribe">
-                    <button class="tribe-card-fav" data-fav="${t.id}" aria-label="Save ${t.name}">♡</button>
+                    <button class="tribe-card-fav ${isSaved ? 'active' : ''}" data-fav="${t.id}" aria-label="Save ${t.name}">${isSaved ? '♥' : '♡'}</button>
                 </div>
                 <div class="tribe-card-body">
                     <div class="tribe-card-title-row">
@@ -466,12 +485,26 @@ function initTribesPage() {
             });
         });
 
-        // Favorite heart toggle (stop propagation so it doesn't open the popup)
+        // Favorite heart toggle
         cardsRow.querySelectorAll('[data-fav]').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                btn.classList.toggle('active');
-                btn.textContent = btn.classList.contains('active') ? '♥' : '♡';
+                const tribeId = btn.dataset.fav;
+                const t = TRIBES_DATA.find(tr => tr.id === tribeId);
+                if (window.Journey && window.Journey.toggle && t) {
+                    const saved = window.Journey.toggle({
+                        id: 'tribe-' + t.id,
+                        explorerPage: 'tribes.html',
+                        title: t.name + ' Tribe',
+                        thumbnail: t.image,
+                        category: 'tribes'
+                    });
+                    btn.classList.toggle('active', saved);
+                    btn.textContent = saved ? '♥' : '♡';
+                } else {
+                    btn.classList.toggle('active');
+                    btn.textContent = btn.classList.contains('active') ? '♥' : '♡';
+                }
             });
         });
     }
@@ -574,24 +607,33 @@ function initTribesPage() {
     }
 
     modalBackdrop?.addEventListener('click', closeTribeDetail);
-    document.addEventListener('keydown', (e) => {
+    var tribesEscapeHandler = function(e) {
         if (e.key === 'Escape') {
             closeTribeDetail();
         }
-    });
+    };
+    document.addEventListener('keydown', tribesEscapeHandler);
+    if (typeof window.iiRegisterKeydownHandler === 'function') {
+        window.iiRegisterKeydownHandler(tribesEscapeHandler);
+    }
 
     /* ---------- Filtering ---------- */
     function applyFilters() {
         const query = (searchInput?.value || '').trim().toLowerCase();
         const region = regionSelect?.value || 'all';
+        const state = stateSelect?.value || 'all';
+        const lang = languageSelect?.value || 'all';
+
         let list = TRIBES_DATA.filter(t => {
             const matchesRegion = region === 'all' || t.region === region;
+            const matchesState = state === 'all' || t.states.includes(state);
+            const matchesLang = lang === 'all' || t.language === lang;
             const matchesQuery = !query ||
                 t.name.toLowerCase().includes(query) ||
                 t.states.join(' ').toLowerCase().includes(query) ||
                 REGION_LABELS[t.region].toLowerCase().includes(query) ||
                 Object.values(t.tabs).some(tab => tab.text.toLowerCase().includes(query) || tab.list.join(' ').toLowerCase().includes(query));
-            return matchesRegion && matchesQuery;
+            return matchesRegion && matchesState && matchesLang && matchesQuery;
         });
 
         currentList = sortList(list, sortSelect?.value || 'popular');
@@ -614,11 +656,15 @@ function initTribesPage() {
     /* ---------- Events ---------- */
     searchInput?.addEventListener('input', applyFilters);
     regionSelect?.addEventListener('change', applyFilters);
+    stateSelect?.addEventListener('change', applyFilters);
+    languageSelect?.addEventListener('change', applyFilters);
     sortSelect?.addEventListener('change', applyFilters);
 
     resetBtn?.addEventListener('click', () => {
         if (searchInput) searchInput.value = '';
         if (regionSelect) regionSelect.value = 'all';
+        if (stateSelect) stateSelect.value = 'all';
+        if (languageSelect) languageSelect.value = 'all';
         if (sortSelect) sortSelect.value = 'popular';
         applyFilters();
     });
@@ -630,15 +676,25 @@ function initTribesPage() {
     });
 
     /* ---------- Init ---------- */
+    populateDropdowns();
     renderRegions();
     applyFilters();
+
+    if (window.Journey && window.Journey.registerSearchItems) {
+        window.Journey.registerSearchItems('tribes.html', TRIBES_DATA.map(t => ({
+            id: 'tribe-' + t.id,
+            title: t.name + ' Tribe',
+            description: t.cardDesc,
+            link: 'frontend/tribes/tribes.html'
+        })));
+    }
 }
 
 /* ==========================================================================
    2. EVOLUTION OF CURRENCY (COINS) PAGE
-   Appended for coin.html. Rendered independently of the app:route-changed
+   Appended for frontend/coin/coin.html. Rendered independently of the app:route-changed
    dispatcher above (this site's real navbar/footer come from app.js, which
-   does not fire that event) — coin.html calls initCoinsPage() itself on
+   does not fire that event) — frontend/coin/frontend/coin/coin.html calls initCoinsPage() itself on
    DOMContentLoaded.
    ========================================================================== */
  
@@ -859,7 +915,7 @@ function initCoinsPage() {
  
 /* ==========================================================================
    3. RIVERS OF INDIA PAGE
-   Appended for river.html. river.html includes app.js/data.js itself for the
+   Appended for frontend/river/river.html. frontend/river/frontend/river/river.html includes app.js/data.js itself for the
    real site navbar/footer, so this file only needs to boot the rivers page
    content — it does not rely on the app:route-changed dispatcher above.
    ========================================================================== */
@@ -1172,11 +1228,15 @@ function initRiversPage() {
     }
 
     modalBackdrop?.addEventListener('click', closeRiverDetail);
-    document.addEventListener('keydown', (e) => {
+    var riversEscapeHandler = function(e) {
         if (e.key === 'Escape') {
             closeRiverDetail();
         }
-    });
+    };
+    document.addEventListener('keydown', riversEscapeHandler);
+    if (typeof window.iiRegisterKeydownHandler === 'function') {
+        window.iiRegisterKeydownHandler(riversEscapeHandler);
+    }
 
     /* ---------- Filter tab clicks ---------- */
     filterTabs.querySelectorAll('.rivers-filter-btn').forEach(btn => {
@@ -1194,7 +1254,7 @@ function initRiversPage() {
     renderCards();
 }
 
-/* river.html loads its real navbar/footer via app.js (like the rest of the
+/* frontend/river/frontend/river/river.html loads its real navbar/footer via app.js (like the rest of the
    site), so this page boots itself directly on DOMContentLoaded rather than
    waiting on the app:route-changed event used by the dispatcher above. */
 document.addEventListener('DOMContentLoaded', () => {
