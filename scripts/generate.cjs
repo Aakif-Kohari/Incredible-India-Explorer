@@ -27,7 +27,10 @@ const locations = mapData.locations;
 
 locations.forEach(state => {
     // Basic slugification for URL
-    const slug = state.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const slug = state.name
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
     
     // Dynamic Content
     const title = `${state.name} | Incredible India Explorer`;
