@@ -1106,6 +1106,12 @@ window.indiaSearchIndex = [
     description: "Explore month-by-month festival schedules, rituals, cultural significance, and city locations in Uttar Pradesh.",
     url: "frontend/up-festival-calendar/up-festival-calendar.html"
   },
+  // --- Capital Match-Up ---
+  {
+    title: "Capital Match-Up Game",
+    category: "Games & Geography",
+    description: "Interactive drag-and-drop and tap-to-select matching game pairing Indian states and union territories with their capitals.",
+    url: "frontend/capital-match-up/index.html"
   // --- UP Heritage Arc Explorer ---
   {
     title: "Uttar Pradesh Heritage Arc Explorer",
