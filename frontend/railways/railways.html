@@ -13,54 +13,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Indian Railways Explorer | railways.html</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Global site stylesheet (navbar, footer, theme variables) -->
+  <link rel="stylesheet" href="../../styles.css">
+
   <style>
-    :root {
-      --primary: #FF4D00;
-      --dark: #1a1a1a;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background: var(--dark);
-      color: white;
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
+    body[data-page="railways"] {
+      background: var(--bg-dark-deep);
     }
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
-                  url('https://source.unsplash.com/random/1600x900/?indian-railway') center/cover no-repeat;
+      background: linear-gradient(rgba(10,14,20,0.75), rgba(10,14,20,0.85)), 
+                  url('https://images.unsplash.com/photo-1601565415267-724d3d8f7b70?w=1600&h=900&fit=crop&q=80') center/cover no-repeat;
       height: 65vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: white;
+      color: var(--text-light);
     }
     .hero h1 {
+      font-family: var(--font-heading);
       font-size: 3.5rem;
       margin-bottom: 1rem;
+      color: var(--text-light);
     }
     .hero p {
+      font-family: var(--font-body);
       font-size: 1.4rem;
       max-width: 700px;
       margin: 0 auto 2rem;
+      color: var(--text-muted);
     }
     .search-bar {
       width: 100%;
@@ -70,37 +52,52 @@
     .search-bar input {
       width: 100%;
       padding: 18px 25px;
+      font-family: var(--font-body);
       font-size: 1.1rem;
-      border: none;
+      color: var(--text-light);
+      background: var(--bg-dark-card);
+      border: 1px solid rgba(255, 176, 31, 0.35);
       border-radius: 50px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      outline: none;
+      transition: var(--transition-snappy);
+    }
+    .search-bar input::placeholder {
+      color: var(--text-muted);
+    }
+    .search-bar input:focus {
+      border-color: var(--primary-gold);
+      box-shadow: var(--shadow-glow-active);
     }
     .filters {
-      background: white;
+      background: var(--bg-dark-card);
       padding: 15px;
-      border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      border-radius: var(--border-radius-lg);
+      border: 1px solid rgba(255, 176, 31, 0.35);
       margin: -30px auto 40px;
       max-width: 1100px;
       display: flex;
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
     }
     .filter-btn {
       padding: 10px 22px;
-      border: 2px solid var(--primary);
-      background: white;
-      color: var(--primary);
+      border: 1px solid rgba(255, 176, 31, 0.4);
+      background: transparent;
+      color: var(--primary-gold);
+      font-family: var(--font-body);
       border-radius: 30px;
       cursor: pointer;
       font-weight: 600;
-      transition: all 0.3s;
+      transition: var(--transition-snappy);
     }
     .filter-btn.active,
     .filter-btn:hover {
-      background: var(--primary);
-      color: white;
+      background: var(--primary-gold);
+      color: var(--bg-dark-deep);
+      border-color: var(--primary-gold);
     }
     .trains-grid {
       display: grid;
@@ -109,22 +106,28 @@
       margin-bottom: 60px;
     }
     .train-card {
-      background: white;
-      border-radius: 12px;
+      background: var(--bg-dark-card);
+      border: 1px solid rgba(255, 176, 31, 0.35);
+      border-radius: var(--border-radius-lg);
       overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      transition: var(--transition-smooth);
     }
     .train-card:hover {
-      transform: translateY(-12px);
+      transform: translateY(-8px);
+      border-color: var(--primary-gold);
+      box-shadow: var(--shadow-glow-active);
     }
     .train-header {
-      background: linear-gradient(135deg, #FF4D00, #FF8C00);
-      color: white;
+      background: linear-gradient(135deg, hsla(28, 40%, 14%, 0.9), hsla(222, 47%, 10%, 0.9));
+      border-bottom: 1px solid rgba(255, 176, 31, 0.25);
+      color: var(--text-light);
+      font-family: var(--font-heading);
       padding: 18px;
     }
     .train-body {
       padding: 20px;
+      font-family: var(--font-body);
+      color: var(--text-light);
     }
     .route {
       display: flex;
@@ -132,21 +135,43 @@
       align-items: center;
       margin: 15px 0;
     }
+    .route small {
+      color: var(--text-muted);
+    }
     .status {
       padding: 6px 14px;
-      background: #e8f5e9;
-      color: #2e7d32;
+      background: hsla(140, 40%, 12%, 0.5);
+      color: var(--primary-green);
+      border: 1px solid rgba(34, 139, 34, 0.35);
       border-radius: 20px;
+      font-family: var(--font-body);
       font-size: 0.9rem;
       font-weight: 600;
     }
     .timeline {
-      background: white;
+      background: var(--bg-dark-card);
+      border: 1px solid rgba(255, 176, 31, 0.35);
       padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-radius: var(--border-radius-lg);
       margin: 40px auto;
       max-width: 900px;
+    }
+    .timeline h2 {
+      font-family: var(--font-heading);
+      color: var(--text-light);
+    }
+    .timeline h3 {
+      font-family: var(--font-body);
+      color: var(--text-light);
+    }
+    .timeline p {
+      font-family: var(--font-body);
+      color: var(--primary-gold);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
   </style>
 
@@ -170,12 +195,65 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/railways.html">
 </head>
-<body>
+<body data-page="railways">
 
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <h1><i class="fas fa-train"></i> Indian Railways Explorer</h1>
+  <!-- Sticky Navigation Bar (matches site-wide navbar) -->
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+            <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+            <a href="../cuisine/cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+            <a href="../festivals/festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+            <a href="../culture/culture.html" class="nav-link" id="link-culture">Culture</a>
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" id="link-explore-more">Explore More ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../personalities/personalities.html" class="dropdown-item">Famous Personalities</a>
+                    <a href="../spiritual/spiritual.html" class="dropdown-item">Spiritual India</a>
+                    <a href="../arts-crafts/arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    <a href="../tribes/tribes.html" class="dropdown-item">Tribes</a>
+                    <a href="../river/river.html" class="dropdown-item">Rivers</a>
+                    <a href="../coin/coin.html" class="dropdown-item">Evolution of Currency</a>
+                    <a href="../bridges/bridges.html" class="dropdown-item">Bridges Explorer</a>
+                    <a href="../folk-tales/folk-tales.html" class="dropdown-item">Folk Tales Explorer</a>
+                    <a href="../excavations/excavations.html" class="dropdown-item">Excavations Explorer</a>
+                    <a href="../state-challenge/state-challenge.html" class="dropdown-item">Borders Challenge Explorer</a>
+                    <a href="../trade-routes/trade-routes.html" class="dropdown-item">Trade Network Explorer</a>
+                    <a href="../cultural-dna/cultural-dna.html" class="dropdown-item">Cultural DNA Explorer</a>
+                    <a href="../up-dashboard/up-dashboard.html" class="dropdown-item">UP Tourism Dashboard</a>
+                    <a href="../up-district-explorer/up-district-explorer.html" class="dropdown-item">UP District Explorer</a>
+                    <a href="../guess-up-district/guess-up-district.html" class="dropdown-item">Guess UP District Game</a>
+                    <a href="../up-filming/up-filming.html" class="dropdown-item">UP Filming Locations Explorer</a>
+                    <a href="../up-pilgrimage/up-pilgrimage.html" class="dropdown-item">UP Pilgrimage Planner</a>
+                    <a href="railways.html" class="dropdown-item active">Railways Explorer</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" id="link-learn-data">Learn & Data ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../smart-cities/smart-cities.html" class="dropdown-item">Smart Cities</a>
+                    <a href="../languages/languages.html" class="dropdown-item">Languages of India</a>
+                    <a href="../data-india/data-india.html" class="dropdown-item">Data & Statistics</a>
+                    <a href="../learn/learn.html" class="dropdown-item">Learn & Quiz</a>
+                </div>
+            </div>
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+            <a href="../premium/premium.html" class="nav-link" style="color: var(--gold); font-weight: bold;">★ Premium</a>
+            <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+        </nav>
     </div>
   </header>
 
@@ -259,6 +337,9 @@
       </div>
   </footer>
 
+  <!-- Scroll To Top Button -->
+  <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
+
   <script>
     const trains = [
       {
@@ -337,7 +418,7 @@
             <div style="display:flex; justify-content:space-between; align-items:center; margin-top:15px;">
               <span class="status">${train.status}</span>
               <button onclick="bookTrain('${train.name}')" 
-                      style="background:var(--primary); color:white; border:none; padding:10px 20px; border-radius:8px; cursor:pointer;">
+                      style="background:var(--primary-gold); color:var(--bg-dark-deep); border:none; padding:10px 20px; border-radius:8px; cursor:pointer; font-weight:600;">
                 Book Now
               </button>
             </div>
@@ -376,6 +457,10 @@
     // Initial Load
     renderTrains(trains);
   </script>
-    <script src="../../router.js" defer></script>
+
+  <!-- Site scripts: wires up navbar menu toggle, theme toggle, scroll-to-top -->
+  <script src="../../data.js" defer></script>
+  <script src="../../app.js" defer></script>
+  <script src="../../router.js" defer></script>
 </body>
 </html>
