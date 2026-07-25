@@ -34,11 +34,23 @@ function escapeHtml(value) {
 
 // Generate State Pages
 const locations = mapData.locations;
+const generatedSlugs = new Map();
 
 locations.forEach(state => {
     // Basic slugification for URL
     const slug = state.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
+    // Prevent different states from generating the same output file
+    if (generatedSlugs.has(slug)) {
+        const existingState = generatedSlugs.get(slug);
+
+        throw new Error(
+            `Duplicate state slug "${slug}" generated for "${existingState}" and "${state.name}".`
+        );
+    }
+
+    generatedSlugs.set(slug, state.name);
+    
     // Escape dynamic state data
     const safeName = escapeHtml(state.name);
     const safeCapital = escapeHtml(state.capital);
