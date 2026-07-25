@@ -958,7 +958,12 @@ window.indiaSearchIndex = [
     description: "Visualize outgoing cultural footprints and incoming cultural influences for each Indian state.",
     url: "cultural-footprint.html"
   },
-  // --- National Parks Timeline ---
+  {
+    title: "River Trace Challenge",
+    category: "Geography & Games",
+    description: "Trace 5 major Indian river systems (Ganga, Yamuna, Godavari, Krishna, Brahmaputra) from source to mouth on an SVG map with accuracy scoring.",
+    url: "frontend/river-trace/index.html"
+  },
   {
     title: "India's National Parks Timeline",
     category: "Nature & Wildlife",
@@ -1105,5 +1110,24 @@ window.indiaSearchIndex = [
     category: "UP Festival Calendar",
     description: "Explore month-by-month festival schedules, rituals, cultural significance, and city locations in Uttar Pradesh.",
     url: "frontend/up-festival-calendar/up-festival-calendar.html"
+  },
+  // --- Animated Map: Spread of Buddhism ---
+  {
+    title: "Animated Map: Historical Spread of Buddhism from India",
+    category: "History & Geography",
+    description: "Animated expanding-path map detailing the historical transmission of Buddhism across Asia from Bodh Gaya across Sri Lanka, Silk Road, and East Asia.",
+    url: "frontend/buddhism-spread-map/index.html"
+  // --- Capital Match-Up ---
+  {
+    title: "Capital Match-Up Game",
+    category: "Games & Geography",
+    description: "Interactive drag-and-drop and tap-to-select matching game pairing Indian states and union territories with their capitals.",
+    url: "frontend/capital-match-up/index.html"
+  // --- UP Heritage Arc Explorer ---
+  {
+    title: "Uttar Pradesh Heritage Arc Explorer",
+    category: "Heritage & Tourism",
+    description: "Interactive Heritage Arc page connecting Agra, Lucknow, and Varanasi. Explore monuments, traditions, culinary specialties, animated travel paths, and historical timelines.",
+    url: "frontend/heritage-arc-up/index.html"
   }
 ];
