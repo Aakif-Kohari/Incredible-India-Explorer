@@ -62,11 +62,11 @@ const tests = [];
 function test(name, fn) { tests.push({ name, fn }); }
 
 // ---- Import auth modules ----
-const { authApi } = await import('../auth-core.mjs');
-const { _resetLocalSessionCache } = await import('../auth-session.mjs');
-const storage = await import('../auth-storage.mjs');
-const tokenModule = await import('../auth-token.mjs');
-const csrf = await import('../csrf-protection.mjs');
+const { authApi } = await import('../js-modules/auth/auth-core.mjs');
+const { _resetLocalSessionCache } = await import('../js-modules/auth/auth-session.mjs');
+const storage = await import('../js-modules/auth/auth-storage.mjs');
+const tokenModule = await import('../js-modules/auth/auth-token.mjs');
+const csrf = await import('../js-modules/auth/csrf-protection.mjs');
 
 function resetStorage() {
   globalThis.window.localStorage.clear();

@@ -23,7 +23,7 @@ class MemoryStorage {
 globalThis.window = globalThis.window || {};
 globalThis.window.localStorage = new MemoryStorage();
 
-const guides = await import('../guides-core.mjs');
+const guides = await import('../js-modules/guides/guides-core.mjs');
 
 const tests = [];
 function test(name, fn) { tests.push({ name, fn }); }
