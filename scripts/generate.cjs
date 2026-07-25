@@ -22,6 +22,16 @@ if (!fs.existsSync(statesDir)) {
     fs.mkdirSync(statesDir);
 }
 
+// Escape dynamic text before inserting it into generated HTML
+function escapeHtml(value) {
+    return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
 // Generate State Pages
 const locations = mapData.locations;
 const generatedSlugs = new Map();
@@ -41,28 +51,38 @@ locations.forEach(state => {
 
     generatedSlugs.set(slug, state.name);
     
+    // Escape dynamic state data
+    const safeName = escapeHtml(state.name);
+    const safeCapital = escapeHtml(state.capital);
+    const safeFood = escapeHtml(state.food);
+    const safeFestival = escapeHtml(state.festival);
+    const safeDescription = escapeHtml(
+        state.description || `Explore ${state.name} in India`
+    );
+    const safeStory = escapeHtml(state.story);
+
     // Dynamic Content
-    const title = `${state.name} | Incredible India Explorer`;
-    const description = state.description || `Explore ${state.name} in India`;
+    const title = `${safeName} | Incredible India Explorer`;
+    const description = safeDescription;
     const relativePath = '../../'; // since it will be in dist/states/
     const BASE_URL = 'https://incredibleindiaexplorer.gov.in';
     const ogImage = `${BASE_URL}/assets/Brihadeeswara_Temple.png`;
     const ogUrl = `${BASE_URL}/states/${slug}.html`;
     const ogType = 'place';
-    
+
     let content = `
     <div style="max-width: 800px; margin: 40px auto; padding: 20px;" class="glass-card">
-        <h1>${state.name}</h1>
-        <p><strong>Capital:</strong> ${state.capital}</p>
-        <p><strong>Famous Food:</strong> ${state.food}</p>
-        <p><strong>Major Festival:</strong> ${state.festival}</p>
+        <h1>${safeName}</h1>
+        <p><strong>Capital:</strong> ${safeCapital}</p>
+        <p><strong>Famous Food:</strong> ${safeFood}</p>
+        <p><strong>Major Festival:</strong> ${safeFestival}</p>
         <div style="margin-top: 20px;">
             <h3>Overview</h3>
-            <p>${state.description}</p>
+            <p>${safeDescription}</p>
         </div>
         <div style="margin-top: 20px;">
             <h3>Story</h3>
-            <p>${state.story.replace(/\n/g, '<br>')}</p>
+            <p>${safeStory.replace(/\n/g, '<br>')}</p>
         </div>
         <a href="../../index.html" class="btn btn-primary" style="margin-top: 20px; display: inline-block;">Back to Home</a>
     </div>
