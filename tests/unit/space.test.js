@@ -12,7 +12,7 @@ import {
   groupSpaceItemsByState,
   getUniqueStates,
   getUniqueCategories
-} from '../../space/space.js';
+} from '../../frontend/space/space.js';
 
 const REQUIRED_FIELDS = [
   'id',

@@ -84,7 +84,13 @@
         'monuments.html': { log: '✅ Monuments page loaded successfully' },
         'hidden-gems.html': { log: '✅ Hidden Gems page loaded successfully' },
         'railways.html': { log: '✅ Railways Explorer page loaded successfully' },
-        'adventure.html': { log: 'Adventure page loaded successfully' }
+        'adventure.html': { log: 'Adventure page loaded successfully' },
+        'contributors.html': {
+            script: 'frontend/contributors/contributors.js',
+            initName: 'initContributorsPage',
+            useSafeInit: true,
+            name: 'Contributors'
+        }
     };
 
     /**
@@ -177,6 +183,10 @@
     function handleRouteInit() {
         if (typeof window.iiDisconnectRouteObservers === 'function') {
             window.iiDisconnectRouteObservers();
+        }
+        // Clean up keydown handlers from previous route to prevent listener accumulation
+        if (typeof window.iiDisconnectKeydownHandlers === 'function') {
+            window.iiDisconnectKeydownHandlers();
         }
 
         if (typeof window.initNavigation === 'function') window.initNavigation();
