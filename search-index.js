@@ -1056,5 +1056,18 @@ window.indiaSearchIndex = [
     category: "UP Pilgrimage Circuit",
     description: "Explore the Ramayana, Krishna, and Buddhist circuits with interactive map, distance calculator, and duration estimation.",
     url: "frontend/up-pilgrimage/up-pilgrimage.html"
+  },
+  // --- Uttar Pradesh Festival Calendar ---
+  {
+    title: "Uttar Pradesh Festival Calendar",
+    category: "Festivals & Traditions",
+    description: "Visual yearly calendar highlighting celebrations across Uttar Pradesh including Dev Deepawali, Lathmar Holi, Ram Navami, Janmashtami, Ganga Mahotsav, Kumbh Mela, and Magh Mela.",
+    url: "frontend/up-festival-calendar/up-festival-calendar.html"
+  },
+  {
+    title: "Varanasi Dev Deepawali & Prayagraj Kumbh Mela Guide",
+    category: "UP Festival Calendar",
+    description: "Explore month-by-month festival schedules, rituals, cultural significance, and city locations in Uttar Pradesh.",
+    url: "frontend/up-festival-calendar/up-festival-calendar.html"
   }
 ];
