@@ -1112,5 +1112,11 @@ window.indiaSearchIndex = [
     category: "Games & Geography",
     description: "Interactive drag-and-drop and tap-to-select matching game pairing Indian states and union territories with their capitals.",
     url: "frontend/capital-match-up/index.html"
+  // --- UP Heritage Arc Explorer ---
+  {
+    title: "Uttar Pradesh Heritage Arc Explorer",
+    category: "Heritage & Tourism",
+    description: "Interactive Heritage Arc page connecting Agra, Lucknow, and Varanasi. Explore monuments, traditions, culinary specialties, animated travel paths, and historical timelines.",
+    url: "frontend/heritage-arc-up/index.html"
   }
 ];
