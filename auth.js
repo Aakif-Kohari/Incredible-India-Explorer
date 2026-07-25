@@ -18,8 +18,8 @@ import {
   setPersistence,
   browserSessionPersistence
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { authApi } from './auth-core.mjs';
-import { injectCSRFToken, validateCSRFToken } from './csrf-protection.mjs';
+import { authApi } from './js-modules/auth/auth-core.mjs';
+import { injectCSRFToken, validateCSRFToken } from './js-modules/auth/csrf-protection.mjs';
 
 // Expose core local auth functions to global window context for page scripts
 if (typeof window !== 'undefined') {
@@ -138,17 +138,10 @@ if (authCard) {
   }
 
   function ensureAuthReady() {
-    if (auth && googleProvider && isFirebaseConfigured) {
-      return true;
-    }
-    return true;
+    return !!(auth && googleProvider && isFirebaseConfigured);
   }
 
   async function handleAuthSubmit(mode, email, password, name = '') {
-    if (!ensureAuthReady()) {
-      return;
-    }
-
     try {
       setLoading(true);
 
@@ -210,20 +203,12 @@ if (authCard) {
         return;
       }
 
-      if (!ensureAuthReady()) {
-        return;
-      }
-
       try {
         await handleAuthSubmit('signup', email, password, name);
       } catch (error) {
         showMessage(friendlyError(error));
       }
     } else {
-      if (!ensureAuthReady()) {
-        return;
-      }
-
       try {
         await handleAuthSubmit('login', email, password);
       } catch (error) {
@@ -234,10 +219,6 @@ if (authCard) {
 
   btnGoogle.addEventListener('click', async () => {
     clearMessage();
-    if (!ensureAuthReady()) {
-      return;
-    }
-
     try {
       setLoading(true);
       if (auth && googleProvider && isFirebaseConfigured) {
@@ -262,9 +243,6 @@ if (authCard) {
     const email = emailInput.value.trim();
     if (!email) {
       showMessage('Enter your email above first, then click "Forgot Password?".');
-      return;
-    }
-    if (!ensureAuthReady()) {
       return;
     }
     try {
@@ -553,13 +531,13 @@ function showSessionExpiredAlert() {
     authApi.signOut();
     document.body.style.overflow = '';
     modal.remove();
-    window.location.href = `login.html?redirect=premium.html`;
+    window.location.href = `login.html?redirect=frontend/premium/premium.html`;
   });
 }
 
 // Binds premium claims checking and sets page data attributes dynamically
 export function updatePremiumUI(user) {
-  const isPremiumPage = window.location.pathname.includes('premium.html');
+  const isPremiumPage = window.location.pathname.includes('frontend/premium/premium.html');
   const isPremium = user && user.role === 'premium';
 
   if (isPremium) {

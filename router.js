@@ -989,7 +989,7 @@ function loadSearchScript(callback, retries) {
         return;
     }
     const script = document.createElement('script');
-    script.src = getPathPrefix() + 'search-index.js';
+    script.src = getPathPrefix() + 'js-modules/search/search-index.js';
     script.onload = () => {
         if (callback) callback();
     };
@@ -1063,7 +1063,7 @@ function createSearchModal() {
                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                     </svg>
                     <input type="text" id="global-search-input" placeholder="Search states, cuisines, monuments, wildlife..." aria-label="Search website content" autocomplete="off" />
-                    <button id="global-search-clear" class="btn-search-clear" aria-label="Clear search" style="display: none;">✕</button>
+                    <button id="global-search-clear" class="btn-search-clear" aria-label="Clear search" hidden>✕</button>
                 </div>
                 <button id="global-search-close" class="btn-search-close" aria-label="Close search">✕</button>
             </div>
@@ -1299,7 +1299,7 @@ function performSearch(query) {
         resultsContainer.innerHTML = `
             <div class="search-no-results">
                 <p>No results found for "${query}"</p>
-                <p style="font-size: 0.9rem; margin-top: 5px;">Try searching for states, cuisines, monuments, or festivals.</p>
+                <p class="search-hint-subtext">Try searching for states, cuisines, monuments, or festivals.</p>
             </div>
         `;
         return;
