@@ -1056,5 +1056,18 @@ window.indiaSearchIndex = [
     category: "UP Pilgrimage Circuit",
     description: "Explore the Ramayana, Krishna, and Buddhist circuits with interactive map, distance calculator, and duration estimation.",
     url: "frontend/up-pilgrimage/up-pilgrimage.html"
+  },
+  // --- Famous Monuments Explorer ---
+  {
+    title: "Famous Monuments Explorer",
+    category: "Architecture & Heritage",
+    description: "Visual 3D explorer showcasing famous monuments including Taj Mahal, Agra Fort, Fatehpur Sikri, Bara Imambara, Chota Imambara, Rumi Darwaza, and Jhansi Fort with timeline & gallery.",
+    url: "frontend/up-monuments/up-monuments.html"
+  },
+  {
+    title: "Taj Mahal & Bara Imambara 3D Explorer",
+    category: "UP Monuments Guide",
+    description: "Explore historical timelines, architectural specs, and interactive 3D perspective cards of iconic Uttar Pradesh heritage monuments.",
+    url: "frontend/up-monuments/up-monuments.html"
   }
 ];
