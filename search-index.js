@@ -1069,5 +1069,29 @@ window.indiaSearchIndex = [
     category: "Railways History",
     description: "Explore 170+ years of Indian Railways with animated train track visualization, neutral factual framing, and technical specs.",
     url: "frontend/railways-timeline/railways-timeline.html"
+  // --- Famous Monuments Explorer ---
+  {
+    title: "Famous Monuments Explorer",
+    category: "Architecture & Heritage",
+    description: "Visual 3D explorer showcasing famous monuments including Taj Mahal, Agra Fort, Fatehpur Sikri, Bara Imambara, Chota Imambara, Rumi Darwaza, and Jhansi Fort with timeline & gallery.",
+    url: "frontend/up-monuments/up-monuments.html"
+  },
+  {
+    title: "Taj Mahal & Bara Imambara 3D Explorer",
+    category: "UP Monuments Guide",
+    description: "Explore historical timelines, architectural specs, and interactive 3D perspective cards of iconic Uttar Pradesh heritage monuments.",
+    url: "frontend/up-monuments/up-monuments.html"
+  // --- Uttar Pradesh Festival Calendar ---
+  {
+    title: "Uttar Pradesh Festival Calendar",
+    category: "Festivals & Traditions",
+    description: "Visual yearly calendar highlighting celebrations across Uttar Pradesh including Dev Deepawali, Lathmar Holi, Ram Navami, Janmashtami, Ganga Mahotsav, Kumbh Mela, and Magh Mela.",
+    url: "frontend/up-festival-calendar/up-festival-calendar.html"
+  },
+  {
+    title: "Varanasi Dev Deepawali & Prayagraj Kumbh Mela Guide",
+    category: "UP Festival Calendar",
+    description: "Explore month-by-month festival schedules, rituals, cultural significance, and city locations in Uttar Pradesh.",
+    url: "frontend/up-festival-calendar/up-festival-calendar.html"
   }
 ];
