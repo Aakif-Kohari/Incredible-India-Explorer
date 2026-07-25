@@ -8,7 +8,7 @@
                             window.location.pathname.includes('/freedom-timeline/') ||
                             window.location.pathname.includes('/postal-stamps/') ||
                             window.location.pathname.includes('/handloom/')) ? '../' : '';
-        script.src = pathPrefix + 'seo-helper.js';
+        script.src = pathPrefix + 'js-modules/seo-helper/seo-helper.js';
         script.defer = true;
         document.head.appendChild(script);
     }
@@ -104,7 +104,8 @@ window.__iiRouteState = window.__iiRouteState || {
     navigationBound: false,
     scrollListenerBound: false,
     navDocClickListenerBound: false,
-    lastRouteKey: null
+    lastRouteKey: null,
+    keydownHandlers: []
 };
 
 function iiRegisterObserver(obs) {
@@ -122,6 +123,27 @@ function iiDisconnectRouteObservers() {
         }
     }
     window.__iiRouteState.observers.clear();
+}
+
+/**
+ * Register a keydown handler for automatic cleanup on route change.
+ * Prevents listener accumulation when pages are revisited via SPA navigation.
+ */
+function iiRegisterKeydownHandler(handler) {
+    if (typeof handler !== 'function') return;
+    window.__iiRouteState.keydownHandlers.push(handler);
+}
+
+/**
+ * Remove all registered keydown handlers. Called before each route transition
+ * to prevent duplicate Escape/Tab listeners from accumulating.
+ */
+function iiDisconnectKeydownHandlers() {
+    if (!window.__iiRouteState || !window.__iiRouteState.keydownHandlers) return;
+    window.__iiRouteState.keydownHandlers.forEach(function(h) {
+        try { document.removeEventListener('keydown', h); } catch (e) { /* ignore */ }
+    });
+    window.__iiRouteState.keydownHandlers = [];
 }
 
 /**
@@ -220,56 +242,56 @@ function initNavigation() {
         }
     });
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="dance.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/dance/dance.html"]')) {
         const danceLink = document.createElement('a');
-        danceLink.href = 'dance.html';
+        danceLink.href = 'frontend/dance/dance.html';
         danceLink.className = 'dropdown-item';
         danceLink.textContent = 'Dance';
-        if (currentPath.includes('dance.html')) {
+        if (currentPath.includes('frontend/dance/dance.html')) {
             danceLink.classList.add('active');
         }
         exploreDropdown.appendChild(danceLink);
     }
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="sports.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/sports/sports.html"]')) {
         const sportsLink = document.createElement('a');
-        sportsLink.href = 'sports.html';
+        sportsLink.href = 'frontend/sports/sports.html';
         sportsLink.className = 'dropdown-item';
         sportsLink.textContent = 'Sports';
-        if (currentPath.includes('sports.html')) {
+        if (currentPath.includes('frontend/sports/sports.html')) {
             sportsLink.classList.add('active');
         }
         exploreDropdown.appendChild(sportsLink);
     }
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="science.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/science/science.html"]')) {
         const scienceLink = document.createElement('a');
-        scienceLink.href = 'science.html';
+        scienceLink.href = 'frontend/science/science.html';
         scienceLink.className = 'dropdown-item';
         scienceLink.textContent = 'Science';
-        if (currentPath.includes('science.html')) {
+        if (currentPath.includes('frontend/science/science.html')) {
             scienceLink.classList.add('active');
         }
         exploreDropdown.appendChild(scienceLink);
     }
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="music.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/music/music.html"]')) {
         const musicLink = document.createElement('a');
-        musicLink.href = 'music.html';
+        musicLink.href = 'frontend/music/music.html';
         musicLink.className = 'dropdown-item';
         musicLink.textContent = 'Music';
-        if (currentPath.includes('music.html')) {
+        if (currentPath.includes('frontend/music/music.html')) {
             musicLink.classList.add('active');
         }
         exploreDropdown.appendChild(musicLink);
     }
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="literature.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/literature/literature.html"]')) {
         const literatureLink = document.createElement('a');
-        literatureLink.href = 'literature.html';
+        literatureLink.href = 'frontend/literature/literature.html';
         literatureLink.className = 'dropdown-item';
         literatureLink.textContent = 'Literature';
-        if (currentPath.includes('literature.html')) {
+        if (currentPath.includes('frontend/literature/literature.html')) {
             literatureLink.classList.add('active');
         }
         exploreDropdown.appendChild(literatureLink);
@@ -801,7 +823,7 @@ function initInteractiveMap() {
                     <strong>Key Fact:</strong> ${metricsA.fact}
                 </div>
                 
-                <button class="btn btn-primary" onclick="window.appRouter ? window.appRouter.handleRoute('state.html?state=${stateA.id}', true) : window.location.href='state.html?state=${stateA.id}'" style="font-size:0.9rem; padding:8px 18px;">Explore Full Page</button>
+                <button class="btn btn-primary" onclick="window.appRouter ? window.appRouter.handleRoute('frontend/state/state.html?state=${stateA.id}', true) : window.location.href='frontend/state/state.html?state=${stateA.id}'" style="font-size:0.9rem; padding:8px 18px;">Explore Full Page</button>
             `;
 
             colB.innerHTML = `
@@ -821,7 +843,7 @@ function initInteractiveMap() {
                     <strong>Key Fact:</strong> ${metricsB.fact}
                 </div>
                 
-                <button class="btn btn-primary" onclick="window.appRouter ? window.appRouter.handleRoute('state.html?state=${stateB.id}', true) : window.location.href='state.html?state=${stateB.id}'" style="font-size:0.9rem; padding:8px 18px;">Explore Full Page</button>
+                <button class="btn btn-primary" onclick="window.appRouter ? window.appRouter.handleRoute('frontend/state/state.html?state=${stateB.id}', true) : window.location.href='frontend/state/state.html?state=${stateB.id}'" style="font-size:0.9rem; padding:8px 18px;">Explore Full Page</button>
             `;
         }
 
@@ -833,7 +855,7 @@ function initInteractiveMap() {
     overlayBackBtn.addEventListener('click', closeOverlay);
 
     // ESC key closes overlay
-    document.addEventListener('keydown', (e) => {
+    var mapEscapeHandler = function(e) {
         if (e.key === 'Escape') {
             closeOverlay();
             comparisonOverlay.classList.remove('open');
@@ -842,12 +864,14 @@ function initInteractiveMap() {
                 comparisonOverlayFocusTrap = null;
             }
         }
-    });
+    };
+    document.addEventListener('keydown', mapEscapeHandler);
+    iiRegisterKeydownHandler(mapEscapeHandler);
 
     // View More Button Trigger - Navigate to individual state page via SPA router or standard href
     viewMoreBtn?.addEventListener('click', () => {
         const currentId = viewMoreBtn.getAttribute('data-active-id');
-        const targetPath = `state.html?state=${currentId}`;
+        const targetPath = `frontend/state/state.html?state=${currentId}`;
         if (window.appRouter && typeof window.appRouter.handleRoute === 'function') {
             window.appRouter.handleRoute(targetPath, true);
         } else {
@@ -1136,7 +1160,7 @@ function initFestivals() {
 
         // Click festival to navigate to the detailed festivals page
         card.addEventListener('click', () => {
-            window.location.href = 'festivals.html';
+            window.location.href = 'frontend/festivals/festivals.html';
         });
 
         festivalTimeline.appendChild(card);
@@ -2166,7 +2190,7 @@ function initSciencePage() {
         if (event.target === modal) closeModal();
     });
 
-    document.addEventListener('keydown', event => {
+    var scienceKeydownHandler = function(event) {
         if (!isModalOpen) return;
 
         if (event.key === 'Escape') {
@@ -2178,7 +2202,9 @@ function initSciencePage() {
         if (event.key === 'Tab') {
             trapModalFocus(event);
         }
-    });
+    };
+    document.addEventListener('keydown', scienceKeydownHandler);
+    iiRegisterKeydownHandler(scienceKeydownHandler);
 
     function renderStats() {
         statsGrid.innerHTML = statsData.map(stat => `
@@ -2734,7 +2760,7 @@ function initMusicPage() {
         }
     });
 
-    document.addEventListener('keydown', event => {
+    var musicKeydownHandler = function(event) {
         if (!isModalOpen) return;
 
         if (event.key === 'Escape') {
@@ -2746,7 +2772,9 @@ function initMusicPage() {
         if (event.key === 'Tab') {
             trapModalFocus(event);
         }
-    });
+    };
+    document.addEventListener('keydown', musicKeydownHandler);
+    iiRegisterKeydownHandler(musicKeydownHandler);
 
     function setActiveTab(tabName) {
         tabButtons.forEach(button => {
@@ -3694,7 +3722,7 @@ function initLiteraturePage() {
         }
     });
 
-    document.addEventListener('keydown', event => {
+    var literatureKeydownHandler = function(event) {
         if (!isModalOpen) return;
 
         if (event.key === 'Escape') {
@@ -3706,7 +3734,9 @@ function initLiteraturePage() {
         if (event.key === 'Tab') {
             trapModalFocus(event);
         }
-    });
+    };
+    document.addEventListener('keydown', literatureKeydownHandler);
+    iiRegisterKeydownHandler(literatureKeydownHandler);
 
     document.querySelectorAll('[data-literature-reset]').forEach(button => {
         button.addEventListener('click', resetFilters);
@@ -4440,7 +4470,7 @@ function initDancePage() {
         }
     });
 
-    document.addEventListener('keydown', event => {
+    var danceKeydownHandler = function(event) {
         if (!isModalOpen) return;
 
         if (event.key === 'Escape') {
@@ -4452,7 +4482,9 @@ function initDancePage() {
         if (event.key === 'Tab') {
             trapModalFocus(event);
         }
-    });
+    };
+    document.addEventListener('keydown', danceKeydownHandler);
+    iiRegisterKeydownHandler(danceKeydownHandler);
 
     function populateStateOptions() {
         stateSelect.innerHTML = [
@@ -5189,7 +5221,7 @@ function initStartupPage() {
             const item = startupData.find((s) => s.id === startupId);
             window.Journey?.saveToJourney({
                 id: `startup-${startupId}`,
-                explorerPage: 'startup.html',
+                explorerPage: 'frontend/startup/startup.html',
                 title: item ? item.name : `Startup #${startupId}`,
                 thumbnail: item ? (item.logo || '') : '',
                 category: item ? (item.category || 'startup') : 'startup'
@@ -5204,25 +5236,25 @@ function initStartupPage() {
         renderAll();
     }
 
-    // Favorites now live in the shared "My Journey" store (see journey.js).
+    // Favorites now live in the shared "My Journey" store (see frontend/journey/journey.js).
     // This reads that shared store and pulls out just the startup ids so
     // the rest of this page's logic (Set of ids) doesn't have to change.
     function loadFavorites() {
         if (!window.Journey) return [];
         return window.Journey.getJourney()
-            .filter((item) => item.explorerPage === 'startup.html')
+            .filter((item) => item.explorerPage === 'frontend/startup/startup.html')
             .map((item) => item.id.replace(/^startup-/, ''));
     }
 
     // Registers this page's bookmarkable items with the site-wide,
-    // cross-explorer search index (see journey.js / Journey.search).
+    // cross-explorer search index (see frontend/journey/frontend/journey/journey.js / Journey.search).
     function registerStartupSearchIndex() {
         if (!window.Journey) return;
-        window.Journey.registerSearchItems('startup.html', startupData.map((item) => ({
+        window.Journey.registerSearchItems('frontend/startup/startup.html', startupData.map((item) => ({
             id: `startup-${item.id}`,
             title: item.name,
             description: item.description || item.focus || '',
-            link: 'startup.html'
+            link: 'frontend/startup/startup.html'
         })));
     }
 
