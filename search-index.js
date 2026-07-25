@@ -1111,6 +1111,12 @@ window.indiaSearchIndex = [
     description: "Explore month-by-month festival schedules, rituals, cultural significance, and city locations in Uttar Pradesh.",
     url: "frontend/up-festival-calendar/up-festival-calendar.html"
   },
+  // --- Animated Map: Spread of Buddhism ---
+  {
+    title: "Animated Map: Historical Spread of Buddhism from India",
+    category: "History & Geography",
+    description: "Animated expanding-path map detailing the historical transmission of Buddhism across Asia from Bodh Gaya across Sri Lanka, Silk Road, and East Asia.",
+    url: "frontend/buddhism-spread-map/index.html"
   // --- Capital Match-Up ---
   {
     title: "Capital Match-Up Game",
