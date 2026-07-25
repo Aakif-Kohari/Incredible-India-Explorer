@@ -822,20 +822,16 @@ window.indiaSearchIndex = [
     url: "frontend/state-challenge/state-challenge.html?mode=trivia"
   },
   {
-    title: "Evolution of the Indian Constitution",
-    category: "Civics & History",
-    description: "Scroll-driven animated timeline mapping the Constituent Assembly (1946), adoption (1950), and landmark constitutional amendments.",
-    url: "frontend/constitution-timeline/index.html"
-    title: "Border Neighbors Quiz",
-    category: "Interactive Quizzes",
-    description: "Name and select all states sharing a land border with a target Indian state. Earn partial-credit points!",
-    url: "frontend/border-neighbors-quiz/index.html"
+    title: "How the Indian Monsoon System Works",
+    category: "Climate & Science",
+    description: "Scientific explainer of monsoon meteorology — differential heating, wind reversals, Southwest vs. Northeast monsoon wind paths.",
+    url: "frontend/monsoon-explainer/index.html"
   },
   {
-    title: "Union Territory Sorter",
-    category: "Interactive Games",
-    description: "Drag or tap to categorize all 28 States and 8 Union Territories into their correct bins with instant feedback.",
-    url: "frontend/union-territory-sorter/index.html"
+    title: "Journey of the Ganges: Scrollytelling",
+    category: "Rivers & Geography",
+    description: "Source-to-sea guided narrative following the Ganges River from Gangotri Glacier to the Bay of Bengal through scroll-synced map animations.",
+    url: "frontend/ganges-scrollytelling/index.html"
   },
   // --- Ancient Trade Routes ---
   {
@@ -1060,5 +1056,54 @@ window.indiaSearchIndex = [
     category: "UP Pilgrimage Circuit",
     description: "Explore the Ramayana, Krishna, and Buddhist circuits with interactive map, distance calculator, and duration estimation.",
     url: "frontend/up-pilgrimage/up-pilgrimage.html"
+  },
+  // --- The Green Revolution in India ---
+  {
+    title: "Animated Explainer: The Green Revolution in India",
+    category: "Agriculture & History",
+    description: "Explains the 1960s-70s agricultural transformation — HYV seeds, tubewell irrigation expansion, animated yield-increase chart, and balanced ecological analysis.",
+    url: "frontend/green-revolution/green-revolution.html"
+  },
+  {
+    title: "India Agricultural Yields & Green Revolution Guide",
+    category: "Agricultural History",
+    description: "Interactive before/after yield comparison chart, 4 technological pillars, and balanced dual framing of food security vs groundwater considerations.",
+    url: "frontend/green-revolution/green-revolution.html"
+  // --- History of Indian Railways Timeline ---
+  {
+    title: "Animated Timeline: History of Indian Railways",
+    category: "Transport & History",
+    description: "Interactive timeline from the first 1853 passenger train (Bori Bunder to Thane) through colonial expansion, nationalization, electrification, to Vande Bharat & bullet train.",
+    url: "frontend/railways-timeline/railways-timeline.html"
+  },
+  {
+    title: "1853 to Present Indian Railways Historical Narrative",
+    category: "Railways History",
+    description: "Explore 170+ years of Indian Railways with animated train track visualization, neutral factual framing, and technical specs.",
+    url: "frontend/railways-timeline/railways-timeline.html"
+  // --- Famous Monuments Explorer ---
+  {
+    title: "Famous Monuments Explorer",
+    category: "Architecture & Heritage",
+    description: "Visual 3D explorer showcasing famous monuments including Taj Mahal, Agra Fort, Fatehpur Sikri, Bara Imambara, Chota Imambara, Rumi Darwaza, and Jhansi Fort with timeline & gallery.",
+    url: "frontend/up-monuments/up-monuments.html"
+  },
+  {
+    title: "Taj Mahal & Bara Imambara 3D Explorer",
+    category: "UP Monuments Guide",
+    description: "Explore historical timelines, architectural specs, and interactive 3D perspective cards of iconic Uttar Pradesh heritage monuments.",
+    url: "frontend/up-monuments/up-monuments.html"
+  // --- Uttar Pradesh Festival Calendar ---
+  {
+    title: "Uttar Pradesh Festival Calendar",
+    category: "Festivals & Traditions",
+    description: "Visual yearly calendar highlighting celebrations across Uttar Pradesh including Dev Deepawali, Lathmar Holi, Ram Navami, Janmashtami, Ganga Mahotsav, Kumbh Mela, and Magh Mela.",
+    url: "frontend/up-festival-calendar/up-festival-calendar.html"
+  },
+  {
+    title: "Varanasi Dev Deepawali & Prayagraj Kumbh Mela Guide",
+    category: "UP Festival Calendar",
+    description: "Explore month-by-month festival schedules, rituals, cultural significance, and city locations in Uttar Pradesh.",
+    url: "frontend/up-festival-calendar/up-festival-calendar.html"
   }
 ];
