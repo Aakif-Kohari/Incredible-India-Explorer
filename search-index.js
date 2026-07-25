@@ -1056,5 +1056,18 @@ window.indiaSearchIndex = [
     category: "UP Pilgrimage Circuit",
     description: "Explore the Ramayana, Krishna, and Buddhist circuits with interactive map, distance calculator, and duration estimation.",
     url: "frontend/up-pilgrimage/up-pilgrimage.html"
+  },
+  // --- History of Indian Railways Timeline ---
+  {
+    title: "Animated Timeline: History of Indian Railways",
+    category: "Transport & History",
+    description: "Interactive timeline from the first 1853 passenger train (Bori Bunder to Thane) through colonial expansion, nationalization, electrification, to Vande Bharat & bullet train.",
+    url: "frontend/railways-timeline/railways-timeline.html"
+  },
+  {
+    title: "1853 to Present Indian Railways Historical Narrative",
+    category: "Railways History",
+    description: "Explore 170+ years of Indian Railways with animated train track visualization, neutral factual framing, and technical specs.",
+    url: "frontend/railways-timeline/railways-timeline.html"
   }
 ];
