@@ -958,7 +958,12 @@ window.indiaSearchIndex = [
     description: "Visualize outgoing cultural footprints and incoming cultural influences for each Indian state.",
     url: "cultural-footprint.html"
   },
-  // --- National Parks Timeline ---
+  {
+    title: "River Trace Challenge",
+    category: "Geography & Games",
+    description: "Trace 5 major Indian river systems (Ganga, Yamuna, Godavari, Krishna, Brahmaputra) from source to mouth on an SVG map with accuracy scoring.",
+    url: "frontend/river-trace/index.html"
+  },
   {
     title: "India's National Parks Timeline",
     category: "Nature & Wildlife",
