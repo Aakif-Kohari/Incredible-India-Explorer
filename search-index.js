@@ -1139,6 +1139,18 @@ window.indiaSearchIndex = [
     description: "Interactive Heritage Arc page connecting Agra, Lucknow, and Varanasi. Explore monuments, traditions, culinary specialties, animated travel paths, and historical timelines.",
     url: "frontend/heritage-arc-up/index.html"
   },
+  // --- Constituent Assembly Learning Hub ---
+  {
+    title: "Constituent Assembly Learning Hub (Constitution Makers Explorer)",
+    category: "Civics & Constitutional History",
+    description: "Educational portal introducing key members of the Constituent Assembly: Dr. B. R. Ambedkar, Dr. Rajendra Prasad, Jawaharlal Nehru, Sardar Patel, Hansa Mehta, women pioneers, roles, contributions, and 3-year drafting timeline.",
+    url: "frontend/constitution-makers/index.html"
+  },
+  {
+    title: "Constitution Drafting Timeline & Assembly Member Roles",
+    category: "Constituent Assembly Hub",
+    description: "Step-by-step drafting timeline from Dec 9, 1946 Objectives Resolution to Jan 26, 1950 enforcement alongside committee leadership matrix.",
+    url: "frontend/constitution-makers/index.html"
   // --- Bharat Ratna Interactive Gallery ---
   {
     title: "Bharat Ratna Interactive Gallery (1954 - 2024)",
