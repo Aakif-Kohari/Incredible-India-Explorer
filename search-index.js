@@ -1129,5 +1129,18 @@ window.indiaSearchIndex = [
     category: "Heritage & Tourism",
     description: "Interactive Heritage Arc page connecting Agra, Lucknow, and Varanasi. Explore monuments, traditions, culinary specialties, animated travel paths, and historical timelines.",
     url: "frontend/heritage-arc-up/index.html"
+  },
+  // --- Bharat Ratna Interactive Gallery ---
+  {
+    title: "Bharat Ratna Interactive Gallery (1954 - 2024)",
+    category: "Civic Honours & Personalities",
+    description: "Interactive portrait gallery showcasing every Bharat Ratna recipient from 1954 to 2024: Portraits, conferring year, national contributions, timeline, category filters, and detailed biographies.",
+    url: "frontend/bharat-ratna-gallery/index.html"
+  },
+  {
+    title: "Bharat Ratna Chronological Timeline & Recipient Directory",
+    category: "Bharat Ratna Gallery",
+    description: "Chronological timeline view and filterable directory of Bharat Ratna awardees across Public Affairs, Science, Arts & Music, Social Work, Literature, and Sports.",
+    url: "frontend/bharat-ratna-gallery/index.html"
   }
 ];
