@@ -35,6 +35,20 @@ const ISLANDS_DATA = [
     image: "../../assets/travel_hidden.png"
   },
   {
+    id: "south-andaman",
+    name: "South Andaman",
+    group: "Andaman & Nicobar",
+    location: "Andaman Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 11.6234,
+    lng: 92.7265,
+    islandCount: "1 island",
+    tagline: "Gateway to the Andamans — Port Blair, Cellular Jail & Ross Island",
+    description: "Home to Port Blair, the capital of Andaman & Nicobar Islands, South Andaman blends colonial history, museums, and coastal scenery — from the Cellular Jail to Chidiya Tapu's sunsets and the ruins of Ross Island.",
+    highlights: ["Cellular Jail National Memorial", "Ross Island's British colonial ruins", "Chidiya Tapu — Bird Island & sunset point", "Anthropological & Samudrika Marine Museums"],
+    image: "../../assets/travel_beaches.png"
+  },
+  {
     id: "lakshadweep",
     name: "Lakshadweep Islands",
     group: "Lakshadweep",
@@ -258,6 +272,10 @@ function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
 
+  if (island.id === "great-nicobar" || island.id === "south-andaman") {
+    window.location.href = island.id === "great-nicobar"
+      ? "../great-nicobar/great-nicobar.html"
+      : "../south-andaman/south-andaman.html";
   if (island.id === "great-nicobar") {
     window.location.href = "../great-nicobar/great-nicobar.html";
     return;
