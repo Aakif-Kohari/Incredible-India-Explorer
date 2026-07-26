@@ -808,6 +808,13 @@ window.indiaSearchIndex = [
     description: "Historic first soft landing near the Moon's South Pole at Shiv Shakti Point by Vikram lander and Pragyan rover.",
     url: "frontend/space/space.html?item=chandrayaan-3"
   },
+  // --- DRDO Innovations ---
+  {
+    title: "DRDO Innovations Gallery",
+    category: "Science & Technology",
+    description: "Explore India's Defence Research and Development Organisation (DRDO) innovations — missiles, radar, UAVs, avionics, naval systems, and the timeline of self-reliant defence technology.",
+    url: "frontend/drdo-innovations/drdo-innovations.html"
+  },
   // --- State Borders Challenge ---
   {
     title: "State Borders Journey Challenge",
