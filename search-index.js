@@ -1139,6 +1139,11 @@ window.indiaSearchIndex = [
     description: "Interactive Heritage Arc page connecting Agra, Lucknow, and Varanasi. Explore monuments, traditions, culinary specialties, animated travel paths, and historical timelines.",
     url: "frontend/heritage-arc-up/index.html"
   },
+  {
+    title: "Parliament of India — Interactive Learning",
+    category: "Civics & Governance",
+    description: "Interactive Parliament simulator covering Lok Sabha, Rajya Sabha, the bill-to-act process, parliamentary sessions, key roles, an animated workflow, and a knowledge quiz.",
+    url: "frontend/parliament-learning/index.html"
   // --- Constitution Amendments ---
   {
     title: "Indian Constitution Amendments Explorer",
