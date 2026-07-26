@@ -49,6 +49,20 @@ const ISLANDS_DATA = [
     image: "../../assets/travel_beaches.png"
   },
   {
+    id: "middle-andaman",
+    name: "Middle Andaman",
+    group: "Andaman & Nicobar",
+    location: "Andaman Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 12.55,
+    lng: 92.85,
+    islandCount: "1 island",
+    tagline: "Limestone caves, mangrove creeks & quiet beaches",
+    description: "Home to Baratang's limestone caves and mud volcanoes, sprawling mangrove forests, and the towns of Rangat and Mayabunder, Middle Andaman offers a quieter, nature-focused side of the archipelago.",
+    highlights: ["Limestone Caves, Baratang Island", "Mangrove creek boat rides", "Karmatang Beach — sea turtle nesting site", "Rangat & Mayabunder villages"],
+    image: "../../assets/travel_hidden.png"
+  },
+  {
     id: "lakshadweep",
     name: "Lakshadweep Islands",
     group: "Lakshadweep",
@@ -272,12 +286,13 @@ function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
 
-  if (island.id === "great-nicobar" || island.id === "south-andaman") {
-    window.location.href = island.id === "great-nicobar"
-      ? "../great-nicobar/great-nicobar.html"
-      : "../south-andaman/south-andaman.html";
-  if (island.id === "great-nicobar") {
-    window.location.href = "../great-nicobar/great-nicobar.html";
+  if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman") {
+    const pageMap = {
+      "great-nicobar": "../great-nicobar/great-nicobar.html",
+      "south-andaman": "../south-andaman/south-andaman.html",
+      "middle-andaman": "../middle-andaman/middle-andaman.html"
+    };
+    window.location.href = pageMap[island.id];
     return;
   }
 
