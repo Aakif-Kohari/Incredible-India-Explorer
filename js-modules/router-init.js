@@ -84,7 +84,13 @@
         'monuments.html': { log: '✅ Monuments page loaded successfully' },
         'hidden-gems.html': { log: '✅ Hidden Gems page loaded successfully' },
         'railways.html': { log: '✅ Railways Explorer page loaded successfully' },
-        'adventure.html': { log: 'Adventure page loaded successfully' }
+        'adventure.html': { log: 'Adventure page loaded successfully' },
+        'contributors.html': {
+            script: 'frontend/contributors/contributors.js',
+            initName: 'initContributorsPage',
+            useSafeInit: true,
+            name: 'Contributors'
+        }
     };
 
     /**
