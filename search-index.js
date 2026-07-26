@@ -1139,6 +1139,18 @@ window.indiaSearchIndex = [
     description: "Interactive Heritage Arc page connecting Agra, Lucknow, and Varanasi. Explore monuments, traditions, culinary specialties, animated travel paths, and historical timelines.",
     url: "frontend/heritage-arc-up/index.html"
   },
+  // --- RBI Explorer ---
+  {
+    title: "Reserve Bank of India (RBI) Explorer",
+    category: "Banking & Economics",
+    description: "Interactive educational portal explaining the Reserve Bank of India: history, core functions, Monetary Policy Committee (MPC), Repo Rate simulator, CRR & SLR reserve math, and currency printing presses.",
+    url: "frontend/rbi-explorer/index.html"
+  },
+  {
+    title: "RBI Monetary Policy, Repo Rate & CRR/SLR Calculator",
+    category: "RBI Explorer",
+    description: "Interactive policy interest rate simulator and commercial bank Cash Reserve Ratio (CRR) vs Statutory Liquidity Ratio (SLR) deposit calculator.",
+    url: "frontend/rbi-explorer/index.html"
   // --- Islands of India ---
   {
     title: "Islands of India Explorer",
