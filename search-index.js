@@ -1230,6 +1230,18 @@ window.indiaSearchIndex = [
     description: "Interactive hub for India's island territories including Andaman & Nicobar, Lakshadweep, Majuli, and the Sundarbans, with a map, search, and key statistics.",
     url: "frontend/islands/islands.html"
   },
+  // --- How Indian Classical Ragas Work (Time-of-Day Theory) ---
+  {
+    title: "Animated Explainer: How Indian Classical Ragas Work (Time-of-Day Theory)",
+    category: "Music & Performing Arts",
+    description: "Interactive 24-hour clock-face UI exploring Samaya Chakra, swara structures, Vadi & Samvadi notes, and traditional raga time associations.",
+    url: "frontend/ragas-time-explainer/ragas-time-explainer.html"
+  },
+  {
+    title: "Indian Classical Music Samaya Chakra & Ragas Guide",
+    category: "Musicology",
+    description: "Explore Raga Bhairav, Yaman, Darbari Kanada, Malkauns, Brindavani Sarang, and Lalit with original musicological text descriptions.",
+    url: "frontend/ragas-time-explainer/ragas-time-explainer.html"
   // --- Partition of India, 1947 ---
   {
     title: "Scrollytelling: Partition of India, 1947 — A Factual Overview",
