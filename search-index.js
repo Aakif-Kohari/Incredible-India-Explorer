@@ -1173,5 +1173,12 @@ window.indiaSearchIndex = [
     category: "Partition History",
     description: "Sourced census data, timeline of key dates (Mountbatten Plan, Independence Act, Radcliffe Award), and post-1950 constitutional integration.",
     url: "frontend/partition-1947/partition-1947.html"
+  },
+  // --- Data Viz: Language Diversity Map (Animated Reveal) ---
+  {
+    title: "Data Viz: Language Diversity Map (Animated Reveal)",
+    category: "Data & Languages",
+    description: "Animated map progressively revealing India's linguistic diversity, layering major languages by speaker population based on Census of India data.",
+    url: "frontend/language-diversity-map/index.html"
   }
 ];
