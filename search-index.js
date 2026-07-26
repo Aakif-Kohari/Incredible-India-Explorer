@@ -1173,5 +1173,12 @@ window.indiaSearchIndex = [
     category: "Partition History",
     description: "Sourced census data, timeline of key dates (Mountbatten Plan, Independence Act, Radcliffe Award), and post-1950 constitutional integration.",
     url: "frontend/partition-1947/partition-1947.html"
+  },
+  // --- Animated Infographic: India's Biodiversity Hotspots ---
+  {
+    title: "Animated Infographic: India's Biodiversity Hotspots",
+    category: "Environment & Wildlife",
+    description: "Animated infographic highlighting India's four recognized biodiversity hotspots: Himalaya, Western Ghats, Indo-Burma, and Sundaland/Nicobar.",
+    url: "frontend/biodiversity-hotspots/index.html"
   }
 ];
