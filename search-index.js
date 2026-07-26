@@ -1230,6 +1230,18 @@ window.indiaSearchIndex = [
     description: "Interactive hub for India's island territories including Andaman & Nicobar, Lakshadweep, Majuli, and the Sundarbans, with a map, search, and key statistics.",
     url: "frontend/islands/islands.html"
   },
+  // --- Literacy Rate Growth by State (Bar-Chart Race) ---
+  {
+    title: "Data Viz: Literacy Rate Growth by State (Animated Bar-Chart Race)",
+    category: "Data & Statistics",
+    description: "Animated bar-chart race visualization tracking state literacy rate growth across Census of India records from 1951 to 2011.",
+    url: "frontend/literacy-chart-race/literacy-chart-race.html"
+  },
+  {
+    title: "India State Literacy Census Statistics (1951–2011)",
+    category: "Census Statistics",
+    description: "Decennial state literacy ranking race, play/pause controls, search filters, and Census of India sourcing disclaimer.",
+    url: "frontend/literacy-chart-race/literacy-chart-race.html"
   // --- How Indian Classical Ragas Work (Time-of-Day Theory) ---
   {
     title: "Animated Explainer: How Indian Classical Ragas Work (Time-of-Day Theory)",
