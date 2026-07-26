@@ -90,6 +90,12 @@
             initName: 'initContributorsPage',
             useSafeInit: true,
             name: 'Contributors'
+        },
+        'constitution-amendments.html': {
+            script: 'frontend/constitution-amendments/script.js',
+            initName: 'initConstitutionAmendmentsPage',
+            useSafeInit: true,
+            name: 'Constitution Amendments'
         }
     };
 

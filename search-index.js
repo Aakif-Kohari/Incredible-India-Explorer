@@ -1129,5 +1129,30 @@ window.indiaSearchIndex = [
     category: "Heritage & Tourism",
     description: "Interactive Heritage Arc page connecting Agra, Lucknow, and Varanasi. Explore monuments, traditions, culinary specialties, animated travel paths, and historical timelines.",
     url: "frontend/heritage-arc-up/index.html"
+  },
+  // --- Constitution Amendments ---
+  {
+    title: "Indian Constitution Amendments Explorer",
+    category: "Governance & Law",
+    description: "Interactive explorer of all 106 Constitutional Amendments of India with timeline, search, decade filter, government tracking, and quiz.",
+    url: "frontend/constitution-amendments/constitution-amendments.html"
+  },
+  {
+    title: "GST Constitutional Amendment (101st)",
+    category: "Constitution Amendments",
+    description: "The 101st Amendment introduced the Goods and Services Tax (GST) replacing multiple indirect taxes across India.",
+    url: "frontend/constitution-amendments/constitution-amendments.html"
+  },
+  {
+    title: "Right to Education (86th Amendment)",
+    category: "Constitution Amendments",
+    description: "The 86th Amendment made education a fundamental right for children aged 6-14 years under Article 21A.",
+    url: "frontend/constitution-amendments/constitution-amendments.html"
+  },
+  {
+    title: "Anti-Defection Law (52nd Amendment)",
+    category: "Constitution Amendments",
+    description: "The 52nd Amendment introduced the anti-defection law requiring MPs and MLAs to follow party whip or face disqualification.",
+    url: "frontend/constitution-amendments/constitution-amendments.html"
   }
 ];
