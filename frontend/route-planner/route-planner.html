@@ -86,7 +86,27 @@
     border-radius: 12px; padding: 10px 14px; font-size: 0.85rem;
   }
   .stop-info-card h4 { margin: 0 0 6px; color: var(--gold); font-family: 'Outfit', sans-serif; }
-  .stop-info-card p { margin: 2px 0; opacity: 0.85; line-height: 1.4; }</style>
+  .stop-info-card p { margin: 2px 0; opacity: 0.85; line-height: 1.4; }
+  .pace-selector { display: flex; gap: 8px; margin-bottom: 16px; }
+  .pace-btn {
+    flex: 1; padding: 8px; border-radius: 10px; border: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.04); color: inherit; cursor: pointer; text-align: center;
+    font-family: 'Outfit', sans-serif; font-size: 0.85rem; transition: all 0.2s ease;
+  }
+  .pace-btn.active { background: var(--green, #138808); border-color: var(--green, #138808); color: white; }
+  .multiday-panel { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--glass-border); }
+  .multiday-days { display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .day-card {
+    background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border);
+    border-radius: 12px; padding: 10px 14px; font-size: 0.85rem;
+  }
+  .day-card h4 { margin: 0 0 4px; color: var(--gold); font-family: 'Outfit', sans-serif; }
+  .day-card p { margin: 2px 0; opacity: 0.85; }
+  .day-overnight { color: var(--saffron); opacity: 1 !important; }
+  .multiday-warnings ul, .multiday-alternatives ul { margin: 8px 0 0; padding-left: 18px; font-size: 0.82rem; opacity: 0.85; }
+  .multiday-alternatives { margin-top: 8px; }
+  .multiday-alternatives ul { list-style: none; padding-left: 0; }
+  .multiday-alternatives li { padding: 4px 0; }</style>
 
     <!-- Open Graph / Social Media Tags -->
     <meta property="og:title" content="Route Planner | Incredible India Explorer">
@@ -179,6 +199,22 @@
               ~ Rail/Air figures are estimates based on great-circle distance and average speeds — actual timetables vary.
             </p>
           </div>
+
+          <div id="multiday-panel" class="multiday-panel" hidden>
+            <h3>Multi-Day Plan <span id="multiday-day-count" style="color: var(--gold); font-weight: 600;"></span></h3>
+            <div class="pace-selector" id="pace-selector" role="group" aria-label="Daily driving pace">
+              <button class="pace-btn" data-pace="relaxed" type="button">Relaxed<br><small>4h/day</small></button>
+              <button class="pace-btn active" data-pace="standard" type="button">Standard<br><small>6h/day</small></button>
+              <button class="pace-btn" data-pace="fast" type="button">Fast<br><small>8h/day</small></button>
+            </div>
+            <div id="multiday-days" class="multiday-days"></div>
+            <div id="multiday-warnings" class="multiday-warnings"></div>
+            <h4 style="margin: 14px 0 4px; color: var(--gold); font-family: 'Outfit', sans-serif;">Compare paces</h4>
+            <ul id="multiday-alternatives" class="multiday-alternatives"></ul>
+            <button id="export-itinerary-btn" class="btn btn-secondary ripple" type="button" style="width: 100%; margin-top: 12px;">
+              ⬇ Export Itinerary (offline .txt)
+            </button>
+          </div>
         </div>
 
         <!-- Map -->
@@ -205,6 +241,7 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script><script src="../../app.js" defer></script>
 <script src="route-planner.js"></script>
+<script src="multi-day-planner.js"></script>
 <script src="route-planner-ui.js" defer></script>
     <script type="module" src="../../js-modules/budget-calculator-engine.js"></script>
     <script type="module" src="../../auth.js"></script>
