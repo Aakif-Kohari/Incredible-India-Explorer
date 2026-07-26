@@ -21,6 +21,20 @@ const ISLANDS_DATA = [
     image: "../../assets/travel_beaches.png"
   },
   {
+    id: "great-nicobar",
+    name: "Great Nicobar Island",
+    group: "Andaman & Nicobar",
+    location: "Nicobar Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 6.95,
+    lng: 93.87,
+    islandCount: "1 island",
+    tagline: "India's southernmost island, home to Indira Point",
+    description: "The largest island in the Nicobar group and India's southernmost territory, home to Indira Point, Campbell Bay National Park, and rare endemic wildlife.",
+    highlights: ["Indira Point — southernmost tip of India", "Campbell Bay National Park", "UNESCO Biosphere Reserve (2013)", "Nesting ground for Giant Leatherback turtles"],
+    image: "../../assets/travel_hidden.png"
+  },
+  {
     id: "lakshadweep",
     name: "Lakshadweep Islands",
     group: "Lakshadweep",
@@ -243,6 +257,11 @@ function initSearchAndFilters() {
 function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
+
+  if (island.id === "great-nicobar") {
+    window.location.href = "../great-nicobar/great-nicobar.html";
+    return;
+  }
 
   document.getElementById("island-modal-title").textContent = island.name;
   document.getElementById("island-modal-location").textContent = island.location;
