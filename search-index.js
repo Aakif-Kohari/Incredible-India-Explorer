@@ -1139,6 +1139,18 @@ window.indiaSearchIndex = [
     description: "Interactive Heritage Arc page connecting Agra, Lucknow, and Varanasi. Explore monuments, traditions, culinary specialties, animated travel paths, and historical timelines.",
     url: "frontend/heritage-arc-up/index.html"
   },
+  // --- Indian National Awards Explorer ---
+  {
+    title: "Indian National Awards Explorer",
+    category: "Civic Honours & Valour",
+    description: "Searchable encyclopedia covering India's major Civilian (Bharat Ratna, Padma Awards), Gallantry (Param Vir Chakra, Ashoka Chakra), Sports (Khel Ratna, Arjuna), and Literature (Jnanpith) awards with eligibility, history, medal designs, winners, and interesting facts.",
+    url: "frontend/national-awards/national-awards.html"
+  },
+  {
+    title: "Bharat Ratna & Param Vir Chakra Medal Guide",
+    category: "National Awards Explorer",
+    description: "Detailed eligibility criteria, historical institution, medal design specifications, notable recipient list, and trivia for India's highest civilian and military honours.",
+    url: "frontend/national-awards/national-awards.html"
   // --- RBI Explorer ---
   {
     title: "Reserve Bank of India (RBI) Explorer",
