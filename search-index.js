@@ -808,13 +808,6 @@ window.indiaSearchIndex = [
     description: "Historic first soft landing near the Moon's South Pole at Shiv Shakti Point by Vikram lander and Pragyan rover.",
     url: "frontend/space/space.html?item=chandrayaan-3"
   },
-  // --- DRDO Innovations ---
-  {
-    title: "DRDO Innovations Gallery",
-    category: "Science & Technology",
-    description: "Explore India's Defence Research and Development Organisation (DRDO) innovations — missiles, radar, UAVs, avionics, naval systems, and the timeline of self-reliant defence technology.",
-    url: "frontend/drdo-innovations/drdo-innovations.html"
-  },
   // --- State Borders Challenge ---
   {
     title: "State Borders Journey Challenge",
@@ -1020,7 +1013,6 @@ window.indiaSearchIndex = [
     category: "UP Central Portal",
     description: "Explore UP heritage, Taj Mahal, Varanasi Ghats, Ayodhya Ram Mandir, Awadhi Cuisine, and 10 tourism modules.",
     url: "frontend/up-dashboard/up-dashboard.html"
-  },
   // --- Uttar Pradesh District Explorer ---
   {
     title: "Uttar Pradesh District Explorer",
@@ -1033,7 +1025,6 @@ window.indiaSearchIndex = [
     category: "UP State Explorer",
     description: "Search and filter all 75 UP districts across 18 divisions and 4 geographic regions with SVG map and detail inspector.",
     url: "frontend/up-district-explorer/up-district-explorer.html"
-  },
   // --- Guess the Uttar Pradesh District Game ---
   {
     title: "Guess the Uttar Pradesh District Game",
@@ -1046,7 +1037,6 @@ window.indiaSearchIndex = [
     category: "UP Geography Game",
     description: "Identify UP districts from handicraft ODOP, river landmarks, and history with scoreboard, timer, hints, and achievement badges.",
     url: "frontend/guess-up-district/guess-up-district.html"
-  },
   // --- Uttar Pradesh Filming Locations Explorer ---
   {
     title: "Uttar Pradesh Filming Locations Explorer",
@@ -1059,7 +1049,6 @@ window.indiaSearchIndex = [
     category: "UP Filming Locations",
     description: "Discover movie cards, behind-the-scenes trivia, and interactive gallery for movies filmed in Uttar Pradesh.",
     url: "frontend/up-filming/up-filming.html"
-  },
   // --- Uttar Pradesh Pilgrimage Circuit Planner ---
   {
     title: "Uttar Pradesh Pilgrimage Circuit Planner",
@@ -1085,7 +1074,6 @@ window.indiaSearchIndex = [
     category: "Agricultural History",
     description: "Interactive before/after yield comparison chart, 4 technological pillars, and balanced dual framing of food security vs groundwater considerations.",
     url: "frontend/green-revolution/green-revolution.html"
-  },
   // --- History of Indian Railways Timeline ---
   {
     title: "Animated Timeline: History of Indian Railways",
@@ -1098,7 +1086,6 @@ window.indiaSearchIndex = [
     category: "Railways History",
     description: "Explore 170+ years of Indian Railways with animated train track visualization, neutral factual framing, and technical specs.",
     url: "frontend/railways-timeline/railways-timeline.html"
-  },
   // --- Famous Monuments Explorer ---
   {
     title: "Famous Monuments Explorer",
@@ -1111,7 +1098,6 @@ window.indiaSearchIndex = [
     category: "UP Monuments Guide",
     description: "Explore historical timelines, architectural specs, and interactive 3D perspective cards of iconic Uttar Pradesh heritage monuments.",
     url: "frontend/up-monuments/up-monuments.html"
-  },
   // --- Uttar Pradesh Festival Calendar ---
   {
     title: "Uttar Pradesh Festival Calendar",
@@ -1131,14 +1117,12 @@ window.indiaSearchIndex = [
     category: "History & Geography",
     description: "Animated expanding-path map detailing the historical transmission of Buddhism across Asia from Bodh Gaya across Sri Lanka, Silk Road, and East Asia.",
     url: "frontend/buddhism-spread-map/index.html"
-  },
   // --- Capital Match-Up ---
   {
     title: "Capital Match-Up Game",
     category: "Games & Geography",
     description: "Interactive drag-and-drop and tap-to-select matching game pairing Indian states and union territories with their capitals.",
     url: "frontend/capital-match-up/index.html"
-  },
   // --- UP Heritage Arc Explorer ---
   {
     title: "Uttar Pradesh Heritage Arc Explorer",
@@ -1146,88 +1130,48 @@ window.indiaSearchIndex = [
     description: "Interactive Heritage Arc page connecting Agra, Lucknow, and Varanasi. Explore monuments, traditions, culinary specialties, animated travel paths, and historical timelines.",
     url: "frontend/heritage-arc-up/index.html"
   },
-  {
-    title: "Parliament of India — Interactive Learning",
-    category: "Civics & Governance",
-    description: "Interactive Parliament simulator covering Lok Sabha, Rajya Sabha, the bill-to-act process, parliamentary sessions, key roles, an animated workflow, and a knowledge quiz.",
-    url: "frontend/parliament-learning/index.html"
-  // --- Constitution Amendments ---
-  {
-    title: "Indian Constitution Amendments Explorer",
-    category: "Governance & Law",
-    description: "Interactive explorer of all 106 Constitutional Amendments of India with timeline, search, decade filter, government tracking, and quiz.",
-    url: "frontend/constitution-amendments/constitution-amendments.html"
-  },
-  {
-    title: "GST Constitutional Amendment (101st)",
-    category: "Constitution Amendments",
-    description: "The 101st Amendment introduced the Goods and Services Tax (GST) replacing multiple indirect taxes across India.",
-    url: "frontend/constitution-amendments/constitution-amendments.html"
-  },
-  {
-    title: "Right to Education (86th Amendment)",
-    category: "Constitution Amendments",
-    description: "The 86th Amendment made education a fundamental right for children aged 6-14 years under Article 21A.",
-    url: "frontend/constitution-amendments/constitution-amendments.html"
-  },
-  {
-    title: "Anti-Defection Law (52nd Amendment)",
-    category: "Constitution Amendments",
-    description: "The 52nd Amendment introduced the anti-defection law requiring MPs and MLAs to follow party whip or face disqualification.",
-    url: "frontend/constitution-amendments/constitution-amendments.html"
-  // --- Constituent Assembly Learning Hub ---
-  {
-    title: "Constituent Assembly Learning Hub (Constitution Makers Explorer)",
-    category: "Civics & Constitutional History",
-    description: "Educational portal introducing key members of the Constituent Assembly: Dr. B. R. Ambedkar, Dr. Rajendra Prasad, Jawaharlal Nehru, Sardar Patel, Hansa Mehta, women pioneers, roles, contributions, and 3-year drafting timeline.",
-    url: "frontend/constitution-makers/index.html"
-  },
-  {
-    title: "Constitution Drafting Timeline & Assembly Member Roles",
-    category: "Constituent Assembly Hub",
-    description: "Step-by-step drafting timeline from Dec 9, 1946 Objectives Resolution to Jan 26, 1950 enforcement alongside committee leadership matrix.",
-    url: "frontend/constitution-makers/index.html"
-  // --- Bharat Ratna Interactive Gallery ---
-  {
-    title: "Bharat Ratna Interactive Gallery (1954 - 2024)",
-    category: "Civic Honours & Personalities",
-    description: "Interactive portrait gallery showcasing every Bharat Ratna recipient from 1954 to 2024: Portraits, conferring year, national contributions, timeline, category filters, and detailed biographies.",
-    url: "frontend/bharat-ratna-gallery/index.html"
-  },
-  {
-    title: "Bharat Ratna Chronological Timeline & Recipient Directory",
-    category: "Bharat Ratna Gallery",
-    description: "Chronological timeline view and filterable directory of Bharat Ratna awardees across Public Affairs, Science, Arts & Music, Social Work, Literature, and Sports.",
-    url: "frontend/bharat-ratna-gallery/index.html"
-  // --- Indian National Awards Explorer ---
-  {
-    title: "Indian National Awards Explorer",
-    category: "Civic Honours & Valour",
-    description: "Searchable encyclopedia covering India's major Civilian (Bharat Ratna, Padma Awards), Gallantry (Param Vir Chakra, Ashoka Chakra), Sports (Khel Ratna, Arjuna), and Literature (Jnanpith) awards with eligibility, history, medal designs, winners, and interesting facts.",
-    url: "frontend/national-awards/national-awards.html"
-  },
-  {
-    title: "Bharat Ratna & Param Vir Chakra Medal Guide",
-    category: "National Awards Explorer",
-    description: "Detailed eligibility criteria, historical institution, medal design specifications, notable recipient list, and trivia for India's highest civilian and military honours.",
-    url: "frontend/national-awards/national-awards.html"
-  // --- RBI Explorer ---
-  {
-    title: "Reserve Bank of India (RBI) Explorer",
-    category: "Banking & Economics",
-    description: "Interactive educational portal explaining the Reserve Bank of India: history, core functions, Monetary Policy Committee (MPC), Repo Rate simulator, CRR & SLR reserve math, and currency printing presses.",
-    url: "frontend/rbi-explorer/index.html"
-  },
-  {
-    title: "RBI Monetary Policy, Repo Rate & CRR/SLR Calculator",
-    category: "RBI Explorer",
-    description: "Interactive policy interest rate simulator and commercial bank Cash Reserve Ratio (CRR) vs Statutory Liquidity Ratio (SLR) deposit calculator.",
-    url: "frontend/rbi-explorer/index.html"
   // --- Islands of India ---
   {
     title: "Islands of India Explorer",
     category: "Travel & Geography",
     description: "Interactive hub for India's island territories including Andaman & Nicobar, Lakshadweep, Majuli, and the Sundarbans, with a map, search, and key statistics.",
     url: "frontend/islands/islands.html"
+  },
+  // --- Literacy Rate Growth by State (Bar-Chart Race) ---
+  {
+    title: "Data Viz: Literacy Rate Growth by State (Animated Bar-Chart Race)",
+    category: "Data & Statistics",
+    description: "Animated bar-chart race visualization tracking state literacy rate growth across Census of India records from 1951 to 2011.",
+    url: "frontend/literacy-chart-race/literacy-chart-race.html"
+  },
+  {
+    title: "India State Literacy Census Statistics (1951–2011)",
+    category: "Census Statistics",
+    description: "Decennial state literacy ranking race, play/pause controls, search filters, and Census of India sourcing disclaimer.",
+    url: "frontend/literacy-chart-race/literacy-chart-race.html"
+  // --- How Indian Classical Ragas Work (Time-of-Day Theory) ---
+  {
+    title: "Animated Explainer: How Indian Classical Ragas Work (Time-of-Day Theory)",
+    category: "Music & Performing Arts",
+    description: "Interactive 24-hour clock-face UI exploring Samaya Chakra, swara structures, Vadi & Samvadi notes, and traditional raga time associations.",
+    url: "frontend/ragas-time-explainer/ragas-time-explainer.html"
+  },
+  {
+    title: "Indian Classical Music Samaya Chakra & Ragas Guide",
+    category: "Musicology",
+    description: "Explore Raga Bhairav, Yaman, Darbari Kanada, Malkauns, Brindavani Sarang, and Lalit with original musicological text descriptions.",
+    url: "frontend/ragas-time-explainer/ragas-time-explainer.html"
+  // --- Partition of India, 1947 ---
+  {
+    title: "Scrollytelling: Partition of India, 1947 — A Factual Overview",
+    category: "Modern History & Narrative",
+    description: "Careful, neutral, non-graphic historical overview of the 1947 Partition — political context, Radcliffe boundary line animation, migration demographics, and nation-building aftermath.",
+    url: "frontend/partition-1947/partition-1947.html"
+  },
+  {
+    title: "1947 Radcliffe Line & Refugee Demographics Historical Record",
+    category: "Partition History",
+    description: "Sourced census data, timeline of key dates (Mountbatten Plan, Independence Act, Radcliffe Award), and post-1950 constitutional integration.",
+    url: "frontend/partition-1947/partition-1947.html"
   }
 ];
