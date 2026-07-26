@@ -7,9 +7,11 @@
 (function () {
 const { ROUTE_DESTINATIONS, TRANSPORT_MODES, DESTINATION_INFO, optimizeRoute, getRoute, formatDistance, formatDuration, recommendMode } = window.RoutePlanner;
 const { PACE_PRESETS, planMultiDayRoute, getAlternativePlans, exportItineraryText } = window.MultiDayPlanner;
+const { ACCOMMODATION_TYPES, compareTransportModes, calculateSustainabilityScore, getSustainabilityBadge, getRecommendations } = window.SustainabilityEngine;
   let stops = [];
   let mode = "road";
   let pace = "standard";
+  let accommodationType = "midRangeHotel";
   let lastMultiDayPlan = null;
   let map, routeLayer, markersLayer;
 
@@ -133,6 +135,7 @@ function renderSummary(result) {
       renderRouteOnMap(result.geometry);
       renderSummary(result);
       renderMultiDayPlan(result);
+      renderSustainability(result);
       setStatus(result.fromCache ? "Loaded from cache." : "Route calculated.");
     } catch (err) {
       setStatus(err.message || "Could not calculate route.", true);
@@ -201,6 +204,57 @@ function renderSummary(result) {
     }
   }
 
+  // -------------------------------------------------------------------------
+  // Sustainability scoring: carbon footprint + 0-100 score + eco tips for
+  // the current stops/mode/accommodation combination. Recalculates from
+  // scratch on every call (same "no stale cache" approach as the multi-day
+  // plan), so score and footprint always match what's on screen.
+  // -------------------------------------------------------------------------
+  function renderSustainability(result) {
+    const panel = document.getElementById("sustainability-panel");
+    if (!panel) return;
+
+    if (stops.length < 2 || !result.legs || !result.legs.length) {
+      panel.hidden = true;
+      return;
+    }
+    panel.hidden = false;
+
+    const scoreResult = calculateSustainabilityScore(stops, result.legs, {
+      mode,
+      accommodationType,
+      travelers: 1,
+    });
+    const badge = getSustainabilityBadge(scoreResult.score);
+
+    document.getElementById("sustainability-score").textContent = scoreResult.score;
+    document.getElementById("sustainability-badge").textContent = `${badge.icon} ${badge.label}`;
+    document.getElementById("sustainability-badge").className = `sustainability-badge tier-${badge.tier}`;
+    document.getElementById("sustainability-footprint").textContent =
+      `${scoreResult.footprint.carbonKg.toFixed(1)} kg CO2e`;
+
+    const comparison = compareTransportModes(result.legs);
+    document.getElementById("sustainability-comparison").innerHTML = comparison
+      .map(
+        (c) => `
+        <li class="${c.mode === mode ? "current-mode" : ""}">
+          <span>${TRANSPORT_MODES[c.mode] ? TRANSPORT_MODES[c.mode].icon : ""} ${c.mode === mode ? `${c.mode} (current)` : c.mode}</span>
+          <span>${c.carbonKg.toFixed(1)} kg CO2e</span>
+        </li>`
+      )
+      .join("");
+
+    const tips = getRecommendations(stops, result.legs, { mode, accommodationType, travelers: 1 });
+    document.getElementById("sustainability-tips").innerHTML = tips.map((t) => `<li>${t}</li>`).join("");
+  }
+
+  function handleAccommodationChange(e) {
+    accommodationType = e.target.value;
+    if (!document.getElementById("sustainability-panel").hidden && stops.length >= 2) {
+      getRoute(stops, mode).then(renderSustainability).catch(() => {});
+    }
+  }
+
   function handleExportItinerary() {
     if (!lastMultiDayPlan) {
       setStatus("Calculate a route first to export an itinerary.", true);
@@ -222,11 +276,14 @@ function renderSummary(result) {
   }
 
   // Itinerary changed (stop added/removed/reordered, mode changed) — the
-  // route and multi-day plan on screen are now stale until recalculated.
+  // route, multi-day plan, and sustainability score on screen are now stale
+  // until recalculated.
   function invalidateMultiDayPlan() {
     lastMultiDayPlan = null;
     const panel = document.getElementById("multiday-panel");
     if (panel) panel.hidden = true;
+    const sustainabilityPanel = document.getElementById("sustainability-panel");
+    if (sustainabilityPanel) sustainabilityPanel.hidden = true;
   }
 
   function handleOptimize() {
@@ -270,5 +327,7 @@ function renderSummary(result) {
     if (paceSelector) paceSelector.addEventListener("click", handlePaceChange);
     const exportBtn = document.getElementById("export-itinerary-btn");
     if (exportBtn) exportBtn.addEventListener("click", handleExportItinerary);
+    const accommodationSelect = document.getElementById("accommodation-select");
+    if (accommodationSelect) accommodationSelect.addEventListener("change", handleAccommodationChange);
   });
 })();

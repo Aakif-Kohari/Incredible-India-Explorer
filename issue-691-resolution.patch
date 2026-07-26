@@ -1,0 +1,698 @@
+diff --git a/docs/SUSTAINABILITY_SCORING.md b/docs/SUSTAINABILITY_SCORING.md
+new file mode 100644
+index 0000000..8ae3345
+--- /dev/null
++++ b/docs/SUSTAINABILITY_SCORING.md
+@@ -0,0 +1,119 @@
++# Sustainability Scoring
++
++Resolves #691 — Sustainable Travel Scoring and Eco-Friendly Route
++Recommendations.
++
++## What it does
++
++Sits alongside the Multi-Day Plan panel on the Route Planner page. For the
++currently planned stops, transport mode, and a user-selected accommodation
++type, it shows:
++
++- A **0-100 sustainability score** and badge (🌱 Eco Champion / 🌿 Green
++  Traveler / 🌍 Getting Greener / ⚠️ High Impact).
++- An **estimated carbon footprint** in kg CO2e for the trip.
++- A **transport-mode comparison** — the same stops, same order, showing
++  what the footprint would be under road / rail / air / bus.
++- **Itinerary-specific eco tips**, e.g. suggesting rail over a short-haul
++  flight, or flagging that a chosen destination has limited local public
++  transport.
++
++Like the Multi-Day Plan panel, everything recalculates from scratch on every
++change (stop added/removed/reordered, mode changed, accommodation changed)
++— there's no stale cached score.
++
++## Why no backend
++
++Consistent with the rest of this project (see `ROUTE_PLANNER.md`'s "Why no
++backend" section): this is a static, buildless site. The scoring engine
++(`frontend/route-planner/sustainability-engine.js`) is a pure, client-side
++module with no network calls — it only needs the stop list and per-leg
++distances the Route Planner has already computed.
++
++## Scoring methodology
++
++The 0-100 score is a weighted sum of five components:
++
++| Component | Weight | What it measures |
++| --------- | ------ | ----------------- |
++| Transport emissions | 40 pts | Chosen mode's g CO2e/passenger-km, scaled between rail (best reference, full marks) and a short-haul flight (worst reference, zero marks) |
++| Trip compactness | 15 pts | Average distance per leg — shorter hops between nearby stops score higher than long cross-country jumps |
++| Accommodation type | 20 pts | Eco-certified (20) > Homestay (16) > Mid-range hotel (10) > Luxury resort (4) |
++| Local public transport | 15 pts | Average of each visited destination's public-transport-availability rating |
++| Destination practices | 10 pts | Average of each visited destination's general sustainable-tourism-practices rating |
++
++### Carbon footprint
++
++`carbonKg = totalDistanceKm × emissionFactor(mode) × travelers / 1000`
++
++Per-passenger-km emission factors (grams CO2e/km), rounded editorial
++averages:
++
++| Mode | g CO2e/passenger-km | Source basis |
++| ---- | -------------------- | ------------- |
++| Rail | 45 | Mixed electric/diesel intercity rail, in line with published UK/EU rail figures |
++| Bus | 80 | Shared public bus |
++| Road | 120 | Average petrol/diesel car, moderate occupancy |
++| Air | 245 | Short/medium-haul domestic flight |
++
++These come from widely published transport-emissions research (UK
++government/DEFRA statistics, the International Council on Clean
++Transportation, and Our World in Data's transport carbon-footprint
++comparisons) — **not** live measurements, **not** India-specific telemetry,
++and they don't account for a specific vehicle's occupancy, engine type, or
++the electricity grid mix on a given route. Treat the score and footprint as
++a *relative*, planning-stage signal for comparing travel choices, the same
++honest framing this project already applies to its rail/air distance
++estimates ("estimates only; no free timetable API exists" — see
++`ROUTE_PLANNER.md`).
++
++### Destination sustainability data
++
++`DESTINATION_SUSTAINABILITY` in `sustainability-engine.js` holds two
++editorial 0–10 ratings per destination (public transport availability,
++general sustainable-tourism practices) plus a short tip. Curated by hand,
++the same way `DESTINATION_INFO` (best time to visit, local tips) already
++works elsewhere in `route-planner.js` — not sourced from a live
++sustainability index.
++
++## Files added
++
++| File | Purpose |
++| ---- | ------- |
++| `frontend/route-planner/sustainability-engine.js` | Pure scoring/footprint/recommendation logic, no DOM dependency |
++| `docs/sustainability-engine.test.js` | Node-runnable unit tests |
++| `frontend/route-planner/route-planner-ui.js` (modified) | Wires the panel into the existing add/remove/optimize/mode/pace flow |
++| `frontend/route-planner/route-planner.html` (modified) | Sustainability panel markup + styles, accommodation selector |
++
++## Known limitations / future work
++
++- Emission factors are flat per-mode averages, not per-vehicle or
++  per-flight-class figures. A full car vs. an EV, or economy vs. business
++  class, would have meaningfully different footprints this model doesn't
++  distinguish.
++- `DESTINATION_SUSTAINABILITY` only covers the same ~30 destinations
++  `ROUTE_DESTINATIONS` does. Extending the Route Planner's destination list
++  means extending this dataset too.
++- No accommodation *search* — the user picks a category (eco-certified,
++  homestay, etc.), not a specific verified-green property. Wiring in real
++  eco-certification data (e.g. Green Key, EarthCheck) would need a backend
++  or a licensed data source this project doesn't have.
++- Carbon-offset purchase is only mentioned as a generic tip, not an
++  integrated flow — there's no backend to process a real transaction here.
++
++## Testing
++
++```bash
++node docs/sustainability-engine.test.js
++```
++
++13 unit tests cover footprint math (mode differences, traveler scaling,
++unknown-mode fallback, zero-leg edge case), the transport-mode comparison
++ordering, score bounds and mode/accommodation sensitivity, badge tier
++mapping, and recommendation content.
++
++> Note: as with `route-planner.test.js`, running `docs/*.test.js` directly
++> currently hits `require is not defined` on Node versions where
++> `package.json`'s `"type": "module"` changes `require`-of-ESM behavior
++> (a pre-existing repo issue, not introduced here). Logic was verified by
++> direct execution during development; see #693's notes for the same caveat.
+diff --git a/docs/sustainability-engine.test.js b/docs/sustainability-engine.test.js
+new file mode 100644
+index 0000000..56584a6
+--- /dev/null
++++ b/docs/sustainability-engine.test.js
+@@ -0,0 +1,117 @@
++const assert = require("assert");
++const {
++  EMISSION_FACTORS_G_PER_KM,
++  ACCOMMODATION_TYPES,
++  calculateCarbonFootprint,
++  compareTransportModes,
++  calculateSustainabilityScore,
++  getSustainabilityBadge,
++  getRecommendations,
++} = require("./../frontend/route-planner/sustainability-engine.js");
++
++let passed = 0;
++function test(name, fn) {
++  try {
++    fn();
++    console.log(`  PASS  ${name}`);
++    passed++;
++  } catch (err) {
++    console.error(`  FAIL  ${name}`);
++    console.error(`        ${err.message}`);
++    process.exitCode = 1;
++  }
++}
++
++const stops = [
++  { id: "delhi", name: "Delhi" },
++  { id: "agra", name: "Agra" },
++  { id: "jaipur", name: "Jaipur" },
++];
++const legs = [
++  { distanceKm: 230 }, // Delhi -> Agra
++  { distanceKm: 240 }, // Agra -> Jaipur
++];
++
++console.log("../frontend/route-planner/sustainability-engine.js unit tests");
++
++test("calculateCarbonFootprint: rail is cheaper in carbon than air for the same distance", () => {
++  const rail = calculateCarbonFootprint(legs, "rail");
++  const air = calculateCarbonFootprint(legs, "air");
++  assert.ok(rail.carbonKg < air.carbonKg);
++});
++
++test("calculateCarbonFootprint: scales linearly with traveler count", () => {
++  const solo = calculateCarbonFootprint(legs, "road", 1);
++  const group = calculateCarbonFootprint(legs, "road", 4);
++  assert.ok(Math.abs(group.carbonKg - solo.carbonKg * 4) < 1e-9);
++});
++
++test("calculateCarbonFootprint: falls back to road factor for an unknown mode", () => {
++  const unknown = calculateCarbonFootprint(legs, "hoverboard");
++  const road = calculateCarbonFootprint(legs, "road");
++  assert.strictEqual(unknown.avgGPerKm, road.avgGPerKm);
++});
++
++test("calculateCarbonFootprint: zero legs produces zero footprint, not NaN", () => {
++  const result = calculateCarbonFootprint([], "road");
++  assert.strictEqual(result.totalDistanceKm, 0);
++  assert.strictEqual(result.carbonKg, 0);
++});
++
++test("compareTransportModes: returns one entry per known mode, sorted cleanest-first", () => {
++  const comparison = compareTransportModes(legs);
++  assert.strictEqual(comparison.length, Object.keys(EMISSION_FACTORS_G_PER_KM).length);
++  for (let i = 1; i < comparison.length; i++) {
++    assert.ok(comparison[i - 1].carbonKg <= comparison[i].carbonKg);
++  }
++  assert.strictEqual(comparison[0].mode, "rail");
++});
++
++test("calculateSustainabilityScore: is always within 0-100", () => {
++  const result = calculateSustainabilityScore(stops, legs, { mode: "air", accommodationType: "luxuryResort" });
++  assert.ok(result.score >= 0 && result.score <= 100);
++});
++
++test("calculateSustainabilityScore: rail scores higher than air for an identical itinerary", () => {
++  const rail = calculateSustainabilityScore(stops, legs, { mode: "rail" });
++  const air = calculateSustainabilityScore(stops, legs, { mode: "air" });
++  assert.ok(rail.score > air.score);
++});
++
++test("calculateSustainabilityScore: eco-certified accommodation scores higher than luxury resort, all else equal", () => {
++  const eco = calculateSustainabilityScore(stops, legs, { mode: "road", accommodationType: "ecoCertified" });
++  const luxury = calculateSustainabilityScore(stops, legs, { mode: "road", accommodationType: "luxuryResort" });
++  assert.ok(eco.score > luxury.score);
++});
++
++test("calculateSustainabilityScore: unknown accommodation type falls back to a valid default", () => {
++  const result = calculateSustainabilityScore(stops, legs, { mode: "road", accommodationType: "space_hotel" });
++  assert.ok(ACCOMMODATION_TYPES[result.accommodationType]);
++});
++
++test("calculateSustainabilityScore: recalculates independently on itinerary change", () => {
++  const before = calculateSustainabilityScore(stops, legs, { mode: "road" });
++  const fewerStops = stops.slice(0, 2);
++  const fewerLegs = legs.slice(0, 1);
++  const after = calculateSustainabilityScore(fewerStops, fewerLegs, { mode: "road" });
++  assert.notStrictEqual(before.footprint.carbonKg, after.footprint.carbonKg);
++});
++
++test("getSustainabilityBadge: maps score ranges to the right tier", () => {
++  assert.strictEqual(getSustainabilityBadge(90).tier, "excellent");
++  assert.strictEqual(getSustainabilityBadge(65).tier, "good");
++  assert.strictEqual(getSustainabilityBadge(45).tier, "fair");
++  assert.strictEqual(getSustainabilityBadge(10).tier, "poor");
++});
++
++test("getRecommendations: suggests rail for a short-to-medium air itinerary", () => {
++  const tips = getRecommendations(stops, legs, { mode: "air" });
++  assert.ok(tips.some((t) => t.toLowerCase().includes("rail")));
++});
++
++test("getRecommendations: always includes at least the generic eco tips", () => {
++  const tips = getRecommendations(stops, legs, { mode: "rail", accommodationType: "ecoCertified" });
++  assert.ok(tips.length >= 3);
++});
++
++console.log(`\n${passed} test(s) passed.`);
+diff --git a/frontend/route-planner/sustainability-engine.js b/frontend/route-planner/sustainability-engine.js
+new file mode 100644
+index 0000000..8a4f7e8
+--- /dev/null
++++ b/frontend/route-planner/sustainability-engine.js
+@@ -0,0 +1,266 @@
++/**
++ * sustainability-engine.js
++ * Sustainable Travel Scoring & Eco-Friendly Route Recommendations for
++ * Incredible India Explorer.
++ *
++ * Like multi-day-planner.js, this sits on top of RoutePlanner's output
++ * (ordered stops + per-leg distance) rather than duplicating routing logic.
++ * It's a pure, dependency-free module — unit-testable in Node without a
++ * DOM — that turns a route + accommodation choice into:
++ *   - a 0-100 sustainability score
++ *   - an estimated carbon footprint (kg CO2e)
++ *   - a same-stops, same-order comparison across transport modes
++ *   - practical, itinerary-specific recommendations
++ *
++ * ---------------------------------------------------------------------
++ * Methodology & sources (see docs/SUSTAINABILITY_SCORING.md for detail)
++ * ---------------------------------------------------------------------
++ * Per-passenger-km emission factors are rounded, editorial averages drawn
++ * from widely published transport-emissions research (UK DEFRA/BEIS
++ * national statistics, the International Council on Clean Transportation,
++ * and Our World in Data's transport carbon footprint comparisons). They
++ * are NOT live measurements, NOT India-specific telemetry, and do not
++ * account for vehicle occupancy, engine type, or grid mix on a given
++ * route. Treat the resulting score and footprint as a *relative*,
++ * planning-stage signal for comparing travel choices — the same honest
++ * framing this project already uses for rail/air distance estimates in
++ * route-planner.js ("estimates only; no free timetable API exists").
++ */
++
++// ---------------------------------------------------------------------------
++// 1. Emission factors (grams CO2e per passenger-km)
++// ---------------------------------------------------------------------------
++const EMISSION_FACTORS_G_PER_KM = {
++  road: 120, // average petrol/diesel car, moderate occupancy
++  bus: 80, // shared public bus
++  rail: 45, // mixed electric/diesel intercity rail
++  air: 245, // short/medium-haul domestic flight
++};
++
++// A rough "worst case" reference (short-haul flight) used to normalize the
++// transport component of the sustainability score onto a 0-100 scale.
++const REFERENCE_WORST_G_PER_KM = EMISSION_FACTORS_G_PER_KM.air;
++const REFERENCE_BEST_G_PER_KM = EMISSION_FACTORS_G_PER_KM.rail;
++
++// ---------------------------------------------------------------------------
++// 2. Accommodation impact tiers
++// ---------------------------------------------------------------------------
++const ACCOMMODATION_TYPES = {
++  ecoCertified: { label: "Eco-certified stay", score: 20 },
++  homestay: { label: "Homestay / guesthouse", score: 16 },
++  midRangeHotel: { label: "Mid-range hotel", score: 10 },
++  luxuryResort: { label: "Luxury resort", score: 4 },
++};
++const DEFAULT_ACCOMMODATION_TYPE = "midRangeHotel";
++
++// ---------------------------------------------------------------------------
++// 3. Destination sustainability metadata
++// ---------------------------------------------------------------------------
++// Editorial, illustrative scores (0-10) — same curation approach this
++// project already uses for DESTINATION_INFO (best time to visit, tips) in
++// route-planner.js: human-curated, not sourced from a live sustainability
++// index. publicTransport reflects how easy it typically is to get around
++// locally without a private vehicle; practices reflects general awareness
++// of conservation/heritage-preservation efforts at the destination.
++const DESTINATION_SUSTAINABILITY = {
++  delhi: { publicTransport: 9, practices: 6, tip: "The Delhi Metro covers most major sights — skip the cab." },
++  agra: { publicTransport: 6, practices: 7, tip: "Only battery-operated vehicles are allowed near the Taj Mahal itself." },
++  jaipur: { publicTransport: 6, practices: 6, tip: "Jaipur Metro and city buses connect most of the old city." },
++  jodhpur: { publicTransport: 4, practices: 6, tip: "The old city forts are best explored on foot — most sights are walkable." },
++  udaipur: { publicTransport: 4, practices: 7, tip: "Lake Pichola's boat operators increasingly run electric boats." },
++  jaisalmer: { publicTransport: 3, practices: 5, tip: "Choose desert camps that use solar power and limit vehicle safaris." },
++  pushkar: { publicTransport: 4, practices: 6, tip: "The town centre is compact and walkable around the lake." },
++  amritsar: { publicTransport: 5, practices: 7, tip: "The Golden Temple langar runs largely on volunteer, low-waste practices." },
++  shimla: { publicTransport: 6, practices: 6, tip: "The Mall Road area is pedestrian-only — leave the car at the hotel." },
++  manali: { publicTransport: 5, practices: 5, tip: "Local buses connect Manali to Solang Valley and nearby villages." },
++  kaza: { publicTransport: 2, practices: 6, tip: "Spiti's homestays are a genuinely low-impact way to visit remote villages." },
++  leh: { publicTransport: 3, practices: 6, tip: "Carry a reusable bottle — Ladakh has an active plastic-reduction drive." },
++  rishikesh: { publicTransport: 6, practices: 7, tip: "Many ashrams and cafés here actively discourage single-use plastic." },
++  varanasi: { publicTransport: 5, practices: 5, tip: "Explore the ghats on foot or by shared cycle-rickshaw." },
++  khajuraho: { publicTransport: 3, practices: 6, tip: "The temple complexes are close together and easily walkable." },
++  mumbai: { publicTransport: 9, practices: 6, tip: "Local trains and the metro cover the city far better than cabs." },
++  goa: { publicTransport: 5, practices: 5, tip: "Rent a bicycle for short beach-to-beach hops instead of a scooter." },
++  hampi: { publicTransport: 4, practices: 7, tip: "Hampi's ruins are protected — stick to marked paths and rent a bicycle." },
++  mysore: { publicTransport: 7, practices: 7, tip: "City buses connect the palace, market, and Chamundi Hills." },
++  kochi: { publicTransport: 7, practices: 7, tip: "Fort Kochi is very walkable, and ferries beat road transport across the harbour." },
++  munnar: { publicTransport: 4, practices: 8, tip: "Many tea-estate stays support local plantation-worker communities directly." },
++  alleppey: { publicTransport: 4, practices: 6, tip: "Look for houseboats that advertise solar power or reduced-plastic policies." },
++  trivandrum: { publicTransport: 6, practices: 6, tip: "City buses cover most sights well if you're not in a hurry." },
++  kanyakumari: { publicTransport: 4, practices: 6, tip: "The town centre near the memorials is compact and walkable." },
++  madurai: { publicTransport: 6, practices: 6, tip: "Local buses and shared autos connect the temple area efficiently." },
++  chennai: { publicTransport: 8, practices: 6, tip: "The Chennai Metro and suburban rail cover most visitor routes." },
++  kolkata: { publicTransport: 8, practices: 6, tip: "The Kolkata Metro is one of India's oldest and most extensive." },
++  darjeeling: { publicTransport: 5, practices: 7, tip: "The toy train is a heritage line — a lower-impact way to see the hills." },
++  gangtok: { publicTransport: 5, practices: 8, tip: "Sikkim was India's first fully organic state — look for eco-lodges." },
++  shillong: { publicTransport: 4, practices: 7, tip: "Community-run homestays near the living root bridges directly fund conservation." },
++};
++const DEFAULT_DESTINATION_SUSTAINABILITY = { publicTransport: 5, practices: 5, tip: null };
++
++// ---------------------------------------------------------------------------
++// 4. Carbon footprint
++// ---------------------------------------------------------------------------
++/**
++ * @param {Array} legs - [{ distanceKm }] for each consecutive stop pair
++ * @param {string} mode - "road" | "rail" | "air" | "bus"
++ * @param {number} [travelers=1]
++ * @returns {{ totalDistanceKm: number, carbonKg: number, avgGPerKm: number }}
++ */
++function calculateCarbonFootprint(legs, mode, travelers = 1) {
++  const factor = EMISSION_FACTORS_G_PER_KM[mode] ?? EMISSION_FACTORS_G_PER_KM.road;
++  const totalDistanceKm = (legs || []).reduce((sum, leg) => sum + leg.distanceKm, 0);
++  const carbonKg = (totalDistanceKm * factor * Math.max(1, travelers)) / 1000;
++  return { totalDistanceKm, carbonKg, avgGPerKm: factor };
++}
++
++/** Same stops, same order — how would the footprint change per transport mode? */
++function compareTransportModes(legs, travelers = 1) {
++  return Object.keys(EMISSION_FACTORS_G_PER_KM)
++    .map((mode) => ({ mode, ...calculateCarbonFootprint(legs, mode, travelers) }))
++    .sort((a, b) => a.carbonKg - b.carbonKg);
++}
++
++// ---------------------------------------------------------------------------
++// 5. Sustainability score (0-100)
++// ---------------------------------------------------------------------------
++/**
++ * @param {Array} stops - ordered stops with `.id`
++ * @param {Array} legs - [{ distanceKm }] per consecutive pair
++ * @param {Object} [options]
++ * @param {string} [options.mode="road"]
++ * @param {string} [options.accommodationType="midRangeHotel"]
++ * @param {number} [options.travelers=1]
++ */
++function calculateSustainabilityScore(stops, legs, options = {}) {
++  const mode = options.mode || "road";
++  const accommodationType = ACCOMMODATION_TYPES[options.accommodationType]
++    ? options.accommodationType
++    : DEFAULT_ACCOMMODATION_TYPE;
++  const travelers = options.travelers || 1;
++
++  const footprint = calculateCarbonFootprint(legs, mode, travelers);
++
++  // Transport component (40 pts): scaled between the best (rail) and worst
++  // (air) reference emission factors. Anything at/better than rail scores
++  // full marks; anything at/worse than air scores zero.
++  const gPerKm = footprint.avgGPerKm;
++  const transportRatio = Math.min(
++    1,
++    Math.max(0, (REFERENCE_WORST_G_PER_KM - gPerKm) / (REFERENCE_WORST_G_PER_KM - REFERENCE_BEST_G_PER_KM))
++  );
++  const transportScore = transportRatio * 40;
++
++  // Compactness component (15 pts): average leg distance. Short hops
++  // between nearby stops score higher than long cross-country jumps.
++  const avgLegKm = legs && legs.length ? footprint.totalDistanceKm / legs.length : 0;
++  const compactnessRatio = Math.min(1, Math.max(0, (700 - avgLegKm) / 700));
++  const compactnessScore = compactnessRatio * 15;
++
++  // Accommodation component (20 pts)
++  const accommodationScore = ACCOMMODATION_TYPES[accommodationType].score;
++
++  // Destination-quality components (15 + 10 pts): average across visited stops
++  const destInfo = (stops || []).map(
++    (s) => DESTINATION_SUSTAINABILITY[s.id] || DEFAULT_DESTINATION_SUSTAINABILITY
++  );
++  const avgPublicTransport = destInfo.length
++    ? destInfo.reduce((s, d) => s + d.publicTransport, 0) / destInfo.length
++    : DEFAULT_DESTINATION_SUSTAINABILITY.publicTransport;
++  const avgPractices = destInfo.length
++    ? destInfo.reduce((s, d) => s + d.practices, 0) / destInfo.length
++    : DEFAULT_DESTINATION_SUSTAINABILITY.practices;
++  const publicTransportScore = (avgPublicTransport / 10) * 15;
++  const practicesScore = (avgPractices / 10) * 10;
++
++  const total = transportScore + compactnessScore + accommodationScore + publicTransportScore + practicesScore;
++  const score = Math.round(Math.min(100, Math.max(0, total)));
++
++  return {
++    score,
++    breakdown: {
++      transport: Math.round(transportScore * 10) / 10,
++      compactness: Math.round(compactnessScore * 10) / 10,
++      accommodation: accommodationScore,
++      publicTransport: Math.round(publicTransportScore * 10) / 10,
++      practices: Math.round(practicesScore * 10) / 10,
++    },
++    footprint,
++    accommodationType,
++    mode,
++  };
++}
++
++// ---------------------------------------------------------------------------
++// 6. Badges
++// ---------------------------------------------------------------------------
++function getSustainabilityBadge(score) {
++  if (score >= 80) return { label: "Eco Champion", icon: "🌱", tier: "excellent" };
++  if (score >= 60) return { label: "Green Traveler", icon: "🌿", tier: "good" };
++  if (score >= 40) return { label: "Getting Greener", icon: "🌍", tier: "fair" };
++  return { label: "High Impact", icon: "⚠️", tier: "poor" };
++}
++
++// ---------------------------------------------------------------------------
++// 7. Recommendations
++// ---------------------------------------------------------------------------
++const GENERIC_ECO_TIPS = [
++  "Pack a reusable water bottle and bag — many Indian cities now restrict single-use plastic.",
++  "Group nearby destinations together to cut backtracking and total distance travelled.",
++  "If a flight is unavoidable, consider a verified carbon-offset program for that leg.",
++];
++
++/**
++ * Produces itinerary-specific tips based on the weakest components of the
++ * score, plus a couple of evergreen suggestions.
++ */
++function getRecommendations(stops, legs, options = {}) {
++  const result = calculateSustainabilityScore(stops, legs, options);
++  const tips = [];
++
++  if (result.mode === "air" && result.footprint.totalDistanceKm > 0 && result.footprint.totalDistanceKm < 800) {
++    const railFootprint = calculateCarbonFootprint(legs, "rail", options.travelers || 1);
++    const savingsKg = result.footprint.carbonKg - railFootprint.carbonKg;
++    if (savingsKg > 0) {
++      tips.push(
++        `This route is ${result.footprint.totalDistanceKm.toFixed(0)} km — well within rail range. Switching from air to rail would cut roughly ${savingsKg.toFixed(0)} kg CO2e for this trip.`
++      );
++    }
++  } else if (result.mode === "road") {
++    const busFootprint = calculateCarbonFootprint(legs, "bus", options.travelers || 1);
++    const savingsKg = result.footprint.carbonKg - busFootprint.carbonKg;
++    if (savingsKg > 0) {
++      tips.push(
++        `Where a public bus route exists, it would cut roughly ${savingsKg.toFixed(0)} kg CO2e compared to a private car for this distance.`
++      );
++    }
++  }
++
++  if (result.accommodationType === "luxuryResort" || result.accommodationType === "midRangeHotel") {
++    tips.push("Looking for an eco-certified stay or homestay along your route would meaningfully raise your score — they also tend to put more money directly into the local community.");
++  }
++
++  if (result.breakdown.publicTransport < 7.5) {
++    tips.push("Some of your stops have limited local public transport — book those legs of the trip a little further in advance so you're not relying on last-minute private cabs.");
++  }
++
++  return [...tips, ...GENERIC_ECO_TIPS];
++}
++
++// ---------------------------------------------------------------------------
++// Export for both browser (global) and Node (tests)
++// ---------------------------------------------------------------------------
++const SustainabilityEngine = {
++  EMISSION_FACTORS_G_PER_KM,
++  ACCOMMODATION_TYPES,
++  DESTINATION_SUSTAINABILITY,
++  calculateCarbonFootprint,
++  compareTransportModes,
++  calculateSustainabilityScore,
++  getSustainabilityBadge,
++  getRecommendations,
++};
++
++if (typeof module !== "undefined" && module.exports) {
++  module.exports = SustainabilityEngine;
++} else {
++  window.SustainabilityEngine = SustainabilityEngine;
++}
+diff --git a/frontend/route-planner/route-planner-ui.js b/frontend/route-planner/route-planner-ui.js
+index ce27a73..55ee640 100644
+--- a/frontend/route-planner/route-planner-ui.js
++++ b/frontend/route-planner/route-planner-ui.js
+@@ -7,9 +7,11 @@
+ (function () {
+ const { ROUTE_DESTINATIONS, TRANSPORT_MODES, DESTINATION_INFO, optimizeRoute, getRoute, formatDistance, formatDuration, recommendMode } = window.RoutePlanner;
+ const { PACE_PRESETS, planMultiDayRoute, getAlternativePlans, exportItineraryText } = window.MultiDayPlanner;
++const { ACCOMMODATION_TYPES, compareTransportModes, calculateSustainabilityScore, getSustainabilityBadge, getRecommendations } = window.SustainabilityEngine;
+   let stops = [];
+   let mode = "road";
+   let pace = "standard";
++  let accommodationType = "midRangeHotel";
+   let lastMultiDayPlan = null;
+   let map, routeLayer, markersLayer;
+ 
+@@ -133,6 +135,7 @@ function renderSummary(result) {
+       renderRouteOnMap(result.geometry);
+       renderSummary(result);
+       renderMultiDayPlan(result);
++      renderSustainability(result);
+       setStatus(result.fromCache ? "Loaded from cache." : "Route calculated.");
+     } catch (err) {
+       setStatus(err.message || "Could not calculate route.", true);
+@@ -201,6 +204,57 @@ function renderSummary(result) {
+     }
+   }
+ 
++  // -------------------------------------------------------------------------
++  // Sustainability scoring: carbon footprint + 0-100 score + eco tips for
++  // the current stops/mode/accommodation combination. Recalculates from
++  // scratch on every call (same "no stale cache" approach as the multi-day
++  // plan), so score and footprint always match what's on screen.
++  // -------------------------------------------------------------------------
++  function renderSustainability(result) {
++    const panel = document.getElementById("sustainability-panel");
++    if (!panel) return;
++
++    if (stops.length < 2 || !result.legs || !result.legs.length) {
++      panel.hidden = true;
++      return;
++    }
++    panel.hidden = false;
++
++    const scoreResult = calculateSustainabilityScore(stops, result.legs, {
++      mode,
++      accommodationType,
++      travelers: 1,
++    });
++    const badge = getSustainabilityBadge(scoreResult.score);
++
++    document.getElementById("sustainability-score").textContent = scoreResult.score;
++    document.getElementById("sustainability-badge").textContent = `${badge.icon} ${badge.label}`;
++    document.getElementById("sustainability-badge").className = `sustainability-badge tier-${badge.tier}`;
++    document.getElementById("sustainability-footprint").textContent =
++      `${scoreResult.footprint.carbonKg.toFixed(1)} kg CO2e`;
++
++    const comparison = compareTransportModes(result.legs);
++    document.getElementById("sustainability-comparison").innerHTML = comparison
++      .map(
++        (c) => `
++        <li class="${c.mode === mode ? "current-mode" : ""}">
++          <span>${TRANSPORT_MODES[c.mode] ? TRANSPORT_MODES[c.mode].icon : ""} ${c.mode === mode ? `${c.mode} (current)` : c.mode}</span>
++          <span>${c.carbonKg.toFixed(1)} kg CO2e</span>
++        </li>`
++      )
++      .join("");
++
++    const tips = getRecommendations(stops, result.legs, { mode, accommodationType, travelers: 1 });
++    document.getElementById("sustainability-tips").innerHTML = tips.map((t) => `<li>${t}</li>`).join("");
++  }
++
++  function handleAccommodationChange(e) {
++    accommodationType = e.target.value;
++    if (!document.getElementById("sustainability-panel").hidden && stops.length >= 2) {
++      getRoute(stops, mode).then(renderSustainability).catch(() => {});
++    }
++  }
++
+   function handleExportItinerary() {
+     if (!lastMultiDayPlan) {
+       setStatus("Calculate a route first to export an itinerary.", true);
+@@ -222,11 +276,14 @@ function renderSummary(result) {
+   }
+ 
+   // Itinerary changed (stop added/removed/reordered, mode changed) — the
+-  // route and multi-day plan on screen are now stale until recalculated.
++  // route, multi-day plan, and sustainability score on screen are now stale
++  // until recalculated.
+   function invalidateMultiDayPlan() {
+     lastMultiDayPlan = null;
+     const panel = document.getElementById("multiday-panel");
+     if (panel) panel.hidden = true;
++    const sustainabilityPanel = document.getElementById("sustainability-panel");
++    if (sustainabilityPanel) sustainabilityPanel.hidden = true;
+   }
+ 
+   function handleOptimize() {
+@@ -270,5 +327,7 @@ function renderSummary(result) {
+     if (paceSelector) paceSelector.addEventListener("click", handlePaceChange);
+     const exportBtn = document.getElementById("export-itinerary-btn");
+     if (exportBtn) exportBtn.addEventListener("click", handleExportItinerary);
++    const accommodationSelect = document.getElementById("accommodation-select");
++    if (accommodationSelect) accommodationSelect.addEventListener("change", handleAccommodationChange);
+   });
+ })();
+\ No newline at end of file
+diff --git a/frontend/route-planner/route-planner.html b/frontend/route-planner/route-planner.html
+index 3edb2e1..ce550d5 100644
+--- a/frontend/route-planner/route-planner.html
++++ b/frontend/route-planner/route-planner.html
+@@ -106,7 +106,27 @@
+   .multiday-warnings ul, .multiday-alternatives ul { margin: 8px 0 0; padding-left: 18px; font-size: 0.82rem; opacity: 0.85; }
+   .multiday-alternatives { margin-top: 8px; }
+   .multiday-alternatives ul { list-style: none; padding-left: 0; }
+-  .multiday-alternatives li { padding: 4px 0; }</style>
++  .multiday-alternatives li { padding: 4px 0; }
++  .sustainability-panel { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--glass-border); }
++  .sustainability-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
++  .sustainability-score-circle { font-size: 2rem; font-weight: 700; color: var(--green, #138808); }
++  .sustainability-badge {
++    display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600;
++  }
++  .sustainability-badge.tier-excellent { background: rgba(19,136,8,0.2); color: #2ecc71; }
++  .sustainability-badge.tier-good { background: rgba(19,136,8,0.15); color: #7ed957; }
++  .sustainability-badge.tier-fair { background: rgba(255,153,51,0.15); color: var(--saffron); }
++  .sustainability-badge.tier-poor { background: rgba(255,107,107,0.15); color: #ff6b6b; }
++  .sustainability-footprint { font-size: 0.9rem; opacity: 0.85; margin-bottom: 12px; }
++  #accommodation-select {
++    width: 100%; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--glass-border);
++    background: rgba(255,255,255,0.05); color: inherit; font-family: 'Outfit', sans-serif; margin-bottom: 14px;
++  }
++  .sustainability-comparison { list-style: none; padding: 0; margin: 0 0 14px; font-size: 0.85rem; }
++  .sustainability-comparison li { display: flex; justify-content: space-between; padding: 5px 0; opacity: 0.8; }
++  .sustainability-comparison li.current-mode { opacity: 1; font-weight: 600; color: var(--gold); }
++  .sustainability-tips { margin: 8px 0 0; padding-left: 18px; font-size: 0.82rem; opacity: 0.85; }
++  .sustainability-tips li { padding: 3px 0; }</style>
+ 
+     <!-- Open Graph / Social Media Tags -->
+     <meta property="og:title" content="Route Planner | Incredible India Explorer">
+@@ -215,6 +235,29 @@
+               ⬇ Export Itinerary (offline .txt)
+             </button>
+           </div>
++
++          <div id="sustainability-panel" class="sustainability-panel" hidden>
++            <div class="sustainability-header">
++              <h3 style="margin:0;">Sustainability Score</h3>
++              <span class="sustainability-score-circle"><span id="sustainability-score">–</span>/100</span>
++            </div>
++            <span id="sustainability-badge" class="sustainability-badge"></span>
++            <p class="sustainability-footprint">Estimated footprint: <strong id="sustainability-footprint">–</strong></p>
++
++            <label for="accommodation-select" style="font-size:0.85rem; opacity:0.8;">Accommodation type</label>
++            <select id="accommodation-select">
++              <option value="ecoCertified">🌱 Eco-certified stay</option>
++              <option value="homestay">🏡 Homestay / guesthouse</option>
++              <option value="midRangeHotel" selected>🏨 Mid-range hotel</option>
++              <option value="luxuryResort">🏖 Luxury resort</option>
++            </select>
++
++            <h4 style="margin: 4px 0; color: var(--gold); font-family: 'Outfit', sans-serif; font-size: 0.95rem;">Compare transport modes</h4>
++            <ul id="sustainability-comparison" class="sustainability-comparison"></ul>
++
++            <h4 style="margin: 4px 0; color: var(--gold); font-family: 'Outfit', sans-serif; font-size: 0.95rem;">Eco-friendly tips for this trip</h4>
++            <ul id="sustainability-tips" class="sustainability-tips"></ul>
++          </div>
+         </div>
+ 
+         <!-- Map -->
+@@ -242,6 +285,7 @@
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script><script src="../../app.js" defer></script>
+ <script src="route-planner.js"></script>
+ <script src="multi-day-planner.js"></script>
++<script src="sustainability-engine.js"></script>
+ <script src="route-planner-ui.js" defer></script>
+     <script type="module" src="../../js-modules/budget-calculator-engine.js"></script>
+     <script type="module" src="../../auth.js"></script>
