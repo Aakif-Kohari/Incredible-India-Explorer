@@ -1,112 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>National Highway Navigator — Incredible India Explorer</title>
-<meta name="description" content="Plan routes across India's National Highway network — identify highways, optimise routes, and calculate real driving distances.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>National Highway Navigator</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-sA+e2Y5kG2Q4m8G8jzE2nM6Q0bqjv1m1p4o7ZB6+5H0=" crossorigin="" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
+  <div class="app">
+    <header>
+      <h1>National Highway Navigator</h1>
+      <p>Plan routes using a sample of India's National Highway network.</p>
+    </header>
 
-<header class="site-header">
-  <div class="wrap header-inner">
-    <div class="brand">
-      <svg class="brand-shield" viewBox="0 0 40 44" aria-hidden="true">
-        <path d="M20 1 L38 8 V22 C38 33 30 40 20 43 C10 40 2 33 2 22 V8 Z" />
-        <text x="20" y="27">NH</text>
-      </svg>
-      <div class="brand-text">
-        <span class="brand-title">Highway Navigator</span>
-        <span class="brand-sub">Incredible India Explorer</span>
-      </div>
-    </div>
-    <a class="header-link" href="../../index.html">&larr; Back to Explorer</a>
-  </div>
-</header>
-
-<main>
-  <section class="hero wrap">
-    <p class="eyebrow">National Highway Network &middot; Route Planning Challenge</p>
-    <h1>Chart a course across India's highway grid.</h1>
-    <p class="hero-lede">Pick two cities and the navigator finds the fastest way between them across a real network of National Highways — the same NH44, NH48, NH16 and other route numbers you'd see on an actual milestone.</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><span>50</span>Cities mapped</div>
-      <div class="hero-stat"><span>60+</span>Highway segments</div>
-      <div class="hero-stat"><span>4,112 km</span>Longest route, NH44</div>
-    </div>
-  </section>
-
-  <section class="planner wrap" id="planner">
-    <div class="panel planner-panel">
-      <h2 class="panel-title">Plan a route</h2>
-
-      <div class="field-row">
-        <label class="field">
-          <span class="field-label">From</span>
-          <select id="from-select"></select>
-        </label>
-        <button class="swap-btn" id="swap-btn" type="button" aria-label="Swap origin and destination">&#8646;</button>
-        <label class="field">
-          <span class="field-label">To</span>
-          <select id="to-select"></select>
-        </label>
-      </div>
-
-      <fieldset class="metric-fieldset">
-        <legend class="field-label">Optimise for</legend>
-        <label class="metric-option">
-          <input type="radio" name="metric" value="distance" checked>
-          <span>Shortest distance</span>
-        </label>
-        <label class="metric-option">
-          <input type="radio" name="metric" value="time">
-          <span>Shortest drive time</span>
-        </label>
-      </fieldset>
-
-      <button class="plan-btn" id="plan-btn" type="button">Plan route</button>
-
-      <div id="empty-state" class="empty-state">
-        <p>Choose a start and destination, then plan a route to see it here.</p>
-      </div>
-      <div id="result-panel" class="result-panel" hidden></div>
-    </div>
-
-    <div class="panel map-panel">
-      <div class="map-panel-head">
-        <h2 class="panel-title">Route map</h2>
-        <div class="map-legend">
-          <span><i class="legend-dot legend-node"></i>City</span>
-          <span><i class="legend-dot legend-endpoint"></i>Origin / destination</span>
-          <span><i class="legend-line legend-route"></i>Active route</span>
+    <main>
+      <aside class="controls">
+        <div class="form-row">
+          <label for="start">Start</label>
+          <select id="start" aria-label="Start location"></select>
         </div>
-      </div>
-      <div class="map-frame">
-        <svg id="map-svg" viewBox="0 0 640 760" role="img" aria-label="Map of India showing National Highway routes"></svg>
-        <div id="map-tooltip" class="map-tooltip"></div>
-      </div>
-      <p class="map-caption">A simplified route-planning outline of India — city positions are plotted from real coordinates, so proportions and directions are geographically accurate.</p>
-    </div>
-  </section>
+        <div class="form-row">
+          <label for="end">End</label>
+          <select id="end" aria-label="End location"></select>
+        </div>
+        <div class="form-row actions">
+          <button id="plan">Plan Route</button>
+          <button id="clear">Clear</button>
+        </div>
+        <div id="info" class="info" aria-live="polite"></div>
+      </aside>
 
-  <section class="directory wrap" id="directory">
-    <h2 class="section-title">Highway identification</h2>
-    <p class="section-lede">Every route on the map is tagged with its real National Highway number. Select one to trace its full path.</p>
-    <div class="hwy-grid" id="highway-directory"></div>
-  </section>
-</main>
+      <section id="map" class="map" role="application" aria-label="Map showing highways"></section>
+    </main>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <p>Built for the <strong>Incredible India Explorer</strong> — feat: National Highway Navigator. Road distances are approximate and intended for exploration, not live navigation.</p>
+    <footer>
+      <small>Data: sample network for demo. Map tiles © OpenStreetMap contributors.</small>
+    </footer>
   </div>
-</footer>
 
-<script src="data.js"></script>
-<script src="app.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-o9N1j7k9t+g1y3lM8dZV4wNqQ5jv1m1p4o7ZB6+5H0=" crossorigin=""></script>
+  <script src="./script.js"></script>
 </body>
 </html>
