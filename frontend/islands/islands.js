@@ -21,6 +21,48 @@ const ISLANDS_DATA = [
     image: "../../assets/travel_beaches.png"
   },
   {
+    id: "great-nicobar",
+    name: "Great Nicobar Island",
+    group: "Andaman & Nicobar",
+    location: "Nicobar Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 6.95,
+    lng: 93.87,
+    islandCount: "1 island",
+    tagline: "India's southernmost island, home to Indira Point",
+    description: "The largest island in the Nicobar group and India's southernmost territory, home to Indira Point, Campbell Bay National Park, and rare endemic wildlife.",
+    highlights: ["Indira Point — southernmost tip of India", "Campbell Bay National Park", "UNESCO Biosphere Reserve (2013)", "Nesting ground for Giant Leatherback turtles"],
+    image: "../../assets/travel_hidden.png"
+  },
+  {
+    id: "south-andaman",
+    name: "South Andaman",
+    group: "Andaman & Nicobar",
+    location: "Andaman Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 11.6234,
+    lng: 92.7265,
+    islandCount: "1 island",
+    tagline: "Gateway to the Andamans — Port Blair, Cellular Jail & Ross Island",
+    description: "Home to Port Blair, the capital of Andaman & Nicobar Islands, South Andaman blends colonial history, museums, and coastal scenery — from the Cellular Jail to Chidiya Tapu's sunsets and the ruins of Ross Island.",
+    highlights: ["Cellular Jail National Memorial", "Ross Island's British colonial ruins", "Chidiya Tapu — Bird Island & sunset point", "Anthropological & Samudrika Marine Museums"],
+    image: "../../assets/travel_beaches.png"
+  },
+  {
+    id: "middle-andaman",
+    name: "Middle Andaman",
+    group: "Andaman & Nicobar",
+    location: "Andaman Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 12.55,
+    lng: 92.85,
+    islandCount: "1 island",
+    tagline: "Limestone caves, mangrove creeks & quiet beaches",
+    description: "Home to Baratang's limestone caves and mud volcanoes, sprawling mangrove forests, and the towns of Rangat and Mayabunder, Middle Andaman offers a quieter, nature-focused side of the archipelago.",
+    highlights: ["Limestone Caves, Baratang Island", "Mangrove creek boat rides", "Karmatang Beach — sea turtle nesting site", "Rangat & Mayabunder villages"],
+    image: "../../assets/travel_hidden.png"
+  },
+  {
     id: "lakshadweep",
     name: "Lakshadweep Islands",
     group: "Lakshadweep",
@@ -243,6 +285,16 @@ function initSearchAndFilters() {
 function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
+
+  if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman") {
+    const pageMap = {
+      "great-nicobar": "../great-nicobar/great-nicobar.html",
+      "south-andaman": "../south-andaman/south-andaman.html",
+      "middle-andaman": "../middle-andaman/middle-andaman.html"
+    };
+    window.location.href = pageMap[island.id];
+    return;
+  }
 
   document.getElementById("island-modal-title").textContent = island.name;
   document.getElementById("island-modal-location").textContent = island.location;
