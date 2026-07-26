@@ -1013,6 +1013,7 @@ window.indiaSearchIndex = [
     category: "UP Central Portal",
     description: "Explore UP heritage, Taj Mahal, Varanasi Ghats, Ayodhya Ram Mandir, Awadhi Cuisine, and 10 tourism modules.",
     url: "frontend/up-dashboard/up-dashboard.html"
+  },
   // --- Uttar Pradesh District Explorer ---
   {
     title: "Uttar Pradesh District Explorer",
@@ -1025,6 +1026,7 @@ window.indiaSearchIndex = [
     category: "UP State Explorer",
     description: "Search and filter all 75 UP districts across 18 divisions and 4 geographic regions with SVG map and detail inspector.",
     url: "frontend/up-district-explorer/up-district-explorer.html"
+  },
   // --- Guess the Uttar Pradesh District Game ---
   {
     title: "Guess the Uttar Pradesh District Game",
@@ -1037,6 +1039,7 @@ window.indiaSearchIndex = [
     category: "UP Geography Game",
     description: "Identify UP districts from handicraft ODOP, river landmarks, and history with scoreboard, timer, hints, and achievement badges.",
     url: "frontend/guess-up-district/guess-up-district.html"
+  },
   // --- Uttar Pradesh Filming Locations Explorer ---
   {
     title: "Uttar Pradesh Filming Locations Explorer",
@@ -1049,6 +1052,7 @@ window.indiaSearchIndex = [
     category: "UP Filming Locations",
     description: "Discover movie cards, behind-the-scenes trivia, and interactive gallery for movies filmed in Uttar Pradesh.",
     url: "frontend/up-filming/up-filming.html"
+  },
   // --- Uttar Pradesh Pilgrimage Circuit Planner ---
   {
     title: "Uttar Pradesh Pilgrimage Circuit Planner",
@@ -1074,6 +1078,7 @@ window.indiaSearchIndex = [
     category: "Agricultural History",
     description: "Interactive before/after yield comparison chart, 4 technological pillars, and balanced dual framing of food security vs groundwater considerations.",
     url: "frontend/green-revolution/green-revolution.html"
+  },
   // --- History of Indian Railways Timeline ---
   {
     title: "Animated Timeline: History of Indian Railways",
@@ -1086,6 +1091,7 @@ window.indiaSearchIndex = [
     category: "Railways History",
     description: "Explore 170+ years of Indian Railways with animated train track visualization, neutral factual framing, and technical specs.",
     url: "frontend/railways-timeline/railways-timeline.html"
+  },
   // --- Famous Monuments Explorer ---
   {
     title: "Famous Monuments Explorer",
@@ -1098,6 +1104,7 @@ window.indiaSearchIndex = [
     category: "UP Monuments Guide",
     description: "Explore historical timelines, architectural specs, and interactive 3D perspective cards of iconic Uttar Pradesh heritage monuments.",
     url: "frontend/up-monuments/up-monuments.html"
+  },
   // --- Uttar Pradesh Festival Calendar ---
   {
     title: "Uttar Pradesh Festival Calendar",
@@ -1117,12 +1124,14 @@ window.indiaSearchIndex = [
     category: "History & Geography",
     description: "Animated expanding-path map detailing the historical transmission of Buddhism across Asia from Bodh Gaya across Sri Lanka, Silk Road, and East Asia.",
     url: "frontend/buddhism-spread-map/index.html"
+  },
   // --- Capital Match-Up ---
   {
     title: "Capital Match-Up Game",
     category: "Games & Geography",
     description: "Interactive drag-and-drop and tap-to-select matching game pairing Indian states and union territories with their capitals.",
     url: "frontend/capital-match-up/index.html"
+  },
   // --- UP Heritage Arc Explorer ---
   {
     title: "Uttar Pradesh Heritage Arc Explorer",
@@ -1142,5 +1151,23 @@ window.indiaSearchIndex = [
     category: "National Awards Explorer",
     description: "Detailed eligibility criteria, historical institution, medal design specifications, notable recipient list, and trivia for India's highest civilian and military honours.",
     url: "frontend/national-awards/national-awards.html"
+  // --- RBI Explorer ---
+  {
+    title: "Reserve Bank of India (RBI) Explorer",
+    category: "Banking & Economics",
+    description: "Interactive educational portal explaining the Reserve Bank of India: history, core functions, Monetary Policy Committee (MPC), Repo Rate simulator, CRR & SLR reserve math, and currency printing presses.",
+    url: "frontend/rbi-explorer/index.html"
+  },
+  {
+    title: "RBI Monetary Policy, Repo Rate & CRR/SLR Calculator",
+    category: "RBI Explorer",
+    description: "Interactive policy interest rate simulator and commercial bank Cash Reserve Ratio (CRR) vs Statutory Liquidity Ratio (SLR) deposit calculator.",
+    url: "frontend/rbi-explorer/index.html"
+  // --- Islands of India ---
+  {
+    title: "Islands of India Explorer",
+    category: "Travel & Geography",
+    description: "Interactive hub for India's island territories including Andaman & Nicobar, Lakshadweep, Majuli, and the Sundarbans, with a map, search, and key statistics.",
+    url: "frontend/islands/islands.html"
   }
 ];
