@@ -1242,5 +1242,29 @@ window.indiaSearchIndex = [
     category: "Census Statistics",
     description: "Decennial state literacy ranking race, play/pause controls, search filters, and Census of India sourcing disclaimer.",
     url: "frontend/literacy-chart-race/literacy-chart-race.html"
+  // --- How Indian Classical Ragas Work (Time-of-Day Theory) ---
+  {
+    title: "Animated Explainer: How Indian Classical Ragas Work (Time-of-Day Theory)",
+    category: "Music & Performing Arts",
+    description: "Interactive 24-hour clock-face UI exploring Samaya Chakra, swara structures, Vadi & Samvadi notes, and traditional raga time associations.",
+    url: "frontend/ragas-time-explainer/ragas-time-explainer.html"
+  },
+  {
+    title: "Indian Classical Music Samaya Chakra & Ragas Guide",
+    category: "Musicology",
+    description: "Explore Raga Bhairav, Yaman, Darbari Kanada, Malkauns, Brindavani Sarang, and Lalit with original musicological text descriptions.",
+    url: "frontend/ragas-time-explainer/ragas-time-explainer.html"
+  // --- Partition of India, 1947 ---
+  {
+    title: "Scrollytelling: Partition of India, 1947 — A Factual Overview",
+    category: "Modern History & Narrative",
+    description: "Careful, neutral, non-graphic historical overview of the 1947 Partition — political context, Radcliffe boundary line animation, migration demographics, and nation-building aftermath.",
+    url: "frontend/partition-1947/partition-1947.html"
+  },
+  {
+    title: "1947 Radcliffe Line & Refugee Demographics Historical Record",
+    category: "Partition History",
+    description: "Sourced census data, timeline of key dates (Mountbatten Plan, Independence Act, Radcliffe Award), and post-1950 constitutional integration.",
+    url: "frontend/partition-1947/partition-1947.html"
   }
 ];
