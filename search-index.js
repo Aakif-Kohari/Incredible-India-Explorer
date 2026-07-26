@@ -1229,5 +1229,18 @@ window.indiaSearchIndex = [
     category: "Travel & Geography",
     description: "Interactive hub for India's island territories including Andaman & Nicobar, Lakshadweep, Majuli, and the Sundarbans, with a map, search, and key statistics.",
     url: "frontend/islands/islands.html"
+  },
+  // --- Partition of India, 1947 ---
+  {
+    title: "Scrollytelling: Partition of India, 1947 — A Factual Overview",
+    category: "Modern History & Narrative",
+    description: "Careful, neutral, non-graphic historical overview of the 1947 Partition — political context, Radcliffe boundary line animation, migration demographics, and nation-building aftermath.",
+    url: "frontend/partition-1947/partition-1947.html"
+  },
+  {
+    title: "1947 Radcliffe Line & Refugee Demographics Historical Record",
+    category: "Partition History",
+    description: "Sourced census data, timeline of key dates (Mountbatten Plan, Independence Act, Radcliffe Award), and post-1950 constitutional integration.",
+    url: "frontend/partition-1947/partition-1947.html"
   }
 ];
