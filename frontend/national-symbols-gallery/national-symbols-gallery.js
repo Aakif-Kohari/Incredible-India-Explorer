@@ -15,7 +15,7 @@ const nationalSymbols = [
     history: "Adopted by the Constituent Assembly on 22 July 1947, just weeks before independence, the current design evolved from earlier versions used during the freedom movement, replacing the charkha (spinning wheel) with the Ashoka Chakra.",
     significance: "Saffron represents courage and sacrifice, white represents truth and peace, and green represents faith and prosperity. The navy-blue Ashoka Chakra with 24 spokes represents the eternal wheel of law (dharma).",
     facts: [
-      "The flag must be made only of hand-spun khadi cloth, per the Flag Code of India.",
+      "Since a 30 December 2021 amendment to the Flag Code, the flag may also be machine-made from polyester and other materials, in addition to hand-spun khadi.",
       "The Ashoka Chakra is adapted from the abacus of the Lion Capital of Ashoka at Sarnath.",
       "The flag's height-to-width ratio is fixed at 2:3."
     ]
@@ -164,6 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("symbol-search");
 
   const modal = document.getElementById("symbols-modal");
+  const modalCard = document.querySelector(".symbols-modal-card");
   const modalCloseBtn = document.getElementById("modal-close-btn");
   const modalIcon = document.getElementById("modal-icon-preview");
   const modalCategory = document.getElementById("modal-category");
@@ -175,6 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let activeCategory = "all";
   let searchTerm = "";
+  let modalFocusTrap = null;
+  let lastFocusedCard = null;
 
   function renderSymbols() {
     if (!grid) return;
@@ -242,6 +245,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const symbol = nationalSymbols.find((s) => s.id === symbolId);
     if (!symbol || !modal) return;
 
+    lastFocusedCard = document.activeElement;
+
     modalIcon.textContent = symbol.icon;
     modalCategory.textContent = symbol.type;
     modalTitle.textContent = symbol.title;
@@ -252,14 +257,29 @@ document.addEventListener("DOMContentLoaded", () => {
       .map((fact) => `<div class="modal-fact-item">${fact}</div>`)
       .join("");
 
+    if (modalCard) modalCard.scrollTop = 0;
+
     modal.classList.add("open");
     document.body.style.overflow = "hidden";
+
+    if (typeof window.setupFocusTrap === "function" && modalCard) {
+      modalFocusTrap = window.setupFocusTrap(modalCard);
+    }
+    modalCloseBtn?.focus();
   }
 
   function closeSymbolModal() {
     if (!modal) return;
     modal.classList.remove("open");
     document.body.style.overflow = "";
+
+    if (modalFocusTrap) {
+      modalFocusTrap.deactivate();
+      modalFocusTrap = null;
+    }
+    if (lastFocusedCard && typeof lastFocusedCard.focus === "function") {
+      lastFocusedCard.focus();
+    }
   }
 
   modalCloseBtn?.addEventListener("click", closeSymbolModal);

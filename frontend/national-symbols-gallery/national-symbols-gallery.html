@@ -4,8 +4,15 @@
     <script>
         (function() {
             const theme = localStorage.getItem('theme') || 'dark';
-            if (theme === 'light') {
-                document.body.classList.add('light-theme');
+            function applyTheme() {
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            }
+            if (document.body) {
+                applyTheme();
+            } else {
+                document.addEventListener('DOMContentLoaded', applyTheme);
             }
         })();
     </script>
@@ -109,7 +116,7 @@
 
     <!-- Symbol Detail Modal -->
     <div class="symbols-modal-overlay" id="symbols-modal">
-        <div class="symbols-modal-card">
+        <div class="symbols-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-symbol-title">
             <button class="modal-close-btn" id="modal-close-btn" aria-label="Close">&times;</button>
             <div class="modal-icon-preview" id="modal-icon-preview">🇮🇳</div>
             <div class="modal-content-details">
@@ -140,7 +147,13 @@
                 </a>
                 <p>Celebrating the emblems, wildlife, and natural heritage that represent India.</p>
             </div>
-            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html">Home</a>
+                <a href="../culture/culture.html">Culture</a>
+                <a href="../national-symbols-memory/national-symbols-memory.html">Symbols Memory Game</a>
+                <a href="../state-symbols/state-symbols.html">State Symbols</a>
+            </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Incredible India Explorer. Open Source National Symbols Initiative.</p>
