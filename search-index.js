@@ -1105,5 +1105,18 @@ window.indiaSearchIndex = [
     category: "UP Festival Calendar",
     description: "Explore month-by-month festival schedules, rituals, cultural significance, and city locations in Uttar Pradesh.",
     url: "frontend/up-festival-calendar/up-festival-calendar.html"
+  },
+  // --- CBI Knowledge Center ---
+  {
+    title: "Central Bureau of Investigation (CBI) Knowledge Center",
+    category: "Civics & Governance",
+    description: "Comprehensive educational section on India's premier investigative agency: history, DSPE Act legal powers, Director selection, operational divisions, landmark cases, FAQs, and Interpol role.",
+    url: "frontend/cbi-knowledge-center/index.html"
+  },
+  {
+    title: "CBI Legal Powers, State Consent & DSPE Act Guide",
+    category: "CBI Knowledge Center",
+    description: "Detailed legal explainer of Delhi Special Police Establishment Act 1946, Section 6 General Consent vs Specific Consent, and High-Powered Committee Director selection process.",
+    url: "frontend/cbi-knowledge-center/index.html"
   }
 ];
