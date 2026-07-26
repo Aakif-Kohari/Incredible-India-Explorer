@@ -1242,5 +1242,17 @@ window.indiaSearchIndex = [
     category: "Musicology",
     description: "Explore Raga Bhairav, Yaman, Darbari Kanada, Malkauns, Brindavani Sarang, and Lalit with original musicological text descriptions.",
     url: "frontend/ragas-time-explainer/ragas-time-explainer.html"
+  // --- Partition of India, 1947 ---
+  {
+    title: "Scrollytelling: Partition of India, 1947 — A Factual Overview",
+    category: "Modern History & Narrative",
+    description: "Careful, neutral, non-graphic historical overview of the 1947 Partition — political context, Radcliffe boundary line animation, migration demographics, and nation-building aftermath.",
+    url: "frontend/partition-1947/partition-1947.html"
+  },
+  {
+    title: "1947 Radcliffe Line & Refugee Demographics Historical Record",
+    category: "Partition History",
+    description: "Sourced census data, timeline of key dates (Mountbatten Plan, Independence Act, Radcliffe Award), and post-1950 constitutional integration.",
+    url: "frontend/partition-1947/partition-1947.html"
   }
 ];
