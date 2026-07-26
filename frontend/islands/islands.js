@@ -276,6 +276,8 @@ function openModal(islandId) {
     window.location.href = island.id === "great-nicobar"
       ? "../great-nicobar/great-nicobar.html"
       : "../south-andaman/south-andaman.html";
+  if (island.id === "great-nicobar") {
+    window.location.href = "../great-nicobar/great-nicobar.html";
     return;
   }
 
