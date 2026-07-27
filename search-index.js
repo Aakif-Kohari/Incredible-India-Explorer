@@ -1180,5 +1180,29 @@ window.indiaSearchIndex = [
     category: "Data & Languages",
     description: "Animated map progressively revealing India's linguistic diversity, layering major languages by speaker population based on Census of India data.",
     url: "frontend/language-diversity-map/index.html"
+  // --- Animated Explainer: How the Monsoon Farming Cycle Works ---
+  {
+    title: "Animated Explainer: How the Monsoon Farming Cycle Works",
+    category: "Agriculture & Geography",
+    description: "Explains the kharif/rabi/zaid crop cycles tied to monsoon timing with an animated circular calendar wheel and verified crop season data.",
+    url: "frontend/monsoon-farming-cycle/index.html"
+  // --- Scrollytelling: Life Along the Himalayas ---
+  {
+    title: "Scrollytelling: Life Along the Himalayas",
+    category: "Geography & Culture",
+    description: "A narrative journey through Himalayan geography, culture, and daily life across 4 altitude zones from foothills to glacial cold deserts.",
+    url: "frontend/himalayan-life-scrollytelling/index.html"
+  // --- Animated Infographic: India's Biodiversity Hotspots ---
+  {
+    title: "Animated Infographic: India's Biodiversity Hotspots",
+    category: "Environment & Wildlife",
+    description: "Animated infographic highlighting India's four recognized biodiversity hotspots: Himalaya, Western Ghats, Indo-Burma, and Sundaland/Nicobar.",
+    url: "frontend/biodiversity-hotspots/index.html"
+  // --- Animated Explainer: India's Space Program Milestones ---
+  {
+    title: "Animated Explainer: India's Space Program Milestones",
+    category: "Science & Technology",
+    description: "Explainer on ISRO's evolution from founding in 1969 to Aryabhata, Mangalyaan, Chandrayaan-3, Aditya-L1, and Gaganyaan with orbit animations.",
+    url: "frontend/space-program-milestones/index.html"
   }
 ];
