@@ -11,7 +11,7 @@ export const STATE_ADJACENCY_MAP = {
   AR: { id: "AR", name: "Arunachal Pradesh", capital: "Itanagar", region: "North-East", neighbors: ["AS", "NL"] },
   AS: { id: "AS", name: "Assam", capital: "Dispur", region: "North-East", neighbors: ["AR", "NL", "MN", "MZ", "TR", "ML", "WB"] },
   BR: { id: "BR", name: "Bihar", capital: "Patna", region: "East", neighbors: ["UP", "JH", "WB"] },
-  CT: { id: "CT", name: "Chhattisgarh", capital: "Raipur", region: "Central", neighbors: ["MP", "UP", "JH", "OR", "TS", "MH"] },
+  CT: { id: "CT", name: "Chhattisgarh", capital: "Raipur", region: "Central", neighbors: ["MP", "UP", "JH", "OR", "TS", "MH", "AP"] },
   GA: { id: "GA", name: "Goa", capital: "Panaji", region: "West", neighbors: ["MH", "KA"] },
   GJ: { id: "GJ", name: "Gujarat", capital: "Gandhinagar", region: "West", neighbors: ["RJ", "MP", "MH"] },
   HR: { id: "HR", name: "Haryana", capital: "Chandigarh", region: "North", neighbors: ["PB", "HP", "UK", "UP", "RJ"] },
@@ -34,7 +34,7 @@ export const STATE_ADJACENCY_MAP = {
   TS: { id: "TS", name: "Telangana", capital: "Hyderabad", region: "South", neighbors: ["MH", "CT", "AP", "KA"] },
   TR: { id: "TR", name: "Tripura", capital: "Agartala", region: "North-East", neighbors: ["AS", "MZ"] },
   UP: { id: "UP", name: "Uttar Pradesh", capital: "Lucknow", region: "North", neighbors: ["UK", "HP", "HR", "RJ", "MP", "CT", "JH", "BR"] },
-  UK: { id: "UK", name: "Uttarakhand", capital: "Dehradun", region: "North", neighbors: ["HP", "UP"] },
+  UK: { id: "UK", name: "Uttarakhand", capital: "Dehradun", region: "North", neighbors: ["HP", "UP", "HR"] },
   WB: { id: "WB", name: "West Bengal", capital: "Kolkata", region: "East", neighbors: ["SK", "AS", "OR", "JH", "BR"] }
 };
 
