@@ -1173,5 +1173,24 @@ window.indiaSearchIndex = [
     category: "Partition History",
     description: "Sourced census data, timeline of key dates (Mountbatten Plan, Independence Act, Radcliffe Award), and post-1950 constitutional integration.",
     url: "frontend/partition-1947/partition-1947.html"
+  },
+  // --- Scrollytelling: Life Along the Himalayas ---
+  {
+    title: "Scrollytelling: Life Along the Himalayas",
+    category: "Geography & Culture",
+    description: "A narrative journey through Himalayan geography, culture, and daily life across 4 altitude zones from foothills to glacial cold deserts.",
+    url: "frontend/himalayan-life-scrollytelling/index.html"
+  // --- Animated Infographic: India's Biodiversity Hotspots ---
+  {
+    title: "Animated Infographic: India's Biodiversity Hotspots",
+    category: "Environment & Wildlife",
+    description: "Animated infographic highlighting India's four recognized biodiversity hotspots: Himalaya, Western Ghats, Indo-Burma, and Sundaland/Nicobar.",
+    url: "frontend/biodiversity-hotspots/index.html"
+  // --- Animated Explainer: India's Space Program Milestones ---
+  {
+    title: "Animated Explainer: India's Space Program Milestones",
+    category: "Science & Technology",
+    description: "Explainer on ISRO's evolution from founding in 1969 to Aryabhata, Mangalyaan, Chandrayaan-3, Aditya-L1, and Gaganyaan with orbit animations.",
+    url: "frontend/space-program-milestones/index.html"
   }
 ];
