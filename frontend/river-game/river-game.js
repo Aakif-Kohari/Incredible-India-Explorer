@@ -1,4 +1,4 @@
-import { RiverEngine } from './js-modules/river-engine.js';
+import { RiverEngine } from '../../js-modules/river-engine.js';
 
 let engine;
 let canvas, ctx;
