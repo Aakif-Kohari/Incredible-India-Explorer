@@ -85,7 +85,12 @@ let map = null;
 let currentGalleryIndex = 0;
 let factIndex = 0;
 let factIntervalId = null;
+let map = null;
+let currentGalleryIndex = 0;
+let factIndex = 0;
+let factIntervalId = null;
 
+let lightboxKeydownHandler = null;
 // ---------- 6. INITIALIZATION ----------
 function init() {
   initAccordion();
@@ -105,11 +110,21 @@ if (document.readyState !== "loading") {
 // Clean up intervals on route changes to prevent memory leaks (managed by SPA router)
 if (window.appLifecycle) {
   window.appLifecycle.registerCleanup(() => {
-    if (factIntervalId) {
-      clearInterval(factIntervalId);
-      factIntervalId = null;
-    }
-  });
+  if (factIntervalId) {
+    clearInterval(factIntervalId);
+    factIntervalId = null;
+  }
+
+  if (lightboxKeydownHandler) {
+    document.removeEventListener("keydown", lightboxKeydownHandler);
+    lightboxKeydownHandler = null;
+  }
+
+  if (map) {
+    map.remove();
+    map = null;
+  }
+});
 }
 
 // ---------- 7. FAQ ACCORDION ----------
@@ -198,12 +213,15 @@ function initLightbox() {
   if (prevBtn) prevBtn.addEventListener("click", () => showGalleryImage(currentGalleryIndex - 1));
   if (nextBtn) nextBtn.addEventListener("click", () => showGalleryImage(currentGalleryIndex + 1));
 
-  document.addEventListener("keydown", (e) => {
-    if (lightbox.hidden) return;
-    if (e.key === "Escape") closeLightbox();
-    if (e.key === "ArrowRight") showGalleryImage(currentGalleryIndex + 1);
-    if (e.key === "ArrowLeft") showGalleryImage(currentGalleryIndex - 1);
-  });
+  lightboxKeydownHandler = (e) => {
+  if (lightbox.hidden) return;
+
+  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowRight") showGalleryImage(currentGalleryIndex + 1);
+  if (e.key === "ArrowLeft") showGalleryImage(currentGalleryIndex - 1);
+};
+
+document.addEventListener("keydown", lightboxKeydownHandler);
 }
 
 function openLightbox(index) {
