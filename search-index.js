@@ -1174,6 +1174,12 @@ window.indiaSearchIndex = [
     description: "Sourced census data, timeline of key dates (Mountbatten Plan, Independence Act, Radcliffe Award), and post-1950 constitutional integration.",
     url: "frontend/partition-1947/partition-1947.html"
   },
+  // --- Animated Explainer: How the Monsoon Farming Cycle Works ---
+  {
+    title: "Animated Explainer: How the Monsoon Farming Cycle Works",
+    category: "Agriculture & Geography",
+    description: "Explains the kharif/rabi/zaid crop cycles tied to monsoon timing with an animated circular calendar wheel and verified crop season data.",
+    url: "frontend/monsoon-farming-cycle/index.html"
   // --- Scrollytelling: Life Along the Himalayas ---
   {
     title: "Scrollytelling: Life Along the Himalayas",
