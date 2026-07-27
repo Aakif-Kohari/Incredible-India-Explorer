@@ -1174,6 +1174,12 @@ window.indiaSearchIndex = [
     description: "Sourced census data, timeline of key dates (Mountbatten Plan, Independence Act, Radcliffe Award), and post-1950 constitutional integration.",
     url: "frontend/partition-1947/partition-1947.html"
   },
+  // --- Scrollytelling: Life Along the Himalayas ---
+  {
+    title: "Scrollytelling: Life Along the Himalayas",
+    category: "Geography & Culture",
+    description: "A narrative journey through Himalayan geography, culture, and daily life across 4 altitude zones from foothills to glacial cold deserts.",
+    url: "frontend/himalayan-life-scrollytelling/index.html"
   // --- Animated Infographic: India's Biodiversity Hotspots ---
   {
     title: "Animated Infographic: India's Biodiversity Hotspots",
