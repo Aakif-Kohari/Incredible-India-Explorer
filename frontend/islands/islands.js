@@ -63,6 +63,20 @@ const ISLANDS_DATA = [
     image: "../../assets/travel_hidden.png"
   },
   {
+    id: "shaheed-dweep",
+    name: "Shaheed Dweep (Neil Island)",
+    group: "Andaman & Nicobar",
+    location: "Andaman Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 11.835,
+    lng: 93.03,
+    islandCount: "1 island",
+    tagline: "The Natural Bridge, beaches & the Andamans' vegetable bowl",
+    description: "Formerly Neil Island, officially renamed Shaheed Dweep in 2018 — a small, laid-back island known for its Natural Bridge rock arch, Bharatpur & Laxmanpur beaches, accessible coral reefs, and the farms that supply Port Blair's markets.",
+    highlights: ["Natural Bridge (Howrah Bridge)", "Bharatpur Beach snorkelling & coral reefs", "Laxmanpur Beach sunsets", "Vegetable farms — the 'vegetable bowl' of the Andamans"],
+    image: "../../assets/travel_islands.png"
+  },
+  {
     id: "lakshadweep",
     name: "Lakshadweep Islands",
     group: "Lakshadweep",
@@ -75,20 +89,6 @@ const ISLANDS_DATA = [
     description: "A cluster of 36 coral islands and atolls scattered in the Arabian Sea off the Kerala coast. Built entirely from coral deposits, the islands are ringed by turquoise lagoons and are among the most pristine coral reef ecosystems in India.",
     highlights: ["Kavaratti — administrative capital", "Agatti coral lagoon", "Bangaram atoll", "Minicoy — largest island in the group"],
     image: "../../assets/travel_beaches.png"
-  },
-  {
-    id: "bangaram",
-    name: "Bangaram Island",
-    group: "Lakshadweep",
-    location: "Lakshadweep, Arabian Sea",
-    state: "Union Territory",
-    lat: 10.9526,
-    lng: 72.2708,
-    islandCount: "1 island",
-    tagline: "An uninhabited coral atoll ringed by a turquoise lagoon",
-    description: "The largest island in a small coral atoll near Agatti, Bangaram is uninhabited apart from resort staff and visitors. Its shallow lagoon, vibrant reef, and pristine beaches make it one of Lakshadweep's premier spots for diving, snorkelling and quiet eco-tourism.",
-    highlights: ["Shared lagoon spanning roughly 125 sq km", "PADI-style dive centre and reef walls", "Reef sharks, manta rays & sea turtles", "Bioluminescent plankton on the shoreline at night"],
-    image: "../../assets/travel_islands.png"
   },
   {
     id: "majuli",
@@ -300,12 +300,12 @@ function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
 
-  if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "bangaram") {
+  if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep") {
     const pageMap = {
       "great-nicobar": "../great-nicobar/great-nicobar.html",
       "south-andaman": "../south-andaman/south-andaman.html",
       "middle-andaman": "../middle-andaman/middle-andaman.html",
-      "bangaram": "../bangaram-island/bangaram-island.html"
+      "shaheed-dweep": "../shaheed-dweep/shaheed-dweep.html"
     };
     window.location.href = pageMap[island.id];
     return;
