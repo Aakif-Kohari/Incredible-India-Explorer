@@ -222,7 +222,7 @@ export function filterMembers(members = CONSTITUENT_ASSEMBLY_MEMBERS, committee 
       m.name.toLowerCase().includes(keyword) ||
       m.role.toLowerCase().includes(keyword) ||
       m.contributions.toLowerCase().includes(keyword) ||
-      m.biography.toLowerCase().includes(keyword);
+      m.id.toLowerCase().includes(keyword);
 
     return matchesCommittee && matchesSearch;
   });
