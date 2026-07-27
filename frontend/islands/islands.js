@@ -77,6 +77,20 @@ const ISLANDS_DATA = [
     image: "../../assets/travel_beaches.png"
   },
   {
+    id: "bangaram",
+    name: "Bangaram Island",
+    group: "Lakshadweep",
+    location: "Lakshadweep, Arabian Sea",
+    state: "Union Territory",
+    lat: 10.9526,
+    lng: 72.2708,
+    islandCount: "1 island",
+    tagline: "An uninhabited coral atoll ringed by a turquoise lagoon",
+    description: "The largest island in a small coral atoll near Agatti, Bangaram is uninhabited apart from resort staff and visitors. Its shallow lagoon, vibrant reef, and pristine beaches make it one of Lakshadweep's premier spots for diving, snorkelling and quiet eco-tourism.",
+    highlights: ["Shared lagoon spanning roughly 125 sq km", "PADI-style dive centre and reef walls", "Reef sharks, manta rays & sea turtles", "Bioluminescent plankton on the shoreline at night"],
+    image: "../../assets/travel_islands.png"
+  },
+  {
     id: "majuli",
     name: "Majuli",
     group: "River Islands",
@@ -286,11 +300,12 @@ function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
 
-  if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman") {
+  if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "bangaram") {
     const pageMap = {
       "great-nicobar": "../great-nicobar/great-nicobar.html",
       "south-andaman": "../south-andaman/south-andaman.html",
-      "middle-andaman": "../middle-andaman/middle-andaman.html"
+      "middle-andaman": "../middle-andaman/middle-andaman.html",
+      "bangaram": "../bangaram-island/bangaram-island.html"
     };
     window.location.href = pageMap[island.id];
     return;
