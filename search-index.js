@@ -1211,5 +1211,18 @@ window.indiaSearchIndex = [
     category: "Mountains & Geography",
     description: "Dedicated explorer for Rimo I, a 7,385 m high peak in the Karakoram Range of Ladakh, featuring facts, map locations, image gallery, and FAQs.",
     url: "frontend/rimo-i/rimo-i.html"
+  },
+  // --- India's Lost Cities & Ancient Civilizations ---
+  {
+    title: "India's Lost Cities & Ancient Civilizations Explorer",
+    category: "History & Archaeology",
+    description: "Explore Dholavira, Lothal, Pataliputra, Vijayanagara, Taxila, and Fatehpur Sikri with ancient maps, archaeological discoveries, excavation facts, and Before vs Today comparisons.",
+    url: "frontend/ancient-cities/ancient-cities.html"
+  },
+  {
+    title: "Harappan & Ancient Indian Cities Archaeological Guide",
+    category: "Archaeology",
+    description: "Discover Bronze Age water reservoirs, world's earliest dockyards, Mauryan pillared halls, and UNESCO World Heritage excavation records.",
+    url: "frontend/ancient-cities/ancient-cities.html"
   }
 ];
