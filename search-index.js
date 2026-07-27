@@ -1269,4 +1269,11 @@ window.indiaSearchIndex = [
     description: "Discover Bronze Age water reservoirs, world's earliest dockyards, Mauryan pillared halls, and UNESCO World Heritage excavation records.",
     url: "frontend/ancient-cities/ancient-cities.html"
   }
+  // --- Indrasan Mountain ---
+  {
+    title: "Indrasan Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Indrasan, a 6,221 m high peak in the Pir Panjal range of Himachal Pradesh, featuring facts, map locations, image gallery, trekking details, and FAQs.",
+    url: "frontend/indrasan/indrasan.html"
+  },
 ];
