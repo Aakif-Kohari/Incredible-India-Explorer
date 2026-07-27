@@ -1219,6 +1219,13 @@ window.indiaSearchIndex = [
     description: "Dedicated explorer for Shivling, a 6,543 m high peak in the Garhwal Range of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
     url: "frontend/shivling/shivling.html"
   },
+  // --- Panchachuli I Mountain ---
+  {
+    title: "Panchachuli I Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Panchachuli I, a 6,355 m peak in the Kumaon Himalayas of Uttarakhand, featuring trekking information, map locations, image gallery, and FAQs.",
+    url: "frontend/panchachuli-i/panchachuli-i.html"
+  },
   // --- India's Firsts Encyclopedia ---
   {
     title: "India's 'Firsts' Encyclopedia",
