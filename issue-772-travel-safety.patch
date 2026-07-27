@@ -1,0 +1,1922 @@
+diff --git a/docs/TRAVEL_SAFETY.md b/docs/TRAVEL_SAFETY.md
+new file mode 100644
+index 0000000..52403b0
+--- /dev/null
++++ b/docs/TRAVEL_SAFETY.md
+@@ -0,0 +1,121 @@
++# Travel Safety Advisory
++
++Resolves #772 — Intelligent Travel Risk Assessment and Safety Advisory
++System.
++
++A fully client-side, rule-based safety layer: no backend, no ML model, no
++API keys. For any of the ~48 destinations already in `trip-data.js`, or
++for every stop in a saved Trip Planner itinerary, it produces a 0-100
++safety score, a list of travel advisories, a personalized checklist, live
++nearby hospitals/police stations, and India's national emergency contact
++directory.
++
++## Files added
++
++| File | Purpose |
++| ---- | ------- |
++| `js-modules/safety-data.js` | Static reference data: nationwide emergency contact numbers, curated hazard tables (high-altitude, cyclone belt + season, monsoon landslide zones, BIS seismic zones, desert heat season, wildlife-viewing spots), and the base safety-score-by-category heuristic. |
++| `js-modules/travel-safety-core.js` | Pure scoring/advisory/checklist/itinerary-alert logic. No DOM, no fetch — unit-testable in isolation. |
++| `js-modules/travel-safety-service.js` | Live-data fetch/cache layer: recent nearby earthquakes (USGS) and nearby hospitals/police (OpenStreetMap Overpass API). Reuses `weather-service.js` for the weather risk input rather than duplicating it. |
++| `js-modules/travel-safety-ui.js` | DOM layer for the page (`initTravelSafetyPage`): destination picker, single-destination safety check, saved-itinerary safety check, checklist persistence. |
++| `frontend/travel-safety/travel-safety.html` | The page shell (header/nav/footer match the rest of the site) plus the destination picker, results panel, itinerary-alerts panel, and emergency-contacts panel. |
++| `frontend/travel-safety/travel-safety.css` | Dedicated stylesheet, reusing the site's existing design tokens (`--saffron`, `--glass-bg`, `--glass-border`). |
++| `tests/unit/travel-safety-core.test.js` | Unit tests for the scoring, advisory, checklist, and itinerary-alert logic. |
++| `js-modules/router-init.js` (modified) | New `travel-safety.html` entry in `ROUTE_INIT_MAP`, registering the page's script dependencies and `initTravelSafetyPage` init function. |
++| Trip Planner / Budget Planner / 3D Map / Travel Timeline pages (modified) | Added a "🛡️ Travel Safety" nav link alongside the existing "🧳 Trip Planner" link so the feature is discoverable from the pages travelers already use to plan a trip. |
++
++## How it fits into the existing architecture
++
++Route → script wiring goes through the declarative `ROUTE_INIT_MAP` in
++`router-init.js` (the same mechanism `trip-planner.html` uses): when the
++SPA router navigates to `travel-safety.html`, it lazy-loads
++`trip-data.js`, `trip-planner.js` (for the saved-trips list),
++`safety-data.js`, `weather-core.js` + `weather-service.js` (reused, not
++duplicated), then `travel-safety-core.js` → `travel-safety-service.js` →
++`travel-safety-ui.js`, and finally calls `initTravelSafetyPage()`.
++
++The module split mirrors the Weather-Aware Itinerary feature
++(`weather-core.js` / `weather-service.js` / `weather-ui.js`, issue #286):
++
++- **`travel-safety-core.js`** — pure functions only. Given a destination
++  and an already-resolved context (weather suitability, recent
++  earthquakes), it returns a score, advisories, and a checklist. No
++  network access, so it's fully unit-testable.
++- **`travel-safety-service.js`** — the only file that touches `fetch`/
++  `localStorage`. Isolated so scoring logic doesn't need a mocked network
++  to test.
++- **`travel-safety-ui.js`** — the only file that touches the DOM.
++
++## Data sources
++
++| Signal | Source | Notes |
++| ------ | ------ | ----- |
++| Weather risk | Open-Meteo (via the existing `weather-service.js` + `weather-core.js`) | Not duplicated — the safety score reuses `WeatherCore.computeDaySuitability()`'s output as one input. |
++| Recent earthquakes | [USGS Earthquake Hazards Program FDSN event API](https://earthquake.usgs.gov/fdsnws/event/1/) | Free, no API key. Queried for magnitude ≥ 3.5 within 300 km of the destination in the last 30 days. |
++| Nearby hospitals & police | [OpenStreetMap Overpass API](https://overpass-api.de/api/interpreter) | Free, no API key — the same open geodata source the route planner already trusts (see `docs/ROUTE_PLANNER.md`). Returns up to 5 nearest of each within 8 km, sorted by distance. |
++| National emergency numbers | Curated in `safety-data.js`, cross-checked against `incredibleindia.gov.in/en/emergency` and `india.gov.in/directory/helpline` | Static — these numbers don't change often enough to warrant a live fetch, and a wrong number from an unverified live source would be worse than a curated one. |
++| Seasonal/geographic hazard tags (altitude, cyclone belt, monsoon landslide, seismic zone, desert heat) | Curated in `safety-data.js` | General, well-documented facts about India's geography and seasons (e.g., BIS IS 1893 seismic zoning, Bay of Bengal/Arabian Sea cyclone seasons) used only to decide which *generic* advisory to show — never a claim about current, real-time conditions at a specific moment. |
++
++**Deliberately not included:** per-city fabricated hospital names, phone
++numbers, or state-level helpline numbers. A safety feature that states
++specific facts confidently and gets them wrong is worse than one that
++fetches them live (hospitals/police) or sticks to nationwide numbers that
++are actually verifiable (emergency contacts).
++
++## Safety score
++
++Each destination starts from a **base score** (0-100) determined by its
++category mix (`BASE_SCORE_BY_CATEGORY` in `safety-data.js` — city/heritage
++destinations start higher than remote wilderness ones; this reflects
++tourist-infrastructure density, not a judgment that any destination is
++unsafe in absolute terms). From there, `computeDestinationSafetyScore()`
++applies a signed delta per active hazard factor:
++
++| Factor | Trigger | Typical delta |
++| ------ | ------- | -------------- |
++| Altitude | Destination is in `HIGH_ALTITUDE_IDS` | −8 |
++| Cyclone season | Coastal destination + current month in `CYCLONE_MONTHS` | −10 |
++| Monsoon landslide | Hill-road destination + current month in `MONSOON_MONTHS` | −10 |
++| Seismic zone | Destination is in `HIGH_SEISMIC_ZONE_IDS` | −4 |
++| Extreme heat | Desert destination + current month in `EXTREME_HEAT_MONTHS` | −8 |
++| Wildlife encounter | Destination is in `WILDLIFE_ENCOUNTER_IDS` | −3 |
++| Poor/caution weather | `WeatherCore.computeDaySuitability()` returns `poor`/`caution` | −14 / −6 |
++| Recent nearby earthquake | Magnitude ≥ 4.0 within 300 km in the last 30 days | −10 (≥ 4.0) / −20 (≥ 5.5) |
++
++The final score is clamped to 0-100 and bucketed into four levels:
++**low** (80-100), **moderate** (60-79), **elevated** (35-59), **high**
++(0-34).
++
++## Advisories, checklist & itinerary alerts
++
++- `buildAdvisories()` turns the active factors into a sorted (worst-first)
++  list of human-readable advisory strings.
++- `buildSafetyChecklist()` starts from a fixed base checklist (travel
++  insurance, ID copies, sharing your itinerary, emergency numbers,
++  medication, water safety, night-transport caution, valuables) and adds
++  destination-specific items when a matching hazard factor is active
++  (e.g. an acclimatization-day item when the altitude factor fires).
++  Checked state persists per destination in `localStorage`
++  (`travelSafetyChecklist:<destId>`).
++- `evaluateItinerarySafety()` + `buildItineraryAlerts()` walk a saved Trip
++  Planner itinerary's day-by-day schedule (same shape as
++  `TripPlanner.buildDailySchedule()`) and surface one deduplicated alert
++  per destination that carries at least one non-`info` factor — this is
++  the "alert notifications for itinerary destinations" acceptance
++  criterion. Alerts are date-relative to the day the itinerary is
++  checked, since saved trips don't currently store a start date.
++
++## Known limitations / follow-ups
++
++- Nearby-places and earthquake lookups depend on public third-party APIs
++  (Overpass, USGS) with their own uptime/rate limits; failures are caught
++  per-source so the safety score still renders using whatever succeeded.
++- Hazard tables are a curated heuristic, not a live government-advisory
++  feed — there's no free, no-key, structured API for India-specific
++  travel advisories at the time of writing. A future iteration could
++  integrate one if/when it becomes available.
++- The itinerary-alerts view assumes "today" as the trip start date, since
++  `tripPlannerSavedTrips` doesn't persist a chosen start date. Wiring an
++  actual start date through from Trip Planner (as the dormant
++  `weather-ui.js` feature already expects, via a `#trip-start-date`
++  input) would let both features share the same date context.
+diff --git a/frontend/budget-planner/budget-planner.html b/frontend/budget-planner/budget-planner.html
+index faf79e8..0118465 100644
+--- a/frontend/budget-planner/budget-planner.html
++++ b/frontend/budget-planner/budget-planner.html
+@@ -45,6 +45,7 @@
+ <div class="dropdown-menu">
+ <a class="dropdown-item" href="../travel/travel.html">Travel &amp; Destinations</a>
+ <a class="dropdown-item" href="../trip-planner/trip-planner.html">🧳 Trip Planner</a>
++<a class="dropdown-item" href="../travel-safety/travel-safety.html">🛡️ Travel Safety</a>
+ <a class="dropdown-item" href="budget-planner.html" style="color: var(--saffron)">💰 Budget Planner</a>
+ <a class="dropdown-item" href="../wildlife/wildlife.html">Nature &amp; Wildlife</a>
+ <a class="dropdown-item" href="../personalities/personalities.html">Famous Personalities</a>
+@@ -190,6 +191,7 @@
+ <li><a href="index.html#map">Interactive Map</a></li>
+ <li><a href="../travel/travel.html">Travel</a></li>
+ <li><a href="../trip-planner/trip-planner.html">Trip Planner</a></li>
++<li><a href="../travel-safety/travel-safety.html">Travel Safety</a></li>
+ <li><a href="budget-planner.html">Budget Planner</a></li>
+ <li><a href="index.html#quiz">Quiz</a></li>
+ </ul>
+diff --git a/frontend/india-3d-map/india-3d-map.html b/frontend/india-3d-map/india-3d-map.html
+index 56c5db1..7069f17 100644
+--- a/frontend/india-3d-map/india-3d-map.html
++++ b/frontend/india-3d-map/india-3d-map.html
+@@ -74,6 +74,7 @@
+ <a class="dropdown-item" href="../travel/travel.html">Travel &amp; Destinations</a>
+ <a class="dropdown-item" href="india-3d-map.html" style="color: var(--saffron)">🗺️ 3D Map Explorer</a>
+ <a class="dropdown-item" href="../trip-planner/trip-planner.html">🧳 Trip Planner</a>
++<a class="dropdown-item" href="../travel-safety/travel-safety.html">🛡️ Travel Safety</a>
+ <a class="dropdown-item" href="../wildlife/wildlife.html">Nature &amp; Wildlife</a>
+ <a class="dropdown-item" href="../personalities/personalities.html">Famous Personalities</a>
+ <a class="dropdown-item" href="../spiritual/spiritual.html">Spiritual India</a>
+@@ -167,6 +168,7 @@
+ <li><a href="../../index.html#map">Interactive Map</a></li>
+ <li><a href="india-3d-map.html">3D Map Explorer</a></li>
+ <li><a href="../trip-planner/trip-planner.html">Trip Planner</a></li>
++<li><a href="../travel-safety/travel-safety.html">Travel Safety</a></li>
+ <li><a href="../../index.html#quiz">Quiz</a></li>
+ </ul>
+ </div>
+diff --git a/frontend/travel-safety/travel-safety.css b/frontend/travel-safety/travel-safety.css
+new file mode 100644
+index 0000000..3a5970e
+--- /dev/null
++++ b/frontend/travel-safety/travel-safety.css
+@@ -0,0 +1,192 @@
++/* ==========================================================================
++   TRAVEL SAFETY PAGE — dedicated styles
++   ========================================================================== */
++
++.safety-picker-card {
++    max-width: 900px;
++    margin: 0 auto 24px;
++}
++
++.safety-picker-card label {
++    display: block;
++    font-weight: 600;
++    margin-bottom: 10px;
++}
++
++.safety-picker-row {
++    display: flex;
++    gap: 14px;
++    flex-wrap: wrap;
++}
++
++.safety-picker-row select {
++    flex: 1;
++    min-width: 220px;
++    padding: 12px 14px;
++    border-radius: 10px;
++    border: 1px solid var(--glass-border);
++    background: rgba(255, 255, 255, 0.05);
++    color: inherit;
++    font-size: 1rem;
++}
++
++.safety-result-panel,
++.safety-contacts-panel {
++    max-width: 900px;
++    margin: 24px auto 0;
++    background: var(--glass-bg);
++    border: 1px solid var(--glass-border);
++    border-radius: 24px;
++    padding: 32px;
++    backdrop-filter: blur(12px);
++}
++
++.safety-loading {
++    display: flex;
++    align-items: center;
++    gap: 12px;
++    opacity: 0.8;
++}
++
++.safety-spinner {
++    width: 18px;
++    height: 18px;
++    border: 3px solid var(--glass-border);
++    border-top-color: var(--saffron);
++    border-radius: 50%;
++    display: inline-block;
++    animation: safety-spin 0.8s linear infinite;
++}
++
++@keyframes safety-spin {
++    to { transform: rotate(360deg); }
++}
++
++.safety-score-card {
++    display: flex;
++    align-items: center;
++    gap: 24px;
++    padding-bottom: 20px;
++    margin-bottom: 20px;
++    border-bottom: 1px solid var(--glass-border);
++}
++
++.safety-score-value {
++    font-size: 3rem;
++    font-weight: 800;
++    line-height: 1;
++    font-family: "Outfit", sans-serif;
++}
++
++.safety-score-value span {
++    font-size: 1.1rem;
++    font-weight: 400;
++    opacity: 0.6;
++}
++
++.safety-level-badge {
++    display: inline-block;
++    margin-top: 6px;
++    padding: 4px 12px;
++    border-radius: 999px;
++    font-size: 0.85rem;
++    font-weight: 600;
++}
++
++.safety-level-low .safety-score-value,
++.safety-level-low .safety-level-badge { color: #2e7d32; }
++.safety-level-low .safety-level-badge { background: rgba(46, 125, 50, 0.15); }
++
++.safety-level-moderate .safety-score-value,
++.safety-level-moderate .safety-level-badge { color: #f9a825; }
++.safety-level-moderate .safety-level-badge { background: rgba(249, 168, 37, 0.15); }
++
++.safety-level-elevated .safety-score-value,
++.safety-level-elevated .safety-level-badge { color: #ef6c00; }
++.safety-level-elevated .safety-level-badge { background: rgba(239, 108, 0, 0.15); }
++
++.safety-level-high .safety-score-value,
++.safety-level-high .safety-level-badge { color: #c62828; }
++.safety-level-high .safety-level-badge { background: rgba(198, 40, 40, 0.15); }
++
++.safety-advisories ul,
++.safety-checklist ul,
++.safety-nearby ul,
++.safety-contacts-list {
++    list-style: none;
++    padding: 0;
++    margin: 0 0 16px;
++}
++
++.safety-advisory {
++    padding: 10px 14px;
++    border-radius: 10px;
++    margin-bottom: 8px;
++    background: rgba(255, 255, 255, 0.04);
++}
++
++.safety-sev-warning { border-left: 3px solid #c62828; }
++.safety-sev-caution { border-left: 3px solid #f9a825; }
++.safety-sev-info { border-left: 3px solid #607d8b; }
++
++.safety-no-advisories {
++    opacity: 0.75;
++}
++
++.safety-nearby-grid {
++    display: grid;
++    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
++    gap: 24px;
++    margin-bottom: 16px;
++}
++
++.safety-nearby-grid li {
++    padding: 4px 0;
++    opacity: 0.9;
++}
++
++.safety-checklist h5 {
++    margin: 16px 0 8px;
++    opacity: 0.85;
++}
++
++.safety-checklist label {
++    display: flex;
++    align-items: center;
++    gap: 10px;
++    padding: 6px 0;
++    cursor: pointer;
++}
++
++.safety-contacts-list li {
++    display: flex;
++    flex-wrap: wrap;
++    align-items: baseline;
++    gap: 8px;
++    padding: 10px 0;
++    border-bottom: 1px solid var(--glass-border);
++}
++
++.safety-contacts-list li:last-child {
++    border-bottom: none;
++}
++
++.safety-contact-label {
++    font-weight: 600;
++    min-width: 260px;
++}
++
++.safety-contact-number {
++    color: var(--saffron);
++    font-weight: 700;
++}
++
++.safety-contact-note {
++    flex-basis: 100%;
++    opacity: 0.65;
++    font-size: 0.85rem;
++}
++
++.safety-trip-alerts li {
++    margin-bottom: 8px;
++}
+diff --git a/frontend/travel-safety/travel-safety.html b/frontend/travel-safety/travel-safety.html
+new file mode 100644
+index 0000000..d099390
+--- /dev/null
++++ b/frontend/travel-safety/travel-safety.html
+@@ -0,0 +1,186 @@
++<!DOCTYPE html>
++
++<html lang="en">
++<head>
++    <script>
++        (function() {
++            const theme = localStorage.getItem('theme') || 'dark';
++            if (theme === 'light') {
++                document.body.classList.add('light-theme');
++            }
++        })();
++    </script>
++<meta charset="utf-8"/>
++<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
++<meta content="Travel Safety Advisory - Get a destination safety score, travel advisories, emergency contacts, and a personalized safety checklist for your India trip." name="description"/>
++<title>Travel Safety Advisory | Incredible India</title>
++<link href="https://fonts.googleapis.com" rel="preconnect"/>
++<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
++<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
++<link href="../../styles.css" rel="stylesheet"/>
++<link href="travel-safety.css" rel="stylesheet"/>
++
++    <!-- Open Graph / Social Media Tags -->
++    <meta property="og:title" content="Travel Safety Advisory | Incredible India Explorer">
++    <meta property="og:description" content="Get a destination safety score, travel advisories, emergency contacts, and a personalized safety checklist for your India trip.">
++    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
++    <meta property="og:image:width" content="1200">
++    <meta property="og:image:height" content="630">
++    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/travel-safety.html">
++    <meta property="og:type" content="website">
++    <meta property="og:site_name" content="Incredible India Explorer">
++    <meta property="og:locale" content="en_IN">
++
++    <!-- Twitter Card Meta Tags -->
++    <meta name="twitter:card" content="summary_large_image">
++    <meta name="twitter:title" content="Travel Safety Advisory | Incredible India Explorer">
++    <meta name="twitter:description" content="Get a destination safety score, travel advisories, emergency contacts, and a personalized safety checklist for your India trip.">
++    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
++
++    <!-- Canonical URL -->
++    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/travel-safety.html">
++</head>
++<body>
++<!-- Sticky Navigation Bar -->
++<header class="navbar scrolled" id="navbar">
++<div class="nav-container">
++<a class="nav-logo" href="../../index.html#home" id="nav-logo">
++<span class="saffron">Incredible</span>
++<span class="gold">India</span>
++<span class="green">Explorer</span>
++</a>
++<button aria-label="Toggle Menu" class="menu-toggle" id="menu-toggle">
++<span class="bar"></span>
++<span class="bar"></span>
++<span class="bar"></span>
++</button>
++<nav class="nav-menu" id="nav-menu">
++<a class="nav-link" href="../../index.html#home" id="link-home">Home</a>
++<a class="nav-link" href="../../index.html#map" id="link-map">Interactive Map</a>
++<a class="nav-link" href="../cuisine/cuisine.html" id="link-cuisine">Cuisine</a>
++<a class="nav-link" href="../festivals/festivals.html" id="link-festivals">Festivals</a>
++<a class="nav-link" href="../culture/culture.html" id="link-culture">Culture</a>
++<div class="nav-dropdown">
++<button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
++<div class="dropdown-menu">
++<a class="dropdown-item" href="../travel/travel.html">Travel &amp; Destinations</a>
++<a class="dropdown-item" href="../trip-planner/trip-planner.html">🧳 Trip Planner</a>
++<a class="dropdown-item" href="travel-safety.html" style="color: var(--saffron)">🛡️ Travel Safety</a>
++<a class="dropdown-item" href="../wildlife/wildlife.html">Nature &amp; Wildlife</a>
++<a class="dropdown-item" href="../personalities/personalities.html">Famous Personalities</a>
++<a class="dropdown-item" href="../spiritual/spiritual.html">Spiritual India</a>
++<a class="dropdown-item" href="../arts-crafts/arts-crafts.html">Arts &amp; Crafts</a>
++</div>
++</div>
++<div class="nav-dropdown">
++<button class="nav-link dropdown-toggle" id="link-learn-data">Learn &amp; Data ▾</button>
++<div class="dropdown-menu">
++<a class="dropdown-item" href="../smart-cities/smart-cities.html">Smart Cities</a>
++<a class="dropdown-item" href="../languages/languages.html">Languages of India</a>
++<a class="dropdown-item" href="../data-india/data-india.html">Data &amp; Statistics</a>
++<a class="dropdown-item" href="../learn/learn.html">Learn &amp; Quiz</a>
++</div>
++</div>
++<button aria-label="Toggle Dark/Light Mode" class="btn-theme-toggle" id="theme-toggle" title="Toggle Light Mode">☀️</button>
++<a class="nav-link" href="../premium/premium.html" style="color: var(--gold); font-weight: bold;">★ Premium</a>
++<a class="nav-link" href="../../login.html" id="link-login">Login</a>
++<div class="journey-nav-search">
++                    <input type="search" id="journey-search-input" class="journey-search-input" placeholder="Search all explorers…" aria-label="Search across all explorers" autocomplete="off">
++                    <div id="journey-search-results" class="journey-search-results" hidden></div>
++                </div>
++                <a href="../journey/journey.html" class="nav-link" id="link-journey">🧭 My Journey</a>
++            </nav>
++</div>
++</header>
++<main id="app-root" style="padding-top: 80px;">
++<!-- Hero Section -->
++<section class="cuisine-hero scroll-section trip-planner-hero">
++<img class="hero-video" src="../../assets/travel_hero.png" alt="A traveler consulting a map on an Indian mountain road" style="width: 100%; height: 100%; object-fit: cover;"/>
++<div class="hero-overlay"></div>
++<div class="hero-content">
++<span class="hero-tagline animate-fade-in">🛡️ Travel Smart</span>
++<h1 class="hero-title animate-slide-up">Travel Safety <span class="highlight">Advisory</span></h1>
++<p class="hero-description animate-fade-in-delayed" style="max-width: 800px; margin: 0 auto;">
++                    A destination safety score, live travel advisories, a personalized checklist, and emergency contacts — all in one place before you go.
++                </p>
++</div>
++</section>
++
++<!-- Destination safety check -->
++<section class="trip-planner-form-section fade-in-section">
++<div class="section-container">
++<div class="section-header">
++<span class="section-badge">Check a Destination</span>
++<h2>How Safe Is Your Next Stop?</h2>
++<p class="section-subtitle">Combines seasonal hazard data, live weather, and recent earthquake activity into one safety score.</p>
++</div>
++<div class="trip-form-card safety-picker-card">
++<label for="safety-destination-select">Destination</label>
++<div class="safety-picker-row">
++<select id="safety-destination-select">
++<option value="" disabled selected>Choose a destination…</option>
++</select>
++<button type="button" id="safety-check-btn" class="btn btn-primary ripple">Check Safety</button>
++</div>
++</div>
++<div id="safety-result-panel" class="safety-result-panel" hidden=""></div>
++</div>
++</section>
++
++<!-- Itinerary alerts -->
++<section class="trip-planner-form-section fade-in-section">
++<div class="section-container">
++<div class="section-header">
++<span class="section-badge">Your Itinerary</span>
++<h2>Safety Alerts for a Saved Trip</h2>
++<p class="section-subtitle">Pulls in any trip you've saved from the Trip Planner and flags every stop with an elevated risk factor.</p>
++</div>
++<div class="trip-form-card safety-picker-card">
++<label for="safety-trip-select">Saved Trip</label>
++<div class="safety-picker-row">
++<select id="safety-trip-select"></select>
++<button type="button" id="safety-trip-check-btn" class="btn btn-primary ripple">Check Itinerary</button>
++</div>
++</div>
++<div id="safety-trip-alerts-panel" class="safety-result-panel" hidden=""></div>
++</div>
++</section>
++
++<!-- National emergency contacts -->
++<section class="trip-results-section fade-in-section">
++<div class="section-container">
++<div id="safety-contacts-panel" class="safety-contacts-panel"></div>
++</div>
++</section>
++</main>
++<!-- Footer -->
++<footer class="footer">
++<div class="footer-container">
++<div class="footer-brand">
++<h3>Incredible India Explorer</h3>
++<p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India. Built
++                    with passion and pure vanilla web technologies.</p>
++</div>
++<div class="footer-links">
++<h4>Quick Navigation</h4>
++<ul>
++<li><a href="../../index.html#home">Home</a></li>
++<li><a href="../../index.html#map">Interactive Map</a></li>
++<li><a href="../travel/travel.html">Travel</a></li>
++<li><a href="../trip-planner/trip-planner.html">Trip Planner</a></li>
++<li><a href="travel-safety.html">Travel Safety</a></li>
++</ul>
++</div>
++</div>
++<div class="footer-credits" style="align-self: center;">
++<p>© 2026 Incredible India Explorer. Created with Vanilla HTML, CSS &amp; JavaScript.</p>
++</div>
++</footer>
++<!-- Scroll To Top Button -->
++<button aria-label="Scroll to Top" class="btn-scroll-top" id="btn-scroll-top">↑</button>
++<script src="../../app.js" defer></script>
++<script src="../../firebase-config.js" type="module"></script>
++<script src="../../auth.js" type="module"></script>
++<script src="../../router.js" defer></script>
++</body>
++</html>
+diff --git a/frontend/travel-timeline/travel-timeline.html b/frontend/travel-timeline/travel-timeline.html
+index 043ffb2..de820fe 100644
+--- a/frontend/travel-timeline/travel-timeline.html
++++ b/frontend/travel-timeline/travel-timeline.html
+@@ -31,6 +31,7 @@
+             <nav class="nav-menu" id="nav-menu">
+                 <a href="index.html#home" class="nav-link">Home</a>
+                 <a href="../trip-planner/trip-planner.html" class="nav-link">🧳 Trip Planner</a>
++                <a href="../travel-safety/travel-safety.html" class="nav-link">🛡️ Travel Safety</a>
+                 <div class="journey-nav-search">
+                     <input type="search" id="journey-search-input" class="journey-search-input" placeholder="Search all explorers…" aria-label="Search across all explorers" autocomplete="off">
+                     <div id="journey-search-results" class="journey-search-results" hidden></div>
+diff --git a/frontend/trip-planner/trip-planner.html b/frontend/trip-planner/trip-planner.html
+index 66aff87..76ef6a3 100644
+--- a/frontend/trip-planner/trip-planner.html
++++ b/frontend/trip-planner/trip-planner.html
+@@ -65,6 +65,7 @@
+ <div class="dropdown-menu">
+ <a class="dropdown-item" href="../travel/travel.html">Travel &amp; Destinations</a>
+ <a class="dropdown-item" href="trip-planner.html" style="color: var(--saffron)">🧳 Trip Planner</a>
++<a class="dropdown-item" href="../travel-safety/travel-safety.html">🛡️ Travel Safety</a>
+ <a class="dropdown-item" href="../wildlife/wildlife.html">Nature &amp; Wildlife</a>
+ <a class="dropdown-item" href="../personalities/personalities.html">Famous Personalities</a>
+ <a class="dropdown-item" href="../spiritual/spiritual.html">Spiritual India</a>
+@@ -187,6 +188,7 @@
+ <li><a href="../../index.html#map">Interactive Map</a></li>
+ <li><a href="../travel/travel.html">Travel</a></li>
+ <li><a href="trip-planner.html">Trip Planner</a></li>
++<li><a href="../travel-safety/travel-safety.html">Travel Safety</a></li>
+ <li><a href="../../index.html#quiz">Quiz</a></li>
+ </ul>
+ </div>
+diff --git a/js-modules/router-init.js b/js-modules/router-init.js
+index f3e4192..123883c 100644
+--- a/js-modules/router-init.js
++++ b/js-modules/router-init.js
+@@ -80,6 +80,21 @@
+             useSafeInit: true,
+             name: 'Trip Planner'
+         },
++        'travel-safety.html': {
++            scripts: [
++                'trip-data.js',
++                'js-modules/trip-planner.js',
++                'js-modules/safety-data.js',
++                'js-modules/weather-core.js',
++                'js-modules/weather-service.js',
++                'js-modules/travel-safety-core.js',
++                'js-modules/travel-safety-service.js',
++                'js-modules/travel-safety-ui.js'
++            ],
++            initName: 'initTravelSafetyPage',
++            useSafeInit: true,
++            name: 'Travel Safety'
++        },
+         'heritage.html': { log: '✅ Heritage page loaded successfully' },
+         'monuments.html': { log: '✅ Monuments page loaded successfully' },
+         'hidden-gems.html': { log: '✅ Hidden Gems page loaded successfully' },
+diff --git a/js-modules/safety-data.js b/js-modules/safety-data.js
+new file mode 100644
+index 0000000..1a4985c
+--- /dev/null
++++ b/js-modules/safety-data.js
+@@ -0,0 +1,155 @@
++/**
++ * js-modules/safety-data.js
++ * Static reference data for the Intelligent Travel Risk Assessment &
++ * Safety Advisory System (issue #772). Rule-based, client-side only — no
++ * backend — matching how trip-data.js/weather-core.js already work.
++ *
++ * This file intentionally does NOT invent per-city hospital/police names
++ * or per-state helpline numbers, since those go stale and a safety
++ * feature giving wrong specifics is worse than one that fetches live
++ * data. Instead:
++ *  - NATIONAL_EMERGENCY_CONTACTS holds India's nationwide helpline
++ *    numbers (verified against incredibleindia.gov.in/en/emergency and
++ *    india.gov.in/directory/helpline).
++ *  - Nearby hospitals/police stations are fetched live from OpenStreetMap
++ *    (see travel-safety-service.js) rather than hardcoded here.
++ *  - Hazard tags below are well-documented, general geographic/seasonal
++ *    facts (India's BIS seismic zoning, coastal cyclone seasons, Himalayan
++ *    monsoon landslide risk, high-altitude acclimatization) used only to
++ *    decide which generic advisory to surface for a destination — they
++ *    are not claims about current conditions.
++ *
++ * Keyed by the same destination ids as trip-data.js so this can be joined
++ * against root.tripDestinations by id.
++ */
++(function (root) {
++    "use strict";
++
++    // ------------------------------------------------------------------
++    // Nationwide emergency numbers (India). Dial 112 for any emergency —
++    // it routes to police/fire/ambulance under the Emergency Response
++    // Support System (ERSS). The rest are specialised lines.
++    // ------------------------------------------------------------------
++    const NATIONAL_EMERGENCY_CONTACTS = [
++        { id: "national", label: "National Emergency Number (Police/Fire/Ambulance)", number: "112", note: "Single number, works nationwide, 24/7. Save this first." },
++        { id: "police", label: "Police", number: "100", note: "Also reachable via 112." },
++        { id: "fire", label: "Fire", number: "101" },
++        { id: "ambulance", label: "Ambulance", number: "102" },
++        { id: "disaster", label: "Disaster Management Helpline", number: "108" },
++        { id: "tourist", label: "24x7 Tourist Helpline", number: "1363", altNumber: "1800-11-1363", note: "Multilingual (English, Hindi, and 10+ other languages). For travel info and distress situations." },
++        { id: "women", label: "Women Helpline", number: "1091" },
++        { id: "child", label: "Child Helpline", number: "1098" },
++        { id: "railway", label: "Railway Enquiry / Security", number: "139" },
++        { id: "roadAccident", label: "Road Accident Emergency", number: "1073" },
++        { id: "cyberCrime", label: "Cyber Crime Helpline", number: "1930" },
++        { id: "seniorCitizen", label: "Senior Citizen Helpline", number: "14567" }
++    ];
++
++    // ------------------------------------------------------------------
++    // Hazard tags — small curated sets, not a claim about live conditions.
++    // ------------------------------------------------------------------
++
++    // High-altitude destinations (~3,000m+) where acute mountain sickness
++    // is a genuine, well-documented risk for travelers arriving quickly
++    // from low altitude (e.g. by flight).
++    const HIGH_ALTITUDE_IDS = ["leh", "spiti"];
++
++    // Coastal / island destinations that fall in the Bay of Bengal or
++    // Arabian Sea cyclone belt, where the pre-monsoon (Apr-Jun) and
++    // post-monsoon (Oct-Dec) windows see the most cyclone activity.
++    const CYCLONE_BELT_IDS = [
++        "andaman", "goa", "gokarna", "varkala", "alleppey", "kochi",
++        "pondicherry", "chennai", "mahabalipuram", "sundarbans",
++        "lakshadweep", "diu"
++    ];
++    const CYCLONE_MONTHS = [4, 5, 6, 10, 11, 12]; // 1-indexed calendar months
++
++    // Himalayan / hill-road destinations prone to monsoon landslides and
++    // road closures (Jun-Sep).
++    const LANDSLIDE_PRONE_IDS = [
++        "shimla", "manali", "leh", "darjeeling", "gangtok",
++        "mcleodganj", "spiti", "munnar", "ooty", "coorg", "rishikesh", "haridwar"
++    ];
++    const MONSOON_MONTHS = [6, 7, 8, 9];
++
++    // Destinations in India's higher seismic-activity zones (BIS IS
++    // 1893 Zone IV/V — the Himalayan belt, the northeast, and Kutch).
++    const HIGH_SEISMIC_ZONE_IDS = [
++        "leh", "spiti", "shimla", "manali", "darjeeling", "gangtok",
++        "mcleodganj", "amritsar", "rishikesh", "haridwar",
++        "rann-of-kutch", "kaziranga"
++    ];
++
++    // Desert destinations with extreme pre-monsoon heat (Apr-Jun).
++    const EXTREME_HEAT_IDS = ["jaisalmer", "jodhpur", "rann-of-kutch"];
++    const EXTREME_HEAT_MONTHS = [4, 5, 6];
++
++    // Destinations centered on wildlife viewing, where the main safety
++    // consideration is following ranger/guide rules rather than crime.
++    const WILDLIFE_ENCOUNTER_IDS = [
++        "ranthambore", "kaziranga", "jim-corbett", "periyar", "sundarbans"
++    ];
++
++    // Baseline safety score (0-100, higher = safer) used as a starting
++    // point before weather/seismic/seasonal adjustments. City destinations
++    // with dense tourist infrastructure start a little higher than remote
++    // or wilderness ones; this is a coarse heuristic, not a ranking of
++    // any place as "unsafe" in absolute terms — India's tourist areas are,
++    // in general, well-patrolled and used by millions of visitors yearly.
++    const BASE_SCORE_BY_CATEGORY = {
++        city: 88,
++        heritage: 85,
++        historical: 85,
++        spiritual: 83,
++        beaches: 80,
++        backwaters: 80,
++        desert: 78,
++        mountains: 76,
++        adventure: 72,
++        wildlife: 74
++    };
++
++    function baseScoreForDestination(destination) {
++        if (!destination || !destination.categories || !destination.categories.length) return 80;
++        const scores = destination.categories.map((c) => BASE_SCORE_BY_CATEGORY[c] || 80);
++        return Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
++    }
++
++    // ------------------------------------------------------------------
++    // Generic, non-destination-specific checklist items shown for every
++    // trip, before personalization in travel-safety-core.js adds more.
++    // ------------------------------------------------------------------
++    const BASE_SAFETY_CHECKLIST = [
++        { id: "insurance", label: "Buy travel insurance covering medical evacuation", category: "before" },
++        { id: "id-copies", label: "Carry photo + digital copies of ID and travel documents", category: "before" },
++        { id: "share-itinerary", label: "Share your itinerary and hotel details with someone at home", category: "before" },
++        { id: "emergency-numbers", label: "Save national + local emergency numbers in your phone", category: "before" },
++        { id: "medications", label: "Pack a basic first-aid kit and any personal medication", category: "before" },
++        { id: "water", label: "Drink bottled/filtered water; avoid tap water", category: "during" },
++        { id: "night-transport", label: "Prefer pre-booked or app-based transport after dark", category: "during" },
++        { id: "valuables", label: "Keep valuables split between bags, not all in one place", category: "during" }
++    ];
++
++    const api = {
++        NATIONAL_EMERGENCY_CONTACTS,
++        HIGH_ALTITUDE_IDS,
++        CYCLONE_BELT_IDS,
++        CYCLONE_MONTHS,
++        LANDSLIDE_PRONE_IDS,
++        MONSOON_MONTHS,
++        HIGH_SEISMIC_ZONE_IDS,
++        EXTREME_HEAT_IDS,
++        EXTREME_HEAT_MONTHS,
++        WILDLIFE_ENCOUNTER_IDS,
++        BASE_SCORE_BY_CATEGORY,
++        baseScoreForDestination,
++        BASE_SAFETY_CHECKLIST
++    };
++
++    if (typeof module !== "undefined" && module.exports) {
++        module.exports = api;
++    }
++    if (typeof window !== "undefined") {
++        window.SafetyData = api;
++    }
++})(typeof window !== "undefined" ? window : globalThis);
+diff --git a/js-modules/travel-safety-core.js b/js-modules/travel-safety-core.js
+new file mode 100644
+index 0000000..d5cb1e5
+--- /dev/null
++++ b/js-modules/travel-safety-core.js
+@@ -0,0 +1,333 @@
++/**
++ * js-modules/travel-safety-core.js
++ * Intelligent Travel Risk Assessment & Safety Advisory System (issue #772)
++ * — rule-based logic module.
++ *
++ * Pure functions only: no DOM, no fetch, no localStorage. Live inputs
++ * (weather, earthquakes, nearby hospitals/police) are fetched by
++ * travel-safety-service.js and passed in already-resolved, the same
++ * split used by weather-core.js / weather-service.js / weather-ui.js.
++ * Kept separate so scoring/advisory/checklist rules can be unit tested
++ * without a browser (see tests/unit/travel-safety-core.test.js).
++ *
++ * Depends on window.SafetyData (safety-data.js) for hazard tables and,
++ * optionally, window.WeatherCore (weather-core.js) for weather severity
++ * classification — both are passed through function args here rather
++ * than referenced globally, so this module can be required standalone
++ * in tests.
++ *
++ * Exposed as window.TravelSafetyCore (browser) and module.exports (Node/Vitest).
++ */
++(function (root) {
++    "use strict";
++
++    // ------------------------------------------------------------------
++    // Risk levels
++    // ------------------------------------------------------------------
++    const RISK_LEVELS = [
++        { max: 100, min: 80, level: "low", label: "Low risk", color: "#2e7d32" },
++        { max: 79, min: 60, level: "moderate", label: "Moderate risk", color: "#f9a825" },
++        { max: 59, min: 35, level: "elevated", label: "Elevated risk", color: "#ef6c00" },
++        { max: 34, min: 0, level: "high", label: "High risk", color: "#c62828" }
++    ];
++
++    function classifyScore(score) {
++        const clamped = Math.max(0, Math.min(100, score));
++        const bucket = RISK_LEVELS.find((r) => clamped >= r.min && clamped <= r.max) || RISK_LEVELS[RISK_LEVELS.length - 1];
++        return { score: Math.round(clamped), level: bucket.level, label: bucket.label, color: bucket.color };
++    }
++
++    // ------------------------------------------------------------------
++    // Seasonal / hazard risk factors derived from safety-data.js tables.
++    // Each returns null (no factor) or { type, severity, delta, message }.
++    // severity: 'info' | 'caution' | 'warning'
++    // delta: score adjustment (negative = riskier)
++    // ------------------------------------------------------------------
++
++    function altitudeFactor(destination, safetyData) {
++        if (!safetyData.HIGH_ALTITUDE_IDS.includes(destination.id)) return null;
++        return {
++            type: "altitude",
++            severity: "caution",
++            delta: -8,
++            message: "High-altitude destination — acclimatize for 24-48 hours before strenuous activity, stay hydrated, and watch for signs of altitude sickness (headache, nausea, dizziness)."
++        };
++    }
++
++    function cycloneFactor(destination, safetyData, monthIndex1to12) {
++        if (!safetyData.CYCLONE_BELT_IDS.includes(destination.id)) return null;
++        if (!safetyData.CYCLONE_MONTHS.includes(monthIndex1to12)) return null;
++        return {
++            type: "cyclone",
++            severity: "caution",
++            delta: -10,
++            message: "Travel falls within the coastal cyclone season for this region — check the India Meteorological Department's latest cyclone bulletins before and during your trip."
++        };
++    }
++
++    function landslideFactor(destination, safetyData, monthIndex1to12) {
++        if (!safetyData.LANDSLIDE_PRONE_IDS.includes(destination.id)) return null;
++        if (!safetyData.MONSOON_MONTHS.includes(monthIndex1to12)) return null;
++        return {
++            type: "landslide",
++            severity: "caution",
++            delta: -10,
++            message: "Monsoon-season travel on hill roads — landslides and road closures are possible. Build buffer time into road transfers and check road-status advisories."
++        };
++    }
++
++    function seismicFactor(destination, safetyData) {
++        if (!safetyData.HIGH_SEISMIC_ZONE_IDS.includes(destination.id)) return null;
++        return {
++            type: "seismic",
++            severity: "info",
++            delta: -4,
++            message: "Located in one of India's higher seismic-activity zones. Not a prediction of an earthquake — just worth knowing your hotel's evacuation route."
++        };
++    }
++
++    function heatFactor(destination, safetyData, monthIndex1to12) {
++        if (!safetyData.EXTREME_HEAT_IDS.includes(destination.id)) return null;
++        if (!safetyData.EXTREME_HEAT_MONTHS.includes(monthIndex1to12)) return null;
++        return {
++            type: "heat",
++            severity: "warning",
++            delta: -8,
++            message: "Peak pre-monsoon heat for this region — plan outdoor activity for early morning/evening, carry extra water, and watch for heat exhaustion symptoms."
++        };
++    }
++
++    function wildlifeFactor(destination, safetyData) {
++        if (!safetyData.WILDLIFE_ENCOUNTER_IDS.includes(destination.id)) return null;
++        return {
++            type: "wildlife",
++            severity: "info",
++            delta: -3,
++            message: "Wildlife-viewing destination — stay inside your vehicle/with your guide at all times and follow park ranger instructions."
++        };
++    }
++
++    /**
++     * @param {Object} weatherSuitability - output of WeatherCore.computeDaySuitability(), or null
++     */
++    function weatherFactor(weatherSuitability) {
++        if (!weatherSuitability || weatherSuitability.status === "good" || weatherSuitability.status === "unknown") return null;
++        const deltas = { caution: -6, poor: -14 };
++        const delta = deltas[weatherSuitability.status] || 0;
++        if (!delta) return null;
++        return {
++            type: "weather",
++            severity: weatherSuitability.status === "poor" ? "warning" : "caution",
++            delta,
++            message: weatherSuitability.reasons && weatherSuitability.reasons.length
++                ? "Forecast concern: " + weatherSuitability.reasons.join(", ") + "."
++                : "Forecast conditions may affect outdoor plans on this day."
++        };
++    }
++
++    /**
++     * @param {Array} quakes - recent nearby earthquakes, e.g. from
++     *   travel-safety-service.js's fetchNearbyEarthquakes(): [{ magnitude, distanceKm, place, time }]
++     */
++    function seismicEventFactor(quakes) {
++        if (!quakes || !quakes.length) return null;
++        const strongest = quakes.reduce((max, q) => (q.magnitude > max.magnitude ? q : max), quakes[0]);
++        if (strongest.magnitude < 4.0) return null;
++        const severity = strongest.magnitude >= 5.5 ? "warning" : "caution";
++        const delta = strongest.magnitude >= 5.5 ? -20 : -10;
++        return {
++            type: "seismic-event",
++            severity,
++            delta,
++            message: `Recent magnitude ${strongest.magnitude.toFixed(1)} earthquake reported near ${strongest.place} (within the last 30 days). Check local authority updates before travel.`
++        };
++    }
++
++    // ------------------------------------------------------------------
++    // Score assembly
++    // ------------------------------------------------------------------
++
++    /**
++     * @param {Object} destination - a trip-data.js destination ({ id, categories, ... })
++     * @param {Object} safetyData - window.SafetyData (or an injected equivalent)
++     * @param {Object} [context]
++     * @param {Object} [context.weatherSuitability] - WeatherCore.computeDaySuitability() output
++     * @param {Array}  [context.quakes] - recent earthquakes near this destination
++     * @param {Date}   [context.date] - date being assessed (defaults to now); drives seasonal factors
++     * @returns {{score:number, level:string, label:string, color:string, factors:Array}}
++     */
++    function computeDestinationSafetyScore(destination, safetyData, context) {
++        if (!destination) throw new Error("computeDestinationSafetyScore: destination is required");
++        context = context || {};
++        const date = context.date instanceof Date ? context.date : new Date();
++        const month = date.getMonth() + 1;
++
++        const base = safetyData.baseScoreForDestination(destination);
++        const factors = [
++            altitudeFactor(destination, safetyData),
++            cycloneFactor(destination, safetyData, month),
++            landslideFactor(destination, safetyData, month),
++            seismicFactor(destination, safetyData),
++            heatFactor(destination, safetyData, month),
++            wildlifeFactor(destination, safetyData),
++            weatherFactor(context.weatherSuitability),
++            seismicEventFactor(context.quakes)
++        ].filter(Boolean);
++
++        const totalDelta = factors.reduce((sum, f) => sum + f.delta, 0);
++        const classification = classifyScore(base + totalDelta);
++
++        return Object.assign({}, classification, { baseScore: base, factors });
++    }
++
++    // ------------------------------------------------------------------
++    // Advisories — human-readable list derived straight from factors,
++    // sorted worst-first so the most important item is always on top.
++    // ------------------------------------------------------------------
++    const SEVERITY_RANK = { warning: 0, caution: 1, info: 2 };
++
++    function buildAdvisories(assessment) {
++        return assessment.factors
++            .slice()
++            .sort((a, b) => SEVERITY_RANK[a.severity] - SEVERITY_RANK[b.severity])
++            .map((f) => ({ severity: f.severity, type: f.type, message: f.message }));
++    }
++
++    // ------------------------------------------------------------------
++    // Personalized checklist — base list + destination-specific items
++    // pulled in from whichever factors are active.
++    // ------------------------------------------------------------------
++    function buildSafetyChecklist(destination, safetyData, assessment) {
++        const items = safetyData.BASE_SAFETY_CHECKLIST.slice();
++        const activeTypes = new Set((assessment && assessment.factors ? assessment.factors : []).map((f) => f.type));
++
++        if (activeTypes.has("altitude")) {
++            items.push({ id: "altitude-plan", label: "Schedule a low-activity acclimatization day on arrival", category: "before" });
++        }
++        if (activeTypes.has("cyclone")) {
++            items.push({ id: "cyclone-watch", label: "Check IMD cyclone bulletins in the days before departure", category: "before" });
++        }
++        if (activeTypes.has("landslide")) {
++            items.push({ id: "road-status", label: "Confirm hill-road status the morning of any road transfer", category: "during" });
++        }
++        if (activeTypes.has("heat")) {
++            items.push({ id: "heat-plan", label: "Schedule outdoor sightseeing for early morning or evening", category: "during" });
++        }
++        if (activeTypes.has("wildlife")) {
++            items.push({ id: "wildlife-rules", label: "Confirm park/safari safety briefing before entering", category: "during" });
++        }
++        if (destination && destination.categories && destination.categories.includes("beaches")) {
++            items.push({ id: "water-safety", label: "Swim only at flagged/lifeguarded beaches", category: "during" });
++        }
++        return items;
++    }
++
++    // ------------------------------------------------------------------
++    // Itinerary-wide evaluation — mirrors weather-core.js's
++    // evaluateItineraryWeather() shape so the two can share UI patterns.
++    // ------------------------------------------------------------------
++
++    /**
++     * @param {Array} schedule - output of TripPlanner.buildDailySchedule()
++     * @param {Object} destinationsById - { [destId]: destination }
++     * @param {Object} safetyData
++     * @param {Object} liveContext - { forecastsByDestId, quakesByDestId }
++     * @param {string} tripStartDateISO - "YYYY-MM-DD"
++     */
++    function evaluateItinerarySafety(schedule, destinationsById, safetyData, liveContext, tripStartDateISO, weatherCore) {
++        const start = new Date(tripStartDateISO + "T00:00:00");
++        if (isNaN(start.getTime())) {
++            throw new Error("evaluateItinerarySafety: invalid tripStartDateISO");
++        }
++        const forecastsByDestId = (liveContext && liveContext.forecastsByDestId) || {};
++        const quakesByDestId = (liveContext && liveContext.quakesByDestId) || {};
++
++        return schedule.map((item) => {
++            const date = addDaysISO(start, item.day - 1);
++            if (item.type !== "stay") {
++                return Object.assign({}, item, { date });
++            }
++            const dest = destinationsById[item.destId] || null;
++            if (!dest) return Object.assign({}, item, { date, assessment: null });
++
++            let weatherSuitability = null;
++            if (weatherCore && forecastsByDestId[dest.id]) {
++                const forecastDay = forecastsByDestId[dest.id].find((f) => f.date === date) || null;
++                weatherSuitability = weatherCore.computeDaySuitability(forecastDay, dest.categories);
++            }
++
++            const assessment = computeDestinationSafetyScore(dest, safetyData, {
++                weatherSuitability,
++                quakes: quakesByDestId[dest.id] || [],
++                date: new Date(date + "T00:00:00")
++            });
++
++            return Object.assign({}, item, { date, assessment });
++        });
++    }
++
++    function addDaysISO(startDate, offset) {
++        const d = new Date(startDate);
++        d.setDate(d.getDate() + offset);
++        const yyyy = d.getFullYear();
++        const mm = String(d.getMonth() + 1).padStart(2, "0");
++        const dd = String(d.getDate()).padStart(2, "0");
++        return `${yyyy}-${mm}-${dd}`;
++    }
++
++    /**
++     * Notification-ready alerts for destinations in an itinerary — the
++     * "alert notifications for itinerary destinations" acceptance
++     * criterion. Only surfaces stay-days with a caution/warning factor,
++     * de-duplicated per destination (one alert per city, not per day).
++     *
++     * @param {Array} evaluatedSchedule - output of evaluateItinerarySafety()
++     * @returns {Array<{destId, city, date, level, headline, factors}>}
++     */
++    function buildItineraryAlerts(evaluatedSchedule) {
++        const seen = new Set();
++        const alerts = [];
++        evaluatedSchedule.forEach((item) => {
++            if (item.type !== "stay" || !item.assessment) return;
++            const notable = item.assessment.factors.filter((f) => f.severity !== "info");
++            if (!notable.length) return;
++            const key = item.destId + ":" + notable.map((f) => f.type).sort().join(",");
++            if (seen.has(key)) return;
++            seen.add(key);
++            alerts.push({
++                destId: item.destId,
++                city: item.city,
++                date: item.date,
++                level: item.assessment.level,
++                headline: notable[0].message,
++                factors: notable
++            });
++        });
++        return alerts;
++    }
++
++    const api = {
++        RISK_LEVELS,
++        classifyScore,
++        altitudeFactor,
++        cycloneFactor,
++        landslideFactor,
++        seismicFactor,
++        heatFactor,
++        wildlifeFactor,
++        weatherFactor,
++        seismicEventFactor,
++        computeDestinationSafetyScore,
++        buildAdvisories,
++        buildSafetyChecklist,
++        evaluateItinerarySafety,
++        buildItineraryAlerts
++    };
++
++    if (typeof module !== "undefined" && module.exports) {
++        module.exports = api;
++    }
++    if (typeof window !== "undefined") {
++        window.TravelSafetyCore = api;
++    }
++})(typeof window !== "undefined" ? window : globalThis);
+diff --git a/js-modules/travel-safety-service.js b/js-modules/travel-safety-service.js
+new file mode 100644
+index 0000000..e50466f
+--- /dev/null
++++ b/js-modules/travel-safety-service.js
+@@ -0,0 +1,237 @@
++/**
++ * js-modules/travel-safety-service.js
++ * Live-data fetch/cache layer for the Intelligent Travel Risk Assessment
++ * & Safety Advisory System (issue #772).
++ *
++ * Same "no backend" approach as weather-service.js: free, no-API-key
++ * public endpoints, responses cached in localStorage with a TTL so a
++ * repeat visit to the same destination doesn't re-hit a shared public
++ * resource. DOM/network-facing by design — kept separate from
++ * travel-safety-core.js so the scoring/advisory rules stay unit-testable
++ * without mocking fetch.
++ *
++ * Data sources:
++ *  - Earthquakes: USGS Earthquake Hazards Program FDSN event API
++ *    (https://earthquake.usgs.gov/fdsnws/event/1/), public, no key.
++ *  - Nearby hospitals/police: OpenStreetMap Overpass API
++ *    (https://overpass-api.de/api/interpreter), public, no key — the
++ *    same open geodata source the project's route planner already
++ *    trusts (see docs/ROUTE_PLANNER.md, which uses OSRM/OSM data).
++ *  - Weather risk reuses window.WeatherService (weather-service.js) —
++ *    not duplicated here.
++ */
++(function (root) {
++    "use strict";
++
++    const QUAKE_CACHE_PREFIX = "safetyQuakeCache:";
++    const QUAKE_CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 6 hours
++    const QUAKE_RADIUS_KM = 300;
++    const QUAKE_LOOKBACK_DAYS = 30;
++    const QUAKE_MIN_MAGNITUDE = 3.5;
++
++    const PLACES_CACHE_PREFIX = "safetyPlacesCache:";
++    const PLACES_CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000; // 7 days — hospitals/police stations rarely move
++    const PLACES_RADIUS_M = 8000;
++    const PLACES_LIMIT = 5;
++
++    function readCache(prefix, key, ttlMs) {
++        try {
++            const raw = localStorage.getItem(prefix + key);
++            if (!raw) return null;
++            const parsed = JSON.parse(raw);
++            if (!parsed || typeof parsed.fetchedAt !== "number") return null;
++            if (Date.now() - parsed.fetchedAt > ttlMs) return null;
++            return parsed.data;
++        } catch (e) {
++            return null;
++        }
++    }
++
++    function writeCache(prefix, key, data) {
++        try {
++            localStorage.setItem(prefix + key, JSON.stringify({ fetchedAt: Date.now(), data }));
++        } catch (e) {
++            // Storage full/unavailable — just won't be cached this session.
++        }
++    }
++
++    function coordKey(lat, lng) {
++        return lat.toFixed(2) + ":" + lng.toFixed(2);
++    }
++
++    // ------------------------------------------------------------------
++    // Earthquakes (USGS)
++    // ------------------------------------------------------------------
++    function haversineDistanceKm(lat1, lng1, lat2, lng2) {
++        const R = 6371;
++        const dLat = ((lat2 - lat1) * Math.PI) / 180;
++        const dLng = ((lng2 - lng1) * Math.PI) / 180;
++        const a =
++            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
++            Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
++        return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
++    }
++
++    function buildQuakeUrl(lat, lng) {
++        const end = new Date();
++        const start = new Date(end.getTime() - QUAKE_LOOKBACK_DAYS * 24 * 60 * 60 * 1000);
++        const params = new URLSearchParams({
++            format: "geojson",
++            starttime: start.toISOString().slice(0, 10),
++            endtime: end.toISOString().slice(0, 10),
++            latitude: lat,
++            longitude: lng,
++            maxradiuskm: String(QUAKE_RADIUS_KM),
++            minmagnitude: String(QUAKE_MIN_MAGNITUDE),
++            orderby: "magnitude"
++        });
++        return "https://earthquake.usgs.gov/fdsnws/event/1/query?" + params.toString();
++    }
++
++    function normalizeQuakeResponse(json, lat, lng) {
++        const features = (json && json.features) || [];
++        return features
++            .map((f) => {
++                const props = f.properties || {};
++                const coords = (f.geometry && f.geometry.coordinates) || [];
++                const [qLng, qLat] = coords;
++                if (typeof qLat !== "number" || typeof qLng !== "number") return null;
++                return {
++                    magnitude: props.mag,
++                    place: props.place || "nearby",
++                    time: props.time ? new Date(props.time).toISOString() : null,
++                    distanceKm: Math.round(haversineDistanceKm(lat, lng, qLat, qLng))
++                };
++            })
++            .filter(Boolean)
++            .sort((a, b) => b.magnitude - a.magnitude);
++    }
++
++    /** Fetch (or reuse cached) recent nearby earthquakes for one lat/lng. */
++    async function fetchNearbyEarthquakes(lat, lng) {
++        const key = coordKey(lat, lng);
++        const cached = readCache(QUAKE_CACHE_PREFIX, key, QUAKE_CACHE_TTL_MS);
++        if (cached) return cached;
++
++        const res = await fetch(buildQuakeUrl(lat, lng));
++        if (!res.ok) {
++            throw new Error("Earthquake API responded with status " + res.status);
++        }
++        const json = await res.json();
++        const quakes = normalizeQuakeResponse(json, lat, lng);
++        writeCache(QUAKE_CACHE_PREFIX, key, quakes);
++        return quakes;
++    }
++
++    // ------------------------------------------------------------------
++    // Nearby hospitals/police (OpenStreetMap Overpass API)
++    // ------------------------------------------------------------------
++    function buildOverpassQuery(lat, lng, radiusM) {
++        return `[out:json][timeout:15];(
++            node["amenity"="hospital"](around:${radiusM},${lat},${lng});
++            node["amenity"="police"](around:${radiusM},${lat},${lng});
++        );out center ${PLACES_LIMIT * 4};`;
++    }
++
++    function normalizePlacesResponse(json, lat, lng) {
++        const elements = (json && json.elements) || [];
++        const byType = { hospital: [], police: [] };
++        elements.forEach((el) => {
++            const tags = el.tags || {};
++            const type = tags.amenity;
++            if (type !== "hospital" && type !== "police") return;
++            const elLat = el.lat, elLng = el.lon;
++            if (typeof elLat !== "number" || typeof elLng !== "number") return;
++            byType[type].push({
++                name: tags.name || (type === "hospital" ? "Unnamed hospital" : "Unnamed police station"),
++                distanceKm: Math.round(haversineDistanceKm(lat, lng, elLat, elLng) * 10) / 10,
++                phone: tags.phone || tags["contact:phone"] || null,
++                lat: elLat,
++                lng: elLng
++            });
++        });
++        byType.hospital.sort((a, b) => a.distanceKm - b.distanceKm);
++        byType.police.sort((a, b) => a.distanceKm - b.distanceKm);
++        return {
++            hospitals: byType.hospital.slice(0, PLACES_LIMIT),
++            police: byType.police.slice(0, PLACES_LIMIT)
++        };
++    }
++
++    /** Fetch (or reuse cached) nearby hospitals/police for one lat/lng. */
++    async function fetchNearbyEmergencyPlaces(lat, lng) {
++        const key = coordKey(lat, lng);
++        const cached = readCache(PLACES_CACHE_PREFIX, key, PLACES_CACHE_TTL_MS);
++        if (cached) return cached;
++
++        const res = await fetch("https://overpass-api.de/api/interpreter", {
++            method: "POST",
++            body: buildOverpassQuery(lat, lng, PLACES_RADIUS_M)
++        });
++        if (!res.ok) {
++            throw new Error("Overpass API responded with status " + res.status);
++        }
++        const json = await res.json();
++        const places = normalizePlacesResponse(json, lat, lng);
++        writeCache(PLACES_CACHE_PREFIX, key, places);
++        return places;
++    }
++
++    // ------------------------------------------------------------------
++    // Combined fetch for a set of destinations — mirrors
++    // weather-service.js's fetchForecastsForDestinations(): failures are
++    // isolated per-destination/per-source so one bad lookup doesn't
++    // break the whole assessment.
++    //
++    // @returns {Promise<{quakesByDestId, placesByDestId, failed}>}
++    // ------------------------------------------------------------------
++    async function fetchSafetyContextForDestinations(destinations) {
++        const quakesByDestId = {};
++        const placesByDestId = {};
++        const failed = [];
++
++        const results = await Promise.allSettled(
++            destinations.map((d) =>
++                Promise.all([fetchNearbyEarthquakes(d.lat, d.lng), fetchNearbyEmergencyPlaces(d.lat, d.lng)]).then(
++                    ([quakes, places]) => ({ id: d.id, quakes, places })
++                )
++            )
++        );
++
++        results.forEach((result, i) => {
++            const dest = destinations[i];
++            if (result.status === "fulfilled") {
++                quakesByDestId[result.value.id] = result.value.quakes;
++                placesByDestId[result.value.id] = result.value.places;
++            } else {
++                failed.push({ id: dest.id, name: dest.name, error: result.reason ? result.reason.message : "Unknown error" });
++            }
++        });
++
++        return { quakesByDestId, placesByDestId, failed };
++    }
++
++    const api = {
++        QUAKE_CACHE_TTL_MS,
++        QUAKE_RADIUS_KM,
++        PLACES_CACHE_TTL_MS,
++        PLACES_RADIUS_M,
++        buildQuakeUrl,
++        normalizeQuakeResponse,
++        fetchNearbyEarthquakes,
++        buildOverpassQuery,
++        normalizePlacesResponse,
++        fetchNearbyEmergencyPlaces,
++        fetchSafetyContextForDestinations,
++        haversineDistanceKm,
++        _readCache: readCache,
++        _writeCache: writeCache
++    };
++
++    if (typeof module !== "undefined" && module.exports) {
++        module.exports = api;
++    }
++    if (typeof window !== "undefined") {
++        window.TravelSafetyService = api;
++    }
++})(typeof window !== "undefined" ? window : globalThis);
+diff --git a/js-modules/travel-safety-ui.js b/js-modules/travel-safety-ui.js
+new file mode 100644
+index 0000000..1dd8758
+--- /dev/null
++++ b/js-modules/travel-safety-ui.js
+@@ -0,0 +1,319 @@
++/**
++ * js-modules/travel-safety-ui.js
++ * DOM layer for the Intelligent Travel Risk Assessment & Safety Advisory
++ * page (frontend/travel-safety/travel-safety.html, issue #772).
++ *
++ * Wires together:
++ *  - safety-data.js       (static hazard tables + emergency contacts)
++ *  - travel-safety-core.js (pure scoring/advisory/checklist rules)
++ *  - travel-safety-service.js (live earthquake + nearby hospital/police fetch)
++ *  - weather-core.js / weather-service.js (weather risk factor — reused,
++ *    not duplicated; degrades gracefully if a forecast fails)
++ *  - trip-data.js          (destination catalogue, shared with Trip Planner)
++ *  - trip-planner.js       (reads saved trips for the itinerary-alerts view)
++ *
++ * Registered in router-init.js for travel-safety.html, called as
++ * initTravelSafetyPage() the same way other page modules are.
++ */
++(function () {
++    "use strict";
++
++    function initTravelSafetyPage() {
++        const SafetyData = window.SafetyData;
++        const Core = window.TravelSafetyCore;
++        const Service = window.TravelSafetyService;
++        const WeatherCore = window.WeatherCore;
++        const WeatherService = window.WeatherService;
++        const destinations = window.tripDestinations || [];
++
++        if (!SafetyData || !Core || !Service || !destinations.length) {
++            console.error("[TravelSafetyUI] Missing dependency (SafetyData/TravelSafetyCore/TravelSafetyService/tripDestinations) — safety page disabled.");
++            return;
++        }
++
++        const destinationsById = {};
++        destinations.forEach((d) => { destinationsById[d.id] = d; });
++        const destinationsByName = {};
++        destinations.forEach((d) => { destinationsByName[d.name] = d; });
++
++        const CHECKLIST_KEY_PREFIX = "travelSafetyChecklist:";
++
++        // -- DOM refs -----------------------------------------------------
++        const select = document.getElementById("safety-destination-select");
++        const checkBtn = document.getElementById("safety-check-btn");
++        const resultPanel = document.getElementById("safety-result-panel");
++        const contactsPanel = document.getElementById("safety-contacts-panel");
++        const tripSelect = document.getElementById("safety-trip-select");
++        const tripCheckBtn = document.getElementById("safety-trip-check-btn");
++        const tripAlertsPanel = document.getElementById("safety-trip-alerts-panel");
++
++        if (!select || !resultPanel) return; // page markup not present — nothing to wire up
++
++        // -- Populate destination picker -----------------------------------
++        destinations
++            .slice()
++            .sort((a, b) => a.name.localeCompare(b.name))
++            .forEach((d) => {
++                const opt = document.createElement("option");
++                opt.value = d.id;
++                opt.textContent = `${d.name}, ${d.state}`;
++                select.appendChild(opt);
++            });
++
++        // -- Render national emergency contacts (always visible) -----------
++        if (contactsPanel) {
++            contactsPanel.innerHTML = renderEmergencyContacts(SafetyData.NATIONAL_EMERGENCY_CONTACTS);
++        }
++
++        // -- Populate saved-trip picker, if any ----------------------------
++        function refreshSavedTrips() {
++            if (!tripSelect || !window.TripPlanner) return;
++            const trips = window.TripPlanner.getSavedTrips();
++            tripSelect.innerHTML = "";
++            if (!trips.length) {
++                const opt = document.createElement("option");
++                opt.textContent = "No saved trips yet — plan one in Trip Planner";
++                opt.disabled = true;
++                tripSelect.appendChild(opt);
++                if (tripCheckBtn) tripCheckBtn.disabled = true;
++                return;
++            }
++            trips.forEach((t) => {
++                const opt = document.createElement("option");
++                opt.value = t.id;
++                opt.textContent = t.title;
++                tripSelect.appendChild(opt);
++            });
++            if (tripCheckBtn) tripCheckBtn.disabled = false;
++        }
++        refreshSavedTrips();
++
++        // -- Single-destination check --------------------------------------
++        let requestToken = 0;
++
++        async function checkDestination(destId) {
++            const destination = destinationsById[destId];
++            if (!destination) return;
++
++            const myToken = ++requestToken;
++            resultPanel.hidden = false;
++            resultPanel.innerHTML = renderLoading(`Checking safety data for ${destination.name}…`);
++
++            let quakes = [];
++            let places = { hospitals: [], police: [] };
++            let weatherSuitability = null;
++
++            try {
++                const [safetyContext, weatherResult] = await Promise.allSettled([
++                    Promise.all([Service.fetchNearbyEarthquakes(destination.lat, destination.lng), Service.fetchNearbyEmergencyPlaces(destination.lat, destination.lng)]),
++                    WeatherService ? WeatherService.fetchForecast(destination.lat, destination.lng) : Promise.resolve(null)
++                ]);
++
++                if (myToken !== requestToken) return;
++
++                if (safetyContext.status === "fulfilled") {
++                    [quakes, places] = safetyContext.value;
++                }
++                if (weatherResult.status === "fulfilled" && weatherResult.value && WeatherCore) {
++                    const today = new Date().toISOString().slice(0, 10);
++                    const todayForecast = weatherResult.value.find((f) => f.date === today) || weatherResult.value[0] || null;
++                    weatherSuitability = WeatherCore.computeDaySuitability(todayForecast, destination.categories);
++                }
++            } catch (err) {
++                // Individual sources already isolated above; this only
++                // catches something unexpected — assessment still proceeds
++                // with whatever data we have.
++                console.warn("[TravelSafetyUI] Partial data failure", err);
++            }
++
++            if (myToken !== requestToken) return;
++
++            const assessment = Core.computeDestinationSafetyScore(destination, SafetyData, { weatherSuitability, quakes });
++            const advisories = Core.buildAdvisories(assessment);
++            const checklist = Core.buildSafetyChecklist(destination, SafetyData, assessment);
++            const checkedIds = loadChecklistState(destId);
++
++            resultPanel.innerHTML = renderResult(destination, assessment, advisories, checklist, checkedIds, places);
++            wireChecklist(destId, resultPanel);
++        }
++
++        // -- Itinerary-wide check --------------------------------------------
++        async function checkTrip(tripId) {
++            if (!window.TripPlanner) return;
++            const trips = window.TripPlanner.getSavedTrips();
++            const trip = trips.find((t) => t.id === tripId);
++            if (!trip || !tripAlertsPanel) return;
++
++            tripAlertsPanel.hidden = false;
++            tripAlertsPanel.innerHTML = renderLoading("Checking safety data for every stop on this trip…");
++
++            const tripDestinations = trip.itinerary.destinations
++                .map((d) => destinationsByName[d.name])
++                .filter(Boolean);
++
++            if (!tripDestinations.length) {
++                tripAlertsPanel.innerHTML = "<p>Couldn't match this trip's destinations to the safety database.</p>";
++                return;
++            }
++
++            let quakesByDestId = {};
++            try {
++                const result = await Service.fetchSafetyContextForDestinations(tripDestinations);
++                quakesByDestId = result.quakesByDestId;
++            } catch (err) {
++                console.warn("[TravelSafetyUI] Itinerary earthquake lookup failed", err);
++            }
++
++            const schedule = window.TripPlanner.buildDailySchedule(trip.itinerary).map((item) => {
++                if (item.type !== "stay") return item;
++                const dest = destinationsByName[item.city];
++                return Object.assign({}, item, { destId: dest ? dest.id : null });
++            });
++
++            const startDate = new Date().toISOString().slice(0, 10); // saved trips don't store a start date, so alerts use today + relative day offsets
++            const evaluated = Core.evaluateItinerarySafety(schedule, destinationsById, SafetyData, { quakesByDestId }, startDate, WeatherCore);
++            const alerts = Core.buildItineraryAlerts(evaluated);
++
++            tripAlertsPanel.innerHTML = renderTripAlerts(trip, alerts);
++        }
++
++        // -- Checklist persistence -------------------------------------------
++        function loadChecklistState(destId) {
++            try {
++                const raw = localStorage.getItem(CHECKLIST_KEY_PREFIX + destId);
++                return raw ? new Set(JSON.parse(raw)) : new Set();
++            } catch (e) {
++                return new Set();
++            }
++        }
++        function saveChecklistState(destId, checkedIds) {
++            try {
++                localStorage.setItem(CHECKLIST_KEY_PREFIX + destId, JSON.stringify(Array.from(checkedIds)));
++            } catch (e) { /* storage unavailable — checklist just won't persist */ }
++        }
++        function wireChecklist(destId, container) {
++            const boxes = container.querySelectorAll("[data-checklist-item]");
++            boxes.forEach((box) => {
++                box.addEventListener("change", () => {
++                    const checked = loadChecklistState(destId);
++                    if (box.checked) checked.add(box.dataset.checklistItem);
++                    else checked.delete(box.dataset.checklistItem);
++                    saveChecklistState(destId, checked);
++                });
++            });
++        }
++
++        // -- Rendering ---------------------------------------------------------
++        function renderLoading(message) {
++            return `<div class="safety-loading"><span class="safety-spinner" aria-hidden="true"></span>${escapeHtml(message)}</div>`;
++        }
++
++        function renderEmergencyContacts(contacts) {
++            return `
++                <h3>National Emergency Contacts</h3>
++                <ul class="safety-contacts-list">
++                    ${contacts.map((c) => `
++                        <li>
++                            <span class="safety-contact-label">${escapeHtml(c.label)}</span>
++                            <span class="safety-contact-number">${escapeHtml(c.number)}${c.altNumber ? " / " + escapeHtml(c.altNumber) : ""}</span>
++                            ${c.note ? `<span class="safety-contact-note">${escapeHtml(c.note)}</span>` : ""}
++                        </li>
++                    `).join("")}
++                </ul>`;
++        }
++
++        function severityIcon(sev) {
++            return { warning: "⚠️", caution: "🟡", info: "ℹ️" }[sev] || "•";
++        }
++
++        function renderResult(destination, assessment, advisories, checklist, checkedIds, places) {
++            const grouped = { before: [], during: [] };
++            checklist.forEach((item) => grouped[item.category || "before"].push(item));
++
++            return `
++                <div class="safety-score-card safety-level-${assessment.level}">
++                    <div class="safety-score-value">${assessment.score}<span>/100</span></div>
++                    <div class="safety-score-meta">
++                        <h3>${escapeHtml(destination.name)}, ${escapeHtml(destination.state)}</h3>
++                        <span class="safety-level-badge">${escapeHtml(assessment.label)}</span>
++                    </div>
++                </div>
++
++                <section class="safety-advisories">
++                    <h4>Travel Advisories</h4>
++                    ${advisories.length
++                        ? `<ul>${advisories.map((a) => `<li class="safety-advisory safety-sev-${a.severity}">${severityIcon(a.severity)} ${escapeHtml(a.message)}</li>`).join("")}</ul>`
++                        : `<p class="safety-no-advisories">No elevated risk factors detected for this destination right now.</p>`}
++                </section>
++
++                <section class="safety-nearby">
++                    <h4>Nearby (live, OpenStreetMap)</h4>
++                    <div class="safety-nearby-grid">
++                        <div>
++                            <h5>🏥 Hospitals</h5>
++                            ${places.hospitals.length
++                                ? `<ul>${places.hospitals.map((h) => `<li>${escapeHtml(h.name)} — ${h.distanceKm} km${h.phone ? " · " + escapeHtml(h.phone) : ""}</li>`).join("")}</ul>`
++                                : "<p>None found within range in OpenStreetMap's data for this area.</p>"}
++                        </div>
++                        <div>
++                            <h5>🚓 Police Stations</h5>
++                            ${places.police.length
++                                ? `<ul>${places.police.map((p) => `<li>${escapeHtml(p.name)} — ${p.distanceKm} km${p.phone ? " · " + escapeHtml(p.phone) : ""}</li>`).join("")}</ul>`
++                                : "<p>None found within range in OpenStreetMap's data for this area.</p>"}
++                        </div>
++                    </div>
++                </section>
++
++                <section class="safety-checklist">
++                    <h4>Safety Checklist</h4>
++                    <h5>Before you go</h5>
++                    <ul>${grouped.before.map((item) => renderChecklistItem(item, checkedIds)).join("")}</ul>
++                    <h5>During your trip</h5>
++                    <ul>${grouped.during.map((item) => renderChecklistItem(item, checkedIds)).join("")}</ul>
++                </section>
++            `;
++        }
++
++        function renderChecklistItem(item, checkedIds) {
++            const checked = checkedIds.has(item.id) ? "checked" : "";
++            return `<li><label><input type="checkbox" data-checklist-item="${escapeHtml(item.id)}" ${checked}/> ${escapeHtml(item.label)}</label></li>`;
++        }
++
++        function renderTripAlerts(trip, alerts) {
++            if (!alerts.length) {
++                return `<p class="safety-no-advisories">No elevated risk factors detected across "${escapeHtml(trip.title)}".</p>`;
++            }
++            return `
++                <h4>Alerts for "${escapeHtml(trip.title)}"</h4>
++                <ul class="safety-trip-alerts">
++                    ${alerts.map((a) => `
++                        <li class="safety-advisory safety-level-${a.level}">
++                            <strong>${escapeHtml(a.city)}</strong> (${escapeHtml(a.date)}): ${escapeHtml(a.headline)}
++                        </li>
++                    `).join("")}
++                </ul>`;
++        }
++
++        function escapeHtml(str) {
++            return String(str).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
++        }
++
++        // -- Event wiring --------------------------------------------------
++        if (checkBtn) {
++            checkBtn.addEventListener("click", () => {
++                if (select.value) checkDestination(select.value);
++            });
++        }
++        if (tripCheckBtn) {
++            tripCheckBtn.addEventListener("click", () => {
++                if (tripSelect && tripSelect.value) checkTrip(tripSelect.value);
++            });
++        }
++    }
++
++    window.initTravelSafetyPage = initTravelSafetyPage;
++
++    if (typeof module !== "undefined" && module.exports) {
++        module.exports = { initTravelSafetyPage };
++    }
++})();
+diff --git a/tests/unit/travel-safety-core.test.js b/tests/unit/travel-safety-core.test.js
+new file mode 100644
+index 0000000..3b9932e
+--- /dev/null
++++ b/tests/unit/travel-safety-core.test.js
+@@ -0,0 +1,233 @@
++/**
++ * travel-safety-core.test.js
++ * Tests for js-modules/travel-safety-core.js — the pure rule-based
++ * scoring, advisory, checklist, and itinerary-alert logic behind the
++ * Intelligent Travel Risk Assessment & Safety Advisory System (issue #772).
++ */
++
++import { describe, it, expect } from 'vitest';
++import Core from '../../js-modules/travel-safety-core.js';
++import SafetyData from '../../js-modules/safety-data.js';
++import WeatherCore from '../../js-modules/weather-core.js';
++
++function destination(overrides) {
++    return Object.assign({
++        id: 'agra',
++        name: 'Agra',
++        state: 'Uttar Pradesh',
++        lat: 27.1767,
++        lng: 78.0081,
++        categories: ['historical', 'heritage']
++    }, overrides);
++}
++
++describe('travel-safety-core: classifyScore', () => {
++    it('classifies a high score as low risk', () => {
++        expect(Core.classifyScore(92).level).toBe('low');
++    });
++
++    it('classifies a mid score as moderate risk', () => {
++        expect(Core.classifyScore(70).level).toBe('moderate');
++    });
++
++    it('classifies a low score as elevated risk', () => {
++        expect(Core.classifyScore(45).level).toBe('elevated');
++    });
++
++    it('classifies a very low score as high risk', () => {
++        expect(Core.classifyScore(10).level).toBe('high');
++    });
++
++    it('clamps out-of-range scores', () => {
++        expect(Core.classifyScore(150).score).toBe(100);
++        expect(Core.classifyScore(-50).score).toBe(0);
++    });
++});
++
++describe('travel-safety-core: hazard factors', () => {
++    it('flags a high-altitude destination', () => {
++        const factor = Core.altitudeFactor(destination({ id: 'leh' }), SafetyData);
++        expect(factor).not.toBeNull();
++        expect(factor.type).toBe('altitude');
++        expect(factor.delta).toBeLessThan(0);
++    });
++
++    it('does not flag altitude for a low-altitude destination', () => {
++        expect(Core.altitudeFactor(destination({ id: 'agra' }), SafetyData)).toBeNull();
++    });
++
++    it('flags cyclone risk only in-season for coastal destinations', () => {
++        const dest = destination({ id: 'goa' });
++        expect(Core.cycloneFactor(dest, SafetyData, 5)).not.toBeNull(); // May: in season
++        expect(Core.cycloneFactor(dest, SafetyData, 1)).toBeNull(); // January: out of season
++    });
++
++    it('does not flag cyclone risk for a non-coastal destination', () => {
++        expect(Core.cycloneFactor(destination({ id: 'agra' }), SafetyData, 5)).toBeNull();
++    });
++
++    it('flags landslide risk only during monsoon months for hill destinations', () => {
++        const dest = destination({ id: 'manali' });
++        expect(Core.landslideFactor(dest, SafetyData, 7)).not.toBeNull(); // July: monsoon
++        expect(Core.landslideFactor(dest, SafetyData, 12)).toBeNull(); // December: dry season
++    });
++
++    it('flags extreme heat only in-season for desert destinations', () => {
++        const dest = destination({ id: 'jaisalmer' });
++        expect(Core.heatFactor(dest, SafetyData, 5)).not.toBeNull(); // May: peak heat
++        expect(Core.heatFactor(dest, SafetyData, 12)).toBeNull(); // December: mild
++    });
++
++    it('flags wildlife destinations', () => {
++        expect(Core.wildlifeFactor(destination({ id: 'kaziranga' }), SafetyData)).not.toBeNull();
++        expect(Core.wildlifeFactor(destination({ id: 'agra' }), SafetyData)).toBeNull();
++    });
++
++    it('translates poor weather suitability into a risk factor', () => {
++        const suitability = { status: 'poor', reasons: ['heavy rain expected'] };
++        const factor = Core.weatherFactor(suitability);
++        expect(factor.severity).toBe('warning');
++        expect(factor.delta).toBeLessThan(-10);
++    });
++
++    it('does not add a weather factor for good weather', () => {
++        expect(Core.weatherFactor({ status: 'good', reasons: [] })).toBeNull();
++        expect(Core.weatherFactor(null)).toBeNull();
++    });
++
++    it('flags a significant recent nearby earthquake', () => {
++        const quakes = [{ magnitude: 5.8, place: '50km N of Test', distanceKm: 50 }];
++        const factor = Core.seismicEventFactor(quakes);
++        expect(factor.severity).toBe('warning');
++    });
++
++    it('ignores minor earthquakes below the threshold', () => {
++        const quakes = [{ magnitude: 2.1, place: 'Test', distanceKm: 10 }];
++        expect(Core.seismicEventFactor(quakes)).toBeNull();
++    });
++
++    it('handles an empty quake list', () => {
++        expect(Core.seismicEventFactor([])).toBeNull();
++    });
++});
++
++describe('travel-safety-core: computeDestinationSafetyScore', () => {
++    it('gives a low-hazard city a high, low-risk score with no context', () => {
++        const assessment = Core.computeDestinationSafetyScore(destination({ id: 'agra' }), SafetyData, {});
++        expect(assessment.score).toBeGreaterThan(70);
++        expect(['low', 'moderate']).toContain(assessment.level);
++    });
++
++    it('lowers the score for a high-altitude destination', () => {
++        const withoutHazard = Core.computeDestinationSafetyScore(destination({ id: 'agra' }), SafetyData, {});
++        const withHazard = Core.computeDestinationSafetyScore(destination({ id: 'leh', categories: ['mountains'] }), SafetyData, {});
++        expect(withHazard.score).toBeLessThan(withoutHazard.score);
++    });
++
++    it('stacks multiple factors (weather + seismic event) for a bigger drop', () => {
++        const dest = destination({ id: 'leh', categories: ['mountains'] });
++        const onlyBase = Core.computeDestinationSafetyScore(dest, SafetyData, {});
++        const withExtra = Core.computeDestinationSafetyScore(dest, SafetyData, {
++            weatherSuitability: { status: 'poor', reasons: ['heavy snow fall expected'] },
++            quakes: [{ magnitude: 6.0, place: 'near Leh', distanceKm: 20 }]
++        });
++        expect(withExtra.score).toBeLessThan(onlyBase.score);
++        expect(withExtra.factors.length).toBeGreaterThan(onlyBase.factors.length);
++    });
++
++    it('throws when no destination is given', () => {
++        expect(() => Core.computeDestinationSafetyScore(null, SafetyData, {})).toThrow();
++    });
++});
++
++describe('travel-safety-core: buildAdvisories', () => {
++    it('sorts advisories with warnings before cautions before info', () => {
++        const assessment = {
++            factors: [
++                { type: 'a', severity: 'info', message: 'info msg' },
++                { type: 'b', severity: 'warning', message: 'warning msg' },
++                { type: 'c', severity: 'caution', message: 'caution msg' }
++            ]
++        };
++        const advisories = Core.buildAdvisories(assessment);
++        expect(advisories.map((a) => a.severity)).toEqual(['warning', 'caution', 'info']);
++    });
++
++    it('returns an empty list when there are no factors', () => {
++        expect(Core.buildAdvisories({ factors: [] })).toEqual([]);
++    });
++});
++
++describe('travel-safety-core: buildSafetyChecklist', () => {
++    it('always includes the base checklist items', () => {
++        const assessment = { factors: [] };
++        const checklist = Core.buildSafetyChecklist(destination({ id: 'agra' }), SafetyData, assessment);
++        const ids = checklist.map((c) => c.id);
++        expect(ids).toEqual(expect.arrayContaining(['insurance', 'id-copies', 'emergency-numbers']));
++    });
++
++    it('adds an altitude-specific item when altitude risk is active', () => {
++        const assessment = { factors: [{ type: 'altitude', severity: 'caution', message: 'x' }] };
++        const checklist = Core.buildSafetyChecklist(destination({ id: 'leh' }), SafetyData, assessment);
++        expect(checklist.some((c) => c.id === 'altitude-plan')).toBe(true);
++    });
++
++    it('adds a beach water-safety item for beach destinations', () => {
++        const dest = destination({ id: 'goa', categories: ['beaches'] });
++        const checklist = Core.buildSafetyChecklist(dest, SafetyData, { factors: [] });
++        expect(checklist.some((c) => c.id === 'water-safety')).toBe(true);
++    });
++});
++
++describe('travel-safety-core: evaluateItinerarySafety + buildItineraryAlerts', () => {
++    const destinationsById = {
++        agra: destination({ id: 'agra' }),
++        leh: destination({ id: 'leh', name: 'Leh', categories: ['mountains'] })
++    };
++
++    const schedule = [
++        { day: 1, type: 'stay', destId: 'agra', city: 'Agra', activity: 'Explore Taj Mahal' },
++        { day: 2, type: 'travel', from: 'Agra', to: 'Leh' },
++        { day: 3, type: 'stay', destId: 'leh', city: 'Leh', activity: 'Explore monasteries' }
++    ];
++
++    it('attaches a date and safety assessment to each stay day', () => {
++        const evaluated = Core.evaluateItinerarySafety(schedule, destinationsById, SafetyData, {}, '2026-08-01', WeatherCore);
++        const stays = evaluated.filter((e) => e.type === 'stay');
++        expect(stays).toHaveLength(2);
++        stays.forEach((s) => {
++            expect(s.date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
++            expect(s.assessment).not.toBeNull();
++        });
++    });
++
++    it('leaves travel days untouched aside from adding a date', () => {
++        const evaluated = Core.evaluateItinerarySafety(schedule, destinationsById, SafetyData, {}, '2026-08-01', WeatherCore);
++        const travelDay = evaluated.find((e) => e.type === 'travel');
++        expect(travelDay.date).toBe('2026-08-02');
++        expect(travelDay.assessment).toBeUndefined();
++    });
++
++    it('throws on an invalid start date', () => {
++        expect(() => Core.evaluateItinerarySafety(schedule, destinationsById, SafetyData, {}, 'not-a-date', WeatherCore)).toThrow();
++    });
++
++    it('surfaces itinerary alerts only for destinations with a non-info factor', () => {
++        const evaluated = Core.evaluateItinerarySafety(schedule, destinationsById, SafetyData, {}, '2026-08-01', WeatherCore);
++        const alerts = Core.buildItineraryAlerts(evaluated);
++        // Leh carries an altitude (caution) factor; Agra in August carries no active factor.
++        expect(alerts.some((a) => a.destId === 'leh')).toBe(true);
++        expect(alerts.every((a) => a.factors.every((f) => f.severity !== 'info'))).toBe(true);
++    });
++
++    it('deduplicates alerts per destination', () => {
++        const longSchedule = [
++            { day: 1, type: 'stay', destId: 'leh', city: 'Leh', activity: 'Day 1' },
++            { day: 2, type: 'stay', destId: 'leh', city: 'Leh', activity: 'Day 2' }
++        ];
++        const evaluated = Core.evaluateItinerarySafety(longSchedule, destinationsById, SafetyData, {}, '2026-08-01', WeatherCore);
++        const alerts = Core.buildItineraryAlerts(evaluated);
++        const lehAlerts = alerts.filter((a) => a.destId === 'leh');
++        expect(lehAlerts).toHaveLength(1);
++    });
++});
