@@ -1211,5 +1211,18 @@ window.indiaSearchIndex = [
     category: "Mountains & Geography",
     description: "Dedicated explorer for Rimo I, a 7,385 m high peak in the Karakoram Range of Ladakh, featuring facts, map locations, image gallery, and FAQs.",
     url: "frontend/rimo-i/rimo-i.html"
+  },
+  // --- India's Firsts Encyclopedia ---
+  {
+    title: "India's 'Firsts' Encyclopedia",
+    category: "History & Achievements",
+    description: "Interactive encyclopedia highlighting India's major firsts: First Satellite (Aryabhata), First Woman PM (Indira Gandhi), First Metro (Kolkata), First IIT (Kharagpur), First High Court (Calcutta), First Nobel Laureate (Tagore), and First National Park (Corbett).",
+    url: "frontend/indias-firsts/indias-firsts.html"
+  },
+  {
+    title: "India Historical Firsts Timeline & Knowledge Quiz",
+    category: "Interactive Learning",
+    description: "Chronological milestone timeline from 1853 to 1984, category filters, and multiple-choice knowledge quiz testing famous Indian firsts.",
+    url: "frontend/indias-firsts/indias-firsts.html"
   }
 ];
