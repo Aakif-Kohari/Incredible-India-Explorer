@@ -1012,7 +1012,7 @@ window.indiaSearchIndex = [
     title: "UP Tourism Highlights & Interactive Portal",
     category: "UP Central Portal",
     description: "Explore UP heritage, Taj Mahal, Varanasi Ghats, Ayodhya Ram Mandir, Awadhi Cuisine, and 10 tourism modules.",
-    url: "frontend/up-dashboard/up-dashboard.html"
+    url: "frontend/up-dashboard/up-dashboard.html"},
   // --- Uttar Pradesh District Explorer ---
   {
     title: "Uttar Pradesh District Explorer",
@@ -1024,7 +1024,7 @@ window.indiaSearchIndex = [
     title: "UP 75 Districts Interactive Map & Guide",
     category: "UP State Explorer",
     description: "Search and filter all 75 UP districts across 18 divisions and 4 geographic regions with SVG map and detail inspector.",
-    url: "frontend/up-district-explorer/up-district-explorer.html"
+    url: "frontend/up-district-explorer/up-district-explorer.html"},
   // --- Guess the Uttar Pradesh District Game ---
   {
     title: "Guess the Uttar Pradesh District Game",
@@ -1036,7 +1036,7 @@ window.indiaSearchIndex = [
     title: "Uttar Pradesh District Quiz & Clues Challenge",
     category: "UP Geography Game",
     description: "Identify UP districts from handicraft ODOP, river landmarks, and history with scoreboard, timer, hints, and achievement badges.",
-    url: "frontend/guess-up-district/guess-up-district.html"
+    url: "frontend/guess-up-district/guess-up-district.html"},
   // --- Uttar Pradesh Filming Locations Explorer ---
   {
     title: "Uttar Pradesh Filming Locations Explorer",
@@ -1048,7 +1048,7 @@ window.indiaSearchIndex = [
     title: "Varanasi & Taj Mahal Movie Locations",
     category: "UP Filming Locations",
     description: "Discover movie cards, behind-the-scenes trivia, and interactive gallery for movies filmed in Uttar Pradesh.",
-    url: "frontend/up-filming/up-filming.html"
+    url: "frontend/up-filming/up-filming.html"},
   // --- Uttar Pradesh Pilgrimage Circuit Planner ---
   {
     title: "Uttar Pradesh Pilgrimage Circuit Planner",
@@ -1073,7 +1073,7 @@ window.indiaSearchIndex = [
     title: "India Agricultural Yields & Green Revolution Guide",
     category: "Agricultural History",
     description: "Interactive before/after yield comparison chart, 4 technological pillars, and balanced dual framing of food security vs groundwater considerations.",
-    url: "frontend/green-revolution/green-revolution.html"
+    url: "frontend/green-revolution/green-revolution.html"},
   // --- History of Indian Railways Timeline ---
   {
     title: "Animated Timeline: History of Indian Railways",
@@ -1085,7 +1085,7 @@ window.indiaSearchIndex = [
     title: "1853 to Present Indian Railways Historical Narrative",
     category: "Railways History",
     description: "Explore 170+ years of Indian Railways with animated train track visualization, neutral factual framing, and technical specs.",
-    url: "frontend/railways-timeline/railways-timeline.html"
+    url: "frontend/railways-timeline/railways-timeline.html"},
   // --- Famous Monuments Explorer ---
   {
     title: "Famous Monuments Explorer",
@@ -1097,7 +1097,7 @@ window.indiaSearchIndex = [
     title: "Taj Mahal & Bara Imambara 3D Explorer",
     category: "UP Monuments Guide",
     description: "Explore historical timelines, architectural specs, and interactive 3D perspective cards of iconic Uttar Pradesh heritage monuments.",
-    url: "frontend/up-monuments/up-monuments.html"
+    url: "frontend/up-monuments/up-monuments.html"},
   // --- Uttar Pradesh Festival Calendar ---
   {
     title: "Uttar Pradesh Festival Calendar",
@@ -1116,13 +1116,13 @@ window.indiaSearchIndex = [
     title: "Animated Map: Historical Spread of Buddhism from India",
     category: "History & Geography",
     description: "Animated expanding-path map detailing the historical transmission of Buddhism across Asia from Bodh Gaya across Sri Lanka, Silk Road, and East Asia.",
-    url: "frontend/buddhism-spread-map/index.html"
+    url: "frontend/buddhism-spread-map/index.html"},
   // --- Capital Match-Up ---
   {
     title: "Capital Match-Up Game",
     category: "Games & Geography",
     description: "Interactive drag-and-drop and tap-to-select matching game pairing Indian states and union territories with their capitals.",
-    url: "frontend/capital-match-up/index.html"
+    url: "frontend/capital-match-up/index.html"},
   // --- UP Heritage Arc Explorer ---
   {
     title: "Uttar Pradesh Heritage Arc Explorer",
@@ -1148,7 +1148,7 @@ window.indiaSearchIndex = [
     title: "India State Literacy Census Statistics (1951–2011)",
     category: "Census Statistics",
     description: "Decennial state literacy ranking race, play/pause controls, search filters, and Census of India sourcing disclaimer.",
-    url: "frontend/literacy-chart-race/literacy-chart-race.html"
+    url: "frontend/literacy-chart-race/literacy-chart-race.html"},
   // --- How Indian Classical Ragas Work (Time-of-Day Theory) ---
   {
     title: "Animated Explainer: How Indian Classical Ragas Work (Time-of-Day Theory)",
@@ -1160,7 +1160,7 @@ window.indiaSearchIndex = [
     title: "Indian Classical Music Samaya Chakra & Ragas Guide",
     category: "Musicology",
     description: "Explore Raga Bhairav, Yaman, Darbari Kanada, Malkauns, Brindavani Sarang, and Lalit with original musicological text descriptions.",
-    url: "frontend/ragas-time-explainer/ragas-time-explainer.html"
+    url: "frontend/ragas-time-explainer/ragas-time-explainer.html"},
   // --- Partition of India, 1947 ---
   {
     title: "Scrollytelling: Partition of India, 1947 — A Factual Overview",
@@ -1179,25 +1179,25 @@ window.indiaSearchIndex = [
     title: "Data Viz: Language Diversity Map (Animated Reveal)",
     category: "Data & Languages",
     description: "Animated map progressively revealing India's linguistic diversity, layering major languages by speaker population based on Census of India data.",
-    url: "frontend/language-diversity-map/index.html"
+    url: "frontend/language-diversity-map/index.html"},
   // --- Animated Explainer: How the Monsoon Farming Cycle Works ---
   {
     title: "Animated Explainer: How the Monsoon Farming Cycle Works",
     category: "Agriculture & Geography",
     description: "Explains the kharif/rabi/zaid crop cycles tied to monsoon timing with an animated circular calendar wheel and verified crop season data.",
-    url: "frontend/monsoon-farming-cycle/index.html"
+    url: "frontend/monsoon-farming-cycle/index.html"},
   // --- Scrollytelling: Life Along the Himalayas ---
   {
     title: "Scrollytelling: Life Along the Himalayas",
     category: "Geography & Culture",
     description: "A narrative journey through Himalayan geography, culture, and daily life across 4 altitude zones from foothills to glacial cold deserts.",
-    url: "frontend/himalayan-life-scrollytelling/index.html"
+    url: "frontend/himalayan-life-scrollytelling/index.html"},
   // --- Animated Infographic: India's Biodiversity Hotspots ---
   {
     title: "Animated Infographic: India's Biodiversity Hotspots",
     category: "Environment & Wildlife",
     description: "Animated infographic highlighting India's four recognized biodiversity hotspots: Himalaya, Western Ghats, Indo-Burma, and Sundaland/Nicobar.",
-    url: "frontend/biodiversity-hotspots/index.html"
+    url: "frontend/biodiversity-hotspots/index.html"},
   // --- Animated Explainer: India's Space Program Milestones ---
   {
     title: "Animated Explainer: India's Space Program Milestones",
@@ -1212,6 +1212,12 @@ window.indiaSearchIndex = [
     description: "Dedicated explorer for Rimo I, a 7,385 m high peak in the Karakoram Range of Ladakh, featuring facts, map locations, image gallery, and FAQs.",
     url: "frontend/rimo-i/rimo-i.html"
   },
+  // --- Satopanth Mountain ---
+  {
+    title: "Satopanth Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Satopanth, a 7,075 m high peak in the Garhwal Range of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
+    url: "frontend/satopanth/satopanth.html"},
   // --- Shivling Mountain ---
   {
     title: "Shivling Mountain Explorer",
@@ -1224,7 +1230,19 @@ window.indiaSearchIndex = [
     title: "Panchachuli I Mountain Explorer",
     category: "Mountains & Geography",
     description: "Dedicated explorer for Panchachuli I, a 6,355 m peak in the Kumaon Himalayas of Uttarakhand, featuring trekking information, map locations, image gallery, and FAQs.",
-    url: "frontend/panchachuli-i/panchachuli-i.html"
+    url: "frontend/panchachuli-i/panchachuli-i.html"},
+  // --- Swargarohini Mountain ---
+  {
+    title: "Swargarohini Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Swargarohini, a 6,252 m high massif in the Garhwal Himalayas of Uttarakhand, featuring mythological history, trekking routes, map locations, image gallery, and FAQs.",
+    url: "frontend/swargarohini/swargarohini.html"},
+  // --- Bandarpoonch Mountain ---
+  {
+    title: "Bandarpoonch Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Bandarpoonch, a 6,316 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, trekking details, and FAQs.",
+    url: "frontend/bandarpoonch/bandarpoonch.html"
   },
   // --- India's Firsts Encyclopedia ---
   {
@@ -1237,7 +1255,7 @@ window.indiaSearchIndex = [
     title: "India Historical Firsts Timeline & Knowledge Quiz",
     category: "Interactive Learning",
     description: "Chronological milestone timeline from 1853 to 1984, category filters, and multiple-choice knowledge quiz testing famous Indian firsts.",
-    url: "frontend/indias-firsts/indias-firsts.html"
+    url: "frontend/indias-firsts/indias-firsts.html"},
   // --- India's Lost Cities & Ancient Civilizations ---
   {
     title: "India's Lost Cities & Ancient Civilizations Explorer",
