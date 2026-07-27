@@ -106,7 +106,27 @@
   .multiday-warnings ul, .multiday-alternatives ul { margin: 8px 0 0; padding-left: 18px; font-size: 0.82rem; opacity: 0.85; }
   .multiday-alternatives { margin-top: 8px; }
   .multiday-alternatives ul { list-style: none; padding-left: 0; }
-  .multiday-alternatives li { padding: 4px 0; }</style>
+  .multiday-alternatives li { padding: 4px 0; }
+  .sustainability-panel { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--glass-border); }
+  .sustainability-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+  .sustainability-score-circle { font-size: 2rem; font-weight: 700; color: var(--green, #138808); }
+  .sustainability-badge {
+    display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600;
+  }
+  .sustainability-badge.tier-excellent { background: rgba(19,136,8,0.2); color: #2ecc71; }
+  .sustainability-badge.tier-good { background: rgba(19,136,8,0.15); color: #7ed957; }
+  .sustainability-badge.tier-fair { background: rgba(255,153,51,0.15); color: var(--saffron); }
+  .sustainability-badge.tier-poor { background: rgba(255,107,107,0.15); color: #ff6b6b; }
+  .sustainability-footprint { font-size: 0.9rem; opacity: 0.85; margin-bottom: 12px; }
+  #accommodation-select {
+    width: 100%; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.05); color: inherit; font-family: 'Outfit', sans-serif; margin-bottom: 14px;
+  }
+  .sustainability-comparison { list-style: none; padding: 0; margin: 0 0 14px; font-size: 0.85rem; }
+  .sustainability-comparison li { display: flex; justify-content: space-between; padding: 5px 0; opacity: 0.8; }
+  .sustainability-comparison li.current-mode { opacity: 1; font-weight: 600; color: var(--gold); }
+  .sustainability-tips { margin: 8px 0 0; padding-left: 18px; font-size: 0.82rem; opacity: 0.85; }
+  .sustainability-tips li { padding: 3px 0; }</style>
 
     <!-- Open Graph / Social Media Tags -->
     <meta property="og:title" content="Route Planner | Incredible India Explorer">
@@ -215,6 +235,29 @@
               ⬇ Export Itinerary (offline .txt)
             </button>
           </div>
+
+          <div id="sustainability-panel" class="sustainability-panel" hidden>
+            <div class="sustainability-header">
+              <h3 style="margin:0;">Sustainability Score</h3>
+              <span class="sustainability-score-circle"><span id="sustainability-score">–</span>/100</span>
+            </div>
+            <span id="sustainability-badge" class="sustainability-badge"></span>
+            <p class="sustainability-footprint">Estimated footprint: <strong id="sustainability-footprint">–</strong></p>
+
+            <label for="accommodation-select" style="font-size:0.85rem; opacity:0.8;">Accommodation type</label>
+            <select id="accommodation-select">
+              <option value="ecoCertified">🌱 Eco-certified stay</option>
+              <option value="homestay">🏡 Homestay / guesthouse</option>
+              <option value="midRangeHotel" selected>🏨 Mid-range hotel</option>
+              <option value="luxuryResort">🏖 Luxury resort</option>
+            </select>
+
+            <h4 style="margin: 4px 0; color: var(--gold); font-family: 'Outfit', sans-serif; font-size: 0.95rem;">Compare transport modes</h4>
+            <ul id="sustainability-comparison" class="sustainability-comparison"></ul>
+
+            <h4 style="margin: 4px 0; color: var(--gold); font-family: 'Outfit', sans-serif; font-size: 0.95rem;">Eco-friendly tips for this trip</h4>
+            <ul id="sustainability-tips" class="sustainability-tips"></ul>
+          </div>
         </div>
 
         <!-- Map -->
@@ -242,6 +285,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script><script src="../../app.js" defer></script>
 <script src="route-planner.js"></script>
 <script src="multi-day-planner.js"></script>
+<script src="sustainability-engine.js"></script>
 <script src="route-planner-ui.js" defer></script>
     <script type="module" src="../../js-modules/budget-calculator-engine.js"></script>
     <script type="module" src="../../auth.js"></script>
