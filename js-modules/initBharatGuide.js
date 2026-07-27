@@ -9,6 +9,8 @@ function initBharatGuide() {
     const chatMessages = document.getElementById('chat-messages');
     const chatInput = document.getElementById('chat-input');
     const btnSendMsg = document.getElementById('btn-send-msg');
+    const btnMic = document.getElementById('btn-mic');
+    const langSelect = document.getElementById('chat-lang-select');
 
     if (!fabGuide) return; // Not on this page
 
@@ -17,6 +19,10 @@ function initBharatGuide() {
     fabGuide.dataset.listenerBound = "true";
 
     let isSynthesizing = false;
+    let recognition = null;
+    let isListening = false;
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
     // Toggle Chat
     fabGuide.addEventListener('click', () => {
@@ -34,6 +40,78 @@ function initBharatGuide() {
                 window.speechSynthesis.cancel();
                 isSynthesizing = false;
             }
+            stopListening();
+        });
+    }
+
+    function stopListening() {
+        isListening = false;
+        if (btnMic) {
+            btnMic.classList.remove('listening');
+            btnMic.setAttribute('aria-label', 'Voice Input');
+            btnMic.title = 'Voice Input';
+        }
+        if (recognition) {
+            try { recognition.stop(); } catch (e) {}
+            recognition = null;
+        }
+    }
+
+    if (btnMic) {
+        btnMic.addEventListener('click', () => {
+            if (!SpeechRecognition) {
+                addMessage("⚠️ Voice recognition is not supported in your browser. Please type your message.", "bot-message");
+                return;
+            }
+
+            if (isListening) {
+                stopListening();
+                return;
+            }
+
+            try {
+                recognition = new SpeechRecognition();
+                recognition.continuous = false;
+                recognition.interimResults = true;
+                recognition.lang = langSelect ? langSelect.value : 'en-IN';
+
+                recognition.onstart = () => {
+                    isListening = true;
+                    btnMic.classList.add('listening');
+                    btnMic.setAttribute('aria-label', 'Listening... Click to stop');
+                    btnMic.title = 'Listening... Click to stop';
+                };
+
+                recognition.onresult = (event) => {
+                    let transcript = '';
+                    for (let i = event.resultIndex; i < event.results.length; i++) {
+                        transcript += event.results[i][0].transcript;
+                    }
+                    if (chatInput) chatInput.value = transcript;
+
+                    if (event.results[0] && event.results[0].isFinal) {
+                        stopListening();
+                        sendMessage();
+                    }
+                };
+
+                recognition.onerror = (event) => {
+                    console.warn('Speech recognition error:', event.error);
+                    stopListening();
+                    if (event.error !== 'no-speech' && event.error !== 'aborted') {
+                        addMessage(`⚠️ Voice recognition error (${event.error}). Please try again.`, 'bot-message');
+                    }
+                };
+
+                recognition.onend = () => {
+                    stopListening();
+                };
+
+                recognition.start();
+            } catch (err) {
+                console.error('Failed to start speech recognition:', err);
+                stopListening();
+            }
         });
     }
 
@@ -41,9 +119,13 @@ function initBharatGuide() {
         if (!('speechSynthesis' in window)) return;
         try {
             window.speechSynthesis.cancel();
-            const utterance = new SpeechSynthesisUtterance(text);
+            const cleanText = text.replace(/<[^>]*>/g, '').trim();
+            const utterance = new SpeechSynthesisUtterance(cleanText);
             utterance.rate = 1.0;
             utterance.pitch = 1.0;
+            if (langSelect && langSelect.value) {
+                utterance.lang = langSelect.value;
+            }
             isSynthesizing = true;
             utterance.onend = () => { isSynthesizing = false; };
             utterance.onerror = () => { isSynthesizing = false; };
@@ -124,3 +206,5 @@ function initBharatGuide() {
 }
 
 window.initBharatGuide = initBharatGuide;
+export default initBharatGuide;
+export { initBharatGuide };
