@@ -1268,5 +1268,12 @@ window.indiaSearchIndex = [
     category: "Archaeology",
     description: "Discover Bronze Age water reservoirs, world's earliest dockyards, Mauryan pillared halls, and UNESCO World Heritage excavation records.",
     url: "frontend/ancient-cities/ancient-cities.html"
+  },
+  // --- Interactive Constitution Explorer ---
+  {
+    title: "Interactive Constitution Explorer",
+    category: "Civics & Governance",
+    description: "Beginner-friendly Constitution learning platform covering Preamble breakdown, Fundamental Rights, Fundamental Duties (Article 51A), DPSP, 12 Schedules, Key Amendments, and real-time search.",
+    url: "frontend/constitution-explorer/index.html"
   }
 ];
