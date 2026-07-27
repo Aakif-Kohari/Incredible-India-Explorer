@@ -15,6 +15,7 @@ let level = parseInt(localStorage.getItem('highestLevel') || '1');
 let gameTime = 0;
 let isPlaying = false;
 let lastFrameTime = 0;
+let rafId = null;          // requestAnimationFrame ID for pause/resume
 let spawnTimer = 0;
 let trainCounter = 0;
 
@@ -60,6 +61,7 @@ function setupEventListeners() {
     });
     
     canvas.addEventListener('click', handleCanvasClick);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 }
 
 function startGame() {
@@ -84,7 +86,7 @@ function startGame() {
     renderSchedule();
     
     lastFrameTime = performance.now();
-    requestAnimationFrame(gameLoop);
+    rafId = requestAnimationFrame(gameLoop);
 }
 
 function handleCanvasClick(e) {
@@ -277,10 +279,28 @@ function renderSchedule() {
 }
 window.dispatchGameTrain = dispatchTrain; // expose for inline onclick
 
+function handleVisibilityChange() {
+    if (document.hidden) {
+        // Tab hidden: cancel animation frame to save CPU/battery
+        if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+        }
+    } else {
+        // Tab visible again: resume the game loop with a fresh timestamp
+        if (isPlaying) {
+            lastFrameTime = performance.now(); // Prevent dt explosion on resume
+            rafId = requestAnimationFrame(gameLoop);
+        }
+    }
+}
+
 function gameLoop(timestamp) {
     if (!isPlaying) return;
     
-    const dt = (timestamp - lastFrameTime) / 1000; // seconds
+    // Clamp dt to a maximum of 0.1s (100ms) to prevent physics anomalies
+    // when the tab becomes visible again after being hidden
+    const dt = Math.min((timestamp - lastFrameTime) / 1000, 0.1);
     lastFrameTime = timestamp;
     gameTime += dt;
     
@@ -322,7 +342,7 @@ function gameLoop(timestamp) {
         }
         
         renderCanvas();
-        requestAnimationFrame(gameLoop);
+        rafId = requestAnimationFrame(gameLoop);
     }
 }
 
@@ -415,6 +435,10 @@ function renderMap() {
 
 function gameOver() {
     isPlaying = false;
+    if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+    }
     alertBanner.classList.add('hidden');
     
     document.getElementById('modal-score').textContent = score;

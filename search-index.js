@@ -1224,5 +1224,17 @@ window.indiaSearchIndex = [
     category: "Interactive Learning",
     description: "Chronological milestone timeline from 1853 to 1984, category filters, and multiple-choice knowledge quiz testing famous Indian firsts.",
     url: "frontend/indias-firsts/indias-firsts.html"
+  // --- India's Lost Cities & Ancient Civilizations ---
+  {
+    title: "India's Lost Cities & Ancient Civilizations Explorer",
+    category: "History & Archaeology",
+    description: "Explore Dholavira, Lothal, Pataliputra, Vijayanagara, Taxila, and Fatehpur Sikri with ancient maps, archaeological discoveries, excavation facts, and Before vs Today comparisons.",
+    url: "frontend/ancient-cities/ancient-cities.html"
+  },
+  {
+    title: "Harappan & Ancient Indian Cities Archaeological Guide",
+    category: "Archaeology",
+    description: "Discover Bronze Age water reservoirs, world's earliest dockyards, Mauryan pillared halls, and UNESCO World Heritage excavation records.",
+    url: "frontend/ancient-cities/ancient-cities.html"
   }
 ];

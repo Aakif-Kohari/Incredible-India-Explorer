@@ -1,4 +1,4 @@
-import { monsoonEngine } from './js-modules/monsoon-engine.js';
+import { monsoonEngine } from '../../js-modules/monsoon-engine.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initUI();
