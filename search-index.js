@@ -1212,6 +1212,12 @@ window.indiaSearchIndex = [
     description: "Dedicated explorer for Rimo I, a 7,385 m high peak in the Karakoram Range of Ladakh, featuring facts, map locations, image gallery, and FAQs.",
     url: "frontend/rimo-i/rimo-i.html"
   },
+  // --- Satopanth Mountain ---
+  {
+    title: "Satopanth Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Satopanth, a 7,075 m high peak in the Garhwal Range of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
+    url: "frontend/satopanth/satopanth.html"
   // --- Shivling Mountain ---
   {
     title: "Shivling Mountain Explorer",
