@@ -1268,5 +1268,12 @@ window.indiaSearchIndex = [
     category: "Archaeology",
     description: "Discover Bronze Age water reservoirs, world's earliest dockyards, Mauryan pillared halls, and UNESCO World Heritage excavation records.",
     url: "frontend/ancient-cities/ancient-cities.html"
+  },
+  // --- Scrollytelling: The Making of the Taj Mahal ---
+  {
+    title: "Scrollytelling: The Making of the Taj Mahal",
+    category: "Architecture & Heritage",
+    description: "Narrative scrollytelling walkthrough of the Taj Mahal's construction revealing materials, craftsmen, hydrogeological engineering, double-dome acoustics, and debunked historical myths.",
+    url: "frontend/taj-mahal-scrollytelling/index.html"
   }
 ];
