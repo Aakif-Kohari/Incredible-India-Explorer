@@ -1204,5 +1204,12 @@ window.indiaSearchIndex = [
     category: "Science & Technology",
     description: "Explainer on ISRO's evolution from founding in 1969 to Aryabhata, Mangalyaan, Chandrayaan-3, Aditya-L1, and Gaganyaan with orbit animations.",
     url: "frontend/space-program-milestones/index.html"
+  },
+  // --- Rimo I Mountain ---
+  {
+    title: "Rimo I Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Rimo I, a 7,385 m high peak in the Karakoram Range of Ladakh, featuring facts, map locations, image gallery, and FAQs.",
+    url: "frontend/rimo-i/rimo-i.html"
   }
 ];
