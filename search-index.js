@@ -1269,4 +1269,11 @@ window.indiaSearchIndex = [
     description: "Discover Bronze Age water reservoirs, world's earliest dockyards, Mauryan pillared halls, and UNESCO World Heritage excavation records.",
     url: "frontend/ancient-cities/ancient-cities.html"
   }
+  // --- Saltoro Kangri Mountain ---
+  {
+    title: "Saltoro Kangri Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Saltoro Kangri, a 7,742 m high peak in the Karakoram Range of Ladakh, featuring facts, map locations, image gallery, and trivia.",
+    url: "frontend/saltoro-kangri/saltoro-kangri.html"
+  },
 ];
