@@ -1225,6 +1225,12 @@ window.indiaSearchIndex = [
     description: "Dedicated explorer for Shivling, a 6,543 m high peak in the Garhwal Range of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
     url: "frontend/shivling/shivling.html"
   },
+  // --- Swargarohini Mountain ---
+  {
+    title: "Swargarohini Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Swargarohini, a 6,252 m high massif in the Garhwal Himalayas of Uttarakhand, featuring mythological history, trekking routes, map locations, image gallery, and FAQs.",},
+    url: "frontend/swargarohini/swargarohini.html"
   // --- Bandarpoonch Mountain ---
   {
     title: "Bandarpoonch Mountain Explorer",
