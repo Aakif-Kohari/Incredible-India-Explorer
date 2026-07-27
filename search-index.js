@@ -1218,6 +1218,12 @@ window.indiaSearchIndex = [
     category: "Mountains & Geography",
     description: "Dedicated explorer for Satopanth, a 7,075 m high peak in the Garhwal Range of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
     url: "frontend/satopanth/satopanth.html"
+  // --- Shivling Mountain ---
+  {
+    title: "Shivling Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Shivling, a 6,543 m high peak in the Garhwal Range of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
+    url: "frontend/shivling/shivling.html"
   },
   // --- India's Firsts Encyclopedia ---
   {
