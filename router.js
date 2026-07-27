@@ -130,6 +130,24 @@ class RouteLifecycleManager {
             originalDocumentAddEventListener.call(document, type, listener, options);
         };
 
+        // Override window.removeEventListener to keep routeListeners in sync
+        const originalWindowRemoveEventListener = window.removeEventListener;
+        window.removeEventListener = function(type, listener, options) {
+            self.routeListeners = self.routeListeners.filter(function(item) {
+                return !(item.target === window && item.type === type && item.listener === listener);
+            });
+            originalWindowRemoveEventListener.call(window, type, listener, options);
+        };
+
+        // Override document.removeEventListener to keep routeListeners in sync
+        const originalDocumentRemoveEventListener = document.removeEventListener;
+        document.removeEventListener = function(type, listener, options) {
+            self.routeListeners = self.routeListeners.filter(function(item) {
+                return !(item.target === document && item.type === type && item.listener === listener);
+            });
+            originalDocumentRemoveEventListener.call(document, type, listener, options);
+        };
+
         // Override window.setTimeout
         const originalSetTimeout = window.setTimeout;
         window.setTimeout = function(handler, delay, ...args) {
