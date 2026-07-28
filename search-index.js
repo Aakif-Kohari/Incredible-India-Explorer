@@ -1344,6 +1344,13 @@ window.indiaSearchIndex = [
     category: "Mountains & Geography",
     description: "Dedicated explorer for Saltoro Kangri, a 7,742 m high peak in the Karakoram Range of Ladakh, featuring facts, map locations, image gallery, and trivia.",
     url: "frontend/saltoro-kangri/saltoro-kangri.html"},
+  // --- Meru Peak Mountain ---
+  {
+    title: "Meru Peak Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Meru Peak, a 6,660 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
+    url: "frontend/meru-peak/meru-peak.html"
+  },
   // --- Indrasan Mountain ---
   {
     title: "Indrasan Mountain Explorer",
