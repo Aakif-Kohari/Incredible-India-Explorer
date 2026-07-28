@@ -146,13 +146,22 @@ function isQuotaExceededError(err) {
 
 function purgeAllRouteCaches() {
   if (typeof localStorage === "undefined") return;
-  const keysToRemove = [];
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    if (key && key.startsWith(CACHE_PREFIX)) {
-      keysToRemove.push(key);
+  const keysToRemove = new Set();
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith(CACHE_PREFIX)) {
+        keysToRemove.add(key);
+      }
     }
-  }
+  } catch (e) {}
+  try {
+    Object.keys(localStorage).forEach((key) => {
+      if (key && key.startsWith(CACHE_PREFIX)) {
+        keysToRemove.add(key);
+      }
+    });
+  } catch (e) {}
   keysToRemove.forEach((key) => {
     try {
       localStorage.removeItem(key);
