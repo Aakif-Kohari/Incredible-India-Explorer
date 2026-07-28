@@ -45,7 +45,8 @@ const NATIONAL_PARKS = [
         climate: 'Subtropical Monsoon',
         bestTime: 'November to April',
         entryFee: '₹650 (Indian), ₹2500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Elephant_safari_in_Kaziranga.jpg/960px-Elephant_safari_in_Kaziranga.jpg'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Elephant_safari_in_Kaziranga.jpg/960px-Elephant_safari_in_Kaziranga.jpg',
+        explorerUrl: '../kaziranga-national-park-explorer/index.html'
     },
     {
         id: 'ranthambore',
