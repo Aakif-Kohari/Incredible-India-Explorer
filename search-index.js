@@ -711,6 +711,13 @@ window.indiaSearchIndex = [
     description: "Shimla, Darjeeling, Munnar, Ooty, Manali, and other picturesque hill retreats across India.",
     url: "frontend/hill-stations/frontend/hill-stations/hill-stations.html"
   },
+  // --- Mountains of India ---
+  {
+    title: "Mountains of India",
+    category: "Travel & Exploration",
+    description: "Explore India's majestic mountains — Kangchenjunga, Nanda Devi, Shivling, Anamudi and many more. Filter by range, height, difficulty, and region.",
+    url: "frontend/mountains/index.html"
+  },
 
   // --- Butterfly ---
   {
@@ -1205,6 +1212,13 @@ window.indiaSearchIndex = [
     description: "Explainer on ISRO's evolution from founding in 1969 to Aryabhata, Mangalyaan, Chandrayaan-3, Aditya-L1, and Gaganyaan with orbit animations.",
     url: "frontend/space-program-milestones/index.html"
   },
+  // --- Kanchenjunga Mountain ---
+  {
+    title: "Kanchenjunga Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Kanchenjunga, India's highest mountain at 8,586 m in Sikkim, featuring facts, trekking info, map locations, image gallery, nearby attractions, and FAQs.",
+    url: "frontend/kanchenjunga/kanchenjunga.html"
+  },
   // --- Rimo I Mountain ---
   {
     title: "Rimo I Mountain Explorer",
@@ -1218,6 +1232,12 @@ window.indiaSearchIndex = [
     category: "Mountains & Geography",
     description: "Dedicated explorer for Satopanth, a 7,075 m high peak in the Garhwal Range of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
     url: "frontend/satopanth/satopanth.html"},
+  // --- Changabang Mountain ---
+  {
+    title: "Changabang Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Changabang, a 6,864 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
+    url: "frontend/changabang/changabang.html"},
   // --- Shivling Mountain ---
   {
     title: "Shivling Mountain Explorer",
@@ -1324,6 +1344,13 @@ window.indiaSearchIndex = [
     category: "Mountains & Geography",
     description: "Dedicated explorer for Saltoro Kangri, a 7,742 m high peak in the Karakoram Range of Ladakh, featuring facts, map locations, image gallery, and trivia.",
     url: "frontend/saltoro-kangri/saltoro-kangri.html"},
+  // --- Meru Peak Mountain ---
+  {
+    title: "Meru Peak Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Meru Peak, a 6,660 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
+    url: "frontend/meru-peak/meru-peak.html"
+  },
   // --- Indrasan Mountain ---
   {
     title: "Indrasan Mountain Explorer",
@@ -1331,4 +1358,24 @@ window.indiaSearchIndex = [
     description: "Dedicated explorer for Indrasan, a 6,221 m high peak in the Pir Panjal range of Himachal Pradesh, featuring facts, map locations, image gallery, trekking details, and FAQs.",
     url: "frontend/indrasan/indrasan.html"
   },
+  // --- Neelkanth Mountain ---
+  {
+    title: "Neelkanth Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Neelkanth, a 6,596 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, trekking details, and FAQs.",
+    url: "frontend/neelkanth/neelkanth.html"
+  },
+  // --- Panchachuli II Mountain ---
+  {
+    title: "Panchachuli II Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Explore Panchachuli II Mountain, a 6,904 m high peak in the Kumaon Himalayas of Uttarakhand.",
+    url: "frontend/panchachuli-ii/panchachuli-ii.html"},
+  // --- Nanda Kot Mountain ---
+  {
+    title: "Nanda Kot Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Explore Nanda Kot Mountain, a 6,861 m high peak in the Kumaon Himalayas of Uttarakhand.",
+    url: "frontend/nanda-kot/nanda-kot.html"
+  }
 ];
