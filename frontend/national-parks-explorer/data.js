@@ -334,7 +334,8 @@ const NATIONAL_PARKS = [
         type: 'Tiger Reserve',
         isTigerReserve: true,
         isUNESCO: true,
-        description: "UNESCO Biosphere Reserve in Odisha, famous for Barehipani waterfall (399m), world's only melanistic black tigers, and Mayurbhanj elephants.",
+        description:
+            "A UNESCO Biosphere Reserve in Odisha, famous for Barehipani waterfall (399m), world's only melanistic black tigers, and Mayurbhanj elephants.",
         keyFauna: ['Melanistic Black Tiger', 'Asian Elephant', 'Sambar Deer', 'Mugger Crocodile', 'Hill Myna'],
         keyFlora: ['Sal Forest', 'Red Silk Cotton (Simul)', 'Epiphytic Orchids', 'Jamun'],
         coordinates: { lat: 21.93, lng: 86.35 },
@@ -342,7 +343,7 @@ const NATIONAL_PARKS = [
         bestTime: 'November to June',
         entryFee: '₹100 (Indian), ₹500 (Foreign)',
         explorerUrl: '../simlipal-national-park-explorer/index.html',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Neofelis_nebulosa.jpg/960px-Neofelis_nebulosa.jpg'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Swamp_Deer_Barasingha.jpg/960px-Swamp_Deer_Barasingha.jpg'
     },
     {
         id: 'manas',
@@ -355,7 +356,8 @@ const NATIONAL_PARKS = [
         type: 'Tiger Reserve',
         isTigerReserve: true,
         isUNESCO: true,
-        description: 'A UNESCO World Heritage Site, Biosphere Reserve, and Elephant Reserve in Assam, famous for Golden Langurs, Pygmy Hogs, and the Manas River.',
+        description:
+            'A UNESCO World Heritage Site, Biosphere Reserve, and Elephant Reserve in Assam, famous for Golden Langurs, Pygmy Hogs, and the Manas River.',
         keyFauna: ['Golden Langur', 'Pygmy Hog', 'Bengal Tiger', 'Wild Water Buffalo', 'Asian Elephant'],
         keyFlora: ['Semi-Evergreen Forest', 'Alluvial Grassland', 'Elephant Grass'],
         coordinates: { lat: 26.65, lng: 91.0 },
