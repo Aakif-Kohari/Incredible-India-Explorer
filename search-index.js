@@ -1275,7 +1275,13 @@ window.indiaSearchIndex = [
     category: "Culture & Cinema",
     description: "Horizontal filmstrip timeline detailing Indian cinema from 1913 Raja Harishchandra, talkies, parallel cinema, masala era, and diaspora boom to modern global Oscar triumphs.",
     url: "frontend/indian-cinema-timeline/index.html"
-  }
+  },
+  // --- Saltoro Kangri Mountain ---
+  {
+    title: "Saltoro Kangri Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Saltoro Kangri, a 7,742 m high peak in the Karakoram Range of Ladakh, featuring facts, map locations, image gallery, and trivia.",
+    url: "frontend/saltoro-kangri/saltoro-kangri.html"},
   // --- Indrasan Mountain ---
   {
     title: "Indrasan Mountain Explorer",
