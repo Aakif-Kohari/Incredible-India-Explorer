@@ -1337,4 +1337,11 @@ window.indiaSearchIndex = [
     description: "Dedicated explorer for Indrasan, a 6,221 m high peak in the Pir Panjal range of Himachal Pradesh, featuring facts, map locations, image gallery, trekking details, and FAQs.",
     url: "frontend/indrasan/indrasan.html"
   },
+  // --- Nanda Kot Mountain ---
+  {
+    title: "Nanda Kot Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Explore Nanda Kot Mountain, a 6,861 m high peak in the Kumaon Himalayas of Uttarakhand.",
+    url: "frontend/nanda-kot/nanda-kot.html"
+  }
 ];
