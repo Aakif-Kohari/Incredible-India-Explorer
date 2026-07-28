@@ -1269,6 +1269,13 @@ window.indiaSearchIndex = [
     description: "Discover Bronze Age water reservoirs, world's earliest dockyards, Mauryan pillared halls, and UNESCO World Heritage excavation records.",
     url: "frontend/ancient-cities/ancient-cities.html"
   },
+  // --- Important Government Institutions Explorer ---
+  {
+    title: "Important Government Institutions Knowledge Hub",
+    category: "Civics & Governance",
+    description: "Centralized learning portal covering 9 key Indian institutions: RBI, SEBI, CBI, UPSC, Election Commission, CAG, NITI Aayog, Finance Commission, and NHRC with Formation, Headquarters, Head, Responsibilities, Structure, and Fun Facts.",
+    url: "frontend/government-institutions-explorer/index.html"
+  },
   // --- Interactive Constitution Explorer ---
   {
     title: "Interactive Constitution Explorer",
