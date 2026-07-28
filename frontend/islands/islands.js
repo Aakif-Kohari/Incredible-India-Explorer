@@ -102,6 +102,19 @@ const ISLANDS_DATA = [
     tagline: "India's only confirmed active volcano",
     description: "An uninhabited volcanic island in the Andaman Sea, home to India's only confirmed active volcano, a 2-km-wide caldera, and dive sites known for volcanic drop-offs and rich marine life.",
     highlights: ["India's only confirmed active volcano", "First recorded eruption in 1787, most recently in 2022", "Horseshoe-shaped caldera roughly 2 km wide", "Popular deep-sea diving site around the island"],
+  },
+  {
+    id: "north-sentinel-island",
+    name: "North Sentinel Island",
+    group: "Andaman & Nicobar",
+    location: "Andaman Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 11.5533,
+    lng: 92.2367,
+    islandCount: "1 island",
+    tagline: "A protected, off-limits home to the Sentinelese people",
+    description: "North Sentinel Island is home to the Sentinelese, one of the world's last uncontacted tribes. Entry is strictly prohibited by Indian law to protect the tribe's health, safety and way of life.",
+    highlights: ["Home to the uncontacted Sentinelese tribe", "Protected under the Protection of Aboriginal Tribes Regulation, 1956", "Off-limits — no tourism or unauthorised entry permitted", "Part of the Andaman & Nicobar tribal reserve system"],
     image: "../../assets/travel_hidden.png"
   },
   {
@@ -336,6 +349,7 @@ function openModal(islandId) {
       "shaheed-dweep": "../shaheed-dweep/shaheed-dweep.html",
       "swaraj-dweep": "../swaraj-dweep/swaraj-dweep.html",
       "barren-island": "../barren-island/barren-island.html"
+      "north-sentinel-island": "../north-sentinel-island/north-sentinel-island.html"
     };
     window.location.href = pageMap[island.id];
     return;
