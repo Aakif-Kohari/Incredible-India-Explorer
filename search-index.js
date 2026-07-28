@@ -711,6 +711,13 @@ window.indiaSearchIndex = [
     description: "Shimla, Darjeeling, Munnar, Ooty, Manali, and other picturesque hill retreats across India.",
     url: "frontend/hill-stations/frontend/hill-stations/hill-stations.html"
   },
+  // --- Mountains of India ---
+  {
+    title: "Mountains of India",
+    category: "Travel & Exploration",
+    description: "Explore India's majestic mountains — Kangchenjunga, Nanda Devi, Shivling, Anamudi and many more. Filter by range, height, difficulty, and region.",
+    url: "frontend/mountains/index.html"
+  },
 
   // --- Butterfly ---
   {
@@ -1205,6 +1212,13 @@ window.indiaSearchIndex = [
     description: "Explainer on ISRO's evolution from founding in 1969 to Aryabhata, Mangalyaan, Chandrayaan-3, Aditya-L1, and Gaganyaan with orbit animations.",
     url: "frontend/space-program-milestones/index.html"
   },
+  // --- Kanchenjunga Mountain ---
+  {
+    title: "Kanchenjunga Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Kanchenjunga, India's highest mountain at 8,586 m in Sikkim, featuring facts, trekking info, map locations, image gallery, nearby attractions, and FAQs.",
+    url: "frontend/kanchenjunga/kanchenjunga.html"
+  },
   // --- Rimo I Mountain ---
   {
     title: "Rimo I Mountain Explorer",
@@ -1330,6 +1344,13 @@ window.indiaSearchIndex = [
     category: "Mountains & Geography",
     description: "Dedicated explorer for Saltoro Kangri, a 7,742 m high peak in the Karakoram Range of Ladakh, featuring facts, map locations, image gallery, and trivia.",
     url: "frontend/saltoro-kangri/saltoro-kangri.html"},
+  // --- Meru Peak Mountain ---
+  {
+    title: "Meru Peak Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Meru Peak, a 6,660 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
+    url: "frontend/meru-peak/meru-peak.html"
+  },
   // --- Indrasan Mountain ---
   {
     title: "Indrasan Mountain Explorer",
