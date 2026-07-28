@@ -77,6 +77,20 @@ const ISLANDS_DATA = [
     image: "../../assets/travel_islands.png"
   },
   {
+    id: "swaraj-dweep",
+    name: "Swaraj Dweep (Havelock Island)",
+    group: "Andaman & Nicobar",
+    location: "Andaman Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 11.96,
+    lng: 92.98,
+    islandCount: "1 island",
+    tagline: "Home of Radhanagar Beach, Asia's Best Beach",
+    description: "Formerly Havelock Island, renamed Swaraj Dweep in 2018 — the Andamans' premier tourism hub, famed for Radhanagar and Elephant Beach, accessible coral reefs, rich marine life, and some of the best scuba diving in India.",
+    highlights: ["Radhanagar Beach — Asia's Best Beach (Time, 2004)", "Elephant Beach snorkelling & water sports", "20+ scuba diving sites, incl. Dixon's Pinnacle", "Renamed Swaraj Dweep in 2018 to honour Netaji Subhas Chandra Bose"],
+    image: "../../assets/travel_beaches.png"
+  },
+  {
     id: "lakshadweep",
     name: "Lakshadweep Islands",
     group: "Lakshadweep",
@@ -300,12 +314,13 @@ function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
 
-  if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep") {
+  if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep") {
     const pageMap = {
       "great-nicobar": "../great-nicobar/great-nicobar.html",
       "south-andaman": "../south-andaman/south-andaman.html",
       "middle-andaman": "../middle-andaman/middle-andaman.html",
-      "shaheed-dweep": "../shaheed-dweep/shaheed-dweep.html"
+      "shaheed-dweep": "../shaheed-dweep/shaheed-dweep.html",
+      "swaraj-dweep": "../swaraj-dweep/swaraj-dweep.html"
     };
     window.location.href = pageMap[island.id];
     return;
