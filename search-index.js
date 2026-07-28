@@ -1405,5 +1405,12 @@ window.indiaSearchIndex = [
     category: "National Parks & Wildlife",
     description: "Develop an interactive page about Manas National Park in Assam — UNESCO World Heritage Site, Tiger Reserve, Elephant Reserve, Biosphere Reserve, home to Golden Langurs, Pygmy Hogs, and Manas River.",
     url: "frontend/manas-national-park-explorer/index.html"
+  },
+  // --- Dudhwa National Park Explorer ---
+  {
+    title: "Dudhwa National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Create a dedicated explorer for Dudhwa National Park in Uttar Pradesh — known for its rich Terai ecosystem, 50% of the world's Barasingha (Swamp Deer), 1984 Rhinoceros reintroduction, Bengal Tigers, and safari info.",
+    url: "frontend/dudhwa-national-park-explorer/index.html"
   }
 ];
