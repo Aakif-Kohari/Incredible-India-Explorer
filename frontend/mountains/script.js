@@ -151,8 +151,8 @@ document.addEventListener("DOMContentLoaded", () => {
       tags: ["restricted-access"]
     },
     {
-      id: "trisul",
-      name: "Trisul",
+      id: "trisul-i",
+      name: "Trisul I",
       height: 7120,
       heightDisplay: "7,120 m",
       range: "Himalayas",
@@ -162,10 +162,10 @@ document.addEventListener("DOMContentLoaded", () => {
       difficulty: "Hard",
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Time_lapse_shot_of_Trishul_peak.jpg/960px-Time_lapse_shot_of_Trishul_peak.jpg",
       firstAscent: "1907",
-      description: "A group of three peaks whose name refers to Lord Shiva's trident. The first 7,000 m peak ever to be climbed, in 1907.",
+      description: "The highest of the three Trisul peaks, named after Lord Shiva's trident. The first 7,000 m peak ever to be climbed, in 1907.",
       fact: "Trisul was the first mountain over 7,000 metres to be climbed, by T.G. Longstaff's expedition in 1907.",
-      link: "https://en.wikipedia.org/wiki/Trisul",
-      linkLabel: "Explore More",
+      link: "../trisul-i/trisul-i.html",
+      linkLabel: "Explore Peak",
       tags: ["first-7000er"]
     },
     {
