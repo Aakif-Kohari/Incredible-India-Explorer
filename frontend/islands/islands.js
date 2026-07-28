@@ -91,6 +91,19 @@ const ISLANDS_DATA = [
     image: "../../assets/travel_beaches.png"
   },
   {
+    id: "barren-island",
+    name: "Barren Island",
+    group: "Andaman & Nicobar",
+    location: "Andaman Sea",
+    state: "Union Territory",
+    lat: 12.2783,
+    lng: 93.858,
+    islandCount: "1 island",
+    tagline: "India's only confirmed active volcano",
+    description: "An uninhabited volcanic island in the Andaman Sea, home to India's only confirmed active volcano, a 2-km-wide caldera, and dive sites known for volcanic drop-offs and rich marine life.",
+    highlights: ["India's only confirmed active volcano", "First recorded eruption in 1787, most recently in 2022", "Horseshoe-shaped caldera roughly 2 km wide", "Popular deep-sea diving site around the island"],
+  },
+  {
     id: "north-sentinel-island",
     name: "North Sentinel Island",
     group: "Andaman & Nicobar",
@@ -328,13 +341,14 @@ function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
 
-  if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "north-sentinel-island") {
+  if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "barren-island") {
     const pageMap = {
       "great-nicobar": "../great-nicobar/great-nicobar.html",
       "south-andaman": "../south-andaman/south-andaman.html",
       "middle-andaman": "../middle-andaman/middle-andaman.html",
       "shaheed-dweep": "../shaheed-dweep/shaheed-dweep.html",
       "swaraj-dweep": "../swaraj-dweep/swaraj-dweep.html",
+      "barren-island": "../barren-island/barren-island.html"
       "north-sentinel-island": "../north-sentinel-island/north-sentinel-island.html"
     };
     window.location.href = pageMap[island.id];
