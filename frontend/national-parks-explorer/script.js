@@ -813,8 +813,14 @@
             '<div class="modal-section-title">Key Flora</div>' +
             '<div class="modal-flora-list">' +
             floraHtml +
-            '</div>' +
             '</div>';
+
+        if (park.explorerUrl) {
+            body.innerHTML +=
+                '<div style="margin-top:1.5rem; text-align:center;">' +
+                '<a href="' + escA(park.explorerUrl) + '" class="btn-explorer-link" style="display:inline-block; padding:0.75rem 1.5rem; background:linear-gradient(135deg, #0284c7, #14b8a6); color:#fff; font-weight:700; border-radius:999px; text-decoration:none; box-shadow:0 4px 14px rgba(2,132,199,0.4);">Launch Dedicated Explorer ➔</a>' +
+                '</div>';
+        }
 
         var modal = document.getElementById('park-modal');
         modal.classList.remove('hidden');
