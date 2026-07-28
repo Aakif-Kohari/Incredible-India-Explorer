@@ -1255,7 +1255,8 @@ window.indiaSearchIndex = [
     title: "India Historical Firsts Timeline & Knowledge Quiz",
     category: "Interactive Learning",
     description: "Chronological milestone timeline from 1853 to 1984, category filters, and multiple-choice knowledge quiz testing famous Indian firsts.",
-    url: "frontend/indias-firsts/indias-firsts.html"},
+    url: "frontend/indias-firsts/indias-firsts.html"
+  },
   // --- India's Lost Cities & Ancient Civilizations ---
   {
     title: "India's Lost Cities & Ancient Civilizations Explorer",
@@ -1268,6 +1269,19 @@ window.indiaSearchIndex = [
     category: "Archaeology",
     description: "Discover Bronze Age water reservoirs, world's earliest dockyards, Mauryan pillared halls, and UNESCO World Heritage excavation records.",
     url: "frontend/ancient-cities/ancient-cities.html"
+  },
+  // --- India's Border Explorer ---
+  {
+    title: "India's Border Explorer",
+    category: "Geography & Borders",
+    description: "Interactive explorer covering India's international borders with Pakistan, China, Nepal, Bhutan, Bangladesh, Myanmar, and Sri Lanka. Includes border forces, checkpoints, border towns, and country comparison tools.",
+    url: "frontend/border-explorer/border-explorer.html"
+  },
+  {
+    title: "India International Border Checkpoints & Forces",
+    category: "Geography & Security",
+    description: "Explore Wagah-Attari, Nathu La Pass, Petrapole-Benapole, Moreh-Tamu and other major border checkpoints. Learn about BSF, ITBP, SSB, Assam Rifles, and Indian Coast Guard deployments.",
+    url: "frontend/border-explorer/border-explorer.html"
   },
   // --- Important Government Institutions Explorer ---
   {
