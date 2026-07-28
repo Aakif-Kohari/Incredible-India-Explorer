@@ -1412,5 +1412,12 @@ window.indiaSearchIndex = [
     category: "National Parks & Wildlife",
     description: "Create a dedicated explorer for Dudhwa National Park in Uttar Pradesh — known for its rich Terai ecosystem, 50% of the world's Barasingha (Swamp Deer), 1984 Rhinoceros reintroduction, Bengal Tigers, and safari info.",
     url: "frontend/dudhwa-national-park-explorer/index.html"
+  },
+  // --- Simlipal National Park Explorer ---
+  {
+    title: "Simlipal National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
+    url: "frontend/simlipal-national-park-explorer/index.html"
   }
 ];

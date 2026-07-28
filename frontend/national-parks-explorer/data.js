@@ -321,6 +321,15 @@ const NATIONAL_PARKS = [
         bestTime: 'November to April',
         entryFee: '₹100 (Indian), ₹500 (Foreign)',
         explorerUrl: '../dudhwa-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Swamp_Deer_Barasingha.jpg/960px-Swamp_Deer_Barasingha.jpg'
+    },
+    {
+        id: 'simlipal',
+        name: 'Simlipal National Park',
+        state: 'Odisha',
+        stateId: 'or',
+        established: 1980,
+        area: 2750,
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Swamp_Deer_Barasingha.jpg/960px-Swamp_Deer_Barasingha.jpg'},
   {id: 'manas',
         name: 'Manas National Park',
@@ -333,6 +342,15 @@ const NATIONAL_PARKS = [
         isTigerReserve: true,
         isUNESCO: true,
         description:
+            "UNESCO Biosphere Reserve in Odisha, famous for Barehipani waterfall (399m), world's only melanistic black tigers, and Mayurbhanj elephants.",
+        keyFauna: ['Melanistic Black Tiger', 'Asian Elephant', 'Sambar Deer', 'Mugger Crocodile', 'Hill Myna'],
+        keyFlora: ['Sal Forest', 'Red Silk Cotton (Simul)', 'Epiphytic Orchids', 'Jamun'],
+        coordinates: { lat: 21.93, lng: 86.35 },
+        climate: 'Tropical Monsoon',
+        bestTime: 'November to June',
+        entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../simlipal-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Neofelis_nebulosa.jpg/960px-Neofelis_nebulosa.jpg'
             'A UNESCO World Heritage Site, Biosphere Reserve, and Elephant Reserve in Assam, famous for Golden Langurs, Pygmy Hogs, and the Manas River.',
         keyFauna: ['Golden Langur', 'Pygmy Hog', 'Bengal Tiger', 'Wild Water Buffalo', 'Asian Elephant'],
         keyFlora: ['Semi-Evergreen Forest', 'Alluvial Grassland', 'Elephant Grass'],
@@ -741,6 +759,8 @@ const STATES = [
     { id: 'kl', name: 'Kerala', region: 'south' },
     { id: 'tn', name: 'Tamil Nadu', region: 'south' },
     { id: 'as', name: 'Assam', region: 'northeast' },
+    { id: 'wb', name: 'West Bengal', region: 'east' },
+    { id: 'or', name: 'Odisha', region: 'east' }
     { id: 'ar', name: 'Arunachal Pradesh', region: 'northeast' },
     { id: 'wb', name: 'West Bengal', region: 'east' }
 ];
