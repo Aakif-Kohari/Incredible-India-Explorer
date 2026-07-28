@@ -259,6 +259,28 @@ const NATIONAL_PARKS = [
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Pushpawati_river_inside_the_Valley_of_Flowers_Uttarakhand_I.jpg/960px-Pushpawati_river_inside_the_Valley_of_Flowers_Uttarakhand_I.jpg'
     },
     {
+        id: 'namdapha',
+        name: 'Namdapha National Park',
+        state: 'Arunachal Pradesh',
+        stateId: 'ar',
+        established: 1983,
+        area: 1985,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description:
+            'India’s 4th largest national park and biodiversity hotspot in Arunachal Pradesh, famous for harbouring four big cat species and Red Pandas.',
+        keyFauna: ['Snow Leopard', 'Clouded Leopard', 'Red Panda', 'Bengal Tiger', 'Hoolock Gibbon'],
+        keyFlora: ['Hollong', 'Dipterocarps', 'Blue Vanda Orchids'],
+        coordinates: { lat: 27.49, lng: 96.38 },
+        climate: 'Subtropical Monsoon',
+        bestTime: 'October to April',
+        entryFee: '₹50 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../namdapha-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Neofelis_nebulosa.jpg/960px-Neofelis_nebulosa.jpg'
+    },
+    {
         id: 'nanda-devi',
         name: 'Nanda Devi National Park',
         state: 'Uttarakhand',
@@ -698,5 +720,6 @@ const STATES = [
     { id: 'kl', name: 'Kerala', region: 'south' },
     { id: 'tn', name: 'Tamil Nadu', region: 'south' },
     { id: 'as', name: 'Assam', region: 'northeast' },
+    { id: 'ar', name: 'Arunachal Pradesh', region: 'northeast' },
     { id: 'wb', name: 'West Bengal', region: 'east' }
 ];

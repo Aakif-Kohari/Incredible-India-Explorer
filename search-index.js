@@ -1219,6 +1219,13 @@ window.indiaSearchIndex = [
     description: "Dedicated explorer for Kanchenjunga, India's highest mountain at 8,586 m in Sikkim, featuring facts, trekking info, map locations, image gallery, nearby attractions, and FAQs.",
     url: "frontend/kanchenjunga/kanchenjunga.html"
   },
+  // --- Nanda Devi Mountain ---
+  {
+    title: "Nanda Devi Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Nanda Devi, India's second highest mountain at 7,816 m in Uttarakhand, featuring biodiversity, trekking guide, facts, map locations, image gallery, and FAQs.",
+    url: "frontend/nanda-devi/nanda-devi.html"
+  },
   // --- Rimo I Mountain ---
   {
     title: "Rimo I Mountain Explorer",
