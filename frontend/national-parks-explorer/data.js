@@ -302,6 +302,28 @@ const NATIONAL_PARKS = [
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Nanda_Devi_Biosphere_Reserve_-_Chamoli.jpg/960px-Nanda_Devi_Biosphere_Reserve_-_Chamoli.jpg'
     },
     {
+        id: 'manas',
+        name: 'Manas National Park',
+        state: 'Assam',
+        stateId: 'as',
+        established: 1990,
+        area: 950,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: true,
+        description:
+            'A UNESCO World Heritage Site, Biosphere Reserve, and Elephant Reserve in Assam, famous for Golden Langurs, Pygmy Hogs, and the Manas River.',
+        keyFauna: ['Golden Langur', 'Pygmy Hog', 'Bengal Tiger', 'Wild Water Buffalo', 'Asian Elephant'],
+        keyFlora: ['Semi-Evergreen Forest', 'Alluvial Grassland', 'Elephant Grass'],
+        coordinates: { lat: 26.65, lng: 91.0 },
+        climate: 'Tropical Monsoon',
+        bestTime: 'October to April',
+        entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../manas-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Golden_Langur_Manas.jpg/960px-Golden_Langur_Manas.jpg'
+    },
+    {
         id: 'bandipur',
         name: 'Bandipur National Park',
         state: 'Karnataka',
