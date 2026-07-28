@@ -87,10 +87,25 @@ const ISLANDS_DATA = [
     islandCount: "1 island",
     tagline: "Home of Radhanagar Beach, Asia's Best Beach",
     description: "Formerly Havelock Island, renamed Swaraj Dweep in 2018 — the Andamans' premier tourism hub, famed for Radhanagar and Elephant Beach, accessible coral reefs, rich marine life, and some of the best scuba diving in India.",
-    highlights: ["Radhanagar Beach — Asia's Best Beach (Time, 2004)", "Elephant Beach snorkelling & water sports", "20+ scuba diving sites, incl. Dixon's Pinnacle", "Renamed Swaraj Dweep in 2018 to honour Netaji Subhas Chandra Bose"],
+highlights: ["Radhanagar Beach — Asia's Best Beach (Time, 2004)", "Elephant Beach snorkelling & water sports", "20+ scuba diving sites, incl. Dixon's Pinnacle", "Renamed Swaraj Dweep in 2018 to honour Netaji Subhas Chandra Bose"],
     image: "../../assets/travel_beaches.png"
   },
   {
+    id: "narcondam",
+    name: "Narcondam Island",
+    group: "Andaman & Nicobar",
+    location: "North Andaman, Bay of Bengal",
+    state: "Union Territory",
+    lat: 13.4287,
+    lng: 94.2557,
+    islandCount: "1 island",
+    tagline: "An extinct volcano and the only home of the Narcondam Hornbill",
+    description: "A small, remote, densely-forested volcanic island east of the main Andaman group. Formed by an extinct volcano, it is the sole habitat of the endemic Narcondam Hornbill and is protected as a wildlife sanctuary.",
+    highlights: ["Extinct volcanic cone rising steeply from the sea", "Endemic Narcondam Hornbill found nowhere else on Earth", "Declared a Wildlife Sanctuary in 1977", "Dense tropical evergreen forest cover"],
+    image: "../../assets/travel_hidden.png"
+  },
+  {
+    id: "lakshadweep",    name: "Lakshadweep Islands",
     id: "barren-island",
     name: "Barren Island",
     group: "Andaman & Nicobar",
@@ -341,20 +356,20 @@ function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
 
-  if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "barren-island") {
+if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "narcondam") {
     const pageMap = {
       "great-nicobar": "../great-nicobar/great-nicobar.html",
       "south-andaman": "../south-andaman/south-andaman.html",
       "middle-andaman": "../middle-andaman/middle-andaman.html",
       "shaheed-dweep": "../shaheed-dweep/shaheed-dweep.html",
       "swaraj-dweep": "../swaraj-dweep/swaraj-dweep.html",
+      "narcondam": "../narcondam-island/narcondam-island.html"
       "barren-island": "../barren-island/barren-island.html"
       "north-sentinel-island": "../north-sentinel-island/north-sentinel-island.html"
     };
     window.location.href = pageMap[island.id];
     return;
   }
-
   document.getElementById("island-modal-title").textContent = island.name;
   document.getElementById("island-modal-location").textContent = island.location;
   document.getElementById("island-modal-group").textContent = island.group;
