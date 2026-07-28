@@ -1218,6 +1218,12 @@ window.indiaSearchIndex = [
     category: "Mountains & Geography",
     description: "Dedicated explorer for Satopanth, a 7,075 m high peak in the Garhwal Range of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
     url: "frontend/satopanth/satopanth.html"},
+  // --- Changabang Mountain ---
+  {
+    title: "Changabang Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Changabang, a 6,864 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
+    url: "frontend/changabang/changabang.html"},
   // --- Shivling Mountain ---
   {
     title: "Shivling Mountain Explorer",
