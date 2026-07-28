@@ -1269,6 +1269,13 @@ window.indiaSearchIndex = [
     description: "Discover Bronze Age water reservoirs, world's earliest dockyards, Mauryan pillared halls, and UNESCO World Heritage excavation records.",
     url: "frontend/ancient-cities/ancient-cities.html"
   },
+  // --- Supreme Court Educational Portal ---
+  {
+    title: "Supreme Court of India Educational Portal",
+    category: "Governance & Civics",
+    description: "Educational portal covering India's Supreme Court history from 1950, CJI timeline, landmark judgments (Kesavananda, Puttaswamy, Maneka Gandhi), Article 124 powers, Article 32 Writs, and judicial hierarchy.",
+    url: "frontend/supreme-court-explorer/index.html"
+  },
   // --- Scrollytelling: The Making of the Taj Mahal ---
   {
     title: "Scrollytelling: The Making of the Taj Mahal",
