@@ -205,6 +205,24 @@ document.addEventListener("DOMContentLoaded", () => {
       tags: []
     },
     {
+      id: "dunagiri",
+      name: "Dunagiri",
+      height: 7066,
+      heightDisplay: "7,066 m",
+      range: "Himalayas",
+      subrange: "Garhwal Himalayas",
+      state: "Uttarakhand",
+      region: "north",
+      difficulty: "Hard",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Dunagiri_from_Kuari_Pass.jpg/960px-Dunagiri_from_Kuari_Pass.jpg",
+      firstAscent: "1958",
+      description: "A sacred peak in the Garhwal Himalayas guarding the approach to the Nanda Devi Inner Sanctuary. Revered locally as the abode of Goddess Duna.",
+      fact: "Dunagiri's name derives from 'Drona' (a sage from the Mahabharata) and 'giri' (mountain), and locals revere it as the home of Goddess Duna.",
+      link: "../dunagiri/dunagiri.html",
+      linkLabel: "Explore Peak",
+      tags: ["garhwal-himalayas"]
+    },
+    {
       id: "shivaling",
       name: "Shivling",
       height: 6543,
