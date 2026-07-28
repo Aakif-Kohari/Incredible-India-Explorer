@@ -1275,5 +1275,46 @@ window.indiaSearchIndex = [
     category: "Civics & Governance",
     description: "Centralized learning portal covering 9 key Indian institutions: RBI, SEBI, CBI, UPSC, Election Commission, CAG, NITI Aayog, Finance Commission, and NHRC with Formation, Headquarters, Head, Responsibilities, Structure, and Fun Facts.",
     url: "frontend/government-institutions-explorer/index.html"
-  }
+  },
+  // --- Interactive Constitution Explorer ---
+  {
+    title: "Interactive Constitution Explorer",
+    category: "Civics & Governance",
+    description: "Beginner-friendly Constitution learning platform covering Preamble breakdown, Fundamental Rights, Fundamental Duties (Article 51A), DPSP, 12 Schedules, Key Amendments, and real-time search.",
+    url: "frontend/constitution-explorer/index.html"
+  },
+  // --- Supreme Court Educational Portal ---
+  {
+    title: "Supreme Court of India Educational Portal",
+    category: "Governance & Civics",
+    description: "Educational portal covering India's Supreme Court history from 1950, CJI timeline, landmark judgments (Kesavananda, Puttaswamy, Maneka Gandhi), Article 124 powers, Article 32 Writs, and judicial hierarchy.",
+    url: "frontend/supreme-court-explorer/index.html"
+  },
+  // --- Scrollytelling: The Making of the Taj Mahal ---
+  {
+    title: "Scrollytelling: The Making of the Taj Mahal",
+    category: "Architecture & Heritage",
+    description: "Narrative scrollytelling walkthrough of the Taj Mahal's construction revealing materials, craftsmen, hydrogeological engineering, double-dome acoustics, and debunked historical myths.",
+    url: "frontend/taj-mahal-scrollytelling/index.html"
+  },
+  // --- Animated Timeline: Evolution of Indian Cinema ---
+  {
+    title: "Animated Timeline: Evolution of Indian Cinema",
+    category: "Culture & Cinema",
+    description: "Horizontal filmstrip timeline detailing Indian cinema from 1913 Raja Harishchandra, talkies, parallel cinema, masala era, and diaspora boom to modern global Oscar triumphs.",
+    url: "frontend/indian-cinema-timeline/index.html"
+  },
+  // --- Saltoro Kangri Mountain ---
+  {
+    title: "Saltoro Kangri Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Saltoro Kangri, a 7,742 m high peak in the Karakoram Range of Ladakh, featuring facts, map locations, image gallery, and trivia.",
+    url: "frontend/saltoro-kangri/saltoro-kangri.html"},
+  // --- Indrasan Mountain ---
+  {
+    title: "Indrasan Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Indrasan, a 6,221 m high peak in the Pir Panjal range of Himachal Pradesh, featuring facts, map locations, image gallery, trekking details, and FAQs.",
+    url: "frontend/indrasan/indrasan.html"
+  },
 ];
