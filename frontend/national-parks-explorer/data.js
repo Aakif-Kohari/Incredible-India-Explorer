@@ -279,6 +279,50 @@ const NATIONAL_PARKS = [
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Nanda_Devi_Biosphere_Reserve_-_Chamoli.jpg/960px-Nanda_Devi_Biosphere_Reserve_-_Chamoli.jpg'
     },
     {
+        id: 'dudhwa',
+        name: 'Dudhwa National Park',
+        state: 'Uttar Pradesh',
+        stateId: 'up',
+        established: 1977,
+        area: 490,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description:
+            'Crown jewel of the Terai Arc in Uttar Pradesh, famous for holding 50% of the world’s Swamp Deer (Barasingha) and reintroduced One-horned Rhinos.',
+        keyFauna: ['Barasingha (Swamp Deer)', 'One-Horned Rhinoceros', 'Bengal Tiger', 'Asian Elephant', 'Gangetic Dolphin'],
+        keyFlora: ['Sal Forest', 'Elephant Grass', 'Narkul', 'Jamun'],
+        coordinates: { lat: 28.49, lng: 80.65 },
+        climate: 'Subtropical Monsoon',
+        bestTime: 'November to April',
+        entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../dudhwa-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Swamp_Deer_Barasingha.jpg/960px-Swamp_Deer_Barasingha.jpg'
+    },
+    {
+        id: 'simlipal',
+        name: 'Simlipal National Park',
+        state: 'Odisha',
+        stateId: 'or',
+        established: 1980,
+        area: 2750,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: true,
+        description:
+            "UNESCO Biosphere Reserve in Odisha, famous for Barehipani waterfall (399m), world's only melanistic black tigers, and Mayurbhanj elephants.",
+        keyFauna: ['Melanistic Black Tiger', 'Asian Elephant', 'Sambar Deer', 'Mugger Crocodile', 'Hill Myna'],
+        keyFlora: ['Sal Forest', 'Red Silk Cotton (Simul)', 'Epiphytic Orchids', 'Jamun'],
+        coordinates: { lat: 21.93, lng: 86.35 },
+        climate: 'Tropical Monsoon',
+        bestTime: 'November to June',
+        entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../simlipal-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Neofelis_nebulosa.jpg/960px-Neofelis_nebulosa.jpg'
+    },
+    {
         id: 'bandipur',
         name: 'Bandipur National Park',
         state: 'Karnataka',
@@ -664,6 +708,7 @@ const WILDLIFE_SPECIES = [
 const STATES = [
     { id: 'all', name: 'All India', region: 'all' },
     { id: 'uk', name: 'Uttarakhand', region: 'north' },
+    { id: 'up', name: 'Uttar Pradesh', region: 'north' },
     { id: 'rj', name: 'Rajasthan', region: 'north' },
     { id: 'hp', name: 'Himachal Pradesh', region: 'north' },
     { id: 'jk', name: 'Jammu and Kashmir', region: 'north' },
@@ -675,5 +720,6 @@ const STATES = [
     { id: 'kl', name: 'Kerala', region: 'south' },
     { id: 'tn', name: 'Tamil Nadu', region: 'south' },
     { id: 'as', name: 'Assam', region: 'northeast' },
-    { id: 'wb', name: 'West Bengal', region: 'east' }
+    { id: 'wb', name: 'West Bengal', region: 'east' },
+    { id: 'or', name: 'Odisha', region: 'east' }
 ];
