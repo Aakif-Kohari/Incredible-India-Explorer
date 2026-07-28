@@ -1218,6 +1218,12 @@ window.indiaSearchIndex = [
     category: "Mountains & Geography",
     description: "Dedicated explorer for Satopanth, a 7,075 m high peak in the Garhwal Range of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
     url: "frontend/satopanth/satopanth.html"},
+  // --- Changabang Mountain ---
+  {
+    title: "Changabang Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Changabang, a 6,864 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
+    url: "frontend/changabang/changabang.html"},
   // --- Shivling Mountain ---
   {
     title: "Shivling Mountain Explorer",
@@ -1338,4 +1344,17 @@ window.indiaSearchIndex = [
     description: "Dedicated explorer for Neelkanth, a 6,596 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, trekking details, and FAQs.",
     url: "frontend/neelkanth/neelkanth.html"
   },
+  // --- Panchachuli II Mountain ---
+  {
+    title: "Panchachuli II Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Explore Panchachuli II Mountain, a 6,904 m high peak in the Kumaon Himalayas of Uttarakhand.",
+    url: "frontend/panchachuli-ii/panchachuli-ii.html"},
+  // --- Nanda Kot Mountain ---
+  {
+    title: "Nanda Kot Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Explore Nanda Kot Mountain, a 6,861 m high peak in the Kumaon Himalayas of Uttarakhand.",
+    url: "frontend/nanda-kot/nanda-kot.html"
+  }
 ];
