@@ -34,12 +34,12 @@ document.addEventListener("DOMContentLoaded", () => {
       state: "Uttarakhand",
       region: "north",
       difficulty: "Hard",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Mt._Nanda_Devi.jpg/960px-Mt._Nanda_Devi.jpg",
+      image: "https://upload.wikimedia.org/wikipedia/commons/d/df/Nanda_devi.jpg",
       firstAscent: "1936",
       description: "India's second highest peak and a UNESCO World Heritage Site. The Nanda Devi National Park surrounding it is one of the most biologically rich Himalayan zones.",
       fact: "Nanda Devi was considered unclimbable for decades due to its remote inner sanctuary surrounded by a 7,000 m ring of peaks.",
-      link: "https://en.wikipedia.org/wiki/Nanda_Devi",
-      linkLabel: "Read More",
+      link: "../nanda-devi/nanda-devi.html",
+      linkLabel: "Explore Peak",
       tags: ["world-heritage"]
     },
     {
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "The second highest mountain in the Garhwal region, located near the Indo-Tibetan border. It was the first peak over 7,620 m to be climbed.",
       fact: "Kamet was the first peak above 25,000 ft to be successfully climbed, in 1931 by a British expedition.",
       link: "https://en.wikipedia.org/wiki/Kamet",
-      linkLabel: "Read More",
+      linkLabel: "Explore More",
       tags: []
     },
     {
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "The highest peak in the Saser Muztagh subrange of the eastern Karakoram, and the highest peak in Indian-administered Ladakh.",
       fact: "Saser Kangri I was first climbed by a team from the Indian Army in 1973.",
       link: "https://en.wikipedia.org/wiki/Saser_Kangri",
-      linkLabel: "Read More",
+      linkLabel: "Explore More",
       tags: []
     },
     {
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "Located near the head of the Siachen Glacier, Sia Kangri is one of the most remote peaks in the eastern Karakoram.",
       fact: "Sia Kangri sits near the India-Pakistan-China tri-junction area, making it one of the most geopolitically sensitive peaks.",
       link: "https://en.wikipedia.org/wiki/Sia_Kangri",
-      linkLabel: "Read More",
+      linkLabel: "Explore More",
       tags: ["restricted-access"]
     },
     {
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "A group of three peaks whose name refers to Lord Shiva's trident. The first 7,000 m peak ever to be climbed, in 1907.",
       fact: "Trisul was the first mountain over 7,000 metres to be climbed, by T.G. Longstaff's expedition in 1907.",
       link: "https://en.wikipedia.org/wiki/Trisul",
-      linkLabel: "Read More",
+      linkLabel: "Explore More",
       tags: ["first-7000er"]
     },
     {
@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "The highest peak in the Zanskar Range, located in the Lahaul and Spiti district of Himachal Pradesh.",
       fact: "Kun stands alongside its neighbour Papsura (6,451 m), forming a dramatic double-peak visible from the Manali-Leh highway.",
       link: "https://en.wikipedia.org/wiki/Kun_(peak)",
-      linkLabel: "Read More",
+      linkLabel: "Explore More",
       tags: []
     },
     {
@@ -309,7 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "A popular peak for trekkers and aspiring mountaineers, offering panoramic views of the Karakoram from its summit near Leh.",
       fact: "Stok Kangri is one of the most accessible 6,000 m peaks in India, with base camp just two days' trek from Stok village.",
       link: "https://en.wikipedia.org/wiki/Stok_Kangri",
-      linkLabel: "Read More",
+      linkLabel: "Explore More",
       tags: ["beginner-friendly"]
     },
     {
@@ -327,7 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "A popular trekking and mountaineering peak near Manali, known for its accessible summit with stunning views of the Pir Panjal and Dhauladhar ranges.",
       fact: "Friendship Peak was named to symbolise India's friendship with other nations, and it is a favourite training peak for beginners.",
       link: "https://en.wikipedia.org/wiki/Friendship_Peak",
-      linkLabel: "Read More",
+      linkLabel: "Explore More",
       tags: ["beginner-friendly"]
     },
     {
@@ -345,7 +345,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "A legendary summit with a temple dedicated to Goddess Chandi and Lord Shiva, offering 360-degree views of the Garhwal Himalayas.",
       fact: "Mythology holds that Lord Rama meditated on Chandrashila after defeating Ravana.",
       link: "https://en.wikipedia.org/wiki/Chandrashila",
-      linkLabel: "Read More",
+      linkLabel: "Explore More",
       tags: ["mythological", "beginner-friendly"]
     },
     {
@@ -363,7 +363,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "The highest peak in South India and the Western Ghats, rising above the tea plantations and shola forests of the Anamalai Hills.",
       fact: "Anamudi means 'Elephant's Forehead', referencing its shape. The Eravikulam National Park at its base protects the endangered Nilgiri Tahr.",
       link: "https://en.wikipedia.org/wiki/Anamudi",
-      linkLabel: "Read More",
+      linkLabel: "Explore More",
       tags: ["highest-south-india"]
     },
     {
@@ -381,7 +381,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "The highest peak in the Nilgiri Hills, with a telescope house at the summit offering panoramic views of the surrounding ranges.",
       fact: "Doddabetta means 'Big Peak' in Kannada and sits at the junction of the Eastern and Western Ghats.",
       link: "https://en.wikipedia.org/wiki/Doddabetta",
-      linkLabel: "Read More",
+      linkLabel: "Explore More",
       tags: []
     },
     {
@@ -399,7 +399,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "The highest peak in Karnataka, nestled in the Baba Budan Giri range of the Western Ghats.",
       fact: "The peak is named after a local saint and is a popular trekking destination with rolling grasslands.",
       link: "https://en.wikipedia.org/wiki/Mullayanagiri",
-      linkLabel: "Read More",
+      linkLabel: "Explore More",
       tags: []
     },
     {
@@ -417,7 +417,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "Maharashtra's highest peak, often called the 'Everest of Maharashtra'. A popular monsoon trek through the Sahyadri range.",
       fact: "Kalsubai is a short but steep trek and has a small temple at its summit dedicated to a local goddess.",
       link: "https://en.wikipedia.org/wiki/Kalsubai",
-      linkLabel: "Read More",
+      linkLabel: "Explore More",
       tags: ["highest-maharashtra"]
     },
     {
@@ -435,7 +435,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "The highest point of the Aravalli Range, located near the hill station of Mount Abu in Rajasthan.",
       fact: "A temple dedicated to Guru Dattatreya stands at the summit, and a viewpoint offers views of the surrounding desert landscape.",
       link: "https://en.wikipedia.org/wiki/Guru_Shikhar",
-      linkLabel: "Read More",
+      linkLabel: "Explore More",
       tags: ["highest-rajasthan"]
     },
     {
@@ -453,7 +453,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "The highest peak of the Eastern Ghats, located near Araku Valley in Andhra Pradesh, surrounded by dense forests.",
       fact: "Jindhagada Peak is in the Araku Valley region, famous for its tribal culture, coffee plantations, and scenic train rides.",
       link: "https://en.wikipedia.org/wiki/Jindhagada",
-      linkLabel: "Read More",
+      linkLabel: "Explore More",
       tags: ["highest-eastern-ghats"]
     },
     {
@@ -471,7 +471,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "An important peak of the Eastern Ghats in Odisha, known for its rich biodiversity and mythological significance.",
       fact: "Mahendragiri is believed to be the place where the Pandavas rested during their exile, as mentioned in the Mahabharata.",
       link: "https://en.wikipedia.org/wiki/Mahendragiri_(Odisha)",
-      linkLabel: "Read More",
+      linkLabel: "Explore More",
       tags: ["mythological"]
     },
     {
@@ -489,7 +489,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "The highest point in Madhya Pradesh, situated atop the Mahadeo Hills in the Satpura Range near Pachmarhi.",
       fact: "Dhupgarh is famous for its stunning sunrise and sunset views, making it a popular spot for tourists visiting Pachmarhi.",
       link: "https://en.wikipedia.org/wiki/Dhupgarh",
-      linkLabel: "Read More",
+      linkLabel: "Explore More",
       tags: ["highest-madhya-pradesh"]
     }
   ];

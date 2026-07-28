@@ -192,6 +192,7 @@ const NATIONAL_PARKS = [
         climate: 'Semi-Arid',
         bestTime: 'August to November',
         entryFee: '₹50 (Indian), ₹400 (Foreign)',
+        explorerUrl: '../keoladeo-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Keoladeo_Ghana_National_Park%2C_Bharatpur%2C_Rajasthan%2C_India.jpg/960px-Keoladeo_Ghana_National_Park%2C_Bharatpur%2C_Rajasthan%2C_India.jpg'
     },
     {
@@ -258,6 +259,28 @@ const NATIONAL_PARKS = [
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Pushpawati_river_inside_the_Valley_of_Flowers_Uttarakhand_I.jpg/960px-Pushpawati_river_inside_the_Valley_of_Flowers_Uttarakhand_I.jpg'
     },
     {
+        id: 'namdapha',
+        name: 'Namdapha National Park',
+        state: 'Arunachal Pradesh',
+        stateId: 'ar',
+        established: 1983,
+        area: 1985,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description:
+            'India’s 4th largest national park and biodiversity hotspot in Arunachal Pradesh, famous for harbouring four big cat species and Red Pandas.',
+        keyFauna: ['Snow Leopard', 'Clouded Leopard', 'Red Panda', 'Bengal Tiger', 'Hoolock Gibbon'],
+        keyFlora: ['Hollong', 'Dipterocarps', 'Blue Vanda Orchids'],
+        coordinates: { lat: 27.49, lng: 96.38 },
+        climate: 'Subtropical Monsoon',
+        bestTime: 'October to April',
+        entryFee: '₹50 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../namdapha-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Neofelis_nebulosa.jpg/960px-Neofelis_nebulosa.jpg'
+    },
+    {
         id: 'nanda-devi',
         name: 'Nanda Devi National Park',
         state: 'Uttarakhand',
@@ -298,7 +321,27 @@ const NATIONAL_PARKS = [
         bestTime: 'November to April',
         entryFee: '₹100 (Indian), ₹500 (Foreign)',
         explorerUrl: '../dudhwa-national-park-explorer/index.html',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Swamp_Deer_Barasingha.jpg/960px-Swamp_Deer_Barasingha.jpg'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Swamp_Deer_Barasingha.jpg/960px-Swamp_Deer_Barasingha.jpg'},
+  {id: 'manas',
+        name: 'Manas National Park',
+        state: 'Assam',
+        stateId: 'as',
+        established: 1990,
+        area: 950,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: true,
+        description:
+            'A UNESCO World Heritage Site, Biosphere Reserve, and Elephant Reserve in Assam, famous for Golden Langurs, Pygmy Hogs, and the Manas River.',
+        keyFauna: ['Golden Langur', 'Pygmy Hog', 'Bengal Tiger', 'Wild Water Buffalo', 'Asian Elephant'],
+        keyFlora: ['Semi-Evergreen Forest', 'Alluvial Grassland', 'Elephant Grass'],
+        coordinates: { lat: 26.65, lng: 91.0 },
+        climate: 'Tropical Monsoon',
+        bestTime: 'October to April',
+        entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../manas-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Golden_Langur_Manas.jpg/960px-Golden_Langur_Manas.jpg'
     },
     {
         id: 'bandipur',
@@ -698,5 +741,6 @@ const STATES = [
     { id: 'kl', name: 'Kerala', region: 'south' },
     { id: 'tn', name: 'Tamil Nadu', region: 'south' },
     { id: 'as', name: 'Assam', region: 'northeast' },
+    { id: 'ar', name: 'Arunachal Pradesh', region: 'northeast' },
     { id: 'wb', name: 'West Bengal', region: 'east' }
 ];
