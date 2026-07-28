@@ -1384,5 +1384,19 @@ window.indiaSearchIndex = [
     category: "National Parks & Wildlife",
     description: "Deep dive into Keoladeo National Park (Bharatpur Bird Sanctuary), a UNESCO World Heritage Site & Ramsar Wetland. Explore 370+ bird species, Central Asian flyways, cycling routes, history, and interactive park map.",
     url: "frontend/keoladeo-national-park-explorer/index.html"
+  },
+  // --- Namdapha National Park Explorer ---
+  {
+    title: "Namdapha National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Namdapha National Park in Arunachal Pradesh — India's 4th largest national park and biodiversity hotspot harboring four big cat species, Red Panda, Hoolock Gibbon, trekking trails, and interactive maps.",
+    url: "frontend/namdapha-national-park-explorer/index.html"
+  },
+  // --- Manas National Park Explorer ---
+  {
+    title: "Manas National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Develop an interactive page about Manas National Park in Assam — UNESCO World Heritage Site, Tiger Reserve, Elephant Reserve, Biosphere Reserve, home to Golden Langurs, Pygmy Hogs, and Manas River.",
+    url: "frontend/manas-national-park-explorer/index.html"
   }
 ];
