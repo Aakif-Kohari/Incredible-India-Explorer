@@ -5,9 +5,9 @@
 
   const CONFIG = {
     containerSelector:
-      "[data-smart-empty-container], .cards-grid, .heritage-grid, .wildlife-grid, .textile-grid, .water-grid, .instrument-grid, .butterfly-grid, .bazaar-grid, .script-grid, .glossary-grid, .destinations-grid, .festival-grid, .cuisine-grid, .universities-grid, .plants-grid, .wonders-grid, .trees-grid, .unesco-grid",
+      "[data-smart-empty-container], .cards-grid, .heritage-grid, .wildlife-grid, .textile-grid, .water-grid, .instrument-grid, .butterfly-grid, .bazaar-grid, .script-grid, .glossary-grid, .destinations-grid, .festival-grid, .cuisine-grid, .universities-grid, .plants-grid, .wonders-grid, .trees-grid, .unesco-grid, .biosphere-grid",
     itemSelector:
-      "[data-search-item], [data-filter-item], .heritage-card, .wildlife-card, .textile-card, .water-card, .instrument-card, .butterfly-card, .bazaar-card, .script-card, .glossary-card, .destination-card, .festival-card, .cuisine-card, .university-card, .plant-card, .wonder-card, .tree-card, .unesco-card",
+      "[data-search-item], [data-filter-item], .heritage-card, .wildlife-card, .textile-card, .water-card, .instrument-card, .butterfly-card, .bazaar-card, .script-card, .glossary-card, .destination-card, .festival-card, .cuisine-card, .university-card, .plant-card, .wonder-card, .tree-card, .unesco-card, .reserve-card",
     searchSelector:
       "input[type='search'], input[id*='search' i], input[placeholder*='search' i]",
     filterSelector:
