@@ -192,6 +192,7 @@ const NATIONAL_PARKS = [
         climate: 'Semi-Arid',
         bestTime: 'August to November',
         entryFee: '₹50 (Indian), ₹400 (Foreign)',
+        explorerUrl: '../keoladeo-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Keoladeo_Ghana_National_Park%2C_Bharatpur%2C_Rajasthan%2C_India.jpg/960px-Keoladeo_Ghana_National_Park%2C_Bharatpur%2C_Rajasthan%2C_India.jpg'
     },
     {

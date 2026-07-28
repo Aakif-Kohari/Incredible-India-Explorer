@@ -1377,5 +1377,12 @@ window.indiaSearchIndex = [
     category: "Mountains & Geography",
     description: "Explore Nanda Kot Mountain, a 6,861 m high peak in the Kumaon Himalayas of Uttarakhand.",
     url: "frontend/nanda-kot/nanda-kot.html"
+  },
+  // --- Keoladeo National Park Explorer ---
+  {
+    title: "Keoladeo National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Deep dive into Keoladeo National Park (Bharatpur Bird Sanctuary), a UNESCO World Heritage Site & Ramsar Wetland. Explore 370+ bird species, Central Asian flyways, cycling routes, history, and interactive park map.",
+    url: "frontend/keoladeo-national-park-explorer/index.html"
   }
 ];
