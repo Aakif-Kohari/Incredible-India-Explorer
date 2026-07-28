@@ -1331,4 +1331,11 @@ window.indiaSearchIndex = [
     description: "Dedicated explorer for Indrasan, a 6,221 m high peak in the Pir Panjal range of Himachal Pradesh, featuring facts, map locations, image gallery, trekking details, and FAQs.",
     url: "frontend/indrasan/indrasan.html"
   },
+  // --- Panchachuli II Mountain ---
+  {
+    title: "Panchachuli II Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Explore Panchachuli II Mountain, a 6,904 m high peak in the Kumaon Himalayas of Uttarakhand.",
+    url: "frontend/panchachuli-ii/panchachuli-ii.html"
+  }
 ];
