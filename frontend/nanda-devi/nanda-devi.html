@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Nanda Devi, India's second highest mountain at 7,816 m in Uttarakhand. Discover facts, biodiversity, trekking info, map locations, image gallery, and FAQs.">
+    <title>Nanda Devi Mountain Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="nanda-devi.css">
+
+    <meta property="og:title" content="Nanda Devi Mountain Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Explore Nanda Devi, India's second highest mountain at 7,816 m in Uttarakhand.">
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/d/df/Nanda_devi.jpg">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/nanda-devi/nanda-devi.html">
+    <meta property="og:type" content="website">
+</head>
+
+<body class="nanda-devi-body-wrapper">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../travel/travel.html" class="nav-link" id="link-travel">Travel</a>
+                <a href="nanda-devi.html" class="nav-link active" style="color: var(--saffron)">Nanda Devi</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="nanda-devi-page" id="app-root">
+        <section class="nanda-devi-hero" id="hero">
+            <div class="nanda-devi-hero-overlay"></div>
+            <a href="../../index.html#home" class="nanda-devi-hero-back anim-fade-down" aria-label="Back to Home">
+                <span class="back-arrow">&larr;</span> Back to Home
+            </a>
+            <div class="nanda-devi-hero-content">
+                <span class="nanda-devi-hero-kicker anim-fade-up" style="animation-delay:0.1s">🏔️ Garhwal Himalayas, Uttarakhand</span>
+                <h1 class="anim-fade-up" style="animation-delay:0.2s">Nanda Devi <span>Explorer</span></h1>
+                <p class="anim-fade-up" style="animation-delay:0.35s">Rising to 7,816 meters in the Garhwal Himalayas of Uttarakhand, Nanda Devi is India's second-highest mountain and a UNESCO World Heritage Site. Surrounded by a ring of towering peaks, its inner sanctuary was once considered unclimbable — a fortress of ice and rock that guarded one of the most pristine ecosystems on Earth.</p>
+
+                <div class="nanda-devi-hero-stats anim-fade-up" style="animation-delay:0.5s">
+                    <div class="nanda-devi-stat-box">
+                        <strong>7,816 m</strong>
+                        <span>Peak Elevation</span>
+                    </div>
+                    <div class="nanda-devi-stat-box">
+                        <strong>Uttarakhand</strong>
+                        <span>Indian State</span>
+                    </div>
+                    <div class="nanda-devi-stat-box">
+                        <strong>Himalayas</strong>
+                        <span>Mountain Range</span>
+                    </div>
+                    <div class="nanda-devi-stat-box">
+                        <strong>2nd</strong>
+                        <span>Highest in India</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="nanda-devi-section" id="nanda-devi-overview">
+            <div class="nanda-devi-container">
+                <div class="nanda-devi-section-heading reveal">
+                    <span class="nanda-devi-section-badge">Peak Profile</span>
+                    <h2>Geography, Glaciers &amp; History</h2>
+                </div>
+
+                <div class="nanda-devi-overview-grid">
+                    <div class="nanda-devi-overview-text reveal reveal-left">
+                        <h3>The Goddess of the Mountains</h3>
+                        <p>Nanda Devi, standing at 7,816 meters, is the second-highest mountain in India and the highest peak located entirely within the country. Situated in the Chamoli and Pithoragarh districts of Uttarakhand, the mountain is part of the greater Himalayan range and the Nanda Devi massif.</p>
+                        <p>The name "Nanda Devi" translates to "Bliss-Giving Goddess" in Sanskrit. The mountain is deeply revered in Hindu mythology as the embodiment of Goddess Parvati, consort of Lord Shiva. It holds immense spiritual significance for the people of Kumaon and Garhwal, who consider it sacred.</p>
+                        <p>In 1936, mountaineers Eric Shipton and H.W. Tilman made the first successful ascent on June 29, becoming the first to climb a peak above 7,620 meters. The mountain was also the site of a tragic 1939 German expedition led by Karl Wien, which was lost in a glacial avalanche — their bodies remained undiscovered until 1959.</p>
+                    </div>
+                    <div class="nanda-devi-overview-spec-card reveal reveal-right">
+                        <h3>Technical Specifications</h3>
+                        <ul class="spec-list">
+                            <li><strong>Elevation:</strong> 7,816 m (25,643 ft)</li>
+                            <li><strong>Prominence:</strong> 2,404 m (7,887 ft)</li>
+                            <li><strong>Coordinates:</strong> 30°22′33″N 79°52′01″E</li>
+                            <li><strong>Climbing Difficulty:</strong> Grade V (Very Difficult)</li>
+                            <li><strong>First Ascent:</strong> June 29, 1936</li>
+                            <li><strong>Team:</strong> Eric Shipton &amp; H.W. Tilman</li>
+                            <li><strong>Prominence Rank:</strong> 116th worldwide</li>
+                            <li><strong>UNESCO Status:</strong> World Heritage Site (1988)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="nanda-devi-section" id="nanda-devi-biodiversity">
+            <div class="nanda-devi-container">
+                <div class="nanda-devi-section-heading reveal">
+                    <span class="nanda-devi-section-badge">Biodiversity</span>
+                    <h2>Nanda Devi Biosphere Reserve</h2>
+                    <p>A UNESCO World Heritage Site harboring some of the most pristine alpine ecosystems in the Himalayas.</p>
+                </div>
+
+                <div class="nanda-devi-biodiversity-grid">
+                    <div class="nanda-devi-bio-card reveal" style="transition-delay:0s">
+                        <div class="nanda-devi-bio-icon">🐆</div>
+                        <h3>Snow Leopard</h3>
+                        <p>The elusive apex predator of the high Himalayas. The Nanda Devi Biosphere Reserve provides critical habitat for this endangered feline, with an estimated population of 30-40 individuals in the wider region.</p>
+                        <span class="nanda-devi-bio-tag">Endangered</span>
+                    </div>
+
+                    <div class="nanda-devi-bio-card reveal" style="transition-delay:0.1s">
+                        <div class="nanda-devi-bio-icon">🐐</div>
+                        <h3>Himalayan Tahr</h3>
+                        <p>A large ungulate adapted to rugged alpine terrain. Found across the rocky slopes and meadows of the reserve, the Himalayan Tahr is an iconic species of the Nanda Devi ecosystem.</p>
+                        <span class="nanda-devi-bio-tag">Near Threatened</span>
+                    </div>
+
+                    <div class="nanda-devi-bio-card reveal" style="transition-delay:0.2s">
+                        <div class="nanda-devi-bio-icon">🌸</div>
+                        <h3>Alpine Flora</h3>
+                        <p>The reserve hosts over 800 plant species including rare Himalayan blue poppies, brahma kamal (the state flower of Uttarakhand), and ancient juniper forests that have survived for millennia.</p>
+                        <span class="nanda-devi-bio-tag">Rich Diversity</span>
+                    </div>
+
+                    <div class="nanda-devi-bio-card reveal" style="transition-delay:0.3s">
+                        <div class="nanda-devi-bio-icon">🦅</div>
+                        <h3>Golden Eagle</h3>
+                        <p>Soaring above the high-altitude meadows and ridges, the Golden Eagle is among the apex avian predators of the reserve, hunting marmots and small mammals across the alpine zone.</p>
+                        <span class="nanda-devi-bio-tag">Apex Predator</span>
+                    </div>
+
+                    <div class="nanda-devi-bio-card reveal" style="transition-delay:0.4s">
+                        <div class="nanda-devi-bio-icon">🐻</div>
+                        <h3>Himalayan Black Bear</h3>
+                        <p>Inhabiting the lower forested zones of the biosphere, this omnivorous bear feeds on berries, acorns, and insects. It is a key species in seed dispersal across the reserve.</p>
+                        <span class="nanda-devi-bio-tag">Vulnerable</span>
+                    </div>
+
+                    <div class="nanda-devi-bio-card reveal" style="transition-delay:0.5s">
+                        <div class="nanda-devi-bio-icon">🌿</div>
+                        <h3>Temperate Forests</h3>
+                        <p>Dense forests of oak, rhododendron, and deodar cedar blanket the lower elevations, giving way to birch and juniper at higher altitudes before transitioning to alpine meadows.</p>
+                        <span class="nanda-devi-bio-tag">Ecosystem</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="nanda-devi-section" id="nanda-devi-trekking">
+            <div class="nanda-devi-container">
+                <div class="nanda-devi-section-heading reveal">
+                    <span class="nanda-devi-section-badge">Adventure</span>
+                    <h2>Trekking Guide</h2>
+                    <p>Explore the legendary trails and routes that lead to the base of the Goddess of Mountains.</p>
+                </div>
+
+                <div class="nanda-devi-trekking-grid">
+                    <div class="nanda-devi-trek-card reveal" style="transition-delay:0s">
+                        <div class="nanda-devi-trek-icon">🗺️</div>
+                        <h3>Nanda Devi Inner Sanctuary Trek</h3>
+                        <p>The most iconic trek leading through the Rishi Gorge into the legendary inner sanctuary — a natural amphitheater surrounded by a 7,000 m ring of peaks. Requires a special permit from the Forest Department.</p>
+                        <div class="nanda-devi-trek-details">
+                            <span class="trek-detail">📏 12-15 Days</span>
+                            <span class="trek-detail">⬆️ 4,300 m</span>
+                            <span class="trek-detail">⚡ Challenging</span>
+                        </div>
+                    </div>
+
+                    <div class="nanda-devi-trek-card reveal" style="transition-delay:0.1s">
+                        <div class="nanda-devi-trek-icon">🌲</div>
+                        <h3>Nanda Devi Base Camp Trek</h3>
+                        <p>A popular trek starting from Lata village through alpine meadows, dense forests, and high-altitude passes with stunning views of the Nanda Devi massif and surrounding peaks.</p>
+                        <div class="nanda-devi-trek-details">
+                            <span class="trek-detail">📏 8-10 Days</span>
+                            <span class="trek-detail">⬆️ 4,150 m</span>
+                            <span class="trek-detail">⚡ Moderate</span>
+                        </div>
+                    </div>
+
+                    <div class="nanda-devi-trek-card reveal" style="transition-delay:0.2s">
+                        <div class="nanda-devi-trek-icon">🦅</div>
+                        <h3>Roopkund Trek</h3>
+                        <p>The famous Skeleton Lake trek passes through the Nanda Devi Biosphere Reserve, offering views of the mountain and the mysterious lake containing ancient human skeletal remains.</p>
+                        <div class="nanda-devi-trek-details">
+                            <span class="trek-detail">📏 7-9 Days</span>
+                            <span class="trek-detail">⬆️ 5,029 m</span>
+                            <span class="trek-detail">⚡ Challenging</span>
+                        </div>
+                    </div>
+
+                    <div class="nanda-devi-trek-card reveal" style="transition-delay:0.3s">
+                        <div class="nanda-devi-trek-icon">🌸</div>
+                        <h3>Best Season &amp; Permits</h3>
+                        <p>Best seasons: May-June (pre-monsoon wildflowers) and September-October (clear post-monsoon skies). Inner sanctuary requires Forest Department permit and registered guide.</p>
+                        <div class="nanda-devi-trek-details">
+                            <span class="trek-detail">🗓️ May-Jun &amp; Sep-Oct</span>
+                            <span class="trek-detail">📋 Permit Required</span>
+                            <span class="trek-detail">👥 Guide Mandatory</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="nanda-devi-section" id="nanda-devi-facts-section">
+            <div class="nanda-devi-container">
+                <div class="nanda-devi-section-heading reveal">
+                    <span class="nanda-devi-section-badge">Did You Know?</span>
+                    <h2>Interesting Facts</h2>
+                </div>
+                <div class="nanda-devi-fact-panel reveal">
+                    <div class="nanda-devi-fact-icon">💡</div>
+                    <div class="nanda-devi-fact-nav">
+                        <button class="nanda-devi-fact-nav-btn" id="nanda-devi-fact-prev" aria-label="Previous fact">‹</button>
+                        <span class="nanda-devi-fact-counter" id="nanda-devi-fact-counter">1 / 7</span>
+                        <button class="nanda-devi-fact-nav-btn" id="nanda-devi-fact-next" aria-label="Next fact">›</button>
+                    </div>
+                    <p id="nanda-devi-fact-text" aria-live="polite">Loading fact...</p>
+                    <div class="nanda-devi-fact-dots" id="nanda-devi-fact-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="nanda-devi-section" id="nanda-devi-map-section">
+            <div class="nanda-devi-container">
+                <div class="nanda-devi-section-heading reveal">
+                    <span class="nanda-devi-section-badge">Interactive Map</span>
+                    <h2>Key Locations Around Nanda Devi</h2>
+                    <p>Click on any marker to learn about that geographic landmark.</p>
+                </div>
+                <div class="nanda-devi-map-wrap reveal">
+                    <div id="nanda-devi-map" aria-label="Interactive Leaflet Map showing Nanda Devi and surrounding landmarks"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="nanda-devi-section" id="nanda-devi-gallery-section">
+            <div class="nanda-devi-container">
+                <div class="nanda-devi-section-heading reveal">
+                    <span class="nanda-devi-section-badge">Image Gallery</span>
+                    <h2>Views of Nanda Devi &amp; Uttarakhand</h2>
+                    <p>Explore the majestic beauty of the mountain and its surroundings. Click an image to view it larger.</p>
+                </div>
+                <div id="nanda-devi-gallery-grid" class="nanda-devi-gallery-grid"></div>
+            </div>
+        </section>
+
+        <section class="nanda-devi-section" id="nanda-devi-faq-section">
+            <div class="nanda-devi-container">
+                <div class="nanda-devi-section-heading reveal">
+                    <span class="nanda-devi-section-badge">FAQ</span>
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="nanda-devi-faq-container" id="nanda-devi-faq-accordion">
+                </div>
+            </div>
+        </section>
+
+        <section class="nanda-devi-bottom-nav">
+            <a href="../../index.html#home" class="nanda-devi-bottom-home-btn">
+                <span class="back-arrow">&larr;</span> Back to Home
+            </a>
+        </section>
+    </main>
+
+    <div class="nanda-devi-lightbox-overlay" id="nanda-devi-lightbox" hidden role="dialog" aria-modal="true" aria-label="Image Lightbox">
+        <div class="nanda-devi-lightbox-content">
+            <button class="nanda-devi-lightbox-close" data-close-lightbox="true" aria-label="Close Lightbox">&times;</button>
+            <button class="nanda-devi-lightbox-nav prev" id="nanda-devi-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="nanda-devi-lightbox-image" src="" alt="">
+            <button class="nanda-devi-lightbox-nav next" id="nanda-devi-lightbox-next" aria-label="Next image">›</button>
+            <p class="nanda-devi-lightbox-caption" id="nanda-devi-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Highlighting and documenting India's magnificent geography, mountains, and cultural heritage.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Mountain Explorers</h4>
+                <a href="../kanchenjunga/kanchenjunga.html">Kanchenjunga</a>
+                <a href="nanda-devi.html">Nanda Devi</a>
+                <a href="../rimo-i/rimo-i.html">Rimo I</a>
+                <a href="../satopanth/satopanth.html">Satopanth</a>
+                <a href="../shivling/shivling.html">Shivling</a>
+            </div>
+            <div class="footer-links">
+                <h4>Experiences</h4>
+                <a href="../travel/travel.html">Travel &amp; Destinations</a>
+                <a href="../mountains/index.html">Mountains of India</a>
+                <a href="../highest-point-challenge/index.html">Highest Point Challenge</a>
+                <a href="../mountain-expedition/index.html">Mountain Expedition Game</a>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <a href="../wildlife/wildlife.html">Nature &amp; Wildlife</a>
+                <a href="../heritage/heritage.html">Heritage Sites</a>
+                <a href="../coastal-india/coastal-india.html">Coastal India</a>
+                <a href="../crowd-density/index.html">Crowd Density</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Celebrating India's natural wonders.</p>
+        </div>
+    </footer>
+
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script type="module" src="nanda-devi.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>
