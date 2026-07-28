@@ -91,6 +91,20 @@ const ISLANDS_DATA = [
     image: "../../assets/travel_beaches.png"
   },
   {
+    id: "north-sentinel-island",
+    name: "North Sentinel Island",
+    group: "Andaman & Nicobar",
+    location: "Andaman Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 11.5533,
+    lng: 92.2367,
+    islandCount: "1 island",
+    tagline: "A protected, off-limits home to the Sentinelese people",
+    description: "North Sentinel Island is home to the Sentinelese, one of the world's last uncontacted tribes. Entry is strictly prohibited by Indian law to protect the tribe's health, safety and way of life.",
+    highlights: ["Home to the uncontacted Sentinelese tribe", "Protected under the Protection of Aboriginal Tribes Regulation, 1956", "Off-limits — no tourism or unauthorised entry permitted", "Part of the Andaman & Nicobar tribal reserve system"],
+    image: "../../assets/travel_hidden.png"
+  },
+  {
     id: "lakshadweep",
     name: "Lakshadweep Islands",
     group: "Lakshadweep",
@@ -314,13 +328,14 @@ function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
 
-  if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep") {
+  if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "north-sentinel-island") {
     const pageMap = {
       "great-nicobar": "../great-nicobar/great-nicobar.html",
       "south-andaman": "../south-andaman/south-andaman.html",
       "middle-andaman": "../middle-andaman/middle-andaman.html",
       "shaheed-dweep": "../shaheed-dweep/shaheed-dweep.html",
-      "swaraj-dweep": "../swaraj-dweep/swaraj-dweep.html"
+      "swaraj-dweep": "../swaraj-dweep/swaraj-dweep.html",
+      "north-sentinel-island": "../north-sentinel-island/north-sentinel-island.html"
     };
     window.location.href = pageMap[island.id];
     return;
