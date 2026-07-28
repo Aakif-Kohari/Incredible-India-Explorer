@@ -1268,6 +1268,13 @@ window.indiaSearchIndex = [
     category: "Archaeology",
     description: "Discover Bronze Age water reservoirs, world's earliest dockyards, Mauryan pillared halls, and UNESCO World Heritage excavation records.",
     url: "frontend/ancient-cities/ancient-cities.html"
+  },
+  // --- Animated Timeline: Evolution of Indian Cinema ---
+  {
+    title: "Animated Timeline: Evolution of Indian Cinema",
+    category: "Culture & Cinema",
+    description: "Horizontal filmstrip timeline detailing Indian cinema from 1913 Raja Harishchandra, talkies, parallel cinema, masala era, and diaspora boom to modern global Oscar triumphs.",
+    url: "frontend/indian-cinema-timeline/index.html"
   }
   // --- Indrasan Mountain ---
   {
