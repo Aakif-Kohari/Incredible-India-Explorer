@@ -1365,6 +1365,13 @@ window.indiaSearchIndex = [
     description: "Dedicated explorer for Indrasan, a 6,221 m high peak in the Pir Panjal range of Himachal Pradesh, featuring facts, map locations, image gallery, trekking details, and FAQs.",
     url: "frontend/indrasan/indrasan.html"
   },
+  // --- Hanuman Tibba Mountain ---
+  {
+    title: "Hanuman Tibba Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Hanuman Tibba, a 5,982 m high peak in the Dhauladhar range of Himachal Pradesh, featuring facts, map locations, image gallery, trekking details, and FAQs.",
+    url: "frontend/hanuman-tibba/hanuman-tibba.html"
+  },
   // --- Neelkanth Mountain ---
   {
     title: "Neelkanth Mountain Explorer",

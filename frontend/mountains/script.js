@@ -295,6 +295,24 @@ document.addEventListener("DOMContentLoaded", () => {
       tags: ["mythological"]
     },
     {
+      id: "hanuman-tibba",
+      name: "Hanuman Tibba",
+      height: 5982,
+      heightDisplay: "5,982 m",
+      range: "Himalayas",
+      subrange: "Dhauladhar Range",
+      state: "Himachal Pradesh",
+      region: "north",
+      difficulty: "Moderate",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Time_lapse_shot_of_Trishul_peak.jpg/960px-Time_lapse_shot_of_Trishul_peak.jpg",
+      firstAscent: "1939",
+      description: "The highest peak of the Dhauladhar range, named after Lord Hanuman. Towering over Manali and the Solang Valley, it is one of the most iconic mountains in Himachal Pradesh.",
+      fact: "Hanuman Tibba is believed to be the resting place of Lord Hanuman during his mythical flight to Lanka to fetch the Sanjeevani herb.",
+      link: "../hanuman-tibba/hanuman-tibba.html",
+      linkLabel: "Explore Peak",
+      tags: ["mythological"]
+    },
+    {
       id: "stok-kangri",
       name: "Stok Kangri",
       height: 6153,
