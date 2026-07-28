@@ -1331,4 +1331,11 @@ window.indiaSearchIndex = [
     description: "Dedicated explorer for Indrasan, a 6,221 m high peak in the Pir Panjal range of Himachal Pradesh, featuring facts, map locations, image gallery, trekking details, and FAQs.",
     url: "frontend/indrasan/indrasan.html"
   },
+  // --- Neelkanth Mountain ---
+  {
+    title: "Neelkanth Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Neelkanth, a 6,596 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, trekking details, and FAQs.",
+    url: "frontend/neelkanth/neelkanth.html"
+  },
 ];
