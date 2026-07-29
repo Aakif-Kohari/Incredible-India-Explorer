@@ -1426,5 +1426,18 @@ window.indiaSearchIndex = [
     category: "National Parks & Wildlife",
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
+  },
+  // --- The Making of Modern India (1757–1947) Timeline ---
+  {
+    title: "The Making of Modern India (1757–1947) Interactive Timeline",
+    category: "Modern History",
+    description: "Interactive journey from the Battle of Plassey (1757) to Independence (1947) featuring major events, Governors-General, British Acts, Revolts, Social Reforms, National Movements, and Historic Centers Map.",
+    url: "frontend/making-of-modern-india/index.html"
+  },
+  {
+    title: "British Raj Governors-General & Legislative Acts Catalogue",
+    category: "Colonial History",
+    description: "Detailed catalog of British Governors-General and Viceroys (Warren Hastings to Mountbatten), British Acts (1773 to 1947), Paika & Santhal revolts, and social reforms.",
+    url: "frontend/making-of-modern-india/index.html"
   }
 ];
