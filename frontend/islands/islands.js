@@ -77,6 +77,20 @@ const ISLANDS_DATA = [
     image: "../../assets/travel_islands.png"
   },
   {
+    id: "little-andaman",
+    name: "Little Andaman",
+    group: "Andaman & Nicobar",
+    location: "Andaman Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 10.6,
+    lng: 92.5,
+    islandCount: "1 island",
+    tagline: "Butler Bay surfing, White Surf Waterfall & pristine forests",
+    description: "India's fourth-largest Andaman island (~730 km²) with world-class surfing at Butler Bay, the spectacular 60m White Surf Waterfall, ancient evergreen rainforests covering 80% of the island, and critical habitat for dugongs, sea turtles, and swimming elephants.",
+    highlights: ["Butler Bay — India's premier surfing beach", "White Surf Waterfall (60m cascade)", "Evergreen rainforests with high endemism", "Dugong & sea turtle nesting habitat", "Hut Bay — main settlement & ferry port"],
+    image: "../../assets/travel_beaches.png"
+  },
+  {
     id: "lakshadweep",
     name: "Lakshadweep Islands",
     group: "Lakshadweep",
@@ -300,12 +314,13 @@ function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
 
-  if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep") {
+  if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "little-andaman") {
     const pageMap = {
       "great-nicobar": "../great-nicobar/great-nicobar.html",
       "south-andaman": "../south-andaman/south-andaman.html",
       "middle-andaman": "../middle-andaman/middle-andaman.html",
-      "shaheed-dweep": "../shaheed-dweep/shaheed-dweep.html"
+      "shaheed-dweep": "../shaheed-dweep/shaheed-dweep.html",
+      "little-andaman": "../little-andaman/index.html"
     };
     window.location.href = pageMap[island.id];
     return;
