@@ -1432,6 +1432,12 @@ window.indiaSearchIndex = [
     title: "Freedom Fighters Interactive Knowledge Hub",
     category: "History & Heritage",
     description: "Educational encyclopedia featuring biographies, timelines, revolutionary movements, rare facts, and quotes of India's freedom fighters.",
-    url: "frontend/freedom-fighters-hub/index.html"
+    url: "frontend/freedom-fighters-hub/index.html"},
+  // --- State Chief Ministers Explorer ---
+  {
+    title: "State Chief Ministers Explorer",
+    category: "Governance & Politics",
+    description: "Interactive educational explorer covering current Chief Ministers across all states and union territories, political parties, capitals, and state facts.",
+    url: "frontend/state-chief-ministers-explorer/index.html"
   }
 ];
