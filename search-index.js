@@ -1426,5 +1426,12 @@ window.indiaSearchIndex = [
     category: "National Parks & Wildlife",
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
+  },
+  // --- Chief Justices of India Timeline ---
+  {
+    title: "Interactive Chief Justices of India Timeline",
+    category: "Governance & Politics",
+    description: "Educational page showcasing Chief Justices of India, appointment dates, landmark judgments, court reforms, and search by decade.",
+    url: "frontend/chief-justices-timeline/index.html"
   }
 ];
