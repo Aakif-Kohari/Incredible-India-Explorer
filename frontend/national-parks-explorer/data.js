@@ -45,7 +45,8 @@ const NATIONAL_PARKS = [
         climate: 'Subtropical Monsoon',
         bestTime: 'November to April',
         entryFee: '₹650 (Indian), ₹2500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Elephant_safari_in_Kaziranga.jpg/960px-Elephant_safari_in_Kaziranga.jpg'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Elephant_safari_in_Kaziranga.jpg/960px-Elephant_safari_in_Kaziranga.jpg',
+        explorerUrl: '../kaziranga-national-park-explorer/index.html'
     },
     {
         id: 'ranthambore',
@@ -129,6 +130,7 @@ const NATIONAL_PARKS = [
         climate: 'Tropical Monsoon',
         bestTime: 'September to March',
         entryFee: '₹45 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../periyar-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Periyar_National_Park_02.jpg/960px-Periyar_National_Park_02.jpg'
     },
     {
@@ -330,8 +332,23 @@ const NATIONAL_PARKS = [
         stateId: 'or',
         established: 1980,
         area: 2750,
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Swamp_Deer_Barasingha.jpg/960px-Swamp_Deer_Barasingha.jpg'},
-  {id: 'manas',
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: true,
+        description:
+            "A UNESCO Biosphere Reserve in Odisha, famous for Barehipani waterfall (399m), world's only melanistic black tigers, and Mayurbhanj elephants.",
+        keyFauna: ['Melanistic Black Tiger', 'Asian Elephant', 'Sambar Deer', 'Mugger Crocodile', 'Hill Myna'],
+        keyFlora: ['Sal Forest', 'Red Silk Cotton (Simul)', 'Epiphytic Orchids', 'Jamun'],
+        coordinates: { lat: 21.93, lng: 86.35 },
+        climate: 'Tropical Monsoon',
+        bestTime: 'November to June',
+        entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../simlipal-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Swamp_Deer_Barasingha.jpg/960px-Swamp_Deer_Barasingha.jpg'
+    },
+    {
+        id: 'manas',
         name: 'Manas National Park',
         state: 'Assam',
         stateId: 'as',
@@ -342,15 +359,6 @@ const NATIONAL_PARKS = [
         isTigerReserve: true,
         isUNESCO: true,
         description:
-            "UNESCO Biosphere Reserve in Odisha, famous for Barehipani waterfall (399m), world's only melanistic black tigers, and Mayurbhanj elephants.",
-        keyFauna: ['Melanistic Black Tiger', 'Asian Elephant', 'Sambar Deer', 'Mugger Crocodile', 'Hill Myna'],
-        keyFlora: ['Sal Forest', 'Red Silk Cotton (Simul)', 'Epiphytic Orchids', 'Jamun'],
-        coordinates: { lat: 21.93, lng: 86.35 },
-        climate: 'Tropical Monsoon',
-        bestTime: 'November to June',
-        entryFee: '₹100 (Indian), ₹500 (Foreign)',
-        explorerUrl: '../simlipal-national-park-explorer/index.html',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Neofelis_nebulosa.jpg/960px-Neofelis_nebulosa.jpg'
             'A UNESCO World Heritage Site, Biosphere Reserve, and Elephant Reserve in Assam, famous for Golden Langurs, Pygmy Hogs, and the Manas River.',
         keyFauna: ['Golden Langur', 'Pygmy Hog', 'Bengal Tiger', 'Wild Water Buffalo', 'Asian Elephant'],
         keyFlora: ['Semi-Evergreen Forest', 'Alluvial Grassland', 'Elephant Grass'],
@@ -760,7 +768,6 @@ const STATES = [
     { id: 'tn', name: 'Tamil Nadu', region: 'south' },
     { id: 'as', name: 'Assam', region: 'northeast' },
     { id: 'wb', name: 'West Bengal', region: 'east' },
-    { id: 'or', name: 'Odisha', region: 'east' }
-    { id: 'ar', name: 'Arunachal Pradesh', region: 'northeast' },
-    { id: 'wb', name: 'West Bengal', region: 'east' }
+    { id: 'or', name: 'Odisha', region: 'east' },
+    { id: 'ar', name: 'Arunachal Pradesh', region: 'northeast' }
 ];
