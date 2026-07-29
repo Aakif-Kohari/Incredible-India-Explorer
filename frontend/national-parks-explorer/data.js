@@ -6,6 +6,27 @@
 
 const NATIONAL_PARKS = [
     {
+        id: 'rajaji',
+        name: 'Rajaji National Park',
+        state: 'Uttarakhand',
+        stateId: 'uk',
+        established: 1983,
+        area: 820,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description: 'Spread across the Shivalik Hills, Rajaji is famous for its large population of Asian elephants and diverse Shivalik ecosystem. It was formed by merging three sanctuaries.',
+        keyFauna: ['Asian Elephant', 'Bengal Tiger', 'Leopard', 'Himalayan Black Bear', 'Sambar'],
+        keyFlora: ['Sal Forest', 'Shisham', 'Khair', 'Tall Grasslands'],
+        coordinates: { lat: 30.05, lng: 78.15 },
+        climate: 'Subtropical',
+        bestTime: 'November to June',
+        entryFee: '₹150 (Indian), ₹600 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Elephants_in_Rajaji_National_Park.jpg/960px-Elephants_in_Rajaji_National_Park.jpg',
+        explorerUrl: '../rajaji-national-park-explorer/index.html'
+    },
+    {
         id: 'jim-corbett',
         name: 'Jim Corbett National Park',
         state: 'Uttarakhand',
