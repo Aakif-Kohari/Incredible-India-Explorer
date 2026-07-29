@@ -169,10 +169,23 @@ highlights: ["Extinct volcanic cone rising steeply from the sea", "Endemic Narco
     islandCount: "36 islands",
     tagline: "India's smallest Union Territory",
     description: "A cluster of 36 coral islands and atolls scattered in the Arabian Sea off the Kerala coast. Built entirely from coral deposits, the islands are ringed by turquoise lagoons and are among the most pristine coral reef ecosystems in India.",
-    highlights: ["Kavaratti — administrative capital", "Agatti coral lagoon", "Bangaram atoll", "Minicoy — largest island in the group"],
+highlights: ["Kavaratti — administrative capital", "Agatti coral lagoon", "Bangaram atoll", "Minicoy — largest island in the group"],
     image: "../../assets/travel_beaches.png"
   },
   {
+    id: "kavaratti",
+    name: "Kavaratti Island",
+    group: "Lakshadweep",
+    location: "Arabian Sea",
+    state: "Union Territory",
+    lat: 10.5669,
+    lng: 72.6420,
+    islandCount: "1 island",
+    tagline: "The administrative capital of Lakshadweep",
+    description: "The capital of the Lakshadweep Union Territory, Kavaratti is known for its calm turquoise lagoon, vivid coral reefs, a well-known marine aquarium and several historic mosques woven into the island's small, close-knit community.",
+    highlights: ["Wide, calm lagoon ideal for swimming and boating", "Marine Aquarium showcasing lagoon and reef life", "Vibrant coral reefs for snorkelling and diving", "Ujra Mosque and other historic island mosques"],
+    image: "../../assets/travel_beaches.png"
+  },  {
     id: "majuli",
     name: "Majuli",
     group: "River Islands",
@@ -382,7 +395,7 @@ function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
 
-if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "narcondam" || island.id === "car-nicobar") {
+if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "narcondam" || island.id === "kavaratti") {
     const pageMap = {
       "great-nicobar": "../great-nicobar/great-nicobar.html",
       "south-andaman": "../south-andaman/south-andaman.html",
@@ -392,7 +405,7 @@ if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id 
       "narcondam": "../narcondam-island/narcondam-island.html",
       "barren-island": "../barren-island/barren-island.html",
       "north-sentinel-island": "../north-sentinel-island/north-sentinel-island.html",
-      "car-nicobar": "../car-nicobar-island/car-nicobar-island.html"
+      "kavaratti": "../kavaratti-island/kavaratti-island.html"
     };    window.location.href = pageMap[island.id];
     return;
   }
