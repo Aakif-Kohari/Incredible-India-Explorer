@@ -1427,6 +1427,12 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Periyar National Park Explorer ---
+  {
+    title: "Periyar National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Periyar National Park & Tiger Reserve in Kerala — Periyar Lake boat safaris, Asian Elephants, Cardamom Hills spice forests, interactive map, and photo gallery.",
+    url: "frontend/periyar-national-park-explorer/index.html"} ,
   // --- Freedom Fighters Knowledge Hub ---
   {
     title: "Freedom Fighters Interactive Knowledge Hub",
