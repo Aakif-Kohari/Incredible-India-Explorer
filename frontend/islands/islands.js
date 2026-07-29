@@ -76,6 +76,20 @@ const ISLANDS_DATA = [
     highlights: ["Natural Bridge (Howrah Bridge)", "Bharatpur Beach snorkelling & coral reefs", "Laxmanpur Beach sunsets", "Vegetable farms — the 'vegetable bowl' of the Andamans"],
     image: "../../assets/travel_islands.png"
   },
+{
+    id: "little-andaman",
+    name: "Little Andaman",
+    group: "Andaman & Nicobar",
+    location: "Andaman Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 10.6,
+    lng: 92.5,
+    islandCount: "1 island",
+    tagline: "Butler Bay surfing, White Surf Waterfall & pristine forests",
+    description: "India's fourth-largest Andaman island (~730 km²) with world-class surfing at Butler Bay, the spectacular 60m White Surf Waterfall, ancient evergreen rainforests covering 80% of the island, and critical habitat for dugongs, sea turtles, and swimming elephants.",
+    highlights: ["Butler Bay — India's premier surfing beach", "White Surf Waterfall (60m cascade)", "Evergreen rainforests with high endemism", "Dugong & sea turtle nesting habitat", "Hut Bay — main settlement & ferry port"],
+    image: "../../assets/travel_beaches.png"
+  },
   {
     id: "swaraj-dweep",
     name: "Swaraj Dweep (Havelock Island)",
@@ -87,7 +101,7 @@ const ISLANDS_DATA = [
     islandCount: "1 island",
     tagline: "Home of Radhanagar Beach, Asia's Best Beach",
     description: "Formerly Havelock Island, renamed Swaraj Dweep in 2018 — the Andamans' premier tourism hub, famed for Radhanagar and Elephant Beach, accessible coral reefs, rich marine life, and some of the best scuba diving in India.",
-highlights: ["Radhanagar Beach — Asia's Best Beach (Time, 2004)", "Elephant Beach snorkelling & water sports", "20+ scuba diving sites, incl. Dixon's Pinnacle", "Renamed Swaraj Dweep in 2018 to honour Netaji Subhas Chandra Bose"],
+    highlights: ["Radhanagar Beach — Asia's Best Beach (Time, 2004)", "Elephant Beach snorkelling & water sports", "20+ scuba diving sites, incl. Dixon's Pinnacle", "Renamed Swaraj Dweep in 2018 to honour Netaji Subhas Chandra Bose"],
     image: "../../assets/travel_beaches.png"
   },
   {
@@ -130,6 +144,7 @@ highlights: ["Extinct volcanic cone rising steeply from the sea", "Endemic Narco
     tagline: "India's only confirmed active volcano",
     description: "An uninhabited volcanic island in the Andaman Sea, home to India's only confirmed active volcano, a 2-km-wide caldera, and dive sites known for volcanic drop-offs and rich marine life.",
     highlights: ["India's only confirmed active volcano", "First recorded eruption in 1787, most recently in 2022", "Horseshoe-shaped caldera roughly 2 km wide", "Popular deep-sea diving site around the island"],
+    image: "../../assets/travel_hidden.png"
   },
   {
     id: "north-sentinel-island",
@@ -369,12 +384,13 @@ function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
 
-if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "narcondam" || island.id === "north-andaman") {
+if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "little-andaman" || island.id === "swaraj-dweep" || island.id === "narcondam" || island.id === "barren-island" || island.id === "north-sentinel-island") {
     const pageMap = {
       "great-nicobar": "../great-nicobar/great-nicobar.html",
       "south-andaman": "../south-andaman/south-andaman.html",
       "middle-andaman": "../middle-andaman/middle-andaman.html",
       "shaheed-dweep": "../shaheed-dweep/shaheed-dweep.html",
+      "little-andaman": "../little-andaman/index.html",
       "swaraj-dweep": "../swaraj-dweep/swaraj-dweep.html",
       "narcondam": "../narcondam-island/narcondam-island.html",
       "barren-island": "../barren-island/barren-island.html",
