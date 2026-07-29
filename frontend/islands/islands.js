@@ -188,6 +188,19 @@ highlights: ["Kavaratti — administrative capital", "Agatti coral lagoon", "Ban
     image: "../../assets/travel_beaches.png"
   },
   {
+    id: "minicoy",
+    name: "Minicoy Island",
+    group: "Lakshadweep",
+    location: "Arabian Sea",
+    state: "Union Territory",
+    lat: 8.2833,
+    lng: 73.0500,
+    islandCount: "1 island",
+    tagline: "Lakshadweep's second-largest island, famed for its lighthouse and tuna fishing",
+    description: "Geographically and culturally distinct from the rest of Lakshadweep, Minicoy is known for its historic lighthouse, thriving tuna fishing industry, a large lagoon, rich marine biodiversity and the Mahl-speaking community that shares close ties with the Maldives.",
+    highlights: ["19th-century Minicoy Lighthouse", "Traditional pole-and-line tuna fishing", "Mahl — a language closely related to Dhivehi", "One of Lakshadweep's largest lagoons"],
+    image: "../../assets/travel_beaches.png"
+  },  {
     id: "kavaratti",
     name: "Kavaratti Island",
     group: "Lakshadweep",
@@ -410,7 +423,7 @@ function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
 
-if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "narcondam" || island.id === "kavaratti") {
+if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "narcondam" || island.id === "minicoy") {
     const pageMap = {
       "great-nicobar": "../great-nicobar/great-nicobar.html",
       "south-andaman": "../south-andaman/south-andaman.html",
@@ -421,7 +434,7 @@ if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id 
       "narcondam": "../narcondam-island/narcondam-island.html",
       "barren-island": "../barren-island/barren-island.html",
       "north-sentinel-island": "../north-sentinel-island/north-sentinel-island.html",
-      "kavaratti": "../kavaratti-island/kavaratti-island.html"
+      "minicoy": "../minicoy-island/minicoy-island.html"
     };    window.location.href = pageMap[island.id];
     return;
   }
