@@ -223,6 +223,24 @@ document.addEventListener("DOMContentLoaded", () => {
       tags: ["garhwal-himalayas"]
     },
     {
+      id: "kedarnath",
+      name: "Kedarnath Peak",
+      height: 6940,
+      heightDisplay: "6,940 m",
+      range: "Himalayas",
+      subrange: "Garhwal Himalayas",
+      state: "Uttarakhand",
+      region: "north",
+      difficulty: "Hard",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Mt._Kedarnath.jpg/960px-Mt._Kedarnath.jpg",
+      firstAscent: "1932",
+      description: "A sacred 6,940 m peak in the Garhwal Himalayas, towering over the famous Kedarnath Temple — one of the twelve Jyotirlingas and a key destination in the Char Dham Yatra.",
+      fact: "Kedarnath is part of the Panch Kedar — five sacred Shiva temples across Garhwal — and the peak is fed by the Chorabari Glacier, source of the Mandakini River.",
+      link: "../kedarnath/kedarnath.html",
+      linkLabel: "Explore Peak",
+      tags: ["garhwal-himalayas", "sacred-peak"]
+    },
+    {
       id: "shivaling",
       name: "Shivling",
       height: 6543,
