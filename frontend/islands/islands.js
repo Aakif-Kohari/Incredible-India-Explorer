@@ -31,10 +31,23 @@ const ISLANDS_DATA = [
     islandCount: "1 island",
     tagline: "India's southernmost island, home to Indira Point",
     description: "The largest island in the Nicobar group and India's southernmost territory, home to Indira Point, Campbell Bay National Park, and rare endemic wildlife.",
-    highlights: ["Indira Point — southernmost tip of India", "Campbell Bay National Park", "UNESCO Biosphere Reserve (2013)", "Nesting ground for Giant Leatherback turtles"],
+highlights: ["Indira Point — southernmost tip of India", "Campbell Bay National Park", "UNESCO Biosphere Reserve (2013)", "Nesting ground for Giant Leatherback turtles"],
     image: "../../assets/travel_hidden.png"
   },
   {
+    id: "car-nicobar",
+    name: "Car Nicobar",
+    group: "Andaman & Nicobar",
+    location: "Nicobar Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 9.1833,
+    lng: 92.7667,
+    islandCount: "1 island",
+    tagline: "The Nicobars' most populated island, home of the Nicobarese",
+    description: "A flat, coral-fringed island and the administrative headquarters of the Nicobar district, Car Nicobar is home to the indigenous Nicobarese community, vast coconut plantations, sandy beaches and traditional hodi boat races.",
+    highlights: ["Largest Nicobarese population in the islands", "Extensive coconut plantations and copra economy", "Traditional villages and Chowra-style huts", "Malacca and Kakana beaches"],
+    image: "../../assets/travel_beaches.png"
+  },  {
     id: "south-andaman",
     name: "South Andaman",
     group: "Andaman & Nicobar",
@@ -369,7 +382,7 @@ function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
 
-if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "narcondam" || island.id === "north-andaman") {
+if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "narcondam" || island.id === "car-nicobar") {
     const pageMap = {
       "great-nicobar": "../great-nicobar/great-nicobar.html",
       "south-andaman": "../south-andaman/south-andaman.html",
@@ -379,7 +392,7 @@ if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id 
       "narcondam": "../narcondam-island/narcondam-island.html",
       "barren-island": "../barren-island/barren-island.html",
       "north-sentinel-island": "../north-sentinel-island/north-sentinel-island.html",
-      "north-andaman": "../north-andaman-island/north-andaman-island.html"
+      "car-nicobar": "../car-nicobar-island/car-nicobar-island.html"
     };    window.location.href = pageMap[island.id];
     return;
   }
