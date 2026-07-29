@@ -1452,5 +1452,18 @@ window.indiaSearchIndex = [
     category: "Freedom Struggle & History",
     description: "Detailed catalog of revolutionary societies (Anushilan Samiti, Ghadar, HSRA, INA) and primary documents (Poorna Swaraj Declaration 1930, Nehru Report 1928, Tryst with Destiny 1947, Give Me Blood Speech 1944).",
     url: "frontend/freedom-movement-explorer/index.html"
+  },
+  // --- Every Major Empire of India Interactive Timeline ---
+  {
+    title: "Every Major Empire of India Interactive Timeline",
+    category: "Indian Empires & History",
+    description: "Explore 10 great empires and civilizations from Indus Valley, Mahajanapadas, Maurya, Gupta, Chalukya, Chola, Vijayanagara, Mughal, Maratha, and Sikh Empire with interactive territorial expansion and decline maps.",
+    url: "frontend/indian-empires-explorer/index.html"
+  },
+  {
+    title: "Territorial Expansion & Decline Maps of Indian Empires",
+    category: "Historical Cartography",
+    description: "Interactive SVG maps rendering foundation, peak apex territory, and decline stages for Maurya, Gupta, Chola, Vijayanagara, Mughal, Maratha, and Sikh empires.",
+    url: "frontend/indian-empires-explorer/index.html"
   }
 ];
