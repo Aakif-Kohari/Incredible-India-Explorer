@@ -67,7 +67,7 @@ export const CONSTITUENT_ASSEMBLY_MEMBERS = [
     committee: "Drafting Committee",
     portrait: "assets/Abdul_kalam.png",
     contributions: "Renowned legal luminary who drafted critical provisions on citizenship, executive powers, and judicial review mechanisms.",
-    biography: "Sir Alladi Krishnaswamy Ayyar was a former Advocate-General of Madras State whose profound legal acumen was indispensable to Dr. Ambedkar during drafting debates.",
+    biography: "Sir Alladi Krishnaswamy Ayyar was a former Advocate-General of Madras State whose profound legal acumen made him one of the leading legal minds of the Drafting Committee.",
     keyQuotes: "The Supreme Court of India has a higher jurisdiction than any other supreme court in the world.",
     isWomanMember: false
   },
@@ -215,14 +215,14 @@ export function filterMembers(members = CONSTITUENT_ASSEMBLY_MEMBERS, committee 
   const keyword = searchKeyword.toLowerCase().trim();
 
   return members.filter(m => {
-    const matchesCommittee = committee === 'all' || 
+    const matchesCommittee = committee === 'all' ||
       (committee === 'women' ? m.isWomanMember : m.committee.toLowerCase().includes(committee.toLowerCase()));
-    
+
     const matchesSearch = !keyword ||
       m.name.toLowerCase().includes(keyword) ||
       m.role.toLowerCase().includes(keyword) ||
       m.contributions.toLowerCase().includes(keyword) ||
-      m.biography.toLowerCase().includes(keyword);
+      m.id.toLowerCase().includes(keyword);
 
     return matchesCommittee && matchesSearch;
   });
@@ -236,7 +236,7 @@ export function filterMembers(members = CONSTITUENT_ASSEMBLY_MEMBERS, committee 
 export function getAssemblyStats(members = CONSTITUENT_ASSEMBLY_MEMBERS) {
   const total = members.length;
   const womenCount = members.filter(m => m.isWomanMember).length;
-  
+
   return {
     totalFeaturedMembers: total,
     womenMembersCount: womenCount,

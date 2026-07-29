@@ -1,0 +1,151 @@
+export const lawsTabs = [
+  { id: "cover", label: "Cover" },
+  { id: "laws", label: "Laws" },
+  { id: "timeline", label: "Timeline" },
+];
+
+export const lawsData = [
+  {
+    id: "regulating-act",
+    name: "Regulating Act of 1773",
+    year: "1773",
+    image: "assets/laws/regulating-act.jpg",
+    summary:
+      "The first attempt by the British Parliament to regulate the affairs of the East India Company and lay the foundation of central administration in India.",
+    keyFacts: [
+      "Created the post of Governor-General of Bengal, first held by Warren Hastings",
+      "Established a Supreme Court at Calcutta",
+      "Subordinated the Bombay and Madras presidencies to Bengal in matters of war and diplomacy",
+      "Marked the beginning of Parliamentary control over the East India Company",
+    ],
+    color: "#FF6B35",
+  },
+  {
+    id: "charter-acts",
+    name: "Charter Acts",
+    year: "1793 – 1853",
+    image: "assets/laws/charter-acts.jpg",
+    summary:
+      "A series of acts renewing the East India Company's charter roughly every 20 years, gradually curbing its commercial monopoly and expanding government oversight.",
+    keyFacts: [
+      "Charter Act of 1813 ended the Company's trade monopoly (except tea and China trade)",
+      "Charter Act of 1833 made the Governor-General of Bengal the Governor-General of India",
+      "Charter Act of 1833 ended the Company's remaining commercial functions",
+      "Charter Act of 1853 introduced open competition for the civil service",
+    ],
+    color: "#F7931E",
+  },
+  {
+    id: "ipc",
+    name: "Indian Penal Code (IPC)",
+    year: "1860",
+    image: "assets/laws/ipc.jpg",
+    summary:
+      "The principal criminal code of British India, drafted under the chairmanship of Lord Macaulay, defining offences and prescribing punishments.",
+    keyFacts: [
+      "Drafted by the First Law Commission, chaired by Lord Macaulay",
+      "Came into force on 1 January 1862",
+      "Organized into chapters covering offences against the state, person, and property",
+      "Remained India's core criminal law for over 160 years",
+    ],
+    color: "#FDB827",
+  },
+  {
+    id: "crpc",
+    name: "Code of Criminal Procedure (CrPC)",
+    year: "1973",
+    image: "assets/laws/crpc.jpg",
+    summary:
+      "The procedural law governing the administration of criminal justice in India — arrest, investigation, trial, and bail.",
+    keyFacts: [
+      "Replaced the earlier CrPC of 1898",
+      "Set out procedures for police investigation and court trial",
+      "Defined the powers of magistrates and classification of offences",
+      "Provided the framework used across India's criminal justice system for decades",
+    ],
+    color: "#2E8B57",
+  },
+  {
+    id: "constitution",
+    name: "Constitution of India",
+    year: "1950",
+    image: "assets/laws/constitution.jpg",
+    summary:
+      "The supreme law of India, adopted by the Constituent Assembly, establishing the framework of government, fundamental rights, and directive principles.",
+    keyFacts: [
+      "Adopted on 26 November 1949, came into force on 26 January 1950",
+      "Drafting Committee was chaired by Dr. B. R. Ambedkar",
+      "One of the longest written constitutions in the world",
+      "Guarantees Fundamental Rights and lays out Directive Principles of State Policy",
+    ],
+    color: "#4169E1",
+  },
+  {
+    id: "gst",
+    name: "Goods and Services Tax (GST)",
+    year: "2017",
+    image: "assets/laws/gst.jpg",
+    summary:
+      "A comprehensive indirect tax reform that replaced multiple central and state taxes with a single unified tax regime across India.",
+    keyFacts: [
+      "Rolled out on 1 July 2017 under the 101st Constitutional Amendment",
+      "Subsumed taxes like VAT, service tax, and excise duty",
+      "Structured as CGST, SGST, and IGST for center-state revenue sharing",
+      "Administered through the GST Council, chaired by the Union Finance Minister",
+    ],
+    color: "#8A2BE2",
+  },
+  {
+    id: "bns",
+    name: "Bharatiya Nyaya Sanhita (BNS)",
+    year: "2023",
+    image: "assets/laws/bns.jpg",
+    summary:
+      "The law that replaced the Indian Penal Code, part of a broader overhaul of India's criminal justice statutes.",
+    keyFacts: [
+      "Passed by Parliament in December 2023, effective from 1 July 2024",
+      "Replaces the Indian Penal Code of 1860",
+      "Introduced alongside the Bharatiya Nagarik Suraksha Sanhita (replacing CrPC)",
+      "Adds new offences such as organized crime and terrorism, and revises sentencing",
+    ],
+    color: "#DC143C",
+  },
+];
+
+export const lawsTimeline = [
+  {
+    year: "1773",
+    lawId: "regulating-act",
+    event: "Regulating Act establishes the post of Governor-General and a Supreme Court at Calcutta.",
+  },
+  {
+    year: "1793 – 1853",
+    lawId: "charter-acts",
+    event: "Successive Charter Acts curb East India Company's monopoly and expand Crown oversight.",
+  },
+  {
+    year: "1860",
+    lawId: "ipc",
+    event: "Indian Penal Code enacted, unifying criminal law across British India.",
+  },
+  {
+    year: "1973",
+    lawId: "crpc",
+    event: "Code of Criminal Procedure re-enacted, replacing the 1898 code.",
+  },
+  {
+    year: "1950",
+    lawId: "constitution",
+    event: "Constitution of India comes into force, establishing the republic.",
+  },
+  {
+    year: "2017",
+    lawId: "gst",
+    event: "Goods and Services Tax unifies India's indirect tax system.",
+  },
+  {
+    year: "2023",
+    lawId: "bns",
+    event: "Bharatiya Nyaya Sanhita passed, replacing the IPC.",
+  },
+];

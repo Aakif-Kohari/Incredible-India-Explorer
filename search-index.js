@@ -711,6 +711,13 @@ window.indiaSearchIndex = [
     description: "Shimla, Darjeeling, Munnar, Ooty, Manali, and other picturesque hill retreats across India.",
     url: "frontend/hill-stations/frontend/hill-stations/hill-stations.html"
   },
+  // --- Mountains of India ---
+  {
+    title: "Mountains of India",
+    category: "Travel & Exploration",
+    description: "Explore India's majestic mountains — Kangchenjunga, Nanda Devi, Shivling, Anamudi and many more. Filter by range, height, difficulty, and region.",
+    url: "frontend/mountains/index.html"
+  },
 
   // --- Butterfly ---
   {
@@ -1012,7 +1019,7 @@ window.indiaSearchIndex = [
     title: "UP Tourism Highlights & Interactive Portal",
     category: "UP Central Portal",
     description: "Explore UP heritage, Taj Mahal, Varanasi Ghats, Ayodhya Ram Mandir, Awadhi Cuisine, and 10 tourism modules.",
-    url: "frontend/up-dashboard/up-dashboard.html"
+    url: "frontend/up-dashboard/up-dashboard.html"},
   // --- Uttar Pradesh District Explorer ---
   {
     title: "Uttar Pradesh District Explorer",
@@ -1024,7 +1031,7 @@ window.indiaSearchIndex = [
     title: "UP 75 Districts Interactive Map & Guide",
     category: "UP State Explorer",
     description: "Search and filter all 75 UP districts across 18 divisions and 4 geographic regions with SVG map and detail inspector.",
-    url: "frontend/up-district-explorer/up-district-explorer.html"
+    url: "frontend/up-district-explorer/up-district-explorer.html"},
   // --- Guess the Uttar Pradesh District Game ---
   {
     title: "Guess the Uttar Pradesh District Game",
@@ -1036,7 +1043,7 @@ window.indiaSearchIndex = [
     title: "Uttar Pradesh District Quiz & Clues Challenge",
     category: "UP Geography Game",
     description: "Identify UP districts from handicraft ODOP, river landmarks, and history with scoreboard, timer, hints, and achievement badges.",
-    url: "frontend/guess-up-district/guess-up-district.html"
+    url: "frontend/guess-up-district/guess-up-district.html"},
   // --- Uttar Pradesh Filming Locations Explorer ---
   {
     title: "Uttar Pradesh Filming Locations Explorer",
@@ -1048,7 +1055,7 @@ window.indiaSearchIndex = [
     title: "Varanasi & Taj Mahal Movie Locations",
     category: "UP Filming Locations",
     description: "Discover movie cards, behind-the-scenes trivia, and interactive gallery for movies filmed in Uttar Pradesh.",
-    url: "frontend/up-filming/up-filming.html"
+    url: "frontend/up-filming/up-filming.html"},
   // --- Uttar Pradesh Pilgrimage Circuit Planner ---
   {
     title: "Uttar Pradesh Pilgrimage Circuit Planner",
@@ -1073,7 +1080,7 @@ window.indiaSearchIndex = [
     title: "India Agricultural Yields & Green Revolution Guide",
     category: "Agricultural History",
     description: "Interactive before/after yield comparison chart, 4 technological pillars, and balanced dual framing of food security vs groundwater considerations.",
-    url: "frontend/green-revolution/green-revolution.html"
+    url: "frontend/green-revolution/green-revolution.html"},
   // --- History of Indian Railways Timeline ---
   {
     title: "Animated Timeline: History of Indian Railways",
@@ -1085,7 +1092,7 @@ window.indiaSearchIndex = [
     title: "1853 to Present Indian Railways Historical Narrative",
     category: "Railways History",
     description: "Explore 170+ years of Indian Railways with animated train track visualization, neutral factual framing, and technical specs.",
-    url: "frontend/railways-timeline/railways-timeline.html"
+    url: "frontend/railways-timeline/railways-timeline.html"},
   // --- Famous Monuments Explorer ---
   {
     title: "Famous Monuments Explorer",
@@ -1097,7 +1104,7 @@ window.indiaSearchIndex = [
     title: "Taj Mahal & Bara Imambara 3D Explorer",
     category: "UP Monuments Guide",
     description: "Explore historical timelines, architectural specs, and interactive 3D perspective cards of iconic Uttar Pradesh heritage monuments.",
-    url: "frontend/up-monuments/up-monuments.html"
+    url: "frontend/up-monuments/up-monuments.html"},
   // --- Uttar Pradesh Festival Calendar ---
   {
     title: "Uttar Pradesh Festival Calendar",
@@ -1116,13 +1123,13 @@ window.indiaSearchIndex = [
     title: "Animated Map: Historical Spread of Buddhism from India",
     category: "History & Geography",
     description: "Animated expanding-path map detailing the historical transmission of Buddhism across Asia from Bodh Gaya across Sri Lanka, Silk Road, and East Asia.",
-    url: "frontend/buddhism-spread-map/index.html"
+    url: "frontend/buddhism-spread-map/index.html"},
   // --- Capital Match-Up ---
   {
     title: "Capital Match-Up Game",
     category: "Games & Geography",
     description: "Interactive drag-and-drop and tap-to-select matching game pairing Indian states and union territories with their capitals.",
-    url: "frontend/capital-match-up/index.html"
+    url: "frontend/capital-match-up/index.html"},
   // --- UP Heritage Arc Explorer ---
   {
     title: "Uttar Pradesh Heritage Arc Explorer",
@@ -1148,7 +1155,7 @@ window.indiaSearchIndex = [
     title: "India State Literacy Census Statistics (1951–2011)",
     category: "Census Statistics",
     description: "Decennial state literacy ranking race, play/pause controls, search filters, and Census of India sourcing disclaimer.",
-    url: "frontend/literacy-chart-race/literacy-chart-race.html"
+    url: "frontend/literacy-chart-race/literacy-chart-race.html"},
   // --- How Indian Classical Ragas Work (Time-of-Day Theory) ---
   {
     title: "Animated Explainer: How Indian Classical Ragas Work (Time-of-Day Theory)",
@@ -1160,7 +1167,7 @@ window.indiaSearchIndex = [
     title: "Indian Classical Music Samaya Chakra & Ragas Guide",
     category: "Musicology",
     description: "Explore Raga Bhairav, Yaman, Darbari Kanada, Malkauns, Brindavani Sarang, and Lalit with original musicological text descriptions.",
-    url: "frontend/ragas-time-explainer/ragas-time-explainer.html"
+    url: "frontend/ragas-time-explainer/ragas-time-explainer.html"},
   // --- Partition of India, 1947 ---
   {
     title: "Scrollytelling: Partition of India, 1947 — A Factual Overview",
@@ -1179,25 +1186,25 @@ window.indiaSearchIndex = [
     title: "Data Viz: Language Diversity Map (Animated Reveal)",
     category: "Data & Languages",
     description: "Animated map progressively revealing India's linguistic diversity, layering major languages by speaker population based on Census of India data.",
-    url: "frontend/language-diversity-map/index.html"
+    url: "frontend/language-diversity-map/index.html"},
   // --- Animated Explainer: How the Monsoon Farming Cycle Works ---
   {
     title: "Animated Explainer: How the Monsoon Farming Cycle Works",
     category: "Agriculture & Geography",
     description: "Explains the kharif/rabi/zaid crop cycles tied to monsoon timing with an animated circular calendar wheel and verified crop season data.",
-    url: "frontend/monsoon-farming-cycle/index.html"
+    url: "frontend/monsoon-farming-cycle/index.html"},
   // --- Scrollytelling: Life Along the Himalayas ---
   {
     title: "Scrollytelling: Life Along the Himalayas",
     category: "Geography & Culture",
     description: "A narrative journey through Himalayan geography, culture, and daily life across 4 altitude zones from foothills to glacial cold deserts.",
-    url: "frontend/himalayan-life-scrollytelling/index.html"
+    url: "frontend/himalayan-life-scrollytelling/index.html"},
   // --- Animated Infographic: India's Biodiversity Hotspots ---
   {
     title: "Animated Infographic: India's Biodiversity Hotspots",
     category: "Environment & Wildlife",
     description: "Animated infographic highlighting India's four recognized biodiversity hotspots: Himalaya, Western Ghats, Indo-Burma, and Sundaland/Nicobar.",
-    url: "frontend/biodiversity-hotspots/index.html"
+    url: "frontend/biodiversity-hotspots/index.html"},
   // --- Animated Explainer: India's Space Program Milestones ---
   {
     title: "Animated Explainer: India's Space Program Milestones",
@@ -1205,11 +1212,290 @@ window.indiaSearchIndex = [
     description: "Explainer on ISRO's evolution from founding in 1969 to Aryabhata, Mangalyaan, Chandrayaan-3, Aditya-L1, and Gaganyaan with orbit animations.",
     url: "frontend/space-program-milestones/index.html"
   },
+  // --- Kanchenjunga Mountain ---
+  {
+    title: "Kanchenjunga Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Kanchenjunga, India's highest mountain at 8,586 m in Sikkim, featuring facts, trekking info, map locations, image gallery, nearby attractions, and FAQs.",
+    url: "frontend/kanchenjunga/kanchenjunga.html"
+  },
+  // --- Nanda Devi Mountain ---
+  {
+    title: "Nanda Devi Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Nanda Devi, India's second highest mountain at 7,816 m in Uttarakhand, featuring biodiversity, trekking guide, facts, map locations, image gallery, and FAQs.",
+    url: "frontend/nanda-devi/nanda-devi.html"
+  },
   // --- Rimo I Mountain ---
   {
     title: "Rimo I Mountain Explorer",
     category: "Mountains & Geography",
     description: "Dedicated explorer for Rimo I, a 7,385 m high peak in the Karakoram Range of Ladakh, featuring facts, map locations, image gallery, and FAQs.",
     url: "frontend/rimo-i/rimo-i.html"
+  },
+  // --- Satopanth Mountain ---
+  {
+    title: "Satopanth Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Satopanth, a 7,075 m high peak in the Garhwal Range of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
+    url: "frontend/satopanth/satopanth.html"},
+  // --- Changabang Mountain ---
+  {
+    title: "Changabang Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Changabang, a 6,864 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
+    url: "frontend/changabang/changabang.html"},
+  // --- Shivling Mountain ---
+  {
+    title: "Shivling Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Shivling, a 6,543 m high peak in the Garhwal Range of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
+    url: "frontend/shivling/shivling.html"
+  },
+  // --- Panchachuli I Mountain ---
+  {
+    title: "Panchachuli I Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Panchachuli I, a 6,355 m peak in the Kumaon Himalayas of Uttarakhand, featuring trekking information, map locations, image gallery, and FAQs.",
+    url: "frontend/panchachuli-i/panchachuli-i.html"},
+  // --- Swargarohini Mountain ---
+  {
+    title: "Swargarohini Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Swargarohini, a 6,252 m high massif in the Garhwal Himalayas of Uttarakhand, featuring mythological history, trekking routes, map locations, image gallery, and FAQs.",
+    url: "frontend/swargarohini/swargarohini.html"},
+  // --- Bandarpoonch Mountain ---
+  {
+    title: "Bandarpoonch Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Bandarpoonch, a 6,316 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, trekking details, and FAQs.",
+    url: "frontend/bandarpoonch/bandarpoonch.html"
+  },
+  // --- India's Firsts Encyclopedia ---
+  {
+    title: "India's 'Firsts' Encyclopedia",
+    category: "History & Achievements",
+    description: "Interactive encyclopedia highlighting India's major firsts: First Satellite (Aryabhata), First Woman PM (Indira Gandhi), First Metro (Kolkata), First IIT (Kharagpur), First High Court (Calcutta), First Nobel Laureate (Tagore), and First National Park (Corbett).",
+    url: "frontend/indias-firsts/indias-firsts.html"
+  },
+  {
+    title: "India Historical Firsts Timeline & Knowledge Quiz",
+    category: "Interactive Learning",
+    description: "Chronological milestone timeline from 1853 to 1984, category filters, and multiple-choice knowledge quiz testing famous Indian firsts.",
+    url: "frontend/indias-firsts/indias-firsts.html"
+  },
+  // --- India's Lost Cities & Ancient Civilizations ---
+  {
+    title: "India's Lost Cities & Ancient Civilizations Explorer",
+    category: "History & Archaeology",
+    description: "Explore Dholavira, Lothal, Pataliputra, Vijayanagara, Taxila, and Fatehpur Sikri with ancient maps, archaeological discoveries, excavation facts, and Before vs Today comparisons.",
+    url: "frontend/ancient-cities/ancient-cities.html"
+  },
+  {
+    title: "Harappan & Ancient Indian Cities Archaeological Guide",
+    category: "Archaeology",
+    description: "Discover Bronze Age water reservoirs, world's earliest dockyards, Mauryan pillared halls, and UNESCO World Heritage excavation records.",
+    url: "frontend/ancient-cities/ancient-cities.html"
+  },
+  // --- India's Border Explorer ---
+  {
+    title: "India's Border Explorer",
+    category: "Geography & Borders",
+    description: "Interactive explorer covering India's international borders with Pakistan, China, Nepal, Bhutan, Bangladesh, Myanmar, and Sri Lanka. Includes border forces, checkpoints, border towns, and country comparison tools.",
+    url: "frontend/border-explorer/border-explorer.html"
+  },
+  {
+    title: "India International Border Checkpoints & Forces",
+    category: "Geography & Security",
+    description: "Explore Wagah-Attari, Nathu La Pass, Petrapole-Benapole, Moreh-Tamu and other major border checkpoints. Learn about BSF, ITBP, SSB, Assam Rifles, and Indian Coast Guard deployments.",
+    url: "frontend/border-explorer/border-explorer.html"
+  },
+  // --- Important Government Institutions Explorer ---
+  {
+    title: "Important Government Institutions Knowledge Hub",
+    category: "Civics & Governance",
+    description: "Centralized learning portal covering 9 key Indian institutions: RBI, SEBI, CBI, UPSC, Election Commission, CAG, NITI Aayog, Finance Commission, and NHRC with Formation, Headquarters, Head, Responsibilities, Structure, and Fun Facts.",
+    url: "frontend/government-institutions-explorer/index.html"
+  },
+  // --- Interactive Constitution Explorer ---
+  {
+    title: "Interactive Constitution Explorer",
+    category: "Civics & Governance",
+    description: "Beginner-friendly Constitution learning platform covering Preamble breakdown, Fundamental Rights, Fundamental Duties (Article 51A), DPSP, 12 Schedules, Key Amendments, and real-time search.",
+    url: "frontend/constitution-explorer/index.html"
+  },
+  // --- Supreme Court Educational Portal ---
+  {
+    title: "Supreme Court of India Educational Portal",
+    category: "Governance & Civics",
+    description: "Educational portal covering India's Supreme Court history from 1950, CJI timeline, landmark judgments (Kesavananda, Puttaswamy, Maneka Gandhi), Article 124 powers, Article 32 Writs, and judicial hierarchy.",
+    url: "frontend/supreme-court-explorer/index.html"
+  },
+  // --- Scrollytelling: The Making of the Taj Mahal ---
+  {
+    title: "Scrollytelling: The Making of the Taj Mahal",
+    category: "Architecture & Heritage",
+    description: "Narrative scrollytelling walkthrough of the Taj Mahal's construction revealing materials, craftsmen, hydrogeological engineering, double-dome acoustics, and debunked historical myths.",
+    url: "frontend/taj-mahal-scrollytelling/index.html"
+  },
+  // --- Animated Timeline: Evolution of Indian Cinema ---
+  {
+    title: "Animated Timeline: Evolution of Indian Cinema",
+    category: "Culture & Cinema",
+    description: "Horizontal filmstrip timeline detailing Indian cinema from 1913 Raja Harishchandra, talkies, parallel cinema, masala era, and diaspora boom to modern global Oscar triumphs.",
+    url: "frontend/indian-cinema-timeline/index.html"
+  },
+  // --- Saltoro Kangri Mountain ---
+  {
+    title: "Saltoro Kangri Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Saltoro Kangri, a 7,742 m high peak in the Karakoram Range of Ladakh, featuring facts, map locations, image gallery, and trivia.",
+    url: "frontend/saltoro-kangri/saltoro-kangri.html"},
+  // --- Meru Peak Mountain ---
+  {
+    title: "Meru Peak Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Meru Peak, a 6,660 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
+    url: "frontend/meru-peak/meru-peak.html"
+  },
+  // --- Indrasan Mountain ---
+  {
+    title: "Indrasan Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Indrasan, a 6,221 m high peak in the Pir Panjal range of Himachal Pradesh, featuring facts, map locations, image gallery, trekking details, and FAQs.",
+    url: "frontend/indrasan/indrasan.html"
+  },
+  // --- Hanuman Tibba Mountain ---
+  {
+    title: "Hanuman Tibba Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Hanuman Tibba, a 5,982 m high peak in the Dhauladhar range of Himachal Pradesh, featuring facts, map locations, image gallery, trekking details, and FAQs.",
+    url: "frontend/hanuman-tibba/hanuman-tibba.html"
+  },
+  // --- Neelkanth Mountain ---
+  {
+    title: "Neelkanth Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Neelkanth, a 6,596 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, trekking details, and FAQs.",
+    url: "frontend/neelkanth/neelkanth.html"
+  },
+  // --- Panchachuli II Mountain ---
+  {
+    title: "Panchachuli II Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Explore Panchachuli II Mountain, a 6,904 m high peak in the Kumaon Himalayas of Uttarakhand.",
+    url: "frontend/panchachuli-ii/panchachuli-ii.html"},
+  // --- Nanda Kot Mountain ---
+  {
+    title: "Nanda Kot Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Explore Nanda Kot Mountain, a 6,861 m high peak in the Kumaon Himalayas of Uttarakhand.",
+    url: "frontend/nanda-kot/nanda-kot.html"
+  },
+  // --- Keoladeo National Park Explorer ---
+  {
+    title: "Keoladeo National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Deep dive into Keoladeo National Park (Bharatpur Bird Sanctuary), a UNESCO World Heritage Site & Ramsar Wetland. Explore 370+ bird species, Central Asian flyways, cycling routes, history, and interactive park map.",
+    url: "frontend/keoladeo-national-park-explorer/index.html"
+  },
+  // --- Namdapha National Park Explorer ---
+  {
+    title: "Namdapha National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Namdapha National Park in Arunachal Pradesh — India's 4th largest national park and biodiversity hotspot harboring four big cat species, Red Panda, Hoolock Gibbon, trekking trails, and interactive maps.",
+    url: "frontend/namdapha-national-park-explorer/index.html"
+  },
+  // --- Manas National Park Explorer ---
+  {
+    title: "Manas National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Develop an interactive page about Manas National Park in Assam — UNESCO World Heritage Site, Tiger Reserve, Elephant Reserve, Biosphere Reserve, home to Golden Langurs, Pygmy Hogs, and Manas River.",
+    url: "frontend/manas-national-park-explorer/index.html"
+  },
+  // --- Dudhwa National Park Explorer ---
+  {
+    title: "Dudhwa National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Create a dedicated explorer for Dudhwa National Park in Uttar Pradesh — known for its rich Terai ecosystem, 50% of the world's Barasingha (Swamp Deer), 1984 Rhinoceros reintroduction, Bengal Tigers, and safari info.",
+    url: "frontend/dudhwa-national-park-explorer/index.html"
+  },
+  // --- Simlipal National Park Explorer ---
+  {
+    title: "Simlipal National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
+    url: "frontend/simlipal-national-park-explorer/index.html"
+  },
+  // --- The Making of Modern India (1757–1947) Timeline ---
+  {
+    title: "The Making of Modern India (1757–1947) Interactive Timeline",
+    category: "Modern History",
+    description: "Interactive journey from the Battle of Plassey (1757) to Independence (1947) featuring major events, Governors-General, British Acts, Revolts, Social Reforms, National Movements, and Historic Centers Map.",
+    url: "frontend/making-of-modern-india/index.html"
+  },
+  {
+    title: "British Raj Governors-General & Legislative Acts Catalogue",
+    category: "Colonial History",
+    description: "Detailed catalog of British Governors-General and Viceroys (Warren Hastings to Mountbatten), British Acts (1773 to 1947), Paika & Santhal revolts, and social reforms.",
+    url: "frontend/making-of-modern-india/index.html"
+  },
+  // --- The Complete Indian Freedom Movement Explorer ---
+  {
+    title: "The Complete Indian Freedom Movement Explorer",
+    category: "Freedom Struggle",
+    description: "Exhaustive educational explorer documenting the Indian Freedom Struggle (1770–1947) — Early Resistance, Swadeshi, Non-Cooperation, Civil Disobedience, Quit India, INA, Revolutionary Societies, Freedom Leaders, and Primary Documents.",
+    url: "frontend/freedom-movement-explorer/index.html"
+  },
+  {
+    title: "Revolutionary Organizations & Primary Freedom Documents Archive",
+    category: "Freedom Struggle & History",
+    description: "Detailed catalog of revolutionary societies (Anushilan Samiti, Ghadar, HSRA, INA) and primary documents (Poorna Swaraj Declaration 1930, Nehru Report 1928, Tryst with Destiny 1947, Give Me Blood Speech 1944).",
+    url: "frontend/freedom-movement-explorer/index.html"
+  },
+  // --- Every Major Empire of India Interactive Timeline ---
+  {
+    title: "Every Major Empire of India Interactive Timeline",
+    category: "Indian Empires & History",
+    description: "Explore 10 great empires and civilizations from Indus Valley, Mahajanapadas, Maurya, Gupta, Chalukya, Chola, Vijayanagara, Mughal, Maratha, and Sikh Empire with interactive territorial expansion and decline maps.",
+    url: "frontend/indian-empires-explorer/index.html"
+  },
+  {
+    title: "Territorial Expansion & Decline Maps of Indian Empires",
+    category: "Historical Cartography",
+    description: "Interactive SVG maps rendering foundation, peak apex territory, and decline stages for Maurya, Gupta, Chola, Vijayanagara, Mughal, Maratha, and Sikh empires.",
+    url: "frontend/indian-empires-explorer/index.html"},
+    url: "frontend/freedom-movement-explorer/index.html"},
+   
+  // --- General Elections Timeline ---
+  {
+    title: "Interactive General Elections Timeline",
+    category: "Governance & Politics",
+    description: "Historical timeline of all Lok Sabha elections from 1951 to 2024 featuring winning parties, Prime Ministers, voter turnout trends, major issues, and coalition dynamics.",
+    url: "frontend/general-elections-timeline/index.html"},
+  // --- Chief Justices of India Timeline ---
+  {
+    title: "Interactive Chief Justices of India Timeline",
+    category: "Governance & Politics",
+    description: "Educational page showcasing Chief Justices of India, appointment dates, landmark judgments, court reforms, and search by decade.",
+    url: "frontend/chief-justices-timeline/index.html"},
+  // --- Periyar National Park Explorer ---
+  {
+    title: "Periyar National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Periyar National Park & Tiger Reserve in Kerala — Periyar Lake boat safaris, Asian Elephants, Cardamom Hills spice forests, interactive map, and photo gallery.",
+    url: "frontend/periyar-national-park-explorer/index.html"} ,
+  // --- Freedom Fighters Knowledge Hub ---
+  {
+    title: "Freedom Fighters Interactive Knowledge Hub",
+    category: "History & Heritage",
+    description: "Educational encyclopedia featuring biographies, timelines, revolutionary movements, rare facts, and quotes of India's freedom fighters.",
+    url: "frontend/freedom-fighters-hub/index.html"},
+  // --- State Chief Ministers Explorer ---
+  {
+    title: "State Chief Ministers Explorer",
+    category: "Governance & Politics",
+    description: "Interactive educational explorer covering current Chief Ministers across all states and union territories, political parties, capitals, and state facts.",
+    url: "frontend/state-chief-ministers-explorer/index.html"
   }
 ];
