@@ -472,7 +472,8 @@ const NATIONAL_PARKS = [
         climate: 'Temperate',
         bestTime: 'April to September',
         entryFee: '₹30 (Indian), ₹300 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/A_view_of_Lower_Dachigam_where_most_of_the_hangul_get_confined_in_winter%2C_AJT_Johnsingh.jpg/960px-A_view_of_Lower_Dachigam_where_most_of_the_hangul_get_confined_in_winter%2C_AJT_Johnsingh.jpg'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/A_view_of_Lower_Dachigam_where_most_of_the_hangul_get_confined_in_winter%2C_AJT_Johnsingh.jpg/960px-A_view_of_Lower_Dachigam_where_most_of_the_hangul_get_confined_in_winter%2C_AJT_Johnsingh.jpg',
+        explorerUrl: '../dachigam-national-park-explorer/index.html'
     },
     {
         id: 'desert',
