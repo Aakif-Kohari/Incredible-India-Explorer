@@ -101,10 +101,23 @@ highlights: ["Radhanagar Beach — Asia's Best Beach (Time, 2004)", "Elephant Be
     islandCount: "1 island",
     tagline: "An extinct volcano and the only home of the Narcondam Hornbill",
     description: "A small, remote, densely-forested volcanic island east of the main Andaman group. Formed by an extinct volcano, it is the sole habitat of the endemic Narcondam Hornbill and is protected as a wildlife sanctuary.",
-    highlights: ["Extinct volcanic cone rising steeply from the sea", "Endemic Narcondam Hornbill found nowhere else on Earth", "Declared a Wildlife Sanctuary in 1977", "Dense tropical evergreen forest cover"],
+highlights: ["Extinct volcanic cone rising steeply from the sea", "Endemic Narcondam Hornbill found nowhere else on Earth", "Declared a Wildlife Sanctuary in 1977", "Dense tropical evergreen forest cover"],
     image: "../../assets/travel_hidden.png"
   },
   {
+    id: "north-andaman",
+    name: "North Andaman",
+    group: "Andaman & Nicobar",
+    location: "Andaman Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 13.1136,
+    lng: 92.9508,
+    islandCount: "1 island",
+    tagline: "Saddle Peak, mangrove creeks & the Andamans' highest point",
+    description: "The northernmost of the main Andaman islands, home to Saddle Peak — the highest point in the Andaman & Nicobar Islands — the Saddle Peak National Park, sprawling mangrove creeks, and the trekking and birding hub of Diglipur.",
+    highlights: ["Saddle Peak — highest peak in the Andaman & Nicobar Islands", "Saddle Peak National Park", "Extensive mangrove creeks and forests", "Trekking trails through tropical rainforest"],
+    image: "../../assets/travel_mountains.png"
+  },  {
     id: "lakshadweep",    name: "Lakshadweep Islands",
     id: "barren-island",
     name: "Barren Island",
@@ -356,18 +369,18 @@ function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
 
-if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "narcondam") {
+if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "narcondam" || island.id === "north-andaman") {
     const pageMap = {
       "great-nicobar": "../great-nicobar/great-nicobar.html",
       "south-andaman": "../south-andaman/south-andaman.html",
       "middle-andaman": "../middle-andaman/middle-andaman.html",
       "shaheed-dweep": "../shaheed-dweep/shaheed-dweep.html",
       "swaraj-dweep": "../swaraj-dweep/swaraj-dweep.html",
-      "narcondam": "../narcondam-island/narcondam-island.html"
-      "barren-island": "../barren-island/barren-island.html"
-      "north-sentinel-island": "../north-sentinel-island/north-sentinel-island.html"
-    };
-    window.location.href = pageMap[island.id];
+      "narcondam": "../narcondam-island/narcondam-island.html",
+      "barren-island": "../barren-island/barren-island.html",
+      "north-sentinel-island": "../north-sentinel-island/north-sentinel-island.html",
+      "north-andaman": "../north-andaman-island/north-andaman-island.html"
+    };    window.location.href = pageMap[island.id];
     return;
   }
   document.getElementById("island-modal-title").textContent = island.name;
