@@ -1432,6 +1432,24 @@ window.indiaSearchIndex = [
     title: "Interactive Chief Justices of India Timeline",
     category: "Governance & Politics",
     description: "Educational page showcasing Chief Justices of India, appointment dates, landmark judgments, court reforms, and search by decade.",
-    url: "frontend/chief-justices-timeline/index.html"
+    url: "frontend/chief-justices-timeline/index.html"},
+  // --- Periyar National Park Explorer ---
+  {
+    title: "Periyar National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Periyar National Park & Tiger Reserve in Kerala — Periyar Lake boat safaris, Asian Elephants, Cardamom Hills spice forests, interactive map, and photo gallery.",
+    url: "frontend/periyar-national-park-explorer/index.html"} ,
+  // --- Freedom Fighters Knowledge Hub ---
+  {
+    title: "Freedom Fighters Interactive Knowledge Hub",
+    category: "History & Heritage",
+    description: "Educational encyclopedia featuring biographies, timelines, revolutionary movements, rare facts, and quotes of India's freedom fighters.",
+    url: "frontend/freedom-fighters-hub/index.html"},
+  // --- State Chief Ministers Explorer ---
+  {
+    title: "State Chief Ministers Explorer",
+    category: "Governance & Politics",
+    description: "Interactive educational explorer covering current Chief Ministers across all states and union territories, political parties, capitals, and state facts.",
+    url: "frontend/state-chief-ministers-explorer/index.html"
   }
 ];
