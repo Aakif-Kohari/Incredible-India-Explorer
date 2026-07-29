@@ -1451,6 +1451,37 @@ window.indiaSearchIndex = [
     title: "Revolutionary Organizations & Primary Freedom Documents Archive",
     category: "Freedom Struggle & History",
     description: "Detailed catalog of revolutionary societies (Anushilan Samiti, Ghadar, HSRA, INA) and primary documents (Poorna Swaraj Declaration 1930, Nehru Report 1928, Tryst with Destiny 1947, Give Me Blood Speech 1944).",
-    url: "frontend/freedom-movement-explorer/index.html"
+    url: "frontend/freedom-movement-explorer/index.html"},
+    url: "frontend/making-of-modern-india/index.html"},
+  // --- General Elections Timeline ---
+  {
+    title: "Interactive General Elections Timeline",
+    category: "Governance & Politics",
+    description: "Historical timeline of all Lok Sabha elections from 1951 to 2024 featuring winning parties, Prime Ministers, voter turnout trends, major issues, and coalition dynamics.",
+    url: "frontend/general-elections-timeline/index.html"},
+  // --- Chief Justices of India Timeline ---
+  {
+    title: "Interactive Chief Justices of India Timeline",
+    category: "Governance & Politics",
+    description: "Educational page showcasing Chief Justices of India, appointment dates, landmark judgments, court reforms, and search by decade.",
+    url: "frontend/chief-justices-timeline/index.html"},
+  // --- Periyar National Park Explorer ---
+  {
+    title: "Periyar National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Periyar National Park & Tiger Reserve in Kerala — Periyar Lake boat safaris, Asian Elephants, Cardamom Hills spice forests, interactive map, and photo gallery.",
+    url: "frontend/periyar-national-park-explorer/index.html"} ,
+  // --- Freedom Fighters Knowledge Hub ---
+  {
+    title: "Freedom Fighters Interactive Knowledge Hub",
+    category: "History & Heritage",
+    description: "Educational encyclopedia featuring biographies, timelines, revolutionary movements, rare facts, and quotes of India's freedom fighters.",
+    url: "frontend/freedom-fighters-hub/index.html"},
+  // --- State Chief Ministers Explorer ---
+  {
+    title: "State Chief Ministers Explorer",
+    category: "Governance & Politics",
+    description: "Interactive educational explorer covering current Chief Ministers across all states and union territories, political parties, capitals, and state facts.",
+    url: "frontend/state-chief-ministers-explorer/index.html"
   }
 ];

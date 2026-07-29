@@ -292,14 +292,12 @@
         // Handle empty state
         if (data.length === 0) {
             grid.innerHTML = '';
-            grid.style.display = 'none';
             emptyState.classList.remove('hidden');
             return;
         }
 
         // Hide empty state and show grid
         emptyState.classList.add('hidden');
-        grid.style.display = 'grid';
 
         // Clear existing grid
         grid.innerHTML = '';
