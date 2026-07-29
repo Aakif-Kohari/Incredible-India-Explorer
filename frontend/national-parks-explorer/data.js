@@ -599,7 +599,8 @@ const NATIONAL_PARKS = [
         climate: 'Tropical Savanna',
         bestTime: 'October to May',
         entryFee: '₹80 (Indian), ₹400 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG/960px-Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG/960px-Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG',
+        explorerUrl: '../bannerghatta-national-park-explorer/index.html'
     },
     {
         id: 'madhav',
