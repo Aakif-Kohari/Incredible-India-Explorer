@@ -1438,6 +1438,20 @@ window.indiaSearchIndex = [
     title: "British Raj Governors-General & Legislative Acts Catalogue",
     category: "Colonial History",
     description: "Detailed catalog of British Governors-General and Viceroys (Warren Hastings to Mountbatten), British Acts (1773 to 1947), Paika & Santhal revolts, and social reforms.",
+    url: "frontend/making-of-modern-india/index.html"
+  },
+  // --- The Complete Indian Freedom Movement Explorer ---
+  {
+    title: "The Complete Indian Freedom Movement Explorer",
+    category: "Freedom Struggle",
+    description: "Exhaustive educational explorer documenting the Indian Freedom Struggle (1770–1947) — Early Resistance, Swadeshi, Non-Cooperation, Civil Disobedience, Quit India, INA, Revolutionary Societies, Freedom Leaders, and Primary Documents.",
+    url: "frontend/freedom-movement-explorer/index.html"
+  },
+  {
+    title: "Revolutionary Organizations & Primary Freedom Documents Archive",
+    category: "Freedom Struggle & History",
+    description: "Detailed catalog of revolutionary societies (Anushilan Samiti, Ghadar, HSRA, INA) and primary documents (Poorna Swaraj Declaration 1930, Nehru Report 1928, Tryst with Destiny 1947, Give Me Blood Speech 1944).",
+    url: "frontend/freedom-movement-explorer/index.html"},
     url: "frontend/making-of-modern-india/index.html"},
   // --- General Elections Timeline ---
   {
