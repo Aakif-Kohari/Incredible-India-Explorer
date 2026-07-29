@@ -1460,13 +1460,12 @@ window.indiaSearchIndex = [
     description: "Explore 10 great empires and civilizations from Indus Valley, Mahajanapadas, Maurya, Gupta, Chalukya, Chola, Vijayanagara, Mughal, Maratha, and Sikh Empire with interactive territorial expansion and decline maps.",
     url: "frontend/indian-empires-explorer/index.html"
   },
-  {
+{
     title: "Territorial Expansion & Decline Maps of Indian Empires",
     category: "Historical Cartography",
     description: "Interactive SVG maps rendering foundation, peak apex territory, and decline stages for Maurya, Gupta, Chola, Vijayanagara, Mughal, Maratha, and Sikh empires.",
     url: "frontend/indian-empires-explorer/index.html"},
-    url: "frontend/freedom-movement-explorer/index.html"},
-   
+  
   // --- General Elections Timeline ---
   {
     title: "Interactive General Elections Timeline",
