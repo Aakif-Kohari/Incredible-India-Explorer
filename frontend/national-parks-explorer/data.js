@@ -155,6 +155,27 @@ const NATIONAL_PARKS = [
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Sundarbans_National_Park.jpg/960px-Sundarbans_National_Park.jpg'
     },
     {
+        id: 'valmiki',
+        name: 'Valmiki National Park',
+        state: 'Bihar',
+        stateId: 'br',
+        established: 1990,
+        area: 898,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description: "Bihar's only National Park and a critical Tiger Reserve. Located in the Terai region at the Himalayan foothills, it features rich Sal forests, tall grasslands, and the Gandak River.",
+        keyFauna: ['Bengal Tiger', 'Asian Elephant', 'Sloth Bear', 'Hispid Hare', 'Pygmy Hog', 'Gangetic Dolphin'],
+        keyFlora: ['Sal Forest', 'Tall Grasslands', 'Riverine Vegetation', 'Shisham'],
+        coordinates: { lat: 27.35, lng: 83.95 },
+        climate: 'Subtropical Monsoon',
+        bestTime: 'November to April',
+        entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Royal_Bengal_Tiger_at_Nandankanan.jpg/960px-Royal_Bengal_Tiger_at_Nandankanan.jpg',
+        explorerUrl: '../valmiki-national-park-explorer/index.html'
+    },
+    {
         id: 'gir',
         name: 'Gir National Park & Sanctuary',
         state: 'Gujarat',
