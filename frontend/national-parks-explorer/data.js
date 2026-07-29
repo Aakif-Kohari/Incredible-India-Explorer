@@ -112,6 +112,27 @@ const NATIONAL_PARKS = [
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Jungle_safari_-_Kanha_National_Park.jpg/960px-Jungle_safari_-_Kanha_National_Park.jpg'
     },
     {
+        id: 'kuno',
+        name: 'Kuno National Park',
+        state: 'Madhya Pradesh',
+        stateId: 'mp',
+        established: 2018,
+        area: 748,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description: 'Globally recognized for the historic African Cheetah reintroduction project (Project Cheetah). Features dry deciduous forests, grasslands, and a growing prey base.',
+        keyFauna: ['African Cheetah', 'Bengal Tiger', 'Leopard', 'Sloth Bear', 'Chital'],
+        keyFlora: ['Khair', 'Salar', 'Teak', 'Grasslands'],
+        coordinates: { lat: 25.85, lng: 77.35 },
+        climate: 'Tropical Dry Deciduous',
+        bestTime: 'October to March',
+        entryFee: '₹50 (Indian), ₹200 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Acinonyx_jubatus_2.jpg/960px-Acinonyx_jubatus_2.jpg',
+        explorerUrl: '../kuno-national-park-explorer/index.html'
+    },
+    {
         id: 'bandhavgarh',
         name: 'Bandhavgarh National Park',
         state: 'Madhya Pradesh',
