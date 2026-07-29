@@ -1426,5 +1426,12 @@ window.indiaSearchIndex = [
     category: "National Parks & Wildlife",
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
+  },
+  // --- General Elections Timeline ---
+  {
+    title: "Interactive General Elections Timeline",
+    category: "Governance & Politics",
+    description: "Historical timeline of all Lok Sabha elections from 1951 to 2024 featuring winning parties, Prime Ministers, voter turnout trends, major issues, and coalition dynamics.",
+    url: "frontend/general-elections-timeline/index.html"
   }
 ];
