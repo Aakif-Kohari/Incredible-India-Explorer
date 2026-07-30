@@ -1502,6 +1502,12 @@ window.indiaSearchIndex = [
     title: "Wetlands of India Explorer",
     category: "Ecosystems & Wetlands",
     description: "Interactive central landing page for exploring the Wetlands of India — Ramsar Sites, lagoons, lakes, marshes, mangroves, interactive maps, search, and state/type filters.",
-    url: "frontend/wetlands/index.html"
+    url: "frontend/wetlands/index.html"},
+  // --- Hemis National Park Explorer ---
+  {
+    title: "Hemis National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Hemis National Park in Ladakh — World's highest density of Snow Leopards, high-altitude cold desert ecosystem, Markha Valley trekking, Himalayan wildlife, and Buddhist culture.",
+    url: "frontend/hemis-national-park-explorer/index.html"
   }
 ];

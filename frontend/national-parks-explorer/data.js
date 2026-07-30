@@ -279,6 +279,7 @@ const NATIONAL_PARKS = [
         climate: 'Cold Desert',
         bestTime: 'June to September',
         entryFee: '₹30 (Indian), ₹300 (Foreign)',
+        explorerUrl: '../hemis-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Hemis_national_park.jpg/960px-Hemis_national_park.jpg'
     },
     {
@@ -832,6 +833,7 @@ const STATES = [
     { id: 'kl', name: 'Kerala', region: 'south' },
     { id: 'tn', name: 'Tamil Nadu', region: 'south' },
     { id: 'as', name: 'Assam', region: 'northeast' },
+    { id: 'br', name: 'Bihar', region: 'east' },
     { id: 'wb', name: 'West Bengal', region: 'east' },
     { id: 'or', name: 'Odisha', region: 'east' },
     { id: 'ar', name: 'Arunachal Pradesh', region: 'northeast' }
