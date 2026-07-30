@@ -1502,6 +1502,30 @@ window.indiaSearchIndex = [
     title: "Kolleru Lake Explorer",
     category: "Ecosystems & Wetlands",
     description: "Explore Kolleru Lake in Andhra Pradesh — India's premier Spot-billed Pelican sanctuary, Krishna-Godavari freshwater basin, Ramsar Site #1209, and rich fish diversity.",
-    url: "frontend/kolleru-lake/index.html"
+    url: "frontend/kolleru-lake/index.html"},
+  // --- Loktak Lake Explorer ---
+  {
+    title: "Loktak Lake Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Explore Loktak Lake in Manipur — World's only floating national park (Keibul Lamjao), floating Phumdis, endangered Sangai Dancing Deer, and Meitei culture.",
+    url: "frontend/loktak-lake/index.html"},
+  // --- Chilika Lake Explorer ---
+  {
+    title: "Chilika Lake Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Explore Chilika Lake in Odisha — Asia's largest brackish water lagoon, Ramsar Site #229, Irrawaddy Dolphins, Nalabana Bird Sanctuary, and winter migratory waterfowl.",
+    url: "frontend/chilika-lake/index.html"},
+  // --- Wetlands of India Explorer Landing Page ---
+  {
+    title: "Wetlands of India Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Interactive central landing page for exploring the Wetlands of India — Ramsar Sites, lagoons, lakes, marshes, mangroves, interactive maps, search, and state/type filters.",
+    url: "frontend/wetlands/index.html"},
+  // --- Hemis National Park Explorer ---
+  {
+    title: "Hemis National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Hemis National Park in Ladakh — World's highest density of Snow Leopards, high-altitude cold desert ecosystem, Markha Valley trekking, Himalayan wildlife, and Buddhist culture.",
+    url: "frontend/hemis-national-park-explorer/index.html"
   }
 ];
