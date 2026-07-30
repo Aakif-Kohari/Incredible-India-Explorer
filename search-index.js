@@ -1427,6 +1427,12 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Keshopur-Miani Wetland Explorer ---
+  {
+    title: "Keshopur-Miani Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Keshopur-Miani Community Reserve in Punjab — Punjab's first Ramsar Site, community reserve model, Sarus Crane habitat, and bird sanctuary.",
+    url: "frontend/keshopur-miani-wetland-explorer/index.html"},
   // --- Shallabug Wetland Explorer ---
   {
     title: "Shallabug Wetland Explorer",

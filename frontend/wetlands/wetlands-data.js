@@ -212,6 +212,36 @@ export const WETLANDS_DATA = {
             isFeatured: false
         },
         {
+            id: 'shallabug-wetland',
+            name: 'Shallabug Wetland Conservation Reserve',
+            state: 'Jammu & Kashmir',
+            type: 'Marsh',
+            area: '16.75 km²',
+            ramsarDeclared: 2022,
+            ramsarSiteNo: 2490,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Eurasian_Wigeon_male.jpg/800px-Eurasian_Wigeon_male.jpg',
+            shortDesc: 'Vast Kashmir marshland Ramsar site supporting 200,000+ waterfowl and traditional wicker willow handicraft heritage.',
+            exploreUrl: '../shallabug-wetland-explorer/index.html',
+            coordinates: { lat: 34.167, lng: 74.717 },
+            keyFauna: ['Eurasian Wigeon', 'Garganey', 'Greylag Goose', 'Ferruginous Pochard'],
+            isFeatured: true
+        },
+        {
+            id: 'keshopur-miani-wetland',
+            name: 'Keshopur-Miani Community Reserve',
+            state: 'Punjab',
+            type: 'Marsh',
+            area: '3.44 km²',
+            ramsarDeclared: 2019,
+            ramsarSiteNo: 2408,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sarus_Crane_%28Grus_antigone%29_in_head-up_display.jpg/800px-Sarus_Crane_%28Grus_antigone%29_in_head-up_display.jpg',
+            shortDesc: 'Punjab\'s first Ramsar Site, a community-managed freshwater marsh & aquaculture mosaic hosting breeding Sarus Cranes.',
+            exploreUrl: '../keshopur-miani-wetland-explorer/index.html',
+            coordinates: { lat: 32.091, lng: 75.385 },
+            keyFauna: ['Sarus Crane', 'Common Teal', 'Black-headed Ibis', 'Common Pochard'],
+            isFeatured: true
+        },
+        {
             id: 'sundarbans-wetland',
             name: 'Sundarbans Wetland',
             state: 'West Bengal',
