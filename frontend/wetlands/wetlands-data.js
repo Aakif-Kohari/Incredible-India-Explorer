@@ -180,6 +180,22 @@ export const WETLANDS_DATA = {
             coordinates: { lat: 31.38, lng: 75.18 },
             keyFauna: ['Gharial', 'Indus River Dolphin', 'Smooth-coated Otter'],
             isFeatured: false
+        },
+        {
+            id: 'wadhvana-wetland',
+            name: 'Wadhvana Wetland',
+            state: 'Gujarat',
+            type: 'Reservoir',
+            area: '10.3 km²',
+            ramsarDeclared: 2021,
+            ramsarSiteNo: 2454,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ferruginous_duck_%28Aythya_nyroca%29_male.jpg/800px-Ferruginous_duck_%28Aythya_nyroca%29_male.jpg',
+            shortDesc: 'Century-old reservoir built by Maharaja Sayajirao Gaekwad III, Ramsar Site supporting 80,000+ wintering migratory waterfowl.',
+            exploreUrl: '../wadhvana-wetland-explorer/index.html',
+            coordinates: { lat: 22.174, lng: 73.483 },
+            keyFauna: ['Ferruginous Duck', 'Greylag Goose', 'Greater Flamingo', 'Common Pochard'],
+            isFeatured: true
         }
     ]
 };
+
