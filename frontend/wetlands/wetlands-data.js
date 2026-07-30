@@ -137,6 +137,21 @@ export const WETLANDS_DATA = {
             isFeatured: true
         },
         {
+            id: 'shallabug-wetland',
+            name: 'Shallabug Wetland Conservation Reserve',
+            state: 'Jammu & Kashmir',
+            type: 'Marsh',
+            area: '16.75 km²',
+            ramsarDeclared: 2022,
+            ramsarSiteNo: 2490,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Eurasian_Wigeon_male.jpg/800px-Eurasian_Wigeon_male.jpg',
+            shortDesc: 'Vast Kashmir marshland Ramsar site supporting 200,000+ waterfowl and traditional wicker willow handicraft heritage.',
+            exploreUrl: '../shallabug-wetland-explorer/index.html',
+            coordinates: { lat: 34.167, lng: 74.717 },
+            keyFauna: ['Eurasian Wigeon', 'Garganey', 'Greylag Goose', 'Ferruginous Pochard'],
+            isFeatured: true
+        },
+        {
             id: 'wular-lake',
             name: 'Wular Lake',
             state: 'Jammu & Kashmir',
