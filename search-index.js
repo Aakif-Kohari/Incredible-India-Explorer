@@ -1427,6 +1427,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Wadhvana Wetland Explorer ---
+  {
+    title: "Wadhvana Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Wadhvana Wetland in Gujarat — a Ramsar Site and century-old reservoir built by Maharaja Sayajirao Gaekwad III, hosting 80,000+ wintering migratory birds.",
+    url: "frontend/wadhvana-wetland-explorer/index.html"
+  },
   // --- The Making of Modern India (1757–1947) Timeline ---
   {
     title: "The Making of Modern India (1757–1947) Interactive Timeline",
