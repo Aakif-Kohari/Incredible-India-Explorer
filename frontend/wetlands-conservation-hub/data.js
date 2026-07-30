@@ -88,6 +88,14 @@ const FEATURED_EXPLORERS = [
     icon: '🌿',
     path: '../../longwood-shola-wetland/longwood-shola.html',
     badges: ['Montane Wetland', 'Shola Forest Ecosystem', 'Endemic Species']
+},
+  {
+    name: 'Sasthamkotta Lake Explorer',
+    slug: 'sasthamkotta',
+    tagline: 'Explore Kerala\'s largest freshwater lake, a Ramsar site and vital drinking water source with unique ecology.',
+    icon: '💧',
+    path: '../../sasthamkotta-lake/sasthamkotta-lake.html',
+    badges: ['Ramsar Site 2002', 'Kerala\'s Largest Freshwater Lake', 'Drinking Water Source']
   }
 ];
 
