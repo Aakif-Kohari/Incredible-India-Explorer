@@ -514,10 +514,10 @@ const NATIONAL_PARKS = [
         coordinates: { lat: 21.74, lng: 79.29 },
         climate: 'Tropical Dry',
         bestTime: 'October to May',
-        entryFee: '₹100 (Indian), ₹500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Pench_National_Park%2C_Madhya_Pradesh_-_by_Ishani_Mehta.jpg/960px-Pench_National_Park%2C_Madhya_Pradesh_-_by_Ishani_Mehta.jpg'
-    },
-    {
+entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Pench_National_Park%2C_Madhya_Pradesh_-_by_Ishani_Mehta.jpg/960px-Pench_National_Park%2C_Madhya_Pradesh_-_by_Ishani_Mehta.jpg',
+        explorerUrl: '../pench-national-park-explorer/index.html'
+    },    {
         id: 'dachigam',
         name: 'Dachigam National Park',
         state: 'Jammu and Kashmir',
