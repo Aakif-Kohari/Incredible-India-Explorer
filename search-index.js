@@ -1427,6 +1427,12 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Pala Wetland Explorer ---
+  {
+    title: "Pala Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Pala Wetland (Pala Tipa) in Mizoram — Mizoram's first Ramsar Site and largest natural freshwater lake surrounded by tropical evergreen forests.",
+    url: "frontend/pala-wetland-explorer/index.html"
   // --- Wadhvana Wetland Explorer ---
   {
     title: "Wadhvana Wetland Explorer",
