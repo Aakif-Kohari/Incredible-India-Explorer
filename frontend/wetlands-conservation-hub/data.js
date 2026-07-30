@@ -72,6 +72,17 @@ const QUIZ_QUESTIONS = [
   { q: 'In which year did India join the Ramsar Convention?', options: ['1971', '1982', '1990', '2001'], answer: 1 },
 ];
 
+const FEATURED_EXPLORERS = [
+  {
+    name: 'Beas Conservation Wetlands Explorer',
+    slug: 'beas',
+    tagline: 'Discover the Ramsar-designated riverine wetland, Indus River Dolphins, and rich fish diversity of the Beas River.',
+    icon: '🏞️',
+    path: '../beas-conservation-wetlands-explorer/index.html',
+    badges: ['Ramsar Site 2020', 'Indus Dolphin Habitat', '50+ Fish Species']
+  }
+];
+
 const WETLAND_FACTS = [
   { fact: 'India has over 757,000 wetlands covering 15.3 million hectares — about 4.7% of the country\'s geographic area.' },
   { fact: 'The Sundarbans mangrove forest spans 10,000 km² across India and Bangladesh — the largest contiguous mangrove area on Earth.' },

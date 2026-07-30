@@ -11,15 +11,34 @@
     renderProjects();
     renderInitiatives();
     renderQuiz();
+    renderFeaturedExplorers();
     renderGallery();
     renderFacts();
     initScrollAnimations();
     initLightbox();
   });
 
+  function renderFeaturedExplorers() {
+    var container = document.getElementById('explorers-grid');
+    if (!container || typeof FEATURED_EXPLORERS === 'undefined') return;
+
+    container.innerHTML = FEATURED_EXPLORERS.map(function (ex) {
+      var badgesHtml = ex.badges.map(function (b) {
+        return '<span class="explorer-badge">' + b + '</span>';
+      }).join('');
+      return '<a href="' + ex.path + '" class="explorer-card animate-on-scroll">' +
+        '<div class="explorer-icon">' + ex.icon + '</div>' +
+        '<h3>' + ex.name + '</h3>' +
+        '<p>' + ex.tagline + '</p>' +
+        '<div class="explorer-badges">' + badgesHtml + '</div>' +
+        '<span class="explorer-link">Explore →</span>' +
+        '</a>';
+    }).join('');
+  }
+
   function initScrollAnimations() {
     const targets = document.querySelectorAll(
-      '.info-card, .service-card, .timeline-item, .project-card, .initiative-card, .gallery-item, .fact-card, .download-card, .content-section, .quiz-section'
+      '.info-card, .service-card, .timeline-item, .project-card, .initiative-card, .explorer-card, .gallery-item, .fact-card, .download-card, .content-section, .quiz-section'
     );
     if (!targets.length) return;
     if (!('IntersectionObserver' in window)) {
