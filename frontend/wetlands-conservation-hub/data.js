@@ -80,6 +80,14 @@ const FEATURED_EXPLORERS = [
     icon: '🏞️',
     path: '../beas-conservation-wetlands-explorer/index.html',
     badges: ['Ramsar Site 2020', 'Indus Dolphin Habitat', '50+ Fish Species']
+  },
+  {
+    name: 'Longwood Shola Wetland Explorer',
+    slug: 'longwood-shola',
+    tagline: 'Explore the montane wetland ecosystems of Longwood Shola, a pristine Shola forest refuge in the Nilgiris.',
+    icon: '🌿',
+    path: '../../longwood-shola-wetland/longwood-shola.html',
+    badges: ['Montane Wetland', 'Shola Forest Ecosystem', 'Endemic Species']
   }
 ];
 
