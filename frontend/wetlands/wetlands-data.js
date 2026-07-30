@@ -107,6 +107,36 @@ export const WETLANDS_DATA = {
             isFeatured: true
         },
         {
+            id: 'pala-wetland',
+            name: 'Pala Wetland',
+            state: 'Mizoram',
+            type: 'Lake',
+            area: '1.85 km²',
+            ramsarDeclared: 2021,
+            ramsarSiteNo: 2460,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/White-winged_duck_Asarcornis_scutulata.jpg/800px-White-winged_duck_Asarcornis_scutulata.jpg',
+            shortDesc: 'Mizoram\'s first Ramsar Site and largest natural freshwater lake, surrounded by tropical evergreen forest and Mara tribal folklore.',
+            exploreUrl: '../pala-wetland-explorer/index.html',
+            coordinates: { lat: 22.203, lng: 92.906 },
+            keyFauna: ['White-winged Wood Duck', 'Great Hornbill', 'Mizoram Chameleon Fish', 'Asian Emerald Dove'],
+            isFeatured: true
+        },
+        {
+            id: 'hygam-wetland',
+            name: 'Hygam Wetland Conservation Reserve',
+            state: 'Jammu & Kashmir',
+            type: 'Floodplain',
+            area: '8.02 km²',
+            ramsarDeclared: 2022,
+            ramsarSiteNo: 2489,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/bf/Mallard_drake_at_St_James%27s_Park.jpg/800px-Mallard_drake_at_St_James%27s_Park.jpg',
+            shortDesc: 'Ramsar Site in Kashmir Valley, crucial stopover on the Central Asian Flyway and natural flood sponge for the Jhelum basin.',
+            exploreUrl: '../hygam-wetland-explorer/index.html',
+            coordinates: { lat: 34.238, lng: 74.521 },
+            keyFauna: ['Mallard', 'Gadwall', 'Northern Pintail', 'Common Teal'],
+            isFeatured: true
+        },
+        {
             id: 'wular-lake',
             name: 'Wular Lake',
             state: 'Jammu & Kashmir',
