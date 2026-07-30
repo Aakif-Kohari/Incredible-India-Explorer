@@ -82,6 +82,14 @@ const FEATURED_EXPLORERS = [
     badges: ['Ramsar Site 2020', 'Indus Dolphin Habitat', '50+ Fish Species']
   },
   {
+    name: 'Nalsarovar Bird Sanctuary Explorer',
+    slug: 'nalsarovar',
+    tagline: 'Explore Gujarat\'s largest natural wetland, a Ramsar paradise for flamingos, pelicans, and birdwatchers.',
+    icon: '🦩',
+    path: '../../nalsarovar-bird-sanctuary/nalsarovar.html',
+    badges: ['Ramsar Site 2012', 'Flamingo Haven', '200+ Bird Species']
+  },
+  {
     name: 'Longwood Shola Wetland Explorer',
     slug: 'longwood-shola',
     tagline: 'Explore the montane wetland ecosystems of Longwood Shola, a pristine Shola forest refuge in the Nilgiris.',
