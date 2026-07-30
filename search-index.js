@@ -1497,6 +1497,12 @@ window.indiaSearchIndex = [
     description: "Interactive educational explorer covering current Chief Ministers across all states and union territories, political parties, capitals, and state facts.",
     url: "frontend/state-chief-ministers-explorer/index.html"
   },
+  // --- Chilika Lake Explorer ---
+  {
+    title: "Chilika Lake Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Explore Chilika Lake in Odisha — Asia's largest brackish water lagoon, Ramsar Site #229, Irrawaddy Dolphins, Nalabana Bird Sanctuary, and winter migratory waterfowl.",
+    url: "frontend/chilika-lake/index.html"},
   // --- Wetlands of India Explorer Landing Page ---
   {
     title: "Wetlands of India Explorer",
