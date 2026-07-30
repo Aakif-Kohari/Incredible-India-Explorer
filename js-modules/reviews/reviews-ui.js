@@ -78,67 +78,67 @@ export function initReviews(container, destinationId) {
     const reviews = engine.getFiltered(destinationId, { sortBy, minRating });
 
     container.innerHTML = `
-      <div class="reviews-widget">
-        <div class="reviews-summary">
+      <section class="reviews-widget" aria-label="Traveler reviews for ${escapeHtml(destinationId)}">
+        <div class="reviews-summary" role="region" aria-label="Review summary" aria-live="polite">
           <div class="reviews-summary__score">
-            <span class="reviews-summary__avg">${avg || '—'}</span>
-            <span class="reviews-summary__stars">${starRow(avg)}</span>
+            <span class="reviews-summary__avg" aria-hidden="true">${avg || '—'}</span>
+            <span class="reviews-summary__stars" role="img" aria-label="Average rating ${avg || 0} out of 5 stars">${starRow(avg)}</span>
             <span class="reviews-summary__count">${summary.reviewCount} review${summary.reviewCount === 1 ? '' : 's'}</span>
           </div>
           <p class="reviews-summary__ai-text">${summary.text}</p>
-          ${summary.highlights.length ? `<p class="reviews-summary__highlights">👍 ${summary.highlights.join(', ')}</p>` : ''}
-          ${summary.concerns.length ? `<p class="reviews-summary__concerns">⚠️ ${summary.concerns.join(', ')}</p>` : ''}
+          ${summary.highlights.length ? `<p class="reviews-summary__highlights">👍 Frequently praised: ${summary.highlights.join(', ')}</p>` : ''}
+          ${summary.concerns.length ? `<p class="reviews-summary__concerns">⚠️ Common concerns: ${summary.concerns.join(', ')}</p>` : ''}
         </div>
 
-        <form class="review-form" id="review-form-${destinationId}">
-          <label>Your rating
-            <select name="rating" required>
-              <option value="">Select</option>
+        <form class="review-form" id="review-form-${destinationId}" aria-label="Write a review">
+          <label for="rating-${destinationId}">Your rating
+            <select id="rating-${destinationId}" name="rating" required aria-required="true">
+              <option value="">Select a rating</option>
               ${[5, 4, 3, 2, 1].map((n) => `<option value="${n}">${n} star${n > 1 ? 's' : ''}</option>`).join('')}
             </select>
           </label>
-          <label>Your review
-            <textarea name="text" rows="3" maxlength="1000" required placeholder="Share your experience..."></textarea>
+          <label for="text-${destinationId}">Your review
+            <textarea id="text-${destinationId}" name="text" rows="3" maxlength="1000" required aria-required="true" placeholder="Share your experience..."></textarea>
           </label>
           <button type="submit">Submit review</button>
         </form>
 
         <div class="reviews-controls">
-          <label>Sort by
-            <select id="sort-${destinationId}">
+          <label for="sort-${destinationId}">Sort by
+            <select id="sort-${destinationId}" aria-label="Sort reviews by">
               <option value="helpful">Most helpful</option>
               <option value="recent">Most recent</option>
               <option value="rating_high">Highest rated</option>
               <option value="rating_low">Lowest rated</option>
             </select>
           </label>
-          <label>Min rating
-            <select id="minrating-${destinationId}">
+          <label for="minrating-${destinationId}">Min rating
+            <select id="minrating-${destinationId}" aria-label="Filter by minimum rating">
               <option value="">Any</option>
               ${[5, 4, 3, 2, 1].map((n) => `<option value="${n}">${n}+</option>`).join('')}
             </select>
           </label>
         </div>
 
-        <ul class="reviews-list">
+        <ul class="reviews-list" aria-live="polite" aria-label="Reviews list">
           ${reviews
             .map(
               (r) => `
             <li class="review-card" data-id="${r.id}">
               <div class="review-card__header">
                 <strong>${escapeHtml(r.author)}</strong>
-                <span>${starRow(r.rating)}</span>
+                <span role="img" aria-label="${r.rating} out of 5 stars">${starRow(r.rating)}</span>
                 ${sentimentBadge(r.sentiment.label)}
               </div>
               <p class="review-card__text">${escapeHtml(r.text)}</p>
-              <button class="review-card__helpful" data-id="${r.id}">
+              <button class="review-card__helpful" data-id="${r.id}" aria-pressed="${r.votedBy?.includes(getCurrentUserId()) ? 'true' : 'false'}" aria-label="Mark this review as helpful, currently ${r.helpfulVotes || 0} helpful votes">
                 👍 Helpful (${r.helpfulVotes || 0})
               </button>
             </li>`
             )
             .join('') || '<li class="reviews-empty">No reviews yet — be the first to share your experience.</li>'}
         </ul>
-      </div>
+      </section>
     `;
 
     container.querySelector(`#review-form-${destinationId}`).addEventListener('submit', (e) => {
