@@ -1496,5 +1496,12 @@ window.indiaSearchIndex = [
     category: "Governance & Politics",
     description: "Interactive educational explorer covering current Chief Ministers across all states and union territories, political parties, capitals, and state facts.",
     url: "frontend/state-chief-ministers-explorer/index.html"
+  },
+  // --- Kolleru Lake Explorer ---
+  {
+    title: "Kolleru Lake Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Explore Kolleru Lake in Andhra Pradesh — India's premier Spot-billed Pelican sanctuary, Krishna-Godavari freshwater basin, Ramsar Site #1209, and rich fish diversity.",
+    url: "frontend/kolleru-lake/index.html"
   }
 ];
