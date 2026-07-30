@@ -1496,5 +1496,12 @@ window.indiaSearchIndex = [
     category: "Governance & Politics",
     description: "Interactive educational explorer covering current Chief Ministers across all states and union territories, political parties, capitals, and state facts.",
     url: "frontend/state-chief-ministers-explorer/index.html"
+  },
+  // --- Wetlands of India Explorer Landing Page ---
+  {
+    title: "Wetlands of India Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Interactive central landing page for exploring the Wetlands of India — Ramsar Sites, lagoons, lakes, marshes, mangroves, interactive maps, search, and state/type filters.",
+    url: "frontend/wetlands/index.html"
   }
 ];
