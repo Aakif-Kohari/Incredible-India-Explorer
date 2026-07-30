@@ -80,6 +80,14 @@ const FEATURED_EXPLORERS = [
     icon: '🏞️',
     path: '../beas-conservation-wetlands-explorer/index.html',
     badges: ['Ramsar Site 2020', 'Indus Dolphin Habitat', '50+ Fish Species']
+  },
+  {
+    name: 'Nalsarovar Bird Sanctuary Explorer',
+    slug: 'nalsarovar',
+    tagline: 'Explore Gujarat\'s largest natural wetland, a Ramsar paradise for flamingos, pelicans, and birdwatchers.',
+    icon: '🦩',
+    path: '../../nalsarovar-bird-sanctuary/nalsarovar.html',
+    badges: ['Ramsar Site 2012', 'Flamingo Haven', '200+ Bird Species']
   }
 ];
 
