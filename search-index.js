@@ -1527,5 +1527,19 @@ window.indiaSearchIndex = [
     category: "National Parks & Wildlife",
     description: "Explore Hemis National Park in Ladakh — World's highest density of Snow Leopards, high-altitude cold desert ecosystem, Markha Valley trekking, Himalayan wildlife, and Buddhist culture.",
     url: "frontend/hemis-national-park-explorer/index.html"
+  },
+  // --- River Origin Challenge ---
+  {
+    title: "River Origin Challenge",
+    category: "Games & Geography",
+    description: "Match Indian rivers (Ganga, Yamuna, Godavari, Brahmaputra, Kaveri, Narmada, Krishna, etc.) with their origins, tributaries, and sea destinations on an interactive map with drag-and-drop gameplay.",
+    url: "frontend/river-origin-challenge/index.html"
+  },
+  // --- Crop Journey Game ---
+  {
+    title: "Crop Journey Game",
+    category: "Games & Geography",
+    description: "Match Indian crops (Rice, Wheat, Cotton, Sugarcane, Watermelon, Mustard, etc.) with Kharif, Rabi & Zaid farming seasons, climate needs, and producing states across progressive difficulty levels.",
+    url: "frontend/crop-journey/index.html"
   }
 ];
