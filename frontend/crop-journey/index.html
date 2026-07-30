@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crop Journey Game | Incredible India Explorer</title>
+  <meta name="description" content="Explore Indian agriculture in this educational matching game. Pair crops (Rice, Wheat, Cotton, Sugarcane, Watermelon, etc.) with Kharif, Rabi & Zaid seasons, climate needs, and producing states across progressive difficulty levels.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared & Local Styles -->
+  <link rel="stylesheet" href="../../pages-common.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="crop-journey-body">
+  <header class="game-header">
+    <div class="header-container">
+      <a href="../../index.html" class="back-link" aria-label="Back to main explorer">← Back to Explorer</a>
+      <div class="header-title-badge">
+        <span class="header-icon">🌾</span>
+        <h1>Crop Journey Game</h1>
+      </div>
+      <p class="subtitle">Match Indian crops with their farming seasons (Kharif, Rabi & Zaid), climate requirements, and producing states!</p>
+    </div>
+  </header>
+
+  <main class="game-container">
+    <!-- Live Scoreboard Bar -->
+    <section class="scoreboard-bar" aria-label="Game Scoreboard">
+      <div class="score-card">
+        <span class="score-label">Harvest Score</span>
+        <span class="score-value" id="score-display">0</span>
+      </div>
+      <div class="score-card">
+        <span class="score-label">Streak</span>
+        <span class="score-value streak-val" id="streak-display">🌾 0x</span>
+      </div>
+      <div class="score-card">
+        <span class="score-label">Farmer Rank</span>
+        <span class="score-value rank-val" id="rank-display">Apprentice</span>
+      </div>
+      <div class="score-card">
+        <span class="score-label">Progress</span>
+        <span class="score-value" id="progress-display">0 / 4</span>
+      </div>
+      <div class="score-card">
+        <span class="score-label">Timer</span>
+        <span class="score-value" id="timer-display">00:00</span>
+      </div>
+      <div class="score-card highlight-card">
+        <span class="score-label">High Score</span>
+        <span class="score-value" id="highscore-display">0</span>
+      </div>
+    </section>
+
+    <!-- Navigation Mode Tabs -->
+    <nav class="mode-nav" aria-label="Game View Switcher">
+      <button id="tab-game" class="mode-tab-btn active" data-mode="game">
+        <span class="tab-icon">🎯</span> Crop Matching Challenge
+      </button>
+      <button id="tab-atlas" class="mode-tab-btn" data-mode="atlas">
+        <span class="tab-icon">📚</span> Krishi Agricultural Atlas
+      </button>
+    </nav>
+
+    <!-- Section 1: Gameplay View -->
+    <section id="view-game" class="game-view active-view" aria-label="Crop Matching Challenge View">
+      <!-- Progressive Difficulty Bar -->
+      <div class="difficulty-bar">
+        <span class="difficulty-label">Progressive Level:</span>
+        <div class="level-buttons-group" role="radiogroup" aria-label="Difficulty Levels">
+          <button class="level-btn active" data-level="1">Level 1: Season Matcher</button>
+          <button class="level-btn" data-level="2">Level 2: Climate Specialist</button>
+          <button class="level-btn" data-level="3">Level 3: State Granary</button>
+          <button class="level-btn" data-level="4">Level 4: Master Farmer</button>
+        </div>
+      </div>
+
+      <!-- Action Controls -->
+      <div class="controls-bar">
+        <div class="season-filter-group">
+          <label for="season-filter">Focus Season:</label>
+          <select id="season-filter" class="styled-select">
+            <option value="all" selected>All Seasons (Kharif, Rabi & Zaid)</option>
+            <option value="kharif">🌧️ Kharif (Monsoon Crops)</option>
+            <option value="rabi">❄️ Rabi (Winter Crops)</option>
+            <option value="zaid">☀️ Zaid (Summer Crops)</option>
+          </select>
+        </div>
+        <div class="action-buttons">
+          <button id="btn-next-harvest" class="action-btn primary-btn">🚜 Next Harvest (4 Crops)</button>
+          <button id="btn-reset-game" class="action-btn secondary-btn">🔄 Reset Score</button>
+        </div>
+      </div>
+
+      <!-- Instruction Box -->
+      <div class="instruction-box">
+        <span class="instruction-icon">💡</span>
+        <span id="instruction-text">Drag attribute cards from the right pools into matching crop dropzones on the left. (Or tap a card, then tap target slot!)</span>
+      </div>
+
+      <!-- Main Challenge Board -->
+      <div class="crop-board">
+        <!-- Target Crops Column -->
+        <div class="target-crops-column">
+          <h2 class="column-title">🌾 Active Harvest Crops</h2>
+          <div id="crop-cards-container" class="crop-cards-list">
+            <!-- Dynamically rendered target crop cards -->
+          </div>
+        </div>
+
+        <!-- Draggable Attribute Pools Column -->
+        <div class="draggable-pools-column">
+          <h2 class="column-title">🧩 Attribute Pools</h2>
+          
+          <!-- Pool 1: Seasons -->
+          <div class="pool-section" id="pool-seasons-section">
+            <h3 class="pool-title">🗓️ Farming Seasons (Kharif / Rabi / Zaid)</h3>
+            <div id="seasons-pool" class="drag-pool" data-pool-type="season">
+              <!-- Draggable season cards -->
+            </div>
+          </div>
+
+          <!-- Pool 2: Climate & Soil -->
+          <div class="pool-section" id="pool-climate-section">
+            <h3 class="pool-title">☀️ Climate & Soil Needs</h3>
+            <div id="climate-pool" class="drag-pool" data-pool-type="climate">
+              <!-- Draggable climate cards -->
+            </div>
+          </div>
+
+          <!-- Pool 3: Primary Producing States -->
+          <div class="pool-section" id="pool-states-section">
+            <h3 class="pool-title">🏛️ Top Producing States</h3>
+            <div id="states-pool" class="drag-pool" data-pool-type="state">
+              <!-- Draggable state cards -->
+            </div>
+          </div>
+
+          <!-- Pool 4: Harvesting Months -->
+          <div class="pool-section" id="pool-harvest-section">
+            <h3 class="pool-title">🌽 Sowing & Harvest Window</h3>
+            <div id="harvest-pool" class="drag-pool" data-pool-type="harvest">
+              <!-- Draggable harvest window cards -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Krishi Agricultural Atlas View -->
+    <section id="view-atlas" class="game-view" aria-label="Krishi Agricultural Atlas">
+      <div class="atlas-header">
+        <h2>📚 Krishi Agricultural Atlas</h2>
+        <p>Master Indian crop ecology across monsoon Kharif rains, winter Rabi frost, and summer Zaid sun.</p>
+        <div class="atlas-filter-bar">
+          <input type="text" id="atlas-search-input" placeholder="🔍 Search crop name, state, climate, or season..." class="styled-input">
+          <div class="atlas-season-tabs">
+            <button class="atlas-season-btn active" data-filter="all">All Crops</button>
+            <button class="atlas-season-btn" data-filter="kharif">🌧️ Kharif</button>
+            <button class="atlas-season-btn" data-filter="rabi">❄️ Rabi</button>
+            <button class="atlas-season-btn" data-filter="zaid">☀️ Zaid</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="atlas-grid" class="atlas-cards-grid">
+        <!-- Dynamically rendered crop atlas cards -->
+      </div>
+    </section>
+
+    <!-- Educational Spotlight Modal -->
+    <div id="edu-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="edu-modal-title">
+      <div class="modal-card edu-modal-card">
+        <button class="modal-close-btn" id="btn-close-edu" aria-label="Close modal">✕</button>
+        <div class="edu-header">
+          <span class="edu-icon">🌱</span>
+          <div>
+            <h2 id="edu-modal-title">Crop Knowledge Spotlight</h2>
+            <p id="edu-modal-subtitle" class="edu-subtitle">Agricultural insight</p>
+          </div>
+        </div>
+        <div class="edu-body" id="edu-modal-body">
+          <!-- Dynamic crop info filled on match -->
+        </div>
+        <div class="edu-footer">
+          <button id="btn-edu-continue" class="action-btn primary-btn">Keep Harvesting! →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Harvest Victory Modal -->
+    <div id="victory-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="victory-modal-title">
+      <div class="modal-card victory-card">
+        <div class="victory-header">
+          <span class="victory-emoji">🌾</span>
+          <h2 id="victory-modal-title">Bumper Harvest Complete!</h2>
+          <p id="victory-message">Excellent agronomy skills!</p>
+        </div>
+        <div class="victory-stats-grid">
+          <div class="vstat-item">
+            <span class="vstat-label">Harvest Score</span>
+            <span class="vstat-val" id="vstat-score">+0</span>
+          </div>
+          <div class="vstat-item">
+            <span class="vstat-label">Accuracy</span>
+            <span class="vstat-val" id="vstat-accuracy">100%</span>
+          </div>
+          <div class="vstat-item">
+            <span class="vstat-label">Time Elapsed</span>
+            <span class="vstat-val" id="vstat-time">00:30</span>
+          </div>
+          <div class="vstat-item">
+            <span class="vstat-label">Highest Streak</span>
+            <span class="vstat-val" id="vstat-streak">🌾 4</span>
+          </div>
+        </div>
+        <div class="badge-earned-box" id="badge-earned-box">
+          <span class="badge-icon">🏅</span>
+          <div>
+            <div class="badge-title" id="badge-title">Krishi Master</div>
+            <div class="badge-desc" id="badge-desc">Matched all crops with their farming seasons and states!</div>
+          </div>
+        </div>
+        <div class="victory-actions">
+          <button id="btn-next-round-modal" class="action-btn primary-btn">Next Harvest Level →</button>
+          <button id="btn-explore-atlas-modal" class="action-btn secondary-btn">Explore Krishi Atlas 📚</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="game-footer">
+    <div class="footer-content">
+      <p>© 2026 Incredible India Explorer. Celebrating India's agricultural diversity, farmers, and rich farming traditions.</p>
+    </div>
+  </footer>
+
+  <!-- Global pages common JS -->
+  <script src="../../pages-common.js"></script>
+  <!-- Crop Journey Game Script -->
+  <script src="script.js"></script>
+</body>
+</html>
