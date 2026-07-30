@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Kanchenjunga, India's highest mountain at 8,586 m in Sikkim. Discover facts, map locations, image gallery, trekking info, and more.">
+    <title>Kanchenjunga Mountain Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="kanchenjunga.css">
+
+    <meta property="og:title" content="Kanchenjunga Mountain Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Explore Kanchenjunga, India's highest mountain at 8,586 m in Sikkim.">
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/4/4d/Panorama_Kangchenjunga_from_Darjeeling.jpg">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/kanchenjunga/kanchenjunga.html">
+    <meta property="og:type" content="website">
+</head>
+
+<body class="kanchenjunga-body-wrapper">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../travel/travel.html" class="nav-link" id="link-travel">Travel</a>
+                <a href="kanchenjunga.html" class="nav-link active" style="color: var(--saffron)">Kanchenjunga</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="kanchenjunga-page" id="app-root">
+        <!-- Hero Section -->
+        <section class="kanchenjunga-hero" id="hero">
+            <div class="kanchenjunga-hero-overlay"></div>
+            <a href="../../index.html#home" class="kanchenjunga-hero-back anim-fade-down" aria-label="Back to Home">
+                <span class="back-arrow">←</span> Back to Home
+            </a>
+            <div class="kanchenjunga-hero-content">
+                <span class="kanchenjunga-hero-kicker anim-fade-up" style="animation-delay:0.1s">🏔️ Kangchenjunga Himalayas</span>
+                <h1 class="anim-fade-up" style="animation-delay:0.2s">Kanchenjunga <span>Explorer</span></h1>
+                <p class="anim-fade-up" style="animation-delay:0.35s">Rising majestically to 8,586 meters on the border of Sikkim, India and Nepal, Kanchenjunga is the third highest mountain in the world and the highest peak in India. Revered as sacred by the people of Sikkim, its name means "Five Treasures of the Great Snow" — a reference to its five majestic summits.</p>
+
+                <div class="kanchenjunga-hero-stats anim-fade-up" style="animation-delay:0.5s">
+                    <div class="kanchenjunga-stat-box">
+                        <strong>8,586 m</strong>
+                        <span>Peak Elevation</span>
+                    </div>
+                    <div class="kanchenjunga-stat-box">
+                        <strong>Sikkim</strong>
+                        <span>Indian State</span>
+                    </div>
+                    <div class="kanchenjunga-stat-box">
+                        <strong>Himalayas</strong>
+                        <span>Mountain Range</span>
+                    </div>
+                    <div class="kanchenjunga-stat-box">
+                        <strong>3rd</strong>
+                        <span>Highest World Rank</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="kanchenjunga-section" id="kanchenjunga-overview">
+            <div class="kanchenjunga-container">
+                <div class="kanchenjunga-section-heading reveal">
+                    <span class="kanchenjunga-section-badge">Peak Profile</span>
+                    <h2>Geography, Glaciers &amp; History</h2>
+                </div>
+
+                <div class="kanchenjunga-overview-grid">
+                    <div class="kanchenjunga-overview-text reveal reveal-left">
+                        <h3>The Sacred Five Treasures</h3>
+                        <p>Kanchenjunga, standing at 8,586 meters, is the third-highest mountain in the world and the tallest peak in India. Located on the border between Nepal's Taplejung District and India's state of Sikkim, the mountain is part of the greater Himalayan range and the Kangchenjunga massif.</p>
+                        <p>The name "Kanchenjunga" derives from the Tibetan words "Kangchen" meaning "great snow" and "junga" meaning "five treasures." This refers to the mountain's five summits, which represent the five repositories of God: gold, silver, gems, grain, and holy books. The people of Sikkim regard the mountain as sacred, and climbing to the summit is considered a sign of disrespect.</p>
+                        <p>In 1955, a British expedition led by Charles Evans made the first successful ascent on May 25, with Joe Brown and George Band reaching the summit. They honored local sentiments by stopping just short of the actual summit, a tradition that continues today.</p>
+                    </div>
+                    <div class="kanchenjunga-overview-spec-card reveal reveal-right">
+                        <h3>Technical Specifications</h3>
+                        <ul class="spec-list">
+                            <li><strong>Elevation:</strong> 8,586 m (28,169 ft)</li>
+                            <li><strong>Prominence:</strong> 3,922 m (12,867 ft)</li>
+                            <li><strong>Coordinates:</strong> 27°42′09″N 88°08′54″E</li>
+                            <li><strong>Climbing Difficulty:</strong> Grade VI (Extreme)</li>
+                            <li><strong>First Ascent:</strong> May 25, 1955</li>
+                            <li><strong>Team:</strong> British Expedition, Charles Evans</li>
+                            <li><strong>Prominence Rank:</strong> 28th worldwide</li>
+                            <li><strong>Border:</strong> India (Sikkim) / Nepal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trekking Information Section -->
+        <section class="kanchenjunga-section" id="kanchenjunga-trekking">
+            <div class="kanchenjunga-container">
+                <div class="kanchenjunga-section-heading reveal">
+                    <span class="kanchenjunga-section-badge">Adventure</span>
+                    <h2>Trekking Information</h2>
+                    <p>Explore the trails and routes that lead to the base of this majestic peak.</p>
+                </div>
+
+                <div class="kanchenjunga-trekking-grid">
+                    <div class="kanchenjunga-trek-card reveal" style="transition-delay:0s">
+                        <div class="kanchenjunga-trek-icon">🗺️</div>
+                        <h3>Kanchenjunga Base Camp Trek</h3>
+                        <p>The most popular trekking route, offering breathtaking views of the mountain's five peaks. Passes through lush rhododendron forests, alpine meadows, and high-altitude terrain.</p>
+                        <div class="kanchenjunga-trek-details">
+                            <span class="trek-detail">📏 22-25 Days</span>
+                            <span class="trek-detail">⬆️ 4,800 m</span>
+                            <span class="trek-detail">⚡ Challenging</span>
+                        </div>
+                    </div>
+
+                    <div class="kanchenjunga-trek-card reveal" style="transition-delay:0.1s">
+                        <div class="kanchenjunga-trek-icon">🌲</div>
+                        <h3>North Base Camp (Pangpema)</h3>
+                        <p>The Nepal side base camp at Pangpema offers the most iconic views of the mountain's north face. Less crowded with pristine forests.</p>
+                        <div class="kanchenjunga-trek-details">
+                            <span class="trek-detail">📏 18-22 Days</span>
+                            <span class="trek-detail">⬆️ 5,143 m</span>
+                            <span class="trek-detail">⚡ Challenging</span>
+                        </div>
+                    </div>
+
+                    <div class="kanchenjunga-trek-card reveal" style="transition-delay:0.2s">
+                        <div class="kanchenjunga-trek-icon">🦅</div>
+                        <h3>South Base Camp (Oktang)</h3>
+                        <p>The Oktang viewpoint provides stunning close-up views of the Yalung Face. Passes through the Conservation Area with rare wildlife.</p>
+                        <div class="kanchenjunga-trek-details">
+                            <span class="trek-detail">📏 15-20 Days</span>
+                            <span class="trek-detail">⬆️ 4,730 m</span>
+                            <span class="trek-detail">⚡ Moderate</span>
+                        </div>
+                    </div>
+
+                    <div class="kanchenjunga-trek-card reveal" style="transition-delay:0.3s">
+                        <div class="kanchenjunga-trek-icon">🌸</div>
+                        <h3>Best Season &amp; Permits</h3>
+                        <p>Best seasons: March-May (spring rhododendrons) and October-November (clear skies). Special permits required from Indian and Nepali authorities.</p>
+                        <div class="kanchenjunga-trek-details">
+                            <span class="trek-detail">🗓️ Mar-May &amp; Oct-Nov</span>
+                            <span class="trek-detail">📋 Permit Required</span>
+                            <span class="trek-detail">👥 Guide Mandatory</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Facts Section -->
+        <section class="kanchenjunga-section" id="kanchenjunga-facts-section">
+            <div class="kanchenjunga-container">
+                <div class="kanchenjunga-section-heading reveal">
+                    <span class="kanchenjunga-section-badge">Did You Know?</span>
+                    <h2>Interesting Facts</h2>
+                </div>
+                <div class="kanchenjunga-fact-panel reveal">
+                    <div class="kanchenjunga-fact-icon">💡</div>
+                    <div class="kanchenjunga-fact-nav">
+                        <button class="kanchenjunga-fact-nav-btn" id="kanchenjunga-fact-prev" aria-label="Previous fact">‹</button>
+                        <span class="kanchenjunga-fact-counter" id="kanchenjunga-fact-counter">1 / 7</span>
+                        <button class="kanchenjunga-fact-nav-btn" id="kanchenjunga-fact-next" aria-label="Next fact">›</button>
+                    </div>
+                    <p id="kanchenjunga-fact-text" aria-live="polite">Loading fact...</p>
+                    <div class="kanchenjunga-fact-dots" id="kanchenjunga-fact-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map Section -->
+        <section class="kanchenjunga-section" id="kanchenjunga-map-section">
+            <div class="kanchenjunga-container">
+                <div class="kanchenjunga-section-heading reveal">
+                    <span class="kanchenjunga-section-badge">Interactive Map</span>
+                    <h2>Key Locations Around Kanchenjunga</h2>
+                    <p>Click on any marker to learn about that geographic landmark.</p>
+                </div>
+                <div class="kanchenjunga-map-wrap reveal">
+                    <div id="kanchenjunga-map" aria-label="Interactive Leaflet Map showing Kanchenjunga and surrounding landmarks"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery Section -->
+        <section class="kanchenjunga-section" id="kanchenjunga-gallery-section">
+            <div class="kanchenjunga-container">
+                <div class="kanchenjunga-section-heading reveal">
+                    <span class="kanchenjunga-section-badge">Image Gallery</span>
+                    <h2>Views of Kanchenjunga &amp; Sikkim</h2>
+                    <p>Explore the majestic beauty of the mountain and its surroundings. Click an image to view it larger.</p>
+                </div>
+                <div id="kanchenjunga-gallery-grid" class="kanchenjunga-gallery-grid"></div>
+            </div>
+        </section>
+
+        <!-- Nearby Attractions Section -->
+        <section class="kanchenjunga-section" id="kanchenjunga-attractions-section">
+            <div class="kanchenjunga-container">
+                <div class="kanchenjunga-section-heading reveal">
+                    <span class="kanchenjunga-section-badge">Explore</span>
+                    <h2>Nearby Attractions</h2>
+                    <p>Discover remarkable destinations in the vicinity of Kanchenjunga.</p>
+                </div>
+                <div class="kanchenjunga-attractions-grid">
+                    <div class="kanchenjunga-attraction-card reveal" style="transition-delay:0s">
+                        <div class="attraction-icon">🏛️</div>
+                        <h3>Rumtek Monastery</h3>
+                        <p>One of the most important monasteries in Sikkim, near Gangtok. It serves as the seat of the Karmapa and houses precious Buddhist relics.</p>
+                    </div>
+                    <div class="kanchenjunga-attraction-card reveal" style="transition-delay:0.1s">
+                        <div class="attraction-icon">🌿</div>
+                        <h3>Kanchenjunga Conservation Area</h3>
+                        <p>A protected area spanning 2,035 sq km, home to snow leopards, red pandas, and Himalayan black bears.</p>
+                    </div>
+                    <div class="kanchenjunga-attraction-card reveal" style="transition-delay:0.2s">
+                        <div class="attraction-icon">🏔️</div>
+                        <h3>Goecha La Pass</h3>
+                        <p>A high mountain pass at 4,940 m offering spectacular panoramic views of Kanchenjunga and other Himalayan peaks.</p>
+                    </div>
+                    <div class="kanchenjunga-attraction-card reveal" style="transition-delay:0.3s">
+                        <div class="attraction-icon">🌸</div>
+                        <h3>Yuksom</h3>
+                        <p>The historic first capital of Sikkim, gateway to the Kanchenjunga Base Camp trek. Surrounded by dense forests and monasteries.</p>
+                    </div>
+                    <div class="kanchenjunga-attraction-card reveal" style="transition-delay:0.4s">
+                        <div class="attraction-icon">🏙️</div>
+                        <h3>Gangtok</h3>
+                        <p>The vibrant capital of Sikkim at 1,650 m. Known for monasteries, bustling markets, and stunning Kanchenjunga views.</p>
+                    </div>
+                    <div class="kanchenjunga-attraction-card reveal" style="transition-delay:0.5s">
+                        <div class="attraction-icon">⛰️</div>
+                        <h3>Khangchendzonga National Park</h3>
+                        <p>A UNESCO World Heritage Site with diverse ecosystems from tropical forests to glaciers, named after the mountain itself.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQs Section -->
+        <section class="kanchenjunga-section" id="kanchenjunga-faq-section">
+            <div class="kanchenjunga-container">
+                <div class="kanchenjunga-section-heading reveal">
+                    <span class="kanchenjunga-section-badge">FAQ</span>
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="kanchenjunga-faq-container" id="kanchenjunga-faq-accordion">
+                </div>
+            </div>
+        </section>
+
+        <!-- Back to Home Bottom -->
+        <section class="kanchenjunga-bottom-nav">
+            <a href="../../index.html#home" class="kanchenjunga-bottom-home-btn">
+                <span class="back-arrow">←</span> Back to Home
+            </a>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="kanchenjunga-lightbox-overlay" id="kanchenjunga-lightbox" hidden role="dialog" aria-modal="true" aria-label="Image Lightbox">
+        <div class="kanchenjunga-lightbox-content">
+            <button class="kanchenjunga-lightbox-close" data-close-lightbox="true" aria-label="Close Lightbox">&times;</button>
+            <button class="kanchenjunga-lightbox-nav prev" id="kanchenjunga-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="kanchenjunga-lightbox-image" src="" alt="">
+            <button class="kanchenjunga-lightbox-nav next" id="kanchenjunga-lightbox-next" aria-label="Next image">›</button>
+            <p class="kanchenjunga-lightbox-caption" id="kanchenjunga-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Highlighting and documenting India's magnificent geography, mountains, and cultural heritage.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Mountain Explorers</h4>
+                <a href="kanchenjunga.html">Kanchenjunga</a>
+                <a href="../rimo-i/rimo-i.html">Rimo I</a>
+                <a href="../satopanth/satopanth.html">Satopanth</a>
+                <a href="../shivling/shivling.html">Shivling</a>
+                <a href="../saltoro-kangri/saltoro-kangri.html">Saltoro Kangri</a>
+            </div>
+            <div class="footer-links">
+                <h4>Experiences</h4>
+                <a href="../travel/travel.html">Travel &amp; Destinations</a>
+                <a href="../mountains/index.html">Mountains of India</a>
+                <a href="../highest-point-challenge/index.html">Highest Point Challenge</a>
+                <a href="../mountain-expedition/index.html">Mountain Expedition Game</a>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <a href="../wildlife/wildlife.html">Nature &amp; Wildlife</a>
+                <a href="../heritage/heritage.html">Heritage Sites</a>
+                <a href="../coastal-india/coastal-india.html">Coastal India</a>
+                <a href="../crowd-density/index.html">Crowd Density</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Celebrating India's natural wonders.</p>
+        </div>
+    </footer>
+
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script type="module" src="kanchenjunga.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>

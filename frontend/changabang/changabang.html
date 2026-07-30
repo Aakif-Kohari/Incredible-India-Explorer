@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Changabang Mountain, a 6,864 m high peak in the Garhwal Himalayas of Uttarakhand. Discover facts, map locations, image gallery, and climb details.">
+    <title>Changabang Mountain Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="changabang.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Changabang Mountain Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Explore Changabang Mountain, a 6,864 m high peak in the Garhwal Himalayas of Uttarakhand. Discover facts, map locations, image gallery, and climb details.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_mountains.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/changabang/changabang.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Changabang Mountain Explorer | Incredible India Explorer">
+    <meta name="twitter:description" content="Explore Changabang Mountain, a 6,864 m high peak in the Garhwal Himalayas of Uttarakhand. Discover facts, map locations, image gallery, and climb details.">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_mountains.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/changabang/changabang.html">
+</head>
+
+<body class="changabang-body-wrapper">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../travel/travel.html" class="nav-link" id="link-travel">Travel</a>
+                <a href="changabang.html" class="nav-link active" style="color: var(--saffron)">Changabang</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="changabang-page" id="app-root">
+        <!-- Hero Section -->
+        <section class="changabang-hero">
+            <div class="changabang-hero-content">
+                <a href="../highest-point-challenge/index.html" class="changabang-back-link">← Back to Highest Point Challenge</a>
+                <span class="changabang-hero-kicker">🏔️ Garhwal Himalayas</span>
+                <h1>Changabang <span>Explorer</span></h1>
+                <p>Standing tall at 6,864 meters, Changabang is a majestic and complex mountain in the Garhwal Himalayas in Uttarakhand. Known for its formidable climbing routes and technical steep rock faces, this peak is a classic mountaineering expedition destination.</p>
+
+                <div class="changabang-hero-stats">
+                    <div class="changabang-stat-box">
+                        <strong>6,864 m</strong>
+                        <span>Peak Elevation</span>
+                    </div>
+                    <div class="changabang-stat-box">
+                        <strong>Uttarakhand</strong>
+                        <span>State Location</span>
+                    </div>
+                    <div class="changabang-stat-box">
+                        <strong>Garhwal Himalayas</strong>
+                        <span>Mountain Range</span>
+                    </div>
+                    <div class="changabang-stat-box">
+                        <strong>Shining Mountain</strong>
+                        <span>Name Meaning</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="changabang-section" id="changabang-overview">
+            <div class="changabang-container">
+                <div class="changabang-section-heading">
+                    <span class="changabang-section-badge">Peak Profile</span>
+                    <h2>Geography, Glaciers &amp; History</h2>
+                </div>
+                
+                <div class="changabang-overview-grid">
+                    <div class="changabang-overview-text">
+                        <h3>The Sacred Route</h3>
+                        <p>Changabang is located in the Garhwal Himalayas of Uttarakhand. The name 'Changabang' translates to 'Shining Mountain', reflecting its steep, rocky profile that catches the sunlight beautifully.</p>
+                        <p>The mountain is part of the Nanda Devi Sanctuary wall, standing out with its sheer granite faces.</p>
+                        <p>The peak was first climbed in 1974 by a team led by Chris Bonington. The route features challenging technical elements, particularly on its steep, icy rock faces.</p>
+                    </div>
+                    <div class="changabang-overview-spec-card">
+                        <h3>Technical Specifications</h3>
+                        <ul class="spec-list">
+                            <li><strong>Elevation:</strong> 6,864 m (22,520 ft)</li>
+                            <li><strong>Prominence:</strong> ~500 m</li>
+                            <li><strong>Coordinates:</strong> 30°30′00″N 79°55′30″E</li>
+                            <li><strong>Climbing Difficulty:</strong> Grade VI (Extreme)</li>
+                            <li><strong>First Ascent:</strong> 1974</li>
+                            <li><strong>Expedition Team:</strong> Indo-British Expedition</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facts Section -->
+        <section class="changabang-section" id="changabang-facts-section">
+            <div class="changabang-container">
+                <div class="changabang-section-heading">
+                    <span class="changabang-section-badge">Did You Know?</span>
+                    <h2>Interesting Facts</h2>
+                </div>
+                <div class="changabang-fact-panel">
+                    <div class="changabang-fact-icon">💡</div>
+                    <p id="changabang-fact-text" aria-live="polite">Loading fact...</p>
+                    <div class="changabang-fact-dots" id="changabang-fact-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map Section -->
+        <section class="changabang-section" id="changabang-map-section">
+            <div class="changabang-container">
+                <div class="changabang-section-heading">
+                    <span class="changabang-section-badge">Interactive Map</span>
+                    <h2>Key Locations Around Changabang</h2>
+                    <p>Click on any marker to learn about that geographic landmark.</p>
+                </div>
+                <div class="changabang-map-wrap">
+                    <div id="changabang-map" aria-label="Interactive Leaflet Map showing Changabang and surrounding landmarks"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery Section -->
+        <section class="changabang-section" id="changabang-gallery-section">
+            <div class="changabang-container">
+                <div class="changabang-section-heading">
+                    <span class="changabang-section-badge">Image Gallery</span>
+                    <h2>Views of the Massif &amp; Garhwal Range</h2>
+                    <p>Explore the stunning peaks and valleys of Uttarakhand. Click an image to view it larger.</p>
+                </div>
+                <div id="changabang-gallery-grid" class="changabang-gallery-grid"></div>
+            </div>
+        </section>
+
+        <!-- FAQs Section -->
+        <section class="changabang-section" id="changabang-faq-section">
+            <div class="changabang-container">
+                <div class="changabang-section-heading">
+                    <span class="changabang-section-badge">FAQ</span>
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="changabang-faq-container" id="changabang-faq-accordion">
+                    <!-- Populated via JS for modularity and keyboard support -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="changabang-lightbox-overlay" id="changabang-lightbox" hidden role="dialog" aria-modal="true" aria-label="Image Lightbox">
+        <div class="changabang-lightbox-content">
+            <button class="changabang-lightbox-close" data-close-lightbox="true" aria-label="Close Lightbox">&times;</button>
+            <button class="changabang-lightbox-nav prev" id="changabang-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="changabang-lightbox-image" src="" alt="">
+            <button class="changabang-lightbox-nav next" id="changabang-lightbox-next" aria-label="Next image">›</button>
+            <p class="changabang-lightbox-caption" id="changabang-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Highlighting and documenting India's magnificent geography, mountains, and cultural heritage.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html#home">Home</a>
+                <a href="../highest-point-challenge/index.html">Highest Point Challenge</a>
+                <a href="../travel/travel.html">Travel &amp; Destinations</a>
+                <a href="changabang.html">Changabang Explorer</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Developed with Vanilla Web Tech.</p>
+        </div>
+    </footer>
+
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- Local Javascript Module -->
+    <script type="module" src="changabang.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>

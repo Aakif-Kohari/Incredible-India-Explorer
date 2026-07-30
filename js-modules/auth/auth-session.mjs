@@ -92,19 +92,11 @@ export function subscribeToLocalAuth(listener) {
     listener(event.detail);
   };
 
-  const handleStorage = (event) => {
-    if (event.key === AUTH_USER_KEY) {
-      listener(getStoredAuthUser());
-    }
-  };
-
   window.addEventListener('incredible-india:auth-change', handleCustomEvent);
-  window.addEventListener('storage', handleStorage);
-  
+
   listener(getStoredAuthUser());
 
   return () => {
     window.removeEventListener('incredible-india:auth-change', handleCustomEvent);
-    window.removeEventListener('storage', handleStorage);
   };
 }

@@ -6,8 +6,13 @@
  */
 (function () {
 const { ROUTE_DESTINATIONS, TRANSPORT_MODES, DESTINATION_INFO, optimizeRoute, getRoute, formatDistance, formatDuration, recommendMode } = window.RoutePlanner;
+const { PACE_PRESETS, planMultiDayRoute, getAlternativePlans, exportItineraryText } = window.MultiDayPlanner;
+const { ACCOMMODATION_TYPES, compareTransportModes, calculateSustainabilityScore, getSustainabilityBadge, getRecommendations } = window.SustainabilityEngine;
   let stops = [];
   let mode = "road";
+  let pace = "standard";
+  let accommodationType = "midRangeHotel";
+  let lastMultiDayPlan = null;
   let map, routeLayer, markersLayer;
 
   function initMap() {
@@ -46,6 +51,7 @@ const { ROUTE_DESTINATIONS, TRANSPORT_MODES, DESTINATION_INFO, optimizeRoute, ge
         renderStopList();
         renderMarkers();
         renderStopInfo();
+        invalidateMultiDayPlan();
       });
     });
 
@@ -128,10 +134,156 @@ function renderSummary(result) {
       const result = await getRoute(stops, mode);
       renderRouteOnMap(result.geometry);
       renderSummary(result);
+      renderMultiDayPlan(result);
+      renderSustainability(result);
       setStatus(result.fromCache ? "Loaded from cache." : "Route calculated.");
     } catch (err) {
       setStatus(err.message || "Could not calculate route.", true);
     }
+  }
+
+  // -------------------------------------------------------------------------
+  // Multi-day planning: split the calculated route into daily driving legs,
+  // suggest overnight stays, flag attraction-hours conflicts, and offer
+  // alternative paces. Recalculates from scratch every time it's called, so
+  // it always reflects the current stop order, mode, and pace.
+  // -------------------------------------------------------------------------
+  function renderMultiDayPlan(result) {
+    const panel = document.getElementById("multiday-panel");
+    if (!panel) return;
+
+    if (stops.length < 2 || !result.legs || !result.legs.length) {
+      panel.hidden = true;
+      lastMultiDayPlan = null;
+      return;
+    }
+
+    const plan = planMultiDayRoute(stops, result.legs, {
+      maxDrivingMinutesPerDay: PACE_PRESETS[pace].maxDrivingMinutesPerDay,
+    });
+    lastMultiDayPlan = plan;
+    panel.hidden = false;
+
+    document.getElementById("multiday-day-count").textContent =
+      `${plan.days.length} day${plan.days.length === 1 ? "" : "s"}`;
+
+    document.getElementById("multiday-days").innerHTML = plan.days
+      .map(
+        (day) => `
+        <div class="day-card">
+          <h4>Day ${day.dayNumber}</h4>
+          <p class="day-route">${day.stops.map((s) => s.name).join(" → ")}</p>
+          <p class="day-stats">${formatDuration(day.drivingMinutes)} driving · ${formatDistance(day.distanceKm)}</p>
+          ${day.overnightAt ? `<p class="day-overnight">🌙 Overnight in ${day.overnightAt.name}</p>` : ""}
+        </div>`
+      )
+      .join("");
+
+    const warningsEl = document.getElementById("multiday-warnings");
+    warningsEl.innerHTML = plan.warnings.length
+      ? `<ul>${plan.warnings.map((w) => `<li>${w}</li>`).join("")}</ul>`
+      : "";
+
+    const alternatives = getAlternativePlans(stops, result.legs);
+    document.getElementById("multiday-alternatives").innerHTML = alternatives
+      .map(
+        (alt) =>
+          `<li><strong>${alt.label}</strong> (${Math.round(alt.maxDrivingMinutesPerDay / 60)}h/day max): ${alt.dayCount} day${alt.dayCount === 1 ? "" : "s"}, ${formatDuration(alt.totalDrivingMinutes)} total driving</li>`
+      )
+      .join("");
+  }
+
+  function handlePaceChange(e) {
+    const btn = e.target.closest(".pace-btn");
+    if (!btn) return;
+    pace = btn.dataset.pace;
+    document.querySelectorAll(".pace-btn").forEach((b) => b.classList.toggle("active", b === btn));
+    // Recalculate immediately if we already have a plan on screen.
+    if (lastMultiDayPlan) {
+      getRoute(stops, mode).then(renderMultiDayPlan).catch(() => {});
+    }
+  }
+
+  // -------------------------------------------------------------------------
+  // Sustainability scoring: carbon footprint + 0-100 score + eco tips for
+  // the current stops/mode/accommodation combination. Recalculates from
+  // scratch on every call (same "no stale cache" approach as the multi-day
+  // plan), so score and footprint always match what's on screen.
+  // -------------------------------------------------------------------------
+  function renderSustainability(result) {
+    const panel = document.getElementById("sustainability-panel");
+    if (!panel) return;
+
+    if (stops.length < 2 || !result.legs || !result.legs.length) {
+      panel.hidden = true;
+      return;
+    }
+    panel.hidden = false;
+
+    const scoreResult = calculateSustainabilityScore(stops, result.legs, {
+      mode,
+      accommodationType,
+      travelers: 1,
+    });
+    const badge = getSustainabilityBadge(scoreResult.score);
+
+    document.getElementById("sustainability-score").textContent = scoreResult.score;
+    document.getElementById("sustainability-badge").textContent = `${badge.icon} ${badge.label}`;
+    document.getElementById("sustainability-badge").className = `sustainability-badge tier-${badge.tier}`;
+    document.getElementById("sustainability-footprint").textContent =
+      `${scoreResult.footprint.carbonKg.toFixed(1)} kg CO2e`;
+
+    const comparison = compareTransportModes(result.legs);
+    document.getElementById("sustainability-comparison").innerHTML = comparison
+      .map(
+        (c) => `
+        <li class="${c.mode === mode ? "current-mode" : ""}">
+          <span>${TRANSPORT_MODES[c.mode] ? TRANSPORT_MODES[c.mode].icon : ""} ${c.mode === mode ? `${c.mode} (current)` : c.mode}</span>
+          <span>${c.carbonKg.toFixed(1)} kg CO2e</span>
+        </li>`
+      )
+      .join("");
+
+    const tips = getRecommendations(stops, result.legs, { mode, accommodationType, travelers: 1 });
+    document.getElementById("sustainability-tips").innerHTML = tips.map((t) => `<li>${t}</li>`).join("");
+  }
+
+  function handleAccommodationChange(e) {
+    accommodationType = e.target.value;
+    if (!document.getElementById("sustainability-panel").hidden && stops.length >= 2) {
+      getRoute(stops, mode).then(renderSustainability).catch(() => {});
+    }
+  }
+
+  function handleExportItinerary() {
+    if (!lastMultiDayPlan) {
+      setStatus("Calculate a route first to export an itinerary.", true);
+      return;
+    }
+    const text = exportItineraryText(lastMultiDayPlan, {
+      title: "India Road Trip Itinerary",
+      mode: TRANSPORT_MODES[mode].label,
+    });
+    const blob = new Blob([text], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "india-itinerary.txt";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  // Itinerary changed (stop added/removed/reordered, mode changed) — the
+  // route, multi-day plan, and sustainability score on screen are now stale
+  // until recalculated.
+  function invalidateMultiDayPlan() {
+    lastMultiDayPlan = null;
+    const panel = document.getElementById("multiday-panel");
+    if (panel) panel.hidden = true;
+    const sustainabilityPanel = document.getElementById("sustainability-panel");
+    if (sustainabilityPanel) sustainabilityPanel.hidden = true;
   }
 
   function handleOptimize() {
@@ -142,6 +294,7 @@ function renderSummary(result) {
     stops = optimizeRoute(stops);
     renderStopList();
     renderMarkers();
+    invalidateMultiDayPlan();
     setStatus("Stop order optimized. Recalculate the route to update distance/time.");
   }
 
@@ -152,6 +305,7 @@ function renderSummary(result) {
     stops.push(dest);
     renderStopList();
     renderMarkers();
+    invalidateMultiDayPlan();
   }
 
   function handleModeChange(e) {
@@ -159,6 +313,7 @@ function renderSummary(result) {
     if (!btn) return;
     mode = btn.dataset.mode;
     document.querySelectorAll(".mode-btn").forEach((b) => b.classList.toggle("active", b === btn));
+    invalidateMultiDayPlan();
   }
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -168,5 +323,11 @@ function renderSummary(result) {
     document.getElementById("optimize-btn").addEventListener("click", handleOptimize);
     document.getElementById("calc-route-btn").addEventListener("click", calculateRoute);
     document.getElementById("mode-selector").addEventListener("click", handleModeChange);
+    const paceSelector = document.getElementById("pace-selector");
+    if (paceSelector) paceSelector.addEventListener("click", handlePaceChange);
+    const exportBtn = document.getElementById("export-itinerary-btn");
+    if (exportBtn) exportBtn.addEventListener("click", handleExportItinerary);
+    const accommodationSelect = document.getElementById("accommodation-select");
+    if (accommodationSelect) accommodationSelect.addEventListener("change", handleAccommodationChange);
   });
 })();
