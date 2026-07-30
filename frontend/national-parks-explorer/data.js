@@ -44,10 +44,10 @@ const NATIONAL_PARKS = [
         coordinates: { lat: 29.53, lng: 78.77 },
         climate: 'Subtropical',
         bestTime: 'November to June',
-        entryFee: '₹200 (Indian), ₹1000 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Jim_Corbett_National_Park_%28India%29.jpg/960px-Jim_Corbett_National_Park_%28India%29.jpg'
-    },
-    {
+entryFee: '₹200 (Indian), ₹1000 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Jim_Corbett_National_Park_%28India%29.jpg/960px-Jim_Corbett_National_Park_%28India%29.jpg',
+        explorerUrl: '../jim-corbett-national-park-explorer/index.html'
+    },    {
         id: 'kaziranga',
         name: 'Kaziranga National Park',
         state: 'Assam',
