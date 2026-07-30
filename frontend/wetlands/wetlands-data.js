@@ -107,6 +107,51 @@ export const WETLANDS_DATA = {
             isFeatured: true
         },
         {
+            id: 'pala-wetland',
+            name: 'Pala Wetland',
+            state: 'Mizoram',
+            type: 'Lake',
+            area: '1.85 km²',
+            ramsarDeclared: 2021,
+            ramsarSiteNo: 2460,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/White-winged_duck_Asarcornis_scutulata.jpg/800px-White-winged_duck_Asarcornis_scutulata.jpg',
+            shortDesc: 'Mizoram\'s first Ramsar Site and largest natural freshwater lake, surrounded by tropical evergreen forest and Mara tribal folklore.',
+            exploreUrl: '../pala-wetland-explorer/index.html',
+            coordinates: { lat: 22.203, lng: 92.906 },
+            keyFauna: ['White-winged Wood Duck', 'Great Hornbill', 'Mizoram Chameleon Fish', 'Asian Emerald Dove'],
+            isFeatured: true
+        },
+        {
+            id: 'hygam-wetland',
+            name: 'Hygam Wetland Conservation Reserve',
+            state: 'Jammu & Kashmir',
+            type: 'Floodplain',
+            area: '8.02 km²',
+            ramsarDeclared: 2022,
+            ramsarSiteNo: 2489,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/bf/Mallard_drake_at_St_James%27s_Park.jpg/800px-Mallard_drake_at_St_James%27s_Park.jpg',
+            shortDesc: 'Ramsar Site in Kashmir Valley, crucial stopover on the Central Asian Flyway and natural flood sponge for the Jhelum basin.',
+            exploreUrl: '../hygam-wetland-explorer/index.html',
+            coordinates: { lat: 34.238, lng: 74.521 },
+            keyFauna: ['Mallard', 'Gadwall', 'Northern Pintail', 'Common Teal'],
+            isFeatured: true
+        },
+        {
+            id: 'shallabug-wetland',
+            name: 'Shallabug Wetland Conservation Reserve',
+            state: 'Jammu & Kashmir',
+            type: 'Marsh',
+            area: '16.75 km²',
+            ramsarDeclared: 2022,
+            ramsarSiteNo: 2490,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Eurasian_Wigeon_male.jpg/800px-Eurasian_Wigeon_male.jpg',
+            shortDesc: 'Vast Kashmir marshland Ramsar site supporting 200,000+ waterfowl and traditional wicker willow handicraft heritage.',
+            exploreUrl: '../shallabug-wetland-explorer/index.html',
+            coordinates: { lat: 34.167, lng: 74.717 },
+            keyFauna: ['Eurasian Wigeon', 'Garganey', 'Greylag Goose', 'Ferruginous Pochard'],
+            isFeatured: true
+        },
+        {
             id: 'wular-lake',
             name: 'Wular Lake',
             state: 'Jammu & Kashmir',
@@ -119,6 +164,36 @@ export const WETLANDS_DATA = {
             exploreUrl: '../../wular-lake/wular-lake.html',
             coordinates: { lat: 34.35, lng: 74.6 },
             keyFauna: ['Common Teal', 'Pintail', 'Schizothorax fish', 'Mallard'],
+            isFeatured: true
+        },
+        {
+            id: 'wadhvana-wetland',
+            name: 'Wadhvana Wetland',
+            state: 'Gujarat',
+            type: 'Reservoir',
+            area: '10.3 km²',
+            ramsarDeclared: 2021,
+            ramsarSiteNo: 2454,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ferruginous_duck_%28Aythya_nyroca%29_male.jpg/800px-Ferruginous_duck_%28Aythya_nyroca%29_male.jpg',
+            shortDesc: 'Century-old reservoir built by Maharaja Sayajirao Gaekwad III, Ramsar Site supporting 80,000+ wintering migratory waterfowl.',
+            exploreUrl: '../wadhvana-wetland-explorer/index.html',
+            coordinates: { lat: 22.174, lng: 73.483 },
+            keyFauna: ['Ferruginous Duck', 'Greylag Goose', 'Greater Flamingo', 'Common Pochard'],
+            isFeatured: true
+        },
+        {
+            id: 'pala-wetland',
+            name: 'Pala Wetland',
+            state: 'Mizoram',
+            type: 'Lake',
+            area: '1.85 km²',
+            ramsarDeclared: 2021,
+            ramsarSiteNo: 2460,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/White-winged_duck_Asarcornis_scutulata.jpg/800px-White-winged_duck_Asarcornis_scutulata.jpg',
+            shortDesc: 'Mizoram\'s first Ramsar Site and largest natural freshwater lake, surrounded by tropical evergreen forest and Mara tribal folklore.',
+            exploreUrl: '../pala-wetland-explorer/index.html',
+            coordinates: { lat: 22.203, lng: 92.906 },
+            keyFauna: ['White-winged Wood Duck', 'Great Hornbill', 'Mizoram Chameleon Fish', 'Asian Emerald Dove'],
             isFeatured: true
         },
         {
@@ -210,6 +285,22 @@ export const WETLANDS_DATA = {
             coordinates: { lat: 31.38, lng: 75.18 },
             keyFauna: ['Gharial', 'Indus River Dolphin', 'Smooth-coated Otter'],
             isFeatured: false
+        },
+        {
+            id: 'wadhvana-wetland',
+            name: 'Wadhvana Wetland',
+            state: 'Gujarat',
+            type: 'Reservoir',
+            area: '10.3 km²',
+            ramsarDeclared: 2021,
+            ramsarSiteNo: 2454,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ferruginous_duck_%28Aythya_nyroca%29_male.jpg/800px-Ferruginous_duck_%28Aythya_nyroca%29_male.jpg',
+            shortDesc: 'Century-old reservoir built by Maharaja Sayajirao Gaekwad III, Ramsar Site supporting 80,000+ wintering migratory waterfowl.',
+            exploreUrl: '../wadhvana-wetland-explorer/index.html',
+            coordinates: { lat: 22.174, lng: 73.483 },
+            keyFauna: ['Ferruginous Duck', 'Greylag Goose', 'Greater Flamingo', 'Common Pochard'],
+            isFeatured: true
         }
     ]
 };
+
