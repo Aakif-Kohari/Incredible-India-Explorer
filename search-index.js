@@ -1496,5 +1496,12 @@ window.indiaSearchIndex = [
     category: "Governance & Politics",
     description: "Interactive educational explorer covering current Chief Ministers across all states and union territories, political parties, capitals, and state facts.",
     url: "frontend/state-chief-ministers-explorer/index.html"
+  },
+  // --- Loktak Lake Explorer ---
+  {
+    title: "Loktak Lake Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Explore Loktak Lake in Manipur — World's only floating national park (Keibul Lamjao), floating Phumdis, endangered Sangai Dancing Deer, and Meitei culture.",
+    url: "frontend/loktak-lake/index.html"
   }
 ];
