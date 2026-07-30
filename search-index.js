@@ -1432,7 +1432,25 @@ window.indiaSearchIndex = [
     title: "Shallabug Wetland Explorer",
     category: "Wetlands & Ramsar Sites",
     description: "Explore Shallabug Wetland Conservation Reserve in Kashmir — Ramsar Site, 200,000+ wintering migratory birds, and traditional wicker willow heritage.",
-    url: "frontend/shallabug-wetland-explorer/index.html"
+    url: "frontend/shallabug-wetland-explorer/index.html"},
+  // --- Hygam Wetland Explorer ---
+  {
+    title: "Hygam Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Hygam Wetland Conservation Reserve in Baramulla, Kashmir — Ramsar Site, Central Asian Flyway stopover, and flood sponge in the Jhelum basin.",
+    url: "frontend/hygam-wetland-explorer/index.html"},
+  // --- Pala Wetland Explorer ---
+  {
+    title: "Pala Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Pala Wetland (Pala Tipa) in Mizoram — Mizoram's first Ramsar Site and largest natural freshwater lake surrounded by tropical evergreen forests.",
+    url: "frontend/pala-wetland-explorer/index.html"},
+  // --- Wadhvana Wetland Explorer ---
+  {
+    title: "Wadhvana Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Wadhvana Wetland in Gujarat — a Ramsar Site and century-old reservoir built by Maharaja Sayajirao Gaekwad III, hosting 80,000+ wintering migratory birds.",
+    url: "frontend/wadhvana-wetland-explorer/index.html"
   },
   // --- The Making of Modern India (1757–1947) Timeline ---
   {
@@ -1534,5 +1552,19 @@ window.indiaSearchIndex = [
     category: "National Parks & Wildlife",
     description: "Explore Hemis National Park in Ladakh — World's highest density of Snow Leopards, high-altitude cold desert ecosystem, Markha Valley trekking, Himalayan wildlife, and Buddhist culture.",
     url: "frontend/hemis-national-park-explorer/index.html"
+  },
+  // --- River Origin Challenge ---
+  {
+    title: "River Origin Challenge",
+    category: "Games & Geography",
+    description: "Match Indian rivers (Ganga, Yamuna, Godavari, Brahmaputra, Kaveri, Narmada, Krishna, etc.) with their origins, tributaries, and sea destinations on an interactive map with drag-and-drop gameplay.",
+    url: "frontend/river-origin-challenge/index.html"
+  },
+  // --- Crop Journey Game ---
+  {
+    title: "Crop Journey Game",
+    category: "Games & Geography",
+    description: "Match Indian crops (Rice, Wheat, Cotton, Sugarcane, Watermelon, Mustard, etc.) with Kharif, Rabi & Zaid farming seasons, climate needs, and producing states across progressive difficulty levels.",
+    url: "frontend/crop-journey/index.html"
   }
 ];

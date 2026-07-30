@@ -107,6 +107,21 @@ export const WETLANDS_DATA = {
             isFeatured: true
         },
         {
+            id: 'pala-wetland',
+            name: 'Pala Wetland',
+            state: 'Mizoram',
+            type: 'Lake',
+            area: '1.85 km²',
+            ramsarDeclared: 2021,
+            ramsarSiteNo: 2460,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/White-winged_duck_Asarcornis_scutulata.jpg/800px-White-winged_duck_Asarcornis_scutulata.jpg',
+            shortDesc: 'Mizoram\'s first Ramsar Site and largest natural freshwater lake, surrounded by tropical evergreen forest and Mara tribal folklore.',
+            exploreUrl: '../pala-wetland-explorer/index.html',
+            coordinates: { lat: 22.203, lng: 92.906 },
+            keyFauna: ['White-winged Wood Duck', 'Great Hornbill', 'Mizoram Chameleon Fish', 'Asian Emerald Dove'],
+            isFeatured: true
+        },
+        {
             id: 'hygam-wetland',
             name: 'Hygam Wetland Conservation Reserve',
             state: 'Jammu & Kashmir',
@@ -149,6 +164,36 @@ export const WETLANDS_DATA = {
             exploreUrl: '../../wular-lake/wular-lake.html',
             coordinates: { lat: 34.35, lng: 74.6 },
             keyFauna: ['Common Teal', 'Pintail', 'Schizothorax fish', 'Mallard'],
+            isFeatured: true
+        },
+        {
+            id: 'wadhvana-wetland',
+            name: 'Wadhvana Wetland',
+            state: 'Gujarat',
+            type: 'Reservoir',
+            area: '10.3 km²',
+            ramsarDeclared: 2021,
+            ramsarSiteNo: 2454,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ferruginous_duck_%28Aythya_nyroca%29_male.jpg/800px-Ferruginous_duck_%28Aythya_nyroca%29_male.jpg',
+            shortDesc: 'Century-old reservoir built by Maharaja Sayajirao Gaekwad III, Ramsar Site supporting 80,000+ wintering migratory waterfowl.',
+            exploreUrl: '../wadhvana-wetland-explorer/index.html',
+            coordinates: { lat: 22.174, lng: 73.483 },
+            keyFauna: ['Ferruginous Duck', 'Greylag Goose', 'Greater Flamingo', 'Common Pochard'],
+            isFeatured: true
+        },
+        {
+            id: 'pala-wetland',
+            name: 'Pala Wetland',
+            state: 'Mizoram',
+            type: 'Lake',
+            area: '1.85 km²',
+            ramsarDeclared: 2021,
+            ramsarSiteNo: 2460,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/White-winged_duck_Asarcornis_scutulata.jpg/800px-White-winged_duck_Asarcornis_scutulata.jpg',
+            shortDesc: 'Mizoram\'s first Ramsar Site and largest natural freshwater lake, surrounded by tropical evergreen forest and Mara tribal folklore.',
+            exploreUrl: '../pala-wetland-explorer/index.html',
+            coordinates: { lat: 22.203, lng: 92.906 },
+            keyFauna: ['White-winged Wood Duck', 'Great Hornbill', 'Mizoram Chameleon Fish', 'Asian Emerald Dove'],
             isFeatured: true
         },
         {
@@ -210,6 +255,22 @@ export const WETLANDS_DATA = {
             coordinates: { lat: 31.38, lng: 75.18 },
             keyFauna: ['Gharial', 'Indus River Dolphin', 'Smooth-coated Otter'],
             isFeatured: false
+        },
+        {
+            id: 'wadhvana-wetland',
+            name: 'Wadhvana Wetland',
+            state: 'Gujarat',
+            type: 'Reservoir',
+            area: '10.3 km²',
+            ramsarDeclared: 2021,
+            ramsarSiteNo: 2454,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ferruginous_duck_%28Aythya_nyroca%29_male.jpg/800px-Ferruginous_duck_%28Aythya_nyroca%29_male.jpg',
+            shortDesc: 'Century-old reservoir built by Maharaja Sayajirao Gaekwad III, Ramsar Site supporting 80,000+ wintering migratory waterfowl.',
+            exploreUrl: '../wadhvana-wetland-explorer/index.html',
+            coordinates: { lat: 22.174, lng: 73.483 },
+            keyFauna: ['Ferruginous Duck', 'Greylag Goose', 'Greater Flamingo', 'Common Pochard'],
+            isFeatured: true
         }
     ]
 };
+
