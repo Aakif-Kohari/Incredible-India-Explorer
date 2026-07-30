@@ -107,6 +107,36 @@ export const WETLANDS_DATA = {
             isFeatured: true
         },
         {
+            id: 'hygam-wetland',
+            name: 'Hygam Wetland Conservation Reserve',
+            state: 'Jammu & Kashmir',
+            type: 'Floodplain',
+            area: '8.02 km²',
+            ramsarDeclared: 2022,
+            ramsarSiteNo: 2489,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/bf/Mallard_drake_at_St_James%27s_Park.jpg/800px-Mallard_drake_at_St_James%27s_Park.jpg',
+            shortDesc: 'Ramsar Site in Kashmir Valley, crucial stopover on the Central Asian Flyway and natural flood sponge for the Jhelum basin.',
+            exploreUrl: '../hygam-wetland-explorer/index.html',
+            coordinates: { lat: 34.238, lng: 74.521 },
+            keyFauna: ['Mallard', 'Gadwall', 'Northern Pintail', 'Common Teal'],
+            isFeatured: true
+        },
+        {
+            id: 'shallabug-wetland',
+            name: 'Shallabug Wetland Conservation Reserve',
+            state: 'Jammu & Kashmir',
+            type: 'Marsh',
+            area: '16.75 km²',
+            ramsarDeclared: 2022,
+            ramsarSiteNo: 2490,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Eurasian_Wigeon_male.jpg/800px-Eurasian_Wigeon_male.jpg',
+            shortDesc: 'Vast Kashmir marshland Ramsar site supporting 200,000+ waterfowl and traditional wicker willow handicraft heritage.',
+            exploreUrl: '../shallabug-wetland-explorer/index.html',
+            coordinates: { lat: 34.167, lng: 74.717 },
+            keyFauna: ['Eurasian Wigeon', 'Garganey', 'Greylag Goose', 'Ferruginous Pochard'],
+            isFeatured: true
+        },
+        {
             id: 'wular-lake',
             name: 'Wular Lake',
             state: 'Jammu & Kashmir',
