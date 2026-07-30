@@ -1534,5 +1534,12 @@ window.indiaSearchIndex = [
     category: "Games & Geography",
     description: "Match Indian rivers (Ganga, Yamuna, Godavari, Brahmaputra, Kaveri, Narmada, Krishna, etc.) with their origins, tributaries, and sea destinations on an interactive map with drag-and-drop gameplay.",
     url: "frontend/river-origin-challenge/index.html"
+  },
+  // --- Crop Journey Game ---
+  {
+    title: "Crop Journey Game",
+    category: "Games & Geography",
+    description: "Match Indian crops (Rice, Wheat, Cotton, Sugarcane, Watermelon, Mustard, etc.) with Kharif, Rabi & Zaid farming seasons, climate needs, and producing states across progressive difficulty levels.",
+    url: "frontend/crop-journey/index.html"
   }
 ];
