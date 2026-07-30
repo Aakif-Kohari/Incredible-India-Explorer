@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Harike Wetland Explorer - Discover Punjab's largest wetland, a Ramsar Site at the confluence of the Beas and Sutlej rivers." name="description"/>
+    <meta property="og:title" content="Harike Wetland Explorer | Incredible India"/>
+    <meta property="og:description" content="Explore Harike Wetland, an internationally important Ramsar Site and haven for migratory birds in Punjab, India."/>
+
+    <title>Harike Wetland Explorer | Incredible India</title>
+
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link href="../styles.css" rel="stylesheet"/>
+    <link href="../pages-common.css" rel="stylesheet"/>
+    <link href="harike-wetland.css" rel="stylesheet"/>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Harike Wetland",
+      "description": "Punjab's largest wetland, a Ramsar Site formed at the confluence of the Beas and Sutlej rivers, and a major wintering ground for migratory birds.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Punjab",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+                <a href="../festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+                <a href="../culture.html" class="nav-link" id="link-culture">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife.html" class="dropdown-item" style="color: var(--saffron)">Nature & Wildlife</a>
+                        <a href="../personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="../arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" style="padding-top: 80px;">
+
+        <!-- Hero Section -->
+        <section class="harike-hero">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge ramsar"><i class="fa-solid fa-water"></i> Ramsar Site</span>
+                    <span class="badge birds"><i class="fa-solid fa-dove"></i> Bird Sanctuary</span>
+                    <span class="badge location"><i class="fa-solid fa-map-pin"></i> Punjab</span>
+                </div>
+                <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Harike Wetland</h1>
+                <p class="hero-description animate-fade-in-delayed" style="color: #eee; max-width: 600px; font-size: 1.1rem; line-height: 1.6;">
+                    Discover Punjab's largest wetland, formed at the confluence of the Beas and Sutlej rivers. A globally recognized Ramsar Site and winter refuge for thousands of migratory waterbirds.
+                </p>
+                <div class="hero-actions">
+                    <a href="#birdlife" class="btn btn-primary ripple">Explore Birdlife</a>
+                    <a href="#map" class="btn btn-secondary ripple">View Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- History & Confluence -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge gold-bg">Heritage & Geography</span>
+                    <h2>History & the Beas-Sutlej Confluence</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-landmark"></i> Formation</h3>
+                        <p>Harike Wetland was created in 1953 following the construction of the Harike Barrage, forming a vast man-made lake at the meeting point of two great rivers.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-water"></i> Beas-Sutlej Confluence</h3>
+                        <p>The wetland lies exactly where the Beas River merges into the Sutlej, making it one of the most significant riverine confluences in northern India.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-globe"></i> Ramsar Site</h3>
+                        <p>Designated a Ramsar Site of International Importance in 1990, Harike is recognized worldwide for its role in wetland conservation and biodiversity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Birdlife -->
+        <section id="birdlife" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #03a9f4; color: white;">Avifauna</span>
+                    <h2>Birdlife of Harike</h2>
+                    <p class="section-subtitle">One of India's premier destinations for migratory waterbirds.</p>
+                </div>
+                <div class="wildlife-grid">
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Indian_Skimmer_%28Rynchops_albicollis%29.jpg/800px-Indian_Skimmer_%28Rynchops_albicollis%29.jpg" alt="Indian Skimmer" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Indian Skimmer</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>A rare riverine bird species that breeds on the sandbanks of the Harike wetland.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Bar-headed_Goose_RWD2.jpg/800px-Bar-headed_Goose_RWD2.jpg" alt="Bar-headed Goose" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Bar-headed Goose</h3>
+                            <span class="wildlife-status status-least-concern">Least Concern</span>
+                            <p>Arrives in large flocks after an extraordinary high-altitude migration over the Himalayas.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Greylag_goose%2C_Anser_anser.jpg/800px-Greylag_goose%2C_Anser_anser.jpg" alt="Greylag Goose" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Greylag Goose</h3>
+                            <span class="wildlife-status status-least-concern">Least Concern</span>
+                            <p>One of the most abundant winter visitors, gathering in the open waters in large numbers.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Northern_Pintail_%28Anas_acuta%29.jpg/800px-Northern_Pintail_%28Anas_acuta%29.jpg" alt="Northern Pintail" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Northern Pintail</h3>
+                            <span class="wildlife-status status-least-concern">Least Concern</span>
+                            <p>A graceful duck species commonly spotted dabbling in the shallow marshy edges.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wetland Biodiversity & Conservation -->
+        <section class="content-section fade-in-section">
+            <div class="section-container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+                <div class="conservation-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: var(--green); color: white;">Conservation</span>
+                        <h2>Protecting Harike</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">Harike's ecological importance has driven decades of conservation effort amid growing water and agricultural pressures.</p>
+                    <ul>
+                        <li><strong>Wildlife Sanctuary Status:</strong> Declared a Wildlife Sanctuary in 1982 to safeguard its rich biodiversity.</li>
+                        <li><strong>Weed Control:</strong> Ongoing efforts to manage invasive water hyacinth that threatens open water habitats.</li>
+                        <li><strong>Anti-poaching Patrols:</strong> Regular monitoring to protect birds and the endangered Indus River Dolphin.</li>
+                        <li><strong>Community Awareness:</strong> Local eco-tourism and education programs to promote wetland stewardship.</li>
+                    </ul>
+                </div>
+                <div class="wetlands-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: #1976d2; color: white;">Biodiversity</span>
+                        <h2>Wetland Biodiversity</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">The mix of open water, reedbeds, and islands makes Harike a rich, diverse ecosystem.</p>
+                    <ul>
+                        <li><strong>Fish Diversity:</strong> Home to over 50 fish species that sustain both wildlife and local fisheries.</li>
+                        <li><strong>Indus River Dolphin:</strong> One of the few sites in India where this critically endangered freshwater dolphin is found.</li>
+                        <li><strong>Aquatic Vegetation:</strong> Reed beds and floating vegetation provide nesting grounds for resident and migratory birds.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interesting Facts -->
+        <section class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #ff9800; color: white;">Did You Know?</span>
+                    <h2>Interesting Facts</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-fish"></i> Rare Freshwater Dolphin</h3>
+                        <p>Harike is one of the only places in India where the endangered Indus River Dolphin can still be spotted in the wild.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-plane"></i> Migratory Hotspot</h3>
+                        <p>Over 200 bird species, including many long-distance migrants from Siberia and Central Asia, winter at Harike every year.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-water"></i> Largest Wetland in Punjab</h3>
+                        <p>Spanning roughly 4,100 hectares, Harike is the largest man-made wetland in northern India.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #e91e63; color: white;">Gallery</span>
+                    <h2>Visual Journey</h2>
+                </div>
+                <div class="gallery-grid" id="gallery-grid" role="group" aria-label="Image Gallery">
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Wetland Landscape Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Greylag_goose%2C_Anser_anser.jpg/800px-Greylag_goose%2C_Anser_anser.jpg" alt="Wetland landscape of Harike">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Migratory Birds Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Bar-headed_Goose_RWD2.jpg/800px-Bar-headed_Goose_RWD2.jpg" alt="Migratory birds at Harike">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Indian Skimmer Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Indian_Skimmer_%28Rynchops_albicollis%29.jpg/800px-Indian_Skimmer_%28Rynchops_albicollis%29.jpg" alt="Indian Skimmer at Harike">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Northern Pintail Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Northern_Pintail_%28Anas_acuta%29.jpg/800px-Northern_Pintail_%28Anas_acuta%29.jpg" alt="Northern Pintail at Harike">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section id="map" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Map</span>
+                    <h2>Interactive Map</h2>
+                    <p class="section-subtitle">Explore the Harike Barrage, the Beas-Sutlej confluence, and the surrounding wetland.</p>
+                </div>
+                <div id="map-container" aria-label="Interactive map of Harike Wetland"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../pages-common.js"></script>
+    <script src="harike-wetland.js"></script>
+</body>
+</html>
