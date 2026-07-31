@@ -300,6 +300,21 @@ export const WETLANDS_DATA = {
             coordinates: { lat: 22.174, lng: 73.483 },
             keyFauna: ['Ferruginous Duck', 'Greylag Goose', 'Greater Flamingo', 'Common Pochard'],
             isFeatured: true
+        },
+        {
+            id: 'ashtamudi-lake',
+            name: 'Ashtamudi Lake',
+            state: 'Kerala',
+            type: 'Estuary',
+            area: '61.4 km²',
+            ramsarDeclared: 2002,
+            ramsarSiteNo: 1214,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Stork-billed_kingfisher_%28Pelargopsis_capensis_capensis%29.jpg/800px-Stork-billed_kingfisher_%28Pelargopsis_capensis_capensis%29.jpg',
+            shortDesc: 'Kerala\'s famous 8-armed palm-shaped backwaters, Ramsar Site #1214, home to Kettuvallam houseboats, Munroe mangroves, and MSC certified clam fisheries.',
+            exploreUrl: '../ashtamudi-lake-explorer/index.html',
+            coordinates: { lat: 8.950, lng: 76.583 },
+            keyFauna: ['Stork-billed Kingfisher', 'Malabar Short-neck Clam', 'Indian Cormorant', 'Little Egret'],
+            isFeatured: true
         }
     ]
 };
