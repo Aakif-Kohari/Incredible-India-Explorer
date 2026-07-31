@@ -151,9 +151,9 @@ entryFee: '₹150 (Indian), ₹500 (Foreign)',
         climate: 'Subtropical',
         bestTime: 'October to June',
         entryFee: '₹150 (Indian), ₹500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg/960px-1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg'
-    },
-    {
+image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg/960px-1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg',
+        explorerUrl: '../bandhavgarh-national-park-explorer/index.html'
+    },    {
         id: 'periyar',
         name: 'Periyar National Park',
         state: 'Kerala',
