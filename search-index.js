@@ -1434,6 +1434,13 @@ window.indiaSearchIndex = [
     description: "Explore Satkosia Gorge Wetlands in Odisha — 22 km Mahanadi River gorge Ramsar site, pioneer sanctuary for Gharials and Mugger crocodiles.",
     url: "frontend/satkosia-gorge-wetlands-explorer/index.html"
   },
+  // --- Tampara Lake Explorer ---
+  {
+    title: "Tampara Lake Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Tampara Lake in Ganjam, Odisha — Ramsar Site, freshwater coastal lagoon, fisheries, and eco-boating destination.",
+    url: "frontend/tampara-lake-explorer/index.html"
+  },
   // --- Keshopur-Miani Wetland Explorer ---
   {
     title: "Keshopur-Miani Wetland Explorer",
