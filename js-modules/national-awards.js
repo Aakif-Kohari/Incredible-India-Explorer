@@ -330,6 +330,33 @@ export const AWARD_ENCYCLOPEDIA = {
       'The iconic copper plaque awarded to recipients was designed by Oscar-winning film director Satyajit Ray.',
       'Recognizes books in 24 Indian languages, promoting linguistic diversity and regional literature.'
     ]
+  },
+
+  // ==================== HEALTHCARE AWARDS ====================
+  'national-florence-nightingale-award': {
+    id: 'national-florence-nightingale-award',
+    name: 'National Florence Nightingale Award',
+    category: 'healthcare',
+    categoryName: 'Nursing Excellence Honour',
+    rank: "Highest Nursing Recognition",
+    establishedYear: '1973',
+    eligibility: 'Awarded to regular nursing staff from government and private hospitals with a minimum of 10 years of service. Candidates must possess recognized nursing qualifications (B.Sc. Nursing, GNM, or equivalent) and demonstrate exceptional dedication to patient care.',
+    history: 'Instituted in 1973 by the Ministry of Health and Family Welfare, Government of India. Named after Florence Nightingale, the legendary British nurse who founded modern nursing practices during the Crimean War.',
+    medalDesign: 'Includes a cash prize of ₹50,000, a citation certificate, and a medal. The award is presented annually on International Nurses Day (May 12th), Florence Nightingale\'s birthday.',
+    notableWinners: [
+      { name: 'Sister Lucy Kurien', year: 1985, note: 'Pediatric nursing and work with underprivileged children' },
+      { name: 'Sister M. D. Rosalind', year: 1990, note: 'Mental health nursing and psychiatric patient care' },
+      { name: 'Sister K. T. Rose', year: 1995, note: 'Critical care nursing and emergency department services' },
+      { name: 'Sister Mary Thomas', year: 2000, note: 'Community health nursing and rural healthcare programs' },
+      { name: 'Sister S. K. Anitha', year: 2020, note: 'Exceptional service during COVID-19 pandemic' }
+    ],
+    interestingFacts: [
+      'The award is named after Florence Nightingale, known as "The Lady with the Lamp" for her night rounds during the Crimean War.',
+      'Over 1,500 nurses have been recognized since the award\'s inception in 1973.',
+      'The award ceremony is typically held on May 12th, International Nurses Day, which is also Florence Nightingale\'s birthday.',
+      '35+ nurses are selected annually from across India for this prestigious honor.',
+      'The award recognizes nurses from various specializations including critical care, pediatrics, mental health, and community health.'
+    ]
   }
 };
 
