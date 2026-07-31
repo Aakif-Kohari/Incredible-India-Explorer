@@ -302,6 +302,21 @@ export const WETLANDS_DATA = {
             isFeatured: false
         },
         {
+            id: 'tampara-lake',
+            name: 'Tampara Lake',
+            state: 'Odisha',
+            type: 'Lagoon',
+            area: '3.0 km²',
+            ramsarDeclared: 2022,
+            ramsarSiteNo: 2488,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Common_Pochard_male.jpg/800px-Common_Pochard_male.jpg',
+            shortDesc: 'Picturesque freshwater coastal lagoon lake in Ganjam, Ramsar Site supporting rich fisheries and migratory waterfowl.',
+            exploreUrl: '../tampara-lake-explorer/index.html',
+            coordinates: { lat: 19.35, lng: 85.02 },
+            keyFauna: ['Common Pochard', 'Rohu Fish', 'Great Cormorant', 'Intermediate Egret'],
+            isFeatured: true
+        },
+        {
             id: 'ansupa-lake',
             name: 'Ansupa Lake',
             state: 'Odisha',
@@ -317,21 +332,6 @@ export const WETLANDS_DATA = {
             isFeatured: true
         },
         {
-            id: 'satkosia-gorge-wetland',
-            name: 'Satkosia Gorge Wetlands',
-            state: 'Odisha',
-            type: 'Floodplain',
-            area: '425.89 km²',
-            ramsarDeclared: 2022,
-            ramsarSiteNo: 2468,
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Gharial_Gavialis_gangeticus.jpg/800px-Gharial_Gavialis_gangeticus.jpg',
-            shortDesc: 'Spectacular 22 km Mahanadi River gorge Ramsar site in Eastern Ghats, pioneer sanctuary for Gharial and Mugger crocodiles.',
-            exploreUrl: '../satkosia-gorge-wetlands-explorer/index.html',
-            coordinates: { lat: 20.58, lng: 84.83 },
-            keyFauna: ['Gharial', 'Mugger Crocodile', 'Indian Skimmer', 'Asian Elephant'],
-            isFeatured: true
-        },
-        {
             id: 'renuka-wetland',
             name: 'Renuka Wetland',
             state: 'Himachal Pradesh',
@@ -341,7 +341,6 @@ export const WETLANDS_DATA = {
             ramsarSiteNo: 1571,
             image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Renuka%20Lake.jpg?width=960',
             shortDesc: "India's largest natural lake in Himachal Pradesh and one of its smallest Ramsar sites — sacred to the goddess Renuka, mother of Parashurama.",
-            exploreUrl: '../../renuka-wetland/renuka-wetland.html',
             coordinates: { lat: 30.61, lng: 77.4583 },
             keyFauna: ['Himalayan Goral', 'Barking Deer', 'Crimson-breasted Barbet'],
             isFeatured: false

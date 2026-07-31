@@ -1432,7 +1432,13 @@ window.indiaSearchIndex = [
     title: "Satkosia Gorge Wetlands Explorer",
     category: "Wetlands & Ramsar Sites",
     description: "Explore Satkosia Gorge Wetlands in Odisha — 22 km Mahanadi River gorge Ramsar site, pioneer sanctuary for Gharials and Mugger crocodiles.",
-    url: "frontend/satkosia-gorge-wetlands-explorer/index.html"
+    url: "frontend/satkosia-gorge-wetlands-explorer/index.html"},
+  // --- Ansupa Lake Explorer ---
+  {
+    title: "Ansupa Lake Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Ansupa Lake in Cuttack, Odisha — Ramsar Site, Odisha's largest freshwater oxbow lake formed by the Mahanadi River.",
+    url: "frontend/ansupa-lake-explorer/index.html"
   },
   // --- Tampara Lake Explorer ---
   {
