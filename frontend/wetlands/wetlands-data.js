@@ -300,6 +300,21 @@ export const WETLANDS_DATA = {
             coordinates: { lat: 22.174, lng: 73.483 },
             keyFauna: ['Ferruginous Duck', 'Greylag Goose', 'Greater Flamingo', 'Common Pochard'],
             isFeatured: true
+        },
+        {
+            id: 'deepor-beel',
+            name: 'Deepor Beel',
+            state: 'Assam',
+            type: 'Lake',
+            area: '40.14 km²',
+            ramsarDeclared: 2002,
+            ramsarSiteNo: 1207,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Greater_Adjutant_Stork_%28Leptoptilos_dubius%29.jpg/800px-Greater_Adjutant_Stork_%28Leptoptilos_dubius%29.jpg',
+            shortDesc: 'Assam\'s only Ramsar Site, vital freshwater lake in Guwahati, sanctuary for Endangered Hargila storks and Asian elephant corridor.',
+            exploreUrl: '../deepor-beel-explorer/index.html',
+            coordinates: { lat: 26.124, lng: 91.662 },
+            keyFauna: ['Greater Adjutant Stork', 'Asian Elephant', 'Spot-billed Pelican', 'Lesser Adjutant'],
+            isFeatured: true
         }
     ]
 };
