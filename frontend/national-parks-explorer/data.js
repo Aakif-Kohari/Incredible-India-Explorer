@@ -560,6 +560,27 @@ const NATIONAL_PARKS = [
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Desert_vegetation_DSC0942.jpg/960px-Desert_vegetation_DSC0942.jpg'
     },
     {
+        id: 'balpakram',
+        name: 'Balpakram National Park',
+        state: 'Meghalaya',
+        stateId: 'ml',
+        established: 1987,
+        area: 220,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description: 'Known as the "Abode of Perpetual Winds," Balpakram sits atop the Garo Hills plateau near the Bangladesh border. Famous for its dramatic gorge — often compared to a mini Grand Canyon — limestone caves, and as one of the few confirmed habitats of the red panda in the region.',
+        keyFauna: ['Red Panda', 'Clouded Leopard', 'Asian Elephant', 'Hoolock Gibbon', 'Bengal Tiger', 'Great Hornbill'],
+        keyFlora: ['Pitcher Plant', 'Sundew (Drosera)', 'Bamboo Forest', 'Montane Grassland', 'Shola Forest'],
+        coordinates: { lat: 25.417, lng: 90.867 },
+        climate: 'Subtropical Highland',
+        bestTime: 'October to April',
+        entryFee: '₹50 (Indian), ₹300 (Foreign)',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Matcha%20Nokpante%20(tiger%27s%20meeting%20place)%20in%20Balpakram%20National%20Park.jpg',
+        explorerUrl: '../balpakram-national-park-explorer/index.html'
+    },
+    {
         id: 'silent-valley',
         name: 'Silent Valley National Park',
         state: 'Kerala',
@@ -834,5 +855,6 @@ const STATES = [
     { id: 'as', name: 'Assam', region: 'northeast' },
     { id: 'wb', name: 'West Bengal', region: 'east' },
     { id: 'or', name: 'Odisha', region: 'east' },
-    { id: 'ar', name: 'Arunachal Pradesh', region: 'northeast' }
+    { id: 'ar', name: 'Arunachal Pradesh', region: 'northeast' },
+    { id: 'ml', name: 'Meghalaya', region: 'northeast' }
 ];
