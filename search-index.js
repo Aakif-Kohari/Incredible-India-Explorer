@@ -1427,6 +1427,38 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Udhwa Wetlands Explorer ---
+  {
+    title: "Udhwa Wetlands Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Udhwa Wetlands in Sahibganj, Jharkhand — Jharkhand's only Ramsar Site, featuring twin Patauda & Berhale oxbow lakes.",
+    url: "frontend/udhwa-wetlands-explorer/index.html"},
+  // --- Vellode Wetland Explorer ---
+  {
+    title: "Vellode Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Vellode Wetland (Vellode Bird Sanctuary) in Erode, Tamil Nadu — Ramsar Site, farmer-welcomed freshwater bird sanctuary for Spot-billed Pelicans and Darters.",
+    url: "frontend/vellode-wetland-explorer/index.html"},
+  // --- Satkosia Gorge Wetlands Explorer ---
+  {
+    title: "Satkosia Gorge Wetlands Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Satkosia Gorge Wetlands in Odisha — 22 km Mahanadi River gorge Ramsar site, pioneer sanctuary for Gharials and Mugger crocodiles.",
+    url: "frontend/satkosia-gorge-wetlands-explorer/index.html"},
+  // --- Ansupa Lake Explorer ---
+  {
+    title: "Ansupa Lake Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Ansupa Lake in Cuttack, Odisha — Ramsar Site, Odisha's largest freshwater oxbow lake formed by the Mahanadi River.",
+    url: "frontend/ansupa-lake-explorer/index.html"
+  },
+  // --- Tampara Lake Explorer ---
+  {
+    title: "Tampara Lake Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Tampara Lake in Ganjam, Odisha — Ramsar Site, freshwater coastal lagoon, fisheries, and eco-boating destination.",
+    url: "frontend/tampara-lake-explorer/index.html"
+  },
   // --- Keshopur-Miani Wetland Explorer ---
   {
     title: "Keshopur-Miani Wetland Explorer",

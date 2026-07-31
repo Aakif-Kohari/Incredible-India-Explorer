@@ -561,6 +561,27 @@ entryFee: '₹100 (Indian), ₹500 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Desert_vegetation_DSC0942.jpg/960px-Desert_vegetation_DSC0942.jpg'
     },
     {
+        id: 'balpakram',
+        name: 'Balpakram National Park',
+        state: 'Meghalaya',
+        stateId: 'ml',
+        established: 1987,
+        area: 220,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description: 'Known as the "Abode of Perpetual Winds," Balpakram sits atop the Garo Hills plateau near the Bangladesh border. Famous for its dramatic gorge — often compared to a mini Grand Canyon — limestone caves, and as one of the few confirmed habitats of the red panda in the region.',
+        keyFauna: ['Red Panda', 'Clouded Leopard', 'Asian Elephant', 'Hoolock Gibbon', 'Bengal Tiger', 'Great Hornbill'],
+        keyFlora: ['Pitcher Plant', 'Sundew (Drosera)', 'Bamboo Forest', 'Montane Grassland', 'Shola Forest'],
+        coordinates: { lat: 25.417, lng: 90.867 },
+        climate: 'Subtropical Highland',
+        bestTime: 'October to April',
+        entryFee: '₹50 (Indian), ₹300 (Foreign)',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Matcha%20Nokpante%20(tiger%27s%20meeting%20place)%20in%20Balpakram%20National%20Park.jpg',
+        explorerUrl: '../balpakram-national-park-explorer/index.html'
+    },
+    {
         id: 'silent-valley',
         name: 'Silent Valley National Park',
         state: 'Kerala',
@@ -625,6 +646,28 @@ entryFee: '₹100 (Indian), ₹500 (Foreign)',
         explorerUrl: '../bannerghatta-national-park-explorer/index.html'
     },
     {
+        id: 'mouling',
+        name: 'Mouling National Park',
+        state: 'Arunachal Pradesh',
+        stateId: 'ar',
+        established: 1986,
+        area: 483,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description:
+            'A rugged, largely unexplored Eastern Himalayan biodiversity hotspot along the Siang River, home to the Red Panda, Clouded Leopard, and over 230 recorded bird species.',
+        keyFauna: ['Red Panda', 'Mishmi Takin', 'Clouded Leopard', 'Asiatic Black Bear', 'Hoolock Gibbon'],
+        keyFlora: ['Subtropical Broadleaf Forest', 'Temperate Oak & Rhododendron', 'Alpine Meadows'],
+        coordinates: { lat: 28.85, lng: 95.15 },
+        climate: 'Subtropical to Alpine',
+        bestTime: 'October to April',
+        entryFee: '₹50 (Indian), ₹300 (Foreign)',
+        explorerUrl: '/frontend/mouling-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Red_Panda_%28Ailurus_fulgens%29.jpg/960px-Red_Panda_%28Ailurus_fulgens%29.jpg'
+    },
+    {
         id: 'madhav',
         name: 'Madhav National Park',
         state: 'Madhya Pradesh',
@@ -686,6 +729,28 @@ entryFee: '₹100 (Indian), ₹500 (Foreign)',
         bestTime: 'October to March',
         entryFee: '₹50 (Indian), ₹500 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/View_of_Gulf_of_Mannar_from_Rameshwaram%2C_Tamil_Nadu.jpg/960px-View_of_Gulf_of_Mannar_from_Rameshwaram%2C_Tamil_Nadu.jpg'
+    },
+    {
+        id: 'nokrek',
+        name: 'Nokrek National Park',
+        state: 'Meghalaya',
+        stateId: 'ml',
+        established: 1986,
+        area: 47.48,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description:
+            'A UNESCO Biosphere Reserve in the Garo Hills, globally significant as the center of origin of wild Citrus indica — the ancestor of most cultivated orange varieties. Its core zone protects the Red Panda alongside dense subtropical forests around Nokrek Peak, the highest point in the Garo Hills.',
+        keyFauna: ['Red Panda', 'Clouded Leopard', 'Asian Elephant', 'Hoolock Gibbon', 'Marbled Cat'],
+        keyFlora: ['Wild Citrus (Citrus indica)', 'Subtropical Broadleaf Forest', 'Orchids', 'Bamboo'],
+        coordinates: { lat: 25.47, lng: 90.30 },
+        climate: 'Subtropical Monsoon',
+        bestTime: 'October to April',
+        entryFee: '₹50 (Indian), ₹300 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Red_Panda_%28Ailurus_fulgens%29.jpg/960px-Red_Panda_%28Ailurus_fulgens%29.jpg',
+        explorerUrl: '../nokrek-national-park-explorer/index.html'
     }
 ];
 
@@ -836,5 +901,6 @@ const STATES = [
     { id: 'br', name: 'Bihar', region: 'east' },
     { id: 'wb', name: 'West Bengal', region: 'east' },
     { id: 'or', name: 'Odisha', region: 'east' },
-    { id: 'ar', name: 'Arunachal Pradesh', region: 'northeast' }
+    { id: 'ar', name: 'Arunachal Pradesh', region: 'northeast' },
+    { id: 'ml', name: 'Meghalaya', region: 'northeast' }
 ];

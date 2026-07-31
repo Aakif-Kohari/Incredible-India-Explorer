@@ -356,13 +356,61 @@ export const AWARD_ENCYCLOPEDIA = {
       'Over 500 exceptional children have been recognized since the award\'s inception in 1995.',
       'Many awardees have gone on to achieve significant success in their respective fields nationally and internationally.',
       'The award provides not just recognition but also developmental opportunities through workshops and mentorship programs.'
+  // ==================== HEALTHCARE AWARDS ====================
+  'national-florence-nightingale-award': {
+    id: 'national-florence-nightingale-award',
+    name: 'National Florence Nightingale Award',
+    category: 'healthcare',
+    categoryName: 'Nursing Excellence Honour',
+    rank: "Highest Nursing Recognition",
+    establishedYear: '1973',
+    eligibility: 'Awarded to regular nursing staff from government and private hospitals with a minimum of 10 years of service. Candidates must possess recognized nursing qualifications (B.Sc. Nursing, GNM, or equivalent) and demonstrate exceptional dedication to patient care.',
+    history: 'Instituted in 1973 by the Ministry of Health and Family Welfare, Government of India. Named after Florence Nightingale, the legendary British nurse who founded modern nursing practices during the Crimean War.',
+    medalDesign: 'Includes a cash prize of ₹50,000, a citation certificate, and a medal. The award is presented annually on International Nurses Day (May 12th), Florence Nightingale\'s birthday.',
+    notableWinners: [
+      { name: 'Sister Lucy Kurien', year: 1985, note: 'Pediatric nursing and work with underprivileged children' },
+      { name: 'Sister M. D. Rosalind', year: 1990, note: 'Mental health nursing and psychiatric patient care' },
+      { name: 'Sister K. T. Rose', year: 1995, note: 'Critical care nursing and emergency department services' },
+      { name: 'Sister Mary Thomas', year: 2000, note: 'Community health nursing and rural healthcare programs' },
+      { name: 'Sister S. K. Anitha', year: 2020, note: 'Exceptional service during COVID-19 pandemic' }
+    ],
+    interestingFacts: [
+      'The award is named after Florence Nightingale, known as "The Lady with the Lamp" for her night rounds during the Crimean War.',
+      'Over 1,500 nurses have been recognized since the award\'s inception in 1973.',
+      'The award ceremony is typically held on May 12th, International Nurses Day, which is also Florence Nightingale\'s birthday.',
+      '35+ nurses are selected annually from across India for this prestigious honor.',
+      'The award recognizes nurses from various specializations including critical care, pediatrics, mental health, and community health.'
+  // ==================== SCIENCE AWARDS ====================
+  'rashtriya-vigyan-puraskar': {
+    id: 'rashtriya-vigyan-puraskar',
+    name: 'Rashtriya Vigyan Puraskar',
+    category: 'science',
+    categoryName: 'National Science Honour',
+    rank: "Highest Scientific Achievement Award",
+    establishedYear: '1958',
+    eligibility: 'Awarded to Indian scientists and researchers who have made exceptional contributions to scientific research, innovation, and technology development. Candidates must have a doctoral degree or equivalent, with significant original research published in peer-reviewed journals.',
+    history: 'Instituted in 1958 by the Government of India to recognize and promote scientific excellence. The awards encompass multiple categories including the prestigious Shanti Swarup Bhatnagar Prize, CSIR Young Scientist Awards, and various institutional awards.',
+    medalDesign: 'Varies by category - includes medals, citations, certificates, and cash prizes. The Shanti Swarup Bhatnagar Prize includes a citation, a plaque, and a cash award of ₹5 lakh. Other categories include research grants and fellowships.',
+    notableWinners: [
+      { name: 'Dr. C.N.R. Rao', year: 1968, note: 'Shanti Swarup Bhatnagar Prize - Chemical Sciences (Bharat Ratna)' },
+      { name: 'Dr. A.P.J. Abdul Kalam', year: 1980, note: 'Multiple Science Awards (Former President, Bharat Ratna)' },
+      { name: 'Dr. S. Chandrasekhar', year: 1960, note: 'Shanti Swarup Bhatnagar Prize - Physical Sciences (Nobel Laureate)' },
+      { name: 'Dr. Gagandeep Kang', year: 2000, note: 'Young Scientist Award - Medical Sciences (Fellow of Royal Society)' },
+      { name: 'Dr. K. Kasturirangan', year: 1990, note: 'Space Science Awards (Former ISRO Chairman, Padma Vibhushan)' }
+    ],
+    interestingFacts: [
+      'The Shanti Swarup Bhatnagar Prize is named after the founder-director of CSIR and is considered one of India\'s highest science awards.',
+      'Awards cover 15+ scientific disciplines including physical sciences, biological sciences, mathematical sciences, engineering, and medical sciences.',
+      'Over 500 scientists have been recognized since the inception of the awards in 1958.',
+      'Many awardees have received international recognition including Nobel Prizes and Fellowships of the Royal Society.',
+      'The awards include special categories for young scientists (under 35) and women scientists to promote diversity in scientific research.'
     ]
   }
 };
 
 /**
  * Filter awards by category name.
- * @param {string} category ('all' | 'civilian' | 'gallantry' | 'sports' | 'literature')
+ * @param {string} category ('all' | 'civilian' | 'gallantry' | 'sports' | 'literature' | 'science')
  * @returns {Array}
  */
 export function filterAwardsByCategory(category = 'all') {

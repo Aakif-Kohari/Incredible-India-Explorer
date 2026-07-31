@@ -1,0 +1,189 @@
+/**
+ * Mouling National Park Explorer — Data Module
+ * Comprehensive dataset covering the Eastern Himalayas ecosystem,
+ * dense forests, rare wildlife, birdlife, rivers, biodiversity,
+ * map hotspots, and photo gallery.
+ */
+
+const MOULING_INFO = {
+    id: "mouling",
+    name: "Mouling National Park",
+    aka: "Mouling National Park",
+    location: "Upper Siang & West Siang Districts, Arunachal Pradesh, India",
+    state: "Arunachal Pradesh",
+    coordinates: { lat: 28.85, lng: 95.15 },
+    area: "483 km²",
+    establishedYear: 1986,
+    ecosystem: "Eastern Himalayan Subtropical & Temperate Forest, Siang River Valley",
+    climate: "Subtropical to Alpine, depending on elevation, with heavy monsoon rainfall",
+    bestTime: "October to April (drier, clearer months)",
+    entryFees: "₹50 (Indian Nationals), ₹300 (Foreigners)",
+    nearestTransport: {
+        railway: "Silapathar Railway Station (~130 km)",
+        airport: "Dibrugarh Airport, Assam (~200 km)",
+        gatewayTown: "Yingkiong, Upper Siang"
+    },
+    quickStats: [
+        { label: "Total Area", value: "483 km²", icon: "🏞️" },
+        { label: "Elevation Range", value: "500–3,064 m", icon: "⛰️" },
+        { label: "Established Year", value: "1986", icon: "🏛️" },
+        { label: "Major River", value: "Siang", icon: "🌊" },
+        { label: "Recorded Bird Species", value: "230+", icon: "🦜" },
+        { label: "Core Habitat", value: "Red Panda", icon: "🐼" }
+    ]
+};
+
+const HIMALAYA_OVERVIEW = {
+    title: "The Eastern Himalayas",
+    overview: "Mouling National Park lies deep within the Eastern Himalayan biodiversity hotspot in Arunachal Pradesh, straddling rugged terrain between the mighty Siang River and towering ridgelines that rise from subtropical valleys to alpine peaks above 3,000 metres.",
+    zoning: "Named after Mount Mouling, a peak sacred to the local Adi tribal communities, the park remains one of India's least disturbed wilderness areas, with much of its interior still largely unexplored by researchers."
+};
+
+const FOREST_ZONES = [
+    {
+        title: "Subtropical Forest Belt",
+        description: "Lower valley elevations along the Siang River support dense subtropical broadleaf forest with towering canopy trees, orchids, and thick undergrowth."
+    },
+    {
+        title: "Temperate Broadleaf & Coniferous Forest",
+        description: "Mid elevations transition into temperate oak, rhododendron, and conifer forest, cloaked in mist for much of the year and rich in epiphytes."
+    },
+    {
+        title: "Alpine & Subalpine Zone",
+        description: "The park's highest reaches near Mount Mouling give way to alpine meadows and scrub, home to cold-adapted species found nowhere else in the range."
+    }
+];
+
+const RARE_WILDLIFE = [
+    {
+        id: "red-panda",
+        name: "Red Panda",
+        scientificName: "Ailurus fulgens",
+        status: "Endangered",
+        icon: "🐼",
+        description: "Mouling's temperate forest belt shelters a reclusive Red Panda population, favouring bamboo-rich understorey at mid elevations."
+    },
+    {
+        id: "mishmi-takin",
+        name: "Mishmi Takin",
+        scientificName: "Budorcas taxicolor",
+        status: "Vulnerable",
+        icon: "🐐",
+        description: "A large, goat-antelope adapted to steep Himalayan slopes, occasionally sighted in the park's higher forest and scrub zones."
+    },
+    {
+        id: "clouded-leopard",
+        name: "Clouded Leopard",
+        scientificName: "Neofelis nebulosa",
+        status: "Vulnerable",
+        icon: "🐆",
+        description: "An elusive tree-adapted big cat ranging through Mouling's dense, largely unexplored forest interior."
+    },
+    {
+        id: "asiatic-black-bear",
+        name: "Asiatic Black Bear",
+        scientificName: "Ursus thibetanus",
+        status: "Vulnerable",
+        icon: "🐻",
+        description: "Found across the park's forested slopes, foraging on fruits, nuts, and insects through the subtropical and temperate zones."
+    },
+    {
+        id: "hoolock-gibbon",
+        name: "Hoolock Gibbon",
+        scientificName: "Hoolock hoolock",
+        status: "Endangered",
+        icon: "🐒",
+        description: "India's only ape species, heard more often than seen, calling loudly through the park's lower canopy forest at dawn."
+    }
+];
+
+const BIRDLIFE_INFO = {
+    title: "A Birdwatcher's Frontier",
+    overview: "Mouling's dramatic elevation gradient, from riverine subtropical forest to alpine scrub, makes it one of the richest and least-surveyed birding destinations in the Eastern Himalayas, with well over 230 recorded species.",
+    highlights: "Sought-after species include the Sclater's Monal, Blyth's Tragopan, Ward's Trogon, and numerous laughingthrush and wren-babbler species restricted to this stretch of the Himalayas."
+};
+
+const RIVERS_INFO = {
+    title: "The Siang River System",
+    overview: "The park is bounded and shaped by the Siang River, the Indian stretch of the Yarlung Tsangpo/Brahmaputra, along with smaller tributary streams that cut through steep valleys.",
+    significance: "These fast-flowing Himalayan waters sustain the park's forest ecosystems, support riverine wildlife corridors, and hold deep cultural significance for the local Adi community."
+};
+
+const BIODIVERSITY_STATS = [
+    { label: "Recorded Bird Species", value: "230+", icon: "🦜" },
+    { label: "Elevation Span", value: "2,500+ m", icon: "⛰️" },
+    { label: "Forest Types", value: "3 Zones", icon: "🌳" },
+    { label: "Major River System", value: "Siang", icon: "🌊" }
+];
+
+const MAP_HOTSPOTS = [
+    {
+        id: "spot-park-entry",
+        name: "Park Entry Gate",
+        category: "gate",
+        x: 18,
+        y: 62,
+        description: "Main entry point near Yingkiong, gateway to the park's lower subtropical forest trails."
+    },
+    {
+        id: "spot-siang-river",
+        name: "Siang River Corridor",
+        category: "river",
+        x: 38,
+        y: 70,
+        description: "The park's western boundary follows the Siang River, a vital riverine wildlife corridor."
+    },
+    {
+        id: "spot-temperate-zone",
+        name: "Temperate Forest Belt",
+        category: "forest",
+        x: 55,
+        y: 45,
+        description: "Mist-covered oak and rhododendron forest, prime habitat for the Red Panda and Clouded Leopard."
+    },
+    {
+        id: "spot-mouling-peak",
+        name: "Mount Mouling",
+        category: "peak",
+        x: 74,
+        y: 25,
+        description: "The park's namesake peak, sacred to the Adi people, rising into alpine terrain above 3,000 m."
+    }
+];
+
+const GALLERY_IMAGES = [
+    {
+        title: "Red Panda in the Mist",
+        caption: "Mouling's temperate forest belt supports a reclusive Red Panda population.",
+        icon: "🐼"
+    },
+    {
+        title: "Siang River Valley",
+        caption: "The fast-flowing Siang River carves through the park's steep forested terrain.",
+        icon: "🌊"
+    },
+    {
+        title: "Clouded Leopard in Cover",
+        caption: "A rarely-seen big cat adapted to Mouling's dense, unexplored forest interior.",
+        icon: "🐆"
+    },
+    {
+        title: "Himalayan Canopy Birdlife",
+        caption: "Over 230 recorded bird species make Mouling a birder's frontier destination.",
+        icon: "🦜"
+    }
+];
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        MOULING_INFO,
+        HIMALAYA_OVERVIEW,
+        FOREST_ZONES,
+        RARE_WILDLIFE,
+        BIRDLIFE_INFO,
+        RIVERS_INFO,
+        BIODIVERSITY_STATS,
+        MAP_HOTSPOTS,
+        GALLERY_IMAGES
+    };
+}

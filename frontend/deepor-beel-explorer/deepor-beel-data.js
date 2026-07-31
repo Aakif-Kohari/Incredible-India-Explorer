@@ -1,0 +1,146 @@
+/**
+ * Deepor Beel Explorer — Data Module
+ * Comprehensive dataset covering Assam's only Ramsar Site, permanent freshwater wetland,
+ * Rani-Garbhanga elephant corridor, bird sanctuary, traditional fisheries, and ecology.
+ */
+
+const DEEPOR_BEEL_INFO = {
+    id: "deepor-beel-explorer",
+    name: "Deepor Beel Wetland & Bird Sanctuary",
+    location: "Guwahati, Kamrup Metropolitan District, Assam, India",
+    state: "Assam",
+    coordinates: { lat: 26.124, lng: 91.662 },
+    area: "40.14 km² (Ramsar boundary 4.1 km² sanctuary)",
+    establishedYear: 1989,
+    ramsarYear: 2002,
+    ramsarSiteNo: 1207,
+    wetlandType: "Permanent Freshwater Lake & Riverine Floodplain Beel",
+    climate: "Humid Subtropical Monsoon",
+    bestTime: "October to March (Peak Migratory Bird Season)",
+    nearestTransport: {
+        town: "Guwahati (13 km west)",
+        airport: "Lokpriya Gopinath Bordoloi International Airport (15 km)",
+        railway: "Guwahati Railway Station (14 km) / Kamakhya Railway Station (10 km)"
+    },
+    quickStats: [
+        { label: "Assam's Only Ramsar Site", value: "2002", icon: "💧" },
+        { label: "Bird Species Recorded", value: "219+", icon: "🦩" },
+        { label: "Elephant Corridor", value: "Rani-Garbhanga", icon: "🐘" },
+        { label: "Globally Threatened Birds", value: "7 Species", icon: "🦅" },
+        { label: "Fisher Village Families", value: "1,200+", icon: "🛶" },
+        { label: "Sanctuary Core Area", value: "4.1 km²", icon: "🌿" }
+    ]
+};
+
+const ECOLOGY_HYDROLOGY = {
+    history: "Deepor Beel is a former channel of the Brahmaputra River system, historically functioning as a natural storm basin protecting Guwahati from severe monsoon flooding while nourishing rich biodiversity for centuries.",
+    ramsarSite: "Designated as a Ramsar Site (#1207) in November 2002 due to its international ecological significance, hosting over 70,000 waterfowl during peak winter seasons.",
+    elephantCorridor: "Crucial ecological corridor connecting Asian Elephants from the Rani and Garbhanga Reserve Forests to the wetland, where herds wade in search of aquatic vegetation like Victoria water lilies and wild paddy.",
+    wetlandBirds: "Sanctuary for rare species including Greater Adjutant Stork (Hargila), Lesser Adjutant, Spot-billed Pelican, Baer's Pochard, and Siberian migratory waterfowl.",
+    fisheries: "Provides direct livelihood to over 1,200 traditional fishing households across 14 indigenous villages (including Karbi and Assamese communities) practicing sustainable eco-friendly basket and net fishing.",
+    biodiversity: "Rich aquatic flora featuring 18 species of submerged and floating macrophytes, 50 fish species, and unique amphibians, reptiles, and wild mammals."
+};
+
+const BIRD_SPECIES = [
+    {
+        id: "greater-adjutant",
+        name: "Greater Adjutant Stork (Hargila)",
+        scientificName: "Leptoptilos dubius",
+        category: "threatened-birds",
+        status: "Endangered",
+        season: "Resident / Breeding",
+        diet: "Fish, frogs, carrion, aquatic invertebrates",
+        wingspan: "250 cm",
+        icon: "🦅",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Greater_Adjutant_Stork_%28Leptoptilos_dubius%29.jpg/800px-Greater_Adjutant_Stork_%28Leptoptilos_dubius%29.jpg",
+        description: "One of the rarest storks in the world. Assam hosts over 70% of the global population, and Deepor Beel is a vital feeding ground."
+    },
+    {
+        id: "spot-billed-pelican",
+        name: "Spot-billed Pelican",
+        scientificName: "Pelecanus philippensis",
+        category: "waterfowl",
+        status: "Near Threatened",
+        season: "November to March",
+        diet: "Fish",
+        wingspan: "213–244 cm",
+        icon: "🦩",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Spot-billed_Pelican_Pelecanus_philippensis.jpg/800px-Spot-billed_Pelican_Pelecanus_philippensis.jpg",
+        description: "Large pelican with distinctive spots on bill sac, congregating in large numbers in deep open water areas."
+    },
+    {
+        id: "lesser-adjutant",
+        name: "Lesser Adjutant Stork",
+        scientificName: "Leptoptilos javanicus",
+        category: "wading-birds",
+        status: "Vulnerable",
+        season: "Year-round",
+        diet: "Fish, frogs, large insects",
+        wingspan: "210 cm",
+        icon: "🪶",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Lesser_Adjutant_Leptoptilos_javanicus.jpg/800px-Lesser_Adjutant_Leptoptilos_javanicus.jpg",
+        description: "Solitary wading stork frequenting shallow marshes and paddy fields around Deepor Beel."
+    },
+    {
+        id: "baers-pochard",
+        name: "Baer's Pochard",
+        scientificName: "Aythya baeri",
+        category: "migratory-ducks",
+        status: "Critically Endangered",
+        season: "Winter Migratory",
+        diet: "Aquatic plants, seeds, small snails",
+        wingspan: "70–79 cm",
+        icon: "🦆",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aythya_baeri_male.jpg/800px-Aythya_baeri_male.jpg",
+        description: "Extremely rare migratory duck that relies on Deepor Beel as a critical wintering refuge along the East Asian-Australasian Flyway."
+    }
+];
+
+const MAP_HOTSPOTS = [
+    {
+        id: "watchtower-viewpoint",
+        title: "Deepor Beel Watchtower",
+        lat: 26.128,
+        lng: 91.668,
+        type: "Bird Observation",
+        description: "Elevated vantage point near Pamohi providing panaromic views of wintering storks, pelicans, and water hyacinth beds."
+    },
+    {
+        id: "elephant-corridor-point",
+        title: "Rani Reserve Elephant Crossing",
+        lat: 26.115,
+        lng: 91.650,
+        type: "Wildlife Corridor",
+        description: "Forest edge where wild elephant herds emerge from Rani Reserve Forest to bath and forage in the beel."
+    },
+    {
+        id: "hirapara-fishery-village",
+        title: "Hirapara Artisanal Fishing Village",
+        lat: 26.135,
+        lng: 91.675,
+        type: "Cultural Heritage",
+        description: "Traditional indigenous village famous for handmade woven bamboo fish traps (jakoi and chepa)."
+    }
+];
+
+const GALLERY_IMAGES = [
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Greater_Adjutant_Stork_%28Leptoptilos_dubius%29.jpg/800px-Greater_Adjutant_Stork_%28Leptoptilos_dubius%29.jpg",
+        caption: "Greater Adjutant Stork (Hargila) foraging at Deepor Beel",
+        category: "Birdlife"
+    },
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Spot-billed_Pelican_Pelecanus_philippensis.jpg/800px-Spot-billed_Pelican_Pelecanus_philippensis.jpg",
+        caption: "Spot-billed Pelican in open waters of Deepor Beel",
+        category: "Birdlife"
+    },
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Lesser_Adjutant_Leptoptilos_javanicus.jpg/800px-Lesser_Adjutant_Leptoptilos_javanicus.jpg",
+        caption: "Lesser Adjutant standing near marsh grasses",
+        category: "Fauna"
+    }
+];
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { DEEPOR_BEEL_INFO, ECOLOGY_HYDROLOGY, BIRD_SPECIES, MAP_HOTSPOTS, GALLERY_IMAGES };
+}

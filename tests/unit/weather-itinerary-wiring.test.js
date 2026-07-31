@@ -1,0 +1,51 @@
+/**
+ * weather-itinerary-wiring.test.js
+ * Regression guard for issue #1029: before this PR,
+ * js-modules/weather-ui.js listened for a `tripplanner:itinerary-rendered`
+ * event that js-modules/trip-planner.js never dispatched, and
+ * frontend/trip-planner/trip-planner.html never even loaded any of
+ * trip-data.js / trip-planner.js / weather-core.js / weather-service.js /
+ * weather-ui.js — so the whole feature (and Trip Planner itself) was
+ * unreachable in a browser. These are simple content-level checks (the
+ * same style as tests/unit/offline-region-sw.test.js) since the actual
+ * behavior is a full page wiring concern, not pure logic.
+ */
+
+import { describe, it, expect } from 'vitest';
+import fs from 'fs';
+import path from 'path';
+
+const tripPlannerJs = fs.readFileSync(path.resolve(__dirname, '../../js-modules/trip-planner.js'), 'utf8');
+const tripPlannerHtml = fs.readFileSync(path.resolve(__dirname, '../../frontend/trip-planner/trip-planner.html'), 'utf8');
+
+describe('trip-planner.js dispatches the event weather-ui.js listens for', () => {
+    it('dispatches tripplanner:itinerary-rendered after rendering the itinerary', () => {
+        expect(tripPlannerJs).toContain('new CustomEvent("tripplanner:itinerary-rendered"');
+    });
+});
+
+describe('trip-planner.html loads the full itinerary + weather-aware chain', () => {
+    it('loads trip-data.js and trip-planner.js', () => {
+        expect(tripPlannerHtml).toContain('trip-data.js');
+        expect(tripPlannerHtml).toContain('js-modules/trip-planner.js');
+    });
+
+    it('loads all three weather-aware itinerary modules', () => {
+        expect(tripPlannerHtml).toContain('js-modules/weather-core.js');
+        expect(tripPlannerHtml).toContain('js-modules/weather-service.js');
+        expect(tripPlannerHtml).toContain('js-modules/weather-ui.js');
+    });
+
+    it('includes the weather-planner.css stylesheet', () => {
+        expect(tripPlannerHtml).toContain('weather-planner.css');
+    });
+
+    it('has the #weather-panel and #trip-start-date elements weather-ui.js requires', () => {
+        expect(tripPlannerHtml).toMatch(/id=["']weather-panel["']/);
+        expect(tripPlannerHtml).toMatch(/id=["']trip-start-date["']/);
+    });
+
+    it('actually calls initTripPlannerPage() so the form responds to input', () => {
+        expect(tripPlannerHtml).toContain('initTripPlannerPage()');
+    });
+});
