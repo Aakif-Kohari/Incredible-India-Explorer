@@ -317,7 +317,20 @@ export const WETLANDS_DATA = {
             isFeatured: true
         },
         {
-            id: 'deepor-beel',
+            id: 'renuka-wetland',
+            name: 'Renuka Wetland',
+            state: 'Himachal Pradesh',
+            type: 'Lake',
+            area: '20 ha',
+            ramsarDeclared: 2005,
+            ramsarSiteNo: 1571,
+            image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Renuka%20Lake.jpg?width=960',
+            shortDesc: "India's largest natural lake in Himachal Pradesh and one of its smallest Ramsar sites — sacred to the goddess Renuka, mother of Parashurama.",
+            exploreUrl: '../../renuka-wetland/renuka-wetland.html',
+            coordinates: { lat: 30.61, lng: 77.4583 },
+            keyFauna: ['Himalayan Goral', 'Barking Deer', 'Crimson-breasted Barbet'],
+            isFeatured: false
+            },{id: 'deepor-beel',
             name: 'Deepor Beel',
             state: 'Assam',
             type: 'Lake',
