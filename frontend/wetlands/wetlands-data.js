@@ -300,6 +300,21 @@ export const WETLANDS_DATA = {
             coordinates: { lat: 22.174, lng: 73.483 },
             keyFauna: ['Ferruginous Duck', 'Greylag Goose', 'Greater Flamingo', 'Common Pochard'],
             isFeatured: true
+        },
+        {
+            id: 'vembanad-lake',
+            name: 'Vembanad Lake',
+            state: 'Kerala',
+            type: 'Lake',
+            area: '2,033 km²',
+            ramsarDeclared: 2002,
+            ramsarSiteNo: 1215,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Pearlspot.jpg/800px-Pearlspot.jpg',
+            shortDesc: 'India\'s longest lake (96.5 km) and largest Ramsar Site #1215, featuring Kumarakom Bird Sanctuary, Nehru Trophy snake boat races, and Kettuvallam houseboats.',
+            exploreUrl: '../vembanad-lake-explorer/index.html',
+            coordinates: { lat: 9.600, lng: 76.400 },
+            keyFauna: ['Pearl Spot (Karimeen)', 'Oriental Darter', 'White-throated Kingfisher', 'Spot-billed Duck'],
+            isFeatured: true
         }
     ]
 };
