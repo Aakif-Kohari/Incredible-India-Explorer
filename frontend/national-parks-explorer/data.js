@@ -748,12 +748,33 @@ entryFee: '₹100 (Indian), ₹500 (Foreign)',
         coordinates: { lat: 25.47, lng: 90.30 },
         climate: 'Subtropical Monsoon',
         bestTime: 'October to April',
-        entryFee: '₹50 (Indian), ₹300 (Foreign)',
+entryFee: '₹50 (Indian), ₹300 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Red_Panda_%28Ailurus_fulgens%29.jpg/960px-Red_Panda_%28Ailurus_fulgens%29.jpg',
         explorerUrl: '../nokrek-national-park-explorer/index.html'
+    },
+    {
+        id: 'satpura',
+        name: 'Satpura National Park',
+        state: 'Madhya Pradesh',
+        stateId: 'mp',
+        established: 1981,
+        area: 524,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description:
+            'Named after the Satpura Range ("Sat" = seven, "Pura" = mountain), this rugged reserve of hills, gorges, and dense Sal-Teak forests is one of the few parks in India offering guided Walking Safaris and Canoe Safaris along the Denwa River, in addition to jeep safaris.',
+        keyFauna: ['Bengal Tiger', 'Leopard', 'Indian Gaur', 'Sloth Bear', 'Indian Wild Dog (Dhole)', 'Indian Giant Squirrel'],
+        keyFlora: ['Sal Forest', 'Teak', 'Bamboo', 'Reni Pani Vines'],
+        coordinates: { lat: 22.50, lng: 78.23 },
+        climate: 'Tropical',
+        bestTime: 'October to June',
+        entryFee: '₹250 (Indian), ₹1500 (Foreign)',
+        image: '../../assets/travel_forests.png',
+        explorerUrl: '../satpura-national-park-explorer/index.html'
     }
 ];
-
 const TIGER_RESERVES = NATIONAL_PARKS.filter(p => p.isTigerReserve);
 
 const UNESCO_SITES = NATIONAL_PARKS.filter(p => p.isUNESCO);
