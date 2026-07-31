@@ -272,6 +272,36 @@ export const WETLANDS_DATA = {
             isFeatured: false
         },
         {
+            id: 'satkosia-gorge-wetland',
+            name: 'Satkosia Gorge Wetlands',
+            state: 'Odisha',
+            type: 'Floodplain',
+            area: '425.89 km²',
+            ramsarDeclared: 2022,
+            ramsarSiteNo: 2468,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Gharial_Gavialis_gangeticus.jpg/800px-Gharial_Gavialis_gangeticus.jpg',
+            shortDesc: 'Spectacular 22 km Mahanadi River gorge Ramsar site in Eastern Ghats, pioneer sanctuary for Gharial and Mugger crocodiles.',
+            exploreUrl: '../satkosia-gorge-wetlands-explorer/index.html',
+            coordinates: { lat: 20.58, lng: 84.83 },
+            keyFauna: ['Gharial', 'Mugger Crocodile', 'Indian Skimmer', 'Asian Elephant'],
+            isFeatured: true
+        },
+        {
+            id: 'vellode-wetland',
+            name: 'Vellode Wetland Conservation Reserve',
+            state: 'Tamil Nadu',
+            type: 'Reservoir',
+            area: '0.77 km²',
+            ramsarDeclared: 2022,
+            ramsarSiteNo: 2482,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Spot-billed_Pelican_Pelecanus_philippensis.jpg/800px-Spot-billed_Pelican_Pelecanus_philippensis.jpg',
+            shortDesc: 'Farmer-welcomed freshwater bird sanctuary tank in Erode, Ramsar Site serving as a major breeding refuge for Spot-billed Pelicans.',
+            exploreUrl: '../vellode-wetland-explorer/index.html',
+            coordinates: { lat: 11.161, lng: 77.653 },
+            keyFauna: ['Spot-billed Pelican', 'Oriental Darter', 'Eurasian Spoonbill', 'Grey Heron'],
+            isFeatured: true
+        },
+        {
             id: 'beas-conservation-reserve',
             name: 'Beas Conservation Reserve',
             state: 'Punjab',
@@ -285,21 +315,6 @@ export const WETLANDS_DATA = {
             coordinates: { lat: 31.38, lng: 75.18 },
             keyFauna: ['Gharial', 'Indus River Dolphin', 'Smooth-coated Otter'],
             isFeatured: false
-        },
-        {
-            id: 'wadhvana-wetland',
-            name: 'Wadhvana Wetland',
-            state: 'Gujarat',
-            type: 'Reservoir',
-            area: '10.3 km²',
-            ramsarDeclared: 2021,
-            ramsarSiteNo: 2454,
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ferruginous_duck_%28Aythya_nyroca%29_male.jpg/800px-Ferruginous_duck_%28Aythya_nyroca%29_male.jpg',
-            shortDesc: 'Century-old reservoir built by Maharaja Sayajirao Gaekwad III, Ramsar Site supporting 80,000+ wintering migratory waterfowl.',
-            exploreUrl: '../wadhvana-wetland-explorer/index.html',
-            coordinates: { lat: 22.174, lng: 73.483 },
-            keyFauna: ['Ferruginous Duck', 'Greylag Goose', 'Greater Flamingo', 'Common Pochard'],
-            isFeatured: true
         }
     ]
 };
