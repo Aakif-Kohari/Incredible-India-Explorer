@@ -1427,6 +1427,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Tampara Lake Explorer ---
+  {
+    title: "Tampara Lake Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Tampara Lake in Ganjam, Odisha — Ramsar Site, freshwater coastal lagoon, fisheries, and eco-boating destination.",
+    url: "frontend/tampara-lake-explorer/index.html"
+  },
   // --- Keshopur-Miani Wetland Explorer ---
   {
     title: "Keshopur-Miani Wetland Explorer",
