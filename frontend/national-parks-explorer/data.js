@@ -707,6 +707,28 @@ entryFee: '₹100 (Indian), ₹500 (Foreign)',
         bestTime: 'October to March',
         entryFee: '₹50 (Indian), ₹500 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/View_of_Gulf_of_Mannar_from_Rameshwaram%2C_Tamil_Nadu.jpg/960px-View_of_Gulf_of_Mannar_from_Rameshwaram%2C_Tamil_Nadu.jpg'
+    },
+    {
+        id: 'nokrek',
+        name: 'Nokrek National Park',
+        state: 'Meghalaya',
+        stateId: 'ml',
+        established: 1986,
+        area: 47.48,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description:
+            'A UNESCO Biosphere Reserve in the Garo Hills, globally significant as the center of origin of wild Citrus indica — the ancestor of most cultivated orange varieties. Its core zone protects the Red Panda alongside dense subtropical forests around Nokrek Peak, the highest point in the Garo Hills.',
+        keyFauna: ['Red Panda', 'Clouded Leopard', 'Asian Elephant', 'Hoolock Gibbon', 'Marbled Cat'],
+        keyFlora: ['Wild Citrus (Citrus indica)', 'Subtropical Broadleaf Forest', 'Orchids', 'Bamboo'],
+        coordinates: { lat: 25.47, lng: 90.30 },
+        climate: 'Subtropical Monsoon',
+        bestTime: 'October to April',
+        entryFee: '₹50 (Indian), ₹300 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Red_Panda_%28Ailurus_fulgens%29.jpg/960px-Red_Panda_%28Ailurus_fulgens%29.jpg',
+        explorerUrl: '../nokrek-national-park-explorer/index.html'
     }
 ];
 
