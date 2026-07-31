@@ -1427,6 +1427,12 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Satkosia Gorge Wetlands Explorer ---
+  {
+    title: "Satkosia Gorge Wetlands Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Satkosia Gorge Wetlands in Odisha — 22 km Mahanadi River gorge Ramsar site, pioneer sanctuary for Gharials and Mugger crocodiles.",
+    url: "frontend/satkosia-gorge-wetlands-explorer/index.html"},
   // --- Ansupa Lake Explorer ---
   {
     title: "Ansupa Lake Explorer",
