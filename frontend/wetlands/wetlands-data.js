@@ -300,6 +300,21 @@ export const WETLANDS_DATA = {
             coordinates: { lat: 22.174, lng: 73.483 },
             keyFauna: ['Ferruginous Duck', 'Greylag Goose', 'Greater Flamingo', 'Common Pochard'],
             isFeatured: true
+        },
+        {
+            id: 'east-kolkata-wetlands',
+            name: 'East Kolkata Wetlands',
+            state: 'West Bengal',
+            type: 'Marsh',
+            area: '125 km²',
+            ramsarDeclared: 2002,
+            ramsarSiteNo: 1208,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Fishing_cat_in_Phils_01.jpg/800px-Fishing_cat_in_Phils_01.jpg',
+            shortDesc: 'World\'s largest natural sewage recycling ecosystem, UNESCO recognized Ramsar Site #1208 supporting 13,000 tonnes of annual fish harvest and 100,000+ livelihoods.',
+            exploreUrl: '../east-kolkata-wetlands-explorer/index.html',
+            coordinates: { lat: 22.518, lng: 88.435 },
+            keyFauna: ['Fishing Cat', 'Small Indian Mongoose', 'Bronze-winged Jacana', 'Lesser Whistling Duck'],
+            isFeatured: true
         }
     ]
 };
