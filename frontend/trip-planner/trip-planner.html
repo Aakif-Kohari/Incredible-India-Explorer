@@ -19,6 +19,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
 <link href="../../styles.css" rel="stylesheet"/>
 <link href="trip-planner.css" rel="stylesheet"/>
+<link href="weather-planner.css" rel="stylesheet"/>
 
     <!-- Open Graph / Social Media Tags -->
     <meta property="og:title" content="Trip Planner | Incredible India Explorer">
@@ -129,6 +130,10 @@
 <label for="trip-travelers">Travelers</label>
 <input type="number" id="trip-travelers" name="travelers" min="1" max="20" value="1"/>
 </div>
+<div class="trip-form-field">
+<label for="trip-start-date">Trip Start Date <span style="opacity:0.65; font-weight:400;">(optional — enables weather-aware suggestions)</span></label>
+<input type="date" id="trip-start-date" name="startDate"/>
+</div>
 </div>
 
 <span class="trip-categories-label">Preferred Destination Types (optional — leave blank for a mix)</span>
@@ -157,6 +162,7 @@
 <section class="trip-results-section fade-in-section">
 <div class="section-container">
 <div id="trip-results" hidden=""></div>
+<div id="weather-panel" class="weather-panel" hidden=""></div>
 </div>
 </section>
 
@@ -201,5 +207,27 @@
 <script src="../../firebase-config.js" type="module"></script>
 <script src="../../auth.js" type="module"></script>
 <script src="../../router.js" defer></script>
+
+<!-- Trip Planner + Weather-Aware Itinerary feature (js-modules/*.js are
+     plain scripts, no bundler — see each file's header comment).
+     Loaded directly here rather than through app.js's generic lazy-load
+     helper, matching how this project's other standalone feature pages
+     (Route Planner, Crowd Density Predictor, Offline Downloads) include
+     their own scripts. -->
+<script src="../../trip-data.js" defer></script>
+<script src="../../js-modules/trip-planner.js" defer></script>
+<script src="../../js-modules/weather-core.js" defer></script>
+<script src="../../js-modules/weather-service.js" defer></script>
+<script src="../../js-modules/weather-ui.js" defer></script>
+<script defer>
+    // All the scripts above are `defer`, so they execute in this exact
+    // order, after the DOM is fully parsed but before DOMContentLoaded —
+    // no need to wait for an extra event.
+    if (window.TripPlanner && typeof window.TripPlanner.initTripPlannerPage === "function") {
+        window.TripPlanner.initTripPlannerPage();
+    } else {
+        console.error("[trip-planner.html] TripPlanner failed to load — the form will not respond.");
+    }
+</script>
 </body>
 </html>
