@@ -318,7 +318,7 @@ export const AWARD_ENCYCLOPEDIA = {
     rank: "National Academy of Letters Honour",
     establishedYear: '1954',
     eligibility: 'Awarded annually to outstanding books of literary merit published in any of the 24 languages recognized by the Sahitya Akademi (22 Scheduled Languages plus English and Rajasthani).',
-    history: 'Instituted in 1954 by Sahitya Akademi (India’s National Academy of Letters). First presented in 1955.',
+    history: 'Instituted in 1954 by Sahitya Akademi (India\'s National Academy of Letters). First presented in 1955.',
     medalDesign: 'A casket containing an engraved copper plaque designed by filmmaker Satyajit Ray, alongside a cash prize of ₹1 lakh.',
     notableWinners: [
       { name: 'Makhanlal Chaturvedi', year: 1955, note: 'First Hindi Recipient ("Him Taringini")' },
@@ -329,6 +329,33 @@ export const AWARD_ENCYCLOPEDIA = {
     interestingFacts: [
       'The iconic copper plaque awarded to recipients was designed by Oscar-winning film director Satyajit Ray.',
       'Recognizes books in 24 Indian languages, promoting linguistic diversity and regional literature.'
+    ]
+  },
+
+  // ==================== CHILDREN'S AWARDS ====================
+  'national-bal-shree-award': {
+    id: 'national-bal-shree-award',
+    name: 'National Bal Shree Award',
+    category: 'children',
+    categoryName: 'Children\'s Creative Honour',
+    rank: "Highest Creative Talent Award for Children",
+    establishedYear: '1995',
+    eligibility: 'Awarded to children aged 9-16 years who demonstrate exceptional creative talent in Creative Arts, Creative Writing, Creative Performance, or Creative Scientific Innovation. Must be Indian citizens enrolled in recognized educational institutions.',
+    history: 'Instituted in 1995 by the Government of India through the National Bal Bhavan under the Ministry of Culture. Established to identify and nurture exceptional creative talent among children across India.',
+    medalDesign: 'Bronze medal featuring the National Bal Bhavan emblem, accompanied by a certificate and citation. The award includes opportunities for workshops, exhibitions, and interactions with experts.',
+    notableWinners: [
+      { name: 'Aranya Sharma', year: 2018, note: 'Creative Arts - Madhubani Painting' },
+      { name: 'Rohan Verma', year: 2019, note: 'Creative Scientific Innovation - Water Purification System' },
+      { name: 'Priya Nair', year: 2017, note: 'Creative Writing - Poetry Collection' },
+      { name: 'Amit Kumar', year: 2020, note: 'Creative Performance - Tabla' },
+      { name: 'Sneha Reddy', year: 2016, note: 'Creative Arts - Digital Art' }
+    ],
+    interestingFacts: [
+      'The award recognizes talent across four major categories: Creative Arts, Creative Writing, Creative Performance, and Creative Scientific Innovation.',
+      'Selection process involves multi-tiered evaluation at regional, zonal, and national levels by expert panels.',
+      'Over 500 exceptional children have been recognized since the award\'s inception in 1995.',
+      'Many awardees have gone on to achieve significant success in their respective fields nationally and internationally.',
+      'The award provides not just recognition but also developmental opportunities through workshops and mentorship programs.'
     ]
   }
 };
