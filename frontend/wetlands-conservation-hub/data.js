@@ -106,6 +106,14 @@ const FEATURED_EXPLORERS = [
     badges: ['Ramsar Site 2002', 'Kerala\'s Largest Freshwater Lake', 'Drinking Water Source']
   },
   {
+    name: 'Kanwar Lake Explorer',
+    slug: 'kanwar-lake',
+    tagline: 'Explore Asia\'s largest freshwater oxbow lake, a vital Ramsar Site and migratory bird haven in Bihar.',
+    icon: '🦆',
+    path: '../kanwar-lake-explorer/index.html',
+    badges: ['Ramsar Site 2020','Oxbow Lake','Migratory Haven']
+  },
+  {
     name: 'Renuka Wetland Explorer',
     slug: 'renuka-wetland',
     tagline: 'Discover Himachal Pradesh\'s largest natural lake, sacred to the goddess Renuka and home to over 440 wildlife species.',
