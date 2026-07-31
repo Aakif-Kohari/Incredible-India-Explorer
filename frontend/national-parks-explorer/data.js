@@ -624,6 +624,28 @@ const NATIONAL_PARKS = [
         explorerUrl: '../bannerghatta-national-park-explorer/index.html'
     },
     {
+        id: 'mouling',
+        name: 'Mouling National Park',
+        state: 'Arunachal Pradesh',
+        stateId: 'ar',
+        established: 1986,
+        area: 483,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description:
+            'A rugged, largely unexplored Eastern Himalayan biodiversity hotspot along the Siang River, home to the Red Panda, Clouded Leopard, and over 230 recorded bird species.',
+        keyFauna: ['Red Panda', 'Mishmi Takin', 'Clouded Leopard', 'Asiatic Black Bear', 'Hoolock Gibbon'],
+        keyFlora: ['Subtropical Broadleaf Forest', 'Temperate Oak & Rhododendron', 'Alpine Meadows'],
+        coordinates: { lat: 28.85, lng: 95.15 },
+        climate: 'Subtropical to Alpine',
+        bestTime: 'October to April',
+        entryFee: '₹50 (Indian), ₹300 (Foreign)',
+        explorerUrl: '/frontend/mouling-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Red_Panda_%28Ailurus_fulgens%29.jpg/960px-Red_Panda_%28Ailurus_fulgens%29.jpg'
+    },
+    {
         id: 'madhav',
         name: 'Madhav National Park',
         state: 'Madhya Pradesh',
