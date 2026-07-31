@@ -242,6 +242,21 @@ export const WETLANDS_DATA = {
             isFeatured: true
         },
         {
+            id: 'tampara-lake',
+            name: 'Tampara Lake',
+            state: 'Odisha',
+            type: 'Lagoon',
+            area: '3.0 km²',
+            ramsarDeclared: 2022,
+            ramsarSiteNo: 2488,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Common_Pochard_male.jpg/800px-Common_Pochard_male.jpg',
+            shortDesc: 'Picturesque freshwater coastal lagoon lake in Ganjam, Ramsar Site supporting rich fisheries and migratory waterfowl.',
+            exploreUrl: '../tampara-lake-explorer/index.html',
+            coordinates: { lat: 19.35, lng: 85.02 },
+            keyFauna: ['Common Pochard', 'Rohu Fish', 'Great Cormorant', 'Intermediate Egret'],
+            isFeatured: true
+        },
+        {
             id: 'sundarbans-wetland',
             name: 'Sundarbans Wetland',
             state: 'West Bengal',
