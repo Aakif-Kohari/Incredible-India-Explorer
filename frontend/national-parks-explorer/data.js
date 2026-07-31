@@ -108,10 +108,10 @@ entryFee: '₹200 (Indian), ₹1000 (Foreign)',
         coordinates: { lat: 22.34, lng: 80.61 },
         climate: 'Tropical Dry Deciduous',
         bestTime: 'October to June',
-        entryFee: '₹150 (Indian), ₹500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Jungle_safari_-_Kanha_National_Park.jpg/960px-Jungle_safari_-_Kanha_National_Park.jpg'
-    },
-    {
+entryFee: '₹150 (Indian), ₹500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Jungle_safari_-_Kanha_National_Park.jpg/960px-Jungle_safari_-_Kanha_National_Park.jpg',
+        explorerUrl: '../kanha-national-park-explorer/index.html'
+    },    {
         id: 'kuno',
         name: 'Kuno National Park',
         state: 'Madhya Pradesh',
