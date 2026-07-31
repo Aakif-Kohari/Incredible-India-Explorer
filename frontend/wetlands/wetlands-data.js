@@ -300,6 +300,21 @@ export const WETLANDS_DATA = {
             coordinates: { lat: 22.174, lng: 73.483 },
             keyFauna: ['Ferruginous Duck', 'Greylag Goose', 'Greater Flamingo', 'Common Pochard'],
             isFeatured: true
+        },
+        {
+            id: 'sambhar-lake',
+            name: 'Sambhar Salt Lake',
+            state: 'Rajasthan',
+            type: 'Lake',
+            area: '230 km²',
+            ramsarDeclared: 1990,
+            ramsarSiteNo: 464,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Greater_Flamingo_%28Phoenicopterus_roseus%29.jpg/800px-Greater_Flamingo_%28Phoenicopterus_roseus%29.jpg',
+            shortDesc: 'India\'s largest inland salt lake, Ramsar Site #464, producing 9% of national salt and feeding grounds for 50,000+ wintering flamingos.',
+            exploreUrl: '../sambhar-lake-explorer/index.html',
+            coordinates: { lat: 26.908, lng: 75.022 },
+            keyFauna: ['Greater Flamingo', 'Lesser Flamingo', 'Black-winged Stilt', 'Pied Avocet'],
+            isFeatured: true
         }
     ]
 };
