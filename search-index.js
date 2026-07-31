@@ -1434,6 +1434,13 @@ window.indiaSearchIndex = [
     description: "Explore Ansupa Lake in Cuttack, Odisha — Ramsar Site, Odisha's largest freshwater oxbow lake formed by the Mahanadi River.",
     url: "frontend/ansupa-lake-explorer/index.html"
   },
+  // --- Tampara Lake Explorer ---
+  {
+    title: "Tampara Lake Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Tampara Lake in Ganjam, Odisha — Ramsar Site, freshwater coastal lagoon, fisheries, and eco-boating destination.",
+    url: "frontend/tampara-lake-explorer/index.html"
+  },
   // --- Keshopur-Miani Wetland Explorer ---
   {
     title: "Keshopur-Miani Wetland Explorer",
