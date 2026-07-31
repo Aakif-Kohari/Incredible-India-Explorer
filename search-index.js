@@ -1427,6 +1427,12 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Vellode Wetland Explorer ---
+  {
+    title: "Vellode Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Vellode Wetland (Vellode Bird Sanctuary) in Erode, Tamil Nadu — Ramsar Site, farmer-welcomed freshwater bird sanctuary for Spot-billed Pelicans and Darters.",
+    url: "frontend/vellode-wetland-explorer/index.html"},
   // --- Satkosia Gorge Wetlands Explorer ---
   {
     title: "Satkosia Gorge Wetlands Explorer",
