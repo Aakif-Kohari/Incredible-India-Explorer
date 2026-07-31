@@ -696,7 +696,7 @@ const NATIONAL_PARKS = [
         areaUnit: 'km²',
         type: 'National Park',
         isTigerReserve: false,
-        isUNESCO: true,
+        isUNESCO: false,
         description:
             'A UNESCO Biosphere Reserve in the Garo Hills, globally significant as the center of origin of wild Citrus indica — the ancestor of most cultivated orange varieties. Its core zone protects the Red Panda alongside dense subtropical forests around Nokrek Peak, the highest point in the Garo Hills.',
         keyFauna: ['Red Panda', 'Clouded Leopard', 'Asian Elephant', 'Hoolock Gibbon', 'Marbled Cat'],
