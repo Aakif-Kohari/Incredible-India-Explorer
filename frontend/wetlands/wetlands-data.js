@@ -300,6 +300,21 @@ export const WETLANDS_DATA = {
             coordinates: { lat: 22.174, lng: 73.483 },
             keyFauna: ['Ferruginous Duck', 'Greylag Goose', 'Greater Flamingo', 'Common Pochard'],
             isFeatured: true
+        },
+        {
+            id: 'udhwa-wetlands',
+            name: 'Udhwa Lake Bird Sanctuary & Wetlands',
+            state: 'Jharkhand',
+            type: 'Oxbow Lake',
+            area: '5.65 km²',
+            ramsarDeclared: 2024,
+            ramsarSiteNo: 2510,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Tufted_Duck_male.jpg/800px-Tufted_Duck_male.jpg',
+            shortDesc: 'Jharkhand\'s only Ramsar Site, featuring interconnected Patauda & Berhale oxbow lakes hosting 20,000+ migratory wildfowl.',
+            exploreUrl: '../udhwa-wetlands-explorer/index.html',
+            coordinates: { lat: 24.972, lng: 87.838 },
+            keyFauna: ['Tufted Duck', 'Northern Pintail', 'Red-crested Pochard', 'Pheasant-tailed Jacana'],
+            isFeatured: true
         }
     ]
 };

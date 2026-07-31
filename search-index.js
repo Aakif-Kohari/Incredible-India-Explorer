@@ -1427,6 +1427,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Udhwa Wetlands Explorer ---
+  {
+    title: "Udhwa Wetlands Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Udhwa Wetlands in Sahibganj, Jharkhand — Jharkhand's only Ramsar Site, featuring twin Patauda & Berhale oxbow lakes.",
+    url: "frontend/udhwa-wetlands-explorer/index.html"
+  },
   // --- Keshopur-Miani Wetland Explorer ---
   {
     title: "Keshopur-Miani Wetland Explorer",
