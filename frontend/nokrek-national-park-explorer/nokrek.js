@@ -185,13 +185,13 @@
         var html = '';
         GALLERY_IMAGES.forEach(function (img, idx) {
             html +=
-                '<div class="gallery-item" data-idx="' + idx + '">' +
+                '<button type="button" class="gallery-item" data-idx="' + idx + '">' +
                 '<div class="gallery-icon-box">' + galleryIconFor(img.title) + '</div>' +
                 '<div class="gallery-overlay">' +
                 '<h4 style="color:#fff;">' + img.title + '</h4>' +
                 '<p style="color:#cbd5e1; font-size:0.82rem;">' + img.caption + '</p>' +
                 '</div>' +
-                '</div>';
+                '</button>';
         });
         container.innerHTML = html;
 

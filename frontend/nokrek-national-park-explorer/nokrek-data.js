@@ -46,7 +46,6 @@ const RED_PANDA_INFO = {
     scientificName: "Ailurus fulgens",
     status: "Endangered",
     icon: "🐼",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Red_Panda_%28Ailurus_fulgens%29.jpg/800px-Red_Panda_%28Ailurus_fulgens%29.jpg",
     significance: "Nokrek's core zone protects one of the westernmost-documented Red Panda populations in Northeast India, far from its better-known Eastern Himalayan strongholds.",
     adaptation: "A reclusive, largely arboreal mammal that favours dense bamboo understorey within cool, moist broadleaf forest — habitat conditions Nokrek's elevation and rainfall pattern reliably provide.",
     behavior: "Elusive and mostly crepuscular, Red Pandas are rarely sighted directly; their presence is more often confirmed through camera traps and indirect field signs."
@@ -82,7 +81,6 @@ const NOKREK_WILDLIFE = [
         scientificName: "Ailurus fulgens",
         status: "Endangered",
         icon: "🐼",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Red_Panda_%28Ailurus_fulgens%29.jpg/800px-Red_Panda_%28Ailurus_fulgens%29.jpg",
         description: "The park's flagship species — a small, bamboo-dependent mammal found in the cooler broadleaf forest belt of the core zone."
     },
     {
@@ -91,7 +89,6 @@ const NOKREK_WILDLIFE = [
         scientificName: "Neofelis nebulosa",
         status: "Vulnerable",
         icon: "🐆",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Neofelis_nebulosa.jpg/800px-Neofelis_nebulosa.jpg",
         description: "An elusive, tree-adapted big cat that ranges across Nokrek's dense forest cover, rarely seen but confirmed through camera-trap surveys."
     },
     {
@@ -100,7 +97,6 @@ const NOKREK_WILDLIFE = [
         scientificName: "Elephas maximus",
         status: "Endangered",
         icon: "🐘",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Elephant_safari_in_Kaziranga.jpg/800px-Elephant_safari_in_Kaziranga.jpg",
         description: "Elephant herds move seasonally through the Garo Hills forest corridors surrounding the park's buffer zone."
     },
     {
@@ -109,7 +105,6 @@ const NOKREK_WILDLIFE = [
         scientificName: "Hoolock hoolock",
         status: "Endangered",
         icon: "🐒",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Golden_Langur_Manas.jpg/800px-Golden_Langur_Manas.jpg",
         description: "India's only ape species, found in the reserve's evergreen canopy, known for its loud, far-carrying morning calls."
     },
     {
@@ -118,7 +113,6 @@ const NOKREK_WILDLIFE = [
         scientificName: "Pardofelis marmorata",
         status: "Near Threatened",
         icon: "🐈",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flying_squirrel_in_tree.jpg/800px-Flying_squirrel_in_tree.jpg",
         description: "A small, arboreal wild cat with a strikingly patterned coat, adapted to dense forest hunting in the park's mid-elevation zones."
     }
 ];
@@ -167,24 +161,24 @@ const MAP_HOTSPOTS = [
 
 const GALLERY_IMAGES = [
     {
-        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Red_Panda_%28Ailurus_fulgens%29.jpg/800px-Red_Panda_%28Ailurus_fulgens%29.jpg",
         title: "Red Panda in the Canopy",
-        caption: "Nokrek protects one of the westernmost known Red Panda populations in Northeast India."
+        caption: "Nokrek protects one of the westernmost known Red Panda populations in Northeast India.",
+        icon: "🐼"
     },
     {
-        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Neofelis_nebulosa.jpg/800px-Neofelis_nebulosa.jpg",
         title: "Clouded Leopard on the Move",
-        caption: "A rarely-seen big cat adapted to Nokrek's dense forest cover."
+        caption: "A rarely-seen big cat adapted to Nokrek's dense forest cover.",
+        icon: "🐆"
     },
     {
-        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Elephant_safari_in_Kaziranga.jpg/800px-Elephant_safari_in_Kaziranga.jpg",
         title: "Elephant Corridor",
-        caption: "Seasonal elephant movement through the Garo Hills buffer forest."
+        caption: "Seasonal elephant movement through the Garo Hills buffer forest.",
+        icon: "🐘"
     },
     {
-        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Pushpawati_river_inside_the_Valley_of_Flowers_Uttarakhand_I.jpg/800px-Pushpawati_river_inside_the_Valley_of_Flowers_Uttarakhand_I.jpg",
         title: "Garo Hills Forest Stream",
-        caption: "A cool forest stream winding through the reserve's broadleaf belt."
+        caption: "A cool forest stream winding through the reserve's broadleaf belt.",
+        icon: "💧"
     }
 ];
 
