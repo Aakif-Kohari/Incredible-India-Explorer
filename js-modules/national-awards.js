@@ -332,6 +332,30 @@ export const AWARD_ENCYCLOPEDIA = {
     ]
   },
 
+  // ==================== CHILDREN'S AWARDS ====================
+  'national-bal-shree-award': {
+    id: 'national-bal-shree-award',
+    name: 'National Bal Shree Award',
+    category: 'children',
+    categoryName: 'Children\'s Creative Honour',
+    rank: "Highest Creative Talent Award for Children",
+    establishedYear: '1995',
+    eligibility: 'Awarded to children aged 9-16 years who demonstrate exceptional creative talent in Creative Arts, Creative Writing, Creative Performance, or Creative Scientific Innovation. Must be Indian citizens enrolled in recognized educational institutions.',
+    history: 'Instituted in 1995 by the Government of India through the National Bal Bhavan under the Ministry of Culture. Established to identify and nurture exceptional creative talent among children across India.',
+    medalDesign: 'Bronze medal featuring the National Bal Bhavan emblem, accompanied by a certificate and citation. The award includes opportunities for workshops, exhibitions, and interactions with experts.',
+    notableWinners: [
+      { name: 'Aranya Sharma', year: 2018, note: 'Creative Arts - Madhubani Painting' },
+      { name: 'Rohan Verma', year: 2019, note: 'Creative Scientific Innovation - Water Purification System' },
+      { name: 'Priya Nair', year: 2017, note: 'Creative Writing - Poetry Collection' },
+      { name: 'Amit Kumar', year: 2020, note: 'Creative Performance - Tabla' },
+      { name: 'Sneha Reddy', year: 2016, note: 'Creative Arts - Digital Art' }
+    ],
+    interestingFacts: [
+      'The award recognizes talent across four major categories: Creative Arts, Creative Writing, Creative Performance, and Creative Scientific Innovation.',
+      'Selection process involves multi-tiered evaluation at regional, zonal, and national levels by expert panels.',
+      'Over 500 exceptional children have been recognized since the award\'s inception in 1995.',
+      'Many awardees have gone on to achieve significant success in their respective fields nationally and internationally.',
+      'The award provides not just recognition but also developmental opportunities through workshops and mentorship programs.'
   // ==================== HEALTHCARE AWARDS ====================
   'national-florence-nightingale-award': {
     id: 'national-florence-nightingale-award',
