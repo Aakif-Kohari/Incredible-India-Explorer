@@ -318,7 +318,7 @@ export const AWARD_ENCYCLOPEDIA = {
     rank: "National Academy of Letters Honour",
     establishedYear: '1954',
     eligibility: 'Awarded annually to outstanding books of literary merit published in any of the 24 languages recognized by the Sahitya Akademi (22 Scheduled Languages plus English and Rajasthani).',
-    history: 'Instituted in 1954 by Sahitya Akademi (India’s National Academy of Letters). First presented in 1955.',
+    history: 'Instituted in 1954 by Sahitya Akademi (India\'s National Academy of Letters). First presented in 1955.',
     medalDesign: 'A casket containing an engraved copper plaque designed by filmmaker Satyajit Ray, alongside a cash prize of ₹1 lakh.',
     notableWinners: [
       { name: 'Makhanlal Chaturvedi', year: 1955, note: 'First Hindi Recipient ("Him Taringini")' },
@@ -330,12 +330,39 @@ export const AWARD_ENCYCLOPEDIA = {
       'The iconic copper plaque awarded to recipients was designed by Oscar-winning film director Satyajit Ray.',
       'Recognizes books in 24 Indian languages, promoting linguistic diversity and regional literature.'
     ]
+  },
+
+  // ==================== SCIENCE AWARDS ====================
+  'rashtriya-vigyan-puraskar': {
+    id: 'rashtriya-vigyan-puraskar',
+    name: 'Rashtriya Vigyan Puraskar',
+    category: 'science',
+    categoryName: 'National Science Honour',
+    rank: "Highest Scientific Achievement Award",
+    establishedYear: '1958',
+    eligibility: 'Awarded to Indian scientists and researchers who have made exceptional contributions to scientific research, innovation, and technology development. Candidates must have a doctoral degree or equivalent, with significant original research published in peer-reviewed journals.',
+    history: 'Instituted in 1958 by the Government of India to recognize and promote scientific excellence. The awards encompass multiple categories including the prestigious Shanti Swarup Bhatnagar Prize, CSIR Young Scientist Awards, and various institutional awards.',
+    medalDesign: 'Varies by category - includes medals, citations, certificates, and cash prizes. The Shanti Swarup Bhatnagar Prize includes a citation, a plaque, and a cash award of ₹5 lakh. Other categories include research grants and fellowships.',
+    notableWinners: [
+      { name: 'Dr. C.N.R. Rao', year: 1968, note: 'Shanti Swarup Bhatnagar Prize - Chemical Sciences (Bharat Ratna)' },
+      { name: 'Dr. A.P.J. Abdul Kalam', year: 1980, note: 'Multiple Science Awards (Former President, Bharat Ratna)' },
+      { name: 'Dr. S. Chandrasekhar', year: 1960, note: 'Shanti Swarup Bhatnagar Prize - Physical Sciences (Nobel Laureate)' },
+      { name: 'Dr. Gagandeep Kang', year: 2000, note: 'Young Scientist Award - Medical Sciences (Fellow of Royal Society)' },
+      { name: 'Dr. K. Kasturirangan', year: 1990, note: 'Space Science Awards (Former ISRO Chairman, Padma Vibhushan)' }
+    ],
+    interestingFacts: [
+      'The Shanti Swarup Bhatnagar Prize is named after the founder-director of CSIR and is considered one of India\'s highest science awards.',
+      'Awards cover 15+ scientific disciplines including physical sciences, biological sciences, mathematical sciences, engineering, and medical sciences.',
+      'Over 500 scientists have been recognized since the inception of the awards in 1958.',
+      'Many awardees have received international recognition including Nobel Prizes and Fellowships of the Royal Society.',
+      'The awards include special categories for young scientists (under 35) and women scientists to promote diversity in scientific research.'
+    ]
   }
 };
 
 /**
  * Filter awards by category name.
- * @param {string} category ('all' | 'civilian' | 'gallantry' | 'sports' | 'literature')
+ * @param {string} category ('all' | 'civilian' | 'gallantry' | 'sports' | 'literature' | 'science')
  * @returns {Array}
  */
 export function filterAwardsByCategory(category = 'all') {
