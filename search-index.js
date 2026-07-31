@@ -1434,6 +1434,13 @@ window.indiaSearchIndex = [
     description: "Explore Udhwa Wetlands in Sahibganj, Jharkhand — Jharkhand's only Ramsar Site, featuring twin Patauda & Berhale oxbow lakes.",
     url: "frontend/udhwa-wetlands-explorer/index.html"
   },
+  // --- Tampara Lake Explorer ---
+  {
+    title: "Tampara Lake Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Tampara Lake in Ganjam, Odisha — Ramsar Site, freshwater coastal lagoon, fisheries, and eco-boating destination.",
+    url: "frontend/tampara-lake-explorer/index.html"
+  },
   // --- Keshopur-Miani Wetland Explorer ---
   {
     title: "Keshopur-Miani Wetland Explorer",

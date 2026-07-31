@@ -104,6 +104,14 @@ const FEATURED_EXPLORERS = [
     icon: '💧',
     path: '../../sasthamkotta-lake/sasthamkotta-lake.html',
     badges: ['Ramsar Site 2002', 'Kerala\'s Largest Freshwater Lake', 'Drinking Water Source']
+  },
+  {
+    name: 'Renuka Wetland Explorer',
+    slug: 'renuka-wetland',
+    tagline: 'Discover Himachal Pradesh\'s largest natural lake, sacred to the goddess Renuka and home to over 440 wildlife species.',
+    icon: '🛕',
+    path: '../../renuka-wetland/renuka-wetland.html',
+    badges: ['Ramsar Site 2005', 'Largest Lake in Himachal Pradesh', '440+ Species']
   }
 ];
 
