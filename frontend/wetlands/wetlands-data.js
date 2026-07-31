@@ -287,20 +287,34 @@ export const WETLANDS_DATA = {
             isFeatured: false
         },
         {
-            id: 'wadhvana-wetland',
-            name: 'Wadhvana Wetland',
-            state: 'Gujarat',
-            type: 'Reservoir',
-            area: '10.3 km²',
-            ramsarDeclared: 2021,
-            ramsarSiteNo: 2454,
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ferruginous_duck_%28Aythya_nyroca%29_male.jpg/800px-Ferruginous_duck_%28Aythya_nyroca%29_male.jpg',
-            shortDesc: 'Century-old reservoir built by Maharaja Sayajirao Gaekwad III, Ramsar Site supporting 80,000+ wintering migratory waterfowl.',
-            exploreUrl: '../wadhvana-wetland-explorer/index.html',
-            coordinates: { lat: 22.174, lng: 73.483 },
-            keyFauna: ['Ferruginous Duck', 'Greylag Goose', 'Greater Flamingo', 'Common Pochard'],
+            id: 'ansupa-lake',
+            name: 'Ansupa Lake',
+            state: 'Odisha',
+            type: 'Oxbow Lake',
+            area: '1.56 km²',
+            ramsarDeclared: 2022,
+            ramsarSiteNo: 2487,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Cotton_pygmy_goose_%28Nettapus_coromandelianus%29_male.jpg/800px-Cotton_pygmy_goose_%28Nettapus_coromandelianus%29_male.jpg',
+            shortDesc: 'Odisha\'s largest freshwater oxbow lake formed by the Mahanadi River, Ramsar Site famous for lotus blooms and pygmy geese.',
+            exploreUrl: '../ansupa-lake-explorer/index.html',
+            coordinates: { lat: 20.46, lng: 85.60 },
+            keyFauna: ['Cotton Pygmy Goose', 'Indian Sacred Lotus', 'Northern Pintail', 'Bronze-winged Jacana'],
+            isFeatured: true
+        },
+        {
+            id: 'satkosia-gorge-wetland',
+            name: 'Satkosia Gorge Wetlands',
+            state: 'Odisha',
+            type: 'Floodplain',
+            area: '425.89 km²',
+            ramsarDeclared: 2022,
+            ramsarSiteNo: 2468,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Gharial_Gavialis_gangeticus.jpg/800px-Gharial_Gavialis_gangeticus.jpg',
+            shortDesc: 'Spectacular 22 km Mahanadi River gorge Ramsar site in Eastern Ghats, pioneer sanctuary for Gharial and Mugger crocodiles.',
+            exploreUrl: '../satkosia-gorge-wetlands-explorer/index.html',
+            coordinates: { lat: 20.58, lng: 84.83 },
+            keyFauna: ['Gharial', 'Mugger Crocodile', 'Indian Skimmer', 'Asian Elephant'],
             isFeatured: true
         }
     ]
 };
-
