@@ -127,6 +127,30 @@ export const AWARD_ENCYCLOPEDIA = {
       'Subsequent awards of the medal for further distinguished service are denoted by a silver bar attached to the ribbon.',
       'Announced bi-annually on Republic Day (January 26) and Independence Day (August 15) by the President of India.',
       'Recipients carry post-nominal initials "AVSM" in official military correspondence.'
+  'presidents-police-medal': {
+    id: 'presidents-police-medal',
+    name: "President's Police Medal",
+    category: 'gallantry',
+    categoryName: 'Police & Gallantry Honour',
+    rank: "Premier Police Honour of India",
+    establishedYear: '1951',
+    eligibility: 'Awarded to members of State Police forces, Central Armed Police Forces (BSF, CRPF, CISF, ITBP, SSB), Union Territory Police, and Central Police Organizations (IB, CBI, RAW, RPF). Awarded for Distinguished Service (PPMDS/PMDS) after at least 20 years of clean, outstanding service, or for Gallantry (PPMG/PMG) for acts of extraordinary courage under grave personal danger.',
+    history: 'Instituted on March 1, 1951, replacing the former King\'s Police and Fire Service Medal. Re-designated as the President\'s Police Medal in 1973/1975. In January 2024, the Ministry of Home Affairs rationalized police medal classifications under the President\'s Medal for Distinguished Service (PMDS) and President\'s Medal for Gallantry (PMG). It remains India\'s highest police decoration.',
+    medalDesign: 'Circular silver medallion (38mm diameter). The obverse features the State Emblem of India (Ashoka Lion Capital with Satyameva Jayate) surrounded by the inscription "PRESIDENT\'S POLICE MEDAL". The reverse bears two lotus flowers encircling a plaque embossed with "FOR DISTINGUISHED SERVICE" or "FOR GALLANTRY" with a central star. Suspended by a ribbon with saffron, navy blue, and silver stripes.',
+    link: 'presidents-police-medal.html',
+    notableWinners: [
+      { name: 'Ajit Doval (IPS)', year: 1988, note: 'National Security Advisor & Former IB Chief' },
+      { name: 'K. P. S. Gill (IPS)', year: 1983, note: 'Former DGP Punjab Police & Counter-Terrorist Leader' },
+      { name: 'Vijay Kumar (IPS)', year: 2004, note: 'Operation Cocoon Commander against Veerappan' },
+      { name: 'Hemant Karkare (IPS)', year: 2008, note: 'Former ATS Chief & 26/11 Hero (Posthumous PPMG)' },
+      { name: 'Tukaram Omble (ASI)', year: 2009, note: 'Captured terrorist Ajmal Kasab alive (Posthumous PPMG)' },
+      { name: 'Kiran Bedi (IPS)', year: 1979, note: 'India\'s First Female IPS Officer & Prison Reformer' }
+    ],
+    interestingFacts: [
+      'Traditionally announced bi-annually on Republic Day (January 26) and Independence Day (August 15).',
+      'PPMG (Gallantry) recipients receive a permanent monthly monetary stipend from the Government of India.',
+      'Takes precedence over the standard Police Medal (PM) in the official order of wear.',
+      'Awardees are authorized to wear miniature medals on ceremonial mess dress and ribbon bars on daily duty uniforms.'
     ]
   },
   'param-vir-chakra': {
@@ -382,6 +406,8 @@ export const AWARD_ENCYCLOPEDIA = {
       'Over 500 exceptional children have been recognized since the award\'s inception in 1995.',
       'Many awardees have gone on to achieve significant success in their respective fields nationally and internationally.',
       'The award provides not just recognition but also developmental opportunities through workshops and mentorship programs.'
+    ]
+  },
   // ==================== HEALTHCARE AWARDS ====================
   'national-florence-nightingale-award': {
     id: 'national-florence-nightingale-award',
@@ -406,6 +432,8 @@ export const AWARD_ENCYCLOPEDIA = {
       'The award ceremony is typically held on May 12th, International Nurses Day, which is also Florence Nightingale\'s birthday.',
       '35+ nurses are selected annually from across India for this prestigious honor.',
       'The award recognizes nurses from various specializations including critical care, pediatrics, mental health, and community health.'
+    ]
+  },
   // ==================== SCIENCE AWARDS ====================
   'rashtriya-vigyan-puraskar': {
     id: 'rashtriya-vigyan-puraskar',
