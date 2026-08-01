@@ -83,6 +83,53 @@
     }
 
     // ------------------------------------------------------------------
+    // Indoor alternative activities — a category-level heuristic (not a
+    // per-destination POI database, which this project doesn't have) for
+    // what to do on a "poor" day without leaving the same city, distinct
+    // from findAlternativeDestinations() below which suggests a
+    // *different* city/destination entirely. Deliberately generic
+    // ("a heritage site's interior galleries") rather than named venues,
+    // since specific indoor attractions per destination aren't in
+    // trip-data.js — see docs/WEATHER_AWARE_ITINERARY.md.
+    // ------------------------------------------------------------------
+    const INDOOR_ALTERNATIVES_BY_CATEGORY = {
+        beaches: ["a nearby aquarium or marine museum", "a covered seafood/local market crawl", "a beachside café with an indoor seating area"],
+        adventure: ["an indoor climbing wall or escape room", "a local handicraft workshop", "a regional history museum"],
+        wildlife: ["a zoo's indoor reptile/aquarium house", "a natural history museum", "a wildlife interpretation center"],
+        mountains: ["a monastery or temple interior", "a heritage haveli/palace museum", "a café with a covered valley view"],
+        backwaters: ["houseboat cabin/lounge time", "a covered spice-plantation tour", "an Ayurvedic spa session"],
+        desert: ["a fort or palace museum's interior galleries", "a covered handicraft bazaar", "a folk-performance hall"],
+        historical: ["the site's own museum or interpretation center", "a nearby indoor heritage gallery"],
+        heritage: ["the site's own museum or interpretation center", "a nearby indoor heritage gallery"],
+        spiritual: ["the temple/shrine's covered inner sanctum", "a meditation hall session"],
+        city: ["a shopping mall", "a local museum or art gallery", "a café crawl"]
+    };
+    const DEFAULT_INDOOR_ALTERNATIVES = ["a local museum or heritage interior", "a covered market or café crawl"];
+
+    /**
+     * Suggests 2-3 indoor-friendly things to do in the same city on a
+     * poor-weather day, deduplicated across a destination's categories.
+     * @param {string[]} categories
+     * @returns {string[]}
+     */
+    function suggestIndoorActivities(categories) {
+        if (!categories || !categories.length) return DEFAULT_INDOOR_ALTERNATIVES.slice();
+
+        const seen = new Set();
+        const suggestions = [];
+        categories.forEach((category) => {
+            (INDOOR_ALTERNATIVES_BY_CATEGORY[category] || []).forEach((suggestion) => {
+                if (!seen.has(suggestion)) {
+                    seen.add(suggestion);
+                    suggestions.push(suggestion);
+                }
+            });
+        });
+
+        return suggestions.length ? suggestions.slice(0, 3) : DEFAULT_INDOOR_ALTERNATIVES.slice();
+    }
+
+    // ------------------------------------------------------------------
     // Per-day suitability
     // ------------------------------------------------------------------
     const HEAT_WARNING_C = 40;
@@ -134,6 +181,41 @@
         else if (adjustedRisk >= 1.5) status = "caution";
 
         return { status, reasons, sensitivity, weather, riskScore: adjustedRisk };
+    }
+
+    // ------------------------------------------------------------------
+    // Hourly detail — narrows a "poor"/"caution" day down to *when*
+    // conditions are worst, using weather-service.js#fetchHourlyForecast's
+    // grouped-by-day output. Kept separate from computeDaySuitability
+    // (which still drives the day-level good/caution/poor status) since
+    // hourly data isn't always fetched — this is opt-in extra detail.
+    // ------------------------------------------------------------------
+
+    /**
+     * @param {{date:string, hours:Array<{time:string,weatherCode:number,tempC:number,precipProbability:number}>}} hourlyDay
+     * @returns {{hasRiskyWindow:boolean, worstHours:string[], label:string}}
+     */
+    function summarizeHourlyRisk(hourlyDay) {
+        if (!hourlyDay || !Array.isArray(hourlyDay.hours) || !hourlyDay.hours.length) {
+            return { hasRiskyWindow: false, worstHours: [], label: "" };
+        }
+
+        const riskyHours = hourlyDay.hours.filter((hour) => {
+            const weather = classifyWeatherCode(hour.weatherCode);
+            const rainy = typeof hour.precipProbability === "number" && hour.precipProbability >= HIGH_RAIN_PROB;
+            return weather.severity === "severe" || weather.severity === "moderate" || rainy;
+        });
+
+        if (!riskyHours.length) {
+            return { hasRiskyWindow: false, worstHours: [], label: "No particularly risky hours expected." };
+        }
+
+        const times = riskyHours.map((h) => h.time).sort();
+        const label = times.length === 1
+            ? `Conditions look worst around ${times[0]}.`
+            : `Conditions look worst between ${times[0]} and ${times[times.length - 1]}.`;
+
+        return { hasRiskyWindow: true, worstHours: times, label };
     }
 
     /**
@@ -323,7 +405,9 @@
         WEATHER_CODES,
         classifyWeatherCode,
         destinationOutdoorSensitivity,
+        suggestIndoorActivities,
         computeDaySuitability,
+        summarizeHourlyRisk,
         evaluateItineraryWeather,
         findAlternativeDestinations,
         suggestReorder,
