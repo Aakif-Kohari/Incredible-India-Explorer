@@ -356,6 +356,8 @@ export const AWARD_ENCYCLOPEDIA = {
       'Over 500 exceptional children have been recognized since the award\'s inception in 1995.',
       'Many awardees have gone on to achieve significant success in their respective fields nationally and internationally.',
       'The award provides not just recognition but also developmental opportunities through workshops and mentorship programs.'
+    ]
+  },
   // ==================== HEALTHCARE AWARDS ====================
   'national-florence-nightingale-award': {
     id: 'national-florence-nightingale-award',
@@ -380,6 +382,8 @@ export const AWARD_ENCYCLOPEDIA = {
       'The award ceremony is typically held on May 12th, International Nurses Day, which is also Florence Nightingale\'s birthday.',
       '35+ nurses are selected annually from across India for this prestigious honor.',
       'The award recognizes nurses from various specializations including critical care, pediatrics, mental health, and community health.'
+    ]
+  },
   // ==================== SCIENCE AWARDS ====================
   'rashtriya-vigyan-puraskar': {
     id: 'rashtriya-vigyan-puraskar',
