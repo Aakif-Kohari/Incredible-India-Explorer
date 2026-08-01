@@ -81,6 +81,14 @@ const FEATURED_EXPLORERS = [
     path: '../beas-conservation-wetlands-explorer/index.html',
     badges: ['Ramsar Site 2020', 'Indus Dolphin Habitat', '50+ Fish Species']
   },
+   {
+    name: 'Pichavaram Mangrove Wetlands Explorer',
+    slug: 'pichavaram-mangrove',
+    tagline: 'Navigate the intricate backwaters of one of the world\'s largest mangrove ecosystems in Tamil Nadu.',
+    icon: '🌿',
+    path: '../pichavaram-mangrove-wetlands-explorer/index.html',
+    badges: ['Ramsar Site 2022','Mangrove Forest','Eco-Tourism']
+  },
   {
     name: 'Nalsarovar Bird Sanctuary Explorer',
     slug: 'nalsarovar',
