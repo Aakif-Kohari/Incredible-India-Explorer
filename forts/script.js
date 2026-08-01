@@ -5,6 +5,26 @@
 // Fort Data
 const fortsData = [
     {
+        id: "bahu-fort",
+        name: "Bahu Fort",
+        location: "Jammu",
+        state: "Jammu & Kashmir",
+        built: "3000 years ago (rebuilt 19th Century)",
+        builtBy: "Raja Bahulochan (rebuilt by Dogra Kings)",
+        era: "Dogra Era",
+        architecture: "Traditional Fort Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "One of the oldest forts in Jammu, associated with the Bawe Wali Mata Temple. It was originally built over 3,000 years ago by Raja Bahulochan and later refurbished by the Dogra kings in the 19th century.",
+        highlights: [
+            "Bawe Wali Mata Temple",
+            "Bagh-e-Bahu Gardens",
+            "Scenic views of the Tawi River",
+            "Historic Dogra artifacts",
+            "Macaque monkey population"
+        ],
+        customUrl: "bahu-fort.html"
+    },
+    {
         id: 1,
         name: "Red Fort",
         location: "Delhi",
@@ -310,11 +330,17 @@ function renderForts(forts) {
                 <p>${fort.history}</p>
                 <div class="fort-card-footer">
                     <span class="fort-built">Built: <strong>${fort.built}</strong></span>
-                    <span class="view-details-btn">View Details</span>
+                    <span class="view-details-btn">${fort.customUrl ? 'Explore' : 'View Details'}</span>
                 </div>
             </div>
         `;
-        card.addEventListener('click', () => openModal(fort));
+        if (fort.customUrl) {
+            card.addEventListener('click', () => {
+                window.location.href = fort.customUrl;
+            });
+        } else {
+            card.addEventListener('click', () => openModal(fort));
+        }
         fortsGrid.appendChild(card);
     });
 }
