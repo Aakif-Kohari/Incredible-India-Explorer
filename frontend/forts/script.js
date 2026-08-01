@@ -230,7 +230,24 @@ const fortsData = [
             "Crocodile moat & double ramparts",
             "Imprisoned Tipu Sultan's family"
         ],
-        customUrl: "vellore-fort.html"
+        customUrl: "vellore-fort.html"},
+        {id: "vijaydurg-fort",
+        name: "Vijaydurg Fort",
+        location: "Devgad",
+        state: "Maharashtra",
+        built: "12th Century (Rebuilt 1653)",
+        builtBy: "Shilahara Dynasty / Chhatrapati Shivaji Maharaj",
+        era: "Maratha Era",
+        architecture: "Coastal Maratha Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "One of the oldest sea forts on the Konkan coast, the 'Gibraltar of the East' served as the most formidable naval base of the Maratha Empire under Kanhoji Angre.",
+        highlights: [
+            "Gibraltar of the East",
+            "Major Maratha naval base",
+            "Hidden 1.4 km underwater wall",
+            "Kanhoji Angre's headquarters"
+        ],
+        customUrl: "vijaydurg-fort.html"
     },
     {
         id: 12,
