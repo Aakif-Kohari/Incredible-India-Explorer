@@ -1440,6 +1440,13 @@ window.indiaSearchIndex = [
     description: "Explore Sultanpur National Park & Wetland in Gurugram, Haryana — Ramsar Site #2459, Central Asian Flyway wintering sanctuary for 250+ migratory bird species.",
     url: "frontend/sultanpur-national-park-explorer/index.html"
   },
+  // --- Valley of Flowers National Park Explorer ---
+  {
+    title: "Valley of Flowers National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Valley of Flowers National Park in Chamoli, Uttarakhand — UNESCO World Heritage Site, high-altitude Pushpawati river valley, Himalayan Blue Poppies, Brahma Kamal, and Snow Leopards.",
+    url: "frontend/valley-of-flowers-explorer/index.html"
+  },
   // --- Udhwa Wetlands Explorer ---
   {
     title: "Udhwa Wetlands Explorer",
