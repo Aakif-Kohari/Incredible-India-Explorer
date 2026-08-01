@@ -103,6 +103,79 @@ export const AWARD_ENCYCLOPEDIA = {
   },
 
   // ==================== GALLANTRY AWARDS ====================
+  'vishisht-seva-medal': {
+    id: 'vishisht-seva-medal',
+    name: 'Vishisht Seva Medal (VSM)',
+    category: 'gallantry',
+    categoryName: 'Military Distinguished Service',
+    rank: "Distinguished Military Decoration",
+    establishedYear: '1960',
+    eligibility: 'Awarded to recognize distinguished service of a high order to all ranks of the Indian Armed Forces, including the Indian Army, Indian Navy, Indian Air Force, Territorial Army, Reserve Forces, and Military Nursing Service.',
+    history: 'Instituted on January 26, 1960 by the Government of India as the "Vishisht Seva Medal, Class III" and re-designated as the "Vishisht Seva Medal" (VSM) on January 27, 1967. It forms the base of the peacetime Vishisht Seva series (PVSM > AVSM > VSM). A bar is awarded for subsequent acts of distinguished service of a high order.',
+    medalDesign: 'Circular bronze medallion (35mm diameter). The obverse features an embossed five-pointed star in the center with the State Emblem of India. The reverse features a five-pointed star embossed in relief with the Hindi inscription "Vishisht Seva Medal" along the upper rim. Suspended by a 32mm golden-yellow ribbon with three dark blue vertical stripes.',
+    link: 'vishisht-seva-medal.html',
+    notableWinners: [
+      { name: 'General M. M. Naravane (PVSM, AVSM, SM, VSM)', year: 2015, note: '28th Chief of the Army Staff' },
+      { name: 'Admiral Sunith Francis Rodrigues (PVSM, VSM)', year: 1985, note: '15th Chief of Naval Staff & Former Governor' },
+      { name: 'Air Chief Marshal B. S. Dhanoa (PVSM, AVSM, YSM, VM, VSM)', year: 1999, note: '25th Chief of Air Staff (Kargil War Veteran)' },
+      { name: 'Major General Ian Cardozo (AVSM, SM)', year: 1971, note: 'War Hero & First Disabled Officer to Command a Brigade' },
+      { name: 'Vice Admiral G. Ashok Kumar (PVSM, AVSM, YSM, VSM)', year: 2011, note: 'First National Maritime Security Coordinator' }
+    ],
+    interestingFacts: [
+      'Forms the foundation decoration of the peacetime Vishisht Seva medal hierarchy.',
+      'Subsequent awards of the medal for further distinguished service of a high order are denoted by a bronze bar attached to the ribbon.',
+      'Announced bi-annually on Republic Day (January 26) and Independence Day (August 15) by the President of India.',
+      'Recipients carry post-nominal initials "VSM" in official military correspondence.'
+  'ati-vishisht-seva-medal': {
+    id: 'ati-vishisht-seva-medal',
+    name: 'Ati Vishisht Seva Medal (AVSM)',
+    category: 'gallantry',
+    categoryName: 'Military Distinguished Service',
+    rank: "Senior Armed Forces Decoration",
+    establishedYear: '1960',
+    eligibility: 'Awarded to recognize distinguished service of an exceptional order to all ranks of the Armed Forces, including the Indian Army, Indian Navy, Indian Air Force, Territorial Army, Auxiliary & Reserve Forces, and Nursing Officers.',
+    history: 'Instituted on January 26, 1960 by the Government of India as the "Vishisht Seva Medal, Class II" and re-designated as the "Ati Vishisht Seva Medal" (AVSM) on January 27, 1967. It serves as the peacetime equivalent of the Uttam Yudh Seva Medal (UYSM). A bar is awarded for subsequent acts of distinguished service.',
+    medalDesign: 'Circular silver medallion (35mm diameter). The obverse features an embossed five-pointed star in the center with the State Emblem of India. The reverse features a five-pointed star embossed in relief with the inscription "Ati Vishisht Seva Medal" in Devanagari along the upper rim. Suspended by a 32mm golden-yellow ribbon with two dark blue vertical stripes.',
+    link: 'ati-vishisht-seva-medal.html',
+    notableWinners: [
+      { name: 'General Bipin Rawat (PVSM, UYSM, AVSM, YSM, SM, VSM)', year: 2013, note: 'First Chief of Defence Staff (CDS)' },
+      { name: 'General Manoj Pande (PVSM, AVSM, VSM)', year: 2015, note: '29th Chief of the Army Staff' },
+      { name: 'Admiral Karambir Singh (PVSM, AVSM)', year: 2011, note: '24th Chief of the Naval Staff' },
+      { name: 'Air Chief Marshal R. K. S. Bhadauria (PVSM, AVSM, VM)', year: 2013, note: '26th Chief of the Air Staff' },
+      { name: 'Lieutenant General K. J. S. Dhillon (UYSM, YSM, VSM)', year: 2018, note: 'Former XV Corps Commander ("Tiny Dhillon")' },
+      { name: 'Admiral R. Hari Kumar (PVSM, AVSM, VSM)', year: 2016, note: '25th Chief of the Naval Staff' }
+    ],
+    interestingFacts: [
+      'Peacetime equivalent to the wartime Uttam Yudh Seva Medal (UYSM).',
+      'Subsequent awards of the medal for further distinguished service are denoted by a silver bar attached to the ribbon.',
+      'Announced bi-annually on Republic Day (January 26) and Independence Day (August 15) by the President of India.',
+      'Recipients carry post-nominal initials "AVSM" in official military correspondence.'
+  'presidents-police-medal': {
+    id: 'presidents-police-medal',
+    name: "President's Police Medal",
+    category: 'gallantry',
+    categoryName: 'Police & Gallantry Honour',
+    rank: "Premier Police Honour of India",
+    establishedYear: '1951',
+    eligibility: 'Awarded to members of State Police forces, Central Armed Police Forces (BSF, CRPF, CISF, ITBP, SSB), Union Territory Police, and Central Police Organizations (IB, CBI, RAW, RPF). Awarded for Distinguished Service (PPMDS/PMDS) after at least 20 years of clean, outstanding service, or for Gallantry (PPMG/PMG) for acts of extraordinary courage under grave personal danger.',
+    history: 'Instituted on March 1, 1951, replacing the former King\'s Police and Fire Service Medal. Re-designated as the President\'s Police Medal in 1973/1975. In January 2024, the Ministry of Home Affairs rationalized police medal classifications under the President\'s Medal for Distinguished Service (PMDS) and President\'s Medal for Gallantry (PMG). It remains India\'s highest police decoration.',
+    medalDesign: 'Circular silver medallion (38mm diameter). The obverse features the State Emblem of India (Ashoka Lion Capital with Satyameva Jayate) surrounded by the inscription "PRESIDENT\'S POLICE MEDAL". The reverse bears two lotus flowers encircling a plaque embossed with "FOR DISTINGUISHED SERVICE" or "FOR GALLANTRY" with a central star. Suspended by a ribbon with saffron, navy blue, and silver stripes.',
+    link: 'presidents-police-medal.html',
+    notableWinners: [
+      { name: 'Ajit Doval (IPS)', year: 1988, note: 'National Security Advisor & Former IB Chief' },
+      { name: 'K. P. S. Gill (IPS)', year: 1983, note: 'Former DGP Punjab Police & Counter-Terrorist Leader' },
+      { name: 'Vijay Kumar (IPS)', year: 2004, note: 'Operation Cocoon Commander against Veerappan' },
+      { name: 'Hemant Karkare (IPS)', year: 2008, note: 'Former ATS Chief & 26/11 Hero (Posthumous PPMG)' },
+      { name: 'Tukaram Omble (ASI)', year: 2009, note: 'Captured terrorist Ajmal Kasab alive (Posthumous PPMG)' },
+      { name: 'Kiran Bedi (IPS)', year: 1979, note: 'India\'s First Female IPS Officer & Prison Reformer' }
+    ],
+    interestingFacts: [
+      'Traditionally announced bi-annually on Republic Day (January 26) and Independence Day (August 15).',
+      'PPMG (Gallantry) recipients receive a permanent monthly monetary stipend from the Government of India.',
+      'Takes precedence over the standard Police Medal (PM) in the official order of wear.',
+      'Awardees are authorized to wear miniature medals on ceremonial mess dress and ribbon bars on daily duty uniforms.'
+    ]
+  },
   'param-vir-chakra': {
     id: 'param-vir-chakra',
     name: 'Param Vir Chakra (PVC)',
@@ -356,6 +429,8 @@ export const AWARD_ENCYCLOPEDIA = {
       'Over 500 exceptional children have been recognized since the award\'s inception in 1995.',
       'Many awardees have gone on to achieve significant success in their respective fields nationally and internationally.',
       'The award provides not just recognition but also developmental opportunities through workshops and mentorship programs.'
+    ]
+  },
   // ==================== HEALTHCARE AWARDS ====================
   'national-florence-nightingale-award': {
     id: 'national-florence-nightingale-award',
@@ -380,6 +455,8 @@ export const AWARD_ENCYCLOPEDIA = {
       'The award ceremony is typically held on May 12th, International Nurses Day, which is also Florence Nightingale\'s birthday.',
       '35+ nurses are selected annually from across India for this prestigious honor.',
       'The award recognizes nurses from various specializations including critical care, pediatrics, mental health, and community health.'
+    ]
+  },
   // ==================== SCIENCE AWARDS ====================
   'rashtriya-vigyan-puraskar': {
     id: 'rashtriya-vigyan-puraskar',
