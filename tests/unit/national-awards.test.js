@@ -42,6 +42,8 @@ describe('National Awards Encyclopedia Dataset Completeness', () => {
     // Literature Awards
     expect(keys).toContain('jnanpith-award');
     expect(keys).toContain('sahitya-akademi-award');
+    // Children Awards
+    expect(keys).toContain('national-bravery-awards');
 
     // Children Awards
     expect(keys).toContain('pradhan-mantri-rashtriya-bal-puraskar');

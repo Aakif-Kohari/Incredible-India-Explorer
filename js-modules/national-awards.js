@@ -429,6 +429,29 @@ export const AWARD_ENCYCLOPEDIA = {
       'The award provides not just recognition but also developmental opportunities through workshops and mentorship programs.'
     ]
   },
+  'national-bravery-awards': {
+    id: 'national-bravery-awards',
+    name: 'National Bravery Awards',
+    category: 'children',
+    categoryName: "Children's Bravery Honour",
+    rank: "Premier National Children Bravery Award",
+    establishedYear: '1957',
+    eligibility: 'Awarded to Indian children aged between 6 and 18 years for performing spontaneous, extraordinary acts of selflessness and bravery under grave personal risk or life-threatening crisis.',
+    history: 'Instituted in 1957 by the Indian Council for Child Welfare (ICCW) following an iconic act of bravery by 14-year-old scout Harish Chandra Mehra, who saved hundreds of lives during a fire at Ramlila Ground in the presence of Prime Minister Jawaharlal Nehru. Expanded over the decades with specialized sub-awards (Bharat, Sanjay Chopra, Geeta Chopra, Bapu Gaidhani).',
+    medalDesign: 'Circular silver medal with ribbon bar, a formal citation scroll, and financial assistance for completing school and higher university education. Sub-awards include special medals and cash awards.',
+    link: 'national-bravery-awards.html',
+    notableWinners: [
+      { name: 'Harish Chandra Mehra', year: 1957, note: 'First recipient in 1957 - Saved hundreds from a burning Ramlila tent' },
+      { name: 'Geeta Chopra & Sanjay Chopra', year: 1978, note: 'Posthumous heroes who fought off armed kidnappers in Delhi' },
+      { name: 'Resham Fatima', year: 2015, note: 'Bharat Award Winner - Bravely fought off an acid attacker' },
+      { name: 'Zen Gunratan Sadavarte', year: 2019, note: 'Saved 17 lives during a high-rise fire using emergency air techniques' },
+      { name: 'Karanbeer Singh', year: 2018, note: 'Rescued 15 children from a submerged school bus in Punjab' },
+      { name: 'Kumari Shivampreet Kaur', year: 2016, note: 'Bapu Gaidhani Award - Saved drowning children from a fast-flowing river' }
+    ],
+    interestingFacts: [
+      'Traditionally presented by the Prime Minister of India on the eve of Republic Day.',
+      'Awardees ride in open ceremonial gypsies down Kartavya Path during the televised Republic Day Parade.',
+      'ICCW provides lifetime educational scholarships and professional university sponsorship to all awardees.'
   'pradhan-mantri-rashtriya-bal-puraskar': {
     id: 'pradhan-mantri-rashtriya-bal-puraskar',
     name: 'Pradhan Mantri Rashtriya Bal Puraskar',
