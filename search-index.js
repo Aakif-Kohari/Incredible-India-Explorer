@@ -1439,6 +1439,12 @@ window.indiaSearchIndex = [
     category: "Wetlands & Ramsar Sites",
     description: "Explore Vellode Wetland (Vellode Bird Sanctuary) in Erode, Tamil Nadu — Ramsar Site, farmer-welcomed freshwater bird sanctuary for Spot-billed Pelicans and Darters.",
     url: "frontend/vellode-wetland-explorer/index.html"},
+  // --- Point Calimere Wetland Explorer ---
+  {
+    title: "Point Calimere Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Point Calimere Wildlife & Bird Sanctuary in Nagapattinam, Tamil Nadu — coastal Ramsar Site No. 1210 famed for 30,000+ wintering flamingos, blackbucks, and the Muthupet mangroves.",
+    url: "frontend/point-calimere-wetland-explorer/index.html"},
   // --- Satkosia Gorge Wetlands Explorer ---
   {
     title: "Satkosia Gorge Wetlands Explorer",
