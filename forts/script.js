@@ -5,6 +5,25 @@
 // Fort Data
 const fortsData = [
     {
+        id: "bekal-sea-fort",
+        name: "Bekal Sea Fort",
+        location: "Kasaragod",
+        state: "Kerala",
+        built: "1650 AD",
+        builtBy: "Shivappa Nayaka",
+        era: "Nayaka / Mysore / British Era",
+        architecture: "Coastal Heritage Fort",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "The largest fort in Kerala, renowned for its maritime heritage, Arabian Sea location, and strategic coastal defence.",
+        highlights: [
+            "Keyhole Shape Design",
+            "Tipu Sultan's Observation Tower",
+            "Underground Water Magazine",
+            "'Bombay' Movie Shooting Location"
+        ],
+        customUrl: "bekal-sea-fort.html"
+    },
+    {
         id: 1,
         name: "Red Fort",
         location: "Delhi",
@@ -310,11 +329,17 @@ function renderForts(forts) {
                 <p>${fort.history}</p>
                 <div class="fort-card-footer">
                     <span class="fort-built">Built: <strong>${fort.built}</strong></span>
-                    <span class="view-details-btn">View Details</span>
+                    <span class="view-details-btn">${fort.customUrl ? 'Explore' : 'View Details'}</span>
                 </div>
             </div>
         `;
-        card.addEventListener('click', () => openModal(fort));
+        if (fort.customUrl) {
+            card.addEventListener('click', () => {
+                window.location.href = fort.customUrl;
+            });
+        } else {
+            card.addEventListener('click', () => openModal(fort));
+        }
         fortsGrid.appendChild(card);
     });
 }
