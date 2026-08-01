@@ -214,6 +214,25 @@ const fortsData = [
         ]
     },
     {
+        id: "rohtasgarh-fort",
+        name: "Rohtasgarh Fort",
+        location: "Rohtas",
+        state: "Bihar",
+        built: "16th Century (Sher Shah Suri)",
+        builtBy: "Sher Shah Suri / Raja Man Singh",
+        era: "Medieval Era",
+        architecture: "Afghan-Mughal Architecture",
+        image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80",
+        history: "One of eastern India's largest hill forts, perched on the Kaimur plateau and known for its massive gateways and rich medieval history as Sher Shah Suri's stronghold.",
+        highlights: [
+            "Largest hill fort in eastern India",
+            "Massive gateways",
+            "Sher Shah Suri's stronghold",
+            "Man Singh's palaces"
+        ],
+        customUrl: "rohtasgarh-fort.html"
+    },
+    {
         id: 12,
         name: "Srirangapatna Fort",
         location: "Srirangapatna",
@@ -310,11 +329,17 @@ function renderForts(forts) {
                 <p>${fort.history}</p>
                 <div class="fort-card-footer">
                     <span class="fort-built">Built: <strong>${fort.built}</strong></span>
-                    <span class="view-details-btn">View Details</span>
+                    <span class="view-details-btn">${fort.customUrl ? 'Explore' : 'View Details'}</span>
                 </div>
             </div>
         `;
-        card.addEventListener('click', () => openModal(fort));
+        if (fort.customUrl) {
+            card.addEventListener('click', () => {
+                window.location.href = fort.customUrl;
+            });
+        } else {
+            card.addEventListener('click', () => openModal(fort));
+        }
         fortsGrid.appendChild(card);
     });
 }
