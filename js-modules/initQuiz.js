@@ -12,19 +12,14 @@ function initQuiz() {
     const restartBtn = document.getElementById('btn-restart-quiz');
     const heroStartBtn = document.getElementById('btn-start-quiz-hero');
 
-    const currentQNum = document.getElementById('current-q-num');
     const progressFill = document.getElementById('quiz-progress-fill');
     const questionText = document.getElementById('quiz-question-text');
-    const optionsGrid = document.getElementById('quiz-options-grid');
-    const feedback = document.getElementById('quiz-feedback');
-    const feedbackIcon = document.getElementById('feedback-icon');
-    const feedbackText = document.getElementById('feedback-text');
-    const finalScore = document.getElementById('quiz-final-score');
+    const optionsContainer = document.getElementById('quiz-options') || document.getElementById('quiz-options-grid');
+    const resultIcon = document.getElementById('quiz-result-icon');
     const resultMsg = document.getElementById('quiz-result-message');
 
     if (!introScreen || typeof quizQuestions === 'undefined') return;
 
-    // Idempotency guard
     if (introScreen.dataset.listenerBound === "true") return;
     introScreen.dataset.listenerBound = "true";
 
@@ -59,8 +54,6 @@ function initQuiz() {
 
     function loadQuestion() {
         locked = false;
-        if (feedback) feedback.classList.add('hidden');
-
         const q = quizQuestions[currentQuestionIndex];
         const shuffledOptions = [...q.options];
         for (let i = shuffledOptions.length - 1; i > 0; i--) {
@@ -68,18 +61,17 @@ function initQuiz() {
             [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
         }
 
-        if (currentQNum) currentQNum.innerText = currentQuestionIndex + 1;
         if (progressFill) progressFill.style.width = ((currentQuestionIndex + 1) / quizQuestions.length * 100) + '%';
         if (questionText) questionText.innerText = q.question;
 
-        if (optionsGrid) {
-            optionsGrid.innerHTML = '';
+        if (optionsContainer) {
+            optionsContainer.innerHTML = '';
             shuffledOptions.forEach(opt => {
                 const btn = document.createElement('button');
                 btn.className = 'option-btn';
                 btn.innerText = opt;
                 btn.addEventListener('click', () => selectOption(btn, opt));
-                optionsGrid.appendChild(btn);
+                optionsContainer.appendChild(btn);
             });
         }
     }
@@ -91,7 +83,7 @@ function initQuiz() {
         const q = quizQuestions[currentQuestionIndex];
         const isCorrect = (selectedVal === q.answer);
 
-        const optionBtns = optionsGrid.querySelectorAll('.option-btn');
+        const optionBtns = optionsContainer ? optionsContainer.querySelectorAll('.option-btn') : [];
         optionBtns.forEach(btn => {
             btn.classList.add('disabled');
             if (btn.innerText === q.answer) {
@@ -102,10 +94,8 @@ function initQuiz() {
         if (isCorrect) {
             clickedBtn.classList.add('correct');
             score++;
-            showFeedback(true);
         } else {
             clickedBtn.classList.add('wrong');
-            showFeedback(false, q.answer);
         }
 
         setTimeout(() => {
@@ -115,40 +105,31 @@ function initQuiz() {
             } else {
                 showResults();
             }
-        }, 1800);
-    }
-
-    function showFeedback(isCorrect, correctAnswer) {
-        if (!feedback) return;
-        feedback.classList.remove('hidden', 'correct', 'wrong');
-
-        if (isCorrect) {
-            feedback.classList.add('correct');
-            if (feedbackIcon) feedbackIcon.innerText = '✅';
-            if (feedbackText) feedbackText.innerText = 'Correct! Great job!';
-        } else {
-            feedback.classList.add('wrong');
-            if (feedbackIcon) feedbackIcon.innerText = '❌';
-            if (feedbackText) feedbackText.innerText = `Incorrect. The answer is ${correctAnswer}`;
-        }
+        }, 1200);
     }
 
     function showResults() {
         if (questionScreen) questionScreen.classList.add('hidden');
         if (resultScreen) resultScreen.classList.remove('hidden');
 
-        if (finalScore) finalScore.innerText = score;
+        if (resultIcon) {
+            if (score === quizQuestions.length) {
+                resultIcon.innerText = '🎉';
+            } else if (score >= Math.ceil(quizQuestions.length * 0.6)) {
+                resultIcon.innerText = '🎉';
+            } else {
+                resultIcon.innerText = '🍛';
+            }
+        }
 
-        const resultIcon = document.getElementById('quiz-result-icon');
-        if (score === quizQuestions.length) {
-            if (resultMsg) resultMsg.innerText = `Incredible Mastermind! 🥳 You scored a perfect ${score}/${quizQuestions.length}! You are an expert on India's vast culinary heritage!`;
-            if (resultIcon) resultIcon.innerText = '🎉';
-        } else if (score >= Math.ceil(quizQuestions.length * 0.6)) {
-            if (resultMsg) resultMsg.innerText = `Great score! 👍 You got ${score}/${quizQuestions.length} correct. You have a solid grasp of Indian cuisine!`;
-            if (resultIcon) resultIcon.innerText = '🎉';
-        } else {
-            if (resultMsg) resultMsg.innerText = `You scored ${score}/${quizQuestions.length}. Keep exploring the interactive map and food lists to discover more flavors! 🍛`;
-            if (resultIcon) resultIcon.innerText = '🍛';
+        if (resultMsg) {
+            if (score === quizQuestions.length) {
+                resultMsg.innerText = `Incredible Mastermind! 🥳 You scored a perfect ${score}/${quizQuestions.length}! You are an expert on India's vast culinary heritage!`;
+            } else if (score >= Math.ceil(quizQuestions.length * 0.6)) {
+                resultMsg.innerText = `Great score! 👍 You got ${score}/${quizQuestions.length} correct. You have a solid grasp of Indian cuisine!`;
+            } else {
+                resultMsg.innerText = `You scored ${score}/${quizQuestions.length}. Keep exploring the interactive map and food lists to discover more flavors! 🍛`;
+            }
         }
     }
 }
