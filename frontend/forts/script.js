@@ -214,6 +214,25 @@ const fortsData = [
         ]
     },
     {
+        id: "st-angelo-fort",
+        name: "St. Angelo Fort",
+        location: "Kannur",
+        state: "Kerala",
+        built: "1505",
+        builtBy: "Francisco de Almeida (Portuguese)",
+        era: "Colonial Era",
+        architecture: "Portuguese Colonial Architecture",
+        image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80",
+        history: "The oldest Portuguese fort in India, built in 1505 and later held by the Dutch and British, offering spectacular views of the Arabian Sea.",
+        highlights: [
+            "Oldest Portuguese fort in India",
+            "Built in 1505 by De Almeida",
+            "Laterite stone ramparts",
+            "Kannur Lighthouse views"
+        ],
+        customUrl: "st-angelo-fort.html"
+    },
+    {
         id: 12,
         name: "Srirangapatna Fort",
         location: "Srirangapatna",
@@ -310,11 +329,17 @@ function renderForts(forts) {
                 <p>${fort.history}</p>
                 <div class="fort-card-footer">
                     <span class="fort-built">Built: <strong>${fort.built}</strong></span>
-                    <span class="view-details-btn">View Details</span>
+                    <span class="view-details-btn">${fort.customUrl ? 'Explore' : 'View Details'}</span>
                 </div>
             </div>
         `;
-        card.addEventListener('click', () => openModal(fort));
+        if (fort.customUrl) {
+            card.addEventListener('click', () => {
+                window.location.href = fort.customUrl;
+            });
+        } else {
+            card.addEventListener('click', () => openModal(fort));
+        }
         fortsGrid.appendChild(card);
     });
 }
