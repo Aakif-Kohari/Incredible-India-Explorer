@@ -39,6 +39,8 @@ describe('National Awards Encyclopedia Dataset Completeness', () => {
     // Literature Awards
     expect(keys).toContain('jnanpith-award');
     expect(keys).toContain('sahitya-akademi-award');
+    // Children Awards
+    expect(keys).toContain('national-bravery-awards');
   });
 
   it('every award entry contains all 5 required sections (Eligibility, History, Medal design, Winners, Interesting facts)', () => {
