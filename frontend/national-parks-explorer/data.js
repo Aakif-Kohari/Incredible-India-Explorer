@@ -771,7 +771,7 @@ entryFee: '₹50 (Indian), ₹300 (Foreign)',
         climate: 'Tropical',
         bestTime: 'October to June',
         entryFee: '₹250 (Indian), ₹1500 (Foreign)',
-        image: '../../assets/travel_forests.png',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Amazing%20Landscape%20%40Satpura%20Tiger%20Reserve.jpg?width=960',
         explorerUrl: '../satpura-national-park-explorer/index.html'
     }
 ];
