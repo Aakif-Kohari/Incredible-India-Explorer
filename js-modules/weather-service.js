@@ -16,16 +16,18 @@
     "use strict";
 
     const CACHE_PREFIX = "weatherCache:";
+    const HOURLY_CACHE_PREFIX = "weatherHourlyCache:";
     const CACHE_TTL_MS = 3 * 60 * 60 * 1000; // 3 hours — forecasts change faster than routes, so a shorter TTL than route-planner's 7-day cache
     const FORECAST_DAYS = 16; // Open-Meteo's max daily-forecast horizon
+    const HOURLY_FORECAST_DAYS = 3; // hourly detail is only really actionable for the next few days; keeps the response small
 
-    function cacheKey(lat, lng) {
-        return CACHE_PREFIX + lat.toFixed(2) + ":" + lng.toFixed(2);
+    function cacheKey(prefix, lat, lng) {
+        return prefix + lat.toFixed(2) + ":" + lng.toFixed(2);
     }
 
-    function readCache(lat, lng) {
+    function readCache(prefix, lat, lng) {
         try {
-            const raw = localStorage.getItem(cacheKey(lat, lng));
+            const raw = localStorage.getItem(cacheKey(prefix, lat, lng));
             if (!raw) return null;
             const parsed = JSON.parse(raw);
             if (!parsed || typeof parsed.fetchedAt !== "number") return null;
@@ -36,9 +38,9 @@
         }
     }
 
-    function writeCache(lat, lng, forecast) {
+    function writeCache(prefix, lat, lng, forecast) {
         try {
-            localStorage.setItem(cacheKey(lat, lng), JSON.stringify({ fetchedAt: Date.now(), forecast }));
+            localStorage.setItem(cacheKey(prefix, lat, lng), JSON.stringify({ fetchedAt: Date.now(), forecast }));
         } catch (e) {
             // Storage full/unavailable — forecast just won't be cached this session.
         }
@@ -55,6 +57,17 @@
         return "https://api.open-meteo.com/v1/forecast?" + params.toString();
     }
 
+    function buildHourlyForecastUrl(lat, lng) {
+        const params = new URLSearchParams({
+            latitude: lat,
+            longitude: lng,
+            hourly: "weathercode,temperature_2m,precipitation_probability",
+            timezone: "auto",
+            forecast_days: String(HOURLY_FORECAST_DAYS)
+        });
+        return "https://api.open-meteo.com/v1/forecast?" + params.toString();
+    }
+
     function normalizeResponse(json) {
         const daily = json && json.daily;
         if (!daily || !Array.isArray(daily.time)) return [];
@@ -67,9 +80,36 @@
         }));
     }
 
+    /**
+     * Groups Open-Meteo's flat hourly arrays into one entry per day, each
+     * holding its own array of hourly slots — shape:
+     * `[{ date, hours: [{ time, weatherCode, tempC, precipProbability }] }]`.
+     * Grouped (rather than left flat) so weather-core.js's
+     * `summarizeHourlyRisk()` can work a single day at a time, matching
+     * how the daily forecast is already consumed one day at a time.
+     */
+    function normalizeHourlyResponse(json) {
+        const hourly = json && json.hourly;
+        if (!hourly || !Array.isArray(hourly.time)) return [];
+
+        const byDate = new Map();
+        hourly.time.forEach((isoDateTime, i) => {
+            const [date, time] = isoDateTime.split("T");
+            if (!byDate.has(date)) byDate.set(date, []);
+            byDate.get(date).push({
+                time: time ? time.slice(0, 5) : isoDateTime,
+                weatherCode: hourly.weathercode ? hourly.weathercode[i] : null,
+                tempC: hourly.temperature_2m ? hourly.temperature_2m[i] : null,
+                precipProbability: hourly.precipitation_probability ? hourly.precipitation_probability[i] : null
+            });
+        });
+
+        return Array.from(byDate.entries()).map(([date, hours]) => ({ date, hours }));
+    }
+
     /** Fetch (or reuse cached) forecast for one lat/lng. Returns a Promise<forecastDay[]>. */
     async function fetchForecast(lat, lng) {
-        const cached = readCache(lat, lng);
+        const cached = readCache(CACHE_PREFIX, lat, lng);
         if (cached) return cached;
 
         const res = await fetch(buildForecastUrl(lat, lng));
@@ -78,7 +118,28 @@
         }
         const json = await res.json();
         const forecast = normalizeResponse(json);
-        writeCache(lat, lng, forecast);
+        writeCache(CACHE_PREFIX, lat, lng, forecast);
+        return forecast;
+    }
+
+    /**
+     * Fetch (or reuse cached) hour-by-hour forecast for one lat/lng, grouped
+     * by day. Returns a Promise<{date, hours: Array}[]>. Used to explain
+     * *when* during a poor-weather day conditions are worst (see
+     * weather-core.js#summarizeHourlyRisk), not to replace the daily
+     * suitability scoring.
+     */
+    async function fetchHourlyForecast(lat, lng) {
+        const cached = readCache(HOURLY_CACHE_PREFIX, lat, lng);
+        if (cached) return cached;
+
+        const res = await fetch(buildHourlyForecastUrl(lat, lng));
+        if (!res.ok) {
+            throw new Error("Weather API responded with status " + res.status);
+        }
+        const json = await res.json();
+        const forecast = normalizeHourlyResponse(json);
+        writeCache(HOURLY_CACHE_PREFIX, lat, lng, forecast);
         return forecast;
     }
 
@@ -114,9 +175,13 @@
     const api = {
         CACHE_TTL_MS,
         FORECAST_DAYS,
+        HOURLY_FORECAST_DAYS,
         buildForecastUrl,
+        buildHourlyForecastUrl,
         normalizeResponse,
+        normalizeHourlyResponse,
         fetchForecast,
+        fetchHourlyForecast,
         fetchForecastsForDestinations,
         _readCache: readCache,
         _writeCache: writeCache
