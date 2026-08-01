@@ -253,18 +253,24 @@ export const AWARD_ENCYCLOPEDIA = {
     categoryName: 'National Sports Award',
     rank: "Outstanding Performance in Sports",
     establishedYear: '1961',
-    eligibility: 'Awarded for consistent outstanding performance over 4 years at international level, combined with qualities of leadership, sportsmanship, and sense of discipline.',
-    history: 'Instituted in 1961 by the Ministry of Youth Affairs and Sports. Named after Arjuna, the archer hero from the Mahabharata.',
-    medalDesign: 'Bronze statuette of Arjuna with his bow, a formal scroll, and a cash prize of ₹15 lakh.',
+    eligibility: 'Awarded for consistent outstanding performance over the preceding 4 years at the international level, combined with qualities of leadership, sportsmanship, and sense of discipline. Covers Olympic and Asian Games disciplines (athletics, swimming, shooting, wrestling, boxing, badminton, hockey, cricket, etc.), indigenous games (Kabaddi, Kho-Kho, Mallakhamb), and Para-sports for differently-abled athletes. Selection follows a multi-stage process: sports-wise nominations are invited from National Sports Federations and State Governments, shortlisted candidates are evaluated by a Selection Committee constituted by the Ministry of Youth Affairs and Sports based on medals and rankings achieved, and final approval is granted by the Ministry.',
+    history: 'Instituted in 1961 by the Ministry of Youth Affairs and Sports as India\'s foundational sports honour, predating both the Khel Ratna (1991) and Dronacharya Award (1985). Named after Arjuna, the peerless archer-hero of the Mahabharata renowned for unwavering focus and mastery of his craft under the tutelage of Guru Dronacharya. The award was created to recognize sustained excellence and has since become the benchmark national recognition for India\'s top-performing athletes across dozens of sporting disciplines.',
+    medalDesign: 'Bronze statuette of Arjuna drawing his bow, mounted on a wooden base, accompanied by a formal citation scroll, ceremonial dress, and a cash prize of ₹15 lakh. Presented annually by the President of India at the National Sports Awards ceremony held at Rashtrapati Bhavan.',
     notableWinners: [
       { name: 'P. K. Banerjee', year: 1961, note: 'Football Legend (First Arjuna Batch)' },
       { name: 'Sunil Gavaskar', year: 1975, note: 'Cricket Master' },
+      { name: 'Prakash Padukone', year: 1972, note: 'Badminton All England Champion' },
+      { name: 'Kapil Dev', year: 1980, note: 'Cricket World Cup Winning Captain' },
       { name: 'P. V. Sindhu', year: 2013, note: 'Olympic Medallist Badminton' },
+      { name: 'Deepa Malik', year: 2011, note: 'Para-Athletics (First Para-athlete Padma Shri too)' },
+      { name: 'Manika Batra', year: 2018, note: 'Table Tennis Commonwealth Games Champion' },
       { name: 'Mohammed Shami', year: 2023, note: 'Cricket World Cup Fast Bowler' }
     ],
     interestingFacts: [
-      'P. K. Banerjee (Football) was among the first batch of Arjuna awardees in 1961.',
-      'Covers Olympic sports, indigenous games (like Kabaddi and Kho-Kho), and sports for differently-abled.'
+      'P. K. Banerjee (Football) was among the first batch of Arjuna awardees in 1961, alongside legends from athletics, wrestling, and swimming.',
+      'The Arjuna Award is India\'s oldest sports honour, established three decades before the Khel Ratna.',
+      'It covers the widest range of disciplines among all sports awards — from Olympic sports to indigenous games like Kabaddi and Kho-Kho, and Para-sports.',
+      'Several recipients, including P. V. Sindhu and Mary Kom, later went on to also receive the Khel Ratna after continued excellence.'
     ]
   },
   'dronacharya-award': {
