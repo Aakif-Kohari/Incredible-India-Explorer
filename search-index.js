@@ -1434,6 +1434,37 @@ window.indiaSearchIndex = [
     description: "Explore Valley of Flowers National Park in Chamoli, Uttarakhand — UNESCO World Heritage Site, high-altitude Pushpawati river valley, Himalayan Blue Poppies, Brahma Kamal, and Snow Leopards.",
     url: "frontend/valley-of-flowers-explorer/index.html"
   },
+  // --- Udhwa Wetlands Explorer ---
+  {
+    title: "Udhwa Wetlands Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Udhwa Wetlands in Sahibganj, Jharkhand — Jharkhand's only Ramsar Site, featuring twin Patauda & Berhale oxbow lakes.",
+    url: "frontend/udhwa-wetlands-explorer/index.html"},
+  // --- Vellode Wetland Explorer ---
+  {
+    title: "Vellode Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Vellode Wetland (Vellode Bird Sanctuary) in Erode, Tamil Nadu — Ramsar Site, farmer-welcomed freshwater bird sanctuary for Spot-billed Pelicans and Darters.",
+    url: "frontend/vellode-wetland-explorer/index.html"},
+  // --- Point Calimere Wetland Explorer ---
+  {
+    title: "Point Calimere Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Point Calimere Wildlife & Bird Sanctuary in Nagapattinam, Tamil Nadu — coastal Ramsar Site No. 1210 famed for 30,000+ wintering flamingos, blackbucks, and the Muthupet mangroves.",
+    url: "frontend/point-calimere-wetland-explorer/index.html"},
+  // --- Satkosia Gorge Wetlands Explorer ---
+  {
+    title: "Satkosia Gorge Wetlands Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Satkosia Gorge Wetlands in Odisha — 22 km Mahanadi River gorge Ramsar site, pioneer sanctuary for Gharials and Mugger crocodiles.",
+    url: "frontend/satkosia-gorge-wetlands-explorer/index.html"},
+  // --- Ansupa Lake Explorer ---
+  {
+    title: "Ansupa Lake Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Ansupa Lake in Cuttack, Odisha — Ramsar Site, Odisha's largest freshwater oxbow lake formed by the Mahanadi River.",
+    url: "frontend/ansupa-lake-explorer/index.html"
+  },
   // --- Tampara Lake Explorer ---
   {
     title: "Tampara Lake Explorer",

@@ -4,9 +4,10 @@
  * generator. No backend: destinations come from trip-data.js, saved trips
  * live in localStorage.
  *
- * Loaded on demand by app.js when the route is trip-planner.html, mirroring
- * the pattern used by other js-modules/*.js pages (see initRoadTripFlipCards
- * etc. in app.js's `app:route-changed` handler).
+ * Included directly by frontend/trip-planner/trip-planner.html (which
+ * also calls window.TripPlanner.initTripPlannerPage() once loaded), the
+ * same way this project's other standalone feature pages include their
+ * own scripts — see docs/WEATHER_AWARE_ITINERARY.md.
  *
  * All the pure logic (scoring / selection / budget math) is exposed on
  * window.TripPlanner so it can be unit tested outside the DOM
@@ -440,8 +441,12 @@
     root.TripPlanner = TripPlanner;
 
     // --------------------------------------------------------------------
-    // UI wiring — runs once per route load (called by app.js as
-    // initTripPlannerPage(), following the site's existing lazy-load convention)
+    // UI wiring — runs once, called directly by
+    // frontend/trip-planner/trip-planner.html's own script include (see
+    // "Why this PR looks partly like a bug fix" in
+    // docs/WEATHER_AWARE_ITINERARY.md for why this isn't routed through
+    // app.js's generic lazy-load helper the way the comment above once
+    // implied).
     // --------------------------------------------------------------------
 
     function fmtINR(n) {
@@ -637,6 +642,12 @@
                     ${scheduleHtml}
                 </div>
             `;
+
+            // Lets add-on features (currently: the Weather-Aware Itinerary
+            // panel in weather-ui.js, see docs/WEATHER_AWARE_ITINERARY.md)
+            // react to a freshly (re)generated itinerary without this
+            // module needing to know they exist.
+            document.dispatchEvent(new CustomEvent("tripplanner:itinerary-rendered", { detail: { itinerary: it } }));
         }
 
         function renderSavedTrips() {

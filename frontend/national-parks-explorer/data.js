@@ -108,10 +108,10 @@ entryFee: '₹200 (Indian), ₹1000 (Foreign)',
         coordinates: { lat: 22.34, lng: 80.61 },
         climate: 'Tropical Dry Deciduous',
         bestTime: 'October to June',
-        entryFee: '₹150 (Indian), ₹500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Jungle_safari_-_Kanha_National_Park.jpg/960px-Jungle_safari_-_Kanha_National_Park.jpg'
-    },
-    {
+entryFee: '₹150 (Indian), ₹500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Jungle_safari_-_Kanha_National_Park.jpg/960px-Jungle_safari_-_Kanha_National_Park.jpg',
+        explorerUrl: '../kanha-national-park-explorer/index.html'
+    },    {
         id: 'kuno',
         name: 'Kuno National Park',
         state: 'Madhya Pradesh',
@@ -151,9 +151,9 @@ entryFee: '₹200 (Indian), ₹1000 (Foreign)',
         climate: 'Subtropical',
         bestTime: 'October to June',
         entryFee: '₹150 (Indian), ₹500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg/960px-1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg'
-    },
-    {
+image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg/960px-1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg',
+        explorerUrl: '../bandhavgarh-national-park-explorer/index.html'
+    },    {
         id: 'periyar',
         name: 'Periyar National Park',
         state: 'Kerala',
@@ -770,12 +770,33 @@ entryFee: '₹100 (Indian), ₹500 (Foreign)',
         coordinates: { lat: 25.47, lng: 90.30 },
         climate: 'Subtropical Monsoon',
         bestTime: 'October to April',
-        entryFee: '₹50 (Indian), ₹300 (Foreign)',
+entryFee: '₹50 (Indian), ₹300 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Red_Panda_%28Ailurus_fulgens%29.jpg/960px-Red_Panda_%28Ailurus_fulgens%29.jpg',
         explorerUrl: '../nokrek-national-park-explorer/index.html'
+    },
+    {
+        id: 'satpura',
+        name: 'Satpura National Park',
+        state: 'Madhya Pradesh',
+        stateId: 'mp',
+        established: 1981,
+        area: 524,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description:
+            'Named after the Satpura Range ("Sat" = seven, "Pura" = mountain), this rugged reserve of hills, gorges, and dense Sal-Teak forests is one of the few parks in India offering guided Walking Safaris and Canoe Safaris along the Denwa River, in addition to jeep safaris.',
+        keyFauna: ['Bengal Tiger', 'Leopard', 'Indian Gaur', 'Sloth Bear', 'Indian Wild Dog (Dhole)', 'Indian Giant Squirrel'],
+        keyFlora: ['Sal Forest', 'Teak', 'Bamboo', 'Reni Pani Vines'],
+        coordinates: { lat: 22.50, lng: 78.23 },
+        climate: 'Tropical',
+        bestTime: 'October to June',
+        entryFee: '₹250 (Indian), ₹1500 (Foreign)',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Amazing%20Landscape%20%40Satpura%20Tiger%20Reserve.jpg?width=960',
+        explorerUrl: '../satpura-national-park-explorer/index.html'
     }
 ];
-
 const TIGER_RESERVES = NATIONAL_PARKS.filter(p => p.isTigerReserve);
 
 const UNESCO_SITES = NATIONAL_PARKS.filter(p => p.isUNESCO);
