@@ -25,6 +25,8 @@ describe('National Awards Encyclopedia Dataset Completeness', () => {
 
     // Gallantry Awards
     expect(keys).toContain('vishisht-seva-medal');
+    expect(keys).toContain('ati-vishisht-seva-medal');
+    expect(keys).toContain('presidents-police-medal');
     expect(keys).toContain('param-vir-chakra');
     expect(keys).toContain('maha-vir-chakra');
     expect(keys).toContain('vir-chakra');
