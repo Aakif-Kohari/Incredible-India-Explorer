@@ -1427,6 +1427,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- UNESCO Mountain Railways of India Explorer ---
+  {
+    title: "UNESCO Mountain Railways of India Explorer",
+    category: "UNESCO Engineering & Heritage",
+    description: "Explore the UNESCO World Heritage Mountain Railways of India — Darjeeling Himalayan Railway, Nilgiri Mountain Railway (Abt Rack & Pinion), and Kalka-Shimla Railway.",
+    url: "frontend/mountain-railways-explorer/index.html"
+  },
   // --- Tampara Lake Explorer ---
   {
     title: "Tampara Lake Explorer",
