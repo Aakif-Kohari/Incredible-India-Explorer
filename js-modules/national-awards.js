@@ -103,6 +103,53 @@ export const AWARD_ENCYCLOPEDIA = {
   },
 
   // ==================== GALLANTRY AWARDS ====================
+  'vishisht-seva-medal': {
+    id: 'vishisht-seva-medal',
+    name: 'Vishisht Seva Medal (VSM)',
+    category: 'gallantry',
+    categoryName: 'Military Distinguished Service',
+    rank: "Distinguished Military Decoration",
+    establishedYear: '1960',
+    eligibility: 'Awarded to recognize distinguished service of a high order to all ranks of the Indian Armed Forces, including the Indian Army, Indian Navy, Indian Air Force, Territorial Army, Reserve Forces, and Military Nursing Service.',
+    history: 'Instituted on January 26, 1960 by the Government of India as the "Vishisht Seva Medal, Class III" and re-designated as the "Vishisht Seva Medal" (VSM) on January 27, 1967. It forms the base of the peacetime Vishisht Seva series (PVSM > AVSM > VSM). A bar is awarded for subsequent acts of distinguished service of a high order.',
+    medalDesign: 'Circular bronze medallion (35mm diameter). The obverse features an embossed five-pointed star in the center with the State Emblem of India. The reverse features a five-pointed star embossed in relief with the Hindi inscription "Vishisht Seva Medal" along the upper rim. Suspended by a 32mm golden-yellow ribbon with three dark blue vertical stripes.',
+    link: 'vishisht-seva-medal.html',
+    notableWinners: [
+      { name: 'General M. M. Naravane (PVSM, AVSM, SM, VSM)', year: 2015, note: '28th Chief of the Army Staff' },
+      { name: 'Admiral Sunith Francis Rodrigues (PVSM, VSM)', year: 1985, note: '15th Chief of Naval Staff & Former Governor' },
+      { name: 'Air Chief Marshal B. S. Dhanoa (PVSM, AVSM, YSM, VM, VSM)', year: 1999, note: '25th Chief of Air Staff (Kargil War Veteran)' },
+      { name: 'Major General Ian Cardozo (AVSM, SM)', year: 1971, note: 'War Hero & First Disabled Officer to Command a Brigade' },
+      { name: 'Vice Admiral G. Ashok Kumar (PVSM, AVSM, YSM, VSM)', year: 2011, note: 'First National Maritime Security Coordinator' }
+    ],
+    interestingFacts: [
+      'Forms the foundation decoration of the peacetime Vishisht Seva medal hierarchy.',
+      'Subsequent awards of the medal for further distinguished service of a high order are denoted by a bronze bar attached to the ribbon.',
+      'Announced bi-annually on Republic Day (January 26) and Independence Day (August 15) by the President of India.',
+      'Recipients carry post-nominal initials "VSM" in official military correspondence.'
+  'ati-vishisht-seva-medal': {
+    id: 'ati-vishisht-seva-medal',
+    name: 'Ati Vishisht Seva Medal (AVSM)',
+    category: 'gallantry',
+    categoryName: 'Military Distinguished Service',
+    rank: "Senior Armed Forces Decoration",
+    establishedYear: '1960',
+    eligibility: 'Awarded to recognize distinguished service of an exceptional order to all ranks of the Armed Forces, including the Indian Army, Indian Navy, Indian Air Force, Territorial Army, Auxiliary & Reserve Forces, and Nursing Officers.',
+    history: 'Instituted on January 26, 1960 by the Government of India as the "Vishisht Seva Medal, Class II" and re-designated as the "Ati Vishisht Seva Medal" (AVSM) on January 27, 1967. It serves as the peacetime equivalent of the Uttam Yudh Seva Medal (UYSM). A bar is awarded for subsequent acts of distinguished service.',
+    medalDesign: 'Circular silver medallion (35mm diameter). The obverse features an embossed five-pointed star in the center with the State Emblem of India. The reverse features a five-pointed star embossed in relief with the inscription "Ati Vishisht Seva Medal" in Devanagari along the upper rim. Suspended by a 32mm golden-yellow ribbon with two dark blue vertical stripes.',
+    link: 'ati-vishisht-seva-medal.html',
+    notableWinners: [
+      { name: 'General Bipin Rawat (PVSM, UYSM, AVSM, YSM, SM, VSM)', year: 2013, note: 'First Chief of Defence Staff (CDS)' },
+      { name: 'General Manoj Pande (PVSM, AVSM, VSM)', year: 2015, note: '29th Chief of the Army Staff' },
+      { name: 'Admiral Karambir Singh (PVSM, AVSM)', year: 2011, note: '24th Chief of the Naval Staff' },
+      { name: 'Air Chief Marshal R. K. S. Bhadauria (PVSM, AVSM, VM)', year: 2013, note: '26th Chief of the Air Staff' },
+      { name: 'Lieutenant General K. J. S. Dhillon (UYSM, YSM, VSM)', year: 2018, note: 'Former XV Corps Commander ("Tiny Dhillon")' },
+      { name: 'Admiral R. Hari Kumar (PVSM, AVSM, VSM)', year: 2016, note: '25th Chief of the Naval Staff' }
+    ],
+    interestingFacts: [
+      'Peacetime equivalent to the wartime Uttam Yudh Seva Medal (UYSM).',
+      'Subsequent awards of the medal for further distinguished service are denoted by a silver bar attached to the ribbon.',
+      'Announced bi-annually on Republic Day (January 26) and Independence Day (August 15) by the President of India.',
+      'Recipients carry post-nominal initials "AVSM" in official military correspondence.'
   'presidents-police-medal': {
     id: 'presidents-police-medal',
     name: "President's Police Medal",
@@ -379,9 +426,57 @@ export const AWARD_ENCYCLOPEDIA = {
     interestingFacts: [
       'The award recognizes talent across four major categories: Creative Arts, Creative Writing, Creative Performance, and Creative Scientific Innovation.',
       'Selection process involves multi-tiered evaluation at regional, zonal, and national levels by expert panels.',
-      'Over 500 exceptional children have been recognized since the award\'s inception in 1995.',
-      'Many awardees have gone on to achieve significant success in their respective fields nationally and internationally.',
       'The award provides not just recognition but also developmental opportunities through workshops and mentorship programs.'
+    ]
+  },
+  'national-bravery-awards': {
+    id: 'national-bravery-awards',
+    name: 'National Bravery Awards',
+    category: 'children',
+    categoryName: "Children's Bravery Honour",
+    rank: "Premier National Children Bravery Award",
+    establishedYear: '1957',
+    eligibility: 'Awarded to Indian children aged between 6 and 18 years for performing spontaneous, extraordinary acts of selflessness and bravery under grave personal risk or life-threatening crisis.',
+    history: 'Instituted in 1957 by the Indian Council for Child Welfare (ICCW) following an iconic act of bravery by 14-year-old scout Harish Chandra Mehra, who saved hundreds of lives during a fire at Ramlila Ground in the presence of Prime Minister Jawaharlal Nehru. Expanded over the decades with specialized sub-awards (Bharat, Sanjay Chopra, Geeta Chopra, Bapu Gaidhani).',
+    medalDesign: 'Circular silver medal with ribbon bar, a formal citation scroll, and financial assistance for completing school and higher university education. Sub-awards include special medals and cash awards.',
+    link: 'national-bravery-awards.html',
+    notableWinners: [
+      { name: 'Harish Chandra Mehra', year: 1957, note: 'First recipient in 1957 - Saved hundreds from a burning Ramlila tent' },
+      { name: 'Geeta Chopra & Sanjay Chopra', year: 1978, note: 'Posthumous heroes who fought off armed kidnappers in Delhi' },
+      { name: 'Resham Fatima', year: 2015, note: 'Bharat Award Winner - Bravely fought off an acid attacker' },
+      { name: 'Zen Gunratan Sadavarte', year: 2019, note: 'Saved 17 lives during a high-rise fire using emergency air techniques' },
+      { name: 'Karanbeer Singh', year: 2018, note: 'Rescued 15 children from a submerged school bus in Punjab' },
+      { name: 'Kumari Shivampreet Kaur', year: 2016, note: 'Bapu Gaidhani Award - Saved drowning children from a fast-flowing river' }
+    ],
+    interestingFacts: [
+      'Traditionally presented by the Prime Minister of India on the eve of Republic Day.',
+      'Awardees ride in open ceremonial gypsies down Kartavya Path during the televised Republic Day Parade.',
+      'ICCW provides lifetime educational scholarships and professional university sponsorship to all awardees.'
+  'pradhan-mantri-rashtriya-bal-puraskar': {
+    id: 'pradhan-mantri-rashtriya-bal-puraskar',
+    name: 'Pradhan Mantri Rashtriya Bal Puraskar',
+    category: 'children',
+    categoryName: "Children's Civilian Honour",
+    rank: "Highest Civilian Honour for Children",
+    establishedYear: '1996',
+    eligibility: 'Awarded to Indian children aged between 5 and 18 years who have demonstrated extraordinary achievement in Innovation, Scholastic Achievements, Sports, Arts & Culture, Social Service, or Bravery.',
+    history: 'Instituted in 1996 as the "National Child Award for Exceptional Achievement" by the Ministry of Women and Child Development. Restructured and re-titled as "Pradhan Mantri Rashtriya Bal Puraskar" in 2018. Conferred annually by the President of India during Republic Day week.',
+    medalDesign: 'Circular silver medallion featuring a stylized golden motif of children under the national emblem. Accompanied by a citation certificate, a cash prize of ₹1 Lakh (₹1,00,000), and a tamper-proof digital blockchain certificate.',
+    link: 'pradhan-mantri-rashtriya-bal-puraskar.html',
+    notableWinners: [
+      { name: 'Prasiddhi Singh', year: 2021, note: 'Social Service - Planted thousands of fruit trees (Young Environmentalist)' },
+      { name: 'Gitanjali Rao', year: 2021, note: 'Innovation - TIME Kid of the Year 2020 & Lead Water Sensor Developer' },
+      { name: 'Vyom Ahuja', year: 2021, note: 'Arts & Culture - Multi-instrumentalist & Flute Prodigy' },
+      { name: 'Anand Krishna Mishra', year: 2020, note: 'Social Service - Founder of Bal Chaupal for Underprivileged Education' },
+      { name: 'Savita Kumari', year: 2020, note: 'Sports - International Archery Gold Medallist' },
+      { name: 'Kameshwar Sharma', year: 2019, note: 'Bravery - Displayed selflessness in saving lives during emergency crisis' }
+    ],
+    interestingFacts: [
+      'Winners enjoy an exclusive interactive session and tea meeting with the Prime Minister of India at 7 Lok Kalyan Marg.',
+      'Awardees ride in open ceremonial gypsies down Kartavya Path during the Republic Day Parade in New Delhi.',
+      'India\'s first national award to issue tamper-proof digital blockchain certificates to recipients.'
+    ]
+  },
   // ==================== HEALTHCARE AWARDS ====================
   'national-florence-nightingale-award': {
     id: 'national-florence-nightingale-award',
@@ -406,6 +501,9 @@ export const AWARD_ENCYCLOPEDIA = {
       'The award ceremony is typically held on May 12th, International Nurses Day, which is also Florence Nightingale\'s birthday.',
       '35+ nurses are selected annually from across India for this prestigious honor.',
       'The award recognizes nurses from various specializations including critical care, pediatrics, mental health, and community health.'
+    ]
+  },
+
   // ==================== SCIENCE AWARDS ====================
   'rashtriya-vigyan-puraskar': {
     id: 'rashtriya-vigyan-puraskar',
@@ -430,6 +528,31 @@ export const AWARD_ENCYCLOPEDIA = {
       'Over 500 scientists have been recognized since the inception of the awards in 1958.',
       'Many awardees have received international recognition including Nobel Prizes and Fellowships of the Royal Society.',
       'The awards include special categories for young scientists (under 35) and women scientists to promote diversity in scientific research.'
+    ]
+  },
+  // ==================== HARMONY & PEACE AWARDS ====================
+  'national-communal-harmony-award': {
+    id: 'national-communal-harmony-award',
+    name: 'National Communal Harmony Award',
+    category: 'harmony',
+    categoryName: 'Peace & Harmony Honour',
+    rank: "National Honour for Communal Harmony & Unity",
+    establishedYear: '1996',
+    eligibility: 'Conferred upon individuals and organizations for outstanding contribution towards promoting communal harmony, national integration, and peace across India. Individuals require 10+ years and organizations require 5+ years of dedicated service.',
+    history: 'Instituted in 1996 by the National Foundation for Communal Harmony (NFCH), an autonomous organization under the Ministry of Home Affairs, Government of India. Created to honor exemplary efforts in strengthening inter-community brotherhood.',
+    medalDesign: 'Includes a citation plaque, a commemorative trophy, and a cash prize of ₹5 Lakhs for Individuals and ₹10 Lakhs for Organizations.',
+    notableWinners: [
+      { name: 'Foundation for Amity & National Integration', year: 1999, note: 'Organization Category - Grassroots Peacebuilding' },
+      { name: 'Dr. Asghar Ali Engineer', year: 2004, note: 'Individual Category - Scholar & Interfaith Harmony Pioneer' },
+      { name: 'Ram Puniyani', year: 2006, note: 'Individual Category - Communal Harmony Activist' },
+      { name: 'Acharya Shri N Mahapragya', year: 2008, note: 'Individual Category - Ahimsa Yatra & Peace Pioneer' },
+      { name: 'Centre for Study of Society and Secularism', year: 2012, note: 'Organization Category - Secular Research & Peace Promotion' }
+    ],
+    interestingFacts: [
+      'Instituted by the National Foundation for Communal Harmony (NFCH) under the Union Ministry of Home Affairs.',
+      'A Jury chaired by the Vice President of India selects recipients after rigorous nationwide screening.',
+      'Individual category awardees receive ₹5 lakh while Organization category awardees receive ₹10 lakh alongside citations.',
+      'Promotes peace, interfaith understanding, and rehabilitation of child victims of communal violence.'
     ]
   }
 };

@@ -230,7 +230,92 @@ const fortsData = [
             "Solah Khamba Mosque",
             "Bahmani Sultanate capital"
         ],
-        customUrl: "bidar-fort.html"
+        customUrl: "bidar-fort.html"},{
+        id: "chitradurga-fort",
+        name: "Chitradurga Fort",
+        location: "Chitradurga",
+        state: "Karnataka",
+        built: "11th-18th Century",
+        builtBy: "Nayakas of Chitradurga",
+        era: "Vijayanagara Era",
+        architecture: "Hill Fort Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "The 'Kallina Kote' (Stone Fort), one of India's greatest hill forts, famous for its massive stone fortifications, seven concentric walls, and the heroic legend of Onake Obavva.",
+        highlights: [
+            "Seven concentric stone walls",
+            "Legend of Onake Obavva",
+            "Interlocking granite boulders",
+            "Hidden passages & gateways"
+        ],
+        customUrl: "chitradurga-fort.html"},{
+        id: "st-angelo-fort",
+        name: "St. Angelo Fort",
+        location: "Kannur",
+        state: "Kerala",
+        built: "1505",
+        builtBy: "Francisco de Almeida (Portuguese)",
+        era: "Colonial Era",
+        architecture: "Portuguese Colonial Architecture",
+        image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80",
+        history: "The oldest Portuguese fort in India, built in 1505 and later held by the Dutch and British, offering spectacular views of the Arabian Sea.",
+        highlights: [
+            "Oldest Portuguese fort in India",
+            "Built in 1505 by De Almeida",
+            "Laterite stone ramparts",
+            "Kannur Lighthouse views"
+        ],
+        customUrl: "st-angelo-fort.html"},{
+        id: "tiruchirappalli-rock-fort",
+        name: "Tiruchirappalli Rock Fort",
+        location: "Tiruchirappalli",
+        state: "Tamil Nadu",
+        built: "6th Century CE (Pallava) onwards",
+        builtBy: "Pallavas / Madurai Nayakas",
+        era: "Medieval Era",
+        architecture: "Dravidian Rock-Cut Architecture",
+        image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80",
+        history: "An iconic fort built on one of the world's oldest rock formations (3.8 billion years), famed for its ancient cave temples and panoramic views of the Kaveri delta.",
+        highlights: [
+            "3.8-billion-year-old rock",
+            "437 steps to the summit",
+            "Ucchi Pillayar Temple",
+            "Panoramic Kaveri delta views"
+        ],
+        customUrl: "tiruchirappalli-rock-fort.html"},
+       { id: "vellore-fort",
+        name: "Vellore Fort",
+        location: "Vellore",
+        state: "Tamil Nadu",
+        built: "16th Century",
+        builtBy: "Vijayanagara Empire",
+        era: "Vijayanagara Era",
+        architecture: "Vijayanagara Military Architecture",
+        image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80",
+        history: "One of the finest surviving examples of military architecture in South India, famed for its massive granite ramparts, crocodile-filled moat, and the historic Vellore Mutiny of 1806.",
+        highlights: [
+            "First sepoy uprising of 1806",
+            "Jalakandeswarar Temple",
+            "Crocodile moat & double ramparts",
+            "Imprisoned Tipu Sultan's family"
+        ],
+        customUrl: "vellore-fort.html"},
+        {id: "vijaydurg-fort",
+        name: "Vijaydurg Fort",
+        location: "Devgad",
+        state: "Maharashtra",
+        built: "12th Century (Rebuilt 1653)",
+        builtBy: "Shilahara Dynasty / Chhatrapati Shivaji Maharaj",
+        era: "Maratha Era",
+        architecture: "Coastal Maratha Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "One of the oldest sea forts on the Konkan coast, the 'Gibraltar of the East' served as the most formidable naval base of the Maratha Empire under Kanhoji Angre.",
+        highlights: [
+            "Gibraltar of the East",
+            "Major Maratha naval base",
+            "Hidden 1.4 km underwater wall",
+            "Kanhoji Angre's headquarters"
+        ],
+        customUrl: "vijaydurg-fort.html"
     },
     {
         id: 12,
