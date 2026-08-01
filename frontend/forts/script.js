@@ -214,6 +214,25 @@ const fortsData = [
         ]
     },
     {
+        id: "bidar-fort",
+        name: "Bidar Fort",
+        location: "Bidar",
+        state: "Karnataka",
+        built: "1427 (Bahmani Capital)",
+        builtBy: "Sultan Ahmad Shah Wali",
+        era: "Bahmani Era",
+        architecture: "Indo-Persian Architecture",
+        image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80",
+        history: "The Persian-inspired capital of the Bahmani Sultanate, famed for its triple moats, glazed-tile Rangin Mahal palace, and majestic gateways.",
+        highlights: [
+            "Triple-moat defence system",
+            "Rangin Mahal glazed tiles",
+            "Solah Khamba Mosque",
+            "Bahmani Sultanate capital"
+        ],
+        customUrl: "bidar-fort.html"
+    },
+    {
         id: 12,
         name: "Srirangapatna Fort",
         location: "Srirangapatna",
@@ -310,11 +329,17 @@ function renderForts(forts) {
                 <p>${fort.history}</p>
                 <div class="fort-card-footer">
                     <span class="fort-built">Built: <strong>${fort.built}</strong></span>
-                    <span class="view-details-btn">View Details</span>
+                    <span class="view-details-btn">${fort.customUrl ? 'Explore' : 'View Details'}</span>
                 </div>
             </div>
         `;
-        card.addEventListener('click', () => openModal(fort));
+        if (fort.customUrl) {
+            card.addEventListener('click', () => {
+                window.location.href = fort.customUrl;
+            });
+        } else {
+            card.addEventListener('click', () => openModal(fort));
+        }
         fortsGrid.appendChild(card);
     });
 }
