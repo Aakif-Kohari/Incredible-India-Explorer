@@ -529,6 +529,26 @@ const NATIONAL_PARKS = [
         bestTime: 'October to March',
         entryFee: '₹50 (Indian), ₹500 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/View_of_Gulf_of_Mannar_from_Rameshwaram%2C_Tamil_Nadu.jpg/960px-View_of_Gulf_of_Mannar_from_Rameshwaram%2C_Tamil_Nadu.jpg'
+    },
+    {
+        id: 'sanjay',
+        name: 'Sanjay National Park',
+        state: 'Madhya Pradesh',
+        stateId: 'mp',
+        established: 1981,
+        area: 466.65,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description: 'Part of the Sanjay-Dubri Tiger Reserve, this park boasts a rich history and pristine Sal forest ecosystems. It is known for its population of Bengal tigers, leopards, diverse herbivores, and vibrant birdlife. A true hidden gem for safari enthusiasts.',
+        keyFauna: ['Bengal Tiger', 'Leopard', 'Chital', 'Sambar', 'Nilgai', 'Wild Boar'],
+        keyFlora: ['Sal', 'Bamboo', 'Dhau', 'Salai'],
+        coordinates: { lat: 23.91, lng: 81.83 },
+        climate: 'Tropical Monsoon',
+        bestTime: 'November to June',
+        entryFee: '₹150 (Indian), ₹500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Bengal_tiger_in_Sanjay_Dubri_Tiger_Reserve_December_2024_by_Tisha_Mukherjee_11.jpg/960px-Bengal_tiger_in_Sanjay_Dubri_Tiger_Reserve_December_2024_by_Tisha_Mukherjee_11.jpg'
     }
 ];
 
