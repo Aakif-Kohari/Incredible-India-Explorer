@@ -274,16 +274,24 @@ export const AWARD_ENCYCLOPEDIA = {
     categoryName: 'Sports Coaching Honour',
     rank: "Excellence in Sports Coaching",
     establishedYear: '1985',
-    eligibility: 'Awarded to coaches who have produced medal winners at prestigious international sports events.',
-    history: 'Instituted in 1985. Named after Guru Dronacharya, the legendary archer guru from Mahabharata.',
-    medalDesign: 'Bronze statuette of Guru Dronacharya, a certificate, ceremonial dress, and cash prize of ₹15 lakh (Lifetime) / ₹10 lakh (Regular).',
+    eligibility: 'Awarded to coaches who have produced medal winners at prestigious international sports events such as the Olympics, World Championships, Asian Games, and Commonwealth Games. The award is conferred in two categories: (1) Dronacharya Award (Lifetime) — for coaches with a distinguished career spanning several decades whose trainees have won medals over a sustained period (typically 20+ years of coaching); and (2) Dronacharya Award (Regular) — for coaches who have produced outstanding results in the immediately preceding 4-year cycle. Selection is made by a Selection Committee constituted by the Ministry of Youth Affairs and Sports, based on nominations from National Sports Federations, State Governments, and coaching institutes, followed by shortlisting and final approval.',
+    history: 'Instituted in 1985 by the Ministry of Youth Affairs and Sports to honour coaches for their contribution to producing world-class sportspersons. Named after Guru Dronacharya, the legendary royal guru and archery master from the Mahabharata, renowned for training both the Pandavas and Kauravas, including the peerless archer Arjuna. The Lifetime category was formally introduced later to separately recognize coaches with decades-long, sustained excellence, distinct from those recognized for shorter, recent-cycle achievements.',
+    medalDesign: 'Bronze statuette of Guru Dronacharya, a certificate, ceremonial dress, and cash prize of ₹15 lakh (Lifetime category) / ₹10 lakh (Regular category). Presented annually by the President of India at the National Sports Awards ceremony, alongside the Khel Ratna and Arjuna Awards.',
     notableWinners: [
       { name: 'O. M. Nambiar', year: 1985, note: 'Coach of P. T. Usha (First Dronacharya Batch)' },
       { name: 'Ramakant Achrekar', year: 1990, note: 'Coach of Sachin Tendulkar' },
-      { name: 'Pullela Gopichand', year: 2009, note: 'Badminton Coach of Saina Nehwal & PV Sindhu' }
+      { name: 'Gurbachan Singh Randhawa', year: 1992, note: 'Athletics Coach' },
+      { name: 'S. M. Arif', year: 1994, note: 'Boxing Coach' },
+      { name: 'Pullela Gopichand', year: 2009, note: 'Badminton Coach of Saina Nehwal & PV Sindhu' },
+      { name: 'Mahavir Singh Phogat', year: 2016, note: 'Wrestling Coach (Lifetime, father of the Phogat sisters)' },
+      { name: 'Vimal Kumar', year: 2017, note: 'Badminton Coach of Kidambi Srikanth' },
+      { name: 'Sandeep Gupta', year: 2021, note: 'Table Tennis Coach (Lifetime category)' }
     ],
     interestingFacts: [
-      'Pullela Gopichand is one of the rare sportspersons to win both the Arjuna Award, Khel Ratna, AND Dronacharya Award.'
+      'Pullela Gopichand is one of the rare sportspersons to win both the Arjuna Award, Khel Ratna, AND Dronacharya Award.',
+      'The Lifetime category was created to ensure senior coaches with decades of grassroots contribution are not overlooked in favour of those with only recent, high-visibility results.',
+      'Mahavir Singh Phogat, whose coaching journey inspired the film "Dangal", received the Dronacharya Award (Lifetime) in 2016.',
+      'Award recipients are selected through a multi-stage process: nominations from federations and states, shortlisting by a Selection Committee, and final approval by the Ministry of Youth Affairs and Sports.'
     ]
   },
 
