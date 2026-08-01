@@ -24,6 +24,7 @@ describe('National Awards Encyclopedia Dataset Completeness', () => {
     expect(keys).toContain('padma-shri');
 
     // Gallantry Awards
+    expect(keys).toContain('presidents-police-medal');
     expect(keys).toContain('param-vir-chakra');
     expect(keys).toContain('maha-vir-chakra');
     expect(keys).toContain('vir-chakra');
