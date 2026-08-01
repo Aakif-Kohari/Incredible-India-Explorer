@@ -1,12 +1,17 @@
 /**
  * js-modules/weather-ui.js
  * DOM layer for the Weather-Aware Itinerary Adjustment feature
- * (issue #286). Listens for the `tripplanner:itinerary-rendered` event
- * dispatched by js-modules/trip-planner.js, fetches forecasts via
- * weather-service.js, evaluates them via weather-core.js, and renders:
+ * (originally issue #286; extended for issue #1029's "Smart
+ * Weather-Aware Itinerary Optimization"). Listens for the
+ * `tripplanner:itinerary-rendered` event dispatched by
+ * js-modules/trip-planner.js, fetches forecasts via weather-service.js,
+ * evaluates them via weather-core.js, and renders:
  *   - a daily weather summary strip
- *   - adverse-weather alerts (banner + one-shot toast)
- *   - alternative-destination suggestions for "poor" days
+ *   - adverse-weather alerts (banner + one-shot toast + optional browser
+ *     Notification for "poor" days, if the user grants permission)
+ *   - an on-demand hourly breakdown for a given day ("worst window")
+ *   - indoor-activity suggestions alongside alternative-destination
+ *     suggestions for "poor" days
  *   - within-city reorder suggestions
  *   - a user-editable preview of applied adjustments
  *
@@ -56,6 +61,28 @@
         toast.textContent = message;
         document.body.appendChild(toast);
         setTimeout(() => toast.remove(), 4500);
+    }
+
+    /**
+     * Best-effort native browser notification for adverse weather, so the
+     * alert is visible even if the user has switched tabs — mirrors the
+     * existing pattern in frontend/event-discovery/script.js. Silently
+     * does nothing if Notification isn't supported or permission is
+     * denied; the in-page toast/banner always fires regardless, so this
+     * is purely additive. (No `icon` option — this project doesn't
+     * currently ship a notification icon asset.)
+     */
+    function tryShowWeatherNotification(title, body) {
+        if (typeof Notification === "undefined") return;
+        if (Notification.permission === "granted") {
+            new Notification(title, { body });
+        } else if (Notification.permission !== "denied") {
+            Notification.requestPermission().then((permission) => {
+                if (permission === "granted") {
+                    new Notification(title, { body });
+                }
+            });
+        }
     }
 
     function loadAlertPrefs() {
@@ -216,6 +243,9 @@
         panel.querySelectorAll("[data-show-alts]").forEach((btn) => {
             btn.addEventListener("click", () => handleShowAlternatives(btn, ctx));
         });
+        panel.querySelectorAll("[data-show-hourly]").forEach((btn) => {
+            btn.addEventListener("click", () => handleShowHourly(btn, ctx));
+        });
     }
 
     function renderAlertBanner(poorDays) {
@@ -245,14 +275,23 @@
 
     function renderPoorDayCard(day, ctx) {
         const destId = findDestIdForDay(ctx.evaluated, day.day);
+        const destination = destId ? ctx.destinationsById[destId] : null;
         const adjustments = ctx.adjustments;
         const applied = adjustments.swaps[day.day];
+        const indoorSuggestions = destination ? Core.suggestIndoorActivities(destination.categories) : [];
         return `<div class="weather-poor-card" data-day="${day.day}">
             <div class="weather-poor-card-head">
                 <strong>Day ${day.day} · ${escapeHtml(day.city)}</strong>
                 <span class="weather-status-pill ${statusClass(day.status)}">${statusLabel(day.status)}</span>
             </div>
             <p class="weather-poor-reasons">${escapeHtml(day.reasons.join(", ") || "Conditions look unfavorable for outdoor plans.")}</p>
+            ${indoorSuggestions.length
+                ? `<p class="weather-indoor-suggestion">🏛️ Indoor options for today: ${escapeHtml(indoorSuggestions.join("; "))}.</p>`
+                : ""}
+            <div class="weather-hourly-toggle-row">
+                <button type="button" class="map3d-btn weather-hourly-btn" data-show-hourly data-day="${day.day}" data-dest-id="${escapeHtml(destId || "")}">See hourly breakdown</button>
+            </div>
+            <div class="weather-hourly-results" id="weather-hourly-results-${day.day}"></div>
             ${applied
                 ? `<p class="weather-applied-note">✓ Applied: showing "${escapeHtml(applied.name)}" as an alternative for this day. <button type="button" class="weather-link-btn" data-alt-action="revert" data-day="${day.day}">Revert</button></p>`
                 : `<button type="button" class="map3d-btn weather-show-alts-btn" data-show-alts data-day="${day.day}" data-dest-id="${escapeHtml(destId || "")}">Show alternatives nearby</button>
@@ -308,6 +347,50 @@
         resultsEl.querySelectorAll("[data-alt-action]").forEach((b) => b.addEventListener("click", () => handleAlternativeAction(b, ctx)));
     }
 
+    async function handleShowHourly(btn, ctx) {
+        const day = Number(btn.dataset.day);
+        const destId = btn.dataset.destId;
+        const origin = ctx.destinationsById[destId];
+        const dayEntry = ctx.evaluated.find((i) => i.day === day);
+        const resultsEl = document.getElementById("weather-hourly-results-" + day);
+        if (!origin || !dayEntry || !resultsEl) return;
+
+        resultsEl.innerHTML = `<p class="weather-note">Loading hourly forecast…</p>`;
+        btn.disabled = true;
+
+        try {
+            const hourlyForecast = await Service.fetchHourlyForecast(origin.lat, origin.lng);
+            const hourlyDay = hourlyForecast.find((h) => h.date === dayEntry.date) || null;
+            const risk = Core.summarizeHourlyRisk(hourlyDay);
+
+            if (!hourlyDay) {
+                resultsEl.innerHTML = `<p class="weather-note">Hourly detail isn't available for this date (only the next few days are covered).</p>`;
+            } else {
+                resultsEl.innerHTML = `
+                    <p class="weather-hourly-summary">${escapeHtml(risk.label)}</p>
+                    <div class="weather-hourly-strip">
+                        ${hourlyDay.hours.map((h) => `
+                            <div class="weather-hourly-chip${risk.worstHours.includes(h.time) ? " weather-hourly-chip-risky" : ""}">
+                                <span>${escapeHtml(h.time)}</span>
+                                <span>${classifyWeatherIconSafe(h.weatherCode)}</span>
+                                <span>${Math.round(h.tempC)}°C</span>
+                            </div>
+                        `).join("")}
+                    </div>
+                `;
+            }
+        } catch (err) {
+            resultsEl.innerHTML = `<p class="weather-note">Couldn't load the hourly forecast right now.</p>`;
+        } finally {
+            btn.disabled = false;
+        }
+    }
+
+    function classifyWeatherIconSafe(code) {
+        const info = Core.classifyWeatherCode(code);
+        return info ? info.icon : "❔";
+    }
+
     function handleAlternativeAction(btn, ctx) {
         const action = btn.dataset.altAction;
         const day = Number(btn.dataset.day);
@@ -359,7 +442,9 @@
         const signature = itineraryId + ":" + poorDays.map((d) => d.day).join(",");
         if (toastedSignatures.has(signature)) return;
         toastedSignatures.add(signature);
-        showToast(`⚠️ ${poorDays.length} day${poorDays.length > 1 ? "s" : ""} in your itinerary may have unfavorable weather. Check the Weather-Aware Plan below.`);
+        const message = `⚠️ ${poorDays.length} day${poorDays.length > 1 ? "s" : ""} in your itinerary may have unfavorable weather. Check the Weather-Aware Plan below.`;
+        showToast(message);
+        tryShowWeatherNotification("Weather alert for your trip", message);
     }
 
     function escapeHtml(str) {

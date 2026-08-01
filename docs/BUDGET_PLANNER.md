@@ -1,30 +1,121 @@
-# Smart Budget Planner
+# Intelligent Budget Planner (with Dynamic Trip Cost Forecasting)
 
-Resolves #284 — AI-Powered Smart Budget Planner for Trip Cost Estimation.
+Resolves #1028 — Implement Intelligent Budget Planner with Dynamic Trip Cost
+Forecasting. Builds on the original Smart Budget Planner (#284) rather than
+duplicating it: same rule-based, client-side, no-backend approach ("AI-powered"/
+"Intelligent" here means algorithmic/heuristic personalization, consistent with
+the rest of the site's rule-based Trip Planner), extended with itinerary-linked
+forecasting, cross-destination comparison, budget alerts, and PDF export.
 
-A fully client-side, rule-based budget estimator: no backend, no ML model
-("AI-powered" here means algorithmic/heuristic personalization, consistent
-with the rest of the site's rule-based Trip Planner). Users enter a
-destination, trip duration, number of travelers, accommodation preference,
-transportation mode, and their own food/sightseeing/shopping/misc
+Users enter a destination, trip duration, number of travelers, accommodation
+preference, transportation mode, and their own food/sightseeing/shopping/misc
 allowances, and get back a full category-wise cost estimate, a comparison
 across travel styles, a daily spending guide, and cost-optimization
-suggestions. Plans can be saved, edited, and exported as a text report, all
-via `localStorage` — no account required.
+suggestions — **updating live as any field changes**, not just on submit.
+Beyond the single-destination form, the page also offers a side-by-side
+**destination comparison** and a **forecast generated directly from a saved
+Trip Planner itinerary** (multi-city, using that itinerary's own real
+inter-city travel costs). An optional target budget triggers a
+healthy/warning/exceeded **alert** that re-evaluates on every recompute.
+Plans can be saved, edited, and exported as a text report or as a PDF (via
+the browser's print dialog), all via `localStorage` — no account required.
 
-## Files added
+## A pre-existing bug fixed along the way
+
+`budget-planner.html` was **never actually registered** in
+`js-modules/router-init.js`'s `ROUTE_INIT_MAP`, despite the original #284 PR's
+own documentation describing that registration. That meant
+`smart-budget-planner.js` never loaded on the live site and the entire
+feature — form submission, saved plans, everything — was dead on arrival.
+This PR adds the missing route entry (see below), which is a prerequisite
+for any of the new work here to run at all.
+
+Separately, and **not fixed by this PR** (out of scope, and that file is
+under heavy concurrent edit from many other in-flight wetland-explorer PRs):
+`frontend/wetlands/wetlands-data.js` on `main` currently has a missing `},`
+between two entries that breaks the whole file's parsing. Worth a tiny,
+dedicated follow-up PR.
+
+## Files added / changed
 
 | File | Purpose |
 | ---- | ------- |
-| `js-modules/smart-budget-planner.js` | All budget-calculation logic, plus the page's UI wiring (`initBudgetPlannerPage`). |
-| `budget-planner.html` | The page shell (header/nav/footer match the rest of the site), the planner form, results, and saved-plans sections. |
-| `budget-planner.css` | Dedicated stylesheet, reusing the site's existing design tokens (`--saffron`, `--gold`, `--green`, glass-panel vars) and print styles for exported reports. |
-| `tests/unit/smart-budget-planner.test.js` | Vitest unit tests for the calculation/comparison/recommendation/persistence logic. |
-| `js-modules/router-init.js` (modified) | One new entry in `ROUTE_INIT_MAP`, registering the `budget-planner.html` route. |
-| `trip-planner.html`, `india-3d-map.html` (modified) | Added a "💰 Budget Planner" nav-dropdown and footer link next to the existing Trip Planner link. |
+| `js-modules/smart-budget-planner.js` | Extended with `calculateItineraryBudget()`, `compareDestinations()`, `getBudgetAlert()`, an itinerary-aware `exportReportText()`, live/debounced recompute on the main form, and the new sections' DOM wiring (`initDestinationCompare()`, `initItineraryForecast()`). |
+| `frontend/budget-planner/budget-planner.html` | Added a target-budget field, a "Compare Destinations" section, and a "Forecast From My Itinerary" section. |
+| `frontend/budget-planner/budget-planner.css` | Styles for the alert banner, comparison cards, itinerary results, and extended print rules so PDF export only shows whichever result card is populated. |
+| `tests/unit/smart-budget-planner.test.js` | 15 new unit tests (30 total) covering the three new functions. |
+| `js-modules/router-init.js` (modified) | **Added the missing `budget-planner.html` route entry** (see above), now loading `trip-data.js`, `trip-planner.js` (for itinerary forecasting), and `smart-budget-planner.js`. |
 
-It reuses `trip-data.js` (added for the existing Trip Planner, issue #184)
-for destination-specific accommodation rates, but does not modify that file.
+## New capabilities, mapped to issue #1028
+
+| Issue ask | Implementation |
+| --- | --- |
+| "Budget estimates should automatically update whenever users modify their itinerary" / "Budget updates automatically when trip details change" | Once a first estimate exists, every form field (main form, comparison form, itinerary form) triggers a recompute — debounced ~400ms on free-text/number fields, instant on selects — without needing another explicit submit. |
+| "Budget comparison across destinations" | `compareDestinations(baseInput, names)` re-runs the same days/travelers/tier/transport across up to 4 destinations; the UI shows them side-by-side with the cheapest highlighted. |
+| "Budget alerts when estimated costs exceed limits" / "Budget alerts when itinerary changes increase costs" | `getBudgetAlert(plan, targetBudget)` returns `healthy`/`warning` (≥85% of target)/`exceeded`, in the same vocabulary as `js-modules/budget-calculator-engine.js`'s `getBudgetHealth()` elsewhere in this codebase. Re-evaluated on every recompute, so it reacts live to itinerary/assumption changes. |
+| "Export budget report as PDF" | A print stylesheet hides everything but the populated results card(s); the "🖨️ Export as PDF" button calls `window.print()`, letting the browser's own "Save as PDF" destination produce the file — no PDF library dependency, matching the pattern already used by `trip-expense-splitter`, `trip-planner.js`, and `compare-states-data`. |
+| "Users can customize budget assumptions" | Already true of the original form (tier/transport/food/sightseeing/shopping/misc); extended with a target-budget assumption for alerts. |
+| Dynamic **trip cost forecasting** tied to a real itinerary (the issue's title) | `calculateItineraryBudget(itinerary, options)` — see below. |
+
+## The itinerary forecast, in detail
+
+`calculateItineraryBudget()` takes a Trip Planner saved-trip's `itinerary`
+object directly (`{ destinations: [...], legs: [...], inputs: { travelers } }`,
+the exact shape `js-modules/trip-planner.js` already produces and saves) and:
+
+1. For each destination, computes accommodation (using the same
+   destination-cost-indexed rate logic as the single-destination planner) and
+   food cost based on how many days that itinerary actually assigned to that
+   stop (`dest.assignedDays`).
+2. For transport, **reuses Trip Planner's own distance-based inter-city leg
+   costs** (`itinerary.legs[].cost`, scaled by traveler count) instead of a
+   flat per-mode guess — more accurate than the single-destination form's
+   transport estimate, since it reflects the itinerary's actual routing.
+3. Adds one trip-level sightseeing/shopping/misc allowance (rather than
+   per-destination, since the issue describes these as trip-wide
+   configurable allowances) and one 8% contingency buffer on the combined
+   subtotal.
+4. Returns the same `categories`/`categoryPercentages`/`total`/
+   `perPersonTotal`/`perDayTotal` shape as `calculateBudget()`, plus a
+   `perDestination` array, so the UI can reuse the same category-breakdown
+   rendering helper for both.
+
+## Known limitations / good follow-ups
+
+- No live cross-tab sync: if a person edits a trip in Trip Planner in
+  another tab, the itinerary-forecast dropdown only picks it up on next
+  page load, since this is `localStorage`-only with no backend.
+- Costs remain editorial planning estimates, not live pricing — same
+  caveat as the original Smart Budget Planner and the Trip Planner it's
+  built on.
+- The nav link is still only on the pages that already link to it
+  (`trip-planner.html`, `india-3d-map.html`) — see #284's docs for why a
+  shared header include is the real fix, not attempted here.
+- `frontend/wetlands/wetlands-data.js`'s pre-existing syntax bug (see above)
+  is unrelated but worth a quick separate PR.
+
+## Testing
+
+```bash
+npx vitest run tests/unit/smart-budget-planner.test.js
+```
+
+30 unit tests: the original 15 (category totals, destination lookup,
+input clamping, room-sharing math, tier comparison, recommendation rules,
+daily-plan division, exported report content, save/edit/delete
+persistence) plus 15 new ones covering `compareDestinations()` (sorting,
+matched-vs-unmatched destinations, blank-entry handling, held-constant
+parameters), `calculateItineraryBudget()` (category totals, transport
+derived from real leg costs, per-destination day counts, tier scaling,
+trip-wide allowances, invalid-itinerary error handling), and
+`getBudgetAlert()` (no-target case, exceeded/healthy/warning thresholds,
+and status changing correctly as the underlying plan changes).
+
+Full suite (`npx vitest run`): 1331/1342 tests pass. The 11 failures are
+all in wetland-explorer test files unrelated to this change (see the
+pre-existing `wetlands-data.js` bug noted above) — none touch the budget
+planner.
+
 
 ## How it fits into the existing architecture
 
@@ -35,21 +126,23 @@ listens for that event and, based on `pathname`, looks up the route in
 `ROUTE_INIT_MAP`, lazy-loads the right script(s), and calls the page's
 `init...Page()` function.
 
-The Smart Budget Planner follows that pattern exactly:
+The Smart Budget Planner follows that pattern — though, as noted above,
+this route entry was **entirely missing** until this PR:
 
 ```js
 // js-modules/router-init.js
 'budget-planner.html': {
-    scripts: ['trip-data.js', 'js-modules/smart-budget-planner.js'],
+    scripts: ['trip-data.js', 'js-modules/trip-planner.js', 'js-modules/smart-budget-planner.js'],
     initName: 'initBudgetPlannerPage',
     useSafeInit: true,
-    name: 'Smart Budget Planner'
+    name: 'Budget Planner'
 },
 ```
 
-`trip-data.js` is loaded first (for destination lookups) and explicitly
-awaited before `smart-budget-planner.js` runs, and `useSafeInit: true`
-wraps initialization in a try/catch so a failure here can't break
+`trip-data.js` and `trip-planner.js` are loaded first — the latter so the
+itinerary-forecast section can call `window.TripPlanner.getSavedTrips()` —
+and both are awaited before `smart-budget-planner.js` runs. `useSafeInit:
+true` wraps initialization in a try/catch so a failure here can't break
 navigation to other pages.
 
 ## Budgeting algorithm
