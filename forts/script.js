@@ -5,6 +5,25 @@
 // Fort Data
 const fortsData = [
     {
+        id: "devikot-fort",
+        name: "Devikot Fort",
+        location: "Gangarampur",
+        state: "West Bengal",
+        built: "8th-12th Century",
+        builtBy: "Pala/Sena Dynasties",
+        era: "Medieval Era",
+        architecture: "Medieval Bengal Architecture",
+        image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80",
+        history: "An important medieval fort associated with the early history of Bengal. It was a major administrative center and the early capital of Muhammad bin Bakhtiyar Khalji.",
+        highlights: [
+            "Ancient Brick Fortifications",
+            "Dargah of Maulana Ata-ullah",
+            "Pre-Islamic & Early Islamic Ruins",
+            "Strategic River Punarbhaba Location"
+        ],
+        customUrl: "devikot-fort.html"
+    },
+    {
         id: 1,
         name: "Red Fort",
         location: "Delhi",
@@ -310,11 +329,17 @@ function renderForts(forts) {
                 <p>${fort.history}</p>
                 <div class="fort-card-footer">
                     <span class="fort-built">Built: <strong>${fort.built}</strong></span>
-                    <span class="view-details-btn">View Details</span>
+                    <span class="view-details-btn">${fort.customUrl ? 'Explore' : 'View Details'}</span>
                 </div>
             </div>
         `;
-        card.addEventListener('click', () => openModal(fort));
+        if (fort.customUrl) {
+            card.addEventListener('click', () => {
+                window.location.href = fort.customUrl;
+            });
+        } else {
+            card.addEventListener('click', () => openModal(fort));
+        }
         fortsGrid.appendChild(card);
     });
 }
