@@ -214,7 +214,24 @@ const fortsData = [
         ]
     },
     {
-        id: "vijaydurg-fort",
+        id: "vellore-fort",
+        name: "Vellore Fort",
+        location: "Vellore",
+        state: "Tamil Nadu",
+        built: "16th Century",
+        builtBy: "Vijayanagara Empire",
+        era: "Vijayanagara Era",
+        architecture: "Vijayanagara Military Architecture",
+        image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80",
+        history: "One of the finest surviving examples of military architecture in South India, famed for its massive granite ramparts, crocodile-filled moat, and the historic Vellore Mutiny of 1806.",
+        highlights: [
+            "First sepoy uprising of 1806",
+            "Jalakandeswarar Temple",
+            "Crocodile moat & double ramparts",
+            "Imprisoned Tipu Sultan's family"
+        ],
+        customUrl: "vellore-fort.html"},
+        {id: "vijaydurg-fort",
         name: "Vijaydurg Fort",
         location: "Devgad",
         state: "Maharashtra",
