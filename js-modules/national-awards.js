@@ -503,6 +503,7 @@ export const AWARD_ENCYCLOPEDIA = {
       'The award recognizes nurses from various specializations including critical care, pediatrics, mental health, and community health.'
     ]
   },
+
   // ==================== SCIENCE AWARDS ====================
   'rashtriya-vigyan-puraskar': {
     id: 'rashtriya-vigyan-puraskar',
