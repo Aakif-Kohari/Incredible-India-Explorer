@@ -330,7 +330,9 @@ export const WETLANDS_DATA = {
             coordinates: { lat: 30.61, lng: 77.4583 },
             keyFauna: ['Himalayan Goral', 'Barking Deer', 'Crimson-breasted Barbet'],
             isFeatured: false
-            },{id: 'deepor-beel',
+        },
+        {
+            id: 'deepor-beel',
             name: 'Deepor Beel',
             state: 'Assam',
             type: 'Lake',
@@ -342,7 +344,10 @@ export const WETLANDS_DATA = {
             exploreUrl: '../deepor-beel-explorer/index.html',
             coordinates: { lat: 26.124, lng: 91.662 },
             keyFauna: ['Greater Adjutant Stork', 'Asian Elephant', 'Spot-billed Pelican', 'Lesser Adjutant'],
-            },{id: 'sambhar-lake',
+            isFeatured: false
+        },
+        {
+            id: 'sambhar-lake',
             name: 'Sambhar Salt Lake',
             state: 'Rajasthan',
             type: 'Lake',
@@ -354,7 +359,9 @@ export const WETLANDS_DATA = {
             exploreUrl: '../sambhar-lake-explorer/index.html',
             coordinates: { lat: 26.908, lng: 75.022 },
             keyFauna: ['Greater Flamingo', 'Lesser Flamingo', 'Black-winged Stilt', 'Pied Avocet'],
-      {
+            isFeatured: false
+        },
+        {
             id: 'east-kolkata-wetlands',
             name: 'East Kolkata Wetlands',
             state: 'West Bengal',
@@ -367,7 +374,10 @@ export const WETLANDS_DATA = {
             exploreUrl: '../east-kolkata-wetlands-explorer/index.html',
             coordinates: { lat: 22.518, lng: 88.435 },
             keyFauna: ['Fishing Cat', 'Small Indian Mongoose', 'Bronze-winged Jacana', 'Lesser Whistling Duck'],
-           },{ id: 'ashtamudi-lake',
+            isFeatured: false
+        },
+        {
+            id: 'ashtamudi-lake',
             name: 'Ashtamudi Lake',
             state: 'Kerala',
             type: 'Estuary',
@@ -379,7 +389,10 @@ export const WETLANDS_DATA = {
             exploreUrl: '../ashtamudi-lake-explorer/index.html',
             coordinates: { lat: 8.950, lng: 76.583 },
             keyFauna: ['Stork-billed Kingfisher', 'Malabar Short-neck Clam', 'Indian Cormorant', 'Little Egret'],
-          },{  id: 'vembanad-lake',
+            isFeatured: false
+        },
+        {
+            id: 'vembanad-lake',
             name: 'Vembanad Lake',
             state: 'Kerala',
             type: 'Lake',
@@ -392,7 +405,21 @@ export const WETLANDS_DATA = {
             coordinates: { lat: 9.600, lng: 76.400 },
             keyFauna: ['Pearl Spot (Karimeen)', 'Oriental Darter', 'White-throated Kingfisher', 'Spot-billed Duck'],
             isFeatured: true
+        },
+        {
+            id: 'haiderpur-wetland',
+            name: 'Haiderpur Wetland Conservation Sanctuary',
+            state: 'Uttar Pradesh',
+            type: 'Reservoir',
+            area: '69.08 km²',
+            ramsarDeclared: 2021,
+            ramsarSiteNo: 2463,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Barasingha_male.jpg/800px-Barasingha_male.jpg',
+            shortDesc: 'Human-made Ganges floodplain wetland in Hastinapur WLS, Ramsar Site #2463 supporting Barasingha, Gharials, and 25,000+ waterbirds.',
+            exploreUrl: '../haiderpur-wetland-explorer/index.html',
+            coordinates: { lat: 29.412, lng: 78.038 },
+            keyFauna: ['Swamp Deer (Barasingha)', 'Gharial', 'Smooth-coated Otter', 'Sarus Crane'],
+            isFeatured: true
         }
     ]
 };
-

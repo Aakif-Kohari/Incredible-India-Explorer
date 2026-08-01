@@ -1427,6 +1427,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Haiderpur Wetland Explorer ---
+  {
+    title: "Haiderpur Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Haiderpur Wetland in Muzaffarnagar & Bijnor, UP — Ramsar Site #2463, Madhya Ganga Barrage floodplain sanctuary for Barasingha and 25,000+ waterbirds.",
+    url: "frontend/haiderpur-wetland-explorer/index.html"
+  },
   // --- Tampara Lake Explorer ---
   {
     title: "Tampara Lake Explorer",
