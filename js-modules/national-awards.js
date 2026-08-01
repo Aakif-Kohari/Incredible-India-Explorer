@@ -353,9 +353,34 @@ export const AWARD_ENCYCLOPEDIA = {
     interestingFacts: [
       'The award recognizes talent across four major categories: Creative Arts, Creative Writing, Creative Performance, and Creative Scientific Innovation.',
       'Selection process involves multi-tiered evaluation at regional, zonal, and national levels by expert panels.',
-      'Over 500 exceptional children have been recognized since the award\'s inception in 1995.',
-      'Many awardees have gone on to achieve significant success in their respective fields nationally and internationally.',
       'The award provides not just recognition but also developmental opportunities through workshops and mentorship programs.'
+    ]
+  },
+  'pradhan-mantri-rashtriya-bal-puraskar': {
+    id: 'pradhan-mantri-rashtriya-bal-puraskar',
+    name: 'Pradhan Mantri Rashtriya Bal Puraskar',
+    category: 'children',
+    categoryName: "Children's Civilian Honour",
+    rank: "Highest Civilian Honour for Children",
+    establishedYear: '1996',
+    eligibility: 'Awarded to Indian children aged between 5 and 18 years who have demonstrated extraordinary achievement in Innovation, Scholastic Achievements, Sports, Arts & Culture, Social Service, or Bravery.',
+    history: 'Instituted in 1996 as the "National Child Award for Exceptional Achievement" by the Ministry of Women and Child Development. Restructured and re-titled as "Pradhan Mantri Rashtriya Bal Puraskar" in 2018. Conferred annually by the President of India during Republic Day week.',
+    medalDesign: 'Circular silver medallion featuring a stylized golden motif of children under the national emblem. Accompanied by a citation certificate, a cash prize of ₹1 Lakh (₹1,00,000), and a tamper-proof digital blockchain certificate.',
+    link: 'pradhan-mantri-rashtriya-bal-puraskar.html',
+    notableWinners: [
+      { name: 'Prasiddhi Singh', year: 2021, note: 'Social Service - Planted thousands of fruit trees (Young Environmentalist)' },
+      { name: 'Gitanjali Rao', year: 2021, note: 'Innovation - TIME Kid of the Year 2020 & Lead Water Sensor Developer' },
+      { name: 'Vyom Ahuja', year: 2021, note: 'Arts & Culture - Multi-instrumentalist & Flute Prodigy' },
+      { name: 'Anand Krishna Mishra', year: 2020, note: 'Social Service - Founder of Bal Chaupal for Underprivileged Education' },
+      { name: 'Savita Kumari', year: 2020, note: 'Sports - International Archery Gold Medallist' },
+      { name: 'Kameshwar Sharma', year: 2019, note: 'Bravery - Displayed selflessness in saving lives during emergency crisis' }
+    ],
+    interestingFacts: [
+      'Winners enjoy an exclusive interactive session and tea meeting with the Prime Minister of India at 7 Lok Kalyan Marg.',
+      'Awardees ride in open ceremonial gypsies down Kartavya Path during the Republic Day Parade in New Delhi.',
+      'India\'s first national award to issue tamper-proof digital blockchain certificates to recipients.'
+    ]
+  },
   // ==================== HEALTHCARE AWARDS ====================
   'national-florence-nightingale-award': {
     id: 'national-florence-nightingale-award',
