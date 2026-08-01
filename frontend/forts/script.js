@@ -214,6 +214,23 @@ const fortsData = [
         ]
     },
     {
+        id: "chitradurga-fort",
+        name: "Chitradurga Fort",
+        location: "Chitradurga",
+        state: "Karnataka",
+        built: "11th-18th Century",
+        builtBy: "Nayakas of Chitradurga",
+        era: "Vijayanagara Era",
+        architecture: "Hill Fort Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "The 'Kallina Kote' (Stone Fort), one of India's greatest hill forts, famous for its massive stone fortifications, seven concentric walls, and the heroic legend of Onake Obavva.",
+        highlights: [
+            "Seven concentric stone walls",
+            "Legend of Onake Obavva",
+            "Interlocking granite boulders",
+            "Hidden passages & gateways"
+        ],
+        customUrl: "chitradurga-fort.html"},{
         id: "st-angelo-fort",
         name: "St. Angelo Fort",
         location: "Kannur",
