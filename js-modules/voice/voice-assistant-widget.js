@@ -102,7 +102,7 @@ function init() {
   function appendMessage(text, className) {
     const msgDiv = document.createElement('div');
     msgDiv.className = `message ${className}`;
-    const content = className === 'user-message' ? escapeHTML(text) : text;
+    const content = escapeHTML(text);
     msgDiv.innerHTML = `<div class="message-content">${content}</div>`;
     chatMessages.appendChild(msgDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
