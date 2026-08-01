@@ -5,6 +5,25 @@
 // Fort Data
 const fortsData = [
     {
+        id: "rajmachi-fort",
+        name: "Rajmachi Fort",
+        location: "Lonavala",
+        state: "Maharashtra",
+        built: "Early CE (Satavahanas) / 17th Century (Marathas)",
+        builtBy: "Satavahanas / Maratha Empire",
+        era: "Maratha Era",
+        architecture: "Western Ghats Heritage",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "A majestic twin-fort complex in the Sahyadris that played a strategic role in controlling historic trade routes through the Western Ghats.",
+        highlights: [
+            "Twin Peaks: Shrivardhan & Manaranjan",
+            "Spectacular Monsoon Trek",
+            "Fireflies Festival",
+            "Strategic Bor Ghat Defense"
+        ],
+        customUrl: "rajmachi-fort.html"
+    },
+    {
         id: 1,
         name: "Red Fort",
         location: "Delhi",
@@ -310,11 +329,17 @@ function renderForts(forts) {
                 <p>${fort.history}</p>
                 <div class="fort-card-footer">
                     <span class="fort-built">Built: <strong>${fort.built}</strong></span>
-                    <span class="view-details-btn">View Details</span>
+                    <span class="view-details-btn">${fort.customUrl ? 'Explore' : 'View Details'}</span>
                 </div>
             </div>
         `;
-        card.addEventListener('click', () => openModal(fort));
+        if (fort.customUrl) {
+            card.addEventListener('click', () => {
+                window.location.href = fort.customUrl;
+            });
+        } else {
+            card.addEventListener('click', () => openModal(fort));
+        }
         fortsGrid.appendChild(card);
     });
 }
