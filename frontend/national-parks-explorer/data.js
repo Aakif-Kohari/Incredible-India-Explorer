@@ -795,8 +795,6 @@ entryFee: '₹50 (Indian), ₹300 (Foreign)',
         entryFee: '₹250 (Indian), ₹1500 (Foreign)',
         image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Amazing%20Landscape%20%40Satpura%20Tiger%20Reserve.jpg?width=960',
         explorerUrl: '../satpura-national-park-explorer/index.html'
-<<<<<<< Updated upstream
-=======
     },
     {
         id: 'kali',
@@ -837,7 +835,6 @@ entryFee: '₹50 (Indian), ₹300 (Foreign)',
         bestTime: 'September to November',
         entryFee: '₹120 (Indian), ₹500 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Eravikulam_National_Park_%2849444006652%29.jpg/960px-Eravikulam_National_Park_%2849444006652%29.jpg'
->>>>>>> Stashed changes
     }
 ];
 const TIGER_RESERVES = NATIONAL_PARKS.filter(p => p.isTigerReserve);
