@@ -146,11 +146,17 @@
 <label for="budget-misc">Miscellaneous Expenses (INR, total)</label>
 <input type="number" id="budget-misc" name="misc" min="0" step="100" placeholder="e.g. 2000"/>
 </div>
+<div class="bp-form-field">
+<label for="budget-target">Target Budget (INR, optional)</label>
+<input type="number" id="budget-target" name="targetBudget" min="0" step="500" placeholder="e.g. 50000"/>
+<small>Set a cap to get an alert if the estimate goes over.</small>
+</div>
 </div>
 
 <p id="budget-form-error" hidden=""></p>
 
 <button type="submit" class="btn btn-primary ripple bp-form-submit">Generate My Budget Estimate</button>
+<p class="bp-live-hint">Once generated, your estimate updates automatically as you change any field above.</p>
 </form>
 </div>
 </div>
@@ -160,6 +166,120 @@
 <section class="bp-results-section fade-in-section">
 <div class="section-container">
 <div id="budget-results" hidden=""></div>
+</div>
+</section>
+
+<!-- Compare Destinations -->
+<section class="bp-compare-section fade-in-section">
+<div class="section-container">
+<div class="section-header">
+<span class="section-badge">Step 2 (optional)</span>
+<h2>Compare Destinations</h2>
+<p class="section-subtitle">Same trip, different places — see which destination costs the least for the same days, travelers, and travel style.</p>
+</div>
+<div class="bp-form-card">
+<form id="budget-compare-form">
+<div class="bp-form-grid">
+<div class="bp-form-field">
+<label for="budget-compare-days">Trip Duration (days)</label>
+<input type="number" id="budget-compare-days" min="1" max="60" value="5"/>
+</div>
+<div class="bp-form-field">
+<label for="budget-compare-travelers">Number of Travelers</label>
+<input type="number" id="budget-compare-travelers" min="1" max="20" value="1"/>
+</div>
+<div class="bp-form-field">
+<label for="budget-compare-accommodation">Accommodation Preference</label>
+<select id="budget-compare-accommodation">
+<option value="budget">Budget</option>
+<option selected="" value="standard">Standard</option>
+<option value="luxury">Luxury</option>
+</select>
+</div>
+<div class="bp-form-field">
+<label for="budget-compare-transport">Transportation Mode</label>
+<select id="budget-compare-transport">
+<option value="flight">Flight</option>
+<option selected="" value="train">Train</option>
+<option value="bus">Bus</option>
+<option value="car_rental">Rental Car / Cab</option>
+<option value="own_vehicle">Own Vehicle</option>
+</select>
+</div>
+</div>
+<div class="bp-form-grid">
+<div class="bp-form-field">
+<label for="budget-compare-dest-1">Destination 1</label>
+<input type="text" id="budget-compare-dest-1" data-compare-destination="" placeholder="e.g. Goa" list="budget-compare-destination-list"/>
+</div>
+<div class="bp-form-field">
+<label for="budget-compare-dest-2">Destination 2</label>
+<input type="text" id="budget-compare-dest-2" data-compare-destination="" placeholder="e.g. Kerala" list="budget-compare-destination-list"/>
+</div>
+<div class="bp-form-field">
+<label for="budget-compare-dest-3">Destination 3 (optional)</label>
+<input type="text" id="budget-compare-dest-3" data-compare-destination="" placeholder="e.g. Ladakh" list="budget-compare-destination-list"/>
+</div>
+<div class="bp-form-field">
+<label for="budget-compare-dest-4">Destination 4 (optional)</label>
+<input type="text" id="budget-compare-dest-4" data-compare-destination="" placeholder="e.g. Rajasthan" list="budget-compare-destination-list"/>
+</div>
+</div>
+<datalist id="budget-compare-destination-list"></datalist>
+<p class="bp-live-hint">Fill in at least two destinations — the comparison updates automatically.</p>
+</form>
+</div>
+<div id="budget-compare-results" class="bp-compare-results" hidden=""></div>
+</div>
+</section>
+
+<!-- Itinerary Forecast -->
+<section class="bp-itinerary-section fade-in-section">
+<div class="section-container">
+<div class="section-header">
+<span class="section-badge">Step 3 (optional)</span>
+<h2>Forecast From My Itinerary</h2>
+<p class="section-subtitle">Already built a multi-city trip in the Trip Planner? Get a full category breakdown for it, using its real inter-city travel costs — updates automatically as you adjust the assumptions below.</p>
+</div>
+<div class="bp-form-card">
+<form id="budget-itinerary-form">
+<div class="bp-form-field">
+<label for="budget-itinerary-select">Saved Trip</label>
+<select id="budget-itinerary-select"><option disabled="" selected="">Loading your saved trips…</option></select>
+</div>
+<div class="bp-form-grid">
+<div class="bp-form-field">
+<label for="budget-itinerary-accommodation">Accommodation Preference</label>
+<select id="budget-itinerary-accommodation">
+<option value="budget">Budget</option>
+<option selected="" value="standard">Standard</option>
+<option value="luxury">Luxury</option>
+</select>
+</div>
+<div class="bp-form-field">
+<label for="budget-itinerary-food">Daily Food Budget (INR / person)</label>
+<input type="number" id="budget-itinerary-food" min="0" step="50" placeholder="e.g. 800"/>
+</div>
+<div class="bp-form-field">
+<label for="budget-itinerary-sightseeing">Sightseeing (INR, whole trip)</label>
+<input type="number" id="budget-itinerary-sightseeing" min="0" step="100" placeholder="e.g. 4000"/>
+</div>
+<div class="bp-form-field">
+<label for="budget-itinerary-shopping">Shopping (INR, whole trip)</label>
+<input type="number" id="budget-itinerary-shopping" min="0" step="100" placeholder="e.g. 5000"/>
+</div>
+<div class="bp-form-field">
+<label for="budget-itinerary-misc">Miscellaneous (INR, whole trip)</label>
+<input type="number" id="budget-itinerary-misc" min="0" step="100" placeholder="e.g. 2000"/>
+</div>
+<div class="bp-form-field">
+<label for="budget-itinerary-target">Target Budget (INR, optional)</label>
+<input type="number" id="budget-itinerary-target" min="0" step="500" placeholder="e.g. 80000"/>
+</div>
+</div>
+</form>
+</div>
+<div id="budget-itinerary-results" class="bp-results-section" hidden=""></div>
 </div>
 </section>
 
