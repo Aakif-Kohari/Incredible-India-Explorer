@@ -5,6 +5,25 @@
 // Fort Data
 const fortsData = [
     {
+        id: "chandragiri-fort",
+        name: "Chandragiri Fort",
+        location: "Chandragiri",
+        state: "Andhra Pradesh",
+        built: "11th Century (Yadavas) / 1367 (Vijayanagara)",
+        builtBy: "Yadava Rulers / Vijayanagara Empire",
+        era: "Vijayanagara Era",
+        architecture: "Vijayanagara Heritage",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "The last capital of the Vijayanagara Empire and a remarkable example of South Indian architecture. It was here that the British negotiated the grant of Chennai.",
+        highlights: [
+            "Raja Mahal (Timber-less Palace)",
+            "Rani Mahal",
+            "ASI Archaeological Museum",
+            "Indo-Saracenic Architecture"
+        ],
+        customUrl: "chandragiri-fort.html"
+    },
+    {
         id: 1,
         name: "Red Fort",
         location: "Delhi",
@@ -310,11 +329,17 @@ function renderForts(forts) {
                 <p>${fort.history}</p>
                 <div class="fort-card-footer">
                     <span class="fort-built">Built: <strong>${fort.built}</strong></span>
-                    <span class="view-details-btn">View Details</span>
+                    <span class="view-details-btn">${fort.customUrl ? 'Explore' : 'View Details'}</span>
                 </div>
             </div>
         `;
-        card.addEventListener('click', () => openModal(fort));
+        if (fort.customUrl) {
+            card.addEventListener('click', () => {
+                window.location.href = fort.customUrl;
+            });
+        } else {
+            card.addEventListener('click', () => openModal(fort));
+        }
         fortsGrid.appendChild(card);
     });
 }
