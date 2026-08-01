@@ -795,6 +795,26 @@ entryFee: '₹50 (Indian), ₹300 (Foreign)',
         entryFee: '₹250 (Indian), ₹1500 (Foreign)',
         image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Amazing%20Landscape%20%40Satpura%20Tiger%20Reserve.jpg?width=960',
         explorerUrl: '../satpura-national-park-explorer/index.html'
+    },
+    {
+        id: 'kali',
+        name: 'Kali National Park',
+        state: 'Karnataka',
+        stateId: 'ka',
+        established: 1987,
+        area: 1300,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description: 'Formerly known as Anshi National Park, this tiger reserve is nourished by the Kali River. It protects lush evergreen forests, diverse birds, and elusive predators like the Black Panther, playing a crucial role in regional conservation efforts.',
+        keyFauna: ['Bengal Tiger', 'Black Panther', 'Indian Elephant', 'Great Hornbill', 'Sloth Bear'],
+        keyFlora: ['Evergreen Forests', 'Teak', 'Bamboo', 'Eucalyptus'],
+        coordinates: { lat: 15.01, lng: 74.38 },
+        climate: 'Tropical Monsoon',
+        bestTime: 'October to May',
+        entryFee: '₹250 (Indian), ₹1500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Kali_river.jpg/960px-Kali_river.jpg'
     }
 ];
 const TIGER_RESERVES = NATIONAL_PARKS.filter(p => p.isTigerReserve);
