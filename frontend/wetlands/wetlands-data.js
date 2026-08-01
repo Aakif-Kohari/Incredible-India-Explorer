@@ -34,7 +34,8 @@ export const WETLANDS_DATA = {
         'Rajasthan',
         'Kerala',
         'Assam',
-        'Madhya Pradesh'
+        'Madhya Pradesh',
+        'Tamil Nadu'
     ],
 
     didYouKnow: [
@@ -61,6 +62,21 @@ export const WETLANDS_DATA = {
     ],
 
     wetlands: [
+        {
+            id: 'point-calimere',
+            name: 'Point Calimere Wildlife & Bird Sanctuary',
+            state: 'Tamil Nadu',
+            type: 'Mangrove',
+            area: '38,500 ha',
+            ramsarDeclared: 2002,
+            ramsarSiteNo: 1210,
+            image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Blackbuck%20antelope.jpg?width=800',
+            shortDesc: 'Coastal wetland where the Palk Strait meets the Bay of Bengal — Ramsar Site famed for 30,000+ wintering flamingos, blackbuck herds, and the Muthupet mangroves.',
+            exploreUrl: '../point-calimere-wetland-explorer/index.html',
+            coordinates: { lat: 10.31, lng: 79.86 },
+            keyFauna: ['Greater Flamingo', 'Lesser Flamingo', 'Blackbuck', 'Spotted Deer'],
+            isFeatured: true
+        },
         {
             id: 'chilika-lake',
             name: 'Chilika Lake',
@@ -386,6 +402,7 @@ export const WETLANDS_DATA = {
             ramsarSiteNo: 1571,
             image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Renuka%20Lake.jpg?width=960',
             shortDesc: "India's largest natural lake in Himachal Pradesh and one of its smallest Ramsar sites — sacred to the goddess Renuka, mother of Parashurama.",
+            exploreUrl: '../../renuka-wetland/renuka-wetland.html',
             coordinates: { lat: 30.61, lng: 77.4583 },
             keyFauna: ['Himalayan Goral', 'Barking Deer', 'Crimson-breasted Barbet'],
             isFeatured: false
