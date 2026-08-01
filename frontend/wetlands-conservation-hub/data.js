@@ -122,7 +122,13 @@ const FEATURED_EXPLORERS = [
     badges: ['Ramsar Site 2002', 'Kerala\'s Largest Freshwater Lake', 'Drinking Water Source']
   },
   {
-    name: 'Kanwar Lake Explorer',
+    name: 'Sirpur Wetland Explorer',
+    slug: 'sirpur-wetland',
+    tagline: 'Discover an important urban wetland recognized as a Ramsar Site, supporting rich bird migration in Chhattisgarh.',
+    icon: '🦆',
+    path: '../sirpur-wetland-explorer/index.html',
+    badges: ['Ramsar Site 2022','Urban Biodiversity','Bird Migration']},
+    {name: 'Kanwar Lake Explorer',
     slug: 'kanwar-lake',
     tagline: 'Explore Asia\'s largest freshwater oxbow lake, a vital Ramsar Site and migratory bird haven in Bihar.',
     icon: '🦆',
