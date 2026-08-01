@@ -103,6 +103,29 @@ export const AWARD_ENCYCLOPEDIA = {
   },
 
   // ==================== GALLANTRY AWARDS ====================
+  'vishisht-seva-medal': {
+    id: 'vishisht-seva-medal',
+    name: 'Vishisht Seva Medal (VSM)',
+    category: 'gallantry',
+    categoryName: 'Military Distinguished Service',
+    rank: "Distinguished Military Decoration",
+    establishedYear: '1960',
+    eligibility: 'Awarded to recognize distinguished service of a high order to all ranks of the Indian Armed Forces, including the Indian Army, Indian Navy, Indian Air Force, Territorial Army, Reserve Forces, and Military Nursing Service.',
+    history: 'Instituted on January 26, 1960 by the Government of India as the "Vishisht Seva Medal, Class III" and re-designated as the "Vishisht Seva Medal" (VSM) on January 27, 1967. It forms the base of the peacetime Vishisht Seva series (PVSM > AVSM > VSM). A bar is awarded for subsequent acts of distinguished service of a high order.',
+    medalDesign: 'Circular bronze medallion (35mm diameter). The obverse features an embossed five-pointed star in the center with the State Emblem of India. The reverse features a five-pointed star embossed in relief with the Hindi inscription "Vishisht Seva Medal" along the upper rim. Suspended by a 32mm golden-yellow ribbon with three dark blue vertical stripes.',
+    link: 'vishisht-seva-medal.html',
+    notableWinners: [
+      { name: 'General M. M. Naravane (PVSM, AVSM, SM, VSM)', year: 2015, note: '28th Chief of the Army Staff' },
+      { name: 'Admiral Sunith Francis Rodrigues (PVSM, VSM)', year: 1985, note: '15th Chief of Naval Staff & Former Governor' },
+      { name: 'Air Chief Marshal B. S. Dhanoa (PVSM, AVSM, YSM, VM, VSM)', year: 1999, note: '25th Chief of Air Staff (Kargil War Veteran)' },
+      { name: 'Major General Ian Cardozo (AVSM, SM)', year: 1971, note: 'War Hero & First Disabled Officer to Command a Brigade' },
+      { name: 'Vice Admiral G. Ashok Kumar (PVSM, AVSM, YSM, VSM)', year: 2011, note: 'First National Maritime Security Coordinator' }
+    ],
+    interestingFacts: [
+      'Forms the foundation decoration of the peacetime Vishisht Seva medal hierarchy.',
+      'Subsequent awards of the medal for further distinguished service of a high order are denoted by a bronze bar attached to the ribbon.',
+      'Announced bi-annually on Republic Day (January 26) and Independence Day (August 15) by the President of India.',
+      'Recipients carry post-nominal initials "VSM" in official military correspondence.'
   'ati-vishisht-seva-medal': {
     id: 'ati-vishisht-seva-medal',
     name: 'Ati Vishisht Seva Medal (AVSM)',
