@@ -24,6 +24,9 @@ describe('National Awards Encyclopedia Dataset Completeness', () => {
     expect(keys).toContain('padma-shri');
 
     // Gallantry Awards
+    expect(keys).toContain('vishisht-seva-medal');
+    expect(keys).toContain('ati-vishisht-seva-medal');
+    expect(keys).toContain('presidents-police-medal');
     expect(keys).toContain('param-vir-chakra');
     expect(keys).toContain('maha-vir-chakra');
     expect(keys).toContain('vir-chakra');
@@ -41,6 +44,9 @@ describe('National Awards Encyclopedia Dataset Completeness', () => {
     expect(keys).toContain('sahitya-akademi-award');
     // Children Awards
     expect(keys).toContain('national-bravery-awards');
+
+    // Children Awards
+    expect(keys).toContain('pradhan-mantri-rashtriya-bal-puraskar');
   });
 
   it('every award entry contains all 5 required sections (Eligibility, History, Medal design, Winners, Interesting facts)', () => {
