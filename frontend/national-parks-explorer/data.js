@@ -795,6 +795,26 @@ entryFee: '₹50 (Indian), ₹300 (Foreign)',
         entryFee: '₹250 (Indian), ₹1500 (Foreign)',
         image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Amazing%20Landscape%20%40Satpura%20Tiger%20Reserve.jpg?width=960',
         explorerUrl: '../satpura-national-park-explorer/index.html'
+    },
+    {
+        id: 'nanda-devi',
+        name: 'Nanda Devi National Park',
+        state: 'Uttarakhand',
+        stateId: 'uk',
+        established: 1982,
+        area: 630.33,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: true,
+        description: 'Dominated by the majestic Nanda Devi Peak, this pristine wilderness is a recognized UNESCO World Heritage Site. It is celebrated for its breathtaking Alpine Meadows, rich Trekking History, and strict Conservation efforts that protect vulnerable Himalayan Wildlife and Rare Flora.',
+        keyFauna: ['Snow Leopard', 'Himalayan Musk Deer', 'Himalayan Black Bear', 'Blue Sheep', 'Himalayan Tahr'],
+        keyFlora: ['Bhojpatra', 'Rhododendron', 'Brahma Kamal', 'Rare Flora', 'Alpine Meadows'],
+        coordinates: { lat: 30.41, lng: 79.84 },
+        climate: 'Alpine',
+        bestTime: 'May to October',
+        entryFee: '₹2500 (Indian), ₹2500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Mt._Nanda_Devi.jpg/960px-Mt._Nanda_Devi.jpg'
     }
 ];
 const TIGER_RESERVES = NATIONAL_PARKS.filter(p => p.isTigerReserve);
