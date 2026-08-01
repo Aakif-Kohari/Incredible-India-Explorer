@@ -795,6 +795,49 @@ entryFee: '₹50 (Indian), ₹300 (Foreign)',
         entryFee: '₹250 (Indian), ₹1500 (Foreign)',
         image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Amazing%20Landscape%20%40Satpura%20Tiger%20Reserve.jpg?width=960',
         explorerUrl: '../satpura-national-park-explorer/index.html'
+<<<<<<< Updated upstream
+=======
+    },
+    {
+        id: 'kali',
+        name: 'Kali National Park',
+        state: 'Karnataka',
+        stateId: 'ka',
+        established: 1987,
+        area: 1300,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description: 'Formerly known as Anshi National Park, this tiger reserve is nourished by the Kali River. It protects lush evergreen forests, diverse birds, and elusive predators like the Black Panther, playing a crucial role in regional conservation efforts.',
+        keyFauna: ['Bengal Tiger', 'Black Panther', 'Indian Elephant', 'Great Hornbill', 'Sloth Bear'],
+        keyFlora: ['Evergreen Forests', 'Teak', 'Bamboo', 'Eucalyptus'],
+        coordinates: { lat: 15.01, lng: 74.38 },
+        climate: 'Tropical Monsoon',
+        bestTime: 'October to May',
+        entryFee: '₹250 (Indian), ₹1500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Kali_river.jpg/960px-Kali_river.jpg'
+    },
+    {
+        id: 'eravikulam',
+        name: 'Eravikulam National Park',
+        state: 'Kerala',
+        stateId: 'kl',
+        established: 1978,
+        area: 97,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description: 'Located in the majestic Western Ghats, this park is famous for the endangered Nilgiri Tahr and the spectacular blooming of Neelakurinji Flowers, which blanket the hills once every 12 years. It offers an incredible destination for wildlife observation and scenic trekking.',
+        keyFauna: ['Nilgiri Tahr', 'Golden Jackal', 'Leopard', 'Sambar', 'Atlas Moth'],
+        keyFlora: ['Neelakurinji Flowers', 'Shola Forest', 'Grasslands', 'Tea Plantations'],
+        coordinates: { lat: 10.20, lng: 77.08 },
+        climate: 'Tropical Montane',
+        bestTime: 'September to November',
+        entryFee: '₹120 (Indian), ₹500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Eravikulam_National_Park_%2849444006652%29.jpg/960px-Eravikulam_National_Park_%2849444006652%29.jpg'
+>>>>>>> Stashed changes
     }
 ];
 const TIGER_RESERVES = NATIONAL_PARKS.filter(p => p.isTigerReserve);
