@@ -356,6 +356,8 @@ export const AWARD_ENCYCLOPEDIA = {
       'Over 500 exceptional children have been recognized since the award\'s inception in 1995.',
       'Many awardees have gone on to achieve significant success in their respective fields nationally and internationally.',
       'The award provides not just recognition but also developmental opportunities through workshops and mentorship programs.'
+    ]
+  },
   // ==================== HEALTHCARE AWARDS ====================
   'national-florence-nightingale-award': {
     id: 'national-florence-nightingale-award',
@@ -380,6 +382,8 @@ export const AWARD_ENCYCLOPEDIA = {
       'The award ceremony is typically held on May 12th, International Nurses Day, which is also Florence Nightingale\'s birthday.',
       '35+ nurses are selected annually from across India for this prestigious honor.',
       'The award recognizes nurses from various specializations including critical care, pediatrics, mental health, and community health.'
+    ]
+  },
   // ==================== SCIENCE AWARDS ====================
   'rashtriya-vigyan-puraskar': {
     id: 'rashtriya-vigyan-puraskar',
@@ -404,6 +408,31 @@ export const AWARD_ENCYCLOPEDIA = {
       'Over 500 scientists have been recognized since the inception of the awards in 1958.',
       'Many awardees have received international recognition including Nobel Prizes and Fellowships of the Royal Society.',
       'The awards include special categories for young scientists (under 35) and women scientists to promote diversity in scientific research.'
+    ]
+  },
+  // ==================== HARMONY & PEACE AWARDS ====================
+  'national-communal-harmony-award': {
+    id: 'national-communal-harmony-award',
+    name: 'National Communal Harmony Award',
+    category: 'harmony',
+    categoryName: 'Peace & Harmony Honour',
+    rank: "National Honour for Communal Harmony & Unity",
+    establishedYear: '1996',
+    eligibility: 'Conferred upon individuals and organizations for outstanding contribution towards promoting communal harmony, national integration, and peace across India. Individuals require 10+ years and organizations require 5+ years of dedicated service.',
+    history: 'Instituted in 1996 by the National Foundation for Communal Harmony (NFCH), an autonomous organization under the Ministry of Home Affairs, Government of India. Created to honor exemplary efforts in strengthening inter-community brotherhood.',
+    medalDesign: 'Includes a citation plaque, a commemorative trophy, and a cash prize of ₹5 Lakhs for Individuals and ₹10 Lakhs for Organizations.',
+    notableWinners: [
+      { name: 'Foundation for Amity & National Integration', year: 1999, note: 'Organization Category - Grassroots Peacebuilding' },
+      { name: 'Dr. Asghar Ali Engineer', year: 2004, note: 'Individual Category - Scholar & Interfaith Harmony Pioneer' },
+      { name: 'Ram Puniyani', year: 2006, note: 'Individual Category - Communal Harmony Activist' },
+      { name: 'Acharya Shri N Mahapragya', year: 2008, note: 'Individual Category - Ahimsa Yatra & Peace Pioneer' },
+      { name: 'Centre for Study of Society and Secularism', year: 2012, note: 'Organization Category - Secular Research & Peace Promotion' }
+    ],
+    interestingFacts: [
+      'Instituted by the National Foundation for Communal Harmony (NFCH) under the Union Ministry of Home Affairs.',
+      'A Jury chaired by the Vice President of India selects recipients after rigorous nationwide screening.',
+      'Individual category awardees receive ₹5 lakh while Organization category awardees receive ₹10 lakh alongside citations.',
+      'Promotes peace, interfaith understanding, and rehabilitation of child victims of communal violence.'
     ]
   }
 };
