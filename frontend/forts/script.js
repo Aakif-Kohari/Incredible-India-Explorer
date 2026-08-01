@@ -214,6 +214,23 @@ const fortsData = [
         ]
     },
     {
+        id: "fort-william",
+        name: "Fort William",
+        location: "Kolkata",
+        state: "West Bengal",
+        built: "1696-1702 / Rebuilt 1757-1773",
+        builtBy: "British East India Company",
+        era: "Colonial Era",
+        architecture: "British Colonial Architecture",
+        image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80",
+        history: "The historic British fort on the Hooghly river, seat of the East India Company in Bengal, built after the Battle of Plassey and still an active military establishment.",
+        highlights: [
+            "Active military establishment",
+            "Built by Robert Clive",
+            "Octagonal star fortress",
+            "Overlooks the Maidan"
+        ],
+        customUrl: "fort-william.html"},{
         id: "bidar-fort",
         name: "Bidar Fort",
         location: "Bidar",
