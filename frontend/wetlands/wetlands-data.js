@@ -287,6 +287,36 @@ export const WETLANDS_DATA = {
             isFeatured: false
         },
         {
+            id: 'satkosia-gorge-wetland',
+            name: 'Satkosia Gorge Wetlands',
+            state: 'Odisha',
+            type: 'Floodplain',
+            area: '425.89 km²',
+            ramsarDeclared: 2022,
+            ramsarSiteNo: 2468,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Gharial_Gavialis_gangeticus.jpg/800px-Gharial_Gavialis_gangeticus.jpg',
+            shortDesc: 'Spectacular 22 km Mahanadi River gorge Ramsar site in Eastern Ghats, pioneer sanctuary for Gharial and Mugger crocodiles.',
+            exploreUrl: '../satkosia-gorge-wetlands-explorer/index.html',
+            coordinates: { lat: 20.58, lng: 84.83 },
+            keyFauna: ['Gharial', 'Mugger Crocodile', 'Indian Skimmer', 'Asian Elephant'],
+            isFeatured: true
+        },
+        {
+            id: 'vellode-wetland',
+            name: 'Vellode Wetland Conservation Reserve',
+            state: 'Tamil Nadu',
+            type: 'Reservoir',
+            area: '0.77 km²',
+            ramsarDeclared: 2022,
+            ramsarSiteNo: 2482,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Spot-billed_Pelican_Pelecanus_philippensis.jpg/800px-Spot-billed_Pelican_Pelecanus_philippensis.jpg',
+            shortDesc: 'Farmer-welcomed freshwater bird sanctuary tank in Erode, Ramsar Site serving as a major breeding refuge for Spot-billed Pelicans.',
+            exploreUrl: '../vellode-wetland-explorer/index.html',
+            coordinates: { lat: 11.161, lng: 77.653 },
+            keyFauna: ['Spot-billed Pelican', 'Oriental Darter', 'Eurasian Spoonbill', 'Grey Heron'],
+            isFeatured: true
+        },
+        {
             id: 'beas-conservation-reserve',
             name: 'Beas Conservation Reserve',
             state: 'Punjab',
@@ -302,18 +332,48 @@ export const WETLANDS_DATA = {
             isFeatured: false
         },
         {
-            id: 'wadhvana-wetland',
-            name: 'Wadhvana Wetland',
-            state: 'Gujarat',
-            type: 'Reservoir',
-            area: '10.3 km²',
-            ramsarDeclared: 2021,
-            ramsarSiteNo: 2454,
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ferruginous_duck_%28Aythya_nyroca%29_male.jpg/800px-Ferruginous_duck_%28Aythya_nyroca%29_male.jpg',
-            shortDesc: 'Century-old reservoir built by Maharaja Sayajirao Gaekwad III, Ramsar Site supporting 80,000+ wintering migratory waterfowl.',
-            exploreUrl: '../wadhvana-wetland-explorer/index.html',
-            coordinates: { lat: 22.174, lng: 73.483 },
-            keyFauna: ['Ferruginous Duck', 'Greylag Goose', 'Greater Flamingo', 'Common Pochard'],
+            id: 'tampara-lake',
+            name: 'Tampara Lake',
+            state: 'Odisha',
+            type: 'Lagoon',
+            area: '3.0 km²',
+            ramsarDeclared: 2022,
+            ramsarSiteNo: 2488,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Common_Pochard_male.jpg/800px-Common_Pochard_male.jpg',
+            shortDesc: 'Picturesque freshwater coastal lagoon lake in Ganjam, Ramsar Site supporting rich fisheries and migratory waterfowl.',
+            exploreUrl: '../tampara-lake-explorer/index.html',
+            coordinates: { lat: 19.35, lng: 85.02 },
+            keyFauna: ['Common Pochard', 'Rohu Fish', 'Great Cormorant', 'Intermediate Egret'],
+            isFeatured: true
+        },
+        {
+            id: 'ansupa-lake',
+            name: 'Ansupa Lake',
+            state: 'Odisha',
+            type: 'Oxbow Lake',
+            area: '1.56 km²',
+            ramsarDeclared: 2022,
+            ramsarSiteNo: 2487,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Cotton_pygmy_goose_%28Nettapus_coromandelianus%29_male.jpg/800px-Cotton_pygmy_goose_%28Nettapus_coromandelianus%29_male.jpg',
+            shortDesc: 'Odisha\'s largest freshwater oxbow lake formed by the Mahanadi River, Ramsar Site famous for lotus blooms and pygmy geese.',
+            exploreUrl: '../ansupa-lake-explorer/index.html',
+            coordinates: { lat: 20.46, lng: 85.60 },
+            keyFauna: ['Cotton Pygmy Goose', 'Indian Sacred Lotus', 'Northern Pintail', 'Bronze-winged Jacana'],
+            isFeatured: true
+        },
+        {
+            id: 'udhwa-wetlands',
+            name: 'Udhwa Lake Bird Sanctuary & Wetlands',
+            state: 'Jharkhand',
+            type: 'Oxbow Lake',
+            area: '5.65 km²',
+            ramsarDeclared: 2024,
+            ramsarSiteNo: 2510,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Tufted_Duck_male.jpg/800px-Tufted_Duck_male.jpg',
+            shortDesc: 'Jharkhand\'s only Ramsar Site, featuring interconnected Patauda & Berhale oxbow lakes hosting 20,000+ migratory wildfowl.',
+            exploreUrl: '../udhwa-wetlands-explorer/index.html',
+            coordinates: { lat: 24.972, lng: 87.838 },
+            keyFauna: ['Tufted Duck', 'Northern Pintail', 'Red-crested Pochard', 'Pheasant-tailed Jacana'],
             isFeatured: true
         },
         {
@@ -326,11 +386,12 @@ export const WETLANDS_DATA = {
             ramsarSiteNo: 1571,
             image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Renuka%20Lake.jpg?width=960',
             shortDesc: "India's largest natural lake in Himachal Pradesh and one of its smallest Ramsar sites — sacred to the goddess Renuka, mother of Parashurama.",
-            exploreUrl: '../../renuka-wetland/renuka-wetland.html',
             coordinates: { lat: 30.61, lng: 77.4583 },
             keyFauna: ['Himalayan Goral', 'Barking Deer', 'Crimson-breasted Barbet'],
             isFeatured: false
-            },{id: 'deepor-beel',
+        },
+        {
+            id: 'deepor-beel',
             name: 'Deepor Beel',
             state: 'Assam',
             type: 'Lake',
@@ -342,7 +403,10 @@ export const WETLANDS_DATA = {
             exploreUrl: '../deepor-beel-explorer/index.html',
             coordinates: { lat: 26.124, lng: 91.662 },
             keyFauna: ['Greater Adjutant Stork', 'Asian Elephant', 'Spot-billed Pelican', 'Lesser Adjutant'],
-            },{id: 'sambhar-lake',
+            isFeatured: false
+        },
+        {
+            id: 'sambhar-lake',
             name: 'Sambhar Salt Lake',
             state: 'Rajasthan',
             type: 'Lake',
@@ -354,7 +418,9 @@ export const WETLANDS_DATA = {
             exploreUrl: '../sambhar-lake-explorer/index.html',
             coordinates: { lat: 26.908, lng: 75.022 },
             keyFauna: ['Greater Flamingo', 'Lesser Flamingo', 'Black-winged Stilt', 'Pied Avocet'],
-      {
+            isFeatured: false
+        },
+        {
             id: 'east-kolkata-wetlands',
             name: 'East Kolkata Wetlands',
             state: 'West Bengal',
@@ -367,7 +433,10 @@ export const WETLANDS_DATA = {
             exploreUrl: '../east-kolkata-wetlands-explorer/index.html',
             coordinates: { lat: 22.518, lng: 88.435 },
             keyFauna: ['Fishing Cat', 'Small Indian Mongoose', 'Bronze-winged Jacana', 'Lesser Whistling Duck'],
-           },{ id: 'ashtamudi-lake',
+            isFeatured: false
+        },
+        {
+            id: 'ashtamudi-lake',
             name: 'Ashtamudi Lake',
             state: 'Kerala',
             type: 'Estuary',
@@ -379,7 +448,10 @@ export const WETLANDS_DATA = {
             exploreUrl: '../ashtamudi-lake-explorer/index.html',
             coordinates: { lat: 8.950, lng: 76.583 },
             keyFauna: ['Stork-billed Kingfisher', 'Malabar Short-neck Clam', 'Indian Cormorant', 'Little Egret'],
-          },{  id: 'vembanad-lake',
+            isFeatured: false
+        },
+        {
+            id: 'vembanad-lake',
             name: 'Vembanad Lake',
             state: 'Kerala',
             type: 'Lake',
@@ -395,4 +467,3 @@ export const WETLANDS_DATA = {
         }
     ]
 };
-

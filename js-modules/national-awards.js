@@ -332,6 +332,54 @@ export const AWARD_ENCYCLOPEDIA = {
     ]
   },
 
+  // ==================== CHILDREN'S AWARDS ====================
+  'national-bal-shree-award': {
+    id: 'national-bal-shree-award',
+    name: 'National Bal Shree Award',
+    category: 'children',
+    categoryName: 'Children\'s Creative Honour',
+    rank: "Highest Creative Talent Award for Children",
+    establishedYear: '1995',
+    eligibility: 'Awarded to children aged 9-16 years who demonstrate exceptional creative talent in Creative Arts, Creative Writing, Creative Performance, or Creative Scientific Innovation. Must be Indian citizens enrolled in recognized educational institutions.',
+    history: 'Instituted in 1995 by the Government of India through the National Bal Bhavan under the Ministry of Culture. Established to identify and nurture exceptional creative talent among children across India.',
+    medalDesign: 'Bronze medal featuring the National Bal Bhavan emblem, accompanied by a certificate and citation. The award includes opportunities for workshops, exhibitions, and interactions with experts.',
+    notableWinners: [
+      { name: 'Aranya Sharma', year: 2018, note: 'Creative Arts - Madhubani Painting' },
+      { name: 'Rohan Verma', year: 2019, note: 'Creative Scientific Innovation - Water Purification System' },
+      { name: 'Priya Nair', year: 2017, note: 'Creative Writing - Poetry Collection' },
+      { name: 'Amit Kumar', year: 2020, note: 'Creative Performance - Tabla' },
+      { name: 'Sneha Reddy', year: 2016, note: 'Creative Arts - Digital Art' }
+    ],
+    interestingFacts: [
+      'The award recognizes talent across four major categories: Creative Arts, Creative Writing, Creative Performance, and Creative Scientific Innovation.',
+      'Selection process involves multi-tiered evaluation at regional, zonal, and national levels by expert panels.',
+      'Over 500 exceptional children have been recognized since the award\'s inception in 1995.',
+      'Many awardees have gone on to achieve significant success in their respective fields nationally and internationally.',
+      'The award provides not just recognition but also developmental opportunities through workshops and mentorship programs.'
+  // ==================== HEALTHCARE AWARDS ====================
+  'national-florence-nightingale-award': {
+    id: 'national-florence-nightingale-award',
+    name: 'National Florence Nightingale Award',
+    category: 'healthcare',
+    categoryName: 'Nursing Excellence Honour',
+    rank: "Highest Nursing Recognition",
+    establishedYear: '1973',
+    eligibility: 'Awarded to regular nursing staff from government and private hospitals with a minimum of 10 years of service. Candidates must possess recognized nursing qualifications (B.Sc. Nursing, GNM, or equivalent) and demonstrate exceptional dedication to patient care.',
+    history: 'Instituted in 1973 by the Ministry of Health and Family Welfare, Government of India. Named after Florence Nightingale, the legendary British nurse who founded modern nursing practices during the Crimean War.',
+    medalDesign: 'Includes a cash prize of ₹50,000, a citation certificate, and a medal. The award is presented annually on International Nurses Day (May 12th), Florence Nightingale\'s birthday.',
+    notableWinners: [
+      { name: 'Sister Lucy Kurien', year: 1985, note: 'Pediatric nursing and work with underprivileged children' },
+      { name: 'Sister M. D. Rosalind', year: 1990, note: 'Mental health nursing and psychiatric patient care' },
+      { name: 'Sister K. T. Rose', year: 1995, note: 'Critical care nursing and emergency department services' },
+      { name: 'Sister Mary Thomas', year: 2000, note: 'Community health nursing and rural healthcare programs' },
+      { name: 'Sister S. K. Anitha', year: 2020, note: 'Exceptional service during COVID-19 pandemic' }
+    ],
+    interestingFacts: [
+      'The award is named after Florence Nightingale, known as "The Lady with the Lamp" for her night rounds during the Crimean War.',
+      'Over 1,500 nurses have been recognized since the award\'s inception in 1973.',
+      'The award ceremony is typically held on May 12th, International Nurses Day, which is also Florence Nightingale\'s birthday.',
+      '35+ nurses are selected annually from across India for this prestigious honor.',
+      'The award recognizes nurses from various specializations including critical care, pediatrics, mental health, and community health.'
   // ==================== SCIENCE AWARDS ====================
   'rashtriya-vigyan-puraskar': {
     id: 'rashtriya-vigyan-puraskar',
