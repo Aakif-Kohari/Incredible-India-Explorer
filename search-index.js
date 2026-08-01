@@ -1427,6 +1427,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Param Vir Chakra Gallery & Heroes Explorer ---
+  {
+    title: "Param Vir Chakra Gallery & Heroes Explorer",
+    category: "Military Heritage & Honours",
+    description: "Explore the Param Vir Chakra Gallery honoring all 21 recipient heroes of India's highest military decoration for valor, featuring Savitri Khanolkar's medal design and citations.",
+    url: "frontend/param-vir-chakra-explorer/index.html"
+  },
   // --- Tampara Lake Explorer ---
   {
     title: "Tampara Lake Explorer",
