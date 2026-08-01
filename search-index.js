@@ -1427,6 +1427,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Valley of Flowers National Park Explorer ---
+  {
+    title: "Valley of Flowers National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Valley of Flowers National Park in Chamoli, Uttarakhand — UNESCO World Heritage Site, high-altitude Pushpawati river valley, Himalayan Blue Poppies, Brahma Kamal, and Snow Leopards.",
+    url: "frontend/valley-of-flowers-explorer/index.html"
+  },
   // --- Tampara Lake Explorer ---
   {
     title: "Tampara Lake Explorer",

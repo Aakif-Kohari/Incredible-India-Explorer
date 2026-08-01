@@ -218,6 +218,28 @@ entryFee: '₹200 (Indian), ₹1000 (Foreign)',
         explorerUrl: '../valmiki-national-park-explorer/index.html'
     },
     {
+        id: 'valley-of-flowers',
+        name: 'Valley of Flowers National Park',
+        state: 'Uttarakhand',
+        stateId: 'uk',
+        established: 1982,
+        area: 87.5,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: true,
+        description:
+            'Enchanting high-altitude alpine valley in Uttarakhand, inscribed as a UNESCO World Heritage Site in 2005. Famous for carpets of rare endemic flora including Himalayan Blue Poppies and sacred Brahma Kamal.',
+        keyFauna: ['Snow Leopard', 'Himalayan Musk Deer', 'Red Panda', 'Blue Sheep (Bharal)', 'Himalayan Monal'],
+        keyFlora: ['Himalayan Blue Poppy', 'Brahma Kamal', 'Cobra Lily', 'Rhododendron'],
+        coordinates: { lat: 30.728, lng: 79.605 },
+        climate: 'Alpine Monsoonal',
+        bestTime: 'July to September',
+        entryFee: '₹150 (Indian), ₹600 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Meconopsis_aculeata_in_Valley_of_Flowers.jpg/960px-Meconopsis_aculeata_in_Valley_of_Flowers.jpg',
+        exploreUrl: '../valley-of-flowers-explorer/index.html'
+    },
+    {
         id: 'gir',
         name: 'Gir National Park & Sanctuary',
         state: 'Gujarat',
