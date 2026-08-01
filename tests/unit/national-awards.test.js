@@ -42,6 +42,9 @@ describe('National Awards Encyclopedia Dataset Completeness', () => {
     // Literature Awards
     expect(keys).toContain('jnanpith-award');
     expect(keys).toContain('sahitya-akademi-award');
+
+    // Children Awards
+    expect(keys).toContain('pradhan-mantri-rashtriya-bal-puraskar');
   });
 
   it('every award entry contains all 5 required sections (Eligibility, History, Medal design, Winners, Interesting facts)', () => {
