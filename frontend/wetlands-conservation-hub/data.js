@@ -73,6 +73,54 @@ const QUIZ_QUESTIONS = [
 ];
 
 const FEATURED_EXPLORERS = [
+  {
+    name: 'Beas Conservation Wetlands Explorer',
+    slug: 'beas',
+    tagline: 'Discover the Ramsar-designated riverine wetland, Indus River Dolphins, and rich fish diversity of the Beas River.',
+    icon: '🏞️',
+    path: '../beas-conservation-wetlands-explorer/index.html',
+    badges: ['Ramsar Site 2020', 'Indus Dolphin Habitat', '50+ Fish Species']
+  },
+  {
+    name: 'Nalsarovar Bird Sanctuary Explorer',
+    slug: 'nalsarovar',
+    tagline: 'Explore Gujarat\'s largest natural wetland, a Ramsar paradise for flamingos, pelicans, and birdwatchers.',
+    icon: '🦩',
+    path: '../../nalsarovar-bird-sanctuary/nalsarovar.html',
+    badges: ['Ramsar Site 2012', 'Flamingo Haven', '200+ Bird Species']
+  },
+  {
+    name: 'Longwood Shola Wetland Explorer',
+    slug: 'longwood-shola',
+    tagline: 'Explore the montane wetland ecosystems of Longwood Shola, a pristine Shola forest refuge in the Nilgiris.',
+    icon: '🌿',
+    path: '../../longwood-shola-wetland/longwood-shola.html',
+    badges: ['Montane Wetland', 'Shola Forest Ecosystem', 'Endemic Species']
+},
+  {
+    name: 'Sasthamkotta Lake Explorer',
+    slug: 'sasthamkotta',
+    tagline: 'Explore Kerala\'s largest freshwater lake, a Ramsar site and vital drinking water source with unique ecology.',
+    icon: '💧',
+    path: '../../sasthamkotta-lake/sasthamkotta-lake.html',
+    badges: ['Ramsar Site 2002', 'Kerala\'s Largest Freshwater Lake', 'Drinking Water Source']
+  },
+  {
+    name: 'Kanwar Lake Explorer',
+    slug: 'kanwar-lake',
+    tagline: 'Explore Asia\'s largest freshwater oxbow lake, a vital Ramsar Site and migratory bird haven in Bihar.',
+    icon: '🦆',
+    path: '../kanwar-lake-explorer/index.html',
+    badges: ['Ramsar Site 2020','Oxbow Lake','Migratory Haven']
+  },
+  {
+    name: 'Renuka Wetland Explorer',
+    slug: 'renuka-wetland',
+    tagline: 'Discover Himachal Pradesh\'s largest natural lake, sacred to the goddess Renuka and home to over 440 wildlife species.',
+    icon: '🛕',
+    path: '../../renuka-wetland/renuka-wetland.html',
+    badges: ['Ramsar Site 2005', 'Largest Lake in Himachal Pradesh', '440+ Species']
+  },
     {
         name: 'Beas Conservation Wetlands Explorer',
         slug: 'beas',
