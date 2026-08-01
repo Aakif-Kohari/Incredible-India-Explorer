@@ -5,6 +5,25 @@
 // Fort Data
 const fortsData = [
     {
+        id: "taragarh-fort",
+        name: "Taragarh Fort",
+        location: "Bundi",
+        state: "Rajasthan",
+        built: "1354",
+        builtBy: "Rao Bar Singh",
+        era: "Rajput Era",
+        architecture: "Rajput Architecture",
+        image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80",
+        history: "One of Rajasthan's oldest hill forts with massive gateways and a strategic hilltop location. Also famously known as the Star Fort.",
+        highlights: [
+            "Three Massive Gateways",
+            "Chauhan Baori (Stepwell)",
+            "Bhim Burj & Garbh Gunjam Cannon",
+            "Extensive Water Reservoirs"
+        ],
+        customUrl: "taragarh-fort.html"
+    },
+    {
         id: 1,
         name: "Red Fort",
         location: "Delhi",
@@ -310,11 +329,17 @@ function renderForts(forts) {
                 <p>${fort.history}</p>
                 <div class="fort-card-footer">
                     <span class="fort-built">Built: <strong>${fort.built}</strong></span>
-                    <span class="view-details-btn">View Details</span>
+                    <span class="view-details-btn">${fort.customUrl ? 'Explore' : 'View Details'}</span>
                 </div>
             </div>
         `;
-        card.addEventListener('click', () => openModal(fort));
+        if (fort.customUrl) {
+            card.addEventListener('click', () => {
+                window.location.href = fort.customUrl;
+            });
+        } else {
+            card.addEventListener('click', () => openModal(fort));
+        }
         fortsGrid.appendChild(card);
     });
 }
