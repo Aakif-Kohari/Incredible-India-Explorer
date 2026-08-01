@@ -481,6 +481,21 @@ export const WETLANDS_DATA = {
             coordinates: { lat: 9.600, lng: 76.400 },
             keyFauna: ['Pearl Spot (Karimeen)', 'Oriental Darter', 'White-throated Kingfisher', 'Spot-billed Duck'],
             isFeatured: true
+        },
+        {
+            id: 'sultanpur-national-park',
+            name: 'Sultanpur National Park & Wetland',
+            state: 'Haryana',
+            type: 'Reservoir',
+            area: '1.43 km²',
+            ramsarDeclared: 2021,
+            ramsarSiteNo: 2459,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Bar-headed_Goose_%28Anser_indicus%29.jpg/800px-Bar-headed_Goose_%28Anser_indicus%29.jpg',
+            shortDesc: 'Premier freshwater wetland sanctuary in Gurugram, Haryana, Ramsar Site #2459 hosting 250+ migratory waterfowl on the Central Asian Flyway.',
+            exploreUrl: '../sultanpur-national-park-explorer/index.html',
+            coordinates: { lat: 28.462, lng: 76.892 },
+            keyFauna: ['Bar-headed Goose', 'Black-necked Stork', 'Spot-billed Pelican', 'Eurasian Wigeon'],
+            isFeatured: true
         }
     ]
 };
