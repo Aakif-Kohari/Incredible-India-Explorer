@@ -68,8 +68,12 @@
                     <span>Civilian Honours</span>
                 </div>
                 <div class="awards-hero-stat">
-                    <strong>6</strong>
-                    <span>Gallantry Awards</span>
+                    <strong>9</strong>
+                    <span>Military & Gallantry</span>
+                    <strong>8</strong>
+                    <span>Military & Gallantry</span>
+                    <strong>7</strong>
+                    <span>Gallantry & Police</span>
                 </div>
                 <div class="awards-hero-stat">
                     <strong>3</strong>
@@ -85,6 +89,9 @@
                     <span>Healthcare Awards</span>
                     <span>Science Awards</span>
                     <span>Harmony Awards</span>
+                    <strong>3</strong>
+                    <strong>2</strong>
+                    <span>Children Honours</span>
                 </div>
             </div>
         </section>
@@ -111,7 +118,9 @@
             <button type="button" class="awards-cat-filter" data-category="children">Children Awards</button>
             <button type="button" class="awards-cat-filter" data-category="healthcare">Healthcare Awards</button>
             <button type="button" class="awards-cat-filter" data-category="science">Science Awards</button>
+            <button type="button" class="awards-cat-filter" data-category="harmony">Harmony Awards</button>
         </div>
+
 
         <!-- View 1: Award Encyclopedia (Default View) -->
         <section id="view-encyclopedia" class="awards-encyclopedia-grid">
@@ -183,12 +192,17 @@
 
                 const factsListHtml = award.interestingFacts.map(f => `<li>${f}</li>`).join('');
 
+                const linkHtml = award.link || award.id === 'presidents-police-medal'
+                    ? `<a href="../../${award.link || 'presidents-police-medal.html'}" class="award-page-btn" style="display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, #FF9933, #D4AF37); color: #0F172A; font-weight: 700; text-decoration: none; padding: 6px 14px; border-radius: 6px; font-size: 0.85rem; transition: transform 0.2s ease; margin-top: 6px;">Explore Full Page ➔</a>`
+                    : '';
+
                 return `
                     <div class="award-card-detailed" id="${award.id}">
                         <div class="award-header-box">
                             <div>
                                 <h2 class="award-title-main">${award.name}</h2>
                                 <span class="award-rank-pill">${award.rank} • Est. ${award.establishedYear}</span>
+                                ${linkHtml}
                             </div>
                             <span style="font-size: 0.85rem; color: #D4AF37; font-weight: 700; text-transform: uppercase;">${award.categoryName}</span>
                         </div>
