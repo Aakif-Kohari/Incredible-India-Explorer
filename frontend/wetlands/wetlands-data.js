@@ -508,6 +508,21 @@ export const WETLANDS_DATA = {
             coordinates: { lat: 28.462, lng: 76.892 },
             keyFauna: ['Bar-headed Goose', 'Black-necked Stork', 'Spot-billed Pelican', 'Eurasian Wigeon'],
             isFeatured: true
+        },
+        {
+            id: 'surinsar-mansar-lakes',
+            name: 'Surinsar-Mansar Lakes',
+            state: 'Jammu & Kashmir',
+            type: 'Lake',
+            area: '350 ha',
+            ramsarDeclared: 2005,
+            ramsarSiteNo: 1573,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Dr_harleen_Kaur_mansar_lake_near_udhampur.jpg/800px-Dr_harleen_Kaur_mansar_lake_near_udhampur.jpg',
+            shortDesc: 'Twin sacred freshwater lakes of the Siwalik foothills — Ramsar Site No. 1573 and a Wildlife Sanctuary sheltering rare turtles, the freshwater medusa and wintering waterfowl.',
+            exploreUrl: '../surinsar-mansar-lakes-explorer/index.html',
+            coordinates: { lat: 32.720, lng: 75.170 },
+            keyFauna: ['Indian Softshell Turtle', 'Indian Flapshell Turtle', 'Common Coot', 'Common Pochard'],
+            isFeatured: true
         }
     ]
 };
