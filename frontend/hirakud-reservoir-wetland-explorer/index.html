@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore Hirakud Reservoir in Odisha — one of Asia's largest artificial lakes, a Ramsar Site, formed by the world's longest earthen dam, with rich birdlife, fisheries, and biodiversity."
+        />
+        <title>Hirakud Reservoir Wetland Explorer | Incredible India</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="style.css" />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Hirakud Reservoir Wetland Explorer | Incredible India" />
+        <meta
+            property="og:description"
+            content="Interactive explorer on Hirakud Reservoir in Odisha — reservoir history, Ramsar site status, water management, birdlife, fisheries, biodiversity, interactive map, and photo gallery."
+        />
+        <meta property="og:type" content="website" />
+    </head>
+
+    <body class="hirakud-main">
+        <!-- Site Navbar -->
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link">Home</a>
+                    <a href="../wetlands/index.html" class="nav-link">Wetlands Hub</a>
+                    <a href="../chilika-lake/index.html" class="nav-link">Chilika Lake</a>
+                    <a href="../kolleru-lake/index.html" class="nav-link">Kolleru Lake</a>
+                    <a href="../loktak-lake/index.html" class="nav-link">Loktak Lake</a>
+                    <a href="index.html" class="nav-link active" style="color: var(--saffron)">Hirakud Reservoir</a>
+                    <button
+                        id="theme-toggle"
+                        class="btn-theme-toggle"
+                        aria-label="Toggle Dark/Light Mode"
+                        title="Toggle Light Mode"
+                    >
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="hirakud-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill pill-ramsar">🪷 Ramsar Site #2494</span>
+                        <span class="hero-pill pill-dam">🏗️ World's Longest Earthen Dam</span>
+                        <span class="hero-pill pill-reservoir">🌊 743 km² Reservoir</span>
+                    </div>
+                    <h1>Hirakud <span>Reservoir</span> Wetland Explorer</h1>
+                    <p class="hero-subtitle">
+                        Discover one of Asia's largest artificial lakes, held back by the world's longest earthen
+                        dam on the Mahanadi River. Beyond irrigation and hydropower, Hirakud is a Ramsar-listed
+                        wetland supporting migratory birds, thousands of fishing families, and a scattering of
+                        submerged history.
+                    </p>
+
+                    <!-- Quick Stats Bar -->
+                    <div id="stats-grid" class="stats-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reservoir History Section -->
+            <section class="history-section" id="history">
+                <div class="section-container">
+                    <div class="info-card">
+                        <span class="section-tag">TAMING THE "SORROW OF ODISHA"</span>
+                        <h2 id="history-title"></h2>
+                        <p id="history-content"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ramsar Site Section -->
+            <section class="ramsar-section" id="ramsar">
+                <div class="section-container">
+                    <div class="info-card highlight-card">
+                        <span class="section-tag">GLOBAL RECOGNITION</span>
+                        <h2 id="ramsar-title"></h2>
+                        <p id="ramsar-content"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Water Management Section -->
+            <section class="water-management-section" id="water-management">
+                <div class="section-container">
+                    <div class="info-card">
+                        <span class="section-tag">ENGINEERING THE MAHANADI</span>
+                        <h2 id="water-title"></h2>
+                        <p id="water-content"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Birdlife Section -->
+            <section class="birdlife-section" id="birdlife">
+                <div class="section-container">
+                    <div class="bird-card-feature">
+                        <div class="bird-feature-info">
+                            <span class="section-tag">WINTER VISITORS</span>
+                            <h2 id="birdlife-title"></h2>
+                            <p id="birdlife-content"></p>
+                            <div class="facts-list" id="birdlife-facts">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fisheries Section -->
+            <section class="fisheries-section" id="fisheries">
+                <div class="section-container">
+                    <div class="info-card">
+                        <span class="section-tag">LIVELIHOODS ON THE WATER</span>
+                        <h2 id="fisheries-title"></h2>
+                        <p id="fisheries-content"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Biodiversity Section -->
+            <section class="biodiversity-section" id="biodiversity">
+                <div class="section-container">
+                    <div class="info-card highlight-card">
+                        <span class="section-tag">WILDLIFE OF THE RESERVOIR</span>
+                        <h2 id="biodiversity-title"></h2>
+                        <p id="biodiversity-content"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Map Section -->
+            <section class="map-section" id="interactive-map">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">HOTSPOT EXPLORER</span>
+                        <h2>Interactive Hirakud Map & Destinations</h2>
+                        <p>Select key viewpoints, sanctuaries, and power stations around the reservoir.</p>
+                    </div>
+                    <div class="map-layout">
+                        <div class="map-list" id="hotspots-list">
+                            <!-- Populated dynamically -->
+                        </div>
+                        <div class="map-detail" id="hotspot-detail">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Photo Gallery Section -->
+            <section class="gallery-section" id="gallery">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">MEDIA SHOTS</span>
+                        <h2>Image Gallery</h2>
+                        <p>Glimpse the dam, waters, and daily life around Hirakud Reservoir.</p>
+                    </div>
+                    <div class="gallery-grid" id="gallery-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interesting Facts Section -->
+            <section class="facts-section" id="facts">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">TRIVIA</span>
+                        <h2>Interesting Facts</h2>
+                    </div>
+                    <div class="facts-grid" id="facts-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="section-container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <h3>Incredible India Explorer</h3>
+                        <p>Promoting eco-tourism, biodiversity awareness, and sustainable exploration across India.</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="../../index.html#home">Home</a>
+                        <a href="../wetlands/index.html">Wetlands Hub</a>
+                        <a href="../chilika-lake/index.html">Chilika Lake</a>
+                        <a href="../kolleru-lake/index.html">Kolleru Lake</a>
+                        <a href="../loktak-lake/index.html">Loktak Lake</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Incredible India Explorer. Open Source Educational Platform.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script type="module" src="script.js"></script>
+    </body>
+</html>
