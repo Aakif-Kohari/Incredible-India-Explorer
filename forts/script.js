@@ -5,6 +5,25 @@
 // Fort Data
 const fortsData = [
     {
+        id: "diu-fort",
+        name: "Diu Fort",
+        location: "Diu",
+        state: "Dadra and Nagar Haveli and Daman and Diu",
+        built: "1535",
+        builtBy: "Portuguese",
+        era: "Portuguese Era",
+        architecture: "Portuguese Sea Fort Architecture",
+        image: "https://images.unsplash.com/photo-1609766856923-7e0a0c0622d4?w=800&q=80",
+        history: "A magnificent Portuguese sea fort overlooking the Arabian Sea. It was built following a defense alliance forged between Bahadur Shah and the Portuguese.",
+        highlights: [
+            "Lighthouse",
+            "Double Moat",
+            "Portuguese Cannons",
+            "St. George Bastion"
+        ],
+        customUrl: "diu-fort.html"
+    },
+    {
         id: 1,
         name: "Red Fort",
         location: "Delhi",
@@ -310,11 +329,17 @@ function renderForts(forts) {
                 <p>${fort.history}</p>
                 <div class="fort-card-footer">
                     <span class="fort-built">Built: <strong>${fort.built}</strong></span>
-                    <span class="view-details-btn">View Details</span>
+                    <span class="view-details-btn">${fort.customUrl ? 'Explore' : 'View Details'}</span>
                 </div>
             </div>
         `;
-        card.addEventListener('click', () => openModal(fort));
+        if (fort.customUrl) {
+            card.addEventListener('click', () => {
+                window.location.href = fort.customUrl;
+            });
+        } else {
+            card.addEventListener('click', () => openModal(fort));
+        }
         fortsGrid.appendChild(card);
     });
 }
