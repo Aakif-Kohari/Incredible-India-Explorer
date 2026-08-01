@@ -103,6 +103,30 @@ export const AWARD_ENCYCLOPEDIA = {
   },
 
   // ==================== GALLANTRY AWARDS ====================
+  'ati-vishisht-seva-medal': {
+    id: 'ati-vishisht-seva-medal',
+    name: 'Ati Vishisht Seva Medal (AVSM)',
+    category: 'gallantry',
+    categoryName: 'Military Distinguished Service',
+    rank: "Senior Armed Forces Decoration",
+    establishedYear: '1960',
+    eligibility: 'Awarded to recognize distinguished service of an exceptional order to all ranks of the Armed Forces, including the Indian Army, Indian Navy, Indian Air Force, Territorial Army, Auxiliary & Reserve Forces, and Nursing Officers.',
+    history: 'Instituted on January 26, 1960 by the Government of India as the "Vishisht Seva Medal, Class II" and re-designated as the "Ati Vishisht Seva Medal" (AVSM) on January 27, 1967. It serves as the peacetime equivalent of the Uttam Yudh Seva Medal (UYSM). A bar is awarded for subsequent acts of distinguished service.',
+    medalDesign: 'Circular silver medallion (35mm diameter). The obverse features an embossed five-pointed star in the center with the State Emblem of India. The reverse features a five-pointed star embossed in relief with the inscription "Ati Vishisht Seva Medal" in Devanagari along the upper rim. Suspended by a 32mm golden-yellow ribbon with two dark blue vertical stripes.',
+    link: 'ati-vishisht-seva-medal.html',
+    notableWinners: [
+      { name: 'General Bipin Rawat (PVSM, UYSM, AVSM, YSM, SM, VSM)', year: 2013, note: 'First Chief of Defence Staff (CDS)' },
+      { name: 'General Manoj Pande (PVSM, AVSM, VSM)', year: 2015, note: '29th Chief of the Army Staff' },
+      { name: 'Admiral Karambir Singh (PVSM, AVSM)', year: 2011, note: '24th Chief of the Naval Staff' },
+      { name: 'Air Chief Marshal R. K. S. Bhadauria (PVSM, AVSM, VM)', year: 2013, note: '26th Chief of the Air Staff' },
+      { name: 'Lieutenant General K. J. S. Dhillon (UYSM, YSM, VSM)', year: 2018, note: 'Former XV Corps Commander ("Tiny Dhillon")' },
+      { name: 'Admiral R. Hari Kumar (PVSM, AVSM, VSM)', year: 2016, note: '25th Chief of the Naval Staff' }
+    ],
+    interestingFacts: [
+      'Peacetime equivalent to the wartime Uttam Yudh Seva Medal (UYSM).',
+      'Subsequent awards of the medal for further distinguished service are denoted by a silver bar attached to the ribbon.',
+      'Announced bi-annually on Republic Day (January 26) and Independence Day (August 15) by the President of India.',
+      'Recipients carry post-nominal initials "AVSM" in official military correspondence.'
   'presidents-police-medal': {
     id: 'presidents-police-medal',
     name: "President's Police Medal",
