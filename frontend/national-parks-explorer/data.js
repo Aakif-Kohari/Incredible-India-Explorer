@@ -803,6 +803,12 @@ entryFee: '₹50 (Indian), ₹300 (Foreign)',
         stateId: 'ka',
         established: 1987,
         area: 1300,
+        id: 'sariska',
+        name: 'Sariska National Park',
+        state: 'Rajasthan',
+        stateId: 'rj',
+        established: 1982,
+        area: 881,
         areaUnit: 'km²',
         type: 'Tiger Reserve',
         isTigerReserve: true,
@@ -835,6 +841,14 @@ entryFee: '₹50 (Indian), ₹300 (Foreign)',
         bestTime: 'September to November',
         entryFee: '₹120 (Indian), ₹500 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Eravikulam_National_Park_%2849444006652%29.jpg/960px-Eravikulam_National_Park_%2849444006652%29.jpg'
+        description: 'Set against the backdrop of the rugged Aravalli Hills, this Tiger Reserve is famous for its successful tiger relocation program. Visitors can explore diverse wildlife along well-marked Safari Routes, admire the scrub-thorn flora, and visit the historic Kankwari Fort located within the reserve.',
+        keyFauna: ['Bengal Tiger', 'Leopard', 'Jungle Cat', 'Golden Jackal', 'Chital'],
+        keyFlora: ['Dhok', 'Salai', 'Ber', 'Khair', 'Scrub-thorn Flora'],
+        coordinates: { lat: 27.31, lng: 76.43 },
+        climate: 'Semi-arid',
+        bestTime: 'October to March',
+        entryFee: '₹125 (Indian), ₹500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Sariska_Tiger_Reserve%2C_Alwar.jpg/960px-Sariska_Tiger_Reserve%2C_Alwar.jpg'
     }
 ];
 const TIGER_RESERVES = NATIONAL_PARKS.filter(p => p.isTigerReserve);
