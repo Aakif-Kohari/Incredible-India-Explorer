@@ -105,6 +105,14 @@ const FEATURED_EXPLORERS = [
     path: '../../longwood-shola-wetland/longwood-shola.html',
     badges: ['Montane Wetland', 'Shola Forest Ecosystem', 'Endemic Species']
 },
+{
+    name: 'Aghanashini Estuary Explorer',
+    slug: 'aghanashini-estuary',
+    tagline: 'Discover the pristine, undammed estuarine wetland supporting rich fisheries and mangrove ecosystems in Karnataka.',
+    icon: '🌊',
+    path: '../aghanashini-estuary-explorer/index.html',
+    badges: ['Ramsar Site 2023','Free-flowing River','Mangrove Ecosystem']
+  },
   {
     name: 'Sasthamkotta Lake Explorer',
     slug: 'sasthamkotta',
