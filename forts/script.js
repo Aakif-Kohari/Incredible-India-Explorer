@@ -5,6 +5,25 @@
 // Fort Data
 const fortsData = [
     {
+        id: "timeline-quiz-hub",
+        name: "Indian Forts Timeline & Quiz Hub",
+        location: "Educational Hub",
+        state: "All of India",
+        built: "N/A",
+        builtBy: "Incredible India",
+        era: "Featured Hub",
+        architecture: "Interactive Educational Tool",
+        image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80",
+        history: "Explore the magnificent citadels of India through interactive timelines, historical comparisons, and engaging quizzes.",
+        highlights: [
+            "Interactive Timeline",
+            "Fort Comparisons",
+            "Master Quiz",
+            "Statistics Dashboard"
+        ],
+        customUrl: "timeline-quiz-hub.html"
+    },
+    {
         id: 1,
         name: "Red Fort",
         location: "Delhi",
@@ -310,11 +329,17 @@ function renderForts(forts) {
                 <p>${fort.history}</p>
                 <div class="fort-card-footer">
                     <span class="fort-built">Built: <strong>${fort.built}</strong></span>
-                    <span class="view-details-btn">View Details</span>
+                    <span class="view-details-btn">${fort.customUrl ? (fort.id === 'timeline-quiz-hub' ? 'Take Quiz / Explore' : 'Explore') : 'View Details'}</span>
                 </div>
             </div>
         `;
-        card.addEventListener('click', () => openModal(fort));
+        if (fort.customUrl) {
+            card.addEventListener('click', () => {
+                window.location.href = fort.customUrl;
+            });
+        } else {
+            card.addEventListener('click', () => openModal(fort));
+        }
         fortsGrid.appendChild(card);
     });
 }
