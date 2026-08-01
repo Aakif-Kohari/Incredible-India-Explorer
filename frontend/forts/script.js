@@ -214,6 +214,25 @@ const fortsData = [
         ]
     },
     {
+        id: "fort-william",
+        name: "Fort William",
+        location: "Kolkata",
+        state: "West Bengal",
+        built: "1696-1702 / Rebuilt 1757-1773",
+        builtBy: "British East India Company",
+        era: "Colonial Era",
+        architecture: "British Colonial Architecture",
+        image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80",
+        history: "The historic British fort on the Hooghly river, seat of the East India Company in Bengal, built after the Battle of Plassey and still an active military establishment.",
+        highlights: [
+            "Active military establishment",
+            "Built by Robert Clive",
+            "Octagonal star fortress",
+            "Overlooks the Maidan"
+        ],
+        customUrl: "fort-william.html"
+    },
+    {
         id: 12,
         name: "Srirangapatna Fort",
         location: "Srirangapatna",
@@ -310,11 +329,17 @@ function renderForts(forts) {
                 <p>${fort.history}</p>
                 <div class="fort-card-footer">
                     <span class="fort-built">Built: <strong>${fort.built}</strong></span>
-                    <span class="view-details-btn">View Details</span>
+                    <span class="view-details-btn">${fort.customUrl ? 'Explore' : 'View Details'}</span>
                 </div>
             </div>
         `;
-        card.addEventListener('click', () => openModal(fort));
+        if (fort.customUrl) {
+            card.addEventListener('click', () => {
+                window.location.href = fort.customUrl;
+            });
+        } else {
+            card.addEventListener('click', () => openModal(fort));
+        }
         fortsGrid.appendChild(card);
     });
 }
