@@ -277,3 +277,73 @@ describe('weather-core: buildWeatherSummary', () => {
         expect(summary[1].reasons).toContain('heavy rain expected');
     });
 });
+
+describe('weather-core: suggestIndoorActivities', () => {
+    it('returns category-relevant suggestions for a known category', () => {
+        const suggestions = Core.suggestIndoorActivities(['beaches']);
+        expect(suggestions.length).toBeGreaterThan(0);
+        expect(suggestions.length).toBeLessThanOrEqual(3);
+        expect(suggestions.some((s) => /aquarium|market|café/i.test(s))).toBe(true);
+    });
+
+    it('deduplicates suggestions shared across multiple categories', () => {
+        const single = Core.suggestIndoorActivities(['historical']);
+        const combined = Core.suggestIndoorActivities(['historical', 'heritage']);
+        // historical and heritage share the same suggestion list — no duplicates should appear.
+        expect(new Set(combined).size).toBe(combined.length);
+        expect(combined.length).toBeGreaterThanOrEqual(single.length);
+    });
+
+    it('falls back to generic suggestions for an unknown or missing category', () => {
+        expect(Core.suggestIndoorActivities([])).toEqual(Core.suggestIndoorActivities(undefined));
+        expect(Core.suggestIndoorActivities(['not-a-real-category']).length).toBeGreaterThan(0);
+    });
+
+    it('caps suggestions at 3', () => {
+        const suggestions = Core.suggestIndoorActivities(['beaches', 'adventure', 'wildlife', 'mountains', 'desert']);
+        expect(suggestions.length).toBeLessThanOrEqual(3);
+    });
+});
+
+describe('weather-core: summarizeHourlyRisk', () => {
+    function hour(overrides) {
+        return Object.assign({ time: '12:00', weatherCode: 0, tempC: 25, precipProbability: 5 }, overrides);
+    }
+
+    it('reports no risky window when every hour is clear', () => {
+        const hourlyDay = { date: '2026-08-01', hours: [hour({ time: '09:00' }), hour({ time: '12:00' }), hour({ time: '15:00' })] };
+        const risk = Core.summarizeHourlyRisk(hourlyDay);
+        expect(risk.hasRiskyWindow).toBe(false);
+        expect(risk.worstHours).toEqual([]);
+    });
+
+    it('flags hours with severe weather codes as the risky window', () => {
+        const hourlyDay = {
+            date: '2026-08-01',
+            hours: [hour({ time: '09:00' }), hour({ time: '14:00', weatherCode: 65 }), hour({ time: '15:00', weatherCode: 65 }), hour({ time: '19:00' })]
+        };
+        const risk = Core.summarizeHourlyRisk(hourlyDay);
+        expect(risk.hasRiskyWindow).toBe(true);
+        expect(risk.worstHours).toEqual(['14:00', '15:00']);
+        expect(risk.label).toContain('14:00');
+        expect(risk.label).toContain('15:00');
+    });
+
+    it('flags hours with high rain probability even without a severe weather code', () => {
+        const hourlyDay = { date: '2026-08-01', hours: [hour({ time: '10:00', precipProbability: 85 })] };
+        const risk = Core.summarizeHourlyRisk(hourlyDay);
+        expect(risk.hasRiskyWindow).toBe(true);
+        expect(risk.worstHours).toEqual(['10:00']);
+    });
+
+    it('handles a single risky hour with a singular label', () => {
+        const hourlyDay = { date: '2026-08-01', hours: [hour({ time: '18:00', weatherCode: 65 })] };
+        const risk = Core.summarizeHourlyRisk(hourlyDay);
+        expect(risk.label).toContain('around 18:00');
+    });
+
+    it('returns hasRiskyWindow:false for missing or empty input', () => {
+        expect(Core.summarizeHourlyRisk(null).hasRiskyWindow).toBe(false);
+        expect(Core.summarizeHourlyRisk({ date: '2026-08-01', hours: [] }).hasRiskyWindow).toBe(false);
+    });
+});
