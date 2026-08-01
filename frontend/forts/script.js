@@ -214,6 +214,25 @@ const fortsData = [
         ]
     },
     {
+        id: "tiruchirappalli-rock-fort",
+        name: "Tiruchirappalli Rock Fort",
+        location: "Tiruchirappalli",
+        state: "Tamil Nadu",
+        built: "6th Century CE (Pallava) onwards",
+        builtBy: "Pallavas / Madurai Nayakas",
+        era: "Medieval Era",
+        architecture: "Dravidian Rock-Cut Architecture",
+        image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80",
+        history: "An iconic fort built on one of the world's oldest rock formations (3.8 billion years), famed for its ancient cave temples and panoramic views of the Kaveri delta.",
+        highlights: [
+            "3.8-billion-year-old rock",
+            "437 steps to the summit",
+            "Ucchi Pillayar Temple",
+            "Panoramic Kaveri delta views"
+        ],
+        customUrl: "tiruchirappalli-rock-fort.html"
+    },
+    {
         id: 12,
         name: "Srirangapatna Fort",
         location: "Srirangapatna",
@@ -310,11 +329,17 @@ function renderForts(forts) {
                 <p>${fort.history}</p>
                 <div class="fort-card-footer">
                     <span class="fort-built">Built: <strong>${fort.built}</strong></span>
-                    <span class="view-details-btn">View Details</span>
+                    <span class="view-details-btn">${fort.customUrl ? 'Explore' : 'View Details'}</span>
                 </div>
             </div>
         `;
-        card.addEventListener('click', () => openModal(fort));
+        if (fort.customUrl) {
+            card.addEventListener('click', () => {
+                window.location.href = fort.customUrl;
+            });
+        } else {
+            card.addEventListener('click', () => openModal(fort));
+        }
         fortsGrid.appendChild(card);
     });
 }
