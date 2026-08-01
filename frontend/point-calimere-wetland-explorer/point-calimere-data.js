@@ -1,0 +1,259 @@
+/**
+ * Point Calimere Wetland Explorer — Data Module
+ * Comprehensive dataset covering the Point Calimere Wildlife & Bird Sanctuary
+ * coastal Ramsar Site in Tamil Nadu: wetland metadata, coastal habitats,
+ * Muthupet mangroves, bird migration, wildlife catalog, map hotspots, and gallery.
+ */
+
+const POINT_CALIMERE_INFO = {
+    id: "point-calimere",
+    name: "Point Calimere Wildlife & Bird Sanctuary",
+    localName: "Kodikkarai (Sea Rooster)",
+    location: "Southeastern tip of Nagapattinam District, Tamil Nadu, India",
+    state: "Tamil Nadu",
+    coordinates: { lat: 10.31, lng: 79.86 },
+    area: "38,500 hectares (Ramsar Site No. 1210)",
+    coreArea: "21.47 km²",
+    establishedYear: 1967,
+    ramsarYear: 2002,
+    ramsarSiteNo: 1210,
+    wetlandType: "Coastal Wetland — Salt Swamps, Mangroves, Backwaters & Mudflats",
+    climate: "Tropical Semi-Arid Coast",
+    bestTime: "October to March (Peak Flamingo & Migratory Season)",
+    nearestTransport: {
+        town: "Vedaranyam (12 km) / Nagapattinam (58 km)",
+        airport: "Tiruchirappalli International Airport (145 km) / Chennai International Airport (325 km)",
+        railway: "Nagapattinam Junction Railway Station (58 km)"
+    },
+    quickStats: [
+        { label: "Ramsar Site Designated", value: "2002", icon: "💧" },
+        { label: "Ramsar Site No.", value: "1210", icon: "🪷" },
+        { label: "Total Ramsar Area", value: "38,500 ha", icon: "🌊" },
+        { label: "Sanctuary Established", value: "1967", icon: "🏛️" },
+        { label: "Bird Species Recorded", value: "250+", icon: "🦅" },
+        { label: "Wintering Flamingos", value: "30,000+", icon: "🦩" }
+    ]
+};
+
+const COASTAL_ECOLOGY = {
+    overview: "Point Calimere Wildlife & Bird Sanctuary sits on a low coastal promontory where the Palk Strait meets the Bay of Bengal, at the seaward tip of the Cauvery delta. Established in 1967, it is the easternmost and most biologically diverse part of Ramsar Site No. 1210, which also takes in the Great Vedaranyam Swamp, Talaignayar Reserved Forest and the Muthupet mangrove lagoon.",
+    coastalHabitats: "The sanctuary is a rare coastal mosaic of seasonal salt swamps, shallow brackish lagoons, intertidal mudflats, salt pans, grasslands and one of the last remaining stands of tropical dry evergreen forest in the Indian subcontinent.",
+    mangroves: "The neighbouring Muthupet mangrove lagoon — among the southernmost mangrove forests of India — forms the western fringe of the Ramsar Site. Dense Avicennia and Rhizophora stands buffer the coast from storm surges, trap silt, and act as nurseries for fish, prawns and crabs that support thousands of coastal livelihoods.",
+    birdMigration: "Point Calimere is a critical staging and wintering ground on the Central Asian Flyway, receiving over 100,000 migratory waterbirds every year, including one of India's largest gatherings of Greater and Lesser Flamingos (30,000+) along with Spoon-billed Sandpipers, pelicans, terns and waders.",
+    conservationStatus: "Managed by the Tamil Nadu Forest Department, the sanctuary was created chiefly to protect the blackbuck. It is a designated Ramsar Wetland of International Importance (No. 1210), a BirdLife Important Bird & Biodiversity Area (IBA), and runs annual wildlife censuses plus invasive Prosopis clearance to restore native grassland and salt-marsh habitat."
+};
+
+const BIRD_MIGRATION = [
+    {
+        id: "central-asian-flyway",
+        title: "Central Asian Flyway Corridor",
+        icon: "🌐",
+        description: "Point Calimere sits on the Central Asian Flyway, one of the world's major migration routes. Waterbirds breed in Siberia and Central Asia and funnel south to winter on the Tamil Nadu coast between October and March."
+    },
+    {
+        id: "flamingo-congregations",
+        title: "Flamingo Winter Camp",
+        icon: "🦩",
+        description: "Around 30,000 Greater and Lesser Flamingos winter on the shallow salt pans and brackish lagoons, filter-feeding on algae and tiny crustaceans that give the birds their rosy pink colour."
+    },
+    {
+        id: "rare-guests",
+        title: "Rare Migratory Guests",
+        icon: "🪶",
+        description: "The Critically Endangered Spoon-billed Sandpiper and Near Threatened Spot-billed Pelican are among 119 waterbird species recorded here, making it one of the most important bird refuges on India's east coast."
+    },
+    {
+        id: "peak-season",
+        title: "Peak Birding Window",
+        icon: "📅",
+        description: "The largest concentrations arrive in November and December. Dawn jeep safaris across the salt flats offer some of India's best wild flamingo and blackbuck encounters."
+    }
+];
+
+const WILDLIFE_SPECIES = [
+    {
+        id: "greater-flamingo",
+        name: "Greater Flamingo",
+        scientificName: "Phoenicopterus roseus",
+        category: "Flamingo",
+        status: "Least Concern",
+        season: "October to March",
+        diet: "Algae, brine shrimp, mollusks",
+        height: "120–145 cm",
+        icon: "🦩",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Greater%20flamingos%20(Phoenicopterus%20roseus)%20resting.jpg?width=800",
+        description: "Tall pale-pink wading bird that winters by the thousands on Point Calimere's saline flats, sweeping its curved bill through shallow water to strain food."
+    },
+    {
+        id: "lesser-flamingo",
+        name: "Lesser Flamingo",
+        scientificName: "Phoeniconaias minor",
+        category: "Flamingo",
+        status: "Near Threatened",
+        season: "October to March",
+        diet: "Blue-green algae, diatoms",
+        height: "80–90 cm",
+        icon: "🦩",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Phoeniconaias%20minor%2001.jpg?width=800",
+        description: "The world's smallest flamingo and the most numerous, arriving in deep-pink flocks that sometimes mix with Greater Flamingos across the salt swamps."
+    },
+    {
+        id: "blackbuck",
+        name: "Blackbuck",
+        scientificName: "Antilope cervicapra",
+        category: "Mammal",
+        status: "Least Concern",
+        season: "Year-round Resident",
+        diet: "Grasses, herbs",
+        height: "74–84 cm at shoulder",
+        icon: "🦌",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Blackbuck%20antelope.jpg?width=800",
+        description: "The sanctuary was founded to protect this elegant Indian antelope. Male blackbucks sport spiralled horns and striking black-and-white coats, with herds of several hundred roaming the open grasslands."
+    },
+    {
+        id: "spotted-deer",
+        name: "Spotted Deer (Chital)",
+        scientificName: "Axis axis",
+        category: "Mammal",
+        status: "Least Concern",
+        season: "Year-round Resident",
+        diet: "Grasses, fallen fruit, leaves",
+        height: "70–97 cm at shoulder",
+        icon: "🦌",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Spotted%20deer%20(Axis%20axis)%20male.jpg?width=800",
+        description: "Graceful deer with white-spotted coats that graze the dry evergreen forest edges and share watering holes with blackbuck and bonnet macaques."
+    },
+    {
+        id: "spot-billed-pelican",
+        name: "Spot-billed Pelican",
+        scientificName: "Pelecanus philippensis",
+        category: "Wading Bird",
+        status: "Near Threatened",
+        season: "October to April",
+        diet: "Fish",
+        wingspan: "140–150 cm",
+        icon: "🪶",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Spot%20Billed%20Pelican%20Vedanthangal%20TN%20Dec21%20D72%2021952.jpg?width=800",
+        description: "Greyish-white pelican with a spotted pouch that winters on the sanctuary's lagoons and backwaters, fishing cooperatively in shallow brackish water."
+    },
+    {
+        id: "spoon-billed-sandpiper",
+        name: "Spoon-billed Sandpiper",
+        scientificName: "Calidris pygmaea",
+        category: "Wader",
+        status: "Critically Endangered",
+        season: "November to March",
+        diet: "Marine worms, crustaceans",
+        wingspan: "36–42 cm",
+        icon: "🐦",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Spoon-billed%20Sandpiper%20in%20Bakkhali%20April%202026%20by%20Tisha%20Mukherjee%2008.jpg?width=800",
+        description: "One of the rarest shorebirds on Earth, with its unmistakable spoon-shaped bill. It winters on Point Calimere's mudflats, making the site globally vital for its survival."
+    }
+];
+
+const INTERESTING_FACTS = [
+    {
+        title: "A Sea Rooster Named by the Portuguese",
+        fact: "The name 'Calimere' comes from the Portuguese 'Cale Mere' (sea rooster), a reference to the cock's spur of land that juts into the ocean — known locally as Kodikkarai."
+    },
+    {
+        title: "Footprints of Lord Rama",
+        fact: "The Ramar Padham shrine near the sanctuary entrance holds impressions of Lord Rama's feet on a 22-metre hillock, the highest point in the reserve, drawing pilgrims each Ram Navami."
+    },
+    {
+        title: "A Thousand-Year-Old Lighthouse",
+        fact: "Ruins of a Chola-era brick lighthouse — more than a thousand years old — stand where the Bay of Bengal meets the Palk Strait, beside a 13-metre British lighthouse built in 1890."
+    },
+    {
+        title: "Tsunami Survivor Wetland",
+        fact: "The 2004 Indian Ocean tsunami flooded the sanctuary's salt flats for two days but left its wildlife and mangroves largely intact, underscoring the coast-buffering value of these wetlands."
+    }
+];
+
+const MAP_HOTSPOTS = [
+    {
+        id: "ramar-padham",
+        title: "Ramar Padham Shrine & Hillock",
+        lat: 10.302,
+        lng: 79.856,
+        type: "Cultural Landmark",
+        description: "Footprint shrine of Lord Rama on the 22-metre hillock, the highest point inside the sanctuary."
+    },
+    {
+        id: "chola-lighthouse",
+        title: "Chola Lighthouse Ruins",
+        lat: 10.296,
+        lng: 79.859,
+        type: "Heritage Site",
+        description: "Over 1,000-year-old brick lighthouse ruins marking where the Bay of Bengal meets the Palk Strait."
+    },
+    {
+        id: "british-lighthouse",
+        title: "Point Calimere Lighthouse (1890)",
+        lat: 10.292,
+        lng: 79.862,
+        type: "Observation Point",
+        description: "13-metre British-era lighthouse offering panoramic views of the wetlands, salt pans and coastline."
+    },
+    {
+        id: "kodiyakarai-beach",
+        title: "Kodiyakarai Beach",
+        lat: 10.301,
+        lng: 79.865,
+        type: "Coastal Zone",
+        description: "Sandy strand where nesting Olive Ridley sea turtles come ashore and shorebirds probe the tide line."
+    },
+    {
+        id: "great-vedaranyam-swamp",
+        title: "Great Vedaranyam Swamp",
+        lat: 10.32,
+        lng: 79.72,
+        type: "Salt Swamp",
+        description: "Vast brackish wetland complex that hosts the sanctuary's largest wintering waterbird congregations."
+    },
+    {
+        id: "muthupet-mangroves",
+        title: "Muthupet Mangrove Lagoon",
+        lat: 10.33,
+        lng: 79.5,
+        type: "Mangrove Forest",
+        description: "Southern India's dense Avicennia–Rhizophora mangrove lagoon buffering the coast and nursing juvenile fish."
+    }
+];
+
+const GALLERY_IMAGES = [
+    {
+        url: "https://commons.wikimedia.org/wiki/Special:FilePath/Point%20Calimere%20aerial.jpg?width=960",
+        caption: "Aerial view of the Point Calimere promontory at the tip of Tamil Nadu",
+        category: "Landscape"
+    },
+    {
+        url: "https://commons.wikimedia.org/wiki/Special:FilePath/Greater%20flamingos%20(Phoenicopterus%20roseus)%20resting.jpg?width=800",
+        caption: "Greater Flamingos resting on shallow salt flats",
+        category: "Fauna"
+    },
+    {
+        url: "https://commons.wikimedia.org/wiki/Special:FilePath/Blackbuck%20antelope.jpg?width=800",
+        caption: "Blackbuck — the antelope the sanctuary was created to protect",
+        category: "Fauna"
+    },
+    {
+        url: "https://commons.wikimedia.org/wiki/Special:FilePath/MuthupetMangroves.jpg?width=800",
+        caption: "Dense Muthupet mangroves fringing the Ramsar Site",
+        category: "Mangroves"
+    },
+    {
+        url: "https://commons.wikimedia.org/wiki/Special:FilePath/Phoeniconaias%20minor%2001.jpg?width=800",
+        caption: "Lesser Flamingo wading in shallow brackish water",
+        category: "Fauna"
+    },
+    {
+        url: "https://commons.wikimedia.org/wiki/Special:FilePath/Spotted%20deer%20(Axis%20axis)%20male.jpg?width=800",
+        caption: "Spotted deer grazing the dry evergreen forest edge",
+        category: "Fauna"
+    }
+];
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { POINT_CALIMERE_INFO, COASTAL_ECOLOGY, BIRD_MIGRATION, WILDLIFE_SPECIES, INTERESTING_FACTS, MAP_HOTSPOTS, GALLERY_IMAGES };
+}
