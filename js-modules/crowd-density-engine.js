@@ -57,7 +57,7 @@ function isoDate(date) {
 
 function daysBetween(a, b) {
   const MS_PER_DAY = 86400000;
-  return Math.round((toDate(a).setHours(0, 0, 0, 0) - toDate(b).setHours(0, 0, 0, 0)) / MS_PER_DAY);
+  return Math.round((new Date(toDate(a)).setHours(0, 0, 0, 0) - new Date(toDate(b)).setHours(0, 0, 0, 0)) / MS_PER_DAY);
 }
 
 function clamp(value, min, max) {
@@ -215,7 +215,7 @@ export class CrowdDensityEngine {
     const results = [];
     for (let i = 0; i < days; i++) {
       const d = new Date(start);
-      d.setDate(d.getDate() + i);
+      d.setUTCDate(d.getUTCDate() + i);
       const key = isoDate(d);
       const prediction = this.predictCrowdLevel(destinationId, d, { weather: weatherByDate[key] });
       if (prediction) results.push(prediction);

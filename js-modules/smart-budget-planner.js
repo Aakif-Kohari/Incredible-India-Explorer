@@ -174,6 +174,153 @@
     }
 
     /**
+     * Recomputes the same trip parameters (days, travelers, tier,
+     * transport, allowances) across a list of candidate destinations, so
+     * a user deciding *where* to go can see a side-by-side cost
+     * comparison — not just a style comparison for one place.
+     *
+     * @param {Object} baseInput - same shape as calculateBudget()'s input, minus `destination`
+     * @param {Array<string>} destinationNames
+     * @returns {Array} plans sorted cheapest-first
+     */
+    function compareDestinations(baseInput, destinationNames) {
+        const names = (destinationNames || []).map((n) => (n || "").trim()).filter(Boolean);
+        return names
+            .map((name) => {
+                const plan = calculateBudget(Object.assign({}, baseInput, { destination: name }));
+                return {
+                    destination: plan.matchedDestination || name,
+                    requested: name,
+                    matched: !!plan.matchedDestination,
+                    total: plan.total,
+                    perPersonTotal: plan.perPersonTotal,
+                    perDayTotal: plan.perDayTotal,
+                    categories: plan.categories,
+                    plan,
+                };
+            })
+            .sort((a, b) => a.total - b.total);
+    }
+
+    /**
+     * Category-wise cost forecast for a real, saved, multi-city Trip
+     * Planner itinerary (js-modules/trip-planner.js's saved-trip shape),
+     * rather than the single-destination form above. This is the
+     * "dynamic trip cost forecasting" piece of issue #1028: it reuses
+     * Trip Planner's own per-leg, distance-based inter-city travel costs
+     * (more accurate than a flat per-mode guess) for the transport
+     * category, and applies the same accommodation/food logic as
+     * calculateBudget() per destination, based on how many days the
+     * itinerary actually assigns to each stop.
+     *
+     * Recompute this whenever the itinerary or the options below change
+     * to keep the forecast in sync — see initBudgetPlannerPage()'s
+     * itinerary-forecast section for the live-update wiring.
+     *
+     * @param {Object} itinerary - a Trip Planner itinerary: { title?, inputs:{travelers}, destinations:[{name,state,assignedDays,costPerDay,...}], legs:[{cost,distanceKm,...}] }
+     * @param {Object} [options]
+     * @param {'budget'|'standard'|'luxury'} [options.accommodationTier='standard']
+     * @param {number} [options.dailyFoodBudget] - INR per person per day; defaults per tier like calculateBudget()
+     * @param {number} [options.sightseeing] - INR, total for the whole itinerary
+     * @param {number} [options.shopping] - INR, total for the whole itinerary
+     * @param {number} [options.misc] - INR, total for the whole itinerary
+     */
+    function calculateItineraryBudget(itinerary, options) {
+        options = options || {};
+        if (!itinerary || !Array.isArray(itinerary.destinations) || !itinerary.destinations.length) {
+            throw new Error("calculateItineraryBudget: itinerary with at least one destination is required");
+        }
+
+        const travelers = Math.max(1, Math.round(clampPositive((itinerary.inputs && itinerary.inputs.travelers) || 1, 1)));
+        const tier = ACCOMMODATION_TIERS.includes(options.accommodationTier) ? options.accommodationTier : "standard";
+        const dailyFoodBudget = clampPositive(options.dailyFoodBudget, tier === "luxury" ? 1500 : tier === "budget" ? 400 : 800);
+        const sightseeing = Math.round(clampPositive(options.sightseeing, 0));
+        const shopping = Math.round(clampPositive(options.shopping, 0));
+        const misc = Math.round(clampPositive(options.misc, 0));
+
+        const perDestination = itinerary.destinations.map((dest) => {
+            const days = Math.max(1, Math.round(dest.assignedDays || 1));
+            const nightlyRate = accommodationRate(tier, dest.costPerDay ? dest : findDestination(dest.name));
+            const nights = Math.max(0, days - 1) || days;
+            const accommodation = Math.round(nightlyRate * nights * roomsNeeded(travelers));
+            const food = Math.round(dailyFoodBudget * days * travelers);
+            return { name: dest.name, state: dest.state || null, days, accommodation, food, total: accommodation + food };
+        });
+
+        const accommodationTotal = perDestination.reduce((s, d) => s + d.accommodation, 0);
+        const foodTotal = perDestination.reduce((s, d) => s + d.food, 0);
+        // Reuse Trip Planner's own distance-based inter-city leg costs
+        // instead of a flat per-mode guess — leg.cost is per-person (see
+        // trip-planner.js#estimateTravelLeg), so scale by travelers here.
+        const legs = Array.isArray(itinerary.legs) ? itinerary.legs : [];
+        const transportTotal = Math.round(legs.reduce((s, l) => s + (l.cost || 0), 0) * travelers);
+
+        const subtotal = accommodationTotal + transportTotal + foodTotal + sightseeing + shopping + misc;
+        const contingency = Math.round(subtotal * CONTINGENCY_RATE);
+        const total = subtotal + contingency;
+        const totalDays = perDestination.reduce((s, d) => s + d.days, 0);
+
+        const categories = { accommodation: accommodationTotal, transport: transportTotal, food: foodTotal, sightseeing, shopping, misc, contingency };
+        const categoryPercentages = {};
+        Object.keys(categories).forEach((k) => {
+            categoryPercentages[k] = total > 0 ? Math.round((categories[k] / total) * 1000) / 10 : 0;
+        });
+
+        return {
+            id: "itin_budget_" + Date.now() + "_" + Math.random().toString(36).slice(2, 7),
+            createdAt: new Date().toISOString(),
+            tripTitle: itinerary.title || null,
+            inputs: { accommodationTier: tier, travelers, dailyFoodBudget, sightseeing, shopping, misc },
+            perDestination,
+            categories,
+            categoryPercentages,
+            subtotal,
+            total,
+            days: totalDays,
+            perPersonTotal: Math.round(total / travelers),
+            perDayTotal: Math.round(total / Math.max(1, totalDays)),
+        };
+    }
+
+    // Same healthy/warning/exceeded convention as
+    // js-modules/budget-calculator-engine.js's getBudgetHealth(), so
+    // alert styling is consistent with the rest of the site's budget
+    // tooling rather than inventing a fourth vocabulary.
+    const ALERT_WARNING_RATIO = 0.85;
+
+    /**
+     * Compares an estimated plan's total against a user-set target
+     * budget and returns an alert status. Call this again after any
+     * recompute (itinerary change, assumption change) to get a live
+     * "budget alert when estimated costs exceed limits" — see
+     * initBudgetPlannerPage() for where this re-renders automatically.
+     *
+     * @param {Object} plan - anything with a `.total` (calculateBudget() or calculateItineraryBudget() output)
+     * @param {number} targetBudget - INR; 0/blank means "no target set"
+     * @returns {null|{status:'healthy'|'warning'|'exceeded', ratio:number, target:number, total:number, difference:number, message:string}}
+     */
+    function getBudgetAlert(plan, targetBudget) {
+        const target = clampPositive(targetBudget, 0);
+        if (!target || !plan) return null;
+
+        const ratio = plan.total / target;
+        const difference = target - plan.total;
+        let status, message;
+        if (ratio > 1) {
+            status = "exceeded";
+            message = `This estimate is ${fmtINR(Math.abs(difference))} over your ${fmtINR(target)} budget.`;
+        } else if (ratio >= ALERT_WARNING_RATIO) {
+            status = "warning";
+            message = `This estimate is close to your ${fmtINR(target)} budget cap (${Math.round(ratio * 100)}% used).`;
+        } else {
+            status = "healthy";
+            message = `This estimate is within your ${fmtINR(target)} budget, with ${fmtINR(difference)} to spare.`;
+        }
+
+        return { status, ratio: Math.round(ratio * 1000) / 1000, target, total: plan.total, difference, message };
+    }
+
+    /**
      * Rule-based cost optimization suggestions derived from the breakdown.
      * Each suggestion includes an estimated saving where applicable so the
      * user can judge which trade-offs are worth making.
@@ -334,16 +481,34 @@
     };
 
     /** Builds a plain-text report string suitable for downloading/printing. */
-    function exportReportText(plan, recommendations) {
+    function exportReportText(plan, recommendations, alert) {
+        const isItinerary = Array.isArray(plan.perDestination);
         const lines = [];
-        const dest = plan.matchedDestination || plan.inputs.destination || "Your Trip";
-        lines.push(`SMART BUDGET PLAN - ${dest}`);
+        const dest = isItinerary ? plan.tripTitle || "Multi-City Itinerary" : plan.matchedDestination || plan.inputs.destination || "Your Trip";
+        lines.push(`${isItinerary ? "ITINERARY BUDGET FORECAST" : "SMART BUDGET PLAN"} - ${dest}`);
         lines.push("=".repeat(40));
-        lines.push(`Duration: ${plan.inputs.days} day(s)`);
+        if (isItinerary) {
+            lines.push(`Stops: ${plan.perDestination.map((d) => d.name).join(", ")}`);
+            lines.push(`Total duration: ${plan.days} day(s)`);
+        } else {
+            lines.push(`Duration: ${plan.inputs.days} day(s)`);
+        }
         lines.push(`Travelers: ${plan.inputs.travelers}`);
         lines.push(`Accommodation tier: ${plan.inputs.accommodationTier}`);
-        lines.push(`Transport mode: ${TRANSPORT_MODES[plan.inputs.transportMode].label}`);
+        if (!isItinerary) {
+            lines.push(`Transport mode: ${TRANSPORT_MODES[plan.inputs.transportMode].label}`);
+        }
         lines.push("");
+
+        if (isItinerary) {
+            lines.push("PER-DESTINATION BREAKDOWN");
+            lines.push("-".repeat(40));
+            plan.perDestination.forEach((d) => {
+                lines.push(`${d.name} (${d.days} day${d.days === 1 ? "" : "s"}): ${fmtINR(d.total)} (accommodation ${fmtINR(d.accommodation)} + food ${fmtINR(d.food)})`);
+            });
+            lines.push("");
+        }
+
         lines.push("CATEGORY BREAKDOWN");
         lines.push("-".repeat(40));
         Object.keys(plan.categories).forEach((k) => {
@@ -355,6 +520,13 @@
         lines.push(`TOTAL ESTIMATED COST: ${fmtINR(plan.total)}`);
         lines.push(`Per person: ${fmtINR(plan.perPersonTotal)}`);
         lines.push(`Per day: ${fmtINR(plan.perDayTotal)}`);
+
+        if (alert) {
+            lines.push("");
+            lines.push("BUDGET ALERT");
+            lines.push("-".repeat(40));
+            lines.push(alert.message);
+        }
 
         if (recommendations && recommendations.length) {
             lines.push("");
@@ -369,7 +541,7 @@
         }
 
         lines.push("");
-        lines.push("Generated by Incredible India Explorer - Smart Budget Planner");
+        lines.push("Generated by Incredible India Explorer - Intelligent Budget Planner");
         return lines.join("\n");
     }
 
@@ -382,6 +554,9 @@
         ACCOMMODATION_TIERS,
         calculateBudget,
         compareTiers,
+        compareDestinations,
+        calculateItineraryBudget,
+        getBudgetAlert,
         getRecommendations,
         getDailySpendingPlan,
         getSavedPlans,
@@ -431,6 +606,21 @@
                 shopping: parseFloat(document.getElementById("budget-shopping").value) || 0,
                 misc: parseFloat(document.getElementById("budget-misc").value) || 0,
             };
+        }
+
+        function readTargetBudget() {
+            const el = document.getElementById("budget-target");
+            return el ? parseFloat(el.value) || 0 : 0;
+        }
+
+        function renderAlert(plan, targetBudget) {
+            const alert = SmartBudgetPlanner.getBudgetAlert(plan, targetBudget);
+            if (!alert) return "";
+            return `
+                <div class="bp-alert bp-alert-${alert.status}" role="status">
+                    <span class="bp-alert-icon">${alert.status === "exceeded" ? "🚨" : alert.status === "warning" ? "⚠️" : "✅"}</span>
+                    <span>${alert.message}</span>
+                </div>`;
         }
 
         function renderBar(label, amount, percent, extraClass) {
@@ -489,6 +679,8 @@
                     </div>
                     <p class="bp-summary-sub">${plan.inputs.days} day(s) &middot; ${plan.inputs.travelers} traveler(s) &middot; ${SmartBudgetPlanner.fmtINR(plan.perPersonTotal)} per person &middot; ${SmartBudgetPlanner.fmtINR(plan.perDayTotal)} per day</p>
 
+                    ${renderAlert(plan, readTargetBudget())}
+
                     <h4 class="bp-section-title">Category Breakdown</h4>
                     <div class="bp-breakdown">${breakdownHtml}</div>
 
@@ -501,15 +693,17 @@
                     <h4 class="bp-section-title">Cost Optimization Suggestions</h4>
                     <ul class="bp-rec-list">${recsHtml}</ul>
 
-                    <div class="bp-actions">
+                    <div class="bp-actions bp-print-hide">
                         <button type="button" class="btn btn-secondary" id="bp-save-btn">💾 Save Plan</button>
                         <button type="button" class="btn btn-secondary" id="bp-export-btn">⬇️ Export Report</button>
+                        <button type="button" class="btn btn-secondary" id="bp-export-pdf-btn">🖨️ Export as PDF</button>
                     </div>
                 </div>`;
             resultsEl.hidden = false;
 
             const saveBtn = document.getElementById("bp-save-btn");
             const exportBtn = document.getElementById("bp-export-btn");
+            const exportPdfBtn = document.getElementById("bp-export-pdf-btn");
             if (saveBtn) {
                 saveBtn.addEventListener("click", () => {
                     SmartBudgetPlanner.savePlan(currentPlan);
@@ -520,11 +714,20 @@
             if (exportBtn) {
                 exportBtn.addEventListener("click", () => exportCurrentPlan());
             }
+            if (exportPdfBtn) {
+                // No PDF library dependency, consistent with how this project
+                // already handles PDF export elsewhere (trip-expense-splitter,
+                // trip-planner.js, compare-states-data): a print stylesheet
+                // hides everything but the results card, and the browser's
+                // own "Save as PDF" print destination produces the file.
+                exportPdfBtn.addEventListener("click", () => window.print());
+            }
         }
 
         function exportCurrentPlan() {
             if (!currentPlan) return;
-            const text = SmartBudgetPlanner.exportReportText(currentPlan, currentRecommendations);
+            const alert = SmartBudgetPlanner.getBudgetAlert(currentPlan, readTargetBudget());
+            const text = SmartBudgetPlanner.exportReportText(currentPlan, currentRecommendations, alert);
             const blob = new Blob([text], { type: "text/plain" });
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a");
@@ -604,7 +807,254 @@
             resultsEl.scrollIntoView({ behavior: "smooth", block: "start" });
         });
 
+        // -- Dynamic forecasting: once a first estimate exists, keep it in
+        // sync as the user tweaks any assumption (including the target
+        // budget, so the alert banner updates too), without requiring
+        // another explicit submit. Debounced on free-text/number fields so
+        // it doesn't recompute on every keystroke; instant on selects.
+        let recomputeTimer = null;
+        function recomputeIfLive(immediate) {
+            if (!currentPlan) return; // nothing generated yet — wait for the first submit
+            const input = readForm();
+            if (!input.days || input.days < 1) return;
+            clearTimeout(recomputeTimer);
+            const run = () => {
+                currentPlan = SmartBudgetPlanner.calculateBudget(input);
+                renderResults(currentPlan);
+            };
+            if (immediate) run();
+            else recomputeTimer = setTimeout(run, 400);
+        }
+        form.querySelectorAll("input, select").forEach((field) => {
+            const isSelect = field.tagName === "SELECT";
+            field.addEventListener(isSelect ? "change" : "input", () => recomputeIfLive(isSelect));
+        });
+        const targetBudgetField = document.getElementById("budget-target");
+        if (targetBudgetField) {
+            targetBudgetField.addEventListener("input", () => recomputeIfLive(false));
+        }
+
         renderSavedList();
+        initDestinationCompare();
+        initItineraryForecast();
+    }
+
+    // --------------------------------------------------------------------
+    // Destination comparison section — "budget comparison across
+    // destinations" (issue #1028). Reuses the main form's days/travelers/
+    // tier/transport/allowances as the shared baseline.
+    // --------------------------------------------------------------------
+    function initDestinationCompare() {
+        const form = document.getElementById("budget-compare-form");
+        const resultsEl = document.getElementById("budget-compare-results");
+        if (!form || !resultsEl) return;
+
+        const inputs = Array.from(form.querySelectorAll("[data-compare-destination]"));
+        const list = document.getElementById("budget-compare-destination-list");
+        if (list && Array.isArray(root.tripDestinations)) {
+            list.innerHTML = root.tripDestinations.map((d) => `<option value="${d.name}"></option>`).join("");
+        }
+
+        function readBaseInput() {
+            return {
+                days: parseInt(document.getElementById("budget-compare-days").value, 10) || 5,
+                travelers: parseInt(document.getElementById("budget-compare-travelers").value, 10) || 1,
+                accommodationTier: document.getElementById("budget-compare-accommodation").value,
+                transportMode: document.getElementById("budget-compare-transport").value,
+            };
+        }
+
+        function render() {
+            const names = inputs.map((el) => el.value).filter((v) => v && v.trim());
+            if (names.length < 2) {
+                resultsEl.hidden = true;
+                resultsEl.innerHTML = "";
+                return;
+            }
+            const results = SmartBudgetPlanner.compareDestinations(readBaseInput(), names);
+            const cheapest = results[0];
+            resultsEl.innerHTML = `
+                <div class="bp-compare-grid">
+                    ${results
+                        .map(
+                            (r) => `
+                        <div class="bp-compare-card ${r.destination === cheapest.destination ? "bp-compare-cheapest" : ""}">
+                            ${r.destination === cheapest.destination ? '<span class="bp-compare-badge">Cheapest</span>' : ""}
+                            <h4>${r.destination}${!r.matched ? " <small>(estimated)</small>" : ""}</h4>
+                            <p class="bp-compare-total">${SmartBudgetPlanner.fmtINR(r.total)}</p>
+                            <p class="bp-compare-sub">${SmartBudgetPlanner.fmtINR(r.perPersonTotal)} / person &middot; ${SmartBudgetPlanner.fmtINR(r.perDayTotal)} / day</p>
+                        </div>`
+                        )
+                        .join("")}
+                </div>`;
+            resultsEl.hidden = false;
+        }
+
+        form.addEventListener("input", render);
+        form.addEventListener("change", render);
+        form.addEventListener("submit", (e) => e.preventDefault());
+    }
+
+    // --------------------------------------------------------------------
+    // Itinerary forecast section — "dynamic trip cost forecasting" tied
+    // to a real, saved Trip Planner itinerary (issue #1028). Recomputes
+    // whenever the selected trip or any assumption changes.
+    // --------------------------------------------------------------------
+    function initItineraryForecast() {
+        const select = document.getElementById("budget-itinerary-select");
+        const form = document.getElementById("budget-itinerary-form");
+        const resultsEl = document.getElementById("budget-itinerary-results");
+        if (!select || !form || !resultsEl) return;
+
+        function refreshTripList() {
+            if (!root.TripPlanner) {
+                select.innerHTML = `<option disabled selected>Trip Planner isn't loaded</option>`;
+                select.disabled = true;
+                return;
+            }
+            const trips = root.TripPlanner.getSavedTrips();
+            if (!trips.length) {
+                select.innerHTML = `<option disabled selected>No saved trips yet — plan one in Trip Planner</option>`;
+                select.disabled = true;
+                return;
+            }
+            select.disabled = false;
+            select.innerHTML =
+                `<option value="" disabled selected>Choose a saved trip…</option>` +
+                trips.map((t) => `<option value="${t.id}">${t.title}</option>`).join("");
+        }
+        refreshTripList();
+
+        function readOptions() {
+            return {
+                accommodationTier: document.getElementById("budget-itinerary-accommodation").value,
+                dailyFoodBudget: parseFloat(document.getElementById("budget-itinerary-food").value) || undefined,
+                sightseeing: parseFloat(document.getElementById("budget-itinerary-sightseeing").value) || 0,
+                shopping: parseFloat(document.getElementById("budget-itinerary-shopping").value) || 0,
+                misc: parseFloat(document.getElementById("budget-itinerary-misc").value) || 0,
+            };
+        }
+
+        let currentItineraryPlan = null;
+        let currentRecs = [];
+
+        function render() {
+            if (!select.value || !root.TripPlanner) {
+                resultsEl.hidden = true;
+                resultsEl.innerHTML = "";
+                return;
+            }
+            const trips = root.TripPlanner.getSavedTrips();
+            const record = trips.find((t) => t.id === select.value);
+            if (!record) return;
+
+            let plan;
+            try {
+                plan = SmartBudgetPlanner.calculateItineraryBudget(record.itinerary, readOptions());
+            } catch (err) {
+                resultsEl.hidden = false;
+                resultsEl.innerHTML = `<p class="bp-empty">Couldn't forecast this trip: ${err.message}</p>`;
+                return;
+            }
+            currentItineraryPlan = plan;
+            currentRecs = SmartBudgetPlanner.getRecommendations(
+                Object.assign({}, plan, { inputs: Object.assign({}, plan.inputs, { transportMode: "train", days: plan.days }) })
+            );
+
+            const targetBudget = parseFloat(document.getElementById("budget-itinerary-target").value) || 0;
+            const alertHtml = renderAlertStandalone(plan, targetBudget);
+
+            const breakdownHtml = Object.keys(plan.categories)
+                .map((k) => renderBarStandalone(CATEGORY_LABELS[k], plan.categories[k], plan.categoryPercentages[k]))
+                .join("");
+
+            const perDestHtml = plan.perDestination
+                .map(
+                    (d) => `
+                    <div class="bp-itin-dest-row">
+                        <span>${d.name} <small>(${d.days} day${d.days === 1 ? "" : "s"})</small></span>
+                        <span>${SmartBudgetPlanner.fmtINR(d.total)}</span>
+                    </div>`
+                )
+                .join("");
+
+            resultsEl.innerHTML = `
+                <div class="bp-summary-card">
+                    <div class="bp-summary-header">
+                        <h3>${plan.tripTitle || "Itinerary Forecast"}</h3>
+                        <span class="bp-total-badge">${SmartBudgetPlanner.fmtINR(plan.total)} total</span>
+                    </div>
+                    <p class="bp-summary-sub">${plan.days} day(s) &middot; ${plan.inputs.travelers} traveler(s) &middot; ${SmartBudgetPlanner.fmtINR(plan.perPersonTotal)} per person &middot; ${SmartBudgetPlanner.fmtINR(plan.perDayTotal)} per day</p>
+
+                    ${alertHtml}
+
+                    <h4 class="bp-section-title">Per-Destination Cost</h4>
+                    <div class="bp-itin-dest-list">${perDestHtml}</div>
+
+                    <h4 class="bp-section-title">Category Breakdown</h4>
+                    <div class="bp-breakdown">${breakdownHtml}</div>
+
+                    <div class="bp-actions bp-print-hide">
+                        <button type="button" class="btn btn-secondary" id="bp-itin-export-btn">⬇️ Export Report</button>
+                        <button type="button" class="btn btn-secondary" id="bp-itin-export-pdf-btn">🖨️ Export as PDF</button>
+                    </div>
+                </div>`;
+            resultsEl.hidden = false;
+
+            const exportBtn = document.getElementById("bp-itin-export-btn");
+            const exportPdfBtn = document.getElementById("bp-itin-export-pdf-btn");
+            if (exportBtn) {
+                exportBtn.addEventListener("click", () => {
+                    const alert = SmartBudgetPlanner.getBudgetAlert(currentItineraryPlan, targetBudget);
+                    const text = SmartBudgetPlanner.exportReportText(currentItineraryPlan, currentRecs, alert);
+                    const blob = new Blob([text], { type: "text/plain" });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = `itinerary-budget-${currentItineraryPlan.id}.txt`;
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    URL.revokeObjectURL(url);
+                });
+            }
+            if (exportPdfBtn) {
+                exportPdfBtn.addEventListener("click", () => window.print());
+            }
+        }
+
+        select.addEventListener("change", render);
+        form.addEventListener("input", render);
+        form.addEventListener("change", render);
+        form.addEventListener("submit", (e) => e.preventDefault());
+
+        // If the person saves/edits a trip in Trip Planner in another tab
+        // and comes back, the list should reflect it next time this page
+        // loads — no live cross-tab sync is attempted (localStorage only,
+        // no backend), see docs/BUDGET_PLANNER.md.
+    }
+
+    function renderBarStandalone(label, amount, percent) {
+        return `
+            <div class="bp-bar-row">
+                <div class="bp-bar-label">
+                    <span>${label}</span>
+                    <span>${SmartBudgetPlanner.fmtINR(amount)} <em>(${percent}%)</em></span>
+                </div>
+                <div class="bp-bar-track">
+                    <div class="bp-bar-fill" style="width:${Math.min(100, percent)}%"></div>
+                </div>
+            </div>`;
+    }
+
+    function renderAlertStandalone(plan, targetBudget) {
+        const alert = SmartBudgetPlanner.getBudgetAlert(plan, targetBudget);
+        if (!alert) return "";
+        return `
+            <div class="bp-alert bp-alert-${alert.status}" role="status">
+                <span class="bp-alert-icon">${alert.status === "exceeded" ? "🚨" : alert.status === "warning" ? "⚠️" : "✅"}</span>
+                <span>${alert.message}</span>
+            </div>`;
     }
 
     root.initBudgetPlannerPage = initBudgetPlannerPage;

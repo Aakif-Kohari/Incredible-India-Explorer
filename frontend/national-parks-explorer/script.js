@@ -10,8 +10,8 @@
        1. STATE
        ================================================================ */
 
-    var activeFilters = { search: '', state: 'all', type: 'all', region: 'all' };
-    var lightboxState = { images: [], currentIndex: 0 };
+    let activeFilters = { search: '', state: 'all', type: 'all', region: 'all' };
+    const lightboxState = { images: [], currentIndex: 0 };
 
     /* ================================================================
        2. INIT
@@ -35,7 +35,7 @@
        ================================================================ */
 
     function initScrollAnimations() {
-        var targets = document.querySelectorAll(
+        const targets = document.querySelectorAll(
             '.section-header, .park-card, .wildlife-card, .tiger-park-card, .tiger-stat-card, .gallery-item'
         );
         if (!targets.length) return;
@@ -47,7 +47,7 @@
             return;
         }
 
-        var observer = new IntersectionObserver(
+        const observer = new IntersectionObserver(
             function (entries) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
@@ -70,16 +70,16 @@
        ================================================================ */
 
     function renderStateFilter() {
-        var select = document.getElementById('filter-state');
+        const select = document.getElementById('filter-state');
         if (!select) return;
-        var seen = {};
+        const seen = {};
         NATIONAL_PARKS.forEach(function (p) {
             seen[p.state] = 1;
         });
         Object.keys(seen)
             .sort()
             .forEach(function (state) {
-                var opt = document.createElement('option');
+                const opt = document.createElement('option');
                 opt.value = state;
                 opt.textContent = state;
                 select.appendChild(opt);
@@ -91,17 +91,17 @@
        ================================================================ */
 
     function renderMap() {
-        var svg = document.getElementById('india-svg-map');
+        const svg = document.getElementById('india-svg-map');
         if (!svg) return;
 
-        var states = typeof INDIA_MAP_STATES !== 'undefined' ? INDIA_MAP_STATES : [];
+        const states = typeof INDIA_MAP_STATES !== 'undefined' ? INDIA_MAP_STATES : [];
         if (!states.length) {
             svg.innerHTML =
                 '<text x="306" y="348" text-anchor="middle" fill="#94a3b8" font-size="14" font-family="Outfit,sans-serif">Map data loading...</text>';
             return;
         }
 
-        var pathsHtml = '';
+        let pathsHtml = '';
         states.forEach(function (s) {
             pathsHtml += '<path class="state-path" data-state="' + s.id + '" d="' + s.path + '"/>';
         });
@@ -111,8 +111,8 @@
 
         svg.querySelectorAll('.state-path').forEach(function (path) {
             path.addEventListener('click', function () {
-                var sid = path.dataset.state;
-                var park = NATIONAL_PARKS.find(function (p) {
+                const sid = path.dataset.state;
+                const park = NATIONAL_PARKS.find(function (p) {
                     return p.stateId === sid;
                 });
                 if (park) openParkModal(park.id);
@@ -121,13 +121,13 @@
     }
 
     function renderMapMarkers() {
-        var container = document.getElementById('map-park-markers');
+        const container = document.getElementById('map-park-markers');
         if (!container) return;
 
-        var html = '';
+        let html = '';
         NATIONAL_PARKS.forEach(function (park) {
-            var pos = latLngToMapPos(park.coordinates.lat, park.coordinates.lng);
-            var cls = 'map-marker ';
+            const pos = latLngToMapPos(park.coordinates.lat, park.coordinates.lng);
+            let cls = 'map-marker ';
             cls += park.isTigerReserve ? 'tiger' : park.isUNESCO ? 'unesco' : 'park';
 
             html +=
@@ -185,27 +185,27 @@
     }
 
     function latLngToMapPos(lat, lng) {
-        var minLat = 6.0,
+        const minLat = 6.0,
             maxLat = 37.0,
             minLng = 68.0,
             maxLng = 98.0;
-        var x = ((lng - minLng) / (maxLng - minLng)) * 100;
-        var y = ((maxLat - lat) / (maxLat - minLat)) * 100;
+        const x = ((lng - minLng) / (maxLng - minLng)) * 100;
+        const y = ((maxLat - lat) / (maxLat - minLat)) * 100;
         return { x: Math.max(5, Math.min(95, x)), y: Math.max(5, Math.min(95, y)) };
     }
 
     function showMapTooltip(parkId, markerEl) {
         hideMapTooltip();
-        var park = NATIONAL_PARKS.find(function (p) {
+        const park = NATIONAL_PARKS.find(function (p) {
             return p.id === parkId;
         });
         if (!park) return;
-        var badge = '';
+        let badge = '';
         if (park.isTigerReserve) badge = '<span class="tt-badge tt-tiger">Tiger Reserve</span>';
         else if (park.isUNESCO) badge = '<span class="tt-badge tt-unesco">UNESCO Site</span>';
         else badge = '<span class="tt-badge tt-park">National Park</span>';
-        var faunaStr = park.keyFauna.slice(0, 3).join(', ');
-        var tt = document.createElement('div');
+        const faunaStr = park.keyFauna.slice(0, 3).join(', ');
+        const tt = document.createElement('div');
         tt.className = 'map-tooltip';
         tt.id = 'map-tooltip';
         tt.innerHTML =
@@ -233,7 +233,7 @@
     }
 
     function hideMapTooltip() {
-        var el = document.getElementById('map-tooltip');
+        const el = document.getElementById('map-tooltip');
         if (el) el.remove();
     }
 
@@ -242,11 +242,11 @@
        ================================================================ */
 
     function renderParksGrid() {
-        var filtered = getFilteredParks();
-        var grid = document.getElementById('parks-grid');
-        var emptyState = document.getElementById('empty-state');
-        var resultsCount = document.getElementById('results-count');
-        var resetBtn = document.getElementById('btn-reset');
+        const filtered = getFilteredParks();
+        const grid = document.getElementById('parks-grid');
+        const emptyState = document.getElementById('empty-state');
+        const resultsCount = document.getElementById('results-count');
+        const resetBtn = document.getElementById('btn-reset');
         if (!grid) return;
 
         if (filtered.length === 0) {
@@ -262,15 +262,15 @@
         resetBtn.classList.toggle('hidden', !hasActiveFilters());
         resultsCount.textContent = 'Showing ' + filtered.length + ' park' + (filtered.length !== 1 ? 's' : '');
 
-        var html = '';
+        let html = '';
         filtered.forEach(function (park, i) {
-            var tags = '';
+            let tags = '';
             if (park.isTigerReserve) tags += '<span class="park-tag tiger">Tiger Reserve</span>';
             if (park.isUNESCO) tags += '<span class="park-tag unesco">UNESCO</span>';
             if (!park.isTigerReserve && !park.isUNESCO)
                 tags += '<span class="park-tag np">' + esc(park.type) + '</span>';
 
-            var faunaHtml = '';
+            let faunaHtml = '';
             park.keyFauna.slice(0, 3).forEach(function (f) {
                 faunaHtml += '<span class="park-fauna-chip">' + esc(f) + '</span>';
             });
@@ -349,9 +349,9 @@
 
     function getFilteredParks() {
         return NATIONAL_PARKS.filter(function (park) {
-            var matchSearch = true;
+            let matchSearch = true;
             if (activeFilters.search) {
-                var q = activeFilters.search.toLowerCase();
+                const q = activeFilters.search.toLowerCase();
                 matchSearch =
                     park.name.toLowerCase().indexOf(q) !== -1 ||
                     park.state.toLowerCase().indexOf(q) !== -1 ||
@@ -360,16 +360,16 @@
                         return f.toLowerCase().indexOf(q) !== -1;
                     });
             }
-            var matchState = activeFilters.state === 'all' || park.state === activeFilters.state;
-            var matchType = true;
+            const matchState = activeFilters.state === 'all' || park.state === activeFilters.state;
+            let matchType = true;
             if (activeFilters.type === 'tiger') matchType = park.isTigerReserve;
             else if (activeFilters.type === 'unesco') matchType = park.isUNESCO;
             else if (activeFilters.type === 'national')
                 matchType = !park.isTigerReserve && !park.isUNESCO && park.type.indexOf('Marine') === -1;
             else if (activeFilters.type === 'marine') matchType = park.type.indexOf('Marine') !== -1;
-            var matchRegion = true;
+            let matchRegion = true;
             if (activeFilters.region !== 'all') {
-                var st = STATES.find(function (s) {
+                const st = STATES.find(function (s) {
                     return s.name === park.state;
                 });
                 matchRegion = st && st.region === activeFilters.region;
@@ -392,18 +392,18 @@
        ================================================================ */
 
     function bindFilterEvents() {
-        var searchInput = document.getElementById('search-parks');
-        var stateSelect = document.getElementById('filter-state');
-        var typeSelect = document.getElementById('filter-type');
-        var regionSelect = document.getElementById('filter-region');
-        var resetBtn = document.getElementById('btn-reset');
-        var emptyResetBtn = document.getElementById('btn-empty-reset');
-        var timer = null;
+        const searchInput = document.getElementById('search-parks');
+        const stateSelect = document.getElementById('filter-state');
+        const typeSelect = document.getElementById('filter-type');
+        const regionSelect = document.getElementById('filter-region');
+        const resetBtn = document.getElementById('btn-reset');
+        const emptyResetBtn = document.getElementById('btn-empty-reset');
+        let timer = null;
 
         if (searchInput)
             searchInput.addEventListener('input', function () {
                 clearTimeout(timer);
-                var val = searchInput.value;
+                const val = searchInput.value;
                 timer = setTimeout(function () {
                     activeFilters.search = val.trim();
                     renderParksGrid();
@@ -442,12 +442,12 @@
        ================================================================ */
 
     function renderWildlifeGrid() {
-        var grid = document.getElementById('wildlife-grid');
+        const grid = document.getElementById('wildlife-grid');
         if (!grid) return;
 
-        var html = '';
+        let html = '';
         WILDLIFE_SPECIES.forEach(function (sp, i) {
-            var statusClass = sp.status.toLowerCase().replace(/\s+/g, '-');
+            const statusClass = sp.status.toLowerCase().replace(/\s+/g, '-');
 
             html +=
                 '<div class="wildlife-card animate-on-scroll" role="listitem" aria-label="' +
@@ -498,10 +498,10 @@
        ================================================================ */
 
     function renderTigerSection() {
-        var list = document.getElementById('tiger-parks-list');
+        const list = document.getElementById('tiger-parks-list');
         if (!list) return;
 
-        var html = '';
+        let html = '';
         TIGER_RESERVES.forEach(function (park, i) {
             html +=
                 '<div class="tiger-park-card animate-on-scroll" data-park-id="' +
@@ -570,10 +570,10 @@
        ================================================================ */
 
     function renderGallery() {
-        var grid = document.getElementById('gallery-grid');
+        const grid = document.getElementById('gallery-grid');
         if (!grid) return;
 
-        var html = '';
+        let html = '';
         NATIONAL_PARKS.forEach(function (park, i) {
             html +=
                 '<div class="gallery-item animate-on-scroll" data-park-id="' +
@@ -626,10 +626,10 @@
        ================================================================ */
 
     function bindLightboxEvents() {
-        var closeBtn = document.getElementById('lightbox-close');
-        var prevBtn = document.getElementById('lightbox-prev');
-        var nextBtn = document.getElementById('lightbox-next');
-        var backdrop = document.getElementById('lightbox-backdrop');
+        const closeBtn = document.getElementById('lightbox-close');
+        const prevBtn = document.getElementById('lightbox-prev');
+        const nextBtn = document.getElementById('lightbox-next');
+        const backdrop = document.getElementById('lightbox-backdrop');
 
         if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
         if (backdrop) backdrop.addEventListener('click', closeLightbox);
@@ -643,7 +643,7 @@
             });
 
         document.addEventListener('keydown', function (e) {
-            var lb = document.getElementById('lightbox');
+            const lb = document.getElementById('lightbox');
             if (!lb || lb.classList.contains('hidden')) return;
             if (e.key === 'Escape') closeLightbox();
             if (e.key === 'ArrowLeft') navigateLightbox(-1);
@@ -659,17 +659,17 @@
             return { src: p.image, caption: p.name + ' — ' + p.state };
         });
         lightboxState.currentIndex = index;
-        var lb = document.getElementById('lightbox');
+        const lb = document.getElementById('lightbox');
         lb.classList.remove('hidden');
         lb.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
         updateLightboxImage();
-        var closeBtn = document.getElementById('lightbox-close');
+        const closeBtn = document.getElementById('lightbox-close');
         if (closeBtn) closeBtn.focus();
     }
 
     function closeLightbox() {
-        var lb = document.getElementById('lightbox');
+        const lb = document.getElementById('lightbox');
         lb.classList.add('hidden');
         lb.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
@@ -678,16 +678,16 @@
 
     function navigateLightbox(dir) {
         lightboxState.currentIndex += dir;
-        var len = lightboxState.images.length;
+        const len = lightboxState.images.length;
         if (lightboxState.currentIndex < 0) lightboxState.currentIndex = len - 1;
         if (lightboxState.currentIndex >= len) lightboxState.currentIndex = 0;
         updateLightboxImage();
     }
 
     function updateLightboxImage() {
-        var img = document.getElementById('lightbox-img');
-        var cap = document.getElementById('lightbox-caption');
-        var item = lightboxState.images[lightboxState.currentIndex];
+        const img = document.getElementById('lightbox-img');
+        const cap = document.getElementById('lightbox-caption');
+        const item = lightboxState.images[lightboxState.currentIndex];
         if (!item) return;
         img.src = item.src;
         img.alt = item.caption;
@@ -698,15 +698,15 @@
        12. PARK DETAIL MODAL
        ================================================================ */
 
-    var previouslyFocusedElement = null;
+    let previouslyFocusedElement = null;
 
     function trapFocus(container) {
-        var focusable = container.querySelectorAll(
+        const focusable = container.querySelectorAll(
             'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
         );
         if (focusable.length === 0) return;
-        var first = focusable[0];
-        var last = focusable[focusable.length - 1];
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
 
         container.addEventListener('keydown', function handler(e) {
             if (e.key !== 'Tab') return;
@@ -725,12 +725,12 @@
     }
 
     function bindModalEvents() {
-        var closeBtn = document.getElementById('park-modal-close');
-        var backdrop = document.getElementById('park-modal-backdrop');
+        const closeBtn = document.getElementById('park-modal-close');
+        const backdrop = document.getElementById('park-modal-backdrop');
         if (closeBtn) closeBtn.addEventListener('click', closeParkModal);
         if (backdrop) backdrop.addEventListener('click', closeParkModal);
         document.addEventListener('keydown', function (e) {
-            var m = document.getElementById('park-modal');
+            const m = document.getElementById('park-modal');
             if (!m || m.classList.contains('hidden')) return;
             if (e.key === 'Escape') closeParkModal();
         });
@@ -738,26 +738,26 @@
     }
 
     function openParkModal(parkId) {
-        var park = NATIONAL_PARKS.find(function (p) {
+        const park = NATIONAL_PARKS.find(function (p) {
             return p.id === parkId;
         });
         if (!park) return;
 
         previouslyFocusedElement = document.activeElement;
 
-        var body = document.getElementById('park-modal-body');
-        var tags = '';
+        const body = document.getElementById('park-modal-body');
+        let tags = '';
         if (park.isTigerReserve) tags += '<span class="park-tag tiger">Tiger Reserve</span>';
         if (park.isUNESCO) tags += '<span class="park-tag unesco">UNESCO World Heritage</span>';
         if (!park.isTigerReserve && !park.isUNESCO) tags += '<span class="park-tag np">' + esc(park.type) + '</span>';
 
-        var faunaHtml = park.keyFauna
+        const faunaHtml = park.keyFauna
             .map(function (f) {
                 return '<span class="modal-chip">' + esc(f) + '</span>';
             })
             .join('');
 
-        var floraHtml = park.keyFlora
+        const floraHtml = park.keyFlora
             .map(function (fl) {
                 return '<span class="modal-chip modal-flora-chip">' + esc(fl) + '</span>';
             })
@@ -813,20 +813,26 @@
             '<div class="modal-section-title">Key Flora</div>' +
             '<div class="modal-flora-list">' +
             floraHtml +
-            '</div>' +
             '</div>';
 
-        var modal = document.getElementById('park-modal');
+        if (park.explorerUrl) {
+            body.innerHTML +=
+                '<div style="margin-top:1.5rem; text-align:center;">' +
+                '<a href="' + escA(park.explorerUrl) + '" class="btn-explorer-link" style="display:inline-block; padding:0.75rem 1.5rem; background:linear-gradient(135deg, #0284c7, #14b8a6); color:#fff; font-weight:700; border-radius:999px; text-decoration:none; box-shadow:0 4px 14px rgba(2,132,199,0.4);">Launch Dedicated Explorer ➔</a>' +
+                '</div>';
+        }
+
+        const modal = document.getElementById('park-modal');
         modal.classList.remove('hidden');
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
 
-        var closeBtn = document.getElementById('park-modal-close');
+        const closeBtn = document.getElementById('park-modal-close');
         if (closeBtn) closeBtn.focus();
     }
 
     function closeParkModal() {
-        var modal = document.getElementById('park-modal');
+        const modal = document.getElementById('park-modal');
         modal.classList.add('hidden');
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
@@ -838,7 +844,7 @@
        ================================================================ */
 
     function esc(str) {
-        var d = document.createElement('div');
+        const d = document.createElement('div');
         d.textContent = str;
         return d.innerHTML;
     }

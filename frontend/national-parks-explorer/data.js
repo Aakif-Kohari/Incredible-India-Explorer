@@ -6,6 +6,27 @@
 
 const NATIONAL_PARKS = [
     {
+        id: 'rajaji',
+        name: 'Rajaji National Park',
+        state: 'Uttarakhand',
+        stateId: 'uk',
+        established: 1983,
+        area: 820,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description: 'Spread across the Shivalik Hills, Rajaji is famous for its large population of Asian elephants and diverse Shivalik ecosystem. It was formed by merging three sanctuaries.',
+        keyFauna: ['Asian Elephant', 'Bengal Tiger', 'Leopard', 'Himalayan Black Bear', 'Sambar'],
+        keyFlora: ['Sal Forest', 'Shisham', 'Khair', 'Tall Grasslands'],
+        coordinates: { lat: 30.05, lng: 78.15 },
+        climate: 'Subtropical',
+        bestTime: 'November to June',
+        entryFee: '₹150 (Indian), ₹600 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Elephants_in_Rajaji_National_Park.jpg/960px-Elephants_in_Rajaji_National_Park.jpg',
+        explorerUrl: '../rajaji-national-park-explorer/index.html'
+    },
+    {
         id: 'jim-corbett',
         name: 'Jim Corbett National Park',
         state: 'Uttarakhand',
@@ -23,10 +44,10 @@ const NATIONAL_PARKS = [
         coordinates: { lat: 29.53, lng: 78.77 },
         climate: 'Subtropical',
         bestTime: 'November to June',
-        entryFee: '₹200 (Indian), ₹1000 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Jim_Corbett_National_Park_%28India%29.jpg/960px-Jim_Corbett_National_Park_%28India%29.jpg'
-    },
-    {
+entryFee: '₹200 (Indian), ₹1000 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Jim_Corbett_National_Park_%28India%29.jpg/960px-Jim_Corbett_National_Park_%28India%29.jpg',
+        explorerUrl: '../jim-corbett-national-park-explorer/index.html'
+    },    {
         id: 'kaziranga',
         name: 'Kaziranga National Park',
         state: 'Assam',
@@ -45,7 +66,8 @@ const NATIONAL_PARKS = [
         climate: 'Subtropical Monsoon',
         bestTime: 'November to April',
         entryFee: '₹650 (Indian), ₹2500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Elephant_safari_in_Kaziranga.jpg/960px-Elephant_safari_in_Kaziranga.jpg'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Elephant_safari_in_Kaziranga.jpg/960px-Elephant_safari_in_Kaziranga.jpg',
+        explorerUrl: '../kaziranga-national-park-explorer/index.html'
     },
     {
         id: 'ranthambore',
@@ -86,8 +108,29 @@ const NATIONAL_PARKS = [
         coordinates: { lat: 22.34, lng: 80.61 },
         climate: 'Tropical Dry Deciduous',
         bestTime: 'October to June',
-        entryFee: '₹150 (Indian), ₹500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Jungle_safari_-_Kanha_National_Park.jpg/960px-Jungle_safari_-_Kanha_National_Park.jpg'
+entryFee: '₹150 (Indian), ₹500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Jungle_safari_-_Kanha_National_Park.jpg/960px-Jungle_safari_-_Kanha_National_Park.jpg',
+        explorerUrl: '../kanha-national-park-explorer/index.html'
+    },    {
+        id: 'kuno',
+        name: 'Kuno National Park',
+        state: 'Madhya Pradesh',
+        stateId: 'mp',
+        established: 2018,
+        area: 748,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description: 'Globally recognized for the historic African Cheetah reintroduction project (Project Cheetah). Features dry deciduous forests, grasslands, and a growing prey base.',
+        keyFauna: ['African Cheetah', 'Bengal Tiger', 'Leopard', 'Sloth Bear', 'Chital'],
+        keyFlora: ['Khair', 'Salar', 'Teak', 'Grasslands'],
+        coordinates: { lat: 25.85, lng: 77.35 },
+        climate: 'Tropical Dry Deciduous',
+        bestTime: 'October to March',
+        entryFee: '₹50 (Indian), ₹200 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Acinonyx_jubatus_2.jpg/960px-Acinonyx_jubatus_2.jpg',
+        explorerUrl: '../kuno-national-park-explorer/index.html'
     },
     {
         id: 'bandhavgarh',
@@ -108,9 +151,9 @@ const NATIONAL_PARKS = [
         climate: 'Subtropical',
         bestTime: 'October to June',
         entryFee: '₹150 (Indian), ₹500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg/960px-1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg'
-    },
-    {
+image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg/960px-1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg',
+        explorerUrl: '../bandhavgarh-national-park-explorer/index.html'
+    },    {
         id: 'periyar',
         name: 'Periyar National Park',
         state: 'Kerala',
@@ -129,6 +172,7 @@ const NATIONAL_PARKS = [
         climate: 'Tropical Monsoon',
         bestTime: 'September to March',
         entryFee: '₹45 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../periyar-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Periyar_National_Park_02.jpg/960px-Periyar_National_Park_02.jpg'
     },
     {
@@ -151,6 +195,49 @@ const NATIONAL_PARKS = [
         bestTime: 'September to March',
         entryFee: '₹200 (Indian), ₹1000 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Sundarbans_National_Park.jpg/960px-Sundarbans_National_Park.jpg'
+    },
+    {
+        id: 'valmiki',
+        name: 'Valmiki National Park',
+        state: 'Bihar',
+        stateId: 'br',
+        established: 1990,
+        area: 898,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description: "Bihar's only National Park and a critical Tiger Reserve. Located in the Terai region at the Himalayan foothills, it features rich Sal forests, tall grasslands, and the Gandak River.",
+        keyFauna: ['Bengal Tiger', 'Asian Elephant', 'Sloth Bear', 'Hispid Hare', 'Pygmy Hog', 'Gangetic Dolphin'],
+        keyFlora: ['Sal Forest', 'Tall Grasslands', 'Riverine Vegetation', 'Shisham'],
+        coordinates: { lat: 27.35, lng: 83.95 },
+        climate: 'Subtropical Monsoon',
+        bestTime: 'November to April',
+        entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Royal_Bengal_Tiger_at_Nandankanan.jpg/960px-Royal_Bengal_Tiger_at_Nandankanan.jpg',
+        explorerUrl: '../valmiki-national-park-explorer/index.html'
+    },
+    {
+        id: 'valley-of-flowers',
+        name: 'Valley of Flowers National Park',
+        state: 'Uttarakhand',
+        stateId: 'uk',
+        established: 1982,
+        area: 87.5,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: true,
+        description:
+            'Enchanting high-altitude alpine valley in Uttarakhand, inscribed as a UNESCO World Heritage Site in 2005. Famous for carpets of rare endemic flora including Himalayan Blue Poppies and sacred Brahma Kamal.',
+        keyFauna: ['Snow Leopard', 'Himalayan Musk Deer', 'Red Panda', 'Blue Sheep (Bharal)', 'Himalayan Monal'],
+        keyFlora: ['Himalayan Blue Poppy', 'Brahma Kamal', 'Cobra Lily', 'Rhododendron'],
+        coordinates: { lat: 30.728, lng: 79.605 },
+        climate: 'Alpine Monsoonal',
+        bestTime: 'July to September',
+        entryFee: '₹150 (Indian), ₹600 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Meconopsis_aculeata_in_Valley_of_Flowers.jpg/960px-Meconopsis_aculeata_in_Valley_of_Flowers.jpg',
+        exploreUrl: '../valley-of-flowers-explorer/index.html'
     },
     {
         id: 'gir',
@@ -192,6 +279,7 @@ const NATIONAL_PARKS = [
         climate: 'Semi-Arid',
         bestTime: 'August to November',
         entryFee: '₹50 (Indian), ₹400 (Foreign)',
+        explorerUrl: '../keoladeo-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Keoladeo_Ghana_National_Park%2C_Bharatpur%2C_Rajasthan%2C_India.jpg/960px-Keoladeo_Ghana_National_Park%2C_Bharatpur%2C_Rajasthan%2C_India.jpg'
     },
     {
@@ -213,6 +301,7 @@ const NATIONAL_PARKS = [
         climate: 'Cold Desert',
         bestTime: 'June to September',
         entryFee: '₹30 (Indian), ₹300 (Foreign)',
+        explorerUrl: '../hemis-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Hemis_national_park.jpg/960px-Hemis_national_park.jpg'
     },
     {
@@ -258,6 +347,28 @@ const NATIONAL_PARKS = [
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Pushpawati_river_inside_the_Valley_of_Flowers_Uttarakhand_I.jpg/960px-Pushpawati_river_inside_the_Valley_of_Flowers_Uttarakhand_I.jpg'
     },
     {
+        id: 'namdapha',
+        name: 'Namdapha National Park',
+        state: 'Arunachal Pradesh',
+        stateId: 'ar',
+        established: 1983,
+        area: 1985,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description:
+            'India’s 4th largest national park and biodiversity hotspot in Arunachal Pradesh, famous for harbouring four big cat species and Red Pandas.',
+        keyFauna: ['Snow Leopard', 'Clouded Leopard', 'Red Panda', 'Bengal Tiger', 'Hoolock Gibbon'],
+        keyFlora: ['Hollong', 'Dipterocarps', 'Blue Vanda Orchids'],
+        coordinates: { lat: 27.49, lng: 96.38 },
+        climate: 'Subtropical Monsoon',
+        bestTime: 'October to April',
+        entryFee: '₹50 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../namdapha-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Neofelis_nebulosa.jpg/960px-Neofelis_nebulosa.jpg'
+    },
+    {
         id: 'nanda-devi',
         name: 'Nanda Devi National Park',
         state: 'Uttarakhand',
@@ -277,6 +388,72 @@ const NATIONAL_PARKS = [
         bestTime: 'May to September',
         entryFee: '₹150 (Indian), ₹600 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Nanda_Devi_Biosphere_Reserve_-_Chamoli.jpg/960px-Nanda_Devi_Biosphere_Reserve_-_Chamoli.jpg'
+    },
+    {
+        id: 'dudhwa',
+        name: 'Dudhwa National Park',
+        state: 'Uttar Pradesh',
+        stateId: 'up',
+        established: 1977,
+        area: 490,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description:
+            'Crown jewel of the Terai Arc in Uttar Pradesh, famous for holding 50% of the world’s Swamp Deer (Barasingha) and reintroduced One-horned Rhinos.',
+        keyFauna: ['Barasingha (Swamp Deer)', 'One-Horned Rhinoceros', 'Bengal Tiger', 'Asian Elephant', 'Gangetic Dolphin'],
+        keyFlora: ['Sal Forest', 'Elephant Grass', 'Narkul', 'Jamun'],
+        coordinates: { lat: 28.49, lng: 80.65 },
+        climate: 'Subtropical Monsoon',
+        bestTime: 'November to April',
+        entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../dudhwa-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Swamp_Deer_Barasingha.jpg/960px-Swamp_Deer_Barasingha.jpg'
+    },
+    {
+        id: 'simlipal',
+        name: 'Simlipal National Park',
+        state: 'Odisha',
+        stateId: 'or',
+        established: 1980,
+        area: 2750,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: true,
+        description:
+            "A UNESCO Biosphere Reserve in Odisha, famous for Barehipani waterfall (399m), world's only melanistic black tigers, and Mayurbhanj elephants.",
+        keyFauna: ['Melanistic Black Tiger', 'Asian Elephant', 'Sambar Deer', 'Mugger Crocodile', 'Hill Myna'],
+        keyFlora: ['Sal Forest', 'Red Silk Cotton (Simul)', 'Epiphytic Orchids', 'Jamun'],
+        coordinates: { lat: 21.93, lng: 86.35 },
+        climate: 'Tropical Monsoon',
+        bestTime: 'November to June',
+        entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../simlipal-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Swamp_Deer_Barasingha.jpg/960px-Swamp_Deer_Barasingha.jpg'
+    },
+    {
+        id: 'manas',
+        name: 'Manas National Park',
+        state: 'Assam',
+        stateId: 'as',
+        established: 1990,
+        area: 950,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: true,
+        description:
+            'A UNESCO World Heritage Site, Biosphere Reserve, and Elephant Reserve in Assam, famous for Golden Langurs, Pygmy Hogs, and the Manas River.',
+        keyFauna: ['Golden Langur', 'Pygmy Hog', 'Bengal Tiger', 'Wild Water Buffalo', 'Asian Elephant'],
+        keyFlora: ['Semi-Evergreen Forest', 'Alluvial Grassland', 'Elephant Grass'],
+        coordinates: { lat: 26.65, lng: 91.0 },
+        climate: 'Tropical Monsoon',
+        bestTime: 'October to April',
+        entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../manas-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Golden_Langur_Manas.jpg/960px-Golden_Langur_Manas.jpg'
     },
     {
         id: 'bandipur',
@@ -359,10 +536,10 @@ const NATIONAL_PARKS = [
         coordinates: { lat: 21.74, lng: 79.29 },
         climate: 'Tropical Dry',
         bestTime: 'October to May',
-        entryFee: '₹100 (Indian), ₹500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Pench_National_Park%2C_Madhya_Pradesh_-_by_Ishani_Mehta.jpg/960px-Pench_National_Park%2C_Madhya_Pradesh_-_by_Ishani_Mehta.jpg'
-    },
-    {
+entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Pench_National_Park%2C_Madhya_Pradesh_-_by_Ishani_Mehta.jpg/960px-Pench_National_Park%2C_Madhya_Pradesh_-_by_Ishani_Mehta.jpg',
+        explorerUrl: '../pench-national-park-explorer/index.html'
+    },    {
         id: 'dachigam',
         name: 'Dachigam National Park',
         state: 'Jammu and Kashmir',
@@ -381,7 +558,8 @@ const NATIONAL_PARKS = [
         climate: 'Temperate',
         bestTime: 'April to September',
         entryFee: '₹30 (Indian), ₹300 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/A_view_of_Lower_Dachigam_where_most_of_the_hangul_get_confined_in_winter%2C_AJT_Johnsingh.jpg/960px-A_view_of_Lower_Dachigam_where_most_of_the_hangul_get_confined_in_winter%2C_AJT_Johnsingh.jpg'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/A_view_of_Lower_Dachigam_where_most_of_the_hangul_get_confined_in_winter%2C_AJT_Johnsingh.jpg/960px-A_view_of_Lower_Dachigam_where_most_of_the_hangul_get_confined_in_winter%2C_AJT_Johnsingh.jpg',
+        explorerUrl: '../dachigam-national-park-explorer/index.html'
     },
     {
         id: 'desert',
@@ -403,6 +581,27 @@ const NATIONAL_PARKS = [
         bestTime: 'November to March',
         entryFee: '₹50 (Indian), ₹300 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Desert_vegetation_DSC0942.jpg/960px-Desert_vegetation_DSC0942.jpg'
+    },
+    {
+        id: 'balpakram',
+        name: 'Balpakram National Park',
+        state: 'Meghalaya',
+        stateId: 'ml',
+        established: 1987,
+        area: 220,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description: 'Known as the "Abode of Perpetual Winds," Balpakram sits atop the Garo Hills plateau near the Bangladesh border. Famous for its dramatic gorge — often compared to a mini Grand Canyon — limestone caves, and as one of the few confirmed habitats of the red panda in the region.',
+        keyFauna: ['Red Panda', 'Clouded Leopard', 'Asian Elephant', 'Hoolock Gibbon', 'Bengal Tiger', 'Great Hornbill'],
+        keyFlora: ['Pitcher Plant', 'Sundew (Drosera)', 'Bamboo Forest', 'Montane Grassland', 'Shola Forest'],
+        coordinates: { lat: 25.417, lng: 90.867 },
+        climate: 'Subtropical Highland',
+        bestTime: 'October to April',
+        entryFee: '₹50 (Indian), ₹300 (Foreign)',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Matcha%20Nokpante%20(tiger%27s%20meeting%20place)%20in%20Balpakram%20National%20Park.jpg',
+        explorerUrl: '../balpakram-national-park-explorer/index.html'
     },
     {
         id: 'silent-valley',
@@ -465,7 +664,30 @@ const NATIONAL_PARKS = [
         climate: 'Tropical Savanna',
         bestTime: 'October to May',
         entryFee: '₹80 (Indian), ₹400 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG/960px-Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG/960px-Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG',
+        explorerUrl: '../bannerghatta-national-park-explorer/index.html'
+    },
+    {
+        id: 'mouling',
+        name: 'Mouling National Park',
+        state: 'Arunachal Pradesh',
+        stateId: 'ar',
+        established: 1986,
+        area: 483,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description:
+            'A rugged, largely unexplored Eastern Himalayan biodiversity hotspot along the Siang River, home to the Red Panda, Clouded Leopard, and over 230 recorded bird species.',
+        keyFauna: ['Red Panda', 'Mishmi Takin', 'Clouded Leopard', 'Asiatic Black Bear', 'Hoolock Gibbon'],
+        keyFlora: ['Subtropical Broadleaf Forest', 'Temperate Oak & Rhododendron', 'Alpine Meadows'],
+        coordinates: { lat: 28.85, lng: 95.15 },
+        climate: 'Subtropical to Alpine',
+        bestTime: 'October to April',
+        entryFee: '₹50 (Indian), ₹300 (Foreign)',
+        explorerUrl: '/frontend/mouling-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Red_Panda_%28Ailurus_fulgens%29.jpg/960px-Red_Panda_%28Ailurus_fulgens%29.jpg'
     },
     {
         id: 'madhav',
@@ -549,9 +771,50 @@ const NATIONAL_PARKS = [
         bestTime: 'November to June',
         entryFee: '₹150 (Indian), ₹500 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Bengal_tiger_in_Sanjay_Dubri_Tiger_Reserve_December_2024_by_Tisha_Mukherjee_11.jpg/960px-Bengal_tiger_in_Sanjay_Dubri_Tiger_Reserve_December_2024_by_Tisha_Mukherjee_11.jpg'
+    },
+    {
+        id: 'nokrek',
+        name: 'Nokrek National Park',
+        state: 'Meghalaya',
+        stateId: 'ml',
+        established: 1986,
+        area: 47.48,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description: 'A UNESCO Biosphere Reserve in the Garo Hills, globally significant as the center of origin of wild Citrus indica — the ancestor of most cultivated orange varieties. Its core zone protects the Red Panda alongside dense subtropical forests around Nokrek Peak, the highest point in the Garo Hills.',
+        keyFauna: ['Red Panda', 'Clouded Leopard', 'Asian Elephant', 'Hoolock Gibbon', 'Marbled Cat'],
+        keyFlora: ['Wild Citrus (Citrus indica)', 'Subtropical Broadleaf Forest', 'Orchids', 'Bamboo'],
+        coordinates: { lat: 25.47, lng: 90.30 },
+        climate: 'Subtropical Monsoon',
+        bestTime: 'October to April',
+        entryFee: '₹50 (Indian), ₹300 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Red_Panda_%28Ailurus_fulgens%29.jpg/960px-Red_Panda_%28Ailurus_fulgens%29.jpg',
+        explorerUrl: '../nokrek-national-park-explorer/index.html'
+    },
+    {
+        id: 'satpura',
+        name: 'Satpura National Park',
+        state: 'Madhya Pradesh',
+        stateId: 'mp',
+        established: 1981,
+        area: 524,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description: 'Named after the Satpura Range ("Sat" = seven, "Pura" = mountain), this rugged reserve of hills, gorges, and dense Sal-Teak forests is one of the few parks in India offering guided Walking Safaris and Canoe Safaris along the Denwa River, in addition to jeep safaris.',
+        keyFauna: ['Bengal Tiger', 'Leopard', 'Indian Gaur', 'Sloth Bear', 'Indian Wild Dog (Dhole)', 'Indian Giant Squirrel'],
+        keyFlora: ['Sal Forest', 'Teak', 'Bamboo', 'Reni Pani Vines'],
+        coordinates: { lat: 22.50, lng: 78.23 },
+        climate: 'Tropical',
+        bestTime: 'October to June',
+        entryFee: '₹250 (Indian), ₹1500 (Foreign)',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Amazing%20Landscape%20%40Satpura%20Tiger%20Reserve.jpg?width=960',
+        explorerUrl: '../satpura-national-park-explorer/index.html'
     }
 ];
-
 const TIGER_RESERVES = NATIONAL_PARKS.filter(p => p.isTigerReserve);
 
 const UNESCO_SITES = NATIONAL_PARKS.filter(p => p.isUNESCO);
@@ -684,6 +947,7 @@ const WILDLIFE_SPECIES = [
 const STATES = [
     { id: 'all', name: 'All India', region: 'all' },
     { id: 'uk', name: 'Uttarakhand', region: 'north' },
+    { id: 'up', name: 'Uttar Pradesh', region: 'north' },
     { id: 'rj', name: 'Rajasthan', region: 'north' },
     { id: 'hp', name: 'Himachal Pradesh', region: 'north' },
     { id: 'jk', name: 'Jammu and Kashmir', region: 'north' },
@@ -695,5 +959,9 @@ const STATES = [
     { id: 'kl', name: 'Kerala', region: 'south' },
     { id: 'tn', name: 'Tamil Nadu', region: 'south' },
     { id: 'as', name: 'Assam', region: 'northeast' },
-    { id: 'wb', name: 'West Bengal', region: 'east' }
+    { id: 'br', name: 'Bihar', region: 'east' },
+    { id: 'wb', name: 'West Bengal', region: 'east' },
+    { id: 'or', name: 'Odisha', region: 'east' },
+    { id: 'ar', name: 'Arunachal Pradesh', region: 'northeast' },
+    { id: 'ml', name: 'Meghalaya', region: 'northeast' }
 ];

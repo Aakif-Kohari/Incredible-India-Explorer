@@ -711,6 +711,13 @@ window.indiaSearchIndex = [
     description: "Shimla, Darjeeling, Munnar, Ooty, Manali, and other picturesque hill retreats across India.",
     url: "frontend/hill-stations/frontend/hill-stations/hill-stations.html"
   },
+  // --- Mountains of India ---
+  {
+    title: "Mountains of India",
+    category: "Travel & Exploration",
+    description: "Explore India's majestic mountains — Kangchenjunga, Nanda Devi, Shivling, Anamudi and many more. Filter by range, height, difficulty, and region.",
+    url: "frontend/mountains/index.html"
+  },
 
   // --- Butterfly ---
   {
@@ -1205,6 +1212,20 @@ window.indiaSearchIndex = [
     description: "Explainer on ISRO's evolution from founding in 1969 to Aryabhata, Mangalyaan, Chandrayaan-3, Aditya-L1, and Gaganyaan with orbit animations.",
     url: "frontend/space-program-milestones/index.html"
   },
+  // --- Kanchenjunga Mountain ---
+  {
+    title: "Kanchenjunga Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Kanchenjunga, India's highest mountain at 8,586 m in Sikkim, featuring facts, trekking info, map locations, image gallery, nearby attractions, and FAQs.",
+    url: "frontend/kanchenjunga/kanchenjunga.html"
+  },
+  // --- Nanda Devi Mountain ---
+  {
+    title: "Nanda Devi Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Nanda Devi, India's second highest mountain at 7,816 m in Uttarakhand, featuring biodiversity, trekking guide, facts, map locations, image gallery, and FAQs.",
+    url: "frontend/nanda-devi/nanda-devi.html"
+  },
   // --- Rimo I Mountain ---
   {
     title: "Rimo I Mountain Explorer",
@@ -1218,6 +1239,12 @@ window.indiaSearchIndex = [
     category: "Mountains & Geography",
     description: "Dedicated explorer for Satopanth, a 7,075 m high peak in the Garhwal Range of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
     url: "frontend/satopanth/satopanth.html"},
+  // --- Changabang Mountain ---
+  {
+    title: "Changabang Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Changabang, a 6,864 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
+    url: "frontend/changabang/changabang.html"},
   // --- Shivling Mountain ---
   {
     title: "Shivling Mountain Explorer",
@@ -1324,6 +1351,13 @@ window.indiaSearchIndex = [
     category: "Mountains & Geography",
     description: "Dedicated explorer for Saltoro Kangri, a 7,742 m high peak in the Karakoram Range of Ladakh, featuring facts, map locations, image gallery, and trivia.",
     url: "frontend/saltoro-kangri/saltoro-kangri.html"},
+  // --- Meru Peak Mountain ---
+  {
+    title: "Meru Peak Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Meru Peak, a 6,660 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
+    url: "frontend/meru-peak/meru-peak.html"
+  },
   // --- Indrasan Mountain ---
   {
     title: "Indrasan Mountain Explorer",
@@ -1331,4 +1365,270 @@ window.indiaSearchIndex = [
     description: "Dedicated explorer for Indrasan, a 6,221 m high peak in the Pir Panjal range of Himachal Pradesh, featuring facts, map locations, image gallery, trekking details, and FAQs.",
     url: "frontend/indrasan/indrasan.html"
   },
+  // --- Hanuman Tibba Mountain ---
+  {
+    title: "Hanuman Tibba Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Hanuman Tibba, a 5,982 m high peak in the Dhauladhar range of Himachal Pradesh, featuring facts, map locations, image gallery, trekking details, and FAQs.",
+    url: "frontend/hanuman-tibba/hanuman-tibba.html"
+  },
+  // --- Neelkanth Mountain ---
+  {
+    title: "Neelkanth Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Neelkanth, a 6,596 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, trekking details, and FAQs.",
+    url: "frontend/neelkanth/neelkanth.html"
+  },
+  // --- Panchachuli II Mountain ---
+  {
+    title: "Panchachuli II Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Explore Panchachuli II Mountain, a 6,904 m high peak in the Kumaon Himalayas of Uttarakhand.",
+    url: "frontend/panchachuli-ii/panchachuli-ii.html"},
+  // --- Nanda Kot Mountain ---
+  {
+    title: "Nanda Kot Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Explore Nanda Kot Mountain, a 6,861 m high peak in the Kumaon Himalayas of Uttarakhand.",
+    url: "frontend/nanda-kot/nanda-kot.html"
+  },
+  // --- Keoladeo National Park Explorer ---
+  {
+    title: "Keoladeo National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Deep dive into Keoladeo National Park (Bharatpur Bird Sanctuary), a UNESCO World Heritage Site & Ramsar Wetland. Explore 370+ bird species, Central Asian flyways, cycling routes, history, and interactive park map.",
+    url: "frontend/keoladeo-national-park-explorer/index.html"
+  },
+  // --- Namdapha National Park Explorer ---
+  {
+    title: "Namdapha National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Namdapha National Park in Arunachal Pradesh — India's 4th largest national park and biodiversity hotspot harboring four big cat species, Red Panda, Hoolock Gibbon, trekking trails, and interactive maps.",
+    url: "frontend/namdapha-national-park-explorer/index.html"
+  },
+  // --- Manas National Park Explorer ---
+  {
+    title: "Manas National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Develop an interactive page about Manas National Park in Assam — UNESCO World Heritage Site, Tiger Reserve, Elephant Reserve, Biosphere Reserve, home to Golden Langurs, Pygmy Hogs, and Manas River.",
+    url: "frontend/manas-national-park-explorer/index.html"
+  },
+  // --- Dudhwa National Park Explorer ---
+  {
+    title: "Dudhwa National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Create a dedicated explorer for Dudhwa National Park in Uttar Pradesh — known for its rich Terai ecosystem, 50% of the world's Barasingha (Swamp Deer), 1984 Rhinoceros reintroduction, Bengal Tigers, and safari info.",
+    url: "frontend/dudhwa-national-park-explorer/index.html"
+  },
+  // --- Simlipal National Park Explorer ---
+  {
+    title: "Simlipal National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
+    url: "frontend/simlipal-national-park-explorer/index.html"},
+  },
+  // --- Haiderpur Wetland Explorer ---
+  {
+    title: "Haiderpur Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Haiderpur Wetland in Muzaffarnagar & Bijnor, UP — Ramsar Site #2463, Madhya Ganga Barrage floodplain sanctuary for Barasingha and 25,000+ waterbirds.",
+    url: "frontend/haiderpur-wetland-explorer/index.html"},
+  // --- Sultanpur National Park & Wetland Explorer ---
+  {
+    title: "Sultanpur National Park & Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Sultanpur National Park & Wetland in Gurugram, Haryana — Ramsar Site #2459, Central Asian Flyway wintering sanctuary for 250+ migratory bird species.",
+    url: "frontend/sultanpur-national-park-explorer/index.html"
+  },
+  // --- Valley of Flowers National Park Explorer ---
+  {
+    title: "Valley of Flowers National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Valley of Flowers National Park in Chamoli, Uttarakhand — UNESCO World Heritage Site, high-altitude Pushpawati river valley, Himalayan Blue Poppies, Brahma Kamal, and Snow Leopards.",
+    url: "frontend/valley-of-flowers-explorer/index.html"
+  },
+  // --- Udhwa Wetlands Explorer ---
+  {
+    title: "Udhwa Wetlands Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Udhwa Wetlands in Sahibganj, Jharkhand — Jharkhand's only Ramsar Site, featuring twin Patauda & Berhale oxbow lakes.",
+    url: "frontend/udhwa-wetlands-explorer/index.html"},
+  // --- Vellode Wetland Explorer ---
+  {
+    title: "Vellode Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Vellode Wetland (Vellode Bird Sanctuary) in Erode, Tamil Nadu — Ramsar Site, farmer-welcomed freshwater bird sanctuary for Spot-billed Pelicans and Darters.",
+    url: "frontend/vellode-wetland-explorer/index.html"},
+  // --- Point Calimere Wetland Explorer ---
+  {
+    title: "Point Calimere Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Point Calimere Wildlife & Bird Sanctuary in Nagapattinam, Tamil Nadu — coastal Ramsar Site No. 1210 famed for 30,000+ wintering flamingos, blackbucks, and the Muthupet mangroves.",
+    url: "frontend/point-calimere-wetland-explorer/index.html"},
+  // --- Satkosia Gorge Wetlands Explorer ---
+  {
+    title: "Satkosia Gorge Wetlands Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Satkosia Gorge Wetlands in Odisha — 22 km Mahanadi River gorge Ramsar site, pioneer sanctuary for Gharials and Mugger crocodiles.",
+    url: "frontend/satkosia-gorge-wetlands-explorer/index.html"},
+  // --- Ansupa Lake Explorer ---
+  {
+    title: "Ansupa Lake Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Ansupa Lake in Cuttack, Odisha — Ramsar Site, Odisha's largest freshwater oxbow lake formed by the Mahanadi River.",
+    url: "frontend/ansupa-lake-explorer/index.html"
+  },
+  // --- Tampara Lake Explorer ---
+  {
+    title: "Tampara Lake Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Tampara Lake in Ganjam, Odisha — Ramsar Site, freshwater coastal lagoon, fisheries, and eco-boating destination.",
+    url: "frontend/tampara-lake-explorer/index.html"
+  },
+  // --- Keshopur-Miani Wetland Explorer ---
+  {
+    title: "Keshopur-Miani Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Keshopur-Miani Community Reserve in Punjab — Punjab's first Ramsar Site, community reserve model, Sarus Crane habitat, and bird sanctuary.",
+    url: "frontend/keshopur-miani-wetland-explorer/index.html"},
+  // --- Shallabug Wetland Explorer ---
+  {
+    title: "Shallabug Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Shallabug Wetland Conservation Reserve in Kashmir — Ramsar Site, 200,000+ wintering migratory birds, and traditional wicker willow heritage.",
+    url: "frontend/shallabug-wetland-explorer/index.html"},
+  // --- Hygam Wetland Explorer ---
+  {
+    title: "Hygam Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Hygam Wetland Conservation Reserve in Baramulla, Kashmir — Ramsar Site, Central Asian Flyway stopover, and flood sponge in the Jhelum basin.",
+    url: "frontend/hygam-wetland-explorer/index.html"},
+  // --- Pala Wetland Explorer ---
+  {
+    title: "Pala Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Pala Wetland (Pala Tipa) in Mizoram — Mizoram's first Ramsar Site and largest natural freshwater lake surrounded by tropical evergreen forests.",
+    url: "frontend/pala-wetland-explorer/index.html"},
+  // --- Wadhvana Wetland Explorer ---
+  {
+    title: "Wadhvana Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Wadhvana Wetland in Gujarat — a Ramsar Site and century-old reservoir built by Maharaja Sayajirao Gaekwad III, hosting 80,000+ wintering migratory birds.",
+    url: "frontend/wadhvana-wetland-explorer/index.html"
+  },
+  // --- The Making of Modern India (1757–1947) Timeline ---
+  {
+    title: "The Making of Modern India (1757–1947) Interactive Timeline",
+    category: "Modern History",
+    description: "Interactive journey from the Battle of Plassey (1757) to Independence (1947) featuring major events, Governors-General, British Acts, Revolts, Social Reforms, National Movements, and Historic Centers Map.",
+    url: "frontend/making-of-modern-india/index.html"
+  },
+  {
+    title: "British Raj Governors-General & Legislative Acts Catalogue",
+    category: "Colonial History",
+    description: "Detailed catalog of British Governors-General and Viceroys (Warren Hastings to Mountbatten), British Acts (1773 to 1947), Paika & Santhal revolts, and social reforms.",
+    url: "frontend/making-of-modern-india/index.html"
+  },
+  // --- The Complete Indian Freedom Movement Explorer ---
+  {
+    title: "The Complete Indian Freedom Movement Explorer",
+    category: "Freedom Struggle",
+    description: "Exhaustive educational explorer documenting the Indian Freedom Struggle (1770–1947) — Early Resistance, Swadeshi, Non-Cooperation, Civil Disobedience, Quit India, INA, Revolutionary Societies, Freedom Leaders, and Primary Documents.",
+    url: "frontend/freedom-movement-explorer/index.html"
+  },
+  {
+    title: "Revolutionary Organizations & Primary Freedom Documents Archive",
+    category: "Freedom Struggle & History",
+    description: "Detailed catalog of revolutionary societies (Anushilan Samiti, Ghadar, HSRA, INA) and primary documents (Poorna Swaraj Declaration 1930, Nehru Report 1928, Tryst with Destiny 1947, Give Me Blood Speech 1944).",
+    url: "frontend/freedom-movement-explorer/index.html"
+  },
+  // --- Every Major Empire of India Interactive Timeline ---
+  {
+    title: "Every Major Empire of India Interactive Timeline",
+    category: "Indian Empires & History",
+    description: "Explore 10 great empires and civilizations from Indus Valley, Mahajanapadas, Maurya, Gupta, Chalukya, Chola, Vijayanagara, Mughal, Maratha, and Sikh Empire with interactive territorial expansion and decline maps.",
+    url: "frontend/indian-empires-explorer/index.html"
+  },
+{
+    title: "Territorial Expansion & Decline Maps of Indian Empires",
+    category: "Historical Cartography",
+    description: "Interactive SVG maps rendering foundation, peak apex territory, and decline stages for Maurya, Gupta, Chola, Vijayanagara, Mughal, Maratha, and Sikh empires.",
+    url: "frontend/indian-empires-explorer/index.html"},
+  
+  // --- General Elections Timeline ---
+  {
+    title: "Interactive General Elections Timeline",
+    category: "Governance & Politics",
+    description: "Historical timeline of all Lok Sabha elections from 1951 to 2024 featuring winning parties, Prime Ministers, voter turnout trends, major issues, and coalition dynamics.",
+    url: "frontend/general-elections-timeline/index.html"},
+  // --- Chief Justices of India Timeline ---
+  {
+    title: "Interactive Chief Justices of India Timeline",
+    category: "Governance & Politics",
+    description: "Educational page showcasing Chief Justices of India, appointment dates, landmark judgments, court reforms, and search by decade.",
+    url: "frontend/chief-justices-timeline/index.html"},
+  // --- Periyar National Park Explorer ---
+  {
+    title: "Periyar National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Periyar National Park & Tiger Reserve in Kerala — Periyar Lake boat safaris, Asian Elephants, Cardamom Hills spice forests, interactive map, and photo gallery.",
+    url: "frontend/periyar-national-park-explorer/index.html"} ,
+  // --- Freedom Fighters Knowledge Hub ---
+  {
+    title: "Freedom Fighters Interactive Knowledge Hub",
+    category: "History & Heritage",
+    description: "Educational encyclopedia featuring biographies, timelines, revolutionary movements, rare facts, and quotes of India's freedom fighters.",
+    url: "frontend/freedom-fighters-hub/index.html"},
+  // --- State Chief Ministers Explorer ---
+  {
+    title: "State Chief Ministers Explorer",
+    category: "Governance & Politics",
+    description: "Interactive educational explorer covering current Chief Ministers across all states and union territories, political parties, capitals, and state facts.",
+    url: "frontend/state-chief-ministers-explorer/index.html"
+  },
+  // --- Kolleru Lake Explorer ---
+  {
+    title: "Kolleru Lake Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Explore Kolleru Lake in Andhra Pradesh — India's premier Spot-billed Pelican sanctuary, Krishna-Godavari freshwater basin, Ramsar Site #1209, and rich fish diversity.",
+    url: "frontend/kolleru-lake/index.html"},
+  // --- Loktak Lake Explorer ---
+  {
+    title: "Loktak Lake Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Explore Loktak Lake in Manipur — World's only floating national park (Keibul Lamjao), floating Phumdis, endangered Sangai Dancing Deer, and Meitei culture.",
+    url: "frontend/loktak-lake/index.html"},
+  // --- Chilika Lake Explorer ---
+  {
+    title: "Chilika Lake Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Explore Chilika Lake in Odisha — Asia's largest brackish water lagoon, Ramsar Site #229, Irrawaddy Dolphins, Nalabana Bird Sanctuary, and winter migratory waterfowl.",
+    url: "frontend/chilika-lake/index.html"},
+  // --- Wetlands of India Explorer Landing Page ---
+  {
+    title: "Wetlands of India Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Interactive central landing page for exploring the Wetlands of India — Ramsar Sites, lagoons, lakes, marshes, mangroves, interactive maps, search, and state/type filters.",
+    url: "frontend/wetlands/index.html"},
+  // --- Hemis National Park Explorer ---
+  {
+    title: "Hemis National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Hemis National Park in Ladakh — World's highest density of Snow Leopards, high-altitude cold desert ecosystem, Markha Valley trekking, Himalayan wildlife, and Buddhist culture.",
+    url: "frontend/hemis-national-park-explorer/index.html"
+  },
+  // --- River Origin Challenge ---
+  {
+    title: "River Origin Challenge",
+    category: "Games & Geography",
+    description: "Match Indian rivers (Ganga, Yamuna, Godavari, Brahmaputra, Kaveri, Narmada, Krishna, etc.) with their origins, tributaries, and sea destinations on an interactive map with drag-and-drop gameplay.",
+    url: "frontend/river-origin-challenge/index.html"
+  },
+  // --- Crop Journey Game ---
+  {
+    title: "Crop Journey Game",
+    category: "Games & Geography",
+    description: "Match Indian crops (Rice, Wheat, Cotton, Sugarcane, Watermelon, Mustard, etc.) with Kharif, Rabi & Zaid farming seasons, climate needs, and producing states across progressive difficulty levels.",
+    url: "frontend/crop-journey/index.html"
+  }
 ];
