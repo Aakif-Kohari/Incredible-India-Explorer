@@ -178,3 +178,137 @@ describe('SmartBudgetPlanner persistence (save / edit / delete)', () => {
     expect(SmartBudgetPlanner.getSavedPlans().length).toBe(0);
   });
 });
+
+describe('SmartBudgetPlanner.compareDestinations', () => {
+  const baseInput = { days: 5, travelers: 2, accommodationTier: 'standard', transportMode: 'train' };
+
+  it('returns one entry per destination, sorted cheapest-first', () => {
+    const results = SmartBudgetPlanner.compareDestinations(baseInput, ['Goa', 'Leh', 'Varanasi']);
+    expect(results).toHaveLength(3);
+    for (let i = 1; i < results.length; i++) {
+      expect(results[i].total).toBeGreaterThanOrEqual(results[i - 1].total);
+    }
+  });
+
+  it('flags whether each destination was matched against trip-data.js', () => {
+    const results = SmartBudgetPlanner.compareDestinations(baseInput, ['Jaipur', 'Not A Real Place XYZ']);
+    const jaipur = results.find((r) => r.requested === 'Jaipur');
+    const fake = results.find((r) => r.requested === 'Not A Real Place XYZ');
+    expect(jaipur.matched).toBe(true);
+    expect(fake.matched).toBe(false);
+    // Unmatched destinations still get a (fallback) estimate, not an error.
+    expect(fake.total).toBeGreaterThan(0);
+  });
+
+  it('ignores blank entries in the destination list', () => {
+    const results = SmartBudgetPlanner.compareDestinations(baseInput, ['Goa', '', '  ', null]);
+    expect(results).toHaveLength(1);
+  });
+
+  it('holds every other parameter constant across the comparison', () => {
+    const results = SmartBudgetPlanner.compareDestinations(baseInput, ['Goa', 'Leh']);
+    results.forEach((r) => {
+      expect(r.plan.inputs.days).toBe(5);
+      expect(r.plan.inputs.travelers).toBe(2);
+      expect(r.plan.inputs.accommodationTier).toBe('standard');
+    });
+  });
+});
+
+describe('SmartBudgetPlanner.calculateItineraryBudget', () => {
+  function makeItinerary() {
+    const jaipur = tripDestinations.find((d) => d.name === 'Jaipur');
+    const goa = tripDestinations.find((d) => d.name === 'Goa');
+    return {
+      title: 'Rajasthan & Goa Getaway',
+      inputs: { travelers: 2 },
+      destinations: [
+        Object.assign({}, jaipur, { assignedDays: 3 }),
+        Object.assign({}, goa, { assignedDays: 4 }),
+      ],
+      legs: [{ cost: 2500, distanceKm: 1200 }],
+    };
+  }
+
+  it('produces a positive total covering every category', () => {
+    const plan = SmartBudgetPlanner.calculateItineraryBudget(makeItinerary(), { accommodationTier: 'standard' });
+    expect(plan.total).toBeGreaterThan(0);
+    Object.values(plan.categories).forEach((v) => expect(v).toBeGreaterThanOrEqual(0));
+    expect(plan.categories.accommodation).toBeGreaterThan(0);
+    expect(plan.categories.food).toBeGreaterThan(0);
+  });
+
+  it('derives the transport category from the itinerary\'s own leg costs, scaled by travelers', () => {
+    const itinerary = makeItinerary(); // 1 leg costing 2500 (per-person), 2 travelers
+    const plan = SmartBudgetPlanner.calculateItineraryBudget(itinerary, {});
+    expect(plan.categories.transport).toBe(2500 * 2);
+  });
+
+  it('breaks costs down per destination with the right day counts', () => {
+    const plan = SmartBudgetPlanner.calculateItineraryBudget(makeItinerary(), {});
+    expect(plan.perDestination).toHaveLength(2);
+    expect(plan.perDestination[0].name).toBe('Jaipur');
+    expect(plan.perDestination[0].days).toBe(3);
+    expect(plan.perDestination[1].name).toBe('Goa');
+    expect(plan.perDestination[1].days).toBe(4);
+    expect(plan.days).toBe(7);
+  });
+
+  it('produces a higher total on the luxury tier than the budget tier', () => {
+    const itinerary = makeItinerary();
+    const budgetPlan = SmartBudgetPlanner.calculateItineraryBudget(itinerary, { accommodationTier: 'budget' });
+    const luxuryPlan = SmartBudgetPlanner.calculateItineraryBudget(itinerary, { accommodationTier: 'luxury' });
+    expect(luxuryPlan.total).toBeGreaterThan(budgetPlan.total);
+  });
+
+  it('includes optional sightseeing/shopping/misc allowances once for the whole trip', () => {
+    const plan = SmartBudgetPlanner.calculateItineraryBudget(makeItinerary(), { sightseeing: 3000, shopping: 2000, misc: 1000 });
+    expect(plan.categories.sightseeing).toBe(3000);
+    expect(plan.categories.shopping).toBe(2000);
+    expect(plan.categories.misc).toBe(1000);
+  });
+
+  it('throws when the itinerary has no destinations', () => {
+    expect(() => SmartBudgetPlanner.calculateItineraryBudget({ inputs: { travelers: 1 }, destinations: [], legs: [] })).toThrow();
+    expect(() => SmartBudgetPlanner.calculateItineraryBudget(null)).toThrow();
+  });
+});
+
+describe('SmartBudgetPlanner.getBudgetAlert', () => {
+  it('returns null when no target budget is set', () => {
+    const plan = SmartBudgetPlanner.calculateBudget({ destination: 'Goa', days: 5, travelers: 2 });
+    expect(SmartBudgetPlanner.getBudgetAlert(plan, 0)).toBeNull();
+    expect(SmartBudgetPlanner.getBudgetAlert(plan, null)).toBeNull();
+  });
+
+  it('flags "exceeded" when the total is over the target', () => {
+    const plan = SmartBudgetPlanner.calculateBudget({ destination: 'Goa', days: 5, travelers: 2, accommodationTier: 'luxury' });
+    const alert = SmartBudgetPlanner.getBudgetAlert(plan, 1000);
+    expect(alert.status).toBe('exceeded');
+    expect(alert.difference).toBeLessThan(0);
+  });
+
+  it('flags "healthy" when comfortably under the target', () => {
+    const plan = SmartBudgetPlanner.calculateBudget({ destination: 'Goa', days: 2, travelers: 1, accommodationTier: 'budget' });
+    const alert = SmartBudgetPlanner.getBudgetAlert(plan, plan.total * 10);
+    expect(alert.status).toBe('healthy');
+    expect(alert.difference).toBeGreaterThan(0);
+  });
+
+  it('flags "warning" when close to (85%+) but not over the target', () => {
+    const plan = SmartBudgetPlanner.calculateBudget({ destination: 'Goa', days: 3, travelers: 1, accommodationTier: 'standard' });
+    const target = Math.round(plan.total / 0.9); // total sits at 90% of target
+    const alert = SmartBudgetPlanner.getBudgetAlert(plan, target);
+    expect(alert.status).toBe('warning');
+  });
+
+  it('recomputes to a worse status when the plan total grows (itinerary changed)', () => {
+    const smallerPlan = SmartBudgetPlanner.calculateBudget({ destination: 'Goa', days: 2, travelers: 1 });
+    const biggerPlan = SmartBudgetPlanner.calculateBudget({ destination: 'Goa', days: 10, travelers: 4, accommodationTier: 'luxury' });
+    const target = smallerPlan.total * 2; // comfortably covers the smaller plan only
+    const before = SmartBudgetPlanner.getBudgetAlert(smallerPlan, target);
+    const after = SmartBudgetPlanner.getBudgetAlert(biggerPlan, target);
+    expect(before.status).toBe('healthy');
+    expect(after.status).toBe('exceeded');
+  });
+});
