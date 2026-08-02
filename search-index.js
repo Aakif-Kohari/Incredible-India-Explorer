@@ -1447,6 +1447,13 @@ window.indiaSearchIndex = [
     description: "Explore Valley of Flowers National Park in Chamoli, Uttarakhand — UNESCO World Heritage Site, high-altitude Pushpawati river valley, Himalayan Blue Poppies, Brahma Kamal, and Snow Leopards.",
     url: "frontend/valley-of-flowers-explorer/index.html"
   },
+  // --- Param Vir Chakra Gallery & Heroes Explorer ---
+  {
+    title: "Param Vir Chakra Gallery & Heroes Explorer",
+    category: "Military Heritage & Honours",
+    description: "Explore the Param Vir Chakra Gallery honoring all 21 recipient heroes of India's highest military decoration for valor, featuring Savitri Khanolkar's medal design and citations.",
+    url: "frontend/param-vir-chakra-explorer/index.html"
+  },
   // --- Udhwa Wetlands Explorer ---
   {
     title: "Udhwa Wetlands Explorer",
