@@ -1651,5 +1651,12 @@ window.indiaSearchIndex = [
     category: "Games & Geography",
     description: "Match Indian crops (Rice, Wheat, Cotton, Sugarcane, Watermelon, Mustard, etc.) with Kharif, Rabi & Zaid farming seasons, climate needs, and producing states across progressive difficulty levels.",
     url: "frontend/crop-journey/index.html"
+  },
+  // --- History of Indian Banking ---
+  {
+    title: "History of Indian Banking",
+    category: "Governance & Economy",
+    description: "Interactive historical journey through Indian banking from Presidency Banks and Imperial Bank to RBI formation, 1969 & 1980 Nationalization, 1991 Liberalization, and the UPI Digital Revolution.",
+    url: "frontend/history-of-indian-banking/index.html"
   }
 ];
