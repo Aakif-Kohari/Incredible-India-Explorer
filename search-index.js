@@ -1657,6 +1657,12 @@ window.indiaSearchIndex = [
     title: "Interactive Indian Superlatives Explorer",
     category: "Geography & Nature",
     description: "Discover the largest, highest, longest, and oldest wonders of India featuring interactive cards, scale comparison infographics, and geographical map visualization.",
-    url: "frontend/indian-superlatives-explorer/index.html"
+    url: "frontend/indian-superlatives-explorer/index.html"},
+  // --- Prime Ministers of India Timeline ---
+  {
+    title: "Prime Ministers of India Timeline",
+    category: "Governance & Politics",
+    description: "Interactive learning timeline showcasing every Prime Minister of India from Jawaharlal Nehru to Narendra Modi, featuring portraits, party filters, key reforms, historical milestones, and trivia.",
+    url: "frontend/governance/prime-ministers/index.html"
   }
 ];
