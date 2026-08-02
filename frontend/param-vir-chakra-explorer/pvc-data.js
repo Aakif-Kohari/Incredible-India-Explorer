@@ -1,7 +1,8 @@
 /**
- * Param Vir Chakra Gallery & Heroes Explorer — Data Module
- * Dataset covering PVC history, Savitri Khanolkar's medal design,
- * 21 bravery citations, historical military conflicts, and image gallery.
+ * Param Vir Chakra Gallery & Heroes Explorer — Comprehensive Data Module
+ * Full dataset covering PVC history, Savitri Khanolkar's medal design,
+ * 21 bravery citations, eligibility, selection process, famous battles,
+ * historical military conflicts, and image gallery.
  */
 
 const PVC_INFO = {
@@ -13,7 +14,7 @@ const PVC_INFO = {
     posthumousCount: 14,
     livingRecipients: 3,
     designer: "Savitri Khanolkar (Eva Yononne Linda Deyros)",
-    symbolism: "Rishi Dadhichi's Vajra (supreme sacrifice) surrounding the Ashoka Lion Capital and Shivaji Maharaj's Bhavani sword",
+    symbolism: "Rishi Dadhichi's Vajra (supreme sacrifice) surrounding the Ashoka Lion Capital and Shivaji Maharaj's Bhavani sword motif",
     ribbonColor: "Plain Purple (32 mm width)",
     quickStats: [
         { label: "Total Awardees", value: "21 Heroes", icon: "🎖️" },
@@ -26,10 +27,71 @@ const PVC_INFO = {
 };
 
 const MEDAL_HISTORY = {
-    overview: "The Param Vir Chakra (PVC) is India's highest military decoration, awarded for the most conspicuous bravery or pre-eminent act of valor in the presence of the enemy on land, sea, or air.",
-    designOrigin: "The medal was designed by Savitri Khanolkar, who was drawn to Indian mythology and culture. She selected the motif of Rishi Dadhichi's Vajra — the sage who sacrificed his bones to forge a divine weapon to defeat evil.",
-    motto: "Awarded for self-sacrifice, courage beyond the call of duty, and unyielding military leadership."
+    overview: "The Param Vir Chakra (PVC) is India's highest military decoration, awarded for the most conspicuous bravery or pre-eminent act of valor or self-sacrifice in the presence of the enemy on land, sea, or air.",
+    designOrigin: "The medal was designed by Savitri Khanolkar, who was deeply versed in Indian mythology and culture. She selected the motif of Rishi Dadhichi's Vajra — the Vedic sage who sacrificed his bones to forge a divine weapon to defeat evil.",
+    motto: "Awarded for supreme self-sacrifice, courage beyond the call of duty, and unyielding military leadership in the face of the enemy."
 };
+
+const PVC_ELIGIBILITY = {
+    title: "Eligibility Criteria",
+    description: "The Param Vir Chakra is open to officers and enlisted personnel of all branches of the Indian Armed Forces without distinction of rank, gender, or length of service.",
+    categories: [
+        { title: "Army Personnel", detail: "Officers, Junior Commissioned Officers, and Non-Commissioned Officers of all regiments and corps." },
+        { title: "Naval Personnel", detail: "Officers and ratings of all branches of the Indian Navy and naval air arms." },
+        { title: "Air Force Personnel", detail: "Officers, airmen, and flying crew of all squadrons and branches of the Indian Air Force." },
+        { title: "Reserve & Territorial Forces", detail: "Members of the Territorial Army, Reserve Forces, and auxiliary units serving under Armed Forces command." }
+    ]
+};
+
+const PVC_SELECTION_PROCESS = {
+    title: "Selection & Conferment Process",
+    steps: [
+        { step: "1. Citation Initiation", text: "The Commanding Officer of the unit involved in the combat operation drafts a detailed citation backed by eyewitness testimony and field logs." },
+        { step: "2. Brigade & Division Scrutiny", text: "The citation is scrutinized and validated by the Brigade, Division, and Corps Commanders for authenticity and level of valor." },
+        { step: "3. Service HQ & Chiefs Approval", text: "The respective Service Headquarters (Army, Navy, or Air Force) evaluates the nomination and the Service Chief signs the recommendation." },
+        { step: "4. Central Honours Committee", text: "The Ministry of Defence Central Honours Committee conducts the final review." },
+        { step: "5. Presidential Conferment", text: "The President of India, as Supreme Commander of the Armed Forces, formally approves the award, presented at the annual Defence Investiture Ceremony at Rashtrapati Bhavan." }
+    ]
+};
+
+const PVC_BATTLES = [
+    {
+        title: "Battle of Badgam (1947)",
+        conflict: "1947 Indo-Pakistani War",
+        hero: "Major Somnath Sharma",
+        description: "A small detachment of 4 Kumaon held Srinagar airfield against 700 tribal raiders, fighting to the last man."
+    },
+    {
+        title: "Battle of Rezang La (1962)",
+        conflict: "1962 Sino-Indian War",
+        hero: "Major Shaitan Singh",
+        description: "13 Kumaon Charlie Company fought at 18,000 feet in freezing temperatures against overwhelming PLA forces."
+    },
+    {
+        title: "Battle of Asal Uttar (1965)",
+        conflict: "1965 Indo-Pakistani War",
+        hero: "CQMH Abdul Hamid",
+        description: "Single-handed destruction of enemy Patton tanks using a recoilless gun jeep in Khem Karan sector."
+    },
+    {
+        title: "Battle of Basantar (1971)",
+        conflict: "1971 Indo-Pakistani War",
+        hero: "2nd Lt Arun Khetarpal & Maj Hoshiar Singh",
+        description: "Fierce tank duel at Shakargarh bulge where Indian forces held the bridgehead against heavy armour counter-attacks."
+    },
+    {
+        title: "Operation Rajiv - Siachen (1987)",
+        conflict: "Siachen Conflict",
+        hero: "Naib Subedar Bana Singh",
+        description: "Heroic assault up a 1,500-foot ice wall at 21,153 feet altitude to capture the highest enemy post on Siachen Glacier."
+    },
+    {
+        title: "Battle of Tiger Hill (1999)",
+        conflict: "1999 Kargil War",
+        hero: "Grenadier Yogendra Singh Yadav & Capt Vikram Batra",
+        description: "Climbing sheer vertical cliffs under heavy artillery fire to recapture strategic mountain peaks overlooking NH-1D."
+    }
+];
 
 const PVC_HEROES = [
     {
@@ -45,16 +107,100 @@ const PVC_HEROES = [
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Major_Somnath_Sharma_PVC.jpg/800px-Major_Somnath_Sharma_PVC.jpg"
     },
     {
-        id: "vikram-batra",
-        name: "Captain Vikram Batra",
-        regiment: "13th Battalion, Jammu and Kashmir Rifles",
-        rank: "Captain",
-        year: 1999,
-        conflict: "1999 Kargil War (Operation Vijay)",
+        id: "jadunath-singh",
+        name: "Naik Jadunath Singh",
+        regiment: "1st Battalion, Rajput Regiment",
+        rank: "Naik",
+        year: 1948,
+        conflict: "1947 Indo-Pakistani War (Tain Dhar)",
         posthumous: true,
-        citation: "Captured Peak 5140 and Peak 4875 in Kargil. Displayed legendary bravery under enemy fire, single-handedly killing enemy soldiers in close combat.",
-        famousWords: "'Yeh Dil Maange More!' / 'Either I will come back after hoisting the Tricolour, or I will come back wrapped in it, but I will be back for sure.'",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Captain_Vikram_Batra_PVC.jpg/800px-Captain_Vikram_Batra_PVC.jpg"
+        citation: "Single-handedly defended a forward picket at Tain Dhar against three waves of enemy attacks, charging the enemy with a Bren gun after all his men were casualties.",
+        famousWords: "Single-handedly routed enemy waves at Tain Dhar, saving Naushera from capture.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Naik_Jadunath_Singh_PVC.jpg/800px-Naik_Jadunath_Singh_PVC.jpg"
+    },
+    {
+        id: "rama-raghoba-rane",
+        name: "Second Lieutenant Rama Raghoba Rane",
+        regiment: "Bombay Sappers, Corps of Engineers",
+        rank: "Second Lieutenant",
+        year: 1948,
+        conflict: "1947 Indo-Pakistani War (Naushera-Rajouri)",
+        posthumous: false,
+        citation: "Cleared minefields and road obstacles under relentless mortar fire for three days, crawling under a tank to clear mines and opening the road for Indian armor to reach Rajouri.",
+        famousWords: "Sustained severe wounds while clearing minefields continuous for 72 hours, enabling the advance to Rajouri.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/2nd_Lt_Rama_Raghoba_Rane_PVC.jpg/800px-2nd_Lt_Rama_Raghoba_Rane_PVC.jpg"
+    },
+    {
+        id: "piru-singh",
+        name: "Company Havildar Major Piru Singh",
+        regiment: "6th Battalion, Rajputana Rifles",
+        rank: "Company Havildar Major",
+        year: 1948,
+        conflict: "1947 Indo-Pakistani War (Tithwal)",
+        posthumous: true,
+        citation: "Single-handedly stormed enemy medium machine gun bunkers at South Ridge near Tithwal despite taking bullet wounds, lobbing grenades into enemy positions before succumbing.",
+        famousWords: "'Bleeding profusely, he shouted his battle cry and single-handedly silenced three enemy MMG bunkers.'",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/CHM_Piru_Singh_PVC.jpg/800px-CHM_Piru_Singh_PVC.jpg"
+    },
+    {
+        id: "karam-singh",
+        name: "Lance Naik Karam Singh",
+        regiment: "1st Battalion, Sikh Regiment",
+        rank: "Subedar Major / Honorary Captain",
+        year: 1948,
+        conflict: "1947 Indo-Pakistani War (Richmar Gali)",
+        posthumous: false,
+        citation: "Defended Richmar Gali outpost against eight fierce enemy attacks. Though severely wounded, he repulsed every assault by throwing hand grenades at point-blank range.",
+        famousWords: "Repulsed 8 enemy attacks despite severe wounds, holding the strategic Richmar Gali in Tithwal.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Subedar_Karam_Singh_PVC.jpg/800px-Subedar_Karam_Singh_PVC.jpg"
+    },
+    {
+        id: "gurbachan-singh-salaria",
+        name: "Captain Gurbachan Singh Salaria",
+        regiment: "3rd Battalion, 1st Gorkha Rifles (UN Peacekeeping)",
+        rank: "Captain",
+        year: 1961,
+        conflict: "UN Operation in Congo (Katanga)",
+        posthumous: true,
+        citation: "Led a fierce bayonet charge with 16 Gorkhas against 150 heavily armed Katangese rebels to clear a roadblock, preventing the encirclement of UN HQ in Elizabethville.",
+        famousWords: "'Jai Mahakali, Ayo Gorkhali!' — Led a daring Gorkha bayonet charge against heavily armed rebel forces.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Captain_Gurbachan_Singh_Salaria_PVC.jpg/800px-Captain_Gurbachan_Singh_Salaria_PVC.jpg"
+    },
+    {
+        id: "dhan-singh-thapa",
+        name: "Major Dhan Singh Thapa",
+        regiment: "1st Battalion, 8th Gorkha Rifles",
+        rank: "Lieutenant Colonel",
+        year: 1962,
+        conflict: "1962 Sino-Indian War (Sirijap, Ladakh)",
+        posthumous: false,
+        citation: "Commanded a remote post at Sirijap-1 on the north bank of Pangong Lake against overwhelming Chinese infantry and artillery attacks, engaging in hand-to-hand combat.",
+        famousWords: "Fought off three massive waves of Chinese attacks at Pangong Tso before being captured as prisoner of war.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Major_Dhan_Singh_Thapa_PVC.jpg/800px-Major_Dhan_Singh_Thapa_PVC.jpg"
+    },
+    {
+        id: "joginder-singh",
+        name: "Subedar Joginder Singh",
+        regiment: "1st Battalion, Sikh Regiment",
+        rank: "Subedar",
+        year: 1962,
+        conflict: "1962 Sino-Indian War (Bum La, NEFA)",
+        posthumous: true,
+        citation: "Commanded a platoon at Tongpen La near Bum La. Repulsed three waves of enemy attacks; when ammunition ran out, he led a bayonet charge against enemy troops.",
+        famousWords: "Led a desperate Sikh bayonet charge at Bum La when ammunition was exhausted.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Subedar_Joginder_Singh_PVC.jpg/800px-Subedar_Joginder_Singh_PVC.jpg"
+    },
+    {
+        id: "shaitan-singh",
+        name: "Major Shaitan Singh",
+        regiment: "13th Battalion, Kumaon Regiment",
+        rank: "Major",
+        year: 1962,
+        conflict: "1962 Sino-Indian War (Rezang La, Ladakh)",
+        posthumous: true,
+        citation: "Commanded C Company of 13 Kumaon at Rezang La (18,000 ft). Moved from post to post under intense fire to reorganize defense; 114 out of 120 brave soldiers fought to the end.",
+        famousWords: "Refused evacuation, reorganizing defenses under artillery fire until his last breath at Rezang La.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Major_Shaitan_Singh_PVC.jpg/800px-Major_Shaitan_Singh_PVC.jpg"
     },
     {
         id: "abdul-hamid",
@@ -69,6 +215,30 @@ const PVC_HEROES = [
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/CQMH_Abdul_Hamid_PVC.jpg/800px-CQMH_Abdul_Hamid_PVC.jpg"
     },
     {
+        id: "ardeshir-tarapore",
+        name: "Lieutenant Colonel Ardeshir Burzorji Tarapore",
+        regiment: "17th Poona Horse",
+        rank: "Lieutenant Colonel",
+        year: 1965,
+        conflict: "1965 Indo-Pakistani War (Phillora, Sialkot)",
+        posthumous: true,
+        citation: "Commanded 17 Poona Horse tank regiment in the armored battle of Phillora. Despite being wounded, led his tanks to destroy sixty enemy tanks before being fatally hit.",
+        famousWords: "Refused medical treatment to remain at the head of his regiment during the largest tank battle since WWII.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Lt_Col_AB_Tarapore_PVC.jpg/800px-Lt_Col_AB_Tarapore_PVC.jpg"
+    },
+    {
+        id: "albert-ekka",
+        name: "Lance Naik Albert Ekka",
+        regiment: "14th Battalion, Brigade of the Guards",
+        rank: "Lance Naik",
+        year: 1971,
+        conflict: "1971 Indo-Pakistani War (Gangasagar)",
+        posthumous: true,
+        citation: "Silenced an enemy bunker machine gun during the Battle of Gangasagar. Scaled a building under fire to destroy a second medium machine gun position, saving his battalion.",
+        famousWords: "Crawled to enemy bunker and destroyed machine gun nest despite sustaining multiple bayonet wounds.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Lance_Naik_Albert_Ekka_PVC.jpg/800px-Lance_Naik_Albert_Ekka_PVC.jpg"
+    },
+    {
         id: "nirmal-jit-sekhon",
         name: "Flying Officer Nirmal Jit Singh Sekhon",
         regiment: "No. 18 Squadron, Indian Air Force ('Flying Bullets')",
@@ -81,10 +251,34 @@ const PVC_HEROES = [
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Flying_Officer_Nirmal_Jit_Singh_Sekhon_PVC.jpg/800px-Flying_Officer_Nirmal_Jit_Singh_Sekhon_PVC.jpg"
     },
     {
+        id: "arun-khetarpal",
+        name: "Second Lieutenant Arun Khetarpal",
+        regiment: "17th Poona Horse",
+        rank: "Second Lieutenant",
+        year: 1971,
+        conflict: "1971 Indo-Pakistani War (Battle of Basantar)",
+        posthumous: true,
+        citation: "Youngest PVC recipient at age 21. In his Centurion tank 'Famagusta', destroyed ten enemy tanks in Shakargarh sector, refusing to abandon his burning tank.",
+        famousWords: "'No Sir, I will not abandon my tank. My gun is still working and I will get these bastards.'",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/2nd_Lt_Arun_Khetarpal_PVC.jpg/800px-2nd_Lt_Arun_Khetarpal_PVC.jpg"
+    },
+    {
+        id: "hoshiar-singh",
+        name: "Major Hoshiar Singh",
+        regiment: "3rd Battalion, The Grenadiers",
+        rank: "Brigadier",
+        year: 1971,
+        conflict: "1971 Indo-Pakistani War (Battle of Basantar)",
+        posthumous: false,
+        citation: "Led C Company across the minefields of Basantar River. Repulsed repeated heavy counter-attacks by enemy infantry and armour despite severe shell splinter wounds.",
+        famousWords: "Commanded his company under fierce artillery bombardment, personally firing machine guns when gunners were wounded.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Major_Hoshiar_Singh_PVC.jpg/800px-Major_Hoshiar_Singh_PVC.jpg"
+    },
+    {
         id: "bana-singh",
         name: "Naib Subedar Bana Singh",
         regiment: "8th Battalion, Jammu and Kashmir Light Infantry",
-        rank: "Subedar / Captain (Hony)",
+        rank: "Captain (Honorary)",
         year: 1987,
         conflict: "1987 Operation Rajiv (Siachen Glacier)",
         posthumous: false,
@@ -93,16 +287,64 @@ const PVC_HEROES = [
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Bana_Singh_PVC.jpg/800px-Bana_Singh_PVC.jpg"
     },
     {
+        id: "ramaswamy-parameswaran",
+        name: "Major Ramaswamy Parameswaran",
+        regiment: "8th Battalion, Mahar Regiment",
+        rank: "Major",
+        year: 1987,
+        conflict: "Operation Pawan (IPKF Sri Lanka)",
+        posthumous: true,
+        citation: "Encircled by militant ambush in Sri Lanka, he launched a counter-charge, snatched a rifle from a militant and shot him dead despite taking a chest bullet wound.",
+        famousWords: "Continued directing his men and giving battle orders until his last breath during night ambush counter-attack.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Major_Ramaswamy_Parameswaran_PVC.jpg/800px-Major_Ramaswamy_Parameswaran_PVC.jpg"
+    },
+    {
+        id: "manoj-kumar-pandey",
+        name: "Lieutenant Manoj Kumar Pandey",
+        regiment: "1st Battalion, 11 Gorkha Rifles",
+        rank: "Lieutenant",
+        year: 1999,
+        conflict: "1999 Kargil War (Operation Vijay - Jubar Top)",
+        posthumous: true,
+        citation: "Single-handedly cleared four enemy positions on Khalubar ridge. Though wounded in the shoulder and leg, he pressed on to capture the final bunker before taking a fatal head injury.",
+        famousWords: "'If death strikes before I prove my blood, I swear I'll kill death!'",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Lt_Manoj_Kumar_Pandey_PVC.jpg/800px-Lt_Manoj_Kumar_Pandey_PVC.jpg"
+    },
+    {
         id: "yogendra-yadav",
         name: "Grenadier Yogendra Singh Yadav",
         regiment: "18th Battalion, The Grenadiers",
-        rank: "Subedar Major / Captain (Hony)",
+        rank: "Subedar Major / Captain (Honorary)",
         year: 1999,
         conflict: "1999 Kargil War (Tiger Hill)",
         posthumous: false,
         citation: "Sustained 15 bullet wounds while crawling up a vertical 1,000 ft cliff face on Tiger Hill, neutralizing two bunker positions.",
         famousWords: "Climbed rope under heavy enemy fire despite multiple injuries to secure Tiger Hill summit.",
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Subedar_Major_Yogendra_Singh_Yadav_PVC.jpg/800px-Subedar_Major_Yogendra_Singh_Yadav_PVC.jpg"
+    },
+    {
+        id: "sanjay-kumar",
+        name: "Rifleman Sanjay Kumar",
+        regiment: "13th Battalion, Jammu and Kashmir Rifles",
+        rank: "Subedar Major",
+        year: 1999,
+        conflict: "1999 Kargil War (Flat Top, Area Ledge)",
+        posthumous: false,
+        citation: "Leading scout for assault on Flat Top area. Charged an enemy machine-gun post, took three bullets, wrested the enemy gun, and turned it on fleeing enemy soldiers.",
+        famousWords: "Refused evacuation despite chest wounds, clearing enemy bunkers at Area Ledge in Batalik sector.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Subedar_Sanjay_Kumar_PVC.jpg/800px-Subedar_Sanjay_Kumar_PVC.jpg"
+    },
+    {
+        id: "vikram-batra",
+        name: "Captain Vikram Batra",
+        regiment: "13th Battalion, Jammu and Kashmir Rifles",
+        rank: "Captain",
+        year: 1999,
+        conflict: "1999 Kargil War (Operation Vijay - Point 5140 & 4875)",
+        posthumous: true,
+        citation: "Captured Peak 5140 and Peak 4875 in Kargil. Displayed legendary bravery under enemy fire, single-handedly killing enemy soldiers in close combat.",
+        famousWords: "'Yeh Dil Maange More!' / 'Either I will come back after hoisting the Tricolour, or I will come back wrapped in it, but I will be back for sure.'",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Captain_Vikram_Batra_PVC.jpg/800px-Captain_Vikram_Batra_PVC.jpg"
     }
 ];
 
@@ -112,10 +354,10 @@ const CONFLICTS_TIMELINE = [
     { year: "1962", title: "Sino-Indian War (Ladakh & NEFA)", recipients: 3 },
     { year: "1965", title: "Indo-Pakistani War of 1965", recipients: 2 },
     { year: "1971", title: "Indo-Pakistani War of 1971 (Liberation War)", recipients: 4 },
-    { year: "1987", title: "Operation Rajiv (Siachen Glacier)", recipients: 1 },
+    { year: "1987", title: "Operation Rajiv & Operation Pawan (Siachen & Sri Lanka)", recipients: 2 },
     { year: "1999", title: "Kargil War (Operation Vijay)", recipients: 4 }
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { PVC_INFO, MEDAL_HISTORY, PVC_HEROES, CONFLICTS_TIMELINE };
+    module.exports = { PVC_INFO, MEDAL_HISTORY, PVC_ELIGIBILITY, PVC_SELECTION_PROCESS, PVC_BATTLES, PVC_HEROES, CONFLICTS_TIMELINE };
 }
