@@ -1651,5 +1651,12 @@ window.indiaSearchIndex = [
     category: "Games & Geography",
     description: "Match Indian crops (Rice, Wheat, Cotton, Sugarcane, Watermelon, Mustard, etc.) with Kharif, Rabi & Zaid farming seasons, climate needs, and producing states across progressive difficulty levels.",
     url: "frontend/crop-journey/index.html"
+  },
+  // --- Chaukhamba I Mountain Explorer ---
+  {
+    title: "Chaukhamba I Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Explore Mount Chaukhamba I (7,138 m) in Uttarakhand — four-pillared massif geography, 1952 French first ascent, Gangotri & Satopanth glaciers, facts, gallery, and trekking guide.",
+    url: "frontend/chaukhamba-i/index.html"
   }
 ];
