@@ -187,6 +187,19 @@ Loose HTML, CSS, or JavaScript files inside the `frontend` directory are **not a
 - Include `aria-label`, `role`, and `alt` attributes for accessibility.
 - Use lowercase for tag and attribute names.
 
+### Generated pages
+
+State pages under `dist/states/` are **generated** from `scripts/layout.html` and
+`data.js` — do not hand-edit them. Edit the layout or the data, then run:
+
+```bash
+npm run generate        # rewrite dist/states/
+npm run generate:check  # verify the committed output is current (CI runs this)
+```
+
+`npm run generate:check` fails if `dist/` has drifted from the layout, so commit
+the regenerated files alongside any layout change.
+
 ### CSS
 
 - Use CSS custom properties from `:root` in `styles.css` for consistency.
