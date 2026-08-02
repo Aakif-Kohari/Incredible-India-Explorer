@@ -367,10 +367,29 @@ const fortsData = [
             "Tipu's Summer Palace (Dariya Daulat Bagh)",
             "Gumbaz (Tipu's mausoleum)",
             "Sriranganathaswamy Temple",
-            "Located on an island in River Kaveri"
+"Located on an island in River Kaveri"
         ]
     },
     {
+        id: "agra-fort",
+        name: "Agra Fort",
+        location: "Agra",
+        state: "Uttar Pradesh",
+        built: "1565-1573 CE",
+        builtBy: "Emperor Akbar",
+        era: "Mughal Era",
+        architecture: "Mughal Architecture",
+        image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80",
+        history: "Agra Fort is a massive red sandstone fortress on the banks of the Yamuna river, rebuilt by Emperor Akbar from 1565 and later enriched with white marble palaces by Jahangir and Shah Jahan. It served as the main residence of the Mughal emperors until the capital moved to Delhi in 1638, and is where Shah Jahan was later imprisoned by his son Aurangzeb.",
+        highlights: [
+            "UNESCO World Heritage Site since 1983",
+            "Musamman Burj - where Shah Jahan was imprisoned",
+            "Sheesh Mahal (Mirror Palace)",
+            "Moti Masjid (Pearl Mosque)",
+            "Distant view of the Taj Mahal"
+        ],
+        customUrl: "agra-fort.html"
+    },    {
         id: 13,
         name: "Rajgad Fort",
         location: "Pune",
