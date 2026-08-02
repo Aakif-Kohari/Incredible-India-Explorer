@@ -349,12 +349,30 @@ const fortsData = [
             "Hidden 1.4 km underwater wall",
             "Kanhoji Angre's headquarters"
         ],
-        customUrl: "vijaydurg-fort.html"
+customUrl: "vijaydurg-fort.html"
+    },
+    {
+        id: "gagron-fort",
+        name: "Gagron Fort",
+        location: "Jhalawar",
+        state: "Rajasthan",
+        built: "7th-14th Century",
+        builtBy: "Dod Rajputs / Khichi Chauhan Dynasty",
+        era: "Rajput Era",
+        architecture: "Rajput Hill-and-Water Fort Architecture",
+        image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80",
+        history: "A rare hill-and-water fort at the confluence of the Kali Sindh and Ahu rivers, encircled by water on three sides and needing no moat, later recognised as a UNESCO World Heritage Site.",
+        highlights: [
+            "UNESCO World Heritage Site",
+            "Only fort in Rajasthan without a moat",
+            "Surrounded by two rivers",
+            "Site of two historic jauhars"
+        ],
+        customUrl: "gagron-fort.html"
     },
     {
         id: 12,
-        name: "Srirangapatna Fort",
-        location: "Srirangapatna",
+        name: "Srirangapatna Fort",        location: "Srirangapatna",
         state: "Karnataka",
         built: "15th Century",
         builtBy: "Tipu Sultan",
