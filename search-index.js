@@ -1651,5 +1651,12 @@ window.indiaSearchIndex = [
     category: "Games & Geography",
     description: "Match Indian crops (Rice, Wheat, Cotton, Sugarcane, Watermelon, Mustard, etc.) with Kharif, Rabi & Zaid farming seasons, climate needs, and producing states across progressive difficulty levels.",
     url: "frontend/crop-journey/index.html"
+  },
+  // --- Prime Ministers of India Timeline ---
+  {
+    title: "Prime Ministers of India Timeline",
+    category: "Governance & Politics",
+    description: "Interactive learning timeline showcasing every Prime Minister of India from Jawaharlal Nehru to Narendra Modi, featuring portraits, party filters, key reforms, historical milestones, and trivia.",
+    url: "frontend/governance/prime-ministers/index.html"
   }
 ];
