@@ -141,7 +141,16 @@ const isMain = process.argv[1] && import.meta.url === pathToFileURL(process.argv
 
 if (isMain) {
   const args = process.argv.slice(2).filter((a) => a.endsWith('.html'));
-  const files = args.length ? args.filter((f) => fs.existsSync(f)) : collectHtmlFiles('.');
+  const files = args.length ? args : collectHtmlFiles('.');
+
+  // A typo'd path would otherwise scan nothing and exit 0, reporting a clean bill
+  // of health for a file that was never read.
+  const missing = files.filter((f) => !fs.existsSync(f));
+  if (missing.length) {
+    console.error(`File(s) not found: ${missing.join(', ')}`);
+    process.exit(1);
+  }
+
   const { totalScanned, violations } = auditAccessibility(files);
 
   for (const v of violations) {

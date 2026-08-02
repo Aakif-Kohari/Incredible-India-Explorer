@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+import { execFileSync } from 'node:child_process';
 import { RULES, auditAccessibility } from '../../scripts/accessibility-check.js';
 
 const rule = (id) => RULES.find((r) => r.id === id);
@@ -67,5 +68,33 @@ describe('accessibility-check reporting', () => {
     const { totalScanned, violations } = auditAccessibility();
     expect(totalScanned).toBeGreaterThan(0);
     expect(violations).toEqual([]);
+  });
+});
+
+describe('accessibility-check CLI', () => {
+  const run = (args) => {
+    try {
+      const stdout = execFileSync('node', ['scripts/accessibility-check.js', ...args], {
+        encoding: 'utf8',
+        stdio: ['ignore', 'pipe', 'pipe']
+      });
+      return { code: 0, output: stdout };
+    } catch (err) {
+      return { code: err.status, output: `${err.stdout || ''}${err.stderr || ''}` };
+    }
+  };
+
+  it('fails loudly when an explicitly named file does not exist', () => {
+    // Silently scanning nothing would report a clean bill of health for a file
+    // that was never read.
+    const { code, output } = run(['definitely-not-a-real-page.html']);
+    expect(code).toBe(1);
+    expect(output).toMatch(/not found/i);
+  });
+
+  it('scans an existing file that is passed explicitly', () => {
+    const { code, output } = run(['login.html']);
+    expect(code).toBe(0);
+    expect(output).toMatch(/scanned 1 page/);
   });
 });
