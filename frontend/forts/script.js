@@ -371,6 +371,26 @@ const fortsData = [
         ]
     },
     {
+        id: "jaigarh-fort",
+        name: "Jaigarh Fort",
+        location: "Jaipur",
+        state: "Rajasthan",
+        built: "1726",
+        builtBy: "Sawai Jai Singh II",
+        era: "Kachwaha Era",
+        architecture: "Rajput Military Architecture",
+        image: "https://images.unsplash.com/photo-1590716179555-8c8a9dc5c6d9?w=800&q=80",
+        history: "Jaigarh Fort was built in 1726 by Sawai Jai Singh II to strengthen the defences of Amer Fort and house the state's cannon foundry. Perched on Cheel ka Teela in the Aravalli hills, it was never conquered in battle and is famed for the Jaivana Cannon, the largest cannon on wheels in the world.",
+        highlights: [
+            "Houses the Jaivana Cannon, the world's largest cannon on wheels",
+            "Connected to Amer Fort by underground passages",
+            "One of Asia's few surviving cannon foundries",
+            "Never captured in battle",
+            "Panoramic views from the Diya Burj watchtower"
+        ],
+        customUrl: "jaigarh-fort.html"
+    },
+        {
         id: "kumbhalgarh-fort",
         name: "Kumbhalgarh Fort",
         location: "Kumbhalgarh",
