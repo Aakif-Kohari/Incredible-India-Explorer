@@ -1426,7 +1426,6 @@ window.indiaSearchIndex = [
     category: "National Parks & Wildlife",
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"},
-  },
   // --- Haiderpur Wetland Explorer ---
   {
     title: "Haiderpur Wetland Explorer",
@@ -1664,5 +1663,12 @@ window.indiaSearchIndex = [
     category: "Governance & Politics",
     description: "Interactive learning timeline showcasing every Prime Minister of India from Jawaharlal Nehru to Narendra Modi, featuring portraits, party filters, key reforms, historical milestones, and trivia.",
     url: "frontend/governance/prime-ministers/index.html"
+  },
+  // --- National Film Awards Explorer ---
+  {
+    title: "National Film Awards Explorer",
+    category: "Awards & Honours",
+    description: "Explore India's most prestigious government-sponsored film awards — history since 1954, the Golden and Silver Lotus, categories, Best Feature Film, acting and technical awards, selection process, timeline, and notable winners.",
+    url: "frontend/national-film-awards-explorer/index.html"
   }
 ];
