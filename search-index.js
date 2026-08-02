@@ -1652,11 +1652,17 @@ window.indiaSearchIndex = [
     description: "Match Indian crops (Rice, Wheat, Cotton, Sugarcane, Watermelon, Mustard, etc.) with Kharif, Rabi & Zaid farming seasons, climate needs, and producing states across progressive difficulty levels.",
     url: "frontend/crop-journey/index.html"
   },
-  // --- Mount Kamet Explorer ---
+  // --- Indian Superlatives Explorer ---
   {
-    title: "Mount Kamet Explorer",
-    category: "Mountains & Geography",
-    description: "Explore Mount Kamet (7,756 m) in Uttarakhand — geography, historic 1931 first ascent, Meade's Col route breakdown, fast facts, gallery, and nearby attractions.",
-    url: "frontend/kamet/index.html"
+    title: "Interactive Indian Superlatives Explorer",
+    category: "Geography & Nature",
+    description: "Discover the largest, highest, longest, and oldest wonders of India featuring interactive cards, scale comparison infographics, and geographical map visualization.",
+    url: "frontend/indian-superlatives-explorer/index.html"},
+  // --- Prime Ministers of India Timeline ---
+  {
+    title: "Prime Ministers of India Timeline",
+    category: "Governance & Politics",
+    description: "Interactive learning timeline showcasing every Prime Minister of India from Jawaharlal Nehru to Narendra Modi, featuring portraits, party filters, key reforms, historical milestones, and trivia.",
+    url: "frontend/governance/prime-ministers/index.html"
   }
 ];
