@@ -80,6 +80,16 @@
             useSafeInit: true,
             name: 'Trip Planner'
         },
+        'budget-planner.html': {
+            // trip-planner.js is loaded here too (not just on
+            // trip-planner.html) so the Budget Planner's itinerary-forecast
+            // section can read window.TripPlanner.getSavedTrips() and
+            // buildDailySchedule() directly — see js-modules/smart-budget-planner.js.
+            scripts: ['trip-data.js', 'js-modules/trip-planner.js', 'js-modules/smart-budget-planner.js'],
+            initName: 'initBudgetPlannerPage',
+            useSafeInit: true,
+            name: 'Budget Planner'
+        },
         'heritage.html': { log: '✅ Heritage page loaded successfully' },
         'monuments.html': { log: '✅ Monuments page loaded successfully' },
         'hidden-gems.html': { log: '✅ Hidden Gems page loaded successfully' },

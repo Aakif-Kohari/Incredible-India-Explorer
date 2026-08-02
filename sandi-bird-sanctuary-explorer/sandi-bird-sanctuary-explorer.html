@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Sandi Bird Sanctuary Explorer - Discover the Ramsar Wetland and freshwater sanctuary in Hardoi, Uttar Pradesh, India. A critical habitat for resident and migratory birds." name="description"/>
+    <meta property="og:title" content="Sandi Bird Sanctuary Explorer | Incredible India"/>
+    <meta property="og:description" content="Explore Sandi Bird Sanctuary, a vital Ramsar Site and freshwater ecosystem in Uttar Pradesh."/>
+    
+    <title>Sandi Bird Sanctuary Explorer | Incredible India</title>
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <link href="../styles.css" rel="stylesheet"/>
+    <link href="../pages-common.css" rel="stylesheet"/>
+    <link href="sandi-bird-sanctuary-explorer.css" rel="stylesheet"/>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Sandi Bird Sanctuary",
+      "description": "Ramsar Wetland & Freshwater Bird Sanctuary.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hardoi",
+        "addressRegion": "Uttar Pradesh",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+                <a href="../festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+                <a href="../culture.html" class="nav-link" id="link-culture">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife.html" class="dropdown-item" style="color: var(--saffron)">Nature & Wildlife</a>
+                        <a href="../personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="../arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" style="padding-top: 80px;">
+        
+        <!-- Hero Section -->
+        <section class="wetland-hero">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge ramsar"><i class="fa-solid fa-water"></i> Ramsar Site</span>
+                    <span class="badge sanctuary"><i class="fa-solid fa-dove"></i> Bird Sanctuary</span>
+                    <span class="badge freshwater"><i class="fa-solid fa-leaf"></i> Freshwater Wetland</span>
+                    <span class="badge habitat"><i class="fa-solid fa-route"></i> Migratory Habitat</span>
+                </div>
+                <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Sandi Bird Sanctuary</h1>
+                <p class="hero-subtitle animate-fade-in-delayed" style="color: var(--saffron); font-size: 1.5rem; font-family: 'Playfair Display', serif; margin-bottom: 15px;">Ramsar Wetland & Freshwater Sanctuary</p>
+                <p class="hero-location" style="color: #eee; font-size: 1.1rem; margin-bottom: 25px;"><i class="fa-solid fa-map-pin"></i> Hardoi District, Uttar Pradesh, India</p>
+                <div class="hero-actions">
+                    <a href="#birds" class="btn btn-primary ripple">View Bird Species</a>
+                    <a href="#map" class="btn btn-secondary ripple">Explore Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- History & Ramsar Site -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge gold-bg">Heritage & Status</span>
+                    <h2>A Protected Wetland Ecosystem</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-landmark"></i> Historical Development</h3>
+                        <p>Sandi Bird Sanctuary originated as a natural freshwater marsh. Recognizing its immense importance for local biodiversity and migratory flocks, it was brought under strict wildlife conservation initiatives, evolving into a premier protected sanctuary in Uttar Pradesh.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-globe"></i> Ramsar Designation</h3>
+                        <p>Internationally recognized under the Ramsar Convention, Sandi is a wetland of global significance. Its conservation objectives focus on maintaining sustainable management practices to protect its rich biodiversity and vital hydrological functions.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-leaf"></i> Wetland Habitat</h3>
+                        <p>The sanctuary is characterized by shallow lakes, freshwater marshes, dense reed beds, and grasslands. This intricate ecological food web provides vital ecosystem services, buffering against floods and maintaining local water tables.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bird Species & Migratory Birds -->
+        <section id="birds" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Avian Paradise</span>
+                    <h2 style="color: var(--text-primary);">Resident & Migratory Birds</h2>
+                    <p class="section-subtitle">A critical stopover and breeding habitat on the Central Asian Flyway.</p>
+                </div>
+                
+                <div style="margin-bottom: 40px; background: rgba(0, 188, 212, 0.1); border-left: 4px solid #00bcd4; padding: 20px; border-radius: 0 12px 12px 0;">
+                    <h3 style="color: #00bcd4; margin-bottom: 10px;"><i class="fa-solid fa-route"></i> Central Asian Flyway</h3>
+                    <p style="color: var(--text-primary);">During the winter migration, Sandi becomes a bustling hub of avian activity. Seasonal arrivals use these extensive feeding grounds as a crucial <strong>stopover habitat</strong>, offering unparalleled <strong>birdwatching opportunities</strong> for visitors and researchers alike.</p>
+                </div>
+
+                <div class="wildlife-grid">
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Sarus_crane_%28Antigone_antigone%29.jpg/800px-Sarus_crane_%28Antigone_antigone%29.jpg" alt="Sarus Crane" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1596766632420-9426f83ecff9?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Sarus Crane</h3>
+                            <span class="wildlife-status status-vulnerable">Vulnerable (Resident)</span>
+                            <p>The world's tallest flying bird, the state bird of UP, finds excellent nesting habitats in the sanctuary's marshes.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Painted_Stork_%28Mycteria_leucocephala%29_Photograph_By_Shantanu_Kuveskar.jpg/800px-Painted_Stork_%28Mycteria_leucocephala%29_Photograph_By_Shantanu_Kuveskar.jpg" alt="Painted Stork" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1616781297597-402a5a0fb773?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Painted Stork</h3>
+                            <span class="wildlife-status status-near-threatened">Near Threatened</span>
+                            <p>Forms large, noisy breeding colonies in the trees surrounding the shallow wetland waters.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Purple_Heron_-_Ardea_purpurea_2.jpg/800px-Purple_Heron_-_Ardea_purpurea_2.jpg" alt="Purple Heron" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1555541655-081b22306c59?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Purple Heron</h3>
+                            <span class="wildlife-status status-least-concern">Resident/Migrant</span>
+                            <p>An expert at camouflage, this heron wades stealthily through the dense reed beds hunting for fish.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Asian_Openbill.jpg/800px-Asian_Openbill.jpg" alt="Asian Openbill" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1534005085871-3316dbfc2577?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Asian Openbill</h3>
+                            <span class="wildlife-status status-least-concern">Resident</span>
+                            <p>Named for its unique bill structure designed to extract snails, a staple of the sanctuary's muddy banks.</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <p style="color: var(--text-muted); font-size: 1rem;"><strong>Other prominent species include:</strong> Black-necked Stork, Little Egret, Grey Heron, White Ibis, Cormorants, and various Kingfishers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conservation & Interesting Facts -->
+        <section class="content-section fade-in-section">
+            <div class="section-container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+                <div class="activities-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: var(--green); color: white;">Conservation</span>
+                        <h2>Protecting Sandi</h2>
+                    </div>
+                    <ul style="color: var(--text-muted); line-height: 1.8;">
+                        <li><strong>Habitat Restoration:</strong> Dedicated programs to manage aquatic vegetation and restore optimal water levels.</li>
+                        <li><strong>Pollution Prevention:</strong> Strict monitoring of incoming water to ensure a pristine environment for aquatic life.</li>
+                        <li><strong>Eco-Tourism & Awareness:</strong> Fostering community awareness through responsible eco-tourism and wildlife protection initiatives.</li>
+                    </ul>
+                </div>
+                <div class="facts-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: #e91e63; color: white;">Facts</span>
+                        <h2>Did You Know?</h2>
+                    </div>
+                    <ul style="color: var(--text-muted); line-height: 1.8;">
+                        <li>It is one of Uttar Pradesh's Ramsar-designated wetlands.</li>
+                        <li>Located directly on the Central Asian Flyway, making it a critical migratory hotspot.</li>
+                        <li>Supports hundreds of resident and migratory bird species annually.</li>
+                        <li>Serves as an important breeding habitat for several waterbird species, including the Sarus Crane.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery (Lazy Loaded) -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #ff9800; color: white;">Gallery</span>
+                    <h2 id="gallery-heading">Visuals of the Sanctuary</h2>
+                </div>
+                <div class="gallery-grid" id="gallery-grid" role="region" aria-labelledby="gallery-heading">
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Wetland Landscape">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?auto=format&fit=crop&w=800&q=80" alt="Beautiful wetland landscape in UP">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Resident Birds">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1555541655-081b22306c59?auto=format&fit=crop&w=800&q=80" alt="Flock of resident birds">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Birdwatchers">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Birdwatchers observing from a trail">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Sunset">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=800&q=80" alt="Golden sunset over Sandi Bird Sanctuary">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section id="map" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Map</span>
+                    <h2>Explore the Reserve</h2>
+                    <p class="section-subtitle">Find nature trails, birdwatching towers, and viewing points.</p>
+                </div>
+                <div id="map-container" aria-label="Interactive map of Sandi Bird Sanctuary"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../pages-common.js"></script>
+    <script src="sandi-bird-sanctuary-explorer.js"></script>
+</body>
+</html>
