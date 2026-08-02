@@ -11,12 +11,12 @@ function loadPvcData() {
         'utf-8'
     );
     const fn = new Function(
-        code + '\nreturn { PVC_INFO, MEDAL_HISTORY, PVC_HEROES, CONFLICTS_TIMELINE };'
+        code + '\nreturn { PVC_INFO, MEDAL_HISTORY, PVC_ELIGIBILITY, PVC_SELECTION_PROCESS, PVC_BATTLES, PVC_HEROES, CONFLICTS_TIMELINE };'
     );
     return fn();
 }
 
-describe('Param Vir Chakra Gallery & Heroes Explorer — Data Tests', () => {
+describe('Param Vir Chakra Gallery & Heroes Explorer — Data & Integration Tests', () => {
     let data;
 
     beforeAll(() => {
@@ -45,17 +45,36 @@ describe('Param Vir Chakra Gallery & Heroes Explorer — Data Tests', () => {
         });
     });
 
+    describe('PVC_ELIGIBILITY & SELECTION', () => {
+        it('defines eligibility categories and selection process steps', () => {
+            expect(Array.isArray(data.PVC_ELIGIBILITY.categories)).toBe(true);
+            expect(data.PVC_ELIGIBILITY.categories.length).toBe(4);
+            expect(Array.isArray(data.PVC_SELECTION_PROCESS.steps)).toBe(true);
+            expect(data.PVC_SELECTION_PROCESS.steps.length).toBe(5);
+        });
+    });
+
+    describe('PVC_BATTLES', () => {
+        it('contains famous battles and military operations', () => {
+            expect(Array.isArray(data.PVC_BATTLES)).toBe(true);
+            expect(data.PVC_BATTLES.length).toBeGreaterThanOrEqual(6);
+            expect(data.PVC_BATTLES[0].title).toContain('Badgam');
+        });
+    });
+
     describe('PVC_HEROES catalog', () => {
-        it('is a non-empty array of heroes with citations', () => {
+        it('contains all 21 Param Vir Chakra recipients with citations', () => {
             expect(Array.isArray(data.PVC_HEROES)).toBe(true);
-            expect(data.PVC_HEROES.length).toBeGreaterThanOrEqual(6);
+            expect(data.PVC_HEROES.length).toBe(21);
         });
 
-        it('includes Major Somnath Sharma and Captain Vikram Batra', () => {
+        it('includes Major Somnath Sharma, Captain Vikram Batra, and CQMH Abdul Hamid', () => {
             const somnath = data.PVC_HEROES.find(h => h.id === 'somnath-sharma');
             const batra = data.PVC_HEROES.find(h => h.id === 'vikram-batra');
+            const hamid = data.PVC_HEROES.find(h => h.id === 'abdul-hamid');
             expect(somnath).toBeDefined();
             expect(batra).toBeDefined();
+            expect(hamid).toBeDefined();
             expect(somnath.famousWords).toContain('last man and the last round');
             expect(batra.famousWords).toContain('Yeh Dil Maange More');
         });
@@ -65,6 +84,17 @@ describe('Param Vir Chakra Gallery & Heroes Explorer — Data Tests', () => {
         it('covers 7 major historical conflicts', () => {
             expect(Array.isArray(data.CONFLICTS_TIMELINE)).toBe(true);
             expect(data.CONFLICTS_TIMELINE.length).toBe(7);
+        });
+    });
+
+    describe('Landing Page Integration', () => {
+        it('is linked correctly from awards-of-india-explorer landing page', () => {
+            const indexHtml = readFileSync(
+                resolve(__dirname, '../../frontend/awards-of-india-explorer/index.html'),
+                'utf-8'
+            );
+            expect(indexHtml).toContain('../param-vir-chakra-explorer/index.html');
+            expect(indexHtml).toContain('Param Vir Chakra');
         });
     });
 });
