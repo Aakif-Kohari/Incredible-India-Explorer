@@ -369,6 +369,26 @@ const fortsData = [
             "Sriranganathaswamy Temple",
             "Located on an island in River Kaveri"
         ]
+    },
+    {
+        id: 13,
+        name: "Daulatabad Fort",
+        location: "Daulatabad, near Aurangabad",
+        state: "Maharashtra",
+        built: "c. 1187 (fortifications expanded 14th–16th century)",
+        builtBy: "Bhillama V (Yadava Dynasty)",
+        era: "Yadava Era",
+        architecture: "Deccan Hill Fort / Indo-Islamic",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Daulatabad%20Fort%20a%20view.JPG",
+        history: "Originally known as Devagiri, this near-impregnable hill fort briefly served as the capital of the entire Delhi Sultanate under Muhammad bin Tughlaq in 1327. Famous for its rock-cut moat, dark defensive tunnel, and the towering Chand Minar.",
+        highlights: [
+            "Rock-cut moat once filled with crocodiles",
+            "Pitch-black defensive tunnel (Andheri)",
+            "63-metre Chand Minar tower",
+            "Briefly capital of the Delhi Sultanate (1327)",
+            "Considered one of India's most impregnable forts"
+        ],
+        explorerUrl: "../daulatabad-fort-explorer/index.html"
     }
 ];
 
@@ -517,7 +537,20 @@ function openModal(fort) {
         li.textContent = highlight;
         highlightsList.appendChild(li);
     });
-
+    // Show dedicated explorer link if available
+    let explorerLinkContainer = document.getElementById('modal-explorer-link');
+    if (explorerLinkContainer) explorerLinkContainer.remove();
+    if (fort.explorerUrl) {
+        const linkDiv = document.createElement('div');
+        linkDiv.id = 'modal-explorer-link';
+        linkDiv.style.cssText = 'margin-top: 1.5rem; text-align: center;';
+        const explorerLink = document.createElement('a');
+        explorerLink.href = fort.explorerUrl;
+        explorerLink.textContent = 'Launch Dedicated Explorer ➔';
+        explorerLink.style.cssText = 'display:inline-block; padding:0.75rem 1.5rem; background:linear-gradient(135deg, #ffb01f, #d97706); color:#000; font-weight:700; border-radius:999px; text-decoration:none;';
+        linkDiv.appendChild(explorerLink);
+        document.querySelector('.modal-highlights').appendChild(linkDiv);
+    }
     fortModal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
