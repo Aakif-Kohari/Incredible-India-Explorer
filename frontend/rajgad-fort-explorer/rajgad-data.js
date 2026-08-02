@@ -29,10 +29,10 @@ const RAJGAD_FACTS = [
 ];
 
 const RAJGAD_GALLERY = [
-    { id: "balekilla", title: "Balekilla Citadel", caption: "The fort's highest point, reached through the Maha Darwaja, commanding views over all three machis." },
-    { id: "padmavati", title: "Padmavati Machi", caption: "The largest machi, home to the Padmavati Temple and the ruins of Shivaji's residential quarters." },
-    { id: "suvela", title: "Suvela Machi", caption: "A narrow, heavily fortified ridge with double walls and hidden postern gates." },
-    { id: "sanjeevani", title: "Sanjeevani Machi", caption: "The longest of the three machis, ringed with bastions guarding the route toward Torna." },
-    { id: "maha-darwaja", title: "Maha Darwaja", caption: "The imposing main gateway leading into the Balekilla citadel." },
-    { id: "chor-darwaja", title: "Chor Darwaja", caption: "The 'thief's gate' used on the popular Gunjavane approach to Padmavati Machi." }
+    { id: "balekilla", title: "Balekilla Citadel", emoji: "🏰", caption: "The fort's highest point, reached through the Maha Darwaja, commanding views over all three machis." },
+    { id: "padmavati", title: "Padmavati Machi", emoji: "🛕", caption: "The largest machi, home to the Padmavati Temple and the ruins of Shivaji's residential quarters." },
+    { id: "suvela", title: "Suvela Machi", emoji: "⛰️", caption: "A narrow, heavily fortified ridge with double walls and hidden postern gates." },
+    { id: "sanjeevani", title: "Sanjeevani Machi", emoji: "🛡️", caption: "The longest of the three machis, ringed with bastions guarding the route toward Torna." },
+    { id: "maha-darwaja", title: "Maha Darwaja", emoji: "🚪", caption: "The imposing main gateway leading into the Balekilla citadel." },
+    { id: "chor-darwaja", title: "Chor Darwaja", emoji: "🗝️", caption: "The 'thief's gate' used on the popular Gunjavane approach to Padmavati Machi." }
 ];

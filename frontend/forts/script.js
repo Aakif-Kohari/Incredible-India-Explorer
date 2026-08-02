@@ -403,6 +403,11 @@ function openModal(fort) {
 // Add/remove a "Launch Dedicated Explorer" link for forts that have their own page
 function renderExplorerLink(fort) {
     let linkDiv = document.getElementById('modal-explorer-link');
+    if (!fort.explorerUrl) {
+        if (linkDiv) linkDiv.remove();
+        return;
+    }
+
     if (!linkDiv) {
         linkDiv = document.createElement('div');
         linkDiv.id = 'modal-explorer-link';
@@ -415,13 +420,11 @@ function renderExplorerLink(fort) {
         linkDiv.removeChild(linkDiv.firstChild);
     }
 
-    if (fort.explorerUrl) {
-        const explorerLink = document.createElement('a');
-        explorerLink.href = fort.explorerUrl;
-        explorerLink.textContent = 'Launch Dedicated Explorer ➔';
-        explorerLink.style.cssText = 'display:inline-block; padding:0.75rem 1.5rem; background:linear-gradient(135deg, #ffb01f, #d97706); color:#000; font-weight:700; border-radius:999px; text-decoration:none;';
-        linkDiv.appendChild(explorerLink);
-    }
+    const explorerLink = document.createElement('a');
+    explorerLink.href = fort.explorerUrl;
+    explorerLink.textContent = 'Launch Dedicated Explorer ➔';
+    explorerLink.style.cssText = 'display:inline-block; padding:0.75rem 1.5rem; background:linear-gradient(135deg, #ffb01f, #d97706); color:#000; font-weight:700; border-radius:999px; text-decoration:none;';
+    linkDiv.appendChild(explorerLink);
 }
 // Close modal
 function closeModal() {

@@ -56,10 +56,15 @@
             tile.setAttribute('aria-label', 'View ' + item.title);
             tile.dataset.index = String(index);
 
+            const emojiBox = document.createElement('span');
+            emojiBox.className = 'rg-gallery__tile-emoji';
+            emojiBox.textContent = item.emoji;
+
             const label = document.createElement('span');
             label.className = 'rg-gallery__tile-label';
             label.textContent = item.title;
 
+            tile.appendChild(emojiBox);
             tile.appendChild(label);
             tile.addEventListener('click', function () {
                 openLightbox(index);
@@ -85,6 +90,12 @@
 
             lightboxFigure.className = 'rg-lightbox__figure rg-lightbox__figure--' + item.id;
             lightboxFigure.textContent = '';
+
+            const lightboxEmoji = document.createElement('span');
+            lightboxEmoji.className = 'rg-lightbox__emoji';
+            lightboxEmoji.textContent = item.emoji;
+            lightboxFigure.appendChild(lightboxEmoji);
+
             const heading = document.createElement('span');
             heading.textContent = item.title;
             lightboxFigure.appendChild(heading);
