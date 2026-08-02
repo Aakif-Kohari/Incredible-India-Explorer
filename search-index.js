@@ -1652,11 +1652,17 @@ window.indiaSearchIndex = [
     description: "Match Indian crops (Rice, Wheat, Cotton, Sugarcane, Watermelon, Mustard, etc.) with Kharif, Rabi & Zaid farming seasons, climate needs, and producing states across progressive difficulty levels.",
     url: "frontend/crop-journey/index.html"
   },
-  // --- Chaukhamba I Mountain Explorer ---
+  // --- Indian Superlatives Explorer ---
   {
-    title: "Chaukhamba I Mountain Explorer",
-    category: "Mountains & Geography",
-    description: "Explore Mount Chaukhamba I (7,138 m) in Uttarakhand — four-pillared massif geography, 1952 French first ascent, Gangotri & Satopanth glaciers, facts, gallery, and trekking guide.",
-    url: "frontend/chaukhamba-i/index.html"
+    title: "Interactive Indian Superlatives Explorer",
+    category: "Geography & Nature",
+    description: "Discover the largest, highest, longest, and oldest wonders of India featuring interactive cards, scale comparison infographics, and geographical map visualization.",
+    url: "frontend/indian-superlatives-explorer/index.html"},
+  // --- Prime Ministers of India Timeline ---
+  {
+    title: "Prime Ministers of India Timeline",
+    category: "Governance & Politics",
+    description: "Interactive learning timeline showcasing every Prime Minister of India from Jawaharlal Nehru to Narendra Modi, featuring portraits, party filters, key reforms, historical milestones, and trivia.",
+    url: "frontend/governance/prime-ministers/index.html"
   }
 ];
