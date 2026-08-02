@@ -34,18 +34,50 @@ import { I18nEngine } from './i18n-engine.js';
       engine.getLanguages().forEach((lang) => {
         const item = document.createElement('li');
         item.setAttribute('role', 'option');
+        // Options must be focusable, or keyboard users can open the menu but
+        // never reach the choices inside it.
+        item.tabIndex = -1;
         item.dataset.langCode = lang.code;
         item.setAttribute('aria-selected', String(lang.code === engine.getCurrentLanguage()));
         item.textContent = `${lang.nativeLabel} (${lang.label})`;
-        item.addEventListener('click', async () => {
+
+        async function select() {
           await engine.setLanguage(lang.code);
           engine.applyToDOM(document);
           renderButtonLabel();
           renderMenu();
           closeMenu();
+          button.focus();
+        }
+
+        item.addEventListener('click', select);
+        item.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            select();
+          }
         });
         menu.appendChild(item);
       });
+    }
+
+    function options() {
+      return Array.from(menu.querySelectorAll('[role="option"]'));
+    }
+
+    /** Focus the option `delta` steps from the focused one, wrapping at both ends. */
+    function moveFocus(delta) {
+      const items = options();
+      if (!items.length) return;
+      const current = items.indexOf(document.activeElement);
+      const next = (current + delta + items.length) % items.length;
+      items[next].focus();
+    }
+
+    function focusEdge(which) {
+      const items = options();
+      if (!items.length) return;
+      items[which === 'last' ? items.length - 1 : 0].focus();
     }
 
     function openMenu() {
@@ -58,6 +90,31 @@ import { I18nEngine } from './i18n-engine.js';
     }
 
     button.addEventListener('click', () => (menu.hidden ? openMenu() : closeMenu()));
+
+    button.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        openMenu();
+        focusEdge(e.key === 'ArrowDown' ? 'first' : 'last');
+      }
+    });
+
+    menu.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        moveFocus(1);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        moveFocus(-1);
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        closeMenu();
+        button.focus();
+      } else if (e.key === 'Tab') {
+        closeMenu();
+      }
+    });
+
     document.addEventListener('click', (e) => {
       if (!wrapper.contains(e.target)) closeMenu();
     });
