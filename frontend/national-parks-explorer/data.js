@@ -802,7 +802,7 @@ entryFee: '₹50 (Indian), ₹300 (Foreign)',
         state: 'Karnataka',
         stateId: 'ka',
         established: 1987,
-        area: 1300,
+        area: 1300,},{
         id: 'sariska',
         name: 'Sariska National Park',
         state: 'Rajasthan',
