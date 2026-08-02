@@ -400,7 +400,11 @@ function openModal(fort) {
         const linkDiv = document.createElement('div');
         linkDiv.id = 'modal-explorer-link';
         linkDiv.style.cssText = 'margin-top: 1.5rem; text-align: center;';
-        linkDiv.innerHTML = `<a href="${fort.explorerUrl}" style="display:inline-block; padding:0.75rem 1.5rem; background:linear-gradient(135deg, #ffb01f, #d97706); color:#000; font-weight:700; border-radius:999px; text-decoration:none;">Launch Dedicated Explorer ➔</a>`;
+        const explorerLink = document.createElement('a');
+        explorerLink.href = fort.explorerUrl;
+        explorerLink.textContent = 'Launch Dedicated Explorer ➔';
+        explorerLink.style.cssText = 'display:inline-block; padding:0.75rem 1.5rem; background:linear-gradient(135deg, #ffb01f, #d97706); color:#000; font-weight:700; border-radius:999px; text-decoration:none;';
+        linkDiv.appendChild(explorerLink);
         document.querySelector('.modal-highlights').appendChild(linkDiv);
     }
     fortModal.classList.add('active');

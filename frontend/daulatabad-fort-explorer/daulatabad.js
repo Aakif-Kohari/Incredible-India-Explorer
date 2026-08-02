@@ -8,12 +8,32 @@
     const lightboxState = { index: 0 };
 
     document.addEventListener('DOMContentLoaded', function () {
+        initTheme();
         renderHeroStats();
         renderText();
         renderFacts();
         renderGallery();
         bindLightboxEvents();
     });
+
+    function initTheme() {
+        const themeBtn = document.getElementById('theme-toggle');
+        if (!themeBtn) return;
+
+        const applyIcon = function () {
+            const isLight = document.documentElement.classList.contains('light-theme');
+            themeBtn.textContent = isLight ? '🌙' : '☀️';
+            themeBtn.title = isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+        };
+
+        applyIcon();
+
+        themeBtn.addEventListener('click', function () {
+            const isLight = document.documentElement.classList.toggle('light-theme');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            applyIcon();
+        });
+    }
 
     function renderHeroStats() {
         const el = document.getElementById('hero-quick-stats');
@@ -88,6 +108,13 @@
         });
     }
 
+    function getLightboxFocusable() {
+        const lb = document.getElementById('lightbox');
+        if (!lb) return [];
+        const selector = '#lightbox-close, #lightbox-prev, #lightbox-next';
+        return Array.prototype.slice.call(lb.querySelectorAll(selector));
+    }
+
     function bindLightboxEvents() {
         const closeBtn = document.getElementById('lightbox-close');
         const prevBtn = document.getElementById('lightbox-prev');
@@ -111,6 +138,19 @@
             if (e.key === 'Escape') closeLightbox();
             if (e.key === 'ArrowLeft') navigateLightbox(-1);
             if (e.key === 'ArrowRight') navigateLightbox(1);
+            if (e.key === 'Tab') {
+                const focusable = getLightboxFocusable();
+                if (!focusable.length) return;
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
         });
     }
 
