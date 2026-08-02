@@ -371,6 +371,26 @@ const fortsData = [
         ]
     },
     {
+        id: "kumbhalgarh-fort",
+        name: "Kumbhalgarh Fort",
+        location: "Kumbhalgarh",
+        state: "Rajasthan",
+        built: "15th Century (c. 1443-1458 CE)",
+        builtBy: "Rana Kumbha",
+        era: "Mewar Era",
+        architecture: "Rajput Hill Fort Architecture",
+        image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80",
+        history: "Kumbhalgarh Fort was built in the 15th century by Rana Kumbha of Mewar and is best known for its massive fortification wall, often called the Great Wall of India, stretching roughly 36 kilometres across the Aravalli hills. It is the birthplace of Maharana Pratap and was breached only once in its history.",
+        highlights: [
+            "UNESCO World Heritage Site (Hill Forts of Rajasthan, 2013)",
+            "One of the longest continuous walls in the world",
+            "Birthplace of Maharana Pratap",
+            "Badal Mahal (Cloud Palace)",
+            "Over 300 temples within the fort walls"
+        ],
+        customUrl: "kumbhalgarh-fort.html"
+    },
+        {
         id: "agra-fort",
         name: "Agra Fort",
         location: "Agra",
