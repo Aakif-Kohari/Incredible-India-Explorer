@@ -1425,7 +1425,117 @@ window.indiaSearchIndex = [
     title: "Simlipal National Park Explorer",
     category: "National Parks & Wildlife",
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
-    url: "frontend/simlipal-national-park-explorer/index.html"
+    url: "frontend/simlipal-national-park-explorer/index.html"},
+  },
+  // --- Haiderpur Wetland Explorer ---
+  {
+    title: "Haiderpur Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Haiderpur Wetland in Muzaffarnagar & Bijnor, UP — Ramsar Site #2463, Madhya Ganga Barrage floodplain sanctuary for Barasingha and 25,000+ waterbirds.",
+    url: "frontend/haiderpur-wetland-explorer/index.html"},
+  // --- Sultanpur National Park & Wetland Explorer ---
+  {
+    title: "Sultanpur National Park & Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Sultanpur National Park & Wetland in Gurugram, Haryana — Ramsar Site #2459, Central Asian Flyway wintering sanctuary for 250+ migratory bird species.",
+    url: "frontend/sultanpur-national-park-explorer/index.html"
+  },
+  // --- Valley of Flowers National Park Explorer ---
+  {
+    title: "Valley of Flowers National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Valley of Flowers National Park in Chamoli, Uttarakhand — UNESCO World Heritage Site, high-altitude Pushpawati river valley, Himalayan Blue Poppies, Brahma Kamal, and Snow Leopards.",
+    url: "frontend/valley-of-flowers-explorer/index.html"
+  },
+  // --- Param Vir Chakra Gallery & Heroes Explorer ---
+  {
+    title: "Param Vir Chakra Gallery & Heroes Explorer",
+    category: "Military Heritage & Honours",
+    description: "Explore the Param Vir Chakra Gallery honoring all 21 recipient heroes of India's highest military decoration for valor, featuring Savitri Khanolkar's medal design and citations.",
+    url: "frontend/param-vir-chakra-explorer/index.html"
+  },
+  // --- UNESCO Mountain Railways of India Explorer ---
+  {
+    title: "UNESCO Mountain Railways of India Explorer",
+    category: "UNESCO Engineering & Heritage",
+    description: "Explore the UNESCO World Heritage Mountain Railways of India — Darjeeling Himalayan Railway, Nilgiri Mountain Railway (Abt Rack & Pinion), and Kalka-Shimla Railway.",
+    url: "frontend/mountain-railways-explorer/index.html"
+  },
+  // --- Udhwa Wetlands Explorer ---
+  {
+    title: "Udhwa Wetlands Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Udhwa Wetlands in Sahibganj, Jharkhand — Jharkhand's only Ramsar Site, featuring twin Patauda & Berhale oxbow lakes.",
+    url: "frontend/udhwa-wetlands-explorer/index.html"},
+  // --- Vellode Wetland Explorer ---
+  {
+    title: "Vellode Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Vellode Wetland (Vellode Bird Sanctuary) in Erode, Tamil Nadu — Ramsar Site, farmer-welcomed freshwater bird sanctuary for Spot-billed Pelicans and Darters.",
+    url: "frontend/vellode-wetland-explorer/index.html"},
+  // --- Point Calimere Wetland Explorer ---
+  {
+    title: "Point Calimere Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Point Calimere Wildlife & Bird Sanctuary in Nagapattinam, Tamil Nadu — coastal Ramsar Site No. 1210 famed for 30,000+ wintering flamingos, blackbucks, and the Muthupet mangroves.",
+    url: "frontend/point-calimere-wetland-explorer/index.html"},
+  // --- Satkosia Gorge Wetlands Explorer ---
+  {
+    title: "Satkosia Gorge Wetlands Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Satkosia Gorge Wetlands in Odisha — 22 km Mahanadi River gorge Ramsar site, pioneer sanctuary for Gharials and Mugger crocodiles.",
+    url: "frontend/satkosia-gorge-wetlands-explorer/index.html"},
+  // --- Ansupa Lake Explorer ---
+  {
+    title: "Ansupa Lake Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Ansupa Lake in Cuttack, Odisha — Ramsar Site, Odisha's largest freshwater oxbow lake formed by the Mahanadi River.",
+    url: "frontend/ansupa-lake-explorer/index.html"
+  },
+  // --- Tampara Lake Explorer ---
+  {
+    title: "Tampara Lake Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Tampara Lake in Ganjam, Odisha — Ramsar Site, freshwater coastal lagoon, fisheries, and eco-boating destination.",
+    url: "frontend/tampara-lake-explorer/index.html"
+  },
+  // --- Surinsar-Mansar Lakes Explorer ---
+  {
+    title: "Surinsar-Mansar Lakes Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore the Surinsar-Mansar Lakes in Jammu & Kashmir — twin sacred freshwater lakes, Ramsar Site No. 1573, Wildlife Sanctuary, rare turtles, freshwater medusa, birdlife, and local legends.",
+    url: "frontend/surinsar-mansar-lakes-explorer/index.html"
+  },
+  // --- Keshopur-Miani Wetland Explorer ---
+  {
+    title: "Keshopur-Miani Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Keshopur-Miani Community Reserve in Punjab — Punjab's first Ramsar Site, community reserve model, Sarus Crane habitat, and bird sanctuary.",
+    url: "frontend/keshopur-miani-wetland-explorer/index.html"},
+  // --- Shallabug Wetland Explorer ---
+  {
+    title: "Shallabug Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Shallabug Wetland Conservation Reserve in Kashmir — Ramsar Site, 200,000+ wintering migratory birds, and traditional wicker willow heritage.",
+    url: "frontend/shallabug-wetland-explorer/index.html"},
+  // --- Hygam Wetland Explorer ---
+  {
+    title: "Hygam Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Hygam Wetland Conservation Reserve in Baramulla, Kashmir — Ramsar Site, Central Asian Flyway stopover, and flood sponge in the Jhelum basin.",
+    url: "frontend/hygam-wetland-explorer/index.html"},
+  // --- Pala Wetland Explorer ---
+  {
+    title: "Pala Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Pala Wetland (Pala Tipa) in Mizoram — Mizoram's first Ramsar Site and largest natural freshwater lake surrounded by tropical evergreen forests.",
+    url: "frontend/pala-wetland-explorer/index.html"},
+  // --- Wadhvana Wetland Explorer ---
+  {
+    title: "Wadhvana Wetland Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore Wadhvana Wetland in Gujarat — a Ramsar Site and century-old reservoir built by Maharaja Sayajirao Gaekwad III, hosting 80,000+ wintering migratory birds.",
+    url: "frontend/wadhvana-wetland-explorer/index.html"
   },
   // --- The Making of Modern India (1757–1947) Timeline ---
   {
@@ -1496,5 +1606,50 @@ window.indiaSearchIndex = [
     category: "Governance & Politics",
     description: "Interactive educational explorer covering current Chief Ministers across all states and union territories, political parties, capitals, and state facts.",
     url: "frontend/state-chief-ministers-explorer/index.html"
+  },
+  // --- Kolleru Lake Explorer ---
+  {
+    title: "Kolleru Lake Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Explore Kolleru Lake in Andhra Pradesh — India's premier Spot-billed Pelican sanctuary, Krishna-Godavari freshwater basin, Ramsar Site #1209, and rich fish diversity.",
+    url: "frontend/kolleru-lake/index.html"},
+  // --- Loktak Lake Explorer ---
+  {
+    title: "Loktak Lake Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Explore Loktak Lake in Manipur — World's only floating national park (Keibul Lamjao), floating Phumdis, endangered Sangai Dancing Deer, and Meitei culture.",
+    url: "frontend/loktak-lake/index.html"},
+  // --- Chilika Lake Explorer ---
+  {
+    title: "Chilika Lake Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Explore Chilika Lake in Odisha — Asia's largest brackish water lagoon, Ramsar Site #229, Irrawaddy Dolphins, Nalabana Bird Sanctuary, and winter migratory waterfowl.",
+    url: "frontend/chilika-lake/index.html"},
+  // --- Wetlands of India Explorer Landing Page ---
+  {
+    title: "Wetlands of India Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Interactive central landing page for exploring the Wetlands of India — Ramsar Sites, lagoons, lakes, marshes, mangroves, interactive maps, search, and state/type filters.",
+    url: "frontend/wetlands/index.html"},
+  // --- Hemis National Park Explorer ---
+  {
+    title: "Hemis National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Hemis National Park in Ladakh — World's highest density of Snow Leopards, high-altitude cold desert ecosystem, Markha Valley trekking, Himalayan wildlife, and Buddhist culture.",
+    url: "frontend/hemis-national-park-explorer/index.html"
+  },
+  // --- River Origin Challenge ---
+  {
+    title: "River Origin Challenge",
+    category: "Games & Geography",
+    description: "Match Indian rivers (Ganga, Yamuna, Godavari, Brahmaputra, Kaveri, Narmada, Krishna, etc.) with their origins, tributaries, and sea destinations on an interactive map with drag-and-drop gameplay.",
+    url: "frontend/river-origin-challenge/index.html"
+  },
+  // --- Crop Journey Game ---
+  {
+    title: "Crop Journey Game",
+    category: "Games & Geography",
+    description: "Match Indian crops (Rice, Wheat, Cotton, Sugarcane, Watermelon, Mustard, etc.) with Kharif, Rabi & Zaid farming seasons, climate needs, and producing states across progressive difficulty levels.",
+    url: "frontend/crop-journey/index.html"
   }
 ];

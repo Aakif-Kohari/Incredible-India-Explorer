@@ -44,10 +44,10 @@ const NATIONAL_PARKS = [
         coordinates: { lat: 29.53, lng: 78.77 },
         climate: 'Subtropical',
         bestTime: 'November to June',
-        entryFee: '₹200 (Indian), ₹1000 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Jim_Corbett_National_Park_%28India%29.jpg/960px-Jim_Corbett_National_Park_%28India%29.jpg'
-    },
-    {
+entryFee: '₹200 (Indian), ₹1000 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Jim_Corbett_National_Park_%28India%29.jpg/960px-Jim_Corbett_National_Park_%28India%29.jpg',
+        explorerUrl: '../jim-corbett-national-park-explorer/index.html'
+    },    {
         id: 'kaziranga',
         name: 'Kaziranga National Park',
         state: 'Assam',
@@ -108,10 +108,10 @@ const NATIONAL_PARKS = [
         coordinates: { lat: 22.34, lng: 80.61 },
         climate: 'Tropical Dry Deciduous',
         bestTime: 'October to June',
-        entryFee: '₹150 (Indian), ₹500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Jungle_safari_-_Kanha_National_Park.jpg/960px-Jungle_safari_-_Kanha_National_Park.jpg'
-    },
-    {
+entryFee: '₹150 (Indian), ₹500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Jungle_safari_-_Kanha_National_Park.jpg/960px-Jungle_safari_-_Kanha_National_Park.jpg',
+        explorerUrl: '../kanha-national-park-explorer/index.html'
+    },    {
         id: 'kuno',
         name: 'Kuno National Park',
         state: 'Madhya Pradesh',
@@ -151,9 +151,9 @@ const NATIONAL_PARKS = [
         climate: 'Subtropical',
         bestTime: 'October to June',
         entryFee: '₹150 (Indian), ₹500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg/960px-1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg'
-    },
-    {
+image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg/960px-1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg',
+        explorerUrl: '../bandhavgarh-national-park-explorer/index.html'
+    },    {
         id: 'periyar',
         name: 'Periyar National Park',
         state: 'Kerala',
@@ -218,6 +218,28 @@ const NATIONAL_PARKS = [
         explorerUrl: '../valmiki-national-park-explorer/index.html'
     },
     {
+        id: 'valley-of-flowers',
+        name: 'Valley of Flowers National Park',
+        state: 'Uttarakhand',
+        stateId: 'uk',
+        established: 1982,
+        area: 87.5,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: true,
+        description:
+            'Enchanting high-altitude alpine valley in Uttarakhand, inscribed as a UNESCO World Heritage Site in 2005. Famous for carpets of rare endemic flora including Himalayan Blue Poppies and sacred Brahma Kamal.',
+        keyFauna: ['Snow Leopard', 'Himalayan Musk Deer', 'Red Panda', 'Blue Sheep (Bharal)', 'Himalayan Monal'],
+        keyFlora: ['Himalayan Blue Poppy', 'Brahma Kamal', 'Cobra Lily', 'Rhododendron'],
+        coordinates: { lat: 30.728, lng: 79.605 },
+        climate: 'Alpine Monsoonal',
+        bestTime: 'July to September',
+        entryFee: '₹150 (Indian), ₹600 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Meconopsis_aculeata_in_Valley_of_Flowers.jpg/960px-Meconopsis_aculeata_in_Valley_of_Flowers.jpg',
+        exploreUrl: '../valley-of-flowers-explorer/index.html'
+    },
+    {
         id: 'gir',
         name: 'Gir National Park & Sanctuary',
         state: 'Gujarat',
@@ -279,6 +301,7 @@ const NATIONAL_PARKS = [
         climate: 'Cold Desert',
         bestTime: 'June to September',
         entryFee: '₹30 (Indian), ₹300 (Foreign)',
+        explorerUrl: '../hemis-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Hemis_national_park.jpg/960px-Hemis_national_park.jpg'
     },
     {
@@ -513,10 +536,10 @@ const NATIONAL_PARKS = [
         coordinates: { lat: 21.74, lng: 79.29 },
         climate: 'Tropical Dry',
         bestTime: 'October to May',
-        entryFee: '₹100 (Indian), ₹500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Pench_National_Park%2C_Madhya_Pradesh_-_by_Ishani_Mehta.jpg/960px-Pench_National_Park%2C_Madhya_Pradesh_-_by_Ishani_Mehta.jpg'
-    },
-    {
+entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Pench_National_Park%2C_Madhya_Pradesh_-_by_Ishani_Mehta.jpg/960px-Pench_National_Park%2C_Madhya_Pradesh_-_by_Ishani_Mehta.jpg',
+        explorerUrl: '../pench-national-park-explorer/index.html'
+    },    {
         id: 'dachigam',
         name: 'Dachigam National Park',
         state: 'Jammu and Kashmir',
@@ -558,6 +581,27 @@ const NATIONAL_PARKS = [
         bestTime: 'November to March',
         entryFee: '₹50 (Indian), ₹300 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Desert_vegetation_DSC0942.jpg/960px-Desert_vegetation_DSC0942.jpg'
+    },
+    {
+        id: 'balpakram',
+        name: 'Balpakram National Park',
+        state: 'Meghalaya',
+        stateId: 'ml',
+        established: 1987,
+        area: 220,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description: 'Known as the "Abode of Perpetual Winds," Balpakram sits atop the Garo Hills plateau near the Bangladesh border. Famous for its dramatic gorge — often compared to a mini Grand Canyon — limestone caves, and as one of the few confirmed habitats of the red panda in the region.',
+        keyFauna: ['Red Panda', 'Clouded Leopard', 'Asian Elephant', 'Hoolock Gibbon', 'Bengal Tiger', 'Great Hornbill'],
+        keyFlora: ['Pitcher Plant', 'Sundew (Drosera)', 'Bamboo Forest', 'Montane Grassland', 'Shola Forest'],
+        coordinates: { lat: 25.417, lng: 90.867 },
+        climate: 'Subtropical Highland',
+        bestTime: 'October to April',
+        entryFee: '₹50 (Indian), ₹300 (Foreign)',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Matcha%20Nokpante%20(tiger%27s%20meeting%20place)%20in%20Balpakram%20National%20Park.jpg',
+        explorerUrl: '../balpakram-national-park-explorer/index.html'
     },
     {
         id: 'silent-valley',
@@ -624,6 +668,28 @@ const NATIONAL_PARKS = [
         explorerUrl: '../bannerghatta-national-park-explorer/index.html'
     },
     {
+        id: 'mouling',
+        name: 'Mouling National Park',
+        state: 'Arunachal Pradesh',
+        stateId: 'ar',
+        established: 1986,
+        area: 483,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description:
+            'A rugged, largely unexplored Eastern Himalayan biodiversity hotspot along the Siang River, home to the Red Panda, Clouded Leopard, and over 230 recorded bird species.',
+        keyFauna: ['Red Panda', 'Mishmi Takin', 'Clouded Leopard', 'Asiatic Black Bear', 'Hoolock Gibbon'],
+        keyFlora: ['Subtropical Broadleaf Forest', 'Temperate Oak & Rhododendron', 'Alpine Meadows'],
+        coordinates: { lat: 28.85, lng: 95.15 },
+        climate: 'Subtropical to Alpine',
+        bestTime: 'October to April',
+        entryFee: '₹50 (Indian), ₹300 (Foreign)',
+        explorerUrl: '/frontend/mouling-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Red_Panda_%28Ailurus_fulgens%29.jpg/960px-Red_Panda_%28Ailurus_fulgens%29.jpg'
+    },
+    {
         id: 'madhav',
         name: 'Madhav National Park',
         state: 'Madhya Pradesh',
@@ -685,9 +751,124 @@ const NATIONAL_PARKS = [
         bestTime: 'October to March',
         entryFee: '₹50 (Indian), ₹500 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/View_of_Gulf_of_Mannar_from_Rameshwaram%2C_Tamil_Nadu.jpg/960px-View_of_Gulf_of_Mannar_from_Rameshwaram%2C_Tamil_Nadu.jpg'
+    },
+    {
+        id: 'sanjay',
+        name: 'Sanjay National Park',
+        state: 'Madhya Pradesh',
+        stateId: 'mp',
+        established: 1981,
+        area: 466.65,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description: 'Part of the Sanjay-Dubri Tiger Reserve, this park boasts a rich history and pristine Sal forest ecosystems. It is known for its population of Bengal tigers, leopards, diverse herbivores, and vibrant birdlife. A true hidden gem for safari enthusiasts.',
+        keyFauna: ['Bengal Tiger', 'Leopard', 'Chital', 'Sambar', 'Nilgai', 'Wild Boar'],
+        keyFlora: ['Sal', 'Bamboo', 'Dhau', 'Salai'],
+        coordinates: { lat: 23.91, lng: 81.83 },
+        climate: 'Tropical Monsoon',
+        bestTime: 'November to June',
+        entryFee: '₹150 (Indian), ₹500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Bengal_tiger_in_Sanjay_Dubri_Tiger_Reserve_December_2024_by_Tisha_Mukherjee_11.jpg/960px-Bengal_tiger_in_Sanjay_Dubri_Tiger_Reserve_December_2024_by_Tisha_Mukherjee_11.jpg'
+    },
+    {
+        id: 'nokrek',
+        name: 'Nokrek National Park',
+        state: 'Meghalaya',
+        stateId: 'ml',
+        established: 1986,
+        area: 47.48,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description: 'A UNESCO Biosphere Reserve in the Garo Hills, globally significant as the center of origin of wild Citrus indica — the ancestor of most cultivated orange varieties. Its core zone protects the Red Panda alongside dense subtropical forests around Nokrek Peak, the highest point in the Garo Hills.',
+        keyFauna: ['Red Panda', 'Clouded Leopard', 'Asian Elephant', 'Hoolock Gibbon', 'Marbled Cat'],
+        keyFlora: ['Wild Citrus (Citrus indica)', 'Subtropical Broadleaf Forest', 'Orchids', 'Bamboo'],
+        coordinates: { lat: 25.47, lng: 90.30 },
+        climate: 'Subtropical Monsoon',
+        bestTime: 'October to April',
+        entryFee: '₹50 (Indian), ₹300 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Red_Panda_%28Ailurus_fulgens%29.jpg/960px-Red_Panda_%28Ailurus_fulgens%29.jpg',
+        explorerUrl: '../nokrek-national-park-explorer/index.html'
+    },
+    {
+        id: 'satpura',
+        name: 'Satpura National Park',
+        state: 'Madhya Pradesh',
+        stateId: 'mp',
+        established: 1981,
+        area: 524,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description: 'Named after the Satpura Range ("Sat" = seven, "Pura" = mountain), this rugged reserve of hills, gorges, and dense Sal-Teak forests is one of the few parks in India offering guided Walking Safaris and Canoe Safaris along the Denwa River, in addition to jeep safaris.',
+        keyFauna: ['Bengal Tiger', 'Leopard', 'Indian Gaur', 'Sloth Bear', 'Indian Wild Dog (Dhole)', 'Indian Giant Squirrel'],
+        keyFlora: ['Sal Forest', 'Teak', 'Bamboo', 'Reni Pani Vines'],
+        coordinates: { lat: 22.50, lng: 78.23 },
+        climate: 'Tropical',
+        bestTime: 'October to June',
+        entryFee: '₹250 (Indian), ₹1500 (Foreign)',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Amazing%20Landscape%20%40Satpura%20Tiger%20Reserve.jpg?width=960',
+        explorerUrl: '../satpura-national-park-explorer/index.html'
+    },
+    {
+        id: 'kali',
+        name: 'Kali National Park',
+        state: 'Karnataka',
+        stateId: 'ka',
+        established: 1987,
+        area: 1300,},{
+        id: 'sariska',
+        name: 'Sariska National Park',
+        state: 'Rajasthan',
+        stateId: 'rj',
+        established: 1982,
+        area: 881,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description: 'Formerly known as Anshi National Park, this tiger reserve is nourished by the Kali River. It protects lush evergreen forests, diverse birds, and elusive predators like the Black Panther, playing a crucial role in regional conservation efforts.',
+        keyFauna: ['Bengal Tiger', 'Black Panther', 'Indian Elephant', 'Great Hornbill', 'Sloth Bear'],
+        keyFlora: ['Evergreen Forests', 'Teak', 'Bamboo', 'Eucalyptus'],
+        coordinates: { lat: 15.01, lng: 74.38 },
+        climate: 'Tropical Monsoon',
+        bestTime: 'October to May',
+        entryFee: '₹250 (Indian), ₹1500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Kali_river.jpg/960px-Kali_river.jpg'
+    },
+    {
+        id: 'eravikulam',
+        name: 'Eravikulam National Park',
+        state: 'Kerala',
+        stateId: 'kl',
+        established: 1978,
+        area: 97,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description: 'Located in the majestic Western Ghats, this park is famous for the endangered Nilgiri Tahr and the spectacular blooming of Neelakurinji Flowers, which blanket the hills once every 12 years. It offers an incredible destination for wildlife observation and scenic trekking.',
+        keyFauna: ['Nilgiri Tahr', 'Golden Jackal', 'Leopard', 'Sambar', 'Atlas Moth'],
+        keyFlora: ['Neelakurinji Flowers', 'Shola Forest', 'Grasslands', 'Tea Plantations'],
+        coordinates: { lat: 10.20, lng: 77.08 },
+        climate: 'Tropical Montane',
+        bestTime: 'September to November',
+        entryFee: '₹120 (Indian), ₹500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Eravikulam_National_Park_%2849444006652%29.jpg/960px-Eravikulam_National_Park_%2849444006652%29.jpg'
+        description: 'Set against the backdrop of the rugged Aravalli Hills, this Tiger Reserve is famous for its successful tiger relocation program. Visitors can explore diverse wildlife along well-marked Safari Routes, admire the scrub-thorn flora, and visit the historic Kankwari Fort located within the reserve.',
+        keyFauna: ['Bengal Tiger', 'Leopard', 'Jungle Cat', 'Golden Jackal', 'Chital'],
+        keyFlora: ['Dhok', 'Salai', 'Ber', 'Khair', 'Scrub-thorn Flora'],
+        coordinates: { lat: 27.31, lng: 76.43 },
+        climate: 'Semi-arid',
+        bestTime: 'October to March',
+        entryFee: '₹125 (Indian), ₹500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Sariska_Tiger_Reserve%2C_Alwar.jpg/960px-Sariska_Tiger_Reserve%2C_Alwar.jpg'
     }
 ];
-
 const TIGER_RESERVES = NATIONAL_PARKS.filter(p => p.isTigerReserve);
 
 const UNESCO_SITES = NATIONAL_PARKS.filter(p => p.isUNESCO);
@@ -832,7 +1013,9 @@ const STATES = [
     { id: 'kl', name: 'Kerala', region: 'south' },
     { id: 'tn', name: 'Tamil Nadu', region: 'south' },
     { id: 'as', name: 'Assam', region: 'northeast' },
+    { id: 'br', name: 'Bihar', region: 'east' },
     { id: 'wb', name: 'West Bengal', region: 'east' },
     { id: 'or', name: 'Odisha', region: 'east' },
-    { id: 'ar', name: 'Arunachal Pradesh', region: 'northeast' }
+    { id: 'ar', name: 'Arunachal Pradesh', region: 'northeast' },
+    { id: 'ml', name: 'Meghalaya', region: 'northeast' }
 ];
