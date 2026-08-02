@@ -1485,6 +1485,13 @@ window.indiaSearchIndex = [
     description: "Explore Tampara Lake in Ganjam, Odisha — Ramsar Site, freshwater coastal lagoon, fisheries, and eco-boating destination.",
     url: "frontend/tampara-lake-explorer/index.html"
   },
+  // --- Surinsar-Mansar Lakes Explorer ---
+  {
+    title: "Surinsar-Mansar Lakes Explorer",
+    category: "Wetlands & Ramsar Sites",
+    description: "Explore the Surinsar-Mansar Lakes in Jammu & Kashmir — twin sacred freshwater lakes, Ramsar Site No. 1573, Wildlife Sanctuary, rare turtles, freshwater medusa, birdlife, and local legends.",
+    url: "frontend/surinsar-mansar-lakes-explorer/index.html"
+  },
   // --- Keshopur-Miani Wetland Explorer ---
   {
     title: "Keshopur-Miani Wetland Explorer",
