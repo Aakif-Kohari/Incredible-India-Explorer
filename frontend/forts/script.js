@@ -371,6 +371,26 @@ const fortsData = [
         ]
     },
     {
+        id: "nahargarh-fort",
+        name: "Nahargarh Fort",
+        location: "Jaipur",
+        state: "Rajasthan",
+        built: "1734 (expanded 1868)",
+        builtBy: "Sawai Jai Singh II",
+        era: "Kachwaha Era",
+        architecture: "Rajput-Indo-European Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "Nahargarh Fort was built in 1734 by Sawai Jai Singh II as part of Jaipur's defense ring alongside Amer and Jaigarh forts, and was later expanded in 1868 by Sawai Ram Singh. Perched on a ridge overlooking the city, it is famed for the Madhavendra Bhawan palace and panoramic sunset views of the Pink City.",
+        highlights: [
+            "Part of Jaipur's triangular defense system with Amer and Jaigarh forts",
+            "Madhavendra Bhawan with nine identical queens' suites",
+            "Popular sunset viewpoint over Jaipur",
+            "Linked to the legend of Nahar Singh Bhomia",
+            "Featured in films including Rang De Basanti"
+        ],
+        customUrl: "nahargarh-fort.html"
+    },
+        {
         id: "jaigarh-fort",
         name: "Jaigarh Fort",
         location: "Jaipur",
