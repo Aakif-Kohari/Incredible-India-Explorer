@@ -231,6 +231,46 @@ const fortsData = [
             "Sriranganathaswamy Temple",
             "Located on an island in River Kaveri"
         ]
+    },
+    {
+        id: 13,
+        name: "Rajgad Fort",
+        location: "Pune",
+        state: "Maharashtra",
+        built: "1647 (expanded)",
+        builtBy: "Chhatrapati Shivaji Maharaj",
+        era: "Maratha Era",
+        architecture: "Maratha Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "Rajgad, known as the King of Forts, served as the first capital of the Maratha Empire under Chhatrapati Shivaji Maharaj for nearly 26 years. Its trident-shaped plan of three fortified machis radiating from the central Balekilla citadel made it one of the most defensible strongholds of its time, before the capital shifted to Raigad Fort in 1674.",
+        highlights: [
+            "First capital of the Maratha Empire",
+            "Three fortified machis: Padmavati, Suvela, Sanjeevani",
+            "Balekilla citadel reached via the Maha Darwaja",
+            "Birthplace of Rajaram, Shivaji's son",
+            "Popular trekking destination near Pune"
+        ],
+        explorerUrl: "../rajgad-fort-explorer/index.html"
+    },
+    {
+        id: 14,
+        name: "Shivneri Fort",
+        location: "Junnar, Pune",
+        state: "Maharashtra",
+        built: "12th–14th century (Yadava era)",
+        builtBy: "Yadavas of Devagiri",
+        era: "Yadava / Maratha Era",
+        architecture: "Deccan Hill Fort Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "Shivneri Fort is revered as the birthplace of Chhatrapati Shivaji Maharaj, born here on 19 February 1630 while his mother Jijabai sheltered at the hilltop stronghold. Originally fortified by the Yadavas of Devagiri, the fort later passed through Bahmani and Nizamshahi hands before being granted to Maloji Bhosale, Shivaji's grandfather, in 1595 — beginning its enduring Maratha legacy.",
+        highlights: [
+            "Birthplace of Chhatrapati Shivaji Maharaj (1630)",
+            "Seven fortified gates built in a defensive zigzag pattern",
+            "Shiv Kunj memorial and the original birth chamber",
+            "Ancient Badami Talav stone water reservoir",
+            "400–500 step climb through Junnar's Sahyadri hills"
+        ],
+        explorerUrl: "../shivneri-fort-explorer/index.html"
     }
 ];
 
