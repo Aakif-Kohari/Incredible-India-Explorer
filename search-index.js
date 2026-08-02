@@ -1652,11 +1652,17 @@ window.indiaSearchIndex = [
     description: "Match Indian crops (Rice, Wheat, Cotton, Sugarcane, Watermelon, Mustard, etc.) with Kharif, Rabi & Zaid farming seasons, climate needs, and producing states across progressive difficulty levels.",
     url: "frontend/crop-journey/index.html"
   },
-  // --- History of Indian Banking ---
+  // --- Indian Superlatives Explorer ---
   {
-    title: "History of Indian Banking",
-    category: "Governance & Economy",
-    description: "Interactive historical journey through Indian banking from Presidency Banks and Imperial Bank to RBI formation, 1969 & 1980 Nationalization, 1991 Liberalization, and the UPI Digital Revolution.",
-    url: "frontend/history-of-indian-banking/index.html"
+    title: "Interactive Indian Superlatives Explorer",
+    category: "Geography & Nature",
+    description: "Discover the largest, highest, longest, and oldest wonders of India featuring interactive cards, scale comparison infographics, and geographical map visualization.",
+    url: "frontend/indian-superlatives-explorer/index.html"},
+  // --- Prime Ministers of India Timeline ---
+  {
+    title: "Prime Ministers of India Timeline",
+    category: "Governance & Politics",
+    description: "Interactive learning timeline showcasing every Prime Minister of India from Jawaharlal Nehru to Narendra Modi, featuring portraits, party filters, key reforms, historical milestones, and trivia.",
+    url: "frontend/governance/prime-ministers/index.html"
   }
 ];
