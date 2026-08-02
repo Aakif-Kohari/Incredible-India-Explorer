@@ -231,6 +231,26 @@ const fortsData = [
             "Sriranganathaswamy Temple",
             "Located on an island in River Kaveri"
         ]
+    },
+   
+    {
+        id: 14,
+        name: "Sindhudurg Fort",
+        location: "Malvan, Sindhudurg",
+        state: "Maharashtra",
+        built: "1664-1667",
+        builtBy: "Chhatrapati Shivaji Maharaj",
+        era: "Maratha Era",
+        architecture: "Maratha Sea Fort Architecture",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Sindhudurg%20Fort.jpg",
+        history: "Sindhudurg Fort is a formidable sea fort built by Chhatrapati Shivaji Maharaj on a rocky island off the coast of Malvan to strengthen the Maratha Navy and secure the Konkan coastline against European and Siddi naval powers. Constructed between 1664 and 1667 under the supervision of chief engineer Hiroji Indulkar, the fort spans nearly 48 acres and is enclosed by a massive stone wall roughly 3 km long, built to withstand relentless sea waves. It played a central role in establishing Maratha naval dominance and remains one of the best-preserved sea forts in India, still housing a temple dedicated to Shivaji Maharaj and the imprint of his hand and foot preserved in a shrine within the fort.",
+        highlights: [
+            "One of India's most important historic sea forts",
+            "Massive 3 km stone wall designed to withstand sea waves",
+            "Built to strengthen Maratha naval power against Europeans and Siddis",
+            "Shrine preserving Shivaji Maharaj's handprint and footprint",
+            "Accessible by ferry from Malvan; a major coastal heritage attraction"
+        ]
     }
 ];
 
