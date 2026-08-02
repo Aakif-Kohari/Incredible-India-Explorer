@@ -1,6 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 
+// --check verifies the committed output matches what the layout would produce
+// now, instead of writing files. Used by CI to catch stale dist/.
+const checkOnly = process.argv.includes('--check');
+const stale = [];
+
 // Load data.js - read file directly and evaluate to bypass any module caching issues
 const dataCode = fs.readFileSync(path.join(__dirname, '..', 'data.js'), 'utf8');
 const dataModule = { exports: {} };
@@ -99,8 +104,24 @@ locations.forEach(state => {
 
     // Write file
     const outputPath = path.join(statesDir, `${slug}.html`);
+
+    if (checkOnly) {
+        const existing = fs.existsSync(outputPath) ? fs.readFileSync(outputPath, 'utf8') : null;
+        if (existing !== pageHtml) stale.push(`dist/states/${slug}.html`);
+        return;
+    }
+
     fs.writeFileSync(outputPath, pageHtml);
     console.log(`Generated: dist/states/${slug}.html`);
 });
 
-console.log('Static Site Generation complete!');
+if (checkOnly) {
+    if (stale.length) {
+        console.error(`${stale.length} generated page(s) are out of date:\n  ${stale.join('\n  ')}`);
+        console.error('\nRun `npm run generate` and commit the result.');
+        process.exit(1);
+    }
+    console.log(`All ${generatedSlugs.size} generated pages are up to date.`);
+} else {
+    console.log('Static Site Generation complete!');
+}
