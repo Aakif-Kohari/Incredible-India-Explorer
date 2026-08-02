@@ -1,0 +1,469 @@
+/* ==========================================================================
+   Rajgad Fort Explorer
+   Palette: basalt stone, weathered copper ramparts, Sahyadri monsoon mist.
+   Signature: trident hero line-drawing echoing the fort's three-machi plan.
+   ========================================================================== */
+
+.fort-page {
+    --rg-basalt-900: #17150F;
+    --rg-basalt-800: #2A251D;
+    --rg-basalt-700: #3B342A;
+    --rg-copper: #C88A4A;
+    --rg-rust: #B24E30;
+    --rg-mist: #7FA391;
+    --rg-parchment: #EDE4D2;
+    --rg-parchment-dim: #C9BEA9;
+
+    --rg-bg: var(--rg-basalt-900);
+    --rg-surface: var(--rg-basalt-800);
+    --rg-surface-alt: var(--rg-basalt-700);
+    --rg-text: var(--rg-parchment);
+    --rg-text-dim: var(--rg-parchment-dim);
+    --rg-accent: var(--rg-copper);
+    --rg-accent-2: var(--rg-mist);
+
+    --rg-font-display: 'Fraunces', Georgia, serif;
+    --rg-font-body: 'Source Sans 3', system-ui, sans-serif;
+    --rg-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+    background: var(--rg-bg);
+    color: var(--rg-text);
+    font-family: var(--rg-font-body);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.fort-page.light-theme {
+    --rg-bg: #F4EEE2;
+    --rg-surface: #E8DFCD;
+    --rg-surface-alt: #DED2B8;
+    --rg-text: #241F1A;
+    --rg-text-dim: #5A5142;
+    --rg-accent: #9C5A24;
+    --rg-accent-2: #3E6E5C;
+}
+
+.fort-page * {
+    box-sizing: border-box;
+}
+
+.fort-page :focus-visible {
+    outline: 2px solid var(--rg-accent-2);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fort-page * {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+/* ---------- Header ---------- */
+.rg-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.75rem;
+    position: sticky;
+    top: 0;
+    background: color-mix(in srgb, var(--rg-bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    z-index: 20;
+    border-bottom: 1px solid color-mix(in srgb, var(--rg-accent) 25%, transparent);
+}
+
+.rg-back {
+    color: var(--rg-text-dim);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+}
+
+.rg-back:hover {
+    color: var(--rg-accent);
+}
+
+.rg-theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 1px solid color-mix(in srgb, var(--rg-accent) 45%, transparent);
+    color: var(--rg-text);
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    font-family: var(--rg-font-mono);
+    font-size: 0.78rem;
+    cursor: pointer;
+}
+
+.rg-theme-toggle__icon {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: var(--rg-accent);
+    display: inline-block;
+}
+
+/* ---------- Hero ---------- */
+.rg-hero {
+    position: relative;
+    padding: 4rem 1.75rem 3rem;
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+}
+
+.rg-hero__trident {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.rg-trident-svg {
+    width: min(700px, 90vw);
+    height: auto;
+}
+
+.rg-eyebrow {
+    font-family: var(--rg-font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    color: var(--rg-accent-2);
+    margin: 0 0 0.75rem;
+}
+
+.rg-hero__title {
+    position: relative;
+    font-family: var(--rg-font-display);
+    font-size: clamp(3rem, 9vw, 5.5rem);
+    font-weight: 600;
+    margin: 0 0 1rem;
+    line-height: 1;
+}
+
+.rg-hero__title-sub {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--rg-accent);
+    margin-top: 0.75rem;
+    letter-spacing: 0.02em;
+}
+
+.rg-hero__lede {
+    position: relative;
+    max-width: 620px;
+    margin: 0 auto 2.5rem;
+    color: var(--rg-text-dim);
+    font-size: 1.05rem;
+}
+
+.rg-hero__stats {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.rg-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem 0.5rem;
+    border-top: 1px solid color-mix(in srgb, var(--rg-accent) 35%, transparent);
+}
+
+.rg-stat__num {
+    font-family: var(--rg-font-display);
+    font-size: 1.5rem;
+    color: var(--rg-accent);
+}
+
+.rg-stat__label {
+    font-size: 0.75rem;
+    color: var(--rg-text-dim);
+}
+
+/* ---------- Sections ---------- */
+.rg-section {
+    padding: 4rem 1.75rem;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.rg-section--alt {
+    max-width: none;
+    background: var(--rg-surface);
+    border-top: 1px solid color-mix(in srgb, var(--rg-accent) 20%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--rg-accent) 20%, transparent);
+}
+
+.rg-section--alt > * {
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rg-section h2 {
+    font-family: var(--rg-font-display);
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    margin: 0 0 1.5rem;
+}
+
+.rg-prose p {
+    color: var(--rg-text-dim);
+    max-width: 68ch;
+}
+
+.rg-prose--lead {
+    font-size: 1.05rem;
+}
+
+/* ---------- Architecture: machi grid ---------- */
+.rg-machi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.rg-machi-card {
+    background: var(--rg-surface-alt);
+    border-left: 3px solid var(--rg-accent);
+    padding: 1.25rem 1.5rem;
+    border-radius: 4px;
+}
+
+.rg-machi-card__mark {
+    display: block;
+    font-family: var(--rg-font-mono);
+    color: var(--rg-accent);
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+}
+
+.rg-machi-card p {
+    margin: 0;
+    color: var(--rg-text-dim);
+    font-size: 0.95rem;
+}
+
+/* ---------- Timeline ---------- */
+.rg-timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid color-mix(in srgb, var(--rg-accent) 25%, transparent);
+}
+
+.rg-timeline li {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--rg-accent) 15%, transparent);
+}
+
+.rg-timeline__year {
+    font-family: var(--rg-font-mono);
+    color: var(--rg-accent);
+    font-size: 0.9rem;
+}
+
+.rg-timeline li span:last-child {
+    color: var(--rg-text-dim);
+}
+
+/* ---------- Trek route ---------- */
+.rg-route-steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.rg-route-step {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--rg-surface-alt);
+    padding: 0.6rem 1rem 0.6rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: var(--rg-text-dim);
+}
+
+.rg-route-step span {
+    width: 1.6rem;
+    height: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--rg-accent);
+    color: var(--rg-basalt-900);
+    font-family: var(--rg-font-mono);
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+
+/* ---------- Facts grid ---------- */
+.rg-facts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.rg-fact-card {
+    background: var(--rg-surface);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid color-mix(in srgb, var(--rg-accent) 18%, transparent);
+}
+
+.rg-fact-card__title {
+    font-family: var(--rg-font-display);
+    font-size: 1.05rem;
+    margin: 0 0 0.6rem;
+    color: var(--rg-accent);
+}
+
+.rg-fact-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--rg-text-dim);
+}
+
+/* ---------- Gallery ---------- */
+.rg-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.rg-gallery__tile {
+    aspect-ratio: 4 / 3;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+    background: linear-gradient(155deg, var(--rg-basalt-700), var(--rg-basalt-900));
+    overflow: hidden;
+}
+
+.rg-gallery__tile::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.55), transparent 60%);
+}
+
+.rg-gallery__tile--balekilla { background: linear-gradient(155deg, #4A3A24, var(--rg-basalt-900)); }
+.rg-gallery__tile--padmavati { background: linear-gradient(155deg, #3F4A32, var(--rg-basalt-900)); }
+.rg-gallery__tile--suvela { background: linear-gradient(155deg, #4A3229, var(--rg-basalt-900)); }
+.rg-gallery__tile--sanjeevani { background: linear-gradient(155deg, #35473F, var(--rg-basalt-900)); }
+.rg-gallery__tile--maha-darwaja { background: linear-gradient(155deg, #4E3B1F, var(--rg-basalt-900)); }
+.rg-gallery__tile--chor-darwaja { background: linear-gradient(155deg, #423B2E, var(--rg-basalt-900)); }
+
+.rg-gallery__tile-label {
+    position: relative;
+    color: var(--rg-parchment);
+    font-family: var(--rg-font-display);
+    font-size: 1rem;
+    text-align: left;
+}
+
+/* ---------- Lightbox ---------- */
+.rg-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 8, 6, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    z-index: 50;
+    padding: 2rem;
+}
+
+.rg-lightbox[hidden] {
+    display: none;
+}
+
+.rg-lightbox__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.75rem;
+    background: transparent;
+    border: 1px solid var(--rg-parchment-dim);
+    color: var(--rg-parchment);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.rg-lightbox__figure {
+    width: min(560px, 80vw);
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+    background: linear-gradient(155deg, var(--rg-basalt-700), var(--rg-basalt-900));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--rg-parchment);
+    font-family: var(--rg-font-display);
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.rg-lightbox__caption {
+    color: var(--rg-parchment-dim);
+    max-width: 520px;
+    text-align: center;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* ---------- Footer ---------- */
+.rg-footer {
+    text-align: center;
+    padding: 2.5rem 1.75rem;
+    color: var(--rg-text-dim);
+    font-size: 0.85rem;
+    border-top: 1px solid color-mix(in srgb, var(--rg-accent) 20%, transparent);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px) {
+    .rg-hero__stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .rg-machi-grid,
+    .rg-facts-grid,
+    .rg-gallery {
+        grid-template-columns: 1fr;
+    }
+    .rg-timeline li {
+        grid-template-columns: 5rem 1fr;
+    }
+}

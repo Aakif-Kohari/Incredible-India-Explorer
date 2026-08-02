@@ -231,6 +231,26 @@ const fortsData = [
             "Sriranganathaswamy Temple",
             "Located on an island in River Kaveri"
         ]
+    },
+    {
+        id: 13,
+        name: "Rajgad Fort",
+        location: "Pune",
+        state: "Maharashtra",
+        built: "1647 (expanded)",
+        builtBy: "Chhatrapati Shivaji Maharaj",
+        era: "Maratha Era",
+        architecture: "Maratha Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "Rajgad, known as the King of Forts, served as the first capital of the Maratha Empire under Chhatrapati Shivaji Maharaj for nearly 26 years. Its trident-shaped plan of three fortified machis radiating from the central Balekilla citadel made it one of the most defensible strongholds of its time, before the capital shifted to Raigad Fort in 1674.",
+        highlights: [
+            "First capital of the Maratha Empire",
+            "Three fortified machis: Padmavati, Suvela, Sanjeevani",
+            "Balekilla citadel reached via the Maha Darwaja",
+            "Birthplace of Rajaram, Shivaji's son",
+            "Popular trekking destination near Pune"
+        ],
+        explorerUrl: "../rajgad-fort-explorer/index.html"
     }
 ];
 
@@ -374,10 +394,35 @@ function openModal(fort) {
         highlightsList.appendChild(li);
     });
 
+    
+    renderExplorerLink(fort);
+
     fortModal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
+// Add/remove a "Launch Dedicated Explorer" link for forts that have their own page
+function renderExplorerLink(fort) {
+    let linkDiv = document.getElementById('modal-explorer-link');
+    if (!linkDiv) {
+        linkDiv = document.createElement('div');
+        linkDiv.id = 'modal-explorer-link';
+        linkDiv.style.marginTop = '1.5rem';
+        const highlightsList = document.getElementById('modal-highlights');
+        highlightsList.insertAdjacentElement('afterend', linkDiv);
+    }
 
+    while (linkDiv.firstChild) {
+        linkDiv.removeChild(linkDiv.firstChild);
+    }
+
+    if (fort.explorerUrl) {
+        const explorerLink = document.createElement('a');
+        explorerLink.href = fort.explorerUrl;
+        explorerLink.textContent = 'Launch Dedicated Explorer ➔';
+        explorerLink.style.cssText = 'display:inline-block; padding:0.75rem 1.5rem; background:linear-gradient(135deg, #ffb01f, #d97706); color:#000; font-weight:700; border-radius:999px; text-decoration:none;';
+        linkDiv.appendChild(explorerLink);
+    }
+}
 // Close modal
 function closeModal() {
     fortModal.classList.remove('active');
