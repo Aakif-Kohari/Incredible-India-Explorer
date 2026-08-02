@@ -1454,6 +1454,13 @@ window.indiaSearchIndex = [
     description: "Explore the Param Vir Chakra Gallery honoring all 21 recipient heroes of India's highest military decoration for valor, featuring Savitri Khanolkar's medal design and citations.",
     url: "frontend/param-vir-chakra-explorer/index.html"
   },
+  // --- UNESCO Mountain Railways of India Explorer ---
+  {
+    title: "UNESCO Mountain Railways of India Explorer",
+    category: "UNESCO Engineering & Heritage",
+    description: "Explore the UNESCO World Heritage Mountain Railways of India — Darjeeling Himalayan Railway, Nilgiri Mountain Railway (Abt Rack & Pinion), and Kalka-Shimla Railway.",
+    url: "frontend/mountain-railways-explorer/index.html"
+  },
   // --- Udhwa Wetlands Explorer ---
   {
     title: "Udhwa Wetlands Explorer",
