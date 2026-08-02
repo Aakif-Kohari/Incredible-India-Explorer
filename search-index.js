@@ -1651,5 +1651,12 @@ window.indiaSearchIndex = [
     category: "Games & Geography",
     description: "Match Indian crops (Rice, Wheat, Cotton, Sugarcane, Watermelon, Mustard, etc.) with Kharif, Rabi & Zaid farming seasons, climate needs, and producing states across progressive difficulty levels.",
     url: "frontend/crop-journey/index.html"
+  },
+  // --- Mount Kamet Explorer ---
+  {
+    title: "Mount Kamet Explorer",
+    category: "Mountains & Geography",
+    description: "Explore Mount Kamet (7,756 m) in Uttarakhand — geography, historic 1931 first ascent, Meade's Col route breakdown, fast facts, gallery, and nearby attractions.",
+    url: "frontend/kamet/index.html"
   }
 ];
