@@ -1,4 +1,4 @@
-﻿# Incredible India Explorer 🇮🇳
+# Incredible India Explorer 🇮🇳
 
 ![Hero Image](assets/hero_banner.png)
 
@@ -65,13 +65,13 @@ The app will read these values at runtime via the /frontend/api/firebase-config 
 
 ## Demo
 
-![Homepage screenshot 1](https://github.com/user-attachments/frontend/assets/84819247-7698-4cb5-ac16-c7f913733add)
-![Homepage screenshot 2](https://github.com/user-attachments/frontend/assets/b0f9c023-063e-413a-99fc-6688f59e80d2)
-![Homepage screenshot 3](https://github.com/user-attachments/frontend/assets/a564bc9a-29ea-49fb-9e2b-297976440727)
-![Homepage screenshot 4](https://github.com/user-attachments/frontend/assets/c09a2ef0-5c2c-403a-83e2-9a52e5c1401a)
-![Homepage screenshot 5](https://github.com/user-attachments/frontend/assets/fccdb4da-71bc-41d6-a80c-4eb152fcce4c)
-![Homepage screenshot 6](https://github.com/user-attachments/frontend/assets/66d0a1b2-f3d0-40c2-abd1-23e812491849)
-![Homepage screenshot 7](https://github.com/user-attachments/frontend/assets/bda3cf76-4b0f-4559-b1e4-a6dbdaed25ae)
+![Homepage screenshot 1](https://github.com/user-attachments/assets/84819247-7698-4cb5-ac16-c7f913733add)
+![Homepage screenshot 2](https://github.com/user-attachments/assets/b0f9c023-063e-413a-99fc-6688f59e80d2)
+![Homepage screenshot 3](https://github.com/user-attachments/assets/a564bc9a-29ea-49fb-9e2b-297976440727)
+![Homepage screenshot 4](https://github.com/user-attachments/assets/c09a2ef0-5c2c-403a-83e2-9a52e5c1401a)
+![Homepage screenshot 5](https://github.com/user-attachments/assets/fccdb4da-71bc-41d6-a80c-4eb152fcce4c)
+![Homepage screenshot 6](https://github.com/user-attachments/assets/66d0a1b2-f3d0-40c2-abd1-23e812491849)
+![Homepage screenshot 7](https://github.com/user-attachments/assets/bda3cf76-4b0f-4559-b1e4-a6dbdaed25ae)
 
 ## Demo Link
 
