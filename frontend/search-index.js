@@ -1670,5 +1670,12 @@ window.indiaSearchIndex = [
     category: "Awards & Honours",
     description: "Explore India's most prestigious government-sponsored film awards — history since 1954, the Golden and Silver Lotus, categories, Best Feature Film, acting and technical awards, selection process, timeline, and notable winners.",
     url: "frontend/national-film-awards-explorer/index.html"
+  },
+  // --- Honnavar Port Explorer ---
+  {
+    title: "Honnavar Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Honnavar, the historic spice trade gateway of Karnataka, its pepper trade under Rani Chennabhairadevi, and Ibn Battuta's travel diaries.",
+    url: "frontend/honnavar-port-explorer/index.html"
   }
 ];
