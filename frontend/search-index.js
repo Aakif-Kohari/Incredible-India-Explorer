@@ -1670,5 +1670,12 @@ window.indiaSearchIndex = [
     category: "Awards & Honours",
     description: "Explore India's most prestigious government-sponsored film awards — history since 1954, the Golden and Silver Lotus, categories, Best Feature Film, acting and technical awards, selection process, timeline, and notable winners.",
     url: "frontend/national-film-awards-explorer/index.html"
+  },
+  // --- Kannur Port Explorer ---
+  {
+    title: "Kannur Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Kannur, the historic Malabar spice trade gateway of Kerala, its pepper trade under the Kolathiri Rajas, and St. Angelo Fort history.",
+    url: "frontend/kannur-port-explorer/index.html"
   }
 ];
