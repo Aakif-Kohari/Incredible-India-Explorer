@@ -1091,6 +1091,7 @@
 }
 
 .quiz-card {
+    width: min(100%, 680px);
     max-width: 680px;
     margin: 0 auto;
     background: var(--bg-dark-card);
@@ -1117,14 +1118,16 @@
 }
 
 .quiz-card h3 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
     margin-bottom: 15px;
+    line-height: 1.25;
 }
 
 .quiz-card p {
     color: var(--text-muted);
     font-size: 1.05rem;
     margin-bottom: 30px;
+    line-height: 1.65;
 }
 
 /* Quiz progress items */
@@ -1160,10 +1163,10 @@
 }
 
 .quiz-question {
-    font-size: 1.6rem;
+    font-size: clamp(1.2rem, 2.4vw, 1.6rem);
     margin-bottom: 35px;
     text-align: center;
-    line-height: 1.35;
+    line-height: 1.45;
 }
 
 /* Option choices grid styles */
@@ -1185,12 +1188,19 @@
     cursor: pointer;
     transition: var(--transition-snappy);
     text-align: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
 .option-btn:hover {
     background: rgba(255, 255, 255, 0.06);
     border-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+}
+
+.option-btn:focus-visible {
+    outline: 3px solid rgba(255, 153, 51, 0.5);
+    outline-offset: 3px;
 }
 
 /* Correct/Incorrect choices coloring */
@@ -1901,6 +1911,19 @@
 
     .quiz-card {
         padding: 30px 20px;
+    }
+
+    .quiz-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .quiz-question {
+        font-size: 1.2rem;
+        margin-bottom: 24px;
+    }
+
+    .option-btn {
+        padding: 14px 16px;
     }
 
     .modal-card {
