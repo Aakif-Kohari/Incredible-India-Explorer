@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Yashwant Sagar Wetland Explorer - Explore the internationally recognized Ramsar Wetland and Important Bird Habitat near Indore, Madhya Pradesh." name="description"/>
+    <meta property="og:title" content="Yashwant Sagar Wetland Explorer | Incredible India"/>
+    <meta property="og:description" content="Discover Yashwant Sagar, a vital freshwater wetland and birding hotspot in Madhya Pradesh."/>
+    
+    <title>Yashwant Sagar Wetland Explorer | Incredible India</title>
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/frontend/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <link href="../../styles.css"stylesheet"/>
+    <link href="../pages-common.css" rel="stylesheet"/>
+    <link href="yashwant-sagar-wetland-explorer.css" rel="stylesheet"/>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Yashwant Sagar Wetland",
+      "description": "A Ramsar Wetland and important bird habitat near Indore, Madhya Pradesh.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Indore",
+        "addressRegion": "Madhya Pradesh",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+</head>
+<body>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../cuisine/cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+                <a href="../festivals/festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+                <a href="../culture/culture.html" class="nav-link" id="link-culture">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item" style="color: var(--saffron)">Nature & Wildlife</a>
+                        <a href="../personalities/personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../spiritual/spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="../arts-crafts/arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" style="padding-top: 80px;">
+        
+        <!-- Hero Section -->
+        <section class="wetland-hero">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge ramsar"><i class="fa-solid fa-water"></i> Ramsar Site</span>
+                    <span class="badge habitat"><i class="fa-solid fa-dove"></i> Bird Habitat</span>
+                    <span class="badge freshwater"><i class="fa-solid fa-leaf"></i> Freshwater Wetland</span>
+                    <span class="badge biodiversity"><i class="fa-solid fa-seedling"></i> Biodiversity Hotspot</span>
+                </div>
+                <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Yashwant Sagar Wetland</h1>
+                <p class="hero-subtitle animate-fade-in-delayed" style="color: var(--saffron); font-size: 1.5rem; font-family: 'Playfair Display', serif; margin-bottom: 15px;">Ramsar Wetland & Important Bird Habitat</p>
+                <p class="hero-location" style="color: #eee; font-size: 1.1rem; margin-bottom: 25px;"><i class="fa-solid fa-map-pin"></i> Near Indore, Madhya Pradesh, India</p>
+                <div class="hero-actions">
+                    <a href="#birds" class="btn btn-primary ripple">View Waterbirds</a>
+                    <a href="#map" class="btn btn-secondary ripple">View Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wetland History & Ramsar Site -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge gold-bg">Heritage</span>
+                    <h2>A Vital Reservoir Ecosystem</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-clock-rotate-left"></i> Historical Construction</h3>
+                        <p>Constructed over the Gambhir River to supply water to the city of Indore, Yashwant Sagar has evolved over decades from a man-made reservoir into an ecologically irreplaceable freshwater wetland habitat.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-globe"></i> Ramsar Recognition</h3>
+                        <p>Recognized internationally under the Ramsar Convention for its role in biodiversity conservation, meeting strict criteria for providing sanctuary to threatened ecological communities and supporting large populations of waterbirds.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-droplet"></i> Regional Water Management</h3>
+                        <p>Beyond supporting wildlife, the wetland continues its historical purpose of sustaining regional groundwater levels and supplying fresh water to the expanding urban areas of Indore.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Migratory Waterbirds -->
+        <section id="birds" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Avian Paradise</span>
+                    <h2 style="color: var(--text-primary);">Migratory Waterbirds</h2>
+                    <p class="section-subtitle">An essential wintering stopover on the Central Asian Flyway.</p>
+                </div>
+                <div class="wildlife-grid">
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Painted_Stork_%28Mycteria_leucocephala%29_Photograph_By_Shantanu_Kuveskar.jpg/800px-Painted_Stork_%28Mycteria_leucocephala%29_Photograph_By_Shantanu_Kuveskar.jpg" alt="Painted Stork" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1596766632420-9426f83ecff9?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Painted Stork</h3>
+                            <span class="wildlife-status status-near-threatened">Near Threatened</span>
+                            <p>Flocks of these colorful storks can be seen wading in the shallows, sweeping their half-open bills side to side to catch fish.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Northern_Pintail.jpg/800px-Northern_Pintail.jpg" alt="Northern Pintail" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1616781297597-402a5a0fb773?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Northern Pintail</h3>
+                            <span class="wildlife-status status-least-concern">Winter Migrant</span>
+                            <p>Arriving from the northern latitudes, these elegant dabbling ducks are among the most numerous winter visitors to the lake.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Indian_Spot-billed_Duck.jpg/800px-Indian_Spot-billed_Duck.jpg" alt="Spot-billed Duck" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1555541655-081b22306c59?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Spot-billed Duck</h3>
+                            <span class="wildlife-status status-least-concern">Resident Species</span>
+                            <p>A resident duck species that utilizes the dense aquatic vegetation of Yashwant Sagar for nesting and foraging year-round.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bar-headed_goose_%28Anser_indicus%29.jpg/800px-Bar-headed_goose_%28Anser_indicus%29.jpg" alt="Bar-headed Goose" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1574068468668-a05a11f871da?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Bar-headed Goose</h3>
+                            <span class="wildlife-status status-least-concern">High-Altitude Migrant</span>
+                            <p>Known for migrating over the Himalayas, these geese find refuge and abundant food in the reservoir's winter landscape.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <p style="color: var(--text-muted); font-size: 1.05rem;"><strong>Other Notable Arrivals:</strong> Common Teal, Eurasian Wigeon, Gadwall, and Black-winged Stilt heavily rely on this habitat during peak winter migration.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aquatic Ecosystem and Bird Watching -->
+        <section class="content-section fade-in-section">
+            <div class="section-container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+                <div class="activities-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: var(--green); color: white;">Ecosystem</span>
+                        <h2>Aquatic Biodiversity</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">A perfectly balanced freshwater ecosystem sustaining a complex food chain.</p>
+                    <ul>
+                        <li><strong>Fish & Amphibians:</strong> A high diversity of native fish and amphibian species forms the primary food source for the avian population.</li>
+                        <li><strong>Aquatic Vegetation:</strong> Submerged and emergent plant life naturally filters water quality while providing crucial spawning grounds.</li>
+                        <li><strong>Insects & Reptiles:</strong> The marshy edges support a thriving population of insects and small reptiles, ensuring ecological balance.</li>
+                    </ul>
+                </div>
+                <div class="facts-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: #e91e63; color: white;">Activity</span>
+                        <h2>Bird Watching</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">Yashwant Sagar is highly accessible, making it a favorite for nature enthusiasts.</p>
+                    <ul>
+                        <li><strong>Peak Season:</strong> The best time for birding is between November and February when migratory flocks arrive.</li>
+                        <li><strong>Photography:</strong> Early mornings offer perfect lighting over the calm waters for capturing birds in flight.</li>
+                        <li><strong>Responsible Guidelines:</strong> Visitors are encouraged to maintain silence, avoid bright clothing, and stay on designated paths.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Interesting Facts -->
+        <section class="content-section fade-in-section" style="background: var(--glass-bg); margin: 0 5%; border-radius: 20px; border: 1px solid var(--glass-border);">
+            <div class="section-container" style="text-align: center;">
+                <h2 style="color: var(--gold); margin-bottom: 20px;">Did You Know?</h2>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+                    <span class="badge" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); font-size: 0.95rem;">One of MP's most important wetlands</span>
+                    <span class="badge" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); font-size: 0.95rem;">Ramsar Site of International Importance</span>
+                    <span class="badge" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); font-size: 0.95rem;">Supports thousands of migratory birds</span>
+                    <span class="badge" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); font-size: 0.95rem;">Accessible from Indore city</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery (Lazy Loaded) -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #ff9800; color: white;">Gallery</span>
+                    <h2 id="gallery-heading">Scenic Lake Views</h2>
+                </div>
+                <div class="gallery-grid" id="gallery-grid" role="region" aria-labelledby="gallery-heading">
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Wetland Landscape">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?auto=format&fit=crop&w=800&q=80" alt="Beautiful wetland landscape at dawn">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Waterbirds">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1555541655-081b22306c59?auto=format&fit=crop&w=800&q=80" alt="Flock of waterbirds on the lake">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Birdwatchers">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Photographers observing birds">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Sunset">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=800&q=80" alt="Sunset over Yashwant Sagar">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section id="map" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Map</span>
+                    <h2>Explore the Lake</h2>
+                    <p class="section-subtitle">Find birdwatching zones, nature trails, and visitor facilities.</p>
+                </div>
+                <div id="map-container" aria-label="Interactive map of Yashwant Sagar Wetland"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/frontend/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../pages-common.js"></script>
+    <script src="yashwant-sagar-wetland-explorer.js"></script>
+</body>
+</html>
