@@ -1691,5 +1691,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Discover Kalingapatnam, the historic trade gateway of the Kalinga dynasty, its voyages to Java and Sumatra, and the iconic British-era lighthouse.",
     url: "frontend/kalingapatnam-port-explorer/index.html"
+  },
+  // --- Honnavar Port Explorer ---
+  {
+    title: "Honnavar Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Honnavar, the historic spice trade gateway of Karnataka, its pepper trade under Rani Chennabhairadevi, and Ibn Battuta's travel diaries.",
+    url: "frontend/honnavar-port-explorer/index.html"
   }
 ];
