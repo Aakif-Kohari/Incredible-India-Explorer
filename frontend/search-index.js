@@ -1460,6 +1460,12 @@ window.indiaSearchIndex = [
     description: "Explore the UNESCO World Heritage Mountain Railways of India — Darjeeling Himalayan Railway, Nilgiri Mountain Railway (Abt Rack & Pinion), and Kalka-Shimla Railway.",
     url: "frontend/mountain-railways-explorer/index.html"
   },
+  // --- Travancore Flying Frog Explorer ---
+  {
+    title: "Travancore Flying Frog Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Travancore Flying Frog (Rhacophorus travancoricus) — Endangered canopy gliding frog endemic to rainforests of the southern Western Ghats.",
+    url: "frontend/travancore-flying-frog-explorer/index.html"},
   // --- Indian Golden Gecko Explorer ---
   {
     title: "Indian Golden Gecko Explorer",
