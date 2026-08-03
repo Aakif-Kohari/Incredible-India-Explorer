@@ -1,0 +1,562 @@
+export const INDIAN_SUPERLATIVES_DATA = [
+    {
+        id: "ganga-river",
+        title: "Longest River in India",
+        name: "Ganga River",
+        type: "longest",
+        typeLabel: "Longest River",
+        category: "Geography & Nature",
+        value: "2,525 km",
+        numericValue: 2525,
+        unit: "km",
+        state: "Uttarakhand to West Bengal",
+        location: "Originates at Gangotri Glacier, Uttarakhand",
+        mapCoords: { x: 48, y: 35 },
+        description: "The Ganga is India's longest and most sacred river, flowing 2,525 km from the Western Himalayas to the Bay of Bengal through the fertile Indo-Gangetic Plain.",
+        keyStats: [
+            { label: "Total Length", value: "2,525 km" },
+            { label: "Basin Area", value: "1,086,000 sq km" },
+            { label: "States Covered", value: "5 States" }
+        ],
+        facts: [
+            "Revered as a divine deity and the lifeline to over 400 million citizens.",
+            "Forms the Sundarbans Delta, the largest river delta on Earth, at its mouth.",
+            "Declared the National River of India in 2008."
+        ],
+        image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "tehri-dam",
+        title: "Highest Dam in India",
+        name: "Tehri Dam",
+        type: "highest",
+        typeLabel: "Highest Dam",
+        category: "Infrastructure & Engineering",
+        value: "260.5 m",
+        numericValue: 260.5,
+        unit: "m",
+        state: "Uttarakhand",
+        location: "New Tehri, Garhwal district",
+        mapCoords: { x: 42, y: 26 },
+        description: "Tehri Dam is the highest dam in India and the 12th highest dam in the world. Standing at 260.5 meters on the Bhagirathi River, it harnesses immense hydroelectric energy.",
+        keyStats: [
+            { label: "Height", value: "260.5 meters" },
+            { label: "Dam Length", value: "575 meters" },
+            { label: "Capacity", value: "2,400 MW" }
+        ],
+        facts: [
+            "Creates the Tehri Lake reservoir spanning 52 square kilometers.",
+            "Engineered with a rock and earth-fill structure designed to withstand severe seismic activity.",
+            "Supplies drinking water and electricity to millions across Northern India."
+        ],
+        image: "https://images.unsplash.com/photo-1584824486509-112e4181ff6b?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "rajasthan-state",
+        title: "Largest State by Area",
+        name: "Rajasthan",
+        type: "largest",
+        typeLabel: "Largest State",
+        category: "Geography & Nature",
+        value: "342,239 sq km",
+        numericValue: 342239,
+        unit: "sq km",
+        state: "Rajasthan",
+        location: "Western India",
+        mapCoords: { x: 26, y: 38 },
+        description: "Rajasthan is India's largest state by land area, spanning 342,239 sq km (10.4% of India's total geographical area). Celebrated for the Thar Desert, majestic hill forts, and royal palaces.",
+        keyStats: [
+            { label: "Total Area", value: "342,239 sq km" },
+            { label: "Share of India", value: "10.41%" },
+            { label: "Capital", value: "Jaipur" }
+        ],
+        facts: [
+            "Home to UNESCO World Heritage hill forts including Chittorgarh, Kumbhalgarh, and Amber Fort.",
+            "Houses the Great Indian Desert (Thar Desert) and the ancient Aravalli Mountain Range.",
+            "Renowned for vibrant cultural folk music, traditional crafts, and royal heritage."
+        ],
+        image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "kangchenjunga-mountain",
+        title: "Highest Mountain Peak in India",
+        name: "Kangchenjunga",
+        type: "highest",
+        typeLabel: "Highest Mountain",
+        category: "Geography & Nature",
+        value: "8,586 m",
+        numericValue: 8586,
+        unit: "m",
+        state: "Sikkim",
+        location: "Sikkim–Nepal border",
+        mapCoords: { x: 74, y: 34 },
+        description: "Kangchenjunga is the highest mountain peak in India and the 3rd highest peak in the world, towering at 8,586 meters above sea level in the Eastern Himalayas.",
+        keyStats: [
+            { label: "Elevation", value: "8,586 meters" },
+            { label: "World Rank", value: "3rd Highest" },
+            { label: "UNESCO Status", value: "World Heritage Site" }
+        ],
+        facts: [
+            "Revered as a sacred mountain by the people of Sikkim; climbers historically stop short of the actual summit to preserve its sanctity.",
+            "Surrounded by Khangchendzonga National Park, India's first mixed-heritage UNESCO World Heritage Site.",
+            "Features 5 prominent peaks, earning it the name 'The Five Treasures of Snow'."
+        ],
+        image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "thar-desert",
+        title: "Largest Desert in India",
+        name: "Thar Desert",
+        type: "largest",
+        typeLabel: "Largest Desert",
+        category: "Geography & Nature",
+        value: "200,000 sq km",
+        numericValue: 200000,
+        unit: "sq km",
+        state: "Rajasthan / Gujarat",
+        location: "North-Western India",
+        mapCoords: { x: 20, y: 36 },
+        description: "The Thar Desert (Great Indian Desert) is India's largest desert, covering over 200,000 square kilometers across Rajasthan and northern Gujarat.",
+        keyStats: [
+            { label: "Total Area", value: "200,000 sq km" },
+            { label: "Population Density", value: "83 people/sq km" },
+            { label: "Global Rank", value: "17th Largest" }
+        ],
+        facts: [
+            "The most densely populated desert ecosystem in the world.",
+            "Home to Desert National Park, protecting rare wildlife like the Great Indian Bustard and Desert Fox.",
+            "Features shifting sand dunes, arid scrublands, and vibrant desert festivals in Jaisalmer."
+        ],
+        image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "narendra-modi-stadium",
+        title: "Biggest Cricket Stadium in the World",
+        name: "Narendra Modi Stadium",
+        type: "largest",
+        typeLabel: "Biggest Stadium",
+        category: "Sports & Society",
+        value: "132,000 capacity",
+        numericValue: 132000,
+        unit: "capacity",
+        state: "Gujarat",
+        location: "Motera, Ahmedabad",
+        mapCoords: { x: 26, y: 52 },
+        description: "Narendra Modi Stadium in Ahmedabad is the largest sports stadium in the world by seating capacity, accommodating over 132,000 spectators.",
+        keyStats: [
+            { label: "Seating Capacity", value: "132,000 spectators" },
+            { label: "Land Area", value: "63 acres" },
+            { label: "Facilities", value: "4 Dressing Rooms & LED Lights" }
+        ],
+        facts: [
+            "Hosted the 2023 ICC Cricket World Cup Final.",
+            "Features a 360-degree ring-of-fire LED lighting system instead of conventional floodlight towers.",
+            "Includes 3 practice grounds, an Olympic-size swimming pool, and 76 corporate boxes."
+        ],
+        image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "statue-of-unity",
+        title: "Tallest Statue in the World",
+        name: "Statue of Unity",
+        type: "highest",
+        typeLabel: "Tallest Statue",
+        category: "Architecture & Monuments",
+        value: "182 m",
+        numericValue: 182,
+        unit: "m",
+        state: "Gujarat",
+        location: "Kevadia, Narmada District",
+        mapCoords: { x: 28, y: 58 },
+        description: "Standing at 182 meters (597 feet), the Statue of Unity depicting Sardar Vallabhbhai Patel is the tallest statue in the world, located on the banks of the Narmada River.",
+        keyStats: [
+            { label: "Height", value: "182 meters" },
+            { label: "Base Height", value: "240 meters total" },
+            { label: "Bronze Cladding", value: "1,700 tonnes" }
+        ],
+        facts: [
+            "Built as a tribute to Sardar Vallabhbhai Patel, the 'Iron Man of India' who unified 565 princely states.",
+            "Features a viewing gallery at a height of 153 meters inside the statue's chest.",
+            "Designed to withstand wind speeds of up to 180 km/h and high-intensity earthquakes."
+        ],
+        image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "atal-setu",
+        title: "Longest Sea Bridge in India",
+        name: "Atal Setu (MTHL)",
+        type: "longest",
+        typeLabel: "Longest Sea Bridge",
+        category: "Infrastructure & Engineering",
+        value: "21.8 km",
+        numericValue: 21.8,
+        unit: "km",
+        state: "Maharashtra",
+        location: "Mumbai to Navi Mumbai",
+        mapCoords: { x: 26, y: 64 },
+        description: "Atal Setu (Mumbai Trans Harbour Link) is India's longest sea bridge, spanning 21.8 km across Thane Creek to connect Mumbai island with Navi Mumbai.",
+        keyStats: [
+            { label: "Total Length", value: "21.8 km" },
+            { label: "Length Over Sea", value: "16.5 km" },
+            { label: "Lanes", value: "6 Lanes" }
+        ],
+        facts: [
+            "Cuts travel time between South Mumbai and Navi Mumbai from 2 hours to just 20 minutes.",
+            "Built using advanced Orthotropic Steel Decks (OSD) for marine environmental resilience.",
+            "Equipped with sound barriers near sensitive flamingos breeding grounds."
+        ],
+        image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "marina-beach",
+        title: "Longest Natural Urban Beach in India",
+        name: "Marina Beach",
+        type: "longest",
+        typeLabel: "Longest Beach",
+        category: "Geography & Nature",
+        value: "13 km",
+        numericValue: 13,
+        unit: "km",
+        state: "Tamil Nadu",
+        location: "Chennai, Bay of Bengal coast",
+        mapCoords: { x: 42, y: 82 },
+        description: "Marina Beach in Chennai is the longest natural urban beach in India and the 2nd longest urban beach in the world, stretching 13 km along the Coromandel Coast.",
+        keyStats: [
+            { label: "Beach Length", value: "13 km" },
+            { label: "Average Width", value: "300 meters" },
+            { label: "Daily Visitors", value: "30,000+" }
+        ],
+        facts: [
+            "Famous for its promenade dotted with statues of iconic freedom fighters and Tamil scholars.",
+            "Features the historic Anna and MGR Memorials at its northern end.",
+            "Renowned for vibrant local street food, kite flying, and sunrise views over the Bay of Bengal."
+        ],
+        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "umling-la-pass",
+        title: "Highest Motorable Road in the World",
+        name: "Umling La Pass",
+        type: "highest",
+        typeLabel: "Highest Motorable Road",
+        category: "Infrastructure & Engineering",
+        value: "19,024 ft (5,798 m)",
+        numericValue: 5798,
+        unit: "m",
+        state: "Ladakh",
+        location: "Eastern Ladakh",
+        mapCoords: { x: 38, y: 15 },
+        description: "Constructed by the Border Roads Organisation (BRO), Umling La Pass in Ladakh holds the Guinness World Record for the highest motorable road in the world at 19,024 feet.",
+        keyStats: [
+            { label: "Altitude", value: "19,024 feet (5,798 m)" },
+            { label: "Constructed By", value: "BRO (Project Himank)" },
+            { label: "Route Length", value: "52 km" }
+        ],
+        facts: [
+            "Higher than the Everest Base Camps in Nepal and Tibet.",
+            "Oxygen level at the pass is roughly 50% less than at sea level.",
+            "Connects strategic border towns of Chisumle and Demchok."
+        ],
+        image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "varanasi-city",
+        title: "Oldest Continuously Inhabited City in India",
+        name: "Varanasi (Kashi)",
+        type: "oldest",
+        typeLabel: "Oldest City",
+        category: "History & Culture",
+        value: "3,000+ years old",
+        numericValue: 3000,
+        unit: "years",
+        state: "Uttar Pradesh",
+        location: "Banks of the Ganga, Eastern UP",
+        mapCoords: { x: 56, y: 44 },
+        description: "Varanasi (Kashi / Benares) is the oldest continuously inhabited city in India and one of the oldest in the world, dating back over 3,000 years.",
+        keyStats: [
+            { label: "Estimated Age", value: "3,000+ years" },
+            { label: "Ghats", value: "88 Historic Ghats" },
+            { label: "Spiritual Status", value: "Holiest City in Hinduism" }
+        ],
+        facts: [
+            "Mark Twain famously wrote: 'Varanasi is older than history, older than tradition, older even than legend.'",
+            "Center of Indian classical music, Sanskrit scholarship, and Banarasi silk weaving.",
+            "Site of Sarnath nearby, where Lord Buddha gave his first sermon after enlightenment."
+        ],
+        image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "kallanai-dam",
+        title: "Oldest Functioning Water-Regulator Dam",
+        name: "Kallanai Dam (Grand Anicut)",
+        type: "oldest",
+        typeLabel: "Oldest Dam",
+        category: "History & Culture",
+        value: "2nd Century AD (~1,900 yrs)",
+        numericValue: 1900,
+        unit: "years",
+        state: "Tamil Nadu",
+        location: "Kaveri River, Thanjavur District",
+        mapCoords: { x: 42, y: 86 },
+        description: "Built by Chola King Karikala in the 2nd century AD, Kallanai Dam (Grand Anicut) across the Kaveri River is the oldest functioning water-diversion dam in the world.",
+        keyStats: [
+            { label: "Built In", value: "2nd Century AD" },
+            { label: "Length", value: "329 meters" },
+            { label: "River", value: "Kaveri" }
+        ],
+        facts: [
+            "Constructed of un-hewn stone blocks laid across the flowing Kaveri River.",
+            "Still irrigates over 1,000,000 acres of fertile farmland in the Kaveri delta.",
+            "Considered a masterpiece of ancient hydraulic engineering."
+        ],
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "aravalli-range",
+        title: "Oldest Mountain Range in India",
+        name: "Aravalli Range",
+        type: "oldest",
+        typeLabel: "Oldest Mountain Range",
+        category: "Geography & Nature",
+        value: "3.2 billion years old",
+        numericValue: 3200,
+        unit: "million yrs",
+        state: "Rajasthan to Delhi",
+        location: "North-Western India",
+        mapCoords: { x: 30, y: 40 },
+        description: "The Aravalli Range is the oldest fold mountain system in India and one of the oldest in the world, dating back approximately 3.2 billion years to the Proterozoic Era.",
+        keyStats: [
+            { label: "Age", value: "3.2 Billion Years" },
+            { label: "Total Length", value: "692 km" },
+            { label: "Highest Peak", value: "Guru Shikhar (1,722 m)" }
+        ],
+        facts: [
+            "Older than the Himalayas and the Alps; acted as a natural barrier checking Thar desert expansion.",
+            "Rich in mineral deposits including copper, zinc, lead, and marble.",
+            "Home to Mount Abu, Rajasthan's only hill station."
+        ],
+        image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "sanchi-stupa",
+        title: "Oldest Existing Stone Structure in India",
+        name: "Great Stupa at Sanchi",
+        type: "oldest",
+        typeLabel: "Oldest Stone Structure",
+        category: "History & Culture",
+        value: "3rd Century BCE (~2,300 yrs)",
+        numericValue: 2300,
+        unit: "years",
+        state: "Madhya Pradesh",
+        location: "Sanchi, Raisen District",
+        mapCoords: { x: 42, y: 50 },
+        description: "Commissioned by Emperor Ashoka the Great in the 3rd century BCE, the Great Stupa at Sanchi is the oldest surviving stone structure in India.",
+        keyStats: [
+            { label: "Built In", value: "3rd Century BCE" },
+            { label: "Height", value: "16.5 meters" },
+            { label: "UNESCO Status", value: "World Heritage Site" }
+        ],
+        facts: [
+            "Features four intricately carved Toranas (gateways) illustrating stories from the Jataka tales.",
+            "The Ashoka Chakra carved on the Sanchi pillar inspired the central wheel on the Indian National Flag.",
+            "Remained undisturbed for centuries until rediscovered by British officer General Taylor in 1818."
+        ],
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "corbett-national-park",
+        title: "Oldest National Park in India",
+        name: "Jim Corbett National Park",
+        type: "oldest",
+        typeLabel: "Oldest National Park",
+        category: "Geography & Nature",
+        value: "Established 1936",
+        numericValue: 1936,
+        unit: "Year",
+        state: "Uttarakhand",
+        location: "Nainital & Pauri Garhwal",
+        mapCoords: { x: 45, y: 28 },
+        description: "Established in 1936 as Hailey National Park, Jim Corbett National Park in Uttarakhand is the oldest national park in India and the birthplace of Project Tiger.",
+        keyStats: [
+            { label: "Established", value: "1936" },
+            { label: "Core Area", value: "520 sq km" },
+            { label: "Project Tiger Launch", value: "1973" }
+        ],
+        facts: [
+            "Chosen as the launch site for 'Project Tiger' in 1973 to protect Bengal Tigers.",
+            "Named after legendary hunter-turned-conservationist Jim Corbett.",
+            "Features lush Sal forests, the Ramganga River basin, and high density of wild tigers and Asian elephants."
+        ],
+        image: "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "hubballi-railway-platform",
+        title: "Longest Railway Platform in the World",
+        name: "Hubballi Railway Station Platform 1",
+        type: "longest",
+        typeLabel: "Longest Railway Platform",
+        category: "Infrastructure & Engineering",
+        value: "1,507 m",
+        numericValue: 1507,
+        unit: "m",
+        state: "Karnataka",
+        location: "Shree Siddharoodha Swamiji Railway Station, Hubballi",
+        mapCoords: { x: 30, y: 74 },
+        description: "Platform 1 at Shree Siddharoodha Swamiji Hubballi Station in Karnataka holds the Guinness World Record for the longest railway platform in the world at 1,507 meters.",
+        keyStats: [
+            { label: "Length", value: "1,507 meters" },
+            { label: "Guinness Record", value: "March 2023" },
+            { label: "Zone", value: "South Western Railway" }
+        ],
+        facts: [
+            "Allows two trains powered by electric locomotives to be dispatched simultaneously from opposite directions.",
+            "Serves as a crucial rail junction connecting North and South Karnataka.",
+            "Surpassed Gorakhpur platform (1,366 m) to claim the world record."
+        ],
+        image: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "sundarbans-delta",
+        title: "Largest Mangrove Delta in the World",
+        name: "Sundarbans Delta",
+        type: "largest",
+        typeLabel: "Largest Delta",
+        category: "Geography & Nature",
+        value: "10,000 sq km",
+        numericValue: 10000,
+        unit: "sq km",
+        state: "West Bengal",
+        location: "Bay of Bengal coast",
+        mapCoords: { x: 72, y: 52 },
+        description: "The Sundarbans Delta is the largest mangrove forest and river delta on Earth, spanning 10,000 sq km across West Bengal and Bangladesh at the confluence of the Ganga, Brahmaputra, and Meghna rivers.",
+        keyStats: [
+            { label: "Total Area", value: "10,000 sq km" },
+            { label: "India Share", value: "4,260 sq km" },
+            { label: "UNESCO Status", value: "World Heritage Site" }
+        ],
+        facts: [
+            "Home to the famous swimming Royal Bengal Tigers.",
+            "Named after the abundant Sundari mangrove trees (Heritiera fomes).",
+            "Critical coastal shield buffering the region against severe cyclones."
+        ],
+        image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "kunchikal-falls",
+        title: "Highest Tiered Waterfall in India",
+        name: "Kunchikal Falls",
+        type: "highest",
+        typeLabel: "Highest Waterfall",
+        category: "Geography & Nature",
+        value: "455 m",
+        numericValue: 455,
+        unit: "m",
+        state: "Karnataka",
+        location: "Agumbe, Shimoga District",
+        mapCoords: { x: 30, y: 78 },
+        description: "Kunchikal Falls in the Western Ghats of Karnataka is the highest tiered waterfall in India, cascading down 455 meters over rocky boulders along the Varahi River.",
+        keyStats: [
+            { label: "Total Height", value: "455 meters" },
+            { label: "River", value: "Varahi River" },
+            { label: "Region", value: "Agumbe Rainforest" }
+        ],
+        facts: [
+            "Located in Agumbe, known as the 'Cherrapunji of the South' for its heavy rainfall.",
+            "Surrounded by dense biodiversity hotspots of the Western Ghats.",
+            "Hydroelectric power generation at Mani Dam upstream regulates water flow."
+        ],
+        image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "nh-44-highway",
+        title: "Longest National Highway in India",
+        name: "National Highway 44 (NH 44)",
+        type: "longest",
+        typeLabel: "Longest Highway",
+        category: "Infrastructure & Engineering",
+        value: "3,745 km",
+        numericValue: 3745,
+        unit: "km",
+        state: "11 States & 2 UTs",
+        location: "Srinagar to Kanyakumari",
+        mapCoords: { x: 38, y: 55 },
+        description: "National Highway 44 is India's longest national highway, traversing 3,745 km from Srinagar in Jammu & Kashmir all the way to Kanyakumari at the southern tip of Tamil Nadu.",
+        keyStats: [
+            { label: "Total Length", value: "3,745 km" },
+            { label: "States Passed", value: "11 States & 2 UTs" },
+            { label: "Route", value: "North-South Corridor" }
+        ],
+        facts: [
+            "Merges seven previously separate major national highways into one continuous artery.",
+            "Passes through major cities including Jammu, Punjab, Delhi, Agra, Nagpur, Hyderabad, and Bengaluru.",
+            "Forms the backbone of the North-South Transport Corridor."
+        ],
+        image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: "kailasa-temple-ellora",
+        title: "Largest Monolithic Rock-cut Structure",
+        name: "Kailasa Temple (Cave 16, Ellora)",
+        type: "largest",
+        typeLabel: "Largest Monolithic Structure",
+        category: "Architecture & Monuments",
+        value: "Carved from 1 single rock",
+        numericValue: 1,
+        unit: "rock",
+        state: "Maharashtra",
+        location: "Ellora Caves, Chhatrapati Sambhajinagar",
+        mapCoords: { x: 32, y: 60 },
+        description: "The Kailasa Temple (Cave 16 at Ellora) is the largest monolithic rock excavation in the world, carved top-down out of a single volcanic basalt cliff face under the Rashtrakuta Dynasty in the 8th century.",
+        keyStats: [
+            { label: "Carved In", value: "8th Century AD" },
+            { label: "Rock Excavated", value: "200,000+ tonnes" },
+            { label: "UNESCO Status", value: "World Heritage Site" }
+        ],
+        facts: [
+            "Excavated entirely from top to bottom out of a single solid basalt cliff face.",
+            "Over 200,000 tonnes of rock were manually excavated over several decades without modern machinery.",
+            "Features multi-story sanctuaries, elephant sculptures, and life-size relief carvings."
+        ],
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+    }
+];
+
+export function filterSuperlatives(data, searchKeyword = '', typeFilter = 'all', categoryFilter = 'all') {
+    const query = searchKeyword.trim().toLowerCase();
+
+    return data.filter(item => {
+        const matchesSearch = query === '' ||
+            item.title.toLowerCase().includes(query) ||
+            item.name.toLowerCase().includes(query) ||
+            item.state.toLowerCase().includes(query) ||
+            item.location.toLowerCase().includes(query) ||
+            item.value.toLowerCase().includes(query) ||
+            item.description.toLowerCase().includes(query) ||
+            item.facts.some(f => f.toLowerCase().includes(query));
+
+        const matchesType = typeFilter === 'all' || item.type === typeFilter;
+        const matchesCategory = categoryFilter === 'all' || item.category === categoryFilter;
+
+        return matchesSearch && matchesType && matchesCategory;
+    });
+}
+
+export function getSuperlativeBadgeClass(type) {
+    switch (type) {
+        case 'largest':
+            return 'badge-largest';
+        case 'highest':
+            return 'badge-highest';
+        case 'longest':
+            return 'badge-longest';
+        case 'oldest':
+            return 'badge-oldest';
+        default:
+            return 'badge-default';
+    }
+}
+
+export function getComparisonData(data, type) {
+    const filtered = data.filter(item => item.type === type && typeof item.numericValue === 'number');
+    return filtered.sort((a, b) => b.numericValue - a.numericValue);
+}
