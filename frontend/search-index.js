@@ -1460,6 +1460,37 @@ window.indiaSearchIndex = [
     description: "Explore the UNESCO World Heritage Mountain Railways of India — Darjeeling Himalayan Railway, Nilgiri Mountain Railway (Abt Rack & Pinion), and Kalka-Shimla Railway.",
     url: "frontend/mountain-railways-explorer/index.html"
   },
+  // --- Gooty Sapphire Ornamental Tarantula Explorer ---
+  {
+    title: "Gooty Sapphire Ornamental Tarantula Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Gooty Sapphire Ornamental Tarantula (Poecilotheria metallica) — Critically Endangered electric-blue arboreal tarantula endemic to Andhra Pradesh.",
+    url: "frontend/gooty-sapphire-tarantula-explorer/index.html"},
+  // --- Anamalai Flying Frog Explorer ---
+  {
+    title: "Anamalai Flying Frog Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Anamalai Flying Frog (Rhacophorus pseudomalabaricus) — Critically Endangered zebra-striped cloud forest glider endemic to the Anamalai Hills.",
+    url: "frontend/anamalai-flying-frog-explorer/index.html"},
+  // --- Malabar Gliding Frog Explorer ---
+  {
+    title: "Malabar Gliding Frog Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Malabar Gliding Frog (Rhacophorus malabaricus) — emerald canopy gliding tree frog of the Western Ghats with vibrant orange webbed parachutes.",
+    url: "frontend/malabar-gliding-frog-explorer/index.html"},
+  // --- Travancore Flying Frog Explorer ---
+  {
+    title: "Travancore Flying Frog Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Travancore Flying Frog (Rhacophorus travancoricus) — Endangered canopy gliding frog endemic to rainforests of the southern Western Ghats.",
+    url: "frontend/travancore-flying-frog-explorer/index.html"},
+  // --- Indian Golden Gecko Explorer ---
+  {
+    title: "Indian Golden Gecko Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Indian Golden Gecko (Calodactylodes aureus) — golden-hued rock-dwelling gecko endemic to ancient granite caves of the Eastern Ghats.",
+    url: "frontend/indian-golden-gecko-explorer/index.html"
+  },
   // --- Udhwa Wetlands Explorer ---
   {
     title: "Udhwa Wetlands Explorer",
@@ -1677,5 +1708,40 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Discover Mandvi's 400-year-old traditional wooden shipbuilding yard, historical merchant connections, maritime heritage, and local dhow builders.",
     url: "frontend/mandvi-port-explorer/index.html"
+  },
+  // --- Satgaon Port Explorer ---
+  {
+    title: "Satgaon (Saptagram) Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Saptagram (Satgaon), medieval Bengal's prosperous river port, its trade in muslin and silk, and its eventual decline due to siltation.",
+    url: "frontend/satgaon-port-explorer/index.html"
+  },
+  // --- Kalingapatnam Port Explorer ---
+  {
+    title: "Kalingapatnam Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Kalingapatnam, the historic trade gateway of the Kalinga dynasty, its voyages to Java and Sumatra, and the iconic British-era lighthouse.",
+    url: "frontend/kalingapatnam-port-explorer/index.html"
+  },
+  // --- Honnavar Port Explorer ---
+  {
+    title: "Honnavar Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Honnavar, the historic spice trade gateway of Karnataka, its pepper trade under Rani Chennabhairadevi, and Ibn Battuta's travel diaries.",
+    url: "frontend/honnavar-port-explorer/index.html"
+  },
+  // --- Kannur Port Explorer ---
+  {
+    title: "Kannur Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Kannur, the historic Malabar spice trade gateway of Kerala, its pepper trade under the Kolathiri Rajas, and St. Angelo Fort history.",
+    url: "frontend/kannur-port-explorer/index.html"
+  },
+  // --- Dwarka Port Explorer ---
+  {
+    title: "Dwarka Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Dwarka, the historic spice trade gateway of Gujarat, its association with Lord Krishna, and submerged archaeological ruins.",
+    url: "frontend/dwarka-port-explorer/index.html"
   }
 ];
