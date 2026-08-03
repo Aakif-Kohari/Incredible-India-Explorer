@@ -1,32 +1,32 @@
 document.addEventListener("app:route-changed", () => {
   const bookmarkButtons = [...document.querySelectorAll(".journey-bookmark-btn")];
-  const galleryItems = [...document.querySelectorAll(".mandvi-gallery-item")];
-
-  const modal = document.getElementById("mandvi-modal");
-  const modalClose = document.getElementById("mandvi-modal-close");
+  const galleryItems = [...document.querySelectorAll(".port-gallery-item")];
+  
+  const modal = document.getElementById("port-modal");
+  const modalClose = document.getElementById("port-modal-close");
   const modalTitle = document.getElementById("modal-title");
   const modalHeading = document.getElementById("modal-heading");
   const modalDescription = document.getElementById("modal-description");
 
-  // --- My Journey: bookmarks + cross-explorer search index -------------
-  function initJourneyIntegration() {
+  // --- Journey Integration (Bookmarks & Global Search) -------------
+  function initJourney() {
     if (!window.Journey) return;
 
-    // Bookmark / Save-to-Journey
+    // 1. Bookmark functionality
     bookmarkButtons.forEach((btn) => {
       const id = btn.dataset.bookmarkId;
       const title = "Mandvi Ancient Port";
-      const thumbnail = "frontend/assets/travel_beaches.png";
+      const thumbnail = "frontend/assets/mandvi_shipbuilding.png";
       const category = "heritage";
 
-      const setSaved = () => {
-        const saved = window.Journey.isSaved(id);
-        btn.classList.toggle("is-saved", saved);
-        btn.setAttribute("aria-pressed", String(saved));
-        btn.innerHTML = saved ? "♥ Saved to Journey" : "♡ Save to Journey";
+      const updateBookmarkUI = () => {
+        const isSaved = window.Journey.isSaved(id);
+        btn.classList.toggle("is-saved", isSaved);
+        btn.setAttribute("aria-pressed", String(isSaved));
+        btn.innerHTML = isSaved ? "♥ Saved to Journey" : "♡ Save to Journey";
       };
 
-      setSaved();
+      updateBookmarkUI();
 
       btn.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -37,16 +37,16 @@ document.addEventListener("app:route-changed", () => {
           thumbnail,
           category
         });
-        setSaved();
+        updateBookmarkUI();
       });
     });
 
-    // Register this explorer in the global search index
+    // 2. Global search index registration
     window.Journey.registerSearchItems("frontend/mandvi-port-explorer/index.html", [
       {
         id: "mandvi-port-main",
         title: "Mandvi Ancient Port Explorer",
-        description: "Explore the 400-year-old tradition of wooden dhow shipbuilding, the legacy of Rao Khengarji I, and the merchant routes of Kutch.",
+        description: "Explore the 400-year-old tradition of wooden dhow shipbuilding, history of Rao Khengarji I, and merchant routes of Kutch.",
         link: "frontend/mandvi-port-explorer/index.html"
       },
       {
@@ -58,13 +58,13 @@ document.addEventListener("app:route-changed", () => {
       {
         id: "mandvi-port-trade",
         title: "Kutchi Maritime Trade Routes",
-        description: "Historical deep-sea merchant networks connecting Mandvi to Zanzibar, Muscat and Aden.",
+        description: "Discover historical deep-sea merchant networks connecting Mandvi to Zanzibar, Muscat, and Aden.",
         link: "frontend/mandvi-port-explorer/index.html#trade"
       }
     ]);
   }
 
-  // --- Gallery Detail Modal --------------------------------------------
+  // --- Gallery Modal Logic -----------------------------------------
   let lastFocusedElement = null;
 
   function openModal(item) {
@@ -91,7 +91,9 @@ document.addEventListener("app:route-changed", () => {
     }
   }
 
+  // Bind gallery click events
   galleryItems.forEach((item) => {
+    item.setAttribute("tabindex", "0");
     item.addEventListener("click", () => openModal(item));
     item.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
@@ -119,5 +121,6 @@ document.addEventListener("app:route-changed", () => {
     }
   });
 
-  initJourneyIntegration();
+  // Run initialization
+  initJourney();
 });
