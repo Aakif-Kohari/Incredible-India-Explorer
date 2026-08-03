@@ -3,7 +3,11 @@ const speciesData = [
     { id: 'lion-tailed-macaque', name: 'Lion-tailed Macaque', category: 'mammals', habitat: 'western-ghats', desc: 'An Old World monkey endemic to the Western Ghats. Characterized by its silver-white mane and long, tufted tail.', img: 'https://placehold.co/400x300/10b981/fff' },
     { id: 'nilgiri-tahr', name: 'Nilgiri Tahr', category: 'mammals', habitat: 'western-ghats', desc: 'A stocky goat-antelope found in the Nilgiri Hills and the southern Western Ghats. State animal of Tamil Nadu.', img: 'https://placehold.co/400x300/10b981/fff' },
     { id: 'purple-frog', name: 'Purple Frog', category: 'amphibians', habitat: 'western-ghats', desc: 'A unique frog species that spends most of its life underground, emerging only for a few weeks to breed.', img: 'https://placehold.co/400x300/10b981/fff' },
-    { id: 'neelakurinji', name: 'Neelakurinji', category: 'plants', habitat: 'western-ghats', desc: 'A flower that blooms once every 12 years, turning the hills of the Western Ghats into a sea of blue.', img: 'https://placehold.co/400x300/10b981/fff' }
+    { id: 'neelakurinji', name: 'Neelakurinji', category: 'plants', habitat: 'western-ghats', desc: 'A flower that blooms once every 12 years, turning the hills of the Western Ghats into a sea of blue.', img: 'https://placehold.co/400x300/10b981/fff' },
+    { id: 'white-bellied-blue-robin', name: 'White-bellied Blue Robin', category: 'birds', habitat: 'western-ghats', desc: 'A rare endemic bird of the Western Ghats.', img: 'https://placehold.co/400x300/3b82f6/fff', link: '../white-bellied-blue-robin-explorer/index.html' },
+    { id: 'travancore-wolf-snake', name: 'Travancore Wolf Snake', category: 'reptiles', habitat: 'western-ghats', desc: 'An endemic non-venomous snake found in the Western Ghats.', img: 'https://placehold.co/400x300/8b5cf6/fff', link: '../travancore-wolf-snake-explorer/index.html' },
+    { id: 'andaman-shrew', name: 'Andaman White-toothed Shrew', category: 'mammals', habitat: 'andaman-nicobar', desc: 'A highly elusive endemic mammal of the Andaman Islands.', img: 'https://placehold.co/400x300/f59e0b/fff', link: '../andaman-white-toothed-shrew-explorer/index.html' },
+    { id: 'nilgiri-laughingthrush', name: 'Nilgiri Laughingthrush', category: 'birds', habitat: 'western-ghats', desc: 'An endemic bird species of the Nilgiri Hills known for its restricted range.', img: 'https://placehold.co/400x300/ec4899/fff', link: '../nilgiri-laughingthrush-explorer/index.html' },
 ];
 
 let currentCategory = 'all';
