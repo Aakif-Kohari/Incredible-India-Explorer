@@ -1460,6 +1460,13 @@ window.indiaSearchIndex = [
     description: "Explore the UNESCO World Heritage Mountain Railways of India — Darjeeling Himalayan Railway, Nilgiri Mountain Railway (Abt Rack & Pinion), and Kalka-Shimla Railway.",
     url: "frontend/mountain-railways-explorer/index.html"
   },
+  // --- Indian Golden Gecko Explorer ---
+  {
+    title: "Indian Golden Gecko Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Indian Golden Gecko (Calodactylodes aureus) — golden-hued rock-dwelling gecko endemic to ancient granite caves of the Eastern Ghats.",
+    url: "frontend/indian-golden-gecko-explorer/index.html"
+  },
   // --- Udhwa Wetlands Explorer ---
   {
     title: "Udhwa Wetlands Explorer",
