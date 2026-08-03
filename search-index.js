@@ -1427,6 +1427,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Gooty Sapphire Ornamental Tarantula Explorer ---
+  {
+    title: "Gooty Sapphire Ornamental Tarantula Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Gooty Sapphire Ornamental Tarantula (Poecilotheria metallica) — Critically Endangered electric-blue arboreal tarantula endemic to Andhra Pradesh.",
+    url: "frontend/gooty-sapphire-tarantula-explorer/index.html"
+  },
   // --- Udhwa Wetlands Explorer ---
   {
     title: "Udhwa Wetlands Explorer",
