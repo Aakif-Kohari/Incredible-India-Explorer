@@ -1427,6 +1427,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Malabar Gliding Frog Explorer ---
+  {
+    title: "Malabar Gliding Frog Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Malabar Gliding Frog (Rhacophorus malabaricus) — emerald canopy gliding tree frog of the Western Ghats with vibrant orange webbed parachutes.",
+    url: "frontend/malabar-gliding-frog-explorer/index.html"
+  },
   // --- Udhwa Wetlands Explorer ---
   {
     title: "Udhwa Wetlands Explorer",
