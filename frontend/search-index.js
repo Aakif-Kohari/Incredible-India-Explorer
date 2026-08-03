@@ -1465,7 +1465,19 @@ window.indiaSearchIndex = [
     title: "Malabar Gliding Frog Explorer",
     category: "Nature & Wildlife",
     description: "Explore the Malabar Gliding Frog (Rhacophorus malabaricus) — emerald canopy gliding tree frog of the Western Ghats with vibrant orange webbed parachutes.",
-    url: "frontend/malabar-gliding-frog-explorer/index.html"
+    url: "frontend/malabar-gliding-frog-explorer/index.html"},
+  // --- Travancore Flying Frog Explorer ---
+  {
+    title: "Travancore Flying Frog Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Travancore Flying Frog (Rhacophorus travancoricus) — Endangered canopy gliding frog endemic to rainforests of the southern Western Ghats.",
+    url: "frontend/travancore-flying-frog-explorer/index.html"},
+  // --- Indian Golden Gecko Explorer ---
+  {
+    title: "Indian Golden Gecko Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Indian Golden Gecko (Calodactylodes aureus) — golden-hued rock-dwelling gecko endemic to ancient granite caves of the Eastern Ghats.",
+    url: "frontend/indian-golden-gecko-explorer/index.html"
   },
   // --- Udhwa Wetlands Explorer ---
   {
@@ -1678,17 +1690,32 @@ window.indiaSearchIndex = [
     description: "Explore India's most prestigious government-sponsored film awards — history since 1954, the Golden and Silver Lotus, categories, Best Feature Film, acting and technical awards, selection process, timeline, and notable winners.",
     url: "frontend/national-film-awards-explorer/index.html"
   },
-  // --- Satgaon Port Explorer ---
-  {
-    title: "Satgaon (Saptagram) Ancient Port Explorer",
-    category: "Featured Explorers",
-    description: "Discover Saptagram (Satgaon), medieval Bengal's prosperous river port, its trade in muslin and silk, and its eventual decline due to siltation.",
-    url: "frontend/satgaon-port-explorer/index.html"},
   // --- Mandvi Port Explorer ---
   {
     title: "Mandvi Ancient Port Explorer",
     category: "Featured Explorers",
     description: "Discover Mandvi's 400-year-old traditional wooden shipbuilding yard, historical merchant connections, maritime heritage, and local dhow builders.",
     url: "frontend/mandvi-port-explorer/index.html"
+  },
+  // --- Satgaon Port Explorer ---
+  {
+    title: "Satgaon (Saptagram) Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Saptagram (Satgaon), medieval Bengal's prosperous river port, its trade in muslin and silk, and its eventual decline due to siltation.",
+    url: "frontend/satgaon-port-explorer/index.html"
+  },
+  // --- Kalingapatnam Port Explorer ---
+  {
+    title: "Kalingapatnam Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Kalingapatnam, the historic trade gateway of the Kalinga dynasty, its voyages to Java and Sumatra, and the iconic British-era lighthouse.",
+    url: "frontend/kalingapatnam-port-explorer/index.html"
+  },
+  // --- Honnavar Port Explorer ---
+  {
+    title: "Honnavar Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Honnavar, the historic spice trade gateway of Karnataka, its pepper trade under Rani Chennabhairadevi, and Ibn Battuta's travel diaries.",
+    url: "frontend/honnavar-port-explorer/index.html"
   }
 ];
