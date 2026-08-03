@@ -349,9 +349,27 @@ const fortsData = [
             "Hidden 1.4 km underwater wall",
             "Kanhoji Angre's headquarters"
         ],
-customUrl: "vijaydurg-fort.html"
+ customUrl: "vijaydurg-fort.html"
     },
     {
+        id: "ranthambore-fort",
+        name: "Ranthambore Fort",
+        location: "Sawai Madhopur",
+        state: "Rajasthan",
+        built: "10th Century",
+        builtBy: "Chauhan (Chahamana) Dynasty",
+        era: "Rajput Era",
+        architecture: "Rajput Hill Fort Architecture",
+        image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80",
+        history: "An ancient hill fort standing inside Ranthambore National Park, famous for its Trinetra Ganesh Temple, its role in the sieges of medieval Rajasthan, and its unique setting within a tiger reserve.",
+        highlights: [
+            "UNESCO World Heritage Site",
+            "Located inside a tiger reserve",
+            "Trinetra Ganesh Temple",
+            "Site of Alauddin Khilji's 1301 siege"
+        ],
+        customUrl: "ranthambore-fort.html"
+    },    {
         id: "gagron-fort",
         name: "Gagron Fort",
         location: "Jhalawar",
