@@ -1729,5 +1729,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Discover Honnavar, the historic spice trade gateway of Karnataka, its pepper trade under Rani Chennabhairadevi, and Ibn Battuta's travel diaries.",
     url: "frontend/honnavar-port-explorer/index.html"
+  },
+  // --- Kannur Port Explorer ---
+  {
+    title: "Kannur Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Kannur, the historic Malabar spice trade gateway of Kerala, its pepper trade under the Kolathiri Rajas, and St. Angelo Fort history.",
+    url: "frontend/kannur-port-explorer/index.html"
   }
 ];
