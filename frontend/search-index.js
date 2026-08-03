@@ -1460,6 +1460,12 @@ window.indiaSearchIndex = [
     description: "Explore the UNESCO World Heritage Mountain Railways of India — Darjeeling Himalayan Railway, Nilgiri Mountain Railway (Abt Rack & Pinion), and Kalka-Shimla Railway.",
     url: "frontend/mountain-railways-explorer/index.html"
   },
+  // --- Malabar Gliding Frog Explorer ---
+  {
+    title: "Malabar Gliding Frog Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Malabar Gliding Frog (Rhacophorus malabaricus) — emerald canopy gliding tree frog of the Western Ghats with vibrant orange webbed parachutes.",
+    url: "frontend/malabar-gliding-frog-explorer/index.html"},
   // --- Travancore Flying Frog Explorer ---
   {
     title: "Travancore Flying Frog Explorer",
