@@ -1427,6 +1427,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Indian Golden Gecko Explorer ---
+  {
+    title: "Indian Golden Gecko Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Indian Golden Gecko (Calodactylodes aureus) — golden-hued rock-dwelling gecko endemic to ancient granite caves of the Eastern Ghats.",
+    url: "frontend/indian-golden-gecko-explorer/index.html"
+  },
   // --- Udhwa Wetlands Explorer ---
   {
     title: "Udhwa Wetlands Explorer",
