@@ -1670,5 +1670,12 @@ window.indiaSearchIndex = [
     category: "Awards & Honours",
     description: "Explore India's most prestigious government-sponsored film awards — history since 1954, the Golden and Silver Lotus, categories, Best Feature Film, acting and technical awards, selection process, timeline, and notable winners.",
     url: "frontend/national-film-awards-explorer/index.html"
+  },
+  // --- Kalingapatnam Port Explorer ---
+  {
+    title: "Kalingapatnam Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Kalingapatnam, the historic trade gateway of the Kalinga dynasty, its voyages to Java and Sumatra, and the iconic British-era lighthouse.",
+    url: "frontend/kalingapatnam-port-explorer/index.html"
   }
 ];
