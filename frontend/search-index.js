@@ -1460,6 +1460,12 @@ window.indiaSearchIndex = [
     description: "Explore the UNESCO World Heritage Mountain Railways of India — Darjeeling Himalayan Railway, Nilgiri Mountain Railway (Abt Rack & Pinion), and Kalka-Shimla Railway.",
     url: "frontend/mountain-railways-explorer/index.html"
   },
+  // --- Gooty Sapphire Ornamental Tarantula Explorer ---
+  {
+    title: "Gooty Sapphire Ornamental Tarantula Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Gooty Sapphire Ornamental Tarantula (Poecilotheria metallica) — Critically Endangered electric-blue arboreal tarantula endemic to Andhra Pradesh.",
+    url: "frontend/gooty-sapphire-tarantula-explorer/index.html"},
   // --- Anamalai Flying Frog Explorer ---
   {
     title: "Anamalai Flying Frog Explorer",
