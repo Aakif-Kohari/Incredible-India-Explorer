@@ -1460,6 +1460,12 @@ window.indiaSearchIndex = [
     description: "Explore the UNESCO World Heritage Mountain Railways of India — Darjeeling Himalayan Railway, Nilgiri Mountain Railway (Abt Rack & Pinion), and Kalka-Shimla Railway.",
     url: "frontend/mountain-railways-explorer/index.html"
   },
+  // --- Anamalai Flying Frog Explorer ---
+  {
+    title: "Anamalai Flying Frog Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Anamalai Flying Frog (Rhacophorus pseudomalabaricus) — Critically Endangered zebra-striped cloud forest glider endemic to the Anamalai Hills.",
+    url: "frontend/anamalai-flying-frog-explorer/index.html"},
   // --- Malabar Gliding Frog Explorer ---
   {
     title: "Malabar Gliding Frog Explorer",
