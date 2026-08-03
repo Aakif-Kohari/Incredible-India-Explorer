@@ -1,6 +1,6 @@
 # Incredible India Explorer 🇮🇳
 
-![Hero Image](assets/hero_banner.png)
+![Hero Image](frontend/assets/hero_banner.png)
 
 Welcome to the **Incredible India Explorer**—an immersive, interactive digital experience designed to showcase the rich culture, history, geography, and wildlife of India.
 

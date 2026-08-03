@@ -1671,6 +1671,20 @@ window.indiaSearchIndex = [
     description: "Explore India's most prestigious government-sponsored film awards — history since 1954, the Golden and Silver Lotus, categories, Best Feature Film, acting and technical awards, selection process, timeline, and notable winners.",
     url: "frontend/national-film-awards-explorer/index.html"
   },
+  // --- Mandvi Port Explorer ---
+  {
+    title: "Mandvi Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Mandvi's 400-year-old traditional wooden shipbuilding yard, historical merchant connections, maritime heritage, and local dhow builders.",
+    url: "frontend/mandvi-port-explorer/index.html"
+  },
+  // --- Satgaon Port Explorer ---
+  {
+    title: "Satgaon (Saptagram) Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Saptagram (Satgaon), medieval Bengal's prosperous river port, its trade in muslin and silk, and its eventual decline due to siltation.",
+    url: "frontend/satgaon-port-explorer/index.html"
+  },
   // --- Kalingapatnam Port Explorer ---
   {
     title: "Kalingapatnam Ancient Port Explorer",
