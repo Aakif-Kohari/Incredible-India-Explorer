@@ -126,11 +126,11 @@
     const group = document.getElementById(containerId);
     if (!group) return;
 
-    let html = '<button type="button" class="chip active" data-filter="' + filterKey + '" data-value="all">All</button>';
+    let html = '<button type="button" class="chip active" data-filter="' + filterKey + '" data-value="all" aria-pressed="true">All</button>';
     html += items.map(function (item) {
       const icon = item.icon ? item.icon + ' ' : '';
       return '<button type="button" class="chip" data-filter="' + filterKey + '" data-value="' +
-        escapeHtml(item.value) + '">' + icon + escapeHtml(item.label) + '</button>';
+        escapeHtml(item.value) + '" aria-pressed="false">' + icon + escapeHtml(item.label) + '</button>';
     }).join('');
 
     group.innerHTML = html;
@@ -149,7 +149,9 @@
     ['system', 'category'].forEach(function (key) {
       const chips = document.querySelectorAll('[data-filter="' + key + '"]');
       Array.prototype.forEach.call(chips, function (chip) {
-        chip.classList.toggle('active', chip.getAttribute('data-value') === filters[key]);
+        const active = chip.getAttribute('data-value') === filters[key];
+        chip.classList.toggle('active', active);
+        chip.setAttribute('aria-pressed', String(active));
       });
     });
   }
