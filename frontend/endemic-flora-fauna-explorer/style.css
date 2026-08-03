@@ -1,137 +1,181 @@
-/* ==========================================================================
-   ENDEMIC FLORA & FAUNA OF INDIA EXPLORER - STYLES
-   ========================================================================== */
+/* Endemic Flora & Fauna Explorer Landing Page Styles */
 
-.efe-hero {
-    position: relative;
-    padding: 100px 20px 60px;
-    text-align: center;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)),
-        url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600&q=80") center/cover no-repeat;
-    color: var(--text-light);
+.landing-hero {
+  background: linear-gradient(135deg, rgba(27, 94, 32, 0.9), rgba(13, 71, 16, 0.85)),
+              url('../../assets/hero_banner.png') center/cover no-repeat;
+  border-radius: 20px;
+  padding: 40px;
+  color: #ffffff;
+  margin-bottom: 35px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.efe-hero .hero-tagline {
-    display: inline-block;
-    background: var(--green);
-    color: white;
-    padding: 0.35rem 1rem;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
+.landing-hero h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.3rem;
+  margin-bottom: 12px;
 }
 
-.efe-hero h1 {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 5vw, 3rem);
-    margin: 0 0 1rem;
+.landing-hero p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  color: #e8f5e9;
+  margin-bottom: 25px;
 }
 
-.efe-hero p {
-    max-width: 640px;
-    margin: 0 auto;
-    color: var(--text-muted);
-    font-size: 1.05rem;
-    line-height: 1.6;
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.efe-section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+.filter-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
-.efe-section-header {
-    text-align: center;
-    margin-bottom: 2.5rem;
+.filter-btn:hover, .filter-btn.active {
+  background: #ffffff;
+  color: #1b5e20;
+  border-color: #ffffff;
 }
 
-.efe-section-header h2 {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
-
-.efe-section-header p {
-    color: var(--text-muted);
-}
-
+/* Species Grid */
 .species-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
 }
 
 .species-card {
-    background: var(--bg-dark-card);
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: var(--card-bg, #ffffff);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-color, rgba(0, 0, 0, 0.08));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .species-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
-.species-card-img {
-    height: 190px;
-    width: 100%;
-    object-fit: cover;
+.card-img-wrapper {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
 }
 
-.species-card-body {
-    padding: 1.25rem 1.5rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    flex: 1;
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
-.species-card-body h3 {
-    font-family: var(--font-heading);
-    margin: 0;
+.species-card:hover .card-img-wrapper img {
+  transform: scale(1.05);
 }
 
-.species-card-scientific {
-    font-style: italic;
-    color: var(--gold);
-    font-size: 0.9rem;
+.category-chip {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
-.species-card-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    font-size: 0.85rem;
-    color: var(--text-muted);
+.category-chip.mammal { background: rgba(46, 125, 50, 0.85); }
+.category-chip.amphibian { background: rgba(123, 31, 162, 0.85); }
+.category-chip.bird { background: rgba(2, 119, 189, 0.85); }
+
+.iucn-chip {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
 }
 
-.species-card-desc {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.5;
-    flex: 1;
+.iucn-chip.danger { background: #d32f2f; }
+.iucn-chip.warning { background: #f57c00; }
+.iucn-chip.critical { background: #b71c1c; }
+
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-.species-card-btn {
-    align-self: flex-start;
-    margin-top: 0.5rem;
-    padding: 0.6rem 1.2rem;
-    border-radius: 999px;
-    background: var(--saffron);
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
+.card-body h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.35rem;
+  margin: 0 0 4px 0;
+  color: var(--heading-color, #1b5e20);
 }
 
-@media (max-width: 600px) {
-    .efe-hero {
-        padding: 80px 16px 40px;
-    }
+.sci-name {
+  font-style: italic;
+  color: var(--text-muted, #666666);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.card-desc {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text-color, #444444);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-color, #f0f0f0);
+  padding-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-muted, #555555);
+}
+
+.explore-btn {
+  background: #2e7d32;
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.explore-btn:hover {
+  background: #1b5e20;
 }

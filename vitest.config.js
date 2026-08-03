@@ -5,7 +5,7 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./frontend/tests/setup.js'],
-    include: ['tests/**/*.test.{js,mjs}', 'frontend/tests/**/*.test.{js,mjs}'],
+    include: ['frontend/tests/**/*.test.{js,mjs}', 'tests/**/*.test.{js,mjs}'],
     exclude: ['node_modules', 'tests/*.test.mjs'],
   },
 });
