@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore Nanda Lake in Cacora, Goa — Goa's first and only Ramsar Site, a freshwater marsh known for its water lilies, migratory birds, and aquatic biodiversity."
+        />
+        <title>Nanda Lake Explorer | Incredible India</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="style.css" />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Nanda Lake Explorer | Incredible India" />
+        <meta
+            property="og:description"
+            content="Interactive explorer on Nanda Lake, Goa — freshwater lake ecosystem, Ramsar site status, aquatic plants, bird species, conservation, biodiversity, interactive map, and photo gallery."
+        />
+        <meta property="og:type" content="website" />
+    </head>
+
+    <body class="nanda-lake-main">
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+        <!-- Site Navbar -->
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link">Home</a>
+                    <a href="../../index.html" class="nav-link">Wetlands Hub</a>
+                    <a href="../../index.html" class="nav-link">Chilika Lake</a>
+                    <a href="../../index.html" class="nav-link">Kolleru Lake</a>
+                    <a href="../../index.html" class="nav-link active" style="color: var(--saffron)">Nanda Lake</a>
+                    <button
+                        id="theme-toggle"
+                        class="btn-theme-toggle"
+                        aria-label="Toggle Dark/Light Mode"
+                        title="Toggle Light Mode"
+                    >
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="nanda-lake-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill pill-ramsar">🪷 Goa's First Ramsar Site</span>
+                        <span class="hero-pill pill-lily">🌸 Famed for its Water Lilies</span>
+                        <span class="hero-pill pill-marsh">💧 42 ha Freshwater Marsh</span>
+                    </div>
+                    <h1>Nanda Lake <span>Explorer</span></h1>
+                    <p class="hero-subtitle">
+                        Discover Goa's first and only Ramsar Site — a freshwater marsh beside the Zuari River in
+                        Cacora, where a simple sluice gate turns marshland into open water, water lilies bloom
+                        across the surface, and migratory birds pass through every winter.
+                    </p>
+
+                    <!-- Quick Stats Bar -->
+                    <div id="stats-grid" class="stats-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Freshwater Lake Section -->
+            <section class="lake-section" id="freshwater-lake">
+                <div class="section-container">
+                    <div class="info-card">
+                        <span class="section-tag">A LAKE ON A SLUICE GATE</span>
+                        <h2 id="lake-title"></h2>
+                        <p id="lake-content"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ramsar Site Section -->
+            <section class="ramsar-section" id="ramsar">
+                <div class="section-container">
+                    <div class="info-card highlight-card">
+                        <span class="section-tag">GLOBAL RECOGNITION</span>
+                        <h2 id="ramsar-title"></h2>
+                        <p id="ramsar-content"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Aquatic Plants Section -->
+            <section class="plants-section" id="aquatic-plants">
+                <div class="section-container">
+                    <div class="info-card">
+                        <span class="section-tag">A GREEN, BLOOMING SURFACE</span>
+                        <h2 id="plants-title"></h2>
+                        <p id="plants-content"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bird Species Section -->
+            <section class="birds-section" id="bird-species">
+                <div class="section-container">
+                    <div class="bird-card-feature">
+                        <div class="bird-feature-info">
+                            <span class="section-tag">MIGRATORY VISITORS</span>
+                            <h2 id="birds-title"></h2>
+                            <p id="birds-content"></p>
+                            <div class="facts-list" id="birds-facts">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Biodiversity Section -->
+            <section class="biodiversity-section" id="biodiversity">
+                <div class="section-container">
+                    <div class="info-card highlight-card">
+                        <span class="section-tag">BEYOND THE BIRDS</span>
+                        <h2 id="biodiversity-title"></h2>
+                        <p id="biodiversity-content"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conservation Section -->
+            <section class="conservation-section" id="conservation">
+                <div class="section-container">
+                    <div class="info-card">
+                        <span class="section-tag">PEOPLE, POLICY & PROTECTION</span>
+                        <h2 id="conservation-title"></h2>
+                        <p id="conservation-content"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Map Section -->
+            <section class="map-section" id="interactive-map">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">HOTSPOT EXPLORER</span>
+                        <h2>Interactive Nanda Lake Map & Destinations</h2>
+                        <p>Select key points around the lake and its surrounding villages.</p>
+                    </div>
+                    <div class="map-layout">
+                        <div class="map-list" id="hotspots-list">
+                            <!-- Populated dynamically -->
+                        </div>
+                        <div class="map-detail" id="hotspot-detail">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Photo Gallery Section -->
+            <section class="gallery-section" id="gallery">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">MEDIA SHOTS</span>
+                        <h2>Image Gallery</h2>
+                        <p>Glimpse the lilies, waters, and birdlife of Nanda Lake.</p>
+                    </div>
+                    <div class="gallery-grid" id="gallery-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interesting Facts Section -->
+            <section class="facts-section" id="facts">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">TRIVIA</span>
+                        <h2>Interesting Facts</h2>
+                    </div>
+                    <div class="facts-grid" id="facts-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="section-container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <h3>Incredible India Explorer</h3>
+                        <p>Promoting eco-tourism, biodiversity awareness, and sustainable exploration across India.</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="../../index.html#home">Home</a>
+                        <a href="../../index.html">Wetlands Hub</a>
+                        <a href="../../index.html">Chilika Lake</a>
+                        <a href="../../index.html">Kolleru Lake</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Incredible India Explorer. Open Source Educational Platform.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script type="module" src="script.js"></script>
+    </body>
+</html>

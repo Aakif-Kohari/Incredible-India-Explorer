@@ -1,6 +1,6 @@
 # Incredible India Explorer 🇮🇳
 
-![Hero Image](assets/hero_banner.png)
+![Hero Image](frontend/assets/hero_banner.png)
 
 Welcome to the **Incredible India Explorer**—an immersive, interactive digital experience designed to showcase the rich culture, history, geography, and wildlife of India.
 
@@ -61,7 +61,7 @@ Do not commit real Firebase secrets to GitHub. Copy [.env.example](.env.example)
 
 You can also use the VITE_* equivalents if you prefer.
 
-The app will read these values at runtime via the /api/firebase-config endpoint.
+The app will read these values at runtime via the /frontend/api/firebase-config endpoint.
 
 ## Demo
 
