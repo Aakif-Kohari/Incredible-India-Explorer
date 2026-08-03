@@ -1676,6 +1676,12 @@ window.indiaSearchIndex = [
     title: "Satgaon (Saptagram) Ancient Port Explorer",
     category: "Featured Explorers",
     description: "Discover Saptagram (Satgaon), medieval Bengal's prosperous river port, its trade in muslin and silk, and its eventual decline due to siltation.",
-    url: "frontend/satgaon-port-explorer/index.html"
+    url: "frontend/satgaon-port-explorer/index.html"},
+  // --- Mandvi Port Explorer ---
+  {
+    title: "Mandvi Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Mandvi's 400-year-old traditional wooden shipbuilding yard, historical merchant connections, maritime heritage, and local dhow builders.",
+    url: "frontend/mandvi-port-explorer/index.html"
   }
 ];
