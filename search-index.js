@@ -1427,6 +1427,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Travancore Flying Frog Explorer ---
+  {
+    title: "Travancore Flying Frog Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Travancore Flying Frog (Rhacophorus travancoricus) — Endangered canopy gliding frog endemic to rainforests of the southern Western Ghats.",
+    url: "frontend/travancore-flying-frog-explorer/index.html"
+  },
   // --- Udhwa Wetlands Explorer ---
   {
     title: "Udhwa Wetlands Explorer",
