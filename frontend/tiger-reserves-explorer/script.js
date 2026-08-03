@@ -24,7 +24,9 @@
     renderChips('landscape-chips', 'landscape', TR_LANDSCAPES.map(function (item) {
       return { value: item.key, label: item.name, icon: item.icon };
     }));
-    renderChips('category-chips', 'category', TR_CATEGORIES.map(function (item) {
+    // The founding chip leads and filters on notified year rather than on
+    // category, because founding status and population story are independent.
+    renderChips('category-chips', 'category', [TR_FOUNDING_CHIP].concat(TR_CATEGORIES).map(function (item) {
       return { value: item.key, label: item.name, icon: item.icon };
     }));
     bindSortChips();
@@ -161,11 +163,11 @@
     const group = document.getElementById(containerId);
     if (!group) return;
 
-    let html = '<button type="button" class="chip active" data-filter="' + filterKey + '" data-value="all">All</button>';
+    let html = '<button type="button" class="chip active" data-filter="' + filterKey + '" data-value="all" aria-pressed="true">All</button>';
     html += items.map(function (item) {
       const icon = item.icon ? item.icon + ' ' : '';
       return '<button type="button" class="chip" data-filter="' + filterKey + '" data-value="' +
-        escapeHtml(item.value) + '">' + icon + escapeHtml(item.label) + '</button>';
+        escapeHtml(item.value) + '" aria-pressed="false">' + icon + escapeHtml(item.label) + '</button>';
     }).join('');
 
     group.innerHTML = html;
@@ -196,13 +198,17 @@
     ['landscape', 'category'].forEach(function (key) {
       const chips = document.querySelectorAll('[data-filter="' + key + '"]');
       Array.prototype.forEach.call(chips, function (chip) {
-        chip.classList.toggle('active', chip.getAttribute('data-value') === filters[key]);
+        const active = chip.getAttribute('data-value') === filters[key];
+        chip.classList.toggle('active', active);
+        chip.setAttribute('aria-pressed', String(active));
       });
     });
 
     const sortChips = document.querySelectorAll('[data-sort]');
     Array.prototype.forEach.call(sortChips, function (chip) {
-      chip.classList.toggle('active', chip.getAttribute('data-sort') === filters.sort);
+      const active = chip.getAttribute('data-sort') === filters.sort;
+      chip.classList.toggle('active', active);
+      chip.setAttribute('aria-pressed', String(active));
     });
   }
 
@@ -229,9 +235,19 @@
 
   /* ----------------------------------------------------------------- cards */
 
+  function isFounding(reserve) {
+    return reserve.notified === TR_FOUNDING_YEAR;
+  }
+
   function matchesFilters(reserve) {
     if (filters.landscape !== 'all' && reserve.landscape !== filters.landscape) return false;
-    if (filters.category !== 'all' && reserve.category !== filters.category) return false;
+
+    if (filters.category === TR_FOUNDING_CHIP.key) {
+      if (!isFounding(reserve)) return false;
+    } else if (filters.category !== 'all' && reserve.category !== filters.category) {
+      return false;
+    }
+
     if (!filters.search) return true;
 
     const haystack = [reserve.name, reserve.state, reserve.tagline, reserve.desc, reserve.feature]
@@ -296,6 +312,9 @@
             escapeHtml(lookup(TR_LANDSCAPES, reserve.landscape, 'name')) + '</span>' +
           '<span class="pill pill-category">' + lookup(TR_CATEGORIES, reserve.category, 'icon') + ' ' +
             escapeHtml(lookup(TR_CATEGORIES, reserve.category, 'name')) + '</span>' +
+          (isFounding(reserve)
+            ? '<span class="pill pill-founding">' + TR_FOUNDING_CHIP.icon + ' Founding ' + TR_FOUNDING_YEAR + '</span>'
+            : '') +
         '</div>' +
         '<span class="reserve-cta">Full profile →</span>' +
         '</article>';
@@ -458,7 +477,10 @@
       '<span class="pill pill-landscape">' + lookup(TR_LANDSCAPES, reserve.landscape, 'icon') + ' ' +
         escapeHtml(lookup(TR_LANDSCAPES, reserve.landscape, 'name')) + '</span>' +
       '<span class="pill pill-category">' + lookup(TR_CATEGORIES, reserve.category, 'icon') + ' ' +
-        escapeHtml(lookup(TR_CATEGORIES, reserve.category, 'name')) + '</span>';
+        escapeHtml(lookup(TR_CATEGORIES, reserve.category, 'name')) + '</span>' +
+      (isFounding(reserve)
+        ? '<span class="pill pill-founding">' + TR_FOUNDING_CHIP.icon + ' Founding ' + TR_FOUNDING_YEAR + '</span>'
+        : '');
 
     const specs = [
       { label: 'Year notified', value: String(reserve.notified) },

@@ -14,12 +14,22 @@ const TR_LANDSCAPES = [
   { key: 'sundarbans', name: 'Sundarbans', icon: '🌊', blurb: 'The only mangrove tiger population in the world.' },
 ];
 
+/* `category` describes a reserve's population story only. Founding status is
+   deliberately not one of these values: the two facts are independent — Corbett
+   is both a founding reserve and a high-density source site — and collapsing
+   them into a single field made the founding filter under-report. Founding
+   status is derived from `notified` instead, using TR_FOUNDING_YEAR below. */
 const TR_CATEGORIES = [
-  { key: 'founding', name: 'Founding Nine (1973)', icon: '🏛️' },
   { key: 'recovery', name: 'Recovery Story', icon: '📈' },
   { key: 'source', name: 'High-Density Source Site', icon: '🔥' },
   { key: 'lowdensity', name: 'Low Density / Rebuilding', icon: '🌱' },
 ];
+
+/* Project Tiger launched on 1 April 1973 with nine reserves. A reserve is a
+   founding reserve if and only if it was notified that year, so the filter is
+   derived rather than hand-maintained and cannot drift out of sync. */
+const TR_FOUNDING_YEAR = 1973;
+const TR_FOUNDING_CHIP = { key: 'founding', name: 'Founding Nine (1973)', icon: '🏛️' };
 
 /* --------------------------------------------------------------------------
    The reserves. `tigers` is a mid-range estimate from the most recent
@@ -48,7 +58,7 @@ const TIGER_RESERVES = [
     icon: '🌿',
     state: 'Karnataka',
     landscape: 'ghats',
-    category: 'founding',
+    category: 'source',
     notified: 1973,
     coreKm2: 872,
     bufferKm2: 584,
@@ -65,7 +75,7 @@ const TIGER_RESERVES = [
     icon: '🦌',
     state: 'Madhya Pradesh',
     landscape: 'central',
-    category: 'founding',
+    category: 'source',
     notified: 1973,
     coreKm2: 917,
     bufferKm2: 1134,
@@ -82,7 +92,7 @@ const TIGER_RESERVES = [
     icon: '🏰',
     state: 'Rajasthan',
     landscape: 'central',
-    category: 'founding',
+    category: 'source',
     notified: 1973,
     coreKm2: 1113,
     bufferKm2: 297,
@@ -99,7 +109,7 @@ const TIGER_RESERVES = [
     icon: '🌊',
     state: 'West Bengal',
     landscape: 'sundarbans',
-    category: 'founding',
+    category: 'source',
     notified: 1973,
     coreKm2: 1700,
     bufferKm2: 885,
@@ -133,7 +143,7 @@ const TIGER_RESERVES = [
     icon: '🌲',
     state: 'Maharashtra',
     landscape: 'central',
-    category: 'founding',
+    category: 'lowdensity',
     notified: 1973,
     coreKm2: 1500,
     bufferKm2: 1268,
@@ -167,7 +177,7 @@ const TIGER_RESERVES = [
     icon: '💧',
     state: 'Odisha',
     landscape: 'central',
-    category: 'founding',
+    category: 'lowdensity',
     notified: 1973,
     coreKm2: 1195,
     bufferKm2: 1555,
@@ -711,8 +721,8 @@ const TR_TIMELINE = [
   { year: '2010', title: 'TX2 goal set', desc: 'At the St Petersburg summit, thirteen range countries commit to doubling wild tiger numbers by 2022.' },
   { year: '2014', title: 'Estimate reaches 2,226', desc: 'The third cycle shows a clear national increase, though gains are concentrated in a minority of reserves.' },
   { year: '2018', title: 'Estimate reaches 2,967', desc: 'India meets the TX2 doubling target four years early. The survey enters the Guinness records as the largest camera-trap wildlife survey.' },
-  { year: '2022', title: 'Fifty years of Project Tiger', desc: 'The programme completes half a century, with the network past fifty reserves.' },
-  { year: '2023', title: 'Estimate passes 3,600', desc: 'The fifth cycle reports a minimum of about 3,167 individually photographed tigers and an upper estimate above 3,900.' },
+  { year: '2022', title: 'Network passes fifty reserves', desc: 'The programme approaches its half-century with more than fifty notified reserves.' },
+  { year: '2023', title: 'Fifty years, and an estimate past 3,600', desc: 'Project Tiger completes fifty years on 1 April. The fifth estimation cycle reports a minimum of about 3,167 individually photographed tigers and an upper estimate above 3,900.' },
   { year: '2024', title: 'Network keeps growing', desc: 'Guru Ghasidas-Tamor Pingla is notified, taking the network past fifty-five reserves and 82,000 km².' },
 ];
 
