@@ -1705,5 +1705,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Discover Kannur, the historic Malabar spice trade gateway of Kerala, its pepper trade under the Kolathiri Rajas, and St. Angelo Fort history.",
     url: "frontend/kannur-port-explorer/index.html"
+  },
+  // --- Dwarka Port Explorer ---
+  {
+    title: "Dwarka Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Dwarka, the historic spice trade gateway of Gujarat, its association with Lord Krishna, and submerged archaeological ruins.",
+    url: "frontend/dwarka-port-explorer/index.html"
   }
 ];
