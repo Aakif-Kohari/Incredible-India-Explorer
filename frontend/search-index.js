@@ -1707,7 +1707,13 @@ window.indiaSearchIndex = [
     title: "Sahitya Akademi Award Explorer",
     category: "Awards & Honours",
     description: "Explore India's National Academy of Letters and its premier literary honour — history since 1954, year instituted, eligibility, the 24 languages covered, selection process, categories, notable awardees, timeline, facts, and gallery.",
-    url: "frontend/sahitya-akademi-award-explorer/index.html"
+    url: "frontend/sahitya-akademi-award-explorer/index.html"},
+  // --- Sangeet Natak Akademi Award Explorer ---
+  {
+    title: "Sangeet Natak Akademi Award Explorer",
+    category: "Awards & Honours",
+    description: "Explore India's highest national honour for the performing arts — history since 1952, eligibility, dance, music and theatre categories, selection process, awardees, timeline, and gallery.",
+    url: "frontend/sangeet-natak-akademi-award-explorer/index.html"
   },
   // --- Mandvi Port Explorer ---
   {
