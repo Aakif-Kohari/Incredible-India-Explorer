@@ -1715,6 +1715,13 @@ window.indiaSearchIndex = [
     description: "Explore India's highest national honour for the performing arts — history since 1952, eligibility, dance, music and theatre categories, selection process, awardees, timeline, and gallery.",
     url: "frontend/sangeet-natak-akademi-award-explorer/index.html"
   },
+  // --- Jnanpith Award Explorer ---
+  {
+    title: "Jnanpith Award Explorer",
+    category: "Awards & Honours",
+    description: "Explore India's highest literary honour — history since 1961, year instituted, eligibility, selection process, languages covered, medal and citation, complete winners timeline, notable laureates, facts, and gallery.",
+    url: "frontend/jnanpith-award-explorer/index.html"
+  },
   // --- Mandvi Port Explorer ---
   {
     title: "Mandvi Ancient Port Explorer",
