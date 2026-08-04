@@ -1806,6 +1806,13 @@ window.indiaSearchIndex = [
     description: "Discover Barkur, the ancient Brahmapuri port town of Karnataka, capital of the Saluvas, its Pancha Ganapati temples, and riverine maritime trade.",
     url: "frontend/barkur-port-explorer/index.html"
   },
+  // --- Kollam Port Explorer ---
+  {
+    title: "Kollam Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Kollam (Quilon), the historic spice trade gateway of Kerala, its black pepper commerce, and Chinese trade links.",
+    url: "frontend/kollam-port-explorer/index.html"
+  },
   // --- Gopakapattana Port Explorer ---
   {
     title: "Gopakapattana Ancient Port Explorer",
