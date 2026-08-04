@@ -1702,6 +1702,13 @@ window.indiaSearchIndex = [
     description: "Explore India's most prestigious government-sponsored film awards — history since 1954, the Golden and Silver Lotus, categories, Best Feature Film, acting and technical awards, selection process, timeline, and notable winners.",
     url: "frontend/national-film-awards-explorer/index.html"
   },
+  // --- Sangeet Natak Akademi Award Explorer ---
+  {
+    title: "Sangeet Natak Akademi Award Explorer",
+    category: "Awards & Honours",
+    description: "Explore India's highest national honour for the performing arts — history since 1952, eligibility, dance, music and theatre categories, selection process, awardees, timeline, and gallery.",
+    url: "frontend/sangeet-natak-akademi-award-explorer/index.html"
+  },
   // --- Mandvi Port Explorer ---
   {
     title: "Mandvi Ancient Port Explorer",
