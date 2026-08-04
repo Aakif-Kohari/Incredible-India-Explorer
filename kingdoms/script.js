@@ -48,7 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
       rulers: "Babur, Akbar, Shah Jahan, Aurangzeb",
       achievements: "Construction of Taj Mahal, Red Fort, and Humayun's Tomb, synthesis of Indo-Islamic architecture, development of miniature painting, administrative reforms, Urdu language development",
       description: "An imperial power that ruled most of the Indian subcontinent for over three centuries. Known for architectural marvels, cultural synthesis, and administrative innovations that shaped modern India.",
-      image: "../assets/monuments.png"
+      image: "../assets/monuments.png",
+      link: "mughal-empire.html"
     },
     {
       id: "maratha",
