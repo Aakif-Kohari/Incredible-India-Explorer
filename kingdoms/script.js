@@ -59,18 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
       achievements: "Guerrilla warfare tactics, naval fleet establishment, promotion of Sanskrit and Marathi, construction of sea forts, administrative reforms, resistance against Mughal expansion",
       description: "Founded by Chhatrapati Shivaji Maharaj, the Maratha Empire became a dominant power through innovative military tactics and strong administration. It played a crucial role in shaping India's political landscape.",
       image: "../assets/forts.png"
-    },
-            {
-      id: "kalachuri",
-      name: "Kalachuri Dynasty",
-      period: "6th Century – 12th Century CE",
-      capital: "Tripuri (Tewar), Mahishmati",
-      rulers: "Kokalla I, Gangeyadeva, Lakshmikarna",
-      achievements: "Extensive architectural contributions including Chausath Yogini Temple at Bhedaghat, patronization of Shaivism, formidable military power in Central India",
-      description: "A prominent dynasty that ruled across central and western India. Known for their profound impact on the region's art, culture, and magnificent temple architecture.",
-      image: "../assets/monuments.png",
-      link: "kalachuri.html"
-    }  
+    }
   ];
 
   const fallbackImage = "../assets/hero_banner.png";
