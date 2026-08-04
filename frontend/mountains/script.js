@@ -187,6 +187,24 @@ document.addEventListener("DOMContentLoaded", () => {
       tags: []
     },
     {
+      id: "reo-purgyil",
+      name: "Reo Purgyil",
+      height: 6816,
+      heightDisplay: "6,816 m",
+      range: "Himalayas",
+      subrange: "Zanskar Range",
+      state: "Himachal Pradesh",
+      region: "north",
+      difficulty: "Hard",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Peaks_of_Mt_Leo_Purgyil_and_Reo_Purgyil.jpg/960px-Peaks_of_Mt_Leo_Purgyil_and_Reo_Purgyil.jpg",
+      firstAscent: "1971",
+      description: "The highest peak in Himachal Pradesh, a dome-shaped massif at the southern end of the Zanskar Range rising above the Sutlej on the India–Tibet border.",
+      fact: "Reo Purgyil forms a striking twin-peak massif with its neighbour Leo Pargial (6,791 m), and is often shrouded in clouds.",
+      link: "../reo-purgyil/reo-purgyil.html",
+      linkLabel: "Explore Peak",
+      tags: ["state-high-point"]
+    },
+    {
       id: "satopanth",
       name: "Satopanth",
       height: 7075,
