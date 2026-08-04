@@ -1782,5 +1782,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Discover Kodungallur, the ancient port of Muziris in Kerala, its role as the global pepper emporium, Pattanam excavations, and syncretic culture.",
     url: "frontend/kodungallur-port-explorer/index.html"
+  },
+  // --- Barkur Port Explorer ---
+  {
+    title: "Barkur Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Barkur, the ancient Brahmapuri port town of Karnataka, capital of the Saluvas, its Pancha Ganapati temples, and riverine maritime trade.",
+    url: "frontend/barkur-port-explorer/index.html"
   }
 ];
