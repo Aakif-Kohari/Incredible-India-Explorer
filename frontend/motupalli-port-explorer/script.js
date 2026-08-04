@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // ---------- Gallery Modal ----------
   const modal = document.getElementById('motupalli-modal');
   const modalClose = document.getElementById('motupalli-modal-close');
+  const modalImage = document.getElementById('motupalli-modal-image');
   const modalTitle = document.getElementById('motupalli-modal-title');
   const modalCategory = document.getElementById('motupalli-modal-category');
   const modalHeading = document.getElementById('motupalli-modal-heading');
@@ -12,8 +13,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const galleryItems = document.querySelectorAll('.motupalli-gallery-item');
 
   function openModal(item) {
+    const image = item.querySelector('img');
     const title = item.getAttribute('data-title') || '';
     const desc = item.getAttribute('data-desc') || '';
+
+    if (image && modalImage) {
+      modalImage.src = image.currentSrc || image.src;
+      modalImage.alt = image.alt;
+    }
 
     modalTitle.textContent = title;
     modalCategory.textContent = 'Gallery Highlight';
@@ -61,40 +68,34 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // ---------- Bookmark Button ----------
+  // ---------- Bookmark Button (Journey integration) ----------
+  // NOTE: This assumes journey.js exposes a global `Journey` object with a
+  // `Journey.toggle(id, title, thumbnail)` method (per CodeRabbit's review)
+  // and, ideally, a `Journey.isSaved(id)` method to read current state.
+  // Please share frontend/journey/journey.js so this can be verified/corrected
+  // against the real API — method names below are a best-effort guess.
   const bookmarkBtn = document.querySelector('.journey-bookmark-btn[data-bookmark-id="motupalli-port-main"]');
 
   if (bookmarkBtn) {
     const bookmarkId = bookmarkBtn.getAttribute('data-bookmark-id');
-    const storageKey = 'journey-bookmarks';
-
-    function getBookmarks() {
-      try {
-        return JSON.parse(localStorage.getItem(storageKey)) || [];
-      } catch (e) {
-        return [];
-      }
-    }
-
-    function saveBookmarks(list) {
-      localStorage.setItem(storageKey, JSON.stringify(list));
-    }
+    const bookmarkTitle = 'Motupalli Ancient Port';
+    const bookmarkThumbnail = '../assets/motupalli_port_banner.svg';
 
     function refreshButtonState() {
-      const bookmarks = getBookmarks();
-      const isSaved = bookmarks.includes(bookmarkId);
+      let isSaved = false;
+      if (typeof Journey !== 'undefined' && typeof Journey.isSaved === 'function') {
+        isSaved = Journey.isSaved(bookmarkId);
+      }
       bookmarkBtn.setAttribute('aria-pressed', isSaved ? 'true' : 'false');
       bookmarkBtn.textContent = isSaved ? '♥ Saved to Journey' : '♡ Save to Journey';
     }
 
     bookmarkBtn.addEventListener('click', function () {
-      let bookmarks = getBookmarks();
-      if (bookmarks.includes(bookmarkId)) {
-        bookmarks = bookmarks.filter(function (id) { return id !== bookmarkId; });
-      } else {
-        bookmarks.push(bookmarkId);
+      if (typeof Journey === 'undefined' || typeof Journey.toggle !== 'function') {
+        console.warn('Journey.toggle() not found — journey.js may not be loaded before script.js, or the shared API differs from what was assumed.');
+        return;
       }
-      saveBookmarks(bookmarks);
+      Journey.toggle(bookmarkId, bookmarkTitle, bookmarkThumbnail);
       refreshButtonState();
     });
 
@@ -104,13 +105,13 @@ document.addEventListener('DOMContentLoaded', function () {
   // ---------- Scroll to top button ----------
   const scrollTopBtn = document.getElementById('btn-scroll-top');
   if (scrollTopBtn) {
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 400) {
-        scrollTopBtn.classList.add('visible');
-      } else {
-        scrollTopBtn.classList.remove('visible');
-      }
-    });
+    function syncScrollTopVisibility() {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }
+
+    window.addEventListener('scroll', syncScrollTopVisibility);
+    syncScrollTopVisibility();
+
     scrollTopBtn.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
