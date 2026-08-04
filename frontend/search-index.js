@@ -971,13 +971,18 @@ window.indiaSearchIndex = [
     description: "Trace 5 major Indian river systems (Ganga, Yamuna, Godavari, Krishna, Brahmaputra) from source to mouth on an SVG map with accuracy scoring.",
     url: "frontend/river-trace/index.html"
   },
-  {
+{
     title: "India's National Parks Timeline",
     category: "Nature & Wildlife",
     description: "Interactive visual timeline showing when India's national parks and wildlife sanctuaries were established.",
     url: "frontend/national-parks-timeline/frontend/national-parks-timeline/national-parks-timeline.html"
   },
   {
+    title: "Brown Palm Civet Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Brown Palm Civet (Paradoxurus jerdoni) — a nocturnal, frugivorous civet endemic to the Western Ghats rainforests, its ecology, IUCN status, and conservation.",
+    url: "frontend/brown-palm-civet-explorer/index.html"
+  },  {
     title: "Jim Corbett National Park Timeline",
     category: "National Parks Timeline",
     description: "Established in 1936 as Hailey National Park, India's oldest protected area.",
