@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "Founded by Chhatrapati Shivaji Maharaj, the Maratha Empire became a dominant power through innovative military tactics and strong administration. It played a crucial role in shaping India's political landscape.",
       image: "../assets/forts.png"
     },
-    {
+            {
       id: "kalachuri",
       name: "Kalachuri Dynasty",
       period: "6th Century – 12th Century CE",
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "A prominent dynasty that ruled across central and western India. Known for their profound impact on the region's art, culture, and magnificent temple architecture.",
       image: "../assets/monuments.png",
       link: "kalachuri.html"
-    }
+    }  
   ];
 
   const fallbackImage = "../assets/hero_banner.png";
@@ -100,13 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = document.querySelector(`.kingdom-card[data-id="${kingdom.id}"]`);
       if (card) {
         card.scrollIntoView({ behavior: "smooth", block: "center" });
-        setTimeout(() => {
-          if (kingdom.link) {
-            window.location.href = kingdom.link;
-          } else {
-            openModal(kingdom, card);
-          }
-        }, 500);
+        setTimeout(() => openModal(kingdom, card), 500);
       }
     });
     return item;
@@ -133,13 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     const img = card.querySelector("img");
     img.addEventListener("error", () => img.src = fallbackImage, { once: true });
-    card.addEventListener("click", () => {
-      if (kingdom.link) {
-        window.location.href = kingdom.link;
-      } else {
-        openModal(kingdom, card);
-      }
-    });
+    card.addEventListener("click", () => openModal(kingdom, card));
     return card;
   }
 
