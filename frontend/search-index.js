@@ -1798,6 +1798,12 @@ window.indiaSearchIndex = [
     title: "Mangalore Ancient Port Explorer",
     category: "Featured Explorers",
     description: "Discover Mangalore, the historic southwest coast port of Karnataka, its ancient maritime trade, Bunder harbour, spice and sandalwood exports, and the modern New Mangalore Port.",
-    url: "frontend/mangalore-port-explorer/index.html"
+    url: "frontend/mangalore-port-explorer/index.html"},
+  // --- Barkur Port Explorer ---
+  {
+    title: "Barkur Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Barkur, the ancient Brahmapuri port town of Karnataka, capital of the Saluvas, its Pancha Ganapati temples, and riverine maritime trade.",
+    url: "frontend/barkur-port-explorer/index.html"
   }
 ];
