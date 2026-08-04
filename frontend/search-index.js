@@ -1805,5 +1805,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Discover Barkur, the ancient Brahmapuri port town of Karnataka, capital of the Saluvas, its Pancha Ganapati temples, and riverine maritime trade.",
     url: "frontend/barkur-port-explorer/index.html"
+  },
+  // --- Gopakapattana Port Explorer ---
+  {
+    title: "Gopakapattana Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Gopakapattana, the historic Kadamba port capital of Goa, its spice and horse trade, and the Rajvithi royal highway.",
+    url: "frontend/gopakapattana-port-explorer/index.html"
   }
 ];
