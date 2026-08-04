@@ -24,7 +24,7 @@ const NATIONAL_PARKS = [
         bestTime: 'November to June',
         entryFee: '₹150 (Indian), ₹600 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Elephants_in_Rajaji_National_Park.jpg/960px-Elephants_in_Rajaji_National_Park.jpg',
-        explorerUrl: '../rajaji-national-park-explorer/index.html'
+        explorerUrl: '../national-parks/rajaji-national-park-explorer/index.html'
     },
     {
         id: 'jim-corbett',
@@ -46,7 +46,7 @@ const NATIONAL_PARKS = [
         bestTime: 'November to June',
 entryFee: '₹200 (Indian), ₹1000 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Jim_Corbett_National_Park_%28India%29.jpg/960px-Jim_Corbett_National_Park_%28India%29.jpg',
-        explorerUrl: '../jim-corbett-national-park-explorer/index.html'
+        explorerUrl: '../national-parks/jim-corbett-national-park-explorer/index.html'
     },    {
         id: 'kaziranga',
         name: 'Kaziranga National Park',
@@ -67,7 +67,7 @@ entryFee: '₹200 (Indian), ₹1000 (Foreign)',
         bestTime: 'November to April',
         entryFee: '₹650 (Indian), ₹2500 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Elephant_safari_in_Kaziranga.jpg/960px-Elephant_safari_in_Kaziranga.jpg',
-        explorerUrl: '../kaziranga-national-park-explorer/index.html'
+        explorerUrl: '../national-parks/kaziranga-national-park-explorer/index.html'
     },
     {
         id: 'ranthambore',
@@ -110,7 +110,7 @@ entryFee: '₹200 (Indian), ₹1000 (Foreign)',
         bestTime: 'October to June',
 entryFee: '₹150 (Indian), ₹500 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Jungle_safari_-_Kanha_National_Park.jpg/960px-Jungle_safari_-_Kanha_National_Park.jpg',
-        explorerUrl: '../kanha-national-park-explorer/index.html'
+        explorerUrl: '../national-parks/kanha-national-park-explorer/index.html'
     },    {
         id: 'kuno',
         name: 'Kuno National Park',
@@ -130,7 +130,7 @@ entryFee: '₹150 (Indian), ₹500 (Foreign)',
         bestTime: 'October to March',
         entryFee: '₹50 (Indian), ₹200 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Acinonyx_jubatus_2.jpg/960px-Acinonyx_jubatus_2.jpg',
-        explorerUrl: '../kuno-national-park-explorer/index.html'
+        explorerUrl: '../national-parks/kuno-national-park-explorer/index.html'
     },
     {
         id: 'bandhavgarh',
@@ -152,7 +152,7 @@ entryFee: '₹150 (Indian), ₹500 (Foreign)',
         bestTime: 'October to June',
         entryFee: '₹150 (Indian), ₹500 (Foreign)',
 image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg/960px-1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg',
-        explorerUrl: '../bandhavgarh-national-park-explorer/index.html'
+        explorerUrl: '../national-parks/bandhavgarh-national-park-explorer/index.html'
     },    {
         id: 'periyar',
         name: 'Periyar National Park',
@@ -172,7 +172,7 @@ image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_
         climate: 'Tropical Monsoon',
         bestTime: 'September to March',
         entryFee: '₹45 (Indian), ₹500 (Foreign)',
-        explorerUrl: '../periyar-national-park-explorer/index.html',
+        explorerUrl: '../national-parks/periyar-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Periyar_National_Park_02.jpg/960px-Periyar_National_Park_02.jpg'
     },
     {
@@ -194,7 +194,8 @@ image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_
         climate: 'Tropical Monsoon',
         bestTime: 'September to March',
         entryFee: '₹200 (Indian), ₹1000 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Sundarbans_National_Park.jpg/960px-Sundarbans_National_Park.jpg'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Sundarbans_National_Park.jpg/960px-Sundarbans_National_Park.jpg',
+        explorerUrl: '../national-parks/sundarbans-national-park/index.html'
     },
     {
         id: 'valmiki',
@@ -215,7 +216,7 @@ image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_
         bestTime: 'November to April',
         entryFee: '₹100 (Indian), ₹500 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Royal_Bengal_Tiger_at_Nandankanan.jpg/960px-Royal_Bengal_Tiger_at_Nandankanan.jpg',
-        explorerUrl: '../valmiki-national-park-explorer/index.html'
+        explorerUrl: '../national-parks/valmiki-national-park-explorer/index.html'
     },
     {
         id: 'valley-of-flowers',
@@ -258,7 +259,8 @@ image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_
         climate: 'Tropical Dry',
         bestTime: 'October to June',
         entryFee: '₹100 (Indian), ₹800 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Majestic_Asiatic_Lions_in_Devalia_Safari_Park%2C_Gir_National_Forest_Park.jpg/960px-Majestic_Asiatic_Lions_in_Devalia_Safari_Park%2C_Gir_National_Forest_Park.jpg'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Majestic_Asiatic_Lions_in_Devalia_Safari_Park%2C_Gir_National_Forest_Park.jpg/960px-Majestic_Asiatic_Lions_in_Devalia_Safari_Park%2C_Gir_National_Forest_Park.jpg',
+        explorerUrl: '../national-parks/gir-national-park/index.html'
     },
     {
         id: 'keoladeo',
@@ -279,7 +281,7 @@ image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_
         climate: 'Semi-Arid',
         bestTime: 'August to November',
         entryFee: '₹50 (Indian), ₹400 (Foreign)',
-        explorerUrl: '../keoladeo-national-park-explorer/index.html',
+        explorerUrl: '../national-parks/keoladeo-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Keoladeo_Ghana_National_Park%2C_Bharatpur%2C_Rajasthan%2C_India.jpg/960px-Keoladeo_Ghana_National_Park%2C_Bharatpur%2C_Rajasthan%2C_India.jpg'
     },
     {
@@ -301,7 +303,7 @@ image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_
         climate: 'Cold Desert',
         bestTime: 'June to September',
         entryFee: '₹30 (Indian), ₹300 (Foreign)',
-        explorerUrl: '../hemis-national-park-explorer/index.html',
+        explorerUrl: '../national-parks/hemis-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Hemis_national_park.jpg/960px-Hemis_national_park.jpg'
     },
     {
@@ -365,7 +367,7 @@ image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_
         climate: 'Subtropical Monsoon',
         bestTime: 'October to April',
         entryFee: '₹50 (Indian), ₹500 (Foreign)',
-        explorerUrl: '../namdapha-national-park-explorer/index.html',
+        explorerUrl: '../national-parks/namdapha-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Neofelis_nebulosa.jpg/960px-Neofelis_nebulosa.jpg'
     },
     {
@@ -408,7 +410,7 @@ image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_
         climate: 'Subtropical Monsoon',
         bestTime: 'November to April',
         entryFee: '₹100 (Indian), ₹500 (Foreign)',
-        explorerUrl: '../dudhwa-national-park-explorer/index.html',
+        explorerUrl: '../national-parks/dudhwa-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Swamp_Deer_Barasingha.jpg/960px-Swamp_Deer_Barasingha.jpg'
     },
     {
@@ -430,7 +432,7 @@ image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_
         climate: 'Tropical Monsoon',
         bestTime: 'November to June',
         entryFee: '₹100 (Indian), ₹500 (Foreign)',
-        explorerUrl: '../simlipal-national-park-explorer/index.html',
+        explorerUrl: '../national-parks/simlipal-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Swamp_Deer_Barasingha.jpg/960px-Swamp_Deer_Barasingha.jpg'
     },
     {
@@ -452,7 +454,7 @@ image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_
         climate: 'Tropical Monsoon',
         bestTime: 'October to April',
         entryFee: '₹100 (Indian), ₹500 (Foreign)',
-        explorerUrl: '../manas-national-park-explorer/index.html',
+        explorerUrl: '../national-parks/manas-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Golden_Langur_Manas.jpg/960px-Golden_Langur_Manas.jpg'
     },
     {
@@ -474,7 +476,8 @@ image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_
         climate: 'Tropical Monsoon',
         bestTime: 'October to March',
         entryFee: '₹80 (Indian), ₹500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Bandipur_National_Park%2C_Karnataka%2C_Wild_Elephants.jpg/960px-Bandipur_National_Park%2C_Karnataka%2C_Wild_Elephants.jpg'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Bandipur_National_Park%2C_Karnataka%2C_Wild_Elephants.jpg/960px-Bandipur_National_Park%2C_Karnataka%2C_Wild_Elephants.jpg',
+        explorerUrl: '../national-parks/bandipur-national-park/index.html'
     },
     {
         id: 'nagarhole',
@@ -516,7 +519,8 @@ image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_
         climate: 'Tropical Dry',
         bestTime: 'October to June',
         entryFee: '₹100 (Indian), ₹500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Matkasur_the_male_tiger_at_Tadoba_Andhari_Tiger_Reserve.jpg/960px-Matkasur_the_male_tiger_at_Tadoba_Andhari_Tiger_Reserve.jpg'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Matkasur_the_male_tiger_at_Tadoba_Andhari_Tiger_Reserve.jpg/960px-Matkasur_the_male_tiger_at_Tadoba_Andhari_Tiger_Reserve.jpg',
+        explorerUrl: '../national-parks/tadoba-andhari-national-park/index.html'
     },
     {
         id: 'pench',
@@ -538,7 +542,7 @@ image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_
         bestTime: 'October to May',
 entryFee: '₹100 (Indian), ₹500 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Pench_National_Park%2C_Madhya_Pradesh_-_by_Ishani_Mehta.jpg/960px-Pench_National_Park%2C_Madhya_Pradesh_-_by_Ishani_Mehta.jpg',
-        explorerUrl: '../pench-national-park-explorer/index.html'
+        explorerUrl: '../national-parks/pench-national-park-explorer/index.html'
     },    {
         id: 'dachigam',
         name: 'Dachigam National Park',
@@ -559,7 +563,7 @@ entryFee: '₹100 (Indian), ₹500 (Foreign)',
         bestTime: 'April to September',
         entryFee: '₹30 (Indian), ₹300 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/A_view_of_Lower_Dachigam_where_most_of_the_hangul_get_confined_in_winter%2C_AJT_Johnsingh.jpg/960px-A_view_of_Lower_Dachigam_where_most_of_the_hangul_get_confined_in_winter%2C_AJT_Johnsingh.jpg',
-        explorerUrl: '../dachigam-national-park-explorer/index.html'
+        explorerUrl: '../national-parks/dachigam-national-park-explorer/index.html'
     },
     {
         id: 'desert',
@@ -601,7 +605,7 @@ entryFee: '₹100 (Indian), ₹500 (Foreign)',
         bestTime: 'October to April',
         entryFee: '₹50 (Indian), ₹300 (Foreign)',
         image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Matcha%20Nokpante%20(tiger%27s%20meeting%20place)%20in%20Balpakram%20National%20Park.jpg',
-        explorerUrl: '../balpakram-national-park-explorer/index.html'
+        explorerUrl: '../national-parks/balpakram-national-park-explorer/index.html'
     },
     {
         id: 'silent-valley',
@@ -665,7 +669,7 @@ entryFee: '₹100 (Indian), ₹500 (Foreign)',
         bestTime: 'October to May',
         entryFee: '₹80 (Indian), ₹400 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG/960px-Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG',
-        explorerUrl: '../bannerghatta-national-park-explorer/index.html'
+        explorerUrl: '../national-parks/bannerghatta-national-park-explorer/index.html'
     },
     {
         id: 'mouling',
@@ -686,7 +690,7 @@ entryFee: '₹100 (Indian), ₹500 (Foreign)',
         climate: 'Subtropical to Alpine',
         bestTime: 'October to April',
         entryFee: '₹50 (Indian), ₹300 (Foreign)',
-        explorerUrl: '/frontend/mouling-national-park-explorer/index.html',
+        explorerUrl: '../national-parks/mouling-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Red_Panda_%28Ailurus_fulgens%29.jpg/960px-Red_Panda_%28Ailurus_fulgens%29.jpg'
     },
     {
@@ -750,7 +754,8 @@ entryFee: '₹100 (Indian), ₹500 (Foreign)',
         climate: 'Tropical Marine',
         bestTime: 'October to March',
         entryFee: '₹50 (Indian), ₹500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/View_of_Gulf_of_Mannar_from_Rameshwaram%2C_Tamil_Nadu.jpg/960px-View_of_Gulf_of_Mannar_from_Rameshwaram%2C_Tamil_Nadu.jpg'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/View_of_Gulf_of_Mannar_from_Rameshwaram%2C_Tamil_Nadu.jpg/960px-View_of_Gulf_of_Mannar_from_Rameshwaram%2C_Tamil_Nadu.jpg',
+        explorerUrl: '../national-parks/gulf-of-mannar-marine-national-park/index.html'
     },
     {
         id: 'sanjay',
@@ -791,7 +796,7 @@ entryFee: '₹100 (Indian), ₹500 (Foreign)',
         bestTime: 'October to April',
         entryFee: '₹50 (Indian), ₹300 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Red_Panda_%28Ailurus_fulgens%29.jpg/960px-Red_Panda_%28Ailurus_fulgens%29.jpg',
-        explorerUrl: '../nokrek-national-park-explorer/index.html'
+        explorerUrl: '../national-parks/nokrek-national-park-explorer/index.html'
     },
     {
         id: 'satpura',
@@ -812,7 +817,7 @@ entryFee: '₹100 (Indian), ₹500 (Foreign)',
         bestTime: 'October to June',
         entryFee: '₹250 (Indian), ₹1500 (Foreign)',
         image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Amazing%20Landscape%20%40Satpura%20Tiger%20Reserve.jpg?width=960',
-        explorerUrl: '../satpura-national-park-explorer/index.html'
+        explorerUrl: '../national-parks/satpura-national-park-explorer/index.html'
     },
     {
         id: 'kali',
@@ -820,13 +825,7 @@ entryFee: '₹100 (Indian), ₹500 (Foreign)',
         state: 'Karnataka',
         stateId: 'ka',
         established: 1987,
-        area: 1300,},{
-        id: 'sariska',
-        name: 'Sariska National Park',
-        state: 'Rajasthan',
-        stateId: 'rj',
-        established: 1982,
-        area: 881,
+        area: 1300,
         areaUnit: 'km²',
         type: 'Tiger Reserve',
         isTigerReserve: true,
@@ -859,6 +858,18 @@ entryFee: '₹100 (Indian), ₹500 (Foreign)',
         bestTime: 'September to November',
         entryFee: '₹120 (Indian), ₹500 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Eravikulam_National_Park_%2849444006652%29.jpg/960px-Eravikulam_National_Park_%2849444006652%29.jpg'
+    },
+    {
+        id: 'sariska',
+        name: 'Sariska Tiger Reserve',
+        state: 'Rajasthan',
+        stateId: 'rj',
+        established: 1955,
+        area: 881,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
         description: 'Set against the backdrop of the rugged Aravalli Hills, this Tiger Reserve is famous for its successful tiger relocation program. Visitors can explore diverse wildlife along well-marked Safari Routes, admire the scrub-thorn flora, and visit the historic Kankwari Fort located within the reserve.',
         keyFauna: ['Bengal Tiger', 'Leopard', 'Jungle Cat', 'Golden Jackal', 'Chital'],
         keyFlora: ['Dhok', 'Salai', 'Ber', 'Khair', 'Scrub-thorn Flora'],

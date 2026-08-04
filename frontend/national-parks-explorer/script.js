@@ -174,12 +174,12 @@
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
                     hideMapTooltip();
-                    openParkModal(marker.dataset.parkId);
+                    handleParkClick(marker.dataset.parkId);
                 }
             });
             marker.addEventListener('click', function () {
                 hideMapTooltip();
-                openParkModal(marker.dataset.parkId);
+                handleParkClick(marker.dataset.parkId);
             });
         });
     }
@@ -334,12 +334,12 @@
 
         grid.querySelectorAll('.park-card').forEach(function (card) {
             card.addEventListener('click', function () {
-                openParkModal(card.dataset.parkId);
+                handleParkClick(card.dataset.parkId);
             });
             card.addEventListener('keydown', function (e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    openParkModal(card.dataset.parkId);
+                    handleParkClick(card.dataset.parkId);
                 }
             });
         });
@@ -552,12 +552,12 @@
 
         list.querySelectorAll('.tiger-park-card').forEach(function (card) {
             card.addEventListener('click', function () {
-                openParkModal(card.dataset.parkId);
+                handleParkClick(card.dataset.parkId);
             });
             card.addEventListener('keydown', function (e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    openParkModal(card.dataset.parkId);
+                    handleParkClick(card.dataset.parkId);
                 }
             });
         });
@@ -735,6 +735,15 @@
             if (e.key === 'Escape') closeParkModal();
         });
         trapFocus(document.getElementById('park-modal'));
+    }
+
+    function handleParkClick(parkId) {
+        const park = NATIONAL_PARKS.find(function(p) { return p.id === parkId; });
+        if (park && park.explorerUrl) {
+            window.location.href = park.explorerUrl;
+        } else {
+            openParkModal(parkId);
+        }
     }
 
     function openParkModal(parkId) {
