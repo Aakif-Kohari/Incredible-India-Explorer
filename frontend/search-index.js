@@ -1702,6 +1702,12 @@ window.indiaSearchIndex = [
     description: "Explore India's most prestigious government-sponsored film awards — history since 1954, the Golden and Silver Lotus, categories, Best Feature Film, acting and technical awards, selection process, timeline, and notable winners.",
     url: "frontend/national-film-awards-explorer/index.html"
   },
+  // --- Sahitya Akademi Award Explorer ---
+  {
+    title: "Sahitya Akademi Award Explorer",
+    category: "Awards & Honours",
+    description: "Explore India's National Academy of Letters and its premier literary honour — history since 1954, year instituted, eligibility, the 24 languages covered, selection process, categories, notable awardees, timeline, facts, and gallery.",
+    url: "frontend/sahitya-akademi-award-explorer/index.html"},
   // --- Sangeet Natak Akademi Award Explorer ---
   {
     title: "Sangeet Natak Akademi Award Explorer",
