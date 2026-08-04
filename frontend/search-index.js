@@ -4,6 +4,12 @@
  * Lazy-loaded when the search trigger is clicked.
  */
 window.indiaSearchIndex = [
+  {
+    title: "Beypore Ancient Port Explorer",
+    category: "Heritage & History",
+    description: "Explore Kerala's historic Beypore port: 2,000-year-old traditional Uru wooden shipbuilding, Nilambur teak, and legendary Khalasi mechanical engineering.",
+    url: "frontend/beypore-port-explorer/index.html"
+  },
   // --- States & Union Territories ---
   {
     title: "Andaman and Nicobar Islands",
