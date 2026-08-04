@@ -978,6 +978,11 @@ window.indiaSearchIndex = [
     url: "frontend/national-parks-timeline/frontend/national-parks-timeline/national-parks-timeline.html"
   },
   {
+    title: "Nilgiri Marten Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Nilgiri Marten (Martes gwatkinsii) — India's only endemic marten, found in the shola forests and montane grasslands of the Western Ghats, its ecology and conservation.",
+    url: "frontend/nilgiri-marten-explorer/index.html"
+  },  {
     title: "Brown Palm Civet Explorer",
     category: "Nature & Wildlife",
     description: "Explore the Brown Palm Civet (Paradoxurus jerdoni) — a nocturnal, frugivorous civet endemic to the Western Ghats rainforests, its ecology, IUCN status, and conservation.",
