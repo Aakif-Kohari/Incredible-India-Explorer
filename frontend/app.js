@@ -1,13 +1,11 @@
-﻿// Automatically load SEO helper utility
+// Automatically load SEO helper utility
 (function() {
     if (!document.getElementById('seo-helper-script') && typeof window !== 'undefined') {
         const script = document.createElement('script');
         script.id = 'seo-helper-script';
-        const pathPrefix = (window.location.pathname.includes('/frontend/states/') ||
-                            window.location.pathname.includes('/traditional-games/') ||
-                            window.location.pathname.includes('/freedom-timeline/') ||
-                            window.location.pathname.includes('/postal-stamps/') ||
-                            window.location.pathname.includes('/handloom/')) ? '../' : '';
+        var pathPrefix = window.location.pathname.includes('/frontend/') 
+            ? (window.location.pathname.split('/frontend/')[1].includes('/') ? '../' : '') 
+            : 'frontend/';
         script.src = pathPrefix + 'js-modules/seo-helper/seo-helper.js';
         script.defer = true;
         document.head.appendChild(script);
@@ -181,11 +179,9 @@ function handleInitError(pageName, err) {
 
 /* Initialise the unified toast notification system */
 (function initToastSystem() {
-    var pathPrefix = (window.location.pathname.includes('/frontend/states/') ||
-        window.location.pathname.includes('/traditional-games/') ||
-        window.location.pathname.includes('/freedom-timeline/') ||
-        window.location.pathname.includes('/postal-stamps/') ||
-        window.location.pathname.includes('/handloom/')) ? '../' : '';
+    var pathPrefix = window.location.pathname.includes('/frontend/') 
+        ? (window.location.pathname.split('/frontend/')[1].includes('/') ? '../' : '') 
+        : 'frontend/';
     var script = document.createElement('script');
     script.src = pathPrefix + 'js-modules/toast-system.js';
     script.async = true;
@@ -199,11 +195,9 @@ function handleInitError(pageName, err) {
 
 /* Initialize route management engine */
 (function initRouteEngine() {
-    var pathPrefix = (window.location.pathname.includes('/frontend/states/') ||
-        window.location.pathname.includes('/traditional-games/') ||
-        window.location.pathname.includes('/freedom-timeline/') ||
-        window.location.pathname.includes('/postal-stamps/') ||
-        window.location.pathname.includes('/handloom/')) ? '../' : '';
+    var pathPrefix = window.location.pathname.includes('/frontend/') 
+        ? (window.location.pathname.split('/frontend/')[1].includes('/') ? '../' : '') 
+        : 'frontend/';
     var script = document.createElement('script');
     script.src = pathPrefix + 'js-modules/router-init.js';
     script.async = true;
