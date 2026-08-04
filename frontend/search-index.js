@@ -1793,6 +1793,12 @@ window.indiaSearchIndex = [
     description: "Discover Kodungallur, the ancient port of Muziris in Kerala, its role as the global pepper emporium, Pattanam excavations, and syncretic culture.",
     url: "frontend/kodungallur-port-explorer/index.html"
   },
+  // --- Mangalore Port Explorer ---
+  {
+    title: "Mangalore Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Mangalore, the historic southwest coast port of Karnataka, its ancient maritime trade, Bunder harbour, spice and sandalwood exports, and the modern New Mangalore Port.",
+    url: "frontend/mangalore-port-explorer/index.html"},
   // --- Barkur Port Explorer ---
   {
     title: "Barkur Ancient Port Explorer",
