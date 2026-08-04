@@ -126,6 +126,18 @@ const MH_PORTS = [
     note: 'The Chola naval expeditions to Srivijaya in the 11th century are among the few recorded instances of a large Indian overseas military campaign.',
   },
   {
+    name: 'Beypore',
+    icon: '🛶',
+    era: 'ancient',
+    coast: 'west',
+    state: 'Kerala',
+    period: 'c. 1st century CE – Present',
+    tagline: 'Cradle of Uru shipbuilding & Khalasi heritage',
+    desc: 'Located at the mouth of the Chaliyar River near Kozhikode, Beypore is renowned worldwide for its 2,000-year-old traditional wooden Uru shipbuilding industry. Built using Nilambur teak and launched by legendary Khalasis using ancient winch mechanics, Beypore traded extensively with Arabia, Mesopotamia, and Rome.',
+    traded: ['Nilambur Teak', 'Wooden Uru dhows', 'Coir cordage', 'Malabar Spices', 'Handloom textiles'],
+    note: 'Beypore Urus are hand-crafted without written blueprints using traditional measurement rods (kolu), drawing commissioning orders from Gulf royalty even today.',
+  },
+  {
     name: 'Kozhikode (Calicut)',
     icon: '⚓',
     era: 'ancient',

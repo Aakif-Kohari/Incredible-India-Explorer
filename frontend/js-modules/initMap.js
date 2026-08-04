@@ -74,11 +74,12 @@ function initInteractiveMap() {
             const tooltipDesc = document.getElementById('tooltip-description');
 
             if (tooltipStateName) tooltipStateName.innerText = loc.name;
-            if (tooltipCapital) tooltipCapital.innerText = loc.capital;
-            if (tooltipFood) tooltipFood.innerText = loc.food;
-            if (tooltipFestival) tooltipFestival.innerText = loc.festival;
+            if (tooltipCapital) tooltipCapital.innerText = loc.capital || 'Local Capital';
+            if (tooltipFood) tooltipFood.innerText = loc.food || 'Local Cuisine';
+            if (tooltipFestival) tooltipFestival.innerText = loc.festival || 'Local Festival';
             if (tooltipDesc) {
-                tooltipDesc.innerText = loc.description.substring(0, 120) + (loc.description.length > 120 ? '…' : '');
+                const desc = loc.description || '';
+                tooltipDesc.innerText = desc.substring(0, 120) + (desc.length > 120 ? '…' : '');
             }
             tooltip.style.opacity = '1';
         };
@@ -319,14 +320,14 @@ function initInteractiveMap() {
         if (colA && colB) {
             colA.innerHTML = `
                 <h2 style="color:var(--primary-gold); margin-bottom:5px;">${stateA.name}</h2>
-                <p style="color:var(--saffron); font-weight:600; margin-top:0; font-size:1.1rem;">🏛️ Capital: ${stateA.capital}</p>
+                <p style="color:var(--saffron); font-weight:600; margin-top:0; font-size:1.1rem;">🏛️ Capital: ${stateA.capital || 'Local Capital'}</p>
                 <div style="margin:20px 0; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:15px;">
                     <p style="color:var(--text-color); line-height:1.6; font-size: 0.95rem;">${stateA.description}</p>
                 </div>
                 <h4 style="color:var(--primary-gold); margin-bottom:8px; font-size: 1rem; text-transform: uppercase; letter-spacing:1px;">🍲 Famous Food</h4>
-                <p style="margin-top:0; margin-bottom:20px; font-size: 0.95rem;">${stateA.food}</p>
+                <p style="margin-top:0; margin-bottom:20px; font-size: 0.95rem;">${stateA.food || 'Local Cuisine'}</p>
                 <h4 style="color:var(--primary-gold); margin-bottom:8px; font-size: 1rem; text-transform: uppercase; letter-spacing:1px;">🎉 Major Festival</h4>
-                <p style="margin-top:0; margin-bottom:25px; font-size: 0.95rem;">${stateA.festival}</p>
+                <p style="margin-top:0; margin-bottom:25px; font-size: 0.95rem;">${stateA.festival || 'Local Festival'}</p>
                 
                 <h4 style="color:var(--primary-gold); margin-bottom:8px; font-size: 1rem; text-transform: uppercase; letter-spacing:1px;">📊 Metric Analysis</h4>
                 ${makeMeters(metricsA)}
@@ -339,14 +340,14 @@ function initInteractiveMap() {
 
             colB.innerHTML = `
                 <h2 style="color:var(--primary-gold); margin-bottom:5px;">${stateB.name}</h2>
-                <p style="color:var(--saffron); font-weight:600; margin-top:0; font-size:1.1rem;">🏛️ Capital: ${stateB.capital}</p>
+                <p style="color:var(--saffron); font-weight:600; margin-top:0; font-size:1.1rem;">🏛️ Capital: ${stateB.capital || 'Local Capital'}</p>
                 <div style="margin:20px 0; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:15px;">
                     <p style="color:var(--text-color); line-height:1.6; font-size: 0.95rem;">${stateB.description}</p>
                 </div>
                 <h4 style="color:var(--primary-gold); margin-bottom:8px; font-size: 1rem; text-transform: uppercase; letter-spacing:1px;">🍲 Famous Food</h4>
-                <p style="margin-top:0; margin-bottom:20px; font-size: 0.95rem;">${stateB.food}</p>
+                <p style="margin-top:0; margin-bottom:20px; font-size: 0.95rem;">${stateB.food || 'Local Cuisine'}</p>
                 <h4 style="color:var(--primary-gold); margin-bottom:8px; font-size: 1rem; text-transform: uppercase; letter-spacing:1px;">🎉 Major Festival</h4>
-                <p style="margin-top:0; margin-bottom:25px; font-size: 0.95rem;">${stateB.festival}</p>
+                <p style="margin-top:0; margin-bottom:25px; font-size: 0.95rem;">${stateB.festival || 'Local Festival'}</p>
                 
                 <h4 style="color:var(--primary-gold); margin-bottom:8px; font-size: 1rem; text-transform: uppercase; letter-spacing:1px;">📊 Metric Analysis</h4>
                 ${makeMeters(metricsB)}
@@ -391,9 +392,9 @@ function initInteractiveMap() {
 
     function showStateDetails(loc) {
         if (overlayTitle) overlayTitle.innerText = loc.name;
-        if (overlayCapital) overlayCapital.innerText = loc.capital;
+        if (overlayCapital) overlayCapital.innerText = loc.capital || 'Local Capital';
 
-        const storyRaw = loc.story || loc.description;
+        const storyRaw = loc.story || loc.description || '';
         const paragraphs = storyRaw.split('\\n\\n').map(pText => `<p class="story-paragraph">${pText}</p>`).join('');
         if (overlayMainText) {
             overlayMainText.innerHTML = paragraphs;
@@ -403,9 +404,9 @@ function initInteractiveMap() {
 
         if (highlightsGrid) {
             highlightsGrid.innerHTML = `
-                <div class="highlight-bullet"><span class="bullet-icon">&#127963;</span><span>Capital: ${loc.capital}</span></div>
-                <div class="highlight-bullet"><span class="bullet-icon">&#127835;</span><span>Famous Food: ${loc.food}</span></div>
-                <div class="highlight-bullet"><span class="bullet-icon">&#127881;</span><span>Major Festival: ${loc.festival}</span></div>
+                <div class="highlight-bullet"><span class="bullet-icon">&#127963;</span><span>Capital: ${loc.capital || 'Local Capital'}</span></div>
+                <div class="highlight-bullet"><span class="bullet-icon">&#127835;</span><span>Famous Food: ${loc.food || 'Local Cuisine'}</span></div>
+                <div class="highlight-bullet"><span class="bullet-icon">&#127881;</span><span>Major Festival: ${loc.festival || 'Local Festival'}</span></div>
             `;
         }
 
@@ -435,12 +436,12 @@ function initInteractiveMap() {
                         <h3>${loc.name}</h3>
                     </div>
                     <p class="info-card-text">
-                        <strong>Capital:</strong> ${loc.capital}<br>
-                        <strong>Famous Food:</strong> ${loc.food}<br>
-                        <strong>Festival:</strong> ${loc.festival}
+                        <strong>Capital:</strong> ${loc.capital || 'Local Capital'}<br>
+                        <strong>Famous Food:</strong> ${loc.food || 'Local Cuisine'}<br>
+                        <strong>Festival:</strong> ${loc.festival || 'Local Festival'}
                     </p>
                     <p class="info-card-text" style="font-size: 0.95rem; margin-top: -15px;">
-                        ${loc.description.substring(0, 110)}...
+                        ${(loc.description || '').substring(0, 110)}...
                     </p>
                 `;
             }

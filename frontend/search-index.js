@@ -4,6 +4,12 @@
  * Lazy-loaded when the search trigger is clicked.
  */
 window.indiaSearchIndex = [
+  {
+    title: "Beypore Ancient Port Explorer",
+    category: "Heritage & History",
+    description: "Explore Kerala's historic Beypore port: 2,000-year-old traditional Uru wooden shipbuilding, Nilambur teak, and legendary Khalasi mechanical engineering.",
+    url: "frontend/beypore-port-explorer/index.html"
+  },
   // --- States & Union Territories ---
   {
     title: "Andaman and Nicobar Islands",
@@ -971,13 +977,23 @@ window.indiaSearchIndex = [
     description: "Trace 5 major Indian river systems (Ganga, Yamuna, Godavari, Krishna, Brahmaputra) from source to mouth on an SVG map with accuracy scoring.",
     url: "frontend/river-trace/index.html"
   },
-  {
+{
     title: "India's National Parks Timeline",
     category: "Nature & Wildlife",
     description: "Interactive visual timeline showing when India's national parks and wildlife sanctuaries were established.",
     url: "frontend/national-parks-timeline/frontend/national-parks-timeline/national-parks-timeline.html"
   },
   {
+    title: "Nilgiri Marten Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Nilgiri Marten (Martes gwatkinsii) — India's only endemic marten, found in the shola forests and montane grasslands of the Western Ghats, its ecology and conservation.",
+    url: "frontend/nilgiri-marten-explorer/index.html"
+  },  {
+    title: "Brown Palm Civet Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Brown Palm Civet (Paradoxurus jerdoni) — a nocturnal, frugivorous civet endemic to the Western Ghats rainforests, its ecology, IUCN status, and conservation.",
+    url: "frontend/brown-palm-civet-explorer/index.html"
+  },  {
     title: "Jim Corbett National Park Timeline",
     category: "National Parks Timeline",
     description: "Established in 1936 as Hailey National Park, India's oldest protected area.",
@@ -1345,6 +1361,12 @@ window.indiaSearchIndex = [
     description: "Horizontal filmstrip timeline detailing Indian cinema from 1913 Raja Harishchandra, talkies, parallel cinema, masala era, and diaspora boom to modern global Oscar triumphs.",
     url: "frontend/indian-cinema-timeline/index.html"
   },
+  // --- Reo Purgyil Mountain ---
+  {
+    title: "Reo Purgyil Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Reo Purgyil, a 6,816 m high peak in the Zanskar Range of Himachal Pradesh, featuring facts, map locations, image gallery, and trivia.",
+    url: "frontend/reo-purgyil/reo-purgyil.html"},
   // --- Saltoro Kangri Mountain ---
   {
     title: "Saltoro Kangri Mountain Explorer",
@@ -1459,6 +1481,37 @@ window.indiaSearchIndex = [
     category: "UNESCO Engineering & Heritage",
     description: "Explore the UNESCO World Heritage Mountain Railways of India — Darjeeling Himalayan Railway, Nilgiri Mountain Railway (Abt Rack & Pinion), and Kalka-Shimla Railway.",
     url: "frontend/mountain-railways-explorer/index.html"
+  },
+  // --- Gooty Sapphire Ornamental Tarantula Explorer ---
+  {
+    title: "Gooty Sapphire Ornamental Tarantula Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Gooty Sapphire Ornamental Tarantula (Poecilotheria metallica) — Critically Endangered electric-blue arboreal tarantula endemic to Andhra Pradesh.",
+    url: "frontend/gooty-sapphire-tarantula-explorer/index.html"},
+  // --- Anamalai Flying Frog Explorer ---
+  {
+    title: "Anamalai Flying Frog Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Anamalai Flying Frog (Rhacophorus pseudomalabaricus) — Critically Endangered zebra-striped cloud forest glider endemic to the Anamalai Hills.",
+    url: "frontend/anamalai-flying-frog-explorer/index.html"},
+  // --- Malabar Gliding Frog Explorer ---
+  {
+    title: "Malabar Gliding Frog Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Malabar Gliding Frog (Rhacophorus malabaricus) — emerald canopy gliding tree frog of the Western Ghats with vibrant orange webbed parachutes.",
+    url: "frontend/malabar-gliding-frog-explorer/index.html"},
+  // --- Travancore Flying Frog Explorer ---
+  {
+    title: "Travancore Flying Frog Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Travancore Flying Frog (Rhacophorus travancoricus) — Endangered canopy gliding frog endemic to rainforests of the southern Western Ghats.",
+    url: "frontend/travancore-flying-frog-explorer/index.html"},
+  // --- Indian Golden Gecko Explorer ---
+  {
+    title: "Indian Golden Gecko Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Indian Golden Gecko (Calodactylodes aureus) — golden-hued rock-dwelling gecko endemic to ancient granite caves of the Eastern Ghats.",
+    url: "frontend/indian-golden-gecko-explorer/index.html"
   },
   // --- Udhwa Wetlands Explorer ---
   {
@@ -1670,5 +1723,87 @@ window.indiaSearchIndex = [
     category: "Awards & Honours",
     description: "Explore India's most prestigious government-sponsored film awards — history since 1954, the Golden and Silver Lotus, categories, Best Feature Film, acting and technical awards, selection process, timeline, and notable winners.",
     url: "frontend/national-film-awards-explorer/index.html"
+  },
+  // --- Sahitya Akademi Award Explorer ---
+  {
+    title: "Sahitya Akademi Award Explorer",
+    category: "Awards & Honours",
+    description: "Explore India's National Academy of Letters and its premier literary honour — history since 1954, year instituted, eligibility, the 24 languages covered, selection process, categories, notable awardees, timeline, facts, and gallery.",
+    url: "frontend/sahitya-akademi-award-explorer/index.html"},
+  // --- Sangeet Natak Akademi Award Explorer ---
+  {
+    title: "Sangeet Natak Akademi Award Explorer",
+    category: "Awards & Honours",
+    description: "Explore India's highest national honour for the performing arts — history since 1952, eligibility, dance, music and theatre categories, selection process, awardees, timeline, and gallery.",
+    url: "frontend/sangeet-natak-akademi-award-explorer/index.html"
+  },
+  // --- Jnanpith Award Explorer ---
+  {
+    title: "Jnanpith Award Explorer",
+    category: "Awards & Honours",
+    description: "Explore India's highest literary honour — history since 1961, year instituted, eligibility, selection process, languages covered, medal and citation, complete winners timeline, notable laureates, facts, and gallery.",
+    url: "frontend/jnanpith-award-explorer/index.html"
+  },
+  // --- Mandvi Port Explorer ---
+  {
+    title: "Mandvi Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Mandvi's 400-year-old traditional wooden shipbuilding yard, historical merchant connections, maritime heritage, and local dhow builders.",
+    url: "frontend/mandvi-port-explorer/index.html"
+  },
+  // --- Satgaon Port Explorer ---
+  {
+    title: "Satgaon (Saptagram) Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Saptagram (Satgaon), medieval Bengal's prosperous river port, its trade in muslin and silk, and its eventual decline due to siltation.",
+    url: "frontend/satgaon-port-explorer/index.html"
+  },
+  // --- Kalingapatnam Port Explorer ---
+  {
+    title: "Kalingapatnam Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Kalingapatnam, the historic trade gateway of the Kalinga dynasty, its voyages to Java and Sumatra, and the iconic British-era lighthouse.",
+    url: "frontend/kalingapatnam-port-explorer/index.html"
+  },
+  // --- Honnavar Port Explorer ---
+  {
+    title: "Honnavar Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Honnavar, the historic spice trade gateway of Karnataka, its pepper trade under Rani Chennabhairadevi, and Ibn Battuta's travel diaries.",
+    url: "frontend/honnavar-port-explorer/index.html"
+  },
+  // --- Kannur Port Explorer ---
+  {
+    title: "Kannur Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Kannur, the historic Malabar spice trade gateway of Kerala, its pepper trade under the Kolathiri Rajas, and St. Angelo Fort history.",
+    url: "frontend/kannur-port-explorer/index.html"
+  },
+  // --- Dwarka Port Explorer ---
+  {
+    title: "Dwarka Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Dwarka, the historic spice trade gateway of Gujarat, its association with Lord Krishna, and submerged archaeological ruins.",
+    url: "frontend/dwarka-port-explorer/index.html"
+  },
+  // --- Kodungallur Port Explorer ---
+  {
+    title: "Kodungallur Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Kodungallur, the ancient port of Muziris in Kerala, its role as the global pepper emporium, Pattanam excavations, and syncretic culture.",
+    url: "frontend/kodungallur-port-explorer/index.html"
+  },
+  // --- Mangalore Port Explorer ---
+  {
+    title: "Mangalore Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Mangalore, the historic southwest coast port of Karnataka, its ancient maritime trade, Bunder harbour, spice and sandalwood exports, and the modern New Mangalore Port.",
+    url: "frontend/mangalore-port-explorer/index.html"},
+  // --- Barkur Port Explorer ---
+  {
+    title: "Barkur Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Barkur, the ancient Brahmapuri port town of Karnataka, capital of the Saluvas, its Pancha Ganapati temples, and riverine maritime trade.",
+    url: "frontend/barkur-port-explorer/index.html"
   }
 ];

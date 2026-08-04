@@ -1,4 +1,4 @@
-﻿// auth.js
+// auth.js
 // SINGLE shared file — include this (+ firebase-config.js) on EVERY page.
 //
 // - On login.html: the elements below (authCard, tabLogin, authForm, etc.)
@@ -18,8 +18,8 @@ import {
   setPersistence,
   browserSessionPersistence
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { authApi } from './frontend/js-modules/auth/auth-core.mjs';
-import { injectCSRFToken, validateCSRFToken } from './frontend/js-modules/auth/csrf-protection.mjs';
+import { authApi } from './js-modules/auth/auth-core.mjs';
+import { injectCSRFToken, validateCSRFToken } from './js-modules/auth/csrf-protection.mjs';
 
 // Expose core local auth functions to global window context for page scripts
 if (typeof window !== 'undefined') {
