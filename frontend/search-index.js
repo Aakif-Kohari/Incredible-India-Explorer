@@ -1345,6 +1345,12 @@ window.indiaSearchIndex = [
     description: "Horizontal filmstrip timeline detailing Indian cinema from 1913 Raja Harishchandra, talkies, parallel cinema, masala era, and diaspora boom to modern global Oscar triumphs.",
     url: "frontend/indian-cinema-timeline/index.html"
   },
+  // --- Reo Purgyil Mountain ---
+  {
+    title: "Reo Purgyil Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Reo Purgyil, a 6,816 m high peak in the Zanskar Range of Himachal Pradesh, featuring facts, map locations, image gallery, and trivia.",
+    url: "frontend/reo-purgyil/reo-purgyil.html"},
   // --- Saltoro Kangri Mountain ---
   {
     title: "Saltoro Kangri Mountain Explorer",
