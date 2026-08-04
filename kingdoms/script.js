@@ -59,28 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
       achievements: "Guerrilla warfare tactics, naval fleet establishment, promotion of Sanskrit and Marathi, construction of sea forts, administrative reforms, resistance against Mughal expansion",
       description: "Founded by Chhatrapati Shivaji Maharaj, the Maratha Empire became a dominant power through innovative military tactics and strong administration. It played a crucial role in shaping India's political landscape.",
       image: "../assets/forts.png"
-    },
-    {
-      id: "kalachuri",
-      name: "Kalachuri Dynasty",
-      period: "6th Century – 12th Century CE",
-      capital: "Tripuri (Tewar), Mahishmati",
-      rulers: "Kokalla I, Gangeyadeva, Lakshmikarna",
-      achievements: "Extensive architectural contributions including Chausath Yogini Temple at Bhedaghat, patronization of Shaivism, formidable military power in Central India",
-      description: "A prominent dynasty that ruled across central and western India. Known for their profound impact on the region's art, culture, and magnificent temple architecture.",
-      image: "../assets/monuments.png",
-      link: "kalachuri.html"
-    },
-    {
-      id: "delhi-sultanate",
-      name: "Delhi Sultanate",
-      period: "1206 CE – 1526 CE",
-      capital: "Delhi, Agra",
-      rulers: "Qutb ud-Din Aibak, Iltutmish, Alauddin Khalji, Muhammad bin Tughluq",
-      achievements: "Introduction of Indo-Islamic architecture, centralization of administration, extensive military campaigns, and establishment of a common currency.",
-      description: "An Islamic empire based in Delhi that stretched over large parts of the Indian subcontinent for 320 years, significantly shaping India's cultural and architectural landscape.",
-      image: "../assets/monuments.png",
-      link: "delhi-sultanate.html"
     }
   ];
 
@@ -111,13 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = document.querySelector(`.kingdom-card[data-id="${kingdom.id}"]`);
       if (card) {
         card.scrollIntoView({ behavior: "smooth", block: "center" });
-        setTimeout(() => {
-          if (kingdom.link) {
-            window.location.href = kingdom.link;
-          } else {
-            openModal(kingdom, card);
-          }
-        }, 500);
+        setTimeout(() => openModal(kingdom, card), 500);
       }
     });
     return item;
@@ -144,13 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     const img = card.querySelector("img");
     img.addEventListener("error", () => img.src = fallbackImage, { once: true });
-    card.addEventListener("click", () => {
-      if (kingdom.link) {
-        window.location.href = kingdom.link;
-      } else {
-        openModal(kingdom, card);
-      }
-    });
+    card.addEventListener("click", () => openModal(kingdom, card));
     return card;
   }
 
