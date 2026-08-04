@@ -70,6 +70,17 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "A prominent dynasty that ruled across central and western India. Known for their profound impact on the region's art, culture, and magnificent temple architecture.",
       image: "../assets/monuments.png",
       link: "kalachuri.html"
+    },
+    {
+      id: "delhi-sultanate",
+      name: "Delhi Sultanate",
+      period: "1206 CE – 1526 CE",
+      capital: "Delhi, Agra",
+      rulers: "Qutb ud-Din Aibak, Iltutmish, Alauddin Khalji, Muhammad bin Tughluq",
+      achievements: "Introduction of Indo-Islamic architecture, centralization of administration, extensive military campaigns, and establishment of a common currency.",
+      description: "An Islamic empire based in Delhi that stretched over large parts of the Indian subcontinent for 320 years, significantly shaping India's cultural and architectural landscape.",
+      image: "../assets/monuments.png",
+      link: "delhi-sultanate.html"
     }
   ];
 
