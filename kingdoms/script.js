@@ -59,7 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
       rulers: "Chhatrapati Shivaji Maharaj, Shambhaji, Peshwa Baji Rao I",
       achievements: "Guerrilla warfare tactics, naval fleet establishment, promotion of Sanskrit and Marathi, construction of sea forts, administrative reforms, resistance against Mughal expansion",
       description: "Founded by Chhatrapati Shivaji Maharaj, the Maratha Empire became a dominant power through innovative military tactics and strong administration. It played a crucial role in shaping India's political landscape.",
-      image: "../assets/forts.png"
+      image: "../assets/forts.png",
+      link: "maratha-empire.html"
     },
     {
       id: "kalachuri",
