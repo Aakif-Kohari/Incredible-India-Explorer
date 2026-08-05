@@ -49,6 +49,12 @@
                     title: "Paramara Dynasty Explorer",
                     description: "Explore the Paramara Dynasty of Malwa, Raja Bhoja's Bhojshala college of Sanskrit learning, and the Bhojeshwar and Udayeshwar temples.",
                     link: "frontend/paramara-dynasty-explorer/index.html"
+                },
+                {
+                    id: "dynasties-of-india-solanki",
+                    title: "Solanki (Chaulukya) Dynasty Explorer",
+                    description: "Discover the Solanki Dynasty of Gujarat, the carved stepwell of Rani ki Vav, and the Sun Temple at Modhera.",
+                    link: "frontend/solanki-dynasty-explorer/index.html"
                 }
             ]);
         });
