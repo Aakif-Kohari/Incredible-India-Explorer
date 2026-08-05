@@ -1477,7 +1477,15 @@ window.indiaSearchIndex = [
     title: "Simlipal National Park Explorer",
     category: "National Parks & Wildlife",
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
-    url: "frontend/simlipal-national-park-explorer/index.html"},
+    url: "frontend/simlipal-national-park-explorer/index.html"
+  },
+  // --- Kingdom of Mysore Explorer ---
+  {
+    title: "Kingdom of Mysore Explorer",
+    category: "Indian Empires & History",
+    description: "Explore the Kingdom of Mysore (1399–1947) — Wadiyar dynasty, Hyder Ali, Tipu Sultan, Mysorean rockets, Mysore Dasara, and Mysore Palace.",
+    url: "frontend/mysore-kingdom-explorer/index.html"
+  },
   // --- Haiderpur Wetland Explorer ---
   {
     title: "Haiderpur Wetland Explorer",
