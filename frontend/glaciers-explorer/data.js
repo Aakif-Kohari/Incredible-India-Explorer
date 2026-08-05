@@ -1,0 +1,420 @@
+/* ==========================================================================
+   HIMALAYAN GLACIERS OF INDIA — DATASET
+   Figures for length, altitude and retreat are approximate. Published values
+   differ between studies depending on the measurement period and method, so
+   each glacier carries a `sourceNote` describing the basis of its numbers.
+   ========================================================================== */
+
+const GL_BASINS = [
+  { key: 'indus', name: 'Indus Basin', icon: '🏞️', desc: 'Glaciers of Ladakh, Zanskar, Lahaul-Spiti and Kashmir feeding the Indus and its tributaries — the Shyok, Nubra, Zanskar, Chenab and Jhelum.' },
+  { key: 'ganga', name: 'Ganga Basin', icon: '🕉️', desc: 'The Garhwal and Kumaon glaciers that give rise to the Bhagirathi, Alaknanda, Goriganga and Pindar — the headwaters of the Ganga.' },
+  { key: 'brahmaputra', name: 'Brahmaputra Basin', icon: '🌊', desc: 'Glaciers of Sikkim and Arunachal Pradesh feeding the Teesta, Subansiri and other Brahmaputra tributaries.' },
+];
+
+const GL_RANGES = [
+  { key: 'karakoram', name: 'Karakoram' },
+  { key: 'zanskar', name: 'Zanskar' },
+  { key: 'pirpanjal', name: 'Pir Panjal' },
+  { key: 'greathimalaya', name: 'Great Himalaya' },
+  { key: 'kumaon', name: 'Kumaon Himalaya' },
+  { key: 'sikkim', name: 'Sikkim Himalaya' },
+];
+
+/* Trend classes drive the colour coding on each glacier card. */
+const GL_TRENDS = {
+  rapid: { label: 'Rapid retreat', tone: 'bad', desc: 'Losing ground quickly by Himalayan standards — commonly cited at roughly 15 m per year or more.' },
+  moderate: { label: 'Moderate retreat', tone: 'warn', desc: 'Retreating steadily, in the broad range of about 5 to 15 m per year.' },
+  stable: { label: 'Relatively stable', tone: 'good', desc: 'Little net change, or behaviour complicated by debris cover and the Karakoram anomaly.' },
+};
+
+const GLACIERS = [
+  {
+    name: 'Siachen Glacier',
+    icon: '🏔️',
+    state: 'Ladakh',
+    range: 'karakoram',
+    basin: 'indus',
+    lengthKm: 76,
+    altitude: '3,620 – 5,753 m',
+    river: 'Nubra → Shyok → Indus',
+    trend: 'stable',
+    retreatMPerYear: 4,
+    tagline: 'Among the longest glaciers outside the polar regions',
+    desc: 'Siachen runs roughly 76 km through the eastern Karakoram, making it one of the largest glaciers outside the polar regions and the largest in the Karakoram. Its meltwater forms the Nubra, which joins the Shyok and then the Indus.',
+    sourceNote: 'Karakoram glaciers have shown anomalously little mass loss compared with the central and eastern Himalaya — a pattern researchers call the Karakoram anomaly. Figures here should be read in that light.',
+    facts: [
+      'The glacier sits in one of the most heavily glaciated regions outside the poles.',
+      'Its heavy debris cover insulates the ice, slowing surface melt relative to clean-ice glaciers.',
+    ],
+  },
+  {
+    name: 'Gangotri Glacier',
+    icon: '🕉️',
+    state: 'Uttarakhand',
+    range: 'greathimalaya',
+    basin: 'ganga',
+    lengthKm: 30,
+    altitude: '4,000 – 7,000 m',
+    river: 'Bhagirathi → Ganga',
+    trend: 'rapid',
+    retreatMPerYear: 18,
+    tagline: 'The source of the Bhagirathi',
+    desc: 'One of the largest glaciers in the Indian Himalaya, Gangotri terminates at Gaumukh — literally "cow\'s mouth" — where the Bhagirathi emerges. The Bhagirathi joins the Alaknanda at Devprayag to become the Ganga.',
+    sourceNote: 'Twentieth-century averages are often cited near 18–20 m per year; several studies report the rate has slowed in recent decades. Treat the figure as an order-of-magnitude indication.',
+    facts: [
+      'Gaumukh, the snout, is a pilgrimage destination reached on foot from Gangotri town.',
+      'The glacier is fed by several tributary glaciers including Raktvarn, Chaturangi and Kirti.',
+    ],
+  },
+  {
+    name: 'Zemu Glacier',
+    icon: '❄️',
+    state: 'Sikkim',
+    range: 'sikkim',
+    basin: 'brahmaputra',
+    lengthKm: 26,
+    altitude: '4,000 – 5,500 m',
+    river: 'Zemu Chu → Teesta → Brahmaputra',
+    trend: 'moderate',
+    retreatMPerYear: 12,
+    tagline: 'The largest glacier in the eastern Himalaya',
+    desc: 'Zemu drains the eastern flank of Kanchenjunga and is the largest glacier in the eastern Himalaya. Its meltwater forms the Zemu Chu, a headwater tributary of the Teesta.',
+    sourceNote: 'Access is difficult and monitoring is sparse; published retreat estimates vary considerably between studies.',
+    facts: [
+      'It lies within the Khangchendzonga Biosphere Reserve.',
+      'Early Kanchenjunga expeditions used the Zemu approach as their base route.',
+    ],
+  },
+  {
+    name: 'Bara Shigri Glacier',
+    icon: '🗻',
+    state: 'Himachal Pradesh',
+    range: 'greathimalaya',
+    basin: 'indus',
+    lengthKm: 28,
+    altitude: '4,000 – 6,000 m',
+    river: 'Chandra → Chenab → Indus',
+    trend: 'rapid',
+    retreatMPerYear: 22,
+    tagline: 'The largest glacier in Himachal Pradesh',
+    desc: 'Bara Shigri descends the Lahaul side of the Pir Panjal–Great Himalaya junction into the Chandra valley. It is the largest glacier in Himachal Pradesh and among the most studied in the western Himalaya.',
+    sourceNote: 'Retreat estimates come largely from repeat surveys of the Chandra basin; heavy debris cover on the lower tongue complicates snout measurement.',
+    facts: [
+      'Its name means "big glacier" in the local Lahauli usage.',
+      'It has been surveyed intermittently since the early twentieth century, giving an unusually long record.',
+    ],
+  },
+  {
+    name: 'Chhota Shigri Glacier',
+    icon: '🔬',
+    state: 'Himachal Pradesh',
+    range: 'pirpanjal',
+    basin: 'indus',
+    lengthKm: 9,
+    altitude: '4,050 – 6,263 m',
+    river: 'Chandra → Chenab → Indus',
+    trend: 'moderate',
+    retreatMPerYear: 7,
+    tagline: "India's benchmark glacier",
+    desc: 'Small, accessible and continuously monitored, Chhota Shigri has become the reference glacier for mass-balance research in the Indian Himalaya. Much of what is known about western Himalayan glacier behaviour comes from this one valley.',
+    sourceNote: 'Has one of the longest continuous mass-balance records in the Indian Himalaya, which is why its figures are relatively well constrained.',
+    facts: [
+      'Chosen as a benchmark because it is reachable from the Manali–Leh road.',
+      'Its record is used to calibrate estimates for glaciers that cannot be visited.',
+    ],
+  },
+  {
+    name: 'Drang-Drung Glacier',
+    icon: '🏔️',
+    state: 'Ladakh',
+    range: 'zanskar',
+    basin: 'indus',
+    lengthKm: 23,
+    altitude: '4,780 – 5,800 m',
+    river: 'Stod (Doda) → Zanskar → Indus',
+    trend: 'moderate',
+    retreatMPerYear: 9,
+    tagline: 'The great glacier of Zanskar',
+    desc: 'Visible directly from the Pensi La pass on the Kargil–Padum road, Drang-Drung is the largest glacier in the Zanskar range and the source of the Stod river, which becomes the Zanskar.',
+    sourceNote: 'One of the few large Indian glaciers observable from a motorable road, which has supported repeat photographic comparison over decades.',
+    facts: [
+      'Pensi La, at about 4,400 m, gives one of the clearest roadside glacier views in India.',
+      'The Zanskar river it feeds is the route of the winter Chadar trek.',
+    ],
+  },
+  {
+    name: 'Pindari Glacier',
+    icon: '🥾',
+    state: 'Uttarakhand',
+    range: 'kumaon',
+    basin: 'ganga',
+    lengthKm: 5,
+    altitude: '3,600 – 4,300 m',
+    river: 'Pindar → Alaknanda → Ganga',
+    trend: 'moderate',
+    retreatMPerYear: 10,
+    tagline: 'The most trekked glacier in India',
+    desc: 'Pindari sits below Nanda Devi and Nanda Kot in the Kumaon Himalaya, feeding the Pindar river. Its accessibility has made it the introduction to Himalayan glaciers for generations of Indian trekkers.',
+    sourceNote: 'Long observational record thanks to trekking access; snout position has been photographed repeatedly since the colonial period.',
+    facts: [
+      'The trail from Loharkhet to Zero Point is one of the oldest documented trekking routes in Kumaon.',
+      'The Pindar joins the Alaknanda at Karnaprayag, one of the Panch Prayag confluences.',
+    ],
+  },
+  {
+    name: 'Milam Glacier',
+    icon: '🧊',
+    state: 'Uttarakhand',
+    range: 'kumaon',
+    basin: 'ganga',
+    lengthKm: 16,
+    altitude: '3,870 – 5,500 m',
+    river: 'Goriganga → Kali → Ganga system',
+    trend: 'rapid',
+    retreatMPerYear: 15,
+    tagline: 'Source of the Goriganga',
+    desc: 'One of the largest glaciers in Kumaon, Milam lies on the eastern slopes of Nanda Devi. The Goriganga rises from its snout and flows south past the old trading village of Milam.',
+    sourceNote: 'Snout retreat estimated from survey comparisons spanning the twentieth century; year-to-year variability is high.',
+    facts: [
+      'Milam village was a major stop on the trans-Himalayan trade route to Tibet before 1962.',
+      'The glacier is approached through the Johar valley, historically home to Bhotiya trading communities.',
+    ],
+  },
+  {
+    name: 'Kolahoi Glacier',
+    icon: '⚠️',
+    state: 'Jammu & Kashmir',
+    range: 'pirpanjal',
+    basin: 'indus',
+    lengthKm: 5,
+    altitude: '4,000 – 5,425 m',
+    river: 'Lidder → Jhelum → Indus',
+    trend: 'rapid',
+    retreatMPerYear: 20,
+    tagline: "Kashmir's shrinking water tower",
+    desc: 'Kolahoi feeds the Lidder, which supplies irrigation and drinking water across the Kashmir valley. It has lost a substantial share of its area over recent decades, making it one of the most-cited examples of Himalayan glacier loss.',
+    sourceNote: 'Several remote-sensing studies report a large fractional area loss since the mid-twentieth century; exact percentages vary by study boundary and period.',
+    facts: [
+      'Its meltwater sustains the Lidder valley through the dry late-summer months.',
+      'The glacier has fragmented into separate ice bodies as it has thinned.',
+    ],
+  },
+  {
+    name: 'Dokriani Glacier',
+    icon: '📡',
+    state: 'Uttarakhand',
+    range: 'greathimalaya',
+    basin: 'ganga',
+    lengthKm: 6,
+    altitude: '3,800 – 6,000 m',
+    river: 'Din Gad → Bhagirathi → Ganga',
+    trend: 'rapid',
+    retreatMPerYear: 16,
+    tagline: 'A long-running field laboratory',
+    desc: 'Small but intensively studied, Dokriani in the Bhagirathi basin has supported field campaigns for decades, providing some of the better-constrained glacier hydrology data in the Garhwal Himalaya.',
+    sourceNote: 'Retreat and discharge data come from sustained field monitoring rather than one-off surveys, making this glacier unusually well documented.',
+    facts: [
+      'Discharge measurements here inform runoff models for the whole Bhagirathi basin.',
+      'It is reached from Bhukki via the Din Gad valley.',
+    ],
+  },
+  {
+    name: 'Satopanth Glacier',
+    icon: '🏔️',
+    state: 'Uttarakhand',
+    range: 'greathimalaya',
+    basin: 'ganga',
+    lengthKm: 13,
+    altitude: '3,870 – 5,000 m',
+    river: 'Alaknanda → Ganga',
+    trend: 'moderate',
+    retreatMPerYear: 11,
+    tagline: 'One of the two sources of the Alaknanda',
+    desc: 'Satopanth and its neighbour Bhagirath Kharak both terminate near Badrinath, and together their meltwater forms the Alaknanda — the Ganga headstream that meets the Bhagirathi at Devprayag.',
+    sourceNote: 'Estimates derived from repeat snout surveys in the Alaknanda basin; the two adjacent glaciers are sometimes reported together.',
+    facts: [
+      'Satopanth Tal, a glacial lake nearby, is tied to local pilgrimage tradition.',
+      'The glacier lies within the Nanda Devi Biosphere Reserve buffer zone.',
+    ],
+  },
+  {
+    name: 'Machoi Glacier',
+    icon: '🛣️',
+    state: 'Jammu & Kashmir',
+    range: 'greathimalaya',
+    basin: 'indus',
+    lengthKm: 9,
+    altitude: '4,000 – 5,200 m',
+    river: 'Sindh → Jhelum → Indus',
+    trend: 'moderate',
+    retreatMPerYear: 8,
+    tagline: 'Above the Zoji La',
+    desc: 'Machoi lies close to the Zoji La pass on the Srinagar–Leh road, feeding the Sindh river that flows through the Kashmir valley to join the Jhelum.',
+    sourceNote: 'Monitored mainly through satellite imagery; ground observation is limited by terrain and access restrictions.',
+    facts: [
+      'Zoji La, at about 3,500 m, is the key winter chokepoint on the Srinagar–Leh highway.',
+      'The Sindh valley below is one of Kashmir\'s main agricultural corridors.',
+    ],
+  },
+  {
+    name: 'Rimo Glacier',
+    icon: '🧭',
+    state: 'Ladakh',
+    range: 'karakoram',
+    basin: 'indus',
+    lengthKm: 40,
+    altitude: '4,000 – 5,900 m',
+    river: 'Shyok → Indus',
+    trend: 'stable',
+    retreatMPerYear: 3,
+    tagline: 'Draining into the Shyok',
+    desc: 'Rimo is one of the major Karakoram glacier systems on the Indian side, sitting near the Karakoram Pass and draining north-east towards the Shyok.',
+    sourceNote: 'Like other Karakoram glaciers, Rimo shows less mass loss than central Himalayan glaciers — part of the same regional anomaly.',
+    facts: [
+      'It lies close to the historic trade route over the Karakoram Pass to Central Asia.',
+      'The surrounding Rimo peaks were first climbed only in the 1980s.',
+    ],
+  },
+  {
+    name: 'Parkachik Glacier',
+    icon: '❄️',
+    state: 'Ladakh',
+    range: 'zanskar',
+    basin: 'indus',
+    lengthKm: 14,
+    altitude: '3,700 – 5,600 m',
+    river: 'Suru → Indus',
+    trend: 'moderate',
+    retreatMPerYear: 10,
+    tagline: 'Descending into the Suru valley',
+    desc: 'Flowing off the Nun-Kun massif, Parkachik descends almost to the floor of the Suru valley, making it one of the most easily observed large glaciers in Ladakh.',
+    sourceNote: 'Roadside visibility from the Kargil–Padum route has supported repeat photographic and satellite comparison.',
+    facts: [
+      'The Nun-Kun massif above it holds two of the highest peaks in the Zanskar range.',
+      'Its snout is unusually low for a Ladakh glacier, reaching close to the valley floor.',
+    ],
+  },
+];
+
+/* Glacier anatomy ---------------------------------------------------------- */
+const GL_ANATOMY = [
+  { term: 'Accumulation zone', icon: '🌨️', desc: 'The upper part of the glacier where more snow falls each year than melts. Snow compacts into firn and then into glacial ice under its own weight.' },
+  { term: 'Equilibrium line altitude (ELA)', icon: '📏', desc: 'The elevation at which accumulation exactly balances melt over a year. When the ELA rises, the glacier is losing mass — it is the single most telling number about a glacier\'s health.' },
+  { term: 'Ablation zone', icon: '💧', desc: 'The lower part, where annual loss to melting, evaporation and calving exceeds snowfall. This is where most meltwater is generated.' },
+  { term: 'Snout (terminus)', icon: '🔽', desc: 'The downstream end of the glacier, where meltwater emerges. Snout position is the classic field measurement of advance or retreat.' },
+  { term: 'Moraine', icon: '🪨', desc: 'Rock and sediment carried and deposited by ice. Lateral moraines form at the glacier\'s sides, medial moraines where two glaciers merge, and terminal moraines mark its furthest extent.' },
+  { term: 'Crevasse', icon: '🕳️', desc: 'A deep fracture opening where the ice is stretched — over a steepening bed, around a bend, or where the flow accelerates.' },
+  { term: 'Serac', icon: '🧊', desc: 'A tower or block of ice left standing between intersecting crevasses, typically in an icefall. Seracs collapse without warning.' },
+  { term: 'Debris cover', icon: '⛰️', desc: 'A layer of rock on the ice surface. A thick cover insulates the ice and slows melt, which is why some heavily covered glaciers appear more stable than they are.' },
+  { term: 'Proglacial lake', icon: '🏞️', desc: 'A lake that forms at the snout, usually dammed behind a terminal moraine. These lakes grow as glaciers retreat and are the source of GLOF risk.' },
+  { term: 'Bergschrund', icon: '↕️', desc: 'The crevasse separating moving glacier ice from the stationary ice and rock of the headwall above it.' },
+];
+
+/* GLOF case studies -------------------------------------------------------- */
+const GL_GLOF = [
+  {
+    name: 'Chamoli disaster',
+    year: '2021',
+    place: 'Rishiganga valley, Uttarakhand',
+    icon: '⚠️',
+    desc: 'In February 2021 a large rock-and-ice mass detached from the Ronti peak area and descended into the Rishiganga and Dhauliganga valleys as a debris flow. It destroyed the Rishiganga hydropower project and inundated the Tapovan-Vishnugad tunnel, killing around 200 people.',
+    lesson: 'The trigger was not a lake burst but a rock-ice avalanche — a reminder that high-mountain hazards include failures of frozen bedrock, not just glacial lakes.',
+  },
+  {
+    name: 'South Lhonak Lake GLOF',
+    year: '2023',
+    place: 'North Sikkim',
+    icon: '🌊',
+    desc: 'In October 2023 the moraine-dammed South Lhonak Lake burst, sending a flood surge down the Teesta. It destroyed the Chungthang dam of the Teesta-III project and caused severe damage and loss of life far downstream.',
+    lesson: 'South Lhonak had been identified as high-risk and partially siphoned beforehand. Identifying a dangerous lake is not the same as being ready for it to fail.',
+  },
+  {
+    name: 'Kedarnath floods',
+    year: '2013',
+    place: 'Mandakini valley, Uttarakhand',
+    icon: '🌧️',
+    desc: 'Extreme rainfall combined with the breach of Chorabari Lake above Kedarnath produced a devastating flood through the Mandakini valley, with very heavy loss of life among pilgrims and residents.',
+    lesson: 'Glacial-lake failure combined with extreme rainfall is far more destructive than either alone — a compound hazard that is becoming more likely.',
+  },
+  {
+    name: 'Gohna Tal breach',
+    year: '1894 & 1970',
+    place: 'Birahi Ganga, Uttarakhand',
+    icon: '📜',
+    desc: 'A landslide dammed the Birahi Ganga in 1894, forming Gohna Tal. Its controlled release was anticipated and downstream settlements were evacuated in advance; the lake breached again in 1970.',
+    lesson: 'The earliest documented example in the Indian Himalaya of forecasting an outburst and evacuating ahead of it — early warning is not a new idea here.',
+  },
+];
+
+/* Monitoring institutions -------------------------------------------------- */
+const GL_MONITORING = [
+  { title: 'Wadia Institute of Himalayan Geology', org: 'Dehradun', icon: '🔬', desc: 'The principal institution for Himalayan glaciology in India, running long-term mass-balance and snout monitoring programmes on benchmark glaciers.' },
+  { title: 'Himansh research station', org: 'Chandra basin, Spiti', icon: '🏠', desc: 'A high-altitude station established in the Chandra basin to support year-round glaciological fieldwork in Himachal Pradesh.' },
+  { title: 'ISRO / NRSC glacier inventory', org: 'Department of Space', icon: '🛰️', desc: 'Satellite-based inventories mapping glacier extent, glacial lakes and change over time across the Indian Himalayan river basins.' },
+  { title: 'Geological Survey of India', org: 'GSI', icon: '📐', desc: 'Has carried out glacier surveys and snout monitoring since the colonial period, providing some of the longest baselines available.' },
+  { title: 'National Institute of Hydrology', org: 'Roorkee', icon: '💧', desc: 'Studies glacier-fed runoff and its contribution to Himalayan river discharge, which is the link between ice loss and downstream water supply.' },
+  { title: 'NMSHE', org: 'Dept. of Science & Technology', icon: '🏛️', desc: 'The National Mission for Sustaining the Himalayan Ecosystem coordinates research and capacity building on the Himalayan cryosphere across institutions.' },
+];
+
+/* Climate impact ----------------------------------------------------------- */
+const GL_IMPACTS = [
+  { title: 'Peak water, then decline', icon: '📉', desc: 'Retreating glaciers first release more meltwater, then less. Basins that pass this peak face falling dry-season flow with no way to reverse it.', severity: 'Critical' },
+  { title: 'Growing glacial lakes', icon: '🏞️', desc: 'Retreat leaves meltwater ponded behind unstable moraine dams. The number and area of these lakes in the Indian Himalaya has been rising.', severity: 'Critical' },
+  { title: 'Dry-season water supply', icon: '🚰', desc: 'Glacier melt matters most exactly when rainfall is absent — late summer and pre-monsoon — so its loss hits the driest part of the year hardest.', severity: 'High' },
+  { title: 'Black carbon deposition', icon: '🏭', desc: 'Soot settling on snow darkens the surface, absorbs more sunlight and accelerates melt independently of air temperature.', severity: 'High' },
+  { title: 'Hydropower exposure', icon: '⚡', desc: 'Run-of-river projects are built in exactly the valleys where debris flows and outburst floods travel, as both Chamoli and Chungthang demonstrated.', severity: 'Critical' },
+  { title: 'Slope destabilisation', icon: '⛰️', desc: 'As glaciers thin, valley walls they once buttressed are left unsupported, and thawing permafrost weakens frozen bedrock above.', severity: 'High' },
+];
+
+/* Timeline ----------------------------------------------------------------- */
+const GL_TIMELINE = [
+  { year: '1780s–1850s', title: 'First European surveys', desc: 'Survey of India parties begin mapping Himalayan ice, producing the earliest positional records of several glacier snouts.' },
+  { year: '1894', title: 'Gohna Tal anticipated', desc: 'A landslide-dammed lake on the Birahi Ganga is expected to burst; downstream settlements are evacuated in advance — an early success in hazard forecasting.' },
+  { year: '1906–1935', title: 'Systematic snout monitoring', desc: 'The Geological Survey of India establishes repeat measurement of glacier termini, creating baselines still used for comparison today.' },
+  { year: '1970s', title: 'Modern glaciology begins', desc: 'Indian institutions start structured mass-balance programmes, moving beyond snout position to measure how much ice is actually gained and lost.' },
+  { year: '1980s–1990s', title: 'Satellites change the picture', desc: 'Remote sensing makes it possible to inventory thousands of glaciers that no field party could reach, revealing the scale of change.' },
+  { year: '2013', title: 'Kedarnath', desc: 'The Mandakini valley disaster puts glacial-lake and extreme-rainfall compound hazards at the centre of Indian disaster planning.' },
+  { year: '2016', title: 'Himansh station opens', desc: 'A dedicated high-altitude research base in the Chandra basin allows sustained fieldwork through more of the year.' },
+  { year: '2021', title: 'Chamoli', desc: 'The Rishiganga rock-ice avalanche shows that high-mountain hazard is not limited to lake bursts, and that hydropower siting is directly exposed.' },
+  { year: '2023', title: 'South Lhonak', desc: 'A lake already identified as dangerous bursts in Sikkim, destroying a major dam and demonstrating the gap between risk assessment and readiness.' },
+];
+
+/* Facts -------------------------------------------------------------------- */
+const GL_FACTS = [
+  'The Himalaya, Karakoram and neighbouring ranges are sometimes called the Third Pole, holding more freshwater ice than anywhere outside the Arctic and Antarctic.',
+  'Gangotri Glacier ends at Gaumukh, "cow\'s mouth" — the point where the Bhagirathi emerges from the ice.',
+  'Karakoram glaciers have shown anomalously little mass loss compared with the central Himalaya, a pattern researchers call the Karakoram anomaly.',
+  'A thick layer of rock debris insulates ice, so some debris-covered glaciers melt more slowly than clean-ice ones at the same altitude.',
+  'The equilibrium line altitude — where yearly accumulation equals yearly melt — is the single most informative measurement of a glacier\'s health.',
+  'Chhota Shigri in Himachal Pradesh is India\'s benchmark glacier, chosen partly because it can be reached from the Manali–Leh road.',
+  'Glacier meltwater matters most in the dry pre-monsoon months, when there is little rain to substitute for it.',
+  'Retreating glaciers leave lakes dammed by loose moraine — the material most likely to fail and cause an outburst flood.',
+  'Black carbon settling on snow darkens the surface and speeds melting even without any rise in air temperature.',
+  'Drang-Drung in Zanskar is one of the few large Indian glaciers clearly visible from a motorable road, at the Pensi La pass.',
+];
+
+/* Quiz --------------------------------------------------------------------- */
+const GL_QUIZ = [
+  { q: 'Which glacier is the source of the Bhagirathi river?', options: ['Zemu', 'Gangotri', 'Siachen', 'Pindari'], answer: 1, explain: 'The Bhagirathi emerges at Gaumukh, the snout of the Gangotri Glacier.' },
+  { q: 'The Himalayan region is often nicknamed the…', options: ['Third Pole', 'Ice Belt', 'Fourth Continent', 'White Plateau'], answer: 0, explain: 'It holds more freshwater ice than anywhere outside the polar regions, hence "Third Pole".' },
+  { q: 'What does GLOF stand for?', options: ['Glacial Land Overflow Formation', 'Glacial Lake Outburst Flood', 'Global Land Ocean Flux', 'Glacier Loss Observation Framework'], answer: 1, explain: 'A GLOF is a Glacial Lake Outburst Flood — the sudden release of water from a glacial lake.' },
+  { q: 'Which glacier is India\'s benchmark for mass-balance monitoring?', options: ['Bara Shigri', 'Chhota Shigri', 'Milam', 'Rimo'], answer: 1, explain: 'Chhota Shigri has one of the longest continuous mass-balance records in the Indian Himalaya.' },
+  { q: 'The 2023 GLOF that destroyed the Chungthang dam came from which lake?', options: ['Chorabari', 'Gohna Tal', 'South Lhonak', 'Satopanth Tal'], answer: 2, explain: 'South Lhonak Lake in North Sikkim burst in October 2023, sending a surge down the Teesta.' },
+  { q: 'Zemu Glacier drains into which river system?', options: ['Indus', 'Ganga', 'Brahmaputra', 'Narmada'], answer: 2, explain: 'Zemu feeds the Teesta, a tributary of the Brahmaputra.' },
+  { q: 'The equilibrium line altitude marks the elevation where…', options: ['The glacier is thickest', 'Accumulation equals ablation', 'Crevasses stop forming', 'The snout begins'], answer: 1, explain: 'At the ELA, annual snow gain exactly balances annual loss.' },
+  { q: 'A thick debris cover on a glacier generally…', options: ['Speeds up melting', 'Slows down melting', 'Has no effect', 'Causes the glacier to advance'], answer: 1, explain: 'Thick debris insulates the ice underneath, slowing surface melt.' },
+  { q: 'Siachen Glacier drains into which river?', options: ['Sutlej', 'Nubra, then Shyok and the Indus', 'Beas', 'Teesta'], answer: 1, explain: 'Siachen meltwater forms the Nubra, which joins the Shyok and then the Indus.' },
+  { q: 'Which term describes a lake formed at the snout of a retreating glacier?', options: ['Oxbow lake', 'Proglacial lake', 'Crater lake', 'Playa'], answer: 1, explain: 'A proglacial lake forms at the terminus, often dammed behind loose terminal moraine.' },
+];
+
+/* Gallery ------------------------------------------------------------------ */
+const GL_GALLERY = [
+  { icon: '🕉️', title: 'Gaumukh', caption: 'The snout of Gangotri Glacier, where the Bhagirathi emerges' },
+  { icon: '🏔️', title: 'Siachen', caption: 'The eastern Karakoram, Ladakh' },
+  { icon: '❄️', title: 'Zemu', caption: 'Draining the eastern flank of Kanchenjunga, Sikkim' },
+  { icon: '🛣️', title: 'Pensi La View', caption: 'Drang-Drung Glacier seen from the Kargil–Padum road, Zanskar' },
+  { icon: '🔬', title: 'Chhota Shigri', caption: 'Mass-balance stakes on India\'s benchmark glacier, Himachal Pradesh' },
+  { icon: '🏞️', title: 'Proglacial Lake', caption: 'Meltwater ponded behind a terminal moraine' },
+  { icon: '🥾', title: 'Pindari Trail', caption: 'The approach to Zero Point, Kumaon Himalaya' },
+  { icon: '🪨', title: 'Debris-Covered Ice', caption: 'Rock cover insulating the lower tongue of a Lahaul glacier' },
+];
