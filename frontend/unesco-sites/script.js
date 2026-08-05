@@ -1,149 +1,124 @@
-// script.js - UNESCO Sites Directory Logic
-// Encapsulated in IIFE
+import unescoData from './data.js';
 
-(function () {
-    'use strict';
+(() => {
+    const gridContainer = document.getElementById('unesco-grid');
+    const sortSelect = document.getElementById('sort-select');
 
-    if (!window.unescoData) {
-        console.error("UNESCO data not found!");
-        return;
+    // State
+    let currentData = [...unescoData];
+
+    // Initialization
+    function init() {
+        renderSites(currentData);
+        sortSelect.addEventListener('change', handleSort);
     }
 
-    let sites = [...window.unescoData];
-    
-    // DOM Elements
-    const gridContainer = document.getElementById('unesco-grid');
-    const noResults = document.getElementById('no-results');
-    
-    const searchInput = document.getElementById('search-input');
-    const typeFilter = document.getElementById('type-filter');
-    const sortSelect = document.getElementById('sort-select');
-    const themeBtn = document.getElementById('theme-toggle');
+    // Render Function
+    function renderSites(data) {
+        gridContainer.innerHTML = ''; // Clear current
+        
+        data.forEach(site => {
+            const card = document.createElement('article');
+            card.classList.add('site-card');
+            card.setAttribute('tabindex', '0'); // Make accessible
 
-    // Stat Elements
-    const statTotal = document.getElementById('stat-total');
-    const statCultural = document.getElementById('stat-cultural');
-    const statNatural = document.getElementById('stat-natural');
-    const statMixed = document.getElementById('stat-mixed');
+            // Create Image
+            const img = document.createElement('img');
+            img.classList.add('site-image');
+            img.src = site.image;
+            img.alt = `${site.name} UNESCO World Heritage Site in ${site.state}`;
+            img.loading = 'lazy'; // performance
+            // Fallback for missing images
+            img.onerror = function() {
+                this.onerror = null;
+                this.src = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22400%22%20height%3D%22225%22%20viewBox%3D%220%200%20400%20225%22%3E%3Crect%20fill%3D%22%23ddd%22%20width%3D%22400%22%20height%3D%22225%22%2F%3E%3Ctext%20fill%3D%22%23777%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20dy%3D%227%22%20font-weight%3D%22bold%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%3EImage%20Unavailable%3C%2Ftext%3E%3C%2Fsvg%3E';
+            };
 
-    // --- Theme Logic ---
-    if (themeBtn) {
-        let isDarkMode = localStorage.getItem('theme') === 'dark';
-        if (isDarkMode) {
-            document.body.classList.replace('light-theme', 'dark-theme');
-            themeBtn.textContent = '☀️';
-            themeBtn.setAttribute('aria-label', 'Toggle Light Mode');
-        }
+            // Create Content Container
+            const content = document.createElement('div');
+            content.classList.add('site-content');
 
-        themeBtn.addEventListener('click', () => {
-            if (document.body.classList.contains('light-theme')) {
-                document.body.classList.replace('light-theme', 'dark-theme');
-                localStorage.setItem('theme', 'dark');
-                themeBtn.textContent = '☀️';
-                themeBtn.setAttribute('aria-label', 'Toggle Light Mode');
-            } else {
-                document.body.classList.replace('dark-theme', 'light-theme');
-                localStorage.setItem('theme', 'light');
-                themeBtn.textContent = '🌙';
-                themeBtn.setAttribute('aria-label', 'Toggle Dark Mode');
-            }
+            // Header (Title & Badge)
+            const header = document.createElement('div');
+            header.classList.add('site-header');
+
+            const title = document.createElement('h2');
+            title.classList.add('site-title');
+            title.textContent = site.name;
+
+            const badge = document.createElement('span');
+            badge.classList.add('badge', `badge-${site.type.toLowerCase()}`);
+            badge.textContent = site.type;
+
+            header.appendChild(title);
+            header.appendChild(badge);
+
+            // Meta Info (State & Year)
+            const meta = document.createElement('div');
+            meta.classList.add('site-meta');
+            
+            const stateSpan = document.createElement('span');
+            stateSpan.textContent = `📍 ${site.state}`;
+            
+            const yearSpan = document.createElement('span');
+            yearSpan.textContent = `📅 ${site.year}`;
+            
+            meta.appendChild(stateSpan);
+            meta.appendChild(yearSpan);
+
+            // Description
+            const desc = document.createElement('p');
+            desc.classList.add('site-description');
+            desc.textContent = site.description;
+
+            // Assembly
+            content.appendChild(header);
+            content.appendChild(meta);
+            content.appendChild(desc);
+
+            card.appendChild(img);
+            card.appendChild(content);
+
+            gridContainer.appendChild(card);
         });
     }
 
-    // --- Statistics ---
-    function updateStatistics() {
-        // Calculate based on the full dataset
-        const total = window.unescoData.length;
-        const cultural = window.unescoData.filter(s => s.type === 'Cultural').length;
-        const natural = window.unescoData.filter(s => s.type === 'Natural').length;
-        const mixed = window.unescoData.filter(s => s.type === 'Mixed').length;
+    // Sorting Logic
+    function handleSort(event) {
+        const sortMode = event.target.value;
+        let sortedData = [...unescoData];
 
-        statTotal.textContent = total;
-        statCultural.textContent = cultural;
-        statNatural.textContent = natural;
-        statMixed.textContent = mixed;
+        switch (sortMode) {
+            case 'year-asc':
+                sortedData.sort((a, b) => a.year - b.year);
+                break;
+            case 'year-desc':
+                sortedData.sort((a, b) => b.year - a.year);
+                break;
+            case 'name-asc':
+                sortedData.sort((a, b) => a.name.localeCompare(b.name));
+                break;
+            case 'name-desc':
+                sortedData.sort((a, b) => b.name.localeCompare(a.name));
+                break;
+            case 'type':
+                const typeOrder = { "Cultural": 1, "Natural": 2, "Mixed": 3 };
+                sortedData.sort((a, b) => {
+                    if (typeOrder[a.type] !== typeOrder[b.type]) {
+                        return typeOrder[a.type] - typeOrder[b.type];
+                    }
+                    // Secondary sort by name if types are the same
+                    return a.name.localeCompare(b.name);
+                });
+                break;
+            default:
+                sortedData.sort((a, b) => a.year - b.year); // default
+        }
+
+        renderSites(sortedData);
     }
 
-    // --- Render Logic ---
-    function renderGrid(dataToRender) {
-        gridContainer.innerHTML = '';
-
-        if (dataToRender.length === 0) {
-            noResults.style.display = 'block';
-        } else {
-            noResults.style.display = 'none';
-            
-            dataToRender.forEach(site => {
-                const card = document.createElement('article');
-                card.className = 'unesco-card';
-                card.tabIndex = 0; // keyboard accessibility
-                card.setAttribute('aria-label', `${site.name}, ${site.type} heritage site in ${site.state}, added in ${site.year}`);
-                
-                const badgeClass = `badge-${site.type.toLowerCase()}`;
-                
-                // Using emoji as a placeholder for actual images
-                card.innerHTML = `
-                    <div class="card-image-placeholder" aria-hidden="true" title="${site.name}">
-                        ${site.emoji}
-                    </div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <h2 class="card-title">${site.name}</h2>
-                            <span class="card-badge ${badgeClass}">${site.type}</span>
-                        </div>
-                        <div class="card-meta">
-                            <span>📍 ${site.state}</span>
-                            <span>🗓️ Added: ${site.year}</span>
-                        </div>
-                        <p class="card-description">${site.description}</p>
-                    </div>
-                `;
-                
-                gridContainer.appendChild(card);
-            });
-        }
-    }
-
-    // --- Filter & Sort Logic ---
-    function applyFiltersAndSort() {
-        const searchTerm = searchInput.value.toLowerCase().trim();
-        const typeValue = typeFilter.value.toLowerCase();
-        const sortValue = sortSelect.value; // 'oldest' or 'newest'
-
-        let filteredSites = [...window.unescoData];
-
-        // 1. Filter by Search
-        if (searchTerm) {
-            filteredSites = filteredSites.filter(site => 
-                site.name.toLowerCase().includes(searchTerm) || 
-                site.state.toLowerCase().includes(searchTerm)
-            );
-        }
-
-        // 2. Filter by Type
-        if (typeValue !== 'all') {
-            filteredSites = filteredSites.filter(site => 
-                site.type.toLowerCase() === typeValue
-            );
-        }
-
-        // 3. Sort by Year
-        if (sortValue === 'oldest') {
-            filteredSites.sort((a, b) => a.year - b.year);
-        } else if (sortValue === 'newest') {
-            filteredSites.sort((a, b) => b.year - a.year);
-        }
-
-        renderGrid(filteredSites);
-    }
-
-    // --- Event Listeners ---
-    searchInput.addEventListener('input', applyFiltersAndSort);
-    typeFilter.addEventListener('change', applyFiltersAndSort);
-    sortSelect.addEventListener('change', applyFiltersAndSort);
-
-    // --- Initialization ---
-    updateStatistics();
-    applyFiltersAndSort(); // Triggers initial render based on default select values (Oldest First, All Types)
+    // Start
+    init();
 
 })();
