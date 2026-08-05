@@ -5,6 +5,36 @@
  */
 window.indiaSearchIndex = [
   {
+    title: "Ancient Ports of India Explorer",
+    category: "Heritage & History",
+    description: "Explore 5,000 years of India's maritime heritage: interactive maps, search, historical timelines, and deep dive explorers into Lothal, Muziris, Arikamedu, and Tamralipta.",
+    url: "frontend/ancient-ports-explorer/index.html"
+  },
+  {
+    title: "Lothal Ancient Port Explorer",
+    category: "Heritage & History",
+    description: "Explore Lothal: world's earliest Indus Valley dockyard city, maritime trade with Mesopotamia, and Harappan archaeological discoveries.",
+    url: "frontend/lothal-port-explorer/index.html"
+  },
+  {
+    title: "Muziris Ancient Port Explorer",
+    category: "Heritage & History",
+    description: "Explore Muziris: ancient Chera Kingdom gateway, Indo-Roman black pepper trade, Pattanam excavations, and Roman spice fleets.",
+    url: "frontend/muziris-port-explorer/index.html"
+  },
+  {
+    title: "Arikamedu Ancient Port Explorer",
+    category: "Heritage & History",
+    description: "Explore Arikamedu: ancient Poduke Indo-Roman trading port near Puducherry, Roman amphorae, and bead manufacturing center.",
+    url: "frontend/arikamedu-port-explorer/index.html"
+  },
+  {
+    title: "Tamralipta Ancient Port Explorer",
+    category: "Heritage & History",
+    description: "Explore Tamralipta: ancient Bengal gateway on the Maritime Silk Route, connecting Mauryan and Gupta trade to Southeast Asia and Sri Lanka.",
+    url: "frontend/tamralipta-port-explorer/index.html"
+  },
+  {
     title: "Beypore Ancient Port Explorer",
     category: "Heritage & History",
     description: "Explore Kerala's historic Beypore port: 2,000-year-old traditional Uru wooden shipbuilding, Nilambur teak, and legendary Khalasi mechanical engineering.",
