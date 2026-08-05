@@ -1843,6 +1843,19 @@ window.indiaSearchIndex = [
     description: "Discover Kollam (Quilon), the historic spice trade gateway of Kerala, its black pepper commerce, and Chinese trade links.",
     url: "frontend/kollam-port-explorer/index.html"
   },
+  // --- Dynasties of India Explorer ---
+  {
+    title: "Dynasties of India Explorer",
+    category: "Featured Explorers",
+    description: "Explore the great ruling houses of the subcontinent - their origin legends, greatest rulers, temple masterpieces, and cultural legacies.",
+    url: "frontend/dynasties-of-india-explorer/index.html"
+  },
+  // --- Hoysala Dynasty Explorer ---
+  {
+    title: "Hoysala Dynasty Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Hoysala Dynasty of Karnataka (c. 950-1343 CE) - the tiger-slayer origin legend, major rulers, and the star-shaped temple masterpieces of Belur, Halebidu, and Somanathapura.",
+    url: "frontend/hoysala-dynasty-explorer/index.html"},
   // --- Gopakapattana Port Explorer ---
   {
     title: "Gopakapattana Ancient Port Explorer",
