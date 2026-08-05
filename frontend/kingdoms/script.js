@@ -1,6 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   const kingdoms = [
     {
+      id: "mewar",
+      name: "Kingdom of Mewar",
+      period: "728 CE – 1949 CE",
+      capital: "Chittorgarh / Udaipur",
+      rulers: "Bappa Rawal, Rana Kumbha, Rana Sanga, Maharana Pratap",
+      achievements: "Built Chittorgarh Fort & 36 km Kumbhalgarh Wall, Vijay Stambha, unyielding resistance against foreign conquest",
+      description: "A heroic Sisodia Rajput kingdom in Rajasthan renowned for Maharana Pratap, unbending independence, UNESCO hill forts, and lake palaces.",
+      image: "../assets/monuments.png",
+      url: "../mewar-kingdom-explorer/index.html"
+    },
+    {
       id: "maurya",
       name: "Maurya Empire",
       period: "322 BCE – 185 BCE",

@@ -1477,7 +1477,15 @@ window.indiaSearchIndex = [
     title: "Simlipal National Park Explorer",
     category: "National Parks & Wildlife",
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
-    url: "frontend/simlipal-national-park-explorer/index.html"},
+    url: "frontend/simlipal-national-park-explorer/index.html"
+  },
+  // --- Kingdom of Mewar Explorer ---
+  {
+    title: "Kingdom of Mewar Explorer",
+    category: "Indian Empires & History",
+    description: "Explore the Kingdom of Mewar (728–1949) — Maharana Pratap, Bappa Rawal, Rana Kumbha, Chittorgarh Fort, Kumbhalgarh Wall, and Rajput resistance.",
+    url: "frontend/mewar-kingdom-explorer/index.html"
+  },
   // --- Haiderpur Wetland Explorer ---
   {
     title: "Haiderpur Wetland Explorer",
