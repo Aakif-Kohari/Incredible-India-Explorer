@@ -1,4 +1,300 @@
-document.addEventListener("DOMContentLoaded",()=>{const DATA={"quick": [["Scientific Name", "Megapodius nicobariensis", "Endemic mound-building bird of the Nicobar Islands."], ["Common Name", "Nicobar Megapode", "A unique island bird known for ground movement and nesting mounds."], ["Classification", "Aves · Galliformes · Megapodiidae", "Taxonomy is shown clearly for student-friendly learning."], ["Distribution", "Nicobar Islands, India", "The explorer includes a visual distribution map section."], ["Habitat", "Coastal forest and island vegetation", "Habitat quality is directly linked to nesting and foraging."], ["IUCN Status", "Vulnerable", "The page includes an IUCN conservation-status panel and threats."]], "intro": [["Endemic island species", "The Nicobar Megapode is restricted to the Nicobar Islands, making it highly important for Indian biodiversity education."], ["Unique mound-builder", "Unlike many birds, it uses mounds of soil and organic material to incubate eggs using natural heat."], ["Conservation story", "Its survival is linked with protecting coastal forest, nesting mounds and fragile island ecosystems."], ["L3 scope", "This implementation is intentionally more than a static page: it includes data cards, an interactive map, accordions, references, accessibility and responsive UI."]], "taxonomy": [["Kingdom", "Animalia"], ["Class", "Aves"], ["Order", "Galliformes"], ["Family", "Megapodiidae"], ["Genus", "Megapodius"], ["Species", "Megapodius nicobariensis"]], "physical": [["Ground-dwelling build", "Strong legs support walking, scratching and mound building."], ["Cryptic colouration", "Earth-toned plumage helps it blend into forest-floor surroundings."], ["Mound-building adaptation", "Physical behaviour and strong feet help manage large nesting mounds."], ["Island ecology", "Its traits match a specialised island lifestyle."]], "distribution": [["Nicobar endemic", "The species is treated as endemic to the Nicobar Islands."], ["Island populations", "Small, separated island populations make monitoring important."], ["Distribution map focus", "The visual map highlights island range, coastal habitat and protected-area context."], ["Survey dependent", "Distribution knowledge can improve through updated surveys and monitoring."]], "habitat": [["Coastal forests", "Coastal forest and nearby vegetation are central to foraging and nesting."], ["Mound sites", "Suitable mound material requires leaf litter, soil and organic debris."], ["Low disturbance", "Nesting sites need protection from disturbance and habitat damage."], ["Island ecosystem", "The bird depends on an entire fragile island habitat system."]], "nesting": [["Large incubation mounds", "The bird builds mounds where decomposition and soil heat help incubate eggs."], ["Behaviour highlight", "Mound-building is the signature behaviour requested by the issue."], ["Mound monitoring", "Active mounds can guide survey and conservation action."], ["Nesting vulnerability", "Storms, sea-level impacts and disturbance can affect nest sites."]], "diet": [["Ground foraging", "The bird searches for food on the forest floor."], ["Plant matter", "Seeds, fruits and fallen plant material can form part of the diet."], ["Invertebrates", "Small invertebrates may also be eaten."], ["Habitat dependent", "Food supply depends on healthy island vegetation and forest-floor processes."]], "conservation": [["IUCN status", "The page presents the species as Vulnerable."], ["Restricted range", "Endemism increases risk because threats affect a limited area."], ["Conservation priority", "Habitat protection and mound monitoring are high-value actions."], ["Climate and storm risk", "Coastal island species may be affected by extreme events and sea-level change."]], "threats": [["Habitat loss", "Coastal forest degradation reduces nesting and foraging areas."], ["Extreme events", "Tsunamis and severe storms can damage low-lying island habitats."], ["Disturbance", "Human disturbance near mounds can reduce breeding success."], ["Fragmentation", "Disconnected suitable habitat weakens long-term recovery."]], "efforts": [["Protected areas", "Protected landscapes in the Nicobar region support conservation."], ["Mound surveys", "Mapping active mounds helps track breeding activity."], ["Community awareness", "Local participation can reduce disturbance and support conservation."], ["Research updates", "Habitat modelling and monitoring help refine recovery priorities."]], "protected": [["Great Nicobar Biosphere Reserve", "Important protected landscape context for Nicobar biodiversity."], ["Campbell Bay National Park", "Protected area associated with Great Nicobar conservation."], ["Galathea National Park", "Another important protected-area reference for Great Nicobar."], ["Habitat networks", "Protected areas plus awareness support long-term survival."]], "facts": [["Natural incubator", "The mound acts like a natural incubator for eggs."], ["Island specialist", "A restricted island range makes the species vulnerable to sudden habitat change."], ["Mounds as evidence", "Nesting mounds can be important survey clues."], ["Flagship species", "The bird can help explain why Nicobar coastal forests matter."]], "refs": [["IUCN-linked status sources", "For conservation status and threat context."], ["BirdLife / conservation literature", "For global species summaries and risk context."], ["Wildlife Institute and research reports", "For ecology, post-tsunami conservation and survey context."], ["Protected-area references", "For Great Nicobar Biosphere Reserve and national-park context."]], "gallery": [["Island bird habitat", "../../assets/travel_beaches.png", "Coastal island context for the endemic bird."], ["Hidden biodiversity", "../../assets/travel_hidden.png", "Dense island vegetation and habitat story."], ["Protected landscape", "../../assets/hero_banner.png", "Educational conservation placeholder image."], ["Nature learning", "../../assets/heritage_monuments.png", "Reference-first learning and public awareness."]], "points": [["range", "Nicobar island range", 38, 33, "Distribution Map", "Restricted island range makes mapping and monitoring important."], ["forest", "Coastal forest habitat", 55, 45, "Habitat", "Coastal vegetation provides nesting and foraging conditions."], ["mound", "Nesting mound zone", 62, 34, "Nesting Behaviour", "Large mounds are the species signature behaviour."], ["diet", "Ground foraging patch", 40, 62, "Diet", "The bird forages on ground-level food resources."], ["threat", "Disturbance edge", 70, 62, "Threats", "Habitat loss, disturbance and extreme events affect survival."], ["protect", "Protected-area focus", 50, 78, "Protected Areas", "Protected habitats and surveys support conservation."]], "faqs": [["What is the scientific name of the Nicobar Megapode?", "Megapodius nicobariensis."], ["Where is it found?", "It is endemic to the Nicobar Islands of India."], ["What is unique about its nesting?", "It builds mounds that incubate eggs using natural heat from soil and decomposing material."], ["What is its conservation status?", "The page presents it as Vulnerable under IUCN-style conservation status."], ["Why is this L3?", "It includes complete content sections, interactive map, accordion FAQs, references, responsive UI, accessible controls and landing-page integration helper."]]};
-const esc=v=>String(v).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");const $=id=>document.getElementById(id);function card(item,cls,i){return `<article class="${cls}"><span>0${i+1}</span><h3>${esc(item[0])}</h3><p>${esc(item[1])}</p></article>`}
-['intro','physical','distribution','habitat','nesting','diet','conservation','threats','efforts','protected'].forEach(k=>{$(k+'-grid').innerHTML=DATA[k].map((x,i)=>card(x,'info-card',i)).join('')});$('facts-grid').innerHTML=DATA.quick.map(f=>`<article class="fact-card"><span>${esc(f[0])}</span><strong>${esc(f[1])}</strong><p>${esc(f[2])}</p></article>`).join('');$('taxonomy-grid').innerHTML=DATA.taxonomy.map((f,i)=>`<article class="taxonomy-card"><span>${esc(f[0])}</span><strong>${esc(f[1])}</strong><p>Taxonomy item ${i+1} for the Nicobar Megapode.</p></article>`).join('');$('facts-story-grid').innerHTML=DATA.facts.map((x,i)=>card(x,'info-card',i)).join('');$('references-grid').innerHTML=DATA.refs.map((x,i)=>card(x,'info-card',i)).join('');$('faq-list').innerHTML=DATA.faqs.map(f=>`<details class="faq-item"><summary>${esc(f[0])}</summary><p>${esc(f[1])}</p></details>`).join('');
-function selectPoint(id){const p=DATA.points.find(x=>x[0]===id)||DATA.points[0];document.querySelectorAll('.map-pin').forEach(pin=>pin.classList.toggle('active',pin.dataset.point===p[0]));$('map-info').innerHTML=`<span>${esc(p[4])}</span><h3>${esc(p[1])}</h3><p>${esc(p[5])}</p>`}$('map-pins').innerHTML=DATA.points.map((p,i)=>`<button class="map-pin" type="button" data-point="${esc(p[0])}" style="left:${p[2]}%;top:${p[3]}%" aria-label="${esc(p[1])}">${i+1}</button>`).join('');document.querySelectorAll('.map-pin').forEach(p=>p.addEventListener('click',()=>selectPoint(p.dataset.point)));$('gallery-grid').innerHTML=DATA.gallery.map(g=>`<article class="gallery-card"><img src="${esc(g[1])}" alt="${esc(g[0])}" onerror="this.src='../../assets/hero_banner.png'"><div><h3>${esc(g[0])}</h3><p>${esc(g[2])}</p></div></article>`).join('');selectPoint(DATA.points[0][0]);window.NicobarMegapodeL3Explorer={facts:()=>[...DATA.quick],points:()=>[...DATA.points],references:()=>[...DATA.refs]};});
+document.addEventListener('DOMContentLoaded', () => {
+    const DATA = {
+        kicker: 'Nicobar Islands · Megapodius nicobariensis · Mound Builder',
+        hero_text:
+            'Explore an endemic bird of the Nicobar Islands through introduction, scientific name, taxonomy, physical characteristics, distribution map, habitat, nesting behaviour, diet, IUCN conservation status, threats, conservation efforts, protected areas, references and image gallery.',
+        intro_title: 'An endemic island bird with a unique nesting strategy',
+        intro_text:
+            'The Nicobar Megapode is known for mound-building nesting behaviour and its restricted island range. This explorer keeps the information accessible, responsive and reference-oriented.',
+        stat1: ['Nicobar', 'Endemic'],
+        stat2: ['Mounds', 'Nesting'],
+        stat3: ['VU', 'IUCN status'],
+        map_badge: 'Interactive distribution map',
+        map_title: 'Explore habitat and conservation points',
+        map_text:
+            'Tap each point to learn about island range, coastal forest, nesting mounds, diet, threats and protected-area focus.',
+        card_img: 'assets/travel_beaches.png',
+        card_text:
+            'Explore scientific name, taxonomy, distribution, habitat, nesting behaviour, diet, IUCN status, threats, conservation efforts, protected areas and references.',
+        facts: [
+            ['Scientific Name', 'Megapodius nicobariensis', 'Scientific name of the Nicobar Megapode.'],
+            ['Common Name', 'Nicobar Megapode', 'An endemic bird of the Nicobar Islands.'],
+            ['Classification', 'Bird · Galliformes · Megapodiidae', 'A mound-building megapode bird.'],
+            ['Range', 'Nicobar Islands, India', 'Restricted island distribution.'],
+            [
+                'Signature Behaviour',
+                'Mound-building nesting',
+                'Large incubation mounds instead of typical exposed nests.'
+            ],
+            ['IUCN Status', 'Vulnerable', 'Presented as Vulnerable in recent conservation references.']
+        ],
+        intro: [
+            [
+                'Endemic island bird',
+                'The Nicobar Megapode is a unique bird found in the Nicobar Islands and known for specialised island ecology.'
+            ],
+            [
+                'Mound-building identity',
+                'Its most recognisable feature is its nesting behaviour: eggs are incubated in large mounds of organic material and soil.'
+            ],
+            [
+                'Fragile habitat story',
+                'Its restricted island range makes the bird sensitive to habitat loss, storms, tsunami impacts and development pressure.'
+            ],
+            [
+                'Conservation learning',
+                'The species is a strong topic for explaining island endemism, protected areas and habitat-based recovery.'
+            ]
+        ],
+        sections: [
+            ['taxonomy', 'Taxonomic Classification', 'Classification snapshot'],
+            ['physical', 'Physical Characteristics', 'Ground-dwelling island adaptation'],
+            ['distribution', 'Distribution Map', 'Restricted Nicobar Islands range'],
+            ['habitat', 'Habitat', 'Coastal forest and island vegetation'],
+            ['nesting', 'Nesting Behaviour', 'Mound-building incubation'],
+            ['diet', 'Diet', 'Ground foraging and forest-floor foods'],
+            ['conservation', 'Conservation Status (IUCN)', 'Vulnerable and habitat-dependent'],
+            ['threats', 'Threats', 'Habitat loss, disturbance and coastal vulnerability'],
+            ['efforts', 'Conservation Efforts', 'Monitoring, habitat protection and awareness'],
+            ['protected', 'Protected Areas', 'Protected landscapes and habitat networks']
+        ],
+        taxonomy: [
+            ['Kingdom', 'Animalia'],
+            ['Class', 'Aves'],
+            ['Order', 'Galliformes'],
+            ['Family', 'Megapodiidae'],
+            ['Genus', 'Megapodius'],
+            ['Species', 'Megapodius nicobariensis']
+        ],
+        physical: [
+            [
+                'Ground-dwelling form',
+                'Adapted for walking, scratching and moving across forest-floor and coastal habitats.'
+            ],
+            ['Strong legs', 'Powerful legs help with mound construction and ground movement.'],
+            ['Cryptic look', 'Subtle brownish tones help the bird blend with forest-floor environments.'],
+            [
+                'Island adaptation',
+                'Physical traits support a lifestyle linked with nesting mounds and coastal forest habitat.'
+            ]
+        ],
+        distribution: [
+            ['Nicobar endemic', 'The explorer presents the bird as restricted to the Nicobar Islands of India.'],
+            [
+                'Island populations',
+                'Small island populations make distribution mapping important for conservation planning.'
+            ],
+            ['Coastal habitat link', 'The species story is closely connected with coastal forest and island habitat.'],
+            ['Monitoring need', 'Distribution should be updated through surveys because island habitats can change.']
+        ],
+        habitat: [
+            ['Coastal forest', "Coastal forest and nearby island vegetation are central to the species' ecology."],
+            ['Mound sites', 'Suitable nesting sites need leaf litter, soil and organic debris.'],
+            ['Low disturbance', 'Nesting success depends on habitat quality and reduced disturbance.'],
+            ['Island ecosystem', "The bird's survival depends on protecting a fragile island habitat system."]
+        ],
+        nesting: [
+            ['Mound-building', 'Nicobar Megapodes build mounds for egg incubation.'],
+            ['Natural heat', 'Decomposing organic material helps maintain warmth inside the mound.'],
+            ['Repeated use', 'Mound sites can become important indicators for monitoring.'],
+            ['Vulnerable nests', 'Mounds can be affected by habitat damage, sea-level impacts, storms and disturbance.']
+        ],
+        diet: [
+            ['Ground foraging', 'The diet section presents a cautious summary based on ground foraging.'],
+            ['Seeds and plant matter', 'Forest-floor food resources include fallen plant material.'],
+            ['Invertebrates', 'Small invertebrates may form part of the diet.'],
+            ['Habitat link', 'Food availability depends on healthy forest-floor and coastal vegetation systems.']
+        ],
+        conservation: [
+            ['Vulnerable status', 'The species is treated as Vulnerable in recent conservation references.'],
+            ['Habitat protection', 'Protecting coastal forest and nesting mound areas is central to conservation.'],
+            ['Survey priority', 'Regular mapping of mounds and populations helps identify priority sites.'],
+            ['Island resilience', 'Conservation must consider storms, sea-level rise and human land-use pressure.']
+        ],
+        threats: [
+            ['Habitat loss', 'Conversion and degradation of coastal forest habitat reduce nesting and foraging areas.'],
+            ['Tsunami and storms', 'Low coastal sites can be severely affected by extreme events.'],
+            [
+                'Egg collection and hunting',
+                'Historical conservation literature has identified hunting and egg collection as concerns.'
+            ],
+            ['Development pressure', 'Infrastructure and land-use change can fragment suitable island habitat.']
+        ],
+        efforts: [
+            [
+                'Protected habitat',
+                'Conservation depends on protecting island forests, nesting mounds and coastal ecosystems.'
+            ],
+            ['Mound monitoring', 'Monitoring active mounds helps track breeding activity and population health.'],
+            ['Community awareness', 'Local participation can reduce disturbance and support habitat protection.'],
+            ['Research and mapping', 'Distribution mapping and habitat modelling guide conservation priorities.']
+        ],
+        protected: [
+            [
+                'Great Nicobar Biosphere Reserve',
+                'A key protected landscape in the Nicobar Islands conservation context.'
+            ],
+            ['Campbell Bay National Park', 'Part of the Great Nicobar protected-area landscape.'],
+            ['Galathea National Park', 'Another protected area relevant to Great Nicobar biodiversity discussions.'],
+            [
+                'Island habitat networks',
+                'Protected areas and community awareness together support long-term species survival.'
+            ]
+        ],
+        points: [
+            [
+                'range',
+                'Nicobar island range',
+                38,
+                35,
+                'Distribution Map',
+                'The species is endemic to the Nicobar Islands and needs island-level monitoring.'
+            ],
+            [
+                'coast',
+                'Coastal forest habitat',
+                55,
+                48,
+                'Habitat',
+                'Coastal forest and island vegetation support foraging and nesting.'
+            ],
+            [
+                'mound',
+                'Nesting mound zone',
+                64,
+                34,
+                'Nesting Behaviour',
+                "Mound-building is the bird's most distinctive behaviour."
+            ],
+            [
+                'food',
+                'Ground foraging patch',
+                42,
+                64,
+                'Diet',
+                'The bird forages on the ground for plant matter and small invertebrates.'
+            ],
+            [
+                'threat',
+                'Disturbance edge',
+                70,
+                64,
+                'Threats',
+                'Habitat loss, extreme events and human pressure threaten suitable sites.'
+            ],
+            [
+                'protected',
+                'Protected area focus',
+                50,
+                78,
+                'Protected Areas',
+                'Protected-area management and surveys support conservation.'
+            ]
+        ],
+        gallery: [
+            [
+                'Endemic island bird',
+                '../../assets/hero_banner.png',
+                'A placeholder visual for rare endemic island biodiversity.'
+            ],
+            [
+                'Coastal forest habitat',
+                '../../assets/travel_hidden.png',
+                'Coastal forest and island vegetation are central to the species story.'
+            ],
+            [
+                'Nicobar landscape',
+                '../../assets/travel_beaches.png',
+                'Island and coastal context supports distribution and habitat learning.'
+            ],
+            [
+                'Protected areas',
+                '../../assets/heritage_monuments.png',
+                'The explorer uses project assets as educational placeholders.'
+            ]
+        ],
+        interesting: [
+            ['Natural incubator', 'The species uses nesting mounds where natural heat helps incubate eggs.'],
+            ['Island specialist', 'Its restricted range makes it vulnerable to sudden habitat changes.'],
+            ['Mounds as clues', 'Active nesting mounds can help researchers monitor the bird.'],
+            ['Conservation symbol', 'The bird is a strong symbol for protecting Nicobar coastal ecosystems.']
+        ],
+        references: [
+            ['Scientific literature', 'Distribution, status and conservation studies of Megapodius nicobariensis.'],
+            ['IUCN-linked sources', 'Conservation status and threat context for the species.'],
+            [
+                'Wildlife Institute and conservation reports',
+                'Status, ecology and conservation work after tsunami impacts.'
+            ],
+            ['Habitat modelling research', 'Recent mapping of potential habitats and priority conservation areas.']
+        ],
+        faqs: [
+            ['What is the scientific name of the Nicobar Megapode?', 'Megapodius nicobariensis.'],
+            ['Where is the Nicobar Megapode found?', 'It is endemic to the Nicobar Islands of India.'],
+            [
+                'What is its most unique behaviour?',
+                'It builds nesting mounds where eggs are incubated using natural heat from organic material.'
+            ],
+            [
+                'What is its IUCN conservation status?',
+                'Recent conservation references list the Nicobar Megapode as Vulnerable.'
+            ],
+            [
+                'What does this explorer cover?',
+                'Introduction, scientific name, taxonomy, physical characteristics, distribution, habitat, nesting, diet, conservation, threats, efforts, protected areas, facts, gallery and references.'
+            ]
+        ]
+    };
+    const esc = v =>
+        String(v)
+            .replaceAll('&', '&amp;')
+            .replaceAll('<', '&lt;')
+            .replaceAll('>', '&gt;')
+            .replaceAll('"', '&quot;')
+            .replaceAll("'", '&#039;');
+    const $ = id => document.getElementById(id);
+    function card(item, i) {
+        return `<article class="info-card"><span>0${i + 1}</span><h3>${esc(item[0])}</h3><p>${esc(item[1])}</p></article>`;
+    }
+    $('intro-grid').innerHTML = DATA.intro.map(card).join('');
+    $('facts-grid').innerHTML = DATA.facts
+        .map(
+            f =>
+                `<article class="fact-card"><span>${esc(f[0])}</span><strong>${esc(f[1])}</strong><p>${esc(f[2])}</p></article>`
+        )
+        .join('');
+    DATA.sections.forEach(s => {
+        $(`${s[0]}-grid`).innerHTML = DATA[s[0]].map(card).join('');
+    });
+    $('interesting-grid').innerHTML = DATA.interesting.map(card).join('');
+    $('references-grid').innerHTML = DATA.references.map(card).join('');
+    $('faq-list').innerHTML = DATA.faqs
+        .map(f => `<details class="faq-item"><summary>${esc(f[0])}</summary><p>${esc(f[1])}</p></details>`)
+        .join('');
+    function selectPoint(id) {
+        const p = DATA.points.find(x => x[0] === id) || DATA.points[0];
+        document
+            .querySelectorAll('.map-pin')
+            .forEach(pin => pin.classList.toggle('active', pin.dataset.point === p[0]));
+        $('map-info').innerHTML = `<span>${esc(p[4])}</span><h3>${esc(p[1])}</h3><p>${esc(p[5])}</p>`;
+    }
+    $('map-pins').innerHTML = DATA.points
+        .map(
+            (p, i) =>
+                `<button class="map-pin" type="button" data-point="${esc(p[0])}" style="left:${p[2]}%;top:${p[3]}%" aria-label="${esc(p[1])}">${i + 1}</button>`
+        )
+        .join('');
+    document.querySelectorAll('.map-pin').forEach(p => p.addEventListener('click', () => selectPoint(p.dataset.point)));
+    $('gallery-grid').innerHTML = DATA.gallery
+        .map(
+            g =>
+                `<article class="gallery-card"><img src="${esc(g[1])}" alt="${esc(g[0])}" onerror="this.src='../../assets/hero_banner.png'"><div><h3>${esc(g[0])}</h3><p>${esc(g[2])}</p></div></article>`
+        )
+        .join('');
+    selectPoint(DATA.points[0][0]);
+    window.SpeciesExplorer = {
+        facts: () => [...DATA.facts],
+        points: () => [...DATA.points],
+        references: () => [...DATA.references]
+    };
+});
