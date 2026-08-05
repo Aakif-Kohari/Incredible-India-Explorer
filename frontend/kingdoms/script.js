@@ -1,6 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   const kingdoms = [
     {
+      id: "mysore",
+      name: "Kingdom of Mysore",
+      period: "1399 CE – 1947 CE",
+      capital: "Mysore / Srirangapatna",
+      rulers: "Raja Wadiyar I, Hyder Ali, Tipu Sultan, Krishnaraja Wadiyar IV",
+      achievements: "Pioneered iron-cased Mysorean military rockets, constructed illuminated Mysore Palace, built Shivanasamudra hydro station, celebrated Mysore Dasara",
+      description: "A legendary south Indian kingdom renowned for military rocket innovation, rich silk and sandalwood heritage, magnificent palaces, and industrial development.",
+      image: "../assets/monuments.png",
+      url: "../mysore-kingdom-explorer/index.html"
+      },
+    {
       id: "travancore",
       name: "Kingdom of Travancore",
       period: "1729 CE – 1949 CE",
