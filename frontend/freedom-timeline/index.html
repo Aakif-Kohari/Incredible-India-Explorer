@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Interactive Indian Freedom Timeline - Explore the significant events of India's independence movement.">
-    <title>Indian Freedom Timeline | Incredible India</title>
+    <title>Freedom Struggle Timeline | Incredible India</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,7 @@
 
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="../../styles.css">
-    <link rel="stylesheet" href="../traditional-games/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -48,132 +48,73 @@
                 <a href="../culture/culture.html" class="nav-link" id="link-culture">Culture</a>
                 <div class="nav-dropdown">
                     <button class="nav-link dropdown-toggle" id="link-explore-more">Explore More ▾</button>
-                    <div class="dropdown-menu">
-                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
-                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
-                        <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
-                        <a href="../monuments/monuments.html" class="dropdown-item">Monuments</a>
-                        <a href="../personalities/personalities.html" class="dropdown-item">Famous Personalities</a>
-                        <a href="../spiritual/spiritual.html" class="dropdown-item">Spiritual India</a>
-                        <a href="../arts-crafts/arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
-                        <a href="../hill-stations/hill-stations.html" class="dropdown-item">Hill-stations</a>
-                        <a href="../lighthouses/lighthouses.html" class="dropdown-item">Lighthouses</a>
-                        <a href="../coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
-                        <a href="../museums.html" class="dropdown-item">Museum</a>
-                        <a href="../stepwells/stepwells.html" class="dropdown-item">Stepwells</a>
-                        <a href="../music/music.html" class="dropdown-item">Music</a>
-                        <a href="../astronomy/astronomy.html" class="dropdown-item">Astronomy</a>
-                        <a href="../dance/dance.html" class="dropdown-item">Dance</a>
-                        <a href="../traditional-games/index.html" class="dropdown-item">Handloom</a>
+                    <div class="dropdown-content">
+                        <a href="../architecture/architecture.html">Architecture</a>
+                        <a href="../wildlife/wildlife.html">Wildlife</a>
+                        <a href="../arts-crafts/arts-crafts.html">Arts & Crafts</a>
                     </div>
                 </div>
-                <div class="nav-dropdown">
-                    <button class="nav-link dropdown-toggle" id="link-learn-data">Learn & Data ▾</button>
-                    <div class="dropdown-menu">
-                        <a href="../smart-cities/smart-cities.html" class="dropdown-item">Smart Cities</a>
-                        <a href="../languages/languages.html" class="dropdown-item">Languages of India</a>
-                        <a href="../data-india/data-india.html" class="dropdown-item">Data & Statistics</a>
-                        <a href="../learn/learn.html" class="dropdown-item">Learn & Quiz</a>
-                    </div>
-                </div>
-                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
-                <a href="../premium/premium.html" class="nav-link premium-link">★ Premium</a>
-                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
             </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </button>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main id="app-root">
+    <main class="timeline-main">
         <!-- Hero Section -->
         <section class="timeline-hero">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <span class="hero-tagline">Journey to Independence</span>
-                <h1 class="hero-title">Indian Freedom <span class="highlight">Timeline</span></h1>
-                <p class="hero-description">
-                    Explore the pivotal moments, brave freedom fighters, and historic milestones that shaped India's path to independence. From the first war of independence to the midnight of August 15, 1947.
-                </p>
+                <span class="hero-tagline">Historical Timeline</span>
+                <h1>Freedom Struggle Timeline</h1>
+                <p class="hero-subtitle">Explore the major milestones of India’s journey to independence.</p>
+                <p class="drag-hint">Drag horizontally to explore the timeline.</p>
             </div>
         </section>
 
-        <!-- Timeline Section -->
-        <section class="timeline-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-badge">Historical Journey</span>
-                    <h2>Freedom Movement Timeline</h2>
-                    <p class="section-subtitle">Navigate through the significant events that led to India's independence. Click on any event to learn more about the freedom fighters and their contributions.</p>
+        <!-- Interactive Timeline Section -->
+        <section class="timeline-container">
+            <!-- Timeline Drag Container -->
+            <div class="timeline-drag-area" id="timeline-drag-area" aria-label="Horizontal scrollable timeline area" tabindex="0">
+                <div class="timeline-track" id="timeline-track">
+                    <div class="timeline-line"></div>
+                    <!-- Timeline Nodes and Cards injected here -->
                 </div>
+            </div>
+        </section>
 
-                <!-- Timeline Navigation -->
-                <div class="timeline-navigation">
-                    <button class="nav-btn prev" id="prev-btn" aria-label="Previous Era">← Previous Era</button>
-                    <div class="era-indicator">
-                        <span class="era-label" id="current-era">All Events</span>
+        <!-- Event Detail Modal Panel -->
+        <div class="event-modal-overlay" id="event-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+            <div class="event-modal-content">
+                <button class="modal-close" id="modal-close" aria-label="Close event details">&times;</button>
+                <div class="modal-body">
+                    <div class="modal-image-container">
+                        <img id="modal-image" src="" alt="Event visual" />
                     </div>
-                    <button class="nav-btn next" id="next-btn" aria-label="Next Era">Next Era →</button>
-                </div>
-
-                <!-- Era Filter Tabs -->
-                <div class="era-tabs">
-                    <button class="era-tab active" data-era="all">All Events</button>
-                    <button class="era-tab" data-era="early">Early Resistance (1857-1900)</button>
-                    <button class="era-tab" data-era="moderate">Moderate Phase (1900-1919)</button>
-                    <button class="era-tab" data-era="gandhian">Gandhian Era (1919-1942)</button>
-                    <button class="era-tab" data-era="final">Final Phase (1942-1947)</button>
-                </div>
-
-                <!-- Timeline Container -->
-                <div class="timeline-container" id="timeline-container">
-                    <!-- Timeline events will be injected here by script.js -->
-                </div>
-
-                <!-- Event Detail Modal -->
-                <div class="event-modal" id="event-modal">
-                    <div class="modal-content">
-                        <button class="modal-close" id="modal-close" aria-label="Close Modal">&times;</button>
-                        <div class="modal-header">
-                            <span class="modal-year" id="modal-year">1857</span>
-                            <h3 class="modal-title" id="modal-title">Event Title</h3>
+                    <div class="modal-text-content">
+                        <div class="modal-meta">
+                            <span class="modal-year" id="modal-year">1930</span>
+                            <span class="modal-location" id="modal-location">Gujarat</span>
                         </div>
-                        <div class="modal-body">
-                            <div class="modal-image-container" id="modal-image-container">
-                                <img id="modal-image" src="" alt="Event Image">
-                            </div>
-                            <div class="modal-description">
-                                <p id="modal-description">Event description will appear here.</p>
-                            </div>
-                            <div class="modal-freedom-fighters" id="modal-freedom-fighters">
-                                <h4>Key Freedom Fighters</h4>
-                                <div class="fighters-grid" id="fighters-grid">
-                                    <!-- Freedom fighters will be injected here -->
-                                </div>
-                            </div>
-                            <div class="modal-significance">
-                                <h4>Historical Significance</h4>
-                                <p id="modal-significance">Significance text will appear here.</p>
-                            </div>
+                        <h2 class="modal-title" id="modal-title">Dandi March</h2>
+                        <div class="modal-leaders">
+                            <h4>Key Leaders</h4>
+                            <ul id="modal-leaders-list"></ul>
+                        </div>
+                        <div class="modal-description">
+                            <h4>Description</h4>
+                            <p id="modal-description">Event description.</p>
+                        </div>
+                        <div class="modal-significance">
+                            <h4>Historical Significance</h4>
+                            <p id="modal-significance">Event significance.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Freedom Fighters Spotlight -->
-        <section class="fighters-spotlight">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-badge">Legends of Freedom</span>
-                    <h2>Notable Freedom Fighters</h2>
-                    <p class="section-subtitle">Meet the brave souls who sacrificed everything for India's independence.</p>
-                </div>
-
-                <div class="fighters-grid" id="fighters-spotlight-grid">
-                    <!-- Freedom fighters cards will be injected here -->
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -204,7 +145,7 @@
 
     <!-- JavaScript Files -->
     <script src="../../app.js" defer></script>
-    <script src="../traditional-games/script.js" defer></script>
+    <script type="module" src="script.js" defer></script>
     <script src="../../router.js" defer></script>
     <script type="module" src="../../auth.js"></script>
 </body>
