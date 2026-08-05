@@ -43,6 +43,12 @@
                     title: "Hoysala Dynasty Explorer",
                     description: "Discover the Hoysala Dynasty of Karnataka, the tiger-slayer origin legend, and the star-shaped temple masterpieces of Belur, Halebidu, and Somanathapura.",
                     link: "frontend/hoysala-dynasty-explorer/index.html"
+                },
+                {
+                    id: "dynasties-of-india-paramara",
+                    title: "Paramara Dynasty Explorer",
+                    description: "Explore the Paramara Dynasty of Malwa, Raja Bhoja's Bhojshala college of Sanskrit learning, and the Bhojeshwar and Udayeshwar temples.",
+                    link: "frontend/paramara-dynasty-explorer/index.html"
                 }
             ]);
         });
