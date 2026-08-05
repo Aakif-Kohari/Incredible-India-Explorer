@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
   const allowedOrigin = process.env.ALLOWED_ORIGIN;
   const requestOrigin = req.headers.origin || "";
-  if (allowedOrigin && requestOrigin && !requestOrigin.startsWith(allowedOrigin)) {
+  if (allowedOrigin && requestOrigin !== allowedOrigin) {
     return res.status(403).json({ error: "Forbidden" });
   }
 
