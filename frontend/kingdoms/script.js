@@ -10,6 +10,39 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "A royal Kachwaha Rajput kingdom in Rajasthan renowned for medieval grid city planning, astronomy observatories, and majestic pink sandstone architecture.",
       image: "../assets/monuments.png",
       url: "../jaipur-kingdom-explorer/index.html"
+      },
+    {
+      id: "cochin",
+      name: "Kingdom of Cochin",
+      period: "1102 CE – 1949 CE",
+      capital: "Kochi / Tripunithura",
+      rulers: "Unniraman Koyil I, Veera Kerala Varma, Sakthan Thampuran",
+      achievements: "Global spice trade hub ('Queen of Arabian Sea'), constructed Mattancherry Palace, founded Thrissur Pooram (1797), preserved cosmopolitan harmony",
+      description: "A maritime kingdom in central Kerala famed for its historic black pepper trade routes, European alliances, Mattancherry murals, and Thrissur Pooram.",
+      image: "../assets/monuments.png",
+      url: "../cochin-kingdom-explorer/index.html"
+      },
+    {
+      id: "mysore",
+      name: "Kingdom of Mysore",
+      period: "1399 CE – 1947 CE",
+      capital: "Mysore / Srirangapatna",
+      rulers: "Raja Wadiyar I, Hyder Ali, Tipu Sultan, Krishnaraja Wadiyar IV",
+      achievements: "Pioneered iron-cased Mysorean military rockets, constructed illuminated Mysore Palace, built Shivanasamudra hydro station, celebrated Mysore Dasara",
+      description: "A legendary south Indian kingdom renowned for military rocket innovation, rich silk and sandalwood heritage, magnificent palaces, and industrial development.",
+      image: "../assets/monuments.png",
+      url: "../mysore-kingdom-explorer/index.html"
+      },
+    {
+      id: "travancore",
+      name: "Kingdom of Travancore",
+      period: "1729 CE – 1949 CE",
+      capital: "Thiruvananthapuram",
+      rulers: "Marthanda Varma, Swathi Thirunal, Chithira Thirunal",
+      achievements: "Defeated Dutch Navy at Colachel (1741), pioneered universal free education and healthcare, proclaimed Temple Entry (1936), constructed Padmanabhaswamy Temple",
+      description: "A progressive princely state in southern Kerala renowned for defeating European colonial naval power and leading pioneering social, educational, and cultural reforms.",
+      image: "../assets/monuments.png",
+      url: "../travancore-kingdom-explorer/index.html"
     },
     {
       id: "maurya",

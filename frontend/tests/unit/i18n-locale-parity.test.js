@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const LOCALES_DIR = 'i18n/locales';
+const LOCALES_DIR = path.resolve(__dirname, '../../i18n/locales');
 const SOURCE_LANG = 'en';
 
 function readLocale(lang) {

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * i18n-engine.js
  * Issue #771 — Multi-Language Content Management with AI-Powered Translation Support
  *
@@ -52,9 +52,11 @@ function setByPath(obj, path, value) {
 
 function interpolate(str, vars) {
   if (!vars || typeof str !== 'string') return str;
-  return str.replace(/\{\{\s*(\w+)\s*\}\}/g, (match, name) =>
-    Object.prototype.hasOwnProperty.call(vars, name) ? String(vars[name]) : match
-  );
+  return str.replace(/\{\{?\s*([\w.]+)\s*\}\}?/g, (match, name) => {
+    const val = getByPath(vars, name);
+    if (val !== undefined) return String(val);
+    return Object.prototype.hasOwnProperty.call(vars, name) ? String(vars[name]) : match;
+  });
 }
 
 function safeStorage() {
@@ -220,15 +222,46 @@ export class I18nEngine {
   applyToDOM(root) {
     if (typeof document === 'undefined') return;
     const scope = root || document;
+
+    const docEl = document.documentElement;
+    if (docEl) {
+      docEl.setAttribute('lang', this.currentLanguage);
+      docEl.className = docEl.className
+        .replace(/\blang-\w+\b/g, '')
+        .concat(` lang-${this.currentLanguage}`)
+        .trim();
+    }
+
     scope.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
-      el.textContent = this.translate(key);
+      let vars;
+      const rawVars = el.getAttribute('data-i18n-vars');
+      if (rawVars) {
+        try { vars = JSON.parse(rawVars); } catch { /* ignore */ }
+      }
+      el.textContent = this.translate(key, { vars });
     });
     scope.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
       el.setAttribute('placeholder', this.translate(el.getAttribute('data-i18n-placeholder')));
     });
     scope.querySelectorAll('[data-i18n-aria-label]').forEach((el) => {
       el.setAttribute('aria-label', this.translate(el.getAttribute('data-i18n-aria-label')));
+    });
+    scope.querySelectorAll('[data-i18n-title]').forEach((el) => {
+      el.setAttribute('title', this.translate(el.getAttribute('data-i18n-title')));
+    });
+    scope.querySelectorAll('[data-i18n-alt]').forEach((el) => {
+      el.setAttribute('alt', this.translate(el.getAttribute('data-i18n-alt')));
+    });
+    scope.querySelectorAll('[data-i18n-attr]').forEach((el) => {
+      const spec = el.getAttribute('data-i18n-attr');
+      if (!spec) return;
+      spec.split(',').forEach((pair) => {
+        const [attr, key] = pair.split(':').map((s) => s.trim());
+        if (attr && key) {
+          el.setAttribute(attr, this.translate(key));
+        }
+      });
     });
   }
 

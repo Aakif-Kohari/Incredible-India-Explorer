@@ -1,5 +1,5 @@
-﻿import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { TranslationClient } from '../../frontend/js-modules/i18n-translation-client.js';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { TranslationClient } from '../../js-modules/i18n-translation-client.js';
 
 function fakeFetch(responseBody, ok = true) {
   return vi.fn().mockResolvedValue({
