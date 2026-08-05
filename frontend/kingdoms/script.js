@@ -1,6 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   const kingdoms = [
     {
+      id: "travancore",
+      name: "Kingdom of Travancore",
+      period: "1729 CE – 1949 CE",
+      capital: "Thiruvananthapuram",
+      rulers: "Marthanda Varma, Swathi Thirunal, Chithira Thirunal",
+      achievements: "Defeated Dutch Navy at Colachel (1741), pioneered universal free education and healthcare, proclaimed Temple Entry (1936), constructed Padmanabhaswamy Temple",
+      description: "A progressive princely state in southern Kerala renowned for defeating European colonial naval power and leading pioneering social, educational, and cultural reforms.",
+      image: "../assets/monuments.png",
+      url: "../travancore-kingdom-explorer/index.html"
+    },
+    {
       id: "maurya",
       name: "Maurya Empire",
       period: "322 BCE – 185 BCE",

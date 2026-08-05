@@ -1484,6 +1484,13 @@ window.indiaSearchIndex = [
     category: "National Parks & Wildlife",
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"},
+  // --- Kingdom of Travancore Explorer ---
+  {
+    title: "Kingdom of Travancore Explorer",
+    category: "Indian Empires & History",
+    description: "Explore the Kingdom of Travancore (1729–1949) — Marthanda Varma, Battle of Colachel, Sree Padmanabhaswamy Temple, and progressive educational reforms.",
+    url: "frontend/travancore-kingdom-explorer/index.html"
+  },
   // --- Haiderpur Wetland Explorer ---
   {
     title: "Haiderpur Wetland Explorer",
