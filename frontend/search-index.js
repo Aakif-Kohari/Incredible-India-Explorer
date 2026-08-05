@@ -23,6 +23,12 @@ window.indiaSearchIndex = [
     url: "frontend/muziris-port-explorer/index.html"
   },
   {
+    title: "Kachwaha Dynasty Explorer",
+    category: "Heritage & History",
+    description: "Explore the Kachwaha Dynasty of Amber and Jaipur (1093–1949 CE): its founding by Dulha Rai, its Mughal alliance under Raja Bharmal and Man Singh I, and Sawai Jai Singh II's founding of Jaipur.",
+    url: "frontend/kachwaha-dynasty-explorer/index.html"
+  },
+  {
     title: "Arikamedu Ancient Port Explorer",
     category: "Heritage & History",
     description: "Explore Arikamedu: ancient Poduke Indo-Roman trading port near Puducherry, Roman amphorae, and bead manufacturing center.",
