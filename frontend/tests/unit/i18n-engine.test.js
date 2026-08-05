@@ -1,5 +1,5 @@
-﻿import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { I18nEngine, SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../frontend/js-modules/i18n-engine.js';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { I18nEngine, SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../js-modules/i18n-engine.js';
 
 function makeEngine(overrides = {}) {
   return new I18nEngine({
@@ -116,5 +116,34 @@ describe('I18nEngine', () => {
 
     expect(document.querySelector('h1').textContent).toBe('Home');
     expect(document.querySelector('input').getAttribute('placeholder')).toBe('Search...');
+  });
+
+  it('supports single-brace {var} interpolation alongside {{var}}', async () => {
+    const engine = makeEngine({
+      en: { welcome: 'Welcome, {userName} to {{siteName}}!' },
+    });
+    await engine.setLanguage('en');
+    const result = engine.translate('welcome', {
+      vars: { userName: 'Rishab', siteName: 'India Explorer' },
+    });
+    expect(result).toBe('Welcome, Rishab to India Explorer!');
+  });
+
+  it('applyToDOM updates data-i18n-attr and document.documentElement lang attribute', async () => {
+    document.body.innerHTML = `
+      <div id="scope">
+        <button data-i18n-attr="title:nav.homeTitle,aria-label:nav.homeAria"></button>
+      </div>
+    `;
+    const engine = makeEngine({
+      en: { nav: { homeTitle: 'Go Home', homeAria: 'Home Button' } },
+    });
+    await engine.setLanguage('en');
+    engine.applyToDOM(document.getElementById('scope'));
+
+    const btn = document.querySelector('button');
+    expect(btn.getAttribute('title')).toBe('Go Home');
+    expect(btn.getAttribute('aria-label')).toBe('Home Button');
+    expect(document.documentElement.getAttribute('lang')).toBe('en');
   });
 });

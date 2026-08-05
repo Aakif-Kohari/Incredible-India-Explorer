@@ -23,6 +23,12 @@ window.indiaSearchIndex = [
     url: "frontend/muziris-port-explorer/index.html"
   },
   {
+    title: "Kachwaha Dynasty Explorer",
+    category: "Heritage & History",
+    description: "Explore the Kachwaha Dynasty of Amber and Jaipur (1093–1949 CE): its founding by Dulha Rai, its Mughal alliance under Raja Bharmal and Man Singh I, and Sawai Jai Singh II's founding of Jaipur.",
+    url: "frontend/kachwaha-dynasty-explorer/index.html"
+  },
+  {
     title: "Arikamedu Ancient Port Explorer",
     category: "Heritage & History",
     description: "Explore Arikamedu: ancient Poduke Indo-Roman trading port near Puducherry, Roman amphorae, and bead manufacturing center.",
@@ -1862,5 +1868,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Discover Gopakapattana, the historic Kadamba port capital of Goa, its spice and horse trade, and the Rajvithi royal highway.",
     url: "frontend/gopakapattana-port-explorer/index.html"
+  },
+  // --- Battle of Buxar Explorer ---
+  {
+    title: "Battle of Buxar Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Buxar (22 October 1764) - the East India Company's decisive victory over Mir Qasim, Shuja-ud-Daulah, and Shah Alam II, and the Treaty of Allahabad that granted the Diwani.",
+    url: "frontend/battle-of-buxar-explorer/index.html"
   }
 ];
