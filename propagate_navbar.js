@@ -43,6 +43,7 @@ const NAVBAR_TEMPLATE = `<header class="navbar" id="navbar">
                 <div class="dropdown-menu">
                     <a href="{{PREFIX}}index.html#map" class="dropdown-item">Interactive Map</a>
                     <a href="{{PREFIX}}frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="{{PREFIX}}frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="{{PREFIX}}frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="{{PREFIX}}frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
                     <a href="{{PREFIX}}frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
