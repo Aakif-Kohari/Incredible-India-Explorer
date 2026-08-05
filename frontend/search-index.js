@@ -1937,6 +1937,18 @@ window.indiaSearchIndex = [
     title: "Siege of Chittor Explorer",
     category: "Featured Explorers",
     description: "Explore the Siege of Chittorgarh (1567-1568) - Akbar's four-month siege of the Sisodia capital of Mewar, the defiant defence of Jaimal and Patta, and the third jauhar of Chittor.",
-    url: "frontend/siege-of-chittor-explorer/index.html"
+    url: "frontend/siege-of-chittor-explorer/index.html"},
+  // --- Battle of Ravi Explorer ---
+  {
+    title: "Battle of Ravi Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Ravi (1306 CE) - Alauddin Khalji's decisive victory over the last Mongol invasion of India, when Malik Kafur crushed Kopek's Chagatai army on the banks of the Ravi River.",
+    url: "frontend/battle-of-ravi-explorer/index.html"},
+  // --- Battle of Jalore Explorer ---
+  {
+    title: "Battle of Jalore Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Jalore (1311) - the final clash between the Delhi Sultanate of Alauddin Khalji and the Chauhan rulers of Jalore under Kanhadadeva, told through timeline, key figures, outcome, and legacy.",
+    url: "frontend/battle-of-jalore-explorer/index.html"
   }
 ];
