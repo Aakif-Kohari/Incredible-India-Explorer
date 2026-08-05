@@ -16,7 +16,7 @@ document.addEventListener("app:route-changed", () => {
     bookmarkButtons.forEach((btn) => {
       const id = btn.dataset.bookmarkId;
       const title = "Solanki (Chaulukya) Dynasty Explorer";
-      const thumbnail = "frontend/assets/Solanki_Dynasty_Banner.jpg";
+      const thumbnail = "frontend/assets/Solanki_Dynasty_Banner.jpeg";
       const category = "heritage";
 
       const updateBookmarkUI = () => {
