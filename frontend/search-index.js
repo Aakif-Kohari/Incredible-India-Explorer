@@ -1862,5 +1862,26 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Discover Gopakapattana, the historic Kadamba port capital of Goa, its spice and horse trade, and the Rajvithi royal highway.",
     url: "frontend/gopakapattana-port-explorer/index.html"
+  },
+  // --- Vizhinjam Port Explorer ---
+  {
+    title: "Vizhinjam Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Vizhinjam (Viliñam), ancient Ay Dynasty capital, natural deep-water harbour, Indian Ocean spice trade, and 8th-century rock-cut cave temple.",
+    url: "frontend/vizhinjam-port-explorer/index.html"
+  },
+  // --- Nagapattinam Port Explorer ---
+  {
+    title: "Nagapattinam Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Nagapattinam (Nagai), premier Chola naval harbour, Srivijaya expeditions, Song China trade, and Chudamani Vihara Buddhist monastery.",
+    url: "frontend/nagapattinam-port-explorer/index.html"
+  },
+  // --- Cuddalore Port Explorer ---
+  {
+    title: "Cuddalore Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Cuddalore (Koodaloor), historic river-confluence harbour, handloom textile exports, Fort St. David, and Coromandel coastal heritage.",
+    url: "frontend/cuddalore-port-explorer/index.html"
   }
 ];
