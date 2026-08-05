@@ -1,6 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   const kingdoms = [
     {
+      id: "jaipur",
+      name: "Kingdom of Jaipur",
+      period: "1128 CE – 1949 CE",
+      capital: "Amer / Jaipur (Pink City)",
+      rulers: "Raja Man Singh I, Sawai Jai Singh II, Sawai Ram Singh II",
+      achievements: "Founded India's first grid-planned city (1727), constructed UNESCO Jantar Mantar observatory, built Hawa Mahal and Amer Fort",
+      description: "A royal Kachwaha Rajput kingdom in Rajasthan renowned for medieval grid city planning, astronomy observatories, and majestic pink sandstone architecture.",
+      image: "../assets/monuments.png",
+      url: "../jaipur-kingdom-explorer/index.html"
+      },
+    {
       id: "cochin",
       name: "Kingdom of Cochin",
       period: "1102 CE – 1949 CE",

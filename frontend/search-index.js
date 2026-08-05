@@ -1485,6 +1485,12 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Kingdom of Jaipur Explorer ---
+  {
+    title: "Kingdom of Jaipur Explorer",
+    category: "Indian Empires & History",
+    description: "Explore the Kingdom of Jaipur (1128–1949) — Kachwaha Rajput rulers, Sawai Jai Singh II, grid-planned Pink City architecture, Jantar Mantar, and Amer Fort.",
+    url: "frontend/jaipur-kingdom-explorer/index.html"},
   // --- Kingdom of Cochin Explorer ---
   {
     title: "Kingdom of Cochin Explorer",
