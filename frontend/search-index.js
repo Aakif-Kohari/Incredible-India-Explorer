@@ -1932,6 +1932,12 @@ window.indiaSearchIndex = [
     description: "Explore the Battle of Buxar (22 October 1764) - the East India Company's decisive victory over Mir Qasim, Shuja-ud-Daulah, and Shah Alam II, and the Treaty of Allahabad that granted the Diwani.",
     url: "frontend/battle-of-buxar-explorer/index.html"
   },
+  // --- Siege of Chittorgarh (1535) Explorer ---
+  {
+    title: "Siege of Chittorgarh (1535) Explorer",
+    category: "Featured Explorers",
+    description: "Explore the second jauhar of Chittor (8 March 1535) - Rani Karnavati's final sacrifice and Mewar's defiance against Bahadur Shah's Gujarat Sultanate, and the survival of Udai Singh's Sisodia line.",
+    url: "frontend/siege-of-chittor-1535-explorer/index.html"},
   // --- Siege of Chittor Explorer ---
   {
     title: "Siege of Chittor Explorer",
