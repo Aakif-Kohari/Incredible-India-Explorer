@@ -1916,8 +1916,15 @@ window.indiaSearchIndex = [
     title: "Nagapattinam Ancient Port Explorer",
     category: "Featured Explorers",
     description: "Discover Nagapattinam (Nagai), premier Chola naval harbour, Srivijaya expeditions, Song China trade, and Chudamani Vihara Buddhist monastery.",
-    url: "frontend/nagapattinam-port-explorer/index.html"},
-    
+    url: "frontend/nagapattinam-port-explorer/index.html"
+  },
+  // --- Cuddalore Port Explorer ---
+  {
+    title: "Cuddalore Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Cuddalore (Koodaloor), historic river-confluence harbour, handloom textile exports, Fort St. David, and Coromandel coastal heritage.",
+    url: "frontend/cuddalore-port-explorer/index.html"
+    },
   // --- Battle of Buxar Explorer ---
   {
     title: "Battle of Buxar Explorer",
