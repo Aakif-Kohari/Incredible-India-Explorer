@@ -1,6 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   const kingdoms = [
     {
+      id: "cochin",
+      name: "Kingdom of Cochin",
+      period: "1102 CE – 1949 CE",
+      capital: "Kochi / Tripunithura",
+      rulers: "Unniraman Koyil I, Veera Kerala Varma, Sakthan Thampuran",
+      achievements: "Global spice trade hub ('Queen of Arabian Sea'), constructed Mattancherry Palace, founded Thrissur Pooram (1797), preserved cosmopolitan harmony",
+      description: "A maritime kingdom in central Kerala famed for its historic black pepper trade routes, European alliances, Mattancherry murals, and Thrissur Pooram.",
+      image: "../assets/monuments.png",
+      url: "../cochin-kingdom-explorer/index.html"
+      },
+    {
       id: "mysore",
       name: "Kingdom of Mysore",
       period: "1399 CE – 1947 CE",

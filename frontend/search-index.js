@@ -1485,6 +1485,14 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Kingdom of Cochin Explorer ---
+  {
+    title: "Kingdom of Cochin Explorer",
+    category: "Indian Empires & History",
+    description: "Explore the Kingdom of Cochin (1102–1949) — Queen of the Arabian Sea, spice trade routes, Sakthan Thampuran, Mattancherry Palace, and Thrissur Pooram.",
+    url: "frontend/cochin-kingdom-explorer/index.html"
+  },
+   
   // --- Kingdom of Mysore Explorer ---
   {
     title: "Kingdom of Mysore Explorer",
