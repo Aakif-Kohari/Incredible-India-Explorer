@@ -1931,5 +1931,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Buxar (22 October 1764) - the East India Company's decisive victory over Mir Qasim, Shuja-ud-Daulah, and Shah Alam II, and the Treaty of Allahabad that granted the Diwani.",
     url: "frontend/battle-of-buxar-explorer/index.html"
+  },
+  // --- Battle of Ravi Explorer ---
+  {
+    title: "Battle of Ravi Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Ravi (1306 CE) - Alauddin Khalji's decisive victory over the last Mongol invasion of India, when Malik Kafur crushed Kopek's Chagatai army on the banks of the Ravi River.",
+    url: "frontend/battle-of-ravi-explorer/index.html"
   }
 ];
