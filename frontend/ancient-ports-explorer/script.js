@@ -1,380 +1,214 @@
-/**
- * Ancient Ports of India Explorer Landing Page JavaScript
- * Handles live search, multi-faceted filtering, interactive SVG map rendering,
- * and port data management.
- */
+(function() {
+    'use strict';
 
-(function () {
-  'use strict';
+    // Quiz Questions Data
+    const quizData = [
+        {
+            question: "Which is India's highest civilian honour?",
+            options: ["Padma Vibhushan", "Bharat Ratna", "Param Vir Chakra", "Khel Ratna"],
+            answer: 1,
+            explanation: "Bharat Ratna, instituted in 1954, is India's highest civilian honour awarded for exceptional service or performance of the highest order."
+        },
+        {
+            question: "In which year were the Bharat Ratna and Padma Awards instituted?",
+            options: ["1947", "1950", "1954", "1962"],
+            answer: 2,
+            explanation: "The Bharat Ratna and Padma Awards were instituted on 2 January 1954 by President Dr. Rajendra Prasad."
+        },
+        {
+            question: "Which of the following is India's highest military decoration for wartime bravery?",
+            options: ["Ashoka Chakra", "Vir Chakra", "Param Vir Chakra", "Shaurya Chakra"],
+            answer: 2,
+            explanation: "Param Vir Chakra is India's highest military award, given for displaying supreme valour in the presence of the enemy."
+        },
+        {
+            question: "The Shanti Swarup Bhatnagar Prize is awarded for outstanding contribution in which field?",
+            options: ["Literature", "Sports", "Science & Technology", "Performing Arts"],
+            answer: 2,
+            explanation: "Named after CSIR's founder Dr. Shanti Swarup Bhatnagar, this prize honours outstanding Indian scientific research."
+        },
+        {
+            question: "Which award is given for outstanding literary work across 24 Indian languages?",
+            options: ["Sahitya Akademi Award", "Sangeet Natak Akademi Award", "Bal Puraskar", "Dronacharya Award"],
+            answer: 0,
+            explanation: "The Sahitya Akademi Award is conferred annually on outstanding books in 24 major Indian languages recognized by the National Academy of Letters."
+        }
+    ];
 
-  // Master Ancient Ports Dataset
-  const ANCIENT_PORTS = [
-    {
-      id: 'lothal',
-      name: 'Lothal',
-      state: 'Gujarat',
-      dynasty: 'Indus Valley',
-      timePeriod: 'Harappan',
-      timeLabel: '2400 BCE - 1900 BCE',
-      coast: 'West Coast',
-      unescoStatus: 'UNESCO Tentative',
-      image: '../assets/lothal_dockyard.png',
-      fallbackImage: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=600&q=80',
-      description: "World's earliest known tidal dockyard city of the Indus Valley Civilization. A premier center for carnelian bead making, copper, and Mesopotamian trade.",
-      url: '../lothal-port-explorer/index.html'
-    },
-    {
-      id: 'muziris',
-      name: 'Muziris',
-      state: 'Kerala',
-      dynasty: 'Chera Kingdom',
-      timePeriod: 'Classical',
-      timeLabel: '300 BCE - 1341 CE',
-      coast: 'West Coast',
-      unescoStatus: 'ASI Protected',
-      image: '../assets/muziris_port.png',
-      fallbackImage: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=600&q=80',
-      description: "Legendary Malabar port celebrated as the 'Emperor of Ports'. Gateway for Indo-Roman black pepper trade and Greco-Roman spice fleets.",
-      url: '../muziris-port-explorer/index.html'
-    },
-    {
-      id: 'arikamedu',
-      name: 'Arikamedu',
-      state: 'Puducherry / Tamil Nadu',
-      dynasty: 'Chola / Roman Trade',
-      timePeriod: 'Classical',
-      timeLabel: '200 BCE - 200 CE',
-      coast: 'East Coast',
-      unescoStatus: 'ASI Protected',
-      image: '../assets/arikamedu_ruins.png',
-      fallbackImage: 'https://images.unsplash.com/photo-1566837945700-30057527ade0?auto=format&fit=crop&w=600&q=80',
-      description: "Ancient Coromandel trade post identified as Poduke in Periplus. Famous for Sir Mortimer Wheeler's excavations of Roman amphorae, brick warehouses, and bead factories.",
-      url: '../arikamedu-port-explorer/index.html'
-    },
-    {
-      id: 'tamralipta',
-      name: 'Tamralipta',
-      state: 'West Bengal',
-      dynasty: 'Maurya / Gupta',
-      timePeriod: 'Classical',
-      timeLabel: '6th Century BCE - 8th Century CE',
-      coast: 'East Coast',
-      unescoStatus: 'ASI Protected',
-      image: '../assets/tamralipta_tamluk.png',
-      fallbackImage: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=600&q=80',
-      description: "Eastern terminus of the Maritime Silk Route in Bengal. Major embarkation port for Buddhist pilgrims Faxian and Xuanzang sailing to Sri Lanka and Southeast Asia.",
-      url: '../tamralipta-port-explorer/index.html'
-    },
-    {
-      id: 'kannur',
-      name: 'Kannur',
-      state: 'Kerala',
-      dynasty: 'Kolathiri / Arakkal',
-      timePeriod: 'Medieval',
-      timeLabel: '1st Century CE - 18th Century CE',
-      coast: 'West Coast',
-      unescoStatus: 'ASI Protected',
-      image: '../assets/kannur_fort_banner.png',
-      fallbackImage: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=600&q=80',
-      description: "Principal seat of the Kolathiri Rajas and Fort St. Angelo. Renowned for its Malabar pepper trade, coir cordage, and ocean-going merchant fleets.",
-      url: '../kannur-port-explorer/index.html'
-    },
-    {
-      id: 'beypore',
-      name: 'Beypore',
-      state: 'Kerala',
-      dynasty: 'Zamorin of Calicut',
-      timePeriod: 'Medieval',
-      timeLabel: '1st Century CE - Present',
-      coast: 'West Coast',
-      unescoStatus: 'ASI Protected',
-      image: '../assets/beypore_uru.png',
-      fallbackImage: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=600&q=80',
-      description: "Famous ancient shipbuilding port of Malabar. World-renowned for handcrafted wooden Uru sailing vessels crafted for Arab merchants since antiquity.",
-      url: '../beypore-port-explorer/index.html'
-    },
-    {
-      id: 'dwarka',
-      name: 'Dwarka',
-      state: 'Gujarat',
-      dynasty: 'Yadava / Ancient India',
-      timePeriod: 'Harappan',
-      timeLabel: '1500 BCE - 500 CE',
-      coast: 'West Coast',
-      unescoStatus: 'Underwater Heritage',
-      image: '../assets/dwarka_submerged.png',
-      fallbackImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80',
-      description: "Sunken ancient port city off the Saurashtra coast. Marine archaeology has uncovered stone anchors, submerged jetties, and ancient sea walls.",
-      url: '../dwarka-port-explorer/index.html'
-    },
-    {
-      id: 'motupalli',
-      name: 'Motupalli',
-      state: 'Andhra Pradesh',
-      dynasty: 'Kakatiya Dynasty',
-      timePeriod: 'Medieval',
-      timeLabel: '1st Century CE - 14th Century CE',
-      coast: 'East Coast',
-      unescoStatus: 'ASI Protected',
-      image: '../assets/motupalli_port.png',
-      fallbackImage: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80',
-      description: "Historic trade port of the Kakatiya Kingdom. Celebrated in Queen Rudrama Devi's charter and visited by Marco Polo for its diamond and silk exports.",
-      url: '../motupalli-port-explorer/index.html'
-    },
-    {
-      id: 'satgaon',
-      name: 'Satgaon (Saptagram)',
-      state: 'West Bengal',
-      dynasty: 'Bengal Sultanate',
-      timePeriod: 'Medieval',
-      timeLabel: '300 BCE - 16th Century CE',
-      coast: 'East Coast',
-      unescoStatus: 'ASI Protected',
-      image: '../assets/satgaon_port.png',
-      fallbackImage: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=600&q=80',
-      description: "Ancient riverine trade port of Bengal situated on the Saraswati river. Known as Porto Grande by Portuguese traders prior to the rise of Hooghly.",
-      url: '../satgaon-port-explorer/index.html'
-    },
-    {
-      id: 'kodungallur',
-      name: 'Kodungallur',
-      state: 'Kerala',
-      dynasty: 'Chera Kingdom',
-      timePeriod: 'Classical',
-      timeLabel: '300 BCE - 1500 CE',
-      coast: 'West Coast',
-      unescoStatus: 'ASI Protected',
-      image: '../assets/kodungallur_port.png',
-      fallbackImage: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=600&q=80',
-      description: "Historic Cranganore port at the mouth of the Periyar. Served as Chera capital and cradle of early Christian, Jewish, and Islamic trade arrivals in India.",
-      url: '../kodungallur-port-explorer/index.html'
-    },
-    {
-      id: 'karaikal',
-      name: 'Karaikal',
-      state: 'Puducherry / Tamil Nadu',
-      dynasty: 'Chola / Roman Trade',
-      timePeriod: 'Classical',
-      timeLabel: '300 BCE - 17th Century CE',
-      coast: 'East Coast',
-      unescoStatus: 'ASI Protected',
-      image: '../assets/karaikal_port.png',
-      fallbackImage: 'https://images.unsplash.com/photo-1566837945700-30057527ade0?auto=format&fit=crop&w=600&q=80',
-      description: "Key Coromandel trading port under the Medieval Cholas. Connected Tamil country with Southeast Asian maritime kingdoms and Sri Lanka.",
-      url: '../karaikal-port-explorer/index.html'
-    },
-    {
-      id: 'kalingapatnam',
-      name: 'Kalingapatnam',
-      state: 'Andhra Pradesh',
-      dynasty: 'Kalinga Dynasty',
-      timePeriod: 'Classical',
-      timeLabel: '300 BCE - 500 CE',
-      coast: 'East Coast',
-      unescoStatus: 'ASI Protected',
-      image: '../assets/kalingapatnam_port.png',
-      fallbackImage: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80',
-      description: "Ancient Kalinga port on the Vamsadhara river. Historic departure point for Kalingan sea merchants expanding trade and culture to Java, Sumatra, and Malaya.",
-      url: '../kalingapatnam-port-explorer/index.html'
-    }
-  ];
+    let currentQuizIndex = 0;
+    let quizScore = 0;
 
-  // DOM Element References
-  let searchInput, clearSearchBtn, filterState, filterDynasty, filterTime, filterCoast, filterUnesco;
-  let resultsCountText, resetFiltersBtn, portsCardGrid, noResultsMsg;
-
-  function init() {
-    searchInput = document.getElementById('port-search-input');
-    clearSearchBtn = document.getElementById('clear-search-btn');
-    filterState = document.getElementById('filter-state');
-    filterDynasty = document.getElementById('filter-dynasty');
-    filterTime = document.getElementById('filter-time');
-    filterCoast = document.getElementById('filter-coast');
-    filterUnesco = document.getElementById('filter-unesco');
-    resultsCountText = document.getElementById('results-count-text');
-    resetFiltersBtn = document.getElementById('reset-filters-btn');
-    portsCardGrid = document.getElementById('ports-card-grid');
-    noResultsMsg = document.getElementById('no-results-msg');
-
-    if (!portsCardGrid) return;
-
-    // Attach Event Listeners
-    if (searchInput) searchInput.addEventListener('input', handleFilterChange);
-    if (clearSearchBtn) {
-      clearSearchBtn.addEventListener('click', function () {
-        searchInput.value = '';
-        clearSearchBtn.style.display = 'none';
-        handleFilterChange();
-      });
-    }
-
-    [filterState, filterDynasty, filterTime, filterCoast, filterUnesco].forEach(select => {
-      if (select) select.addEventListener('change', handleFilterChange);
+    document.addEventListener('DOMContentLoaded', function() {
+        initNavigation();
+        initSearchAndFilter();
+        initQuiz();
     });
 
-    if (resetFiltersBtn) {
-      resetFiltersBtn.addEventListener('click', resetFilters);
-    }
-
-    // Initial render
-    renderPorts(ANCIENT_PORTS);
-    setupMapInteractivity();
-    setupThemeToggle();
-  }
-
-  function handleFilterChange() {
-    const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
-    if (clearSearchBtn) {
-      clearSearchBtn.style.display = query ? 'block' : 'none';
-    }
-
-    const stateVal = filterState ? filterState.value : 'all';
-    const dynastyVal = filterDynasty ? filterDynasty.value : 'all';
-    const timeVal = filterTime ? filterTime.value : 'all';
-    const coastVal = filterCoast ? filterCoast.value : 'all';
-    const unescoVal = filterUnesco ? filterUnesco.value : 'all';
-
-    const filtered = ANCIENT_PORTS.filter(port => {
-      // Search query filter
-      const matchesQuery = !query || 
-        port.name.toLowerCase().includes(query) ||
-        port.state.toLowerCase().includes(query) ||
-        port.dynasty.toLowerCase().includes(query) ||
-        port.description.toLowerCase().includes(query);
-
-      // Category filters
-      const matchesState = stateVal === 'all' || port.state === stateVal;
-      const matchesDynasty = dynastyVal === 'all' || port.dynasty === dynastyVal;
-      const matchesTime = timeVal === 'all' || port.timePeriod === timeVal;
-      const matchesCoast = coastVal === 'all' || port.coast === coastVal;
-      const matchesUnesco = unescoVal === 'all' || port.unescoStatus === unescoVal;
-
-      return matchesQuery && matchesState && matchesDynasty && matchesTime && matchesCoast && matchesUnesco;
-    });
-
-    renderPorts(filtered);
-  }
-
-  function renderPorts(ports) {
-    if (!portsCardGrid) return;
-    portsCardGrid.innerHTML = '';
-
-    if (resultsCountText) {
-      resultsCountText.textContent = `Showing ${ports.length} of ${ANCIENT_PORTS.length} ancient ports`;
-    }
-
-    if (ports.length === 0) {
-      if (noResultsMsg) noResultsMsg.style.display = 'block';
-      return;
-    }
-
-    if (noResultsMsg) noResultsMsg.style.display = 'none';
-
-    ports.forEach(port => {
-      const card = document.createElement('article');
-      card.className = 'port-explorer-card';
-      card.setAttribute('data-port-id', port.id);
-
-      card.innerHTML = `
-        <div class="card-image-wrap">
-          <img src="${port.image}" alt="${port.name} Ancient Port" loading="lazy" onerror="this.onerror=null; this.src='${port.fallbackImage}';">
-          <span class="badge-coast">🌊 ${port.coast}</span>
-          <span class="badge-dynasty">👑 ${port.dynasty}</span>
-        </div>
-        <div class="card-body">
-          <h3>${port.name} Ancient Port</h3>
-          <div class="card-meta">
-            <span>📍 ${port.state}</span>
-            <span>⏳ ${port.timeLabel}</span>
-          </div>
-          <p class="card-desc">${port.description}</p>
-          <a href="${port.url}" class="btn-card-explore" aria-label="Explore ${port.name} Ancient Port">
-            Explore ${port.name} Port ➔
-          </a>
-        </div>
-      `;
-
-      portsCardGrid.appendChild(card);
-    });
-  }
-
-  function resetFilters() {
-    if (searchInput) searchInput.value = '';
-    if (clearSearchBtn) clearSearchBtn.style.display = 'none';
-    if (filterState) filterState.value = 'all';
-    if (filterDynasty) filterDynasty.value = 'all';
-    if (filterTime) filterTime.value = 'all';
-    if (filterCoast) filterCoast.value = 'all';
-    if (filterUnesco) filterUnesco.value = 'all';
-    renderPorts(ANCIENT_PORTS);
-  }
-
-  function setupMapInteractivity() {
-    const markers = document.querySelectorAll('.map-port-marker');
-    const infoPanelTitle = document.getElementById('map-info-title');
-    const infoPanelDesc = document.getElementById('map-info-desc');
-    const infoDetailsBox = document.getElementById('map-info-details');
-    const infoLoc = document.getElementById('map-info-loc');
-    const infoEra = document.getElementById('map-info-era');
-    const infoKingdom = document.getElementById('map-info-kingdom');
-    const infoLink = document.getElementById('map-info-link');
-
-    markers.forEach(marker => {
-      marker.addEventListener('click', function () {
-        const portId = this.getAttribute('data-port');
-        const portData = ANCIENT_PORTS.find(p => p.id === portId);
-
-        if (!portData) return;
-
-        // Highlight marker
-        markers.forEach(m => m.style.opacity = '0.6');
-        this.style.opacity = '1.0';
-
-        // Populate info panel
-        if (infoPanelTitle) infoPanelTitle.textContent = `${portData.name} Ancient Port`;
-        if (infoPanelDesc) infoPanelDesc.textContent = portData.description;
-        if (infoLoc) infoLoc.textContent = portData.state;
-        if (infoEra) infoEra.textContent = portData.timeLabel;
-        if (infoKingdom) infoKingdom.textContent = portData.dynasty;
-
-        if (infoDetailsBox) infoDetailsBox.style.display = 'block';
-        if (infoLink) {
-          infoLink.style.display = 'inline-block';
-          infoLink.href = portData.url;
+    function initNavigation() {
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('light-theme');
+                const isLight = document.body.classList.contains('light-theme');
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            });
         }
 
-        // Scroll smooth to card if existing
-        const targetCard = document.querySelector(`[data-port-id="${portId}"]`);
-        if (targetCard) {
-          targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          targetCard.style.outline = '2px solid var(--port-gold)';
-          setTimeout(() => targetCard.style.outline = 'none', 2000);
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', function() {
+                const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                menuToggle.setAttribute('aria-expanded', !expanded);
+                navMenu.classList.toggle('active');
+            });
         }
-      });
-    });
-  }
-
-  function setupThemeToggle() {
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    if (themeToggleBtn) {
-      themeToggleBtn.addEventListener('click', function () {
-        const isLight = document.body.classList.toggle('light-theme');
-        localStorage.setItem('theme', isLight ? 'light' : 'dark');
-      });
     }
-  }
 
-  // Initialize when DOM ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+    function initSearchAndFilter() {
+        const searchInput = document.getElementById('award-search-input');
+        const clearBtn = document.getElementById('clear-search-btn');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const awardCards = document.querySelectorAll('.award-card');
+        const noResultsMsg = document.getElementById('no-results-message');
 
-  // Global Export for testing
-  window.AncientPorts = {
-    ANCIENT_PORTS,
-    renderPorts,
-    resetFilters
-  };
+        let activeCategory = 'all';
+
+        function filterCards() {
+            const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            let visibleCount = 0;
+
+            if (clearBtn) {
+                clearBtn.style.display = query.length > 0 ? 'block' : 'none';
+            }
+
+            awardCards.forEach(card => {
+                const category = card.getAttribute('data-category') || '';
+                const cardText = card.textContent.toLowerCase();
+
+                const matchesCategory = (activeCategory === 'all' || category.toLowerCase() === activeCategory.toLowerCase());
+                const matchesQuery = query === '' || cardText.includes(query);
+
+                if (matchesCategory && matchesQuery) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (noResultsMsg) {
+                noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', filterCards);
+        }
+
+        if (clearBtn) {
+            clearBtn.addEventListener('click', function() {
+                searchInput.value = '';
+                filterCards();
+                searchInput.focus();
+            });
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                activeCategory = this.getAttribute('data-category') || 'all';
+                filterCards();
+            });
+        });
+    }
+
+    function initQuiz() {
+        const questionEl = document.getElementById('quiz-question');
+        const optionsEl = document.getElementById('quiz-options');
+        const explanationEl = document.getElementById('quiz-explanation');
+        const progressEl = document.getElementById('quiz-progress');
+        const scoreEl = document.getElementById('quiz-score');
+        const nextBtn = document.getElementById('quiz-next-btn');
+        const quizContainer = document.getElementById('quiz-container');
+        const quizResults = document.getElementById('quiz-results');
+        const finalScoreEl = document.getElementById('quiz-final-score');
+        const restartBtn = document.getElementById('quiz-restart-btn');
+
+        if (!questionEl || !optionsEl) return;
+
+        function loadQuestion() {
+            const q = quizData[currentQuizIndex];
+            progressEl.textContent = `Question ${currentQuizIndex + 1} of ${quizData.length}`;
+            scoreEl.textContent = `Score: ${quizScore}`;
+            questionEl.textContent = q.question;
+
+            optionsEl.innerHTML = '';
+            explanationEl.style.display = 'none';
+            explanationEl.textContent = '';
+            nextBtn.style.display = 'none';
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-option-btn';
+                btn.textContent = opt;
+                btn.addEventListener('click', function() {
+                    selectAnswer(idx);
+                });
+                optionsEl.appendChild(btn);
+            });
+        }
+
+        function selectAnswer(selectedIdx) {
+            const q = quizData[currentQuizIndex];
+            const optionBtns = optionsEl.querySelectorAll('.quiz-option-btn');
+
+            optionBtns.forEach((btn, idx) => {
+                btn.disabled = true;
+                if (idx === q.answer) {
+                    btn.classList.add('correct');
+                } else if (idx === selectedIdx) {
+                    btn.classList.add('incorrect');
+                }
+            });
+
+            if (selectedIdx === q.answer) {
+                quizScore++;
+                scoreEl.textContent = `Score: ${quizScore}`;
+            }
+
+            explanationEl.textContent = q.explanation;
+            explanationEl.style.display = 'block';
+
+            nextBtn.style.display = 'inline-block';
+        }
+
+        nextBtn.addEventListener('click', function() {
+            currentQuizIndex++;
+            if (currentQuizIndex < quizData.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        });
+
+        function showResults() {
+            quizContainer.style.display = 'none';
+            quizResults.style.display = 'block';
+            finalScoreEl.textContent = `You scored ${quizScore} out of ${quizData.length}!`;
+        }
+
+        if (restartBtn) {
+            restartBtn.addEventListener('click', function() {
+                currentQuizIndex = 0;
+                quizScore = 0;
+                quizResults.style.display = 'none';
+                quizContainer.style.display = 'block';
+                loadQuestion();
+            });
+        }
+
+        loadQuestion();
+    }
 })();

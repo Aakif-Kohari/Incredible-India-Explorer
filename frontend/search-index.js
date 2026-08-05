@@ -1007,13 +1007,23 @@ window.indiaSearchIndex = [
     description: "Trace 5 major Indian river systems (Ganga, Yamuna, Godavari, Krishna, Brahmaputra) from source to mouth on an SVG map with accuracy scoring.",
     url: "frontend/river-trace/index.html"
   },
-  {
+{
     title: "India's National Parks Timeline",
     category: "Nature & Wildlife",
     description: "Interactive visual timeline showing when India's national parks and wildlife sanctuaries were established.",
     url: "frontend/national-parks-timeline/frontend/national-parks-timeline/national-parks-timeline.html"
   },
   {
+    title: "Nilgiri Marten Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Nilgiri Marten (Martes gwatkinsii) — India's only endemic marten, found in the shola forests and montane grasslands of the Western Ghats, its ecology and conservation.",
+    url: "frontend/nilgiri-marten-explorer/index.html"
+  },  {
+    title: "Brown Palm Civet Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Brown Palm Civet (Paradoxurus jerdoni) — a nocturnal, frugivorous civet endemic to the Western Ghats rainforests, its ecology, IUCN status, and conservation.",
+    url: "frontend/brown-palm-civet-explorer/index.html"
+  },  {
     title: "Jim Corbett National Park Timeline",
     category: "National Parks Timeline",
     description: "Established in 1936 as Hailey National Park, India's oldest protected area.",
@@ -1812,5 +1822,25 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Discover Kodungallur, the ancient port of Muziris in Kerala, its role as the global pepper emporium, Pattanam excavations, and syncretic culture.",
     url: "frontend/kodungallur-port-explorer/index.html"
+  },
+  // --- Mangalore Port Explorer ---
+  {
+    title: "Mangalore Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Mangalore, the historic southwest coast port of Karnataka, its ancient maritime trade, Bunder harbour, spice and sandalwood exports, and the modern New Mangalore Port.",
+    url: "frontend/mangalore-port-explorer/index.html"},
+  // --- Barkur Port Explorer ---
+  {
+    title: "Barkur Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Barkur, the ancient Brahmapuri port town of Karnataka, capital of the Saluvas, its Pancha Ganapati temples, and riverine maritime trade.",
+    url: "frontend/barkur-port-explorer/index.html"
+  },
+  // --- Kollam Port Explorer ---
+  {
+    title: "Kollam Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Kollam (Quilon), the historic spice trade gateway of Kerala, its black pepper commerce, and Chinese trade links.",
+    url: "frontend/kollam-port-explorer/index.html"
   }
 ];
