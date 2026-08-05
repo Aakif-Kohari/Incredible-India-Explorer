@@ -1,8 +1,9 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 
-function createReq({ method = 'GET', origin } = {}) {
+function createReq({ method = 'GET', origin, secret } = {}) {
   const headers = {};
   if (origin !== undefined) headers.origin = origin;
+  if (secret !== undefined) headers['x-firebase-config-secret'] = secret;
   return { method, headers };
 }
 
@@ -97,5 +98,40 @@ describe('frontend/api/firebase-config.js', () => {
     const res = createRes();
     await handler(createReq({ origin: 'https://trusted.example.com.evil.com' }), res);
     expect(res._status).toBe(403);
+  });
+
+  it('returns 200 when FIREBASE_CONFIG_SECRET is not set (no auth required)', async () => {
+    delete process.env.FIREBASE_CONFIG_SECRET;
+    const handler = await loadHandler();
+    const res = createRes();
+    await handler(createReq(), res);
+    expect(res._status).toBe(200);
+    expect(res._json.apiKey).toBe('test-key');
+  });
+
+  it('returns 401 when FIREBASE_CONFIG_SECRET is set and header is missing', async () => {
+    process.env.FIREBASE_CONFIG_SECRET = 'mysecret';
+    const handler = await loadHandler();
+    const res = createRes();
+    await handler(createReq(), res);
+    expect(res._status).toBe(401);
+    expect(res._json.error).toBe('Unauthorized');
+  });
+
+  it('returns 401 when FIREBASE_CONFIG_SECRET is set and header value is wrong', async () => {
+    process.env.FIREBASE_CONFIG_SECRET = 'mysecret';
+    const handler = await loadHandler();
+    const res = createRes();
+    await handler(createReq({ secret: 'wrongsecret' }), res);
+    expect(res._status).toBe(401);
+  });
+
+  it('returns 200 when FIREBASE_CONFIG_SECRET is set and header matches exactly', async () => {
+    process.env.FIREBASE_CONFIG_SECRET = 'mysecret';
+    const handler = await loadHandler();
+    const res = createRes();
+    await handler(createReq({ secret: 'mysecret' }), res);
+    expect(res._status).toBe(200);
+    expect(res._json.apiKey).toBe('test-key');
   });
 });
