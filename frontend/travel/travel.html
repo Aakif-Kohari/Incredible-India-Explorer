@@ -2,14 +2,6 @@
 
 <html lang="en">
 <head>
-    <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
-            if (theme === 'light') {
-                document.body.classList.add('light-theme');
-            }
-        })();
-    </script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Travel Explorer - Discover the diverse destinations and breathtaking road trips of Incredible India." name="description"/>
@@ -266,9 +258,9 @@
 }
     </style>
 
-  <link rel="stylesheet" href="../../../js-modules/page-progress/page-progress.css">
-  <link rel="stylesheet" href="../../../js-modules/keyboard-shortcuts/keyboard-shortcuts.css">
-  <link rel="stylesheet" href="../../../js-modules/smart-empty-state/smart-empty-state.css">
+  <link rel="stylesheet" href="../js-modules/page-progress/page-progress.css">
+  <link rel="stylesheet" href="../js-modules/keyboard-shortcuts/keyboard-shortcuts.css">
+  <link rel="stylesheet" href="../js-modules/smart-empty-state/smart-empty-state.css">
   <link rel="stylesheet" href="../card-deeplink/card-deeplink.css">
 
     <!-- Open Graph / Social Media Tags -->
@@ -290,59 +282,97 @@
     <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/travel.html">
 </head>
 <body>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
 <!-- Sticky Navigation Bar -->
-<header class="navbar scrolled" id="navbar">
-<div class="nav-container">
-<a class="nav-logo" href="../../index.html#home" id="nav-logo">
-<span class="saffron">Incredible</span>
-<span class="gold">India</span>
-<span class="green">Explorer</span>
-</a>
-<button aria-label="Toggle Menu" class="menu-toggle" id="menu-toggle">
-<span class="bar"></span>
-<span class="bar"></span>
-<span class="bar"></span>
-</button>
-<nav class="nav-menu" id="nav-menu">
-<a class="nav-link" href="../../index.html#home" id="link-home">Home</a>
-<a class="nav-link" href="../../index.html#map" id="link-map">Interactive Map</a>
-<a class="nav-link" href="../cuisine/cuisine.html" id="link-cuisine">Cuisine</a>
-<a class="nav-link" href="../festivals/festivals.html" id="link-festivals">Festivals</a>
-<a class="nav-link" href="../culture/culture.html" id="link-culture">Culture</a>
-<div class="nav-dropdown">
-<button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
-<div class="dropdown-menu">
-<a class="dropdown-item" href="travel.html" style="color: var(--saffron)">Travel &amp; Destinations</a>
-<a class="dropdown-item" href="../wildlife/wildlife.html">Nature &amp; Wildlife</a>
-<a class="dropdown-item" href="../personalities/personalities.html">Famous Personalities</a>
-<a class="dropdown-item" href="../spiritual/spiritual.html">Spiritual India</a>
-<a class="dropdown-item" href="../arts-crafts/arts-crafts.html">Arts &amp; Crafts</a>
-</div>
-</div>
-<div class="nav-dropdown">
-<button class="nav-link dropdown-toggle" id="link-learn-data">Learn &amp; Data ▾</button>
-<div class="dropdown-menu">
-<a class="dropdown-item" href="../smart-cities/smart-cities.html">Smart Cities</a>
-<a class="dropdown-item" href="../languages/languages.html">Languages of India</a>
-<a class="dropdown-item" href="../data-india/data-india.html">Data &amp; Statistics</a>
-<a class="dropdown-item" href="../learn/learn.html">Learn &amp; Quiz</a>
-</div>
-</div>
-<button aria-label="Toggle Dark/Light Mode" class="btn-theme-toggle" id="theme-toggle" title="Toggle Light Mode">☀️</button>
-<a class="nav-link" href="../premium/premium.html" style="color: var(--gold); font-weight: bold;">★ Premium</a>
-<a class="nav-link" href="../../login.html" id="link-login">Login</a>
-<div class="journey-nav-search">
-                    <input type="search" id="journey-search-input" class="journey-search-input" placeholder="Search all explorers…" aria-label="Search across all explorers" autocomplete="off">
-                    <div id="journey-search-results" class="journey-search-results" hidden></div>
+<header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
                 </div>
-                <a href="../journey/journey.html" class="nav-link" id="link-journey">🧭 My Journey</a>
-            </nav>
-</div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
 </header>
 <main id="app-root" style="padding-top: 80px;">
 <!-- Hero Section -->
 <section class="cuisine-hero scroll-section" style="height: 60vh;">
-<img class="hero-video" src="../../assets/travel_hero.png" alt="A scenic view of a mountain winding road with valleys and trees under sunset" style="width: 100%; height: 100%; object-fit: cover;"/>
+<img class="hero-video" src="../assets/travel_hero.png" alt="A scenic view of a mountain winding road with valleys and trees under sunset" style="width: 100%; height: 100%; object-fit: cover;"/>
 <div class="hero-overlay"></div>
 <div class="hero-content">
 <span class="hero-tagline animate-fade-in">🏔️ The Great Indian Journey</span>
@@ -401,7 +431,7 @@
 </div>
 <div class="travel-grid">
 <div class="destination-card" data-id="travel-mountains">
-<img alt="Mountains" class="destination-img" src="../../assets/travel_mountains.png"/>
+<img alt="Mountains" class="destination-img" src="../assets/travel_mountains.png"/>
 <div class="destination-content">
 <span class="destination-tag">Himalayas</span>
 <h3 class="destination-title">Mountains</h3>
@@ -409,7 +439,7 @@
 </div>
 <button aria-label="Save Mountains to My Journey" aria-pressed="false" class="destination-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="travel-mountains" type="button">♡</button></div>
 <div class="destination-card" data-id="travel-beaches">
-<img alt="Beaches" class="destination-img" src="../../assets/travel_beaches.png"/>
+<img alt="Beaches" class="destination-img" src="../assets/travel_beaches.png" loading="lazy"/>
 <div class="destination-content">
 <span class="destination-tag">Coastal Lines</span>
 <h3 class="destination-title">Beaches</h3>
@@ -417,7 +447,7 @@
 </div>
 <button aria-label="Save Beaches to My Journey" aria-pressed="false" class="destination-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="travel-beaches" type="button">♡</button></div>
 <div class="destination-card" data-id="travel-deserts">
-<img alt="Deserts" class="destination-img" src="../../assets/travel_deserts.png"/>
+<img alt="Deserts" class="destination-img" src="../assets/travel_deserts.png" loading="lazy"/>
 <div class="destination-content">
 <span class="destination-tag">Thar Desert</span>
 <h3 class="destination-title">Deserts</h3>
@@ -425,7 +455,7 @@
 </div>
 <button aria-label="Save Deserts to My Journey" aria-pressed="false" class="destination-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="travel-deserts" type="button">♡</button></div>
 <div class="destination-card" data-id="travel-forests">
-<img alt="Forests" class="destination-img" src="../../assets/travel_forests.png"/>
+<img alt="Forests" class="destination-img" src="../assets/travel_forests.png" loading="lazy"/>
 <div class="destination-content">
 <span class="destination-tag">Western Ghats</span>
 <h3 class="destination-title">Forests</h3>
@@ -433,7 +463,7 @@
 </div>
 <button aria-label="Save Forests to My Journey" aria-pressed="false" class="destination-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="travel-forests" type="button">♡</button></div>
 <div class="destination-card" data-id="travel-islands">
-<img alt="Islands" class="destination-img" src="../../assets/travel_islands.png"/>
+<img alt="Islands" class="destination-img" src="../assets/travel_islands.png"/>
 <div class="destination-content">
 <span class="destination-tag">Archipelagos</span>
 <h3 class="destination-title">Islands</h3>
@@ -441,7 +471,7 @@
 </div>
 <button aria-label="Save Islands to My Journey" aria-pressed="false" class="destination-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="travel-islands" type="button">♡</button></div>
 <div class="destination-card" data-id="travel-hidden-gems">
-<img alt="Hidden Gems" class="destination-img" src="../../assets/travel_hidden.png"/>
+<img alt="Hidden Gems" class="destination-img" src="../assets/travel_hidden.png" loading="lazy"/>
 <div class="destination-content">
 <span class="destination-tag">Offbeat</span>
 <h3 class="destination-title">Hidden Gems</h3>
@@ -532,7 +562,7 @@
 <button class="btn btn-primary ripple roadtrip-flip-btn" style="width: 100%;">View Route Map</button>
 </div>
 <div class="roadtrip-card-back">
-<img alt="Leh-Ladakh Highway route map" src="../../assets/Manalileh.png"/>
+<img alt="Leh-Ladakh Highway route map" src="../assets/Manalileh.png" loading="lazy"/>
 </div>
 </div>
 </div>
@@ -547,7 +577,7 @@
 <button class="btn btn-primary ripple roadtrip-flip-btn" style="width: 100%;">View Route Map</button>
 </div>
 <div class="roadtrip-card-back">
-<img alt="Leh-Ladakh Highway route map" src="../../assets/Shimlakaza.png"/>
+<img alt="Leh-Ladakh Highway route map" src="../assets/Shimlakaza.png"/>
 </div>
 </div>
 </div>
@@ -562,7 +592,7 @@
 <button class="btn btn-primary ripple roadtrip-flip-btn" style="width: 100%;">View Route Map</button>
 </div>
 <div class="roadtrip-card-back">
-<img alt="Leh-Ladakh Highway route map" src="../../assets/Kochitri.png"/>
+<img alt="Leh-Ladakh Highway route map" src="../assets/Kochitri.png" loading="lazy"/>
 </div>
 </div>
 </div>
@@ -626,19 +656,19 @@
 </footer>
 <!-- Scroll To Top Button -->
 <button aria-label="Scroll to Top" class="btn-scroll-top" id="btn-scroll-top">↑</button>
-<script src="../../app.js" defer></script>
-<script src="../../firebase-config.js" type="module"></script>
-<script src="../../auth.js" type="module"></script>
-<script src="../../router.js" defer></script>
-    <script src="../../../js-modules/travel/travel-recommend-data.js" defer></script>
-    <script src="../../../js-modules/travel/travel-recommend.js" defer></script>
-    <script src="../../../js-modules/event-data.js" defer></script>
-    <script src="../../../js-modules/travel/seasonal-recommend-engine.js" defer></script>
-    <script src="../../../js-modules/travel/seasonal-recommend-ui.js" defer></script>
+<script src="../app.js" defer></script>
+<script src="../firebase-config.js" type="module"></script>
+<script src="../auth.js" type="module"></script>
+<script src="../router.js" defer></script>
+    <script src="../js-modules/travel/travel-recommend-data.js" defer></script>
+    <script src="../js-modules/travel/travel-recommend.js" defer></script>
+    <script src="../js-modules/event-data.js" defer></script>
+    <script src="../js-modules/travel/seasonal-recommend-engine.js" defer></script>
+    <script src="../js-modules/travel/seasonal-recommend-ui.js" defer></script>
     <script src="travel-journey.js" defer></script>
-  <script src="../../../js-modules/page-progress/page-progress.js"></script>
-  <script src="../../../js-modules/keyboard-shortcuts/keyboard-shortcuts.js"></script>
-  <script src="../../../js-modules/smart-empty-state/smart-empty-state.js"></script>
+  <script src="../js-modules/page-progress/page-progress.js"></script>
+  <script src="../js-modules/keyboard-shortcuts/keyboard-shortcuts.js"></script>
+  <script src="../js-modules/smart-empty-state/smart-empty-state.js"></script>
   <script src="../card-deeplink/card-deeplink.js"></script>
 </body>
 </html>
