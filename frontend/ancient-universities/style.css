@@ -71,6 +71,86 @@ body {
     display: flex;
     justify-content: center;
     gap: 30px;
+/* Ancient Universities Styles */
+
+/* 
+Palette:
+Cream: #fdfcdc (Light background)
+Sand: #e9c46a (Accents)
+Bronze: #d97706 (Headings/Borders)
+Deep Brown: #5c4033 (Text)
+Slate Gray: #4a4e69 (Secondary Text)
+*/
+
+:root {
+    --au-bg-cream: #fdfbf7;
+    --au-sand: #e9c46a;
+    --au-bronze: #d97706;
+    --au-brown: #4a3325;
+    --au-slate: #5a5e73;
+    --au-card-bg: #ffffff;
+    --au-border: #e6e2d3;
+    --au-shadow: 0 4px 15px rgba(92, 64, 51, 0.08);
+    --au-font-main: 'Georgia', serif;
+    --au-font-sans: 'Arial', sans-serif;
+}
+
+body.dark-theme.parchment-theme {
+    --au-bg-cream: #1e1e1e;
+    --au-sand: #7a632e;
+    --au-bronze: #e6a043;
+    --au-brown: #f0eade;
+    --au-slate: #aeb1c4;
+    --au-card-bg: #2a2a2a;
+    --au-border: #444;
+    --au-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.parchment-theme {
+    background-color: var(--au-bg-cream);
+    color: var(--au-brown);
+    font-family: var(--au-font-main);
+}
+
+/* Header & Intro */
+.page-header {
+    background: linear-gradient(135deg, var(--au-bg-cream), var(--au-border));
+    padding: 4rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--au-border);
+}
+
+.header-content h1 {
+    font-size: 2.8rem;
+    color: var(--au-bronze);
+    margin-bottom: 1rem;
+    font-family: var(--au-font-main);
+}
+
+.header-content .subtitle {
+    font-size: 1.2rem;
+    color: var(--au-slate);
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: var(--au-font-sans);
+    line-height: 1.6;
+}
+
+/* Local Navigation */
+.local-nav {
+    background: var(--au-card-bg);
+    padding: 1rem 0;
+    position: sticky;
+    top: 60px; /* Offset for global nav if fixed */
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-bottom: 1px solid var(--au-border);
+}
+
+.local-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -288,5 +368,244 @@ body {
     .nav-list {
         flex-wrap: wrap;
         gap: 15px;
+.local-nav a {
+    text-decoration: none;
+    color: var(--au-brown);
+    font-weight: 600;
+    font-family: var(--au-font-sans);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.local-nav a:hover,
+.local-nav a:focus-visible {
+    background: var(--au-sand);
+    color: #fff;
+    outline: none;
+}
+
+body.dark-theme .local-nav a:hover {
+    color: #fff;
+}
+
+/* Main Content Container */
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+/* University Article */
+.university-article {
+    margin-bottom: 5rem;
+    background: var(--au-card-bg);
+    border: 1px solid var(--au-border);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: var(--au-shadow);
+    scroll-margin-top: 130px; /* Offset for sticky header */
+}
+
+.article-header h2 {
+    font-size: 2.2rem;
+    color: var(--au-bronze);
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--au-sand);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* CSS Grid Layout */
+.article-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* Media Column (Image & Aside) */
+.media-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+figure {
+    margin: 0;
+    background: var(--au-bg-cream);
+    padding: 1rem;
+    border: 1px solid var(--au-border);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 250px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: white;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+}
+
+figcaption {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    color: var(--au-slate);
+    font-style: italic;
+    font-family: var(--au-font-sans);
+}
+
+.location-card {
+    background: var(--au-bg-cream);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--au-bronze);
+}
+
+.location-card h3 {
+    font-size: 1.1rem;
+    color: var(--au-brown);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: var(--au-font-sans);
+}
+
+.location-card p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--au-slate);
+}
+
+/* Content Column (Text Sections) */
+.content-column section {
+    margin-bottom: 2rem;
+}
+
+.content-column h3 {
+    font-size: 1.5rem;
+    color: var(--au-bronze);
+    margin-bottom: 1rem;
+    font-family: var(--au-font-main);
+}
+
+.content-column p {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--au-brown);
+}
+
+/* Lists Styling */
+.content-column ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.content-column ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+    font-size: 1.05rem;
+}
+
+.content-column ul li::before {
+    content: "❧";
+    position: absolute;
+    left: 0;
+    color: var(--au-bronze);
+    font-size: 1.2rem;
+    top: -2px;
+}
+
+/* Definition List for Scholars */
+.scholars-section dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem 1.5rem;
+    align-items: baseline;
+}
+
+.scholars-section dt {
+    font-weight: bold;
+    color: var(--au-brown);
+    font-family: var(--au-font-sans);
+    font-size: 1.1rem;
+}
+
+.scholars-section dd {
+    margin: 0;
+    color: var(--au-slate);
+    line-height: 1.6;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed var(--au-border);
+}
+
+/* Timeline specific ul */
+.timeline-section ul li::before {
+    content: "•";
+    font-size: 1.5rem;
+}
+
+.timeline-section ul li strong {
+    color: var(--au-bronze);
+    font-family: var(--au-font-sans);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .article-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .media-column {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    figure {
+        flex: 1;
+    }
+
+    .location-card {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .local-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .local-nav {
+        position: static; /* Disable sticky on small mobile for better screen space */
+    }
+
+    .media-column {
+        flex-direction: column;
+    }
+    
+    .scholars-section dl {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .scholars-section dd {
+        padding-bottom: 1.5rem;
     }
 }
