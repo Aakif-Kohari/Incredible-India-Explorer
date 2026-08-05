@@ -16,7 +16,7 @@ document.addEventListener("app:route-changed", () => {
     bookmarkButtons.forEach((btn) => {
       const id = btn.dataset.bookmarkId;
       const title = "Paramara Dynasty Explorer";
-      const thumbnail = "frontend/assets/Central_India.png";
+      const thumbnail = "frontend/assets/Paramara_Dynasty_Banner.jpg";
       const category = "heritage";
 
       const updateBookmarkUI = () => {
