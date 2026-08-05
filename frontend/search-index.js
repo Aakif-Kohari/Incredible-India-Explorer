@@ -1931,5 +1931,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Buxar (22 October 1764) - the East India Company's decisive victory over Mir Qasim, Shuja-ud-Daulah, and Shah Alam II, and the Treaty of Allahabad that granted the Diwani.",
     url: "frontend/battle-of-buxar-explorer/index.html"
+  },
+  // --- Battle of Jalore Explorer ---
+  {
+    title: "Battle of Jalore Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Jalore (1311) - the final clash between the Delhi Sultanate of Alauddin Khalji and the Chauhan rulers of Jalore under Kanhadadeva, told through timeline, key figures, outcome, and legacy.",
+    url: "frontend/battle-of-jalore-explorer/index.html"
   }
 ];
