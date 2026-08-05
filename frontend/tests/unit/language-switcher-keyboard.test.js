@@ -1,8 +1,8 @@
-﻿import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const LOCALES = 'i18n/locales';
+const LOCALES = path.resolve(__dirname, '../../i18n/locales');
 
 /**
  * Loads language-switcher.js against a minimal DOM. The module is an IIFE with
@@ -19,7 +19,7 @@ async function mountSwitcher() {
   });
 
   vi.resetModules();
-  await import('../../frontend/js-modules/language-switcher.js');
+  await import('../../js-modules/language-switcher.js');
   // Let the module's async init() settle.
   await new Promise((r) => setTimeout(r, 0));
 

@@ -23,6 +23,12 @@ window.indiaSearchIndex = [
     url: "frontend/muziris-port-explorer/index.html"
   },
   {
+    title: "Kachwaha Dynasty Explorer",
+    category: "Heritage & History",
+    description: "Explore the Kachwaha Dynasty of Amber and Jaipur (1093–1949 CE): its founding by Dulha Rai, its Mughal alliance under Raja Bharmal and Man Singh I, and Sawai Jai Singh II's founding of Jaipur.",
+    url: "frontend/kachwaha-dynasty-explorer/index.html"
+  },
+  {
     title: "Arikamedu Ancient Port Explorer",
     category: "Heritage & History",
     description: "Explore Arikamedu: ancient Poduke Indo-Roman trading port near Puducherry, Roman amphorae, and bead manufacturing center.",
@@ -1477,7 +1483,42 @@ window.indiaSearchIndex = [
     title: "Simlipal National Park Explorer",
     category: "National Parks & Wildlife",
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
-    url: "frontend/simlipal-national-park-explorer/index.html"},
+    url: "frontend/simlipal-national-park-explorer/index.html"
+  },
+  // --- Kingdom of Mewar Explorer ---
+  {
+    title: "Kingdom of Mewar Explorer",
+    category: "Indian Empires & History",
+    description: "Explore the Kingdom of Mewar (728–1949) — Maharana Pratap, Bappa Rawal, Rana Kumbha, Chittorgarh Fort, Kumbhalgarh Wall, and Rajput resistance.",
+    url: "frontend/mewar-kingdom-explorer/index.html"},
+  // --- Kingdom of Jaipur Explorer ---
+  {
+    title: "Kingdom of Jaipur Explorer",
+    category: "Indian Empires & History",
+    description: "Explore the Kingdom of Jaipur (1128–1949) — Kachwaha Rajput rulers, Sawai Jai Singh II, grid-planned Pink City architecture, Jantar Mantar, and Amer Fort.",
+    url: "frontend/jaipur-kingdom-explorer/index.html"},
+  // --- Kingdom of Cochin Explorer ---
+  {
+    title: "Kingdom of Cochin Explorer",
+    category: "Indian Empires & History",
+    description: "Explore the Kingdom of Cochin (1102–1949) — Queen of the Arabian Sea, spice trade routes, Sakthan Thampuran, Mattancherry Palace, and Thrissur Pooram.",
+    url: "frontend/cochin-kingdom-explorer/index.html"
+  },
+   
+  // --- Kingdom of Mysore Explorer ---
+  {
+    title: "Kingdom of Mysore Explorer",
+    category: "Indian Empires & History",
+    description: "Explore the Kingdom of Mysore (1399–1947) — Wadiyar dynasty, Hyder Ali, Tipu Sultan, Mysorean rockets, Mysore Dasara, and Mysore Palace.",
+    url: "frontend/mysore-kingdom-explorer/index.html"},
+    
+  // --- Kingdom of Travancore Explorer ---
+  {
+    title: "Kingdom of Travancore Explorer",
+    category: "Indian Empires & History",
+    description: "Explore the Kingdom of Travancore (1729–1949) — Marthanda Varma, Battle of Colachel, Sree Padmanabhaswamy Temple, and progressive educational reforms.",
+    url: "frontend/travancore-kingdom-explorer/index.html"
+  },
   // --- Haiderpur Wetland Explorer ---
   {
     title: "Haiderpur Wetland Explorer",
@@ -1883,5 +1924,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Discover Cuddalore (Koodaloor), historic river-confluence harbour, handloom textile exports, Fort St. David, and Coromandel coastal heritage.",
     url: "frontend/cuddalore-port-explorer/index.html"
+    },
+  // --- Battle of Buxar Explorer ---
+  {
+    title: "Battle of Buxar Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Buxar (22 October 1764) - the East India Company's decisive victory over Mir Qasim, Shuja-ud-Daulah, and Shah Alam II, and the Treaty of Allahabad that granted the Diwani.",
+    url: "frontend/battle-of-buxar-explorer/index.html"
   }
 ];
