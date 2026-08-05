@@ -1842,5 +1842,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Discover Kollam (Quilon), the historic spice trade gateway of Kerala, its black pepper commerce, and Chinese trade links.",
     url: "frontend/kollam-port-explorer/index.html"
+  },
+  // --- Gopakapattana Port Explorer ---
+  {
+    title: "Gopakapattana Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Gopakapattana, the historic Kadamba port capital of Goa, its spice and horse trade, and the Rajvithi royal highway.",
+    url: "frontend/gopakapattana-port-explorer/index.html"
   }
 ];
