@@ -1931,5 +1931,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Buxar (22 October 1764) - the East India Company's decisive victory over Mir Qasim, Shuja-ud-Daulah, and Shah Alam II, and the Treaty of Allahabad that granted the Diwani.",
     url: "frontend/battle-of-buxar-explorer/index.html"
+  },
+  // --- Siege of Chittor Explorer ---
+  {
+    title: "Siege of Chittor Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Siege of Chittorgarh (1567-1568) - Akbar's four-month siege of the Sisodia capital of Mewar, the defiant defence of Jaimal and Patta, and the third jauhar of Chittor.",
+    url: "frontend/siege-of-chittor-explorer/index.html"
   }
 ];
