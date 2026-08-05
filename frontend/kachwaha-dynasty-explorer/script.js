@@ -99,8 +99,11 @@ document.addEventListener("app:route-changed", () => {
 
   // Bind gallery click events
   galleryItems.forEach((item) => {
-    item.setAttribute("tabindex", "0");
-    item.addEventListener("click", () => openModal(item));
+  item.setAttribute("tabindex", "0");
+  item.setAttribute("role", "button");
+  item.setAttribute("aria-haspopup", "dialog");
+  item.setAttribute("aria-controls", "kachwaha-modal");
+  item.addEventListener("click", () => openModal(item));
     item.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
@@ -122,10 +125,26 @@ document.addEventListener("app:route-changed", () => {
   }
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal && modal.classList.contains("open")) {
-      closeModal();
+  if (e.key === "Tab" && modal?.classList.contains("open")) {
+    const focusable = [...modal.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )];
+    const first = focusable[0];
+    const last = focusable.at(-1);
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
     }
-  });
+  }
+
+  if (e.key === "Escape" && modal && modal.classList.contains("open")) {
+    closeModal();
+  }
+});
 
   // Run initialization
   initJourney();
