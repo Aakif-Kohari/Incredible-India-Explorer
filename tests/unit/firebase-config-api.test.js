@@ -35,6 +35,7 @@ describe('frontend/api/firebase-config.js', () => {
     process.env.FIREBASE_MESSAGING_SENDER_ID = '123456';
     process.env.FIREBASE_APP_ID = '1:123:web:abc';
     process.env.FIREBASE_MEASUREMENT_ID = 'G-TEST123';
+    process.env.FIREBASE_CONFIG_SECRET = 'testsecret';
   });
 
   afterEach(() => {
@@ -60,7 +61,7 @@ describe('frontend/api/firebase-config.js', () => {
     delete process.env.ALLOWED_ORIGIN;
     const handler = await loadHandler();
     const res = createRes();
-    await handler(createReq(), res);
+    await handler(createReq({ secret: 'testsecret' }), res);
     expect(res._status).toBe(200);
     expect(res._json.apiKey).toBe('test-key');
     expect(res._json.projectId).toBe('test-project');
@@ -70,7 +71,7 @@ describe('frontend/api/firebase-config.js', () => {
     process.env.ALLOWED_ORIGIN = 'https://trusted.example.com';
     const handler = await loadHandler();
     const res = createRes();
-    await handler(createReq({ origin: 'https://trusted.example.com' }), res);
+    await handler(createReq({ origin: 'https://trusted.example.com', secret: 'testsecret' }), res);
     expect(res._status).toBe(200);
     expect(res._json.apiKey).toBe('test-key');
   });
@@ -79,7 +80,7 @@ describe('frontend/api/firebase-config.js', () => {
     process.env.ALLOWED_ORIGIN = 'https://trusted.example.com';
     const handler = await loadHandler();
     const res = createRes();
-    await handler(createReq({ origin: 'https://evil.com' }), res);
+    await handler(createReq({ origin: 'https://evil.com', secret: 'testsecret' }), res);
     expect(res._status).toBe(403);
     expect(res._json.error).toBe('Forbidden');
   });
@@ -88,7 +89,7 @@ describe('frontend/api/firebase-config.js', () => {
     process.env.ALLOWED_ORIGIN = 'https://trusted.example.com';
     const handler = await loadHandler();
     const res = createRes();
-    await handler(createReq(), res);
+    await handler(createReq({ secret: 'testsecret' }), res);
     expect(res._status).toBe(403);
   });
 
@@ -96,17 +97,17 @@ describe('frontend/api/firebase-config.js', () => {
     process.env.ALLOWED_ORIGIN = 'https://trusted.example.com';
     const handler = await loadHandler();
     const res = createRes();
-    await handler(createReq({ origin: 'https://trusted.example.com.evil.com' }), res);
+    await handler(createReq({ origin: 'https://trusted.example.com.evil.com', secret: 'testsecret' }), res);
     expect(res._status).toBe(403);
   });
 
-  it('returns 200 when FIREBASE_CONFIG_SECRET is not set (no auth required)', async () => {
+  it('returns 401 when FIREBASE_CONFIG_SECRET is not set (fail-closed)', async () => {
     delete process.env.FIREBASE_CONFIG_SECRET;
     const handler = await loadHandler();
     const res = createRes();
     await handler(createReq(), res);
-    expect(res._status).toBe(200);
-    expect(res._json.apiKey).toBe('test-key');
+    expect(res._status).toBe(401);
+    expect(res._json.error).toBe('Unauthorized');
   });
 
   it('returns 401 when FIREBASE_CONFIG_SECRET is set and header is missing', async () => {

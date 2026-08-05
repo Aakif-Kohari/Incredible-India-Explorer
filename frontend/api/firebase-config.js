@@ -1,3 +1,5 @@
+import { timingSafeEqual } from "crypto";
+
 function normalizeMeasurementId(measurementId) {
   if (!measurementId) return undefined;
 
@@ -11,11 +13,16 @@ export default async function handler(req, res) {
   }
 
   const configSecret = process.env.FIREBASE_CONFIG_SECRET;
-  if (configSecret) {
-    const provided = req.headers["x-firebase-config-secret"];
-    if (!provided || provided !== configSecret) {
-      return res.status(401).json({ error: "Unauthorized" });
-    }
+  if (!configSecret) {
+    return res.status(401).json({ error: "Unauthorized" });
+  }
+  const provided = req.headers["x-firebase-config-secret"] || "";
+  const secretBuf = Buffer.from(configSecret);
+  const providedBuf = Buffer.from(
+    provided.padEnd(configSecret.length, "\0").slice(0, configSecret.length)
+  );
+  if (provided.length !== configSecret.length || !timingSafeEqual(secretBuf, providedBuf)) {
+    return res.status(401).json({ error: "Unauthorized" });
   }
 
   const allowedOrigin = process.env.ALLOWED_ORIGIN;
