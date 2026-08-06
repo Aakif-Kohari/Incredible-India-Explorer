@@ -66,8 +66,7 @@ const NATIONAL_PARKS = [
         established: 1982, type: 'UNESCO World', isTigerReserve: false, isUNESCO: true,
         description: 'A UNESCO alpine valley carpeted with 600+ rare flowering species, the Himalayan Blue Poppy, and sacred Brahma Kamal.',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Meconopsis_aculeata_in_Valley_of_Flowers.jpg/960px-Meconopsis_aculeata_in_Valley_of_Flowers.jpg',
-        explorerUrl: '../national-parks/valley-of-flowers-national-park-explorer/index.html',
-        coordinates: { lat: 30.728, lng: 79.605 }
+        explorerUrl: '../national-parks/valley-of-flowers-national-park-explorer/index.html'
     },
     {
         id: 'bhitarkanika', name: 'Bhitarkanika National Park', state: 'Odisha', region: 'east',
