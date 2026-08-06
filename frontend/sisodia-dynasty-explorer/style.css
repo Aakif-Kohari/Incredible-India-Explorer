@@ -1,0 +1,931 @@
+/* ==========================================================================
+   Sisodia Dynasty Explorer - Stylesheet (Deep Crimson & Gold)
+   Matches the darkness and visual weight of the Solanki explorer
+   ========================================================================== */
+
+:root {
+  --sisodia-crimson: #7a1a1a;
+  --sisodia-crimson-light: #a52a2a;
+  --sisodia-crimson-dark: #4d1010;
+  --sisodia-gold: #c9a84c;
+  --sisodia-gold-light: #e0c060;
+  --sisodia-gold-dark: #a88530;
+  --sisodia-stone: #d4c9b8;
+  --sisodia-stone-dark: #b8ab98;
+  --sisodia-copper: #b87333;
+  --sisodia-copper-light: #d4914a;
+  --sisodia-charcoal: #0a1013;
+  --sisodia-charcoal-light: #141c20;
+  --sisodia-charcoal-lighter: #1e2a30;
+  --sisodia-glass: rgba(10, 16, 19, 0.65);
+  --sisodia-glass-light: rgba(10, 16, 19, 0.25);
+  --sisodia-border: rgba(201, 168, 76, 0.12);
+  --sisodia-gold-glow: rgba(201, 168, 76, 0.08);
+}
+
+/* Page Main Container */
+.sisodia-main {
+  background-color: var(--sisodia-charcoal);
+  color: #e8edf2;
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.sisodia-hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0 60px;
+  background: linear-gradient(180deg, rgba(10, 16, 19, 0.55), rgba(10, 16, 19, 0.96)),
+              url('../assets/SISODIA_HERO_BANNER.jpeg') center/cover no-repeat;
+  text-align: center;
+}
+
+.sisodia-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 40% 40%, rgba(201, 168, 76, 0.04), transparent 70%);
+  z-index: 1;
+}
+
+.sisodia-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(0deg, var(--sisodia-charcoal), transparent);
+  z-index: 1;
+}
+
+.sisodia-hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(880px, 90%);
+}
+
+.sisodia-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 6px 18px;
+  background: rgba(201, 168, 76, 0.06);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 100px;
+  color: var(--sisodia-gold-light);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.sisodia-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  margin: 0 0 20px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+}
+
+.sisodia-hero h1 span {
+  background: linear-gradient(135deg, var(--sisodia-gold-light), var(--sisodia-gold), var(--sisodia-copper));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sisodia-hero p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.7;
+  color: #c0cbd6;
+  margin: 0 auto;
+  max-width: 720px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Hero Bookmark */
+.sisodia-bookmark-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.sisodia-bookmark-btn {
+  background: var(--sisodia-glass);
+  border: 1px solid var(--sisodia-border);
+  color: var(--sisodia-gold-light);
+  padding: 10px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+
+.sisodia-bookmark-btn:hover {
+  border-color: var(--sisodia-gold);
+  background: rgba(201, 168, 76, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201, 168, 76, 0.05);
+}
+
+.sisodia-bookmark-btn.is-saved {
+  background: var(--sisodia-gold);
+  color: var(--sisodia-charcoal);
+  border-color: var(--sisodia-gold);
+}
+
+.sisodia-bookmark-btn.is-saved:hover {
+  background: var(--sisodia-gold-light);
+}
+
+/* ============================================================
+   Sections General
+   ============================================================ */
+.sisodia-section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.sisodia-section:nth-of-type(even) {
+  background-color: rgba(255, 255, 255, 0.008);
+}
+
+.sisodia-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--sisodia-gold-dark), transparent);
+  opacity: 0.2;
+}
+
+.sisodia-section:last-child::after {
+  display: none;
+}
+
+.sisodia-container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+.sisodia-section-header {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.sisodia-eyebrow {
+  color: var(--sisodia-gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.sisodia-section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin: 0 0 16px;
+  color: #f0f4f8;
+}
+
+.sisodia-section-header p {
+  color: #8a9aa8;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+/* ============================================================
+   Grid / Two Columns
+   ============================================================ */
+.sisodia-grid-2col {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .sisodia-grid-2col {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+.sisodia-text-block p {
+  line-height: 1.8;
+  color: #c0cbd6;
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+}
+
+.sisodia-text-block p:last-child {
+  margin-bottom: 0;
+}
+
+.sisodia-highlight-box {
+  background: var(--sisodia-glass);
+  border: 1px solid var(--sisodia-border);
+  border-radius: 16px;
+  padding: 30px 32px;
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+.sisodia-highlight-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sisodia-crimson), var(--sisodia-gold), var(--sisodia-copper));
+  border-radius: 16px 16px 0 0;
+}
+
+.sisodia-highlight-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin: 0 0 16px;
+  color: var(--sisodia-gold-light);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sisodia-highlight-box ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.sisodia-highlight-box li {
+  color: #c0cbd6;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.sisodia-highlight-box li:last-child {
+  margin-bottom: 0;
+}
+
+.sisodia-highlight-box li strong {
+  color: var(--sisodia-gold-light);
+}
+
+/* ============================================================
+   Card Grid (Rulers)
+   ============================================================ */
+.sisodia-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.sisodia-card {
+  background: var(--sisodia-glass);
+  border: 1px solid var(--sisodia-border);
+  border-radius: 16px;
+  padding: 30px 28px;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.sisodia-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sisodia-crimson), var(--sisodia-gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.sisodia-card:hover::after {
+  transform: scaleX(1);
+}
+
+.sisodia-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--sisodia-gold);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(201, 168, 76, 0.03);
+}
+
+.sisodia-card-icon {
+  font-size: 2.4rem;
+  margin-bottom: 18px;
+  display: block;
+}
+
+.sisodia-card h3 {
+  margin: 0 0 12px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: #f0f4f8;
+}
+
+.sisodia-card p {
+  margin: 0;
+  line-height: 1.65;
+  color: #b0bbc6;
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   Timeline
+   ============================================================ */
+.sisodia-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.sisodia-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--sisodia-border) 8%, var(--sisodia-border) 92%, transparent);
+  transform: translateX(-50%);
+}
+
+.sisodia-timeline-step {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 50%;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.sisodia-timeline-step:nth-child(even) {
+  justify-content: flex-start;
+  padding-right: 0;
+  padding-left: 50%;
+}
+
+.sisodia-timeline-marker {
+  position: absolute;
+  left: 50%;
+  top: 15px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--sisodia-charcoal);
+  border: 3px solid var(--sisodia-gold);
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.sisodia-timeline-step:hover .sisodia-timeline-marker {
+  background: var(--sisodia-gold);
+  box-shadow: 0 0 20px var(--sisodia-gold-glow);
+  transform: translateX(-50%) scale(1.15);
+}
+
+.sisodia-timeline-card {
+  background: var(--sisodia-glass);
+  border: 1px solid var(--sisodia-border);
+  border-radius: 12px;
+  padding: 24px 28px;
+  width: 85%;
+  margin-right: 40px;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.sisodia-timeline-step:nth-child(even) .sisodia-timeline-card {
+  margin-right: 0;
+  margin-left: 40px;
+}
+
+.sisodia-timeline-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--sisodia-gold);
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.03);
+}
+
+.sisodia-timeline-year {
+  color: var(--sisodia-gold);
+  font-weight: 800;
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.sisodia-timeline-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+  color: #f0f4f8;
+}
+
+.sisodia-timeline-card p {
+  margin: 0;
+  color: #8a9aa8;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .sisodia-timeline::before {
+    left: 20px;
+  }
+  .sisodia-timeline-step {
+    justify-content: flex-start;
+    padding-left: 45px;
+    padding-right: 0;
+  }
+  .sisodia-timeline-step:nth-child(even) {
+    padding-left: 45px;
+  }
+  .sisodia-timeline-marker {
+    left: 20px;
+  }
+  .sisodia-timeline-card {
+    width: 100%;
+    margin-right: 0;
+  }
+  .sisodia-timeline-step:nth-child(even) .sisodia-timeline-card {
+    margin-left: 0;
+  }
+}
+
+/* ============================================================
+   Gallery
+   ============================================================ */
+.sisodia-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+}
+
+.sisodia-gallery-item {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--sisodia-border);
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sisodia-gallery-item:hover {
+  border-color: var(--sisodia-gold);
+  box-shadow: 0 8px 30px rgba(201, 168, 76, 0.04);
+}
+
+.sisodia-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sisodia-gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+.sisodia-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(10, 16, 19, 0.94) 0%, rgba(10, 16, 19, 0.4) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.sisodia-gallery-item:hover .sisodia-gallery-overlay {
+  opacity: 1;
+}
+
+.sisodia-gallery-overlay h4 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f0f4f8;
+}
+
+.sisodia-gallery-overlay p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--sisodia-gold-light);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+/* ============================================================
+   References
+   ============================================================ */
+.sisodia-references {
+  background: var(--sisodia-glass);
+  border: 1px solid var(--sisodia-border);
+  border-radius: 16px;
+  padding: 40px 42px;
+  backdrop-filter: blur(8px);
+  position: relative;
+}
+
+.sisodia-references::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sisodia-crimson), var(--sisodia-gold), var(--sisodia-copper));
+  border-radius: 16px 16px 0 0;
+}
+
+.sisodia-references h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin: 0 0 22px;
+  color: #f0f4f8;
+}
+
+.sisodia-references ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sisodia-references li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 16px;
+  line-height: 1.7;
+  color: #b0bbc6;
+  font-size: 0.98rem;
+}
+
+.sisodia-references li:last-child {
+  margin-bottom: 0;
+}
+
+.sisodia-references li::before {
+  content: '📖';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 0.9rem;
+}
+
+.sisodia-references li em {
+  color: var(--sisodia-stone);
+  font-style: italic;
+}
+
+.sisodia-references li strong {
+  color: var(--sisodia-gold-light);
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.sisodia-footer {
+  padding: 40px 0;
+  text-align: center;
+  color: #6a7a88;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.sisodia-footer a {
+  color: var(--sisodia-gold-light);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.sisodia-footer a:hover {
+  color: var(--sisodia-gold);
+}
+
+/* ============================================================
+   Modal
+   ============================================================ */
+.museum-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1600;
+  display: none;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+.museum-modal.open {
+  display: grid;
+}
+
+.museum-modal-card {
+  position: relative;
+  width: min(680px, 96vw);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 32px 36px;
+  border: 1px solid var(--sisodia-border);
+  border-radius: 22px;
+  background: var(--sisodia-charcoal-light);
+  color: #e8edf2;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.6);
+}
+
+.museum-modal-card::-webkit-scrollbar {
+  width: 4px;
+}
+.museum-modal-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+.museum-modal-card::-webkit-scrollbar-thumb {
+  background: var(--sisodia-gold-dark);
+  border-radius: 4px;
+}
+
+.museum-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--sisodia-border);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  color: #b0bbc6;
+  font-size: 1.45rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.museum-modal-close:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--sisodia-gold);
+}
+
+.modal-category {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--sisodia-gold);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+}
+
+.museum-modal-card h2 {
+  margin: 0 42px 6px 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  color: #f0f4f8;
+}
+
+.modal-location {
+  margin: 0 0 20px;
+  color: #b0bbc6;
+  font-weight: 600;
+}
+
+.modal-description {
+  margin: 0;
+  color: #c0cbd6;
+  line-height: 1.8;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* ============================================================
+   Responsive Fine-Tuning
+   ============================================================ */
+@media (max-width: 600px) {
+  .sisodia-hero {
+    min-height: 50vh;
+    padding: 100px 0 40px;
+  }
+  .sisodia-section {
+    padding: 50px 0;
+  }
+  .sisodia-highlight-box {
+    padding: 24px 20px;
+  }
+  .sisodia-card {
+    padding: 24px 20px;
+  }
+  .sisodia-references {
+    padding: 28px 20px;
+  }
+  .sisodia-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .museum-modal-card {
+    padding: 24px 20px;
+  }
+}
+
+/* ============================================================
+   Scroll-triggered accent for timeline (JS-enhanced)
+   ============================================================ */
+.sisodia-timeline-step.visible .sisodia-timeline-marker {
+  background: var(--sisodia-gold);
+  box-shadow: 0 0 24px var(--sisodia-gold-glow);
+}
+
+/* ============================================================
+   Light Theme Overrides (if body has .light-theme)
+   ============================================================ */
+body.light-theme .sisodia-main {
+  background-color: #ece8e0;
+  color: #1a1a1a;
+}
+
+body.light-theme .sisodia-hero {
+  background: linear-gradient(180deg, rgba(236, 232, 224, 0.5), rgba(236, 232, 224, 0.96)),
+              url('../assets/SISODIA_HERO_BANNER.jpeg') center/cover no-repeat;
+}
+
+body.light-theme .sisodia-hero h1 {
+  color: #1a1a1a;
+  text-shadow: none;
+}
+body.light-theme .sisodia-hero p {
+  color: #333;
+}
+body.light-theme .sisodia-kicker {
+  color: var(--sisodia-crimson);
+  border-color: rgba(122, 26, 26, 0.15);
+  background: rgba(122, 26, 26, 0.04);
+}
+
+body.light-theme .sisodia-section:nth-of-type(even) {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+body.light-theme .sisodia-section-header h2 {
+  color: #1a1a1a;
+}
+body.light-theme .sisodia-section-header p {
+  color: #555;
+}
+body.light-theme .sisodia-eyebrow {
+  color: var(--sisodia-crimson);
+}
+
+body.light-theme .sisodia-text-block p {
+  color: #333;
+}
+
+body.light-theme .sisodia-highlight-box {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(122, 26, 26, 0.08);
+}
+body.light-theme .sisodia-highlight-box h3 {
+  color: var(--sisodia-crimson);
+}
+body.light-theme .sisodia-highlight-box li {
+  color: #333;
+}
+body.light-theme .sisodia-highlight-box li strong {
+  color: var(--sisodia-crimson);
+}
+
+body.light-theme .sisodia-card {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(122, 26, 26, 0.06);
+}
+body.light-theme .sisodia-card h3 {
+  color: #1a1a1a;
+}
+body.light-theme .sisodia-card p {
+  color: #444;
+}
+body.light-theme .sisodia-card:hover {
+  border-color: var(--sisodia-gold);
+}
+
+body.light-theme .sisodia-timeline-card {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(122, 26, 26, 0.06);
+}
+body.light-theme .sisodia-timeline-card h3 {
+  color: #1a1a1a;
+}
+body.light-theme .sisodia-timeline-card p {
+  color: #444;
+}
+body.light-theme .sisodia-timeline-year {
+  color: var(--sisodia-crimson);
+}
+
+body.light-theme .sisodia-references {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(122, 26, 26, 0.06);
+}
+body.light-theme .sisodia-references h3 {
+  color: #1a1a1a;
+}
+body.light-theme .sisodia-references li {
+  color: #333;
+}
+body.light-theme .sisodia-references li strong {
+  color: var(--sisodia-crimson);
+}
+
+body.light-theme .sisodia-footer {
+  color: #666;
+  border-top-color: rgba(0, 0, 0, 0.06);
+}
+
+body.light-theme .sisodia-bookmark-btn {
+  color: var(--sisodia-crimson);
+  border-color: rgba(122, 26, 26, 0.12);
+  background: rgba(255, 255, 255, 0.4);
+}
+body.light-theme .sisodia-bookmark-btn:hover {
+  border-color: var(--sisodia-crimson);
+  background: rgba(122, 26, 26, 0.04);
+}
+body.light-theme .sisodia-bookmark-btn.is-saved {
+  background: var(--sisodia-crimson);
+  color: #fff;
+  border-color: var(--sisodia-crimson);
+}
+body.light-theme .sisodia-bookmark-btn.is-saved:hover {
+  background: var(--sisodia-crimson-light);
+}
+
+body.light-theme .museum-modal-card {
+  background: #ece8e0;
+  color: #1a1a1a;
+  border-color: rgba(122, 26, 26, 0.08);
+}
+body.light-theme .museum-modal-card h2 {
+  color: #1a1a1a;
+}
+body.light-theme .modal-category {
+  color: var(--sisodia-crimson);
+}
+body.light-theme .modal-location {
+  color: #555;
+}
+body.light-theme .modal-description {
+  color: #333;
+}
+body.light-theme .museum-modal-close {
+  color: #555;
+  border-color: rgba(122, 26, 26, 0.08);
+}
+body.light-theme .museum-modal-close:hover {
+  border-color: var(--sisodia-crimson);
+  background: rgba(122, 26, 26, 0.03);
+}
+
+body.light-theme .sisodia-gallery-item {
+  border-color: rgba(122, 26, 26, 0.06);
+}
+body.light-theme .sisodia-gallery-item:hover {
+  border-color: var(--sisodia-gold);
+}
