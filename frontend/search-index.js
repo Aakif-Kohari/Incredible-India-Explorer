@@ -1990,5 +1990,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Rezang La (18 November 1962) - the heroic last stand of 120 soldiers of Charlie Company, 13th Kumaon Regiment, under Major Shaitan Singh against thousands of Chinese troops in the Chushul sector of Ladakh.",
     url: "frontend/battle-of-rezang-la-explorer/index.html"
+  },
+  // --- Battle of Sripurambiyam Explorer ---
+  {
+    title: "Battle of Sripurambiyam Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Sripurambiyam (c. 879 CE) - the watershed Dravidian clash near Kumbakonam that broke Pandya hegemony and paved the way for the rise of the Imperial Cholas under Aditya I.",
+    url: "frontend/battle-of-sripurambiyam-explorer/index.html"
   }
 ];
