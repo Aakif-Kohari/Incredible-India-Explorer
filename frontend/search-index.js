@@ -1490,7 +1490,33 @@ window.indiaSearchIndex = [
     title: "Beddome's Coral Snake Explorer",
     category: "National Parks & Wildlife",
     description: "Explore Beddome's Coral Snake (Calliophis beddomei) — endemic venomous elapid of Western Ghats leaf litter, scientific taxonomy, behavior, diet, and conservation status.",
-    url: "frontend/beddomes-coral-snake-explorer/index.html"
+    url: "frontend/beddomes-coral-snake-explorer/index.html"},
+  // --- Sikh Empire Explorer ---
+  {
+    title: "Sikh Empire Explorer",
+    category: "Indian Empires & History",
+    description: "Explore the Sikh Empire (1799–1849) — Maharaja Ranjit Singh, Hari Singh Nalwa, Fauj-i-Khas military modernization, Golden Temple gilding, and secular governance.",
+    url: "frontend/sikh-empire-explorer/index.html"
+  },
+  // --- Chhau Masks Explorer ---
+  {
+    title: "Chhau Masks Explorer",
+    category: "Arts & Culture",
+    description: "Explore Chhau Masks Heritage — UNESCO Intangible Cultural Heritage of Purulia and Seraikela, paper-mache mask making, divine/asura mask types, and folk dance performance gallery.",
+    url: "frontend/chhau-masks-explorer/index.html"
+  },
+  // --- Bidriware Craftsmanship Explorer ---
+  {
+    title: "Bidriware Craftsmanship Explorer",
+    category: "Arts & Culture",
+    description: "Explore Bidriware Craftsmanship — GI-tagged metal handicraft of Bidar, Karnataka featuring pure silver wire inlay, Bidar fort soil oxidation, and Persian motifs.",
+    url: "frontend/bidriware-craftsmanship-explorer/index.html"},
+  // --- Bastar Iron Craft Explorer ---
+  {
+    title: "Bastar Iron Craft Explorer",
+    category: "Arts & Culture",
+    description: "Explore Bastar Iron Craft (Loha Shilp) — GI-certified tribal wrought iron artistry of Chhattisgarh featuring manual forging, traditional motifs, and artisan spotlight.",
+    url: "frontend/bastar-iron-craft-explorer/index.html"
   },
   // --- Kingdom of Mewar Explorer ---
   {
