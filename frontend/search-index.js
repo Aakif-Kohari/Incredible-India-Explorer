@@ -1990,5 +1990,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Rezang La (18 November 1962) - the heroic last stand of 120 soldiers of Charlie Company, 13th Kumaon Regiment, under Major Shaitan Singh against thousands of Chinese troops in the Chushul sector of Ladakh.",
     url: "frontend/battle-of-rezang-la-explorer/index.html"
+  },
+  // --- Battle of Pullalur Explorer ---
+  {
+    title: "Battle of Pullalur Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Pullalur (c. 618–619 CE) - the epic clash between Western Chalukya Emperor Pulakeshin II and Pallava King Mahendravarman I, initiating a century-long struggle for Deccan supremacy.",
+    url: "frontend/battle-of-pullalur-explorer/index.html"
   }
 ];
