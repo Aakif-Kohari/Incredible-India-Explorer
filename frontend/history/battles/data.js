@@ -104,6 +104,32 @@ export const battles = [
         color: "#DAA520"
     },
     {
+        name: "Battle of Pratapgad",
+        date: "17 July 1659",
+        year: 1659,
+        era: "medieval",
+        location: "Pratapgad Fort, Maharashtra",
+        coordinates: { top: "55%", left: "34%" },
+        combatants: {
+            side1: { name: "Maratha Empire", leader: "Chhatrapati Shivaji Maharaj", forces: "~2,000-3,000" },
+            side2: { name: "Adil Shahi Forces", leader: "Afzal Khan", forces: "~30,000-40,000" }
+        },
+        outcome: "Decisive Maratha victory — Afzal Khan killed",
+        significance: "Established Maratha military strength and secured Shivaji's position in the Deccan",
+        summary: "The Battle of Pratapgad in 1659 was a decisive victory for Chhatrapati Shivaji Maharaj against the forces of the Adil Shah of Bijapur, commanded by Afzal Khan. Shivaji used superior knowledge of the terrain, a deceptive truce meeting, and a surprise ambush to annihilate the enemy army, personally killing Afzal Khan in close combat.",
+        keyEvents: [
+            "Shivaji invited Afzal Khan to a meeting under flag of truce at Pratapgad",
+            "Afzal Khan was ambushed and killed in close combat by Shivaji",
+            "Maratha forces launched a coordinated surprise attack using the mountain terrain",
+            "Afzal Khan's elite cavalry was encircled and destroyed by concealed forces",
+            "The remaining Adil Shahi forces retreated in disarray through the valleys"
+        ],
+        casualties: { side1: "Minimal (~50-100)", side2: "Heavy (~2,000-4,000 killed)" },
+        tactics: "Deceptive truce meeting to draw the enemy into a prepared ambush, concealed forces in mountain valleys, use of arquebuses and terrain advantage. The 'wolf's mouth' tactic funnelled the enemy into kill zones.",
+        impact: "Established Shivaji as a major regional power in the Deccan. Demoralized the Adil Shahi forces and demonstrated the effectiveness of guerrilla tactics against larger conventional armies. Marked the beginning of the Maratha rise to power.",
+        color: "#1A7040"
+    },
+    {
         name: "Battle of Plassey",
         date: "23 June 1757",
         year: 1757,
@@ -219,7 +245,9 @@ export const commanders = [
     { name: "Major K.S. Chandpuri", era: "Modern", title: "Hero of Longewala", battles: ["Battle of Longewala"], description: "Commanded 120 soldiers who held off 2,000+ Pakistani troops and 40+ tanks for an entire night. Awarded the Maha Vir Chakra for his extraordinary courage.", color: "#FF6600" },
     { name: "Captain Vikram Batra", era: "Modern", title: "Param Vir Chakra Awardee", battles: ["Battle of Kargil"], description: "Led the capture of Point 5140 and then Point 4875 in Kargil. His famous line 'Yeh Dil Maange More' became iconic. Killed in action while rescuing a wounded officer. Posthumously awarded India's highest wartime honour.", color: "#DC143C" },
     { name: "Hemu (Hemchandra Vikramaditya)", era: "Medieval", title: "Last Hindu Emperor of Delhi", battles: ["Battle of Panipat (Second)"], description: "A Hindu general who briefly restored Hindu rule in Delhi and Agra. Killed by an arrow in the eye during the Second Battle of Panipat, ending his short reign.", color: "#8B0000" },
-    { name: "Siraj ud-Daulah", era: "Colonial", title: "Last Independent Nawab of Bengal", battles: ["Battle of Plassey"], description: "The young Nawab of Bengal who opposed British interference in trade and politics. Betrayed by his own commander Mir Jafar during the Battle of Plassey.", color: "#4B0082" }
+    { name: "Siraj ud-Daulah", era: "Colonial", title: "Last Independent Nawab of Bengal", battles: ["Battle of Plassey"], description: "The young Nawab of Bengal who opposed British interference in trade and politics. Betrayed by his own commander Mir Jafar during the Battle of Plassey.", color: "#4B0082" },
+    { name: "Chhatrapati Shivaji Maharaj", era: "Medieval", title: "Founder of the Maratha Empire", battles: ["Battle of Pratapgad"], description: "The legendary Maratha warrior-king who carved out a sovereign kingdom from the declining Adil Shahi and Mughal empires. At Pratapgad, he used guerrilla tactics, terrain advantage, and a deceptive truce to destroy Afzal Khan's larger army, establishing Maratha military prowess.", color: "#1A7040" },
+    { name: "Afzal Khan", era: "Medieval", title: "Adil Shahi General", battles: ["Battle of Pratapgad"], description: "The trusted general of the Adil Shah of Bijapur, known for his military experience and elite cavalry. He was killed by Shivaji in single combat during a deceptive truce meeting at Pratapgad, leading to the catastrophic defeat of his forces.", color: "#8B0000" }
 ];
 
 export const eraInfo = {
