@@ -2049,5 +2049,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Pullalur (c. 618–619 CE) - the epic clash between Western Chalukya Emperor Pulakeshin II and Pallava King Mahendravarman I, initiating a century-long struggle for Deccan supremacy.",
     url: "frontend/battle-of-pullalur-explorer/index.html"
+  },
+  // --- Battle of Takkolam Explorer ---
+  {
+    title: "Battle of Takkolam Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Takkolam (c. 949 CE) - the decisive Chola–Rashtrakuta clash where crown prince Rajaditya fell and Emperor Krishna III captured Kanchi and Tanjore.",
+    url: "frontend/battle-of-takkolam-explorer/index.html"
   }
 ];
