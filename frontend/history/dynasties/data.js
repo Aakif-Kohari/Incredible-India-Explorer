@@ -4,6 +4,8 @@ export const dynasties = [
     name: "Maurya Empire",
     period: "322–185 BCE",
     startYear: -322,
+    explorerPath: "../Maurya Dynasty/MauryaDynasty.html",
+    explorerLabel: "Open Maurya Explorer",
     endYear: -185,
     capital: "Pataliputra (modern Patna)",
     founders: "Chandragupta Maurya",
