@@ -241,6 +241,28 @@ image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_
         exploreUrl: '../valley-of-flowers-explorer/index.html'
     },
     {
+        id: 'bhitarkanika',
+        name: 'Bhitarkanika National Park',
+        state: 'Odisha',
+        stateId: 'od',
+        established: 1998,
+        area: 145,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description:
+            "A Ramsar-listed mangrove wetland on the Odisha coast where the Brahmani, Baitarani, and Dhamra rivers meet the sea. Home to the world's largest population of saltwater crocodiles and over 240 bird species.",
+        keyFauna: ['Saltwater Crocodile', 'King Cobra', 'Fishing Cat', 'Water Monitor', 'Olive Ridley Turtle'],
+        keyFlora: ['Sundari Mangrove', 'Avicennia', 'Rhizophora', 'Riverine Delta Forests'],
+        coordinates: { lat: 20.76, lng: 86.95 },
+        climate: 'Tropical Monsoon',
+        bestTime: 'November to February',
+        entryFee: '₹40 (Indian), ₹300 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Bhitarkanika_National_Park.jpg/960px-Bhitarkanika_National_Park.jpg',
+        explorerUrl: '../national-parks/bhitarkanika-national-park-explorer/index.html'
+    },
+    {
         id: 'gir',
         name: 'Gir National Park & Sanctuary',
         state: 'Gujarat',
