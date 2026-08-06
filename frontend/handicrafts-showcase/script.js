@@ -1,6 +1,17 @@
 // ---------- Handicrafts Data (16 crafts across UP districts) ----------
 const allCrafts = [
   {
+    name: "Kalighat Painting",
+    icon: "🎨",
+    district: "Kalighat, Kolkata",
+    category: "folk-art",
+    tags: ["Bold Brushwork", "Social Satire", "19th Century Bengal"],
+    description: "Bengal's iconic temple-ghat painting school — bold single-stroke brushwork on mill paper, fusing divine icons with biting social commentary.",
+    history: "Emerged in 19th-century Calcutta near the Kalighat temple, where patua painters turned pilgrim souvenirs into India's first popular urban art school, lampooning baboos, priests and zamindars.",
+    artisan: "Patua painters of the Kali ghat who drew each figure in one unbroken tapering stroke, now carried forward by revivalists like Santanu Chakraverty.",
+    detailsUrl: "../kalighat-painting-showcase/index.html"
+  },
+  {
     name: "Chhau Dance Masks",
     icon: "🎭",
     district: "Purulia & Charida",
@@ -10,7 +21,8 @@ const allCrafts = [
     history: "Centuries-old folk performance mask art created by Sutradhar artisans depicting Ramayana, Mahabharata, and Puranic deities.",
     artisan: "Charida village artisans in Purulia crafting lightweight paper-mache shells embellished with peacock feathers and zari crowns.",
     detailsUrl: "../chhau-masks-explorer/index.html"
-},
+  },
+  {
     name: "Bidriware Metal Inlay",
     icon: "✨",
     district: "Bidar, Karnataka",
@@ -20,7 +32,8 @@ const allCrafts = [
     history: "14th-century Bahmani Sultanate metalcraft developed in Bidar using unique nitrate-rich Bidar Fort soil for oxidation.",
     artisan: "Master Bidri engravers hammering pure silver wire into zinc-copper castings.",
     detailsUrl: "../bidriware-craftsmanship-explorer/index.html"
-},
+  },
+  {
     name: "Bastar Iron Craft (Loha Shilp)",
     icon: "🔨",
     district: "Bastar & Kondagaon",
