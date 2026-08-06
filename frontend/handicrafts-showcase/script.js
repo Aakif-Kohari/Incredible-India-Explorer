@@ -1,6 +1,17 @@
 // ---------- Handicrafts Data (16 crafts across UP districts) ----------
 const allCrafts = [
   {
+    name: "Channapatna Toys",
+    icon: "🐘",
+    district: "Channapatna, Karnataka",
+    category: "toy",
+    tags: ["GI Tagged", "Lacquerware", "Wooden Toys"],
+    description: "Karnataka's iconic lacquerware wooden toys — ivory wood turned on a bow lathe and finished with natural lac in warm, glossy colours.",
+    history: "Handcrafted in the 'City of Toys' since the 18th century, when Tipu Sultan brought Persian lacquer artisans to Channapatna; GI-tagged in 2005.",
+    artisan: "Channapatna toymakers who shape soft aale-mara wood on bow-powered lathes and seal it with molten natural lac resin.",
+    detailsUrl: "../channapatna-toys-explorer/index.html"
+  },
+  {
     name: "Chhau Dance Masks",
     icon: "🎭",
     district: "Purulia & Charida",
@@ -10,7 +21,8 @@ const allCrafts = [
     history: "Centuries-old folk performance mask art created by Sutradhar artisans depicting Ramayana, Mahabharata, and Puranic deities.",
     artisan: "Charida village artisans in Purulia crafting lightweight paper-mache shells embellished with peacock feathers and zari crowns.",
     detailsUrl: "../chhau-masks-explorer/index.html"
-},
+  },
+  {
     name: "Bidriware Metal Inlay",
     icon: "✨",
     district: "Bidar, Karnataka",
@@ -20,7 +32,8 @@ const allCrafts = [
     history: "14th-century Bahmani Sultanate metalcraft developed in Bidar using unique nitrate-rich Bidar Fort soil for oxidation.",
     artisan: "Master Bidri engravers hammering pure silver wire into zinc-copper castings.",
     detailsUrl: "../bidriware-craftsmanship-explorer/index.html"
-},
+  },
+  {
     name: "Bastar Iron Craft (Loha Shilp)",
     icon: "🔨",
     district: "Bastar & Kondagaon",

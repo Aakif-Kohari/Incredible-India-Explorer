@@ -1505,6 +1505,13 @@ window.indiaSearchIndex = [
     description: "Explore Chhau Masks Heritage — UNESCO Intangible Cultural Heritage of Purulia and Seraikela, paper-mache mask making, divine/asura mask types, and folk dance performance gallery.",
     url: "frontend/chhau-masks-explorer/index.html"
   },
+  // --- Channapatna Toys Explorer ---
+  {
+    title: "Channapatna Toys Explorer",
+    category: "Arts & Culture",
+    description: "Explore Channapatna Toys — Karnataka's GI-tagged lacquerware wooden toys, bow-lathe turnery, natural lac and sustainable materials, traditional designs and gallery.",
+    url: "frontend/channapatna-toys-explorer/index.html"
+  },
   // --- Bidriware Craftsmanship Explorer ---
   {
     title: "Bidriware Craftsmanship Explorer",
