@@ -1492,6 +1492,19 @@ window.indiaSearchIndex = [
     description: "Explore Chhau Masks Heritage — UNESCO Intangible Cultural Heritage of Purulia and Seraikela, paper-mache mask making, divine/asura mask types, and folk dance performance gallery.",
     url: "frontend/chhau-masks-explorer/index.html"
   },
+  // --- Bidriware Craftsmanship Explorer ---
+  {
+    title: "Bidriware Craftsmanship Explorer",
+    category: "Arts & Culture",
+    description: "Explore Bidriware Craftsmanship — GI-tagged metal handicraft of Bidar, Karnataka featuring pure silver wire inlay, Bidar fort soil oxidation, and Persian motifs.",
+    url: "frontend/bidriware-craftsmanship-explorer/index.html"},
+  // --- Bastar Iron Craft Explorer ---
+  {
+    title: "Bastar Iron Craft Explorer",
+    category: "Arts & Culture",
+    description: "Explore Bastar Iron Craft (Loha Shilp) — GI-certified tribal wrought iron artistry of Chhattisgarh featuring manual forging, traditional motifs, and artisan spotlight.",
+    url: "frontend/bastar-iron-craft-explorer/index.html"
+  },
   // --- Kingdom of Mewar Explorer ---
   {
     title: "Kingdom of Mewar Explorer",
