@@ -1,6 +1,17 @@
 // ---------- Handicrafts Data (16 crafts across UP districts) ----------
 const allCrafts = [
   {
+    name: "Bidriware Metal Inlay",
+    icon: "✨",
+    district: "Bidar, Karnataka",
+    category: "metal",
+    tags: ["GI Tagged", "Silver Inlay", "Metalcraft"],
+    description: "Iconic metal handicraft of Karnataka featuring pure silver wire inlay on a jet-black zinc alloy base.",
+    history: "14th-century Bahmani Sultanate metalcraft developed in Bidar using unique nitrate-rich Bidar Fort soil for oxidation.",
+    artisan: "Master Bidri engravers hammering pure silver wire into zinc-copper castings.",
+    detailsUrl: "../bidriware-craftsmanship-explorer/index.html"
+  },
+  {
     name: "Lucknow Chikankari",
     icon: "🪡",
     district: "Lucknow",

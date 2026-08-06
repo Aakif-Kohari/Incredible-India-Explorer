@@ -1485,6 +1485,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Bidriware Craftsmanship Explorer ---
+  {
+    title: "Bidriware Craftsmanship Explorer",
+    category: "Arts & Culture",
+    description: "Explore Bidriware Craftsmanship — GI-tagged metal handicraft of Bidar, Karnataka featuring pure silver wire inlay, Bidar fort soil oxidation, and Persian motifs.",
+    url: "frontend/bidriware-craftsmanship-explorer/index.html"
+  },
   // --- Kingdom of Mewar Explorer ---
   {
     title: "Kingdom of Mewar Explorer",
