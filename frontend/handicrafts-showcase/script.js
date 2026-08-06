@@ -1,6 +1,17 @@
 // ---------- Handicrafts Data (16 crafts across UP districts) ----------
 const allCrafts = [
   {
+    name: "Dokra Art",
+    icon: "🪔",
+    district: "Bastar, Dhenkanal & Bankura",
+    category: "metal",
+    tags: ["Lost-Wax Casting", "Tribal Art", "Indus Valley Roots"],
+    description: "India's ancient lost-wax metal casting craft — seamless bronze and brass figures of gods, beasts and ornaments by tribal artisans.",
+    history: "Traced to the Indus Valley 'Dancing Girl' of Mohenjo-daro (c. 2500 BCE), Dokra keeps a 4,500-year-old casting lineage alive in Bastar, Dhenkanal and Bankura.",
+    artisan: "Dokra Damar and Kamar tribal smiths who shape beeswax models, encase them in clay and pour molten bronze into the cavity left behind.",
+    detailsUrl: "../dokra-art-explorer/index.html"
+  },
+  {
     name: "Chhau Dance Masks",
     icon: "🎭",
     district: "Purulia & Charida",
@@ -10,7 +21,8 @@ const allCrafts = [
     history: "Centuries-old folk performance mask art created by Sutradhar artisans depicting Ramayana, Mahabharata, and Puranic deities.",
     artisan: "Charida village artisans in Purulia crafting lightweight paper-mache shells embellished with peacock feathers and zari crowns.",
     detailsUrl: "../chhau-masks-explorer/index.html"
-},
+  },
+  {
     name: "Bidriware Metal Inlay",
     icon: "✨",
     district: "Bidar, Karnataka",
@@ -20,7 +32,8 @@ const allCrafts = [
     history: "14th-century Bahmani Sultanate metalcraft developed in Bidar using unique nitrate-rich Bidar Fort soil for oxidation.",
     artisan: "Master Bidri engravers hammering pure silver wire into zinc-copper castings.",
     detailsUrl: "../bidriware-craftsmanship-explorer/index.html"
-},
+  },
+  {
     name: "Bastar Iron Craft (Loha Shilp)",
     icon: "🔨",
     district: "Bastar & Kondagaon",
