@@ -1,6 +1,6 @@
 /**
- * siege-of-chittor-explorer.test.js
- * Unit tests for the Siege of Chittor Explorer page.
+ * third-battle-of-panipat-explorer.test.js
+ * Unit tests for the Third Battle of Panipat Explorer page.
  * Validates required sections, key historical content, accessibility,
  * and landing page card integration on the Historic Battles of India page.
  */
@@ -14,7 +14,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 function readExplorerFile(file) {
     return readFileSync(
-        resolve(__dirname, '../../frontend/siege-of-chittor-explorer', file),
+        resolve(__dirname, '../../frontend/third-battle-of-panipat-explorer', file),
         'utf-8'
     );
 }
@@ -26,7 +26,7 @@ function readLandingPage() {
     );
 }
 
-describe('Siege of Chittor Explorer — Page Structure', () => {
+describe('Third Battle of Panipat Explorer — Page Structure', () => {
     let html;
 
     beforeAll(() => {
@@ -34,33 +34,32 @@ describe('Siege of Chittor Explorer — Page Structure', () => {
     });
 
     it('contains a hero section with page title and kicker', () => {
-        expect(html).toContain('class="chittor-hero"');
+        expect(html).toContain('class="panipat-hero"');
         expect(html).toContain('<h1>');
-        expect(html).toContain('Siege of Chittor');
-        expect(html).toContain('1567');
+        expect(html).toContain('Third Battle of Panipat');
+        expect(html).toContain('14 January 1761');
     });
 
     it('contains all required content sections from the issue', () => {
-        const sections = ['background', 'commanders', 'strategy', 'outcome', 'impact', 'timeline', 'references'];
+        const sections = ['overview', 'belligerents', 'strategies', 'casualties', 'impact', 'timeline', 'references'];
         sections.forEach(id => {
             expect(html).toContain(`id="${id}"`);
         });
     });
 
     it('contains all required section topics', () => {
-        ['Historical', 'Timeline', 'Commanders', 'Strategy', 'Outcome', 'Impact', 'References'].forEach(topic => {
+        ['Historical', 'Timeline', 'Belligerents', 'Strategies', 'Casualties', 'Impact', 'References'].forEach(topic => {
             expect(html).toContain(topic);
         });
     });
 
     it('contains the key historical and structural details', () => {
-        expect(html).toContain('Akbar');
-        expect(html).toContain('Jaimal');
-        expect(html).toContain('Patta');
-        expect(html).toContain('Udai Singh');
-        expect(html).toContain('Chittor');
-        expect(html).toContain('jauhar');
-        expect(html).toContain('23 February 1568');
+        expect(html).toContain('Ahmad Shah Durrani');
+        expect(html).toContain('Sadashivrao Bhau');
+        expect(html).toContain('Vishwasrao');
+        expect(html).toContain('Maratha');
+        expect(html).toContain('Panipat');
+        expect(html).toContain('Haryana');
     });
 
     it('has a semantic heading hierarchy (single h1, multiple section h2s)', () => {
@@ -85,39 +84,39 @@ describe('Siege of Chittor Explorer — Page Structure', () => {
     });
 });
 
-describe('Siege of Chittor Explorer — Assets', () => {
+describe('Third Battle of Panipat Explorer — Assets', () => {
     it('includes a non-empty stylesheet', () => {
         const css = readExplorerFile('style.css');
         expect(css.length).toBeGreaterThan(1000);
-        expect(css).toContain('.chittor-hero');
-        expect(css).toContain('.chittor-timeline');
-        expect(css).toContain('.chittor-references');
+        expect(css).toContain('.panipat-hero');
+        expect(css).toContain('.panipat-timeline');
+        expect(css).toContain('.panipat-references');
     });
 
     it('includes a valid interactive script with required features', () => {
         const js = readExplorerFile('script.js');
         expect(js).toContain('registerSearchItems');
         expect(js).toContain('Journey');
-        expect(js).toContain('chittor-modal');
+        expect(js).toContain('panipat-modal');
         expect(js).toContain('app:route-changed');
     });
 });
 
-describe('Siege of Chittor — Landing Page Integration', () => {
+describe('Third Battle of Panipat — Landing Page Integration', () => {
     it('is listed as a featured explorer card on the Historic Battles of India landing page', () => {
         const index = readLandingPage();
-        expect(index).toContain('Siege of Chittor');
-        expect(index).toContain('../../siege-of-chittor-explorer/index.html');
+        expect(index).toContain('Third Battle of Panipat');
+        expect(index).toContain('../../third-battle-of-panipat-explorer/index.html');
         expect(index).toContain('featured-explorer-card');
     });
 
     it('matches the existing featured card pattern (badge, heading, button)', () => {
         const index = readLandingPage();
-        const cardStart = index.indexOf('Siege of Chittor (1567');
+        const cardStart = index.indexOf('Third Battle of Panipat');
         expect(cardStart).toBeGreaterThan(-1);
         const card = index.slice(cardStart, cardStart + 1200);
         expect(card).toContain('featured-explorer-badge');
         expect(card).toContain('featured-explorer-btn');
-        expect(card).toContain('Jaimal');
+        expect(card).toContain('Ahmad Shah Durrani');
     });
 });

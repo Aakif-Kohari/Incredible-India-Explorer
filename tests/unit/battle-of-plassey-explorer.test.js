@@ -1,6 +1,6 @@
 /**
- * siege-of-chittor-explorer.test.js
- * Unit tests for the Siege of Chittor Explorer page.
+ * battle-of-plassey-explorer.test.js
+ * Unit tests for the Battle of Plassey Explorer page.
  * Validates required sections, key historical content, accessibility,
  * and landing page card integration on the Historic Battles of India page.
  */
@@ -14,7 +14,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 function readExplorerFile(file) {
     return readFileSync(
-        resolve(__dirname, '../../frontend/siege-of-chittor-explorer', file),
+        resolve(__dirname, '../../frontend/battle-of-plassey-explorer', file),
         'utf-8'
     );
 }
@@ -26,7 +26,7 @@ function readLandingPage() {
     );
 }
 
-describe('Siege of Chittor Explorer — Page Structure', () => {
+describe('Battle of Plassey Explorer — Page Structure', () => {
     let html;
 
     beforeAll(() => {
@@ -34,33 +34,33 @@ describe('Siege of Chittor Explorer — Page Structure', () => {
     });
 
     it('contains a hero section with page title and kicker', () => {
-        expect(html).toContain('class="chittor-hero"');
+        expect(html).toContain('class="plassey-hero"');
         expect(html).toContain('<h1>');
-        expect(html).toContain('Siege of Chittor');
-        expect(html).toContain('1567');
+        expect(html).toContain('Battle of Plassey');
+        expect(html).toContain('23 June 1757');
     });
 
     it('contains all required content sections from the issue', () => {
-        const sections = ['background', 'commanders', 'strategy', 'outcome', 'impact', 'timeline', 'references'];
+        const sections = ['overview', 'belligerents', 'commanders', 'outcome', 'significance', 'timeline', 'references'];
         sections.forEach(id => {
             expect(html).toContain(`id="${id}"`);
         });
     });
 
     it('contains all required section topics', () => {
-        ['Historical', 'Timeline', 'Commanders', 'Strategy', 'Outcome', 'Impact', 'References'].forEach(topic => {
+        ['Historical', 'Timeline', 'Belligerents', 'Commanders', 'Outcome', 'Significance', 'References'].forEach(topic => {
             expect(html).toContain(topic);
         });
     });
 
     it('contains the key historical and structural details', () => {
-        expect(html).toContain('Akbar');
-        expect(html).toContain('Jaimal');
-        expect(html).toContain('Patta');
-        expect(html).toContain('Udai Singh');
-        expect(html).toContain('Chittor');
-        expect(html).toContain('jauhar');
-        expect(html).toContain('23 February 1568');
+        expect(html).toContain('Robert Clive');
+        expect(html).toContain('Siraj-ud-Daulah');
+        expect(html).toContain('Mir Jafar');
+        expect(html).toContain('Mir Madan');
+        expect(html).toContain('East India Company');
+        expect(html).toContain('Bhagirathi');
+        expect(html).toContain('Bengal');
     });
 
     it('has a semantic heading hierarchy (single h1, multiple section h2s)', () => {
@@ -85,39 +85,39 @@ describe('Siege of Chittor Explorer — Page Structure', () => {
     });
 });
 
-describe('Siege of Chittor Explorer — Assets', () => {
+describe('Battle of Plassey Explorer — Assets', () => {
     it('includes a non-empty stylesheet', () => {
         const css = readExplorerFile('style.css');
         expect(css.length).toBeGreaterThan(1000);
-        expect(css).toContain('.chittor-hero');
-        expect(css).toContain('.chittor-timeline');
-        expect(css).toContain('.chittor-references');
+        expect(css).toContain('.plassey-hero');
+        expect(css).toContain('.plassey-timeline');
+        expect(css).toContain('.plassey-references');
     });
 
     it('includes a valid interactive script with required features', () => {
         const js = readExplorerFile('script.js');
         expect(js).toContain('registerSearchItems');
         expect(js).toContain('Journey');
-        expect(js).toContain('chittor-modal');
+        expect(js).toContain('plassey-modal');
         expect(js).toContain('app:route-changed');
     });
 });
 
-describe('Siege of Chittor — Landing Page Integration', () => {
+describe('Battle of Plassey — Landing Page Integration', () => {
     it('is listed as a featured explorer card on the Historic Battles of India landing page', () => {
         const index = readLandingPage();
-        expect(index).toContain('Siege of Chittor');
-        expect(index).toContain('../../siege-of-chittor-explorer/index.html');
+        expect(index).toContain('Battle of Plassey');
+        expect(index).toContain('../../battle-of-plassey-explorer/index.html');
         expect(index).toContain('featured-explorer-card');
     });
 
     it('matches the existing featured card pattern (badge, heading, button)', () => {
         const index = readLandingPage();
-        const cardStart = index.indexOf('Siege of Chittor (1567');
+        const cardStart = index.indexOf('Battle of Plassey');
         expect(cardStart).toBeGreaterThan(-1);
-        const card = index.slice(cardStart, cardStart + 1200);
+        const card = index.slice(cardStart - 200, cardStart + 1200);
         expect(card).toContain('featured-explorer-badge');
         expect(card).toContain('featured-explorer-btn');
-        expect(card).toContain('Jaimal');
+        expect(card).toContain('Robert Clive');
     });
 });

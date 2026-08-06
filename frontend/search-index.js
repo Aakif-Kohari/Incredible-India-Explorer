@@ -1963,5 +1963,32 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Ujjain (1801) - the epic clash between Yashwantrao Holkar of Indore and Daulat Rao Scindia's forces, told through timeline, belligerents, outcome, and legacy.",
     url: "frontend/battle-of-ujjain-explorer/index.html"
+  },
+  // --- Third Battle of Panipat Explorer ---
+  {
+    title: "Third Battle of Panipat Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Third Battle of Panipat (14 January 1761) - Ahmad Shah Durrani's decisive victory over the Maratha Confederacy under Sadashivrao Bhau, one of the largest and bloodiest battles in Indian history.",
+    url: "frontend/third-battle-of-panipat-explorer/index.html"
+  },
+  // --- Kalinga War Explorer ---
+  {
+    title: "Kalinga War History Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Kalinga (261 BCE) - the epic clash between Emperor Ashoka's Maurya Empire and Kalinga, leading to Ashoka's conversion to Buddhism and non-violence.",
+    url: "frontend/kalinga-war-explorer/index.html"},
+  // --- Battle of Plassey Explorer ---
+  {
+    title: "Battle of Plassey Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Plassey (23 June 1757) - Robert Clive's East India Company army against Nawab Siraj-ud-Daulah of Bengal, the conspiracy of Mir Jafar, and the battle that began British rule in India.",
+    url: "frontend/battle-of-plassey-explorer/index.html"
+  },
+  // --- Battle of Rezang La Explorer ---
+  {
+    title: "Battle of Rezang La Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Rezang La (18 November 1962) - the heroic last stand of 120 soldiers of Charlie Company, 13th Kumaon Regiment, under Major Shaitan Singh against thousands of Chinese troops in the Chushul sector of Ladakh.",
+    url: "frontend/battle-of-rezang-la-explorer/index.html"
   }
 ];
