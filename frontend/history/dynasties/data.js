@@ -4,6 +4,8 @@ export const dynasties = [
     name: "Maurya Empire",
     period: "322–185 BCE",
     startYear: -322,
+    explorerPath: "../Maurya Dynasty/MauryaDynasty.html",
+    explorerLabel: "Open Maurya Explorer",
     endYear: -185,
     capital: "Pataliputra (modern Patna)",
     founders: "Chandragupta Maurya",
@@ -35,6 +37,8 @@ export const dynasties = [
     period: "320–550 CE",
     startYear: 320,
     endYear: 550,
+    explorerPath: "../Gupta Dynasty/GuptaDynasty.html",
+    explorerLabel: "Open Gupta Explorer",
     capital: "Pataliputra, then Prayag (Allahabad)",
     founders: "Sri Gupta and Ghatotkacha Gupta",
     notableRulers: [

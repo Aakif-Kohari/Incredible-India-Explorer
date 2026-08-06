@@ -23,6 +23,12 @@ window.indiaSearchIndex = [
     url: "frontend/muziris-port-explorer/index.html"
   },
   {
+    title: "Kachwaha Dynasty Explorer",
+    category: "Heritage & History",
+    description: "Explore the Kachwaha Dynasty of Amber and Jaipur (1093–1949 CE): its founding by Dulha Rai, its Mughal alliance under Raja Bharmal and Man Singh I, and Sawai Jai Singh II's founding of Jaipur.",
+    url: "frontend/kachwaha-dynasty-explorer/index.html"
+  },
+  {
     title: "Arikamedu Ancient Port Explorer",
     category: "Heritage & History",
     description: "Explore Arikamedu: ancient Poduke Indo-Roman trading port near Puducherry, Roman amphorae, and bead manufacturing center.",
@@ -1477,7 +1483,42 @@ window.indiaSearchIndex = [
     title: "Simlipal National Park Explorer",
     category: "National Parks & Wildlife",
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
-    url: "frontend/simlipal-national-park-explorer/index.html"},
+    url: "frontend/simlipal-national-park-explorer/index.html"
+  },
+  // --- Kingdom of Mewar Explorer ---
+  {
+    title: "Kingdom of Mewar Explorer",
+    category: "Indian Empires & History",
+    description: "Explore the Kingdom of Mewar (728–1949) — Maharana Pratap, Bappa Rawal, Rana Kumbha, Chittorgarh Fort, Kumbhalgarh Wall, and Rajput resistance.",
+    url: "frontend/mewar-kingdom-explorer/index.html"},
+  // --- Kingdom of Jaipur Explorer ---
+  {
+    title: "Kingdom of Jaipur Explorer",
+    category: "Indian Empires & History",
+    description: "Explore the Kingdom of Jaipur (1128–1949) — Kachwaha Rajput rulers, Sawai Jai Singh II, grid-planned Pink City architecture, Jantar Mantar, and Amer Fort.",
+    url: "frontend/jaipur-kingdom-explorer/index.html"},
+  // --- Kingdom of Cochin Explorer ---
+  {
+    title: "Kingdom of Cochin Explorer",
+    category: "Indian Empires & History",
+    description: "Explore the Kingdom of Cochin (1102–1949) — Queen of the Arabian Sea, spice trade routes, Sakthan Thampuran, Mattancherry Palace, and Thrissur Pooram.",
+    url: "frontend/cochin-kingdom-explorer/index.html"
+  },
+   
+  // --- Kingdom of Mysore Explorer ---
+  {
+    title: "Kingdom of Mysore Explorer",
+    category: "Indian Empires & History",
+    description: "Explore the Kingdom of Mysore (1399–1947) — Wadiyar dynasty, Hyder Ali, Tipu Sultan, Mysorean rockets, Mysore Dasara, and Mysore Palace.",
+    url: "frontend/mysore-kingdom-explorer/index.html"},
+    
+  // --- Kingdom of Travancore Explorer ---
+  {
+    title: "Kingdom of Travancore Explorer",
+    category: "Indian Empires & History",
+    description: "Explore the Kingdom of Travancore (1729–1949) — Marthanda Varma, Battle of Colachel, Sree Padmanabhaswamy Temple, and progressive educational reforms.",
+    url: "frontend/travancore-kingdom-explorer/index.html"
+  },
   // --- Haiderpur Wetland Explorer ---
   {
     title: "Haiderpur Wetland Explorer",
@@ -1862,5 +1903,111 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Discover Gopakapattana, the historic Kadamba port capital of Goa, its spice and horse trade, and the Rajvithi royal highway.",
     url: "frontend/gopakapattana-port-explorer/index.html"
+  },
+  // --- Vizhinjam Port Explorer ---
+  {
+    title: "Vizhinjam Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Vizhinjam (Viliñam), ancient Ay Dynasty capital, natural deep-water harbour, Indian Ocean spice trade, and 8th-century rock-cut cave temple.",
+    url: "frontend/vizhinjam-port-explorer/index.html"
+  },
+  // --- Nagapattinam Port Explorer ---
+  {
+    title: "Nagapattinam Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Nagapattinam (Nagai), premier Chola naval harbour, Srivijaya expeditions, Song China trade, and Chudamani Vihara Buddhist monastery.",
+    url: "frontend/nagapattinam-port-explorer/index.html"
+  },
+  // --- Cuddalore Port Explorer ---
+  {
+    title: "Cuddalore Ancient Port Explorer",
+    category: "Featured Explorers",
+    description: "Discover Cuddalore (Koodaloor), historic river-confluence harbour, handloom textile exports, Fort St. David, and Coromandel coastal heritage.",
+    url: "frontend/cuddalore-port-explorer/index.html"
+    },
+  // --- Battle of Buxar Explorer ---
+  {
+    title: "Battle of Buxar Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Buxar (22 October 1764) - the East India Company's decisive victory over Mir Qasim, Shuja-ud-Daulah, and Shah Alam II, and the Treaty of Allahabad that granted the Diwani.",
+    url: "frontend/battle-of-buxar-explorer/index.html"
+  },
+  // --- Siege of Chittorgarh (1535) Explorer ---
+  {
+    title: "Siege of Chittorgarh (1535) Explorer",
+    category: "Featured Explorers",
+    description: "Explore the second jauhar of Chittor (8 March 1535) - Rani Karnavati's final sacrifice and Mewar's defiance against Bahadur Shah's Gujarat Sultanate, and the survival of Udai Singh's Sisodia line.",
+    url: "frontend/siege-of-chittor-1535-explorer/index.html"},
+  // --- Siege of Chittor Explorer ---
+  {
+    title: "Siege of Chittor Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Siege of Chittorgarh (1567-1568) - Akbar's four-month siege of the Sisodia capital of Mewar, the defiant defence of Jaimal and Patta, and the third jauhar of Chittor.",
+    url: "frontend/siege-of-chittor-explorer/index.html"},
+  // --- Battle of Ravi Explorer ---
+  {
+    title: "Battle of Ravi Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Ravi (1306 CE) - Alauddin Khalji's decisive victory over the last Mongol invasion of India, when Malik Kafur crushed Kopek's Chagatai army on the banks of the Ravi River.",
+    url: "frontend/battle-of-ravi-explorer/index.html"},
+  // --- Battle of Jalore Explorer ---
+  {
+    title: "Battle of Jalore Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Jalore (1311) - the final clash between the Delhi Sultanate of Alauddin Khalji and the Chauhan rulers of Jalore under Kanhadadeva, told through timeline, key figures, outcome, and legacy.",
+    url: "frontend/battle-of-jalore-explorer/index.html"
+  },
+  // --- Battle of Ujjain Explorer ---
+  {
+    title: "Battle of Ujjain Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Ujjain (1801) - the epic clash between Yashwantrao Holkar of Indore and Daulat Rao Scindia's forces, told through timeline, belligerents, outcome, and legacy.",
+    url: "frontend/battle-of-ujjain-explorer/index.html"
+  },
+  // --- Third Battle of Panipat Explorer ---
+  {
+    title: "Third Battle of Panipat Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Third Battle of Panipat (14 January 1761) - Ahmad Shah Durrani's decisive victory over the Maratha Confederacy under Sadashivrao Bhau, one of the largest and bloodiest battles in Indian history.",
+    url: "frontend/third-battle-of-panipat-explorer/index.html"
+  },
+  // --- Kalinga War Explorer ---
+  {
+    title: "Kalinga War History Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Kalinga (261 BCE) - the epic clash between Emperor Ashoka's Maurya Empire and Kalinga, leading to Ashoka's conversion to Buddhism and non-violence.",
+    url: "frontend/kalinga-war-explorer/index.html"},
+  // --- Battle of Plassey Explorer ---
+  {
+    title: "Battle of Plassey Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Plassey (23 June 1757) - Robert Clive's East India Company army against Nawab Siraj-ud-Daulah of Bengal, the conspiracy of Mir Jafar, and the battle that began British rule in India.",
+    url: "frontend/battle-of-plassey-explorer/index.html"
+  },
+  // --- Battle of Rezang La Explorer ---
+  {
+    title: "Battle of Rezang La Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Rezang La (18 November 1962) - the heroic last stand of 120 soldiers of Charlie Company, 13th Kumaon Regiment, under Major Shaitan Singh against thousands of Chinese troops in the Chushul sector of Ladakh.",
+    url: "frontend/battle-of-rezang-la-explorer/index.html"
+  },
+  // --- Siege of Chittor (1303) Explorer ---
+  {
+    title: "Siege of Chittor (1303) Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Siege of Chittorgarh (1303) - the historic conflict between Alauddin Khalji and Guhila King Ratnasimha, the legend of Rani Padmini, and the first Jauhar.",
+    url: "frontend/siege-of-chittor-1303-explorer/index.html"},
+  // --- Battle of Sripurambiyam Explorer ---
+  {
+    title: "Battle of Sripurambiyam Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Sripurambiyam (c. 879 CE) - the watershed Dravidian clash near Kumbakonam that broke Pandya hegemony and paved the way for the rise of the Imperial Cholas under Aditya I.",
+    url: "frontend/battle-of-sripurambiyam-explorer/index.html"},
+  // --- Battle of Pullalur Explorer ---
+  {
+    title: "Battle of Pullalur Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Pullalur (c. 618–619 CE) - the epic clash between Western Chalukya Emperor Pulakeshin II and Pallava King Mahendravarman I, initiating a century-long struggle for Deccan supremacy.",
+    url: "frontend/battle-of-pullalur-explorer/index.html"
   }
 ];
