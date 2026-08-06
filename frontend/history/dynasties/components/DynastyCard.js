@@ -43,6 +43,11 @@ export function DynastyCard({ dynastyId, onExpand }) {
           `).join('')}
         </ul>
       </div>
+      ${d.explorerPath ? `
+        <div class="dynasty-card-action">
+          <a class="dynasty-explorer-link" href="${d.explorerPath}">${d.explorerLabel || 'Open Explorer'}</a>
+        </div>
+      ` : ''}
       <div class="dynasty-card-detail" style="display:none">
         <div class="detail-section">
           <h4>Contributions</h4>
