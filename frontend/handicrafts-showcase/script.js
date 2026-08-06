@@ -10,6 +10,16 @@ const allCrafts = [
     history: "14th-century Bahmani Sultanate metalcraft developed in Bidar using unique nitrate-rich Bidar Fort soil for oxidation.",
     artisan: "Master Bidri engravers hammering pure silver wire into zinc-copper castings.",
     detailsUrl: "../bidriware-craftsmanship-explorer/index.html"
+},
+    name: "Bastar Iron Craft (Loha Shilp)",
+    icon: "🔨",
+    district: "Bastar & Kondagaon",
+    category: "metal",
+    tags: ["GI Tagged", "Wrought Iron", "Tribal Art"],
+    description: "Traditional hand-forged wrought iron craft by Bastar tribal artisans creating sleek figurines and oil lamps.",
+    history: "Ancestral metal forging tradition practiced by Lohar artisans of Chhattisgarh using charcoal kilns and anvils without any welding.",
+    artisan: "Kondagaon Lohar craftspersons manually beating scrap iron into tribal dancers, deer, and Dipa Stambha tree lamps.",
+    detailsUrl: "../bastar-iron-craft-explorer/index.html"
   },
   {
     name: "Lucknow Chikankari",
