@@ -1957,6 +1957,13 @@ window.indiaSearchIndex = [
     description: "Explore the Battle of Jalore (1311) - the final clash between the Delhi Sultanate of Alauddin Khalji and the Chauhan rulers of Jalore under Kanhadadeva, told through timeline, key figures, outcome, and legacy.",
     url: "frontend/battle-of-jalore-explorer/index.html"
   },
+  // --- Battle of Plassey Explorer ---
+  {
+    title: "Battle of Plassey Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Plassey (23 June 1757) - Robert Clive's East India Company army against Nawab Siraj-ud-Daulah of Bengal, the conspiracy of Mir Jafar, and the battle that began British rule in India.",
+    url: "frontend/battle-of-plassey-explorer/index.html"
+  },
   // --- Battle of Rezang La Explorer ---
   {
     title: "Battle of Rezang La Explorer",
