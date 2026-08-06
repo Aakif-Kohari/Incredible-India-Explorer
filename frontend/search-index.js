@@ -1991,6 +1991,12 @@ window.indiaSearchIndex = [
     description: "Explore the Battle of Rezang La (18 November 1962) - the heroic last stand of 120 soldiers of Charlie Company, 13th Kumaon Regiment, under Major Shaitan Singh against thousands of Chinese troops in the Chushul sector of Ladakh.",
     url: "frontend/battle-of-rezang-la-explorer/index.html"
   },
+  // --- Siege of Chittor (1303) Explorer ---
+  {
+    title: "Siege of Chittor (1303) Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Siege of Chittorgarh (1303) - the historic conflict between Alauddin Khalji and Guhila King Ratnasimha, the legend of Rani Padmini, and the first Jauhar.",
+    url: "frontend/siege-of-chittor-1303-explorer/index.html"},
   // --- Battle of Sripurambiyam Explorer ---
   {
     title: "Battle of Sripurambiyam Explorer",
