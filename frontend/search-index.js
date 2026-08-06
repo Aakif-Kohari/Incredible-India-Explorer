@@ -1485,6 +1485,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Beddome's Coral Snake Explorer ---
+  {
+    title: "Beddome's Coral Snake Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Beddome's Coral Snake (Calliophis beddomei) — endemic venomous elapid of Western Ghats leaf litter, scientific taxonomy, behavior, diet, and conservation status.",
+    url: "frontend/beddomes-coral-snake-explorer/index.html"
+  },
   // --- Kingdom of Mewar Explorer ---
   {
     title: "Kingdom of Mewar Explorer",
