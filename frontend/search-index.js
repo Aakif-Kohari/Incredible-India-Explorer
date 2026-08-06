@@ -1956,5 +1956,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Jalore (1311) - the final clash between the Delhi Sultanate of Alauddin Khalji and the Chauhan rulers of Jalore under Kanhadadeva, told through timeline, key figures, outcome, and legacy.",
     url: "frontend/battle-of-jalore-explorer/index.html"
+  },
+  // --- Battle of Rezang La Explorer ---
+  {
+    title: "Battle of Rezang La Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Rezang La (18 November 1962) - the heroic last stand of 120 soldiers of Charlie Company, 13th Kumaon Regiment, under Major Shaitan Singh against thousands of Chinese troops in the Chushul sector of Ladakh.",
+    url: "frontend/battle-of-rezang-la-explorer/index.html"
   }
 ];
