@@ -1956,5 +1956,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Jalore (1311) - the final clash between the Delhi Sultanate of Alauddin Khalji and the Chauhan rulers of Jalore under Kanhadadeva, told through timeline, key figures, outcome, and legacy.",
     url: "frontend/battle-of-jalore-explorer/index.html"
+  },
+  // --- Battle of Ujjain Explorer ---
+  {
+    title: "Battle of Ujjain Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Ujjain (1801) - the epic clash between Yashwantrao Holkar of Indore and Daulat Rao Scindia's forces, told through timeline, belligerents, outcome, and legacy.",
+    url: "frontend/battle-of-ujjain-explorer/index.html"
   }
 ];
