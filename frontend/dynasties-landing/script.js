@@ -46,6 +46,18 @@ function initScrollTop() {
  */
 const dynastiesData = [
     {
+        id: 'koppam',
+        name: 'Battle of Koppam',
+        region: 'deccan',
+        period: 'medieval',
+        religion: 'hinduism',
+        capital: 'Koppam (Battlefield)',
+        dates: '1050s CE',
+        description: 'The fierce struggle for Deccan supremacy between the Cholas and the Western Chalukyas.',
+        icon: '⚔️',
+        link: '../battle-koppam/index.html'
+    },
+    {
         id: 'kakatiya',
         name: 'Kakatiya Dynasty',
         region: 'south',
