@@ -1971,6 +1971,13 @@ window.indiaSearchIndex = [
     description: "Explore the Third Battle of Panipat (14 January 1761) - Ahmad Shah Durrani's decisive victory over the Maratha Confederacy under Sadashivrao Bhau, one of the largest and bloodiest battles in Indian history.",
     url: "frontend/third-battle-of-panipat-explorer/index.html"
   },
+  // --- Battle of Sinhagad Explorer ---
+  {
+    title: "Battle of Sinhagad Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Sinhagad (4 February 1670) - Tanaji Malusare's moonlit escalade of Kondhana's western cliff, the duel that killed two commanders, and the Maratha recapture of the fort that cost a lion's life.",
+    url: "frontend/battle-of-sinhagad-explorer/index.html"
+  },
   // --- Kalinga War Explorer ---
   {
     title: "Kalinga War History Explorer",
