@@ -1996,6 +1996,18 @@ window.indiaSearchIndex = [
     title: "Siege of Chittor (1303) Explorer",
     category: "Featured Explorers",
     description: "Explore the Siege of Chittorgarh (1303) - the historic conflict between Alauddin Khalji and Guhila King Ratnasimha, the legend of Rani Padmini, and the first Jauhar.",
-    url: "frontend/siege-of-chittor-1303-explorer/index.html"
+    url: "frontend/siege-of-chittor-1303-explorer/index.html"},
+  // --- Battle of Sripurambiyam Explorer ---
+  {
+    title: "Battle of Sripurambiyam Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Sripurambiyam (c. 879 CE) - the watershed Dravidian clash near Kumbakonam that broke Pandya hegemony and paved the way for the rise of the Imperial Cholas under Aditya I.",
+    url: "frontend/battle-of-sripurambiyam-explorer/index.html"},
+  // --- Battle of Pullalur Explorer ---
+  {
+    title: "Battle of Pullalur Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Pullalur (c. 618–619 CE) - the epic clash between Western Chalukya Emperor Pulakeshin II and Pallava King Mahendravarman I, initiating a century-long struggle for Deccan supremacy.",
+    url: "frontend/battle-of-pullalur-explorer/index.html"
   }
 ];
