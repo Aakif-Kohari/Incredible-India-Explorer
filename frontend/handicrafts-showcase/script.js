@@ -1,6 +1,17 @@
 // ---------- Handicrafts Data (16 crafts across UP districts) ----------
 const allCrafts = [
   {
+    name: "Chhau Dance Masks",
+    icon: "🎭",
+    district: "Purulia & Charida",
+    category: "mask",
+    tags: ["UNESCO Listed", "Paper-Mache", "Folk Art"],
+    description: "Vibrant hand-sculpted papier-mâché dance masks used in Purulia and Seraikela Chhau martial folk theater.",
+    history: "Centuries-old folk performance mask art created by Sutradhar artisans depicting Ramayana, Mahabharata, and Puranic deities.",
+    artisan: "Charida village artisans in Purulia crafting lightweight paper-mache shells embellished with peacock feathers and zari crowns.",
+    detailsUrl: "../chhau-masks-explorer/index.html"
+  },
+  {
     name: "Lucknow Chikankari",
     icon: "🪡",
     district: "Lucknow",
