@@ -1963,5 +1963,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Plassey (23 June 1757) - Robert Clive's East India Company army against Nawab Siraj-ud-Daulah of Bengal, the conspiracy of Mir Jafar, and the battle that began British rule in India.",
     url: "frontend/battle-of-plassey-explorer/index.html"
+  },
+  // --- Battle of Rezang La Explorer ---
+  {
+    title: "Battle of Rezang La Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Rezang La (18 November 1962) - the heroic last stand of 120 soldiers of Charlie Company, 13th Kumaon Regiment, under Major Shaitan Singh against thousands of Chinese troops in the Chushul sector of Ladakh.",
+    url: "frontend/battle-of-rezang-la-explorer/index.html"
   }
 ];
