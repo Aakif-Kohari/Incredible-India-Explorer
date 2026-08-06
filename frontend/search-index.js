@@ -1485,6 +1485,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Bastar Iron Craft Explorer ---
+  {
+    title: "Bastar Iron Craft Explorer",
+    category: "Arts & Culture",
+    description: "Explore Bastar Iron Craft (Loha Shilp) — GI-certified tribal wrought iron artistry of Chhattisgarh featuring manual forging, traditional motifs, and artisan spotlight.",
+    url: "frontend/bastar-iron-craft-explorer/index.html"
+  },
   // --- Kingdom of Mewar Explorer ---
   {
     title: "Kingdom of Mewar Explorer",

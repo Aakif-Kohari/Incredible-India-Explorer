@@ -1,6 +1,17 @@
 // ---------- Handicrafts Data (16 crafts across UP districts) ----------
 const allCrafts = [
   {
+    name: "Bastar Iron Craft (Loha Shilp)",
+    icon: "🔨",
+    district: "Bastar & Kondagaon",
+    category: "metal",
+    tags: ["GI Tagged", "Wrought Iron", "Tribal Art"],
+    description: "Traditional hand-forged wrought iron craft by Bastar tribal artisans creating sleek figurines and oil lamps.",
+    history: "Ancestral metal forging tradition practiced by Lohar artisans of Chhattisgarh using charcoal kilns and anvils without any welding.",
+    artisan: "Kondagaon Lohar craftspersons manually beating scrap iron into tribal dancers, deer, and Dipa Stambha tree lamps.",
+    detailsUrl: "../bastar-iron-craft-explorer/index.html"
+  },
+  {
     name: "Lucknow Chikankari",
     icon: "🪡",
     district: "Lucknow",
