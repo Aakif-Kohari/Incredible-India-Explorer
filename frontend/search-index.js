@@ -1485,6 +1485,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Chhau Masks Explorer ---
+  {
+    title: "Chhau Masks Explorer",
+    category: "Arts & Culture",
+    description: "Explore Chhau Masks Heritage — UNESCO Intangible Cultural Heritage of Purulia and Seraikela, paper-mache mask making, divine/asura mask types, and folk dance performance gallery.",
+    url: "frontend/chhau-masks-explorer/index.html"
+  },
   // --- Bidriware Craftsmanship Explorer ---
   {
     title: "Bidriware Craftsmanship Explorer",
