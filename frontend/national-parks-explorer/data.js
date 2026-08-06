@@ -238,7 +238,7 @@ image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_
         bestTime: 'July to September',
         entryFee: '₹150 (Indian), ₹600 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Meconopsis_aculeata_in_Valley_of_Flowers.jpg/960px-Meconopsis_aculeata_in_Valley_of_Flowers.jpg',
-        exploreUrl: '../valley-of-flowers-explorer/index.html'
+        explorerUrl: '../national-parks/valley-of-flowers-national-park-explorer/index.html'
     },
     {
         id: 'gir',
