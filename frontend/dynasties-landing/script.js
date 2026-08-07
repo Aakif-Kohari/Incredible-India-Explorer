@@ -166,6 +166,18 @@ const dynastiesData = [
         link: '#'
     },
     {
+        id: 'pandya',
+        name: 'Pandya Dynasty',
+        region: 'south',
+        period: 'ancient',
+        religion: 'hinduism',
+        capital: 'Madurai',
+        dates: 'c. 300 BCE - 1345 CE',
+        description: 'A Tamil dynasty celebrated for Gulf of Mannar pearls, Madurai culture and temple patronage.',
+        icon: '🦪',
+        link: '../pandya-dynasty-explorer/index.html'
+    },
+    {
         id: 'vijayanagara',
         name: 'Vijayanagara Empire',
         region: 'south',
