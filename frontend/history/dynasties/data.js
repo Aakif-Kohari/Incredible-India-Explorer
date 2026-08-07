@@ -93,6 +93,7 @@ export const dynasties = [
       "Market regulation and price control systems",
       "Postal and intelligence networks"
     ],
+    
     art: "Indo-Islamic architecture, minarets, domes, arches, calligraphy, geometric patterns",
     era: "medieval",
     color: "#9b59b6",
@@ -223,13 +224,173 @@ export const dynasties = [
       "Tamil literature and art flourished",
       "Chola bronze casting technique"
     ],
-    art: "Bronze Nataraja, Brihadeshwara Temple, Thanjavur paintings, Chola bronzes",
+art: "Bronze Nataraja, Brihadeshwara Temple, Thanjavur paintings, Chola bronzes",
     era: "medieval",
     color: "#1abc9c",
     mapPosition: { top: "70%", left: "55%" }
+  },
+  {
+    id: "indo-greek",
+    name: "Indo-Greek Kingdom",
+    period: "c. 200 BCE–10 CE",
+    startYear: -200,
+    endYear: 10,
+    capital: "Taxila, later Sagala (present-day Sialkot)",
+    founders: "Demetrius I of Bactria",
+    notableRulers: [
+      { name: "Demetrius I", reign: "c. 200–180 BCE", achievement: "Crossed the Hindu Kush and founded Indo-Greek rule in northwestern India" },
+      { name: "Apollodotus I", reign: "c. 180–160 BCE", achievement: "Extended Indo-Greek rule into Sindh and Gujarat; his coinage circulated widely" },
+      { name: "Menander I (Milinda)", reign: "c. 165/155–130 BCE", achievement: "Most powerful Indo-Greek king, expanded the realm to Mathura, embraced Buddhism" },
+      { name: "Strato II", reign: "c. 25 BCE–10 CE", achievement: "Last known Indo-Greek king before the kingdom was absorbed by the Indo-Scythians" }
+    ],
+    territory: "Parts of present-day Afghanistan, Pakistan, and northwestern India, including the Punjab and Gandhara",
+    peakExtent: "From the Kabul Valley and Gandhara across Punjab and Sindh to Mathura under Menander I",
+    governance: "A succession of more than 30 Greek kings across two rival branches (Euthydemid and Eucratid), often ruling simultaneously over separate territories",
+    military: "Hellenistic-style phalanx infantry and cavalry, combined with Indian war elephants",
+    decline: "Fragmentation among competing petty kingdoms and pressure from the Indo-Scythians (Sakas); the last king, Strato II, disappeared around 10 CE, ending Greek rule in India",
+    contributions: [
+      "Bilingual coinage — Greek legends and portraiture on one side, Kharosthi/Prakrit on the other — a landmark in Indian numismatics",
+      "Fusion of Hellenistic and Indian artistic traditions, a forerunner of the later Gandhara school of art",
+      "Spread of Greco-Buddhism, most famously through Menander I's dialogue with the monk Nagasena recorded in the Milinda Panha",
+      "Introduction of realistic portrait sculpture and Greek artistic conventions into the subcontinent",
+      "Cultural and trade contact linking the Hellenistic Mediterranean world with India",
+      "Greek loanwords and astronomical concepts that influenced later Indian astrology and astronomy"
+    ],
+    art: "Bilingual Greek-Kharosthi coin portraiture, Hellenistic-Indian sculptural fusion, early Greco-Buddhist iconography",
+    era: "ancient",
+    color: "#2980b9",
+    mapPosition: { top: "20%", left: "45%" },
+    link: "indo-greek/index.html"
+  },
+  {
+    id: "kushan",
+    name: "Kushan Empire",
+    period: "c. 30–375 CE",
+    startYear: 30,
+    endYear: 375,
+    capital: "Purushpura (Peshawar), with a secondary capital at Mathura",
+    founders: "Kujula Kadphises",
+    notableRulers: [
+      { name: "Kujula Kadphises", reign: "c. 30–80 CE", achievement: "United the Yuezhi tribes and founded the Kushan Empire, established control over Bactria and Kabul" },
+      { name: "Vima Kadphises", reign: "c. 105–127 CE", achievement: "Conquered Gandhara, issued extensive gold coinage, expanded trade with Rome" },
+      { name: "Kanishka I", reign: "c. 127–150 CE", achievement: "Empire reached its zenith; convened the Fourth Buddhist Council and patronized Gandhara art" },
+      { name: "Vasudeva I", reign: "c. 190–230 CE", achievement: "Last powerful Kushan ruler; presided over the empire before its gradual decline" }
+    ],
+    territory: "Central Asia, Afghanistan, Pakistan, and northern India",
+    peakExtent: "From Central Asia (Bactria, Khotan, Kashgar) through Afghanistan and Gandhara to Mathura, Malwa, and parts of Magadha under Kanishka I",
+    governance: "Centralized monarchy with regional governors (satraps); syncretic administration blending Central Asian, Persian, and Indian traditions",
+    military: "Powerful cavalry-based army; controlled key Silk Road passes connecting China, Central Asia, India, and the Roman world",
+    decline: "Weak successors after Vasudeva I, pressure from the Sassanian Empire, and fragmentation into regional Kushano-Sasanian kingdoms",
+    contributions: [
+      "Control of a major stretch of the Silk Road, linking Rome, Central Asia, China, and India",
+      "Patronage of Buddhism, including Kanishka's Fourth Buddhist Council",
+      "Flourishing of the Gandhara and Mathura schools of art, including early Buddha imagery",
+      "Extensive gold and copper coinage depicting Greek, Persian, Hindu, and Buddhist deities side by side",
+      "Facilitated the spread of Buddhism into Central Asia, China, Korea, and Japan",
+      "A cultural crossroads blending Greek, Persian, Indian, and Central Asian traditions"
+    ],
+    art: "Gandhara Greco-Buddhist sculpture, Mathura school of art, syncretic Kushan coinage",
+    era: "ancient",
+    color: "#f1c40f",
+    mapPosition: { top: "15%", left: "40%" },
+    link: "kushan/index.html"
+  },
+    {
+    id: "vakataka",
+    name: "Vakataka Dynasty",
+    period: "250–510 CE",
+    startYear: 250,
+    endYear: 510,
+    capital: "Nandivardhana, later Pravarapura; Vatsagulma (Washim) for the second branch",
+    founders: "Vindhyashakti",
+    notableRulers: [
+      { name: "Vindhyashakti", reign: "c. 250–270 CE", achievement: "Founded the Vakataka dynasty in the Deccan" },
+      { name: "Pravarasena I", reign: "c. 270–330 CE", achievement: "First Vakataka ruler to claim the title Samrat, greatly expanded the kingdom" },
+      { name: "Pravarasena II", reign: "c. 400–440 CE", achievement: "Composed the Setubandha, moved the capital to Pravarapura, issued numerous land grants" },
+      { name: "Harishena", reign: "c. 475–500 CE", achievement: "Greatest patron of the Ajanta Caves, extended the Vatsagulma branch to its peak" }
+    ],
+    territory: "Central India and the Deccan, primarily the Vidarbha region",
+    peakExtent: "From Malwa in the north to the Kuntala region in the south under Harishena",
+    governance: "Kingdom divided into provinces (rashtras) administered by Rajyadhikritas; extensive land-grant system",
+    military: "Regional Deccan power; matrimonial alliance rather than conflict with the Gupta Empire",
+    decline: "Rapid decline after Harishena's death around 500–510 CE; territories absorbed by neighbouring powers, paving the way for the rise of the Chalukyas",
+    contributions: [
+      "Patronage of the Ajanta Caves — UNESCO World Heritage rock-cut Buddhist monastery",
+      "Renowned Ajanta cave paintings and frescoes depicting Jataka tales",
+      "Sanskrit and Prakrit literary patronage, including Pravarasena II's Setubandha",
+      "Blend of indigenous, Gupta, and Satavahana architectural styles",
+      "Numerous land-grant copper-plate inscriptions documenting administration",
+      "Temple architecture, including a temple dedicated to Rama built by Pravarasena II"
+    ],
+    art: "Ajanta cave viharas and chaityas, Buddhist murals and sculpture, Vakataka-style temple architecture",
+    era: "ancient",
+    color: "#d35400",
+    mapPosition: { top: "55%", left: "50%" },
+    link: "vakataka/index.html"
+  },
+    {
+    id: "kanva",
+    name: "Kanva Dynasty",
+    period: "73–28 BCE",
+    startYear: -73,
+    endYear: -28,
+    capital: "Pataliputra (coins also found around Vidisha)",
+    founders: "Vasudeva Kanva",
+    notableRulers: [
+      { name: "Vasudeva Kanva", reign: "73–64 BCE", achievement: "Overthrew the last Shunga king Devabhuti and founded the Kanva dynasty" },
+      { name: "Bhumimitra", reign: "64–52 BCE", achievement: "Consolidated Kanva rule, coins found across Panchala, Vidisha, and Kaushambi" },
+      { name: "Susarman", reign: "40–28 BCE", achievement: "Last Kanva ruler, defeated by the Satavahana king Simuka" }
+    ],
+    territory: "Magadha, with influence extending into parts of central India",
+    peakExtent: "Pataliputra and the Magadha region, with coin evidence near Vidisha",
+    governance: "Continuation of the Shunga administrative system under a Brahmin ruling house",
+    military: "Limited historical record; relied on inherited Shunga-era forces",
+    decline: "Weak later rulers and rising Satavahana power; Susarman was overthrown by Simuka around 28 BCE",
+    contributions: [
+      "Preserved Brahmanical and Vedic traditions in Magadha after Shunga rule",
+      "Maintained continuity of administration during a fragmented post-Mauryan era",
+      "Patronized Sanskrit literature and scholarship",
+      "Numismatic evidence (Kanva coinage) provides key insight into post-Mauryan political geography",
+      "Served as a historical bridge between the Shunga and Satavahana periods"
+    ],
+    art: "Limited surviving material record; primarily known through coinage rather than monuments",
+    era: "ancient",
+    color: "#34495e",
+    mapPosition: { top: "33%", left: "58%" },
+    link: "kanva/index.html"
+  }  {
+    id: "sena",
+    name: "Sena Dynasty",
+    period: "1070–1230 CE",
+    startYear: 1070,
+    endYear: 1230,
+    capital: "Vikramapura, later Nabadwip (Nadia)",
+    founders: "Samanta Sena (progenitor); Vijaya Sena (established sovereign rule)",
+    notableRulers: [
+      { name: "Vijaya Sena", reign: "1096–1160 CE", achievement: "Deposed the Palas, founded the Sena kingdom, built the Pradyumneshvara temple" },
+      { name: "Ballala Sena", reign: "1160–1178 CE", achievement: "Ended Pala rule in Bengal, introduced the Kulinism social system" },
+      { name: "Lakshmana Sena", reign: "1178–1206 CE", achievement: "Greatest Sena king, patron of poet Jayadeva, expanded into Bihar and Odisha" }
+    ],
+    territory: "Bengal, extending into Bihar and Odisha at its peak",
+    peakExtent: "From north Bengal to coastal Odisha, west into Bihar and near Varanasi",
+    governance: "Feudal monarchy with land grants recorded on copper plates",
+    military: "Riverine navy along the Ganges, cavalry and infantry",
+    decline: "Muhammad Bakhtiyar Khalji's invasion of Nabadwip (c. 1204) captured northwest Bengal; the dynasty ended by 1230 with the rise of the Deva dynasty",
+    contributions: [
+      "Revival of orthodox Hinduism after Buddhist Pala rule",
+      "Kulinism — a lasting social classification system among Bengali Brahmins and Kayasthas",
+      "Patronage of Sanskrit court poetry, including Jayadeva's Gita Govinda",
+      "Deopara and Barrackpur copper-plate inscriptions documenting land grants",
+      "Bengal school of black basalt stone sculpture",
+      "Establishment of Nabadwip (Nadia) as a centre of learning and culture"
+    ],
+    art: "Sena-era black basalt sculpture, Sanskrit court poetry, temple architecture at Deopara",
+    era: "medieval",
+    color: "#c0392b",
+    mapPosition: { top: "38%", left: "78%" },
+    link: "sena/index.html"
   }
 ];
-
 export const eraInfo = {
   ancient: { label: "Ancient", color: "#e74c3c", description: "322 BCE – 550 CE" },
   medieval: { label: "Medieval", color: "#3498db", description: "1206 – 1700 CE" },
@@ -257,5 +418,28 @@ export const timelineEvents = [
   { year: 1674, event: "Shivaji Maharaj crowned Chhatrapati", dynasty: "maratha" },
   { year: 1720, event: "Peshwa Baji Rao I expands Maratha Empire", dynasty: "maratha" },
   { year: 1761, event: "Third Battle of Panipat — Maratha decline", dynasty: "maratha" },
-  { year: 1857, event: "Fall of Mughal Empire — Bahadur Shah Zafar deposed", dynasty: "mughal" }
+{ year: 1857, event: "Fall of Mughal Empire — Bahadur Shah Zafar deposed", dynasty: "mughal" },
+  { year: -200, event: "Demetrius I crosses the Hindu Kush, founding Indo-Greek rule in northwestern India", dynasty: "indo-greek" },
+  { year: -180, event: "Apollodotus I extends Indo-Greek territory into Sindh and Gujarat", dynasty: "indo-greek" },
+  { year: -155, event: "Menander I becomes king and expands the realm to its greatest extent, reaching Mathura", dynasty: "indo-greek" },
+  { year: -130, event: "Death of Menander I; the Milinda Panha later records his dialogue with the monk Nagasena", dynasty: "indo-greek" },
+  { year: 10, event: "Strato II, the last Indo-Greek king, disappears as the Indo-Scythians take control", dynasty: "indo-greek" }
+    { year: 30, event: "Kujula Kadphises unites the Yuezhi tribes and founds the Kushan Empire", dynasty: "kushan" },
+  { year: 105, event: "Vima Kadphises conquers Gandhara and expands Kushan trade with Rome", dynasty: "kushan" },
+  { year: 127, event: "Kanishka I ascends the throne; the Kushan Empire reaches its greatest extent", dynasty: "kushan" },
+  { year: 150, event: "Huvishka succeeds Kanishka, continuing patronage of Buddhism and Zoroastrianism", dynasty: "kushan" },
+  { year: 230, event: "Death of Vasudeva I, the last powerful Kushan ruler, marks the start of decline", dynasty: "kushan" }
+    { year: 270, event: "Pravarasena I becomes the first Vakataka ruler to take the title Samrat", dynasty: "vakataka" },
+  { year: 385, event: "Rudrasena II marries Prabhavatigupta, daughter of Gupta emperor Chandragupta II", dynasty: "vakataka" },
+  { year: 405, event: "Pravarasena II composes the Setubandha and moves the capital to Pravarapura", dynasty: "vakataka" },
+  { year: 475, event: "Harishena becomes ruler and sponsors the finest phase of the Ajanta Caves", dynasty: "vakataka" },
+  { year: 510, event: "Vakataka dynasty declines after Harishena's death", dynasty: "vakataka" }
+  { year: -73, event: "Vasudeva Kanva overthrows the last Shunga king Devabhuti", dynasty: "kanva" },
+  { year: -64, event: "Bhumimitra succeeds Vasudeva Kanva as Kanva ruler", dynasty: "kanva" },
+  { year: -40, event: "Susarman, the last Kanva ruler, ascends the throne", dynasty: "kanva" },
+  { year: -28, event: "Satavahana ruler Simuka overthrows Susarman, ending Kanva rule", dynasty: "kanva" }  { year: 1096, event: "Vijaya Sena founds the Sena dynasty by deposing the Palas", dynasty: "sena" },
+  { year: 1160, event: "Ballala Sena introduces Kulinism and ends Pala rule in Bengal", dynasty: "sena" },
+  { year: 1178, event: "Lakshmana Sena ascends the throne, patronizes poet Jayadeva", dynasty: "sena" },
+  { year: 1204, event: "Bakhtiyar Khalji invades Nabadwip, Sena capital falls", dynasty: "sena" },
+  { year: 1230, event: "Keshava Sena's reign ends — the Sena dynasty concludes", dynasty: "sena" }
 ];

@@ -15,9 +15,10 @@ export function DynastyCard({ dynastyId, onExpand }) {
         <button class="expand-btn" aria-label="Expand details for ${d.name}">+</button>
       </div>
       <span class="dynasty-card-period">${d.period}</span>
-      <span class="dynasty-card-capital">Capital: ${d.capital}</span>
-    </div>
-    <div class="dynasty-card-body">
+<span class="dynasty-card-capital">Capital: ${d.capital}</span>
+      ${d.link ? `<a class="dynasty-card-link" href="${d.link}">View Full Explorer →</a>` : ''}      ${d.link ? `<a class="dynasty-card-link" href="${d.link}">View Full Explorer →</a>` : ''}      ${d.link ? `<a class="dynasty-card-link" href="${d.link}">View Full Explorer →</a>` : ''}
+      ${d.link ? `<a class="dynasty-card-link" href="${d.link}">View Full Explorer →</a>` : ''}      ${d.link ? `<a class="dynasty-card-link" href="${d.link}">View Full Explorer →</a>` : ''}
+    </div>    <div class="dynasty-card-body">
       <div class="dynasty-card-stats">
         <div class="stat">
           <span class="stat-label">Founder</span>
