@@ -644,6 +644,12 @@ window.indiaSearchIndex = [
     url: "frontend/river/frontend/river/river.html"
   },
   {
+    title: "Gujarati Cinema (Dhollywood) Explorer",
+    category: "Culture",
+    description: "Discover Dhollywood, the Gujarati film industry — from Narsinh Mehta (1932), the first Gujarati talkie, to National Award-winning classics and its modern urban revival.",
+    url: "frontend/gujarati-cinema-explorer/index.html"
+  },
+  {
     title: "River Krishna",
     category: "Rivers",
     description: "Major river of southern India, supporting agriculture across Maharashtra, Karnataka, and Andhra Pradesh.",
