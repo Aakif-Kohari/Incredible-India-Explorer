@@ -214,9 +214,183 @@ const fortsData = [
         ]
     },
     {
+        id: "rohtasgarh-fort",
+        name: "Rohtasgarh Fort",
+        location: "Rohtas",
+        state: "Bihar",
+        built: "16th Century (Sher Shah Suri)",
+        builtBy: "Sher Shah Suri / Raja Man Singh",
+        era: "Medieval Era",
+        architecture: "Afghan-Mughal Architecture",
+        image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80",
+        history: "One of eastern India's largest hill forts, perched on the Kaimur plateau and known for its massive gateways and rich medieval history as Sher Shah Suri's stronghold.",
+        highlights: [
+            "Largest hill fort in eastern India",
+            "Massive gateways",
+            "Sher Shah Suri's stronghold",
+            "Man Singh's palaces"
+        ],
+        customUrl: "rohtasgarh-fort.html"},{
+        id: "fort-william",
+        name: "Fort William",
+        location: "Kolkata",
+        state: "West Bengal",
+        built: "1696-1702 / Rebuilt 1757-1773",
+        builtBy: "British East India Company",
+        era: "Colonial Era",
+        architecture: "British Colonial Architecture",
+        image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80",
+        history: "The historic British fort on the Hooghly river, seat of the East India Company in Bengal, built after the Battle of Plassey and still an active military establishment.",
+        highlights: [
+            "Active military establishment",
+            "Built by Robert Clive",
+            "Octagonal star fortress",
+            "Overlooks the Maidan"
+        ],
+        customUrl: "fort-william.html"},{
+        id: "bidar-fort",
+        name: "Bidar Fort",
+        location: "Bidar",
+        state: "Karnataka",
+        built: "1427 (Bahmani Capital)",
+        builtBy: "Sultan Ahmad Shah Wali",
+        era: "Bahmani Era",
+        architecture: "Indo-Persian Architecture",
+        image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80",
+        history: "The Persian-inspired capital of the Bahmani Sultanate, famed for its triple moats, glazed-tile Rangin Mahal palace, and majestic gateways.",
+        highlights: [
+            "Triple-moat defence system",
+            "Rangin Mahal glazed tiles",
+            "Solah Khamba Mosque",
+            "Bahmani Sultanate capital"
+        ],
+        customUrl: "bidar-fort.html"},{
+        id: "chitradurga-fort",
+        name: "Chitradurga Fort",
+        location: "Chitradurga",
+        state: "Karnataka",
+        built: "11th-18th Century",
+        builtBy: "Nayakas of Chitradurga",
+        era: "Vijayanagara Era",
+        architecture: "Hill Fort Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "The 'Kallina Kote' (Stone Fort), one of India's greatest hill forts, famous for its massive stone fortifications, seven concentric walls, and the heroic legend of Onake Obavva.",
+        highlights: [
+            "Seven concentric stone walls",
+            "Legend of Onake Obavva",
+            "Interlocking granite boulders",
+            "Hidden passages & gateways"
+        ],
+        customUrl: "chitradurga-fort.html"},{
+        id: "st-angelo-fort",
+        name: "St. Angelo Fort",
+        location: "Kannur",
+        state: "Kerala",
+        built: "1505",
+        builtBy: "Francisco de Almeida (Portuguese)",
+        era: "Colonial Era",
+        architecture: "Portuguese Colonial Architecture",
+        image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80",
+        history: "The oldest Portuguese fort in India, built in 1505 and later held by the Dutch and British, offering spectacular views of the Arabian Sea.",
+        highlights: [
+            "Oldest Portuguese fort in India",
+            "Built in 1505 by De Almeida",
+            "Laterite stone ramparts",
+            "Kannur Lighthouse views"
+        ],
+        customUrl: "st-angelo-fort.html"},{
+        id: "tiruchirappalli-rock-fort",
+        name: "Tiruchirappalli Rock Fort",
+        location: "Tiruchirappalli",
+        state: "Tamil Nadu",
+        built: "6th Century CE (Pallava) onwards",
+        builtBy: "Pallavas / Madurai Nayakas",
+        era: "Medieval Era",
+        architecture: "Dravidian Rock-Cut Architecture",
+        image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80",
+        history: "An iconic fort built on one of the world's oldest rock formations (3.8 billion years), famed for its ancient cave temples and panoramic views of the Kaveri delta.",
+        highlights: [
+            "3.8-billion-year-old rock",
+            "437 steps to the summit",
+            "Ucchi Pillayar Temple",
+            "Panoramic Kaveri delta views"
+        ],
+        customUrl: "tiruchirappalli-rock-fort.html"},
+       { id: "vellore-fort",
+        name: "Vellore Fort",
+        location: "Vellore",
+        state: "Tamil Nadu",
+        built: "16th Century",
+        builtBy: "Vijayanagara Empire",
+        era: "Vijayanagara Era",
+        architecture: "Vijayanagara Military Architecture",
+        image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80",
+        history: "One of the finest surviving examples of military architecture in South India, famed for its massive granite ramparts, crocodile-filled moat, and the historic Vellore Mutiny of 1806.",
+        highlights: [
+            "First sepoy uprising of 1806",
+            "Jalakandeswarar Temple",
+            "Crocodile moat & double ramparts",
+            "Imprisoned Tipu Sultan's family"
+        ],
+        customUrl: "vellore-fort.html"},
+        {id: "vijaydurg-fort",
+        name: "Vijaydurg Fort",
+        location: "Devgad",
+        state: "Maharashtra",
+        built: "12th Century (Rebuilt 1653)",
+        builtBy: "Shilahara Dynasty / Chhatrapati Shivaji Maharaj",
+        era: "Maratha Era",
+        architecture: "Coastal Maratha Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "One of the oldest sea forts on the Konkan coast, the 'Gibraltar of the East' served as the most formidable naval base of the Maratha Empire under Kanhoji Angre.",
+        highlights: [
+            "Gibraltar of the East",
+            "Major Maratha naval base",
+            "Hidden 1.4 km underwater wall",
+            "Kanhoji Angre's headquarters"
+        ],
+ customUrl: "vijaydurg-fort.html"
+    },
+    {
+        id: "ranthambore-fort",
+        name: "Ranthambore Fort",
+        location: "Sawai Madhopur",
+        state: "Rajasthan",
+        built: "10th Century",
+        builtBy: "Chauhan (Chahamana) Dynasty",
+        era: "Rajput Era",
+        architecture: "Rajput Hill Fort Architecture",
+        image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80",
+        history: "An ancient hill fort standing inside Ranthambore National Park, famous for its Trinetra Ganesh Temple, its role in the sieges of medieval Rajasthan, and its unique setting within a tiger reserve.",
+        highlights: [
+            "UNESCO World Heritage Site",
+            "Located inside a tiger reserve",
+            "Trinetra Ganesh Temple",
+            "Site of Alauddin Khilji's 1301 siege"
+        ],
+        customUrl: "ranthambore-fort.html"
+    },    {
+        id: "gagron-fort",
+        name: "Gagron Fort",
+        location: "Jhalawar",
+        state: "Rajasthan",
+        built: "7th-14th Century",
+        builtBy: "Dod Rajputs / Khichi Chauhan Dynasty",
+        era: "Rajput Era",
+        architecture: "Rajput Hill-and-Water Fort Architecture",
+        image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80",
+        history: "A rare hill-and-water fort at the confluence of the Kali Sindh and Ahu rivers, encircled by water on three sides and needing no moat, later recognised as a UNESCO World Heritage Site.",
+        highlights: [
+            "UNESCO World Heritage Site",
+            "Only fort in Rajasthan without a moat",
+            "Surrounded by two rivers",
+            "Site of two historic jauhars"
+        ],
+        customUrl: "gagron-fort.html"
+    },
+    {
         id: 12,
-        name: "Srirangapatna Fort",
-        location: "Srirangapatna",
+        name: "Srirangapatna Fort",        location: "Srirangapatna",
         state: "Karnataka",
         built: "15th Century",
         builtBy: "Tipu Sultan",
@@ -229,8 +403,166 @@ const fortsData = [
             "Tipu's Summer Palace (Dariya Daulat Bagh)",
             "Gumbaz (Tipu's mausoleum)",
             "Sriranganathaswamy Temple",
-            "Located on an island in River Kaveri"
+"Located on an island in River Kaveri"
         ]
+    },
+    {
+        id: "nahargarh-fort",
+        name: "Nahargarh Fort",
+        location: "Jaipur",
+        state: "Rajasthan",
+        built: "1734 (expanded 1868)",
+        builtBy: "Sawai Jai Singh II",
+        era: "Kachwaha Era",
+        architecture: "Rajput-Indo-European Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "Nahargarh Fort was built in 1734 by Sawai Jai Singh II as part of Jaipur's defense ring alongside Amer and Jaigarh forts, and was later expanded in 1868 by Sawai Ram Singh. Perched on a ridge overlooking the city, it is famed for the Madhavendra Bhawan palace and panoramic sunset views of the Pink City.",
+        highlights: [
+            "Part of Jaipur's triangular defense system with Amer and Jaigarh forts",
+            "Madhavendra Bhawan with nine identical queens' suites",
+            "Popular sunset viewpoint over Jaipur",
+            "Linked to the legend of Nahar Singh Bhomia",
+            "Featured in films including Rang De Basanti"
+        ],
+        customUrl: "nahargarh-fort.html"
+    },
+        {
+        id: "jaigarh-fort",
+        name: "Jaigarh Fort",
+        location: "Jaipur",
+        state: "Rajasthan",
+        built: "1726",
+        builtBy: "Sawai Jai Singh II",
+        era: "Kachwaha Era",
+        architecture: "Rajput Military Architecture",
+        image: "https://images.unsplash.com/photo-1590716179555-8c8a9dc5c6d9?w=800&q=80",
+        history: "Jaigarh Fort was built in 1726 by Sawai Jai Singh II to strengthen the defences of Amer Fort and house the state's cannon foundry. Perched on Cheel ka Teela in the Aravalli hills, it was never conquered in battle and is famed for the Jaivana Cannon, the largest cannon on wheels in the world.",
+        highlights: [
+            "Houses the Jaivana Cannon, the world's largest cannon on wheels",
+            "Connected to Amer Fort by underground passages",
+            "One of Asia's few surviving cannon foundries",
+            "Never captured in battle",
+            "Panoramic views from the Diya Burj watchtower"
+        ],
+        customUrl: "jaigarh-fort.html"
+    },
+        {
+        id: "kumbhalgarh-fort",
+        name: "Kumbhalgarh Fort",
+        location: "Kumbhalgarh",
+        state: "Rajasthan",
+        built: "15th Century (c. 1443-1458 CE)",
+        builtBy: "Rana Kumbha",
+        era: "Mewar Era",
+        architecture: "Rajput Hill Fort Architecture",
+        image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80",
+        history: "Kumbhalgarh Fort was built in the 15th century by Rana Kumbha of Mewar and is best known for its massive fortification wall, often called the Great Wall of India, stretching roughly 36 kilometres across the Aravalli hills. It is the birthplace of Maharana Pratap and was breached only once in its history.",
+        highlights: [
+            "UNESCO World Heritage Site (Hill Forts of Rajasthan, 2013)",
+            "One of the longest continuous walls in the world",
+            "Birthplace of Maharana Pratap",
+            "Badal Mahal (Cloud Palace)",
+            "Over 300 temples within the fort walls"
+        ],
+        customUrl: "kumbhalgarh-fort.html"
+    },
+        {
+        id: "agra-fort",
+        name: "Agra Fort",
+        location: "Agra",
+        state: "Uttar Pradesh",
+        built: "1565-1573 CE",
+        builtBy: "Emperor Akbar",
+        era: "Mughal Era",
+        architecture: "Mughal Architecture",
+        image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80",
+        history: "Agra Fort is a massive red sandstone fortress on the banks of the Yamuna river, rebuilt by Emperor Akbar from 1565 and later enriched with white marble palaces by Jahangir and Shah Jahan. It served as the main residence of the Mughal emperors until the capital moved to Delhi in 1638, and is where Shah Jahan was later imprisoned by his son Aurangzeb.",
+        highlights: [
+            "UNESCO World Heritage Site since 1983",
+            "Musamman Burj - where Shah Jahan was imprisoned",
+            "Sheesh Mahal (Mirror Palace)",
+            "Moti Masjid (Pearl Mosque)",
+            "Distant view of the Taj Mahal"
+        ],
+        customUrl: "agra-fort.html"
+    },    {
+        id: 13,
+        name: "Rajgad Fort",
+        location: "Pune",
+        state: "Maharashtra",
+        built: "1647 (expanded)",
+        builtBy: "Chhatrapati Shivaji Maharaj",
+        era: "Maratha Era",
+        architecture: "Maratha Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "Rajgad, known as the King of Forts, served as the first capital of the Maratha Empire under Chhatrapati Shivaji Maharaj for nearly 26 years. Its trident-shaped plan of three fortified machis radiating from the central Balekilla citadel made it one of the most defensible strongholds of its time, before the capital shifted to Raigad Fort in 1674.",
+        highlights: [
+            "First capital of the Maratha Empire",
+            "Three fortified machis: Padmavati, Suvela, Sanjeevani",
+            "Balekilla citadel reached via the Maha Darwaja",
+            "Birthplace of Rajaram, Shivaji's son",
+            "Popular trekking destination near Pune"
+        ],
+        explorerUrl: "../rajgad-fort-explorer/index.html"
+    },
+    {
+        id: 14,
+        name: "Shivneri Fort",
+        location: "Junnar, Pune",
+        state: "Maharashtra",
+        built: "12th–14th century (Yadava era)",
+        builtBy: "Yadavas of Devagiri",
+        era: "Yadava / Maratha Era",
+        architecture: "Deccan Hill Fort Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "Shivneri Fort is revered as the birthplace of Chhatrapati Shivaji Maharaj, born here on 19 February 1630 while his mother Jijabai sheltered at the hilltop stronghold. Originally fortified by the Yadavas of Devagiri, the fort later passed through Bahmani and Nizamshahi hands before being granted to Maloji Bhosale, Shivaji's grandfather, in 1595 — beginning its enduring Maratha legacy.",
+        highlights: [
+            "Birthplace of Chhatrapati Shivaji Maharaj (1630)",
+            "Seven fortified gates built in a defensive zigzag pattern",
+            "Shiv Kunj memorial and the original birth chamber",
+            "Ancient Badami Talav stone water reservoir",
+            "400–500 step climb through Junnar's Sahyadri hills"
+        ],
+        
+        explorerUrl: "../rajgad-fort-explorer/index.html"},
+   
+    {
+        id: 14,
+        name: "Sindhudurg Fort",
+        location: "Malvan, Sindhudurg",
+        state: "Maharashtra",
+        built: "1664-1667",
+        builtBy: "Chhatrapati Shivaji Maharaj",
+        era: "Maratha Era",
+        architecture: "Maratha Sea Fort Architecture",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Sindhudurg%20Fort.jpg",
+        history: "Sindhudurg Fort is a formidable sea fort built by Chhatrapati Shivaji Maharaj on a rocky island off the coast of Malvan to strengthen the Maratha Navy and secure the Konkan coastline against European and Siddi naval powers. Constructed between 1664 and 1667 under the supervision of chief engineer Hiroji Indulkar, the fort spans nearly 48 acres and is enclosed by a massive stone wall roughly 3 km long, built to withstand relentless sea waves. It played a central role in establishing Maratha naval dominance and remains one of the best-preserved sea forts in India, still housing a temple dedicated to Shivaji Maharaj and the imprint of his hand and foot preserved in a shrine within the fort.",
+        highlights: [
+            "One of India's most important historic sea forts",
+            "Massive 3 km stone wall designed to withstand sea waves",
+            "Built to strengthen Maratha naval power against Europeans and Siddis",
+            "Shrine preserving Shivaji Maharaj's handprint and footprint",
+            "Accessible by ferry from Malvan; a major coastal heritage attraction"
+        ]},
+    {
+        id: 13,
+        name: "Daulatabad Fort",
+        location: "Daulatabad, near Aurangabad",
+        state: "Maharashtra",
+        built: "c. 1187 (fortifications expanded 14th–16th century)",
+        builtBy: "Bhillama V (Yadava Dynasty)",
+        era: "Yadava Era",
+        architecture: "Deccan Hill Fort / Indo-Islamic",
+        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Daulatabad%20Fort%20a%20view.JPG",
+        history: "Originally known as Devagiri, this near-impregnable hill fort briefly served as the capital of the entire Delhi Sultanate under Muhammad bin Tughlaq in 1327. Famous for its rock-cut moat, dark defensive tunnel, and the towering Chand Minar.",
+        highlights: [
+            "Rock-cut moat once filled with crocodiles",
+            "Pitch-black defensive tunnel (Andheri)",
+            "63-metre Chand Minar tower",
+            "Briefly capital of the Delhi Sultanate (1327)",
+            "Considered one of India's most impregnable forts"
+        ],
+        explorerUrl: "../daulatabad-fort-explorer/index.html"
     }
 ];
 
@@ -310,11 +642,17 @@ function renderForts(forts) {
                 <p>${fort.history}</p>
                 <div class="fort-card-footer">
                     <span class="fort-built">Built: <strong>${fort.built}</strong></span>
-                    <span class="view-details-btn">View Details</span>
+                    <span class="view-details-btn">${fort.customUrl ? 'Explore' : 'View Details'}</span>
                 </div>
             </div>
         `;
-        card.addEventListener('click', () => openModal(fort));
+        if (fort.customUrl) {
+            card.addEventListener('click', () => {
+                window.location.href = fort.customUrl;
+            });
+        } else {
+            card.addEventListener('click', () => openModal(fort));
+        }
         fortsGrid.appendChild(card);
     });
 }
@@ -374,10 +712,52 @@ function openModal(fort) {
         highlightsList.appendChild(li);
     });
 
+    
+    renderExplorerLink(fort);
+
+    // Show dedicated explorer link if available
+    let explorerLinkContainer = document.getElementById('modal-explorer-link');
+    if (explorerLinkContainer) explorerLinkContainer.remove();
+    if (fort.explorerUrl) {
+        const linkDiv = document.createElement('div');
+        linkDiv.id = 'modal-explorer-link';
+        linkDiv.style.cssText = 'margin-top: 1.5rem; text-align: center;';
+        const explorerLink = document.createElement('a');
+        explorerLink.href = fort.explorerUrl;
+        explorerLink.textContent = 'Launch Dedicated Explorer ➔';
+        explorerLink.style.cssText = 'display:inline-block; padding:0.75rem 1.5rem; background:linear-gradient(135deg, #ffb01f, #d97706); color:#000; font-weight:700; border-radius:999px; text-decoration:none;';
+        linkDiv.appendChild(explorerLink);
+        document.querySelector('.modal-highlights').appendChild(linkDiv);
+    }
     fortModal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
+// Add/remove a "Launch Dedicated Explorer" link for forts that have their own page
+function renderExplorerLink(fort) {
+    let linkDiv = document.getElementById('modal-explorer-link');
+    if (!fort.explorerUrl) {
+        if (linkDiv) linkDiv.remove();
+        return;
+    }
 
+    if (!linkDiv) {
+        linkDiv = document.createElement('div');
+        linkDiv.id = 'modal-explorer-link';
+        linkDiv.style.marginTop = '1.5rem';
+        const highlightsList = document.getElementById('modal-highlights');
+        highlightsList.insertAdjacentElement('afterend', linkDiv);
+    }
+
+    while (linkDiv.firstChild) {
+        linkDiv.removeChild(linkDiv.firstChild);
+    }
+
+    const explorerLink = document.createElement('a');
+    explorerLink.href = fort.explorerUrl;
+    explorerLink.textContent = 'Launch Dedicated Explorer ➔';
+    explorerLink.style.cssText = 'display:inline-block; padding:0.75rem 1.5rem; background:linear-gradient(135deg, #ffb01f, #d97706); color:#000; font-weight:700; border-radius:999px; text-decoration:none;';
+    linkDiv.appendChild(explorerLink);
+}
 // Close modal
 function closeModal() {
     fortModal.classList.remove('active');

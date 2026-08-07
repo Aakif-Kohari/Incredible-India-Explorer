@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Request & Feedback Portal - Incredible India Explorer</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        :root {
+            --primary-color: #ff6f3c;
+            --secondary-color: #1a1a2e;
+            --background-color: #f9f9f9;
+            --text-color: #333;
+            --error-color: #e63946;
+            --success-color: #2a9d8f;
+            --border-radius: 8px;
+        }
+
+        body.dark-theme,
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        header a:hover, header a:focus {
+            text-decoration: underline;
+            outline: 2px solid var(--primary-color);
+            outline-offset: 4px;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media(min-width: 768px) {
+            main {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        section {
+            background: #fff;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        h1, h2, h3 {
+            margin-top: 0;
+            color: var(--secondary-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: 2px solid var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        button {
+            background: linear-gradient(135deg, #ff6f3c, #ff9f43);
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        button:hover, button:focus {
+            opacity: 0.9;
+            outline: 2px solid var(--secondary-color);
+            outline-offset: 2px;
+        }
+
+        .feedback-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .feedback-message.success {
+            display: block;
+            background-color: #d4edda;
+            color: var(--success-color);
+            border: 1px solid #c3e6cb;
+        }
+
+        .feedback-message.error {
+            display: block;
+            background-color: #f8d7da;
+            color: var(--error-color);
+            border: 1px solid #f5c6cb;
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar-section li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .sidebar-section li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-section a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .sidebar-section a:hover, .sidebar-section a:focus {
+            text-decoration: underline;
+            outline: 2px solid var(--secondary-color);
+        }
+
+        .cta-box {
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .cta-box a {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #fff;
+            background: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        
+        .cta-box a:hover, .cta-box a:focus {
+            opacity: 0.9;
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>Incredible India Explorer</h1>
+        </div>
+        <nav aria-label="Main Navigation">
+            <a href="../../index.html" aria-label="Back to Home Page">Home</a> | 
+            <a href="../../support.html" aria-label="Back to Support Page">Support</a>
+        </nav>
+    </header>
+
+    <main>
+        <section aria-labelledby="form-heading">
+            <h2 id="form-heading">Submit a Feature Request</h2>
+            <p>Have an idea to improve Incredible India Explorer? Let us know!</p>
+            
+            <form id="feedback-form" novalidate aria-describedby="form-instructions">
+                <div id="form-instructions" class="sr-only" style="display:none;">Please fill out this form to submit your feature request or feedback. Required fields are marked with an asterisk.</div>
+                
+                <div class="form-group">
+                    <label for="title">Title <span aria-hidden="true">*</span></label>
+                    <input type="text" id="title" name="title" required aria-required="true" placeholder="e.g., Add offline mode">
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category <span aria-hidden="true">*</span></label>
+                    <select id="category" name="category" required aria-required="true">
+                        <option value="">Select a category</option>
+                        <option value="New Feature">New Feature</option>
+                        <option value="Improvement">Improvement</option>
+                        <option value="UX/UI">UX/UI</option>
+                        <option value="Performance">Performance</option>
+                        <option value="Accessibility">Accessibility</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description <span aria-hidden="true">*</span></label>
+                    <textarea id="description" name="description" rows="5" required aria-required="true" placeholder="Describe your idea in detail..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">GitHub Username (Optional)</label>
+                    <input type="text" id="username" name="username" placeholder="@username">
+                </div>
+
+                <button type="submit">Submit Request</button>
+            </form>
+
+            <div id="feedback-message" class="feedback-message" role="alert" aria-live="assertive"></div>
+        </section>
+
+        <aside aria-label="Community and Ideas">
+            <section class="sidebar-section" aria-labelledby="popular-ideas-heading">
+                <h3 id="popular-ideas-heading">Popular Community Ideas</h3>
+                <ul>
+                    <li><a href="https://github.com/Eshajha19/Incredible-India-Explorer/discussions">Interactive Map Quiz (Vote!)</a></li>
+                    <li><a href="https://github.com/Eshajha19/Incredible-India-Explorer/discussions">VR Mode for Monuments</a></li>
+                    <li><a href="https://github.com/Eshajha19/Incredible-India-Explorer/discussions">Regional Language Support</a></li>
+                </ul>
+                <a href="https://github.com/Eshajha19/Incredible-India-Explorer/discussions" style="display:inline-block; margin-top:0.5rem; color:var(--primary-color); font-weight:bold;">View all discussions &rarr;</a>
+            </section>
+
+            <section class="sidebar-section" aria-labelledby="recently-implemented-heading">
+                <h3 id="recently-implemented-heading">Recently Implemented</h3>
+                <ul>
+                    <li>AI Trip Planner Integration</li>
+                    <li>Dark Mode Toggle</li>
+                    <li>Enhanced State DNA Pages</li>
+                </ul>
+            </section>
+
+            <section class="cta-box" aria-labelledby="contributor-cta-heading">
+                <h3 id="contributor-cta-heading">Want to build this yourself?</h3>
+                <p>We are an open-source community. If you have the skills, we'd love your contribution!</p>
+                <a href="https://github.com/Eshajha19/Incredible-India-Explorer/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Read Contribution Guide</a>
+            </section>
+        </aside>
+    </main>
+
+    <script>
+        document.getElementById('feedback-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('title').value.trim();
+            const category = document.getElementById('category').value;
+            const description = document.getElementById('description').value.trim();
+            const msgBox = document.getElementById('feedback-message');
+            
+            if (!title || !category || !description) {
+                msgBox.textContent = 'Please fill out all required fields (Title, Category, and Description).';
+                msgBox.className = 'feedback-message error';
+                // Move focus to message box for screen readers
+                msgBox.setAttribute('tabindex', '-1');
+                msgBox.focus();
+                return;
+            }
+            
+            // Mock submission success
+            setTimeout(() => {
+                msgBox.textContent = 'Thank you! Your feature request has been submitted successfully.';
+                msgBox.className = 'feedback-message success';
+                document.getElementById('feedback-form').reset();
+                
+                // Move focus to message box for screen readers
+                msgBox.setAttribute('tabindex', '-1');
+                msgBox.focus();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
