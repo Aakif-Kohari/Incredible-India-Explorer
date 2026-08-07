@@ -644,6 +644,18 @@ window.indiaSearchIndex = [
     url: "frontend/river/frontend/river/river.html"
   },
   {
+    title: "Gujarati Cinema (Dhollywood) Explorer",
+    category: "Culture",
+    description: "Discover Dhollywood, the Gujarati film industry — from Narsinh Mehta (1932), the first Gujarati talkie, to National Award-winning classics and its modern urban revival.",
+    url: "frontend/gujarati-cinema-explorer/index.html"
+  },
+  {
+    title: "Ollywood (Odia Cinema) Explorer",
+    category: "Culture",
+    description: "Discover Ollywood, the Odia film industry of Odisha — from Sita Bibaha (1936), the first Odia film, to National Award-winning classics and the artists who built its legacy.",
+    url: "frontend/odia-cinema-explorer/index.html"
+  },
+  {
     title: "River Krishna",
     category: "Rivers",
     description: "Major river of southern India, supporting agriculture across Maharashtra, Karnataka, and Andhra Pradesh.",
@@ -2084,5 +2096,30 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Takkolam (c. 949 CE) - the decisive Chola–Rashtrakuta clash where crown prince Rajaditya fell and Emperor Krishna III captured Kanchi and Tanjore.",
     url: "frontend/battle-of-takkolam-explorer/index.html"
+  },
+  // --- Battle of Khanwa Explorer ---
+  {
+    title: "Battle of Khanwa Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Khanwa (1527 CE) - the decisive conflict between Babur and Rana Sanga that strengthened Mughal rule in northern India.",
+    url: "frontend/battle-of-khanwa-explorer/index.html"},
+  // --- Battle of Talikota Explorer ---
+  {
+    title: "Battle of Talikota Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Talikota (1565 CE) - the decisive clash between the Vijayanagara Empire and the united Deccan Sultanates alliance, leading to the fall of the empire and the ruins of Hampi.",
+    url: "frontend/battle-of-talikota-explorer/index.html"},
+  // --- Battle of Raichur Explorer ---
+  {
+    title: "Battle of Raichur Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Raichur (1520 CE) - Emperor Krishnadevaraya's historic siege and open clash that established Vijayanagara dominance in the Deccan.",
+    url: "frontend/battle-of-raichur-explorer/index.html"},
+  // --- Battle of Amroha Explorer ---
+  {
+    title: "Battle of Amroha Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Amroha (1305 CE) - the Delhi Sultanate's decisive victory under Malik Kafur over the invading Chagatai Mongol horde, told through timeline, commanders, and tactics.",
+    url: "frontend/battle-of-amroha-explorer/index.html"
   }
 ];
