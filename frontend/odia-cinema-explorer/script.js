@@ -72,6 +72,7 @@ document.addEventListener("app:route-changed", () => {
 
   // --- Gallery Modal Logic -----------------------------------------
   let lastFocusedElement = null;
+  let ollywoodModalFocusTrap = null;
 
   function openModal(item) {
     lastFocusedElement = item;
@@ -84,6 +85,10 @@ document.addEventListener("app:route-changed", () => {
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
 
+    if (typeof window.setupFocusTrap === "function") {
+      ollywoodModalFocusTrap = window.setupFocusTrap(modal);
+    }
+
     if (modalClose) modalClose.focus();
   }
 
@@ -91,6 +96,11 @@ document.addEventListener("app:route-changed", () => {
     modal.classList.remove("open");
     modal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
+
+    if (ollywoodModalFocusTrap) {
+      ollywoodModalFocusTrap.deactivate();
+      ollywoodModalFocusTrap = null;
+    }
 
     if (lastFocusedElement) {
       lastFocusedElement.focus();
@@ -100,6 +110,9 @@ document.addEventListener("app:route-changed", () => {
   // Bind gallery click events
   galleryItems.forEach((item) => {
     item.setAttribute("tabindex", "0");
+    item.setAttribute("role", "button");
+    item.setAttribute("aria-haspopup", "dialog");
+    item.setAttribute("aria-controls", "ollywood-modal");
     item.addEventListener("click", () => openModal(item));
     item.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
