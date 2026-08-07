@@ -1,0 +1,354 @@
+/* 
+ * Tea and Coffee Estates Styles
+ * Adheres to global theming and responsive design principles.
+ * Palette: Forest green, Tea green, Coffee brown, Cream, Mist gray.
+ */
+
+:root {
+    --primary-color: #2e7d32; /* Forest green */
+    --primary-hover: #1b5e20;
+    --secondary-color: #5d4037; /* Coffee brown */
+    --bg-color: #f1f8e9; /* Light Tea green/Cream */
+    --card-bg: #ffffff;
+    --text-main: #3e2723;
+    --text-muted: #5d4037;
+    --border-color: #c5e1a5;
+    --focus-ring: #2e7d32;
+    --transition-speed: 0.3s;
+    --mist-gray: #cfd8dc;
+}
+
+body.dark-theme {
+    --primary-color: #81c784;
+    --primary-hover: #a5d6a7;
+    --secondary-color: #8d6e63;
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-main: #e0e0e0;
+    --text-muted: #bcaaa4;
+    --border-color: #333333;
+    --mist-gray: #37474f;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Header */
+.module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.back-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.theme-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Container */
+.plantations-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero-title {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+}
+
+/* Region Navigation */
+.region-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    max-width: max-content;
+    margin: 0 auto;
+}
+
+.region-btn {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: none;
+    border-radius: 30px;
+    color: var(--text-main);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.region-btn:hover {
+    background-color: var(--mist-gray);
+}
+
+.region-btn.active {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.region-btn:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+}
+
+/* Tour Layout */
+.tour-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Carousel Section */
+.carousel-section {
+    position: relative;
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-color);
+    aspect-ratio: 16/10;
+}
+
+.carousel-section:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+}
+
+.carousel-viewport {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--mist-gray);
+}
+
+/* Image Container / Placeholder */
+.carousel-image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+.carousel-image-container.fade {
+    opacity: 0;
+}
+
+.carousel-caption {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* Carousel Controls */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #333;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.dark-theme .carousel-btn {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-50%) scale(1.1);
+}
+
+body.dark-theme .carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn { left: 1rem; }
+.next-btn { right: 1rem; }
+
+/* Carousel Indicators */
+.carousel-indicators {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.75rem;
+    z-index: 10;
+}
+
+.indicator-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body.dark-theme .indicator-dot {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.indicator-dot.active {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+    border-color: transparent;
+}
+
+.indicator-dot:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+}
+
+/* Info Panel */
+.info-panel {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+
+.info-title {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.info-block {
+    margin-bottom: 1.5rem;
+}
+
+.info-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.25rem;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    color: var(--text-main);
+}
+
+.info-value.description {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.info-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.info-list li {
+    font-size: 1rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.info-list li::before {
+    content: "🍃";
+    position: absolute;
+    left: 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .tour-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .carousel-section {
+        aspect-ratio: 16/9;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-title { font-size: 2.2rem; }
+    .region-nav { padding: 0.5rem; flex-direction: column; width: 100%; border-radius: 20px;}
+    .region-btn { width: 100%; border-radius: 15px;}
+    .carousel-section {
+        aspect-ratio: 4/3;
+    }
+}
