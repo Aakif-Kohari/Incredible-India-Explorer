@@ -644,6 +644,12 @@ window.indiaSearchIndex = [
     url: "frontend/river/frontend/river/river.html"
   },
   {
+    title: "Gujarati Cinema (Dhollywood) Explorer",
+    category: "Culture",
+    description: "Discover Dhollywood, the Gujarati film industry — from Narsinh Mehta (1932), the first Gujarati talkie, to National Award-winning classics and its modern urban revival.",
+    url: "frontend/gujarati-cinema-explorer/index.html"
+  },
+  {
     title: "Ollywood (Odia Cinema) Explorer",
     category: "Culture",
     description: "Discover Ollywood, the Odia film industry of Odisha — from Sita Bibaha (1936), the first Odia film, to National Award-winning classics and the artists who built its legacy.",
