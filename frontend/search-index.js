@@ -1512,6 +1512,27 @@ window.indiaSearchIndex = [
     description: "Explore Channapatna Toys — Karnataka's GI-tagged lacquerware wooden toys, bow-lathe turnery, natural lac and sustainable materials, traditional designs and gallery.",
     url: "frontend/channapatna-toys-explorer/index.html"
   },
+  // --- Dokra Art Explorer ---
+  {
+    title: "Dokra Art Explorer",
+    category: "Arts & Culture",
+    description: "Explore Dokra Art — ancient lost-wax metal casting by tribal artisans, Indus Valley roots, the cire-perdue process, artisan communities of Bastar, Dhenkanal and Bankura, and gallery.",
+    url: "frontend/dokra-art-explorer/index.html"
+  },
+  // --- Kalighat Painting Showcase ---
+  {
+    title: "Kalighat Painting Showcase",
+    category: "Arts & Culture",
+    description: "Explore Kalighat Painting — 19th-century Bengal's iconic temple-ghat brushwork with bold single-stroke lines, divine themes, social satire, brushwork visualization and gallery.",
+    url: "frontend/kalighat-painting-showcase/index.html"
+  },
+  // --- Manjusha Painting Explorer ---
+  {
+    title: "Manjusha Painting Explorer",
+    category: "Arts & Culture",
+    description: "Explore Manjusha Painting — GI-tagged mythology-inspired temple-box folk art of the Anga region (Bhagalpur, Bihar), the Bihula–Bishari legend, serpent motifs, materials and gallery.",
+    url: "frontend/manjusha-painting-explorer/index.html"
+  },
   // --- Bidriware Craftsmanship Explorer ---
   {
     title: "Bidriware Craftsmanship Explorer",
@@ -2056,5 +2077,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Pullalur (c. 618–619 CE) - the epic clash between Western Chalukya Emperor Pulakeshin II and Pallava King Mahendravarman I, initiating a century-long struggle for Deccan supremacy.",
     url: "frontend/battle-of-pullalur-explorer/index.html"
+  },
+  // --- Battle of Takkolam Explorer ---
+  {
+    title: "Battle of Takkolam Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Takkolam (c. 949 CE) - the decisive Chola–Rashtrakuta clash where crown prince Rajaditya fell and Emperor Krishna III captured Kanchi and Tanjore.",
+    url: "frontend/battle-of-takkolam-explorer/index.html"
   }
 ];
