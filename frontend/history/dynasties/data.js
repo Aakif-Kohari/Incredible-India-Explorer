@@ -230,6 +230,39 @@ art: "Bronze Nataraja, Brihadeshwara Temple, Thanjavur paintings, Chola bronzes"
     mapPosition: { top: "70%", left: "55%" }
   },
   {
+    id: "indo-greek",
+    name: "Indo-Greek Kingdom",
+    period: "c. 200 BCE–10 CE",
+    startYear: -200,
+    endYear: 10,
+    capital: "Taxila, later Sagala (present-day Sialkot)",
+    founders: "Demetrius I of Bactria",
+    notableRulers: [
+      { name: "Demetrius I", reign: "c. 200–180 BCE", achievement: "Crossed the Hindu Kush and founded Indo-Greek rule in northwestern India" },
+      { name: "Apollodotus I", reign: "c. 180–160 BCE", achievement: "Extended Indo-Greek rule into Sindh and Gujarat; his coinage circulated widely" },
+      { name: "Menander I (Milinda)", reign: "c. 165/155–130 BCE", achievement: "Most powerful Indo-Greek king, expanded the realm to Mathura, embraced Buddhism" },
+      { name: "Strato II", reign: "c. 25 BCE–10 CE", achievement: "Last known Indo-Greek king before the kingdom was absorbed by the Indo-Scythians" }
+    ],
+    territory: "Parts of present-day Afghanistan, Pakistan, and northwestern India, including the Punjab and Gandhara",
+    peakExtent: "From the Kabul Valley and Gandhara across Punjab and Sindh to Mathura under Menander I",
+    governance: "A succession of more than 30 Greek kings across two rival branches (Euthydemid and Eucratid), often ruling simultaneously over separate territories",
+    military: "Hellenistic-style phalanx infantry and cavalry, combined with Indian war elephants",
+    decline: "Fragmentation among competing petty kingdoms and pressure from the Indo-Scythians (Sakas); the last king, Strato II, disappeared around 10 CE, ending Greek rule in India",
+    contributions: [
+      "Bilingual coinage — Greek legends and portraiture on one side, Kharosthi/Prakrit on the other — a landmark in Indian numismatics",
+      "Fusion of Hellenistic and Indian artistic traditions, a forerunner of the later Gandhara school of art",
+      "Spread of Greco-Buddhism, most famously through Menander I's dialogue with the monk Nagasena recorded in the Milinda Panha",
+      "Introduction of realistic portrait sculpture and Greek artistic conventions into the subcontinent",
+      "Cultural and trade contact linking the Hellenistic Mediterranean world with India",
+      "Greek loanwords and astronomical concepts that influenced later Indian astrology and astronomy"
+    ],
+    art: "Bilingual Greek-Kharosthi coin portraiture, Hellenistic-Indian sculptural fusion, early Greco-Buddhist iconography",
+    era: "ancient",
+    color: "#2980b9",
+    mapPosition: { top: "20%", left: "45%" },
+    link: "indo-greek/index.html"
+  },
+  {
     id: "kushan",
     name: "Kushan Empire",
     period: "c. 30–375 CE",
@@ -386,7 +419,12 @@ export const timelineEvents = [
   { year: 1720, event: "Peshwa Baji Rao I expands Maratha Empire", dynasty: "maratha" },
   { year: 1761, event: "Third Battle of Panipat — Maratha decline", dynasty: "maratha" },
 { year: 1857, event: "Fall of Mughal Empire — Bahadur Shah Zafar deposed", dynasty: "mughal" },
-  { year: 30, event: "Kujula Kadphises unites the Yuezhi tribes and founds the Kushan Empire", dynasty: "kushan" },
+  { year: -200, event: "Demetrius I crosses the Hindu Kush, founding Indo-Greek rule in northwestern India", dynasty: "indo-greek" },
+  { year: -180, event: "Apollodotus I extends Indo-Greek territory into Sindh and Gujarat", dynasty: "indo-greek" },
+  { year: -155, event: "Menander I becomes king and expands the realm to its greatest extent, reaching Mathura", dynasty: "indo-greek" },
+  { year: -130, event: "Death of Menander I; the Milinda Panha later records his dialogue with the monk Nagasena", dynasty: "indo-greek" },
+  { year: 10, event: "Strato II, the last Indo-Greek king, disappears as the Indo-Scythians take control", dynasty: "indo-greek" }
+    { year: 30, event: "Kujula Kadphises unites the Yuezhi tribes and founds the Kushan Empire", dynasty: "kushan" },
   { year: 105, event: "Vima Kadphises conquers Gandhara and expands Kushan trade with Rome", dynasty: "kushan" },
   { year: 127, event: "Kanishka I ascends the throne; the Kushan Empire reaches its greatest extent", dynasty: "kushan" },
   { year: 150, event: "Huvishka succeeds Kanishka, continuing patronage of Buddhism and Zoroastrianism", dynasty: "kushan" },
