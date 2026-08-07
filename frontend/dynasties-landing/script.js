@@ -166,6 +166,18 @@ const dynastiesData = [
         link: '#'
     },
     {
+        id: 'chera',
+        name: 'Chera Dynasty',
+        region: 'south',
+        period: 'ancient',
+        religion: 'hinduism',
+        capital: 'Vanchi / Mahodayapuram',
+        dates: 'c. 300 BCE - 1120 CE',
+        description: 'A western Tamil and Kerala dynasty known for pepper trade, Sangam culture and Malabar ports.',
+        icon: '⚓',
+        link: '../chera-dynasty-explorer/index.html'
+    },
+    {
         id: 'vijayanagara',
         name: 'Vijayanagara Empire',
         region: 'south',
