@@ -127,26 +127,52 @@ describe('Battle of Colachel Explorer — Assets', () => {
     });
 });
 
+const CARD_MARKER = '<div class="featured-explorer-card">';
+
+function extractFeaturedCards(html) {
+    const cards = [];
+    let cursor = 0;
+    while (cursor < html.length) {
+        const start = html.indexOf(CARD_MARKER, cursor);
+        if (start === -1) break;
+        const end = html.indexOf('</section>', start);
+        cards.push(html.slice(start, end === -1 ? start + 2000 : end));
+        cursor = end === -1 ? start + CARD_MARKER.length : end;
+    }
+    return cards;
+}
+
+function extractFooter(html) {
+    const start = html.indexOf('<footer');
+    const end = start === -1 ? -1 : html.indexOf('</footer>', start);
+    return start === -1 || end === -1 ? '' : html.slice(start, end);
+}
+
 describe('Battle of Colachel — Landing Page Integration', () => {
     it('is listed as a featured explorer card on the Historic Battles of India landing page', () => {
         const index = readLandingPage();
-        expect(index).toContain('Battle of Colachel');
-        expect(index).toContain('../../battle-of-colachel-explorer/index.html');
-        expect(index).toContain('featured-explorer-card');
+        const cards = extractFeaturedCards(index);
+        expect(cards.length).toBeGreaterThan(0);
+        const colachelCard = cards.find(card => card.includes('Battle of Colachel'));
+        expect(colachelCard).toBeDefined();
+        expect(colachelCard).toContain('../../battle-of-colachel-explorer/index.html');
     });
 
     it('matches the existing featured card pattern (badge, heading, button)', () => {
         const index = readLandingPage();
-        const cardStart = index.indexOf('Battle of Colachel');
-        expect(cardStart).toBeGreaterThan(-1);
-        const card = index.slice(cardStart - 200, cardStart + 1200);
-        expect(card).toContain('featured-explorer-badge');
-        expect(card).toContain('featured-explorer-btn');
-        expect(card).toContain('10 Mar 1741');
+        const cards = extractFeaturedCards(index);
+        const colachelCard = cards.find(card => card.includes('Battle of Colachel'));
+        expect(colachelCard).toBeDefined();
+        expect(colachelCard).toContain('featured-explorer-badge');
+        expect(colachelCard).toContain('featured-explorer-btn');
+        expect(colachelCard).toContain('10 Mar 1741');
     });
 
     it('appears in the footer Battle Explorers list on the landing page', () => {
         const index = readLandingPage();
-        expect(index).toContain('Battle of Colachel');
+        const footer = extractFooter(index);
+        expect(footer.length).toBeGreaterThan(0);
+        expect(footer).toContain('Battle of Colachel');
+        expect(footer).toContain('../../battle-of-colachel-explorer/index.html');
     });
 });
