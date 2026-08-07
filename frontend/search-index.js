@@ -644,6 +644,12 @@ window.indiaSearchIndex = [
     url: "frontend/river/frontend/river/river.html"
   },
   {
+    title: "Ollywood (Odia Cinema) Explorer",
+    category: "Culture",
+    description: "Discover Ollywood, the Odia film industry of Odisha — from Sita Bibaha (1936), the first Odia film, to National Award-winning classics and the artists who built its legacy.",
+    url: "frontend/odia-cinema-explorer/index.html"
+  },
+  {
     title: "River Krishna",
     category: "Rivers",
     description: "Major river of southern India, supporting agriculture across Maharashtra, Karnataka, and Andhra Pradesh.",
@@ -2090,6 +2096,12 @@ window.indiaSearchIndex = [
     title: "Battle of Raichur Explorer",
     category: "Featured Explorers",
     description: "Explore the Battle of Raichur (1520 CE) - Emperor Krishnadevaraya's historic siege and open clash that established Vijayanagara dominance in the Deccan.",
-    url: "frontend/battle-of-raichur-explorer/index.html"
+    url: "frontend/battle-of-raichur-explorer/index.html"},
+  // --- Battle of Amroha Explorer ---
+  {
+    title: "Battle of Amroha Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Amroha (1305 CE) - the Delhi Sultanate's decisive victory under Malik Kafur over the invading Chagatai Mongol horde, told through timeline, commanders, and tactics.",
+    url: "frontend/battle-of-amroha-explorer/index.html"
   }
 ];
