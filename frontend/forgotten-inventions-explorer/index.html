@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="India's Forgotten Inventions — explore ancient Indian devices and techniques, from the Ghati Yantra water clock to metallurgy and mathematics." />
+    <title>India's Forgotten Inventions Explorer | Incredible India</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="inventions.css" />
+</head>
+
+<body class="inv-main">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link">Home</a>
+                <a href="index.html" class="nav-link active" style="color: var(--saffron)">Forgotten Inventions</a>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode"
+                    title="Toggle Light Mode">
+                    ☀️
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="inv-hero">
+            <div class="section-container">
+                <h1>India's Forgotten Inventions</h1>
+                <p class="hero-subtitle">
+                    Devices, techniques, and ideas from ancient India that quietly shaped how the world measures,
+                    builds, and calculates.
+                </p>
+            </div>
+        </section>
+
+        <section class="inv-grid-section">
+            <div class="section-container">
+                <div class="inv-grid" id="inv-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="inventions-data.js"></script>
+    <script src="inventions.js"></script>
+    <script>
+        (function () {
+            const themeBtn = document.getElementById('theme-toggle');
+            if (!themeBtn) return;
+            const applyIcon = (isLight) => {
+                themeBtn.textContent = isLight ? '🌙' : '☀️';
+                themeBtn.setAttribute('title', isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode');
+            };
+            applyIcon(document.body.classList.contains('light-theme'));
+            themeBtn.addEventListener('click', () => {
+                document.body.classList.toggle('light-theme');
+                const isLight = document.body.classList.contains('light-theme');
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+                applyIcon(isLight);
+            });
+        })();
+    </script>
+</body>
+
+</html>

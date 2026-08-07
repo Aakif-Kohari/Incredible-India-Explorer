@@ -177,6 +177,30 @@ const dynastiesData = [
         icon: '🦪',
         link: '../pandya-dynasty-explorer/index.html'
     },
+  {
+        id: 'chera',
+        name: 'Chera Dynasty',
+        region: 'south',
+        period: 'ancient',
+        religion: 'hinduism',
+        capital: 'Vanchi / Mahodayapuram',
+        dates: 'c. 300 BCE - 1120 CE',
+        description: 'A western Tamil and Kerala dynasty known for pepper trade, Sangam culture and Malabar ports.',
+        icon: '⚓',
+        link: '../chera-dynasty-explorer/index.html'
+    },
+  {
+        id: 'jodhpur-marwar',
+        name: 'Kingdom of Jodhpur (Marwar)',
+        region: 'west',
+        period: 'medieval',
+        religion: 'hinduism',
+        capital: 'Jodhpur',
+        dates: 'c. 1226 - 1949 CE',
+        description: 'The Rathore Rajputs of Marwar built the mighty Mehrangarh Fort, fostered the Marwari trade network, and kept their desert kingdom unconquered for seven centuries.',
+        icon: '🏰',
+        link: '../Jodhpur-Marwar/JodhpurMarwar.html'
+    },
     {
         id: 'vijayanagara',
         name: 'Vijayanagara Empire',
