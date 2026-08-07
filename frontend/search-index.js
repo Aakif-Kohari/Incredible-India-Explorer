@@ -656,6 +656,12 @@ window.indiaSearchIndex = [
     url: "frontend/odia-cinema-explorer/index.html"
   },
   {
+    title: "Tollywood (Telugu Cinema) Explorer",
+    category: "Culture",
+    description: "Discover Tollywood, the Telugu film industry — from Bhakta Prahlada (1931), the first Telugu talkie, to globally acclaimed epics like Baahubali and Oscar-winning RRR.",
+    url: "frontend/tollywood-explorer/index.html"
+  },
+  {
     title: "River Krishna",
     category: "Rivers",
     description: "Major river of southern India, supporting agriculture across Maharashtra, Karnataka, and Andhra Pradesh.",
