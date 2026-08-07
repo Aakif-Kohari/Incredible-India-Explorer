@@ -644,6 +644,12 @@ window.indiaSearchIndex = [
     url: "frontend/river/frontend/river/river.html"
   },
   {
+    title: "Ollywood (Odia Cinema) Explorer",
+    category: "Culture",
+    description: "Discover Ollywood, the Odia film industry of Odisha — from Sita Bibaha (1936), the first Odia film, to National Award-winning classics and the artists who built its legacy.",
+    url: "frontend/odia-cinema-explorer/index.html"
+  },
+  {
     title: "River Krishna",
     category: "Rivers",
     description: "Major river of southern India, supporting agriculture across Maharashtra, Karnataka, and Andhra Pradesh.",
