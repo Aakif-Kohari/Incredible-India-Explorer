@@ -2084,5 +2084,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Takkolam (c. 949 CE) - the decisive Chola–Rashtrakuta clash where crown prince Rajaditya fell and Emperor Krishna III captured Kanchi and Tanjore.",
     url: "frontend/battle-of-takkolam-explorer/index.html"
+  },
+  // --- Battle of Raichur Explorer ---
+  {
+    title: "Battle of Raichur Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Raichur (1520 CE) - Emperor Krishnadevaraya's historic siege and open clash that established Vijayanagara dominance in the Deccan.",
+    url: "frontend/battle-of-raichur-explorer/index.html"
   }
 ];
