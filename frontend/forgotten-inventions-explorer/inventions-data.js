@@ -14,6 +14,14 @@ const INVENTIONS = [
         era: "c. 6th Century BCE",
         summary: "One of the earliest documented surgical treatments for vision loss, described in the Sushruta Samhita — a milestone in medical history.",
         link: "../cataract-surgery-explorer/index.html"
+    },
+    {
+        id: "zero",
+        title: "Invention of Zero (Shunya)",
+        icon: "0️⃣",
+        era: "c. 3rd Century BCE – 7th Century CE",
+        summary: "From a placeholder dot to a true number — how Indian mathematicians formalized zero and reshaped mathematics forever.",
+        link: "../zero-explorer/index.html"
     }
     // Future inventions (metallurgy, ancient batteries, etc.) go here.
 ];
