@@ -223,13 +223,44 @@ export const dynasties = [
       "Tamil literature and art flourished",
       "Chola bronze casting technique"
     ],
-    art: "Bronze Nataraja, Brihadeshwara Temple, Thanjavur paintings, Chola bronzes",
+art: "Bronze Nataraja, Brihadeshwara Temple, Thanjavur paintings, Chola bronzes",
     era: "medieval",
     color: "#1abc9c",
     mapPosition: { top: "70%", left: "55%" }
+  },
+  {
+    id: "sena",
+    name: "Sena Dynasty",
+    period: "1070–1230 CE",
+    startYear: 1070,
+    endYear: 1230,
+    capital: "Vikramapura, later Nabadwip (Nadia)",
+    founders: "Samanta Sena (progenitor); Vijaya Sena (established sovereign rule)",
+    notableRulers: [
+      { name: "Vijaya Sena", reign: "1096–1160 CE", achievement: "Deposed the Palas, founded the Sena kingdom, built the Pradyumneshvara temple" },
+      { name: "Ballala Sena", reign: "1160–1178 CE", achievement: "Ended Pala rule in Bengal, introduced the Kulinism social system" },
+      { name: "Lakshmana Sena", reign: "1178–1206 CE", achievement: "Greatest Sena king, patron of poet Jayadeva, expanded into Bihar and Odisha" }
+    ],
+    territory: "Bengal, extending into Bihar and Odisha at its peak",
+    peakExtent: "From north Bengal to coastal Odisha, west into Bihar and near Varanasi",
+    governance: "Feudal monarchy with land grants recorded on copper plates",
+    military: "Riverine navy along the Ganges, cavalry and infantry",
+    decline: "Muhammad Bakhtiyar Khalji's invasion of Nabadwip (c. 1204) captured northwest Bengal; the dynasty ended by 1230 with the rise of the Deva dynasty",
+    contributions: [
+      "Revival of orthodox Hinduism after Buddhist Pala rule",
+      "Kulinism — a lasting social classification system among Bengali Brahmins and Kayasthas",
+      "Patronage of Sanskrit court poetry, including Jayadeva's Gita Govinda",
+      "Deopara and Barrackpur copper-plate inscriptions documenting land grants",
+      "Bengal school of black basalt stone sculpture",
+      "Establishment of Nabadwip (Nadia) as a centre of learning and culture"
+    ],
+    art: "Sena-era black basalt sculpture, Sanskrit court poetry, temple architecture at Deopara",
+    era: "medieval",
+    color: "#c0392b",
+    mapPosition: { top: "38%", left: "78%" },
+    link: "sena/index.html"
   }
 ];
-
 export const eraInfo = {
   ancient: { label: "Ancient", color: "#e74c3c", description: "322 BCE – 550 CE" },
   medieval: { label: "Medieval", color: "#3498db", description: "1206 – 1700 CE" },
@@ -257,5 +288,10 @@ export const timelineEvents = [
   { year: 1674, event: "Shivaji Maharaj crowned Chhatrapati", dynasty: "maratha" },
   { year: 1720, event: "Peshwa Baji Rao I expands Maratha Empire", dynasty: "maratha" },
   { year: 1761, event: "Third Battle of Panipat — Maratha decline", dynasty: "maratha" },
-  { year: 1857, event: "Fall of Mughal Empire — Bahadur Shah Zafar deposed", dynasty: "mughal" }
+{ year: 1857, event: "Fall of Mughal Empire — Bahadur Shah Zafar deposed", dynasty: "mughal" },
+  { year: 1096, event: "Vijaya Sena founds the Sena dynasty by deposing the Palas", dynasty: "sena" },
+  { year: 1160, event: "Ballala Sena introduces Kulinism and ends Pala rule in Bengal", dynasty: "sena" },
+  { year: 1178, event: "Lakshmana Sena ascends the throne, patronizes poet Jayadeva", dynasty: "sena" },
+  { year: 1204, event: "Bakhtiyar Khalji invades Nabadwip, Sena capital falls", dynasty: "sena" },
+  { year: 1230, event: "Keshava Sena's reign ends — the Sena dynasty concludes", dynasty: "sena" }
 ];
