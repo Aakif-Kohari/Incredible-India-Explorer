@@ -229,6 +229,36 @@ art: "Bronze Nataraja, Brihadeshwara Temple, Thanjavur paintings, Chola bronzes"
     mapPosition: { top: "70%", left: "55%" }
   },
   {
+    id: "kanva",
+    name: "Kanva Dynasty",
+    period: "73–28 BCE",
+    startYear: -73,
+    endYear: -28,
+    capital: "Pataliputra (coins also found around Vidisha)",
+    founders: "Vasudeva Kanva",
+    notableRulers: [
+      { name: "Vasudeva Kanva", reign: "73–64 BCE", achievement: "Overthrew the last Shunga king Devabhuti and founded the Kanva dynasty" },
+      { name: "Bhumimitra", reign: "64–52 BCE", achievement: "Consolidated Kanva rule, coins found across Panchala, Vidisha, and Kaushambi" },
+      { name: "Susarman", reign: "40–28 BCE", achievement: "Last Kanva ruler, defeated by the Satavahana king Simuka" }
+    ],
+    territory: "Magadha, with influence extending into parts of central India",
+    peakExtent: "Pataliputra and the Magadha region, with coin evidence near Vidisha",
+    governance: "Continuation of the Shunga administrative system under a Brahmin ruling house",
+    military: "Limited historical record; relied on inherited Shunga-era forces",
+    decline: "Weak later rulers and rising Satavahana power; Susarman was overthrown by Simuka around 28 BCE",
+    contributions: [
+      "Preserved Brahmanical and Vedic traditions in Magadha after Shunga rule",
+      "Maintained continuity of administration during a fragmented post-Mauryan era",
+      "Patronized Sanskrit literature and scholarship",
+      "Numismatic evidence (Kanva coinage) provides key insight into post-Mauryan political geography",
+      "Served as a historical bridge between the Shunga and Satavahana periods"
+    ],
+    art: "Limited surviving material record; primarily known through coinage rather than monuments",
+    era: "ancient",
+    color: "#34495e",
+    mapPosition: { top: "33%", left: "58%" },
+    link: "kanva/index.html"
+  }  {
     id: "sena",
     name: "Sena Dynasty",
     period: "1070–1230 CE",
@@ -289,7 +319,10 @@ export const timelineEvents = [
   { year: 1720, event: "Peshwa Baji Rao I expands Maratha Empire", dynasty: "maratha" },
   { year: 1761, event: "Third Battle of Panipat — Maratha decline", dynasty: "maratha" },
 { year: 1857, event: "Fall of Mughal Empire — Bahadur Shah Zafar deposed", dynasty: "mughal" },
-  { year: 1096, event: "Vijaya Sena founds the Sena dynasty by deposing the Palas", dynasty: "sena" },
+  { year: -73, event: "Vasudeva Kanva overthrows the last Shunga king Devabhuti", dynasty: "kanva" },
+  { year: -64, event: "Bhumimitra succeeds Vasudeva Kanva as Kanva ruler", dynasty: "kanva" },
+  { year: -40, event: "Susarman, the last Kanva ruler, ascends the throne", dynasty: "kanva" },
+  { year: -28, event: "Satavahana ruler Simuka overthrows Susarman, ending Kanva rule", dynasty: "kanva" }  { year: 1096, event: "Vijaya Sena founds the Sena dynasty by deposing the Palas", dynasty: "sena" },
   { year: 1160, event: "Ballala Sena introduces Kulinism and ends Pala rule in Bengal", dynasty: "sena" },
   { year: 1178, event: "Lakshmana Sena ascends the throne, patronizes poet Jayadeva", dynasty: "sena" },
   { year: 1204, event: "Bakhtiyar Khalji invades Nabadwip, Sena capital falls", dynasty: "sena" },
