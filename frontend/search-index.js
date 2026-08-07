@@ -2084,5 +2084,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Takkolam (c. 949 CE) - the decisive Chola–Rashtrakuta clash where crown prince Rajaditya fell and Emperor Krishna III captured Kanchi and Tanjore.",
     url: "frontend/battle-of-takkolam-explorer/index.html"
+  },
+  // --- Battle of Amroha Explorer ---
+  {
+    title: "Battle of Amroha Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Amroha (1305 CE) - the Delhi Sultanate's decisive victory under Malik Kafur over the invading Chagatai Mongol horde, told through timeline, commanders, and tactics.",
+    url: "frontend/battle-of-amroha-explorer/index.html"
   }
 ];
