@@ -234,6 +234,33 @@ export const battles = [
         tactics: "High-altitude mountain warfare, artillery bombardment at extreme altitude, air strikes on supply lines, infantry assaults on fortified positions. First major use of laser-guided bombs by India.",
         impact: "Reinforced India's territorial sovereignty. Led to improved India-Pakistan relations (Agra Summit). Exposed the dangers of nuclear-armed neighbours in conflict. The bravery of soldiers at Tiger Hill, Tololing, and Dras became legendary.",
         color: "#DC143C"
+    },
+    {
+        name: "Battle of Colachel",
+        date: "10 March 1741",
+        year: 1741,
+        era: "colonial",
+        location: "Colachel, Travancore (modern Tamil Nadu)",
+        coordinates: { top: "78%", left: "52%" },
+        combatants: {
+            side1: { name: "Kingdom of Travancore", leader: "Maharaja Marthanda Varma", forces: "~20,000–25,000 (Nair riflemen, Ezhava levies, rocket artillery, European-trained infantry)" },
+            side2: { name: "Dutch East India Company", leader: "Captain Jan Plaisier", forces: "~3,000–4,000 European troops with naval gun support" }
+        },
+        outcome: "Decisive Travancore victory — Dutch column broken and forced to surrender",
+        significance: "Ended Dutch colonial ambition in India and secured Travancore's rise as a regional power.",
+        summary: "Fought at the southernmost tip of the Indian subcontinent, the Battle of Colachel pitted Maharaja Marthanda Varma's modernising Travancore forces against a Dutch expedition seeking to dominate the Malabar spice trade. Using rocket artillery and disciplined infantry squares, Varma broke the Dutch landing column in open combat — the first time a native Indian army defeated a European colonial force in a set-piece battle. The defeat ended the Dutch East India Company's remaining ambition to establish a colony in India.",
+        keyEvents: [
+            "Dutch ships anchor off Colachel and attempt to land a battalion to seize the spice-trading harbour",
+            "Marthanda Varma positions his army behind the town's fortifications and rocket batteries",
+            "Dutch advance is torn apart by concentrated rocket and musket fire as it forms up on the beach",
+            "Commander Jan Plaisier and many of his officers are captured as the landing column collapses",
+            "The Dutch sue for peace, surrender their Malabar factories, and agree to a treaty of friendship with Travancore",
+            "Captured officers including Eustachius De Lannoy later rise to senior rank and help modernise Travancore's army"
+        ],
+        casualties: { side1: "~1,000–2,000 killed and wounded", side2: "~800 killed and captured" },
+        tactics: "Defensive positions anchored on native fortifications, concentrated rocket artillery fire, disciplined infantry squares, and a flanking manoeuvre that collapsed the Dutch landing column before naval gunfire could support it.",
+        impact: "The Dutch East India Company never mounted another major expedition to India, abandoning its remaining coastal factories. Travancore emerged as the dominant power in southern India, its army later reinforced by Dutch officers — including Eustachius De Lannoy — who entered the king's service. The victory is regarded as one of the earliest examples of modern, combined-arms warfare on Indian soil.",
+        color: "#0d7c66"
     }
 ];
 
