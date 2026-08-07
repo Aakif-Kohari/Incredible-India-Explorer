@@ -644,6 +644,24 @@ window.indiaSearchIndex = [
     url: "frontend/river/frontend/river/river.html"
   },
   {
+    title: "Gujarati Cinema (Dhollywood) Explorer",
+    category: "Culture",
+    description: "Discover Dhollywood, the Gujarati film industry — from Narsinh Mehta (1932), the first Gujarati talkie, to National Award-winning classics and its modern urban revival.",
+    url: "frontend/gujarati-cinema-explorer/index.html"
+  },
+  {
+    title: "Ollywood (Odia Cinema) Explorer",
+    category: "Culture",
+    description: "Discover Ollywood, the Odia film industry of Odisha — from Sita Bibaha (1936), the first Odia film, to National Award-winning classics and the artists who built its legacy.",
+    url: "frontend/odia-cinema-explorer/index.html"
+  },
+  {
+    title: "Tollywood (Telugu Cinema) Explorer",
+    category: "Culture",
+    description: "Discover Tollywood, the Telugu film industry — from Bhakta Prahlada (1931), the first Telugu talkie, to globally acclaimed epics like Baahubali and Oscar-winning RRR.",
+    url: "frontend/tollywood-explorer/index.html"
+  },
+  {
     title: "River Krishna",
     category: "Rivers",
     description: "Major river of southern India, supporting agriculture across Maharashtra, Karnataka, and Andhra Pradesh.",
@@ -1485,6 +1503,67 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Beddome's Coral Snake Explorer ---
+  {
+    title: "Beddome's Coral Snake Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Beddome's Coral Snake (Calliophis beddomei) — endemic venomous elapid of Western Ghats leaf litter, scientific taxonomy, behavior, diet, and conservation status.",
+    url: "frontend/beddomes-coral-snake-explorer/index.html"},
+  // --- Sikh Empire Explorer ---
+  {
+    title: "Sikh Empire Explorer",
+    category: "Indian Empires & History",
+    description: "Explore the Sikh Empire (1799–1849) — Maharaja Ranjit Singh, Hari Singh Nalwa, Fauj-i-Khas military modernization, Golden Temple gilding, and secular governance.",
+    url: "frontend/sikh-empire-explorer/index.html"
+  },
+  // --- Chhau Masks Explorer ---
+  {
+    title: "Chhau Masks Explorer",
+    category: "Arts & Culture",
+    description: "Explore Chhau Masks Heritage — UNESCO Intangible Cultural Heritage of Purulia and Seraikela, paper-mache mask making, divine/asura mask types, and folk dance performance gallery.",
+    url: "frontend/chhau-masks-explorer/index.html"
+  },
+  // --- Channapatna Toys Explorer ---
+  {
+    title: "Channapatna Toys Explorer",
+    category: "Arts & Culture",
+    description: "Explore Channapatna Toys — Karnataka's GI-tagged lacquerware wooden toys, bow-lathe turnery, natural lac and sustainable materials, traditional designs and gallery.",
+    url: "frontend/channapatna-toys-explorer/index.html"
+  },
+  // --- Dokra Art Explorer ---
+  {
+    title: "Dokra Art Explorer",
+    category: "Arts & Culture",
+    description: "Explore Dokra Art — ancient lost-wax metal casting by tribal artisans, Indus Valley roots, the cire-perdue process, artisan communities of Bastar, Dhenkanal and Bankura, and gallery.",
+    url: "frontend/dokra-art-explorer/index.html"
+  },
+  // --- Kalighat Painting Showcase ---
+  {
+    title: "Kalighat Painting Showcase",
+    category: "Arts & Culture",
+    description: "Explore Kalighat Painting — 19th-century Bengal's iconic temple-ghat brushwork with bold single-stroke lines, divine themes, social satire, brushwork visualization and gallery.",
+    url: "frontend/kalighat-painting-showcase/index.html"
+  },
+  // --- Manjusha Painting Explorer ---
+  {
+    title: "Manjusha Painting Explorer",
+    category: "Arts & Culture",
+    description: "Explore Manjusha Painting — GI-tagged mythology-inspired temple-box folk art of the Anga region (Bhagalpur, Bihar), the Bihula–Bishari legend, serpent motifs, materials and gallery.",
+    url: "frontend/manjusha-painting-explorer/index.html"
+  },
+  // --- Bidriware Craftsmanship Explorer ---
+  {
+    title: "Bidriware Craftsmanship Explorer",
+    category: "Arts & Culture",
+    description: "Explore Bidriware Craftsmanship — GI-tagged metal handicraft of Bidar, Karnataka featuring pure silver wire inlay, Bidar fort soil oxidation, and Persian motifs.",
+    url: "frontend/bidriware-craftsmanship-explorer/index.html"},
+  // --- Bastar Iron Craft Explorer ---
+  {
+    title: "Bastar Iron Craft Explorer",
+    category: "Arts & Culture",
+    description: "Explore Bastar Iron Craft (Loha Shilp) — GI-certified tribal wrought iron artistry of Chhattisgarh featuring manual forging, traditional motifs, and artisan spotlight.",
+    url: "frontend/bastar-iron-craft-explorer/index.html"
+  },
   // --- Kingdom of Mewar Explorer ---
   {
     title: "Kingdom of Mewar Explorer",
@@ -1956,5 +2035,97 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Jalore (1311) - the final clash between the Delhi Sultanate of Alauddin Khalji and the Chauhan rulers of Jalore under Kanhadadeva, told through timeline, key figures, outcome, and legacy.",
     url: "frontend/battle-of-jalore-explorer/index.html"
+  },
+  // --- Battle of Ujjain Explorer ---
+  {
+    title: "Battle of Ujjain Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Ujjain (1801) - the epic clash between Yashwantrao Holkar of Indore and Daulat Rao Scindia's forces, told through timeline, belligerents, outcome, and legacy.",
+    url: "frontend/battle-of-ujjain-explorer/index.html"
+  },
+  // --- Third Battle of Panipat Explorer ---
+  {
+    title: "Third Battle of Panipat Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Third Battle of Panipat (14 January 1761) - Ahmad Shah Durrani's decisive victory over the Maratha Confederacy under Sadashivrao Bhau, one of the largest and bloodiest battles in Indian history.",
+    url: "frontend/third-battle-of-panipat-explorer/index.html"
+  },
+  // --- Battle of Sinhagad Explorer ---
+  {
+    title: "Battle of Sinhagad Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Sinhagad (4 February 1670) - Tanaji Malusare's moonlit escalade of Kondhana's western cliff, the duel that killed two commanders, and the Maratha recapture of the fort that cost a lion's life.",
+    url: "frontend/battle-of-sinhagad-explorer/index.html"
+  },
+  // --- Kalinga War Explorer ---
+  {
+    title: "Kalinga War History Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Kalinga (261 BCE) - the epic clash between Emperor Ashoka's Maurya Empire and Kalinga, leading to Ashoka's conversion to Buddhism and non-violence.",
+    url: "frontend/kalinga-war-explorer/index.html"},
+  // --- Battle of Plassey Explorer ---
+  {
+    title: "Battle of Plassey Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Plassey (23 June 1757) - Robert Clive's East India Company army against Nawab Siraj-ud-Daulah of Bengal, the conspiracy of Mir Jafar, and the battle that began British rule in India.",
+    url: "frontend/battle-of-plassey-explorer/index.html"
+  },
+  // --- Battle of Rezang La Explorer ---
+  {
+    title: "Battle of Rezang La Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Rezang La (18 November 1962) - the heroic last stand of 120 soldiers of Charlie Company, 13th Kumaon Regiment, under Major Shaitan Singh against thousands of Chinese troops in the Chushul sector of Ladakh.",
+    url: "frontend/battle-of-rezang-la-explorer/index.html"
+  },
+  // --- Siege of Chittor (1303) Explorer ---
+  {
+    title: "Siege of Chittor (1303) Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Siege of Chittorgarh (1303) - the historic conflict between Alauddin Khalji and Guhila King Ratnasimha, the legend of Rani Padmini, and the first Jauhar.",
+    url: "frontend/siege-of-chittor-1303-explorer/index.html"},
+  // --- Battle of Sripurambiyam Explorer ---
+  {
+    title: "Battle of Sripurambiyam Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Sripurambiyam (c. 879 CE) - the watershed Dravidian clash near Kumbakonam that broke Pandya hegemony and paved the way for the rise of the Imperial Cholas under Aditya I.",
+    url: "frontend/battle-of-sripurambiyam-explorer/index.html"},
+  // --- Battle of Pullalur Explorer ---
+  {
+    title: "Battle of Pullalur Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Pullalur (c. 618–619 CE) - the epic clash between Western Chalukya Emperor Pulakeshin II and Pallava King Mahendravarman I, initiating a century-long struggle for Deccan supremacy.",
+    url: "frontend/battle-of-pullalur-explorer/index.html"
+  },
+  // --- Battle of Takkolam Explorer ---
+  {
+    title: "Battle of Takkolam Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Takkolam (c. 949 CE) - the decisive Chola–Rashtrakuta clash where crown prince Rajaditya fell and Emperor Krishna III captured Kanchi and Tanjore.",
+    url: "frontend/battle-of-takkolam-explorer/index.html"
+  },
+  // --- Battle of Khanwa Explorer ---
+  {
+    title: "Battle of Khanwa Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Khanwa (1527 CE) - the decisive conflict between Babur and Rana Sanga that strengthened Mughal rule in northern India.",
+    url: "frontend/battle-of-khanwa-explorer/index.html"},
+  // --- Battle of Talikota Explorer ---
+  {
+    title: "Battle of Talikota Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Talikota (1565 CE) - the decisive clash between the Vijayanagara Empire and the united Deccan Sultanates alliance, leading to the fall of the empire and the ruins of Hampi.",
+    url: "frontend/battle-of-talikota-explorer/index.html"},
+  // --- Battle of Raichur Explorer ---
+  {
+    title: "Battle of Raichur Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Raichur (1520 CE) - Emperor Krishnadevaraya's historic siege and open clash that established Vijayanagara dominance in the Deccan.",
+    url: "frontend/battle-of-raichur-explorer/index.html"},
+  // --- Battle of Amroha Explorer ---
+  {
+    title: "Battle of Amroha Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Amroha (1305 CE) - the Delhi Sultanate's decisive victory under Malik Kafur over the invading Chagatai Mongol horde, told through timeline, commanders, and tactics.",
+    url: "frontend/battle-of-amroha-explorer/index.html"
   }
 ];
