@@ -224,12 +224,45 @@ export const dynasties = [
       "Tamil literature and art flourished",
       "Chola bronze casting technique"
     ],
- art: "Bronze Nataraja, Brihadeshwara Temple, Thanjavur paintings, Chola bronzes",
+art: "Bronze Nataraja, Brihadeshwara Temple, Thanjavur paintings, Chola bronzes",
     era: "medieval",
     color: "#1abc9c",
     mapPosition: { top: "70%", left: "55%" }
   },
   {
+    id: "kushan",
+    name: "Kushan Empire",
+    period: "c. 30–375 CE",
+    startYear: 30,
+    endYear: 375,
+    capital: "Purushpura (Peshawar), with a secondary capital at Mathura",
+    founders: "Kujula Kadphises",
+    notableRulers: [
+      { name: "Kujula Kadphises", reign: "c. 30–80 CE", achievement: "United the Yuezhi tribes and founded the Kushan Empire, established control over Bactria and Kabul" },
+      { name: "Vima Kadphises", reign: "c. 105–127 CE", achievement: "Conquered Gandhara, issued extensive gold coinage, expanded trade with Rome" },
+      { name: "Kanishka I", reign: "c. 127–150 CE", achievement: "Empire reached its zenith; convened the Fourth Buddhist Council and patronized Gandhara art" },
+      { name: "Vasudeva I", reign: "c. 190–230 CE", achievement: "Last powerful Kushan ruler; presided over the empire before its gradual decline" }
+    ],
+    territory: "Central Asia, Afghanistan, Pakistan, and northern India",
+    peakExtent: "From Central Asia (Bactria, Khotan, Kashgar) through Afghanistan and Gandhara to Mathura, Malwa, and parts of Magadha under Kanishka I",
+    governance: "Centralized monarchy with regional governors (satraps); syncretic administration blending Central Asian, Persian, and Indian traditions",
+    military: "Powerful cavalry-based army; controlled key Silk Road passes connecting China, Central Asia, India, and the Roman world",
+    decline: "Weak successors after Vasudeva I, pressure from the Sassanian Empire, and fragmentation into regional Kushano-Sasanian kingdoms",
+    contributions: [
+      "Control of a major stretch of the Silk Road, linking Rome, Central Asia, China, and India",
+      "Patronage of Buddhism, including Kanishka's Fourth Buddhist Council",
+      "Flourishing of the Gandhara and Mathura schools of art, including early Buddha imagery",
+      "Extensive gold and copper coinage depicting Greek, Persian, Hindu, and Buddhist deities side by side",
+      "Facilitated the spread of Buddhism into Central Asia, China, Korea, and Japan",
+      "A cultural crossroads blending Greek, Persian, Indian, and Central Asian traditions"
+    ],
+    art: "Gandhara Greco-Buddhist sculpture, Mathura school of art, syncretic Kushan coinage",
+    era: "ancient",
+    color: "#f1c40f",
+    mapPosition: { top: "15%", left: "40%" },
+    link: "kushan/index.html"
+  },
+    {
     id: "vakataka",
     name: "Vakataka Dynasty",
     period: "250–510 CE",
@@ -353,7 +386,12 @@ export const timelineEvents = [
   { year: 1720, event: "Peshwa Baji Rao I expands Maratha Empire", dynasty: "maratha" },
   { year: 1761, event: "Third Battle of Panipat — Maratha decline", dynasty: "maratha" },
 { year: 1857, event: "Fall of Mughal Empire — Bahadur Shah Zafar deposed", dynasty: "mughal" },
-  { year: 270, event: "Pravarasena I becomes the first Vakataka ruler to take the title Samrat", dynasty: "vakataka" },
+  { year: 30, event: "Kujula Kadphises unites the Yuezhi tribes and founds the Kushan Empire", dynasty: "kushan" },
+  { year: 105, event: "Vima Kadphises conquers Gandhara and expands Kushan trade with Rome", dynasty: "kushan" },
+  { year: 127, event: "Kanishka I ascends the throne; the Kushan Empire reaches its greatest extent", dynasty: "kushan" },
+  { year: 150, event: "Huvishka succeeds Kanishka, continuing patronage of Buddhism and Zoroastrianism", dynasty: "kushan" },
+  { year: 230, event: "Death of Vasudeva I, the last powerful Kushan ruler, marks the start of decline", dynasty: "kushan" }
+    { year: 270, event: "Pravarasena I becomes the first Vakataka ruler to take the title Samrat", dynasty: "vakataka" },
   { year: 385, event: "Rudrasena II marries Prabhavatigupta, daughter of Gupta emperor Chandragupta II", dynasty: "vakataka" },
   { year: 405, event: "Pravarasena II composes the Setubandha and moves the capital to Pravarapura", dynasty: "vakataka" },
   { year: 475, event: "Harishena becomes ruler and sponsors the finest phase of the Ajanta Caves", dynasty: "vakataka" },
