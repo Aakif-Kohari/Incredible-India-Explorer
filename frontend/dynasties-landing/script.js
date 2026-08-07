@@ -166,6 +166,18 @@ const dynastiesData = [
         link: '#'
     },
     {
+        id: 'jodhpur-marwar',
+        name: 'Kingdom of Jodhpur (Marwar)',
+        region: 'west',
+        period: 'medieval',
+        religion: 'hinduism',
+        capital: 'Jodhpur',
+        dates: 'c. 1226 - 1949 CE',
+        description: 'The Rathore Rajputs of Marwar built the mighty Mehrangarh Fort, fostered the Marwari trade network, and kept their desert kingdom unconquered for seven centuries.',
+        icon: '🏰',
+        link: '../Jodhpur-Marwar/JodhpurMarwar.html'
+    },
+    {
         id: 'vijayanagara',
         name: 'Vijayanagara Empire',
         region: 'south',
