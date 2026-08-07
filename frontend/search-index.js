@@ -1505,6 +1505,13 @@ window.indiaSearchIndex = [
     description: "Explore Chhau Masks Heritage — UNESCO Intangible Cultural Heritage of Purulia and Seraikela, paper-mache mask making, divine/asura mask types, and folk dance performance gallery.",
     url: "frontend/chhau-masks-explorer/index.html"
   },
+  // --- Manjusha Painting Explorer ---
+  {
+    title: "Manjusha Painting Explorer",
+    category: "Arts & Culture",
+    description: "Explore Manjusha Painting — GI-tagged mythology-inspired temple-box folk art of the Anga region (Bhagalpur, Bihar), the Bihula–Bishari legend, serpent motifs, materials and gallery.",
+    url: "frontend/manjusha-painting-explorer/index.html"
+  },
   // --- Bidriware Craftsmanship Explorer ---
   {
     title: "Bidriware Craftsmanship Explorer",

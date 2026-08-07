@@ -1,6 +1,17 @@
 // ---------- Handicrafts Data (16 crafts across UP districts) ----------
 const allCrafts = [
   {
+    name: "Manjusha Painting",
+    icon: "🐍",
+    district: "Bhagalpur, Bihar",
+    category: "folk-art",
+    tags: ["GI Tagged", "Snake Painting", "Bihula–Bishari"],
+    description: "Mythology-inspired temple-box folk art of the Anga region, painted for the Bishari Puja with swirling serpent motifs.",
+    history: "A 7th-century folk-art tradition from Bhagalpur (Anga Mahajanapada), Manjusha paintings retell the Bihula–Bishari legend on temple-shaped bamboo, jute and paper caskets.",
+    artisan: "Kumbhakar and Malakar community artists who paint bold outlines with bamboo kalams on gum-pasted cloth, keeping the Shravan Bishari Puja alive.",
+    detailsUrl: "../manjusha-painting-explorer/index.html"
+  },
+  {
     name: "Chhau Dance Masks",
     icon: "🎭",
     district: "Purulia & Charida",
@@ -10,7 +21,8 @@ const allCrafts = [
     history: "Centuries-old folk performance mask art created by Sutradhar artisans depicting Ramayana, Mahabharata, and Puranic deities.",
     artisan: "Charida village artisans in Purulia crafting lightweight paper-mache shells embellished with peacock feathers and zari crowns.",
     detailsUrl: "../chhau-masks-explorer/index.html"
-},
+  },
+  {
     name: "Bidriware Metal Inlay",
     icon: "✨",
     district: "Bidar, Karnataka",
@@ -20,7 +32,8 @@ const allCrafts = [
     history: "14th-century Bahmani Sultanate metalcraft developed in Bidar using unique nitrate-rich Bidar Fort soil for oxidation.",
     artisan: "Master Bidri engravers hammering pure silver wire into zinc-copper castings.",
     detailsUrl: "../bidriware-craftsmanship-explorer/index.html"
-},
+  },
+  {
     name: "Bastar Iron Craft (Loha Shilp)",
     icon: "🔨",
     district: "Bastar & Kondagaon",
