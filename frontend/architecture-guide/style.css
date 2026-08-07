@@ -146,27 +146,73 @@
 
 /* Hotspots */
 .hotspot {
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.3s ease;
+}
+
+/* Hit Area (Invisible but large for touch targets) */
+.hotspot-hit {
+    fill: transparent;
+    stroke: none;
+}
+
+/* Visible Dot */
+.hotspot-dot {
     fill: var(--sandstone);
     stroke: var(--ivory);
     stroke-width: 2;
-    cursor: pointer;
     transition: all 0.3s ease;
-    outline: none;
 }
 
-.hotspot:hover,
-.hotspot:focus {
+.hotspot:hover .hotspot-dot,
+.hotspot:focus .hotspot-dot {
     fill: var(--bronze);
     stroke-width: 4;
-    r: 12; /* Enlarge radius visually via CSS, might need to be attribute in SVG but CSS transition works if not fixed */
-    transform: scale(1.2);
-    transform-origin: center;
+    r: 18;
 }
 
-.hotspot.active {
+.hotspot.active .hotspot-dot {
     fill: #4CAF50;
     stroke: #FFFFFF;
     stroke-width: 3;
+}
+
+/* Mobile Responsive Hotspots */
+@media (max-width: 768px) {
+    /* Increase effective touch area further on mobile */
+    .hotspot-hit {
+        r: 60; /* Scales to ~30px on small screens -> 60px diameter hit target */
+    }
+
+    /* Keep the visible dot legible */
+    .hotspot-dot {
+        r: 20; 
+    }
+    
+    .hotspot:hover .hotspot-dot,
+    .hotspot:focus .hotspot-dot {
+        r: 24;
+    }
+
+    /* Reposition overlapping or clustered hotspots by translating their group */
+    /* Dravidian */
+    #vimana { transform: translate(10px, -15px); }
+    #mandapa { transform: translate(-10px, 15px); }
+    #gopuram { transform: translate(-15px, 0); }
+    
+    /* Indo-Islamic */
+    #arch { transform: translate(0px, 20px); }
+    #dome { transform: translate(0px, -20px); }
+    
+    /* Nagara */
+    #shikhara { transform: translate(15px, -10px); }
+    #amalaka { transform: translate(0px, -20px); }
+    #mandapa { transform: translate(-15px, 15px); }
+    
+    /* Vesara */
+    #hybrid-tower { transform: translate(15px, -15px); }
+    #pillared-hall { transform: translate(-15px, 15px); }
 }
 
 /* Connecting Lines (Optional depending on SVG implementation) */
