@@ -10,6 +10,27 @@ const allCrafts = [
     history: "Traced to the Indus Valley 'Dancing Girl' of Mohenjo-daro (c. 2500 BCE), Dokra keeps a 4,500-year-old casting lineage alive in Bastar, Dhenkanal and Bankura.",
     artisan: "Dokra Damar and Kamar tribal smiths who shape beeswax models, encase them in clay and pour molten bronze into the cavity left behind.",
     detailsUrl: "../dokra-art-explorer/index.html"
+    },
+  {
+    name: "Kalighat Painting",
+    icon: "🎨",
+    district: "Kalighat, Kolkata",
+    category: "folk-art",
+    tags: ["Bold Brushwork", "Social Satire", "19th Century Bengal"],
+    description: "Bengal's iconic temple-ghat painting school — bold single-stroke brushwork on mill paper, fusing divine icons with biting social commentary.",
+    history: "Emerged in 19th-century Calcutta near the Kalighat temple, where patua painters turned pilgrim souvenirs into India's first popular urban art school, lampooning baboos, priests and zamindars.",
+    artisan: "Patua painters of the Kali ghat who drew each figure in one unbroken tapering stroke, now carried forward by revivalists like Santanu Chakraverty.",
+    detailsUrl: "../kalighat-painting-showcase/index.html"
+  },
+  {  name: "Manjusha Painting",
+    icon: "🐍",
+    district: "Bhagalpur, Bihar",
+    category: "folk-art",
+    tags: ["GI Tagged", "Snake Painting", "Bihula–Bishari"],
+    description: "Mythology-inspired temple-box folk art of the Anga region, painted for the Bishari Puja with swirling serpent motifs.",
+    history: "A 7th-century folk-art tradition from Bhagalpur (Anga Mahajanapada), Manjusha paintings retell the Bihula–Bishari legend on temple-shaped bamboo, jute and paper caskets.",
+    artisan: "Kumbhakar and Malakar community artists who paint bold outlines with bamboo kalams on gum-pasted cloth, keeping the Shravan Bishari Puja alive.",
+    detailsUrl: "../manjusha-painting-explorer/index.html"
   },
   {
     name: "Chhau Dance Masks",
