@@ -1,6 +1,17 @@
 // ---------- Handicrafts Data (16 crafts across UP districts) ----------
 const allCrafts = [
   {
+    name: "Dokra Art",
+    icon: "🪔",
+    district: "Bastar, Dhenkanal & Bankura",
+    category: "metal",
+    tags: ["Lost-Wax Casting", "Tribal Art", "Indus Valley Roots"],
+    description: "India's ancient lost-wax metal casting craft — seamless bronze and brass figures of gods, beasts and ornaments by tribal artisans.",
+    history: "Traced to the Indus Valley 'Dancing Girl' of Mohenjo-daro (c. 2500 BCE), Dokra keeps a 4,500-year-old casting lineage alive in Bastar, Dhenkanal and Bankura.",
+    artisan: "Dokra Damar and Kamar tribal smiths who shape beeswax models, encase them in clay and pour molten bronze into the cavity left behind.",
+    detailsUrl: "../dokra-art-explorer/index.html"
+    },
+  {
     name: "Kalighat Painting",
     icon: "🎨",
     district: "Kalighat, Kolkata",

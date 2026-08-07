@@ -1505,6 +1505,13 @@ window.indiaSearchIndex = [
     description: "Explore Chhau Masks Heritage — UNESCO Intangible Cultural Heritage of Purulia and Seraikela, paper-mache mask making, divine/asura mask types, and folk dance performance gallery.",
     url: "frontend/chhau-masks-explorer/index.html"
   },
+  // --- Dokra Art Explorer ---
+  {
+    title: "Dokra Art Explorer",
+    category: "Arts & Culture",
+    description: "Explore Dokra Art — ancient lost-wax metal casting by tribal artisans, Indus Valley roots, the cire-perdue process, artisan communities of Bastar, Dhenkanal and Bankura, and gallery.",
+    url: "frontend/dokra-art-explorer/index.html"
+  },
   // --- Kalighat Painting Showcase ---
   {
     title: "Kalighat Painting Showcase",
