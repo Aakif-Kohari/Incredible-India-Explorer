@@ -1505,6 +1505,13 @@ window.indiaSearchIndex = [
     description: "Explore Chhau Masks Heritage — UNESCO Intangible Cultural Heritage of Purulia and Seraikela, paper-mache mask making, divine/asura mask types, and folk dance performance gallery.",
     url: "frontend/chhau-masks-explorer/index.html"
   },
+  // --- Kalighat Painting Showcase ---
+  {
+    title: "Kalighat Painting Showcase",
+    category: "Arts & Culture",
+    description: "Explore Kalighat Painting — 19th-century Bengal's iconic temple-ghat brushwork with bold single-stroke lines, divine themes, social satire, brushwork visualization and gallery.",
+    url: "frontend/kalighat-painting-showcase/index.html"
+  },
   // --- Manjusha Painting Explorer ---
   {
     title: "Manjusha Painting Explorer",

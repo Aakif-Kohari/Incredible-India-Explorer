@@ -1,7 +1,17 @@
 // ---------- Handicrafts Data (16 crafts across UP districts) ----------
 const allCrafts = [
   {
-    name: "Manjusha Painting",
+    name: "Kalighat Painting",
+    icon: "🎨",
+    district: "Kalighat, Kolkata",
+    category: "folk-art",
+    tags: ["Bold Brushwork", "Social Satire", "19th Century Bengal"],
+    description: "Bengal's iconic temple-ghat painting school — bold single-stroke brushwork on mill paper, fusing divine icons with biting social commentary.",
+    history: "Emerged in 19th-century Calcutta near the Kalighat temple, where patua painters turned pilgrim souvenirs into India's first popular urban art school, lampooning baboos, priests and zamindars.",
+    artisan: "Patua painters of the Kali ghat who drew each figure in one unbroken tapering stroke, now carried forward by revivalists like Santanu Chakraverty.",
+    detailsUrl: "../kalighat-painting-showcase/index.html"
+  },
+  {  name: "Manjusha Painting",
     icon: "🐍",
     district: "Bhagalpur, Bihar",
     category: "folk-art",
