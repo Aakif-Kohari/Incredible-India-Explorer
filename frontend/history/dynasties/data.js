@@ -93,6 +93,7 @@ export const dynasties = [
       "Market regulation and price control systems",
       "Postal and intelligence networks"
     ],
+    
     art: "Indo-Islamic architecture, minarets, domes, arches, calligraphy, geometric patterns",
     era: "medieval",
     color: "#9b59b6",
@@ -223,12 +224,45 @@ export const dynasties = [
       "Tamil literature and art flourished",
       "Chola bronze casting technique"
     ],
-art: "Bronze Nataraja, Brihadeshwara Temple, Thanjavur paintings, Chola bronzes",
+ art: "Bronze Nataraja, Brihadeshwara Temple, Thanjavur paintings, Chola bronzes",
     era: "medieval",
     color: "#1abc9c",
     mapPosition: { top: "70%", left: "55%" }
   },
   {
+    id: "vakataka",
+    name: "Vakataka Dynasty",
+    period: "250–510 CE",
+    startYear: 250,
+    endYear: 510,
+    capital: "Nandivardhana, later Pravarapura; Vatsagulma (Washim) for the second branch",
+    founders: "Vindhyashakti",
+    notableRulers: [
+      { name: "Vindhyashakti", reign: "c. 250–270 CE", achievement: "Founded the Vakataka dynasty in the Deccan" },
+      { name: "Pravarasena I", reign: "c. 270–330 CE", achievement: "First Vakataka ruler to claim the title Samrat, greatly expanded the kingdom" },
+      { name: "Pravarasena II", reign: "c. 400–440 CE", achievement: "Composed the Setubandha, moved the capital to Pravarapura, issued numerous land grants" },
+      { name: "Harishena", reign: "c. 475–500 CE", achievement: "Greatest patron of the Ajanta Caves, extended the Vatsagulma branch to its peak" }
+    ],
+    territory: "Central India and the Deccan, primarily the Vidarbha region",
+    peakExtent: "From Malwa in the north to the Kuntala region in the south under Harishena",
+    governance: "Kingdom divided into provinces (rashtras) administered by Rajyadhikritas; extensive land-grant system",
+    military: "Regional Deccan power; matrimonial alliance rather than conflict with the Gupta Empire",
+    decline: "Rapid decline after Harishena's death around 500–510 CE; territories absorbed by neighbouring powers, paving the way for the rise of the Chalukyas",
+    contributions: [
+      "Patronage of the Ajanta Caves — UNESCO World Heritage rock-cut Buddhist monastery",
+      "Renowned Ajanta cave paintings and frescoes depicting Jataka tales",
+      "Sanskrit and Prakrit literary patronage, including Pravarasena II's Setubandha",
+      "Blend of indigenous, Gupta, and Satavahana architectural styles",
+      "Numerous land-grant copper-plate inscriptions documenting administration",
+      "Temple architecture, including a temple dedicated to Rama built by Pravarasena II"
+    ],
+    art: "Ajanta cave viharas and chaityas, Buddhist murals and sculpture, Vakataka-style temple architecture",
+    era: "ancient",
+    color: "#d35400",
+    mapPosition: { top: "55%", left: "50%" },
+    link: "vakataka/index.html"
+  },
+    {
     id: "kanva",
     name: "Kanva Dynasty",
     period: "73–28 BCE",
@@ -319,6 +353,11 @@ export const timelineEvents = [
   { year: 1720, event: "Peshwa Baji Rao I expands Maratha Empire", dynasty: "maratha" },
   { year: 1761, event: "Third Battle of Panipat — Maratha decline", dynasty: "maratha" },
 { year: 1857, event: "Fall of Mughal Empire — Bahadur Shah Zafar deposed", dynasty: "mughal" },
+  { year: 270, event: "Pravarasena I becomes the first Vakataka ruler to take the title Samrat", dynasty: "vakataka" },
+  { year: 385, event: "Rudrasena II marries Prabhavatigupta, daughter of Gupta emperor Chandragupta II", dynasty: "vakataka" },
+  { year: 405, event: "Pravarasena II composes the Setubandha and moves the capital to Pravarapura", dynasty: "vakataka" },
+  { year: 475, event: "Harishena becomes ruler and sponsors the finest phase of the Ajanta Caves", dynasty: "vakataka" },
+  { year: 510, event: "Vakataka dynasty declines after Harishena's death", dynasty: "vakataka" }
   { year: -73, event: "Vasudeva Kanva overthrows the last Shunga king Devabhuti", dynasty: "kanva" },
   { year: -64, event: "Bhumimitra succeeds Vasudeva Kanva as Kanva ruler", dynasty: "kanva" },
   { year: -40, event: "Susarman, the last Kanva ruler, ascends the throne", dynasty: "kanva" },
