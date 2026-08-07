@@ -2084,5 +2084,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Takkolam (c. 949 CE) - the decisive Chola–Rashtrakuta clash where crown prince Rajaditya fell and Emperor Krishna III captured Kanchi and Tanjore.",
     url: "frontend/battle-of-takkolam-explorer/index.html"
+  },
+  // --- Battle of Talikota Explorer ---
+  {
+    title: "Battle of Talikota Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Talikota (1565 CE) - the decisive clash between the Vijayanagara Empire and the united Deccan Sultanates alliance, leading to the fall of the empire and the ruins of Hampi.",
+    url: "frontend/battle-of-talikota-explorer/index.html"
   }
 ];
