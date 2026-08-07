@@ -1,6 +1,17 @@
 // ---------- Handicrafts Data (16 crafts across UP districts) ----------
 const allCrafts = [
   {
+    name: "Channapatna Toys",
+    icon: "🐘",
+    district: "Channapatna, Karnataka",
+    category: "toy",
+    tags: ["GI Tagged", "Lacquerware", "Wooden Toys"],
+    description: "Karnataka's iconic lacquerware wooden toys — ivory wood turned on a bow lathe and finished with natural lac in warm, glossy colours.",
+    history: "Handcrafted in the 'City of Toys' since the 18th century, when Tipu Sultan brought Persian lacquer artisans to Channapatna; GI-tagged in 2005.",
+    artisan: "Channapatna toymakers who shape soft aale-mara wood on bow-powered lathes and seal it with molten natural lac resin.",
+    detailsUrl: "../channapatna-toys-explorer/index.html"
+},
+  {
     name: "Dokra Art",
     icon: "🪔",
     district: "Bastar, Dhenkanal & Bankura",
