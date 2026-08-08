@@ -142,6 +142,18 @@ const dynastiesData = [
         link: '#'
     },
     {
+        id: 'pallava',
+        name: 'Pallava Dynasty',
+        region: 'south',
+        period: 'ancient',
+        religion: 'hinduism',
+        capital: 'Kanchipuram',
+        dates: 'c. 275 - 897 CE',
+        description: 'Pioneers of Dravidian rock-cut and structural temple architecture at Kanchipuram and Mahabalipuram.',
+        icon: '🛕',
+        link: '../pallava-dynasty-explorer/index.html'
+    },
+    {
         id: 'maratha',
         name: 'Maratha Empire',
         region: 'west',
