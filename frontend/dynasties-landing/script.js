@@ -142,6 +142,30 @@ const dynastiesData = [
         link: '#'
     },
     {
+        id: 'rashtrakuta',
+        name: 'Rashtrakuta Dynasty',
+        region: 'deccan',
+        period: 'medieval',
+        religion: 'hinduism',
+        capital: 'Manyakheta',
+        dates: 'c. 753 - 982 CE',
+        description: 'Military titans of the Deccan and patrons of the monolithic Kailash Temple at Ellora.',
+        icon: '⚔️',
+        link: '../rashtrakuta-dynasty-explorer/index.html'
+    },
+  {
+        id: 'pallava',
+        name: 'Pallava Dynasty',
+        region: 'south',
+        period: 'ancient',
+        religion: 'hinduism',
+        capital: 'Kanchipuram',
+        dates: 'c. 275 - 897 CE',
+        description: 'Pioneers of Dravidian rock-cut and structural temple architecture at Kanchipuram and Mahabalipuram.',
+        icon: '🛕',
+        link: '../pallava-dynasty-explorer/index.html'
+    },
+    {
         id: 'maratha',
         name: 'Maratha Empire',
         region: 'west',
@@ -159,11 +183,11 @@ const dynastiesData = [
         region: 'deccan',
         period: 'medieval',
         religion: 'hinduism',
-        capital: 'Kalyani',
-        dates: '973 - 1189 CE',
-        description: 'Patrons of Kannada and Sanskrit literature, known for the distinctive Vesara style of temple architecture.',
+        capital: 'Badami / Kalyani',
+        dates: '543 - 1189 CE',
+        description: 'Patrons of Kannada and Sanskrit literature, known for the distinctive Vesara style of temple architecture at Pattadakal and Badami.',
         icon: '🏰',
-        link: '#'
+        link: '../chalukya-dynasty-explorer/index.html'
     },
     {
         id: 'pandya',
@@ -200,6 +224,18 @@ const dynastiesData = [
         description: 'The Rathore Rajputs of Marwar built the mighty Mehrangarh Fort, fostered the Marwari trade network, and kept their desert kingdom unconquered for seven centuries.',
         icon: '🏰',
         link: '../Jodhpur-Marwar/JodhpurMarwar.html'
+    },
+    {
+        id: 'satavahana',
+        name: 'Satavahana Dynasty',
+        region: 'deccan',
+        period: 'ancient',
+        religion: 'hinduism',
+        capital: 'Pratishthana / Amaravati',
+        dates: 'c. 100 BCE - 220 CE',
+        description: 'Lords of Dakshinapatha known for maritime trade with Rome, ship coins, and Amaravati stupa art.',
+        icon: '⛵',
+        link: '../satavahana-dynasty-explorer/index.html'
     },
     {
         id: 'vijayanagara',
