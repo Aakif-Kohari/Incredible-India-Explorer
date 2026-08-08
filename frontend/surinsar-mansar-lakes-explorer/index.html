@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore the Surinsar-Mansar Lakes — a twin-lake Ramsar Site in Jammu & Kashmir. Sacred freshwater lakes, unique wildlife, migratory birdlife, local legends, and an interactive map."
+        />
+        <meta property="og:title" content="Surinsar-Mansar Lakes Explorer | Incredible India" />
+        <meta
+            property="og:description"
+            content="Twin sacred freshwater lakes of Jammu & Kashmir — Ramsar Site No. 1573, a Wildlife Sanctuary with rare turtles, the freshwater medusa and wintering waterfowl."
+        />
+        <title>Surinsar-Mansar Lakes Explorer | Incredible India</title>
+
+        <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin=""
+        />
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="surinsar-mansar.css" />
+    </head>
+    <body class="sm-main">
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+        <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+        <main>
+            <section class="sm-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill pill-ramsar">💧 Ramsar Site No. 1573 (2005)</span>
+                        <span class="hero-pill pill-state">📍 Samba District, Jammu & Kashmir</span>
+                        <span class="hero-pill pill-history">🪞 Twin Sacred Freshwater Lakes</span>
+                    </div>
+                    <h1>Surinsar-Mansar <span>Lakes</span> Explorer</h1>
+                    <p class="hero-subtitle">
+                        Discover the twin sacred freshwater lakes of the Siwalik foothills — a composite Ramsar wetland and
+                        Wildlife Sanctuary cherished for its unique turtles, rare freshwater medusa, migratory birdlife and
+                        living mythology.
+                    </p>
+                    <div id="stats-grid" class="stats-grid"></div>
+                </div>
+            </section>
+
+            <section class="sm-section">
+                <div class="section-container">
+                    <h2>Twin Lake Ecosystem</h2>
+                    <div class="info-card">
+                        <p id="eco-overview"></p>
+                        <p id="eco-surinsar"></p>
+                        <p id="eco-mansar"></p>
+                        <p id="eco-hydrology"></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sm-section">
+                <div class="section-container">
+                    <h2>Ramsar Site & Conservation</h2>
+                    <div class="info-card">
+                        <p id="ramsar-summary"></p>
+                        <div class="ramsar-lists">
+                            <div>
+                                <h4>Ramsar Criteria</h4>
+                                <ul id="ramsar-criteria"></ul>
+                            </div>
+                            <div>
+                                <h4>Key Threats</h4>
+                                <ul id="ramsar-threats"></ul>
+                            </div>
+                        </div>
+                        <p id="ramsar-conservation"></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sm-section">
+                <div class="section-container">
+                    <h2>Religious Importance</h2>
+                    <div class="sm-grid" id="religious-grid"></div>
+                </div>
+            </section>
+
+            <section class="sm-section">
+                <div class="section-container">
+                    <h2>Wildlife & Aquatic Life</h2>
+                    <div class="species-grid" id="wildlife-grid"></div>
+                </div>
+            </section>
+
+            <section class="sm-section">
+                <div class="section-container">
+                    <h2>Birdlife & Migratory Waterfowl</h2>
+                    <div class="species-grid" id="birds-grid"></div>
+                </div>
+            </section>
+
+            <section class="sm-section">
+                <div class="section-container">
+                    <h2>Local Legends & Mythology</h2>
+                    <div class="sm-grid" id="legends-grid"></div>
+                </div>
+            </section>
+
+            <section class="sm-section">
+                <div class="section-container">
+                    <h2>Interactive Map</h2>
+                    <div id="map-container" class="sm-map"></div>
+                    <div class="hotspots-grid" id="hotspots-grid"></div>
+                </div>
+            </section>
+
+            <section class="sm-section">
+                <div class="section-container">
+                    <h2>Image Gallery</h2>
+                    <div class="gallery-grid" id="gallery-grid"></div>
+                </div>
+            </section>
+        </main>
+
+        <script
+            src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""
+        ></script>
+        <script src="surinsar-mansar-data.js"></script>
+        <script src="surinsar-mansar.js"></script>
+    </body>
+</html>

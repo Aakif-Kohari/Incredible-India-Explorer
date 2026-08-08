@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Explore ancient Indian water clocks (Ghati Yantra / Clepsydra) with an interactive timekeeping visualizer covering history, mechanism, science, and comparison with modern clocks." />
+    <title>Water Clocks Explorer | Incredible India</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="water-clock.css" />
+</head>
+
+<body class="wc-main">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link">Home</a>
+                <a href="../forgotten-inventions-explorer/index.html" class="nav-link">Forgotten Inventions</a>
+                <a href="index.html" class="nav-link active" style="color: var(--saffron)">Water Clocks</a>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode"
+                    title="Toggle Light Mode">
+                    ☀️
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="wc-hero">
+            <div class="section-container">
+                <div class="hero-badges-row">
+                    <span class="hero-pill pill-origin">📍 Ancient India</span>
+                    <span class="hero-pill pill-era">🏺 c. 1500 BCE Onward</span>
+                    <span class="hero-pill pill-name">💧 Ghati Yantra / Clepsydra</span>
+                </div>
+                <h1>Ancient Indian Water Clocks <span>(Ghati Yantra)</span></h1>
+                <p class="hero-subtitle">
+                    Discover how ancient Indian civilizations measured the passage of time using nothing but flowing and
+                    sinking water — precise, mechanical, and centuries ahead of the mechanical clock.
+                </p>
+                <div id="stats-grid" class="stats-grid"></div>
+            </div>
+        </section>
+
+        <section class="wc-info-section">
+            <div class="section-container">
+                <h2>History</h2>
+                <div id="history-content" class="info-card"></div>
+
+                <h2 class="sec-title">Interactive Working Mechanism</h2>
+                <p class="sec-subtitle">Watch the copper bowl (Kapala) slowly fill and sink — the moment it sinks marks
+                    one "ghati" (~24 minutes).</p>
+                <div class="wc-visualizer" id="wc-visualizer">
+                    <div class="wc-vessel">
+                        <div class="wc-water" id="wc-water"></div>
+                        <div class="wc-bowl" id="wc-bowl">
+                            <span class="wc-bowl-hole"></span>
+                        </div>
+                    </div>
+                    <div class="wc-controls">
+                        <button id="wc-start-btn" class="wc-btn">▶ Start Sinking Bowl</button>
+                        <button id="wc-reset-btn" class="wc-btn wc-btn-secondary">⟲ Reset</button>
+                        <div class="wc-readout">
+                            <span>Elapsed: <strong id="wc-elapsed">0.0s</strong></span>
+                            <span>Ghatis: <strong id="wc-ghati-count">0</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="sec-title">Scientific Principles</h2>
+                <div class="principles-grid" id="principles-grid"></div>
+
+                <h2 class="sec-title">Water Clocks vs. Modern Clocks</h2>
+                <div class="comparison-table-wrap">
+                    <table class="comparison-table" id="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>Water Clock (Ghati Yantra)</th>
+                                <th>Modern Clock</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparison-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="references-section">
+            <div class="section-container">
+                <h2>References & Documentation</h2>
+                <ul class="references-list" id="references-list"></ul>
+            </div>
+        </section>
+    </main>
+
+    <script src="water-clock-data.js"></script>
+    <script src="water-clock.js"></script>
+    <script>
+        (function () {
+            const themeBtn = document.getElementById('theme-toggle');
+            if (!themeBtn) return;
+            const applyIcon = (isLight) => {
+                themeBtn.textContent = isLight ? '🌙' : '☀️';
+                themeBtn.setAttribute('title', isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode');
+            };
+            applyIcon(document.body.classList.contains('light-theme'));
+            themeBtn.addEventListener('click', () => {
+                document.body.classList.toggle('light-theme');
+                const isLight = document.body.classList.contains('light-theme');
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+                applyIcon(isLight);
+            });
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore Shivneri Fort in Junnar, Maharashtra — the birthplace of Chhatrapati Shivaji Maharaj. Discover its history, seven fortified gates, Shiv Kunj birthplace memorial, and Maratha heritage."
+        />
+        <title>Shivneri Fort Explorer | Incredible India</title>
+
+        <!-- Google Fonts -->
+        <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Stylesheets -->
+        <link rel="stylesheet" href="../../styles.css" />
+
+        <!-- Page-specific styles (single-file build) -->
+        <style>
+            :root {
+                --shivneri-bg-dark: #1a120a;
+                --shivneri-card-bg-dark: rgba(58, 38, 22, 0.78);
+                --shivneri-text-primary-dark: #f8fafc;
+                --shivneri-text-muted-dark: #e8c9a0;
+                --shivneri-border-dark: rgba(255, 255, 255, 0.12);
+                --shivneri-emerald: #10b981;
+                --shivneri-copper: #c88a4a;
+                --shivneri-gold: #ffb01f;
+                --shivneri-saffron: #ff6f3c;
+                --shivneri-rust: #b24e30;
+            }
+
+            body.light-theme {
+                --shivneri-bg-dark: #fdf6ec;
+                --shivneri-card-bg-dark: rgba(255, 255, 255, 0.92);
+                --shivneri-text-primary-dark: #452b0f;
+                --shivneri-text-muted-dark: #7c4a1e;
+                --shivneri-border-dark: rgba(200, 138, 74, 0.2);
+            }
+
+            .shivneri-main {
+                background-color: var(--shivneri-bg-dark);
+                color: var(--shivneri-text-primary-dark);
+                min-height: 100vh;
+                font-family: 'Outfit', sans-serif;
+            }
+
+            .glass-card {
+                background: var(--shivneri-card-bg-dark);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border: 1px solid var(--shivneri-border-dark);
+                border-radius: 18px;
+                padding: 1.6rem;
+            }
+
+            .shivneri-hero {
+                padding: 6rem 1.5rem 3.5rem;
+                text-align: center;
+                background: radial-gradient(circle at 50% 20%, rgba(200, 138, 74, 0.22), transparent 70%);
+            }
+
+            .hero-badges-row {
+                display: flex;
+                justify-content: center;
+                gap: 0.8rem;
+                flex-wrap: wrap;
+                margin-bottom: 1rem;
+            }
+
+            .hero-pill {
+                font-size: 0.85rem;
+                font-weight: 600;
+                padding: 0.35rem 0.9rem;
+                border-radius: 50px;
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid var(--shivneri-border-dark);
+            }
+
+            .shivneri-hero h1 {
+                font-family: 'Playfair Display', serif;
+                font-size: 2.8rem;
+                font-weight: 800;
+                margin-bottom: 1rem;
+            }
+
+            .shivneri-hero h1 span {
+                color: var(--shivneri-gold);
+            }
+
+            .hero-subtitle {
+                max-width: 740px;
+                margin: 0 auto 2rem;
+                color: var(--shivneri-text-muted-dark);
+                font-size: 1.1rem;
+                line-height: 1.65;
+            }
+
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 1.2rem;
+                max-width: 900px;
+                margin: 2rem auto 0;
+            }
+
+            .stat-box {
+                background: var(--shivneri-card-bg-dark);
+                border: 1px solid var(--shivneri-border-dark);
+                padding: 1.2rem;
+                border-radius: 14px;
+                text-align: center;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+                font-weight: 800;
+                color: var(--shivneri-gold);
+            }
+
+            .stat-label {
+                font-size: 0.88rem;
+                color: var(--shivneri-text-muted-dark);
+                margin-top: 0.3rem;
+            }
+
+            .ecosystem-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .section-container {
+                max-width: 1150px;
+                margin: 0 auto;
+            }
+
+            .section-header {
+                text-align: center;
+                margin-bottom: 2.5rem;
+            }
+
+            .section-badge {
+                display: inline-block;
+                font-size: 0.82rem;
+                font-weight: 700;
+                padding: 0.3rem 0.8rem;
+                border-radius: 20px;
+                background: rgba(200, 138, 74, 0.18);
+                color: #e8c9a0;
+                margin-bottom: 0.6rem;
+                text-transform: uppercase;
+            }
+
+            .section-header h2 {
+                font-family: 'Playfair Display', serif;
+                font-size: 2.2rem;
+                font-weight: 700;
+                margin-bottom: 0.6rem;
+            }
+
+            .section-subtitle {
+                max-width: 680px;
+                margin: 0 auto;
+                color: var(--shivneri-text-muted-dark);
+                font-size: 1rem;
+            }
+
+            .ecosystem-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 1.6rem;
+            }
+
+            .fauna-card {
+                transition: transform 0.25s ease, border-color 0.25s ease;
+            }
+
+            .fauna-card:hover {
+                transform: translateY(-4px);
+                border-color: var(--shivneri-copper);
+            }
+
+            .fauna-card-header {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .fauna-icon {
+                font-size: 2.2rem;
+            }
+
+            .fauna-card h3 {
+                font-size: 1.2rem;
+                font-weight: 700;
+            }
+
+            .fauna-status {
+                font-size: 0.78rem;
+                color: var(--shivneri-gold);
+                font-weight: 600;
+            }
+
+            .fauna-card p {
+                font-size: 0.9rem;
+                color: var(--shivneri-text-muted-dark);
+                line-height: 1.55;
+            }
+
+            .fact-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 0.6rem;
+            }
+
+            .fact-list li {
+                font-size: 0.9rem;
+                color: var(--shivneri-text-primary-dark);
+                padding: 0.7rem 1rem;
+                border-radius: 10px;
+                background: rgba(200, 138, 74, 0.1);
+                border-left: 3px solid var(--shivneri-copper);
+                line-height: 1.5;
+            }
+
+            .gallery-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 1.2rem;
+            }
+
+            .gallery-item {
+                border-radius: 14px;
+                overflow: hidden;
+                cursor: pointer;
+                border: 1px solid var(--shivneri-border-dark);
+                transition: transform 0.25s ease;
+                background: var(--shivneri-card-bg-dark);
+            }
+
+            .gallery-item:hover {
+                transform: scale(1.03);
+            }
+
+            .gallery-emoji-box {
+                width: 100%;
+                height: 160px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 3.6rem;
+                background: linear-gradient(160deg, rgba(200, 138, 74, 0.22), rgba(178, 78, 48, 0.14));
+            }
+
+            .gallery-caption {
+                padding: 0.8rem;
+                font-size: 0.82rem;
+                color: var(--shivneri-text-muted-dark);
+            }
+
+            .lightbox-modal {
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                z-index: 9999;
+                background: rgba(0, 0, 0, 0.85);
+                backdrop-filter: blur(8px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1.5rem;
+            }
+
+            .lightbox-modal.hidden {
+                display: none;
+            }
+
+            .lightbox-content {
+                max-width: 700px;
+                width: 100%;
+                position: relative;
+                text-align: center;
+            }
+
+            .lightbox-close {
+                position: absolute;
+                top: -2.5rem;
+                right: 0;
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 2.5rem;
+                cursor: pointer;
+            }
+
+            .lightbox-emoji-display {
+                width: 100%;
+                min-height: 240px;
+                max-height: 55vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 7rem;
+                border-radius: 12px;
+                border: 2px solid var(--shivneri-gold);
+                background: linear-gradient(160deg, rgba(200, 138, 74, 0.25), rgba(178, 78, 48, 0.15));
+            }
+
+            .lightbox-caption-title {
+                margin-top: 1rem;
+                color: var(--shivneri-text-primary-dark);
+                font-size: 1.3rem;
+                font-weight: 700;
+                font-family: 'Playfair Display', serif;
+            }
+
+            .lightbox-caption-text {
+                margin-top: 0.4rem;
+                color: var(--shivneri-gold);
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
+            @media (max-width: 768px) {
+                .shivneri-hero h1 { font-size: 2.2rem; }
+            }
+        </style>
+    </head>
+
+    <body class="shivneri-main">
+        <!-- Site Navbar -->
+        <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="shivneri-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill">📍 Junnar, Pune District</span>
+                        <span class="hero-pill">👑 Birthplace of Shivaji Maharaj</span>
+                        <span class="hero-pill">🚪 Seven Fortified Gates</span>
+                    </div>
+                    <h1>Shivneri <span>Fort</span> Explorer</h1>
+                    <p class="hero-subtitle">
+                        Perched on a hill above Junnar in the Sahyadris, Shivneri Fort is revered as the birthplace of
+                        Chhatrapati Shivaji Maharaj, founder of the Maratha Empire — a natural stronghold shaped like a
+                        Shiv-Pind, guarded by seven zigzagging gates and centuries of history.
+                    </p>
+
+                    <div id="stats-grid" class="stats-grid"></div>
+                </div>
+            </section>
+
+            <!-- Overview Section -->
+            <section class="ecosystem-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">At a Glance</span>
+                        <h2>Overview</h2>
+                        <p class="section-subtitle">
+                            A compact but formidable hill fort guarding the old trade route from Desh to the port of Kalyan.
+                        </p>
+                    </div>
+
+                    <div class="glass-card">
+                        <p style="color: var(--shivneri-text-muted-dark); line-height: 1.7;">
+                            Shivneri Fort stands at an elevation of roughly 2,260 ft near Junnar in Maharashtra's Pune
+                            district. Encircled on all sides by steep, unassailable cliffs, its silhouette is often
+                            described as resembling a Shiv-Pind. Long before its Maratha legacy, the surrounding hills
+                            sheltered Buddhist rock-cut caves dating to the 1st century, and the fort itself guarded a
+                            vital trading route linking the Desh plateau to the coastal port of Kalyan.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section class="ecosystem-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Through the Centuries</span>
+                        <h2>History</h2>
+                        <p class="section-subtitle">
+                            From Yadava stronghold to Maratha cradle — Shivneri's long chain of rulers and sieges.
+                        </p>
+                    </div>
+
+                    <div class="glass-card">
+                        <p style="color: var(--shivneri-text-muted-dark); line-height: 1.7; margin-bottom: 1.2rem;">
+                            The hill was fortified under the Yadavas of Devagiri around the 12th–14th centuries, before
+                            passing to the Bahmani Sultanate and later the Nizamshahi rulers of Ahmednagar. In 1595, the
+                            Sultan of Ahmednagar granted the fort to Maloji Bhosale, grandfather of Shivaji Maharaj,
+                            bringing it into the Bhosale family's hands for generations to come.
+                        </p>
+                        <ul class="fact-list" id="history-list"></ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Builder Section -->
+            <section class="ecosystem-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Custodians of the Hill</span>
+                        <h2>Builder &amp; Rulers</h2>
+                        <p class="section-subtitle">
+                            Shivneri passed through several dynasties before its Bhosale-era legacy began.
+                        </p>
+                    </div>
+
+                    <div id="builder-grid" class="ecosystem-grid"></div>
+                </div>
+            </section>
+
+            <!-- Birthplace of Shivaji Maharaj Section -->
+            <section class="ecosystem-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Sacred Ground</span>
+                        <h2>Birthplace of Shivaji Maharaj</h2>
+                        <p class="section-subtitle">
+                            Where Jijabai gave the Maratha Empire its founder, on 19 February 1630.
+                        </p>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--shivneri-gold); margin-bottom: 0.8rem;">
+                            Shiv Kunj &amp; the Birth Chamber
+                        </h3>
+                        <p style="color: var(--shivneri-text-muted-dark); line-height: 1.7;">
+                            With her husband Shahaji Bhosale away on campaign, Jijabai stayed at the secure hilltop fort,
+                            where she gave birth to Shivaji on 19 February 1630. The ground floor of a modest two-storey
+                            building marks the exact birth spot, now watched over by a statue and cradle. Nearby, the
+                            Shivkunj memorial — its foundation laid and later inaugurated by Maharashtra's first Chief
+                            Minister, Yashwantrao Chavan — depicts young Shivaji describing his dreams of Swarajya to
+                            his mother.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Architecture & Fortifications Section -->
+            <section class="ecosystem-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Defensive Design</span>
+                        <h2>Architecture &amp; Fortifications</h2>
+                        <p class="section-subtitle">
+                            Seven zigzagging gates and natural cliff defenses made Shivneri exceptionally hard to storm.
+                        </p>
+                    </div>
+
+                    <div id="architecture-grid" class="ecosystem-grid"></div>
+                </div>
+            </section>
+
+            <!-- Major Attractions Section -->
+            <section class="ecosystem-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">What to See</span>
+                        <h2>Major Attractions</h2>
+                        <p class="section-subtitle">
+                            Key landmarks that make a visit to Shivneri a walk through Maratha history.
+                        </p>
+                    </div>
+
+                    <div id="attractions-grid" class="ecosystem-grid"></div>
+                </div>
+            </section>
+
+            <!-- Interesting Facts Section -->
+            <section class="ecosystem-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Did You Know</span>
+                        <h2>Interesting Facts</h2>
+                        <p class="section-subtitle">
+                            A few lesser-known details about Shivneri's legacy and design.
+                        </p>
+                    </div>
+
+                    <div class="glass-card">
+                        <ul class="fact-list" id="facts-list"></ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section class="ecosystem-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Visual Exploration</span>
+                        <h2>Shivneri Photo Gallery</h2>
+                        <p class="section-subtitle">
+                            Click any tile to view details in full-screen.
+                        </p>
+                    </div>
+
+                    <div id="gallery-grid" class="gallery-grid"></div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox-modal" class="lightbox-modal hidden" role="dialog" aria-modal="true" aria-label="Gallery Lightbox">
+            <div class="lightbox-content">
+                <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+                <div id="lightbox-emoji" class="lightbox-emoji-display"></div>
+                <div id="lightbox-caption"></div>
+            </div>
+        </div>
+
+        <!-- Site Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h3>Incredible India Explorer</h3>
+                    <p>An interactive digital guide to the wildlife, ecosystems, and culture of India.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Navigation</h3>
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../../index.html">Indian Forts Explorer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-credits footer-credits-center">
+                <p>&copy; 2026 Incredible India Explorer. Shivneri Fort Explorer.</p>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="../app.js" defer></script>
+        <script type="module" src="../auth.js"></script>
+
+        <!-- Page data + render logic (single-file build) -->
+        <script>
+            const SHIVNERI_DATA = {
+                id: 'shivneri',
+                name: 'Shivneri Fort',
+                location: 'Junnar, Pune District, Maharashtra',
+                elevation: '2,260 ft',
+                born: '19 February 1630',
+
+                quickStats: [
+                    { label: 'Elevation', value: '2,260 ft', icon: '⛰️' },
+                    { label: 'Fortified Gates', value: '7', icon: '🚪' },
+                    { label: 'Shivaji Born', value: '1630', icon: '👑' },
+                    { label: 'Steps to Top', value: '400–500', icon: '🪜' }
+                ],
+
+                history: [
+                    'Fortified under the Yadavas of Devagiri around the 12th–14th centuries.',
+                    'Passed to the Bahmani Sultanate, then the Nizamshahi rulers of Ahmednagar.',
+                    'Granted to Maloji Bhosale, Shivaji\'s grandfather, by the Sultan of Ahmednagar in 1595.',
+                    'A 1678 Maratha attempt to capture the fort ended in failure.',
+                    'Finally came under full Maratha control in 1716 under Shahu Maharaj, Shivaji\'s grandson.'
+                ],
+
+                builders: [
+                    { name: 'Yadavas of Devagiri', icon: '🏯', status: 'Original Fortifiers', desc: 'Fortified the hill around the 12th–14th centuries, building on a site with even older Buddhist rock-cut habitation.' },
+                    { name: 'Bahmani &amp; Nizamshahi Rulers', icon: '🗡️', status: 'Later Custodians', desc: 'Control passed through the Bahmani Sultanate before settling with the Nizamshahi dynasty of Ahmednagar in the 16th century.' },
+                    { name: 'Maloji Bhosale', icon: '🎖️', status: "Shivaji's Grandfather", desc: 'Received the fort as a grant from the Sultan of Ahmednagar in 1595, beginning the Bhosale family\'s long association with Shivneri.' },
+                    { name: 'Shahaji Bhosale', icon: '🛡️', status: "Shivaji's Father", desc: 'Ensured his wife Jijabai sheltered securely at Shivneri during his campaigns, leading to Shivaji\'s birth here in 1630.' }
+                ],
+
+                architecture: [
+                    { name: 'Seven Zigzag Gates', icon: '🚪', status: 'Defensive Design', desc: 'A sequence of seven gates built in a winding, zigzag pattern to slow and confuse attacking forces before they could reach the summit.' },
+                    { name: 'Mahadarwaza', icon: '🏛️', status: 'Main Entrance', desc: 'The grand principal gateway of the fort, marking the formal entry point up the fortified approach.' },
+                    { name: 'Sakali (Chain) Path', icon: '⛓️', status: 'Steep Ascent Route', desc: 'A chain-assisted climbing route near the military mosque, used for a more direct but challenging descent toward Junnar town.' },
+                    { name: 'Natural Cliff Defense', icon: '🧗', status: 'Impregnable Terrain', desc: 'Steep slopes rise on all four sides of the hill, making the fort naturally unassailable without need for extensive man-made walls.' },
+                    { name: 'Ancient Rock-Cut Caves', icon: '🕳️', status: '1st Century Origins', desc: 'Nearby caves and water systems point to Buddhist-era habitation on the hill long before its Maratha fortifications.' },
+                    { name: 'Military Mosque', icon: '🕌', status: 'Garrison Structure', desc: 'A mosque built for the fort\'s garrison, standing near the start of the Chain Path descent.' }
+                ],
+
+                attractions: [
+                    { name: 'Shiv Kunj Memorial', icon: '🗿', status: 'Commemorative Site', desc: 'Depicts young Shivaji describing his dreams of Swarajya to his mother Jijabai; inaugurated by Maharashtra\'s first Chief Minister.' },
+                    { name: 'Shivaji\'s Birthplace House', icon: '🏠', status: 'Sacred Ground', desc: 'A two-storey building whose ground floor marks the exact spot of Shivaji\'s birth on 19 February 1630, with a statue and cradle inside.' },
+                    { name: 'Shivai Devi Temple', icon: '🛕', status: "Namesake Shrine", desc: 'A small temple to the goddess Shivai, after whom Shivaji Maharaj is believed to have been named.' },
+                    { name: 'Badami Talav', icon: '💧', status: 'Stone Reservoir', desc: 'An ancient stone water tank showcasing the fort\'s carefully engineered water management system.' },
+                    { name: 'Kadelot Point', icon: '⚠️', status: 'Historic Precipice', desc: 'A dramatic cliff-edge point once used to carry out capital punishment on convicted criminals.' },
+                    { name: 'Ambarkhana (Granary)', icon: '🌾', status: 'Siege Storage', desc: 'Granary remains reflecting the fort\'s ability to stockpile food — reportedly enough to feed a thousand families for seven years.' }
+                ],
+
+                facts: [
+                    'An English visitor, John Fryer, noted in 1673 that Shivneri could feed a thousand families for up to seven years.',
+                    'The fort\'s outline is often described as resembling a Shiv-Pind, a sacred symbol of Lord Shiva.',
+                    'Nearby Lenyadri caves reveal the hill\'s much older Buddhist history, predating its Maratha fame by over a millennium.',
+                    'The climb to the top involves roughly 400 to 500 steps, taking about 45 to 60 minutes at a steady pace.',
+                    'Despite several attempts over the centuries, Shivneri\'s natural cliff defenses kept it from ever being taken by force during key Maratha-era conflicts.'
+                ],
+
+                gallery: [
+                    { emoji: '👑', title: 'Shiv Kunj Memorial', caption: 'Shiv Kunj, depicting young Shivaji sharing his dreams of Swarajya with mother Jijabai.' },
+                    { emoji: '🏠', title: "Birthplace House", caption: "The two-storey house whose ground floor marks Shivaji Maharaj's exact birth spot." },
+                    { emoji: '🛕', title: 'Shivai Devi Temple', caption: 'The temple of goddess Shivai, believed to have inspired the name Shivaji.' },
+                    { emoji: '🚪', title: 'Mahadarwaza', caption: "Shivneri's grand main gateway, first of the fort's seven fortified gates." },
+                    { emoji: '💧', title: 'Badami Talav', caption: 'A centuries-old stone water reservoir within the fort walls.' },
+                    { emoji: '⛰️', title: 'Hilltop Views', caption: 'Panoramic views over Junnar and the Sahyadri range from the fort summit.' }
+                ]
+            };
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const statsGrid = document.getElementById('stats-grid');
+                const historyList = document.getElementById('history-list');
+                const builderGrid = document.getElementById('builder-grid');
+                const architectureGrid = document.getElementById('architecture-grid');
+                const attractionsGrid = document.getElementById('attractions-grid');
+                const factsList = document.getElementById('facts-list');
+                const galleryGrid = document.getElementById('gallery-grid');
+                const lightboxModal = document.getElementById('lightbox-modal');
+                const lightboxEmoji = document.getElementById('lightbox-emoji');
+                const lightboxCaption = document.getElementById('lightbox-caption');
+                const lightboxClose = document.getElementById('lightbox-close');
+
+                function renderCardGrid(container, items) {
+                    if (!container || !items) return;
+                    container.innerHTML = items.map(function (item) {
+                        return (
+                            '<div class="fauna-card glass-card">' +
+                                '<div class="fauna-card-header">' +
+                                    '<div class="fauna-icon">' + item.icon + '</div>' +
+                                    '<div>' +
+                                        '<h3>' + item.name + '</h3>' +
+                                        (item.status ? '<span class="fauna-status">' + item.status + '</span>' : '') +
+                                    '</div>' +
+                                '</div>' +
+                                '<p>' + item.desc + '</p>' +
+                            '</div>'
+                        );
+                    }).join('');
+                }
+
+                function renderList(container, items) {
+                    if (!container || !items) return;
+                    container.innerHTML = items.map(function (f) {
+                        return '<li>' + f + '</li>';
+                    }).join('');
+                }
+
+                if (statsGrid) {
+                    statsGrid.innerHTML = SHIVNERI_DATA.quickStats.map(function (s) {
+                        return (
+                            '<div class="stat-box">' +
+                                '<div style="font-size: 1.8rem; margin-bottom: 0.2rem;">' + s.icon + '</div>' +
+                                '<div class="stat-number">' + s.value + '</div>' +
+                                '<div class="stat-label">' + s.label + '</div>' +
+                            '</div>'
+                        );
+                    }).join('');
+                }
+
+                renderList(historyList, SHIVNERI_DATA.history);
+                renderCardGrid(builderGrid, SHIVNERI_DATA.builders);
+                renderCardGrid(architectureGrid, SHIVNERI_DATA.architecture);
+                renderCardGrid(attractionsGrid, SHIVNERI_DATA.attractions);
+                renderList(factsList, SHIVNERI_DATA.facts);
+
+                if (galleryGrid) {
+                    galleryGrid.innerHTML = SHIVNERI_DATA.gallery.map(function (g) {
+                        return (
+                            '<div class="gallery-item" data-emoji="' + g.emoji + '" data-title="' + g.title + '" data-caption="' + g.caption + '" tabindex="0" role="button" aria-label="' + g.caption + '">' +
+                                '<div class="gallery-emoji-box">' + g.emoji + '</div>' +
+                                '<div class="gallery-caption">' + g.caption + '</div>' +
+                            '</div>'
+                        );
+                    }).join('');
+
+                    document.querySelectorAll('.gallery-item').forEach(function (item) {
+                        const openLightbox = function () {
+                            const emoji = item.getAttribute('data-emoji');
+                            const title = item.getAttribute('data-title');
+                            const cap = item.getAttribute('data-caption');
+                            if (lightboxEmoji && lightboxCaption && lightboxModal) {
+                                lightboxEmoji.textContent = emoji;
+                                lightboxCaption.innerHTML =
+                                    '<div class="lightbox-caption-title">' + title + '</div>' +
+                                    '<div class="lightbox-caption-text">' + cap + '</div>';
+                                lightboxModal.classList.remove('hidden');
+                            }
+                        };
+                        item.addEventListener('click', openLightbox);
+                        item.addEventListener('keydown', function (e) {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                openLightbox();
+                            }
+                        });
+                    });
+                }
+
+                if (lightboxClose) {
+                    lightboxClose.addEventListener('click', function () {
+                        if (lightboxModal) lightboxModal.classList.add('hidden');
+                    });
+                }
+
+                if (lightboxModal) {
+                    lightboxModal.addEventListener('click', function (e) {
+                        if (e.target === lightboxModal) lightboxModal.classList.add('hidden');
+                    });
+                }
+
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && lightboxModal && !lightboxModal.classList.contains('hidden')) {
+                        lightboxModal.classList.add('hidden');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

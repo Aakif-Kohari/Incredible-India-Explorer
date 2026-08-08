@@ -2,21 +2,14 @@
 
 <html lang="en">
 <head>
-    <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
-            if (theme === 'light') {
-                document.body.classList.add('light-theme');
-            }
-        })();
-    </script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Explore famous beaches and coastal destinations across India by region, state, season, and nearby attractions." name="description"/>
 <title>Coastal India Explorer | Incredible India</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
 <link href="../../styles.css" rel="stylesheet"/>
 <style>
     .coastal-hero {
@@ -402,54 +395,91 @@
     <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/coastal-india.html">
 </head>
 <body>
-<header class="navbar scrolled" id="navbar">
-<div class="nav-container">
-<a class="nav-logo" href="../../index.html#home" id="nav-logo">
-<span class="saffron">Incredible</span>
-<span class="gold">India</span>
-<span class="green">Explorer</span>
-</a>
-<button aria-expanded="false" aria-label="Toggle Menu" class="menu-toggle" id="menu-toggle">
-<span class="bar"></span>
-<span class="bar"></span>
-<span class="bar"></span>
-</button>
-<nav class="nav-menu" id="nav-menu">
-<a class="nav-link" href="../../index.html#home" id="link-home">Home</a>
-<a class="nav-link" href="../../index.html#map" id="link-map">Interactive Map</a>
-<a class="nav-link" href="../cuisine/cuisine.html" id="link-cuisine">Cuisine</a>
-<a class="nav-link" href="../festivals/festivals.html" id="link-festivals">Festivals</a>
-<a class="nav-link" href="../culture/culture.html" id="link-culture">Culture</a>
-<div class="nav-dropdown">
-<button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
-<div class="dropdown-menu">
-<a class="dropdown-item" href="../travel/travel.html">Travel &amp; Destinations</a>
-<a class="dropdown-item" href="coastal-india.html" style="color: var(--saffron)">Coastal India</a>
-<a class="dropdown-item" href="../wildlife/wildlife.html">Nature &amp; Wildlife</a>
-<a class="dropdown-item" href="../personalities/personalities.html">Famous Personalities</a>
-<a class="dropdown-item" href="../spiritual/spiritual.html">Spiritual India</a>
-<a class="dropdown-item" href="../arts-crafts/arts-crafts.html">Arts &amp; Crafts</a>
-</div>
-</div>
-<div class="nav-dropdown">
-<button class="nav-link dropdown-toggle" id="link-learn-data">Learn &amp; Data ▾</button>
-<div class="dropdown-menu">
-<a class="dropdown-item" href="../smart-cities/smart-cities.html">Smart Cities</a>
-<a class="dropdown-item" href="../languages/languages.html">Languages of India</a>
-<a class="dropdown-item" href="../data-india/data-india.html">Data &amp; Statistics</a>
-<a class="dropdown-item" href="../learn/learn.html">Learn &amp; Quiz</a>
-</div>
-</div>
-<button aria-label="Toggle Dark/Light Mode" class="btn-theme-toggle" id="theme-toggle" title="Toggle Light Mode">☀️</button>
-<a class="nav-link" href="../premium/premium.html" style="color: var(--gold); font-weight: bold;">★ Premium</a>
-<a class="nav-link" href="../../login.html" id="link-login">Login</a>
-<div class="journey-nav-search">
-                    <input type="search" id="journey-search-input" class="journey-search-input" placeholder="Search all explorers…" aria-label="Search across all explorers" autocomplete="off">
-                    <div id="journey-search-results" class="journey-search-results" hidden></div>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+<header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
                 </div>
-                <a href="../journey/journey.html" class="nav-link" id="link-journey">🧭 My Journey</a>
-            </nav>
-</div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
 </header>
 <main id="app-root" style="padding-top: 80px;">
 <section class="coastal-hero">
@@ -487,8 +517,8 @@
 <article class="coastal-card" data-id="coastal-india-calangute" data-region="west" data-search="calangute goa west beach nightlife fort aguada baga">
 <div class="coastal-media">
 <picture>
-  <source srcset="../../assets/travel_beaches.webp" type="image/webp">
-  <img alt="Beach scenery representing Calangute" loading="lazy" src="../../assets/travel_beaches.png"/>
+  <source srcset="../assets/travel_beaches.webp" type="image/webp">
+  <img alt="Beach scenery representing Calangute" loading="lazy" src="../assets/travel_beaches.png"/>
 </picture>
 <span class="region-badge">West Coast</span>
 <span class="coast-badge">Popular</span>
@@ -504,8 +534,8 @@
 <article class="coastal-card" data-id="coastal-india-varkala" data-region="south" data-search="varkala kerala south cliff papanasam janardhana swamy sivagiri">
 <div class="coastal-media">
 <picture>
-  <source srcset="../../assets/travel_beaches.webp" type="image/webp">
-  <img alt="Cliff beach scenery representing Varkala" loading="lazy" src="../../assets/travel_beaches.png"/>
+  <source srcset="../assets/travel_beaches.webp" type="image/webp">
+  <img alt="Cliff beach scenery representing Varkala" loading="lazy" src="../assets/travel_beaches.png"/>
 </picture>
 <span class="region-badge">South Coast</span>
 <span class="coast-badge">Cliff Beach</span>
@@ -521,8 +551,8 @@
 <article class="coastal-card" data-id="coastal-india-kovalam" data-region="south" data-search="kovalam kerala lighthouse beach thiruvananthapuram hawa samudra">
 <div class="coastal-media">
 <picture>
-  <source srcset="../../assets/travel_beaches.webp" type="image/webp">
-  <img alt="Tropical beach scenery representing Kovalam" loading="lazy" src="../../assets/travel_beaches.png"/>
+  <source srcset="../assets/travel_beaches.webp" type="image/webp">
+  <img alt="Tropical beach scenery representing Kovalam" loading="lazy" src="../assets/travel_beaches.png"/>
 </picture>
 <span class="region-badge">South Coast</span>
 <span class="coast-badge">Tropical</span>
@@ -538,8 +568,8 @@
 <article class="coastal-card" data-id="coastal-india-gokarna" data-region="west" data-search="gokarna karnataka west om beach kudle mahabaleshwar temple">
 <div class="coastal-media">
 <picture>
-  <source srcset="../../assets/travel_hidden.webp" type="image/webp">
-  <img alt="Quiet coastal scenery representing Gokarna" loading="lazy" src="../../assets/travel_hidden.png"/>
+  <source srcset="../assets/travel_hidden.webp" type="image/webp">
+  <img alt="Quiet coastal scenery representing Gokarna" loading="lazy" src="../assets/travel_hidden.png"/>
 </picture>
 <span class="region-badge">West Coast</span>
 <span class="coast-badge">Scenic</span>
@@ -555,8 +585,8 @@
 <article class="coastal-card" data-id="coastal-india-puri" data-region="east" data-search="puri odisha east jagannath temple beach konark chilika">
 <div class="coastal-media">
 <picture>
-  <source srcset="../../assets/travel_beaches.webp" type="image/webp">
-  <img alt="Bay of Bengal beach scenery representing Puri" loading="lazy" src="../../assets/travel_beaches.png"/>
+  <source srcset="../assets/travel_beaches.webp" type="image/webp">
+  <img alt="Bay of Bengal beach scenery representing Puri" loading="lazy" src="../assets/travel_beaches.png"/>
 </picture>
 <span class="region-badge">East Coast</span>
 <span class="coast-badge">Heritage</span>
@@ -572,8 +602,8 @@
 <article class="coastal-card" data-id="coastal-india-marina-beach" data-region="east" data-search="marina beach chennai tamil nadu east san thome kapaleeshwarar fort st george">
 <div class="coastal-media">
 <picture>
-  <source srcset="../../assets/travel_beaches.webp" type="image/webp">
-  <img alt="Urban coast scenery representing Marina Beach" loading="lazy" src="../../assets/travel_beaches.png"/>
+  <source srcset="../assets/travel_beaches.webp" type="image/webp">
+  <img alt="Urban coast scenery representing Marina Beach" loading="lazy" src="../assets/travel_beaches.png"/>
 </picture>
 <span class="region-badge">East Coast</span>
 <span class="coast-badge">Urban Coast</span>
@@ -589,8 +619,8 @@
 <article class="coastal-card" data-id="coastal-india-radhanagar-beach" data-region="islands" data-search="radhanagar beach swaraj dweep havelock andaman islands elephant beach kalapathar">
 <div class="coastal-media">
 <picture>
-  <source srcset="../../assets/travel_islands.webp" type="image/webp">
-  <img alt="Island beach scenery representing Radhanagar Beach" loading="lazy" src="../../assets/travel_islands.png"/>
+  <source srcset="../assets/travel_islands.webp" type="image/webp">
+  <img alt="Island beach scenery representing Radhanagar Beach" loading="lazy" src="../assets/travel_islands.png"/>
 </picture>
 <span class="region-badge">Islands</span>
 <span class="coast-badge">Island Escape</span>
@@ -606,8 +636,8 @@
 <article class="coastal-card" data-id="coastal-india-tarkarli" data-region="west" data-search="tarkarli maharashtra west sindhudurg fort scuba malvan beach">
 <div class="coastal-media">
 <picture>
-  <source srcset="../../assets/travel_hidden.webp" type="image/webp">
-  <img alt="Clear coastal water representing Tarkarli" loading="lazy" src="../../assets/travel_hidden.png"/>
+  <source srcset="../assets/travel_hidden.webp" type="image/webp">
+  <img alt="Clear coastal water representing Tarkarli" loading="lazy" src="../assets/travel_hidden.png"/>
 </picture>
 <span class="region-badge">West Coast</span>
 <span class="coast-badge">Water Sports</span>
@@ -623,8 +653,8 @@
 <article class="coastal-card" data-id="coastal-india-diu" data-region="west" data-search="diu beach gujarat west nagao fort naida caves ghoghla">
 <div class="coastal-media">
 <picture>
-  <source srcset="../../assets/travel_beaches.webp" type="image/webp">
-  <img alt="Coastal scenery representing Diu" loading="lazy" src="../../assets/travel_beaches.png"/>
+  <source srcset="../assets/travel_beaches.webp" type="image/webp">
+  <img alt="Coastal scenery representing Diu" loading="lazy" src="../assets/travel_beaches.png"/>
 </picture>
 <span class="region-badge">West Coast</span>
 <span class="coast-badge">Fort Coast</span>
@@ -640,8 +670,8 @@
 <article class="coastal-card" data-id="coastal-india-mandarmani" data-region="east" data-search="mandarmani west bengal east beach digha tajpur shankarpur">
 <div class="coastal-media">
 <picture>
-  <source srcset="../../assets/travel_hidden.webp" type="image/webp">
-  <img alt="Wide sandy beach scenery representing Mandarmani" loading="lazy" src="../../assets/travel_hidden.png"/>
+  <source srcset="../assets/travel_hidden.webp" type="image/webp">
+  <img alt="Wide sandy beach scenery representing Mandarmani" loading="lazy" src="../assets/travel_hidden.png"/>
 </picture>
 <span class="region-badge">East Coast</span>
 <span class="coast-badge">Relaxed</span>
@@ -657,8 +687,8 @@
 <article class="coastal-card" data-id="coastal-india-rushikonda" data-region="east" data-search="rushikonda visakhapatnam andhra pradesh east beach kailasagiri submarine museum">
 <div class="coastal-media">
 <picture>
-  <source srcset="../../assets/travel_beaches.webp" type="image/webp">
-  <img alt="Bay coast scenery representing Rushikonda" loading="lazy" src="../../assets/travel_beaches.png"/>
+  <source srcset="../assets/travel_beaches.webp" type="image/webp">
+  <img alt="Bay coast scenery representing Rushikonda" loading="lazy" src="../assets/travel_beaches.png"/>
 </picture>
 <span class="region-badge">East Coast</span>
 <span class="coast-badge">Adventure</span>
@@ -674,8 +704,8 @@
 <article class="coastal-card" data-id="coastal-india-agatti-island" data-region="islands" data-search="agatti lakshadweep island lagoon coral reef snorkeling">
 <div class="coastal-media">
 <picture>
-  <source srcset="../../assets/travel_islands.webp" type="image/webp">
-  <img alt="Lagoon and island scenery representing Agatti" loading="lazy" src="../../assets/travel_islands.png"/>
+  <source srcset="../assets/travel_islands.webp" type="image/webp">
+  <img alt="Lagoon and island scenery representing Agatti" loading="lazy" src="../assets/travel_islands.png"/>
 </picture>
 <span class="region-badge">Islands</span>
 <span class="coast-badge">Lagoon</span>
@@ -701,11 +731,11 @@
 </main>
 <footer class="coastal-footer">
 <div class="coastal-container">
-<p>Part of <a href="../traditional-games/index.html">Incredible India Explorer</a> · Discover India's shores and islands.</p>
+<p>Part of <a href="../../index.html">Incredible India Explorer</a> · Discover India's shores and islands.</p>
 </div>
 </footer>
 <button aria-label="Scroll to top" class="btn-scroll-top" id="btn-scroll-top">↑</button>
-<script src="../../app.js" defer></script>
+<script src="../app.js" defer></script>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
       const searchInput = document.getElementById("coastal-search");
@@ -762,9 +792,9 @@
       }
     });
   </script>
-<script src="../../firebase-config.js" type="module"></script>
-<script src="../../auth.js" type="module"></script>
-<script src="../../router.js" defer></script>
+<script src="../firebase-config.js" type="module"></script>
+<script src="../auth.js" type="module"></script>
+<script src="../router.js" defer></script>
     <script src="coastal-india-journey.js" defer></script>
 </body>
 </html>
