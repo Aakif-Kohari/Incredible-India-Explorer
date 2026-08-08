@@ -2134,5 +2134,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Amroha (1305 CE) - the Delhi Sultanate's decisive victory under Malik Kafur over the invading Chagatai Mongol horde, told through timeline, commanders, and tactics.",
     url: "frontend/battle-of-amroha-explorer/index.html"
+  },
+  // --- Battle of Ghaghra Explorer ---
+  {
+    title: "Battle of Ghaghra Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Ghaghra (1529 CE) - Babur's decisive riverine and amphibious campaign against the Eastern Afghan Confederacy and Bengal Sultanate.",
+    url: "frontend/battle-of-ghaghra-explorer/index.html"
   }
 ];
