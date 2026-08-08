@@ -2184,5 +2184,33 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Ghaghra (1529 CE) - Babur's decisive riverine and amphibious campaign against the Eastern Afghan Confederacy and Bengal Sultanate.",
     url: "frontend/battle-of-ghaghra-explorer/index.html"
+  },
+  // --- Vaduvur Wetland Explorer ---
+  {
+    title: "Vaduvur Wetland Explorer",
+    category: "Featured Explorers",
+    description: "Explore Vaduvur Wetland & Bird Sanctuary — Ramsar Site No. 2480 in Tiruvarur, Tamil Nadu. A 128-hectare human-made irrigation tank hosting over 20,000 wintering migratory waterfowl along the Central Asian Flyway.",
+    url: "frontend/vaduvur-wetland-explorer/index.html"
+  },
+  // --- Suchindram Wetland Explorer ---
+  {
+    title: "Suchindram Wetland Explorer",
+    category: "Featured Explorers",
+    description: "Explore Suchindram Wetland & Bird Sanctuary — Ramsar Site No. 2484 in Kanyakumari, Tamil Nadu. A 94-hectare freshwater tank complex serving as mainland India's southernmost sanctuary along the Central Asian Flyway.",
+    url: "frontend/suchindram-wetland-explorer/index.html"
+  },
+  // --- Mysore Painting Explorer ---
+  {
+    title: "Mysore Painting Explorer",
+    category: "Featured Explorers",
+    description: "Explore Mysore Paintings — classical South Indian art form celebrated for delicate brushwork, 24-karat pure gold gesso embossing, Sritattvanidhi iconographic tradition, and royal Wodeyar heritage.",
+    url: "frontend/mysore-painting-explorer/index.html"
+  },
+  // --- Jawaharlal Nehru Explorer ---
+  {
+    title: "Jawaharlal Nehru Explorer",
+    category: "Featured Explorers",
+    description: "Chronicle Jawaharlal Nehru's leadership in the Indian freedom movement, Congress presidency, Purna Swaraj declaration, 9 prison incarcerations, historic speeches, and nation-building.",
+    url: "frontend/jawaharlal-nehru-explorer/index.html"
   }
 ];
