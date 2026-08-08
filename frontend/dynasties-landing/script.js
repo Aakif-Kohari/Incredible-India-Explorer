@@ -214,6 +214,18 @@ const dynastiesData = [
         link: '../Jodhpur-Marwar/JodhpurMarwar.html'
     },
     {
+        id: 'satavahana',
+        name: 'Satavahana Dynasty',
+        region: 'deccan',
+        period: 'ancient',
+        religion: 'hinduism',
+        capital: 'Pratishthana / Amaravati',
+        dates: 'c. 100 BCE - 220 CE',
+        description: 'Lords of Dakshinapatha known for maritime trade with Rome, ship coins, and Amaravati stupa art.',
+        icon: '⛵',
+        link: '../satavahana-dynasty-explorer/index.html'
+    },
+    {
         id: 'vijayanagara',
         name: 'Vijayanagara Empire',
         region: 'south',

@@ -358,7 +358,8 @@ art: "Bronze Nataraja, Brihadeshwara Temple, Thanjavur paintings, Chola bronzes"
     color: "#34495e",
     mapPosition: { top: "33%", left: "58%" },
     link: "kanva/index.html"
-  }  {
+  },
+  {
     id: "sena",
     name: "Sena Dynasty",
     period: "1070–1230 CE",
