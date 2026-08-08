@@ -24,6 +24,12 @@ const INVENTIONS = [
         link: "../zero-explorer/index.html"
     },
     {
+        id: "iron-pillar",
+        title: "Iron Pillar Metallurgy",
+        icon: "🛡️",
+        era: "c. 4th–5th Century CE",
+        summary: "A 1,600-year-old iron pillar in Delhi that remains virtually rust-free — decoded through the science of its phosphorus-rich composition.",
+        link: "../iron-pillar-explorer/index.html"
         id: "zinc-distillation",
         title: "Zinc Distillation (Zawar Process)",
         icon: "🔻",
