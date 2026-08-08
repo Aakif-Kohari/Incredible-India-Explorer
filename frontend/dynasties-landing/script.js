@@ -183,11 +183,11 @@ const dynastiesData = [
         region: 'deccan',
         period: 'medieval',
         religion: 'hinduism',
-        capital: 'Kalyani',
-        dates: '973 - 1189 CE',
-        description: 'Patrons of Kannada and Sanskrit literature, known for the distinctive Vesara style of temple architecture.',
+        capital: 'Badami / Kalyani',
+        dates: '543 - 1189 CE',
+        description: 'Patrons of Kannada and Sanskrit literature, known for the distinctive Vesara style of temple architecture at Pattadakal and Badami.',
         icon: '🏰',
-        link: '#'
+        link: '../chalukya-dynasty-explorer/index.html'
     },
     {
         id: 'pandya',
