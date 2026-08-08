@@ -644,6 +644,12 @@ window.indiaSearchIndex = [
     url: "frontend/river/frontend/river/river.html"
   },
   {
+    title: "Sanjhi Art Explorer",
+    category: "Culture",
+    description: "Discover Sanjhi, the ancient paper-cut stencil art of Mathura and Vrindavan — intricate Radha-Krishna motifs cut by hand for centuries of temple rituals.",
+    url: "frontend/sanjhi-art-explorer/index.html"
+  },
+  {
     title: "River Krishna",
     category: "Rivers",
     description: "Major river of southern India, supporting agriculture across Maharashtra, Karnataka, and Andhra Pradesh.",
