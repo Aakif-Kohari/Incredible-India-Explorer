@@ -1809,6 +1809,12 @@ window.indiaSearchIndex = [
     category: "History & Heritage",
     description: "Educational encyclopedia featuring biographies, timelines, revolutionary movements, rare facts, and quotes of India's freedom fighters.",
     url: "frontend/freedom-fighters-hub/index.html"},
+  {
+    title: "Captain Lakshmi Sahgal Explorer",
+    category: "Freedom Struggle",
+    description: "Explore Captain Lakshmi Sahgal's leadership of the INA, the all-women Rani of Jhansi Regiment, and her role as a physician and women's rights champion.",
+    url: "frontend/captain-lakshmi-sahgal-explorer/index.html"
+  },
   // --- State Chief Ministers Explorer ---
   {
     title: "State Chief Ministers Explorer",
