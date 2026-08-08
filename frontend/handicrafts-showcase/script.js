@@ -1,6 +1,17 @@
 // ---------- Handicrafts Data (16 crafts across UP districts) ----------
 const allCrafts = [
   {
+    name: "Terracotta Pottery (Baked Earth Art)",
+    icon: "🏺",
+    district: "Gorakhpur & Bankura",
+    category: "pottery",
+    tags: ["GI Tagged", "Clay Art", "Handicrafts"],
+    description: "Ancient 5,000-year-old clay craft tradition featuring Bankura horses, Gorakhpur elephants, and Molela relief plaques.",
+    history: "Dating back to the Indus Valley Civilization, terracotta represents sacred earth molded by human hands and kiln-fired to warm orange-red stoneware.",
+    artisan: "Prajapati and Kumhar potters manually shaping riverbed silt on wooden wheels and open kilns.",
+    detailsUrl: "../terracotta-pottery-explorer/index.html"
+  },
+  {
     name: "Channapatna Toys",
     icon: "🐘",
     district: "Channapatna, Karnataka",
