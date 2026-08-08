@@ -199,6 +199,25 @@ const FREEDOM_FIGHTERS_DATA = [
         quote: 'Educate, Agitate, Organize.'
     },
     {
+        id: 'rash-behari-bose',
+        name: 'Rash Behari Bose',
+        title: 'Founder of the INA',
+        lifespan: '1886 – 1945',
+        era: 'Revolutionary',
+        region: 'East',
+        birthplace: 'Subaldaha, Bengal',
+        movements: ['Delhi–Lahore Conspiracy', 'Indian Independence League', 'Indian National Army (early formation)'],
+        biography: 'Rash Behari Bose was a revolutionary nationalist who fled into decades of exile in Japan after the 1912 Delhi Conspiracy, later organizing the Indian Independence League and the first Indian National Army before handing its leadership to Subhas Chandra Bose.',
+        timeline: [
+            { year: '1912', event: 'Involved in the Delhi–Lahore Conspiracy, an assassination attempt on Viceroy Lord Hardinge.' },
+            { year: '1915', event: 'Escaped to Japan under an assumed identity to avoid British capture.' },
+            { year: '1942', event: 'Helped found the Indian Independence League and organize the first Indian National Army.' },
+            { year: '1943', event: 'Handed over leadership of the INA to Subhas Chandra Bose.' }
+        ],
+        contributions: 'Laid the international and organizational groundwork in Japan and Southeast Asia that made the later, larger Indian National Army under Subhas Chandra Bose possible.',
+        rareFacts: 'Lived in exile in Japan for three decades, became a naturalized Japanese citizen, and never returned to India before his death in 1945.',
+        quote: 'The freedom of India is knocking at our gates. Preserve, defend and cherish it.',
+        explorerLink: '../rash-behari-bose-explorer/index.html'
         id: 'birsa-munda',
         name: 'Birsa Munda',
         title: 'Dharti Aba',
@@ -349,6 +368,11 @@ if (typeof window !== 'undefined') {
                 <div style="margin-top: 1.2rem; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border-left: 3px solid var(--ff-gold);">
                     <em style="color: var(--ff-gold); font-size: 1.05rem;">"${ff.quote}"</em>
                 </div>
+
+                ${ff.explorerLink ? `
+                <div style="margin-top: 1.2rem; text-align: center;">
+                    <a href="${ff.explorerLink}" style="color: var(--ff-gold); font-weight: 700; text-decoration: none;">Read the Full Explorer Page &rarr;</a>
+                </div>` : ''}
             `;
             ffModal.classList.remove('hidden');
         }
