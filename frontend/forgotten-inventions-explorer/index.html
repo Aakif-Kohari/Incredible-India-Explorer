@@ -1,92 +1,87 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <script>
-        (function () {
-            const theme = localStorage.getItem('theme') || 'dark';
-            if (theme === 'light') {
-                document.body.classList.add('light-theme');
-            }
-        })();
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India's Forgotten Inventions Explorer | Ancient Innovation</title>
     <meta name="description"
-        content="India's Forgotten Inventions — explore ancient Indian devices and techniques, from the Ghati Yantra water clock to metallurgy and mathematics." />
-    <title>India's Forgotten Inventions Explorer | Incredible India</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
-        rel="stylesheet" />
-
-    <link rel="stylesheet" href="../../styles.css" />
-    <link rel="stylesheet" href="inventions.css" />
+        content="Explore groundbreaking inventions and technologies that originated in India, from ancient mathematics to metallurgy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="inv-main">
-    <header class="navbar scrolled" id="navbar">
+<body>
+    <header class="navbar inventions-nav" role="banner">
         <div class="nav-container">
-            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
-                <span class="saffron">Incredible</span>
-                <span class="gold">India</span>
-                <span class="green">Explorer</span>
+            <a href="../../index.html" class="nav-logo" aria-label="Return to Home">
+                <span class="saffron">Incredible</span> <span class="gold">India</span> <span
+                    class="green">Explorer</span>
             </a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <nav class="nav-menu" id="nav-menu">
-                <a href="../../index.html#home" class="nav-link">Home</a>
-                <a href="index.html" class="nav-link active" style="color: var(--saffron)">Forgotten Inventions</a>
-                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode"
-                    title="Toggle Light Mode">
-                    ☀️
-                </button>
+            <nav class="nav-menu" role="navigation">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="index.html" class="nav-link active" aria-current="page">Inventions</a>
+                <a href="#timeline" class="nav-link">Timeline</a>
+                <a href="#featured" class="nav-link">Featured</a>
             </nav>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
         </div>
     </header>
 
     <main>
-        <section class="inv-hero">
-            <div class="section-container">
-                <h1>India's Forgotten Inventions</h1>
-                <p class="hero-subtitle">
-                    Devices, techniques, and ideas from ancient India that quietly shaped how the world measures,
-                    builds, and calculates.
-                </p>
+        <section class="hero-section" id="home">
+            <div class="hero-bg-overlay"></div>
+            <div class="hero-content animate-on-scroll">
+                <h1 class="hero-title">India's <span class="accent">Forgotten</span> Inventions</h1>
+                <p class="hero-subtitle">Journey through millennia of innovation. Discover the ancient mathematics,
+                    metallurgy, and architecture that shaped the modern world.</p>
+                <div class="hero-search">
+                    <input type="text" id="invention-search" placeholder="Search inventions, inventors, or eras..."
+                        aria-label="Search inventions">
+                </div>
             </div>
         </section>
 
-        <section class="inv-grid-section">
-            <div class="section-container">
-                <div class="inv-grid" id="inv-grid"></div>
+        <section class="filter-section" aria-labelledby="filter-title">
+            <h2 class="sr-only" id="filter-title">Filter Inventions</h2>
+            <div class="filters" role="tablist">
+                <button class="filter-btn active" data-category="all" role="tab" aria-selected="true">All Eras</button>
+                <button class="filter-btn" data-category="mathematics" role="tab">Mathematics</button>
+                <button class="filter-btn" data-category="medicine" role="tab">Medicine</button>
+                <button class="filter-btn" data-category="metallurgy" role="tab">Metallurgy</button>
+                <button class="filter-btn" data-category="architecture" role="tab">Architecture</button>
+                <button class="filter-btn" data-category="astronomy" role="tab">Astronomy</button>
+                <button class="filter-btn" data-category="games" role="tab">Games</button>
+                <button class="filter-btn" data-category="agriculture" role="tab">Agriculture</button>
+                <button class="filter-btn" data-category="textiles" role="tab">Textiles</button>
+            </div>
+        </section>
+
+        <section class="timeline-section" id="timeline">
+            <h2 class="section-title animate-on-scroll">Interactive Historical Timeline</h2>
+            <div class="timeline-scroller" id="timeline-scroller">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <section class="featured-section" id="featured">
+            <h2 class="section-title animate-on-scroll">Featured Inventions</h2>
+            <div class="invention-grid" id="invention-grid" role="list">
+                <!-- Populated by JS -->
             </div>
         </section>
     </main>
 
-    <script src="inventions-data.js"></script>
-    <script src="inventions.js"></script>
-    <script>
-        (function () {
-            const themeBtn = document.getElementById('theme-toggle');
-            if (!themeBtn) return;
-            const applyIcon = (isLight) => {
-                themeBtn.textContent = isLight ? '🌙' : '☀️';
-                themeBtn.setAttribute('title', isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode');
-            };
-            applyIcon(document.body.classList.contains('light-theme'));
-            themeBtn.addEventListener('click', () => {
-                document.body.classList.toggle('light-theme');
-                const isLight = document.body.classList.contains('light-theme');
-                localStorage.setItem('theme', isLight ? 'light' : 'dark');
-                applyIcon(isLight);
-            });
-        })();
-    </script>
+    <footer class="footer">
+        <p>&copy; 2026 Incredible India Explorer. India's Forgotten Inventions.</p>
+    </footer>
+
+    <script src="../../journey.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>
