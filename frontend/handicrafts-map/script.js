@@ -86,22 +86,45 @@
 
         Object.keys(groups).sort().forEach(letter => {
             const section = document.createElement('div');
-            section.className = 'alpha-section';
+            section.className = 'alpha-section letter-group';
             section.id = `section-${letter}`;
 
-            const header = document.createElement('h2');
-            header.className = 'alpha-header';
-            header.textContent = letter;
-            section.appendChild(header);
+            const headerBtn = document.createElement('button');
+            headerBtn.className = 'alpha-header-btn';
+            headerBtn.setAttribute('aria-expanded', 'false');
+            headerBtn.setAttribute('aria-controls', `content-${letter}`);
+            headerBtn.innerHTML = `<span>${letter}</span><span class="expand-icon">▼</span>`;
 
-            const grid = document.createElement('div');
-            grid.className = 'cards-grid';
+            const contentContainer = document.createElement('div');
+            contentContainer.className = 'category-container';
+            contentContainer.id = `content-${letter}`;
+            contentContainer.dataset.rendered = 'false';
+            contentContainer.style.display = 'none';
 
-            groups[letter].forEach(craft => {
-                grid.appendChild(createCard(craft));
+            headerBtn.addEventListener('click', () => {
+                const isExpanded = headerBtn.getAttribute('aria-expanded') === 'true';
+                
+                if (!isExpanded) {
+                    headerBtn.setAttribute('aria-expanded', 'true');
+                    contentContainer.style.display = 'block';
+                    
+                    if (contentContainer.dataset.rendered === 'false') {
+                        const grid = document.createElement('div');
+                        grid.className = 'cards-grid';
+                        groups[letter].forEach(craft => {
+                            grid.appendChild(createCard(craft));
+                        });
+                        contentContainer.appendChild(grid);
+                        contentContainer.dataset.rendered = 'true';
+                    }
+                } else {
+                    headerBtn.setAttribute('aria-expanded', 'false');
+                    contentContainer.style.display = 'none';
+                }
             });
 
-            section.appendChild(grid);
+            section.appendChild(headerBtn);
+            section.appendChild(contentContainer);
             fragment.appendChild(section);
         });
 
@@ -162,6 +185,10 @@
                     e.preventDefault();
                     const targetSection = document.getElementById(`section-${letter}`);
                     if (targetSection) {
+                        const btn = targetSection.querySelector('.alpha-header-btn');
+                        if (btn && btn.getAttribute('aria-expanded') === 'false') {
+                            btn.click();
+                        }
                         targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         // Push state to history for accessibility and UX
                         history.pushState(null, null, `#section-${letter}`);
