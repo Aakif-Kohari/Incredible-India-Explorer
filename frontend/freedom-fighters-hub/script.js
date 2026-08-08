@@ -83,6 +83,26 @@ const FREEDOM_FIGHTERS_DATA = [
         quote: 'I will not give up my Jhansi!'
     },
     {
+        id: 'lakshmi-sahgal',
+        name: 'Captain Lakshmi Sahgal',
+        title: 'INA Commander & Doctor',
+        lifespan: '1914 – 2012',
+        era: 'Armed Freedom Movement',
+        region: 'South',
+        birthplace: 'Madurai, Tamil Nadu',
+        movements: ['Indian National Army (INA)', 'Rani of Jhansi Regiment', 'Women in Freedom Struggle'],
+        biography: 'Captain Lakshmi Sahgal was a medical doctor, INA commander, and Minister of Women\'s Affairs for Azad Hind. She led the Rani of Jhansi Regiment and became a celebrated symbol of women\'s courage in India\'s independence movement.',
+        timeline: [
+            { year: '1935', event: 'Graduated from Madras Medical College and began practicing medicine in Rangoon.' },
+            { year: '1942', event: 'Met Subhas Chandra Bose and joined the Indian National Army after fleeing British-controlled Burma.' },
+            { year: '1943', event: 'Named commander of the all-women Rani of Jhansi Regiment and appointed Minister of Women\'s Affairs in the Azad Hind government.' },
+            { year: '1945', event: 'Helped preserve INA ideals after WWII and later championed women\'s rights in independent India.' }
+        ],
+        contributions: 'Built the INA\'s first all-women combat regiment, advanced women\'s participation in the freedom struggle, and represented Indian women as equal partners in military and political resistance.',
+        rareFacts: 'She was one of the first Indian women to command a military regiment and continued public service after independence as a champion of healthcare and social justice.',
+        quote: 'Freedom is not a gesture. It is the result of persistent struggle and sacrifice.'
+    },
+    {
         id: 'patel',
         name: 'Sardar Vallabhbhai Patel',
         title: 'Iron Man of India',
