@@ -15,8 +15,8 @@ document.addEventListener("app:route-changed", () => {
     // 1. Bookmark functionality
     bookmarkButtons.forEach((btn) => {
       const id = btn.dataset.bookmarkId;
-      const title = "Sisodia Dynasty Explorer";
-      const thumbnail = "frontend/assets/SISODIA_HERO_BANNER.jpeg";
+      const title = "Sisodia (Mewar) Dynasty Explorer";
+      const thumbnail = "frontend/assets/Sisodia_Dynasty_Banner.jpg";
       const category = "heritage";
 
       const updateBookmarkUI = () => {
@@ -45,26 +45,26 @@ document.addEventListener("app:route-changed", () => {
     window.Journey.registerSearchItems("frontend/sisodia-dynasty-explorer/index.html", [
       {
         id: "sisodia-dynasty-main",
-        title: "Sisodia Dynasty Explorer",
-        description: "Explore the Sisodia Dynasty of Mewar — the Rajput warriors of Chittorgarh, Maharana Pratap, Kumbhalgarh Fort, and a legacy of unmatched valour and resistance.",
+        title: "Sisodia (Mewar) Dynasty Explorer",
+        description: "Explore the Sisodia Dynasty of Mewar (c. 734–1818 CE): the founding at Chittorgarh, the Battle of Haldighati, and Maharana Pratap's resistance.",
         link: "frontend/sisodia-dynasty-explorer/index.html"
       },
       {
         id: "sisodia-dynasty-rulers",
         title: "Major Rulers of the Sisodia Line",
-        description: "Meet Rana Kumbha, Rana Sanga, Maharana Pratap, Maharana Udai Singh II, Maharana Amar Singh I, and Maharana Raj Singh I — the warrior-kings who defended Mewar.",
+        description: "Meet Bappa Rawal, Rana Kumbha, Rana Sanga, Maharana Pratap, and Rana Amar Singh I — the rulers who built and defended Mewar.",
         link: "frontend/sisodia-dynasty-explorer/index.html#rulers"
       },
       {
         id: "sisodia-dynasty-military",
-        title: "Military Legacy of the Sisodias",
-        description: "Discover the forts of Chittorgarh and Kumbhalgarh, the Battle of Haldighati, and the guerrilla warfare tactics that made the Sisodias unconquerable.",
-        link: "frontend/sisodia-dynasty-explorer/index.html#military-legacy"
+        title: "Sisodia Military Legacy",
+        description: "Discover the guerrilla resistance of Maharana Pratap, the Battle of Haldighati, and the hill-fort strategy of Chittorgarh and Kumbhalgarh.",
+        link: "frontend/sisodia-dynasty-explorer/index.html#military"
       },
       {
         id: "sisodia-dynasty-timeline",
         title: "Sisodia Dynasty Timeline",
-        description: "A chronology of the Sisodias from the founding of Chittorgarh in the 8th century to the integration of Mewar into the Indian Union in 1947.",
+        description: "A chronology of the Sisodias from Bappa Rawal's founding of Mewar around 734 CE to the kingdom's accession into independent India in 1949.",
         link: "frontend/sisodia-dynasty-explorer/index.html#timeline"
       }
     ]);
@@ -126,24 +126,6 @@ document.addEventListener("app:route-changed", () => {
       closeModal();
     }
   });
-
-  // --- Timeline scroll reveal (enhancement) -------------------------
-  const timelineSteps = [...document.querySelectorAll(".sisodia-timeline-step")];
-
-  if (timelineSteps.length) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.3, rootMargin: "0px 0px -40px 0px" }
-    );
-
-    timelineSteps.forEach((step) => observer.observe(step));
-  }
 
   // Run initialization
   initJourney();
