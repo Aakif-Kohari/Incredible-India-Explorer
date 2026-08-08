@@ -644,6 +644,11 @@ window.indiaSearchIndex = [
     url: "frontend/river/frontend/river/river.html"
   },
   {
+    title: "Sanjhi Art Explorer",
+    category: "Culture",
+    description: "Discover Sanjhi, the ancient paper-cut stencil art of Mathura and Vrindavan — intricate Radha-Krishna motifs cut by hand for centuries of temple rituals.",
+    url: "frontend/sanjhi-art-explorer/index.html"},
+  {
     title: "Gujarati Cinema (Dhollywood) Explorer",
     category: "Culture",
     description: "Discover Dhollywood, the Gujarati film industry — from Narsinh Mehta (1932), the first Gujarati talkie, to National Award-winning classics and its modern urban revival.",
