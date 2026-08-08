@@ -83,6 +83,26 @@ const FREEDOM_FIGHTERS_DATA = [
         quote: 'I will not give up my Jhansi!'
     },
     {
+        id: 'lakshmi-sahgal',
+        name: 'Captain Lakshmi Sahgal',
+        title: 'INA Commander & Doctor',
+        lifespan: '1914 – 2012',
+        era: 'Armed Freedom Movement',
+        region: 'South',
+        birthplace: 'Madurai, Tamil Nadu',
+        movements: ['Indian National Army (INA)', 'Rani of Jhansi Regiment', 'Women in Freedom Struggle'],
+        biography: 'Captain Lakshmi Sahgal was a medical doctor, INA commander, and Minister of Women\'s Affairs for Azad Hind. She led the Rani of Jhansi Regiment and became a celebrated symbol of women\'s courage in India\'s independence movement.',
+        timeline: [
+            { year: '1935', event: 'Graduated from Madras Medical College and began practicing medicine in Rangoon.' },
+            { year: '1942', event: 'Met Subhas Chandra Bose and joined the Indian National Army after fleeing British-controlled Burma.' },
+            { year: '1943', event: 'Named commander of the all-women Rani of Jhansi Regiment and appointed Minister of Women\'s Affairs in the Azad Hind government.' },
+            { year: '1945', event: 'Helped preserve INA ideals after WWII and later championed women\'s rights in independent India.' }
+        ],
+        contributions: 'Built the INA\'s first all-women combat regiment, advanced women\'s participation in the freedom struggle, and represented Indian women as equal partners in military and political resistance.',
+        rareFacts: 'She was one of the first Indian women to command a military regiment and continued public service after independence as a champion of healthcare and social justice.',
+        quote: 'Freedom is not a gesture. It is the result of persistent struggle and sacrifice.'
+    },
+    {
         id: 'patel',
         name: 'Sardar Vallabhbhai Patel',
         title: 'Iron Man of India',
@@ -177,6 +197,45 @@ const FREEDOM_FIGHTERS_DATA = [
         contributions: 'Architect of the Constitution of India guaranteeing fundamental rights, gender equality, and affirmative action; founder of Reserve Bank of India conceptual blueprint.',
         rareFacts: 'Doctorates from Columbia University and London School of Economics; possessed a personal library of over 50,000 books.',
         quote: 'Educate, Agitate, Organize.'
+    },
+    {
+        id: 'rash-behari-bose',
+        name: 'Rash Behari Bose',
+        title: 'Founder of the INA',
+        lifespan: '1886 – 1945',
+        era: 'Revolutionary',
+        region: 'East',
+        birthplace: 'Subaldaha, Bengal',
+        movements: ['Delhi–Lahore Conspiracy', 'Indian Independence League', 'Indian National Army (early formation)'],
+        biography: 'Rash Behari Bose was a revolutionary nationalist who fled into decades of exile in Japan after the 1912 Delhi Conspiracy, later organizing the Indian Independence League and the first Indian National Army before handing its leadership to Subhas Chandra Bose.',
+        timeline: [
+            { year: '1912', event: 'Involved in the Delhi–Lahore Conspiracy, an assassination attempt on Viceroy Lord Hardinge.' },
+            { year: '1915', event: 'Escaped to Japan under an assumed identity to avoid British capture.' },
+            { year: '1942', event: 'Helped found the Indian Independence League and organize the first Indian National Army.' },
+            { year: '1943', event: 'Handed over leadership of the INA to Subhas Chandra Bose.' }
+        ],
+        contributions: 'Laid the international and organizational groundwork in Japan and Southeast Asia that made the later, larger Indian National Army under Subhas Chandra Bose possible.',
+        rareFacts: 'Lived in exile in Japan for three decades, became a naturalized Japanese citizen, and never returned to India before his death in 1945.',
+        quote: 'The freedom of India is knocking at our gates. Preserve, defend and cherish it.',
+        explorerLink: '../rash-behari-bose-explorer/index.html'
+        id: 'birsa-munda',
+        name: 'Birsa Munda',
+        title: 'Dharti Aba',
+        lifespan: '1875 – 1900',
+        era: 'Tribal Uprising',
+        region: 'East',
+        birthplace: 'Ulihatu, Khunti, Chotanagpur (now Jharkhand)',
+        movements: ['Ulgulan (Great Tumult)', 'Birsait Religious Movement'],
+        biography: 'Birsa Munda was a Munda tribal leader and folk hero who led the Ulgulan (the Great Tumult, 1895–1900) against British colonial rule, feudal landlords (thikadars) and missionaries, demanding the restoration of tribal land, forest and identity in the Chotanagpur plateau.',
+        timeline: [
+            { year: '1875', event: 'Born on 15 November at Ulihatu, Khunti, into a poor Munda khuntkattidar family.' },
+            { year: '1895', event: 'Arrested on 24 August for his growing following; sentenced to two years in jail.' },
+            { year: '1899', event: 'Launched the Ulgulan (Great Tumult) around 24 December, attacking churches and loyalist strongholds.' },
+            { year: '1900', event: 'Captured at Jamkopai forest, Chakradharpur on 3 February; died of cholera in Ranchi Central Jail on 9 June.' }
+        ],
+        contributions: 'Inspired the Chotanagpur Tenancy Act (1908) protecting tribal land, became the spiritual founder of the Birsait faith, and his memory drove the creation of the state of Jharkhand on 15 November 2000.',
+        rareFacts: 'His birth anniversary (15 November) has been celebrated nationwide as Janjatiya Gaurav Divas (Tribal Pride Day) since 2021; the British placed a reward of Rs 500 on his head.',
+        quote: 'Abua raj ete jana, maharani raj tundu jana — Let the rule of the queen be over, and ours come.'
     }
 ];
 
@@ -309,6 +368,11 @@ if (typeof window !== 'undefined') {
                 <div style="margin-top: 1.2rem; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border-left: 3px solid var(--ff-gold);">
                     <em style="color: var(--ff-gold); font-size: 1.05rem;">"${ff.quote}"</em>
                 </div>
+
+                ${ff.explorerLink ? `
+                <div style="margin-top: 1.2rem; text-align: center;">
+                    <a href="${ff.explorerLink}" style="color: var(--ff-gold); font-weight: 700; text-decoration: none;">Read the Full Explorer Page &rarr;</a>
+                </div>` : ''}
             `;
             ffModal.classList.remove('hidden');
         }
