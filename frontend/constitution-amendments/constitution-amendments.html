@@ -23,7 +23,7 @@
 <body class="ca-page-body" data-page="constitution-amendments">
     <script>
         (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
             if (theme === 'light') {
                 document.body.classList.add('light-theme');
             }
@@ -240,6 +240,7 @@
 
     <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
 
+    <script src="../js-modules/storage.js" defer></script>
     <script src="../app.js" defer></script>
     <script src="script.js" defer></script>
     <script>

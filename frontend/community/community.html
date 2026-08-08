@@ -38,7 +38,7 @@
 <body data-page="community">
     <script>
         (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
             if (theme === 'light') {
                 document.body.classList.add('light-theme');
             }
@@ -266,6 +266,7 @@
 
     <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
 
+    <script src="../js-modules/storage.js" defer></script>
     <script src="../app.js" defer></script>
     <script src="../pages-common.js" defer></script>
     <script src="community.js" defer></script>
