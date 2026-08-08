@@ -153,6 +153,18 @@ const dynastiesData = [
         icon: '⚔️',
         link: '../rashtrakuta-dynasty-explorer/index.html'
     },
+  {
+        id: 'pallava',
+        name: 'Pallava Dynasty',
+        region: 'south',
+        period: 'ancient',
+        religion: 'hinduism',
+        capital: 'Kanchipuram',
+        dates: 'c. 275 - 897 CE',
+        description: 'Pioneers of Dravidian rock-cut and structural temple architecture at Kanchipuram and Mahabalipuram.',
+        icon: '🛕',
+        link: '../pallava-dynasty-explorer/index.html'
+    },
     {
         id: 'maratha',
         name: 'Maratha Empire',
@@ -212,6 +224,18 @@ const dynastiesData = [
         description: 'The Rathore Rajputs of Marwar built the mighty Mehrangarh Fort, fostered the Marwari trade network, and kept their desert kingdom unconquered for seven centuries.',
         icon: '🏰',
         link: '../Jodhpur-Marwar/JodhpurMarwar.html'
+    },
+    {
+        id: 'satavahana',
+        name: 'Satavahana Dynasty',
+        region: 'deccan',
+        period: 'ancient',
+        religion: 'hinduism',
+        capital: 'Pratishthana / Amaravati',
+        dates: 'c. 100 BCE - 220 CE',
+        description: 'Lords of Dakshinapatha known for maritime trade with Rome, ship coins, and Amaravati stupa art.',
+        icon: '⛵',
+        link: '../satavahana-dynasty-explorer/index.html'
     },
     {
         id: 'vijayanagara',
