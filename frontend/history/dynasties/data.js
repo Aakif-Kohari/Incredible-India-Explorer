@@ -256,13 +256,46 @@ art: "Bronze Nataraja, Brihadeshwara Temple, Thanjavur paintings, Chola bronzes"
       "Cultural and trade contact linking the Hellenistic Mediterranean world with India",
       "Greek loanwords and astronomical concepts that influenced later Indian astrology and astronomy"
     ],
-    art: "Bilingual Greek-Kharosthi coin portraiture, Hellenistic-Indian sculptural fusion, early Greco-Buddhist iconography",
+art: "Bilingual Greek-Kharosthi coin portraiture, Hellenistic-Indian sculptural fusion, early Greco-Buddhist iconography",
     era: "ancient",
     color: "#2980b9",
     mapPosition: { top: "20%", left: "45%" },
     link: "indo-greek/index.html"
   },
   {
+    id: "indo-scythian",
+    name: "Indo-Scythian Dynasty",
+    period: "c. 80 BCE – 400 CE",
+    startYear: -80,
+    endYear: 400,
+    capital: "Sirkap (Taxila), later Mathura (Northern Satraps) and Ujjain (Western Satraps)",
+    founders: "Maues (Moga)",
+    notableRulers: [
+      { name: "Maues (Moga)", reign: "c. 85–60 BCE", achievement: "First Indo-Scythian king; conquered Gandhara and Taxila, founding Saka rule in India" },
+      { name: "Azes I", reign: "c. 55–35 BCE", achievement: "Completed the Saka takeover of the remaining Indo-Greek territories in the northwest" },
+      { name: "Rajuvula", reign: "c. early 1st century CE", achievement: "Great Satrap of Mathura; commemorated on the famous Mathura Lion Capital inscription" },
+      { name: "Rudradaman I", reign: "c. 130–150 CE", achievement: "Greatest Western Satrap ruler; issued the Junagadh rock inscription, the earliest major Sanskrit royal inscription" }
+    ],
+    territory: "Northwestern India (Gandhara, Taxila), Mathura, and western India (Gujarat, Malwa, Sindh)",
+    peakExtent: "From Taxila and Gandhara in the northwest to Mathura in the north and Gujarat-Malwa in the west, under separate satrapies",
+    governance: "Divided into semi-independent satrapies (Taxila, Mathura/Northern Satraps, and Western Satraps) each ruled by a Kshatrapa or Mahakshatrapa (Satrap/Great Satrap)",
+    military: "Cavalry-based nomadic warfare tradition combined with fortified garrison cities such as Sirkap",
+    decline: "Gradual absorption by the Kushans in the north and defeat of the Western Satraps by the Gupta emperor Chandragupta II around 395–415 CE, with the last ruler Rudrasimha III marking the end of Saka rule in India",
+    contributions: [
+      "Introduced the title and administrative system of Kshatrapa (Satrap), which shaped regional governance for centuries",
+      "Established the Saka Era calendar in 78 CE, later adopted as India's official civil calendar",
+      "Rudradaman I's Junagadh rock inscription — the earliest known major inscription in classical Sanskrit",
+      "Continued and enriched bilingual/trilingual coinage traditions inherited from the Indo-Greeks",
+      "Patronage of Buddhist art, including the Bimaran casket, one of the earliest images of the standing Buddha",
+      "Facilitated trade and cultural exchange along Silk Road routes linking India, Central Asia, and the Mediterranean"
+    ],
+    art: "Bimaran casket and Buddhist reliquary art, bilingual Greek-Kharosthi-Brahmi coinage, early classical Sanskrit epigraphy",
+    era: "ancient",
+    color: "#7f8c8d",
+    mapPosition: { top: "25%", left: "42%" },
+    link: "indo-scythian/index.html"
+  },
+    {
     id: "kushan",
     name: "Kushan Empire",
     period: "c. 30–375 CE",
@@ -424,8 +457,13 @@ export const timelineEvents = [
   { year: -180, event: "Apollodotus I extends Indo-Greek territory into Sindh and Gujarat", dynasty: "indo-greek" },
   { year: -155, event: "Menander I becomes king and expands the realm to its greatest extent, reaching Mathura", dynasty: "indo-greek" },
   { year: -130, event: "Death of Menander I; the Milinda Panha later records his dialogue with the monk Nagasena", dynasty: "indo-greek" },
-  { year: 10, event: "Strato II, the last Indo-Greek king, disappears as the Indo-Scythians take control", dynasty: "indo-greek" }
-    { year: 30, event: "Kujula Kadphises unites the Yuezhi tribes and founds the Kushan Empire", dynasty: "kushan" },
+{ year: 10, event: "Strato II, the last Indo-Greek king, disappears as the Indo-Scythians take control", dynasty: "indo-greek" },
+  { year: -85, event: "Maues conquers Gandhara and Taxila, founding Indo-Scythian rule in India", dynasty: "indo-scythian" },
+  { year: -55, event: "Azes I defeats the last Indo-Greek king Hippostratos, completing Saka control of the northwest", dynasty: "indo-scythian" },
+  { year: 10, event: "Rajuvula rules as Great Satrap of Mathura, commemorated on the Mathura Lion Capital", dynasty: "indo-scythian" },
+  { year: 78, event: "The Saka Era calendar begins, later adopted as India's official civil calendar", dynasty: "indo-scythian" },
+  { year: 150, event: "Rudradaman I issues the Junagadh rock inscription, a landmark in classical Sanskrit epigraphy", dynasty: "indo-scythian" },
+  { year: 400, event: "Western Satrap rule ends after defeat by the Gupta emperor Chandragupta II", dynasty: "indo-scythian" }    { year: 30, event: "Kujula Kadphises unites the Yuezhi tribes and founds the Kushan Empire", dynasty: "kushan" },
   { year: 105, event: "Vima Kadphises conquers Gandhara and expands Kushan trade with Rome", dynasty: "kushan" },
   { year: 127, event: "Kanishka I ascends the throne; the Kushan Empire reaches its greatest extent", dynasty: "kushan" },
   { year: 150, event: "Huvishka succeeds Kanishka, continuing patronage of Buddhism and Zoroastrianism", dynasty: "kushan" },
