@@ -2134,5 +2134,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Amroha (1305 CE) - the Delhi Sultanate's decisive victory under Malik Kafur over the invading Chagatai Mongol horde, told through timeline, commanders, and tactics.",
     url: "frontend/battle-of-amroha-explorer/index.html"
+  },
+  // --- Battle of Wadgaon Explorer ---
+  {
+    title: "Battle of Wadgaon Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Wadgaon (1779 CE) - the decisive Maratha victory under Mahadji Shinde over the British during the First Anglo-Maratha War.",
+    url: "frontend/battle-of-wadgaon-explorer/index.html"
   }
 ];
