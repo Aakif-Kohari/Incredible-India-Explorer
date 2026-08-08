@@ -322,13 +322,45 @@ art: "Bilingual Greek-Kharosthi coin portraiture, Hellenistic-Indian sculptural 
       "Facilitated maritime trade through the port of Barygaza (Bharuch), linking western India to Roman and Mediterranean trade networks",
       "A coinage style that influenced later western Indian dynasties, including the Traikutakas and the kingdom of Valabhi"
     ],
-    art: "Dated silver drachm coinage with royal portraiture, Brahmi epigraphy, Junagadh rock inscription",
+art: "Dated silver drachm coinage with royal portraiture, Brahmi epigraphy, Junagadh rock inscription",
     era: "ancient",
     color: "#16a085",
     mapPosition: { top: "45%", left: "40%" },
     link: "western-kshatrapas/index.html"
   },
-      {
+  {
+    id: "pushyabhuti",
+    name: "Pushyabhuti (Vardhana) Dynasty",
+    period: "c. 500–647 CE",
+    startYear: 500,
+    endYear: 647,
+    capital: "Sthanvishvara (Thanesar), later Kanyakubja (Kannauj)",
+    founders: "Pushyabhuti (legendary founder); Naravardhana (first historical ruler)",
+    notableRulers: [
+      { name: "Prabhakaravardhana", reign: "c. 580–605 CE", achievement: "First independent monarch of the dynasty; took the title Maharajadhiraja and resisted Huna invasions" },
+      { name: "Rajyavardhana", reign: "605–606 CE", achievement: "Avenged his brother-in-law's murder but was killed by the Gauda king Shashanka shortly after" },
+      { name: "Harshavardhana", reign: "606–647 CE", achievement: "Greatest ruler of the dynasty; united northern India from Punjab to Bengal, moved the capital to Kannauj, and patronized art, literature, and Buddhism" }
+    ],
+    territory: "Northern India, from Punjab to Bengal and the Himalayas to the Narmada River at its peak",
+    peakExtent: "Stretching across the Gangetic plains under Harshavardhana, though his southward expansion was checked by the Chalukya king Pulakesin II at the Narmada",
+    governance: "Centralized administration inheriting Gupta-era traditions, documented through copper-plate land grants such as the Madhuban, Sonepat, and Banskhera inscriptions",
+    military: "A large standing army supporting imperial ambitions, though defeated by the Chalukyas of Badami at the Narmada River around 618–620 CE",
+    decline: "Harshavardhana died in 647 CE without an heir; his minister Arunashva briefly usurped the throne before the kingdom rapidly fragmented into regional successor states",
+    contributions: [
+      "Political revival and unification of much of northern India after the decline of the Gupta Empire",
+      "Religious tolerance and patronage of Hinduism, Buddhism, and Jainism alike, including the famous Kannauj assembly held in honour of the Chinese pilgrim Xuanzang",
+      "Harsha's own Sanskrit plays — Ratnavali, Priyadarshika, and Nagananda — mark him as a notable royal playwright",
+      "Patronage of the court poet Banabhatta, whose Harshacharita and Kadambari remain landmark works of Sanskrit prose",
+      "Continued support for Nalanda University as a major center of Buddhist learning",
+      "Diplomatic exchanges with Tang China, including missions that shaped early Sino-Indian relations"
+    ],
+    art: "Sanskrit court literature and drama, copper-plate epigraphy, continued patronage of Buddhist monastic art at Nalanda",
+    era: "ancient",
+    color: "#8e44ad",
+    mapPosition: { top: "26%", left: "52%" },
+    link: "pushyabhuti/index.html"
+  },
+        {
     id: "kushan",
     name: "Kushan Empire",
     period: "c. 30–375 CE",
@@ -501,7 +533,13 @@ export const timelineEvents = [
   { year: 150, event: "Rudradaman I issues the Junagadh rock inscription and repairs the Sudarshana lake", dynasty: "western-kshatrapas" },
   { year: 197, event: "Rudrasimha I's reign as Mahakshatrapa ends, having minted an extensive series of dated coins", dynasty: "western-kshatrapas" },
   { year: 232, event: "Damasena mints coins precisely dated to the Saka era, exemplifying the dynasty's dating system", dynasty: "western-kshatrapas" },
-  { year: 415, event: "Rudrasimha III is defeated by Gupta emperor Chandragupta II, ending Western Kshatrapa rule", dynasty: "western-kshatrapas" },
+{ year: 415, event: "Rudrasimha III is defeated by Gupta emperor Chandragupta II, ending Western Kshatrapa rule", dynasty: "western-kshatrapas" },
+  { year: 580, event: "Prabhakaravardhana becomes king, later taking the title Maharajadhiraja", dynasty: "pushyabhuti" },
+  { year: 605, event: "Rajyavardhana ascends the throne after his father's death", dynasty: "pushyabhuti" },
+  { year: 606, event: "Harshavardhana becomes king after his brother Rajyavardhana is killed by Shashanka of Gauda", dynasty: "pushyabhuti" },
+  { year: 619, event: "Chalukya king Pulakesin II defeats Harshavardhana at the Narmada River, halting his southward expansion", dynasty: "pushyabhuti" },
+  { year: 643, event: "Harsha holds the Kannauj assembly in honour of the Chinese pilgrim Xuanzang", dynasty: "pushyabhuti" },
+  { year: 647, event: "Harshavardhana dies without an heir, and the Pushyabhuti dynasty rapidly disintegrates", dynasty: "pushyabhuti" },
   { year: 105, event: "Vima Kadphises conquers Gandhara and expands Kushan trade with Rome", dynasty: "kushan" },
   { year: 127, event: "Kanishka I ascends the throne; the Kushan Empire reaches its greatest extent", dynasty: "kushan" },
   { year: 150, event: "Huvishka succeeds Kanishka, continuing patronage of Buddhism and Zoroastrianism", dynasty: "kushan" },
