@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Phulkari Embroidery Explorer - Celebrate Punjab's vibrant floral embroidery traditions, patterns, motifs, and colors.">
+    <title>Phulkari Embroidery Explorer | Incredible India</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages-common.css">
+    <style>
+        .phulkari-hero {
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.9), transparent), url('assets/hero_banner.png') center/cover;
+            height: 50vh;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 50px;
+            margin-top: 40px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .interactive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .interactive-card {
+            background: var(--bg-dark-card);
+            border: 1px solid rgba(255, 176, 31, 0.3);
+            border-radius: var(--border-radius-lg);
+            padding: 25px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .interactive-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow-active);
+        }
+
+        .interactive-card h3 {
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+        }
+
+        .fabric-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: var(--border-radius-sm);
+            margin-bottom: 15px;
+        }
+
+        .details-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .details-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-dark-card);
+            padding: 40px;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--primary-gold);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .color-palette {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .color-swatch {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .color-swatch:hover {
+            transform: scale(1.1);
+            border-color: var(--primary-gold);
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="arts-crafts.html" class="nav-link" style="color: var(--saffron)">Arts & Crafts</a>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" style="padding-top: 80px;">
+        <section class="phulkari-hero scroll-section">
+            <div class="section-container">
+                <span class="hero-tagline animate-fade-in" style="color: var(--gold);">✨ Punjab's Floral Heritage</span>
+                <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Phulkari <span class="highlight" style="color: var(--gold);">Embroidery</span></h1>
+                <p class="hero-description animate-fade-in-delayed" style="color: #eee; max-width: 600px;">
+                    Explore Punjab's vibrant floral embroidery, traditional motifs, attire, and colors.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-padding fade-in-section">
+            <div class="section-container">
+                <h2 class="premium-heading">Historical Background</h2>
+                <p class="premium-subtitle" style="text-align: left;">Phulkari, which literally translates to "flower work," is a traditional embroidery style originating from Punjab. The craft has deep roots in the region's domestic life, where women traditionally embroidered textiles for everyday use, special occasions, and weddings. Passed down from mother to daughter, Phulkari is a vibrant expression of Punjabi culture, narrating stories of village life, joy, and sorrow through colourful threads on hand-spun cotton.</p>
+            </div>
+        </section>
+
+        <section class="section-padding bg-alternate fade-in-section">
+            <div class="section-container">
+                <h2 class="premium-heading">Pattern Explorer</h2>
+                <p class="premium-subtitle">Click on a pattern to view its details and cultural significance.</p>
+                <div class="interactive-grid" id="pattern-explorer">
+                    <!-- Injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding fade-in-section">
+            <div class="section-container">
+                <h2 class="premium-heading">Motif Gallery</h2>
+                <p class="premium-subtitle">Click on a motif to learn its meaning.</p>
+                <div class="interactive-grid" id="motif-gallery">
+                    <!-- Injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding bg-alternate fade-in-section">
+            <div class="section-container">
+                <h2 class="premium-heading">Traditional Attire Showcase</h2>
+                <div class="interactive-grid" id="attire-showcase">
+                    <!-- Injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding fade-in-section">
+            <div class="section-container">
+                <h2 class="premium-heading">Phulkari Color Palette</h2>
+                <p class="premium-subtitle">Click a colour to discover its traditional context.</p>
+                <div class="color-palette" id="color-palette">
+                    <!-- Injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding bg-alternate fade-in-section">
+            <div class="section-container">
+                <h2 class="premium-heading">References</h2>
+                <div style="background: var(--bg-dark-card); padding: 30px; border-radius: var(--border-radius-lg); border: 1px solid rgba(255, 176, 31, 0.3);">
+                    <ul style="color: var(--text-muted); line-height: 1.8; list-style-type: square; padding-left: 20px;">
+                        <li>Hitkari, S. S. (1980). "Phulkari: The Folk Art of Punjab". National Museum, New Delhi.</li>
+                        <li>Maskiell, Michelle (1999). "Embroidering the Past: Phulkari Textiles and Gendered Work as 'Tradition' and 'Heritage' in Colonial and Postcolonial Punjab". The Journal of Asian Studies.</li>
+                        <li>Crafts Council of India - Documentation of Punjabi Handlooms.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="details-modal" id="details-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal">&times;</button>
+            <h3 id="modal-title" style="color: var(--primary-gold); margin-bottom: 15px; font-size: 1.8rem;"></h3>
+            <p id="modal-subtitle" style="font-weight: bold; margin-bottom: 15px; color: var(--text-light);"></p>
+            <p id="modal-desc" style="color: var(--text-muted); line-height: 1.6;"></p>
+        </div>
+    </div>
+
+    <script src="phulkari.js"></script>
+</body>
+</html>

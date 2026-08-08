@@ -4,6 +4,9 @@
  */
 
 (function () {
+    var pathPrefix = window.location.pathname.includes('/frontend/') 
+        ? (window.location.pathname.split('/frontend/')[1].includes('/') ? '../' : '') 
+        : 'frontend/';
     /**
      * Declarative mapping of route patterns -> script dependencies & init handlers
      */
@@ -96,13 +99,13 @@
         'railways.html': { log: '✅ Railways Explorer page loaded successfully' },
         'adventure.html': { log: 'Adventure page loaded successfully' },
         'contributors.html': {
-            script: 'frontend/contributors/contributors.js',
+            script: 'contributors/contributors.js',
             initName: 'initContributorsPage',
             useSafeInit: true,
             name: 'Contributors'
         },
         'constitution-amendments.html': {
-            script: 'frontend/constitution-amendments/script.js',
+            script: 'constitution-amendments/script.js',
             initName: 'initConstitutionAmendmentsPage',
             useSafeInit: true,
             name: 'Constitution Amendments'
@@ -161,7 +164,7 @@
                     }
                 };
                 if (scriptPath && typeof window.lazyLoadScript === 'function') {
-                    window.lazyLoadScript(scriptPath).then(runner).catch(err => handleInitError(name, err));
+                    window.lazyLoadScript(pathPrefix + scriptPath).then(runner).catch(err => handleInitError(name, err));
                 } else {
                     runner();
                 }
@@ -239,11 +242,11 @@
                     if (routeConfig.scripts) {
                         let promise = Promise.resolve();
                         routeConfig.scripts.forEach(s => {
-                            promise = promise.then(() => window.lazyLoadScript(s));
+                            promise = promise.then(() => window.lazyLoadScript(pathPrefix + s));
                         });
                         promise.then(executeInit).catch(err => handleInitError(routeConfig.name, err));
                     } else if (routeConfig.script) {
-                        window.lazyLoadScript(routeConfig.script).then(executeInit).catch(err => handleInitError(routeConfig.name, err));
+                        window.lazyLoadScript(pathPrefix + routeConfig.script).then(executeInit).catch(err => handleInitError(routeConfig.name, err));
                     } else {
                         executeInit();
                     }

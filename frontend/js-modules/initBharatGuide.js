@@ -206,5 +206,3 @@ function initBharatGuide() {
 }
 
 window.initBharatGuide = initBharatGuide;
-export default initBharatGuide;
-export { initBharatGuide };

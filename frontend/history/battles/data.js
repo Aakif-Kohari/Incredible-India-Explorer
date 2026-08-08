@@ -261,6 +261,33 @@ export const battles = [
         tactics: "Artillery superiority, tactical positioning along the Yamuna riverbank, concentrated musket volleys, coordinated cavalry charges exploiting gaps in enemy lines. Aurangzeb's commanders Mahabat Khan and Jai Singh played key roles in the flanking maneuvers.",
         impact: "Secured Aurangzeb's claim to the Mughal throne, ending the war of succession. Established the Mughal Empire under Aurangzeb's 54-year reign, which reshaped Indo-Islamic rule. Dara Shikoh's defeat marked the end of the more syncretic, liberal approach to governance that characterized Shah Jahan's later years.",
         color: "#8B0000"
+    },
+  {
+        name: "Battle of Colachel",
+        date: "10 March 1741",
+        year: 1741,
+        era: "colonial",
+        location: "Colachel, Travancore (modern Tamil Nadu)",
+        coordinates: { top: "78%", left: "52%" },
+        combatants: {
+            side1: { name: "Kingdom of Travancore", leader: "Maharaja Marthanda Varma", forces: "~20,000–25,000 (Nair riflemen, Ezhava levies, rocket artillery, European-trained infantry)" },
+            side2: { name: "Dutch East India Company", leader: "Captain Jan Plaisier", forces: "~3,000–4,000 European troops with naval gun support" }
+        },
+        outcome: "Decisive Travancore victory — Dutch column broken and forced to surrender",
+        significance: "Ended Dutch colonial ambition in India and secured Travancore's rise as a regional power.",
+        summary: "Fought at the southernmost tip of the Indian subcontinent, the Battle of Colachel pitted Maharaja Marthanda Varma's modernising Travancore forces against a Dutch expedition seeking to dominate the Malabar spice trade. Using rocket artillery and disciplined infantry squares, Varma broke the Dutch landing column in open combat — the first time a native Indian army defeated a European colonial force in a set-piece battle. The defeat ended the Dutch East India Company's remaining ambition to establish a colony in India.",
+        keyEvents: [
+            "Dutch ships anchor off Colachel and attempt to land a battalion to seize the spice-trading harbour",
+            "Marthanda Varma positions his army behind the town's fortifications and rocket batteries",
+            "Dutch advance is torn apart by concentrated rocket and musket fire as it forms up on the beach",
+            "Commander Jan Plaisier and many of his officers are captured as the landing column collapses",
+            "The Dutch sue for peace, surrender their Malabar factories, and agree to a treaty of friendship with Travancore",
+            "Captured officers including Eustachius De Lannoy later rise to senior rank and help modernise Travancore's army"
+        ],
+        casualties: { side1: "~1,000–2,000 killed and wounded", side2: "~800 killed and captured" },
+        tactics: "Defensive positions anchored on native fortifications, concentrated rocket artillery fire, disciplined infantry squares, and a flanking manoeuvre that collapsed the Dutch landing column before naval gunfire could support it.",
+        impact: "The Dutch East India Company never mounted another major expedition to India, abandoning its remaining coastal factories. Travancore emerged as the dominant power in southern India, its army later reinforced by Dutch officers — including Eustachius De Lannoy — who entered the king's service. The victory is regarded as one of the earliest examples of modern, combined-arms warfare on Indian soil.",
+        color: "#0d7c66"
     }
 ];
 

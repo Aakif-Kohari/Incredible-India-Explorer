@@ -1,6 +1,9 @@
 /* ==========================================================================
    LANDING PAGE SECTIONS (CUISINE EXPLORER, FESTIVALS, CULTURE SLIDER) MODULE
    ========================================================================== */
+const pathPrefix = window.location.pathname.includes('/frontend/') 
+    ? (window.location.pathname.split('/frontend/')[1].includes('/') ? '../' : '') 
+    : 'frontend/';
 
 function initCuisineExplorer() {
     const cuisineGrid = document.getElementById('cuisine-grid');
@@ -51,7 +54,7 @@ function initCuisineExplorer() {
 
             card.innerHTML = `
                 <div class="cuisine-card-image">
-                    <img src="${dish.image}" alt="${dish.name}" loading="lazy">
+                    <img src="${pathPrefix}${dish.image}" alt="${dish.name}" loading="lazy">
                     <span class="cuisine-region-badge ${badgeClass}">${dish.region} India</span>
                 </div>
                 <div class="cuisine-card-body">
@@ -80,7 +83,7 @@ function initFestivals() {
         const card = document.createElement('div');
         card.className = 'festival-card glass-card';
         card.innerHTML = `
-            <img class="festival-card-img" src="${fest.image}" alt="${fest.name}" loading="lazy">
+            <img class="festival-card-img" src="${pathPrefix}${fest.image}" alt="${fest.name}" loading="lazy">
             <div class="festival-card-content">
                 <span class="subtitle">${fest.subtitle}</span>
                 <h3>${fest.name}</h3>
@@ -115,7 +118,7 @@ function initCultureSlider() {
         const card = document.createElement('div');
         card.className = 'slider-card';
         card.innerHTML = `
-            <img class="slider-card-img" src="${item.image}" alt="${item.title}" loading="lazy">
+            <img class="slider-card-img" src="${pathPrefix}${item.image}" alt="${item.title}" loading="lazy">
             <div class="slider-card-body">
                 <span class="slider-card-category">${item.category}</span>
                 <h3>${item.title}</h3>

@@ -148,12 +148,20 @@
         timelineContainer.classList.remove('active');
     });
 
+    let isTicking = false;
+
     timelineContainer.addEventListener('mousemove', (e) => {
         if (!isDown) return;
         e.preventDefault();
-        const x = e.pageX - timelineContainer.offsetLeft;
-        const walk = (x - startX) * 2; // Scroll-fast multiplier
-        timelineContainer.scrollLeft = scrollLeft - walk;
+        if (!isTicking) {
+            window.requestAnimationFrame(() => {
+                const x = e.pageX - timelineContainer.offsetLeft;
+                const walk = (x - startX) * 2; // Scroll-fast multiplier
+                timelineContainer.scrollLeft = scrollLeft - walk;
+                isTicking = false;
+            });
+            isTicking = true;
+        }
     });
 
     // Touch Dragging (Mobile)
@@ -161,7 +169,7 @@
         isDown = true;
         startX = e.touches[0].pageX - timelineContainer.offsetLeft;
         scrollLeft = timelineContainer.scrollLeft;
-    });
+    }, { passive: true });
 
     timelineContainer.addEventListener('touchend', () => {
         isDown = false;
@@ -169,20 +177,73 @@
 
     timelineContainer.addEventListener('touchmove', (e) => {
         if (!isDown) return;
-        const x = e.touches[0].pageX - timelineContainer.offsetLeft;
-        const walk = (x - startX) * 2;
-        timelineContainer.scrollLeft = scrollLeft - walk;
-    });
+        if (!isTicking) {
+            window.requestAnimationFrame(() => {
+                const x = e.touches[0].pageX - timelineContainer.offsetLeft;
+                const walk = (x - startX) * 2;
+                timelineContainer.scrollLeft = scrollLeft - walk;
+                isTicking = false;
+            });
+            isTicking = true;
+        }
+    }, { passive: true });
 
     // Mouse Wheel to Horizontal Scroll
     timelineContainer.addEventListener('wheel', (e) => {
         if (e.deltaY !== 0) {
             e.preventDefault();
-            timelineContainer.scrollLeft += e.deltaY;
+            if (!isTicking) {
+                window.requestAnimationFrame(() => {
+                    timelineContainer.scrollLeft += e.deltaY;
+                    isTicking = false;
+                });
+                isTicking = true;
+            }
         }
     }, { passive: false }); // Needs to be non-passive to call preventDefault
 
+    // Debounce function for expensive scroll UI updates
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    function updateActiveTimelineNode() {
+        // Expensive calculations example: Find centered node
+        const containerCenter = timelineContainer.scrollLeft + timelineContainer.clientWidth / 2;
+        const nodes = timelineTrack.querySelectorAll('.timeline-node');
+        
+        let closestNode = null;
+        let minDistance = Infinity;
+
+        nodes.forEach(node => {
+            const nodeCenter = node.offsetLeft + node.clientWidth / 2;
+            const distance = Math.abs(nodeCenter - containerCenter);
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestNode = node;
+            }
+            node.classList.remove('active-node');
+        });
+
+        if (closestNode) {
+            closestNode.classList.add('active-node');
+        }
+    }
+
+    // Attach debounced scroll listener
+    const debouncedScroll = debounce(updateActiveTimelineNode, 150);
+    timelineContainer.addEventListener('scroll', debouncedScroll, { passive: true });
+
     // Initialize
     renderTimeline();
+    updateActiveTimelineNode();
 
 })();
