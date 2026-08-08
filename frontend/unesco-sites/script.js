@@ -3,6 +3,7 @@ import unescoData from './data.js';
 (() => {
     const gridContainer = document.getElementById('unesco-grid');
     const sortSelect = document.getElementById('sort-select');
+    const sortAnnouncement = document.getElementById('sort-announcement');
 
     // State
     let currentData = [...unescoData];
@@ -116,6 +117,22 @@ import unescoData from './data.js';
         }
 
         renderSites(sortedData);
+        
+        // Announce sorting change to screen readers
+        const selectedLabel = event.target.options[event.target.selectedIndex].textContent;
+        announceSort(selectedLabel);
+    }
+
+    // ARIA Live Region Announcer
+    function announceSort(label) {
+        if (!sortAnnouncement) return;
+        
+        // Clear first to ensure the screen reader detects the change even if the text is similar
+        sortAnnouncement.textContent = '';
+        
+        requestAnimationFrame(() => {
+            sortAnnouncement.textContent = `UNESCO sites sorted by ${label}.`;
+        });
     }
 
     // Start
