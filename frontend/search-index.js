@@ -2184,5 +2184,19 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Ghaghra (1529 CE) - Babur's decisive riverine and amphibious campaign against the Eastern Afghan Confederacy and Bengal Sultanate.",
     url: "frontend/battle-of-ghaghra-explorer/index.html"
+  },
+  // --- Vaduvur Wetland Explorer ---
+  {
+    title: "Vaduvur Wetland Explorer",
+    category: "Featured Explorers",
+    description: "Explore Vaduvur Wetland & Bird Sanctuary — Ramsar Site No. 2480 in Tiruvarur, Tamil Nadu. A 128-hectare human-made irrigation tank hosting over 20,000 wintering migratory waterfowl along the Central Asian Flyway.",
+    url: "frontend/vaduvur-wetland-explorer/index.html"
+  },
+  // --- Suchindram Wetland Explorer ---
+  {
+    title: "Suchindram Wetland Explorer",
+    category: "Featured Explorers",
+    description: "Explore Suchindram Wetland & Bird Sanctuary — Ramsar Site No. 2484 in Kanyakumari, Tamil Nadu. A 94-hectare freshwater tank complex serving as mainland India's southernmost sanctuary along the Central Asian Flyway.",
+    url: "frontend/suchindram-wetland-explorer/index.html"
   }
 ];
