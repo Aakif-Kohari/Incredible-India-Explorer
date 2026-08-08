@@ -2141,6 +2141,12 @@ window.indiaSearchIndex = [
     description: "Explore the Battle of Amroha (1305 CE) - the Delhi Sultanate's decisive victory under Malik Kafur over the invading Chagatai Mongol horde, told through timeline, commanders, and tactics.",
     url: "frontend/battle-of-amroha-explorer/index.html"
   },
+  // --- Battle of Khajwa Explorer ---
+  {
+    title: "Battle of Khajwa Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Khajwa (1659 CE) - the decisive succession struggle where Aurangzeb defeated his brother Shah Shuja and secured the Mughal crown.",
+    url: "frontend/battle-of-khajwa-explorer/index.html"},
   // --- Battle of Chausa Explorer ---
   {
     title: "Battle of Chausa Explorer",
