@@ -1459,6 +1459,13 @@ window.indiaSearchIndex = [
     description: "Explore the Param Vir Chakra Gallery honoring all 21 recipient heroes of India's highest military decoration for valor, featuring Savitri Khanolkar's medal design and citations.",
     url: "frontend/param-vir-chakra-explorer/index.html"
   },
+  // --- Historic Battles of India Explorer ---
+  {
+    title: "Historic Battles of India Explorer",
+    category: "Military Heritage & Honours",
+    description: "Explore India's most important historical battles — from Kalinga to Kargil — with interactive timelines, maps, and detailed battle summaries.",
+    url: "frontend/history/battles/index.html"
+  },
   // --- UNESCO Mountain Railways of India Explorer ---
   {
     title: "UNESCO Mountain Railways of India Explorer",
