@@ -1809,6 +1809,12 @@ window.indiaSearchIndex = [
     category: "History & Heritage",
     description: "Educational encyclopedia featuring biographies, timelines, revolutionary movements, rare facts, and quotes of India's freedom fighters.",
     url: "frontend/freedom-fighters-hub/index.html"},
+  {
+    title: "Captain Lakshmi Sahgal Explorer",
+    category: "Freedom Struggle",
+    description: "Explore Captain Lakshmi Sahgal's leadership of the INA, the all-women Rani of Jhansi Regiment, and her role as a physician and women's rights champion.",
+    url: "frontend/captain-lakshmi-sahgal-explorer/index.html"
+  },
   // --- State Chief Ministers Explorer ---
   {
     title: "State Chief Ministers Explorer",
@@ -2140,6 +2146,31 @@ window.indiaSearchIndex = [
     title: "Battle of Wadgaon Explorer",
     category: "Featured Explorers",
     description: "Explore the Battle of Wadgaon (1779 CE) - the decisive Maratha victory under Mahadji Shinde over the British during the First Anglo-Maratha War.",
-    url: "frontend/battle-of-wadgaon-explorer/index.html"
+    url: "frontend/battle-of-wadgaon-explorer/index.html"},
+  // --- Battle of Diu (1509) Explorer ---
+  {
+    title: "Battle of Diu Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Diu (1509 CE) - the decisive naval clash that established Portuguese hegemony in the Indian Ocean and ended local monopolies.",
+    url: "frontend/battle-of-diu-explorer/index.html"},
+  // --- Battle of Khajwa Explorer ---
+  {
+    title: "Battle of Khajwa Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Khajwa (1659 CE) - the decisive succession struggle where Aurangzeb defeated his brother Shah Shuja and secured the Mughal crown.",
+    url: "frontend/battle-of-khajwa-explorer/index.html"},
+  // --- Battle of Chausa Explorer ---
+  {
+    title: "Battle of Chausa Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Chausa (1539 CE) - the decisive conflict where Sher Shah Suri defeated Humayun and established the Suri dynasty.",
+    url: "frontend/battle-of-chausa-explorer/index.html"},
+      
+  // --- Battle of Ghaghra Explorer ---
+  {
+    title: "Battle of Ghaghra Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Ghaghra (1529 CE) - Babur's decisive riverine and amphibious campaign against the Eastern Afghan Confederacy and Bengal Sultanate.",
+    url: "frontend/battle-of-ghaghra-explorer/index.html"
   }
 ];
