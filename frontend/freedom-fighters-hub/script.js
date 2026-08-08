@@ -197,6 +197,26 @@ const FREEDOM_FIGHTERS_DATA = [
         contributions: 'Architect of the Constitution of India guaranteeing fundamental rights, gender equality, and affirmative action; founder of Reserve Bank of India conceptual blueprint.',
         rareFacts: 'Doctorates from Columbia University and London School of Economics; possessed a personal library of over 50,000 books.',
         quote: 'Educate, Agitate, Organize.'
+    },
+    {
+        id: 'birsa-munda',
+        name: 'Birsa Munda',
+        title: 'Dharti Aba',
+        lifespan: '1875 – 1900',
+        era: 'Tribal Uprising',
+        region: 'East',
+        birthplace: 'Ulihatu, Khunti, Chotanagpur (now Jharkhand)',
+        movements: ['Ulgulan (Great Tumult)', 'Birsait Religious Movement'],
+        biography: 'Birsa Munda was a Munda tribal leader and folk hero who led the Ulgulan (the Great Tumult, 1895–1900) against British colonial rule, feudal landlords (thikadars) and missionaries, demanding the restoration of tribal land, forest and identity in the Chotanagpur plateau.',
+        timeline: [
+            { year: '1875', event: 'Born on 15 November at Ulihatu, Khunti, into a poor Munda khuntkattidar family.' },
+            { year: '1895', event: 'Arrested on 24 August for his growing following; sentenced to two years in jail.' },
+            { year: '1899', event: 'Launched the Ulgulan (Great Tumult) around 24 December, attacking churches and loyalist strongholds.' },
+            { year: '1900', event: 'Captured at Jamkopai forest, Chakradharpur on 3 February; died of cholera in Ranchi Central Jail on 9 June.' }
+        ],
+        contributions: 'Inspired the Chotanagpur Tenancy Act (1908) protecting tribal land, became the spiritual founder of the Birsait faith, and his memory drove the creation of the state of Jharkhand on 15 November 2000.',
+        rareFacts: 'His birth anniversary (15 November) has been celebrated nationwide as Janjatiya Gaurav Divas (Tribal Pride Day) since 2021; the British placed a reward of Rs 500 on his head.',
+        quote: 'Abua raj ete jana, maharani raj tundu jana — Let the rule of the queen be over, and ours come.'
     }
 ];
 
