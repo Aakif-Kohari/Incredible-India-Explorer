@@ -2212,12 +2212,5 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Chronicle Jawaharlal Nehru's leadership in the Indian freedom movement, Congress presidency, Purna Swaraj declaration, 9 prison incarcerations, historic speeches, and nation-building.",
     url: "frontend/jawaharlal-nehru-explorer/index.html"
-  },
-  // --- Ram Prasad Bismil Explorer ---
-  {
-    title: "Ram Prasad Bismil Explorer",
-    category: "Featured Explorers",
-    description: "Highlight Ram Prasad Bismil's revolutionary spirit, HRA co-founding, leadership in the 1925 Kakori Train Action, patriotic poetry including Sarfaroshi Ki Tamanna, and Atmakatha autobiography.",
-    url: "frontend/ram-prasad-bismil-explorer/index.html"
   }
 ];
