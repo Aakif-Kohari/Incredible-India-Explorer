@@ -289,13 +289,46 @@ art: "Bilingual Greek-Kharosthi coin portraiture, Hellenistic-Indian sculptural 
       "Patronage of Buddhist art, including the Bimaran casket, one of the earliest images of the standing Buddha",
       "Facilitated trade and cultural exchange along Silk Road routes linking India, Central Asia, and the Mediterranean"
     ],
-    art: "Bimaran casket and Buddhist reliquary art, bilingual Greek-Kharosthi-Brahmi coinage, early classical Sanskrit epigraphy",
+ art: "Bimaran casket and Buddhist reliquary art, bilingual Greek-Kharosthi-Brahmi coinage, early classical Sanskrit epigraphy",
     era: "ancient",
     color: "#7f8c8d",
     mapPosition: { top: "25%", left: "42%" },
     link: "indo-scythian/index.html"
   },
-    {
+  {
+    id: "western-kshatrapas",
+    name: "Western Kshatrapas",
+    period: "c. 35–415 CE",
+    startYear: 35,
+    endYear: 415,
+    capital: "Ujjain and Junagadh (Kardamaka line); earlier centres under the Kshaharatas near Bharuch",
+    founders: "Bhumaka (Kshaharata line); Chashtana (Kardamaka line)",
+    notableRulers: [
+      { name: "Nahapana", reign: "late 1st century CE", achievement: "Powerful Kshaharata ruler who expanded across Malwa and Gujarat before his defeat by the Satavahana king Gautamiputra Satakarni" },
+      { name: "Chashtana", reign: "c. 78–130 CE", achievement: "Founded the Kardamaka line of Western Kshatrapas; his accession traditionally marks the start of the Saka Era" },
+      { name: "Rudradaman I", reign: "c. 130–150 CE", achievement: "Greatest Western Kshatrapa ruler; issued the Junagadh rock inscription and repaired the Sudarshana lake" },
+      { name: "Rudrasimha III", reign: "c. 388–415 CE", achievement: "Last Western Kshatrapa ruler, defeated by the Gupta emperor Chandragupta II, ending Saka rule in western India" }
+    ],
+    territory: "Gujarat, Saurashtra, and Malwa, extending at times into Maharashtra, Rajasthan, and Madhya Pradesh",
+    peakExtent: "From Sindh and Rajasthan through Gujarat and Malwa to parts of the western Deccan under Rudradaman I",
+    governance: "Administered by rulers holding the titles Kshatrapa (Satrap) and Mahakshatrapa (Great Satrap), continuing a Central Asian-derived satrapal system",
+    military: "Repeated conflict with the Satavahanas over the western Deccan, and later sustained warfare against the expanding Gupta Empire",
+    decline: "Weakened by succession disputes; finally conquered by the Gupta emperor Chandragupta II around 395–415 CE, with the last ruler Rudrasimha III killed in the campaign",
+    contributions: [
+      "An unmatched system of precisely dated silver coinage — nearly every coin records the king's name, his father's name, and a Saka Era date, letting historians reconstruct the dynasty almost year by year",
+      "Rudradaman I's Junagadh rock inscription, the earliest known major inscription in classical Sanskrit",
+      "Popularized the Saka Era calendar, begun in 78 CE and later adopted as India's official civil calendar",
+      "Engineering achievements such as the repair of the Sudarshana lake reservoir under Rudradaman I",
+      "Facilitated maritime trade through the port of Barygaza (Bharuch), linking western India to Roman and Mediterranean trade networks",
+      "A coinage style that influenced later western Indian dynasties, including the Traikutakas and the kingdom of Valabhi"
+    ],
+    art: "Dated silver drachm coinage with royal portraiture, Brahmi epigraphy, Junagadh rock inscription",
+    era: "ancient",
+    color: "#16a085",
+    mapPosition: { top: "45%", left: "40%" },
+    link: "western-kshatrapas/index.html"
+  },
+      {
     id: "kushan",
     name: "Kushan Empire",
     period: "c. 30–375 CE",
@@ -463,11 +496,16 @@ export const timelineEvents = [
   { year: 10, event: "Rajuvula rules as Great Satrap of Mathura, commemorated on the Mathura Lion Capital", dynasty: "indo-scythian" },
   { year: 78, event: "The Saka Era calendar begins, later adopted as India's official civil calendar", dynasty: "indo-scythian" },
   { year: 150, event: "Rudradaman I issues the Junagadh rock inscription, a landmark in classical Sanskrit epigraphy", dynasty: "indo-scythian" },
-  { year: 400, event: "Western Satrap rule ends after defeat by the Gupta emperor Chandragupta II", dynasty: "indo-scythian" }    { year: 30, event: "Kujula Kadphises unites the Yuezhi tribes and founds the Kushan Empire", dynasty: "kushan" },
+{ year: 400, event: "Western Satrap rule ends after defeat by the Gupta emperor Chandragupta II", dynasty: "indo-scythian" },
+  { year: 78, event: "Chashtana founds the Kardamaka line of Western Kshatrapas; the Saka Era calendar begins", dynasty: "western-kshatrapas" },
+  { year: 150, event: "Rudradaman I issues the Junagadh rock inscription and repairs the Sudarshana lake", dynasty: "western-kshatrapas" },
+  { year: 197, event: "Rudrasimha I's reign as Mahakshatrapa ends, having minted an extensive series of dated coins", dynasty: "western-kshatrapas" },
+  { year: 232, event: "Damasena mints coins precisely dated to the Saka era, exemplifying the dynasty's dating system", dynasty: "western-kshatrapas" },
+  { year: 415, event: "Rudrasimha III is defeated by Gupta emperor Chandragupta II, ending Western Kshatrapa rule", dynasty: "western-kshatrapas" },
   { year: 105, event: "Vima Kadphises conquers Gandhara and expands Kushan trade with Rome", dynasty: "kushan" },
   { year: 127, event: "Kanishka I ascends the throne; the Kushan Empire reaches its greatest extent", dynasty: "kushan" },
   { year: 150, event: "Huvishka succeeds Kanishka, continuing patronage of Buddhism and Zoroastrianism", dynasty: "kushan" },
-  { year: 230, event: "Death of Vasudeva I, the last powerful Kushan ruler, marks the start of decline", dynasty: "kushan" }
+  { year: 230, event: "Death of Vasudeva I, the last powerful Kushan ruler, marks the start of decline", dynasty: "kushan" },
     { year: 270, event: "Pravarasena I becomes the first Vakataka ruler to take the title Samrat", dynasty: "vakataka" },
   { year: 385, event: "Rudrasena II marries Prabhavatigupta, daughter of Gupta emperor Chandragupta II", dynasty: "vakataka" },
   { year: 405, event: "Pravarasena II composes the Setubandha and moves the capital to Pravarapura", dynasty: "vakataka" },
