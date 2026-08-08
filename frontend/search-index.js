@@ -2134,5 +2134,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Amroha (1305 CE) - the Delhi Sultanate's decisive victory under Malik Kafur over the invading Chagatai Mongol horde, told through timeline, commanders, and tactics.",
     url: "frontend/battle-of-amroha-explorer/index.html"
+  },
+  // --- Battle of Chausa Explorer ---
+  {
+    title: "Battle of Chausa Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Chausa (1539 CE) - the decisive conflict where Sher Shah Suri defeated Humayun and established the Suri dynasty.",
+    url: "frontend/battle-of-chausa-explorer/index.html"
   }
 ];
