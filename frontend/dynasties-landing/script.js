@@ -142,6 +142,18 @@ const dynastiesData = [
         link: '#'
     },
     {
+        id: 'rashtrakuta',
+        name: 'Rashtrakuta Dynasty',
+        region: 'deccan',
+        period: 'medieval',
+        religion: 'hinduism',
+        capital: 'Manyakheta',
+        dates: 'c. 753 - 982 CE',
+        description: 'Military titans of the Deccan and patrons of the monolithic Kailash Temple at Ellora.',
+        icon: '⚔️',
+        link: '../rashtrakuta-dynasty-explorer/index.html'
+    },
+  {
         id: 'pallava',
         name: 'Pallava Dynasty',
         region: 'south',
