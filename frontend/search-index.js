@@ -2198,5 +2198,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore Suchindram Wetland & Bird Sanctuary — Ramsar Site No. 2484 in Kanyakumari, Tamil Nadu. A 94-hectare freshwater tank complex serving as mainland India's southernmost sanctuary along the Central Asian Flyway.",
     url: "frontend/suchindram-wetland-explorer/index.html"
+  },
+  // --- Mysore Painting Explorer ---
+  {
+    title: "Mysore Painting Explorer",
+    category: "Featured Explorers",
+    description: "Explore Mysore Paintings — classical South Indian art form celebrated for delicate brushwork, 24-karat pure gold gesso embossing, Sritattvanidhi iconographic tradition, and royal Wodeyar heritage.",
+    url: "frontend/mysore-painting-explorer/index.html"
   }
 ];
