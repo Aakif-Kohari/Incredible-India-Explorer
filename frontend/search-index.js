@@ -2205,5 +2205,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore Mysore Paintings — classical South Indian art form celebrated for delicate brushwork, 24-karat pure gold gesso embossing, Sritattvanidhi iconographic tradition, and royal Wodeyar heritage.",
     url: "frontend/mysore-painting-explorer/index.html"
+  },
+  // --- Jawaharlal Nehru Explorer ---
+  {
+    title: "Jawaharlal Nehru Explorer",
+    category: "Featured Explorers",
+    description: "Chronicle Jawaharlal Nehru's leadership in the Indian freedom movement, Congress presidency, Purna Swaraj declaration, 9 prison incarcerations, historic speeches, and nation-building.",
+    url: "frontend/jawaharlal-nehru-explorer/index.html"
   }
 ];
