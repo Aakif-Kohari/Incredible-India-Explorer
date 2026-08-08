@@ -22,6 +22,14 @@ const INVENTIONS = [
         era: "c. 3rd Century BCE – 7th Century CE",
         summary: "From a placeholder dot to a true number — how Indian mathematicians formalized zero and reshaped mathematics forever.",
         link: "../zero-explorer/index.html"
+    },
+    {
+        id: "zinc-distillation",
+        title: "Zinc Distillation (Zawar Process)",
+        icon: "🔻",
+        era: "c. 12th–14th Century CE",
+        summary: "The world's earliest large-scale zinc production — a downward distillation technique that captured a metal too volatile for ordinary smelting.",
+        link: "../zinc-distillation-explorer/index.html"
     }
     // Future inventions (metallurgy, ancient batteries, etc.) go here.
 ];
