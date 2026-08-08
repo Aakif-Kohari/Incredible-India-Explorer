@@ -647,7 +647,24 @@ window.indiaSearchIndex = [
     title: "Sanjhi Art Explorer",
     category: "Culture",
     description: "Discover Sanjhi, the ancient paper-cut stencil art of Mathura and Vrindavan — intricate Radha-Krishna motifs cut by hand for centuries of temple rituals.",
-    url: "frontend/sanjhi-art-explorer/index.html"
+    url: "frontend/sanjhi-art-explorer/index.html"},
+  {
+    title: "Gujarati Cinema (Dhollywood) Explorer",
+    category: "Culture",
+    description: "Discover Dhollywood, the Gujarati film industry — from Narsinh Mehta (1932), the first Gujarati talkie, to National Award-winning classics and its modern urban revival.",
+    url: "frontend/gujarati-cinema-explorer/index.html"
+  },
+  {
+    title: "Ollywood (Odia Cinema) Explorer",
+    category: "Culture",
+    description: "Discover Ollywood, the Odia film industry of Odisha — from Sita Bibaha (1936), the first Odia film, to National Award-winning classics and the artists who built its legacy.",
+    url: "frontend/odia-cinema-explorer/index.html"
+  },
+  {
+    title: "Tollywood (Telugu Cinema) Explorer",
+    category: "Culture",
+    description: "Discover Tollywood, the Telugu film industry — from Bhakta Prahlada (1931), the first Telugu talkie, to globally acclaimed epics like Baahubali and Oscar-winning RRR.",
+    url: "frontend/tollywood-explorer/index.html"
   },
   {
     title: "River Krishna",
@@ -1613,6 +1630,13 @@ window.indiaSearchIndex = [
     description: "Explore the Param Vir Chakra Gallery honoring all 21 recipient heroes of India's highest military decoration for valor, featuring Savitri Khanolkar's medal design and citations.",
     url: "frontend/param-vir-chakra-explorer/index.html"
   },
+  // --- Historic Battles of India Explorer ---
+  {
+    title: "Historic Battles of India Explorer",
+    category: "Military Heritage & Honours",
+    description: "Explore India's most important historical battles — from Kalinga to Kargil — with interactive timelines, maps, and detailed battle summaries.",
+    url: "frontend/history/battles/index.html"
+  },
   // --- UNESCO Mountain Railways of India Explorer ---
   {
     title: "UNESCO Mountain Railways of India Explorer",
@@ -1790,6 +1814,12 @@ window.indiaSearchIndex = [
     category: "History & Heritage",
     description: "Educational encyclopedia featuring biographies, timelines, revolutionary movements, rare facts, and quotes of India's freedom fighters.",
     url: "frontend/freedom-fighters-hub/index.html"},
+  {
+    title: "Captain Lakshmi Sahgal Explorer",
+    category: "Freedom Struggle",
+    description: "Explore Captain Lakshmi Sahgal's leadership of the INA, the all-women Rani of Jhansi Regiment, and her role as a physician and women's rights champion.",
+    url: "frontend/captain-lakshmi-sahgal-explorer/index.html"
+  },
   // --- State Chief Ministers Explorer ---
   {
     title: "State Chief Ministers Explorer",
@@ -2090,5 +2120,62 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Takkolam (c. 949 CE) - the decisive Chola–Rashtrakuta clash where crown prince Rajaditya fell and Emperor Krishna III captured Kanchi and Tanjore.",
     url: "frontend/battle-of-takkolam-explorer/index.html"
+  },
+  // --- Battle of Khanwa Explorer ---
+  {
+    title: "Battle of Khanwa Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Khanwa (1527 CE) - the decisive conflict between Babur and Rana Sanga that strengthened Mughal rule in northern India.",
+    url: "frontend/battle-of-khanwa-explorer/index.html"},
+  // --- Battle of Talikota Explorer ---
+  {
+    title: "Battle of Talikota Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Talikota (1565 CE) - the decisive clash between the Vijayanagara Empire and the united Deccan Sultanates alliance, leading to the fall of the empire and the ruins of Hampi.",
+    url: "frontend/battle-of-talikota-explorer/index.html"},
+  // --- Battle of Raichur Explorer ---
+  {
+    title: "Battle of Raichur Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Raichur (1520 CE) - Emperor Krishnadevaraya's historic siege and open clash that established Vijayanagara dominance in the Deccan.",
+    url: "frontend/battle-of-raichur-explorer/index.html"},
+  // --- Battle of Amroha Explorer ---
+  {
+    title: "Battle of Amroha Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Amroha (1305 CE) - the Delhi Sultanate's decisive victory under Malik Kafur over the invading Chagatai Mongol horde, told through timeline, commanders, and tactics.",
+    url: "frontend/battle-of-amroha-explorer/index.html"
+  },
+  // --- Battle of Wadgaon Explorer ---
+  {
+    title: "Battle of Wadgaon Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Wadgaon (1779 CE) - the decisive Maratha victory under Mahadji Shinde over the British during the First Anglo-Maratha War.",
+    url: "frontend/battle-of-wadgaon-explorer/index.html"},
+  // --- Battle of Diu (1509) Explorer ---
+  {
+    title: "Battle of Diu Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Diu (1509 CE) - the decisive naval clash that established Portuguese hegemony in the Indian Ocean and ended local monopolies.",
+    url: "frontend/battle-of-diu-explorer/index.html"},
+  // --- Battle of Khajwa Explorer ---
+  {
+    title: "Battle of Khajwa Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Khajwa (1659 CE) - the decisive succession struggle where Aurangzeb defeated his brother Shah Shuja and secured the Mughal crown.",
+    url: "frontend/battle-of-khajwa-explorer/index.html"},
+  // --- Battle of Chausa Explorer ---
+  {
+    title: "Battle of Chausa Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Chausa (1539 CE) - the decisive conflict where Sher Shah Suri defeated Humayun and established the Suri dynasty.",
+    url: "frontend/battle-of-chausa-explorer/index.html"},
+      
+  // --- Battle of Ghaghra Explorer ---
+  {
+    title: "Battle of Ghaghra Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Ghaghra (1529 CE) - Babur's decisive riverine and amphibious campaign against the Eastern Afghan Confederacy and Bengal Sultanate.",
+    url: "frontend/battle-of-ghaghra-explorer/index.html"
   }
 ];
