@@ -230,6 +230,13 @@
   cursor: pointer;
   padding: 4px;
   font-family: Outfit, sans-serif;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.celljail-pin.is-filtered-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .celljail-pin-dot {
@@ -321,6 +328,44 @@
   font-weight: 600;
 }
 
+/* Movement Filter Bar */
+.celljail-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.celljail-filter-btn {
+  font-family: Outfit, sans-serif;
+  background: var(--celljail-glass);
+  border: 1px solid var(--celljail-border);
+  color: #cbd5e1;
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.celljail-filter-btn:hover {
+  border-color: var(--celljail-gold-light);
+  color: var(--celljail-gold-light);
+}
+
+.celljail-filter-btn:focus-visible {
+  outline: 2px solid var(--celljail-gold-light);
+  outline-offset: 2px;
+}
+
+.celljail-filter-btn.active {
+  background: var(--celljail-gold-light);
+  border-color: var(--celljail-gold-light);
+  color: var(--celljail-stone);
+}
+
 /* Card Grid */
 .celljail-card-grid {
   display: grid;
@@ -329,11 +374,16 @@
 }
 
 .celljail-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
   background: var(--celljail-glass);
   border: 1px solid var(--celljail-border);
   border-radius: 16px;
   padding: 28px;
-  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s, opacity 0.2s;
   backdrop-filter: blur(10px);
 }
 
@@ -341,6 +391,15 @@
   transform: translateY(-5px);
   border-color: var(--celljail-gold-light);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.celljail-card:focus-visible {
+  outline: 2px solid var(--celljail-gold-light);
+  outline-offset: 3px;
+}
+
+.celljail-card.is-filtered-out {
+  display: none;
 }
 
 .celljail-card-icon {
@@ -402,6 +461,19 @@
   justify-content: flex-start;
   padding-right: 0;
   padding-left: 50%;
+}
+
+.celljail-timeline-step[data-loc] {
+  cursor: pointer;
+}
+
+.celljail-timeline-step[data-loc]:focus-visible {
+  outline: none;
+}
+
+.celljail-timeline-step[data-loc]:focus-visible .celljail-timeline-card {
+  outline: 2px solid var(--celljail-gold-light);
+  outline-offset: 3px;
 }
 
 .celljail-timeline-marker {
@@ -491,7 +563,7 @@
 /* Visual Gallery Grid */
 .celljail-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
   gap: 20px;
 }
 
@@ -580,6 +652,19 @@
   left: 0;
   top: 2px;
   font-size: 0.9rem;
+}
+
+.celljail-references li a {
+  color: var(--celljail-gold-light);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.celljail-references li a:hover,
+.celljail-references li a:focus-visible {
+  color: var(--celljail-gold);
+  border-bottom-color: currentColor;
 }
 
 /* Page Footer */
@@ -715,4 +800,83 @@
 
 body.modal-open {
   overflow: hidden;
+}
+
+/* ==========================================================================
+   Light Theme Overrides
+   Activated via body.light-theme, matching the site-wide theme toggle
+   (see the inline theme script and #theme-toggle in index.html).
+   ========================================================================== */
+
+body.light-theme .celljail-main {
+  --celljail-stone: #faf6ee;
+  --celljail-stone-light: #ffffff;
+  --celljail-gold: #b9791f;
+  --celljail-gold-light: #96631f;
+  --celljail-gold-dark: #6b4713;
+  --celljail-sand: #4a3c26;
+  --celljail-iron: #475569;
+  --celljail-glass: rgba(255, 255, 255, 0.72);
+  --celljail-border: rgba(90, 100, 114, 0.2);
+
+  background-color: var(--celljail-stone);
+  color: #33291d;
+}
+
+body.light-theme .celljail-section:nth-of-type(even) {
+  background-color: rgba(90, 71, 42, 0.03);
+}
+
+body.light-theme .celljail-hero {
+  background: linear-gradient(180deg, rgba(250, 246, 238, 0.55), rgba(250, 246, 238, 0.97)),
+              url('../assets/cellular_jail_hero.svg') center/cover no-repeat;
+}
+
+body.light-theme .celljail-hero h1,
+body.light-theme .celljail-section-header h2,
+body.light-theme .celljail-detail-panel h3,
+body.light-theme .celljail-card h3,
+body.light-theme .celljail-timeline-card h3,
+body.light-theme .celljail-gallery-overlay h4,
+body.light-theme .celljail-references h3,
+body.light-theme .museum-modal-card h2 {
+  color: #241d13;
+}
+
+body.light-theme .celljail-hero p,
+body.light-theme .celljail-text-block p,
+body.light-theme .celljail-highlight-box li,
+body.light-theme .celljail-section-header p,
+body.light-theme .celljail-detail-panel p,
+body.light-theme .celljail-card p,
+body.light-theme .celljail-timeline-card p,
+body.light-theme .celljail-references li,
+body.light-theme .celljail-filter-btn,
+body.light-theme .celljail-footer,
+body.light-theme .modal-location,
+body.light-theme .modal-description {
+  color: #5c4a30;
+}
+
+body.light-theme .celljail-pin-label {
+  color: #241d13;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+body.light-theme .celljail-detail-prisoners li {
+  color: var(--celljail-gold-dark);
+}
+
+body.light-theme .celljail-filter-btn.active {
+  color: #ffffff;
+}
+
+body.light-theme .museum-modal-card {
+  background: var(--celljail-stone-light);
+  color: #33291d;
+}
+
+body.light-theme .museum-modal-close {
+  background: rgba(0, 0, 0, 0.04);
+  color: #5c4a30;
 }

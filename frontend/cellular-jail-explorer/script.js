@@ -66,6 +66,8 @@ document.addEventListener("app:route-changed", () => {
 
   // --- Prison Map Pin Logic -----------------------------------------
   const pins = [...document.querySelectorAll(".celljail-pin")];
+  const cards = [...document.querySelectorAll(".celljail-card")];
+  const filterButtons = [...document.querySelectorAll(".celljail-filter-btn")];
   const detailEyebrow = document.getElementById("celljail-detail-eyebrow");
   const detailTitle = document.getElementById("celljail-detail-title");
   const detailDesc = document.getElementById("celljail-detail-desc");
@@ -76,37 +78,43 @@ document.addEventListener("app:route-changed", () => {
       eyebrow: "Port Blair, Andaman & Nicobar Islands",
       title: "Cellular Jail",
       desc: "Known as Kala Pani (Black Waters), this radial prison was engineered so no inmate could see or communicate with another. It held around 130 political prisoners between 1909 and 1921, rising to 585 revolutionaries by 1938, and was declared a National Memorial in 1979.",
-      prisoners: ["Veer Savarkar", "Batukeshwar Dutt", "Fazl-e-Haq Khairabadi"]
+      prisoners: ["Veer Savarkar", "Batukeshwar Dutt", "Fazl-e-Haq Khairabadi"],
+      movement: "andaman-detention"
     },
     yerawada: {
       eyebrow: "Pune, Maharashtra",
       title: "Yerawada Central Jail",
       desc: "One of the sites Mahatma Gandhi was repeatedly imprisoned at during the freedom struggle. His fast during detention here in 1932 led directly to the Poona Pact, which reshaped the debate over separate electorates.",
-      prisoners: ["Mahatma Gandhi"]
+      prisoners: ["Mahatma Gandhi"],
+      movement: "gandhi-satyagraha"
     },
     agakhan: {
       eyebrow: "Pune, Maharashtra",
       title: "Aga Khan Palace",
       desc: "Following the 1942 Quit India call, Gandhi, Kasturba Gandhi, and his secretary Mahadev Desai were detained at this palace-turned-prison. Both Kasturba Gandhi and Mahadev Desai died in custody here.",
-      prisoners: ["Mahatma Gandhi", "Kasturba Gandhi", "Mahadev Desai"]
+      prisoners: ["Mahatma Gandhi", "Kasturba Gandhi", "Mahadev Desai"],
+      movement: "gandhi-satyagraha"
     },
     alipore: {
       eyebrow: "Kolkata, West Bengal",
       title: "Alipore Jail",
       desc: "Site of the landmark 1908 Alipore Bomb Case trial, in which Aurobindo Ghosh and others were tried and imprisoned for alleged involvement in early revolutionary activity in Bengal.",
-      prisoners: ["Aurobindo Ghosh"]
+      prisoners: ["Aurobindo Ghosh"],
+      movement: "revolutionary-trials"
     },
     lahore: {
       eyebrow: "Lahore, Punjab",
       title: "Lahore Central Jail",
       desc: "Following the Lahore Conspiracy Case trial, Bhagat Singh, Rajguru, and Sukhdev were executed here in March 1931 — an event that galvanised public sentiment across India.",
-      prisoners: ["Bhagat Singh", "Rajguru", "Sukhdev"]
+      prisoners: ["Bhagat Singh", "Rajguru", "Sukhdev"],
+      movement: "revolutionary-trials"
     },
     redfort: {
       eyebrow: "Delhi",
       title: "Red Fort",
       desc: "Venue of the 1945–46 INA Trials, where Indian National Army officers Shah Nawaz Khan, Prem Kumar Sahgal, and Gurbaksh Singh Dhillon were court-martialled, sparking nationwide protest.",
-      prisoners: ["Shah Nawaz Khan", "Prem Kumar Sahgal", "Gurbaksh Singh Dhillon"]
+      prisoners: ["Shah Nawaz Khan", "Prem Kumar Sahgal", "Gurbaksh Singh Dhillon"],
+      movement: "ina-trials"
     }
   };
 
@@ -123,18 +131,74 @@ document.addEventListener("app:route-changed", () => {
     detailEyebrow.textContent = data.eyebrow;
     detailTitle.textContent = data.title;
     detailDesc.textContent = data.desc;
-    detailPrisoners.innerHTML = data.prisoners.map((name) => `<li>${name}</li>`).join("");
+    detailPrisoners.innerHTML = "";
+    data.prisoners.forEach((name) => {
+      const li = document.createElement("li");
+      li.textContent = name;
+      detailPrisoners.appendChild(li);
+    });
   }
 
   pins.forEach((pin) => {
     pin.addEventListener("click", () => selectLocation(pin.dataset.loc));
   });
 
-  // Clicking a profile card also selects the matching pin
-  document.querySelectorAll(".celljail-card").forEach((card) => {
+  // Selecting a profile card also selects the matching pin
+  cards.forEach((card) => {
     card.addEventListener("click", () => {
       selectLocation(card.dataset.loc);
       document.getElementById("locations")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  // --- Movement Filters (profiles + map pins) ------------------------
+  function applyMovementFilter(movement) {
+    cards.forEach((card) => {
+      const matches = movement === "all" || card.dataset.movement === movement;
+      card.classList.toggle("is-filtered-out", !matches);
+    });
+
+    pins.forEach((pin) => {
+      const data = locationData[pin.dataset.loc];
+      const matches = movement === "all" || (data && data.movement === movement);
+      pin.classList.toggle("is-filtered-out", !matches);
+    });
+  }
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const movement = btn.dataset.movement;
+
+      filterButtons.forEach((b) => {
+        const isActive = b === btn;
+        b.classList.toggle("active", isActive);
+        b.setAttribute("aria-pressed", String(isActive));
+      });
+
+      applyMovementFilter(movement);
+    });
+  });
+
+  // --- Timeline-to-Map Linking ----------------------------------------
+  document.querySelectorAll(".celljail-timeline-step[data-loc]").forEach((step) => {
+    const loc = step.dataset.loc;
+    const data = locationData[loc];
+
+    step.setAttribute("tabindex", "0");
+    step.setAttribute("role", "button");
+    step.setAttribute("aria-label", `View ${data ? data.title : "this location"} on the map`);
+
+    const activateStep = () => {
+      selectLocation(loc);
+      document.getElementById("locations")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    step.addEventListener("click", activateStep);
+    step.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        activateStep();
+      }
     });
   });
 
