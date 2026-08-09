@@ -71,7 +71,8 @@ window.paintingsData = [
         region: "Rajasthan",
         image: "assets/phad-1.jpg",
         highRes: "assets/high-res/phad-1.jpg",
-        description: "A religious scroll painting and folk art form used by Bhopas (priest-singers) as a mobile temple, traditionally depicting the epics of local deities like Pabuji and Devnarayan."
+        description: "A religious scroll painting and folk art form used by Bhopas (priest-singers) as a mobile temple, traditionally depicting the epics of local deities like Pabuji and Devnarayan.",
+        link: "../phad-painting-explorer/index.html"
     },
     {
         id: "madhubani-2",
