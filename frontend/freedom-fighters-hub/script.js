@@ -220,7 +220,7 @@ const FREEDOM_FIGHTERS_DATA = [
             { year: '1932', event: 'Signed Poona Pact securing reserved seats for depressed classes in legislatures.' },
             { year: '1947', event: 'Appointed India\'s first Law Minister and Chairman of Constitution Drafting Committee.' }
         ],
-contributions: 'Architect of the Constitution of India guaranteeing fundamental rights, gender equality, and affirmative action; founder of Reserve Bank of India conceptual blueprint.',
+        contributions: 'Architect of the Constitution of India guaranteeing fundamental rights, gender equality, and affirmative action; founder of Reserve Bank of India conceptual blueprint.',
         rareFacts: 'Doctorates from Columbia University and London School of Economics; possessed a personal library of over 50,000 books.',
         quote: 'Educate, Agitate, Organize.'
     },
@@ -244,7 +244,7 @@ contributions: 'Architect of the Constitution of India guaranteeing fundamental 
         quote: 'Vande Mataram.',
         explorerUrl: '../matangini-hazra-explorer/index.html'
     },
-        {
+    {
         id: 'rash-behari-bose',
         name: 'Rash Behari Bose',
         title: 'Founder of the INA',
@@ -345,8 +345,28 @@ contributions: 'Architect of the Constitution of India guaranteeing fundamental 
         rareFacts: 'Remembered largely through oral tradition and regional folklore rather than formal historical records, reflecting the underdocumented history of tribal resistance movements.',
         quote: 'The forests are ours, and so is our right to resist.',
         explorerLink: '../tantia-bhil-explorer/index.html'
-        },
-  {
+    },
+    {
+        id: 'sidhu-murmu',
+        name: 'Sidhu Murmu',
+        title: 'Leader of the Santhal Hul',
+        lifespan: 'c. 1815 – 1856',
+        era: 'Tribal Resistance',
+        region: 'East',
+        birthplace: 'Bhognadih, Santhal Pargana',
+        movements: ['Santhal Hul (1855–56)', 'Anti-Zamindar & Anti-Moneylender Resistance'],
+        biography: 'Sidhu Murmu, along with his brothers Kanhu, Chand, and Bhairav, led the Santhal Hul of 1855–56 — a major tribal uprising against British colonial revenue policy and exploitative moneylenders, predating the 1857 Rebellion.',
+        timeline: [
+            { year: 'June 30, 1855', event: 'Declared the Santhal Hul at a mass gathering in Bhognadih.' },
+            { year: '1855', event: 'Rebellion spread across the Rajmahal Hills region, drawing tens of thousands of Santhals.' },
+            { year: '1856', event: 'Captured and executed by British colonial forces after the rebellion was suppressed.' }
+        ],
+        contributions: 'Led one of the earliest large-scale organized tribal uprisings against British colonial rule, directly contributing to the later creation of the Santhal Pargana as a distinct administrative region.',
+        rareFacts: 'The Santhal Hul predated the 1857 Rebellion by roughly two years and involved tens of thousands of participants.',
+        quote: 'We will no longer bow to the mahajans and the Company\'s revenue.',
+        explorerLink: '../sidhu-murmu-explorer/index.html'
+    },
+    {
         id: 'begum-hazrat-mahal',
         name: 'Begum Hazrat Mahal',
         title: 'Maharani of Awadh',
