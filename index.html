@@ -345,7 +345,7 @@
 <body>
     <script>
         (function () {
-            const theme = localStorage.getItem('theme') || 'dark';
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
             if (theme === 'light') {
                 document.body.classList.add('light-theme');
             }
@@ -434,15 +434,6 @@
                 <div class="dropdown-menu">
                     <a href="frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
                     <a href="frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
-                </div>
-            </div>
-
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Freedom Fighters ▾</button>
-                <div class="dropdown-menu">
-                    <a href="frontend/lala-lajpat-rai-explorer/index.html" class="dropdown-item">Lala Lajpat Rai Explorer</a>
-                    <a href="frontend/freedom-fighters-hub/index.html" class="dropdown-item">Freedom Fighters Hub</a>
-                    <a href="frontend/freedom-movement-explorer/index.html" class="dropdown-item">Freedom Movement Explorer</a>
                 </div>
             </div>
 
@@ -927,6 +918,7 @@
     <script src="frontend/chatbot-data.js" defer></script>
     <script src="frontend/sw-register.js" defer></script>
     <script src="frontend/js-modules/config.js" defer></script>
+    <script src="frontend/js-modules/storage.js" defer></script>
     <script src="frontend/app.js" defer></script>
     <script type="module" src="frontend/firebase-config.js"></script>
     <script type="module" src="frontend/auth.js"></script>
