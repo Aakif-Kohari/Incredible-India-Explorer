@@ -286,6 +286,26 @@ contributions: 'Architect of the Constitution of India guaranteeing fundamental 
         quote: 'Abua raj ete jana, maharani raj tundu jana — Let the rule of the queen be over, and ours come.'
     },
     {
+        id: 'kattabomman',
+        name: 'Veerapandiya Kattabomman',
+        title: 'Palayakkarar of Panchalankurichi',
+        lifespan: '1760 – 1799',
+        era: 'Early Nationalist',
+        region: 'South',
+        birthplace: 'Panchalankurichi, Tirunelveli, Tamil Nadu',
+        movements: ['Resistance against East India Company Taxation', 'Poligar Wars'],
+        biography: 'Veerapandiya Kattabomman was a Palayakkarar (poligar) chieftain of Panchalankurichi who refused to recognize the East India Company\'s authority to tax his territory, leading an armed resistance decades before the 1857 uprising and becoming one of South India\'s earliest martyrs against colonial rule.',
+        timeline: [
+            { year: '1760', event: 'Born on 3 January into the ruling family of the Panchalankurichi Palayam, Tirunelveli.' },
+            { year: '1799', event: 'Confrontation with British collector Jackson at Ramnad escalates tensions with the Company.' },
+            { year: '1799', event: 'Panchalankurichi fort besieged and destroyed by East India Company forces.' },
+            { year: '1799', event: 'Captured after being handed over by the Raja of Pudukkottai; hanged on 16 October at Kayathar.' }
+        ],
+        contributions: 'Led one of South India\'s earliest armed resistances against East India Company tax authority; his martyrdom inspired his brother Oomaithurai and allied poligars to continue the Second Poligar War (1800–1801).',
+        rareFacts: 'His story was immortalized in the landmark 1959 Tamil film Veerapandiya Kattabomman starring Sivaji Ganesan, cementing his place in South Indian popular memory.',
+        quote: 'Remembered for refusing to recognize the East India Company\'s authority to tax Panchalankurichi.',
+        explorerLink: '../kattabomman-explorer/index.html'},
+  {
         id: 'begum-hazrat-mahal',
         name: 'Begum Hazrat Mahal',
         title: 'Maharani of Awadh',
