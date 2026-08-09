@@ -263,6 +263,29 @@ const FREEDOM_FIGHTERS_DATA = [
         contributions: 'Inspired the Chotanagpur Tenancy Act (1908) protecting tribal land, became the spiritual founder of the Birsait faith, and his memory drove the creation of the state of Jharkhand on 15 November 2000.',
         rareFacts: 'His birth anniversary (15 November) has been celebrated nationwide as Janjatiya Gaurav Divas (Tribal Pride Day) since 2021; the British placed a reward of Rs 500 on his head.',
         quote: 'Abua raj ete jana, maharani raj tundu jana — Let the rule of the queen be over, and ours come.'
+    },
+    {
+        id: 'begum-hazrat-mahal',
+        name: 'Begum Hazrat Mahal',
+        title: 'Maharani of Awadh',
+        lifespan: '1820 – 1879',
+        era: '1857 Revolt',
+        region: 'Central',
+        birthplace: 'Faizabad, Awadh (now Uttar Pradesh)',
+        movements: ['Revolt of 1857', 'Siege of Lucknow'],
+        biography: 'Begum Hazrat Mahal, born Muhammadi Khanum, was the consort of Nawab Wajid Ali Shah and the regent mother of Birjis Qadr. When Awadh was annexed in 1856 and the Revolt erupted in 1857, she seized the throne of Lucknow, crowned her son Wali, defended the city through the siege of the Residency, and after its fall continued guerrilla war from Awadh before taking refuge in Nepal, where she died in 1879.',
+        timeline: [
+            { year: '1820', event: 'Born as Muhammadi Khanum, a courtesan of noble lineage, in Faizabad, Awadh.' },
+            { year: '1843', event: 'Moved to the court of Lucknow and became a wife of Nawab Wajid Ali Shah.' },
+            { year: '1856', event: 'Awadh annexed by the East India Company on 7 February; Wajid Ali Shah exiled to Calcutta.' },
+            { year: '1857', event: 'Seized the throne of Lucknow on 30 May; crowned her son Birjis Qadr Wali on 5 July.' },
+            { year: '1858', event: 'Issued a rebuttal to Queen Victoria\'s proclamation, refusing pardon; conducted guerrilla warfare across Awadh.' },
+            { year: '1859', event: 'Fled into Nepal and obtained asylum from Jung Bahadur Rana, refusing a British pension.' },
+            { year: '1879', event: 'Died on 7 April in Kathmandu; buried at the Jama Masjid there.' }
+        ],
+        contributions: 'Led the defence of Lucknow through the siege of the Residency (1857), coordinated resistance across Awadh with a parallel government, and gave the rebels a legitimate royal rallying point in Birjis Qadr.',
+        rareFacts: 'The Times of London wrote that she "has shown more sense and nerve than all her generals together"; in 1984 India Post issued a stamp in her honour.',
+        quote: 'Khalq Khuda ka, Mulk Badshah ka, aur Hukm Rani ka — The people belong to God, the land to the King, and the command to the Queen.'
     }
 ];
 
