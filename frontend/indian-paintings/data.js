@@ -53,7 +53,8 @@ window.paintingsData = [
         region: "Madhya Pradesh",
         image: "assets/gond-1.jpg",
         highRes: "assets/high-res/gond-1.jpg",
-        description: "Tribal art originating from the Gond community, characterized by an imaginative use of lines, dots, and vibrant colors to depict mystical flora and fauna."
+        description: "Tribal art originating from the Gond community, characterized by an imaginative use of lines, dots, and vibrant colors to depict mystical flora and fauna.",
+        link: "../gond-art-explorer/index.html"
     },
     {
         id: "miniature-1",
