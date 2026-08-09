@@ -83,6 +83,8 @@ document.addEventListener("app:route-changed", () => {
   function applyFilter(filterValue) {
     const lines = [...document.querySelectorAll(".revnet-line")];
     const nodes = [...document.querySelectorAll(".revnet-node")];
+    const geoLines = [...document.querySelectorAll(".revnet-geo-line")];
+    const geoNodes = [...document.querySelectorAll(".revnet-geo-node")];
 
     filterButtons.forEach((btn) => {
       const isActive = btn.dataset.filter === filterValue;
@@ -97,6 +99,8 @@ document.addEventListener("app:route-changed", () => {
     if (filterValue === "all") {
       lines.forEach((line) => line.classList.remove("revnet-line-active", "revnet-line-dim"));
       nodes.forEach((node) => node.classList.remove("revnet-node-dim"));
+      geoLines.forEach((line) => line.classList.remove("revnet-line-active", "revnet-line-dim"));
+      geoNodes.forEach((node) => node.classList.remove("revnet-node-dim"));
     } else {
       lines.forEach((line) => {
         const matches = (line.dataset.org || "").split(" ").includes(filterValue);
@@ -104,6 +108,15 @@ document.addEventListener("app:route-changed", () => {
         line.classList.toggle("revnet-line-dim", !matches);
       });
       nodes.forEach((node) => {
+        const matches = (node.dataset.org || "").split(" ").includes(filterValue);
+        node.classList.toggle("revnet-node-dim", !matches);
+      });
+      geoLines.forEach((line) => {
+        const matches = (line.dataset.org || "").split(" ").includes(filterValue);
+        line.classList.toggle("revnet-line-active", matches);
+        line.classList.toggle("revnet-line-dim", !matches);
+      });
+      geoNodes.forEach((node) => {
         const matches = (node.dataset.org || "").split(" ").includes(filterValue);
         node.classList.toggle("revnet-node-dim", !matches);
       });
@@ -199,5 +212,6 @@ document.addEventListener("app:route-changed", () => {
   });
 
   // Run initialization
+  applyFilter("all");
   initJourney();
 });
