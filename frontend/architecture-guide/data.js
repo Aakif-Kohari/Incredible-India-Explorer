@@ -1,58 +1,58 @@
 const architectureData = {
     dravidian: {
         id: "dravidian",
-        name: "Dravidian Architecture",
+        title: "Dravidian Architecture",
         description: "Primarily found in South India, characterized by towering gopurams (gateways), vast temple enclosures, and pyramid-shaped vimanas over the sanctum.",
-        features: [
-            {
-                id: "gopuram",
-                name: "Gopuram",
-                description: "The monumental, ornate gateway tower at the entrance of a Hindu temple.",
-                function: "Serves as a grand entrance and a visual marker for the temple from a distance.",
-                examples: ["Meenakshi Temple, Madurai", "Sri Ranganathaswamy Temple, Srirangam"]
-            },
-            {
-                id: "vimana",
-                name: "Vimana",
-                description: "The towering, step-pyramidal structure above the main sanctum (garbhagriha).",
-                function: "Houses and marks the sacred center where the main deity resides.",
-                examples: ["Brihadeeswara Temple, Thanjavur"]
-window.architectureData = {
-    dravidian: {
-        title: "Dravidian",
-        description: "The architectural style of South Indian temples, characterized by pyramidal towers and enclosed courtyards.",
         svg: `
-            <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="arch-diagram">
+            <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="arch-diagram" preserveAspectRatio="xMidYMid meet">
                 <!-- Base Structure (Simplified) -->
                 <rect x="50" y="250" width="400" height="100" fill="#c28e5c" stroke="#36454f" stroke-width="2"/>
                 <polygon points="100,250 200,50 300,250" fill="#e5b784" stroke="#36454f" stroke-width="2"/>
                 <rect x="300" y="200" width="100" height="50" fill="#d4a373" stroke="#36454f" stroke-width="2"/>
                 
-                <!-- Hotspots -->
-                <circle id="vimana" class="hotspot" cx="200" cy="150" r="15" tabindex="0" aria-label="Vimana architectural feature" />
-                <text x="200" y="155" class="hotspot-text" pointer-events="none">V</text>
+                <!-- Hotspots Grouped for Mobile Hit Area (44x44 CSS pixels equivalent) -->
+                <!-- Assuming scaling might halve the size on mobile, r=30 makes diameter 60, scaling to 30+, CSS will handle scaling too -->
                 
-                <circle id="mandapa" class="hotspot" cx="350" cy="225" r="15" tabindex="0" aria-label="Mandapa architectural feature" />
-                <text x="350" y="230" class="hotspot-text" pointer-events="none">M</text>
+                <g id="vimana" class="hotspot-group" tabindex="0" role="button" aria-label="Vimana architectural feature">
+                    <circle class="hotspot-hit-area" cx="200" cy="150" r="35" fill="transparent" />
+                    <circle class="hotspot-visual" cx="200" cy="150" r="15" />
+                    <text x="200" y="155" class="hotspot-text" pointer-events="none">V</text>
+                </g>
+                
+                <g id="mandapa" class="hotspot-group" tabindex="0" role="button" aria-label="Mandapa architectural feature">
+                    <circle class="hotspot-hit-area" cx="350" cy="225" r="35" fill="transparent" />
+                    <circle class="hotspot-visual" cx="350" cy="225" r="15" />
+                    <text x="350" y="230" class="hotspot-text" pointer-events="none">M</text>
+                </g>
 
-                <circle id="gopuram" class="hotspot" cx="100" cy="250" r="15" tabindex="0" aria-label="Gopuram architectural feature" />
-                <text x="100" y="255" class="hotspot-text" pointer-events="none">G</text>
+                <g id="gopuram" class="hotspot-group" tabindex="0" role="button" aria-label="Gopuram architectural feature">
+                    <circle class="hotspot-hit-area" cx="100" cy="250" r="35" fill="transparent" />
+                    <circle class="hotspot-visual" cx="100" cy="250" r="15" />
+                    <text x="100" y="255" class="hotspot-text" pointer-events="none">G</text>
+                </g>
             </svg>
         `,
         features: [
             {
                 id: "vimana",
                 name: "Vimana",
-                description: "The main tower above the sanctum sanctorum in South Indian temples, typically pyramidal in shape.",
+                description: "The towering, step-pyramidal structure above the main sanctum (garbhagriha) in South Indian temples.",
                 function: "Marks the sacred center of the temple and houses the main deity.",
-                examples: ["Brihadeeswara Temple", "Airavatesvara Temple"]
+                examples: ["Brihadeeswara Temple, Thanjavur", "Airavatesvara Temple"]
             },
             {
                 id: "mandapa",
                 name: "Mandapa",
                 description: "A pillared hall or pavilion for public rituals.",
-                function: "Used for religious dancing, music, and congregation.",
-                examples: ["Airavatesvara Temple, Darasuram"]
+                function: "Used for religious dancing, music, and congregational worship.",
+                examples: ["Airavatesvara Temple, Darasuram", "Meenakshi Temple 1000-pillar hall"]
+            },
+            {
+                id: "gopuram",
+                name: "Gopuram",
+                description: "The monumental entrance tower, usually ornate and taller than the Vimana.",
+                function: "Acts as a gateway to the temple enclosure.",
+                examples: ["Meenakshi Temple, Madurai", "Sri Ranganathaswamy Temple, Srirangam"]
             },
             {
                 id: "prakara",
@@ -67,26 +67,15 @@ window.architectureData = {
                 description: "A stepped water reservoir built within or near the temple complex.",
                 function: "Used for ritual bathing and temple festivals.",
                 examples: ["Kapaleeshwarar Temple, Chennai"]
-                function: "Used for religious dancing, music, and congregations.",
-                examples: ["Meenakshi Temple 1000-pillar hall"]
-            },
-            {
-                id: "gopuram",
-                name: "Gopuram",
-                description: "The monumental entrance tower, usually ornate and taller than the Vimana.",
-                function: "Acts as a gateway to the temple enclosure.",
-                examples: ["Meenakshi Temple", "Srirangam Temple"]
             }
         ]
     },
     nagara: {
         id: "nagara",
-        name: "Nagara Architecture",
+        title: "Nagara Architecture",
         description: "The predominant temple architectural style of North India, identifiable by its beehive-shaped, curvilinear tower known as the Shikhara.",
-        title: "Nagara",
-        description: "The architectural style of North Indian temples, featuring curved, beehive-shaped towers.",
         svg: `
-            <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="arch-diagram">
+            <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="arch-diagram" preserveAspectRatio="xMidYMid meet">
                 <!-- Platform -->
                 <rect x="50" y="300" width="400" height="50" fill="#c28e5c" stroke="#36454f" stroke-width="2"/>
                 <!-- Shikhara (curved tower) -->
@@ -95,38 +84,55 @@ window.architectureData = {
                 <!-- Mandapa -->
                 <polygon points="350,300 400,200 450,300" fill="#d4a373" stroke="#36454f" stroke-width="2"/>
 
-                <!-- Hotspots -->
-                <circle id="shikhara" class="hotspot" cx="250" cy="180" r="15" tabindex="0" aria-label="Shikhara architectural feature" />
-                <text x="250" y="185" class="hotspot-text" pointer-events="none">S</text>
+                <!-- Hotspots Grouped -->
+                <g id="shikhara" class="hotspot-group" tabindex="0" role="button" aria-label="Shikhara architectural feature">
+                    <!-- Adjusted hit area y to not overlap with amalaka -->
+                    <circle class="hotspot-hit-area" cx="250" cy="180" r="35" fill="transparent" />
+                    <circle class="hotspot-visual" cx="250" cy="180" r="15" />
+                    <text x="250" y="185" class="hotspot-text" pointer-events="none">S</text>
+                </g>
 
-                <circle id="amalaka" class="hotspot" cx="250" cy="40" r="15" tabindex="0" aria-label="Amalaka and Kalasha architectural feature" />
-                <text x="250" y="45" class="hotspot-text" pointer-events="none">A</text>
+                <g id="amalaka" class="hotspot-group" tabindex="0" role="button" aria-label="Amalaka and Kalasha architectural feature">
+                    <!-- Shifted cy slightly up from 40 to space out -->
+                    <circle class="hotspot-hit-area" cx="250" cy="30" r="35" fill="transparent" />
+                    <circle class="hotspot-visual" cx="250" cy="40" r="15" />
+                    <text x="250" y="45" class="hotspot-text" pointer-events="none">A</text>
+                </g>
 
-                <circle id="jagati" class="hotspot" cx="250" cy="325" r="15" tabindex="0" aria-label="Jagati architectural feature" />
-                <text x="250" y="330" class="hotspot-text" pointer-events="none">J</text>
+                <g id="jagati" class="hotspot-group" tabindex="0" role="button" aria-label="Jagati architectural feature">
+                    <circle class="hotspot-hit-area" cx="250" cy="325" r="35" fill="transparent" />
+                    <circle class="hotspot-visual" cx="250" cy="325" r="15" />
+                    <text x="250" y="330" class="hotspot-text" pointer-events="none">J</text>
+                </g>
+                
+                <g id="mandapa" class="hotspot-group" tabindex="0" role="button" aria-label="Mandapa architectural feature">
+                    <circle class="hotspot-hit-area" cx="400" cy="270" r="35" fill="transparent" />
+                    <circle class="hotspot-visual" cx="400" cy="270" r="15" />
+                    <text x="400" y="275" class="hotspot-text" pointer-events="none">M</text>
+                </g>
             </svg>
         `,
         features: [
             {
                 id: "shikhara",
                 name: "Shikhara",
-                description: "The towering, curving spire above the main sanctum.",
+                description: "The curvilinear, beehive-shaped tower above the sanctum characteristic of North Indian temple architecture.",
                 function: "Symbolizes Mount Meru, the cosmic mountain, marking the sacred center.",
                 examples: ["Kandariya Mahadeva Temple, Khajuraho", "Lingaraja Temple, Bhubaneswar"]
             },
             {
                 id: "amalaka",
-                name: "Amalaka",
-                description: "A stone disk, often with ridges, that sits atop the Shikhara.",
-                function: "Represents a lotus and holds the Kalasha in place.",
-                examples: ["Jagannath Temple, Puri"]
+                name: "Amalaka & Kalasha",
+                description: "A stone disc (Amalaka) topped by a finial (Kalasha) sitting at the apex of the Shikhara.",
+                function: "Represents the lotus and holds the sacred pot (Kalasha) which is considered auspicious.",
+                examples: ["Konark Sun Temple", "Jagannath Temple, Puri"]
             },
             {
-                id: "kalasha",
-                name: "Kalasha",
-                description: "The finial or pointed pot-like structure placed on top of the Amalaka.",
-                function: "The highest point of the temple, considered highly sacred and auspicious.",
-                examples: ["Konark Sun Temple"]
+                id: "jagati",
+                name: "Jagati",
+                description: "A raised platform or plinth upon which the entire temple structure is built.",
+                function: "Elevates the sacred space above the ordinary ground and provides an ambulatory path for circumambulation.",
+                examples: ["Khajuraho Group of Monuments"]
             },
             {
                 id: "mandapa",
@@ -134,43 +140,15 @@ window.architectureData = {
                 description: "The pillared assembly hall leading to the sanctum.",
                 function: "Provides space for devotees to gather, pray, and observe rituals.",
                 examples: ["Modhera Sun Temple"]
-                description: "The curvilinear, beehive-shaped tower above the sanctum characteristic of North Indian temple architecture.",
-                function: "Symbolizes Mount Meru, the cosmic mountain.",
-                examples: ["Khajuraho Temples", "Lingaraja Temple"]
-            },
-            {
-                id: "amalaka",
-                name: "Amalaka & Kalasha",
-                description: "A stone disc (Amalaka) topped by a finial (Kalasha) sitting at the apex of the Shikhara.",
-                function: "Represents the lotus and holds the sacred pot.",
-                examples: ["Konark Sun Temple", "Jagannath Temple"]
-            },
-            {
-                id: "jagati",
-                name: "Jagati",
-                description: "A raised platform or plinth upon which the entire temple structure is built.",
-                function: "Elevates the sacred space above the ordinary ground and provides an ambulatory path.",
-                description: "A raised platform upon which the entire temple is built.",
-                function: "Provides a base for circumambulation and elevates the sacred space.",
-                examples: ["Khajuraho Group of Monuments"]
             }
         ]
     },
     vesara: {
         id: "vesara",
-        name: "Vesara Architecture",
+        title: "Vesara Architecture",
         description: "A hybrid style that blends elements of both Nagara and Dravidian architecture, prominent in the Deccan region under the Chalukyas and Hoysalas.",
-        features: [
-            {
-                id: "hybrid-tower",
-                name: "Hybrid Tower",
-                description: "A vimana that integrates the stepped tiers of the Dravidian style with the curved profile of the Nagara Shikhara.",
-                function: "Combines regional aesthetics to form a distinct architectural identity.",
-                examples: ["Chennakesava Temple, Belur"]
-        title: "Vesara",
-        description: "A hybrid style combining features of Nagara (North) and Dravidian (South) architecture.",
         svg: `
-            <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="arch-diagram">
+            <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="arch-diagram" preserveAspectRatio="xMidYMid meet">
                 <!-- Star Platform -->
                 <polygon points="50,300 450,300 400,320 100,320" fill="#606060" stroke="#36454f" stroke-width="2"/>
                 <!-- Tower -->
@@ -178,28 +156,37 @@ window.architectureData = {
                 <!-- Pillared Hall -->
                 <rect x="300" y="220" width="100" height="80" fill="#d4a373" stroke="#36454f" stroke-width="2"/>
                 
-                <!-- Hotspots -->
-                <circle id="hybrid-tower" class="hotspot" cx="250" cy="180" r="15" tabindex="0" aria-label="Hybrid Tower architectural feature" />
-                <text x="250" y="185" class="hotspot-text" pointer-events="none">T</text>
+                <!-- Hotspots Grouped -->
+                <g id="hybrid-tower" class="hotspot-group" tabindex="0" role="button" aria-label="Hybrid Tower architectural feature">
+                    <circle class="hotspot-hit-area" cx="250" cy="180" r="35" fill="transparent" />
+                    <circle class="hotspot-visual" cx="250" cy="180" r="15" />
+                    <text x="250" y="185" class="hotspot-text" pointer-events="none">T</text>
+                </g>
 
-                <circle id="star-platform" class="hotspot" cx="250" cy="310" r="15" tabindex="0" aria-label="Star-shaped Platform architectural feature" />
-                <text x="250" y="315" class="hotspot-text" pointer-events="none">P</text>
+                <g id="star-platform" class="hotspot-group" tabindex="0" role="button" aria-label="Star-shaped Platform architectural feature">
+                    <circle class="hotspot-hit-area" cx="250" cy="310" r="35" fill="transparent" />
+                    <circle class="hotspot-visual" cx="250" cy="310" r="15" />
+                    <text x="250" y="315" class="hotspot-text" pointer-events="none">P</text>
+                </g>
 
-                <circle id="pillared-hall" class="hotspot" cx="350" cy="260" r="15" tabindex="0" aria-label="Pillared Hall architectural feature" />
-                <text x="350" y="265" class="hotspot-text" pointer-events="none">H</text>
+                <g id="pillared-hall" class="hotspot-group" tabindex="0" role="button" aria-label="Pillared Hall architectural feature">
+                    <circle class="hotspot-hit-area" cx="350" cy="260" r="35" fill="transparent" />
+                    <circle class="hotspot-visual" cx="350" cy="260" r="15" />
+                    <text x="350" y="265" class="hotspot-text" pointer-events="none">H</text>
+                </g>
             </svg>
         `,
         features: [
             {
                 id: "hybrid-tower",
                 name: "Hybrid Tower (Vimana/Shikhara)",
-                description: "A tower that blends the pyramidal tiers of Dravidian style with the curvilinear profile of Nagara style.",
-                function: "Covers the sanctum and blends regional traditions.",
-                examples: ["Chennakesava Temple", "Hoysaleswara Temple"]
+                description: "A vimana that integrates the stepped tiers of the Dravidian style with the curved profile of the Nagara Shikhara.",
+                function: "Combines regional aesthetics to form a distinct architectural identity covering the sanctum.",
+                examples: ["Chennakesava Temple, Belur", "Hoysaleswara Temple"]
             },
             {
                 id: "star-platform",
-                name: "Star-shaped Platform",
+                name: "Star-shaped Platform (Jagati)",
                 description: "An intricately carved, stellate (star-shaped) jagati or plinth.",
                 function: "Increases the wall surface area to allow for more extensive sculptural decoration.",
                 examples: ["Hoysaleswara Temple, Halebidu"]
@@ -208,7 +195,7 @@ window.architectureData = {
                 id: "pillared-hall",
                 name: "Pillared Hall",
                 description: "A central hall supported by highly polished, lathe-turned stone pillars.",
-                function: "Served as a space for dance, music, and congregational worship.",
+                function: "Served as a space for dance, music, congregational worship and display of intricate stone masonry.",
                 examples: ["Keshava Temple, Somanathapura"]
             },
             {
@@ -222,26 +209,10 @@ window.architectureData = {
     },
     "indo-islamic": {
         id: "indo-islamic",
-        name: "Indo-Islamic Architecture",
-        description: "A synthesis of Indian and Islamic architectural elements, characterized by the extensive use of arches, domes, and minarets.",
-                description: "An intricately designed stellate (star-shaped) base.",
-                function: "Increases the surface area for elaborate sculptural carvings.",
-                examples: ["Hoysala Temples at Belur and Halebidu"]
-            },
-            {
-                id: "pillared-hall",
-                name: "Pillared Halls",
-                description: "Elaborately carved halls featuring lathe-turned pillars.",
-                function: "Spaces for gathering and display of intricate stone masonry.",
-                examples: ["Somnathpur Temple"]
-            }
-        ]
-    },
-    'indo-islamic': {
-        title: "Indo-Islamic",
-        description: "A synthesis of Indian and Islamic architectural elements, characterized by domes, arches, and minarets.",
+        title: "Indo-Islamic Architecture",
+        description: "A synthesis of Indian and Islamic architectural elements, characterized by the extensive use of domes, arches, and minarets.",
         svg: `
-            <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="arch-diagram">
+            <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="arch-diagram" preserveAspectRatio="xMidYMid meet">
                 <!-- Base -->
                 <rect x="150" y="250" width="200" height="100" fill="#fffff0" stroke="#36454f" stroke-width="2"/>
                 <!-- Dome -->
@@ -254,48 +225,48 @@ window.architectureData = {
                 <polygon points="65,150 95,150 80,130" fill="#cd7f32" stroke="#36454f" stroke-width="2"/>
                 <polygon points="405,150 435,150 420,130" fill="#cd7f32" stroke="#36454f" stroke-width="2"/>
 
-                <!-- Hotspots -->
-                <circle id="dome" class="hotspot" cx="250" cy="180" r="15" tabindex="0" aria-label="Dome architectural feature" />
-                <text x="250" y="185" class="hotspot-text" pointer-events="none">D</text>
+                <!-- Hotspots Grouped -->
+                <g id="dome" class="hotspot-group" tabindex="0" role="button" aria-label="Dome architectural feature">
+                    <!-- Moved cy up slightly to avoid collision -->
+                    <circle class="hotspot-hit-area" cx="250" cy="170" r="35" fill="transparent" />
+                    <circle class="hotspot-visual" cx="250" cy="180" r="15" />
+                    <text x="250" y="185" class="hotspot-text" pointer-events="none">D</text>
+                </g>
 
-                <circle id="arch" class="hotspot" cx="250" cy="310" r="15" tabindex="0" aria-label="Arch/Iwan architectural feature" />
-                <text x="250" y="315" class="hotspot-text" pointer-events="none">A</text>
+                <g id="arch" class="hotspot-group" tabindex="0" role="button" aria-label="Arch/Iwan architectural feature">
+                    <circle class="hotspot-hit-area" cx="250" cy="310" r="35" fill="transparent" />
+                    <circle class="hotspot-visual" cx="250" cy="310" r="15" />
+                    <text x="250" y="315" class="hotspot-text" pointer-events="none">A</text>
+                </g>
 
-                <circle id="minaret" class="hotspot" cx="80" cy="200" r="15" tabindex="0" aria-label="Minaret architectural feature" />
-                <text x="80" y="205" class="hotspot-text" pointer-events="none">M</text>
+                <g id="minaret" class="hotspot-group" tabindex="0" role="button" aria-label="Minaret architectural feature">
+                    <circle class="hotspot-hit-area" cx="80" cy="200" r="35" fill="transparent" />
+                    <circle class="hotspot-visual" cx="80" cy="200" r="15" />
+                    <text x="80" y="205" class="hotspot-text" pointer-events="none">M</text>
+                </g>
             </svg>
         `,
         features: [
             {
                 id: "dome",
                 name: "Dome (Gumbad)",
-                description: "A hemispherical structure forming the ceiling or roof.",
-                function: "Provides a vast, column-free interior space and symbolizes the vault of heaven.",
-                examples: ["Taj Mahal, Agra", "Gol Gumbaz, Bijapur"]
-            },
-            {
-                id: "arch",
-                name: "Arch (Iwan)",
-                description: "A curved symmetrical structure spanning an opening, often pointed or multifoil.",
-                function: "Distributes weight effectively and serves as grand, inviting gateways.",
-                examples: ["Buland Darwaza, Fatehpur Sikri"]
                 description: "A hemispherical structural element serving as a roof, often resting on squinches or pendentives.",
-                function: "Creates a vast, unobstructed interior space and represents the vault of heaven.",
-                examples: ["Taj Mahal", "Gol Gumbaz"]
+                function: "Creates a vast, unobstructed interior space and symbolizes the vault of heaven.",
+                examples: ["Taj Mahal, Agra", "Gol Gumbaz, Bijapur"]
             },
             {
                 id: "arch",
                 name: "Arch & Iwan",
                 description: "A curved symmetrical structure (Arch) often framing a large vaulted portal (Iwan).",
-                function: "Provides structural support and grand entrances to monuments.",
-                examples: ["Jama Masjid", "Humayun's Tomb"]
+                function: "Distributes weight effectively and serves as grand, inviting gateways.",
+                examples: ["Buland Darwaza, Fatehpur Sikri", "Jama Masjid, Delhi"]
             },
             {
                 id: "minaret",
                 name: "Minaret",
-                description: "A tall, slender tower, usually attached to a mosque.",
-                function: "Used for the call to prayer (Adhan) and adds verticality to the structural composition.",
-                examples: ["Qutub Minar, Delhi", "Charminar, Hyderabad"]
+                description: "A tall, slender tower, usually attached to a mosque or tomb.",
+                function: "Used for the call to prayer (Adhan) and to enhance structural symmetry and verticality.",
+                examples: ["Qutub Minar, Delhi", "Charminar, Hyderabad", "Taj Mahal Minarets"]
             },
             {
                 id: "jali",
@@ -316,10 +287,3 @@ window.architectureData = {
 };
 
 export default architectureData;
-                description: "Tall, slender towers typically adjacent to mosques or tombs.",
-                function: "Used for the call to prayer (Adhan) and to enhance structural symmetry.",
-                examples: ["Qutub Minar", "Taj Mahal Minarets"]
-            }
-        ]
-    }
-};
