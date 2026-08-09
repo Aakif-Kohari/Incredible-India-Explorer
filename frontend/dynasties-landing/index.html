@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore the great Dynasties of India: Mauryas, Guptas, Cholas, Mughals, Marathas, and more. Interactive timelines, regional filters, and historical insights.">
+    <title>Dynasties of India Explorer | Incredible India</title>
+
+    <meta property="og:title" content="Dynasties of India Explorer | Incredible India">
+    <meta property="og:description"
+        content="Discover the major dynasties that shaped Indian history through interactive maps, timelines, and dynasty cards.">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="../../theme-bootstrap.js"></script>
+</head>
+
+<body class="light-theme">
+    <!-- Shared Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">Incredible India</a>
+            <nav class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="#dynasties-grid">Browse Dynasties</a>
+                <a href="#timeline-preview">Timeline</a>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        </div>
+    </header>
+
+    <main class="dynasties-main">
+        <!-- Hero Section -->
+        <section class="dynasties-hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="hero-badge">Historical Legacy</span>
+                <h1 class="hero-title">Dynasties of India</h1>
+                <p class="hero-subtitle">Journey through the empires that forged a civilization. From the Mauryan edicts
+                    to the Maratha cavalry, explore the rulers, architecture, and cultural milestones of India's
+                    greatest royal houses.</p>
+                <div class="hero-stats">
+                    <div class="stat-item"><span class="stat-number">30+</span><span class="stat-label">Major
+                            Empires</span></div>
+                    <div class="stat-item"><span class="stat-number">2500+</span><span class="stat-label">Years of
+                            History</span></div>
+                    <div class="stat-item"><span class="stat-number">8</span><span class="stat-label">Distinct
+                            Regions</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search and Filters -->
+        <section class="filters-section" id="filters">
+            <div class="filters-container">
+                <h2>Discover Your Empire</h2>
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="dynasty-search" placeholder="Search by dynasty name, capital, or ruler...">
+                </div>
+                <div class="filter-chips">
+                    <select id="filter-region" aria-label="Filter by Region">
+                        <option value="all">All Regions</option>
+                        <option value="north">North India</option>
+                        <option value="south">South India</option>
+                        <option value="east">East India</option>
+                        <option value="west">West India</option>
+                        <option value="deccan">Deccan Plateau</option>
+                        <option value="pan-india">Pan-India</option>
+                    </select>
+                    <select id="filter-period" aria-label="Filter by Time Period">
+                        <option value="all">All Time Periods</option>
+                        <option value="ancient">Ancient (Pre-8th CE)</option>
+                        <option value="medieval">Medieval (8th-18th CE)</option>
+                        <option value="early-modern">Early Modern (16th-19th CE)</option>
+                    </select>
+                    <select id="filter-religion" aria-label="Filter by State Religion">
+                        <option value="all">All Religions</option>
+                        <option value="hinduism">Hinduism</option>
+                        <option value="buddhism">Buddhism</option>
+                        <option value="islam">Islam</option>
+                        <option value="jainism">Jainism</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynasties Grid -->
+        <section class="dynasties-grid-section" id="dynasties-grid">
+            <div class="grid-header">
+                <h2>Explore Dynasties</h2>
+                <span id="results-count" class="results-count">Showing 11 dynasties</span>
+            </div>
+            <div class="dynasties-grid" id="dynasties-container">
+                <!-- Cards will be dynamically injected by script.js -->
+                <div class="loading-state">Loading historical records...</div>
+            </div>
+            <div class="no-results" id="no-results" style="display: none;">
+                <h3>No dynasties found matching your criteria.</h3>
+                <p>Try adjusting your filters or clearing the search bar.</p>
+            </div>
+        </section>
+
+        <!-- Timeline Preview -->
+        <section class="timeline-preview-section" id="timeline-preview">
+            <div class="timeline-header">
+                <h2>Historical Timeline Preview</h2>
+                <p>A chronological glimpse into the rise and fall of India's greatest empires.</p>
+            </div>
+            <div class="timeline-scroll-container">
+                <div class="timeline-track">
+                    <div class="timeline-event" data-period="ancient">
+                        <span class="event-date">322 BCE</span>
+                        <h3>Maurya Empire Founded</h3>
+                        <p>Chandragupta Maurya establishes the first pan-Indian empire.</p>
+                    </div>
+                    <div class="timeline-event" data-period="ancient">
+                        <span class="event-date">320 CE</span>
+                        <h3>Gupta Golden Age</h3>
+                        <p>Flourishing of art, science, and mathematics under Gupta rulers.</p>
+                    </div>
+                    <div class="timeline-event" data-period="medieval">
+                        <span class="event-date">850 CE</span>
+                        <h3>Chola Empire Resurgence</h3>
+                        <p>Maritime dominance and grand temple architecture in the South.</p>
+                    </div>
+                    <div class="timeline-event" data-period="medieval">
+                        <span class="event-date">1206 CE</span>
+                        <h3>Delhi Sultanate</h3>
+                        <p>Establishment of Islamic rule in Northern India.</p>
+                    </div>
+                    <div class="timeline-event" data-period="early-modern">
+                        <span class="event-date">1526 CE</span>
+                        <h3>Mughal Empire</h3>
+                        <p>Babur establishes the Mughal dynasty after the Battle of Panipat.</p>
+                    </div>
+                    <div class="timeline-event" data-period="early-modern">
+                        <span class="event-date">1674 CE</span>
+                        <h3>Maratha Empire</h3>
+                        <p>Shivaji Maharaj is crowned, challenging Mughal supremacy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map Preview -->
+        <section class="map-preview-section" id="map-preview">
+            <h2>Geographical Influence</h2>
+            <p>Dynasties shaped the cultural and political map of the subcontinent.</p>
+            <div class="map-placeholder">
+                <div class="map-indicator north">North</div>
+                <div class="map-indicator south">South</div>
+                <div class="map-indicator east">East</div>
+                <div class="map-indicator west">West</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="dynasties-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Incredible India Explorer</h3>
+                <p>Preserving history through interactive digital experiences.</p>
+            </div>
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../../about/index.html">About</a>
+                <a href="../../contact/index.html">Contact</a>
+            </div>
+            <div class="footer-social">
+                <span>Follow our journey</span>
+                <div class="social-icons">
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="YouTube">▶️</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="../../app.js" defer></script>
+    <script src="../../frontend/journey/journey.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

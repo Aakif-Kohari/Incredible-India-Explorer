@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { FREEDOM_FIGHTERS_DATA, filterFreedomFighters } from '../../frontend/freedom-fighters-hub/script.js';
+import { FREEDOM_FIGHTERS_DATA, filterFreedomFighters } from '../../freedom-fighters-hub/script.js';
 
 describe('Freedom Fighters Knowledge Hub', () => {
     it('should contain a complete dataset of prominent freedom fighters', () => {
