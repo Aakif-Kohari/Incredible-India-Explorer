@@ -644,10 +644,17 @@ window.indiaSearchIndex = [
     url: "frontend/river/frontend/river/river.html"
   },
   {
+    title: "Revolutionary Network Explorer",
+    category: "Freedom Struggle",
+    description: "Explore how Anushilan Samiti, Jugantar, the HRA and HSRA connected leaders, organisations and actions across India's revolutionary movement.",
+    url: "frontend/revolutionary-network-explorer/index.html"
+  },
+  {
     title: "Sanjhi Art Explorer",
     category: "Culture",
     description: "Discover Sanjhi, the ancient paper-cut stencil art of Mathura and Vrindavan — intricate Radha-Krishna motifs cut by hand for centuries of temple rituals.",
-    url: "frontend/sanjhi-art-explorer/index.html"},
+    url: "frontend/sanjhi-art-explorer/index.html"
+  },
   {
     title: "Gujarati Cinema (Dhollywood) Explorer",
     category: "Culture",

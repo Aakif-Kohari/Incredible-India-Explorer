@@ -220,11 +220,31 @@ const FREEDOM_FIGHTERS_DATA = [
             { year: '1932', event: 'Signed Poona Pact securing reserved seats for depressed classes in legislatures.' },
             { year: '1947', event: 'Appointed India\'s first Law Minister and Chairman of Constitution Drafting Committee.' }
         ],
-        contributions: 'Architect of the Constitution of India guaranteeing fundamental rights, gender equality, and affirmative action; founder of Reserve Bank of India conceptual blueprint.',
+contributions: 'Architect of the Constitution of India guaranteeing fundamental rights, gender equality, and affirmative action; founder of Reserve Bank of India conceptual blueprint.',
         rareFacts: 'Doctorates from Columbia University and London School of Economics; possessed a personal library of over 50,000 books.',
         quote: 'Educate, Agitate, Organize.'
     },
     {
+        id: 'matangini-hazra',
+        name: 'Matangini Hazra',
+        title: 'Gandhi Buri',
+        lifespan: '1870 – 1942',
+        era: 'Quit India Movement',
+        region: 'East',
+        birthplace: 'Hogla, Tamluk, Bengal Presidency (now West Bengal)',
+        movements: ['Non-Cooperation Movement', 'Civil Disobedience Movement (Salt Satyagraha)', 'Quit India Movement'],
+        biography: 'Matangini Hazra was a Bengali freedom fighter from a poor peasant family who, despite having no formal education, became one of the most fearless faces of the independence movement in Midnapore, earning the affectionate title "Gandhi Buri" for her devotion to Gandhian ideals of non-violence.',
+        timeline: [
+            { year: '1930', event: 'Joined the Salt Satyagraha and Civil Disobedience Movement, courting arrest.' },
+            { year: '1933', event: 'Waved a black flag at the Governor of Bengal in Tamluk and served six months of rigorous imprisonment.' },
+            { year: '1942', event: 'Led roughly 6,000 volunteers, mostly women, toward Tamluk Police Station during the Quit India Movement and was shot dead on 29 September.' }
+        ],
+        contributions: 'Led the Vidyut Bahini volunteer corps during the Quit India Movement; became the first martyr of the movement in Midnapore, dying while holding the national flag aloft and chanting "Vande Mataram".',
+        rareFacts: 'Despite being shot multiple times, she continued walking forward with the tricolour until she fell. India Post issued a commemorative postage stamp in her honor in 2002, and a road and statue in Kolkata bear her name.',
+        quote: 'Vande Mataram.',
+        explorerUrl: '../matangini-hazra-explorer/index.html'
+    },
+        {
         id: 'rash-behari-bose',
         name: 'Rash Behari Bose',
         title: 'Founder of the INA',
@@ -284,7 +304,29 @@ const FREEDOM_FIGHTERS_DATA = [
         contributions: 'Led one of South India\'s earliest armed resistances against East India Company tax authority; his martyrdom inspired his brother Oomaithurai and allied poligars to continue the Second Poligar War (1800–1801).',
         rareFacts: 'His story was immortalized in the landmark 1959 Tamil film Veerapandiya Kattabomman starring Sivaji Ganesan, cementing his place in South Indian popular memory.',
         quote: 'Remembered for refusing to recognize the East India Company\'s authority to tax Panchalankurichi.',
-        explorerLink: '../kattabomman-explorer/index.html'
+        explorerLink: '../kattabomman-explorer/index.html'},
+  {
+        id: 'begum-hazrat-mahal',
+        name: 'Begum Hazrat Mahal',
+        title: 'Maharani of Awadh',
+        lifespan: '1820 – 1879',
+        era: '1857 Revolt',
+        region: 'Central',
+        birthplace: 'Faizabad, Awadh (now Uttar Pradesh)',
+        movements: ['Revolt of 1857', 'Siege of Lucknow'],
+        biography: 'Begum Hazrat Mahal, born Muhammadi Khanum, was the consort of Nawab Wajid Ali Shah and the regent mother of Birjis Qadr. When Awadh was annexed in 1856 and the Revolt erupted in 1857, she seized the throne of Lucknow, crowned her son Wali, defended the city through the siege of the Residency, and after its fall continued guerrilla war from Awadh before taking refuge in Nepal, where she died in 1879.',
+        timeline: [
+            { year: '1820', event: 'Born as Muhammadi Khanum, a courtesan of noble lineage, in Faizabad, Awadh.' },
+            { year: '1843', event: 'Moved to the court of Lucknow and became a wife of Nawab Wajid Ali Shah.' },
+            { year: '1856', event: 'Awadh annexed by the East India Company on 7 February; Wajid Ali Shah exiled to Calcutta.' },
+            { year: '1857', event: 'Seized the throne of Lucknow on 30 May; crowned her son Birjis Qadr Wali on 5 July.' },
+            { year: '1858', event: 'Issued a rebuttal to Queen Victoria\'s proclamation, refusing pardon; conducted guerrilla warfare across Awadh.' },
+            { year: '1859', event: 'Fled into Nepal and obtained asylum from Jung Bahadur Rana, refusing a British pension.' },
+            { year: '1879', event: 'Died on 7 April in Kathmandu; buried at the Jama Masjid there.' }
+        ],
+        contributions: 'Led the defence of Lucknow through the siege of the Residency (1857), coordinated resistance across Awadh with a parallel government, and gave the rebels a legitimate royal rallying point in Birjis Qadr.',
+        rareFacts: 'The Times of London wrote that she "has shown more sense and nerve than all her generals together"; in 1984 India Post issued a stamp in her honour.',
+        quote: 'Khalq Khuda ka, Mulk Badshah ka, aur Hukm Rani ka — The people belong to God, the land to the King, and the command to the Queen.'
     }
 ];
 
@@ -414,18 +456,18 @@ if (typeof window !== 'undefined') {
                     <strong>💡 Rare Historical Fact:</strong> ${ff.rareFacts}
                 </div>
 
-                <div style="margin-top: 1.2rem; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border-left: 3px solid var(--ff-gold);">
+<div style="margin-top: 1.2rem; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border-left: 3px solid var(--ff-gold);">
                     <em style="color: var(--ff-gold); font-size: 1.05rem;">"${ff.quote}"</em>
                 </div>
 
-                ${ff.explorerLink ? `
+                ${ff.explorerUrl ? `
                 <div style="margin-top: 1.2rem; text-align: center;">
-                    <a href="${ff.explorerLink}" style="color: var(--ff-gold); font-weight: 700; text-decoration: none;">Read the Full Explorer Page &rarr;</a>
-                </div>` : ''}
+                    <a href="${ff.explorerUrl}" class="btn-explorer-link" style="display:inline-block; padding:0.75rem 1.5rem; background:linear-gradient(135deg, #d97706, #16a34a); color:#fff; font-weight:700; border-radius:999px; text-decoration:none;">Launch Dedicated Explorer ➔</a>
+                </div>
+                ` : ''}
             `;
             ffModal.classList.remove('hidden');
         }
-
         function updateView() {
             const searchVal = searchInput ? searchInput.value : '';
             const eraVal = eraFilter ? eraFilter.value : 'all';
