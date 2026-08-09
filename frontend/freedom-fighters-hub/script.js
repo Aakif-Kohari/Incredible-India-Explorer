@@ -305,6 +305,26 @@ const FREEDOM_FIGHTERS_DATA = [
         rareFacts: 'Commemorated on an Indian postage stamp in 1974; honored with the title "Veeramangai," meaning brave woman.',
         quote: 'I will avenge my husband\'s death and reclaim what is rightfully mine.',
         explorerLink: '../velu-nachiyar-explorer/index.html'
+    },
+    {
+        id: 'tantia-bhil',
+        name: 'Tantia Bhil',
+        title: 'The "Indian Robin Hood"',
+        lifespan: '1842 – 1889',
+        era: 'Tribal Resistance',
+        region: 'Central',
+        birthplace: 'Nimar Region, Central India',
+        movements: ['Bhil Tribal Resistance', 'Anti-Landlord Raids', 'Anti-Colonial Guerrilla Resistance'],
+        biography: 'Tantia Bhil was a Bhil tribal leader from Central India who led two decades of resistance against British colonial authority and exploitative landlords, becoming a folk hero remembered as the "Indian Robin Hood" among tribal communities.',
+        timeline: [
+            { year: '1860s–70s', event: 'Began organizing resistance against exploitative landlords and colonial revenue policy.' },
+            { year: '1870s–80s', event: 'Led a sustained two-decade campaign of resistance across Central India, evading capture.' },
+            { year: '1889', event: 'Captured and executed by British colonial authorities.' }
+        ],
+        contributions: 'Organized sustained tribal resistance against colonial exploitation for roughly two decades, becoming a lasting symbol of Bhil community defiance.',
+        rareFacts: 'Remembered largely through oral tradition and regional folklore rather than formal historical records, reflecting the underdocumented history of tribal resistance movements.',
+        quote: 'The forests are ours, and so is our right to resist.',
+        explorerLink: '../tantia-bhil-explorer/index.html'
     }
 ];
 
