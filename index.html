@@ -345,7 +345,7 @@
 <body>
     <script>
         (function () {
-            const theme = localStorage.getItem('theme') || 'dark';
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
             if (theme === 'light') {
                 document.body.classList.add('light-theme');
             }
@@ -402,8 +402,6 @@
                     <a href="frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
                     <a href="frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
                     <a href="frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
-                    <a href="frontend/bipin-chandra-pal-explorer/index.html" class="dropdown-item">Bipin Chandra Pal</a>
-                    <a href="frontend/ashfaqulla-khan-explorer/index.html" class="dropdown-item">Ashfaqulla Khan</a>
                 </div>
             </div>
 
@@ -684,42 +682,6 @@
             </div>
         </section>
 
-        <!-- ============ FREEDOM HEROES SECTION ============ -->
-        <section id="freedom-heroes" class="freedom-heroes-section scroll-section fade-in-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-badge">Heroes of 1942</span>
-                    <h2>Heroes of the Quit India Movement</h2>
-                    <p class="section-subtitle">Discover the leaders who shaped India's final push for independence in 1942.</p>
-                </div>
-
-                <div class="cuisine-grid">
-                    <!-- Aruna Asaf Ali Card -->
-                    <article class="cuisine-card freedom-hero-card" aria-label="Aruna Asaf Ali Card">
-                        <div class="cuisine-card-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Aruna_Asaf_Ali.jpg/440px-Aruna_Asaf_Ali.jpg'); background-size: cover; background-position: center top;">
-                            <span class="card-tag">1942</span>
-                        </div>
-                        <div class="cuisine-card-body">
-                            <h3>Bipin Chandra Pal</h3>
-                            <p class="card-description">Nationalist orator and journalist — member of the Lal-Bal-Pal triumvirate who championed the Swadeshi Movement after the 1905 Partition of Bengal.</p>
-                            <a href="frontend/bipin-chandra-pal-explorer/index.html" class="freedom-hero-cta">Explore his story →</a>
-                        </div>
-                    </article>
-
-                    <!-- Ashfaqulla Khan Card -->
-                    <article class="cuisine-card freedom-hero-card" aria-label="Ashfaqulla Khan Card">
-                        <div class="cuisine-card-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Ashfaqulla_Khan.jpg/440px-Ashfaqulla_Khan.jpg'); background-size: cover; background-position: center top;">
-                            <span class="card-tag">1925</span>
-                        </div>
-                        <div class="cuisine-card-body">
-                            <h3>Ashfaqulla Khan</h3>
-                            <p class="card-description">Revolutionary and martyr — co-founder of the Hindustan Republican Association and a leader of the 9 August 1925 Kakori Train Action. Hanged in 1927 at the age of 27.</p>
-                            <a href="frontend/ashfaqulla-khan-explorer/index.html" class="freedom-hero-cta">Explore his story →</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
 
 
 
@@ -956,6 +918,7 @@
     <script src="frontend/chatbot-data.js" defer></script>
     <script src="frontend/sw-register.js" defer></script>
     <script src="frontend/js-modules/config.js" defer></script>
+    <script src="frontend/js-modules/storage.js" defer></script>
     <script src="frontend/app.js" defer></script>
     <script type="module" src="frontend/firebase-config.js"></script>
     <script type="module" src="frontend/auth.js"></script>
