@@ -15,7 +15,7 @@ import {
   filterLeaders,
   getDocumentById,
   filterDocuments
-} from '../../frontend/freedom-movement-explorer/freedom-movement.js';
+} from '../../freedom-movement-explorer/freedom-movement.js';
 
 const REQUIRED_TIMELINE_FIELDS = [
   'id',
