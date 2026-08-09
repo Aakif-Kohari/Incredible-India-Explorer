@@ -368,6 +368,28 @@ contributions: 'Architect of the Constitution of India guaranteeing fundamental 
         contributions: 'Led the defence of Lucknow through the siege of the Residency (1857), coordinated resistance across Awadh with a parallel government, and gave the rebels a legitimate royal rallying point in Birjis Qadr.',
         rareFacts: 'The Times of London wrote that she "has shown more sense and nerve than all her generals together"; in 1984 India Post issued a stamp in her honour.',
         quote: 'Khalq Khuda ka, Mulk Badshah ka, aur Hukm Rani ka — The people belong to God, the land to the King, and the command to the Queen.'
+    },
+    {
+        id: 'alluri-sitarama-raju',
+        name: 'Alluri Sitarama Raju',
+        title: 'Manyam Veerudu (Hero of the Jungle)',
+        lifespan: '1897 – 1924',
+        era: 'Tribal Uprising',
+        region: 'South',
+        birthplace: 'Pandrangi, Visakhapatnam (now Andhra Pradesh)',
+        movements: ['Rampa Rebellion (Manyam Rebellion, 1922–24)', 'Non-Cooperation Movement influence'],
+        biography: 'Alluri Sitarama Raju was a sanyasi and revolutionary who led the Rampa Rebellion of 1922–24 against British colonial rule in the Eastern Ghats of the Madras Presidency. Rising against the 1882 Madras Forest Act and the ban on podu shifting cultivation, he organised the adivasis of the Godavari and Visakhapatnam Agencies into a guerrilla army that raided police stations and defied the empire for two years.',
+        timeline: [
+            { year: '1897', event: 'Born on 4 July at Pandrangi, near Visakhapatnam, into a middle-class Telugu family.' },
+            { year: '1915', event: 'Took up sannyasa at about eighteen and began living among the tribal people of the Agency tracts.' },
+            { year: '1921', event: 'Urged tribals to boycott colonial courts and settle disputes in their own panchayats, inspired by the Non-Cooperation Movement.' },
+            { year: '1922', event: 'Launched the Rampa Rebellion with the raid on Chintapalli police station on 22 August; the British placed a Rs 10,000 bounty on his head.' },
+            { year: '1924', event: 'Captured in the Chintapalli forests in May and executed by a firing squad at Koyyuru on 7 May.' }
+        ],
+        contributions: 'Led one of the most serious armed tribal risings of the twentieth century in the south, championed the forest and land rights of the adivasis of the Eastern Ghats, and inspired generations — his story reached a global audience through the film RRR (2022).',
+        rareFacts: 'The British spent over Rs 40 lakh to crush the rebellion; his birthday, 4 July, is celebrated as a state festival in Andhra Pradesh, and the Alluri Sitharama Raju district was carved out of Visakhapatnam in 2022.',
+        quote: 'Jai Hind! This is but the beginning of the fight — the forest will keep the flame of Swaraj alive.',
+        explorerLink: '../alluri-sitarama-raju-explorer/index.html'
     }
 ];
 
