@@ -662,6 +662,12 @@ window.indiaSearchIndex = [
     url: "frontend/sanjhi-art-explorer/index.html"
   },
   {
+    title: "Congress Radio Explorer",
+    category: "Culture",
+    description: "Discover Congress Radio, the secret underground station that broadcast uncensored news of the Quit India Movement on 42.34 metres in 1942, led by 22-year-old Usha Mehta.",
+    url: "frontend/congress-radio-explorer/index.html"
+  },
+  {
     title: "Gujarati Cinema (Dhollywood) Explorer",
     category: "Culture",
     description: "Discover Dhollywood, the Gujarati film industry — from Narsinh Mehta (1932), the first Gujarati talkie, to National Award-winning classics and its modern urban revival.",
