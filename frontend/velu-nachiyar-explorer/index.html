@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Explore Velu Nachiyar, the Queen of Sivaganga — her early armed resistance against the East India Company, military campaigns, alliances, and her reclamation of her kingdom." />
+    <title>Velu Nachiyar Explorer | Incredible India</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="velu.css" />
+</head>
+
+<body class="vn-main">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link">Home</a>
+                <a href="../freedom-fighters-hub/index.html" class="nav-link">Freedom Fighters</a>
+                <a href="index.html" class="nav-link active" style="color: var(--saffron)">Velu Nachiyar</a>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode"
+                    title="Toggle Light Mode">
+                    ☀️
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="vn-hero">
+            <div class="section-container">
+                <div class="hero-badges-row">
+                    <span class="hero-pill pill-origin">📍 Sivaganga, Tamil Nadu</span>
+                    <span class="hero-pill pill-era">⚔️ 1730 – 1796</span>
+                    <span class="hero-pill pill-name">👑 Veeramangai</span>
+                </div>
+                <h1>Velu Nachiyar <span>Queen of Sivaganga</span></h1>
+                <p class="hero-subtitle">
+                    One of the earliest Indian rulers to wage armed resistance against the East India Company —
+                    reclaiming her kingdom through a determined military and diplomatic campaign.
+                </p>
+                <div id="stats-grid" class="stats-grid"></div>
+            </div>
+        </section>
+
+        <section class="vn-info-section">
+            <div class="section-container">
+                <h2>Biography</h2>
+                <div id="history-content" class="info-card"></div>
+
+                <h2 class="sec-title">Timeline</h2>
+                <div class="vn-timeline" id="vn-timeline"></div>
+
+                <h2 class="sec-title">Military Campaigns</h2>
+                <div class="vn-cards-grid" id="campaigns-grid"></div>
+
+                <h2 class="sec-title">Alliances</h2>
+                <div class="vn-cards-grid" id="alliances-grid"></div>
+
+                <h2 class="sec-title">Gallery</h2>
+                <div class="vn-gallery" id="vn-gallery"></div>
+            </div>
+        </section>
+
+        <section class="references-section">
+            <div class="section-container">
+                <h2>References & Documentation</h2>
+                <ul class="references-list" id="references-list"></ul>
+            </div>
+        </section>
+    </main>
+
+    <script src="velu-data.js"></script>
+    <script src="velu.js"></script>
+    <script>
+        (function () {
+            const themeBtn = document.getElementById('theme-toggle');
+            if (!themeBtn) return;
+            const applyIcon = (isLight) => {
+                themeBtn.textContent = isLight ? '🌙' : '☀️';
+                themeBtn.setAttribute('title', isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode');
+            };
+            applyIcon(document.body.classList.contains('light-theme'));
+            themeBtn.addEventListener('click', () => {
+                document.body.classList.toggle('light-theme');
+                const isLight = document.body.classList.contains('light-theme');
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+                applyIcon(isLight);
+            });
+        })();
+    </script>
+</body>
+
+</html>
