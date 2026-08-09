@@ -650,6 +650,12 @@ window.indiaSearchIndex = [
     url: "frontend/revolutionary-network-explorer/index.html"
   },
   {
+    title: "Sanjhi Art Explorer",
+    category: "Culture",
+    description: "Discover Sanjhi, the ancient paper-cut stencil art of Mathura and Vrindavan — intricate Radha-Krishna motifs cut by hand for centuries of temple rituals.",
+    url: "frontend/sanjhi-art-explorer/index.html"
+  },
+  {
     title: "Gujarati Cinema (Dhollywood) Explorer",
     category: "Culture",
     description: "Discover Dhollywood, the Gujarati film industry — from Narsinh Mehta (1932), the first Gujarati talkie, to National Award-winning classics and its modern urban revival.",
@@ -1509,6 +1515,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Terracotta Pottery Explorer ---
+  {
+    title: "Terracotta Pottery Explorer",
+    category: "Arts & Culture",
+    description: "Explore Terracotta Pottery — India's ancient clay craft traditions featuring Bankura horses, Gorakhpur terracotta, Molela relief plaques, materials, and pottery-making process.",
+    url: "frontend/terracotta-pottery-explorer/index.html"
+  },
   // --- Beddome's Coral Snake Explorer ---
   {
     title: "Beddome's Coral Snake Explorer",
@@ -2178,5 +2191,33 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Battle of Ghaghra (1529 CE) - Babur's decisive riverine and amphibious campaign against the Eastern Afghan Confederacy and Bengal Sultanate.",
     url: "frontend/battle-of-ghaghra-explorer/index.html"
+  },
+  // --- Vaduvur Wetland Explorer ---
+  {
+    title: "Vaduvur Wetland Explorer",
+    category: "Featured Explorers",
+    description: "Explore Vaduvur Wetland & Bird Sanctuary — Ramsar Site No. 2480 in Tiruvarur, Tamil Nadu. A 128-hectare human-made irrigation tank hosting over 20,000 wintering migratory waterfowl along the Central Asian Flyway.",
+    url: "frontend/vaduvur-wetland-explorer/index.html"
+  },
+  // --- Suchindram Wetland Explorer ---
+  {
+    title: "Suchindram Wetland Explorer",
+    category: "Featured Explorers",
+    description: "Explore Suchindram Wetland & Bird Sanctuary — Ramsar Site No. 2484 in Kanyakumari, Tamil Nadu. A 94-hectare freshwater tank complex serving as mainland India's southernmost sanctuary along the Central Asian Flyway.",
+    url: "frontend/suchindram-wetland-explorer/index.html"
+  },
+  // --- Mysore Painting Explorer ---
+  {
+    title: "Mysore Painting Explorer",
+    category: "Featured Explorers",
+    description: "Explore Mysore Paintings — classical South Indian art form celebrated for delicate brushwork, 24-karat pure gold gesso embossing, Sritattvanidhi iconographic tradition, and royal Wodeyar heritage.",
+    url: "frontend/mysore-painting-explorer/index.html"
+  },
+  // --- Jawaharlal Nehru Explorer ---
+  {
+    title: "Jawaharlal Nehru Explorer",
+    category: "Featured Explorers",
+    description: "Chronicle Jawaharlal Nehru's leadership in the Indian freedom movement, Congress presidency, Purna Swaraj declaration, 9 prison incarcerations, historic speeches, and nation-building.",
+    url: "frontend/jawaharlal-nehru-explorer/index.html"
   }
 ];

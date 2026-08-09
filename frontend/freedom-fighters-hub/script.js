@@ -180,6 +180,31 @@ const FREEDOM_FIGHTERS_DATA = [
         quote: 'Swaraj is my birthright and I shall have it!'
     },
     {
+        id: 'lajpat-rai',
+        name: 'Lala Lajpat Rai',
+        title: 'Punjab Kesari',
+        lifespan: '1865 – 1928',
+        era: 'Early Nationalist',
+        region: 'North',
+        birthplace: 'Dhudike, Punjab',
+        movements: ['Swadeshi Movement', 'Home Rule Movement', 'Simon Commission Protest'],
+        biography: 'Lala Lajpat Rai, popularly known as Punjab Kesari (Lion of Punjab), was an Indian nationalist, educationist, and veteran freedom fighter. A key member of the Lal-Bal-Pal trio, he pioneered the Swadeshi movement in Punjab, founded the Punjab National Bank, and led the anti-Simon Commission protest in Lahore where he was fatally lathi-charged, becoming a martyr of the independence struggle.',
+        timeline: [
+            { year: '1865', event: 'Born on 28 January at Dhudike, Faridkot district, Punjab (then British India).' },
+            { year: '1881', event: 'Joined the Indian National Congress at the age of 16.' },
+            { year: '1885', event: 'Established the Dayanand Anglo-Vedic School in Lahore.' },
+            { year: '1895', event: 'Co-founded Punjab National Bank in Lahore.' },
+            { year: '1905', event: 'Edited the Punjabi weekly Punjabee and led Swadeshi protests during the Bengal Partition.' },
+            { year: '1920', event: 'Elected President of the Indian National Congress at the Special Session in Kolkata.' },
+            { year: '1928', event: 'Led the Simon Commission protest in Lahore and was mortally wounded in the lathi charge.' },
+            { year: '1928', event: 'Died on 17 November, becoming a martyr whose sacrifice inspired a new generation of revolutionaries.' }
+        ],
+        contributions: 'Pioneered the Swadeshi boycott in Punjab; co-founded Punjab National Bank and Dayanand Anglo-Vedic Schools; served as INC President (1920); mobilised North Indian nationalism as one of the Lal-Bal-Pal extremist leaders.',
+        rareFacts: 'His famous slogan "Simon Go Back!" galvanized nationwide anti-commission protests. His martyrdom directly inspired Bhagat Singh and HSRA to avenge his death by killing the police official J.P. Saunders.',
+        quote: 'They may kill me, but they cannot kill my ideas.',
+        explorerLink: '../lala-lajpat-rai-explorer/index.html'
+    },
+    {
         id: 'ambedkar',
         name: 'Dr. B.R. Ambedkar',
         title: 'Babasaheb',
@@ -197,6 +222,27 @@ const FREEDOM_FIGHTERS_DATA = [
         contributions: 'Architect of the Constitution of India guaranteeing fundamental rights, gender equality, and affirmative action; founder of Reserve Bank of India conceptual blueprint.',
         rareFacts: 'Doctorates from Columbia University and London School of Economics; possessed a personal library of over 50,000 books.',
         quote: 'Educate, Agitate, Organize.'
+    },
+    {
+        id: 'rash-behari-bose',
+        name: 'Rash Behari Bose',
+        title: 'Founder of the INA',
+        lifespan: '1886 – 1945',
+        era: 'Revolutionary',
+        region: 'East',
+        birthplace: 'Subaldaha, Bengal',
+        movements: ['Delhi–Lahore Conspiracy', 'Indian Independence League', 'Indian National Army (early formation)'],
+        biography: 'Rash Behari Bose was a revolutionary nationalist who fled into decades of exile in Japan after the 1912 Delhi Conspiracy, later organizing the Indian Independence League and the first Indian National Army before handing its leadership to Subhas Chandra Bose.',
+        timeline: [
+            { year: '1912', event: 'Involved in the Delhi–Lahore Conspiracy, an assassination attempt on Viceroy Lord Hardinge.' },
+            { year: '1915', event: 'Escaped to Japan under an assumed identity to avoid British capture.' },
+            { year: '1942', event: 'Helped found the Indian Independence League and organize the first Indian National Army.' },
+            { year: '1943', event: 'Handed over leadership of the INA to Subhas Chandra Bose.' }
+        ],
+        contributions: 'Laid the international and organizational groundwork in Japan and Southeast Asia that made the later, larger Indian National Army under Subhas Chandra Bose possible.',
+        rareFacts: 'Lived in exile in Japan for three decades, became a naturalized Japanese citizen, and never returned to India before his death in 1945.',
+        quote: 'The freedom of India is knocking at our gates. Preserve, defend and cherish it.',
+        explorerLink: '../rash-behari-bose-explorer/index.html'
     },
     {
         id: 'birsa-munda',
@@ -349,6 +395,11 @@ if (typeof window !== 'undefined') {
                 <div style="margin-top: 1.2rem; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border-left: 3px solid var(--ff-gold);">
                     <em style="color: var(--ff-gold); font-size: 1.05rem;">"${ff.quote}"</em>
                 </div>
+
+                ${ff.explorerLink ? `
+                <div style="margin-top: 1.2rem; text-align: center;">
+                    <a href="${ff.explorerLink}" style="color: var(--ff-gold); font-weight: 700; text-decoration: none;">Read the Full Explorer Page &rarr;</a>
+                </div>` : ''}
             `;
             ffModal.classList.remove('hidden');
         }
