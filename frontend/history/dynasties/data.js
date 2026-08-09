@@ -354,13 +354,45 @@ art: "Dated silver drachm coinage with royal portraiture, Brahmi epigraphy, Juna
       "Continued support for Nalanda University as a major center of Buddhist learning",
       "Diplomatic exchanges with Tang China, including missions that shaped early Sino-Indian relations"
     ],
-    art: "Sanskrit court literature and drama, copper-plate epigraphy, continued patronage of Buddhist monastic art at Nalanda",
+art: "Sanskrit court literature and drama, copper-plate epigraphy, continued patronage of Buddhist monastic art at Nalanda",
     era: "ancient",
     color: "#8e44ad",
     mapPosition: { top: "26%", left: "52%" },
     link: "pushyabhuti/index.html"
   },
-        {
+  {
+    id: "karkota",
+    name: "Karkota Dynasty",
+    period: "c. 625–855 CE",
+    startYear: 625,
+    endYear: 855,
+    capital: "Srinagar, later Parihasapura (founded by Lalitaditya)",
+    founders: "Durlabhavardhana",
+    notableRulers: [
+      { name: "Durlabhavardhana", reign: "c. 625–662 CE", achievement: "Founded the Karkota dynasty after marrying Princess Anangalekha; built the Durlabhasvamin Vishnu shrine at Srinagar" },
+      { name: "Lalitaditya Muktapida", reign: "c. 724–760 CE", achievement: "Greatest Karkota ruler; led extensive military campaigns, built the Martand Sun Temple, and founded the new capital of Parihasapura" },
+      { name: "Jayapida", reign: "8th century CE", achievement: "Grandson of Lalitaditya; patronized Buddhist viharas and founded the town of Jayapura" }
+    ],
+    territory: "The Kashmir valley and, under Lalitaditya, campaigns extending into parts of northern India and Central Asia",
+    peakExtent: "Kashmir and neighbouring Himalayan and Gangetic-plain regions under Lalitaditya Muktapida, though the full extent described in the Rajatarangini is considered partly legendary",
+    governance: "A centralized Kashmiri monarchy that consolidated power after the decline of the earlier Gonanda dynasty, maintaining diplomatic ties with Tang China and Central Asian powers",
+    military: "Campaigns associated with Lalitaditya Muktapida across northern India and against Tibetan and Arab incursions in the northwest, described in Kalhana's Rajatarangini",
+    decline: "Weakened through the 9th century by invasions, internal instability, and economic strain; rule ended in 855 CE when Avantivarman ascended the throne and founded the Utpala dynasty",
+    contributions: [
+      "The Martand Sun Temple — the oldest known Sun temple in India, blending Gupta and local Kashmiri architectural styles with its distinctive trefoil arches",
+      "Founding of Parihasapura, a new capital showcasing Karkota-era urban planning and monumental architecture",
+      "Religious harmony — Karkota rulers were Vaishnavas who built numerous Vishnu shrines while also patronizing Buddhist viharas and stupas",
+      "Kalhana's Rajatarangini, composed in the 12th century, remains the principal chronicle of Kashmiri history and preserves the Karkota period's legacy",
+      "Diplomatic and cultural contact with Tang-dynasty China and Central Asia under Lalitaditya Muktapida",
+      "Development of a distinct Kashmiri architectural idiom, drawing on post-Gupta trends from Sarnath and Nalanda"
+    ],
+    art: "Martand Sun Temple, trefoil-arch Kashmiri temple architecture, Parihasapura monuments, Buddhist viharas and stupas",
+    era: "medieval",
+    color: "#e91e63",
+    mapPosition: { top: "8%", left: "50%" },
+    link: "karkota/index.html"
+  },
+          {
     id: "kushan",
     name: "Kushan Empire",
     period: "c. 30–375 CE",
@@ -539,8 +571,13 @@ export const timelineEvents = [
   { year: 606, event: "Harshavardhana becomes king after his brother Rajyavardhana is killed by Shashanka of Gauda", dynasty: "pushyabhuti" },
   { year: 619, event: "Chalukya king Pulakesin II defeats Harshavardhana at the Narmada River, halting his southward expansion", dynasty: "pushyabhuti" },
   { year: 643, event: "Harsha holds the Kannauj assembly in honour of the Chinese pilgrim Xuanzang", dynasty: "pushyabhuti" },
-  { year: 647, event: "Harshavardhana dies without an heir, and the Pushyabhuti dynasty rapidly disintegrates", dynasty: "pushyabhuti" },
-  { year: 105, event: "Vima Kadphises conquers Gandhara and expands Kushan trade with Rome", dynasty: "kushan" },
+{ year: 647, event: "Harshavardhana dies without an heir, and the Pushyabhuti dynasty rapidly disintegrates", dynasty: "pushyabhuti" },
+  { year: 625, event: "Durlabhavardhana founds the Karkota dynasty in Kashmir", dynasty: "karkota" },
+  { year: 724, event: "Lalitaditya Muktapida becomes king, beginning the dynasty's most celebrated reign", dynasty: "karkota" },
+  { year: 750, event: "Lalitaditya commissions the Martand Sun Temple and founds the new capital of Parihasapura", dynasty: "karkota" },
+  { year: 760, event: "Death of Lalitaditya Muktapida; Kashmir's imperial influence begins to wane after his reign", dynasty: "karkota" },
+  { year: 855, event: "Avantivarman ascends the throne and founds the Utpala dynasty, ending Karkota rule", dynasty: "karkota" },
+    { year: 105, event: "Vima Kadphises conquers Gandhara and expands Kushan trade with Rome", dynasty: "kushan" },
   { year: 127, event: "Kanishka I ascends the throne; the Kushan Empire reaches its greatest extent", dynasty: "kushan" },
   { year: 150, event: "Huvishka succeeds Kanishka, continuing patronage of Buddhism and Zoroastrianism", dynasty: "kushan" },
   { year: 230, event: "Death of Vasudeva I, the last powerful Kushan ruler, marks the start of decline", dynasty: "kushan" },
