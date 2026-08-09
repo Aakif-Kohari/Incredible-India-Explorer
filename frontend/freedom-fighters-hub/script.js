@@ -21,7 +21,8 @@ const FREEDOM_FIGHTERS_DATA = [
         ],
         contributions: 'Pioneered Ahimsa (non-violence) philosophy, promoted Khadi self-reliance, empowered rural communities, and unified millions across all social strata.',
         rareFacts: 'Nominated 5 times for the Nobel Peace Prize but never awarded. Traveled third class on Indian Railways throughout his campaigns.',
-        quote: 'Be the change that you wish to see in the world.'
+        quote: 'Be the change that you wish to see in the world.',
+        explorerLink: '../gandhi-explorer/index.html'
     },
     {
         id: 'netaji',
