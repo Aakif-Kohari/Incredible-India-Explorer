@@ -8,7 +8,7 @@
 // 1. CONFIGURATION & STATE
 // ==========================================================================
 
-const CACHE_VERSION = 'v2.3';
+const CACHE_VERSION = 'v2.6';
 const CACHE_NAME_STATIC = `india-explorer-static-${CACHE_VERSION}`;
 const CACHE_NAME_PAGES = `india-explorer-pages-${CACHE_VERSION}`;
 const CACHE_NAME_IMAGES = `india-explorer-images-${CACHE_VERSION}`;
@@ -32,7 +32,19 @@ const STATIC_ASSETS_TO_PRECACHE = [
   './sw-register.js',
   './router.js',
   './frontend/assets/hero_banner.png',
-  './frontend/data/regions/index.json'
+  './frontend/data/regions/index.json',
+  './birsa-munda-explorer/index.html',
+  './birsa-munda-explorer/style.css',
+  './birsa-munda-explorer/script.js',
+  './birsa-munda-explorer/assets/birsa-munda-hd.jpg',
+  './begum-hazrat-mahal-explorer/index.html',
+  './begum-hazrat-mahal-explorer/style.css',
+  './begum-hazrat-mahal-explorer/script.js',
+  './begum-hazrat-mahal-explorer/assets/begum-hazrat-mahal-hd.jpg',
+  './alluri-sitarama-raju-explorer/index.html',
+  './alluri-sitarama-raju-explorer/style.css',
+  './alluri-sitarama-raju-explorer/script.js',
+  './alluri-sitarama-raju-explorer/assets/alluri-sitarama-raju-hd.jpg'
 ];
 
 // Max items allowed in dynamic caches to prevent storage overflow

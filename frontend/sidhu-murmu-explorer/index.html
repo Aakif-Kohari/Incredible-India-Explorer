@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Explore Sidhu Murmu's leadership in the Santhal Hul (1855–56), a major tribal uprising against British colonial rule and oppressive revenue systems in Central-Eastern India." />
+    <title>Sidhu Murmu Explorer | Incredible India</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="sidhu.css" />
+</head>
+
+<body class="sm-main">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link">Home</a>
+                <a href="../freedom-fighters-hub/index.html" class="nav-link">Freedom Fighters</a>
+                <a href="index.html" class="nav-link active" style="color: var(--saffron)">Sidhu Murmu</a>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode"
+                    title="Toggle Light Mode">
+                    ☀️
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="sm-hero">
+            <div class="section-container">
+                <div class="hero-badges-row">
+                    <span class="hero-pill pill-origin">📍 Bhognadih, Bengal Presidency</span>
+                    <span class="hero-pill pill-era">🏹 1855 – 1856</span>
+                    <span class="hero-pill pill-name">🌾 Leader of the Santhal Hul</span>
+                </div>
+                <h1>Sidhu Murmu <span>Leader of the Santhal Hul</span></h1>
+                <p class="hero-subtitle">
+                    Alongside his brothers, Sidhu Murmu led the Santhal Hul of 1855–56 — one of the earliest large-scale
+                    organized rebellions against British colonial rule and its oppressive revenue and moneylending
+                    systems.
+                </p>
+                <div id="stats-grid" class="stats-grid"></div>
+            </div>
+        </section>
+
+        <section class="sm-info-section">
+            <div class="section-container">
+                <h2>Biography</h2>
+                <div id="history-content" class="info-card"></div>
+
+                <h2 class="sec-title">Timeline</h2>
+                <div class="sm-timeline" id="sm-timeline"></div>
+
+                <h2 class="sec-title">The Santhal Rebellion (Hul)</h2>
+                <div class="sm-cards-grid" id="rebellion-grid"></div>
+
+                <h2 class="sec-title">Historical Significance</h2>
+                <div id="significance-content" class="info-card"></div>
+
+                <h2 class="sec-title">Gallery</h2>
+                <div class="sm-gallery" id="sm-gallery"></div>
+            </div>
+        </section>
+
+        <section class="references-section">
+            <div class="section-container">
+                <h2>References & Documentation</h2>
+                <ul class="references-list" id="references-list"></ul>
+            </div>
+        </section>
+    </main>
+
+    <script src="sidhu-data.js"></script>
+    <script src="sidhu.js"></script>
+    <script>
+        (function () {
+            const themeBtn = document.getElementById('theme-toggle');
+            if (!themeBtn) return;
+            const applyIcon = (isLight) => {
+                themeBtn.textContent = isLight ? '🌙' : '☀️';
+                themeBtn.setAttribute('title', isLight ? 'Toggle Dark Mode' : 'Toggle Light Mode');
+            };
+            applyIcon(document.body.classList.contains('light-theme'));
+            themeBtn.addEventListener('click', () => {
+                document.body.classList.toggle('light-theme');
+                const isLight = document.body.classList.contains('light-theme');
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+                applyIcon(isLight);
+            });
+        })();
+    </script>
+</body>
+
+</html>
