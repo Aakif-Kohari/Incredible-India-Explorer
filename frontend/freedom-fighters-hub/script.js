@@ -180,6 +180,31 @@ const FREEDOM_FIGHTERS_DATA = [
         quote: 'Swaraj is my birthright and I shall have it!'
     },
     {
+        id: 'lajpat-rai',
+        name: 'Lala Lajpat Rai',
+        title: 'Punjab Kesari',
+        lifespan: '1865 – 1928',
+        era: 'Early Nationalist',
+        region: 'North',
+        birthplace: 'Dhudike, Punjab',
+        movements: ['Swadeshi Movement', 'Home Rule Movement', 'Simon Commission Protest'],
+        biography: 'Lala Lajpat Rai, popularly known as Punjab Kesari (Lion of Punjab), was an Indian nationalist, educationist, and veteran freedom fighter. A key member of the Lal-Bal-Pal trio, he pioneered the Swadeshi movement in Punjab, founded the Punjab National Bank, and led the anti-Simon Commission protest in Lahore where he was fatally lathi-charged, becoming a martyr of the independence struggle.',
+        timeline: [
+            { year: '1865', event: 'Born on 28 January at Dhudike, Faridkot district, Punjab (then British India).' },
+            { year: '1881', event: 'Joined the Indian National Congress at the age of 16.' },
+            { year: '1885', event: 'Established the Dayanand Anglo-Vedic School in Lahore.' },
+            { year: '1895', event: 'Co-founded Punjab National Bank in Lahore.' },
+            { year: '1905', event: 'Edited the Punjabi weekly Punjabee and led Swadeshi protests during the Bengal Partition.' },
+            { year: '1920', event: 'Elected President of the Indian National Congress at the Special Session in Kolkata.' },
+            { year: '1928', event: 'Led the Simon Commission protest in Lahore and was mortally wounded in the lathi charge.' },
+            { year: '1928', event: 'Died on 17 November, becoming a martyr whose sacrifice inspired a new generation of revolutionaries.' }
+        ],
+        contributions: 'Pioneered the Swadeshi boycott in Punjab; co-founded Punjab National Bank and Dayanand Anglo-Vedic Schools; served as INC President (1920); mobilised North Indian nationalism as one of the Lal-Bal-Pal extremist leaders.',
+        rareFacts: 'His famous slogan "Simon Go Back!" galvanized nationwide anti-commission protests. His martyrdom directly inspired Bhagat Singh and HSRA to avenge his death by killing the police official J.P. Saunders.',
+        quote: 'They may kill me, but they cannot kill my ideas.',
+        explorerLink: '../lala-lajpat-rai-explorer/index.html'
+    },
+    {
         id: 'ambedkar',
         name: 'Dr. B.R. Ambedkar',
         title: 'Babasaheb',
@@ -218,6 +243,8 @@ const FREEDOM_FIGHTERS_DATA = [
         rareFacts: 'Lived in exile in Japan for three decades, became a naturalized Japanese citizen, and never returned to India before his death in 1945.',
         quote: 'The freedom of India is knocking at our gates. Preserve, defend and cherish it.',
         explorerLink: '../rash-behari-bose-explorer/index.html'
+    },
+    {
         id: 'birsa-munda',
         name: 'Birsa Munda',
         title: 'Dharti Aba',
