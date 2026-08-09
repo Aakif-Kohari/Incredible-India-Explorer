@@ -771,6 +771,12 @@ window.indiaSearchIndex = [
     description: "Regional textile traditions including Bandhani, Ikat, Chikankari, Phulkari, and Patola weaving.",
     url: "frontend/textiles/frontend/textiles/textiles.html"
   },
+  {
+    title: "Patola Silk Weaving Explorer",
+    category: "Arts & Culture",
+    description: "Explore Patola Silk, Gujarat's double-ikat weaving tradition, Solanki dynasty patronage, and interactive loom visualizer.",
+    url: "frontend/patola-weaving-explorer/index.html"
+  },
 
   // --- Musical Instruments ---
   {

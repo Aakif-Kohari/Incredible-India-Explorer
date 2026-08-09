@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Patola Silk, Gujarat's famous double ikat handloom weaving heritage, featuring an interactive loom alignment experience.">
+  <title>Patola Silk Weaving Explorer | Incredible India</title>
+  <!-- Preload fonts -->
+  <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css?v=1.1">
+  <link rel="stylesheet" href="../js-modules/page-progress/page-progress.css">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Patola Silk Double Ikat Explorer | Incredible India">
+  <meta property="og:description" content="Explore Patan's 900-year-old double ikat weaving heritage and interact with the digital loom thread alignment experience.">
+  <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/frontend/assets/traditional_attires.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/patola-weaving-explorer/index.html">
+</head>
+<body>
+  <script>
+    (function() {
+      let theme = 'dark';
+      try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+      if (theme === 'light') {
+        if (document.body) document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+          <div class="dropdown-menu">
+            <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+            <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+            <a href="../ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+            <a href="../islands/islands.html" class="dropdown-item">Islands of India</a>
+            <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+          <div class="dropdown-menu">
+            <a href="../culture/culture.html" class="dropdown-item">Culture Overview</a>
+            <a href="../cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+            <a href="../festivals/festivals.html" class="dropdown-item">Festivals</a>
+            <a href="../historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+            <a href="../national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+            <a href="../cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+            <a href="../handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+            <a href="../national-days-calendar/index.html" class="dropdown-item">National Days</a>
+            <a href="../ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+          </div>
+        </div>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Progress Bar -->
+  <div class="progress-container"><div class="progress-bar" id="page-progress"></div></div>
+
+  <!-- Main Section -->
+  <main id="app-root" class="patola-main">
+    
+    <!-- Hero Banner -->
+    <section class="patola-hero">
+      <div class="patola-hero-overlay"></div>
+      <div class="patola-hero-content">
+        <span class="patola-hero-badge">🧶 Gujarat Handloom Heritage</span>
+        <h1>Patola Silk & Double Ikat Weaving</h1>
+        <p>Step into Patan's ancient loom houses to experience double ikat — a weaving technique so complex that both warp and weft threads are tie-dyed with mathematical precision before being woven.</p>
+        <div class="patola-bookmark-container">
+          <button id="patola-bookmark-btn" class="patola-bookmark-btn" type="button" aria-label="Save this explorer to your journey page">
+            <span class="bookmark-icon">☆</span> Save to Journey
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab navigation -->
+    <nav class="patola-tab-nav" aria-label="Explorer navigation tabs">
+      <div class="patola-tab-container">
+        <button class="tab-btn active" data-target="history">History & Heritage</button>
+        <button class="tab-btn" data-target="double-ikat">Double Ikat Science</button>
+        <button class="tab-btn" data-target="visualizer-section">Loom Visualizer</button>
+        <button class="tab-btn" data-target="process">Weaving Steps</button>
+        <button class="tab-btn" data-target="gallery">Motif Gallery</button>
+      </div>
+    </nav>
+
+    <!-- Section: History & Heritage -->
+    <section class="patola-section" id="history">
+      <div class="patola-container patola-grid-2col">
+        <div class="patola-text-block">
+          <span class="patola-eyebrow">900 Years of Craftsmanship</span>
+          <h2>The Royal Patrons and Salvi Guilds of Patan</h2>
+          <p>Patola weaving has been nurtured in Patan, Gujarat, since the 12th century CE. Historical chronicles recount that King Siddharaj Jaisinh of the Solanki dynasty invited over 700 weaver families from Maharashtra's Jalna region to settle in Patan. The King desired pure Patola textiles for daily temple rituals, as their colors and threads never fade.</p>
+          <p>Today, only a handful of Salvi families guard the master secrets of authentic Patan Patola. The craft is secured under Geographical Indication (GI) status. Traditionally passed down through oral training, creating a single Patola saree can take a team of four weavers up to six months of meticulous effort, making it a coveted family heirloom.</p>
+        </div>
+        <div class="patola-highlight-box" style="border-left: 4px solid var(--patola-red);">
+          <h3>✨ Patola Highlights</h3>
+          <ul class="patola-bullet-list">
+            <li><strong>Unfading Colors</strong>: Natural dyes extracted from marigold, indigo, madder root, and pomegranate peel preserve hues for centuries.</li>
+            <li><strong>Reversible Elegance</strong>: Because warp and weft colors are aligned perfectly, the front and back patterns of a double-ikat Patola are identical.</li>
+            <li><strong>Auspicious Motifs</strong>: Patterns represent guardians, prosperity, and connection to nature (elephants, parrots, girls, flowers).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Double Ikat Explanation -->
+    <section class="patola-section" id="double-ikat" style="background: rgba(255,255,255,0.02);">
+      <div class="patola-container">
+        <div class="patola-section-header">
+          <span class="patola-eyebrow">The Mathematics of Thread</span>
+          <h2>Understanding Double Ikat</h2>
+          <p>Unlike single ikat (where only warp or weft yarns are dyed), Patola uses the complex Double Ikat technique.</p>
+        </div>
+        <div class="patola-grid-3col">
+          <div class="patola-card">
+            <span class="patola-card-icon">🧵</span>
+            <h3>1. The Warp (Vertical)</h3>
+            <p>Vertical silk strands are mapped out on a wooden frame, grouped, and tied with cotton threads at calculated intervals to shield specific areas from the dyes.</p>
+          </div>
+          <div class="patola-card">
+            <span class="patola-card-icon">🪡</span>
+            <h3>2. The Weft (Horizontal)</h3>
+            <p>Horizontal strands are mapped and tied independently to match the vertical pattern. Both sets are repeatedly tie-dyed in color sequences.</p>
+          </div>
+          <div class="patola-card">
+            <span class="patola-card-icon">📐</span>
+            <h3>3. Precise Grid Math</h3>
+            <p>During handloom weaving, the dyed segments of the warp and weft must intersect perfectly. An error of even 1 millimeter throws the pattern off-grid.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Interactive Visualizer -->
+    <section class="patola-section" id="visualizer-section">
+      <div class="patola-container">
+        <div class="patola-section-header">
+          <span class="patola-eyebrow">Interactive Experience</span>
+          <h2>Patan Loom Alignment Visualizer</h2>
+          <p>Use the loom sliders to align the dyed warp (vertical) and weft (horizontal) threads. Witness how their convergence snaps the blurry pattern into a sharp, perfect double ikat motif.</p>
+        </div>
+
+        <div class="visualizer-panel">
+          <div class="canvas-wrapper">
+            <canvas id="loom-canvas" width="480" height="320"></canvas>
+            <div id="visualizer-status" class="visualizer-status">Status: Threads Misaligned</div>
+          </div>
+          
+          <div class="visualizer-controls">
+            <h3>Loom Alignment Tools</h3>
+            <p class="controls-desc">Move the sliders below to adjust tension and align the resist-dyed threads on the handloom.</p>
+            
+            <div class="slider-group">
+              <div class="slider-label-row">
+                <label for="warp-slider">↕️ Warp Thread Alignment (Vertical)</label>
+                <span id="warp-val">Shifted</span>
+              </div>
+              <input type="range" id="warp-slider" class="loom-slider" min="0" max="20" value="15" step="1">
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-label-row">
+                <label for="weft-slider">↔️ Weft Thread Alignment (Horizontal)</label>
+                <span id="weft-val">Shifted</span>
+              </div>
+              <input type="range" id="weft-slider" class="loom-slider" min="0" max="20" value="12" step="1">
+            </div>
+
+            <div id="visualizer-info" class="visualizer-info-card">
+              <h4>🔍 Weaving Observation</h4>
+              <p id="observation-text">The dyed threads are currently out of sync, creating the fuzzy, pixelated look. Drag both sliders to 0 to align them perfectly.</p>
+            </div>
+            
+            <button id="reset-loom" class="btn btn-secondary reset-btn" type="button">Reset Loom Alignment</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Weaving Process -->
+    <section class="patola-section" id="process" style="background: rgba(255,255,255,0.02);">
+      <div class="patola-container">
+        <div class="patola-section-header">
+          <span class="patola-eyebrow">Seven Steps of Mastery</span>
+          <h2>The Journey of Patola Weaving</h2>
+          <p>Discover the journey from raw mulberry silk to the completed double-ikat textile.</p>
+        </div>
+
+        <div class="patola-process-steps">
+          <div class="process-step">
+            <span class="step-num">1</span>
+            <div class="step-desc">
+              <h4>Yarn Degumming</h4>
+              <p>Raw silk skeins are boiled in soap solution to remove natural gums, creating a soft white surface suitable for color absorption.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-num">2</span>
+            <div class="step-desc">
+              <h4>Design Mapping</h4>
+              <p>The pattern is drafted onto graph paper. Computations determine the exact points on each thread bundle where dye must be blocked.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-num">3</span>
+            <div class="step-desc">
+              <h4>Resist Tying (Bandhana)</h4>
+              <p>Weavers tie the silk thread bundles using cotton threads. Tightly wrapped cotton shields the silk from subsequent dye baths.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-num">4</span>
+            <div class="step-desc">
+              <h4>Color Layering</h4>
+              <p>Threads are dyed starting from light yellow, then red, blue, and green. Cotton ties are cut and re-tied for each color phase.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-num">5</span>
+            <div class="step-desc">
+              <h4>Loom Dressing</h4>
+              <p>The dyed warp threads are stretched across the rosewood handloom (Salvi loom), which is tilted downwards at an angle of 30 degrees.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-num">6</span>
+            <div class="step-desc">
+              <h4>Shuttle Winding</h4>
+              <p>Weft threads are wound onto bamboo bobbins and loaded into the wooden shuttle, ready to meet their warp counterparts.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-num">7</span>
+            <div class="step-desc">
+              <h4>Interlocking Weft</h4>
+              <p>Weavers slide the shuttle, aligning every single weft intersect using a steel needle. Only 6 to 8 inches of fabric are woven per day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Motif Gallery -->
+    <section class="patola-section" id="gallery">
+      <div class="patola-container">
+        <div class="patola-section-header">
+          <span class="patola-eyebrow">Iconography</span>
+          <h2>Traditional Patola Motifs</h2>
+          <p>Click on the cards below to explore the cultural meaning and stories behind historic Patola designs.</p>
+        </div>
+
+        <div class="patola-gallery-grid">
+          <div class="patola-gallery-item" data-title="Nari Kunjar Bhat" data-desc="The iconic combination representing a woman (Nari) and elephant (Kunjar) alongside parrots and trees. A motif popular with royal families representing fertility, guardianship, and majesty.">
+            <div class="patola-gallery-image-wrapper">
+              <div class="pattern-placeholder pattern-nari"></div>
+            </div>
+            <div class="patola-gallery-caption">
+              <h4>Nari Kunjar Bhat</h4>
+              <p>Symphony of women, elephants, and parrot symbols.</p>
+            </div>
+          </div>
+          <div class="patola-gallery-item" data-title="Chhabdi Bhat" data-desc="A grid pattern depicting basket shapes (Chhabdi) filled with geometric flowers. Traditionally worn by brides in Saurashtra for its auspicious connotations of a prosperous new household.">
+            <div class="patola-gallery-image-wrapper">
+              <div class="pattern-placeholder pattern-chhabdi"></div>
+            </div>
+            <div class="patola-gallery-caption">
+              <h4>Chhabdi Bhat</h4>
+              <p>Intricate floral basket design for wedding traditions.</p>
+            </div>
+          </div>
+          <div class="patola-gallery-item" data-title="Pan Bhat" data-desc="Featuring the peepal or betel leaf (Pan) inside diamond borders. Represents shelter, longevity, and purity, and is widely featured in classical Patola border frames.">
+            <div class="patola-gallery-image-wrapper">
+              <div class="pattern-placeholder pattern-pan"></div>
+            </div>
+            <div class="patola-gallery-caption">
+              <h4>Pan Bhat</h4>
+              <p>Betel leaf design within geometric frameworks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: References -->
+    <section class="patola-section" id="references">
+      <div class="patola-container">
+        <div class="patola-references">
+          <h3>📜 References &amp; Readings</h3>
+          <ul>
+            <li>Buehler, Alfred and Fischer, Eberhard (1979). <i>The Patola of Gujarat: Double Ikat in India</i>. Krebs Publishers.</li>
+            <li>Salvi, Patan Archives. <i>The 900-Year Ancestral Records of Double Ikat Weaving in Patan</i>.</li>
+            <li>Geographical Indications Registry (2013). <i>GI Application No. 195: Patan Patola Weaving</i>. Government of India.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page Footer -->
+    <footer class="patola-footer">
+      <p>Part of the <a href="../handloom/index.html">Historic Handlooms Explorer</a> · <a href="../../index.html">Incredible India Explorer</a></p>
+    </footer>
+
+    <!-- Motif Details Modal -->
+    <div class="patola-modal" id="patola-modal" role="dialog" aria-modal="true" aria-labelledby="modal-heading-text" aria-hidden="true">
+      <div class="patola-modal-card">
+        <button class="patola-modal-close" id="patola-modal-close" type="button" aria-label="Close details">×</button>
+        <span class="modal-category">Patola Motif Detail</span>
+        <h2 id="modal-heading-text">Motif Detail</h2>
+        <div id="modal-visual-preview" class="modal-visual-preview"></div>
+        <p id="modal-description-text" class="modal-description-text">Description goes here.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="../js-modules/storage.js" defer></script>
+  <script src="../app.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="../router.js" defer></script>
+  <script type="module" src="../auth.js"></script>
+  <script src="../js-modules/page-progress/page-progress.js"></script>
+</body>
+</html>
