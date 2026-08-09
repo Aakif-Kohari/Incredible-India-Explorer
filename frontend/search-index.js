@@ -644,6 +644,12 @@ window.indiaSearchIndex = [
     url: "frontend/river/frontend/river/river.html"
   },
   {
+    title: "Revolutionary Network Explorer",
+    category: "Freedom Struggle",
+    description: "Explore how Anushilan Samiti, Jugantar, the HRA and HSRA connected leaders, organisations and actions across India's revolutionary movement.",
+    url: "frontend/revolutionary-network-explorer/index.html"
+  },
+  {
     title: "Gujarati Cinema (Dhollywood) Explorer",
     category: "Culture",
     description: "Discover Dhollywood, the Gujarati film industry — from Narsinh Mehta (1932), the first Gujarati talkie, to National Award-winning classics and its modern urban revival.",
