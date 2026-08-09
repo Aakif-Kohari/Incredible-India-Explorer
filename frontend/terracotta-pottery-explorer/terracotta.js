@@ -61,6 +61,7 @@ function renderStyles() {
             <h3>🏺 ${st.name}</h3>
             <span class="style-tag">${st.giTag}</span>
             <p>${st.description}</p>
+            ${st.explorerUrl ? `<a href="${st.explorerUrl}" class="explorer-btn" style="text-decoration:none; display:inline-block; margin-top:10px; padding:8px 16px; background:#c2410c; color:#fff; border-radius:6px; font-size:0.88rem; font-weight:700; transition: background 0.2s;">Explore Craft →</a>` : ''}
         </div>
     `
     ).join('');

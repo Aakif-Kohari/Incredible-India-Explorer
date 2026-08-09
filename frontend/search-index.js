@@ -1534,6 +1534,12 @@ window.indiaSearchIndex = [
     description: "Explore Terracotta Pottery — India's ancient clay craft traditions featuring Bankura horses, Gorakhpur terracotta, Molela relief plaques, materials, and pottery-making process.",
     url: "frontend/terracotta-pottery-explorer/index.html"
   },
+  {
+    title: "Molela Clay Art Explorer",
+    category: "Arts & Culture",
+    description: "Explore Molela Clay Art — Rajasthan's traditional hand-molded terracotta relief plaques, Mewar potters, and interactive clay plaque crafter.",
+    url: "frontend/molela-clay-art-explorer/index.html"
+  },
   // --- Beddome's Coral Snake Explorer ---
   {
     title: "Beddome's Coral Snake Explorer",

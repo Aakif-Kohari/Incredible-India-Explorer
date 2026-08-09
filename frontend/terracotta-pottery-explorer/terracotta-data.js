@@ -42,7 +42,8 @@ const REGIONAL_STYLES = [
     {
         name: "Molela Clay Relief Plaques (Rajasthan)",
         giTag: "Heritage Craft",
-        description: "Hollow terracotta votive plaques depicting tribal deities (Devnarayan, Nagaraja) handcrafted by Kumhar potters along the Banas river."
+        description: "Hollow terracotta votive plaques depicting tribal deities (Devnarayan, Nagaraja) handcrafted by Kumhar potters along the Banas river.",
+        explorerUrl: "../molela-clay-art-explorer/index.html"
     },
     {
         name: "Asharikandi Terracotta (Assam)",
