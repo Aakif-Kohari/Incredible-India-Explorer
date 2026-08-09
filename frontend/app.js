@@ -17,6 +17,10 @@
    Pure Vanilla JavaScript for navigation, theme, focus trap, and routing setup.
    ========================================================================== */
 
+if (window.IIEStorage) {
+    window.IIEStorage.migrate();
+}
+
 /**
  * Loads a script on demand and resolves once it has executed, so page
  * modules (cuisine.js, trip-planner.js, weather-core.js, etc.) can be
@@ -386,7 +390,7 @@ function initThemeToggle() {
         }
     };
 
-    const currentTheme = localStorage.getItem(AppConfig.THEME_STORAGE_KEY);
+    const currentTheme = window.IIEStorage ? window.IIEStorage.getTheme() : localStorage.getItem(AppConfig.THEME_STORAGE_KEY);
     if (currentTheme === AppConfig.THEME_LIGHT) {
         document.body.classList.add(AppConfig.THEME_CLASS_LIGHT);
         setThemeIcon(true);
@@ -399,7 +403,7 @@ function initThemeToggle() {
         const isLightTheme = document.body.classList.contains(AppConfig.THEME_CLASS_LIGHT);
         setThemeIcon(isLightTheme);
         const theme = isLightTheme ? AppConfig.THEME_LIGHT : AppConfig.THEME_DARK;
-        localStorage.setItem(AppConfig.THEME_STORAGE_KEY, theme);
+        if(window.IIEStorage) window.IIEStorage.setTheme(theme); else localStorage.setItem(AppConfig.THEME_STORAGE_KEY, theme);
     });
 }
 
