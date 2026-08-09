@@ -220,7 +220,7 @@ const FREEDOM_FIGHTERS_DATA = [
             { year: '1932', event: 'Signed Poona Pact securing reserved seats for depressed classes in legislatures.' },
             { year: '1947', event: 'Appointed India\'s first Law Minister and Chairman of Constitution Drafting Committee.' }
         ],
-contributions: 'Architect of the Constitution of India guaranteeing fundamental rights, gender equality, and affirmative action; founder of Reserve Bank of India conceptual blueprint.',
+        contributions: 'Architect of the Constitution of India guaranteeing fundamental rights, gender equality, and affirmative action; founder of Reserve Bank of India conceptual blueprint.',
         rareFacts: 'Doctorates from Columbia University and London School of Economics; possessed a personal library of over 50,000 books.',
         quote: 'Educate, Agitate, Organize.'
     },
@@ -244,7 +244,7 @@ contributions: 'Architect of the Constitution of India guaranteeing fundamental 
         quote: 'Vande Mataram.',
         explorerUrl: '../matangini-hazra-explorer/index.html'
     },
-        {
+    {
         id: 'rash-behari-bose',
         name: 'Rash Behari Bose',
         title: 'Founder of the INA',
@@ -345,8 +345,28 @@ contributions: 'Architect of the Constitution of India guaranteeing fundamental 
         rareFacts: 'Remembered largely through oral tradition and regional folklore rather than formal historical records, reflecting the underdocumented history of tribal resistance movements.',
         quote: 'The forests are ours, and so is our right to resist.',
         explorerLink: '../tantia-bhil-explorer/index.html'
-        },
-  {
+    },
+    {
+        id: 'sidhu-murmu',
+        name: 'Sidhu Murmu',
+        title: 'Leader of the Santhal Hul',
+        lifespan: 'c. 1815 – 1856',
+        era: 'Tribal Resistance',
+        region: 'East',
+        birthplace: 'Bhognadih, Santhal Pargana',
+        movements: ['Santhal Hul (1855–56)', 'Anti-Zamindar & Anti-Moneylender Resistance'],
+        biography: 'Sidhu Murmu, along with his brothers Kanhu, Chand, and Bhairav, led the Santhal Hul of 1855–56 — a major tribal uprising against British colonial revenue policy and exploitative moneylenders, predating the 1857 Rebellion.',
+        timeline: [
+            { year: 'June 30, 1855', event: 'Declared the Santhal Hul at a mass gathering in Bhognadih.' },
+            { year: '1855', event: 'Rebellion spread across the Rajmahal Hills region, drawing tens of thousands of Santhals.' },
+            { year: '1856', event: 'Captured and executed by British colonial forces after the rebellion was suppressed.' }
+        ],
+        contributions: 'Led one of the earliest large-scale organized tribal uprisings against British colonial rule, directly contributing to the later creation of the Santhal Pargana as a distinct administrative region.',
+        rareFacts: 'The Santhal Hul predated the 1857 Rebellion by roughly two years and involved tens of thousands of participants.',
+        quote: 'We will no longer bow to the mahajans and the Company\'s revenue.',
+        explorerLink: '../sidhu-murmu-explorer/index.html'
+    },
+    {
         id: 'begum-hazrat-mahal',
         name: 'Begum Hazrat Mahal',
         title: 'Maharani of Awadh',
@@ -368,6 +388,48 @@ contributions: 'Architect of the Constitution of India guaranteeing fundamental 
         contributions: 'Led the defence of Lucknow through the siege of the Residency (1857), coordinated resistance across Awadh with a parallel government, and gave the rebels a legitimate royal rallying point in Birjis Qadr.',
         rareFacts: 'The Times of London wrote that she "has shown more sense and nerve than all her generals together"; in 1984 India Post issued a stamp in her honour.',
         quote: 'Khalq Khuda ka, Mulk Badshah ka, aur Hukm Rani ka — The people belong to God, the land to the King, and the command to the Queen.'
+    },
+    {
+        id: 'tirupur-kumaran',
+        name: 'Tirupur Kumaran',
+        title: 'Kodi Kaatha Kumaran (Protector of the Flag)',
+        lifespan: '1904 – 1932',
+        era: 'Civil Disobedience Movement',
+        region: 'South',
+        birthplace: 'Near Erode, Madras Presidency (present-day Tamil Nadu)',
+        movements: ['Desabandhu Youth Association', 'Civil Disobedience Movement'],
+        biography: 'Tirupur Kumaran was a young freedom fighter of the Desabandhu Youth Association in Tirupur who was fatally struck by a British police lathi-charge on 11 January 1932 while leading a procession carrying the banned Indian national flag, refusing to let it fall even as he died — earning him the name "Kodi Kaatha Kumaran."',
+        timeline: [
+            { year: '1904', event: 'Born on 4 October near Erode, Madras Presidency, as Kumarasami Pillai.' },
+            { year: 'c. 1930', event: 'Joins the Desabandhu Youth Association in Tirupur, active in the Civil Disobedience Movement.' },
+            { year: '1932', event: 'Leads a procession through Tirupur on 11 January carrying the banned national flag.' },
+            { year: '1932', event: 'Fatally struck by a police lathi-charge; dies the same day still holding the flag aloft.' }
+        ],
+        contributions: 'His sacrifice while protecting the national flag became a rallying symbol for the Civil Disobedience Movement in the Madras Presidency and remains commemorated in Tirupur to this day.',
+        rareFacts: 'A statue of Kumaran holding the national flag stands at the Tirupur bus stand, and he is remembered every year through local commemorations honouring his sacrifice.',
+        quote: 'Remembered for refusing to let the national flag touch the ground even as he collapsed from a fatal police blow.',
+        explorerLink: '../tirupur-kumaran-explorer/index.html'},
+          {
+        id: 'alluri-sitarama-raju',
+        name: 'Alluri Sitarama Raju',
+        title: 'Manyam Veerudu (Hero of the Jungle)',
+        lifespan: '1897 – 1924',
+        era: 'Tribal Uprising',
+        region: 'South',
+        birthplace: 'Pandrangi, Visakhapatnam (now Andhra Pradesh)',
+        movements: ['Rampa Rebellion (Manyam Rebellion, 1922–24)', 'Non-Cooperation Movement influence'],
+        biography: 'Alluri Sitarama Raju was a sanyasi and revolutionary who led the Rampa Rebellion of 1922–24 against British colonial rule in the Eastern Ghats of the Madras Presidency. Rising against the 1882 Madras Forest Act and the ban on podu shifting cultivation, he organised the adivasis of the Godavari and Visakhapatnam Agencies into a guerrilla army that raided police stations and defied the empire for two years.',
+        timeline: [
+            { year: '1897', event: 'Born on 4 July at Pandrangi, near Visakhapatnam, into a middle-class Telugu family.' },
+            { year: '1915', event: 'Took up sannyasa at about eighteen and began living among the tribal people of the Agency tracts.' },
+            { year: '1921', event: 'Urged tribals to boycott colonial courts and settle disputes in their own panchayats, inspired by the Non-Cooperation Movement.' },
+            { year: '1922', event: 'Launched the Rampa Rebellion with the raid on Chintapalli police station on 22 August; the British placed a Rs 10,000 bounty on his head.' },
+            { year: '1924', event: 'Captured in the Chintapalli forests in May and executed by a firing squad at Koyyuru on 7 May.' }
+        ],
+        contributions: 'Led one of the most serious armed tribal risings of the twentieth century in the south, championed the forest and land rights of the adivasis of the Eastern Ghats, and inspired generations — his story reached a global audience through the film RRR (2022).',
+        rareFacts: 'The British spent over Rs 40 lakh to crush the rebellion; his birthday, 4 July, is celebrated as a state festival in Andhra Pradesh, and the Alluri Sitharama Raju district was carved out of Visakhapatnam in 2022.',
+        quote: 'Jai Hind! This is but the beginning of the fight — the forest will keep the flame of Swaraj alive.',
+        explorerLink: '../alluri-sitarama-raju-explorer/index.html'
     }
 ];
 
