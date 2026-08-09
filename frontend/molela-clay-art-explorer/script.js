@@ -1,17 +1,9 @@
 // script.js - Molela Clay Art Explorer Interactive Controller
 
-document.addEventListener("app:route-changed", () => {
-  initPlaqueCrafter();
-  initJourneyIntegration();
-  initTabs();
-});
-
-// Run immediately if loaded outside SPA routing
-if (document.readyState !== "loading") {
-  initPlaqueCrafter();
-  initJourneyIntegration();
-  initTabs();
-}
+// Initialize on load (handles both direct page load and SPA insertions)
+initPlaqueCrafter();
+initJourneyIntegration();
+initTabs();
 
 /**
  * 1. Plaque Crafter State & Drawing Engine
