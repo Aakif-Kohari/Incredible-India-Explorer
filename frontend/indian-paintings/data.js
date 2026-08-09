@@ -26,7 +26,8 @@ window.paintingsData = [
         region: "Tamil Nadu",
         image: "assets/tanjore-1.jpg",
         highRes: "assets/high-res/tanjore-1.jpg",
-        description: "A classical South Indian painting style characterized by rich, flat, and vivid colors, simple iconic composition, glittering gold foils overlaid on delicate but extensive gesso work."
+        description: "A classical South Indian painting style characterized by rich, flat, and vivid colors, simple iconic composition, glittering gold foils overlaid on delicate but extensive gesso work.",
+        link: "../tanjore-painting-showcase/index.html"
     },
     {
         id: "pattachitra-1",
