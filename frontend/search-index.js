@@ -650,6 +650,12 @@ window.indiaSearchIndex = [
     url: "frontend/revolutionary-network-explorer/index.html"
   },
   {
+    title: "Cellular Jail & Colonial Imprisonment Explorer",
+    category: "Freedom Struggle",
+    description: "Explore the Cellular Jail and other major colonial prisons — Yerawada, Aga Khan Palace, Alipore, Lahore Central Jail — and the freedom fighters held within them.",
+    url: "frontend/cellular-jail-explorer/index.html"
+  },
+  {
     title: "Sanjhi Art Explorer",
     category: "Culture",
     description: "Discover Sanjhi, the ancient paper-cut stencil art of Mathura and Vrindavan — intricate Radha-Krishna motifs cut by hand for centuries of temple rituals.",
