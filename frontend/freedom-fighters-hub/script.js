@@ -390,6 +390,26 @@ const FREEDOM_FIGHTERS_DATA = [
         quote: 'Khalq Khuda ka, Mulk Badshah ka, aur Hukm Rani ka — The people belong to God, the land to the King, and the command to the Queen.'
     },
     {
+        id: 'tirupur-kumaran',
+        name: 'Tirupur Kumaran',
+        title: 'Kodi Kaatha Kumaran (Protector of the Flag)',
+        lifespan: '1904 – 1932',
+        era: 'Civil Disobedience Movement',
+        region: 'South',
+        birthplace: 'Near Erode, Madras Presidency (present-day Tamil Nadu)',
+        movements: ['Desabandhu Youth Association', 'Civil Disobedience Movement'],
+        biography: 'Tirupur Kumaran was a young freedom fighter of the Desabandhu Youth Association in Tirupur who was fatally struck by a British police lathi-charge on 11 January 1932 while leading a procession carrying the banned Indian national flag, refusing to let it fall even as he died — earning him the name "Kodi Kaatha Kumaran."',
+        timeline: [
+            { year: '1904', event: 'Born on 4 October near Erode, Madras Presidency, as Kumarasami Pillai.' },
+            { year: 'c. 1930', event: 'Joins the Desabandhu Youth Association in Tirupur, active in the Civil Disobedience Movement.' },
+            { year: '1932', event: 'Leads a procession through Tirupur on 11 January carrying the banned national flag.' },
+            { year: '1932', event: 'Fatally struck by a police lathi-charge; dies the same day still holding the flag aloft.' }
+        ],
+        contributions: 'His sacrifice while protecting the national flag became a rallying symbol for the Civil Disobedience Movement in the Madras Presidency and remains commemorated in Tirupur to this day.',
+        rareFacts: 'A statue of Kumaran holding the national flag stands at the Tirupur bus stand, and he is remembered every year through local commemorations honouring his sacrifice.',
+        quote: 'Remembered for refusing to let the national flag touch the ground even as he collapsed from a fatal police blow.',
+        explorerLink: '../tirupur-kumaran-explorer/index.html'},
+          {
         id: 'alluri-sitarama-raju',
         name: 'Alluri Sitarama Raju',
         title: 'Manyam Veerudu (Hero of the Jungle)',
