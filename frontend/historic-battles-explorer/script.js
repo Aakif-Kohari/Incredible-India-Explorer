@@ -31,6 +31,19 @@ const battlesData = [
     link: '../mauryan-seleucid-war-explorer/index.html'
   },
   {
+    id: 'ten-kings',
+    name: 'Battle of the Ten Kings',
+    year: -1400,
+    date: 'c. 1400–1200 BCE',
+    century: '4th BCE',
+    dynasty: 'Bharata Tribe',
+    region: 'North',
+    winner: 'Bharata Victory',
+    location: 'Parushni River (Ravi)',
+    summary: 'Rigvedic conflict where King Sudas defeated a 10-king tribal alliance along the Parushni River.',
+    link: '../battle-of-ten-kings-explorer/index.html'
+  },
+  {
     id: 'kalinga',
     name: 'Battle of Kalinga',
     year: -261,
