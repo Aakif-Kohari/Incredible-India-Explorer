@@ -219,11 +219,31 @@ const FREEDOM_FIGHTERS_DATA = [
             { year: '1932', event: 'Signed Poona Pact securing reserved seats for depressed classes in legislatures.' },
             { year: '1947', event: 'Appointed India\'s first Law Minister and Chairman of Constitution Drafting Committee.' }
         ],
-        contributions: 'Architect of the Constitution of India guaranteeing fundamental rights, gender equality, and affirmative action; founder of Reserve Bank of India conceptual blueprint.',
+contributions: 'Architect of the Constitution of India guaranteeing fundamental rights, gender equality, and affirmative action; founder of Reserve Bank of India conceptual blueprint.',
         rareFacts: 'Doctorates from Columbia University and London School of Economics; possessed a personal library of over 50,000 books.',
         quote: 'Educate, Agitate, Organize.'
     },
     {
+        id: 'matangini-hazra',
+        name: 'Matangini Hazra',
+        title: 'Gandhi Buri',
+        lifespan: '1870 – 1942',
+        era: 'Quit India Movement',
+        region: 'East',
+        birthplace: 'Hogla, Tamluk, Bengal Presidency (now West Bengal)',
+        movements: ['Non-Cooperation Movement', 'Civil Disobedience Movement (Salt Satyagraha)', 'Quit India Movement'],
+        biography: 'Matangini Hazra was a Bengali freedom fighter from a poor peasant family who, despite having no formal education, became one of the most fearless faces of the independence movement in Midnapore, earning the affectionate title "Gandhi Buri" for her devotion to Gandhian ideals of non-violence.',
+        timeline: [
+            { year: '1930', event: 'Joined the Salt Satyagraha and Civil Disobedience Movement, courting arrest.' },
+            { year: '1933', event: 'Waved a black flag at the Governor of Bengal in Tamluk and served six months of rigorous imprisonment.' },
+            { year: '1942', event: 'Led roughly 6,000 volunteers, mostly women, toward Tamluk Police Station during the Quit India Movement and was shot dead on 29 September.' }
+        ],
+        contributions: 'Led the Vidyut Bahini volunteer corps during the Quit India Movement; became the first martyr of the movement in Midnapore, dying while holding the national flag aloft and chanting "Vande Mataram".',
+        rareFacts: 'Despite being shot multiple times, she continued walking forward with the tricolour until she fell. India Post issued a commemorative postage stamp in her honor in 2002, and a road and statue in Kolkata bear her name.',
+        quote: 'Vande Mataram.',
+        explorerUrl: '../matangini-hazra-explorer/index.html'
+    },
+        {
         id: 'rash-behari-bose',
         name: 'Rash Behari Bose',
         title: 'Founder of the INA',
@@ -415,18 +435,18 @@ if (typeof window !== 'undefined') {
                     <strong>💡 Rare Historical Fact:</strong> ${ff.rareFacts}
                 </div>
 
-                <div style="margin-top: 1.2rem; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border-left: 3px solid var(--ff-gold);">
+<div style="margin-top: 1.2rem; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border-left: 3px solid var(--ff-gold);">
                     <em style="color: var(--ff-gold); font-size: 1.05rem;">"${ff.quote}"</em>
                 </div>
 
-                ${ff.explorerLink ? `
+                ${ff.explorerUrl ? `
                 <div style="margin-top: 1.2rem; text-align: center;">
-                    <a href="${ff.explorerLink}" style="color: var(--ff-gold); font-weight: 700; text-decoration: none;">Read the Full Explorer Page &rarr;</a>
-                </div>` : ''}
+                    <a href="${ff.explorerUrl}" class="btn-explorer-link" style="display:inline-block; padding:0.75rem 1.5rem; background:linear-gradient(135deg, #d97706, #16a34a); color:#fff; font-weight:700; border-radius:999px; text-decoration:none;">Launch Dedicated Explorer ➔</a>
+                </div>
+                ` : ''}
             `;
             ffModal.classList.remove('hidden');
         }
-
         function updateView() {
             const searchVal = searchInput ? searchInput.value : '';
             const eraVal = eraFilter ? eraFilter.value : 'all';
