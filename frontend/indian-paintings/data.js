@@ -26,7 +26,8 @@ window.paintingsData = [
         region: "Tamil Nadu",
         image: "assets/tanjore-1.jpg",
         highRes: "assets/high-res/tanjore-1.jpg",
-        description: "A classical South Indian painting style characterized by rich, flat, and vivid colors, simple iconic composition, glittering gold foils overlaid on delicate but extensive gesso work."
+        description: "A classical South Indian painting style characterized by rich, flat, and vivid colors, simple iconic composition, glittering gold foils overlaid on delicate but extensive gesso work.",
+        link: "../tanjore-painting-showcase/index.html"
     },
     {
         id: "pattachitra-1",
@@ -53,7 +54,8 @@ window.paintingsData = [
         region: "Madhya Pradesh",
         image: "assets/gond-1.jpg",
         highRes: "assets/high-res/gond-1.jpg",
-        description: "Tribal art originating from the Gond community, characterized by an imaginative use of lines, dots, and vibrant colors to depict mystical flora and fauna."
+        description: "Tribal art originating from the Gond community, characterized by an imaginative use of lines, dots, and vibrant colors to depict mystical flora and fauna.",
+        link: "../gond-art-explorer/index.html"
     },
     {
         id: "miniature-1",
@@ -71,7 +73,8 @@ window.paintingsData = [
         region: "Rajasthan",
         image: "assets/phad-1.jpg",
         highRes: "assets/high-res/phad-1.jpg",
-        description: "A religious scroll painting and folk art form used by Bhopas (priest-singers) as a mobile temple, traditionally depicting the epics of local deities like Pabuji and Devnarayan."
+        description: "A religious scroll painting and folk art form used by Bhopas (priest-singers) as a mobile temple, traditionally depicting the epics of local deities like Pabuji and Devnarayan.",
+        link: "../phad-painting-explorer/index.html"
     },
     {
         id: "madhubani-2",
