@@ -113,7 +113,7 @@ describe('Siege of Chittor — Landing Page Integration', () => {
 
     it('matches the existing featured card pattern (badge, heading, button)', () => {
         const index = readLandingPage();
-        const cardStart = index.indexOf('Siege of Chittor');
+        const cardStart = index.indexOf('Siege of Chittor (1567');
         expect(cardStart).toBeGreaterThan(-1);
         const card = index.slice(cardStart, cardStart + 1200);
         expect(card).toContain('featured-explorer-badge');

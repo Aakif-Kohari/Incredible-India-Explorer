@@ -1,6 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   const kingdoms = [
     {
+      id: "sikh-empire",
+      name: "Sikh Empire (Sarkar-i-Khalsa)",
+      period: "1799 CE – 1849 CE",
+      capital: "Lahore / Amritsar",
+      rulers: "Maharaja Ranjit Singh, Hari Singh Nalwa, Maharani Jind Kaur",
+      achievements: "United Punjab misls, modernized Fauj-i-Khas army, gilded Harmandir Sahib (Golden Temple), secured Khyber Pass frontier",
+      description: "A sovereign secular empire led by Maharaja Ranjit Singh that established religious equality, European-trained artillery, and Golden Temple heritage.",
+      image: "../assets/monuments.png",
+      url: "../sikh-empire-explorer/index.html"
+    },
+    {
       id: "mewar",
       name: "Kingdom of Mewar",
       period: "728 CE – 1949 CE",
