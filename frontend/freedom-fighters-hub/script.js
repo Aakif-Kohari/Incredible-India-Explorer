@@ -304,7 +304,28 @@ contributions: 'Architect of the Constitution of India guaranteeing fundamental 
         contributions: 'Led one of South India\'s earliest armed resistances against East India Company tax authority; his martyrdom inspired his brother Oomaithurai and allied poligars to continue the Second Poligar War (1800–1801).',
         rareFacts: 'His story was immortalized in the landmark 1959 Tamil film Veerapandiya Kattabomman starring Sivaji Ganesan, cementing his place in South Indian popular memory.',
         quote: 'Remembered for refusing to recognize the East India Company\'s authority to tax Panchalankurichi.',
-        explorerLink: '../kattabomman-explorer/index.html'},
+        explorerLink: '../kattabomman-explorer/index.html'
+    },
+    {
+        id: 'velu-nachiyar',
+        name: 'Velu Nachiyar',
+        title: 'Veeramangai (Brave Woman)',
+        lifespan: '1730 – 1796',
+        era: 'Early Resistance',
+        region: 'South',
+        birthplace: 'Ramnad, Tamil Nadu',
+        movements: ['Sivaganga Resistance', 'Alliance with Hyder Ali', 'Reclamation of Sivaganga'],
+        biography: 'Velu Nachiyar, Queen of Sivaganga, is recognized as one of the earliest Indian rulers to organize armed resistance against the East India Company, reclaiming her kingdom in 1780 after years in exile building military alliances.',
+        timeline: [
+            { year: '1772', event: 'Sivaganga fell to combined East India Company and Arcot forces; her husband was killed in battle.' },
+            { year: '1772–1780', event: 'Took refuge under Hyder Ali\'s protection near Dindigul, building alliances and forces.' },
+            { year: '1780', event: 'Led a successful campaign to reclaim the kingdom of Sivaganga.' }
+        ],
+        contributions: 'Organized one of the earliest armed resistances against the East India Company, decades before the wider 19th-century uprisings; credited with raising a trained women\'s military regiment.',
+        rareFacts: 'Commemorated on an Indian postage stamp in 1974; honored with the title "Veeramangai," meaning brave woman.',
+        quote: 'I will avenge my husband\'s death and reclaim what is rightfully mine.',
+        explorerLink: '../velu-nachiyar-explorer/index.html'
+        },
   {
         id: 'begum-hazrat-mahal',
         name: 'Begum Hazrat Mahal',
