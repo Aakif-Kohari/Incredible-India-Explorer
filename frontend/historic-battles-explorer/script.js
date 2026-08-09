@@ -18,6 +18,19 @@ const battlesData = [
     link: '../battle-of-hydaspes-explorer/index.html'
   },
   {
+    id: 'pataliputra',
+    name: 'Battle of Pataliputra',
+    year: -322,
+    date: 'c. 322 BCE',
+    century: '4th BCE',
+    dynasty: 'Maurya / Nanda',
+    region: 'East',
+    winner: 'Maurya',
+    location: 'Pataliputra (Patna, Bihar)',
+    summary: 'Strategic siege by Chandragupta Maurya and Chanakya toppling the Nanda Dynasty and establishing the Mauryan Empire.',
+    link: '../battle-of-pataliputra-explorer/index.html'
+  },
+  {
     id: 'mauryan-seleucid',
     name: 'Mauryan–Seleucid War',
     year: -305,
