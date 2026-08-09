@@ -7,11 +7,11 @@
     <title>The Complete Indian Freedom Movement Explorer | Incredible India</title>
     <link rel="icon" href="data:,">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="../../styles.css">
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -141,6 +141,7 @@
                 <!-- Tab Navigation Switcher -->
                 <nav class="freedom-tab-nav" aria-label="Freedom Movement Explorer Sections">
                     <button class="freedom-tab-btn active" data-tab="timeline">📅 Movements & Timeline</button>
+                    <button class="freedom-tab-btn" data-tab="cause-effect">🔗 How Events Connected</button>
                     <button class="freedom-tab-btn" data-tab="orgs">💣 Revolutionary Societies</button>
                     <button class="freedom-tab-btn" data-tab="leaders">👤 Freedom Leaders</button>
                     <button class="freedom-tab-btn" data-tab="documents">📜 Primary Documents</button>
@@ -175,6 +176,93 @@
                     </div>
 
                     <div id="freedom-timeline-container" class="timeline-cards-grid"></div>
+                </div>
+
+                <!-- TAB 1.5: Cause & Effect Explorer -->
+                <div id="tab-cause-effect" class="freedom-tab-pane">
+                    <div class="section-title">
+                        <h2>🔗 How Events Connected: Cause-and-Effect Explorer</h2>
+                        <p>Deconstruct historical events by mapping their root causes and structural consequences.</p>
+                    </div>
+
+                    <div class="cause-effect-explorer-layout">
+                        <!-- Left Panel: Selector & Visual Chain -->
+                        <div class="cause-effect-main">
+                            <div class="chain-selector-box">
+                                <label for="chain-select">Select Historical Chain:</label>
+                                <select id="chain-select" class="free-select"></select>
+                            </div>
+
+                            <div class="visual-chain-diagram">
+                                <div class="chain-node cause" id="node-cause" style="cursor: pointer;">
+                                    <span class="node-label">CAUSE</span>
+                                    <h4 class="node-title">Sannyasi Rebellion</h4>
+                                    <p class="node-meta">1770</p>
+                                </div>
+
+                                <div class="connection-arrow">
+                                    <svg viewBox="0 0 100 30" class="svg-arrow">
+                                        <defs>
+                                            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                                <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--gold)" />
+                                            </marker>
+                                        </defs>
+                                        <path d="M 10 15 L 90 15" fill="none" stroke="var(--gold)" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)" class="animated-arrow-path"/>
+                                    </svg>
+                                </div>
+
+                                <div class="chain-node active-event" id="node-active" style="cursor: pointer;">
+                                    <span class="node-label">ACTIVE EVENT</span>
+                                    <h4 class="node-title">Rowlatt Anti-Satyagraha</h4>
+                                    <p class="node-meta">1919</p>
+                                </div>
+
+                                <div class="connection-arrow">
+                                    <svg viewBox="0 0 100 30" class="svg-arrow">
+                                        <path d="M 10 15 L 90 15" fill="none" stroke="var(--gold)" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)" class="animated-arrow-path"/>
+                                    </svg>
+                                </div>
+
+                                <div class="chain-node consequence" id="node-consequence" style="cursor: pointer;">
+                                    <span class="node-label">CONSEQUENCE</span>
+                                    <h4 class="node-title">Non-Cooperation Movement</h4>
+                                    <p class="node-meta">1920</p>
+                                </div>
+                            </div>
+
+                            <div class="chain-navigation-controls">
+                                <button id="btn-prev-cause" class="btn-nav">⬅️ What caused this?</button>
+                                <button id="btn-next-consequence" class="btn-nav">What happened next? ➡️</button>
+                            </div>
+                        </div>
+
+                        <!-- Context Details Card -->
+                        <div class="cause-effect-details-panel">
+                            <div class="details-card">
+                                <h3 id="details-event-title">Event Title</h3>
+                                <p id="details-event-desc" class="details-desc">Detailed deconstruction of the cause, event, and aftermath.</p>
+                                
+                                <div class="details-meta-section">
+                                    <div class="meta-item">
+                                        <strong>📍 Location:</strong>
+                                        <span id="details-location">N/A</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <strong>📢 Primary Movement:</strong>
+                                        <span id="details-movement">N/A</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <strong>👤 Key Figures:</strong>
+                                        <div id="details-leaders-links" class="details-links-list"></div>
+                                    </div>
+                                </div>
+
+                                <div class="details-actions">
+                                    <button id="btn-deep-dive" class="btn-action">🔍 Deep Dive in Timeline</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- TAB 2: Revolutionary Societies -->

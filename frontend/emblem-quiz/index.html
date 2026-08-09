@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Flag & Emblem Quiz - Incredible India Explorer</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <a href="../../index.html">Incredible India Explorer</a>
+        </div>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="../../frontend/travel/travel.html" class="nav-link">Travel</a>
+            <a href="../../frontend/culture/culture.html" class="nav-link">Culture</a>
+            <a href="../../frontend/cuisine/cuisine.html" class="nav-link">Cuisine</a>
+            <a href="../../frontend/history/history.html" class="nav-link">History</a>
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </header>
+
+    <main class="quiz-container">
+        <!-- Hero Section -->
+        <section id="hero-section" class="hero-section">
+            <div class="hero-content">
+                <h1>State Flag & Emblem Quiz</h1>
+                <p class="subtitle">Test your knowledge of India’s state symbols, wildlife, trees, and official emblems through an interactive matching challenge.</p>
+                
+                <div class="quiz-controls">
+                    <div class="control-group">
+                        <label for="quiz-type">Quiz Type:</label>
+                        <select id="quiz-type">
+                            <option value="mixed">Mixed</option>
+                            <option value="emblem">Emblems</option>
+                            <option value="animal">Animals</option>
+                            <option value="bird">Birds</option>
+                            <option value="tree">Trees</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="quiz-difficulty">Difficulty:</label>
+                        <select id="quiz-difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                    <button id="start-quiz-btn" class="btn-primary">Start Quiz</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Quiz Section -->
+        <section id="main-quiz" class="main-quiz hidden" aria-live="polite">
+            <div class="quiz-card">
+                <div class="quiz-header">
+                    <div class="progress-info">
+                        <span id="question-progress-text">Question 1 of 10</span>
+                        <div class="progress-bar-container">
+                            <div id="progress-bar" class="progress-bar"></div>
+                        </div>
+                    </div>
+                    <div class="stats-info">
+                        <span>Score: <strong id="score-display">0</strong></span>
+                        <span>Streak: <strong id="streak-display">0</strong></span>
+                    </div>
+                </div>
+
+                <div class="quiz-content">
+                    <p class="question-category" id="question-category">Category</p>
+                    <h2 class="question-text" id="question-text">Which state does this emblem belong to?</h2>
+                    
+                    <div class="question-media">
+                        <!-- We will inject an img tag here via JS -->
+                        <div id="image-container" class="image-container placeholder-image"></div>
+                    </div>
+                    
+                    <div class="options-grid" id="options-grid">
+                        <!-- Options injected via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback Panel -->
+            <div id="feedback-panel" class="feedback-panel hidden" tabindex="-1">
+                <h3 id="feedback-title" class="feedback-title">Correct!</h3>
+                <p id="feedback-state-info" class="feedback-state-info">This is the emblem of Karnataka.</p>
+                <p id="feedback-explanation" class="feedback-explanation">The Gandaberunda, a mythical two-headed bird, is associated with Karnataka’s historical and royal symbolism.</p>
+                <button id="next-question-btn" class="btn-secondary">Next Question</button>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results-section" class="results-section hidden">
+            <div class="results-card">
+                <h2 id="results-title">Excellent!</h2>
+                <div class="results-stats">
+                    <p>You scored <strong id="final-score">0/100</strong></p>
+                    <p>Accuracy: <strong id="final-accuracy">0%</strong></p>
+                    <p id="final-message">You correctly identified 0 out of 10 state symbols.</p>
+                </div>
+                <button id="play-again-btn" class="btn-primary">Play Again</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Incredible India Explorer. All rights reserved.</p>
+    </footer>
+
+    <!-- Game Data (defines window.QUIZ_DATA) -->
+    <script src="data.js"></script>
+    <!-- Game Logic (Strict IIFE) -->
+    <script src="script.js"></script>
+    <script src="../../js/app.js"></script>
+</body>
+</html>

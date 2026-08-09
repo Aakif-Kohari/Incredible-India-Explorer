@@ -75,6 +75,98 @@
     transition: all 0.3s ease;
 }
 
+.light-theme .style-btn {
+    color: var(--text-dark);
+    border-color: var(--bronze);
+}
+
+.style-btn:hover,
+.style-btn:focus-visible {
+    background: rgba(210, 166, 121, 0.2);
+}
+
+.style-btn.active {
+    background: var(--sandstone);
+    color: var(--deep-blue);
+}
+
+.light-theme .style-btn.active {
+    background: var(--bronze);
+    color: #FFFFFF;
+}
+
+/* Explorer Section */
+.explorer-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 600px;
+}
+
+@media (max-width: 992px) {
+    .explorer-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* SVG Container */
+.svg-container {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 500px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.loading-state {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+}
+
+.arch-svg {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+}
+
+/* Hotspots */
+.hotspot {
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.3s ease;
+}
+
+/* Hit Area (Invisible but large for touch targets) */
+.hotspot-hit {
+    fill: transparent;
+    stroke: none;
+}
+
+/* Visible Dot */
+.hotspot-dot {
+    fill: var(--sandstone);
+    stroke: var(--ivory);
+    stroke-width: 2;
+    transition: all 0.3s ease;
+}
+
+.hotspot:hover .hotspot-dot,
+.hotspot:focus .hotspot-dot {
+    fill: var(--bronze);
+    stroke-width: 4;
+    r: 18;
+}
+
+.hotspot.active .hotspot-dot {
 .style-btn:hover,
 .style-btn:focus-visible {
     background: rgba(255,255,255,0.1);
@@ -125,6 +217,154 @@
 
 /* Visual appearance of the dot */
 .hotspot-visual {
+.hotspot:hover,
+.hotspot:focus {
+    fill: var(--bronze);
+    stroke-width: 4;
+    r: 12; /* Enlarge radius visually via CSS, might need to be attribute in SVG but CSS transition works if not fixed */
+    transform: scale(1.2);
+    transform-origin: center;
+}
+
+.hotspot.active {
+    fill: #4CAF50;
+    stroke: #FFFFFF;
+    stroke-width: 3;
+}
+
+/* Mobile Responsive Hotspots */
+@media (max-width: 768px) {
+    /* Increase effective touch area further on mobile */
+    .hotspot-hit {
+        r: 60; /* Scales to ~30px on small screens -> 60px diameter hit target */
+    }
+
+    /* Keep the visible dot legible */
+    .hotspot-dot {
+        r: 20; 
+    }
+    
+    .hotspot:hover .hotspot-dot,
+    .hotspot:focus .hotspot-dot {
+        r: 24;
+    }
+
+    /* Reposition overlapping or clustered hotspots by translating their group */
+    /* Dravidian */
+    #vimana { transform: translate(10px, -15px); }
+    #mandapa { transform: translate(-10px, 15px); }
+    #gopuram { transform: translate(-15px, 0); }
+    
+    /* Indo-Islamic */
+    #arch { transform: translate(0px, 20px); }
+    #dome { transform: translate(0px, -20px); }
+    
+    /* Nagara */
+    #shikhara { transform: translate(15px, -10px); }
+    #amalaka { transform: translate(0px, -20px); }
+    #mandapa { transform: translate(-15px, 15px); }
+    
+    /* Vesara */
+    #hybrid-tower { transform: translate(15px, -15px); }
+    #pillared-hall { transform: translate(-15px, 15px); }
+}
+
+/* Connecting Lines (Optional depending on SVG implementation) */
+.annotation-line {
+    stroke: var(--text-muted);
+    stroke-width: 1.5;
+    stroke-dasharray: 4;
+    transition: stroke 0.3s ease;
+}
+
+/* Info Panel */
+.info-panel {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.info-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--sandstone);
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.light-theme .info-content h2 {
+    color: var(--bronze);
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: var(--granite-gray);
+    color: #FFFFFF;
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    margin-bottom: 25px;
+}
+
+.light-theme .description {
+    color: var(--text-dark);
+}
+
+.details.hidden {
+    display: none;
+}
+
+.detail-section {
+    margin-bottom: 20px;
+}
+
+.detail-section h3 {
+    font-size: 1.2rem;
+    color: var(--saffron);
+    margin-bottom: 8px;
+}
+
+.light-theme .detail-section h3 {
+    color: var(--deep-blue);
+}
+
+.detail-section p {
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.light-theme .detail-section p {
+    color: var(--text-dark);
+    opacity: 0.8;
+}
+
+.detail-section ul {
+    padding-left: 20px;
+    color: var(--text-muted);
+}
+
+.light-theme .detail-section ul {
+    color: var(--text-dark);
+    opacity: 0.8;
+}
+
+.detail-section ul li {
+    margin-bottom: 5px;
+    line-height: 1.4;
     fill: var(--arch-bronze);
     stroke: white;
     stroke-width: 2;

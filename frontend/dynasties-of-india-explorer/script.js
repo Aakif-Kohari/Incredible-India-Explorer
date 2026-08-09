@@ -55,6 +55,18 @@
                     title: "Solanki (Chaulukya) Dynasty Explorer",
                     description: "Discover the Solanki Dynasty of Gujarat, the carved stepwell of Rani ki Vav, and the Sun Temple at Modhera.",
                     link: "frontend/solanki-dynasty-explorer/index.html"
+                },
+                {
+                    id: "dynasties-of-india-sisodia",
+                    title: "Sisodia (Mewar) Dynasty Explorer",
+                    description: "Explore the Sisodia Dynasty of Mewar, the fort of Chittorgarh, the Battle of Haldighati, and the legend of Maharana Pratap.",
+                    link: "frontend/sisodia-dynasty-explorer/index.html"
+                },
+                {
+                    id: "dynasties-of-india-ahom",
+                    title: "Ahom Dynasty Explorer",
+                    description: "Discover the Ahom Dynasty of Assam, the Battle of Saraighat, Rang Ghar, and six centuries of rule in the Brahmaputra valley.",
+                    link: "frontend/ahom-dynasty-explorer/index.html"
                 }
             ]);
         });

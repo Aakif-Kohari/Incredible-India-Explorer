@@ -14,8 +14,10 @@ import {
   filterRevolutionaryOrgs,
   filterLeaders,
   getDocumentById,
-  filterDocuments
-} from '../../frontend/freedom-movement-explorer/freedom-movement.js';
+  filterDocuments,
+  causeEffectChains,
+  getChainById
+} from '../../freedom-movement-explorer/freedom-movement.js';
 
 const REQUIRED_TIMELINE_FIELDS = [
   'id',
@@ -128,5 +130,49 @@ describe('Primary Historical Documents Archive', () => {
     const tryst = filterDocuments('destiny');
     expect(tryst.length).toBe(1);
     expect(tryst[0].author).toContain('Nehru');
+  });
+});
+
+describe('Cause and Effect Explorer Dataset & Helpers', () => {
+  it('contains at least 7 complete historical cause-effect chains', () => {
+    expect(causeEffectChains.length).toBeGreaterThanOrEqual(7);
+  });
+
+  it('every chain contains required cause, active, and consequence mappings', () => {
+    causeEffectChains.forEach(chain => {
+      expect(chain.id).toBeDefined();
+      expect(chain.title).toBeDefined();
+
+      // Cause Node
+      expect(chain.cause).toBeDefined();
+      expect(chain.cause.title).toBeDefined();
+      expect(chain.cause.year).toBeDefined();
+      expect(chain.cause.description).toBeDefined();
+      expect(chain.cause.eventId).toBeDefined();
+
+      // Active Node
+      expect(chain.active).toBeDefined();
+      expect(chain.active.title).toBeDefined();
+      expect(chain.active.year).toBeDefined();
+      expect(chain.active.description).toBeDefined();
+      expect(chain.active.eventId).toBeDefined();
+      expect(chain.active.location).toBeDefined();
+      expect(chain.active.movement).toBeDefined();
+      expect(Array.isArray(chain.active.leaders)).toBe(true);
+
+      // Consequence Node
+      expect(chain.consequence).toBeDefined();
+      expect(chain.consequence.title).toBeDefined();
+      expect(chain.consequence.year).toBeDefined();
+      expect(chain.consequence.description).toBeDefined();
+      expect(chain.consequence.eventId).toBeDefined();
+    });
+  });
+
+  it('retrieves cause-effect chains by id', () => {
+    const chain = getChainById('chain-salt-civildisobedience');
+    expect(chain).toBeDefined();
+    expect(chain.title).toContain('Salt Tax');
+    expect(chain.active.movement).toBe('Civil Disobedience');
   });
 });
