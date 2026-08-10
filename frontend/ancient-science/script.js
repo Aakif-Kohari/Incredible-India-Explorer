@@ -73,6 +73,7 @@ import { ancientScienceData } from './data.js';
           <h4>Impact</h4>
           <p>${item.significance}</p>
         </div>
+        ${item.link ? `<div class="back-action" style="margin-top: 10px;"><a href="${item.link}" class="btn-link" style="color: #fbbf24; text-decoration: underline; font-weight: bold;">Launch Dedicated Explorer ➔</a></div>` : ''}
       `;
       
       back.appendChild(contentBack);
