@@ -72,7 +72,7 @@ function initPlaqueCrafter() {
     const mode = state.fired ? "fired" : "wet";
 
     // 1. Draw Baseplate Backing Plate
-    ctx.fillStyle = paintColors.background[mode] === paintColors.unpainted[mode] 
+    ctx.fillStyle = (state.paints.background === "unpainted") 
       ? (state.fired ? "#a33a0c" : "#4e433a") // Background baseplate shade
       : paintColors[state.paints.background][mode];
     ctx.fillRect(0, 0, canvas.width, canvas.height);
