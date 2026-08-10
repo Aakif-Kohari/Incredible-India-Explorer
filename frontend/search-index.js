@@ -674,6 +674,12 @@ window.indiaSearchIndex = [
     url: "frontend/gujarati-cinema-explorer/index.html"
   },
   {
+    title: "Jallianwala Bagh Explorer",
+    category: "Freedom Struggle",
+    description: "Explore the Rowlatt Act, the unrest in Punjab, the 13 April 1919 massacre at Amritsar, the Hunter Commission, and its lasting impact on India's freedom movement.",
+    url: "frontend/jallianwala-bagh-explorer/index.html"
+  },
+  {
     title: "Ollywood (Odia Cinema) Explorer",
     category: "Culture",
     description: "Discover Ollywood, the Odia film industry of Odisha — from Sita Bibaha (1936), the first Odia film, to National Award-winning classics and the artists who built its legacy.",
@@ -770,6 +776,12 @@ window.indiaSearchIndex = [
     category: "Arts & Culture",
     description: "Regional textile traditions including Bandhani, Ikat, Chikankari, Phulkari, and Patola weaving.",
     url: "frontend/textiles/frontend/textiles/textiles.html"
+  },
+  {
+    title: "Patola Silk Weaving Explorer",
+    category: "Arts & Culture",
+    description: "Explore Patola Silk, Gujarat's double-ikat weaving tradition, Solanki dynasty patronage, and interactive loom visualizer.",
+    url: "frontend/patola-weaving-explorer/index.html"
   },
 
   // --- Musical Instruments ---
@@ -2303,6 +2315,12 @@ window.indiaSearchIndex = [
     title: "RIAF Revolt of 1946 Explorer",
     category: "Military Resistance",
     description: "Explore the Royal Indian Air Force revolt of January 1946 - post-war grievances, discrimination, the strike across 20+ air force stations, and its link to the Royal Indian Navy Mutiny.",
-    url: "frontend/riaf-revolt-1946-explorer/index.html"
+    url: "frontend/riaf-revolt-1946-explorer/index.html"},
+  // --- Siege of Seringapatam Explorer ---
+  {
+    title: "Siege of Seringapatam Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Siege of Seringapatam (1799 CE) - the final clash of the Fourth Anglo-Mysore War and the fall of the Kingdom of Mysore under Tipu Sultan.",
+    url: "frontend/siege-of-seringapatam-explorer/index.html"
   }
 ];
