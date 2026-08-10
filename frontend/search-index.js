@@ -662,6 +662,12 @@ window.indiaSearchIndex = [
     url: "frontend/student-youth-resistance-explorer/index.html"
   },
   {
+    title: "Women & Freedom Struggle Explorer",
+    category: "Freedom Struggle",
+    description: "Explore how Indian women participated across every phase of the freedom struggle — 1857, Swadeshi, Non-Cooperation, Civil Disobedience, Quit India, and the INA.",
+    url: "frontend/womens-participation-explorer/index.html"
+  },
+  {
     title: "Cellular Jail & Colonial Imprisonment Explorer",
     category: "Freedom Struggle",
     description: "Explore the Cellular Jail and other major colonial prisons — Yerawada, Aga Khan Palace, Alipore, Lahore Central Jail — and the freedom fighters held within them.",
@@ -1688,7 +1694,19 @@ window.indiaSearchIndex = [
     title: "Pahari Miniature Art Explorer",
     category: "Arts & Culture",
     description: "Explore Pahari Miniature Art — Himalayan painting schools comparison of Kangra, Basohli, and Guler, featuring lyrical lines, beetle-wing cases, romantic naturalism, and gallery.",
-    url: "frontend/pahari-miniature-art/index.html"
+    url: "frontend/pahari-miniature-art/index.html"},
+  // --- Rajput Miniature Paintings Explorer ---
+  {
+    title: "Rajput Miniature Paintings Explorer",
+    category: "Arts & Culture",
+    description: "Explore Rajput Miniature Paintings — Dynasty-wise collections of Mewar, Marwar, Kishangarh, Bundi-Kota, and Jaipur with Ragamala themes, Bani Thani, and color palette visualizer.",
+    url: "frontend/rajput-miniature-paintings/index.html"},
+  // --- Mughal Miniature Paintings Explorer ---
+  {
+    title: "Mughal Miniature Paintings Explorer",
+    category: "Arts & Culture",
+    description: "Explore Mughal Miniature Paintings — Imperial court artwork emphasizing court life, royal durbars, hunting expeditions, architecture, Persian synthesis, and naturalism.",
+    url: "frontend/mughal-miniature-paintings/index.html"
   },
   // --- Manjusha Painting Explorer ---
   {
@@ -2402,5 +2420,30 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Siege of Seringapatam (1799 CE) - the final clash of the Fourth Anglo-Mysore War and the fall of the Kingdom of Mysore under Tipu Sultan.",
     url: "frontend/siege-of-seringapatam-explorer/index.html"
+  },
+  // --- August Offer 1940 Explorer ---
+  {
+    title: "August Offer, 1940 Explorer",
+    category: "Constitutional Developments",
+    description: "Explore the August Offer of 8 August 1940 - Britain's wartime promise of Dominion Status, the expanded Executive Council, the minority veto, and how its rejection led to Individual Satyagraha.",
+    url: "frontend/august-offer-1940-explorer/index.html"
+  },
+  {
+    title: "August Offer, 1940 - Main Proposals",
+    category: "Constitutional Developments",
+    description: "The four clauses of the August Offer - Dominion Status as the objective, a future constitution-making body, expansion of the Executive Council, and constitutional commitments to minority interests.",
+    url: "frontend/august-offer-1940-explorer/index.html#proposals"
+  },
+  {
+    title: "August Offer, 1940 - Responses",
+    category: "Constitutional Developments",
+    description: "Congress rejected the August Offer, the Muslim League welcomed it as recognition of the two-nation theory, and Gandhi answered with Individual Satyagraha.",
+    url: "frontend/august-offer-1940-explorer/index.html#responses"
+  },
+  {
+    title: "August Offer, 1940 - Political Timeline",
+    category: "Constitutional Developments",
+    description: "A phase-filterable chronology from the outbreak of World War II and the Lahore Resolution to the August Offer, the Congress rejection, and Individual Satyagraha.",
+    url: "frontend/august-offer-1940-explorer/index.html#timeline"
   }
 ];
