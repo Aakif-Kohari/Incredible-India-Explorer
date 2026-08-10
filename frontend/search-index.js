@@ -1689,6 +1689,12 @@ window.indiaSearchIndex = [
     description: "Explore Kalighat Painting — 19th-century Bengal's iconic temple-ghat brushwork with bold single-stroke lines, divine themes, social satire, brushwork visualization and gallery.",
     url: "frontend/kalighat-painting-showcase/index.html"
   },
+  // --- Rajput Miniature Paintings Explorer ---
+  {
+    title: "Rajput Miniature Paintings Explorer",
+    category: "Arts & Culture",
+    description: "Explore Rajput Miniature Paintings — Dynasty-wise collections of Mewar, Marwar, Kishangarh, Bundi-Kota, and Jaipur with Ragamala themes, Bani Thani, and color palette visualizer.",
+    url: "frontend/rajput-miniature-paintings/index.html"},
   // --- Mughal Miniature Paintings Explorer ---
   {
     title: "Mughal Miniature Paintings Explorer",

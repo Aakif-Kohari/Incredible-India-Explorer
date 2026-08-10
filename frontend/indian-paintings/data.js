@@ -58,6 +58,26 @@ window.paintingsData = [
         link: "../gond-art-explorer/index.html"
     },
     {
+        id: "mughal-1",
+        title: "Emperor Akbar in Durbar",
+        style: "Mughal Miniature",
+        region: "North India",
+        image: "assets/mughal-1.jpg",
+        highRes: "assets/high-res/mughal-1.jpg",
+        description: "Imperial court miniature artwork fusing Persian elegance with Indian realism, featuring royal durbars, hunting expeditions, and botanical studies.",
+        link: "../mughal-miniature-paintings/index.html"
+    },
+    {
+        id: "rajput-1",
+        title: "Bani Thani of Kishangarh",
+        style: "Rajput Miniature",
+        region: "Rajasthan",
+        image: "assets/rajput-1.jpg",
+        highRes: "assets/high-res/rajput-1.jpg",
+        description: "Vibrant royal court miniature art showcasing kingdom-wise traditions of Mewar, Marwar, Kishangarh, Bundi-Kota, and Jaipur with rich mineral colors and Ragamala themes.",
+        link: "../rajput-miniature-paintings/index.html"
+    },
+    {
         id: "miniature-1",
         title: "Royal Hunt",
         style: "Miniature",
