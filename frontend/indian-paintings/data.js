@@ -78,6 +78,16 @@ window.paintingsData = [
         link: "../rajput-miniature-paintings/index.html"
     },
     {
+        id: "pahari-1",
+        title: "Radha & Krishna in Kangra Valley",
+        style: "Pahari Miniature",
+        region: "Himachal Pradesh",
+        image: "assets/pahari-1.jpg",
+        highRes: "assets/high-res/pahari-1.jpg",
+        description: "Poetic Himalayan miniature painting style featuring school comparisons of Kangra, Basohli, and Guler with delicate lines and lush nature backgrounds.",
+        link: "../pahari-miniature-art/index.html"
+    },
+    {
         id: "miniature-1",
         title: "Royal Hunt",
         style: "Miniature",
