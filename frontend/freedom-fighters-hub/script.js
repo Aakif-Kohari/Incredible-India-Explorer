@@ -451,6 +451,26 @@ const FREEDOM_FIGHTERS_DATA = [
         rareFacts: 'Remembered as one of the youngest martyrs of India\'s freedom struggle; several institutions in Odisha are named in his honor.',
         quote: 'I will not take the police to catch my own people.',
         explorerLink: '../baji-rout-explorer/index.html'
+    },
+    {
+        id: 'vanchinathan',
+        name: 'Vanchinathan',
+        title: 'South Indian Revolutionary',
+        lifespan: '1886 – 1911',
+        era: 'Swadeshi & Revolutionary Movement',
+        region: 'South',
+        birthplace: 'Senkottai, Tirunelveli',
+        movements: ['Swadeshi Movement', 'South Indian Revolutionary Circles'],
+        biography: 'Vanchinathan was a young revolutionary from Tirunelveli, Tamil Nadu, part of an early 20th-century South Indian nationalist movement influenced by the Swadeshi era and by regional leaders such as V. O. Chidambaram Pillai.',
+        timeline: [
+            { year: '1886', event: 'Born in Senkottai, Tirunelveli region, Madras Presidency.' },
+            { year: '1908', event: 'Tirunelveli-Tuticorin region saw major unrest connected to Swadeshi-era resistance.' },
+            { year: '1911', event: 'A significant, widely documented turning point in South India\'s revolutionary history.' }
+        ],
+        contributions: 'Part of the broader network of early 20th-century revolutionary nationalists demonstrating the geographic reach of anti-colonial resistance across South India.',
+        rareFacts: 'His activity is studied alongside other regional revolutionary movements active in Bengal, Maharashtra, and Punjab during the same period.',
+        quote: 'For the motherland, no sacrifice is too great.',
+        explorerLink: '../vanchinathan-explorer/index.html'
     }
 ];
 
