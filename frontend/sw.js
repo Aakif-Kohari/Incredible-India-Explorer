@@ -8,7 +8,7 @@
 // 1. CONFIGURATION & STATE
 // ==========================================================================
 
-const CACHE_VERSION = 'v2.6';
+const CACHE_VERSION = 'v2.7';
 const CACHE_NAME_STATIC = `india-explorer-static-${CACHE_VERSION}`;
 const CACHE_NAME_PAGES = `india-explorer-pages-${CACHE_VERSION}`;
 const CACHE_NAME_IMAGES = `india-explorer-images-${CACHE_VERSION}`;
@@ -44,7 +44,11 @@ const STATIC_ASSETS_TO_PRECACHE = [
   './alluri-sitarama-raju-explorer/index.html',
   './alluri-sitarama-raju-explorer/style.css',
   './alluri-sitarama-raju-explorer/script.js',
-  './alluri-sitarama-raju-explorer/assets/alluri-sitarama-raju-hd.jpg'
+  './alluri-sitarama-raju-explorer/assets/alluri-sitarama-raju-hd.jpg',
+  './quit-india-movement-explorer/index.html',
+  './quit-india-movement-explorer/style.css',
+  './quit-india-movement-explorer/script.js',
+  './quit-india-movement-explorer/assets/august-kranti-maidan-hd.jpg'
 ];
 
 // Max items allowed in dynamic caches to prevent storage overflow

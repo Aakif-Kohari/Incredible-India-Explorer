@@ -430,6 +430,29 @@ const FREEDOM_FIGHTERS_DATA = [
         rareFacts: 'The British spent over Rs 40 lakh to crush the rebellion; his birthday, 4 July, is celebrated as a state festival in Andhra Pradesh, and the Alluri Sitharama Raju district was carved out of Visakhapatnam in 2022.',
         quote: 'Jai Hind! This is but the beginning of the fight — the forest will keep the flame of Swaraj alive.',
         explorerLink: '../alluri-sitarama-raju-explorer/index.html'
+    },
+    {
+        id: 'quit-india-movement-bombay',
+        name: 'Quit India Movement — Bombay Launch',
+        title: 'Gowalia Tank Maidan, 8 August 1942',
+        lifespan: '8 – 9 August 1942',
+        era: 'Gandhian Era',
+        region: 'West',
+        birthplace: 'Gowalia Tank Maidan, Bombay',
+        movements: ['Quit India Movement', 'AICC Bombay Session 1942'],
+        biography: 'On 8 August 1942 the All India Congress Committee met at Gowalia Tank Maidan in Bombay and passed the Quit India Resolution demanding the immediate end of British rule in India. Jawaharlal Nehru moved the resolution, Sardar Patel seconded it, and Mahatma Gandhi gave the movement its mantra — "Do or Die" (Karo Ya Maro). Within hours of the session closing, the British arrested Gandhi, Nehru, Patel, Azad, Prasad, Naidu and Kripalani and carried them to Aga Khan Palace, Poona. The Bombay launch set off the widest wave of protests India had seen since 1857.',
+        timeline: [
+            { year: '14 Jul 1942', event: 'Congress Working Committee passes the Wardha draft of the Quit India resolution.' },
+            { year: '7 Aug 1942', event: 'The AICC opens its session under a great pandal at Gowalia Tank Maidan, Bombay.' },
+            { year: '8 Aug 1942', event: 'The Quit India Resolution is passed; Gandhi delivers his "Do or Die" speech.' },
+            { year: '9 Aug 1942', event: 'Pre-dawn mass arrests of the Congress leadership; Aruna Asaf Ali hoists the flag at the maidan.' },
+            { year: 'Aug 1942', event: 'Nationwide protests, strikes and sabotage from Bombay to Bihar; the government bans the Congress.' },
+            { year: '1945', event: 'The imprisoned leaders are released with the end of the war; Quit India made British rule impossible.' }
+        ],
+        contributions: 'The Bombay launch of the Quit India Movement made the demand for immediate freedom a national imperative, triggered the widest protest wave since 1857, and convinced the British that the Raj could not survive the war.',
+        rareFacts: 'The slogan "Quit India" was coined by the young Bombay socialist Yusuf Meherally; the maidan was renamed August Kranti Maidan after Independence, and India Post issued a commemorative stamp for the movement in 1992.',
+        quote: '"Karo Ya Maro" — "Do or Die." We shall either free India or die in the attempt; we shall not live to see the perpetuation of our slavery. — Mahatma Gandhi, Gowalia Tank Maidan, 8 August 1942',
+        explorerLink: '../quit-india-movement-explorer/index.html'
     }
 ];
 
