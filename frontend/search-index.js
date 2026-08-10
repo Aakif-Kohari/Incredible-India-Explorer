@@ -5,6 +5,12 @@
  */
 window.indiaSearchIndex = [
   {
+    title: "Gingee Fort Explorer",
+    category: "Heritage & History",
+    description: "Explore Gingee Fort: the Troy of the East in Tamil Nadu featuring three hill citadels (Rajagiri, Krishnagiri, Chandrayandurg), 8-year Maratha siege history, Kalyana Mahal tower, and grand fortifications.",
+    url: "frontend/gingee-fort-explorer/index.html"
+  },
+  {
     title: "Ancient Ports of India Explorer",
     category: "Heritage & History",
     description: "Explore 5,000 years of India's maritime heritage: interactive maps, search, historical timelines, and deep dive explorers into Lothal, Muziris, Arikamedu, and Tamralipta.",
@@ -1590,7 +1596,13 @@ window.indiaSearchIndex = [
     title: "Explore Jahangir's Zodiac Coins Explorer",
     category: "Arts & Culture",
     description: "Explore Emperor Jahangir's world-famous Zodiac coins — interactive gallery of all 12 astrological signs (Aries to Pisces), gold Mohurs, silver Rupees, Persian inscriptions, and Agra mint history.",
-    url: "frontend/jahangir-zodiac-coins-explorer/index.html"
+    url: "frontend/jahangir-zodiac-coins-explorer/index.html"},
+  // --- Maratha Coinage Explorer ---
+  {
+    title: "Discover Maratha Coinage Explorer",
+    category: "Arts & Culture",
+    description: "Build an interactive explorer covering Maratha-period coinage — including Chhatrapati Shivaji Maharaj's coronation Gold Hon, Copper Shivrai, Devanagari script decoder, symbol hotspots, and Peshwa silver currency.",
+    url: "frontend/maratha-coinage-explorer/index.html"
   },
   // --- Terracotta Pottery Explorer ---
   {
