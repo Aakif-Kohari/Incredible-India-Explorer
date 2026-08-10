@@ -2231,5 +2231,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Chronicle Jawaharlal Nehru's leadership in the Indian freedom movement, Congress presidency, Purna Swaraj declaration, 9 prison incarcerations, historic speeches, and nation-building.",
     url: "frontend/jawaharlal-nehru-explorer/index.html"
+  },
+  // --- Siege of Seringapatam Explorer ---
+  {
+    title: "Siege of Seringapatam Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Siege of Seringapatam (1799 CE) - the final clash of the Fourth Anglo-Mysore War and the fall of the Kingdom of Mysore under Tipu Sultan.",
+    url: "frontend/siege-of-seringapatam-explorer/index.html"
   }
 ];
