@@ -674,6 +674,12 @@ window.indiaSearchIndex = [
     url: "frontend/gujarati-cinema-explorer/index.html"
   },
   {
+    title: "Jallianwala Bagh Explorer",
+    category: "Freedom Struggle",
+    description: "Explore the Rowlatt Act, the unrest in Punjab, the 13 April 1919 massacre at Amritsar, the Hunter Commission, and its lasting impact on India's freedom movement.",
+    url: "frontend/jallianwala-bagh-explorer/index.html"
+  },
+  {
     title: "Ollywood (Odia Cinema) Explorer",
     category: "Culture",
     description: "Discover Ollywood, the Odia film industry of Odisha — from Sita Bibaha (1936), the first Odia film, to National Award-winning classics and the artists who built its legacy.",
