@@ -1585,6 +1585,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Coin Search and Advanced Filters Explorer ---
+  {
+    title: "Add Coin Search and Advanced Filters Explorer",
+    category: "Arts & Culture",
+    description: "Implement a search and filtering system allowing users to quickly find specific coins or coin traditions by ruler, dynasty, historical period, region, metal, script, symbol, and coin type.",
+    url: "frontend/coin-search-and-advanced-filters/index.html"
+  },
   // --- Terracotta Pottery Explorer ---
   {
     title: "Terracotta Pottery Explorer",
