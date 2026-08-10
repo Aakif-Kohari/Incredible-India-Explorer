@@ -754,7 +754,7 @@ export const freedomMapEvents = [
   { id: "m-1945-delhi", title: "Red Fort INA Trials", lat: 28.6, lng: 77.2, state: "delhi", year: 1945, movement: "INA", category: "Protest", leaders: "Shah Nawaz Khan, Prem Sahgal, Gurbaksh Singh Dhillon", brief: "Court-martial of INA officers sparked public outrage across India." },
   { id: "m-1946-bombay", title: "Royal Indian Navy Mutiny", lat: 19.0, lng: 72.8, state: "maharashtra", year: 1946, movement: "INA", category: "Protest", leaders: "M.S. Khan, Madan Singh", brief: "Naval ratings mutinied, proving colonial armed forces would no longer enforce rule." },
   { id: "m-1946-telangana", title: "Telangana Armed Struggle", lat: 17.4, lng: 78.5, state: "telangana", year: 1946, movement: "INA", category: "Armed Struggle", leaders: "Srirama Reddy, Baba Amte", brief: "Peasant armed struggle against feudal landlords supported by the Communist Party." },
-  { id: "m-1947-delhi", title: "Indian Independence (Tryst with Destiny)", lat: 28.6, lng: 77.2, state: "delhi", year: 1947, movement: "Civil Disobedience", category: "Political", leaders: "Jawaharlal Nehru, Mahatma Gandhi, Sardar Patel, B.R. Ambedkar", brief: "India attained independence, delivering Tryst with Destiny speech." }
+  { id: "m-1947-delhi", title: "Indian Independence (Tryst with Destiny)", lat: 28.6, lng: 77.2, state: "delhi", year: 1947, movement: "Civil Disobedience", category: "Political", leaders: "Jawaharlal Nehru, Mahatma Gandhi, Sardar Patel, B.R. Ambedkar", brief: "India attained independence, delivering Tryst with Destiny speech.", explorerLink: "../independence-partition-1947-explorer/index.html" }
 ];
 
 /* Helper Query Functions */
