@@ -1591,6 +1591,12 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Explore Jahangir's Zodiac Coins Explorer ---
+  {
+    title: "Explore Jahangir's Zodiac Coins Explorer",
+    category: "Arts & Culture",
+    description: "Explore Emperor Jahangir's world-famous Zodiac coins — interactive gallery of all 12 astrological signs (Aries to Pisces), gold Mohurs, silver Rupees, Persian inscriptions, and Agra mint history.",
+    url: "frontend/jahangir-zodiac-coins-explorer/index.html"},
   // --- Maratha Coinage Explorer ---
   {
     title: "Discover Maratha Coinage Explorer",
