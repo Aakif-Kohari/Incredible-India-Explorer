@@ -2401,5 +2401,30 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Explore the Siege of Seringapatam (1799 CE) - the final clash of the Fourth Anglo-Mysore War and the fall of the Kingdom of Mysore under Tipu Sultan.",
     url: "frontend/siege-of-seringapatam-explorer/index.html"
+  },
+  // --- August Offer 1940 Explorer ---
+  {
+    title: "August Offer, 1940 Explorer",
+    category: "Constitutional Developments",
+    description: "Explore the August Offer of 8 August 1940 - Britain's wartime promise of Dominion Status, the expanded Executive Council, the minority veto, and how its rejection led to Individual Satyagraha.",
+    url: "frontend/august-offer-1940-explorer/index.html"
+  },
+  {
+    title: "August Offer, 1940 - Main Proposals",
+    category: "Constitutional Developments",
+    description: "The four clauses of the August Offer - Dominion Status as the objective, a future constitution-making body, expansion of the Executive Council, and constitutional commitments to minority interests.",
+    url: "frontend/august-offer-1940-explorer/index.html#proposals"
+  },
+  {
+    title: "August Offer, 1940 - Responses",
+    category: "Constitutional Developments",
+    description: "Congress rejected the August Offer, the Muslim League welcomed it as recognition of the two-nation theory, and Gandhi answered with Individual Satyagraha.",
+    url: "frontend/august-offer-1940-explorer/index.html#responses"
+  },
+  {
+    title: "August Offer, 1940 - Political Timeline",
+    category: "Constitutional Developments",
+    description: "A phase-filterable chronology from the outbreak of World War II and the Lahore Resolution to the August Offer, the Congress rejection, and Individual Satyagraha.",
+    url: "frontend/august-offer-1940-explorer/index.html#timeline"
   }
 ];
