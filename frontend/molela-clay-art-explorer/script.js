@@ -478,17 +478,18 @@ function initTabs() {
 
   // Scroll spy
   const sections = tabs.map(t => document.getElementById(t.dataset.target)).filter(Boolean);
-  if (!window._molelaScrollHandler) {
-    window._molelaScrollHandler = () => {
-      const sy = window.scrollY + 200;
-      let current = sections[0];
-      sections.forEach(s => { if (s.offsetTop <= sy) current = s; });
-      if (current) {
-        tabs.forEach(t => t.classList.toggle("active", t.dataset.target === current.id));
-      }
-    };
-    window.addEventListener("scroll", window._molelaScrollHandler, { passive: true });
+  if (window._molelaScrollHandler) {
+    window.removeEventListener("scroll", window._molelaScrollHandler);
   }
+  window._molelaScrollHandler = () => {
+    const sy = window.scrollY + 200;
+    let current = sections[0];
+    sections.forEach(s => { if (s.offsetTop <= sy) current = s; });
+    if (current) {
+      tabs.forEach(t => t.classList.toggle("active", t.dataset.target === current.id));
+    }
+  };
+  window.addEventListener("scroll", window._molelaScrollHandler, { passive: true });
 }
 
 /* =========================================================
