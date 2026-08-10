@@ -74,7 +74,7 @@ function renderGallery() {
     grid.innerHTML = GALLERY_IMAGES.map(
         img => `
         <div class="gallery-card">
-            <img src="${img.url}" alt="${img.caption}" loading="lazy" />
+            <img src="${img.url}" alt="${img.caption}" loading="lazy" onerror="this.onerror=null; this.src='../assets/traditional_attires.png';" />
             <p>${img.caption}</p>
         </div>
     `
