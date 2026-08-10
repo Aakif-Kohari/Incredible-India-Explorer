@@ -307,6 +307,48 @@
             </div>
         </section>
 
+        <!-- ================= COIN SYMBOLS EXPLORER ================= -->
+        <section class="coin-symbols-section" id="coin-symbols-section">
+            <div class="coin-symbols-header">
+                <h2>Coin Symbols Explorer</h2>
+                <p>Discover the rich vocabulary of recurring iconography printed and stamped across 2,500+ years of Indian coinage. Search or filter by categories.</p>
+            </div>
+
+            <div class="coin-symbols-container">
+                <!-- Search & Filters -->
+                <div class="symbols-controls">
+                    <div class="symbols-search-wrapper">
+                        <i class="fa-solid fa-magnifying-glass symbols-search-icon"></i>
+                        <input type="text" id="symbols-search-input" class="symbols-search-input" placeholder="Search symbols (e.g. Bull, Sun, Lotus)...">
+                    </div>
+                    <div class="symbols-filter-row" id="symbols-filter-row">
+                        <button class="symbols-filter-btn active" data-category="all">All Categories</button>
+                        <button class="symbols-filter-btn" data-category="animals">Animals</button>
+                        <button class="symbols-filter-btn" data-category="deities">Deities</button>
+                        <button class="symbols-filter-btn" data-category="weapons">Weapons</button>
+                        <button class="symbols-filter-btn" data-category="plants">Plants</button>
+                        <button class="symbols-filter-btn" data-category="royal symbols">Royal symbols</button>
+                        <button class="symbols-filter-btn" data-category="religious symbols">Religious symbols</button>
+                    </div>
+                </div>
+
+                <!-- Grid of Symbols -->
+                <div class="symbols-grid" id="symbols-grid">
+                    <!-- Populated dynamically by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Details Modal Overlay -->
+        <div class="symbol-modal-overlay" id="symbol-modal-overlay">
+            <div class="symbol-modal-card">
+                <button class="symbol-modal-close-btn" id="symbol-modal-close-btn">&times;</button>
+                <div id="symbol-modal-content">
+                    <!-- Loaded dynamically by JS -->
+                </div>
+            </div>
+        </div>
+
         <!-- ================= TIMELINE + PROGRESS ================= -->
         <section class="coins-timeline-section">
             <div class="section-container coins-timeline-layout">
@@ -368,6 +410,7 @@
             if (typeof initCoinsPage === 'function') initCoinsPage();
             initCoinMap();
             initCoinComparison();
+            initCoinSymbols();
         });
 
         function initCoinMap() {
@@ -667,6 +710,225 @@
 
             // Initial render
             renderComparison();
+        }
+
+        function initCoinSymbols() {
+            const SYMBOLS_DB = [
+                {
+                    id: 'bull',
+                    name: 'Bull (Vrishabha)',
+                    category: 'animals',
+                    icon: 'fa-cow',
+                    meaning: 'Represents power, strength, agricultural prosperity, and spiritual fertility. In many ancient dynastic contexts, it is directly associated with Nandi, the vehicle of Lord Shiva, indicating Shaivite state patronage.',
+                    reference: 'Cunningham, A. (1891). Coins of Ancient India. London.',
+                    coins: [
+                        { name: 'Punch-Marked Silver Tanka', link: '#era-ancient' }
+                    ]
+                },
+                {
+                    id: 'garuda',
+                    name: 'Garuda Banner',
+                    category: 'royal symbols',
+                    icon: 'fa-dove',
+                    meaning: 'The celestial eagle Garuda is the vahana (vehicle) of Lord Vishnu. The Garudadhvaja (Garuda banner) was the official royal emblem of the imperial Guptas, signifying their sovereignty and Vaishnava faith.',
+                    reference: 'Altekar, A. S. (1954). Catalogue of the Gupta Gold Coins in the Bayana Hoard.',
+                    coins: [
+                        { name: 'Gupta Gold Archer Coin', link: '#era-mauryan-gupta' }
+                    ]
+                },
+                {
+                    id: 'elephant',
+                    name: 'Elephant (Gaja)',
+                    category: 'animals',
+                    icon: 'fa-hippo', // Closest FontAwesome icon for elephant if gaja is not standard
+                    meaning: 'A traditional symbol of royalty, majesty, strength, and abundance. Also symbolizes Gajalakshmi (goddess of wealth and fortune), bringing divine blessing to the state treasury.',
+                    reference: 'Gupta, P. L. (1969). Coins. National Book Trust, India.',
+                    coins: [
+                        { name: 'Punch-Marked Silver Tanka', link: '#era-ancient' },
+                        { name: 'Mysore Elephant Paisa', link: '#era-medieval' }
+                    ]
+                },
+                {
+                    id: 'kalima',
+                    name: 'Kalima Inscription',
+                    category: 'religious symbols',
+                    icon: 'fa-file-signature',
+                    meaning: 'The Islamic shahada declaration of faith stamped in neat calligraphy. Asserts the sovereign\'s religious alignment and political legitimacy within the medieval Islamic world.',
+                    reference: 'Lane-Poole, S. (1892). The Coins of the Moghul Emperors of Hindustan.',
+                    coins: [
+                        { name: 'Sher Shah Suri Rupiya', link: '#era-medieval' }
+                    ]
+                },
+                {
+                    id: 'dragon',
+                    name: 'Winged Dragon (Ngilikhlam)',
+                    category: 'royal symbols',
+                    icon: 'fa-dragon',
+                    meaning: 'The mythical winged dragon, a traditional sacred protector and royal crest of the Tai-Ahom dynasty. It signifies cosmic authority, strength, and ancestral protection of the state.',
+                    reference: 'Phukan, J. N. (1987). Ahom Numismatics: A Study of Royal Emblems.',
+                    coins: [
+                        { name: 'Ahom Octagonal Rupee', link: '#era-medieval' }
+                    ]
+                },
+                {
+                    id: 'lotus',
+                    name: 'Lotus (Padma)',
+                    category: 'plants',
+                    icon: 'fa-spa',
+                    meaning: 'Symbol of spiritual purity, beauty, and auspicious creation. Frequently shown holding the seating of Goddess Lakshmi, signifying prosperity and divine sanction.',
+                    reference: 'Sahni, B. (1945). The Technique of Casting Coins in Ancient India.',
+                    coins: [
+                        { name: 'Gupta Gold Archer Coin', link: '#era-mauryan-gupta' },
+                        { name: 'Mysore Elephant Paisa', link: '#era-medieval' }
+                    ]
+                },
+                {
+                    id: 'bow-arrow',
+                    name: 'Bow & Arrow (Dhanush)',
+                    category: 'weapons',
+                    icon: 'fa-bow-arrow',
+                    meaning: 'Indicates military valor, martial skills, and active protection of dharma. Used by the Guptas to portray the king as a universal conqueror (Chakravartin) and hunter.',
+                    reference: 'Allan, J. (1936). Catalogue of the Coins of Ancient India in the British Museum.',
+                    coins: [
+                        { name: 'Gupta Gold Archer Coin', link: '#era-mauryan-gupta' }
+                    ]
+                },
+                {
+                    id: 'sun',
+                    name: 'Sun Symbol (Surya)',
+                    category: 'astronomical symbols',
+                    icon: 'fa-sun',
+                    meaning: 'One of the oldest cosmic punch-marks. Signifies energy, light, truth, and imperial light. Also claims descent from the legendary Solar Dynasty (Suryavansha).',
+                    reference: 'Rapson, E. J. (1897). Indian Coins. Strassburg.',
+                    coins: [
+                        { name: 'Punch-Marked Silver Tanka', link: '#era-ancient' },
+                        { name: 'Kushan Gold Dinar', link: '#era-mauryan-gupta' }
+                    ]
+                },
+                {
+                    id: 'lakshmi',
+                    name: 'Goddess Lakshmi',
+                    category: 'deities',
+                    icon: 'fa-hands-holding',
+                    meaning: 'The Hindu goddess of wealth, fortune, and beauty. Seated on a lotus, she blesses the sovereign state with economic abundance and financial stability.',
+                    reference: 'Bhandarkar, D. R. (1921). Lectures on Ancient Indian Numismatics.',
+                    coins: [
+                        { name: 'Gupta Gold Archer Coin', link: '#era-mauryan-gupta' }
+                    ]
+                }
+            ];
+
+            const grid = document.getElementById('symbols-grid');
+            const searchInput = document.getElementById('symbols-search-input');
+            const filterRow = document.getElementById('symbols-filter-row');
+            const modal = document.getElementById('symbol-modal-overlay');
+            const modalContent = document.getElementById('symbol-modal-content');
+            const closeBtn = document.getElementById('symbol-modal-close-btn');
+
+            let currentCategory = 'all';
+            let searchQuery = '';
+
+            function renderGrid() {
+                const filtered = SYMBOLS_DB.filter(symbol => {
+                    const matchesCategory = currentCategory === 'all' || symbol.category === currentCategory;
+                    const matchesSearch = symbol.name.toLowerCase().includes(searchQuery) || 
+                                          symbol.meaning.toLowerCase().includes(searchQuery);
+                    return matchesCategory && matchesSearch;
+                });
+
+                if (filtered.length === 0) {
+                    grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 2rem;">No symbols found matching your criteria.</div>`;
+                    return;
+                }
+
+                grid.innerHTML = filtered.map(symbol => `
+                    <div class="symbol-card" data-id="${symbol.id}">
+                        <div class="symbol-card-icon-wrapper">
+                            <i class="fa-solid ${symbol.icon === 'fa-bow-arrow' ? 'fa-crosshairs' : symbol.icon}"></i>
+                        </div>
+                        <h3>${symbol.name}</h3>
+                        <span class="symbol-card-category">${symbol.category}</span>
+                    </div>
+                `).join('');
+
+                // Re-wire click events
+                grid.querySelectorAll('.symbol-card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        const id = card.dataset.id;
+                        openModal(id);
+                    });
+                });
+            }
+
+            function openModal(id) {
+                const symbol = SYMBOLS_DB.find(s => s.id === id);
+                if (!symbol) return;
+
+                const coinsHtml = symbol.coins.map(c => `
+                    <a href="${c.link}" class="symbol-coin-link">
+                        <i class="fa-solid fa-circle-arrow-right"></i>
+                        <span>${c.name}</span>
+                    </a>
+                `).join('');
+
+                modalContent.innerHTML = `
+                    <div class="symbol-modal-header">
+                        <div class="symbol-modal-icon-wrapper">
+                            <i class="fa-solid ${symbol.icon === 'fa-bow-arrow' ? 'fa-crosshairs' : symbol.icon}"></i>
+                        </div>
+                        <div class="symbol-modal-title">
+                            <h3>${symbol.name}</h3>
+                            <span class="symbol-card-category">${symbol.category}</span>
+                        </div>
+                    </div>
+                    <div class="symbol-modal-body">
+                        <h4>Symbolic Meaning</h4>
+                        <p>${symbol.meaning}</p>
+                        
+                        <h4>Associated Coins</h4>
+                        <div class="symbol-coins-links">
+                            ${coinsHtml}
+                        </div>
+
+                        <h4>Credible Reference</h4>
+                        <p class="symbol-modal-reference">${symbol.reference}</p>
+                    </div>
+                `;
+
+                modal.classList.add('active');
+
+                // Clicking explorer link closes modal
+                modalContent.querySelectorAll('.symbol-coin-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        modal.classList.remove('active');
+                    });
+                });
+            }
+
+            // Search input listener
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value.toLowerCase().trim();
+                renderGrid();
+            });
+
+            // Filter button listeners
+            filterRow.querySelectorAll('.symbols-filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterRow.querySelectorAll('.symbols-filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentCategory = btn.dataset.category;
+                    renderGrid();
+                });
+            });
+
+            // Close modal events
+            closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.classList.remove('active');
+            });
+
+            // Initial render
+            renderGrid();
         }
     </script>
     <script type="module" src="../auth.js"></script>
