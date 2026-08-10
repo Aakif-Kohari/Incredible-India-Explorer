@@ -1683,6 +1683,13 @@ window.indiaSearchIndex = [
     description: "Explore Kalighat Painting — 19th-century Bengal's iconic temple-ghat brushwork with bold single-stroke lines, divine themes, social satire, brushwork visualization and gallery.",
     url: "frontend/kalighat-painting-showcase/index.html"
   },
+  // --- Mughal Miniature Paintings Explorer ---
+  {
+    title: "Mughal Miniature Paintings Explorer",
+    category: "Arts & Culture",
+    description: "Explore Mughal Miniature Paintings — Imperial court artwork emphasizing court life, royal durbars, hunting expeditions, architecture, Persian synthesis, and naturalism.",
+    url: "frontend/mughal-miniature-paintings/index.html"
+  },
   // --- Manjusha Painting Explorer ---
   {
     title: "Manjusha Painting Explorer",

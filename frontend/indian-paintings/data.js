@@ -67,6 +67,16 @@ window.paintingsData = [
         description: "Highly detailed and intricately painted small-scale artwork that flourished under Rajput and Mughal patronage, known for delicate brushwork and rich colors."
     },
     {
+        id: "mughal-1",
+        title: "Emperor Akbar in Durbar",
+        style: "Mughal Miniature",
+        region: "North India",
+        image: "assets/mughal-1.jpg",
+        highRes: "assets/high-res/mughal-1.jpg",
+        description: "Imperial court miniature artwork fusing Persian elegance with Indian realism, featuring royal durbars, hunting expeditions, and botanical studies.",
+        link: "../mughal-miniature-paintings/index.html"
+    },
+    {
         id: "phad-1",
         title: "Tale of Pabuji",
         style: "Phad",
