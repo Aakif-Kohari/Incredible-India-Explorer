@@ -1,4 +1,9 @@
 document.addEventListener("app:route-changed", () => {
+  const root = document.querySelector(".cripps-main");
+  if (!root) return;
+  if (root.dataset.crippsInit === "true") return;
+  root.dataset.crippsInit = "true";
+
   const bookmarkButtons = [...document.querySelectorAll(".journey-bookmark-btn")];
 
   // --- Journey Integration (Bookmarks & Global Search) -------------
