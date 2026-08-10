@@ -1,9 +1,14 @@
-// script.js - Molela Clay Art Explorer Interactive Controller
+function runMolelaInit() {
+  initPlaqueCrafter();
+  initJourneyIntegration();
+  initTabs();
+}
 
-// Initialize on load (handles both direct page load and SPA insertions)
-initPlaqueCrafter();
-initJourneyIntegration();
-initTabs();
+// Run immediately on script load
+runMolelaInit();
+
+// Listen for SPA route change events
+document.addEventListener("app:route-changed", runMolelaInit);
 
 /**
  * 1. Plaque Crafter State & Drawing Engine
@@ -11,6 +16,12 @@ initTabs();
 function initPlaqueCrafter() {
   const canvas = document.getElementById("plaque-canvas");
   if (!canvas) return;
+
+  if (canvas.dataset.initialized === "true") {
+    if (window.molelaRedrawPlaque) window.molelaRedrawPlaque();
+    return;
+  }
+  canvas.dataset.initialized = "true";
 
   const ctx = canvas.getContext("2d");
   const tempGauge = document.getElementById("temp-gauge-container");
@@ -517,6 +528,7 @@ function initPlaqueCrafter() {
   });
 
   // Draw initial
+  window.molelaRedrawPlaque = drawPlaque;
   drawPlaque();
 }
 
@@ -526,6 +538,8 @@ function initPlaqueCrafter() {
 function initJourneyIntegration() {
   const bookmarkBtn = document.getElementById("molela-bookmark-btn");
   if (!bookmarkBtn) return;
+  if (bookmarkBtn.dataset.initialized === "true") return;
+  bookmarkBtn.dataset.initialized = "true";
 
   const id = "molela-clay-art";
   const title = "Molela Clay Art Explorer";
@@ -581,6 +595,11 @@ function registerSearchItems() {
  * 3. Tab Smooth Scrolling
  */
 function initTabs() {
+  const container = document.querySelector(".molela-tab-container");
+  if (!container) return;
+  if (container.dataset.initialized === "true") return;
+  container.dataset.initialized = "true";
+
   const tabs = [...document.querySelectorAll(".tab-btn")];
   if (tabs.length === 0) return;
 
