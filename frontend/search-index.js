@@ -1683,6 +1683,13 @@ window.indiaSearchIndex = [
     description: "Explore Kalighat Painting — 19th-century Bengal's iconic temple-ghat brushwork with bold single-stroke lines, divine themes, social satire, brushwork visualization and gallery.",
     url: "frontend/kalighat-painting-showcase/index.html"
   },
+  // --- Bhil Art Explorer ---
+  {
+    title: "Bhil Art Explorer",
+    category: "Arts & Culture",
+    description: "Explore Bhil Art — Indigenous tribal art of Central India featuring colorful dot patterns, Pithora sacred horses, sun-moon motifs, traditional pigments, materials, and gallery.",
+    url: "frontend/bhil-art-explorer/index.html"
+  },
   // --- Manjusha Painting Explorer ---
   {
     title: "Manjusha Painting Explorer",
