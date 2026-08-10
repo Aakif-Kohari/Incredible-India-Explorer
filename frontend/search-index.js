@@ -1055,7 +1055,7 @@ window.indiaSearchIndex = [
     description: "Trace 5 major Indian river systems (Ganga, Yamuna, Godavari, Krishna, Brahmaputra) from source to mouth on an SVG map with accuracy scoring.",
     url: "frontend/river-trace/index.html"
   },
-{
+  {
     title: "India's National Parks Timeline",
     category: "Nature & Wildlife",
     description: "Interactive visual timeline showing when India's national parks and wildlife sanctuaries were established.",
@@ -1066,12 +1066,12 @@ window.indiaSearchIndex = [
     category: "Nature & Wildlife",
     description: "Explore the Nilgiri Marten (Martes gwatkinsii) — India's only endemic marten, found in the shola forests and montane grasslands of the Western Ghats, its ecology and conservation.",
     url: "frontend/nilgiri-marten-explorer/index.html"
-  },  {
+  }, {
     title: "Brown Palm Civet Explorer",
     category: "Nature & Wildlife",
     description: "Explore the Brown Palm Civet (Paradoxurus jerdoni) — a nocturnal, frugivorous civet endemic to the Western Ghats rainforests, its ecology, IUCN status, and conservation.",
     url: "frontend/brown-palm-civet-explorer/index.html"
-  },  {
+  }, {
     title: "Jim Corbett National Park Timeline",
     category: "National Parks Timeline",
     description: "Established in 1936 as Hailey National Park, India's oldest protected area.",
@@ -1113,7 +1113,8 @@ window.indiaSearchIndex = [
     title: "UP Tourism Highlights & Interactive Portal",
     category: "UP Central Portal",
     description: "Explore UP heritage, Taj Mahal, Varanasi Ghats, Ayodhya Ram Mandir, Awadhi Cuisine, and 10 tourism modules.",
-    url: "frontend/up-dashboard/up-dashboard.html"},
+    url: "frontend/up-dashboard/up-dashboard.html"
+  },
   // --- Uttar Pradesh District Explorer ---
   {
     title: "Uttar Pradesh District Explorer",
@@ -1125,7 +1126,8 @@ window.indiaSearchIndex = [
     title: "UP 75 Districts Interactive Map & Guide",
     category: "UP State Explorer",
     description: "Search and filter all 75 UP districts across 18 divisions and 4 geographic regions with SVG map and detail inspector.",
-    url: "frontend/up-district-explorer/up-district-explorer.html"},
+    url: "frontend/up-district-explorer/up-district-explorer.html"
+  },
   // --- Guess the Uttar Pradesh District Game ---
   {
     title: "Guess the Uttar Pradesh District Game",
@@ -1137,7 +1139,8 @@ window.indiaSearchIndex = [
     title: "Uttar Pradesh District Quiz & Clues Challenge",
     category: "UP Geography Game",
     description: "Identify UP districts from handicraft ODOP, river landmarks, and history with scoreboard, timer, hints, and achievement badges.",
-    url: "frontend/guess-up-district/guess-up-district.html"},
+    url: "frontend/guess-up-district/guess-up-district.html"
+  },
   // --- Uttar Pradesh Filming Locations Explorer ---
   {
     title: "Uttar Pradesh Filming Locations Explorer",
@@ -1149,7 +1152,8 @@ window.indiaSearchIndex = [
     title: "Varanasi & Taj Mahal Movie Locations",
     category: "UP Filming Locations",
     description: "Discover movie cards, behind-the-scenes trivia, and interactive gallery for movies filmed in Uttar Pradesh.",
-    url: "frontend/up-filming/up-filming.html"},
+    url: "frontend/up-filming/up-filming.html"
+  },
   // --- Uttar Pradesh Pilgrimage Circuit Planner ---
   {
     title: "Uttar Pradesh Pilgrimage Circuit Planner",
@@ -1174,7 +1178,8 @@ window.indiaSearchIndex = [
     title: "India Agricultural Yields & Green Revolution Guide",
     category: "Agricultural History",
     description: "Interactive before/after yield comparison chart, 4 technological pillars, and balanced dual framing of food security vs groundwater considerations.",
-    url: "frontend/green-revolution/green-revolution.html"},
+    url: "frontend/green-revolution/green-revolution.html"
+  },
   // --- History of Indian Railways Timeline ---
   {
     title: "Animated Timeline: History of Indian Railways",
@@ -1186,7 +1191,8 @@ window.indiaSearchIndex = [
     title: "1853 to Present Indian Railways Historical Narrative",
     category: "Railways History",
     description: "Explore 170+ years of Indian Railways with animated train track visualization, neutral factual framing, and technical specs.",
-    url: "frontend/railways-timeline/railways-timeline.html"},
+    url: "frontend/railways-timeline/railways-timeline.html"
+  },
   // --- Famous Monuments Explorer ---
   {
     title: "Famous Monuments Explorer",
@@ -1198,7 +1204,8 @@ window.indiaSearchIndex = [
     title: "Taj Mahal & Bara Imambara 3D Explorer",
     category: "UP Monuments Guide",
     description: "Explore historical timelines, architectural specs, and interactive 3D perspective cards of iconic Uttar Pradesh heritage monuments.",
-    url: "frontend/up-monuments/up-monuments.html"},
+    url: "frontend/up-monuments/up-monuments.html"
+  },
   // --- Uttar Pradesh Festival Calendar ---
   {
     title: "Uttar Pradesh Festival Calendar",
@@ -1217,13 +1224,15 @@ window.indiaSearchIndex = [
     title: "Animated Map: Historical Spread of Buddhism from India",
     category: "History & Geography",
     description: "Animated expanding-path map detailing the historical transmission of Buddhism across Asia from Bodh Gaya across Sri Lanka, Silk Road, and East Asia.",
-    url: "frontend/buddhism-spread-map/index.html"},
+    url: "frontend/buddhism-spread-map/index.html"
+  },
   // --- Capital Match-Up ---
   {
     title: "Capital Match-Up Game",
     category: "Games & Geography",
     description: "Interactive drag-and-drop and tap-to-select matching game pairing Indian states and union territories with their capitals.",
-    url: "frontend/capital-match-up/index.html"},
+    url: "frontend/capital-match-up/index.html"
+  },
   // --- UP Heritage Arc Explorer ---
   {
     title: "Uttar Pradesh Heritage Arc Explorer",
@@ -1249,7 +1258,8 @@ window.indiaSearchIndex = [
     title: "India State Literacy Census Statistics (1951–2011)",
     category: "Census Statistics",
     description: "Decennial state literacy ranking race, play/pause controls, search filters, and Census of India sourcing disclaimer.",
-    url: "frontend/literacy-chart-race/literacy-chart-race.html"},
+    url: "frontend/literacy-chart-race/literacy-chart-race.html"
+  },
   // --- How Indian Classical Ragas Work (Time-of-Day Theory) ---
   {
     title: "Animated Explainer: How Indian Classical Ragas Work (Time-of-Day Theory)",
@@ -1261,7 +1271,8 @@ window.indiaSearchIndex = [
     title: "Indian Classical Music Samaya Chakra & Ragas Guide",
     category: "Musicology",
     description: "Explore Raga Bhairav, Yaman, Darbari Kanada, Malkauns, Brindavani Sarang, and Lalit with original musicological text descriptions.",
-    url: "frontend/ragas-time-explainer/ragas-time-explainer.html"},
+    url: "frontend/ragas-time-explainer/ragas-time-explainer.html"
+  },
   // --- Partition of India, 1947 ---
   {
     title: "Scrollytelling: Partition of India, 1947 — A Factual Overview",
@@ -1280,25 +1291,29 @@ window.indiaSearchIndex = [
     title: "Data Viz: Language Diversity Map (Animated Reveal)",
     category: "Data & Languages",
     description: "Animated map progressively revealing India's linguistic diversity, layering major languages by speaker population based on Census of India data.",
-    url: "frontend/language-diversity-map/index.html"},
+    url: "frontend/language-diversity-map/index.html"
+  },
   // --- Animated Explainer: How the Monsoon Farming Cycle Works ---
   {
     title: "Animated Explainer: How the Monsoon Farming Cycle Works",
     category: "Agriculture & Geography",
     description: "Explains the kharif/rabi/zaid crop cycles tied to monsoon timing with an animated circular calendar wheel and verified crop season data.",
-    url: "frontend/monsoon-farming-cycle/index.html"},
+    url: "frontend/monsoon-farming-cycle/index.html"
+  },
   // --- Scrollytelling: Life Along the Himalayas ---
   {
     title: "Scrollytelling: Life Along the Himalayas",
     category: "Geography & Culture",
     description: "A narrative journey through Himalayan geography, culture, and daily life across 4 altitude zones from foothills to glacial cold deserts.",
-    url: "frontend/himalayan-life-scrollytelling/index.html"},
+    url: "frontend/himalayan-life-scrollytelling/index.html"
+  },
   // --- Animated Infographic: India's Biodiversity Hotspots ---
   {
     title: "Animated Infographic: India's Biodiversity Hotspots",
     category: "Environment & Wildlife",
     description: "Animated infographic highlighting India's four recognized biodiversity hotspots: Himalaya, Western Ghats, Indo-Burma, and Sundaland/Nicobar.",
-    url: "frontend/biodiversity-hotspots/index.html"},
+    url: "frontend/biodiversity-hotspots/index.html"
+  },
   // --- Animated Explainer: India's Space Program Milestones ---
   {
     title: "Animated Explainer: India's Space Program Milestones",
@@ -1332,13 +1347,15 @@ window.indiaSearchIndex = [
     title: "Satopanth Mountain Explorer",
     category: "Mountains & Geography",
     description: "Dedicated explorer for Satopanth, a 7,075 m high peak in the Garhwal Range of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
-    url: "frontend/satopanth/satopanth.html"},
+    url: "frontend/satopanth/satopanth.html"
+  },
   // --- Changabang Mountain ---
   {
     title: "Changabang Mountain Explorer",
     category: "Mountains & Geography",
     description: "Dedicated explorer for Changabang, a 6,864 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, and FAQs.",
-    url: "frontend/changabang/changabang.html"},
+    url: "frontend/changabang/changabang.html"
+  },
   // --- Shivling Mountain ---
   {
     title: "Shivling Mountain Explorer",
@@ -1351,13 +1368,15 @@ window.indiaSearchIndex = [
     title: "Panchachuli I Mountain Explorer",
     category: "Mountains & Geography",
     description: "Dedicated explorer for Panchachuli I, a 6,355 m peak in the Kumaon Himalayas of Uttarakhand, featuring trekking information, map locations, image gallery, and FAQs.",
-    url: "frontend/panchachuli-i/panchachuli-i.html"},
+    url: "frontend/panchachuli-i/panchachuli-i.html"
+  },
   // --- Swargarohini Mountain ---
   {
     title: "Swargarohini Mountain Explorer",
     category: "Mountains & Geography",
     description: "Dedicated explorer for Swargarohini, a 6,252 m high massif in the Garhwal Himalayas of Uttarakhand, featuring mythological history, trekking routes, map locations, image gallery, and FAQs.",
-    url: "frontend/swargarohini/swargarohini.html"},
+    url: "frontend/swargarohini/swargarohini.html"
+  },
   // --- Bandarpoonch Mountain ---
   {
     title: "Bandarpoonch Mountain Explorer",
@@ -1444,13 +1463,15 @@ window.indiaSearchIndex = [
     title: "Reo Purgyil Mountain Explorer",
     category: "Mountains & Geography",
     description: "Dedicated explorer for Reo Purgyil, a 6,816 m high peak in the Zanskar Range of Himachal Pradesh, featuring facts, map locations, image gallery, and trivia.",
-    url: "frontend/reo-purgyil/reo-purgyil.html"},
+    url: "frontend/reo-purgyil/reo-purgyil.html"
+  },
   // --- Saltoro Kangri Mountain ---
   {
     title: "Saltoro Kangri Mountain Explorer",
     category: "Mountains & Geography",
     description: "Dedicated explorer for Saltoro Kangri, a 7,742 m high peak in the Karakoram Range of Ladakh, featuring facts, map locations, image gallery, and trivia.",
-    url: "frontend/saltoro-kangri/saltoro-kangri.html"},
+    url: "frontend/saltoro-kangri/saltoro-kangri.html"
+  },
   // --- Meru Peak Mountain ---
   {
     title: "Meru Peak Mountain Explorer",
@@ -1484,7 +1505,8 @@ window.indiaSearchIndex = [
     title: "Panchachuli II Mountain Explorer",
     category: "Mountains & Geography",
     description: "Explore Panchachuli II Mountain, a 6,904 m high peak in the Kumaon Himalayas of Uttarakhand.",
-    url: "frontend/panchachuli-ii/panchachuli-ii.html"},
+    url: "frontend/panchachuli-ii/panchachuli-ii.html"
+  },
   // --- Nanda Kot Mountain ---
   {
     title: "Nanda Kot Mountain Explorer",
@@ -1539,7 +1561,8 @@ window.indiaSearchIndex = [
     title: "Beddome's Coral Snake Explorer",
     category: "National Parks & Wildlife",
     description: "Explore Beddome's Coral Snake (Calliophis beddomei) — endemic venomous elapid of Western Ghats leaf litter, scientific taxonomy, behavior, diet, and conservation status.",
-    url: "frontend/beddomes-coral-snake-explorer/index.html"},
+    url: "frontend/beddomes-coral-snake-explorer/index.html"
+  },
   // --- Sikh Empire Explorer ---
   {
     title: "Sikh Empire Explorer",
@@ -1587,7 +1610,8 @@ window.indiaSearchIndex = [
     title: "Bidriware Craftsmanship Explorer",
     category: "Arts & Culture",
     description: "Explore Bidriware Craftsmanship — GI-tagged metal handicraft of Bidar, Karnataka featuring pure silver wire inlay, Bidar fort soil oxidation, and Persian motifs.",
-    url: "frontend/bidriware-craftsmanship-explorer/index.html"},
+    url: "frontend/bidriware-craftsmanship-explorer/index.html"
+  },
   // --- Bastar Iron Craft Explorer ---
   {
     title: "Bastar Iron Craft Explorer",
@@ -1600,13 +1624,15 @@ window.indiaSearchIndex = [
     title: "Kingdom of Mewar Explorer",
     category: "Indian Empires & History",
     description: "Explore the Kingdom of Mewar (728–1949) — Maharana Pratap, Bappa Rawal, Rana Kumbha, Chittorgarh Fort, Kumbhalgarh Wall, and Rajput resistance.",
-    url: "frontend/mewar-kingdom-explorer/index.html"},
+    url: "frontend/mewar-kingdom-explorer/index.html"
+  },
   // --- Kingdom of Jaipur Explorer ---
   {
     title: "Kingdom of Jaipur Explorer",
     category: "Indian Empires & History",
     description: "Explore the Kingdom of Jaipur (1128–1949) — Kachwaha Rajput rulers, Sawai Jai Singh II, grid-planned Pink City architecture, Jantar Mantar, and Amer Fort.",
-    url: "frontend/jaipur-kingdom-explorer/index.html"},
+    url: "frontend/jaipur-kingdom-explorer/index.html"
+  },
   // --- Kingdom of Cochin Explorer ---
   {
     title: "Kingdom of Cochin Explorer",
@@ -1614,14 +1640,15 @@ window.indiaSearchIndex = [
     description: "Explore the Kingdom of Cochin (1102–1949) — Queen of the Arabian Sea, spice trade routes, Sakthan Thampuran, Mattancherry Palace, and Thrissur Pooram.",
     url: "frontend/cochin-kingdom-explorer/index.html"
   },
-   
+
   // --- Kingdom of Mysore Explorer ---
   {
     title: "Kingdom of Mysore Explorer",
     category: "Indian Empires & History",
     description: "Explore the Kingdom of Mysore (1399–1947) — Wadiyar dynasty, Hyder Ali, Tipu Sultan, Mysorean rockets, Mysore Dasara, and Mysore Palace.",
-    url: "frontend/mysore-kingdom-explorer/index.html"},
-    
+    url: "frontend/mysore-kingdom-explorer/index.html"
+  },
+
   // --- Kingdom of Travancore Explorer ---
   {
     title: "Kingdom of Travancore Explorer",
@@ -1634,7 +1661,8 @@ window.indiaSearchIndex = [
     title: "Haiderpur Wetland Explorer",
     category: "Wetlands & Ramsar Sites",
     description: "Explore Haiderpur Wetland in Muzaffarnagar & Bijnor, UP — Ramsar Site #2463, Madhya Ganga Barrage floodplain sanctuary for Barasingha and 25,000+ waterbirds.",
-    url: "frontend/haiderpur-wetland-explorer/index.html"},
+    url: "frontend/haiderpur-wetland-explorer/index.html"
+  },
   // --- Sultanpur National Park & Wetland Explorer ---
   {
     title: "Sultanpur National Park & Wetland Explorer",
@@ -1675,25 +1703,29 @@ window.indiaSearchIndex = [
     title: "Gooty Sapphire Ornamental Tarantula Explorer",
     category: "Nature & Wildlife",
     description: "Explore the Gooty Sapphire Ornamental Tarantula (Poecilotheria metallica) — Critically Endangered electric-blue arboreal tarantula endemic to Andhra Pradesh.",
-    url: "frontend/gooty-sapphire-tarantula-explorer/index.html"},
+    url: "frontend/gooty-sapphire-tarantula-explorer/index.html"
+  },
   // --- Anamalai Flying Frog Explorer ---
   {
     title: "Anamalai Flying Frog Explorer",
     category: "Nature & Wildlife",
     description: "Explore the Anamalai Flying Frog (Rhacophorus pseudomalabaricus) — Critically Endangered zebra-striped cloud forest glider endemic to the Anamalai Hills.",
-    url: "frontend/anamalai-flying-frog-explorer/index.html"},
+    url: "frontend/anamalai-flying-frog-explorer/index.html"
+  },
   // --- Malabar Gliding Frog Explorer ---
   {
     title: "Malabar Gliding Frog Explorer",
     category: "Nature & Wildlife",
     description: "Explore the Malabar Gliding Frog (Rhacophorus malabaricus) — emerald canopy gliding tree frog of the Western Ghats with vibrant orange webbed parachutes.",
-    url: "frontend/malabar-gliding-frog-explorer/index.html"},
+    url: "frontend/malabar-gliding-frog-explorer/index.html"
+  },
   // --- Travancore Flying Frog Explorer ---
   {
     title: "Travancore Flying Frog Explorer",
     category: "Nature & Wildlife",
     description: "Explore the Travancore Flying Frog (Rhacophorus travancoricus) — Endangered canopy gliding frog endemic to rainforests of the southern Western Ghats.",
-    url: "frontend/travancore-flying-frog-explorer/index.html"},
+    url: "frontend/travancore-flying-frog-explorer/index.html"
+  },
   // --- Indian Golden Gecko Explorer ---
   {
     title: "Indian Golden Gecko Explorer",
@@ -1706,25 +1738,29 @@ window.indiaSearchIndex = [
     title: "Udhwa Wetlands Explorer",
     category: "Wetlands & Ramsar Sites",
     description: "Explore Udhwa Wetlands in Sahibganj, Jharkhand — Jharkhand's only Ramsar Site, featuring twin Patauda & Berhale oxbow lakes.",
-    url: "frontend/udhwa-wetlands-explorer/index.html"},
+    url: "frontend/udhwa-wetlands-explorer/index.html"
+  },
   // --- Vellode Wetland Explorer ---
   {
     title: "Vellode Wetland Explorer",
     category: "Wetlands & Ramsar Sites",
     description: "Explore Vellode Wetland (Vellode Bird Sanctuary) in Erode, Tamil Nadu — Ramsar Site, farmer-welcomed freshwater bird sanctuary for Spot-billed Pelicans and Darters.",
-    url: "frontend/vellode-wetland-explorer/index.html"},
+    url: "frontend/vellode-wetland-explorer/index.html"
+  },
   // --- Point Calimere Wetland Explorer ---
   {
     title: "Point Calimere Wetland Explorer",
     category: "Wetlands & Ramsar Sites",
     description: "Explore Point Calimere Wildlife & Bird Sanctuary in Nagapattinam, Tamil Nadu — coastal Ramsar Site No. 1210 famed for 30,000+ wintering flamingos, blackbucks, and the Muthupet mangroves.",
-    url: "frontend/point-calimere-wetland-explorer/index.html"},
+    url: "frontend/point-calimere-wetland-explorer/index.html"
+  },
   // --- Satkosia Gorge Wetlands Explorer ---
   {
     title: "Satkosia Gorge Wetlands Explorer",
     category: "Wetlands & Ramsar Sites",
     description: "Explore Satkosia Gorge Wetlands in Odisha — 22 km Mahanadi River gorge Ramsar site, pioneer sanctuary for Gharials and Mugger crocodiles.",
-    url: "frontend/satkosia-gorge-wetlands-explorer/index.html"},
+    url: "frontend/satkosia-gorge-wetlands-explorer/index.html"
+  },
   // --- Ansupa Lake Explorer ---
   {
     title: "Ansupa Lake Explorer",
@@ -1751,25 +1787,29 @@ window.indiaSearchIndex = [
     title: "Keshopur-Miani Wetland Explorer",
     category: "Wetlands & Ramsar Sites",
     description: "Explore Keshopur-Miani Community Reserve in Punjab — Punjab's first Ramsar Site, community reserve model, Sarus Crane habitat, and bird sanctuary.",
-    url: "frontend/keshopur-miani-wetland-explorer/index.html"},
+    url: "frontend/keshopur-miani-wetland-explorer/index.html"
+  },
   // --- Shallabug Wetland Explorer ---
   {
     title: "Shallabug Wetland Explorer",
     category: "Wetlands & Ramsar Sites",
     description: "Explore Shallabug Wetland Conservation Reserve in Kashmir — Ramsar Site, 200,000+ wintering migratory birds, and traditional wicker willow heritage.",
-    url: "frontend/shallabug-wetland-explorer/index.html"},
+    url: "frontend/shallabug-wetland-explorer/index.html"
+  },
   // --- Hygam Wetland Explorer ---
   {
     title: "Hygam Wetland Explorer",
     category: "Wetlands & Ramsar Sites",
     description: "Explore Hygam Wetland Conservation Reserve in Baramulla, Kashmir — Ramsar Site, Central Asian Flyway stopover, and flood sponge in the Jhelum basin.",
-    url: "frontend/hygam-wetland-explorer/index.html"},
+    url: "frontend/hygam-wetland-explorer/index.html"
+  },
   // --- Pala Wetland Explorer ---
   {
     title: "Pala Wetland Explorer",
     category: "Wetlands & Ramsar Sites",
     description: "Explore Pala Wetland (Pala Tipa) in Mizoram — Mizoram's first Ramsar Site and largest natural freshwater lake surrounded by tropical evergreen forests.",
-    url: "frontend/pala-wetland-explorer/index.html"},
+    url: "frontend/pala-wetland-explorer/index.html"
+  },
   // --- Wadhvana Wetland Explorer ---
   {
     title: "Wadhvana Wetland Explorer",
@@ -1810,36 +1850,41 @@ window.indiaSearchIndex = [
     description: "Explore 10 great empires and civilizations from Indus Valley, Mahajanapadas, Maurya, Gupta, Chalukya, Chola, Vijayanagara, Mughal, Maratha, and Sikh Empire with interactive territorial expansion and decline maps.",
     url: "frontend/indian-empires-explorer/index.html"
   },
-{
+  {
     title: "Territorial Expansion & Decline Maps of Indian Empires",
     category: "Historical Cartography",
     description: "Interactive SVG maps rendering foundation, peak apex territory, and decline stages for Maurya, Gupta, Chola, Vijayanagara, Mughal, Maratha, and Sikh empires.",
-    url: "frontend/indian-empires-explorer/index.html"},
-  
+    url: "frontend/indian-empires-explorer/index.html"
+  },
+
   // --- General Elections Timeline ---
   {
     title: "Interactive General Elections Timeline",
     category: "Governance & Politics",
     description: "Historical timeline of all Lok Sabha elections from 1951 to 2024 featuring winning parties, Prime Ministers, voter turnout trends, major issues, and coalition dynamics.",
-    url: "frontend/general-elections-timeline/index.html"},
+    url: "frontend/general-elections-timeline/index.html"
+  },
   // --- Chief Justices of India Timeline ---
   {
     title: "Interactive Chief Justices of India Timeline",
     category: "Governance & Politics",
     description: "Educational page showcasing Chief Justices of India, appointment dates, landmark judgments, court reforms, and search by decade.",
-    url: "frontend/chief-justices-timeline/index.html"},
+    url: "frontend/chief-justices-timeline/index.html"
+  },
   // --- Periyar National Park Explorer ---
   {
     title: "Periyar National Park Explorer",
     category: "National Parks & Wildlife",
     description: "Explore Periyar National Park & Tiger Reserve in Kerala — Periyar Lake boat safaris, Asian Elephants, Cardamom Hills spice forests, interactive map, and photo gallery.",
-    url: "frontend/periyar-national-park-explorer/index.html"} ,
+    url: "frontend/periyar-national-park-explorer/index.html"
+  },
   // --- Freedom Fighters Knowledge Hub ---
   {
     title: "Freedom Fighters Interactive Knowledge Hub",
     category: "History & Heritage",
     description: "Educational encyclopedia featuring biographies, timelines, revolutionary movements, rare facts, and quotes of India's freedom fighters.",
-    url: "frontend/freedom-fighters-hub/index.html"},
+    url: "frontend/freedom-fighters-hub/index.html"
+  },
   {
     title: "Captain Lakshmi Sahgal Explorer",
     category: "Freedom Struggle",
@@ -1858,25 +1903,29 @@ window.indiaSearchIndex = [
     title: "Kolleru Lake Explorer",
     category: "Ecosystems & Wetlands",
     description: "Explore Kolleru Lake in Andhra Pradesh — India's premier Spot-billed Pelican sanctuary, Krishna-Godavari freshwater basin, Ramsar Site #1209, and rich fish diversity.",
-    url: "frontend/kolleru-lake/index.html"},
+    url: "frontend/kolleru-lake/index.html"
+  },
   // --- Loktak Lake Explorer ---
   {
     title: "Loktak Lake Explorer",
     category: "Ecosystems & Wetlands",
     description: "Explore Loktak Lake in Manipur — World's only floating national park (Keibul Lamjao), floating Phumdis, endangered Sangai Dancing Deer, and Meitei culture.",
-    url: "frontend/loktak-lake/index.html"},
+    url: "frontend/loktak-lake/index.html"
+  },
   // --- Chilika Lake Explorer ---
   {
     title: "Chilika Lake Explorer",
     category: "Ecosystems & Wetlands",
     description: "Explore Chilika Lake in Odisha — Asia's largest brackish water lagoon, Ramsar Site #229, Irrawaddy Dolphins, Nalabana Bird Sanctuary, and winter migratory waterfowl.",
-    url: "frontend/chilika-lake/index.html"},
+    url: "frontend/chilika-lake/index.html"
+  },
   // --- Wetlands of India Explorer Landing Page ---
   {
     title: "Wetlands of India Explorer",
     category: "Ecosystems & Wetlands",
     description: "Interactive central landing page for exploring the Wetlands of India — Ramsar Sites, lagoons, lakes, marshes, mangroves, interactive maps, search, and state/type filters.",
-    url: "frontend/wetlands/index.html"},
+    url: "frontend/wetlands/index.html"
+  },
   // --- Hemis National Park Explorer ---
   {
     title: "Hemis National Park Explorer",
@@ -1903,7 +1952,8 @@ window.indiaSearchIndex = [
     title: "Interactive Indian Superlatives Explorer",
     category: "Geography & Nature",
     description: "Discover the largest, highest, longest, and oldest wonders of India featuring interactive cards, scale comparison infographics, and geographical map visualization.",
-    url: "frontend/indian-superlatives-explorer/index.html"},
+    url: "frontend/indian-superlatives-explorer/index.html"
+  },
   // --- Prime Ministers of India Timeline ---
   {
     title: "Prime Ministers of India Timeline",
@@ -1923,7 +1973,8 @@ window.indiaSearchIndex = [
     title: "Sahitya Akademi Award Explorer",
     category: "Awards & Honours",
     description: "Explore India's National Academy of Letters and its premier literary honour — history since 1954, year instituted, eligibility, the 24 languages covered, selection process, categories, notable awardees, timeline, facts, and gallery.",
-    url: "frontend/sahitya-akademi-award-explorer/index.html"},
+    url: "frontend/sahitya-akademi-award-explorer/index.html"
+  },
   // --- Sangeet Natak Akademi Award Explorer ---
   {
     title: "Sangeet Natak Akademi Award Explorer",
@@ -1992,7 +2043,8 @@ window.indiaSearchIndex = [
     title: "Mangalore Ancient Port Explorer",
     category: "Featured Explorers",
     description: "Discover Mangalore, the historic southwest coast port of Karnataka, its ancient maritime trade, Bunder harbour, spice and sandalwood exports, and the modern New Mangalore Port.",
-    url: "frontend/mangalore-port-explorer/index.html"},
+    url: "frontend/mangalore-port-explorer/index.html"
+  },
   // --- Barkur Port Explorer ---
   {
     title: "Barkur Ancient Port Explorer",
@@ -2019,7 +2071,8 @@ window.indiaSearchIndex = [
     title: "Hoysala Dynasty Explorer",
     category: "Featured Explorers",
     description: "Explore the Hoysala Dynasty of Karnataka (c. 950-1343 CE) - the tiger-slayer origin legend, major rulers, and the star-shaped temple masterpieces of Belur, Halebidu, and Somanathapura.",
-    url: "frontend/hoysala-dynasty-explorer/index.html"},
+    url: "frontend/hoysala-dynasty-explorer/index.html"
+  },
   // --- Gopakapattana Port Explorer ---
   {
     title: "Gopakapattana Ancient Port Explorer",
@@ -2047,7 +2100,7 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Discover Cuddalore (Koodaloor), historic river-confluence harbour, handloom textile exports, Fort St. David, and Coromandel coastal heritage.",
     url: "frontend/cuddalore-port-explorer/index.html"
-    },
+  },
   // --- Battle of Buxar Explorer ---
   {
     title: "Battle of Buxar Explorer",
@@ -2060,19 +2113,22 @@ window.indiaSearchIndex = [
     title: "Siege of Chittorgarh (1535) Explorer",
     category: "Featured Explorers",
     description: "Explore the second jauhar of Chittor (8 March 1535) - Rani Karnavati's final sacrifice and Mewar's defiance against Bahadur Shah's Gujarat Sultanate, and the survival of Udai Singh's Sisodia line.",
-    url: "frontend/siege-of-chittor-1535-explorer/index.html"},
+    url: "frontend/siege-of-chittor-1535-explorer/index.html"
+  },
   // --- Siege of Chittor Explorer ---
   {
     title: "Siege of Chittor Explorer",
     category: "Featured Explorers",
     description: "Explore the Siege of Chittorgarh (1567-1568) - Akbar's four-month siege of the Sisodia capital of Mewar, the defiant defence of Jaimal and Patta, and the third jauhar of Chittor.",
-    url: "frontend/siege-of-chittor-explorer/index.html"},
+    url: "frontend/siege-of-chittor-explorer/index.html"
+  },
   // --- Battle of Ravi Explorer ---
   {
     title: "Battle of Ravi Explorer",
     category: "Featured Explorers",
     description: "Explore the Battle of Ravi (1306 CE) - Alauddin Khalji's decisive victory over the last Mongol invasion of India, when Malik Kafur crushed Kopek's Chagatai army on the banks of the Ravi River.",
-    url: "frontend/battle-of-ravi-explorer/index.html"},
+    url: "frontend/battle-of-ravi-explorer/index.html"
+  },
   // --- Battle of Jalore Explorer ---
   {
     title: "Battle of Jalore Explorer",
@@ -2106,7 +2162,8 @@ window.indiaSearchIndex = [
     title: "Kalinga War History Explorer",
     category: "Featured Explorers",
     description: "Explore the Battle of Kalinga (261 BCE) - the epic clash between Emperor Ashoka's Maurya Empire and Kalinga, leading to Ashoka's conversion to Buddhism and non-violence.",
-    url: "frontend/kalinga-war-explorer/index.html"},
+    url: "frontend/kalinga-war-explorer/index.html"
+  },
   // --- Battle of Plassey Explorer ---
   {
     title: "Battle of Plassey Explorer",
@@ -2126,13 +2183,15 @@ window.indiaSearchIndex = [
     title: "Siege of Chittor (1303) Explorer",
     category: "Featured Explorers",
     description: "Explore the Siege of Chittorgarh (1303) - the historic conflict between Alauddin Khalji and Guhila King Ratnasimha, the legend of Rani Padmini, and the first Jauhar.",
-    url: "frontend/siege-of-chittor-1303-explorer/index.html"},
+    url: "frontend/siege-of-chittor-1303-explorer/index.html"
+  },
   // --- Battle of Sripurambiyam Explorer ---
   {
     title: "Battle of Sripurambiyam Explorer",
     category: "Featured Explorers",
     description: "Explore the Battle of Sripurambiyam (c. 879 CE) - the watershed Dravidian clash near Kumbakonam that broke Pandya hegemony and paved the way for the rise of the Imperial Cholas under Aditya I.",
-    url: "frontend/battle-of-sripurambiyam-explorer/index.html"},
+    url: "frontend/battle-of-sripurambiyam-explorer/index.html"
+  },
   // --- Battle of Pullalur Explorer ---
   {
     title: "Battle of Pullalur Explorer",
@@ -2152,19 +2211,22 @@ window.indiaSearchIndex = [
     title: "Battle of Khanwa Explorer",
     category: "Featured Explorers",
     description: "Explore the Battle of Khanwa (1527 CE) - the decisive conflict between Babur and Rana Sanga that strengthened Mughal rule in northern India.",
-    url: "frontend/battle-of-khanwa-explorer/index.html"},
+    url: "frontend/battle-of-khanwa-explorer/index.html"
+  },
   // --- Battle of Talikota Explorer ---
   {
     title: "Battle of Talikota Explorer",
     category: "Featured Explorers",
     description: "Explore the Battle of Talikota (1565 CE) - the decisive clash between the Vijayanagara Empire and the united Deccan Sultanates alliance, leading to the fall of the empire and the ruins of Hampi.",
-    url: "frontend/battle-of-talikota-explorer/index.html"},
+    url: "frontend/battle-of-talikota-explorer/index.html"
+  },
   // --- Battle of Raichur Explorer ---
   {
     title: "Battle of Raichur Explorer",
     category: "Featured Explorers",
     description: "Explore the Battle of Raichur (1520 CE) - Emperor Krishnadevaraya's historic siege and open clash that established Vijayanagara dominance in the Deccan.",
-    url: "frontend/battle-of-raichur-explorer/index.html"},
+    url: "frontend/battle-of-raichur-explorer/index.html"
+  },
   // --- Battle of Amroha Explorer ---
   {
     title: "Battle of Amroha Explorer",
@@ -2177,26 +2239,30 @@ window.indiaSearchIndex = [
     title: "Battle of Wadgaon Explorer",
     category: "Featured Explorers",
     description: "Explore the Battle of Wadgaon (1779 CE) - the decisive Maratha victory under Mahadji Shinde over the British during the First Anglo-Maratha War.",
-    url: "frontend/battle-of-wadgaon-explorer/index.html"},
+    url: "frontend/battle-of-wadgaon-explorer/index.html"
+  },
   // --- Battle of Diu (1509) Explorer ---
   {
     title: "Battle of Diu Explorer",
     category: "Featured Explorers",
     description: "Explore the Battle of Diu (1509 CE) - the decisive naval clash that established Portuguese hegemony in the Indian Ocean and ended local monopolies.",
-    url: "frontend/battle-of-diu-explorer/index.html"},
+    url: "frontend/battle-of-diu-explorer/index.html"
+  },
   // --- Battle of Khajwa Explorer ---
   {
     title: "Battle of Khajwa Explorer",
     category: "Featured Explorers",
     description: "Explore the Battle of Khajwa (1659 CE) - the decisive succession struggle where Aurangzeb defeated his brother Shah Shuja and secured the Mughal crown.",
-    url: "frontend/battle-of-khajwa-explorer/index.html"},
+    url: "frontend/battle-of-khajwa-explorer/index.html"
+  },
   // --- Battle of Chausa Explorer ---
   {
     title: "Battle of Chausa Explorer",
     category: "Featured Explorers",
     description: "Explore the Battle of Chausa (1539 CE) - the decisive conflict where Sher Shah Suri defeated Humayun and established the Suri dynasty.",
-    url: "frontend/battle-of-chausa-explorer/index.html"},
-      
+    url: "frontend/battle-of-chausa-explorer/index.html"
+  },
+
   // --- Battle of Ghaghra Explorer ---
   {
     title: "Battle of Ghaghra Explorer",
@@ -2231,5 +2297,12 @@ window.indiaSearchIndex = [
     category: "Featured Explorers",
     description: "Chronicle Jawaharlal Nehru's leadership in the Indian freedom movement, Congress presidency, Purna Swaraj declaration, 9 prison incarcerations, historic speeches, and nation-building.",
     url: "frontend/jawaharlal-nehru-explorer/index.html"
+  },
+  // --- RIAF Revolt of 1946 Explorer ---
+  {
+    title: "RIAF Revolt of 1946 Explorer",
+    category: "Military Resistance",
+    description: "Explore the Royal Indian Air Force revolt of January 1946 - post-war grievances, discrimination, the strike across 20+ air force stations, and its link to the Royal Indian Navy Mutiny.",
+    url: "frontend/riaf-revolt-1946-explorer/index.html"
   }
 ];
