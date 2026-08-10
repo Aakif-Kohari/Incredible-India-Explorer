@@ -471,6 +471,26 @@ const FREEDOM_FIGHTERS_DATA = [
         rareFacts: 'His activity is studied alongside other regional revolutionary movements active in Bengal, Maharashtra, and Punjab during the same period.',
         quote: 'For the motherland, no sacrifice is too great.',
         explorerLink: '../vanchinathan-explorer/index.html'
+    },
+    {
+        id: 'bagha-jatin',
+        name: 'Jatindranath Mukherjee (Bagha Jatin)',
+        title: 'Leader of the Jugantar Movement',
+        lifespan: '1879 – 1915',
+        era: 'Bengal Revolutionary Movement',
+        region: 'East',
+        birthplace: 'Kaya, Bengal Presidency',
+        movements: ['Jugantar Group', 'Bengal Revolutionary Network'],
+        biography: 'Jatindranath Mukherjee, known as "Bagha Jatin," was a central organizing leader of Bengal\'s early 20th-century revolutionary movement, associated with the Jugantar group, who died following the 1915 Battle of Balasore.',
+        timeline: [
+            { year: '1879', event: 'Born in Kaya, Bengal Presidency.' },
+            { year: '1900s–1910s', event: 'Rose to leadership within the Jugantar revolutionary network.' },
+            { year: 'Sept 1915', event: 'Fatally wounded in a confrontation with British forces near Balasore.' }
+        ],
+        contributions: 'Built and led an extensive revolutionary network across Bengal, mentoring a generation of nationalists and becoming a central figure in the region\'s armed independence movement.',
+        rareFacts: 'Earned the name "Bagha Jatin" (Tiger Jatin) after a widely recounted incident demonstrating his physical courage.',
+        quote: 'We shall die to awaken the nation.',
+        explorerLink: '../bagha-jatin-explorer/index.html'
     }
 ];
 
