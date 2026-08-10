@@ -242,6 +242,71 @@
             </div>
         </section>
 
+        <!-- ================= COIN COMPARISON ================= -->
+        <section class="coin-compare-section" id="coin-compare-section">
+            <div class="coin-compare-header">
+                <h2>Numismatic Comparison Studio</h2>
+                <p>Select two coin collections from different historical eras side-by-side to discover differences in their rulers, scripts, weights, metals, and historical context.</p>
+            </div>
+
+            <div class="coin-compare-container">
+                <!-- Dropdown selectors -->
+                <div class="coin-compare-selectors">
+                    <div class="coin-compare-select-group">
+                        <label for="coin-select-a">Coin A</label>
+                        <select id="coin-select-a" class="coin-compare-select">
+                            <option value="punch-marked" selected>Punch-Marked Silver Tanka</option>
+                            <option value="kushan-dinar">Kushan Gold Dinar</option>
+                            <option value="gupta-archer">Gupta Gold Archer Coin</option>
+                            <option value="suri-rupiya">Sher Shah Suri Rupiya</option>
+                            <option value="ahom-octagonal">Ahom Octagonal Rupee</option>
+                            <option value="mysore-elephant">Mysore Elephant Paisa</option>
+                        </select>
+                    </div>
+
+                    <div class="coin-compare-selectors-vs" style="align-self: flex-end; font-family: var(--font-heading); font-size: 1.5rem; font-weight: bold; color: var(--primary-gold); padding-bottom: 10px;">VS</div>
+
+                    <div class="coin-compare-select-group">
+                        <label for="coin-select-b">Coin B</label>
+                        <select id="coin-select-b" class="coin-compare-select">
+                            <option value="punch-marked">Punch-Marked Silver Tanka</option>
+                            <option value="kushan-dinar" selected>Kushan Gold Dinar</option>
+                            <option value="gupta-archer">Gupta Gold Archer Coin</option>
+                            <option value="suri-rupiya">Sher Shah Suri Rupiya</option>
+                            <option value="ahom-octagonal">Ahom Octagonal Rupee</option>
+                            <option value="mysore-elephant">Mysore Elephant Paisa</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Side-by-side Visuals -->
+                <div class="coin-compare-visuals-grid">
+                    <div class="coin-compare-visual-card" id="visual-card-a">
+                        <!-- Content loaded by JS -->
+                    </div>
+                    <div class="coin-compare-visual-card" id="visual-card-b">
+                        <!-- Content loaded by JS -->
+                    </div>
+                </div>
+
+                <!-- Comparison Table -->
+                <div class="coin-compare-table-wrapper">
+                    <table class="coin-compare-table">
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th id="table-header-coin-a">Coin A</th>
+                                <th id="table-header-coin-b">Coin B</th>
+                            </tr>
+                        </thead>
+                        <tbody id="compare-table-body">
+                            <!-- Comparison fields populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
         <!-- ================= TIMELINE + PROGRESS ================= -->
         <section class="coins-timeline-section">
             <div class="section-container coins-timeline-layout">
@@ -302,6 +367,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof initCoinsPage === 'function') initCoinsPage();
             initCoinMap();
+            initCoinComparison();
         });
 
         function initCoinMap() {
@@ -447,6 +513,160 @@
                     updateSidebar(stateId);
                 });
             });
+        }
+
+        function initCoinComparison() {
+            const COINS_COMPARE_DB = {
+                'punch-marked': {
+                    name: 'Punch-Marked Silver Tanka',
+                    era: 'Ancient coinage',
+                    img: '../assets/coin1.png',
+                    period: 'Ancient (~600 BCE – 300 BCE)',
+                    ruler: 'Maurya Empire / Mahajanapadas',
+                    region: 'Gandhara / Magadha (North & East)',
+                    metal: 'Silver (Karshapana / Tanka)',
+                    weight: '~3.4 grams',
+                    symbols: 'Sun, Six-armed wheel, Hill, Bull, Elephant',
+                    script: 'Uninscribed (Symbols only)',
+                    design: 'Flat, irregular-shaped silver ingot punched with 5 distinct punch symbols.',
+                    context: 'The earliest form of currency in India, backing major ancient trade networks.'
+                },
+                'kushan-dinar': {
+                    name: 'Kushan Gold Dinar',
+                    era: 'Gupta & Kushan Era',
+                    img: '../assets/coin2.png',
+                    period: 'Kushan Era (1st – 3rd Century CE)',
+                    ruler: 'Kanishka the Great',
+                    region: 'Gandhara / Northwestern India',
+                    metal: 'Gold (Dinar / Suvarna)',
+                    weight: '~7.9 grams',
+                    symbols: 'King standing at altar, Greek/Bactrian deity on reverse',
+                    script: 'Greek / Bactrian script',
+                    design: 'Circular coin, high relief portraiture with Greco-Roman stylistic influence.',
+                    context: 'Showcases the economic peak of Silk Road trade under Kushan sovereignty.'
+                },
+                'gupta-archer': {
+                    name: 'Gupta Gold Archer Coin',
+                    era: 'Gupta Era',
+                    img: '../assets/coin3.png',
+                    period: 'Gupta Empire (320 – 550 CE)',
+                    ruler: 'Chandragupta II (Vikramaditya)',
+                    region: 'Northern & Central India',
+                    metal: 'Gold (Dinar / Suvarna)',
+                    weight: '~8.2 grams',
+                    symbols: 'King with Bow, Garuda banner, Goddess Lakshmi seated on lotus',
+                    script: 'Brahmi script (Classical Sanskrit)',
+                    design: 'Circular coin featuring exquisite classical Indian execution.',
+                    context: 'Minted during India\'s Golden Age, representing state prosperity and fine art.'
+                },
+                'suri-rupiya': {
+                    name: 'Sher Shah Suri Rupiya',
+                    era: 'Medieval / Mughal Era',
+                    img: '../assets/coin4.png',
+                    period: 'Medieval Era (1540 – 1545 CE)',
+                    ruler: 'Sher Shah Suri',
+                    region: 'Northern India / Bengal',
+                    metal: 'Silver (Rupiya)',
+                    weight: '~11.5 grams',
+                    symbols: 'Kalima declaration, Names of 4 Caliphs in margins',
+                    script: 'Persian-Arabic & Devanagari script',
+                    design: 'Circular, broad flat coin with neat geometric border lines.',
+                    context: 'The original standardized silver coin that established the modern Rupee denomination.'
+                },
+                'ahom-octagonal': {
+                    name: 'Ahom Octagonal Rupee',
+                    era: 'Medieval Era',
+                    img: '../assets/coin5.png',
+                    period: 'Ahom Dynasty (18th Century CE)',
+                    ruler: 'Pramatta Singha',
+                    region: 'Assam (Northeastern India)',
+                    metal: 'Silver (Rupee)',
+                    weight: '~11.2 grams',
+                    symbols: 'Ngilikhlam (winged Ahom dragon) at bottom margin',
+                    script: 'Bengali-Assamese script (Sanskrit language)',
+                    design: 'Unique octagonal shape, dense inscription margins on both sides.',
+                    context: 'Ahom coinage retained its distinct octagonal shape following regional mystic cosmologies.'
+                },
+                'mysore-elephant': {
+                    name: 'Mysore Elephant Paisa',
+                    era: 'Princely States Era',
+                    img: '../assets/coin6.png',
+                    period: 'Mysore Kingdom (~1782 – 1799 CE)',
+                    ruler: 'Tipu Sultan',
+                    region: 'Seringapatam (Southern India)',
+                    metal: 'Copper (Paisa)',
+                    weight: '~11.0 grams',
+                    symbols: 'Caparisoned elephant on obverse, floral motifs',
+                    script: 'Persian script (dating in Mauludi calendar)',
+                    design: 'Circular copper coin with bold animal motif and decorative borders.',
+                    context: 'Tipu Sultan\'s independent economic reforms defying British East India Company.'
+                }
+            };
+
+            const selectA = document.getElementById('coin-select-a');
+            const selectB = document.getElementById('coin-select-b');
+            const cardA = document.getElementById('visual-card-a');
+            const cardB = document.getElementById('visual-card-b');
+            const tableBody = document.getElementById('compare-table-body');
+            const headerA = document.getElementById('table-header-coin-a');
+            const headerB = document.getElementById('table-header-coin-b');
+
+            function renderComparison() {
+                const idA = selectA.value;
+                const idB = selectB.value;
+                const coinA = COINS_COMPARE_DB[idA];
+                const coinB = COINS_COMPARE_DB[idB];
+
+                if (!coinA || !coinB) return;
+
+                // Update headers
+                headerA.textContent = coinA.name;
+                headerB.textContent = coinB.name;
+
+                // Update visual cards
+                cardA.innerHTML = `
+                    <div class="coin-compare-visual-image-wrapper">
+                        <img src="${coinA.img}" alt="${coinA.name}" onerror="this.replaceWith(Object.assign(document.createElement('i'), {className: 'fa-solid fa-coins fallback-icon'}))">
+                    </div>
+                    <h3>${coinA.name}</h3>
+                    <p>${coinA.era}</p>
+                `;
+
+                cardB.innerHTML = `
+                    <div class="coin-compare-visual-image-wrapper">
+                        <img src="${coinB.img}" alt="${coinB.name}" onerror="this.replaceWith(Object.assign(document.createElement('i'), {className: 'fa-solid fa-coins fallback-icon'}))">
+                    </div>
+                    <h3>${coinB.name}</h3>
+                    <p>${coinB.era}</p>
+                `;
+
+                // Update comparison table fields
+                const fields = [
+                    { label: 'Period', key: 'period' },
+                    { label: 'Ruler', key: 'ruler' },
+                    { label: 'Region', key: 'region' },
+                    { label: 'Metal', key: 'metal' },
+                    { label: 'Weight', key: 'weight' },
+                    { label: 'Symbols', key: 'symbols' },
+                    { label: 'Script', key: 'script' },
+                    { label: 'Design', key: 'design' },
+                    { label: 'Historical Context', key: 'context' }
+                ];
+
+                tableBody.innerHTML = fields.map(field => `
+                    <tr>
+                        <td>${field.label}</td>
+                        <td>${coinA[field.key]}</td>
+                        <td>${coinB[field.key]}</td>
+                    </tr>
+                `).join('');
+            }
+
+            selectA.addEventListener('change', renderComparison);
+            selectB.addEventListener('change', renderComparison);
+
+            // Initial render
+            renderComparison();
         }
     </script>
     <script type="module" src="../auth.js"></script>
