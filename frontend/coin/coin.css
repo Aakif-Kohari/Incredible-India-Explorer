@@ -1,0 +1,320 @@
+/* ==========================================================================
+   COIN.CSS - STYLES FOR THE COINS PAGE INTERACTIVE INDIA MAP
+   ========================================================================== */
+
+/* Variables scoped to Coin Map */
+:root {
+  --map-bg: rgba(15, 23, 42, 0.6);
+  --card-bg: rgba(30, 41, 59, 0.7);
+  --state-fill: rgba(255, 255, 255, 0.08);
+  --state-stroke: rgba(255, 255, 255, 0.2);
+  --state-hover-fill: rgba(255, 176, 31, 0.25);
+  --state-active-fill: rgba(255, 176, 31, 0.6);
+  --text-color: #ffffff;
+}
+
+/* Light Theme Variables Override */
+body.light-theme {
+  --map-bg: rgba(248, 250, 252, 0.8);
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --state-fill: rgba(0, 0, 0, 0.05);
+  --state-stroke: rgba(0, 0, 0, 0.15);
+  --state-hover-fill: rgba(255, 176, 31, 0.3);
+  --state-active-fill: rgba(255, 176, 31, 0.7);
+  --text-color: #0f172a;
+}
+
+/* Interactive Coin Map Section Layout */
+.coin-map-section {
+  padding: 4rem 1.5rem;
+  background: radial-gradient(circle at center, rgba(30, 41, 59, 0.15) 0%, rgba(15, 23, 42, 0.3) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.coin-map-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (max-width: 968px) {
+  .coin-map-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Section Header */
+.coin-map-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+}
+
+.coin-map-header h2 {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, #ffffff 0%, var(--primary-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.light-theme .coin-map-header h2 {
+  background: linear-gradient(135deg, #0f172a 0%, var(--primary-gold-alt) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.coin-map-header p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+/* Map Wrapper & Interactive States */
+.coin-map-wrapper {
+  background: var(--map-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 520px;
+}
+
+#india-coin-map {
+  width: 100%;
+  height: 100%;
+  max-height: 480px;
+}
+
+#india-coin-map .state {
+  fill: var(--state-fill);
+  stroke: var(--state-stroke);
+  stroke-width: 2.5;
+  transition: var(--transition-snappy);
+  cursor: pointer;
+}
+
+#india-coin-map .state:hover,
+#india-coin-map .state:focus {
+  fill: var(--state-hover-fill);
+  stroke: var(--primary-gold);
+  filter: drop-shadow(0 0 8px rgba(255, 176, 31, 0.4));
+  outline: none;
+}
+
+#india-coin-map .state.active {
+  fill: var(--state-active-fill);
+  stroke: var(--primary-gold);
+  filter: drop-shadow(0 0 12px rgba(255, 176, 31, 0.6));
+}
+
+#india-coin-map .non-interactive {
+  pointer-events: none;
+}
+
+/* Coin Mints/Markers */
+.coin-marker {
+  fill: var(--primary-gold);
+  stroke: #ffffff;
+  stroke-width: 1.5;
+  cursor: pointer;
+  transition: var(--transition-snappy);
+  animation: pulseMarker 2s infinite alternate;
+}
+
+.coin-marker:hover {
+  fill: var(--primary-saffron);
+  transform: scale(1.3);
+}
+
+@keyframes pulseMarker {
+  0% {
+    r: 6;
+    filter: drop-shadow(0 0 2px rgba(255, 176, 31, 0.5));
+  }
+  100% {
+    r: 9;
+    filter: drop-shadow(0 0 8px rgba(255, 176, 31, 0.9));
+  }
+}
+
+/* Map Labels */
+#india-coin-map text {
+  fill: var(--text-color);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Info Sidebar Card */
+.coin-info-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.coin-info-card {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.coin-info-placeholder {
+  text-align: center;
+  margin: auto;
+  color: var(--text-muted);
+}
+
+.coin-info-placeholder i {
+  font-size: 3rem;
+  color: var(--primary-gold);
+  margin-bottom: 1.25rem;
+  animation: floatPlaceholder 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatPlaceholder {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-8px) rotate(5deg); }
+}
+
+.coin-info-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body.light-theme .coin-info-header {
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.coin-info-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  color: var(--primary-gold);
+  margin: 0;
+}
+
+body.light-theme .coin-info-header h3 {
+  color: var(--primary-gold-alt);
+}
+
+.coin-info-region-tag {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(255, 176, 31, 0.15);
+  color: var(--primary-gold);
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+}
+
+body.light-theme .coin-info-region-tag {
+  background: rgba(255, 176, 31, 0.25);
+  color: var(--primary-gold-alt);
+}
+
+.coin-tradition-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.coin-tradition-badge {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 30px;
+  color: var(--text-color);
+}
+
+body.light-theme .coin-tradition-badge {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.coin-info-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+body.light-theme .coin-info-desc {
+  color: #475569;
+}
+
+.coin-explorer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.coin-explorer-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: rgba(255, 176, 31, 0.1);
+  border: 1px solid var(--primary-gold);
+  border-radius: 12px;
+  color: var(--primary-gold);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-snappy);
+}
+
+body.light-theme .coin-explorer-btn {
+  background: rgba(255, 176, 31, 0.06);
+  border-color: var(--primary-gold-alt);
+  color: var(--primary-gold-alt);
+}
+
+.coin-explorer-btn:hover {
+  background: var(--gradient-saffron-gold);
+  border-color: transparent;
+  color: #0f172a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 176, 31, 0.3);
+}
+
+.coin-explorer-btn i {
+  transition: var(--transition-snappy);
+}
+
+.coin-explorer-btn:hover i {
+  transform: translateX(4px);
+}

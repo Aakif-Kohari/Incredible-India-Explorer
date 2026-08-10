@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" href="../../styles.css?v=20260704e">
     <link rel="stylesheet" href="../pages-common.css?v=20260710a">
+    <link rel="stylesheet" href="coin.css">
 
     
     <!-- Open Graph / Social Media Tags -->
@@ -143,6 +144,104 @@
             </div>
         </section>
 
+        <!-- ================= INTERACTIVE COIN MAP ================= -->
+        <section class="coin-map-section" id="coin-map-section">
+            <div class="coin-map-header">
+                <h2>Interactive India Coin Map</h2>
+                <p>Explore the geographic spread of India's numismatic traditions. Click on a highlighted state or trade marker to discover historical coin collections.</p>
+            </div>
+
+            <div class="coin-map-container">
+                <!-- SVG Interactive Map -->
+                <div class="coin-map-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" id="india-coin-map">
+                        <g id="map-states">
+                            <!-- Jammu & Kashmir -->
+                            <path id="jammu-kashmir" class="state" aria-label="Jammu &amp; Kashmir" tabindex="0" 
+                                  d="M 280,50 L 350,20 L 420,80 L 450,150 L 380,220 L 260,180 Z" />
+                            
+                            <!-- Punjab -->
+                            <path id="punjab" class="state" aria-label="Punjab" tabindex="0" 
+                                  d="M 260,180 L 320,240 L 280,300 L 220,250 Z" />
+                            
+                            <!-- Rajasthan -->
+                            <path id="rajasthan" class="state" aria-label="Rajasthan" tabindex="0" 
+                                  d="M 220,250 L 280,300 L 300,420 L 150,400 L 130,300 Z" />
+                            
+                            <!-- Gujarat -->
+                            <path id="gujarat" class="state" aria-label="Gujarat" tabindex="0" 
+                                  d="M 130,400 L 250,420 L 280,500 L 180,550 L 50,480 Z" />
+                            
+                            <!-- Maharashtra -->
+                            <path id="maharashtra" class="state" aria-label="Maharashtra" tabindex="0" 
+                                  d="M 180,550 L 280,500 L 380,550 L 400,650 L 250,700 L 160,650 Z" />
+                            
+                            <!-- Karnataka -->
+                            <path id="karnataka" class="state" aria-label="Karnataka" tabindex="0" 
+                                  d="M 250,700 L 350,680 L 380,780 L 300,850 L 220,780 Z" />
+                            
+                            <!-- Odisha -->
+                            <path id="odisha" class="state" aria-label="Odisha" tabindex="0" 
+                                  d="M 450,450 L 550,450 L 580,550 L 480,580 L 420,520 Z" />
+                            
+                            <!-- West Bengal -->
+                            <path id="west-bengal" class="state" aria-label="West Bengal" tabindex="0" 
+                                  d="M 550,450 L 600,420 L 650,480 L 600,550 L 580,500 Z" />
+                            
+                            <!-- Assam -->
+                            <path id="assam" class="state" aria-label="Assam" tabindex="0" 
+                                  d="M 600,420 L 650,350 L 750,350 L 780,400 L 650,450 Z" />
+                                  
+                            <!-- Background non-interactive regions to complete silhouette -->
+                            <path class="state non-interactive" style="pointer-events:none; fill:var(--state-fill);" 
+                                  d="M 380,220 L 450,150 L 520,250 L 600,300 L 550,380 L 450,400 L 300,350 L 320,240 Z" />
+                            <path class="state non-interactive" style="pointer-events:none; fill:var(--state-fill);" 
+                                  d="M 300,420 L 450,400 L 450,450 L 420,520 L 380,550 L 280,500 Z" />
+                            <path class="state non-interactive" style="pointer-events:none; fill:var(--state-fill);" 
+                                  d="M 400,650 L 480,580 L 500,650 L 400,750 L 350,680 Z" />
+                            <path class="state non-interactive" style="pointer-events:none; fill:var(--state-fill);" 
+                                  d="M 380,780 L 400,750 L 380,880 L 330,900 L 300,850 Z" />
+                        </g>
+
+                        <!-- Mints/Findspots markers -->
+                        <g id="coin-markers">
+                            <circle cx="180" cy="460" r="8" class="coin-marker" id="marker-vallabhi" data-state="gujarat" aria-label="Vallabhi Mint" />
+                            <circle cx="340" cy="110" r="8" class="coin-marker" id="marker-srinagar" data-state="jammu-kashmir" aria-label="Srinagar Mint" />
+                            <circle cx="270" cy="210" r="8" class="coin-marker" id="marker-taxila" data-state="punjab" aria-label="Taxila Mint" />
+                            <circle cx="230" cy="360" r="8" class="coin-marker" id="marker-mewar" data-state="rajasthan" aria-label="Mewar Mint" />
+                            <circle cx="210" cy="620" r="8" class="coin-marker" id="marker-sopara" data-state="maharashtra" aria-label="Sopara Mint" />
+                            <circle cx="290" cy="740" r="8" class="coin-marker" id="marker-hampi" data-state="karnataka" aria-label="Hampi Mint" />
+                            <circle cx="490" cy="510" r="8" class="coin-marker" id="marker-sisupalgarh" data-state="odisha" aria-label="Sisupalgarh Mint" />
+                            <circle cx="590" cy="480" r="8" class="coin-marker" id="marker-chandraketugarh" data-state="west-bengal" aria-label="Chandraketugarh Mint" />
+                            <circle cx="680" cy="380" r="8" class="coin-marker" id="marker-gargaon" data-state="assam" aria-label="Gargaon Mint" />
+                        </g>
+                        
+                        <g id="state-labels" style="pointer-events: none; font-family: var(--font-body); font-size: 14px; font-weight: bold;">
+                          <text x="310" y="140">J&amp;K</text>
+                          <text x="250" y="250">Punjab</text>
+                          <text x="180" y="350">Rajasthan</text>
+                          <text x="130" y="470">Gujarat</text>
+                          <text x="250" y="600">Maharashtra</text>
+                          <text x="270" y="770">Karnataka</text>
+                          <text x="480" y="520">Odisha</text>
+                          <text x="580" y="490">WB</text>
+                          <text x="680" y="400">Assam</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <!-- Info Sidebar Card -->
+                <div class="coin-info-sidebar">
+                    <div class="coin-info-card" id="coin-info-card">
+                        <div class="coin-info-placeholder">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <p>Select a region or mint on the map to explore its rich numismatic history.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ================= TIMELINE + PROGRESS ================= -->
         <section class="coins-timeline-section">
             <div class="section-container coins-timeline-layout">
@@ -202,7 +301,153 @@
         // this is the only line needed to boot the coin-page-specific rendering.
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof initCoinsPage === 'function') initCoinsPage();
+            initCoinMap();
         });
+
+        function initCoinMap() {
+            const COIN_REGIONS = {
+                'gujarat': {
+                    name: 'Gujarat',
+                    region: 'Western India',
+                    traditions: ['Punch-Marked', 'Indo-Greek', 'Sultanate', 'Princely Coins'],
+                    desc: 'As a vital maritime trade hub, Gujarat features a rich numismatic heritage ranging from early silver punch-marked coins to Indo-Greek drachms, exquisite silver tankas of the Gujarat Sultanate, and regional Princely State issues.',
+                    explorers: [
+                        { name: 'Explore Ancient Trade Coinage', link: '#era-ancient' },
+                        { name: 'Explore Gujarat Sultanate Era', link: '#era-medieval' }
+                    ]
+                },
+                'jammu-kashmir': {
+                    name: 'Jammu & Kashmir',
+                    region: 'Northern India',
+                    traditions: ['Indo-Greek', 'Kushan', 'Shahi Coins'],
+                    desc: 'Historically positioned along the Silk Road, this region saw coinages strongly influenced by Greco-Bactrian, Kushan, and Kidarite styles, featuring distinct ruler portraits and deities.',
+                    explorers: [
+                        { name: 'Explore Kushan & Indo-Greek Era', link: '#era-mauryan-gupta' }
+                    ]
+                },
+                'punjab': {
+                    name: 'Punjab',
+                    region: 'Northern India',
+                    traditions: ['Punch-Marked', 'Kushan', 'Delhi Sultanate Coins'],
+                    desc: 'The gateway of the Indian subcontinent, Punjab holds deep numismatic roots from ancient punch-marked coins to Indo-Scythian, Kushan copper/gold issues, and medieval Delhi Sultanate mints.',
+                    explorers: [
+                        { name: 'Explore Kushan Gold Coinage', link: '#era-mauryan-gupta' },
+                        { name: 'Explore Sultanate Coinage', link: '#era-medieval' }
+                    ]
+                },
+                'rajasthan': {
+                    name: 'Rajasthan',
+                    region: 'Western India',
+                    traditions: ['Punch-Marked', 'Gupta', 'Rajput', 'Princely Coins'],
+                    desc: 'Renowned for Mewar, Marwar, and Jaipur coinage, Rajasthan has a vast monetary history starting with punch-marked silver and transitioning to medieval Rajput coins and diverse local princely state issues.',
+                    explorers: [
+                        { name: 'Explore Rajput Coinage', link: '#era-medieval' },
+                        { name: 'Explore Princely State Coins', link: '#era-colonial' }
+                    ]
+                },
+                'maharashtra': {
+                    name: 'Maharashtra',
+                    region: 'Western / Central India',
+                    traditions: ['Satavahana', 'Western Kshatrapa', 'Yadava', 'Maratha Coins'],
+                    desc: 'Home to the famous port of Sopara, Maharashtra produced early Satavahana lead coins, Yadava gold padmatankas, and Shivaji Maharaj\'s iconic copper Shivrai coins.',
+                    explorers: [
+                        { name: 'Explore Satavahana Era', link: '#era-ancient' },
+                        { name: 'Explore Maratha Coinage', link: '#era-medieval' }
+                    ]
+                },
+                'karnataka': {
+                    name: 'Karnataka',
+                    region: 'Southern India',
+                    traditions: ['Kadamba', 'Vijayanagara', 'Mysore', 'Princely Coins'],
+                    desc: 'Karnataka boasts the gold fanams and pagodas of the Kadambas, the magnificent gold coinage of the Vijayanagara Empire, and the highly organized mints of Hyder Ali and Tipu Sultan.',
+                    explorers: [
+                        { name: 'Explore Vijayanagara Gold Pagodas', link: '#era-medieval' }
+                    ]
+                },
+                'odisha': {
+                    name: 'Odisha',
+                    region: 'Eastern India',
+                    traditions: ['Punch-Marked', 'Gupta', 'Ganga Dynasty Coins'],
+                    desc: 'Featuring Sisupalgarh as a primary historical hub, Odisha\'s coinage includes ancient silver punch-marked coins, Kushan-style imitation coins, and Eastern Ganga gold fanams.',
+                    explorers: [
+                        { name: 'Explore Ganga Dynasty Fanams', link: '#era-medieval' }
+                    ]
+                },
+                'west-bengal': {
+                    name: 'West Bengal',
+                    region: 'Eastern India',
+                    traditions: ['Punch-Marked', 'Gupta', 'Bengal Sultanate Coins'],
+                    desc: 'Bengal hosted key ancient ports like Tamralipta, issuing punch-marked silver coins, high-quality Gupta gold dinars, and highly artistic silver tankas during the Bengal Sultanate.',
+                    explorers: [
+                        { name: 'Explore Gupta Gold Dinars', link: '#era-mauryan-gupta' },
+                        { name: 'Explore Bengal Sultanate Tankas', link: '#era-medieval' }
+                    ]
+                },
+                'assam': {
+                    name: 'Assam',
+                    region: 'Northeastern India',
+                    traditions: ['Koch', 'Ahom', 'Jaintia Kingdom Coins'],
+                    desc: 'Northeastern coinage is unique for the octagonal coins of the Ahom Kingdom, featuring Assamese and Sanskrit inscriptions celebrating regional deities and rulers.',
+                    explorers: [
+                        { name: 'Explore Ahom Octagonal Coins', link: '#era-medieval' }
+                    ]
+                }
+            };
+
+            const infoCard = document.getElementById('coin-info-card');
+
+            function updateSidebar(stateId) {
+                const data = COIN_REGIONS[stateId];
+                if (!data) return;
+
+                const traditionsHtml = data.traditions.map(t => `<span class="coin-tradition-badge">${t}</span>`).join('');
+                const explorersHtml = data.explorers.map(exp => `
+                    <a href="${exp.link}" class="coin-explorer-btn">
+                        <span>${exp.name}</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                `).join('');
+
+                infoCard.innerHTML = `
+                    <div>
+                        <div class="coin-info-header">
+                            <h3>${data.name}</h3>
+                            <span class="coin-info-region-tag">${data.region}</span>
+                        </div>
+                        <div class="coin-tradition-list">
+                            ${traditionsHtml}
+                        </div>
+                        <p class="coin-info-desc">${data.desc}</p>
+                    </div>
+                    <div class="coin-explorer-links">
+                        ${explorersHtml}
+                    </div>
+                `;
+            }
+
+            // Click listener for states
+            document.querySelectorAll('#india-coin-map .state').forEach(statePath => {
+                if (statePath.classList.contains('non-interactive')) return;
+
+                statePath.addEventListener('click', () => {
+                    const stateId = statePath.id;
+                    document.querySelectorAll('#india-coin-map .state').forEach(s => s.classList.remove('active'));
+                    statePath.classList.add('active');
+                    updateSidebar(stateId);
+                });
+            });
+
+            // Click listener for markers
+            document.querySelectorAll('#india-coin-map .coin-marker').forEach(marker => {
+                marker.addEventListener('click', () => {
+                    const stateId = marker.dataset.state;
+                    document.querySelectorAll('#india-coin-map .state').forEach(s => s.classList.remove('active'));
+                    const statePath = document.getElementById(stateId);
+                    if (statePath) statePath.classList.add('active');
+                    updateSidebar(stateId);
+                });
+            });
+        }
     </script>
     <script type="module" src="../auth.js"></script>
 </body>
