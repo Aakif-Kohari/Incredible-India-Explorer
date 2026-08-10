@@ -668,6 +668,12 @@ window.indiaSearchIndex = [
     url: "frontend/womens-participation-explorer/index.html"
   },
   {
+    title: "Independence & Partition, 1947 Explorer",
+    category: "Freedom Struggle",
+    description: "Explore India's Independence and Partition of 1947 — the Indian Independence Act, Radcliffe Line, refugee movements, and the Tryst with Destiny speech.",
+    url: "frontend/independence-partition-1947-explorer/index.html"
+  },
+  {
     title: "Cellular Jail & Colonial Imprisonment Explorer",
     category: "Freedom Struggle",
     description: "Explore the Cellular Jail and other major colonial prisons — Yerawada, Aga Khan Palace, Alipore, Lahore Central Jail — and the freedom fighters held within them.",
