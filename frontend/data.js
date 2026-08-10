@@ -816,6 +816,14 @@ const cultureData = [
     "state": "Odisha, West Bengal & Jharkhand",
     "description": "A vigorous mask dance blending martial arts, acrobatics, and folk tradition, performed to depict stories from Hindu epics like the Mahabharata.",
     "image": "assets/dances/chhau.png"
+  },
+  {
+    "title": "Sandalwood Carving",
+    "category": "craft",
+    "state": "Karnataka",
+    "description": "Karnataka's world-famous Mysore sandalwood (Santalum album) carving tradition spans 2,000+ years. Master shilpis sculpt fragrant heartwood into divine deities, royal elephants, and intricate decorative objects — a GI-tagged craft with deep Wadiyar royal heritage.",
+    "image": "frontend/sandalwood-carving-explorer/assets/sandalwood_hero.jpg",
+    "link": "frontend/sandalwood-carving-explorer/index.html"
   }
 ];
 
