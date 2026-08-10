@@ -408,8 +408,9 @@ const FREEDOM_FIGHTERS_DATA = [
         contributions: 'His sacrifice while protecting the national flag became a rallying symbol for the Civil Disobedience Movement in the Madras Presidency and remains commemorated in Tirupur to this day.',
         rareFacts: 'A statue of Kumaran holding the national flag stands at the Tirupur bus stand, and he is remembered every year through local commemorations honouring his sacrifice.',
         quote: 'Remembered for refusing to let the national flag touch the ground even as he collapsed from a fatal police blow.',
-        explorerLink: '../tirupur-kumaran-explorer/index.html'},
-          {
+        explorerLink: '../tirupur-kumaran-explorer/index.html'
+    },
+    {
         id: 'alluri-sitarama-raju',
         name: 'Alluri Sitarama Raju',
         title: 'Manyam Veerudu (Hero of the Jungle)',
@@ -430,6 +431,26 @@ const FREEDOM_FIGHTERS_DATA = [
         rareFacts: 'The British spent over Rs 40 lakh to crush the rebellion; his birthday, 4 July, is celebrated as a state festival in Andhra Pradesh, and the Alluri Sitharama Raju district was carved out of Visakhapatnam in 2022.',
         quote: 'Jai Hind! This is but the beginning of the fight — the forest will keep the flame of Swaraj alive.',
         explorerLink: '../alluri-sitarama-raju-explorer/index.html'
+    },
+    {
+        id: 'baji-rout',
+        name: 'Baji Rout',
+        title: 'One of India\'s Youngest Martyrs',
+        lifespan: '1926 – 1938',
+        era: 'Praja Mandal Movement',
+        region: 'East',
+        birthplace: 'Nilakanthapur, Dhenkanal, Odisha',
+        movements: ['Praja Mandal Movement (Dhenkanal)'],
+        biography: 'Baji Rout was a twelve-year-old boatman from Dhenkanal, Odisha, who was fatally shot by state police in 1938 after refusing to ferry them across a river to suppress protesting villagers, becoming one of the youngest martyrs of India\'s freedom struggle.',
+        timeline: [
+            { year: '1926', event: 'Born into a boatman family in Nilakanthapur, Dhenkanal.' },
+            { year: '1930s', event: 'Growing unrest in Dhenkanal as villagers organized under the Praja Mandal movement.' },
+            { year: 'Oct 11, 1938', event: 'Refused to ferry police across the river to suppress protesters and was fatally shot.' }
+        ],
+        contributions: 'His refusal and martyrdom at age twelve became a galvanizing symbol for the Praja Mandal movement in Dhenkanal and is remembered across Odisha as an act of extraordinary courage.',
+        rareFacts: 'Remembered as one of the youngest martyrs of India\'s freedom struggle; several institutions in Odisha are named in his honor.',
+        quote: 'I will not take the police to catch my own people.',
+        explorerLink: '../baji-rout-explorer/index.html'
     }
 ];
 
