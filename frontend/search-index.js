@@ -1683,6 +1683,13 @@ window.indiaSearchIndex = [
     description: "Explore Kalighat Painting — 19th-century Bengal's iconic temple-ghat brushwork with bold single-stroke lines, divine themes, social satire, brushwork visualization and gallery.",
     url: "frontend/kalighat-painting-showcase/index.html"
   },
+  // --- Aipan Art Visualizer ---
+  {
+    title: "Aipan Art Visualizer",
+    category: "Arts & Culture",
+    description: "Explore Aipan Art — Sacred Kumaoni ritual floor and wall art of Uttarakhand featuring Lakshmi Chowki, Vasudhara vertical streams, Lakshmi Paduka footprints, Geru red & Rice white palette, and gallery.",
+    url: "frontend/aipan-art-visualizer/index.html"
+  },
   // --- Manjusha Painting Explorer ---
   {
     title: "Manjusha Painting Explorer",
