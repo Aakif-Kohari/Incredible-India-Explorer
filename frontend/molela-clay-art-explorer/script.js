@@ -1,660 +1,514 @@
+// script.js - Molela Clay Art Explorer
+// Single initialization flag to prevent double-binding
+let _molelaInitDone = false;
+
 function runMolelaInit() {
   initPlaqueCrafter();
   initJourneyIntegration();
   initTabs();
 }
 
-// Run immediately on script load
-runMolelaInit();
+// Run on script load (direct navigation)
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", runMolelaInit);
+} else {
+  runMolelaInit();
+}
 
-// Listen for SPA route change events
-document.addEventListener("app:route-changed", runMolelaInit);
+// Also run on SPA route change (router.js dispatches this)
+document.addEventListener("app:route-changed", function () {
+  _molelaInitDone = false;
+  runMolelaInit();
+});
 
-/**
- * 1. Plaque Crafter State & Drawing Engine
- */
+/* =========================================================
+   1. PLAQUE CRAFTER
+   ========================================================= */
 function initPlaqueCrafter() {
   const canvas = document.getElementById("plaque-canvas");
   if (!canvas) return;
-
-  if (canvas.dataset.initialized === "true") {
-    if (window.molelaRedrawPlaque) window.molelaRedrawPlaque();
-    return;
-  }
-  canvas.dataset.initialized = "true";
+  // Guard against double-init on same canvas instance
+  if (canvas._molelaInit) { canvas._molelaRedraw && canvas._molelaRedraw(); return; }
+  canvas._molelaInit = true;
 
   const ctx = canvas.getContext("2d");
-  const tempGauge = document.getElementById("temp-gauge-container");
-  const tempDisplay = document.getElementById("temp-display");
-  const tempProgress = document.getElementById("temp-progress");
-  const fireOverlay = document.getElementById("bhatti-fire-effect");
-  const fireBtn = document.getElementById("fire-bhatti-btn");
-  const successMsg = document.getElementById("firing-complete-msg");
-  const statusTag = document.getElementById("crafter-status-tag");
-  const activeBrushLabel = document.getElementById("active-brush-name");
-  const resetBtn = document.getElementById("reset-plaque-btn");
-
   if (!ctx) return;
 
-  // State
+  // Fix canvas internal resolution to match its actual dimensions
+  const W = 400, H = 500;
+  canvas.width = W;
+  canvas.height = H;
+
+  const tempGauge    = document.getElementById("temp-gauge-container");
+  const tempDisplay  = document.getElementById("temp-display");
+  const tempProgress = document.getElementById("temp-progress");
+  const fireOverlay  = document.getElementById("bhatti-fire-effect");
+  const fireBtn      = document.getElementById("fire-bhatti-btn");
+  const successMsg   = document.getElementById("firing-complete-msg");
+  const statusTag    = document.getElementById("crafter-status-tag");
+  const brushLabel   = document.getElementById("active-brush-name");
+  const resetBtn     = document.getElementById("reset-plaque-btn");
+
+  // ── State ──────────────────────────────────────────────
   let state = {
     deity: "devnarayan",
-    sculpts: {
-      halo: true,
-      border: true,
-      ornaments: false
-    },
-    paints: {
-      background: "unpainted",
-      border: "unpainted",
-      deity: "unpainted",
-      halo: "unpainted"
-    },
+    sculpts: { halo: true, border: true, ornaments: false },
+    paints:  { background: "unpainted", border: "unpainted", deity: "unpainted", halo: "unpainted" },
     activePigment: "geru",
     fired: false
   };
 
-  // Color mappings before/after firing
-  const paintColors = {
-    unpainted: {
-      wet: "#5c5047",      // Wet organic mud
-      fired: "#c2410c"    // Baked terracotta red
-    },
-    geru: {
-      wet: "#8b2512",      // Mud red ochre
-      fired: "#d44c28"    // Baked brick red
-    },
-    yellow: {
-      wet: "#b48312",      // Ochre silt
-      fired: "#f5b025"    // Bright yellow clay
-    },
-    white: {
-      wet: "#c8c6c4",      // Lime slurry
-      fired: "#ecebe9"    // Chalk white
-    },
-    indigo: {
-      wet: "#1c2d42",      // Indigo mud
-      fired: "#2b5c8f"    // Clay indigo blue
-    }
+  // ── Colors (visibly distinct wet vs fired) ─────────────
+  const COLORS = {
+    unpainted: { wet: "#b5956a",  fired: "#c2410c" },   // warm tan  → terracotta orange
+    geru:      { wet: "#c0392b",  fired: "#e74c3c" },   // deep red  → bright brick red
+    yellow:    { wet: "#c98b0a",  fired: "#f1c40f" },   // ochre     → vivid yellow
+    white:     { wet: "#d5d2cc",  fired: "#f4f1eb" },   // grey-white→ chalk white
+    indigo:    { wet: "#2c3e6b",  fired: "#3a6db5" },   // dark blue → bright clay blue
   };
 
+  // ── Draw ───────────────────────────────────────────────
+  function getColor(zone) {
+    const m = state.fired ? "fired" : "wet";
+    const p = state.paints[zone];
+    return COLORS[p] ? COLORS[p][m] : COLORS.unpainted[m];
+  }
+
   function drawPlaque() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const mode = state.fired ? "fired" : "wet";
+    const m = state.fired ? "fired" : "wet";
+    ctx.clearRect(0, 0, W, H);
 
-    // 1. Draw Baseplate Backing Plate
-    ctx.fillStyle = (state.paints.background === "unpainted") 
-      ? (state.fired ? "#a33a0c" : "#4e433a") // Background baseplate shade
-      : paintColors[state.paints.background][mode];
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // 1. Background plate — warm clay
+    ctx.fillStyle = getColor("background");
+    ctx.fillRect(0, 0, W, H);
 
-    // Stamped clay textures inside baseplate
-    ctx.strokeStyle = "rgba(0, 0, 0, 0.15)";
+    // Subtle vertical texture lines on background
+    ctx.strokeStyle = "rgba(0,0,0,0.08)";
     ctx.lineWidth = 1;
-    for (let i = 10; i < canvas.width; i += 24) {
-      ctx.beginPath();
-      ctx.moveTo(i, 0);
-      ctx.lineTo(i, canvas.height);
-      ctx.stroke();
+    for (let x = 0; x < W; x += 20) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
     }
 
-    // 2. Draw Stamped Border
+    // 2. Stamped border frame
     if (state.sculpts.border) {
-      ctx.fillStyle = state.paints.border === "unpainted"
-        ? (state.fired ? "#c2410c" : "#5c5047")
-        : paintColors[state.paints.border][mode];
-      ctx.strokeStyle = "rgba(0,0,0,0.3)";
-      ctx.lineWidth = 4;
-      
-      // Draw border frame
-      ctx.fillRect(15, 15, canvas.width - 30, canvas.height - 30);
-      ctx.strokeRect(15, 15, canvas.width - 30, canvas.height - 30);
+      ctx.fillStyle = getColor("border");
+      ctx.fillRect(12, 12, W - 24, H - 24);
+      ctx.strokeStyle = "rgba(0,0,0,0.35)";
+      ctx.lineWidth = 3;
+      ctx.strokeRect(12, 12, W - 24, H - 24);
+      ctx.strokeRect(28, 28, W - 56, H - 56);
 
-      // Inner boundary
-      ctx.strokeRect(35, 35, canvas.width - 70, canvas.height - 70);
-
-      // Stamped dots on border
-      ctx.fillStyle = state.fired ? "#f59e0b" : "#b48312";
-      for (let x = 25; x < canvas.width; x += 30) {
-        ctx.beginPath(); ctx.arc(x, 25, 4, 0, Math.PI*2); ctx.fill();
-        ctx.beginPath(); ctx.arc(x, canvas.height - 25, 4, 0, Math.PI*2); ctx.fill();
+      // Stamped dots
+      const dotColor = m === "fired" ? "#f59e0b" : "#8b6e36";
+      ctx.fillStyle = dotColor;
+      for (let x = 22; x < W - 22; x += 25) {
+        ctx.beginPath(); ctx.arc(x, 20, 4, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath(); ctx.arc(x, H - 20, 4, 0, Math.PI * 2); ctx.fill();
       }
-      for (let y = 25; y < canvas.height; y += 30) {
-        ctx.beginPath(); ctx.arc(25, y, 4, 0, Math.PI*2); ctx.fill();
-        ctx.beginPath(); ctx.arc(canvas.width - 25, y, 4, 0, Math.PI*2); ctx.fill();
+      for (let y = 22; y < H - 22; y += 25) {
+        ctx.beginPath(); ctx.arc(20, y, 4, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath(); ctx.arc(W - 20, y, 4, 0, Math.PI * 2); ctx.fill();
       }
     }
 
-    // 3. Draw Halo (behind head)
+    // 3. Halo (behind deity head)
     if (state.sculpts.halo) {
-      ctx.fillStyle = state.paints.halo === "unpainted"
-        ? (state.fired ? "#ea580c" : "#6b5c50")
-        : paintColors[state.paints.halo][mode];
-      ctx.strokeStyle = "rgba(0,0,0,0.25)";
-      ctx.lineWidth = 3;
-      
-      ctx.beginPath();
-      ctx.arc(200, 150, 70, 0, Math.PI * 2);
+      ctx.save();
+      ctx.fillStyle = getColor("halo");
+      ctx.shadowColor = "rgba(0,0,0,0.2)"; ctx.shadowBlur = 6;
+      ctx.beginPath(); ctx.arc(200, 155, 65, 0, Math.PI * 2);
       ctx.fill();
-      ctx.stroke();
-
-      // Halo rays
-      ctx.strokeStyle = state.fired ? "rgba(245,158,11,0.5)" : "rgba(180,131,18,0.3)";
-      ctx.lineWidth = 4;
-      for (let angle = 0; angle < Math.PI * 2; angle += Math.PI / 8) {
+      ctx.restore();
+      // Rays
+      ctx.strokeStyle = m === "fired" ? "rgba(245,158,11,0.7)" : "rgba(139,110,54,0.5)";
+      ctx.lineWidth = 3;
+      for (let a = 0; a < Math.PI * 2; a += Math.PI / 8) {
         ctx.beginPath();
-        ctx.moveTo(200 + Math.cos(angle)*70, 150 + Math.sin(angle)*70);
-        ctx.lineTo(200 + Math.cos(angle)*85, 150 + Math.sin(angle)*85);
+        ctx.moveTo(200 + Math.cos(a) * 65, 155 + Math.sin(a) * 65);
+        ctx.lineTo(200 + Math.cos(a) * 82, 155 + Math.sin(a) * 82);
         ctx.stroke();
       }
     }
 
-    // 4. Draw Deity Relief Figure
-    ctx.fillStyle = state.paints.deity === "unpainted"
-      ? (state.fired ? "#ea580c" : "#716255")
-      : paintColors[state.paints.deity][mode];
-    ctx.strokeStyle = "rgba(0,0,0,0.45)";
-    ctx.lineWidth = 5;
+    // 4. Deity figure
+    ctx.fillStyle   = getColor("deity");
+    ctx.strokeStyle = "rgba(0,0,0,0.5)";
+    ctx.lineWidth   = 4;
 
-    if (state.deity === "devnarayan") {
-      drawDevnarayan(ctx, mode);
-    } else if (state.deity === "nagaraja") {
-      drawNagaraja(ctx, mode);
-    } else if (state.deity === "ganesha") {
-      drawGanesha(ctx, mode);
-    }
+    if (state.deity === "devnarayan")  drawDevnarayan(ctx, m);
+    else if (state.deity === "nagaraja") drawNagaraja(ctx, m);
+    else if (state.deity === "ganesha")  drawGanesha(ctx, m);
   }
 
-  // Figure Drawings using lines to mimic handmade clay shapes
-  function drawDevnarayan(c, mode) {
+  // ── Deity drawing functions ────────────────────────────
+  function fill(c)  { c.fill(); c.stroke(); }
+
+  function drawDevnarayan(c, m) {
     c.save();
-    c.shadowColor = "rgba(0,0,0,0.3)";
-    c.shadowBlur = 8;
-    c.shadowOffsetY = 4;
+    const fc = getColor("deity");
+    c.fillStyle   = fc;
+    c.strokeStyle = "rgba(0,0,0,0.5)";
+    c.lineWidth   = 4;
 
-    // Draw horse body (Devnarayan's Black Stallion)
-    c.beginPath();
-    c.ellipse(200, 340, 80, 45, 0, 0, Math.PI * 2); // Body
-    c.fill();
-    c.stroke();
-
-    // Horse neck & head
-    c.beginPath();
-    c.moveTo(140, 320);
-    c.lineTo(100, 260); // Neck
-    c.lineTo(75, 265);  // Nose
-    c.lineTo(85, 290);  // Chin
-    c.lineTo(130, 350);
-    c.closePath();
-    c.fill();
-    c.stroke();
-
-    // Horse legs
-    c.lineWidth = 7;
-    c.beginPath();
-    c.moveTo(140, 360); c.lineTo(130, 440); // Front Left
-    c.moveTo(160, 360); c.lineTo(155, 435); // Front Right
-    c.moveTo(240, 360); c.lineTo(245, 440); // Back Left
-    c.moveTo(260, 360); c.lineTo(265, 435); // Back Right
-    c.stroke();
-
-    // Devnarayan (Rider torso)
-    c.beginPath();
-    c.moveTo(170, 300);
-    c.lineTo(170, 200); // Torso
-    c.lineTo(210, 200);
-    c.lineTo(210, 300);
-    c.closePath();
-    c.fill();
-    c.stroke();
-
-    // Head
-    c.beginPath();
-    c.arc(190, 160, 24, 0, Math.PI * 2); // Head
-    c.fill();
-    c.stroke();
-
-    // Spear / Lotus (Folk hero attribute)
-    c.strokeStyle = state.fired ? "#f59e0b" : "#b48312";
+    // Horse body
+    c.beginPath(); c.ellipse(200, 350, 78, 42, 0, 0, Math.PI * 2); fill(c);
+    // Horse head & neck
+    c.beginPath(); c.moveTo(140, 325); c.lineTo(105, 268); c.lineTo(83, 272);
+    c.lineTo(92, 295); c.lineTo(132, 345); c.closePath(); fill(c);
+    // Legs
+    c.lineWidth = 8;
+    [[142,365,132,445],[162,368,158,442],[238,368,244,445],[258,368,263,442]].forEach(([x1,y1,x2,y2]) => {
+      c.beginPath(); c.moveTo(x1,y1); c.lineTo(x2,y2); c.stroke();
+    });
+    // Rider torso
     c.lineWidth = 4;
-    c.beginPath();
-    c.moveTo(220, 120);
-    c.lineTo(220, 410); // Spear shaft
-    c.stroke();
-    
-    c.fillStyle = state.fired ? "#ef4444" : "#8b2512";
-    c.beginPath();
-    c.moveTo(220, 100); c.lineTo(230, 120); c.lineTo(210, 120); // Spear tip
-    c.closePath();
-    c.fill();
-
-    // Ornaments (sculpted clay dots/garlands)
+    c.beginPath(); c.moveTo(175,310); c.lineTo(175,210); c.lineTo(215,210); c.lineTo(215,310); c.closePath(); fill(c);
+    // Rider head
+    c.beginPath(); c.arc(195, 170, 26, 0, Math.PI * 2); fill(c);
+    // Eyes
+    c.fillStyle = "rgba(255,255,255,0.85)";
+    c.beginPath(); c.arc(188,166,4,0,Math.PI*2); c.arc(202,166,4,0,Math.PI*2); c.fill();
+    c.fillStyle = "rgba(0,0,0,0.8)";
+    c.beginPath(); c.arc(189,166,2,0,Math.PI*2); c.arc(203,166,2,0,Math.PI*2); c.fill();
+    // Spear
+    c.fillStyle = m === "fired" ? "#f59e0b" : "#8b6e36";
+    c.strokeStyle = m === "fired" ? "#f59e0b" : "#8b6e36";
+    c.lineWidth = 4;
+    c.beginPath(); c.moveTo(225,125); c.lineTo(225,415); c.stroke();
+    c.fillStyle = m === "fired" ? "#ef4444" : "#c0392b";
+    c.beginPath(); c.moveTo(225,108); c.lineTo(235,127); c.lineTo(215,127); c.closePath(); c.fill();
+    // Ornaments
     if (state.sculpts.ornaments) {
-      c.fillStyle = "#fff";
-      for (let x = 175; x <= 205; x += 10) {
-        c.beginPath(); c.arc(x, 230, 3, 0, Math.PI*2); c.fill(); // Necklace
-      }
-      c.strokeStyle = "#fff";
-      c.lineWidth = 3;
-      c.beginPath();
-      c.arc(190, 160, 30, 0, Math.PI, true); // Crown
-      c.stroke();
+      c.fillStyle = "rgba(255,255,255,0.9)";
+      for (let x = 180; x <= 210; x += 10) { c.beginPath(); c.arc(x, 232, 3.5, 0, Math.PI * 2); c.fill(); }
+      c.strokeStyle = "rgba(255,255,255,0.8)"; c.lineWidth = 3;
+      c.beginPath(); c.arc(195, 170, 33, 0.8 * Math.PI, 0.2 * Math.PI, true); c.stroke();
     }
-
     c.restore();
   }
 
-  function drawNagaraja(c, mode) {
+  function drawNagaraja(c, m) {
     c.save();
-    c.shadowColor = "rgba(0,0,0,0.3)";
-    c.shadowBlur = 8;
-    c.shadowOffsetY = 4;
-
-    // Coiled Snake Base
+    c.fillStyle   = getColor("deity");
+    c.strokeStyle = "rgba(0,0,0,0.5)";
+    c.lineWidth   = 4;
+    // Coil base
+    c.beginPath(); c.arc(200, 385, 58, 0, Math.PI * 2); c.arc(200, 385, 38, 0, Math.PI * 2, true); fill(c);
+    // Body column
     c.beginPath();
-    c.arc(200, 380, 60, 0, Math.PI * 2);
-    c.arc(200, 380, 40, 0, Math.PI * 2, true); // Double coil
-    c.fill();
-    c.stroke();
-
-    // Winding torso rising
-    c.beginPath();
-    c.moveTo(180, 360);
-    c.lineTo(180, 220); // Left neck boundary
-    c.bezierCurveTo(180, 190, 220, 190, 220, 220); // Hood dome
-    c.lineTo(220, 360);
-    c.closePath();
-    c.fill();
-    c.stroke();
-
-    // Multi-heads (5 hoods)
-    c.fillStyle = c.strokeStyle; // Use border color for lines
+    c.moveTo(178, 365); c.lineTo(178, 225);
+    c.bezierCurveTo(178, 192, 222, 192, 222, 225);
+    c.lineTo(222, 365); c.closePath(); fill(c);
+    // Five hood-heads
     for (let i = -2; i <= 2; i++) {
-      const offsetX = i * 28;
-      const offsetY = -Math.abs(i) * 12;
-      
-      c.fillStyle = state.paints.deity === "unpainted"
-        ? (state.fired ? "#f97316" : "#8c7665")
-        : paintColors[state.paints.deity][mode];
-        
-      c.beginPath();
-      c.arc(200 + offsetX, 190 + offsetY, 18, 0, Math.PI * 2);
-      c.fill();
-      c.stroke();
-      
-      // Eyes on heads
-      c.fillStyle = "#fff";
-      c.beginPath();
-      c.arc(195 + offsetX, 185 + offsetY, 2, 0, Math.PI*2);
-      c.arc(205 + offsetX, 185 + offsetY, 2, 0, Math.PI*2);
-      c.fill();
+      const ox = i * 27, oy = -Math.abs(i) * 14;
+      c.fillStyle = getColor("deity");
+      c.beginPath(); c.arc(200 + ox, 190 + oy, 19, 0, Math.PI * 2); fill(c);
+      // Eyes
+      c.fillStyle = "rgba(255,255,255,0.9)";
+      c.beginPath(); c.arc(195 + ox, 186 + oy, 3, 0, Math.PI * 2); c.arc(205 + ox, 186 + oy, 3, 0, Math.PI * 2); c.fill();
+      c.fillStyle = "rgba(0,0,0,0.8)";
+      c.beginPath(); c.arc(195 + ox, 186 + oy, 1.5, 0, Math.PI * 2); c.arc(205 + ox, 186 + oy, 1.5, 0, Math.PI * 2); c.fill();
     }
-
-    // Lotus ornaments
+    // Lotus ornament
     if (state.sculpts.ornaments) {
-      c.fillStyle = state.fired ? "#ef4444" : "#8b2512";
-      c.beginPath();
-      c.arc(200, 280, 12, 0, Math.PI*2); // Center lotus medal
-      c.fill();
-      c.stroke();
+      c.fillStyle = m === "fired" ? "#ef4444" : "#c0392b";
+      c.beginPath(); c.arc(200, 290, 13, 0, Math.PI * 2); fill(c);
     }
-
     c.restore();
   }
 
-  function drawGanesha(c, mode) {
+  function drawGanesha(c, m) {
     c.save();
-    c.shadowColor = "rgba(0,0,0,0.3)";
-    c.shadowBlur = 8;
-    c.shadowOffsetY = 4;
-
-    // Pot Belly (Ladha)
-    c.beginPath();
-    c.arc(200, 340, 65, 0, Math.PI * 2);
-    c.fill();
-    c.stroke();
-
-    // Torso & Shoulders
-    c.beginPath();
-    c.moveTo(150, 300);
-    c.lineTo(160, 220);
-    c.lineTo(240, 220);
-    c.lineTo(250, 300);
-    c.closePath();
-    c.fill();
-    c.stroke();
-
+    c.fillStyle   = getColor("deity");
+    c.strokeStyle = "rgba(0,0,0,0.5)";
+    c.lineWidth   = 4;
+    // Pot belly
+    c.beginPath(); c.arc(200, 345, 62, 0, Math.PI * 2); fill(c);
+    // Torso
+    c.beginPath(); c.moveTo(152,305); c.lineTo(162,222); c.lineTo(238,222); c.lineTo(248,305); c.closePath(); fill(c);
     // Head
-    c.beginPath();
-    c.ellipse(200, 200, 36, 42, 0, 0, Math.PI*2);
-    c.fill();
-    c.stroke();
-
-    // Elephant Ears
-    c.beginPath();
-    c.ellipse(155, 190, 26, 32, Math.PI/6, 0, Math.PI*2); // Left ear
-    c.fill();
-    c.stroke();
-    
-    c.beginPath();
-    c.ellipse(245, 190, 26, 32, -Math.PI/6, 0, Math.PI*2); // Right ear
-    c.fill();
-    c.stroke();
-
-    // Trunk (coiling to the left)
-    c.lineWidth = 7;
-    c.beginPath();
-    c.moveTo(200, 210);
-    c.quadraticCurveTo(210, 270, 180, 280);
-    c.stroke();
-
-    // Crown (Mukut)
-    c.fillStyle = state.fired ? "#f59e0b" : "#b48312";
-    c.beginPath();
-    c.moveTo(180, 160);
-    c.lineTo(200, 110);
-    c.lineTo(220, 160);
-    c.closePath();
-    c.fill();
-    c.stroke();
-
-    // Ornaments (sculpted clay necklace and armlets)
+    c.beginPath(); c.ellipse(200, 200, 37, 44, 0, 0, Math.PI * 2); fill(c);
+    // Ears
+    c.beginPath(); c.ellipse(157, 192, 27, 34, Math.PI / 5, 0, Math.PI * 2); fill(c);
+    c.beginPath(); c.ellipse(243, 192, 27, 34, -Math.PI / 5, 0, Math.PI * 2); fill(c);
+    // Trunk
+    c.lineWidth = 8; c.strokeStyle = getColor("deity");
+    c.beginPath(); c.moveTo(200, 212); c.quadraticCurveTo(215, 275, 185, 287); c.stroke();
+    // Crown
+    c.fillStyle = m === "fired" ? "#f59e0b" : "#8b6e36";
+    c.strokeStyle = "rgba(0,0,0,0.4)"; c.lineWidth = 3;
+    c.beginPath(); c.moveTo(180, 162); c.lineTo(200, 112); c.lineTo(220, 162); c.closePath(); fill(c);
+    // Eyes
+    c.fillStyle = "rgba(255,255,255,0.9)";
+    c.beginPath(); c.arc(186,196,4,0,Math.PI*2); c.arc(214,196,4,0,Math.PI*2); c.fill();
+    c.fillStyle = "rgba(0,0,0,0.8)";
+    c.beginPath(); c.arc(186,196,2,0,Math.PI*2); c.arc(214,196,2,0,Math.PI*2); c.fill();
+    // Ornaments
     if (state.sculpts.ornaments) {
-      c.fillStyle = "#fff";
-      c.beginPath();
-      c.arc(200, 310, 10, 0, Math.PI*2); // Modak bowl
-      c.fill();
-      c.stroke();
+      c.fillStyle = "rgba(255,255,255,0.9)";
+      for (let x = 177; x <= 223; x += 12) { c.beginPath(); c.arc(x, 310, 4, 0, Math.PI * 2); c.fill(); }
     }
-
     c.restore();
   }
 
-  // Canvas Click / Paint Handler
+  // ── Canvas click → paint zone ──────────────────────────
   canvas.addEventListener("click", (e) => {
-    if (state.fired) return; // Cannot paint fired pottery!
-
-    // Get click coordinates relative to canvas
+    if (state.fired) return;
     const rect = canvas.getBoundingClientRect();
-    const scaleX = canvas.width / rect.width;
-    const scaleY = canvas.height / rect.height;
-    const x = (e.clientX - rect.left) * scaleX;
-    const y = (e.clientY - rect.top) * scaleY;
+    const sx = canvas.width  / rect.width;
+    const sy = canvas.height / rect.height;
+    const x  = (e.clientX - rect.left) * sx;
+    const y  = (e.clientY - rect.top)  * sy;
 
-    // Detect click zones
     let zone = "background";
-
-    if (x < 35 || x > canvas.width - 35 || y < 35 || y > canvas.height - 35) {
+    if (x < 30 || x > W - 30 || y < 30 || y > H - 30) {
       zone = "border";
     } else {
-      // Check if click is on deity figure zone
-      let isOnDeity = false;
-      if (state.deity === "devnarayan") {
-        isOnDeity = (y >= 140 && y < 450 && x >= 70 && x < 280);
-      } else if (state.deity === "nagaraja") {
-        isOnDeity = (y >= 160 && y < 450 && x >= 120 && x < 280);
-      } else if (state.deity === "ganesha") {
-        isOnDeity = (y >= 110 && y < 420 && x >= 120 && x < 280);
-      }
-
-      if (isOnDeity) {
-        zone = "deity";
-      } else if (state.sculpts.halo && Math.sqrt((x-200)**2 + (y-150)**2) < 75) {
-        zone = "halo";
-      }
+      const onHalo = state.sculpts.halo && Math.hypot(x - 200, y - 155) < 68;
+      const onDeity = (state.deity === "devnarayan" && y > 145 && y < 455 && x > 65 && x < 285) ||
+                      (state.deity === "nagaraja"   && y > 165 && y < 455 && x > 125 && x < 278) ||
+                      (state.deity === "ganesha"    && y > 108 && y < 425 && x > 125 && x < 278);
+      if (onDeity)  zone = "deity";
+      else if (onHalo) zone = "halo";
     }
-
-    // Set paint state
     state.paints[zone] = state.activePigment;
     drawPlaque();
   });
 
-  // Wire up Step selectors & Nav
-  const stepBtns = [...document.querySelectorAll(".step-nav-btn")];
+  // ── Step navigation inside crafter ────────────────────
+  const stepBtns   = [...document.querySelectorAll(".step-nav-btn")];
   const stepPanels = [...document.querySelectorAll(".step-panel")];
 
   stepBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const step = btn.dataset.step;
-      stepBtns.forEach((b) => b.classList.toggle("active", b === btn));
-      stepPanels.forEach((p) => p.classList.toggle("active", p.id === `panel-step-${step}`));
-
-      // Show/Hide temperature gauge on firing step
-      if (step === "4") {
-        tempGauge.style.display = "block";
-      } else {
-        tempGauge.style.display = "none";
-      }
+      stepBtns.forEach  (b => b.classList.toggle("active", b === btn));
+      stepPanels.forEach(p => p.classList.toggle("active", p.id === `panel-step-${step}`));
+      if (tempGauge) tempGauge.style.display = step === "4" ? "block" : "none";
     });
   });
 
-  // Deity Choice Click
+  // ── Deity card selection ───────────────────────────────
   const deityCards = [...document.querySelectorAll(".option-card")];
   deityCards.forEach((card) => {
     card.addEventListener("click", () => {
       if (state.fired) return;
       state.deity = card.dataset.deity;
-      deityCards.forEach((c) => c.classList.toggle("active", c === card));
+      deityCards.forEach(c => c.classList.toggle("active", c === card));
       drawPlaque();
     });
   });
 
-  // Sculpting Toggle Click
-  const sculptToggles = [...document.querySelectorAll(".sculpt-toggle-btn")];
-  sculptToggles.forEach((btn) => {
+  // ── Sculpt toggles ─────────────────────────────────────
+  const sculptBtns = [...document.querySelectorAll(".sculpt-toggle-btn")];
+  sculptBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       if (state.fired) return;
       const key = btn.dataset.sculpt;
       state.sculpts[key] = !state.sculpts[key];
       btn.classList.toggle("active", state.sculpts[key]);
-      btn.querySelector(".chk-box").textContent = state.sculpts[key] ? "✓" : "✗";
+      const chk = btn.querySelector(".chk-box");
+      if (chk) chk.textContent = state.sculpts[key] ? "✓" : "✗";
       drawPlaque();
     });
   });
 
-  // Paint Pigment Palette Click
-  const pigmentSwatches = [...document.querySelectorAll(".color-swatch")];
-  pigmentSwatches.forEach((swatch) => {
+  // ── Color swatches ─────────────────────────────────────
+  const swatches = [...document.querySelectorAll(".color-swatch")];
+  swatches.forEach((swatch) => {
     swatch.addEventListener("click", () => {
       state.activePigment = swatch.dataset.color;
-      pigmentSwatches.forEach((s) => s.classList.toggle("active", s === swatch));
-      
+      swatches.forEach(s => s.classList.toggle("active", s === swatch));
       const names = { geru: "Geru Red", yellow: "Pila Yellow", white: "Safed White", indigo: "Neel Indigo" };
-      activeBrushLabel.textContent = names[state.activePigment];
+      if (brushLabel) brushLabel.textContent = names[state.activePigment] || state.activePigment;
     });
   });
 
-  // Bhatti Kiln Firing Action
-  fireBtn.addEventListener("click", () => {
-    if (state.fired) return;
-    
-    fireBtn.disabled = true;
-    fireOverlay.classList.add("firing");
-    statusTag.textContent = "Status: Firing Plaque (30°C)...";
-    
-    let temp = 30;
-    const interval = setInterval(() => {
-      temp += 30;
-      if (temp > 900) temp = 900;
-      
-      tempDisplay.textContent = `Furnace Temp (${temp}°C)`;
-      tempProgress.style.width = `${(temp / 900) * 100}%`;
-      statusTag.textContent = `Status: Firing Plaque (${temp}°C)...`;
-      
-      if (temp >= 900) {
-        clearInterval(interval);
-        fireOverlay.classList.remove("firing");
-        state.fired = true;
-        statusTag.textContent = "Status: Baked Terracotta Plaque";
-        statusTag.className = "crafter-status-tag fired";
-        
-        successMsg.style.display = "block";
-        drawPlaque();
-      }
-    }, 90);
-  });
-
-  // Reset Button
-  resetBtn.addEventListener("click", () => {
-    state = {
-      deity: "devnarayan",
-      sculpts: { halo: true, border: true, ornaments: false },
-      paints: { background: "unpainted", border: "unpainted", deity: "unpainted", halo: "unpainted" },
-      activePigment: "geru",
-      fired: false
-    };
-
-    // Reset controls UI
-    deityCards.forEach((c) => c.classList.toggle("active", c.dataset.deity === "devnarayan"));
-    sculptToggles.forEach((b) => {
-      const key = b.dataset.sculpt;
-      b.classList.toggle("active", state.sculpts[key]);
-      b.querySelector(".chk-box").textContent = state.sculpts[key] ? "✓" : "✗";
+  // ── Bhatti firing ──────────────────────────────────────
+  if (fireBtn) {
+    fireBtn.addEventListener("click", () => {
+      if (state.fired) return;
+      fireBtn.disabled = true;
+      if (fireOverlay) fireOverlay.classList.add("firing");
+      if (statusTag) statusTag.textContent = "Status: Firing (30°C)…";
+      let temp = 30;
+      const interval = setInterval(() => {
+        temp = Math.min(temp + 30, 900);
+        if (tempDisplay)  tempDisplay.textContent  = `Furnace Temp (${temp}°C)`;
+        if (tempProgress) tempProgress.style.width = `${(temp / 900) * 100}%`;
+        if (statusTag)    statusTag.textContent    = `Status: Firing (${temp}°C)…`;
+        if (temp >= 900) {
+          clearInterval(interval);
+          if (fireOverlay) fireOverlay.classList.remove("firing");
+          state.fired = true;
+          if (statusTag) { statusTag.textContent = "Status: Baked Terracotta ✓"; statusTag.className = "crafter-status-tag fired"; }
+          if (successMsg) successMsg.style.display = "block";
+          drawPlaque();
+        }
+      }, 80);
     });
-    pigmentSwatches.forEach((s) => s.classList.toggle("active", s.dataset.color === "geru"));
-    activeBrushLabel.textContent = "Geru Red";
+  }
 
-    successMsg.style.display = "none";
-    statusTag.textContent = "Status: Wet Clay Base";
-    statusTag.className = "crafter-status-tag";
-    tempDisplay.textContent = "Room Temp (30°C)";
-    tempProgress.style.width = "0%";
-    fireBtn.disabled = false;
+  // ── Reset ──────────────────────────────────────────────
+  if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+      state = {
+        deity: "devnarayan",
+        sculpts: { halo: true, border: true, ornaments: false },
+        paints:  { background: "unpainted", border: "unpainted", deity: "unpainted", halo: "unpainted" },
+        activePigment: "geru",
+        fired: false
+      };
+      deityCards.forEach(c => c.classList.toggle("active", c.dataset.deity === "devnarayan"));
+      sculptBtns.forEach(b => {
+        b.classList.toggle("active", state.sculpts[b.dataset.sculpt]);
+        const chk = b.querySelector(".chk-box");
+        if (chk) chk.textContent = state.sculpts[b.dataset.sculpt] ? "✓" : "✗";
+      });
+      swatches.forEach(s => s.classList.toggle("active", s.dataset.color === "geru"));
+      if (brushLabel)   brushLabel.textContent    = "Geru Red";
+      if (successMsg)   successMsg.style.display  = "none";
+      if (statusTag)  { statusTag.textContent     = "Status: Wet Clay Base"; statusTag.className = "crafter-status-tag"; }
+      if (tempDisplay)  tempDisplay.textContent   = "Room Temp (30°C)";
+      if (tempProgress) tempProgress.style.width  = "0%";
+      if (fireBtn)      fireBtn.disabled          = false;
+      if (tempGauge)    tempGauge.style.display   = "none";
+      if (stepBtns[0])  stepBtns[0].click();
+      drawPlaque();
+    });
+  }
 
-    // Scroll back to step 1
-    stepBtns[0].click();
+  // Expose for SPA redraw
+  canvas._molelaRedraw = drawPlaque;
 
-    drawPlaque();
-  });
-
-  // Draw initial
-  window.molelaRedrawPlaque = drawPlaque;
+  // Initial render
   drawPlaque();
 }
 
-/**
- * 2. Save to Journey Bookmarking
- */
+/* =========================================================
+   2. SAVE TO JOURNEY
+   ========================================================= */
 function initJourneyIntegration() {
-  const bookmarkBtn = document.getElementById("molela-bookmark-btn");
-  if (!bookmarkBtn) return;
-  if (bookmarkBtn.dataset.initialized === "true") return;
-  bookmarkBtn.dataset.initialized = "true";
+  const btn = document.getElementById("molela-bookmark-btn");
+  if (!btn || btn._journeyInit) return;
+  btn._journeyInit = true;
 
-  const id = "molela-clay-art";
-  const title = "Molela Clay Art Explorer";
-  const thumbnail = "frontend/assets/traditional_attires.png";
-  const category = "culture";
+  const ITEM = {
+    id:          "molela-clay-art",
+    title:       "Molela Clay Art Explorer",
+    explorerPage:"frontend/molela-clay-art-explorer/index.html",
+    thumbnail:   "frontend/assets/traditional_attires.png",
+    category:    "culture",
+    description: "Explore Rajasthan's 800-year-old terracotta relief plaque tradition and craft your own votive plaque."
+  };
 
-  function updateUI() {
-    const isSaved = window.Journey ? window.Journey.isSaved(id) : false;
-    bookmarkBtn.classList.toggle("saved", isSaved);
-    bookmarkBtn.setAttribute("aria-pressed", String(isSaved));
-    bookmarkBtn.innerHTML = isSaved
+  function syncUI() {
+    const saved = window.Journey && window.Journey.isSaved(ITEM.id);
+    btn.classList.toggle("saved", !!saved);
+    btn.innerHTML = saved
       ? '<span class="bookmark-icon">♥</span> Saved to Journey'
       : '<span class="bookmark-icon">☆</span> Save to Journey';
   }
 
-  // Always bind click handler — works even before Journey loads
-  bookmarkBtn.addEventListener("click", (e) => {
+  btn.addEventListener("click", (e) => {
     e.stopPropagation();
     if (!window.Journey) {
-      alert("Journey module is still loading. Please try again in a moment.");
+      // Polite fallback toast
+      showToast("Journey is loading — please try again in a moment.");
       return;
     }
-    window.Journey.toggle({
-      id,
-      explorerPage: "frontend/molela-clay-art-explorer/index.html",
-      title,
-      thumbnail,
-      category
-    });
-    updateUI();
+    window.Journey.toggle(ITEM);
+    syncUI();
   });
 
-  // Poll until window.Journey is ready, then sync the UI state
-  function waitForJourney(attempts) {
-    if (window.Journey) {
-      updateUI();
-      registerSearchItems();
-      return;
-    }
-    if (attempts > 0) {
-      setTimeout(() => waitForJourney(attempts - 1), 200);
-    }
-  }
-  waitForJourney(25); // up to 5s (25 × 200ms)
+  // Poll for Journey to load then sync state
+  let attempts = 30;
+  (function poll() {
+    if (window.Journey) { syncUI(); registerSearch(); return; }
+    if (--attempts > 0) setTimeout(poll, 200);
+  })();
 }
 
-function registerSearchItems() {
-  if (window.Journey && typeof window.Journey.registerSearchItems === "function") {
-    window.Journey.registerSearchItems("frontend/molela-clay-art-explorer/index.html", [
-      {
-        id: "molela-main",
-        title: "Molela Clay Art Explorer",
-        description: "Explore Rajasthan's handcrafted terracotta relief plaques, Mewar potters, and interactive clay plaque crafter.",
-        link: "frontend/molela-clay-art-explorer/index.html"
-      },
-      {
-        id: "molela-crafter",
-        title: "Heritage Clay Plaque Crafter",
-        description: "Mould deity reliefs, apply slips, and heat fire terracotta in the bhatti kiln simulator.",
-        link: "frontend/molela-clay-art-explorer/index.html#crafter-section"
-      }
-    ]);
-  }
+function registerSearch() {
+  if (!window.Journey || typeof window.Journey.registerSearchItems !== "function") return;
+  window.Journey.registerSearchItems("frontend/molela-clay-art-explorer/index.html", [
+    {
+      id: "molela-main",
+      title: "Molela Clay Art Explorer",
+      description: "Explore Rajasthan's handcrafted terracotta relief plaques, Mewar potters, and the interactive plaque crafter.",
+      link: "frontend/molela-clay-art-explorer/index.html"
+    },
+    {
+      id: "molela-crafter",
+      title: "Heritage Clay Plaque Crafter",
+      description: "Mould deity reliefs, apply mineral slips, and fire terracotta in the bhatti kiln simulator.",
+      link: "frontend/molela-clay-art-explorer/index.html#crafter-section"
+    }
+  ]);
 }
 
-/**
- * 3. Tab Smooth Scrolling
- */
+/* =========================================================
+   3. TAB NAVIGATION (scroll to section)
+   ========================================================= */
 function initTabs() {
-  // Bind each tab button individually (per-element guard prevents duplicate listeners)
   const tabs = [...document.querySelectorAll(".tab-btn")];
   if (tabs.length === 0) return;
 
-  // Scroll container — the SPA uses main#app-root as the scrollable container
-  const scrollRoot = document.getElementById("app-root") || document.querySelector("main") || window;
-
   tabs.forEach((tab) => {
-    if (tab.dataset.tabBound === "true") return; // already wired
-    tab.dataset.tabBound = "true";
+    if (tab._molelaTabBound) return;
+    tab._molelaTabBound = true;
 
     tab.addEventListener("click", () => {
-      const targetId = tab.dataset.target;
-      const targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        // Use scrollIntoView — works in both standalone and SPA modes
-        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
-        tabs.forEach((t) => t.classList.toggle("active", t === tab));
+      const target = document.getElementById(tab.dataset.target);
+      if (!target) return;
+
+      // Update active state
+      tabs.forEach(t => t.classList.toggle("active", t === tab));
+
+      // Scroll — try the SPA container first, then fallback to window
+      const offset = target.getBoundingClientRect().top + window.scrollY - 100;
+      try {
+        window.scrollTo({ top: offset, behavior: "smooth" });
+      } catch (e) {
+        window.scrollTo(0, offset);
       }
     });
   });
 
-  // Scroll-spy: track which section is in view
+  // Scroll spy
   const sections = tabs.map(t => document.getElementById(t.dataset.target)).filter(Boolean);
-
-  function onScroll() {
-    // Support both window scroll and app-root container scroll
-    const scrollY = (scrollRoot === window) ? window.scrollY : scrollRoot.scrollTop;
-    let current = sections[0]?.getAttribute("id") || "";
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      if (scrollY >= sectionTop - 200) {
-        current = section.getAttribute("id");
+  if (!window._molelaScrollHandler) {
+    window._molelaScrollHandler = () => {
+      const sy = window.scrollY + 200;
+      let current = sections[0];
+      sections.forEach(s => { if (s.offsetTop <= sy) current = s; });
+      if (current) {
+        tabs.forEach(t => t.classList.toggle("active", t.dataset.target === current.id));
       }
-    });
-    tabs.forEach((tab) => {
-      tab.classList.toggle("active", tab.dataset.target === current);
-    });
+    };
+    window.addEventListener("scroll", window._molelaScrollHandler, { passive: true });
   }
+}
 
-  // Bind scroll listener only once
-  if (!window._molelaScrollBound) {
-    window._molelaScrollBound = true;
-    window.addEventListener("scroll", onScroll, { passive: true });
-    if (scrollRoot !== window) {
-      scrollRoot.addEventListener("scroll", onScroll, { passive: true });
-    }
+/* =========================================================
+   HELPERS
+   ========================================================= */
+function showToast(msg) {
+  let toast = document.getElementById("molela-toast");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "molela-toast";
+    Object.assign(toast.style, {
+      position: "fixed", bottom: "24px", left: "50%", transform: "translateX(-50%)",
+      background: "#c2410c", color: "#fff", padding: "12px 24px", borderRadius: "8px",
+      fontWeight: "600", zIndex: "9999", fontSize: "0.95rem",
+      boxShadow: "0 4px 20px rgba(0,0,0,0.4)", transition: "opacity 0.4s"
+    });
+    document.body.appendChild(toast);
   }
+  toast.textContent = msg;
+  toast.style.opacity = "1";
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => { toast.style.opacity = "0"; }, 3000);
 }
