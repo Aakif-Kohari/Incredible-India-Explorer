@@ -662,6 +662,24 @@ window.indiaSearchIndex = [
     url: "frontend/sanjhi-art-explorer/index.html"
   },
   {
+    title: "The Cripps Mission",
+    category: "Culture",
+    description: "Proposals, negotiations, and the failure that preceded the Quit India Movement — explore the Cripps Mission of 1942.",
+    url: "frontend/cripps-mission-explorer/index.html"
+  },
+  {
+    title: "Cripps Mission — Cause, Negotiation, Failure, Consequence",
+    category: "Culture",
+    description: "A phase-filterable chronology from the fall of Singapore to the launch of the Quit India Movement.",
+    url: "frontend/cripps-mission-explorer/index.html#timeline"
+  },
+  {
+    title: "Cripps Mission — Where Each Side Stood",
+    category: "Culture",
+    description: "The British Government, Indian National Congress, Muslim League, and Gandhi's positions on the Cripps proposals.",
+    url: "frontend/cripps-mission-explorer/index.html#stakeholders"
+  },
+  {
     title: "Congress Radio Explorer",
     category: "Culture",
     description: "Discover Congress Radio, the secret underground station that broadcast uncensored news of the Quit India Movement on 42.34 metres in 1942, led by 22-year-old Usha Mehta.",
