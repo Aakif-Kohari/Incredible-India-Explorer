@@ -186,7 +186,7 @@ export const freedomTimeline = [
     description: "Court-martial of INA officers representing Hindu, Muslim, and Sikh communities at Red Fort sparked public protests.",
     historicalImpact: "Demonstrated unanimous cross-community unity and shattered military reliance of colonial authorities."
   },
-  {
+{
     id: "evt-1946-rin-mutiny",
     year: 1946,
     date: "February 18, 1946",
@@ -199,8 +199,20 @@ export const freedomTimeline = [
     historicalImpact: "Conclusively proved that colonial armed forces would no longer enforce British rule in India."
   },
   {
-    id: "evt-1947-independence",
-    year: 1947,
+    id: "evt-1946-cabinet-mission",
+    year: 1946,
+    date: "May 16, 1946",
+    title: "Cabinet Mission Plan",
+    movement: "Political Negotiations",
+    phase: "Final Push & Independence (1940–1947)",
+    location: "New Delhi",
+    keyLeaders: ["Lord Pethick-Lawrence", "Sir Stafford Cripps", "A. V. Alexander", "Mahatma Gandhi", "Muhammad Ali Jinnah"],
+    description: "A three-member British Cabinet delegation proposed a three-tier federal structure to keep India united, sparking negotiations that ultimately broke down over compulsory provincial grouping.",
+    historicalImpact: "The plan's collapse and the ensuing Direct Action Day violence made Partition all but inevitable within a year.",
+    explorerLink: "../cabinet-mission-plan-explorer/index.html"
+  },
+  {
+    id: "evt-1947-independence",    year: 1947,
     date: "August 15, 1947",
     title: "Indian Independence & 'Tryst with Destiny'",
     movement: "Civil Disobedience",
@@ -986,13 +998,13 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
               <span class="event-meta">📍 ${item.location} · 📅 ${item.date}</span>
             </div>
           </div>
-          <p class="event-desc">${item.description}</p>
+<p class="event-desc">${item.description}</p>
           <div class="leaders-row">${leadersHtml}</div>
           <div class="impact-box">
             <strong>💡 Historical Impact:</strong> ${item.historicalImpact}
           </div>
-        `;
-        timelineContainer.appendChild(card);
+          ${item.explorerLink ? `<a class="explorer-link" href="${item.explorerLink}">View Full Explorer →</a>` : ''}
+        `;        timelineContainer.appendChild(card);
       });
     }
 
