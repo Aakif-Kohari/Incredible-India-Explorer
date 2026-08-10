@@ -88,6 +88,16 @@ window.paintingsData = [
         link: "../pahari-miniature-art/index.html"
     },
     {
+        id: "bhil-1",
+        title: "Sacred Pithora & Dot Motifs",
+        style: "Bhil Art",
+        region: "Madhya Pradesh",
+        image: "assets/bhil-1.jpg",
+        highRes: "assets/high-res/bhil-1.jpg",
+        description: "Vibrant tribal art of the Bhil community featuring rhythmic multi-colored dot patterns, Pithora sacred horses, sun-moon deities, and ancestral folklore themes.",
+        link: "../bhil-art-explorer/index.html"
+    },
+    {
         id: "miniature-1",
         title: "Royal Hunt",
         style: "Miniature",

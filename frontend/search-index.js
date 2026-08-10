@@ -1689,6 +1689,7 @@ window.indiaSearchIndex = [
     description: "Explore Kalighat Painting — 19th-century Bengal's iconic temple-ghat brushwork with bold single-stroke lines, divine themes, social satire, brushwork visualization and gallery.",
     url: "frontend/kalighat-painting-showcase/index.html"
   },
+  // --- Bhil Art Explorer ---
   // --- Pahari Miniature Art Explorer ---
   {
     title: "Pahari Miniature Art Explorer",
@@ -1703,10 +1704,10 @@ window.indiaSearchIndex = [
     url: "frontend/rajput-miniature-paintings/index.html"},
   // --- Mughal Miniature Paintings Explorer ---
   {
-    title: "Mughal Miniature Paintings Explorer",
+    title: "Bhil Art Explorer",
     category: "Arts & Culture",
-    description: "Explore Mughal Miniature Paintings — Imperial court artwork emphasizing court life, royal durbars, hunting expeditions, architecture, Persian synthesis, and naturalism.",
-    url: "frontend/mughal-miniature-paintings/index.html"
+    description: "Explore Bhil Art — Indigenous tribal art of Central India featuring colorful dot patterns, Pithora sacred horses, sun-moon motifs, traditional pigments, materials, and gallery.",
+    url: "frontend/bhil-art-explorer/index.html"
   },
   // --- Manjusha Painting Explorer ---
   {
