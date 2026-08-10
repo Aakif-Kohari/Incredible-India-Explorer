@@ -656,6 +656,12 @@ window.indiaSearchIndex = [
     url: "frontend/revolutionary-network-explorer/index.html"
   },
   {
+    title: "Kakori Train Action Explorer",
+    category: "Freedom Struggle",
+    description: "The Kakori Train Action of 9 August 1925 — the Hindustan Republican Association's seizure of the government treasury from the Saharanpur–Lucknow train, the Kakori Conspiracy Case, the executions, and the road to the HSRA.",
+    url: "frontend/kakori-train-action-explorer/index.html"
+  },
+  {
     title: "Student & Youth Resistance Explorer",
     category: "Freedom Struggle",
     description: "Explore how students and young people shaped India's freedom movement — Swadeshi, National Education Movement, Non-Cooperation, revolutionary youth, Quit India, and underground activities.",
