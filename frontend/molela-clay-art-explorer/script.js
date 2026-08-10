@@ -547,29 +547,43 @@ function initJourneyIntegration() {
   const category = "culture";
 
   function updateUI() {
-    if (!window.Journey) return;
-    const isSaved = window.Journey.isSaved(id);
+    const isSaved = window.Journey ? window.Journey.isSaved(id) : false;
     bookmarkBtn.classList.toggle("saved", isSaved);
     bookmarkBtn.setAttribute("aria-pressed", String(isSaved));
-    bookmarkBtn.innerHTML = isSaved ? "♥ Saved to Journey" : "☆ Save to Journey";
+    bookmarkBtn.innerHTML = isSaved
+      ? '<span class="bookmark-icon">♥</span> Saved to Journey'
+      : '<span class="bookmark-icon">☆</span> Save to Journey';
   }
 
-  if (window.Journey) {
-    updateUI();
-    bookmarkBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      window.Journey.toggle({
-        id,
-        explorerPage: "frontend/molela-clay-art-explorer/index.html",
-        title,
-        thumbnail,
-        category
-      });
-      updateUI();
+  // Always bind click handler — works even before Journey loads
+  bookmarkBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (!window.Journey) {
+      alert("Journey module is still loading. Please try again in a moment.");
+      return;
+    }
+    window.Journey.toggle({
+      id,
+      explorerPage: "frontend/molela-clay-art-explorer/index.html",
+      title,
+      thumbnail,
+      category
     });
-  }
+    updateUI();
+  });
 
-  registerSearchItems();
+  // Poll until window.Journey is ready, then sync the UI state
+  function waitForJourney(attempts) {
+    if (window.Journey) {
+      updateUI();
+      registerSearchItems();
+      return;
+    }
+    if (attempts > 0) {
+      setTimeout(() => waitForJourney(attempts - 1), 200);
+    }
+  }
+  waitForJourney(25); // up to 5s (25 × 200ms)
 }
 
 function registerSearchItems() {
@@ -595,39 +609,52 @@ function registerSearchItems() {
  * 3. Tab Smooth Scrolling
  */
 function initTabs() {
-  const container = document.querySelector(".molela-tab-container");
-  if (!container) return;
-  if (container.dataset.initialized === "true") return;
-  container.dataset.initialized = "true";
-
+  // Bind each tab button individually (per-element guard prevents duplicate listeners)
   const tabs = [...document.querySelectorAll(".tab-btn")];
   if (tabs.length === 0) return;
 
+  // Scroll container — the SPA uses main#app-root as the scrollable container
+  const scrollRoot = document.getElementById("app-root") || document.querySelector("main") || window;
+
   tabs.forEach((tab) => {
+    if (tab.dataset.tabBound === "true") return; // already wired
+    tab.dataset.tabBound = "true";
+
     tab.addEventListener("click", () => {
       const targetId = tab.dataset.target;
       const targetSection = document.getElementById(targetId);
       if (targetSection) {
-        targetSection.scrollIntoView({ behavior: "smooth" });
+        // Use scrollIntoView — works in both standalone and SPA modes
+        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
         tabs.forEach((t) => t.classList.toggle("active", t === tab));
       }
     });
   });
 
+  // Scroll-spy: track which section is in view
   const sections = tabs.map(t => document.getElementById(t.dataset.target)).filter(Boolean);
-  window.addEventListener("scroll", () => {
-    let current = "";
+
+  function onScroll() {
+    // Support both window scroll and app-root container scroll
+    const scrollY = (scrollRoot === window) ? window.scrollY : scrollRoot.scrollTop;
+    let current = sections[0]?.getAttribute("id") || "";
     sections.forEach((section) => {
       const sectionTop = section.offsetTop;
-      if (window.scrollY >= sectionTop - 150) {
+      if (scrollY >= sectionTop - 200) {
         current = section.getAttribute("id");
       }
     });
+    tabs.forEach((tab) => {
+      tab.classList.toggle("active", tab.dataset.target === current);
+    });
+  }
 
-    if (current) {
-      tabs.forEach((tab) => {
-        tab.classList.toggle("active", tab.dataset.target === current);
-      });
+  // Bind scroll listener only once
+  if (!window._molelaScrollBound) {
+    window._molelaScrollBound = true;
+    window.addEventListener("scroll", onScroll, { passive: true });
+    if (scrollRoot !== window) {
+      scrollRoot.addEventListener("scroll", onScroll, { passive: true });
     }
-  });
+  }
 }
