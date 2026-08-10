@@ -42,7 +42,8 @@ const REGIONAL_STYLES = [
     {
         name: "Molela Clay Relief Plaques (Rajasthan)",
         giTag: "Heritage Craft",
-        description: "Hollow terracotta votive plaques depicting tribal deities (Devnarayan, Nagaraja) handcrafted by Kumhar potters along the Banas river."
+        description: "Hollow terracotta votive plaques depicting tribal deities (Devnarayan, Nagaraja) handcrafted by Kumhar potters along the Banas river.",
+        explorerUrl: "../molela-clay-art-explorer/index.html"
     },
     {
         name: "Asharikandi Terracotta (Assam)",
@@ -53,13 +54,13 @@ const REGIONAL_STYLES = [
 
 const GALLERY_IMAGES = [
     {
-        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Bankura_Horse_Terracotta.jpg/800px-Bankura_Horse_Terracotta.jpg",
-        caption: "Iconic Bankura Terracotta Horse from Panchmura, West Bengal",
+        url: "../assets/Blue_Pottery.png",
+        caption: "Traditional Blue Pottery craft of Jaipur (Heritage Ceramic Art)",
         category: "Regional Style"
     },
     {
-        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Gorakhpur_terracotta.jpg/800px-Gorakhpur_terracotta.jpg",
-        caption: "Hand-carved Gorakhpur terracotta elephant artifact",
+        url: "../assets/Dhokra_Art.png",
+        caption: "Traditional Dhokra bronze casting (Ancient Metallic Art)",
         category: "Artistry"
     }
 ];

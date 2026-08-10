@@ -408,8 +408,9 @@ const FREEDOM_FIGHTERS_DATA = [
         contributions: 'His sacrifice while protecting the national flag became a rallying symbol for the Civil Disobedience Movement in the Madras Presidency and remains commemorated in Tirupur to this day.',
         rareFacts: 'A statue of Kumaran holding the national flag stands at the Tirupur bus stand, and he is remembered every year through local commemorations honouring his sacrifice.',
         quote: 'Remembered for refusing to let the national flag touch the ground even as he collapsed from a fatal police blow.',
-        explorerLink: '../tirupur-kumaran-explorer/index.html'},
-          {
+        explorerLink: '../tirupur-kumaran-explorer/index.html'
+    },
+    {
         id: 'alluri-sitarama-raju',
         name: 'Alluri Sitarama Raju',
         title: 'Manyam Veerudu (Hero of the Jungle)',
@@ -452,7 +453,66 @@ const FREEDOM_FIGHTERS_DATA = [
         contributions: 'The Bombay launch of the Quit India Movement made the demand for immediate freedom a national imperative, triggered the widest protest wave since 1857, and convinced the British that the Raj could not survive the war.',
         rareFacts: 'The slogan "Quit India" was coined by the young Bombay socialist Yusuf Meherally; the maidan was renamed August Kranti Maidan after Independence, and India Post issued a commemorative stamp for the movement in 1992.',
         quote: '"Karo Ya Maro" — "Do or Die." We shall either free India or die in the attempt; we shall not live to see the perpetuation of our slavery. — Mahatma Gandhi, Gowalia Tank Maidan, 8 August 1942',
-        explorerLink: '../quit-india-movement-explorer/index.html'
+        explorerLink: '../quit-india-movement-explorer/index.html'},
+          {
+        id: 'baji-rout',
+        name: 'Baji Rout',
+        title: 'One of India\'s Youngest Martyrs',
+        lifespan: '1926 – 1938',
+        era: 'Praja Mandal Movement',
+        region: 'East',
+        birthplace: 'Nilakanthapur, Dhenkanal, Odisha',
+        movements: ['Praja Mandal Movement (Dhenkanal)'],
+        biography: 'Baji Rout was a twelve-year-old boatman from Dhenkanal, Odisha, who was fatally shot by state police in 1938 after refusing to ferry them across a river to suppress protesting villagers, becoming one of the youngest martyrs of India\'s freedom struggle.',
+        timeline: [
+            { year: '1926', event: 'Born into a boatman family in Nilakanthapur, Dhenkanal.' },
+            { year: '1930s', event: 'Growing unrest in Dhenkanal as villagers organized under the Praja Mandal movement.' },
+            { year: 'Oct 11, 1938', event: 'Refused to ferry police across the river to suppress protesters and was fatally shot.' }
+        ],
+        contributions: 'His refusal and martyrdom at age twelve became a galvanizing symbol for the Praja Mandal movement in Dhenkanal and is remembered across Odisha as an act of extraordinary courage.',
+        rareFacts: 'Remembered as one of the youngest martyrs of India\'s freedom struggle; several institutions in Odisha are named in his honor.',
+        quote: 'I will not take the police to catch my own people.',
+        explorerLink: '../baji-rout-explorer/index.html'
+    },
+    {
+        id: 'vanchinathan',
+        name: 'Vanchinathan',
+        title: 'South Indian Revolutionary',
+        lifespan: '1886 – 1911',
+        era: 'Swadeshi & Revolutionary Movement',
+        region: 'South',
+        birthplace: 'Senkottai, Tirunelveli',
+        movements: ['Swadeshi Movement', 'South Indian Revolutionary Circles'],
+        biography: 'Vanchinathan was a young revolutionary from Tirunelveli, Tamil Nadu, part of an early 20th-century South Indian nationalist movement influenced by the Swadeshi era and by regional leaders such as V. O. Chidambaram Pillai.',
+        timeline: [
+            { year: '1886', event: 'Born in Senkottai, Tirunelveli region, Madras Presidency.' },
+            { year: '1908', event: 'Tirunelveli-Tuticorin region saw major unrest connected to Swadeshi-era resistance.' },
+            { year: '1911', event: 'A significant, widely documented turning point in South India\'s revolutionary history.' }
+        ],
+        contributions: 'Part of the broader network of early 20th-century revolutionary nationalists demonstrating the geographic reach of anti-colonial resistance across South India.',
+        rareFacts: 'His activity is studied alongside other regional revolutionary movements active in Bengal, Maharashtra, and Punjab during the same period.',
+        quote: 'For the motherland, no sacrifice is too great.',
+        explorerLink: '../vanchinathan-explorer/index.html'
+    },
+    {
+        id: 'bagha-jatin',
+        name: 'Jatindranath Mukherjee (Bagha Jatin)',
+        title: 'Leader of the Jugantar Movement',
+        lifespan: '1879 – 1915',
+        era: 'Bengal Revolutionary Movement',
+        region: 'East',
+        birthplace: 'Kaya, Bengal Presidency',
+        movements: ['Jugantar Group', 'Bengal Revolutionary Network'],
+        biography: 'Jatindranath Mukherjee, known as "Bagha Jatin," was a central organizing leader of Bengal\'s early 20th-century revolutionary movement, associated with the Jugantar group, who died following the 1915 Battle of Balasore.',
+        timeline: [
+            { year: '1879', event: 'Born in Kaya, Bengal Presidency.' },
+            { year: '1900s–1910s', event: 'Rose to leadership within the Jugantar revolutionary network.' },
+            { year: 'Sept 1915', event: 'Fatally wounded in a confrontation with British forces near Balasore.' }
+        ],
+        contributions: 'Built and led an extensive revolutionary network across Bengal, mentoring a generation of nationalists and becoming a central figure in the region\'s armed independence movement.',
+        rareFacts: 'Earned the name "Bagha Jatin" (Tiger Jatin) after a widely recounted incident demonstrating his physical courage.',
+        quote: 'We shall die to awaken the nation.',
+        explorerLink: '../bagha-jatin-explorer/index.html'
     }
 ];
 
