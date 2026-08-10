@@ -1689,25 +1689,12 @@ window.indiaSearchIndex = [
     description: "Explore Kalighat Painting — 19th-century Bengal's iconic temple-ghat brushwork with bold single-stroke lines, divine themes, social satire, brushwork visualization and gallery.",
     url: "frontend/kalighat-painting-showcase/index.html"
   },
-  // --- Bhil Art Explorer ---
-  // --- Pahari Miniature Art Explorer ---
+  // --- Aipan Art Visualizer ---
   {
-    title: "Pahari Miniature Art Explorer",
+    title: "Aipan Art Visualizer",
     category: "Arts & Culture",
-    description: "Explore Pahari Miniature Art — Himalayan painting schools comparison of Kangra, Basohli, and Guler, featuring lyrical lines, beetle-wing cases, romantic naturalism, and gallery.",
-    url: "frontend/pahari-miniature-art/index.html"},
-  // --- Rajput Miniature Paintings Explorer ---
-  {
-    title: "Rajput Miniature Paintings Explorer",
-    category: "Arts & Culture",
-    description: "Explore Rajput Miniature Paintings — Dynasty-wise collections of Mewar, Marwar, Kishangarh, Bundi-Kota, and Jaipur with Ragamala themes, Bani Thani, and color palette visualizer.",
-    url: "frontend/rajput-miniature-paintings/index.html"},
-  // --- Mughal Miniature Paintings Explorer ---
-  {
-    title: "Bhil Art Explorer",
-    category: "Arts & Culture",
-    description: "Explore Bhil Art — Indigenous tribal art of Central India featuring colorful dot patterns, Pithora sacred horses, sun-moon motifs, traditional pigments, materials, and gallery.",
-    url: "frontend/bhil-art-explorer/index.html"
+    description: "Explore Aipan Art — Sacred Kumaoni ritual floor and wall art of Uttarakhand featuring Lakshmi Chowki, Vasudhara vertical streams, Lakshmi Paduka footprints, Geru red & Rice white palette, and gallery.",
+    url: "frontend/aipan-art-visualizer/index.html"
   },
   // --- Manjusha Painting Explorer ---
   {

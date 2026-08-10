@@ -98,6 +98,16 @@ window.paintingsData = [
         link: "../bhil-art-explorer/index.html"
     },
     {
+        id: "aipan-1",
+        title: "Lakshmi Chowki & Vasudhara",
+        style: "Aipan Art",
+        region: "Uttarakhand",
+        image: "assets/aipan-1.jpg",
+        highRes: "assets/high-res/aipan-1.jpg",
+        description: "Sacred Kumaoni ritual floor art created with Geru red terracotta clay and Biswar white rice paste, featuring traditional Chowki geometries and Lakshmi footprints.",
+        link: "../aipan-art-visualizer/index.html"
+    },
+    {
         id: "miniature-1",
         title: "Royal Hunt",
         style: "Miniature",
