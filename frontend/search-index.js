@@ -686,6 +686,12 @@ window.indiaSearchIndex = [
     url: "frontend/congress-radio-explorer/index.html"
   },
   {
+    title: "Bombay Launch of the Quit India Movement",
+    category: "Freedom Struggle",
+    description: "Walk the ground where India's last great freedom struggle was launched — the AICC session at Gowalia Tank Maidan, Bombay, 8 August 1942, the Quit India resolution, Gandhi's 'Do or Die' call, the arrests of 9 August and the nationwide storm that followed.",
+    url: "frontend/quit-india-movement-explorer/index.html"
+  },
+  {
     title: "Gujarati Cinema (Dhollywood) Explorer",
     category: "Culture",
     description: "Discover Dhollywood, the Gujarati film industry — from Narsinh Mehta (1932), the first Gujarati talkie, to National Award-winning classics and its modern urban revival.",
