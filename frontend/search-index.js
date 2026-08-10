@@ -1690,6 +1690,19 @@ window.indiaSearchIndex = [
     url: "frontend/kalighat-painting-showcase/index.html"
   },
   // --- Bhil Art Explorer ---
+  // --- Pahari Miniature Art Explorer ---
+  {
+    title: "Pahari Miniature Art Explorer",
+    category: "Arts & Culture",
+    description: "Explore Pahari Miniature Art — Himalayan painting schools comparison of Kangra, Basohli, and Guler, featuring lyrical lines, beetle-wing cases, romantic naturalism, and gallery.",
+    url: "frontend/pahari-miniature-art/index.html"},
+  // --- Rajput Miniature Paintings Explorer ---
+  {
+    title: "Rajput Miniature Paintings Explorer",
+    category: "Arts & Culture",
+    description: "Explore Rajput Miniature Paintings — Dynasty-wise collections of Mewar, Marwar, Kishangarh, Bundi-Kota, and Jaipur with Ragamala themes, Bani Thani, and color palette visualizer.",
+    url: "frontend/rajput-miniature-paintings/index.html"},
+  // --- Mughal Miniature Paintings Explorer ---
   {
     title: "Bhil Art Explorer",
     category: "Arts & Culture",
