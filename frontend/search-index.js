@@ -5,6 +5,12 @@
  */
 window.indiaSearchIndex = [
   {
+    title: "Asirgarh Fort Explorer",
+    category: "Heritage & History",
+    description: "Explore Asirgarh Fort: the strategic 'Gateway to the Deccan' (Kili-i-Dakkan) in Burhanpur, Madhya Pradesh, featuring Satpura mountain citadels, Asa Ahir origins, Jama Masjid, Akbar's 1601 siege, and Ashwatthama legend.",
+    url: "frontend/asirgarh-fort-explorer/index.html"
+  },
+  {
     title: "Gingee Fort Explorer",
     category: "Heritage & History",
     description: "Explore Gingee Fort: the Troy of the East in Tamil Nadu featuring three hill citadels (Rajagiri, Krishnagiri, Chandrayandurg), 8-year Maratha siege history, Kalyana Mahal tower, and grand fortifications.",
