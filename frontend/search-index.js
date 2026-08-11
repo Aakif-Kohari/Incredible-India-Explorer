@@ -2458,5 +2458,12 @@ window.indiaSearchIndex = [
     category: "Freedom Struggle",
     description: "Explore the INA's journey from Indian POWs in Southeast Asia and Mohan Singh's First INA, through Subhas Chandra Bose's Azad Hind Government and the Rani of Jhansi Regiment, to the Imphal-Kohima campaign and Red Fort Trials.",
     url: "frontend/indian-national-army-explorer/index.html"
-  }
+  },
+  // --- Imphal-Kohima Campaign Explorer ---
+  {
+    title: "Imphal–Kohima Campaign Explorer",
+    category: "Military Resistance",
+    description: "Map the INA's 1944 march alongside the Japanese 15th Army toward India's northeastern frontier - the Burma Campaign, the sieges of Imphal and Kohima, the monsoon retreat, and the campaign's historical significance.",
+    url: "frontend/imphal-kohima-campaign-explorer/index.html"
+  },
 ];
