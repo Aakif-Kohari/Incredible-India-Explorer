@@ -58,6 +58,56 @@ window.paintingsData = [
         link: "../gond-art-explorer/index.html"
     },
     {
+        id: "mughal-1",
+        title: "Emperor Akbar in Durbar",
+        style: "Mughal Miniature",
+        region: "North India",
+        image: "assets/mughal-1.jpg",
+        highRes: "assets/high-res/mughal-1.jpg",
+        description: "Imperial court miniature artwork fusing Persian elegance with Indian realism, featuring royal durbars, hunting expeditions, and botanical studies.",
+        link: "../mughal-miniature-paintings/index.html"
+    },
+    {
+        id: "rajput-1",
+        title: "Bani Thani of Kishangarh",
+        style: "Rajput Miniature",
+        region: "Rajasthan",
+        image: "assets/rajput-1.jpg",
+        highRes: "assets/high-res/rajput-1.jpg",
+        description: "Vibrant royal court miniature art showcasing kingdom-wise traditions of Mewar, Marwar, Kishangarh, Bundi-Kota, and Jaipur with rich mineral colors and Ragamala themes.",
+        link: "../rajput-miniature-paintings/index.html"
+    },
+    {
+        id: "pahari-1",
+        title: "Radha & Krishna in Kangra Valley",
+        style: "Pahari Miniature",
+        region: "Himachal Pradesh",
+        image: "assets/pahari-1.jpg",
+        highRes: "assets/high-res/pahari-1.jpg",
+        description: "Poetic Himalayan miniature painting style featuring school comparisons of Kangra, Basohli, and Guler with delicate lines and lush nature backgrounds.",
+        link: "../pahari-miniature-art/index.html"
+    },
+    {
+        id: "bhil-1",
+        title: "Sacred Pithora & Dot Motifs",
+        style: "Bhil Art",
+        region: "Madhya Pradesh",
+        image: "assets/bhil-1.jpg",
+        highRes: "assets/high-res/bhil-1.jpg",
+        description: "Vibrant tribal art of the Bhil community featuring rhythmic multi-colored dot patterns, Pithora sacred horses, sun-moon deities, and ancestral folklore themes.",
+        link: "../bhil-art-explorer/index.html"
+    },
+    {
+        id: "aipan-1",
+        title: "Lakshmi Chowki & Vasudhara",
+        style: "Aipan Art",
+        region: "Uttarakhand",
+        image: "assets/aipan-1.jpg",
+        highRes: "assets/high-res/aipan-1.jpg",
+        description: "Sacred Kumaoni ritual floor art created with Geru red terracotta clay and Biswar white rice paste, featuring traditional Chowki geometries and Lakshmi footprints.",
+        link: "../aipan-art-visualizer/index.html"
+    },
+    {
         id: "miniature-1",
         title: "Royal Hunt",
         style: "Miniature",
@@ -65,6 +115,16 @@ window.paintingsData = [
         image: "assets/miniature-1.jpg",
         highRes: "assets/high-res/miniature-1.jpg",
         description: "Highly detailed and intricately painted small-scale artwork that flourished under Rajput and Mughal patronage, known for delicate brushwork and rich colors."
+    },
+    {
+        id: "mughal-1",
+        title: "Emperor Akbar in Durbar",
+        style: "Mughal Miniature",
+        region: "North India",
+        image: "assets/mughal-1.jpg",
+        highRes: "assets/high-res/mughal-1.jpg",
+        description: "Imperial court miniature artwork fusing Persian elegance with Indian realism, featuring royal durbars, hunting expeditions, and botanical studies.",
+        link: "../mughal-miniature-paintings/index.html"
     },
     {
         id: "phad-1",

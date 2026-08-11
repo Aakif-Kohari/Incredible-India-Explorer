@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    NEW PAGES - SHARED APPLICATION LOGIC
    Common to: rivers.html, currency-history.html, frontend/tribes/frontend/tribes/tribes.html
    Pure Vanilla JavaScript - no external dependencies.
@@ -739,6 +739,23 @@ const COINS_DATA = [
         ]
     },
     {
+        id: 'chola',
+        number: '2.5',
+        title: 'Chola Dynasty',
+        date: '850 CE – 1279 CE',
+        desc: 'Chola coins famously feature the royal crest of a tiger (Chola) flanked by a bow (Chera) and fish (Pandya), signifying their imperial conquests.',
+        dyk: 'Rajaraja I introduced the "Ceylon Man" coin type which became a standard in South India and Sri Lanka. Click below to decode the symbols!',
+        side: 'right',
+        theme: 'red',
+        circleImage: 'assets/coin5.png',
+        thumbs: [
+            { img: 'assets/coin3.png', label: '<a href="../chola-coin-decoder/index.html" style="color: inherit; text-decoration: underline;">Open Decoder</a>' },
+            { img: 'assets/coin1.png', label: 'Rajaraja I Copper' },
+            { img: 'assets/coin2.png', label: 'Tiger Crest' },
+            { img: 'assets/coin4.png', label: 'Gold Kahavanu' }
+        ]
+    },
+    {
         id: 'medieval',
         number: '03',
         title: 'Medieval / Sultanate & Mughal Era',
@@ -830,6 +847,31 @@ function initCoinsPage() {
     const progressList = document.getElementById('coins-progress-list');
  
     if (!timelineMain || !progressList) return;
+    const eraFilterBar = document.getElementById('coins-era-filter');
+
+    /* ---------- Render clickable era filter buttons ---------- */
+    if (eraFilterBar) {
+        eraFilterBar.innerHTML = COINS_DATA.map((era, idx) => `
+            <button class="coins-era-filter-btn${idx === 0 ? ' active' : ''}" data-target="era-${era.id}">
+                ${era.title}
+            </button>
+        `).join('');
+
+        eraFilterBar.querySelectorAll('.coins-era-filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = document.getElementById(btn.dataset.target);
+                if (!target) return;
+
+                eraFilterBar.querySelectorAll('.coins-era-filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                target.classList.add('era-highlight-pulse');
+                setTimeout(() => target.classList.remove('era-highlight-pulse'), 1500);
+            });
+        });
+    }
  
     /* ---------- Render progress sidebar ---------- */
     progressList.innerHTML = COINS_DATA.map((era, idx) => `

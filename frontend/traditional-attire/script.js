@@ -1,176 +1,184 @@
-// script.js - Traditional Attire Logic
-// Encapsulated in IIFE
-
 (function () {
-    'use strict';
+    "use strict";
 
-    const data = window.attireData;
-    if (!data || !data.length) {
-        console.error("Attire data is missing.");
-        return;
-    }
+    // Dataset of Traditional Indian Attire
+    const attireData = {
+        "jammu-kashmir": {
+            state: "Jammu & Kashmir",
+            attire: "Phiran",
+            image: "../../assets/images/attire/phiran.webp",
+            description: "A traditional Kashmiri garment commonly associated with the region's cultural heritage. It is a long, loose gown worn to provide protection against the cold winter.",
+            occasions: "Daily wear in winter, cultural festivals",
+            material: "Wool (for winters) or Cotton (for summers)",
+            alt: "Traditional Kashmiri phiran"
+        },
+        "punjab": {
+            state: "Punjab",
+            attire: "Patiala Suit & Kurta Pyjama",
+            image: "../../assets/images/attire/punjab-attire.webp",
+            description: "The traditional Patiala suit for women features a loose, pleated trouser. Men typically wear a Kurta with Muktsari Pyjamas, often paired with a vibrant Turban.",
+            occasions: "Baisakhi, Lohri, weddings, and daily wear",
+            material: "Cotton, silk, and phulkari embroidery",
+            alt: "Traditional Punjabi Patiala suit and Kurta"
+        },
+        "rajasthan": {
+            state: "Rajasthan",
+            attire: "Ghagra Choli",
+            image: "../../assets/images/attire/rajasthan-attire.webp",
+            description: "A vibrant combination of a long skirt (Ghagra), blouse (Choli), and a draped dupatta (Odhni). Known for its bright colors, mirror work, and intricate embroidery.",
+            occasions: "Teej, Gangaur, weddings, and folk performances",
+            material: "Cotton, silk, georgette with Zari and Gota Patti work",
+            alt: "Traditional Rajasthani Ghagra Choli"
+        },
+        "gujarat": {
+            state: "Gujarat",
+            attire: "Chaniya Choli",
+            image: "../../assets/images/attire/gujarat-attire.webp",
+            description: "Similar to the Ghagra Choli but distinctly Gujarati. It features a beautifully embroidered skirt and blouse, often decorated with bandhani prints and mirror work.",
+            occasions: "Navratri (Garba), weddings, and regional festivals",
+            material: "Cotton and silk blends with extensive mirror work",
+            alt: "Traditional Gujarati Chaniya Choli"
+        },
+        "maharashtra": {
+            state: "Maharashtra",
+            attire: "Nauvari Saree",
+            image: "../../assets/images/attire/nauvari.webp",
+            description: "The Nauvari (nine-yard) saree is a traditional Maharashtrian style of saree known for its distinctive draping, tucked at the back to allow freedom of movement.",
+            occasions: "Festivals, ceremonies, and traditional weddings",
+            material: "Cotton and silk (often Paithani weave)",
+            alt: "Traditional Maharashtrian Nauvari Saree"
+        },
+        "west-bengal": {
+            state: "West Bengal",
+            attire: "Traditional Bengali Saree (Garad / Tant)",
+            image: "../../assets/images/attire/bengal-attire.webp",
+            description: "Known for the quintessential red border on a white or off-white base (Garad). Typically draped in the distinct Bengali style with pleats folded inwards.",
+            occasions: "Durga Puja, religious ceremonies, and cultural events",
+            material: "Crisp cotton (Tant) or silk (Garad/Korial)",
+            alt: "Traditional Bengali Saree"
+        },
+        "kerala": {
+            state: "Kerala",
+            attire: "Kasavu Saree / Mundu",
+            image: "../../assets/images/attire/kasavu.webp",
+            description: "A traditional Kerala attire known for its simple, elegant white or off-white appearance with a distinct gold (Kasavu) border.",
+            occasions: "Onam, Vishu, weddings, and temple visits",
+            material: "Handloom cotton with zari (gold thread)",
+            alt: "Traditional Kerala Kasavu Saree and Mundu"
+        },
+        "tamil-nadu": {
+            state: "Tamil Nadu",
+            attire: "Kanchipuram Saree / Veshti",
+            image: "../../assets/images/attire/kanchipuram.webp",
+            description: "Women traditionally wear the heavily silk-woven Kanchipuram sarees, while men wear a white unstitched cloth called a Veshti paired with a shirt or Angavastram.",
+            occasions: "Pongal, weddings, classical dance performances",
+            material: "Pure mulberry silk, cotton",
+            alt: "Traditional Tamil Nadu Kanchipuram Saree and Veshti"
+        },
+        "assam": {
+            state: "Assam",
+            attire: "Mekhela Chador",
+            image: "../../assets/images/attire/mekhela.webp",
+            description: "A two-piece traditional garment draped like a saree. The bottom portion is the Mekhela, folded into pleats, and the top is the Chador.",
+            occasions: "Bihu, weddings, and traditional gatherings",
+            material: "Muga silk (golden silk native to Assam), Pat, and Eri silk",
+            alt: "Traditional Assamese Mekhela Chador"
+        },
+        "himachal-pradesh": {
+            state: "Himachal Pradesh",
+            attire: "Traditional Himachali Attire",
+            image: "../../assets/images/attire/himachal-attire.webp",
+            description: "Features warm, layered clothing. Women wear long kurtas with salwars and distinctive headscarves (Dhatu). Men wear kurtas with the iconic Himachali Topi.",
+            occasions: "Kullu Dussehra, winter festivals, daily wear",
+            material: "Handwoven wool, pashmina, and thick cotton",
+            alt: "Traditional Himachali clothing and caps"
+        }
+    };
 
     // DOM Elements
-    const themeBtn = document.getElementById('theme-toggle');
-    const tabList = document.getElementById('region-tabs');
-    const displayContainer = document.querySelector('.attire-display');
-    const comparisonTbody = document.getElementById('comparison-tbody');
+    const stateSelect = document.getElementById("attire-state");
+    const attireImage = document.getElementById("attire-image");
+    const attireFallback = document.getElementById("attire-fallback");
+    const attireContent = document.getElementById("attire-content");
+    const attireEmptyState = document.getElementById("attire-empty-state");
     
-    // Panel Elements
-    const elPlaceholderText = document.getElementById('placeholder-text');
-    const elRegion = document.getElementById('attire-region');
-    const elGarment = document.getElementById('attire-garment');
-    const elDesc = document.getElementById('attire-desc');
-    const elFabric = document.getElementById('attire-fabric');
-    const elDrape = document.getElementById('attire-drape');
-    const elOccasions = document.getElementById('attire-occasions');
-    const elAccessories = document.getElementById('attire-accessories');
-    const infoPanel = document.getElementById('info-panel');
+    const nameEl = document.getElementById("attire-name");
+    const regionEl = document.getElementById("attire-region-text");
+    const descEl = document.getElementById("attire-description");
+    const occasionsEl = document.getElementById("attire-occasions");
+    const materialEl = document.getElementById("attire-material");
 
-    let currentIndex = 0;
-
-    // --- Theme Logic ---
-    if (themeBtn) {
-        let isDarkMode = localStorage.getItem('theme') === 'dark';
-        if (isDarkMode) {
-            document.body.classList.replace('light-theme', 'dark-theme');
-            themeBtn.textContent = '☀️';
-            themeBtn.setAttribute('aria-label', 'Toggle Light Mode');
+    /**
+     * Initializes the Traditional Attire Explorer
+     */
+    function initializeAttireExplorer() {
+        if (!stateSelect || !attireContent) {
+            console.error("Traditional Attire Explorer: Required DOM elements are missing.");
+            return;
         }
 
-        themeBtn.addEventListener('click', () => {
-            if (document.body.classList.contains('light-theme')) {
-                document.body.classList.replace('light-theme', 'dark-theme');
-                localStorage.setItem('theme', 'dark');
-                themeBtn.textContent = '☀️';
-            } else {
-                document.body.classList.replace('dark-theme', 'light-theme');
-                localStorage.setItem('theme', 'light');
-                themeBtn.textContent = '🌙';
-            }
+        stateSelect.addEventListener("change", handleStateSelection);
+        
+        // Custom error handler for images to show fallback UI
+        attireImage.addEventListener("error", function() {
+            this.classList.add("hidden");
+            attireFallback.classList.add("active");
+        });
+        
+        attireImage.addEventListener("load", function() {
+            this.classList.remove("hidden");
+            attireFallback.classList.remove("active");
         });
     }
 
-    // --- Initialize Tabs ---
-    function initTabs() {
-        data.forEach((item, index) => {
-            const btn = document.createElement('button');
-            btn.className = 'tab-btn';
-            btn.setAttribute('role', 'tab');
-            btn.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
-            btn.setAttribute('aria-controls', 'info-panel');
-            btn.setAttribute('id', `tab-${item.id}`);
-            btn.setAttribute('tabindex', index === 0 ? '0' : '-1');
-            btn.textContent = item.region;
-            
-            btn.addEventListener('click', () => selectTab(index));
-            
-            // Keyboard Navigation (Arrow Keys)
-            btn.addEventListener('keydown', (e) => {
-                let nextIndex = index;
-                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-                    nextIndex = (index + 1) % data.length;
-                    e.preventDefault();
-                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                    nextIndex = (index - 1 + data.length) % data.length;
-                    e.preventDefault();
-                } else if (e.key === 'Enter' || e.key === ' ') {
-                    selectTab(index);
-                    e.preventDefault();
-                }
+    /**
+     * Handles state selection change
+     */
+    function handleStateSelection() {
+        const selectedValue = stateSelect.value;
+        if (!selectedValue) return;
 
-                if (nextIndex !== index) {
-                    const nextBtn = tabList.children[nextIndex];
-                    nextBtn.focus();
-                    selectTab(nextIndex);
-                }
-            });
-
-            tabList.appendChild(btn);
-        });
+        updateAttire(selectedValue);
     }
 
-    // --- Handle Tab Selection ---
-    function selectTab(index) {
-        if (currentIndex === index && document.querySelector('.tab-btn[aria-selected="true"]')) return;
-        
-        currentIndex = index;
-        const selectedData = data[currentIndex];
+    /**
+     * Updates the UI with the selected attire data
+     * @param {string} stateKey - The key of the selected state in the data object
+     */
+    function updateAttire(stateKey) {
+        const data = attireData[stateKey];
 
-        // Update Tab States
-        const tabs = tabList.querySelectorAll('.tab-btn');
-        tabs.forEach((tab, i) => {
-            const isSelected = i === currentIndex;
-            tab.setAttribute('aria-selected', isSelected);
-            tab.setAttribute('tabindex', isSelected ? '0' : '-1');
-        });
+        if (!data) {
+            console.error(`No attire data found for state: ${stateKey}`);
+            return;
+        }
 
-        // Trigger animation reset
-        displayContainer.classList.add('updating');
-        
-        // Use a tiny timeout to allow CSS to reset animations
-        setTimeout(() => {
-            updatePanel(selectedData);
-            displayContainer.classList.remove('updating');
+        try {
+            // Update Image
+            // We set hidden first to ensure the onload/onerror handles revealing it
+            attireImage.classList.add("hidden");
+            attireFallback.classList.remove("active");
             
-            // Re-trigger CSS animations
-            const placeholder = document.querySelector('.image-placeholder');
-            const info = document.querySelector('.attire-info-panel');
-            
-            placeholder.style.animation = 'none';
-            info.style.animation = 'none';
-            void placeholder.offsetWidth; // Reflow
-            
-            // Assuming no prefers-reduced-motion, apply animations
-            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (!prefersReduced) {
-                placeholder.style.animation = 'fadeIn 0.4s ease forwards';
-                info.style.animation = 'fadeInRight 0.4s ease forwards';
-            }
-        }, 50);
-    }
+            attireImage.src = data.image;
+            attireImage.alt = data.alt;
 
-    function updatePanel(item) {
-        // We use the region name as the placeholder text since actual images might be missing offline
-        elPlaceholderText.textContent = `[ Image: ${item.region} Attire ]`;
-        
-        elRegion.textContent = item.region;
-        elGarment.textContent = item.garment;
-        elDesc.textContent = item.description;
-        elFabric.textContent = item.fabric;
-        elDrape.textContent = item.drape;
-        elOccasions.textContent = item.occasions.join(', ');
-        elAccessories.textContent = item.accessories.join(', ');
-        
-        // Update aria-label for screen readers on the panel
-        infoPanel.setAttribute('aria-labelledby', `tab-${item.id}`);
-    }
+            // Update Text Content
+            nameEl.textContent = data.attire;
+            regionEl.textContent = data.state;
+            descEl.textContent = data.description;
+            occasionsEl.textContent = data.occasions;
+            materialEl.textContent = data.material;
 
-    // --- Comparison Table Generation ---
-    function generateTable() {
-        const rowsHtml = data.map(item => {
-            return `
-                <tr>
-                    <td><strong>${item.region}</strong></td>
-                    <td>${item.garment}</td>
-                    <td>${item.fabric}</td>
-                    <td>${item.occasions[0] || '-'}</td>
-                </tr>
-            `;
-        }).join('');
-        
-        if (comparisonTbody) {
-            comparisonTbody.innerHTML = rowsHtml;
+            // Show Content Panel
+            attireEmptyState.classList.add("hidden");
+            attireContent.classList.remove("hidden");
+            
+        } catch (error) {
+            console.error("Error updating attire data:", error);
         }
     }
 
-    // --- Boot ---
-    initTabs();
-    generateTable();
-    
-    // Select first tab by default
-    if (data.length > 0) {
-        selectTab(0);
-    }
+    // Initialize when DOM is fully loaded
+    document.addEventListener("DOMContentLoaded", initializeAttireExplorer);
 
 })();
