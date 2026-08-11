@@ -686,6 +686,12 @@ window.indiaSearchIndex = [
     url: "frontend/tollywood-explorer/index.html"
   },
   {
+    title: "Bollywood (Hindi Cinema) Explorer",
+    category: "Culture",
+    description: "Discover Bollywood, India's Hindi-language film industry headquartered in Mumbai — from Raja Harishchandra (1913) and Alam Ara (1931) to global icons, legendary music, and Oscar-recognised soundtracks.",
+    url: "frontend/bollywood-explorer/index.html"
+  },
+  {
     title: "River Krishna",
     category: "Rivers",
     description: "Major river of southern India, supporting agriculture across Maharashtra, Karnataka, and Andhra Pradesh.",
