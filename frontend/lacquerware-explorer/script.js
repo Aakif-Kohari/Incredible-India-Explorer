@@ -45,7 +45,9 @@
       title: 'Channapatna Wooden Toys',
       region: 'Channapatna, Karnataka',
       medium: 'Ivory-wood turned on a lathe, coloured with lac & vegetable dyes',
-      description: 'Rounded, brightly coloured dolls, animals, spinning tops, and stacking toys, valued for their smooth, child-safe, non-toxic finish. GI-tagged since 2005 and rooted in a craft tradition that dates back over two centuries.'
+      description: 'Rounded, brightly coloured dolls, animals, spinning tops, and stacking toys, valued for their smooth, child-safe, non-toxic finish. GI-tagged since 2005 and rooted in a craft tradition that dates back over two centuries.',
+      image: 'assets/channapatna-toys.jpg',
+      imageAlt: 'Colourful Channapatna lacquered wooden toys'
     },
     {
       id: 'etikoppaka-toys',
@@ -66,7 +68,9 @@
       title: 'Jaipur Lac Bangles',
       region: 'Maniharon ka Rasta, Jaipur, Rajasthan',
       medium: 'Molten lac core, embedded mirrors, stones & meenakari enamel',
-      description: 'Bangles shaped from pliable lac and encrusted with mirrors, kundan stones, or enamel work. Worn by brides and considered auspicious for festivals such as Teej, Gangaur, and Karva Chauth.'
+      description: 'Bangles shaped from pliable lac and encrusted with mirrors, kundan stones, or enamel work. Worn by brides and considered auspicious for festivals such as Teej, Gangaur, and Karva Chauth.',
+      image: 'assets/channapatna-bangles.jpg',
+      imageAlt: 'Colourful handcrafted lacquer bangles'
     },
     {
       id: 'lac-furniture-inlay',
@@ -169,6 +173,7 @@
       card.setAttribute('aria-label', `View details for ${product.title}`);
 
       card.innerHTML = `
+        ${product.image ? `<img class="lac-product-image" src="${product.image}" alt="${product.imageAlt}" loading="lazy">` : ''}
         <span class="lac-badge">${product.region}</span>
         <h3>${product.title}</h3>
         <p>${product.description.substring(0, 110)}...</p>
@@ -187,6 +192,7 @@
 
     function openModal(product) {
       modalBody.innerHTML = `
+        ${product.image ? `<img class="lac-modal-image" src="${product.image}" alt="${product.imageAlt}">` : ''}
         <span class="lac-badge">${product.region}</span>
         <h2 id="modal-title" style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0.5rem 0;">${product.title}</h2>
         <p style="color: var(--lac-gold); font-weight: 600; margin-bottom: 1rem;">Medium: ${product.medium}</p>
