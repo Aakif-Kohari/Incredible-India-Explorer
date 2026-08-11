@@ -722,6 +722,12 @@ window.indiaSearchIndex = [
     url: "frontend/quit-india-movement-explorer/index.html"
   },
   {
+    title: "Underground Resistance Networks of 1942–44",
+    category: "Freedom Struggle",
+    description: "Explore the underground networks that kept the Quit India Movement alive after the mass arrests of 9 August 1942: Congress Radio on 42.34 metres, the illegal presses of Inquilab and the Congress Bulletin, student couriers, regional organisers, the Azad Dastas and the parallel governments of Satara and Tamluk.",
+    url: "frontend/underground-resistance-explorer/index.html"
+  },
+  {
     title: "Gujarati Cinema (Dhollywood) Explorer",
     category: "Culture",
     description: "Discover Dhollywood, the Gujarati film industry — from Narsinh Mehta (1932), the first Gujarati talkie, to National Award-winning classics and its modern urban revival.",
