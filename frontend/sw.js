@@ -51,7 +51,11 @@ const STATIC_ASSETS_TO_PRECACHE = [
   './quit-india-movement-explorer/assets/august-kranti-maidan-hd.jpg',
   './underground-resistance-explorer/index.html',
   './underground-resistance-explorer/style.css',
-  './underground-resistance-explorer/script.js'
+  './underground-resistance-explorer/script.js',
+  './tebhaga-movement-explorer/index.html',
+  './tebhaga-movement-explorer/style.css',
+  './tebhaga-movement-explorer/script.js',
+  './tebhaga-movement-explorer/assets/hero-bg.jpg'
 ];
 
 // Max items allowed in dynamic caches to prevent storage overflow
