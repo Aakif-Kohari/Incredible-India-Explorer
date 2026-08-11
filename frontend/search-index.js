@@ -2463,6 +2463,13 @@ window.indiaSearchIndex = [
     description: "A phase-filterable chronology from the outbreak of World War II and the Lahore Resolution to the August Offer, the Congress rejection, and Individual Satyagraha.",
     url: "frontend/august-offer-1940-explorer/index.html#timeline"
   },
+  // --- Non-Cooperation Movement Explorer ---
+  {
+    title: "Non-Cooperation Movement Explorer",
+    category: "Freedom Struggle",
+    description: "Explore the Non-Cooperation Movement (1920–1922) — India's first mass movement under Gandhi, covering boycotts, khadi promotion, regional participation, the Khilafat connection, Chauri Chaura, and long-term impact.",
+    url: "frontend/non-cooperation-movement-explorer/index.html"
+  },
   // --- Parallel Governments of Quit India Explorer ---
   {
     title: "Parallel Governments of Quit India Explorer",
