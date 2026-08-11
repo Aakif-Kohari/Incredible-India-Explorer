@@ -453,6 +453,7 @@ const FREEDOM_FIGHTERS_DATA = [
         contributions: 'The Bombay launch of the Quit India Movement made the demand for immediate freedom a national imperative, triggered the widest protest wave since 1857, and convinced the British that the Raj could not survive the war.',
         rareFacts: 'The slogan "Quit India" was coined by the young Bombay socialist Yusuf Meherally; the maidan was renamed August Kranti Maidan after Independence, and India Post issued a commemorative stamp for the movement in 1992.',
         quote: '"Karo Ya Maro" — "Do or Die." We shall either free India or die in the attempt; we shall not live to see the perpetuation of our slavery. — Mahatma Gandhi, Gowalia Tank Maidan, 8 August 1942',
+<<<<<<< Updated upstream
         explorerLink: '../quit-india-movement-explorer/index.html'},
           {
         id: 'baji-rout',
@@ -513,6 +514,34 @@ const FREEDOM_FIGHTERS_DATA = [
         rareFacts: 'Earned the name "Bagha Jatin" (Tiger Jatin) after a widely recounted incident demonstrating his physical courage.',
         quote: 'We shall die to awaken the nation.',
         explorerLink: '../bagha-jatin-explorer/index.html'
+=======
+        explorerLink: '../quit-india-movement-explorer/index.html'
+    },
+    {
+        id: 'underground-resistance-networks',
+        name: 'Underground Resistance Networks — 1942–44',
+        title: 'The Leaderless Years of the Quit India Movement',
+        lifespan: '9 August 1942 – 1944',
+        era: 'Gandhian Era',
+        region: 'West',
+        birthplace: 'Bombay, Delhi, Bihar, Satara, Midnapore',
+        movements: ['Quit India Movement', 'Congress Radio', 'Underground Resistance'],
+        biography: 'When "Operation Zero Hour" swept Gandhi, Nehru, Patel, Azad and the entire Congress Working Committee into prison on 9 August 1942, the movement did not stop — it went to ground. From Bombay to Bihar, from Satara to Midnapore, younger leaders built a web of secret radio stations, illegal newspapers, student couriers and regional organisers. Congress Radio broadcast from hidden Bombay rooms on 42.34 metres, Aruna Asaf Ali and Ram Manohar Lohia edited the underground Inquilab, Jayaprakash Narayan built the Azad Dastas guerrilla squads after escaping Hazaribagh jail, and the Satara Prati Sarkar and Tamluk Jatiya Sarkar ran parallel governments until the networks were hunted down one by one.',
+        timeline: [
+            { year: '9 Aug 1942', event: 'Operation Zero Hour — mass arrests of the Congress leadership; the underground is born.' },
+            { year: '27 Aug 1942', event: 'Congress Radio begins broadcasting on 42.34 metres from a hidden Bombay room.' },
+            { year: 'Sep 1942', event: 'Aruna Asaf Ali and Ram Manohar Lohia begin publishing the underground monthly Inquilab.' },
+            { year: '9 Nov 1942', event: 'Jayaprakash Narayan escapes Hazaribagh jail and builds the Azad Dasta guerrillas of Bihar.' },
+            { year: '12 Nov 1942', event: 'A police raid silences Congress Radio; Usha Mehta is arrested in the Radio Conspiracy Case.' },
+            { year: 'Dec 1942', event: 'The Tamluk Jatiya Sarkar is established in Midnapore, printing its weekly Biplabi.' },
+            { year: '1943', event: 'The Satara Prati Sarkar consolidates under Nana Patil — the longest-running parallel government.' },
+            { year: '1944', event: 'Arrests, informers and raids thin the networks; the underground phase closes as the leaders are released.' }
+        ],
+        contributions: 'The underground networks sustained the Quit India Movement through its darkest period — carrying uncensored news, preserving morale, distributing arms, and proving village by village in Satara and Tamluk that Indians could govern themselves, forging the leaders who shaped independent India.',
+        rareFacts: 'The slogan "Quit India" was coined by Yusuf Meherally, a founding figure of the underground; a reward of ₹5,000 was placed on Aruna Asaf Ali, who eluded capture for nearly four years; and the student Usha Mehta, who ran Congress Radio, was a 22-year-old Wilson College master\'s student.',
+        quote: '"This is the Congress Radio calling on 42.34 metres from somewhere in India." — Congress Radio, 27 August 1942',
+        explorerLink: '../underground-resistance-explorer/index.html'
+>>>>>>> Stashed changes
     }
 ];
 
