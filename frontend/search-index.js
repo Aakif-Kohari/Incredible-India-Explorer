@@ -1620,25 +1620,29 @@ window.indiaSearchIndex = [
     title: "Add Coin Search and Advanced Filters Explorer",
     category: "Arts & Culture",
     description: "Implement a search and filtering system allowing users to quickly find specific coins or coin traditions by ruler, dynasty, historical period, region, metal, script, symbol, and coin type.",
-    url: "frontend/coin-search-and-advanced-filters/index.html"},
+    url: "frontend/coin-search-and-advanced-filters/index.html"
+  },
   // --- Featured Coins Section Explorer ---
   {
     title: "Add Featured Coins Section Explorer",
     category: "Arts & Culture",
     description: "Create a Featured Coins section highlighting historically significant or visually distinctive examples (Shivaji Hon, Jahangir Leo Mohur, Akbar Square Rupee, Samudragupta Dinara).",
-    url: "frontend/featured-coins-section/index.html"},
+    url: "frontend/featured-coins-section/index.html"
+  },
   // --- Decode Akbar's Ilahi Coinage Explorer ---
   {
     title: "Decode Akbar's Ilahi Coinage Explorer",
     category: "Arts & Culture",
     description: "Build an interactive case study around Akbar's Ilahi coinage — explaining Emperor Akbar's monetary reforms, Solar Ilahi calendar converter, Allahu Akbar motto, square Jalali rupees, and mints.",
-    url: "frontend/akbar-ilahi-coinage-explorer/index.html"},
+    url: "frontend/akbar-ilahi-coinage-explorer/index.html"
+  },
   // --- Explore Jahangir's Zodiac Coins Explorer ---
   {
     title: "Explore Jahangir's Zodiac Coins Explorer",
     category: "Arts & Culture",
     description: "Explore Emperor Jahangir's world-famous Zodiac coins — interactive gallery of all 12 astrological signs (Aries to Pisces), gold Mohurs, silver Rupees, Persian inscriptions, and Agra mint history.",
-    url: "frontend/jahangir-zodiac-coins-explorer/index.html"},
+    url: "frontend/jahangir-zodiac-coins-explorer/index.html"
+  },
   // --- Maratha Coinage Explorer ---
   {
     title: "Discover Maratha Coinage Explorer",
@@ -2413,7 +2417,8 @@ window.indiaSearchIndex = [
     title: "RIAF Revolt of 1946 Explorer",
     category: "Military Resistance",
     description: "Explore the Royal Indian Air Force revolt of January 1946 - post-war grievances, discrimination, the strike across 20+ air force stations, and its link to the Royal Indian Navy Mutiny.",
-    url: "frontend/riaf-revolt-1946-explorer/index.html"},
+    url: "frontend/riaf-revolt-1946-explorer/index.html"
+  },
   // --- Siege of Seringapatam Explorer ---
   {
     title: "Siege of Seringapatam Explorer",
@@ -2445,5 +2450,12 @@ window.indiaSearchIndex = [
     category: "Constitutional Developments",
     description: "A phase-filterable chronology from the outbreak of World War II and the Lahore Resolution to the August Offer, the Congress rejection, and Individual Satyagraha.",
     url: "frontend/august-offer-1940-explorer/index.html#timeline"
+  },
+  // --- Parallel Governments of Quit India Explorer ---
+  {
+    title: "Parallel Governments of Quit India Explorer",
+    category: "Freedom Struggle",
+    description: "Explore the Tamralipta Jatiya Sarkar in Midnapore, the Prati Sarkar in Satara, and other underground administrations that ran courts, police, and relief systems during the Quit India Movement.",
+    url: "frontend/parallel-governments-explorer/index.html"
   }
 ];
