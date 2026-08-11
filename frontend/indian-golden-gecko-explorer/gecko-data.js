@@ -1,0 +1,93 @@
+/**
+ * Indian Golden Gecko Explorer — Data Module
+ * Comprehensive dataset covering taxonomy, Eastern Ghats rocky habitat,
+ * golden morphology, nocturnal behaviour, conservation, and gallery.
+ */
+
+const GECKO_INFO = {
+    id: "indian-golden-gecko",
+    commonName: "Indian Golden Gecko",
+    scientificName: "Calodactylodes aureus",
+    family: "Gekkonidae",
+    genus: "Calodactylodes",
+    species: "C. aureus",
+    endemicRegion: "Eastern Ghats (Andhra Pradesh, Telangana, Tamil Nadu, Odisha)",
+    iucnStatus: "Least Concern (IUCN 3.1)",
+    protectionStatus: "Schedule I (Indian Wildlife Protection Act, 1972)",
+    habitatType: "Rocky granite hills, deep rock crevices, and ancient cave formations",
+    avgSize: "16 to 19 cm (Snout-to-vent length ~9 cm)",
+    lifespan: "10 to 12 years in wild habitats",
+    dietType: "Insectivorous (Insects, beetles, moths, spiders, roaches)",
+    quickStats: [
+        { label: "Endemic Range", value: "Eastern Ghats", icon: "⛰️" },
+        { label: "IUCN Red List", value: "Least Concern", icon: "🛡️" },
+        { label: "Protection Level", value: "Schedule I", icon: "⚖️" },
+        { label: "Activity Period", value: "Nocturnal", icon: "🌙" },
+        { label: "Avg Body Length", value: "16–19 cm", icon: "🦎" },
+        { label: "Primary Habitat", value: "Granite Caves", icon: "🪨" }
+    ]
+};
+
+const TAXONOMY_DATA = {
+    kingdom: "Animalia",
+    phylum: "Chordata",
+    class: "Reptilia",
+    order: "Squamata",
+    suborder: "Gekkota",
+    family: "Gekkonidae",
+    genus: "Calodactylodes",
+    species: "Calodactylodes aureus (Beddome, 1870)"
+};
+
+const ECOLOGY_BEHAVIOUR = {
+    introduction: "The Indian Golden Gecko (Calodactylodes aureus) is a striking, golden-hued rupicolous (rock-dwelling) gecko endemic to the rocky hills and granite caves of the Eastern Ghats in southern and eastern India.",
+    distribution: "Found across rocky hill ranges of Andhra Pradesh (Seshachalam Hills, Tirupati, Palakonda Hills), Telangana, Tamil Nadu (Javadi & Shevaroy Hills), and Odisha (Ganjam district).",
+    habitat: "Restricted to giant granite boulders, narrow rock crevices, deep shadowy caves, and cliff faces with high humidity and minimal direct sunlight exposure.",
+    morphology: "Characterized by a vibrant golden-yellow to orange-amber body coloration with subtle brown mottling, large golden eyes with vertical pupils, and unique broadened toe pads.",
+    behaviour: "Strictly nocturnal and crepuscular. Uses vocalizations including squeaks and chirps during territorial defense and courtship. Highly agile on vertical granite surfaces.",
+    diet: "Opportunistic nocturnal predator feeding on beetles, crickets, roaches, moths, spiders, and other small invertebrates.",
+    reproduction: "Oviparous species. Females lay communal egg clutches of 2 to 4 hard-shelled eggs glued to vertical rock surfaces inside dark granite crevices.",
+    conservation: "Listed under Schedule I of India's Wild Life Protection Act. Threats include habitat destruction due to granite quarrying, rock mining, forest fires, and tourist disturbances."
+};
+
+const INTERESTING_FACTS = [
+    {
+        title: "Golden Subdigital Pads",
+        description: "Equipped with specialized fan-like expanded toe pads that allow it to sprint across smooth, vertical granite walls."
+    },
+    {
+        title: "Communal Egg Laying",
+        description: "Multiple females frequently share communal nesting sites inside rock crevices, gluing dozens of spherical eggs together."
+    },
+    {
+        title: "Vocalizing Gecko",
+        description: "Emits audible squeaking and clicking sounds to communicate with conspecifics and warn rivals away from crevices."
+    },
+    {
+        title: "First Discovered by Beddome",
+        description: "Described in 1870 by British military officer and botanist Richard Henry Beddome from the Tirupati Hills of Andhra Pradesh."
+    }
+];
+
+const GALLERY_IMAGES = [
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Calodactylodes_aureus.jpg/800px-Calodactylodes_aureus.jpg",
+        caption: "Indian Golden Gecko (Calodactylodes aureus) in granite rock crevice",
+        category: "Morphology"
+    },
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Seshachalam_hills_tirupati.jpg/800px-Seshachalam_hills_tirupati.jpg",
+        caption: "Seshachalam Biosphere Reserve — Core habitat of the Indian Golden Gecko",
+        category: "Habitat"
+    }
+];
+
+const REFERENCES = [
+    { text: "Beddome, R. H. (1870). Descriptions of new reptiles from the Madras Presidency. Madras Monthly Journal of Medical Science.", link: "#" },
+    { text: "IUCN Red List of Threatened Species — Calodactylodes aureus assessment.", link: "https://www.iucnredlist.org" },
+    { text: "Zoological Survey of India (ZSI) — Fauna of Seshachalam Biosphere Reserve.", link: "https://zsi.gov.in" }
+];
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { GECKO_INFO, TAXONOMY_DATA, ECOLOGY_BEHAVIOUR, INTERESTING_FACTS, GALLERY_IMAGES, REFERENCES };
+}
