@@ -2457,5 +2457,12 @@ window.indiaSearchIndex = [
     category: "Freedom Struggle",
     description: "Explore the Tamralipta Jatiya Sarkar in Midnapore, the Prati Sarkar in Satara, and other underground administrations that ran courts, police, and relief systems during the Quit India Movement.",
     url: "frontend/parallel-governments-explorer/index.html"
+  },
+  // --- Indian National Army Explorer ---
+  {
+    title: "Indian National Army (INA) Explorer",
+    category: "Freedom Struggle",
+    description: "Explore the INA's journey from Indian POWs in Southeast Asia and Mohan Singh's First INA, through Subhas Chandra Bose's Azad Hind Government and the Rani of Jhansi Regiment, to the Imphal-Kohima campaign and Red Fort Trials.",
+    url: "frontend/indian-national-army-explorer/index.html"
   }
 ];
