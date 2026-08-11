@@ -2552,5 +2552,111 @@ window.indiaSearchIndex = [
         description:
             "Explore the Battle of Ghaghra (1529 CE) - Babur's decisive riverine and amphibious campaign against the Eastern Afghan Confederacy and Bengal Sultanate.",
         url: 'frontend/battle-of-ghaghra-explorer/index.html'
-    }
+    },
+  // --- Battle of Ghaghra Explorer ---
+  {
+    title: "Battle of Ghaghra Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Battle of Ghaghra (1529 CE) - Babur's decisive riverine and amphibious campaign against the Eastern Afghan Confederacy and Bengal Sultanate.",
+    url: "frontend/battle-of-ghaghra-explorer/index.html"
+  },
+  // --- Vaduvur Wetland Explorer ---
+  {
+    title: "Vaduvur Wetland Explorer",
+    category: "Featured Explorers",
+    description: "Explore Vaduvur Wetland & Bird Sanctuary — Ramsar Site No. 2480 in Tiruvarur, Tamil Nadu. A 128-hectare human-made irrigation tank hosting over 20,000 wintering migratory waterfowl along the Central Asian Flyway.",
+    url: "frontend/vaduvur-wetland-explorer/index.html"
+  },
+  // --- Suchindram Wetland Explorer ---
+  {
+    title: "Suchindram Wetland Explorer",
+    category: "Featured Explorers",
+    description: "Explore Suchindram Wetland & Bird Sanctuary — Ramsar Site No. 2484 in Kanyakumari, Tamil Nadu. A 94-hectare freshwater tank complex serving as mainland India's southernmost sanctuary along the Central Asian Flyway.",
+    url: "frontend/suchindram-wetland-explorer/index.html"
+  },
+  // --- Mysore Painting Explorer ---
+  {
+    title: "Mysore Painting Explorer",
+    category: "Featured Explorers",
+    description: "Explore Mysore Paintings — classical South Indian art form celebrated for delicate brushwork, 24-karat pure gold gesso embossing, Sritattvanidhi iconographic tradition, and royal Wodeyar heritage.",
+    url: "frontend/mysore-painting-explorer/index.html"
+  },
+  // --- Jawaharlal Nehru Explorer ---
+  {
+    title: "Jawaharlal Nehru Explorer",
+    category: "Featured Explorers",
+    description: "Chronicle Jawaharlal Nehru's leadership in the Indian freedom movement, Congress presidency, Purna Swaraj declaration, 9 prison incarcerations, historic speeches, and nation-building.",
+    url: "frontend/jawaharlal-nehru-explorer/index.html"
+  },
+  // --- RIAF Revolt of 1946 Explorer ---
+  {
+    title: "RIAF Revolt of 1946 Explorer",
+    category: "Military Resistance",
+    description: "Explore the Royal Indian Air Force revolt of January 1946 - post-war grievances, discrimination, the strike across 20+ air force stations, and its link to the Royal Indian Navy Mutiny.",
+    url: "frontend/riaf-revolt-1946-explorer/index.html"
+  },
+  // --- Siege of Seringapatam Explorer ---
+  {
+    title: "Siege of Seringapatam Explorer",
+    category: "Featured Explorers",
+    description: "Explore the Siege of Seringapatam (1799 CE) - the final clash of the Fourth Anglo-Mysore War and the fall of the Kingdom of Mysore under Tipu Sultan.",
+    url: "frontend/siege-of-seringapatam-explorer/index.html"
+  },
+  // --- August Offer 1940 Explorer ---
+  {
+    title: "August Offer, 1940 Explorer",
+    category: "Constitutional Developments",
+    description: "Explore the August Offer of 8 August 1940 - Britain's wartime promise of Dominion Status, the expanded Executive Council, the minority veto, and how its rejection led to Individual Satyagraha.",
+    url: "frontend/august-offer-1940-explorer/index.html"
+  },
+  {
+    title: "August Offer, 1940 - Main Proposals",
+    category: "Constitutional Developments",
+    description: "The four clauses of the August Offer - Dominion Status as the objective, a future constitution-making body, expansion of the Executive Council, and constitutional commitments to minority interests.",
+    url: "frontend/august-offer-1940-explorer/index.html#proposals"
+  },
+  {
+    title: "August Offer, 1940 - Responses",
+    category: "Constitutional Developments",
+    description: "Congress rejected the August Offer, the Muslim League welcomed it as recognition of the two-nation theory, and Gandhi answered with Individual Satyagraha.",
+    url: "frontend/august-offer-1940-explorer/index.html#responses"
+  },
+  {
+    title: "August Offer, 1940 - Political Timeline",
+    category: "Constitutional Developments",
+    description: "A phase-filterable chronology from the outbreak of World War II and the Lahore Resolution to the August Offer, the Congress rejection, and Individual Satyagraha.",
+    url: "frontend/august-offer-1940-explorer/index.html#timeline"
+  },
+  // --- Parallel Governments of Quit India Explorer ---
+  {
+    title: "Parallel Governments of Quit India Explorer",
+    category: "Freedom Struggle",
+    description: "Explore the Tamralipta Jatiya Sarkar in Midnapore, the Prati Sarkar in Satara, and other underground administrations that ran courts, police, and relief systems during the Quit India Movement.",
+    url: "frontend/parallel-governments-explorer/index.html"
+  },
+  // --- Indian National Army Explorer ---
+  {
+    title: "Indian National Army (INA) Explorer",
+    category: "Freedom Struggle",
+    description: "Explore the INA's journey from Indian POWs in Southeast Asia and Mohan Singh's First INA, through Subhas Chandra Bose's Azad Hind Government and the Rani of Jhansi Regiment, to the Imphal-Kohima campaign and Red Fort Trials.",
+    url: "frontend/indian-national-army-explorer/index.html"
+  },
+  // --- Imphal-Kohima Campaign Explorer ---
+  {
+    title: "Imphal–Kohima Campaign Explorer",
+    category: "Military Resistance",
+    description: "Map the INA's 1944 march alongside the Japanese 15th Army toward India's northeastern frontier - the Burma Campaign, the sieges of Imphal and Kohima, the monsoon retreat, and the campaign's historical significance.",
+    url: "frontend/imphal-kohima-campaign-explorer/index.html"
+  },
+  // --- INA Red Fort Trials Explorer ---
+  {
+    title: "INA Red Fort Trials Explorer",
+    category: "Military Resistance",
+    description: "The 1945-46 court-martial of INA officers Shah Nawaz Khan, Prem Kumar Sahgal, and Gurbaksh Singh Dhillon at the Red Fort - charges, the Congress-led defence team, nationwide protests, and the trials' impact on the independence movement.",
+    url: "frontend/ina-red-fort-trials-explorer/index.html"
+    title: "Nilgiri Pipit Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Nilgiri Pipit (Anthus nilghiriensis) — an endemic bird of the montane grasslands of southern India's Western Ghats, covering taxonomy, distribution, habitat, diet, behaviour, conservation status, and threats.",
+    url: "frontend/nilgiri-pipit-explorer/index.html"
+  },
 ];
