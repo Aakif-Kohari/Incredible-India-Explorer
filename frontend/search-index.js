@@ -2634,6 +2634,13 @@ window.indiaSearchIndex = [
     description: "Explore the Tamralipta Jatiya Sarkar in Midnapore, the Prati Sarkar in Satara, and other underground administrations that ran courts, police, and relief systems during the Quit India Movement.",
     url: "frontend/parallel-governments-explorer/index.html"
   },
+  // --- Rowlatt Satyagraha Explorer ---
+  {
+    title: "Rowlatt Satyagraha Explorer",
+    category: "Freedom Struggle",
+    description: "Explore the Rowlatt Satyagraha of 1919 — Gandhi's first all-India protest against the Rowlatt Acts, covering the political background, nationwide hartals, major city protests, the Punjab unrest, Jallianwala Bagh connection, and historical significance.",
+    url: "frontend/rowlatt-satyagraha-explorer/index.html"
+  },
   // --- Indian National Army Explorer ---
   {
     title: "Indian National Army (INA) Explorer",
