@@ -2484,6 +2484,13 @@ window.indiaSearchIndex = [
     description: "Map the INA's 1944 march alongside the Japanese 15th Army toward India's northeastern frontier - the Burma Campaign, the sieges of Imphal and Kohima, the monsoon retreat, and the campaign's historical significance.",
     url: "frontend/imphal-kohima-campaign-explorer/index.html"
   },
+  // --- Neelakurinji Explorer ---
+  {
+    title: "Neelakurinji Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore Neelakurinji (Strobilanthes kunthiana) — the famous flowering shrub endemic to the Western Ghats that blooms once every twelve years, covering its taxonomy, 12-year flowering cycle, ecology, conservation status, and cultural significance.",
+    url: "frontend/neelakurinji-explorer/index.html"
+  },
   // --- INA Red Fort Trials Explorer ---
   {
     title: "INA Red Fort Trials Explorer",
