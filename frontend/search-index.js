@@ -5,6 +5,12 @@
  */
 window.indiaSearchIndex = [
   {
+    title: "Sachindra Nath Sanyal & HRA Explorer",
+    category: "Freedom Movement",
+    description: "Explore Sachindra Nath Sanyal and the rise of the Hindustan Republican Association (HRA): biography, interactive timeline, Kanpur 1924 founding, Bandi Jeevan treatise, HRA manifesto 'The Revolutionary', gallery, and references.",
+    url: "frontend/sachindra-nath-sanyal-explorer/index.html"
+  },
+  {
     title: "Gingee Fort Explorer",
     category: "Heritage & History",
     description: "Explore Gingee Fort: the Troy of the East in Tamil Nadu featuring three hill citadels (Rajagiri, Krishnagiri, Chandrayandurg), 8-year Maratha siege history, Kalyana Mahal tower, and grand fortifications.",
