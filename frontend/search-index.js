@@ -746,6 +746,13 @@ window.indiaSearchIndex = [
         url: 'frontend/tollywood-explorer/index.html'
     },
     {
+        title: 'Bollywood (Hindi Cinema) Explorer',
+        category: 'Culture',
+        description:
+            "Discover Bollywood, India's Hindi-language film industry headquartered in Mumbai — from Raja Harishchandra (1913) and Alam Ara (1931) to global icons, legendary music, and Oscar-recognised soundtracks.",
+        url: 'frontend/bollywood-explorer/index.html'
+    },
+    {
         title: 'River Krishna',
         category: 'Rivers',
         description:
@@ -2677,12 +2684,14 @@ window.indiaSearchIndex = [
     url: "frontend/neelakurinji-explorer/index.html"
   },
   // --- INA Red Fort Trials Explorer ---
-  {
-    title: "INA Red Fort Trials Explorer",
-    category: "Military Resistance",
-    description: "The 1945-46 court-martial of INA officers Shah Nawaz Khan, Prem Kumar Sahgal, and Gurbaksh Singh Dhillon at the Red Fort - charges, the Congress-led defence team, nationwide protests, and the trials' impact on the independence movement.",
-    url: "frontend/ina-red-fort-trials-explorer/index.html"
-    title: "Nilgiri Pipit Explorer",
+    {
+        title: "INA Red Fort Trials Explorer",
+        category: "Military Resistance",
+        description: "The 1945-46 court-martial of INA officers Shah Nawaz Khan, Prem Kumar Sahgal, and Gurbaksh Singh Dhillon at the Red Fort - charges, the Congress-led defence team, nationwide protests, and the trials' impact on the independence movement.",
+        url: "frontend/ina-red-fort-trials-explorer/index.html"
+    },
+    {
+        title: "Nilgiri Pipit Explorer",
     category: "Nature & Wildlife",
     description: "Explore the Nilgiri Pipit (Anthus nilghiriensis) — an endemic bird of the montane grasslands of southern India's Western Ghats, covering taxonomy, distribution, habitat, diet, behaviour, conservation status, and threats.",
     url: "frontend/nilgiri-pipit-explorer/index.html"
