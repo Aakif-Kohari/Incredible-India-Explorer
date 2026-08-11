@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Explore India's most important historical battles — from Kalinga to Kargil — with interactive timelines, maps, and detailed battle summaries." name="description"/>
+    <title>Historic Battles of India | Incredible India Explorer</title>
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<link href="../../../styles.css"stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"/>
+    <link href="../../../styles.css" rel="stylesheet"/>
+    <link href="styles.css" rel="stylesheet"/>
+</head>
+<body>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+    <main id="battles-main">
+
+        <!-- Hero Section -->
+        <section class="battles-hero">
+            <div class="battles-hero-overlay"></div>
+            <div class="battles-hero-content">
+                <span class="battles-hero-badge anim-fade-up" style="animation-delay: 0.05s">⚔️ Battles That Shaped India</span>
+                <h1 class="anim-fade-up" style="animation-delay: 0.15s">Historic Battles of India</h1>
+                <p class="anim-fade-up" style="animation-delay: 0.25s">From the plains of Kalinga to the heights of Kargil, walk through the defining military conflicts that shaped a nation — with interactive timelines, maps, and detailed battle summaries.</p>
+                <div class="battles-hero-stats anim-fade-up" style="animation-delay: 0.35s">
+                    <div class="battles-stat">
+                        <span class="battles-stat-number">2500+</span>
+                        <span class="battles-stat-label">Years of Conflict</span>
+                    </div>
+                    <div class="battles-stat">
+                        <span class="battles-stat-number">3</span>
+                        <span class="battles-stat-label">Battles of Panipat</span>
+                    </div>
+                    <div class="battles-stat">
+                        <span class="battles-stat-number">8</span>
+                        <span class="battles-stat-label">Featured Explorers</span>
+                    </div>
+        <!-- Featured Explorer: Kalinga War -->
+        <section class="featured-explorer-section" aria-label="Featured battle explorer">
+            <div class="featured-explorer-card">
+                <div class="featured-explorer-content">
+                    <span class="featured-explorer-badge">Featured Explorer</span>
+                    <h2>Kalinga War (261 BCE)</h2>
+                    <p>Relive the epic clash along the Daya River between Emperor Ashoka's Maurya Empire and Kalinga, leading to Ashoka's conversion to Buddhism and non-violence.</p>
+                    <a href="../../kalinga-war-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Kalinga War →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">261 BCE</span>
+                    <span class="featured-explorer-outcome">Mauryan Victory</span>
+                    <span class="featured-explorer-treaty">Dhamma Expansion · 260 BCE</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Explorer: Battle of Buxar -->
+        <section class="featured-explorer-section" aria-label="Featured battle explorer">
+            <div class="featured-explorer-card">
+                <div class="featured-explorer-content">
+                    <span class="featured-explorer-badge">Featured Explorer</span>
+                    <h2>Battle of Buxar (1764)</h2>
+                    <p>Relive the day a small, disciplined East India Company army routed the combined forces of Bengal, Awadh, and the Mughal Empire — and the Treaty of Allahabad that followed.</p>
+                    <a href="../../battle-of-buxar-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Buxar →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">22 Oct 1764</span>
+                    <span class="featured-explorer-outcome">Company Victory</span>
+                    <span class="featured-explorer-treaty">Treaty of Allahabad · 1765</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Battle Explorers -->
+        <section class="featured-explorers-section" id="featured-explorers">
+            <div class="featured-explorers-header reveal-up">
+                <span class="featured-explorers-eyebrow">Deep-Dive Explorers</span>
+                <h2>Featured Battle Explorers</h2>
+                <p>Immersive, interactive explorations of India's most consequential battles — brought to life with timelines, strategies, casualties, and legacy.</p>
+            </div>
+
+            <!-- Featured Explorer: Battle of Devagiri (1296 CE) -->
+            <section class="featured-explorer-section reveal-up" aria-label="Featured battle explorer">
+                <div class="featured-explorer-card">
+                    <div class="featured-explorer-content">
+                        <span class="featured-explorer-badge">Featured Explorer</span>
+                        <h2>Battle of Devagiri (1296 CE)</h2>
+                        <p>Relive Alauddin Khalji's secret expedition across the Vindhyas against King Ramachandra of Devagiri — the high-stakes raid that yielded immense treasure and opened South India to northern campaigns.</p>
+                        <a href="../../battle-of-devagiri-explorer/index.html" class="featured-explorer-btn">
+                            Explore the Battle of Devagiri →
+                        </a>
+                    </div>
+                    <div class="featured-explorer-meta">
+                        <span class="featured-explorer-date">1296 CE</span>
+                        <span class="featured-explorer-outcome">Sultanate Victory</span>
+                        <span class="featured-explorer-treaty">Massive Tribute · Vassalage of Devagiri</span>
+                        <h2>Battle of Kili (1299 CE)</h2>
+                        <p>Relive Sultan Alauddin Khalji's defense of Delhi against Qutlugh Khwaja's 200,000-strong Chagatai Mongol invasion force — featuring trench fortifications, war elephants, and Zafar Khan's charge.</p>
+                        <a href="../../battle-of-kili-explorer/index.html" class="featured-explorer-btn">
+                            Explore the Battle of Kili →
+                        </a>
+                    </div>
+                    <div class="featured-explorer-meta">
+                        <span class="featured-explorer-date">1299 CE</span>
+                        <span class="featured-explorer-outcome">Sultanate Victory</span>
+                        <span class="featured-explorer-treaty">Delhi Saved · Chagatai Retreat</span>
+                        <h2>Battle of Chandawar (1194 CE)</h2>
+                        <p>Relive the pivotal 1194 CE clash along the Yamuna River between Muhammad Ghori and King Jayachandra of the Gahadavala Dynasty — the battle that established Ghurid control over the Gangetic heartland.</p>
+                        <a href="../../battle-of-chandawar-explorer/index.html" class="featured-explorer-btn">
+                            Explore the Battle of Chandawar →
+                        </a>
+                    </div>
+                    <div class="featured-explorer-meta">
+                        <span class="featured-explorer-date">1194 CE</span>
+                        <span class="featured-explorer-outcome">Ghurid Victory</span>
+                        <span class="featured-explorer-treaty">Annexation of Kannauj &amp; Varanasi</span>
+                        <h2>Mauryan–Seleucid War (305–303 BCE)</h2>
+                        <p>Relive the conflict between Emperor Chandragupta Maurya and Seleucus I Nicator across the Indus — resulting in the historic Treaty of 303 BCE, cession of four satrapies, 500 war elephants, and the envoy Megasthenes.</p>
+                        <a href="../../mauryan-seleucid-war-explorer/index.html" class="featured-explorer-btn">
+                            Explore the Mauryan–Seleucid War →
+                        </a>
+                    </div>
+                    <div class="featured-explorer-meta">
+                        <span class="featured-explorer-date">305–303 BCE</span>
+                        <span class="featured-explorer-outcome">Mauryan Victory / Treaty</span>
+                        <span class="featured-explorer-treaty">4 Satrapies Ceded · 500 War Elephants Exchanged</span>
+                        <h2>Battle of the Hydaspes (326 BCE)</h2>
+                        <p>Relive the epic clash along the monsoon-swollen Hydaspes River between Alexander the Great and King Porus of the Paurava Kingdom — featuring war elephant charges, daring night river crossings, and mutual royal respect.</p>
+                        <a href="../../battle-of-hydaspes-explorer/index.html" class="featured-explorer-btn">
+                            Explore the Battle of the Hydaspes →
+                        </a>
+                    </div>
+                    <div class="featured-explorer-meta">
+                        <span class="featured-explorer-date">May 326 BCE</span>
+                        <span class="featured-explorer-outcome">Macedonian Victory</span>
+                        <span class="featured-explorer-treaty">King Porus Reinstated &amp; Expanded Kingdom</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Explorer: Battle of Buxar -->
+            <section class="featured-explorer-section reveal-up" aria-label="Featured battle explorer">
+                <div class="featured-explorer-card">
+                    <div class="featured-explorer-content">
+                        <span class="featured-explorer-badge">Featured Explorer</span>
+                        <h3>Battle of Buxar (1764)</h3>
+                        <p>Relive the day a small, disciplined East India Company army routed the combined forces of Bengal, Awadh, and the Mughal Empire — and the Treaty of Allahabad that followed.</p>
+                        <a href="../../battle-of-buxar-explorer/index.html" class="featured-explorer-btn">
+                            Explore the Battle of Buxar →
+                        </a>
+                    </div>
+                    <div class="featured-explorer-meta">
+                        <span class="featured-explorer-date">22 Oct 1764</span>
+                        <span class="featured-explorer-outcome">Company Victory</span>
+                        <span class="featured-explorer-treaty">Treaty of Allahabad · 1765</span>
+                    </div>
+        <!-- Featured Explorer: Battle of Plassey -->
+        <section class="featured-explorer-section" aria-label="Featured battle explorer">
+            <div class="featured-explorer-card">
+                <div class="featured-explorer-content">
+                    <span class="featured-explorer-badge">Featured Explorer</span>
+                    <h2>Battle of Plassey (1757)</h2>
+                    <p>Relive the rain-soaked day Robert Clive's small East India Company army routed Nawab Siraj-ud-Daulah of Bengal — the battle that set Britain on the road to ruling India.</p>
+                    <a href="../../battle-of-plassey-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Plassey →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">23 Jun 1757</span>
+                    <span class="featured-explorer-outcome">Company Victory</span>
+                    <span class="featured-explorer-treaty">Siraj-ud-Daulah Deposed · Mir Jafar Installed</span>
+                    <h2>Battle of Rezang La (1962)</h2>
+                    <p>Relive the last stand of 120 soldiers of Charlie Company, 13th Kumaon Regiment, who held a frozen 16,000-foot pass in Ladakh against thousands of Chinese troops on 18 November 1962 — and fought to the last man under Major Shaitan Singh.</p>
+                    <a href="../../battle-of-rezang-la-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Rezang La →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">18 Nov 1962</span>
+                    <span class="featured-explorer-outcome">Last Stand · 114 of 120 Martyred</span>
+                    <span class="featured-explorer-treaty">Param Vir Chakra · Major Shaitan Singh</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Explorer: Siege of Chittorgarh (1535) -->
+        <section class="featured-explorer-section" aria-label="Featured battle explorer">
+            <div class="featured-explorer-card">
+                <div class="featured-explorer-content">
+                    <span class="featured-explorer-badge">Featured Explorer</span>
+                    <h2>Siege of Chittorgarh (1535)</h2>
+                    <p>Relive the second jauhar of Chittor, when Rani Karnavati and the defenders of Mewar faced the guns of Bahadur Shah's Gujarat Sultanate on 8 March 1535.</p>
+                    <a href="../../siege-of-chittor-1535-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Siege of Chittorgarh →
+                    </a>
+                </div>
+            </section>
+
+            <!-- Featured Explorer: Third Battle of Panipat (1761) -->
+            <section class="featured-explorer-section reveal-up" aria-label="Featured battle explorer">
+                <div class="featured-explorer-card">
+                    <div class="featured-explorer-content">
+                        <span class="featured-explorer-badge">Featured Explorer</span>
+                        <h3>Third Battle of Panipat (1761)</h3>
+                        <p>Relive the largest and bloodiest battle of 18th-century India, where Ahmad Shah Durrani's Afghan empire crushed the Maratha Confederacy — ending Maratha northern dominance and clearing the path for British supremacy.</p>
+                        <a href="../../third-battle-of-panipat-explorer/index.html" class="featured-explorer-btn">
+                            Explore the Third Battle of Panipat →
+                        </a>
+                    </div>
+                    <div class="featured-explorer-meta">
+                        <span class="featured-explorer-date">14 Jan 1761</span>
+                        <span class="featured-explorer-outcome">Afghan Victory</span>
+                        <span class="featured-explorer-treaty">~100,000 Combatants</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Explorer: Siege of Chittorgarh (1535) -->
+            <section class="featured-explorer-section reveal-up" aria-label="Featured battle explorer">
+                <div class="featured-explorer-card">
+                    <div class="featured-explorer-content">
+                        <span class="featured-explorer-badge">Featured Explorer</span>
+                        <h3>Siege of Chittorgarh (1535)</h3>
+                        <p>Relive the second jauhar of Chittor, when Rani Karnavati and the defenders of Mewar faced the guns of Bahadur Shah's Gujarat Sultanate on 8 March 1535.</p>
+                        <a href="../../siege-of-chittor-1535-explorer/index.html" class="featured-explorer-btn">
+                            Explore the Siege of Chittorgarh →
+                        </a>
+                    </div>
+                    <div class="featured-explorer-meta">
+                        <span class="featured-explorer-date">8 Mar 1535</span>
+                        <span class="featured-explorer-outcome">Gujarat Victory</span>
+                        <span class="featured-explorer-treaty">Second Jauhar of Chittor</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Explorer: Siege of Chittor (1567–1568) -->
+            <section class="featured-explorer-section reveal-up" aria-label="Featured battle explorer">
+                <div class="featured-explorer-card">
+                    <div class="featured-explorer-content">
+                        <span class="featured-explorer-badge">Featured Explorer</span>
+                        <h3>Siege of Chittor (1567–1568)</h3>
+                        <p>Relive Akbar's four-month siege of the great Sisodia fortress of Chittorgarh — the defiant defence of Jaimal and Patta, and the third jauhar of Chittor.</p>
+                        <a href="../../siege-of-chittor-explorer/index.html" class="featured-explorer-btn">
+                            Explore the Siege of Chittor →
+                        </a>
+                    </div>
+                    <div class="featured-explorer-meta">
+                        <span class="featured-explorer-date">23 Oct 1567 – 23 Feb 1568</span>
+                        <span class="featured-explorer-outcome">Mughal Victory</span>
+                        <span class="featured-explorer-treaty">Third Jauhar of Chittor</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Explorer: Battle of Ravi (1306 CE) -->
+            <section class="featured-explorer-section reveal-up" aria-label="Featured battle explorer">
+                <div class="featured-explorer-card">
+                    <div class="featured-explorer-content">
+                        <span class="featured-explorer-badge">Featured Explorer</span>
+                        <h3>Battle of Ravi (1306 CE)</h3>
+                        <p>Relive the day Alauddin Khalji's general Malik Kafur crushed the last Mongol invasion of India on the banks of the Ravi River — ending a generation of Chagatai raids on the Sultanate.</p>
+                        <a href="../../battle-of-ravi-explorer/index.html" class="featured-explorer-btn">
+                            Explore the Battle of Ravi →
+                        </a>
+                    </div>
+                    <div class="featured-explorer-meta">
+                        <span class="featured-explorer-date">1306 CE</span>
+                        <span class="featured-explorer-outcome">Sultanate Victory</span>
+                        <span class="featured-explorer-treaty">Last Mongol Invasion</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Explorer: Battle of Jalore (1311) -->
+            <section class="featured-explorer-section reveal-up" aria-label="Featured battle explorer">
+                <div class="featured-explorer-card">
+                    <div class="featured-explorer-content">
+                        <span class="featured-explorer-badge">Featured Explorer</span>
+                        <h3>Battle of Jalore (1311)</h3>
+                        <p>Relive the final stand of the Chauhan ruler Kanhadadeva of Jalore against Alauddin Khalji's Delhi Sultanate — a siege of the golden fort of Swarnagiri that ended a dynasty and became a legend of Rajput resistance.</p>
+                        <a href="../../battle-of-jalore-explorer/index.html" class="featured-explorer-btn">
+                            Explore the Battle of Jalore →
+                        </a>
+                    </div>
+                    <div class="featured-explorer-meta">
+                        <span class="featured-explorer-date">1311</span>
+                        <span class="featured-explorer-outcome">Sultanate Victory</span>
+                        <span class="featured-explorer-treaty">Kanhadadeva &amp; Viramadeva</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Explorer: Battle of Sinhagad (1670) -->
+            <section class="featured-explorer-section reveal-up" aria-label="Featured battle explorer">
+                <div class="featured-explorer-card">
+                    <div class="featured-explorer-content">
+                        <span class="featured-explorer-badge">Featured Explorer</span>
+                        <h3>Battle of Sinhagad (1670)</h3>
+                        <p>Relive the moonlit night of 4 February 1670, when Tanaji Malusare and a band of Mavali warriors scaled the sheer western cliff of Kondhana to wrench the fortress from its Mughal garrison — a victory paid for with the life of a lion, and the birth of a legend.</p>
+                        <a href="../../battle-of-sinhagad-explorer/index.html" class="featured-explorer-btn">
+                            Explore the Battle of Sinhagad →
+                        </a>
+                    </div>
+                    <div class="featured-explorer-meta">
+                        <span class="featured-explorer-date">4 Feb 1670</span>
+                        <span class="featured-explorer-outcome">Maratha Victory</span>
+                        <span class="featured-explorer-treaty">Gad ālā, pan sinhā gelā</span>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <!-- Interactive Battles Explorer (Timeline, Maps, Commanders) -->
+        <div id="battles-app" class="battles-app"></div>
+        <!-- Featured Explorer: First Battle of Panipat (1526) -->
+        <section class="featured-explorer-section" aria-label="Featured battle explorer">
+            <div class="featured-explorer-card">
+                <div class="featured-explorer-content">
+                    <span class="featured-explorer-badge">Featured Explorer</span>
+                    <h2>First Battle of Panipat (1526)</h2>
+                    <p>Relive the day Babur's matchlock musketeers and chained-cart artillery shattered Ibrahim Lodi's elephant host on the plains of Panipat — and founded the Mughal Empire.</p>
+                    <a href="../../first-battle-of-panipat-explorer/index.html" class="featured-explorer-btn">
+                        Explore the First Battle of Panipat →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">21 Apr 1526</span>
+                    <span class="featured-explorer-outcome">Mughal Victory</span>
+                    <span class="featured-explorer-treaty">Mughal Empire Founded</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Explorer: Battle of Ujjain -->
+        <section class="featured-explorer-section" aria-label="Featured battle explorer">
+            <div class="featured-explorer-card">
+                <div class="featured-explorer-content">
+                    <span class="featured-explorer-badge">Featured Explorer</span>
+                    <h2>Battle of Ujjain (1801)</h2>
+                    <p>Relive the epic clash of Maratha titans where Yashwantrao Holkar of Indore defeated Daulat Rao Scindia's grand army and captured the ancient capital city of Ujjain.</p>
+                    <a href="../../battle-of-ujjain-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Ujjain →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">October 1801</span>
+                    <span class="featured-explorer-outcome">Holkar Victory</span>
+                    <span class="featured-explorer-treaty">Indore-Gwalior Rivalry</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Explorer: Battle of Saraighat (1671) -->
+        <section class="featured-explorer-section" aria-label="Featured battle explorer">
+            <div class="featured-explorer-card">
+                <div class="featured-explorer-content">
+                    <span class="featured-explorer-badge">Featured Explorer</span>
+                    <h2>Battle of Saraighat (1671)</h2>
+                    <p>Relive the day Lachit Borphukan's Ahom navy turned the Brahmaputra into a fortress and broke the Mughal Empire's invasion of Assam — one of India's greatest naval victories.</p>
+                    <a href="../../battle-of-saraighat-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Saraighat →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">1671 CE</span>
+                    <span class="featured-explorer-outcome">Ahom Victory</span>
+                    <span class="featured-explorer-treaty">Mughal Expansion Halted</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Explorer: Siege of Chittor (1303) -->
+        <section class="featured-explorer-section" aria-label="Featured battle explorer">
+            <div class="featured-explorer-card">
+                <div class="featured-explorer-content">
+                    <span class="featured-explorer-badge">Featured Explorer</span>
+                    <h2>Siege of Chittor (1303)</h2>
+                    <p>Relive the historic siege where Delhi Sultan Alauddin Khalji besieged Guhila King Ratnasimha, leading to the legend of Rani Padmini and the first Jauhar of Chittorgarh.</p>
+                    <a href="../../siege-of-chittor-1303-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Siege of Chittor (1303) →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">1303 CE</span>
+                    <span class="featured-explorer-outcome">Sultanate Victory</span>
+                    <span class="featured-explorer-treaty">First Jauhar &amp; Saka of Chittor</span>
+                    <h2>Battle of Sripurambiyam (c. 879 CE)</h2>
+                    <p>Relive the watershed clash near Kumbakonam that broke Pandya hegemony and paved the way for the rise of the Imperial Cholas under Aditya I.</p>
+                    <a href="../../battle-of-sripurambiyam-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Sripurambiyam →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">c. 879 CE</span>
+                    <span class="featured-explorer-outcome">Coalition Victory</span>
+                    <span class="featured-explorer-treaty">Rise of Chola Empire</span>
+                    <h2>Battle of Pullalur (c. 618–619 CE)</h2>
+                    <p>Relive the strategic military clash where Western Chalukya Emperor Pulakeshin II defeated Pallava King Mahendravarman I, initiating a century-long struggle for Deccan supremacy.</p>
+                    <a href="../../battle-of-pullalur-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Pullalur →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">c. 618–619 CE</span>
+                    <span class="featured-explorer-outcome">Chalukya Victory</span>
+                    <span class="featured-explorer-treaty">Pulakeshin II &amp; Mahendravarman I</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Explorer: Battle of Takkolam (c. 949 CE) -->
+        <section class="featured-explorer-section" aria-label="Featured battle explorer">
+            <div class="featured-explorer-card">
+                <div class="featured-explorer-content">
+                    <span class="featured-explorer-badge">Featured Explorer</span>
+                    <h2>Battle of Takkolam (c. 949 CE)</h2>
+                    <p>Relive the Chola–Rashtrakuta clash where crown prince Rajaditya fell from his war elephant and Emperor Krishna III broke the Chola hold on Thondaimandalam — a defeat that cost the Cholas Kanchi and Tanjore, and reshaped South India for a generation.</p>
+                    <a href="../../battle-of-takkolam-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Takkolam →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">c. 949 CE</span>
+                    <span class="featured-explorer-outcome">Rashtrakuta Victory</span>
+                    <span class="featured-explorer-treaty">Rajaditya Fallen · Kanchi &amp; Tanjore Captured</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Explorer: Battle of Pavan Khind (1660) -->
+        <section class="featured-explorer-section" aria-label="Featured battle explorer">
+            <div class="featured-explorer-card">
+                <div class="featured-explorer-content">
+                    <span class="featured-explorer-badge">Featured Explorer</span>
+                    <h2>Battle of Pavan Khind (1660)</h2>
+                    <p>Relive the day Baji Prabhu Deshpande and a handful of Maratha warriors held the mountain pass of Pavan Khind against a vast Adilshahi army — buying Chhatrapati Shivaji Maharaj the time to escape to safety.</p>
+                    <a href="../../battle-of-pavan-khind-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Pavan Khind →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">13 Jul 1660</span>
+                    <span class="featured-explorer-outcome">Maratha Victory</span>
+                    <span class="featured-explorer-treaty">Shivaji's Escape Secured</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Explorer: Battle of Bhopal (1737-1738) -->
+        <section class="featured-explorer-section" aria-label="Featured battle explorer">
+            <div class="featured-explorer-card">
+                <div class="featured-explorer-content">
+                    <span class="featured-explorer-badge">Featured Explorer</span>
+                    <h2>Battle of Bhopal (1737-1738)</h2>
+                    <p>Relive the campaign where Peshwa Baji Rao I's swift Maratha cavalry trapped the Nizam of Hyderabad near Bhopal — and the Treaty of Bhopal that ceded Malwa and sealed Maratha supremacy in central India.</p>
+                    <a href="../../battle-of-bhopal-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Bhopal →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">1737-1738</span>
+                    <span class="featured-explorer-outcome">Maratha Victory</span>
+                    <span class="featured-explorer-treaty">Malwa Ceded to Marathas</span>
+                </div>
+            </div>
+        </section>
+        <!-- Featured Explorer: Battle of Haldighati (1576) -->
+        <section class="featured-explorer-section" aria-label="Featured battle explorer">
+            <div class="featured-explorer-card">
+                <div class="featured-explorer-content">
+                    <span class="featured-explorer-badge">Featured Explorer</span>
+                    <h2>Battle of Haldighati (1576)</h2>
+                    <p>Relive the day Maharana Pratap and his loyal steed Chetak defied Akbar's Mughal army under Man Singh I in the turmeric-coloured pass of Haldighati — a stand that turned defeat into an immortal symbol of Rajput valour.</p>
+                    <a href="../../battle-of-haldighati-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Haldighati →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">18 Jun 1576</span>
+                    <span class="featured-explorer-outcome">Mughal Tactical Victory</span>
+                    <span class="featured-explorer-treaty">Pratap's Escape &amp; Resistance</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Explorer: Battle of Khanwa (1527) -->
+        <section class="featured-explorer-section" aria-label="Featured battle explorer">
+            <div class="featured-explorer-card">
+                <div class="featured-explorer-content">
+                    <span class="featured-explorer-badge">Featured Explorer</span>
+                    <h2>Battle of Khanwa (1527)</h2>
+                    <p>Relive the decisive clash between Babur's early Mughal forces and Rana Sanga's Rajput confederacy, which secured and consolidated Mughal rule in northern India.</p>
+                    <a href="../../battle-of-khanwa-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Khanwa →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">16 March 1527</span>
+                    <span class="featured-explorer-outcome">Mughal Victory</span>
+                    <span class="featured-explorer-treaty">Mughal Rule Consolidated</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Explorer: Battle of Colachel (1741) -->
+        <section class="featured-explorer-section" aria-label="Featured battle explorer">
+            <div class="featured-explorer-card">
+                <div class="featured-explorer-content">
+                    <span class="featured-explorer-badge">Featured Explorer</span>
+                    <h2>Battle of Colachel (1741)</h2>
+                    <p>Relive the day Maharaja Marthanda Varma's Travancore forces struck down the Dutch East India Company at the southern tip of India — the battle that ended Dutch colonial ambition in India and secured Travancore's rise as a regional power.</p>
+                    <a href="../../battle-of-colachel-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Colachel →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">10 Mar 1741</span>
+                    <span class="featured-explorer-outcome">Travancore Victory</span>
+                    <span class="featured-explorer-treaty">Dutch Expelled from Malabar</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Explorer: Battle of Wadgaon (1779 CE) -->
+        <section class="featured-explorer-section" aria-label="Featured battle explorer">
+            <div class="featured-explorer-card">
+                <div class="featured-explorer-content">
+                    <span class="featured-explorer-badge">Featured Explorer</span>
+                    <h2>Battle of Wadgaon (1779)</h2>
+                    <p>Relive the decisive First Anglo-Maratha War campaign near Pune where Mahadji Shinde's cavalry and scorched-earth tactics forced the British East India Company to capitulate.</p>
+                    <a href="../../battle-of-wadgaon-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Wadgaon →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">12-13 Jan 1779</span>
+                    <span class="featured-explorer-outcome">Maratha Victory</span>
+                    <span class="featured-explorer-treaty">Treaty of Wadgaon Signed</span>
+                    <h2>Battle of Diu (1509)</h2>
+                    <p>Relive the decisive naval clash off the coast of Gujarat where Portuguese caravels defeated the allied Mamluk-Ottoman-Gujarat fleet, launching a century of European spice monopolies in Asia.</p>
+                    <a href="../../battle-of-diu-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Diu →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">3 Feb 1509</span>
+                    <span class="featured-explorer-outcome">Portuguese Victory</span>
+                    <span class="featured-explorer-treaty">European Spice Monopoly Secured</span>
+                    <h2>Battle of Khajwa (1659)</h2>
+                    <p>Relive the dramatic succession struggle near Fatehpur where Aurangzeb overcame camp betrayals and war elephant charges to defeat his brother Shah Shuja and secure the Mughal throne.</p>
+                    <a href="../../battle-of-khajwa-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Khajwa →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">5 Jan 1659</span>
+                    <span class="featured-explorer-outcome">Imperial Victory</span>
+                    <span class="featured-explorer-treaty">Aurangzeb's Throne Secured</span>
+                    <h2>Battle of Chausa (1539)</h2>
+                    <p>Relive the dramatic pre-dawn surprise raid where Sher Shah Suri outmaneuvered Humayun, establishing the Suri dynasty and forcing the Mughals into exile.</p>
+                    <a href="../../battle-of-chausa-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Chausa →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">26 June 1539</span>
+                    <span class="featured-explorer-outcome">Suri Victory</span>
+                    <span class="featured-explorer-treaty">Rise of Suri Dynasty</span>
+                    <h2>Battle of Ghaghra (1529)</h2>
+                    <p>Relive the riverine and land campaign where Babur's Mughal gunboats and Prince Askari's flanking cavalry routed the Eastern Afghan Confederacy and Bengal Sultanate.</p>
+                    <a href="../../battle-of-ghaghra-explorer/index.html" class="featured-explorer-btn">
+                        Explore the Battle of Ghaghra →
+                    </a>
+                </div>
+                <div class="featured-explorer-meta">
+                    <span class="featured-explorer-date">6 May 1529</span>
+                    <span class="featured-explorer-outcome">Mughal Victory</span>
+                    <span class="featured-explorer-treaty">Eastern Frontier Secured</span>
+                </div>
+            </div>
+        </section>
+
+    <!-- Featured Explorer: Battle of Kannauj (Bilgram) (1540) -->
+    <section class="featured-explorer-section" aria-label="Featured battle explorer">
+        <div class="featured-explorer-card">
+            <div class="featured-explorer-content">
+                <span class="featured-explorer-badge">Featured Explorer</span>
+                <h2>Battle of Kannauj (Bilgram) (1540)</h2>
+                <p>Relive the decisive 1540 clash where Sher Shah Suri's Sur forces defeated Mughal Emperor Humayun near Kannauj, ending the first Mughal reign and founding the Sur Empire — ushering in an era of sweeping reforms, the silver Rupiya, and the Grand Trunk Road.</p>
+                <a href="../../battle-of-kannauj-explorer/index.html" class="featured-explorer-btn">
+                    Explore the Battle of Kannauj →
+                </a>
+            </div>
+            <div class="featured-explorer-meta">
+                <span class="featured-explorer-date">17 May 1540</span>
+                <span class="featured-explorer-outcome">Suri Victory</span>
+                <span class="featured-explorer-treaty">Sur Empire Founded</span>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3><span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span></h3>
+                <p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India. Built with passion and pure vanilla web technologies.</p>
+                <div class="footer-social" aria-label="Follow Incredible India Explorer">
+                    <a href="https://facebook.com" class="footer-social-icon" aria-label="Facebook" rel="noopener" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 8H7v4h2v8h3v-8h2.5l.5-4h-3V6.5c0-.6.4-1 1-1H15V2h-2.5C9.7 2 9 3.6 9 5.5V8z"/></svg>
+                    </a>
+                    <a href="https://instagram.com" class="footer-social-icon" aria-label="Instagram" rel="noopener" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm5-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+                    </a>
+                    <a href="https://x.com" class="footer-social-icon" aria-label="X (Twitter)" rel="noopener" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4l7.5 9.5L4.4 20h2.2l6-6.2L17.6 20H20l-8-10.2L19.2 4H17l-5.7 5.9L7 4H4z"/></svg>
+                    </a>
+                    <a href="https://youtube.com" class="footer-social-icon" aria-label="YouTube" rel="noopener" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.8-.5-5.6c-.3-1-1-1.8-2-2C18.7 4 12 4 12 4s-6.7 0-8.5.4c-1 .2-1.7 1-2 2C1 8.2 1 12 1 12s0 3.8.5 5.6c.3 1 1 1.8 2 2 1.8.4 8.5.4 8.5.4s6.7 0 8.5-.4c1-.2 1.7-1 2-2 .5-1.8.5-5.6.5-5.6zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="../../../index.html#home">Home</a></li>
+                    <li><a href="../../../index.html#map">Interactive Map</a></li>
+                    <li><a href="../../cuisine/cuisine.html">Cuisine</a></li>
+                    <li><a href="../../festivals/festivals.html">Festivals</a></li>
+                    <li><a href="../../culture/culture.html">Culture</a></li>
+                    <li><a href="index.html">Historic Battles</a></li>
+                    <li><a href="../../../index.html#quiz">Quiz</a></li>
+                    <li><a href="../../about/about.html">About</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Battle Explorers</h4>
+                <ul>
+                    <li><a href="../../battle-of-buxar-explorer/index.html">Battle of Buxar</a></li>
+                    <li><a href="../../third-battle-of-panipat-explorer/index.html">Third Battle of Panipat</a></li>
+                    <li><a href="../../siege-of-chittor-explorer/index.html">Siege of Chittor</a></li>
+                    <li><a href="../../siege-of-chittor-1535-explorer/index.html">Siege of Chittorgarh</a></li>
+                    <li><a href="../../battle-of-ravi-explorer/index.html">Battle of Ravi</a></li>
+                    <li><a href="../../battle-of-jalore-explorer/index.html">Battle of Jalore</a></li>
+                    <li><a href="../../battle-of-sinhagad-explorer/index.html">Battle of Sinhagad</a></li>
+                    <li><a href="../../battle-of-colachel-explorer/index.html">Battle of Colachel</a></li>
+                    <li><a href="../../battle-of-kannauj-explorer/index.html">Battle of Kannauj</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Legal & Support</h4>
+                <ul>
+                    <li><a href="../../support/support.html">Help & Support</a></li>
+                    <li><a href="../../changelog/changelog.html">What's New</a></li>
+                    <li><a href="../../newsletter/newsletter.html">Newsletter</a></li>
+                    <li><a href="../../terms/terms.html">Terms of Service</a></li>
+                    <li><a href="../../privacy/privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-newsletter">
+            <div class="footer-newsletter-text">
+                <h4>Stay on the trail</h4>
+                <p>New battle explorers and heritage stories, straight to your inbox.</p>
+            </div>
+            <form class="footer-newsletter-form" id="footer-newsletter-form">
+                <label class="sr-only" for="footer-newsletter-email">Email address</label>
+                <input id="footer-newsletter-email" type="email" placeholder="Your email address" autocomplete="email" required/>
+                <button type="submit" class="footer-newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+
+        <div class="footer-credits footer-credits-center">
+            <p>&copy; 2026 Incredible India Explorer · Relive the battles that shaped modern India — from Plassey to Kargil. Part of <a href="../../../index.html">Incredible India Explorer</a>.</p>
+        </div>
+    </footer>
+
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="../../app.js" defer></script>
+    <script type="module" src="script.js"></script>
+    <script>
+        (function () {
+            const revealEls = document.querySelectorAll('.reveal-up');
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver(function (entries, obs) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12 });
+                revealEls.forEach(function (el) { observer.observe(el); });
+            } else {
+                revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+            }
+
+            const form = document.getElementById('footer-newsletter-form');
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const input = form.querySelector('input[type="email"]');
+                    const btn = form.querySelector('.footer-newsletter-btn');
+                    if (input && input.value) {
+                        btn.textContent = 'Subscribed ✓';
+                        btn.disabled = true;
+                        input.value = '';
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
