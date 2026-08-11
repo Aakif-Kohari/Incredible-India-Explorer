@@ -2490,5 +2490,9 @@ window.indiaSearchIndex = [
     category: "Military Resistance",
     description: "The 1945-46 court-martial of INA officers Shah Nawaz Khan, Prem Kumar Sahgal, and Gurbaksh Singh Dhillon at the Red Fort - charges, the Congress-led defence team, nationwide protests, and the trials' impact on the independence movement.",
     url: "frontend/ina-red-fort-trials-explorer/index.html"
+    title: "Nilgiri Pipit Explorer",
+    category: "Nature & Wildlife",
+    description: "Explore the Nilgiri Pipit (Anthus nilghiriensis) — an endemic bird of the montane grasslands of southern India's Western Ghats, covering taxonomy, distribution, habitat, diet, behaviour, conservation status, and threats.",
+    url: "frontend/nilgiri-pipit-explorer/index.html"
   },
 ];
