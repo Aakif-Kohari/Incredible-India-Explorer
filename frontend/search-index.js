@@ -2466,4 +2466,11 @@ window.indiaSearchIndex = [
     description: "Map the INA's 1944 march alongside the Japanese 15th Army toward India's northeastern frontier - the Burma Campaign, the sieges of Imphal and Kohima, the monsoon retreat, and the campaign's historical significance.",
     url: "frontend/imphal-kohima-campaign-explorer/index.html"
   },
+  // --- INA Red Fort Trials Explorer ---
+  {
+    title: "INA Red Fort Trials Explorer",
+    category: "Military Resistance",
+    description: "The 1945-46 court-martial of INA officers Shah Nawaz Khan, Prem Kumar Sahgal, and Gurbaksh Singh Dhillon at the Red Fort - charges, the Congress-led defence team, nationwide protests, and the trials' impact on the independence movement.",
+    url: "frontend/ina-red-fort-trials-explorer/index.html"
+  },
 ];
