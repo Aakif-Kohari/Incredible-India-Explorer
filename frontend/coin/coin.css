@@ -956,3 +956,63 @@ body.light-theme .symbol-coin-link {
   color: var(--primary-saffron);
 }
 }
+/* ==========================================================================
+   ERA FILTER BAR (Interactive Timeline Navigation)
+   ========================================================================== */
+
+.coins-era-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  max-width: 1200px;
+  margin: 0 auto 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.coins-era-filter-btn {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-color);
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: var(--transition-snappy);
+  white-space: nowrap;
+}
+
+.coins-era-filter-btn:hover,
+.coins-era-filter-btn.active {
+  background: var(--gradient-saffron-gold);
+  border-color: transparent;
+  color: #0f172a;
+  box-shadow: 0 4px 12px rgba(255, 176, 31, 0.25);
+}
+
+@keyframes eraHighlightPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 176, 31, 0); }
+  30% { box-shadow: 0 0 0 12px rgba(255, 176, 31, 0.25); }
+}
+
+.era-highlight-pulse .coins-era-card {
+  animation: eraHighlightPulse 1.5s ease-out;
+  border-color: var(--primary-gold) !important;
+}
+
+/* Mobile responsive: horizontal scroll instead of wrap on very small screens */
+@media (max-width: 480px) {
+  .coins-era-filter {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .coins-era-filter-btn {
+    flex-shrink: 0;
+  }
+}
