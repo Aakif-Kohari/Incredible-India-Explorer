@@ -252,7 +252,18 @@
         if (filtered.length === 0) {
             grid.style.display = 'none';
             emptyState.classList.remove('hidden');
-            resultsCount.textContent = 'No parks match your filters';
+            if (activeFilters.search) {
+                var message = 'No national parks found matching "' + esc(activeFilters.search) + '".';
+                emptyState.querySelector('h3').textContent = message;
+                resultsCount.textContent = message;
+                var statusEl = document.getElementById('parks-search-status');
+                if (statusEl) statusEl.textContent = message;
+            } else {
+                emptyState.querySelector('h3').textContent = 'No Parks Found';
+                resultsCount.textContent = 'No parks match your filters';
+                var statusEl = document.getElementById('parks-search-status');
+                if (statusEl) statusEl.textContent = 'No national parks found.';
+            }
             resetBtn.classList.remove('hidden');
             return;
         }
@@ -260,7 +271,12 @@
         grid.style.display = '';
         emptyState.classList.add('hidden');
         resetBtn.classList.toggle('hidden', !hasActiveFilters());
-        resultsCount.textContent = 'Showing ' + filtered.length + ' park' + (filtered.length !== 1 ? 's' : '');
+        var countMsg = 'Showing ' + filtered.length + ' park' + (filtered.length !== 1 ? 's' : '');
+        resultsCount.textContent = countMsg;
+        var statusEl = document.getElementById('parks-search-status');
+        if (statusEl) {
+            statusEl.textContent = activeFilters.search ? countMsg : '';
+        }
 
         var html = '';
         filtered.forEach(function (park, i) {
@@ -393,6 +409,7 @@
 
     function bindFilterEvents() {
         var searchInput = document.getElementById('search-parks');
+        var newSearchInput = document.getElementById('parks-search');
         var stateSelect = document.getElementById('filter-state');
         var typeSelect = document.getElementById('filter-type');
         var regionSelect = document.getElementById('filter-region');
@@ -400,15 +417,20 @@
         var emptyResetBtn = document.getElementById('btn-empty-reset');
         var timer = null;
 
-        if (searchInput)
-            searchInput.addEventListener('input', function () {
-                clearTimeout(timer);
-                var val = searchInput.value;
-                timer = setTimeout(function () {
-                    activeFilters.search = val.trim();
-                    renderParksGrid();
-                }, 250);
-            });
+        function handleSearchInput(e) {
+            clearTimeout(timer);
+            var val = e.target.value;
+            timer = setTimeout(function () {
+                activeFilters.search = val.trim();
+                // Sync the other search input if it exists
+                if (searchInput && e.target !== searchInput) searchInput.value = val;
+                if (newSearchInput && e.target !== newSearchInput) newSearchInput.value = val;
+                renderParksGrid();
+            }, 250);
+        }
+
+        if (searchInput) searchInput.addEventListener('input', handleSearchInput);
+        if (newSearchInput) newSearchInput.addEventListener('input', handleSearchInput);
         if (stateSelect)
             stateSelect.addEventListener('change', function () {
                 activeFilters.state = stateSelect.value;
@@ -428,6 +450,7 @@
         function resetAll() {
             activeFilters = { search: '', state: 'all', type: 'all', region: 'all' };
             if (searchInput) searchInput.value = '';
+            if (newSearchInput) newSearchInput.value = '';
             if (stateSelect) stateSelect.value = 'all';
             if (typeSelect) typeSelect.value = 'all';
             if (regionSelect) regionSelect.value = 'all';
