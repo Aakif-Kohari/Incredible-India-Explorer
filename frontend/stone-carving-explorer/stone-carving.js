@@ -51,21 +51,23 @@ function renderRegions() {
         <div class="sc-region-card sc-reveal sc-reveal-d${Math.min((i % 3) + 1, 3)}"
              id="${r.id}"
              style="--region-color: ${r.color};">
-            <span class="sc-region-icon">${r.icon}</span>
-            <div class="sc-region-name">${r.name}</div>
-            <div class="sc-region-tagline">${r.tagline}</div>
-            <div class="sc-region-meta">
-                <div class="sc-region-meta-row">
-                    <strong>Stone</strong>
-                    <span>${r.stone}</span>
+            ${r.img ? `<div class="sc-region-img-wrap"><img src="${r.img}" alt="${r.name} stone carving" loading="lazy" class="sc-region-img"/><span class="sc-region-icon-overlay">${r.icon}</span></div>` : `<span class="sc-region-icon">${r.icon}</span>`}
+            <div class="sc-region-body">
+                <div class="sc-region-name">${r.name}</div>
+                <div class="sc-region-tagline">${r.tagline}</div>
+                <div class="sc-region-meta">
+                    <div class="sc-region-meta-row">
+                        <strong>Stone</strong>
+                        <span>${r.stone}</span>
+                    </div>
+                    <div class="sc-region-meta-row">
+                        <strong>Centres</strong>
+                        <span>${r.centres}</span>
+                    </div>
                 </div>
-                <div class="sc-region-meta-row">
-                    <strong>Centres</strong>
-                    <span>${r.centres}</span>
-                </div>
+                <p class="sc-region-style">${r.style}</p>
+                <span class="sc-region-unesco">🌐 ${r.unesco}</span>
             </div>
-            <p class="sc-region-style">${r.style}</p>
-            <span class="sc-region-unesco">🌐 ${r.unesco}</span>
         </div>
     `).join('');
 }
@@ -80,7 +82,11 @@ function renderGallery() {
              tabindex="0"
              aria-label="View details: ${item.title}">
             <div class="sc-gallery-thumb" style="background: linear-gradient(135deg, ${item.color}22, ${item.color}08);">
-                <span>${item.emoji}</span>
+                ${item.img
+                    ? `<img src="${item.img}" alt="${item.title}" loading="lazy" class="sc-gallery-img" />`
+                    : `<span class="sc-gallery-emoji">${item.emoji}</span>`
+                }
+                <div class="sc-gallery-thumb-overlay"></div>
                 <span class="sc-gallery-tag">${item.tag}</span>
             </div>
             <div class="sc-gallery-body">
@@ -128,23 +134,26 @@ function renderArtisans() {
     grid.innerHTML = SC_ARTISANS.map((a, i) => `
         <div class="sc-artisan-card sc-reveal sc-reveal-d${Math.min((i % 3) + 1, 3)}"
              style="--artisan-color: ${a.color};">
-            <div class="sc-artisan-head">
-                <div class="sc-artisan-icon">${a.icon}</div>
-                <div>
-                    <div class="sc-artisan-name">${a.name}</div>
-                    <div class="sc-artisan-region">${a.region}</div>
+            ${a.img ? `<div class="sc-artisan-photo-wrap"><img src="${a.img}" alt="${a.name}" loading="lazy" class="sc-artisan-photo"/><div class="sc-artisan-photo-overlay"></div></div>` : ''}
+            <div class="sc-artisan-content">
+                <div class="sc-artisan-head">
+                    <div class="sc-artisan-icon">${a.icon}</div>
+                    <div>
+                        <div class="sc-artisan-name">${a.name}</div>
+                        <div class="sc-artisan-region">${a.region}</div>
+                    </div>
                 </div>
-            </div>
-            <p class="sc-artisan-tradition">${a.tradition}</p>
-            <p class="sc-artisan-specialty">${a.specialty}</p>
-            <div class="sc-artisan-meta">
-                <div class="sc-artisan-recognition">
-                    <span class="sc-artisan-meta-label">🏆 Recognition:</span>
-                    <span>${a.recognition}</span>
-                </div>
-                <div class="sc-artisan-threat">
-                    <span class="sc-artisan-meta-label">⚠️ Challenge:</span>
-                    <span>${a.threat}</span>
+                <p class="sc-artisan-tradition">${a.tradition}</p>
+                <p class="sc-artisan-specialty">${a.specialty}</p>
+                <div class="sc-artisan-meta">
+                    <div class="sc-artisan-recognition">
+                        <span class="sc-artisan-meta-label">🏆 Recognition:</span>
+                        <span>${a.recognition}</span>
+                    </div>
+                    <div class="sc-artisan-threat">
+                        <span class="sc-artisan-meta-label">⚠️ Challenge:</span>
+                        <span>${a.threat}</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -186,6 +195,18 @@ function openModal(idx) {
     document.getElementById('sc-modal-material').textContent = `Material: ${item.material}`;
     document.getElementById('sc-modal-desc').textContent     = item.description;
 
+    // Update modal image if present
+    const modalImg = document.getElementById('sc-modal-img');
+    if (modalImg) {
+        if (item.img) {
+            modalImg.src = item.img;
+            modalImg.alt = item.title;
+            modalImg.style.display = 'block';
+        } else {
+            modalImg.style.display = 'none';
+        }
+    }
+
     const modal = document.getElementById('sc-modal');
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -222,10 +243,13 @@ function initThemeToggle() {
    PARALLAX
 ────────────────────────────────────────── */
 function initParallax() {
-    const bg = document.getElementById('sc-hero-bg');
-    if (!bg || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const bg    = document.getElementById('sc-hero-bg');
+    const bgImg = document.getElementById('sc-hero-bg-img');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     window.addEventListener('scroll', () => {
-        bg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+        const y = window.scrollY * 0.3;
+        if (bg)    bg.style.transform    = `translateY(${y}px)`;
+        if (bgImg) bgImg.style.transform = `translateY(${y}px)`;
     }, { passive: true });
 }
 

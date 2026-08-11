@@ -60,6 +60,19 @@
         radial-gradient(ellipse at 50% 50%, rgba(212,168,64,0.03) 0%, transparent 70%);
 }
 
+/* Hero background real image */
+.sc-hero-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.28;
+    will-change: transform;
+    filter: brightness(0.7) saturate(1.2);
+}
+.light-theme .sc-hero-bg-img { opacity: 0.18; }
+
 /* ── Container ── */
 .sc-container {
     width: min(1260px, calc(100% - 40px));
@@ -435,9 +448,8 @@
     background: var(--sc-card);
     border: 1px solid var(--sc-border);
     border-radius: var(--sc-radius);
-    padding: 30px;
-    position: relative;
     overflow: hidden;
+    position: relative;
     transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
     cursor: default;
 }
@@ -453,11 +465,42 @@
     height: 3px;
     background: linear-gradient(90deg, var(--region-color, var(--sc-stone)), transparent);
     border-radius: 20px 20px 0 0;
+    z-index: 1;
 }
+
+/* Image header */
+.sc-region-img-wrap {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+}
+.sc-region-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+.sc-region-card:hover .sc-region-img { transform: scale(1.05); }
+.sc-region-icon-overlay {
+    position: absolute;
+    bottom: 10px; right: 12px;
+    font-size: 1.6rem;
+    background: rgba(0,0,0,0.55);
+    border-radius: 10px;
+    padding: 4px 8px;
+    backdrop-filter: blur(4px);
+    line-height: 1;
+}
+
+.sc-region-body {
+    padding: 22px 26px 26px;
+}
+
 .sc-region-icon {
     font-size: 2.4rem;
     margin-bottom: 12px;
     display: block;
+    padding: 18px 26px 0;
 }
 .sc-region-name {
     font-family: var(--font-playfair);
@@ -540,17 +583,26 @@
     position: relative;
     overflow: hidden;
 }
-.sc-gallery-thumb::after {
-    content: '';
+.sc-gallery-img {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.5) 100%);
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.sc-gallery-card:hover .sc-gallery-img { transform: scale(1.08); }
+.sc-gallery-emoji { position: relative; z-index: 1; }
+.sc-gallery-thumb-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.65) 100%);
+    z-index: 1;
 }
 
 .sc-gallery-tag {
     position: absolute;
     bottom: 10px; left: 12px;
-    z-index: 1;
+    z-index: 2;
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -765,9 +817,8 @@
     background: var(--sc-card);
     border: 1px solid var(--sc-border);
     border-radius: var(--sc-radius);
-    padding: 30px;
-    position: relative;
     overflow: hidden;
+    position: relative;
     transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 .sc-artisan-card:hover {
@@ -782,6 +833,28 @@
     height: 3px;
     background: linear-gradient(90deg, var(--artisan-color, var(--sc-stone)), transparent);
 }
+
+/* Artisan photo banner */
+.sc-artisan-photo-wrap {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+.sc-artisan-photo {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+    transition: transform 0.5s ease;
+    filter: grayscale(20%);
+}
+.sc-artisan-card:hover .sc-artisan-photo { transform: scale(1.05); }
+.sc-artisan-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 30%, rgba(8,6,8,0.8) 100%);
+}
+.sc-artisan-content { padding: 24px 28px 28px; }
 
 .sc-artisan-head {
     display: flex;
