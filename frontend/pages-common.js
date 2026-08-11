@@ -847,6 +847,31 @@ function initCoinsPage() {
     const progressList = document.getElementById('coins-progress-list');
  
     if (!timelineMain || !progressList) return;
+    const eraFilterBar = document.getElementById('coins-era-filter');
+
+    /* ---------- Render clickable era filter buttons ---------- */
+    if (eraFilterBar) {
+        eraFilterBar.innerHTML = COINS_DATA.map((era, idx) => `
+            <button class="coins-era-filter-btn${idx === 0 ? ' active' : ''}" data-target="era-${era.id}">
+                ${era.title}
+            </button>
+        `).join('');
+
+        eraFilterBar.querySelectorAll('.coins-era-filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = document.getElementById(btn.dataset.target);
+                if (!target) return;
+
+                eraFilterBar.querySelectorAll('.coins-era-filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                target.classList.add('era-highlight-pulse');
+                setTimeout(() => target.classList.remove('era-highlight-pulse'), 1500);
+            });
+        });
+    }
  
     /* ---------- Render progress sidebar ---------- */
     progressList.innerHTML = COINS_DATA.map((era, idx) => `
