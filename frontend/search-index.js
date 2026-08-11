@@ -5,10 +5,10 @@
  */
 window.indiaSearchIndex = [
   {
-    title: "Sachindra Nath Sanyal & HRA Explorer",
-    category: "Freedom Movement",
-    description: "Explore Sachindra Nath Sanyal and the rise of the Hindustan Republican Association (HRA): biography, interactive timeline, Kanpur 1924 founding, Bandi Jeevan treatise, HRA manifesto 'The Revolutionary', gallery, and references.",
-    url: "frontend/sachindra-nath-sanyal-explorer/index.html"
+    title: "Asirgarh Fort Explorer",
+    category: "Heritage & History",
+    description: "Explore Asirgarh Fort: the strategic 'Gateway to the Deccan' (Kili-i-Dakkan) in Burhanpur, Madhya Pradesh, featuring Satpura mountain citadels, Asa Ahir origins, Jama Masjid, Akbar's 1601 siege, and Ashwatthama legend.",
+    url: "frontend/asirgarh-fort-explorer/index.html"
   },
   {
     title: "Gingee Fort Explorer",
