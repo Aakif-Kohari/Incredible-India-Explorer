@@ -52,6 +52,9 @@ const STATIC_ASSETS_TO_PRECACHE = [
   './underground-resistance-explorer/index.html',
   './underground-resistance-explorer/style.css',
   './underground-resistance-explorer/script.js',
+  './telangana-struggle-explorer/index.html',
+  './telangana-struggle-explorer/style.css',
+  './telangana-struggle-explorer/script.js'
   './tebhaga-movement-explorer/index.html',
   './tebhaga-movement-explorer/style.css',
   './tebhaga-movement-explorer/script.js',

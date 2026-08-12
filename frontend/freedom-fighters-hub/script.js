@@ -453,7 +453,6 @@ const FREEDOM_FIGHTERS_DATA = [
         contributions: 'The Bombay launch of the Quit India Movement made the demand for immediate freedom a national imperative, triggered the widest protest wave since 1857, and convinced the British that the Raj could not survive the war.',
         rareFacts: 'The slogan "Quit India" was coined by the young Bombay socialist Yusuf Meherally; the maidan was renamed August Kranti Maidan after Independence, and India Post issued a commemorative stamp for the movement in 1992.',
         quote: '"Karo Ya Maro" — "Do or Die." We shall either free India or die in the attempt; we shall not live to see the perpetuation of our slavery. — Mahatma Gandhi, Gowalia Tank Maidan, 8 August 1942',
-<<<<<<< Updated upstream
         explorerLink: '../quit-india-movement-explorer/index.html'},
           {
         id: 'baji-rout',
@@ -514,8 +513,6 @@ const FREEDOM_FIGHTERS_DATA = [
         rareFacts: 'Earned the name "Bagha Jatin" (Tiger Jatin) after a widely recounted incident demonstrating his physical courage.',
         quote: 'We shall die to awaken the nation.',
         explorerLink: '../bagha-jatin-explorer/index.html'
-=======
-        explorerLink: '../quit-india-movement-explorer/index.html'
     },
     {
         id: 'underground-resistance-networks',
@@ -541,7 +538,30 @@ const FREEDOM_FIGHTERS_DATA = [
         rareFacts: 'The slogan "Quit India" was coined by Yusuf Meherally, a founding figure of the underground; a reward of ₹5,000 was placed on Aruna Asaf Ali, who eluded capture for nearly four years; and the student Usha Mehta, who ran Congress Radio, was a 22-year-old Wilson College master\'s student.',
         quote: '"This is the Congress Radio calling on 42.34 metres from somewhere in India." — Congress Radio, 27 August 1942',
         explorerLink: '../underground-resistance-explorer/index.html'
->>>>>>> Stashed changes
+    },
+    {
+        id: 'telangana-struggle',
+        name: 'Telangana People\'s Struggle — 1946–51',
+        title: 'The Telangana Rebellion',
+        lifespan: '1946 – 1951',
+        era: 'Pre-Independence & Post-Independence',
+        region: 'South',
+        birthplace: 'Nalgonda, Warangal, Khammam and Karimnagar districts, Hyderabad State',
+        movements: ['Telangana Rebellion', 'Communist-led Agrarian Uprising', 'Indian National Congress'],
+        biography: 'The Telangana People\'s Struggle was the largest armed peasant uprising of independent India. Against the oppressive rule of the Nizam\'s jagirdars (deshmukhs and deshpandes) and the private Razakar militia, peasants in the Telugu-speaking districts of Hyderabad State rose up in 1946 under the leadership of the Communist Party of India and Andhra Mahasabha. The movement began as a fight against forced labour (vetti), grain levies and land evictions, and grew into a guerrilla war in which peasants seized land and established gram rajya (village governments) across an estimated 3,000 villages. The Razakars retaliated with mass burnings and killings, and the movement reached its peak between 1948 and 1951, ultimately involving hundreds of thousands of peasants before the Indian Army\'s "Operation Polo" and the subsequent military suppression in 1951. It forced land reforms in the region and demonstrated the strength of bottom-up agrarian resistance, and is remembered today as a defining chapter of Telangana\'s history.',
+        timeline: [
+            { year: '1920s–30s', event: 'Andhra Mahasabha organizes farmers and cultural reform across Telangana against feudal oppression.' },
+            { year: '1944', event: 'Communist organizers join the agrarian movement; demands take shape against vetti (forced labour) and grain levies.' },
+            { year: '1946', event: 'The Telangana Rebellion begins with armed attacks on deshmukh properties in Nalgonda and Warangal.' },
+            { year: '1947', event: 'Peasants seize land, abolish forced labour, and set up gram rajya councils across hundreds of villages.' },
+            { year: 'Aug 1948', event: 'The Indian Army\'s "Operation Polo" integrates Hyderabad into the Indian Union.' },
+            { year: '1951', event: 'The movement is militarily suppressed by the Indian state; several leaders are killed and thousands arrested.' },
+            { year: '1960s–80s', event: 'The legacy of the struggle persists in later agrarian movements, land-reform movements and the statehood movement.' }
+        ],
+        contributions: 'The Telangana Rebellion abolished feudal labour practices in thousands of villages, seeded land reforms in the region, and left a lasting legacy of peasant assertion that shaped Telangana\'s political identity through the statehood movement. It is also a touchstone in studies of agrarian uprisings across the subcontinent.',
+        rareFacts: 'Also called the Telangana People\'s Struggle, it was the largest armed peasant uprising in the history of independent India; it is commemorated annually in Telangana on "Telangana Liberation Day" and through cultural memory in Nalgonda, Warangal and Khammam.',
+        quote: 'For centuries the peasants laboured under feudalism; the earth of Telangana rose against it — and the crops grew green over the soil of the revolution.',
+        explorerLink: '../telangana-struggle-explorer/index.html'
     }
 ];
 
