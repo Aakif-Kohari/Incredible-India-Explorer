@@ -206,6 +206,31 @@ const FREEDOM_FIGHTERS_DATA = [
         explorerLink: '../lala-lajpat-rai-explorer/index.html'
     },
     {
+        id: 'gokhale',
+        name: 'Gopal Krishna Gokhale',
+        title: 'Political Guru of Gandhi',
+        lifespan: '1866 – 1915',
+        era: 'Early Nationalist',
+        region: 'West',
+        birthplace: 'Kothluk, Ratnagiri, Maharashtra',
+        movements: ['Moderate Nationalism', 'Social Reforms', 'Free & Compulsory Education'],
+        biography: 'Gopal Krishna Gokhale was the preeminent moderate leader of the Indian National Congress whose constitutional vision of gradual self-government, rigorous economic critique of British rule, and passion for social reform shaped the moral foundation of India\'s freedom struggle. As the political guru of Mahatma Gandhi and founder of the Servants of India Society, he taught the nation that political freedom must rest upon discipline, education, and selfless service.',
+        timeline: [
+            { year: '1866', event: 'Born on 9 May at Kothluk, Ratnagiri district, Bombay Presidency.' },
+            { year: '1902', event: 'Elected to the Imperial Legislative Council, earning fame as a leading parliamentary orator on finance.' },
+            { year: '1905', event: 'Founded the Servants of India Society and presided over the INC session at Benares.' },
+            { year: '1907', event: 'Presided over the historic Surat session of the Indian National Congress amid the moderate–extremist split.' },
+            { year: '1911', event: 'Introduced the path-breaking Elementary Education Bill for free and compulsory primary education.' },
+            { year: '1913', event: 'Guided Mahatma Gandhi into the Servants of India Society, becoming his political guru.' },
+            { year: '1915', event: 'Died on 19 February, entrusting Gandhi with the mission of selfless national service.' }
+        ],
+        contributions: 'Led the moderate (constitutionalist) school of the Indian National Congress; founded the Servants of India Society (1905); pressed free primary education and economic reform in the Imperial Legislative Council; and mentored Mahatma Gandhi, shaping his ethics of truth and selfless public service.',
+        rareFacts: 'His birth anniversary, 9 May, is observed nationwide as National Education Day since 2008. Gandhi revered him as his "political guru" and joined his Servants of India Society in 1913.',
+        quote: 'Let the spirit of patriotism take possession of us all, and let us all try to do our duty to our country.',
+        explorerLink: '../gopal-krishna-gokhale-explorer/index.html',
+        explorerUrl: '../gopal-krishna-gokhale-explorer/index.html'
+    },
+    {
         id: 'ambedkar',
         name: 'Dr. B.R. Ambedkar',
         title: 'Babasaheb',
