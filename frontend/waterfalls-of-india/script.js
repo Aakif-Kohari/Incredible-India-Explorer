@@ -148,6 +148,21 @@
             attractions: "Bundi Fort, Taragarh Fort.",
             image: "https://images.unsplash.com/photo-1620959451996-037340c2be43?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1620959451996-037340c2be43?auto=format&fit=crop&q=40&w=400"
+        },
+        {
+            id: "bishop",
+            name: "Bishop Falls",
+            state: "Meghalaya",
+            river: "Umiam River",
+            height: "135 meters",
+            season: "Post-Monsoon",
+            tags: ["monsoon"],
+            description: "A spectacular three-tiered cascade plunging down the steep gorges of Shillong, famed for its twin relationship with Beadon Falls.",
+            flow: "Powerful roar during monsoon; clearer three-tiered cascade post-monsoon.",
+            attractions: "Beadon Falls, Umiam Lake.",
+            image: "https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&fit=crop&q=40&w=400",
+            url: "../bishop-falls-explorer/index.html"
         }
     ];
 
@@ -204,12 +219,19 @@
                 </div>
             `;
 
-            // Event Listeners for Modal
-            card.addEventListener('click', () => openModal(item));
+            // Event Listeners for Modal or External URL
+            const handleAction = () => {
+                if (item.url) {
+                    window.location.href = item.url;
+                } else {
+                    openModal(item);
+                }
+            };
+            card.addEventListener('click', handleAction);
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    openModal(item);
+                    handleAction();
                 }
             });
 
