@@ -1761,6 +1761,13 @@ window.indiaSearchIndex = [
         description: "Develop an interactive explorer for Keoti Falls, Madhya Pradesh — focusing on its 98-meter Rewa plateau elevation drop, Mahana River water source, height visualizer, and seasonal flow.",
         url: "frontend/keoti-falls-explorer/index.html"
     },
+    // --- Mysore Coinage Explorer ---
+    {
+        title: "Reconstruct Mysore Coinage & Tipu Sultan's Monetary System Explorer",
+        category: "Arts & Culture",
+        description: "Create an interactive explorer for Mysore coinage, with special attention to monetary changes during the reign of Tipu Sultan — featuring gold Ahmadis, silver Zohras, Mauludi solar calendar converter, and mints.",
+        url: "frontend/mysore-coinage-explorer/index.html"
+    },
     // --- Terracotta Pottery Explorer ---
     {
         title: 'Terracotta Pottery Explorer',
