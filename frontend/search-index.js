@@ -1728,6 +1728,13 @@ window.indiaSearchIndex = [
             "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
         url: 'frontend/simlipal-national-park-explorer/index.html'
     },
+    // --- Keoti Falls Explorer ---
+    {
+        title: "Keoti Falls Explorer",
+        category: "Nature & Geography",
+        description: "Develop an interactive explorer for Keoti Falls, Madhya Pradesh — focusing on its 98-meter Rewa plateau elevation drop, Mahana River water source, height visualizer, and seasonal flow.",
+        url: "frontend/keoti-falls-explorer/index.html"
+    },
     // --- Terracotta Pottery Explorer ---
     {
         title: 'Terracotta Pottery Explorer',
