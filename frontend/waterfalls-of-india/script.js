@@ -148,6 +148,21 @@
             attractions: "Bundi Fort, Taragarh Fort.",
             image: "https://images.unsplash.com/photo-1620959451996-037340c2be43?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1620959451996-037340c2be43?auto=format&fit=crop&q=40&w=400"
+        },
+        {
+            id: "nuranang",
+            name: "Nuranang Falls",
+            state: "Arunachal Pradesh",
+            river: "Nuranang River",
+            height: "100 meters",
+            season: "Monsoon",
+            tags: ["monsoon", "year-round"],
+            description: "Also known as Bong Bong Falls, a spectacular ~100m drop in the Himalayas.",
+            flow: "Powerful in monsoon, serene and crystal clear in winter.",
+            attractions: "Tawang, Sela Pass.",
+            image: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&q=40&w=400",
+            url: "../nuranang-falls-explorer/index.html"
         }
     ];
 
@@ -204,12 +219,19 @@
                 </div>
             `;
 
-            // Event Listeners for Modal
-            card.addEventListener('click', () => openModal(item));
+            // Event Listeners for Modal or External URL
+            const handleAction = () => {
+                if (item.url) {
+                    window.location.href = item.url;
+                } else {
+                    openModal(item);
+                }
+            };
+            card.addEventListener('click', handleAction);
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    openModal(item);
+                    handleAction();
                 }
             });
 
