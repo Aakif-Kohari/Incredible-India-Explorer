@@ -148,6 +148,21 @@
             attractions: "Bundi Fort, Taragarh Fort.",
             image: "https://images.unsplash.com/photo-1620959451996-037340c2be43?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1620959451996-037340c2be43?auto=format&fit=crop&q=40&w=400"
+        },
+        {
+            id: "nohsngithiang",
+            name: "Nohsngithiang Falls",
+            state: "Meghalaya",
+            river: "Monsoon Rainfall",
+            height: "315 meters",
+            season: "Monsoon",
+            tags: ["monsoon"],
+            description: "Also known as the Seven Sisters Falls, this majestic 315m segmented waterfall transforms the Khasi Hills cliffs during the monsoon.",
+            flow: "Thundering seven streams in monsoon; completely dry in winter.",
+            attractions: "Mawsmai Cave, Cherrapunji.",
+            image: "https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=40&w=400",
+            url: "../nohsngithiang-falls-explorer/index.html"
         }
     ];
 
@@ -204,12 +219,19 @@
                 </div>
             `;
 
-            // Event Listeners for Modal
-            card.addEventListener('click', () => openModal(item));
+            // Event Listeners for Modal or External URL
+            const handleAction = () => {
+                if (item.url) {
+                    window.location.href = item.url;
+                } else {
+                    openModal(item);
+                }
+            };
+            card.addEventListener('click', handleAction);
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    openModal(item);
+                    handleAction();
                 }
             });
 
