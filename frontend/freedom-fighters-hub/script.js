@@ -65,6 +65,31 @@ const FREEDOM_FIGHTERS_DATA = [
         quote: 'They may kill me, but they cannot kill my ideas.'
     },
     {
+        id: 'batukeshwar-dutt',
+        name: 'Batukeshwar Dutt',
+        title: 'Partner of Bhagat Singh',
+        lifespan: '1910 – 1965',
+        era: 'Revolutionary',
+        region: 'East',
+        birthplace: 'Khanari, Bardhaman, West Bengal',
+        movements: ['Hindustan Socialist Republican Association (HSRA)', 'Central Legislative Assembly Bombing (1929)'],
+        biography: 'Batukeshwar Dutt was a revolutionary of the Hindustan Socialist Republican Association who, with Bhagat Singh, hurled smoke bombs into the Central Legislative Assembly in Delhi on 8 April 1929 to protest repressive colonial bills. Shouting "Inquilab Zindabad! Long Live Revolution!", the pair deliberately surrendered to arrest, turning the Assembly bombing trial into a platform for revolutionary propaganda. Sentenced to transportation for life, Dutt endured years of imprisonment in Lahore, Multan, and Hazaribagh before release in the late 1930s.',
+        timeline: [
+            { year: '1910', event: 'Born on 18 November at Khanari, Bardhaman, Bengal Presidency.' },
+            { year: 'c. 1928', event: 'Joined the Hindustan Socialist Republican Association and forged his partnership with Bhagat Singh.' },
+            { year: '8 Apr 1929', event: 'Threw smoke bombs into the Central Legislative Assembly with Bhagat Singh and shouted "Long Live Revolution!"' },
+            { year: '1929', event: 'Sentenced to transportation for life in the sensational Central Assembly Bomb Case.' },
+            { year: '1930s', event: 'Imprisoned in Lahore, Multan, and Hazaribagh Central Jail during the years of the Lahore Conspiracy Case.' },
+            { year: 'late 1930s', event: 'Released from prison and continued working for the freedom movement.' },
+            { year: '1965', event: 'Died on 20 July in New Delhi; honoured with a commemorative postage stamp in 1967.' }
+        ],
+        contributions: 'With Bhagat Singh, staged the landmark Central Legislative Assembly bombing of 8 April 1929 that made the "deaf" colonial legislature hear the cry of revolution; used the Assembly bomb trial to popularise the ideals of the HSRA and the slogan "Inquilab Zindabad!"',
+        rareFacts: 'The bombs in the Assembly were deliberately low-strength and non-lethal — designed to make a point, not to harm. A park in New Delhi\'s Lodi Estate and an Indian postage stamp (1967) commemorate him.',
+        quote: 'Long live revolution! (Inquilab Zindabad!)',
+        explorerLink: '../batukeshwar-dutt-explorer/index.html',
+        explorerUrl: '../batukeshwar-dutt-explorer/index.html'
+    },
+    {
         id: 'rani-lakshmibai',
         name: 'Rani Lakshmibai',
         title: 'Rani of Jhansi',
@@ -204,6 +229,31 @@ const FREEDOM_FIGHTERS_DATA = [
         rareFacts: 'His famous slogan "Simon Go Back!" galvanized nationwide anti-commission protests. His martyrdom directly inspired Bhagat Singh and HSRA to avenge his death by killing the police official J.P. Saunders.',
         quote: 'They may kill me, but they cannot kill my ideas.',
         explorerLink: '../lala-lajpat-rai-explorer/index.html'
+    },
+    {
+        id: 'gokhale',
+        name: 'Gopal Krishna Gokhale',
+        title: 'Political Guru of Gandhi',
+        lifespan: '1866 – 1915',
+        era: 'Early Nationalist',
+        region: 'West',
+        birthplace: 'Kothluk, Ratnagiri, Maharashtra',
+        movements: ['Moderate Nationalism', 'Social Reforms', 'Free & Compulsory Education'],
+        biography: 'Gopal Krishna Gokhale was the preeminent moderate leader of the Indian National Congress whose constitutional vision of gradual self-government, rigorous economic critique of British rule, and passion for social reform shaped the moral foundation of India\'s freedom struggle. As the political guru of Mahatma Gandhi and founder of the Servants of India Society, he taught the nation that political freedom must rest upon discipline, education, and selfless service.',
+        timeline: [
+            { year: '1866', event: 'Born on 9 May at Kothluk, Ratnagiri district, Bombay Presidency.' },
+            { year: '1902', event: 'Elected to the Imperial Legislative Council, earning fame as a leading parliamentary orator on finance.' },
+            { year: '1905', event: 'Founded the Servants of India Society and presided over the INC session at Benares.' },
+            { year: '1907', event: 'Presided over the historic Surat session of the Indian National Congress amid the moderate–extremist split.' },
+            { year: '1911', event: 'Introduced the path-breaking Elementary Education Bill for free and compulsory primary education.' },
+            { year: '1913', event: 'Guided Mahatma Gandhi into the Servants of India Society, becoming his political guru.' },
+            { year: '1915', event: 'Died on 19 February, entrusting Gandhi with the mission of selfless national service.' }
+        ],
+        contributions: 'Led the moderate (constitutionalist) school of the Indian National Congress; founded the Servants of India Society (1905); pressed free primary education and economic reform in the Imperial Legislative Council; and mentored Mahatma Gandhi, shaping his ethics of truth and selfless public service.',
+        rareFacts: 'His birth anniversary, 9 May, is observed nationwide as National Education Day since 2008. Gandhi revered him as his "political guru" and joined his Servants of India Society in 1913.',
+        quote: 'Let the spirit of patriotism take possession of us all, and let us all try to do our duty to our country.',
+        explorerLink: '../gopal-krishna-gokhale-explorer/index.html',
+        explorerUrl: '../gopal-krishna-gokhale-explorer/index.html'
     },
     {
         id: 'ambedkar',
@@ -408,8 +458,9 @@ const FREEDOM_FIGHTERS_DATA = [
         contributions: 'His sacrifice while protecting the national flag became a rallying symbol for the Civil Disobedience Movement in the Madras Presidency and remains commemorated in Tirupur to this day.',
         rareFacts: 'A statue of Kumaran holding the national flag stands at the Tirupur bus stand, and he is remembered every year through local commemorations honouring his sacrifice.',
         quote: 'Remembered for refusing to let the national flag touch the ground even as he collapsed from a fatal police blow.',
-        explorerLink: '../tirupur-kumaran-explorer/index.html'},
-          {
+        explorerLink: '../tirupur-kumaran-explorer/index.html'
+    },
+    {
         id: 'alluri-sitarama-raju',
         name: 'Alluri Sitarama Raju',
         title: 'Manyam Veerudu (Hero of the Jungle)',
@@ -430,6 +481,137 @@ const FREEDOM_FIGHTERS_DATA = [
         rareFacts: 'The British spent over Rs 40 lakh to crush the rebellion; his birthday, 4 July, is celebrated as a state festival in Andhra Pradesh, and the Alluri Sitharama Raju district was carved out of Visakhapatnam in 2022.',
         quote: 'Jai Hind! This is but the beginning of the fight — the forest will keep the flame of Swaraj alive.',
         explorerLink: '../alluri-sitarama-raju-explorer/index.html'
+    },
+    {
+        id: 'quit-india-movement-bombay',
+        name: 'Quit India Movement — Bombay Launch',
+        title: 'Gowalia Tank Maidan, 8 August 1942',
+        lifespan: '8 – 9 August 1942',
+        era: 'Gandhian Era',
+        region: 'West',
+        birthplace: 'Gowalia Tank Maidan, Bombay',
+        movements: ['Quit India Movement', 'AICC Bombay Session 1942'],
+        biography: 'On 8 August 1942 the All India Congress Committee met at Gowalia Tank Maidan in Bombay and passed the Quit India Resolution demanding the immediate end of British rule in India. Jawaharlal Nehru moved the resolution, Sardar Patel seconded it, and Mahatma Gandhi gave the movement its mantra — "Do or Die" (Karo Ya Maro). Within hours of the session closing, the British arrested Gandhi, Nehru, Patel, Azad, Prasad, Naidu and Kripalani and carried them to Aga Khan Palace, Poona. The Bombay launch set off the widest wave of protests India had seen since 1857.',
+        timeline: [
+            { year: '14 Jul 1942', event: 'Congress Working Committee passes the Wardha draft of the Quit India resolution.' },
+            { year: '7 Aug 1942', event: 'The AICC opens its session under a great pandal at Gowalia Tank Maidan, Bombay.' },
+            { year: '8 Aug 1942', event: 'The Quit India Resolution is passed; Gandhi delivers his "Do or Die" speech.' },
+            { year: '9 Aug 1942', event: 'Pre-dawn mass arrests of the Congress leadership; Aruna Asaf Ali hoists the flag at the maidan.' },
+            { year: 'Aug 1942', event: 'Nationwide protests, strikes and sabotage from Bombay to Bihar; the government bans the Congress.' },
+            { year: '1945', event: 'The imprisoned leaders are released with the end of the war; Quit India made British rule impossible.' }
+        ],
+        contributions: 'The Bombay launch of the Quit India Movement made the demand for immediate freedom a national imperative, triggered the widest protest wave since 1857, and convinced the British that the Raj could not survive the war.',
+        rareFacts: 'The slogan "Quit India" was coined by the young Bombay socialist Yusuf Meherally; the maidan was renamed August Kranti Maidan after Independence, and India Post issued a commemorative stamp for the movement in 1992.',
+        quote: '"Karo Ya Maro" — "Do or Die." We shall either free India or die in the attempt; we shall not live to see the perpetuation of our slavery. — Mahatma Gandhi, Gowalia Tank Maidan, 8 August 1942',
+        explorerLink: '../quit-india-movement-explorer/index.html'},
+          {
+        id: 'baji-rout',
+        name: 'Baji Rout',
+        title: 'One of India\'s Youngest Martyrs',
+        lifespan: '1926 – 1938',
+        era: 'Praja Mandal Movement',
+        region: 'East',
+        birthplace: 'Nilakanthapur, Dhenkanal, Odisha',
+        movements: ['Praja Mandal Movement (Dhenkanal)'],
+        biography: 'Baji Rout was a twelve-year-old boatman from Dhenkanal, Odisha, who was fatally shot by state police in 1938 after refusing to ferry them across a river to suppress protesting villagers, becoming one of the youngest martyrs of India\'s freedom struggle.',
+        timeline: [
+            { year: '1926', event: 'Born into a boatman family in Nilakanthapur, Dhenkanal.' },
+            { year: '1930s', event: 'Growing unrest in Dhenkanal as villagers organized under the Praja Mandal movement.' },
+            { year: 'Oct 11, 1938', event: 'Refused to ferry police across the river to suppress protesters and was fatally shot.' }
+        ],
+        contributions: 'His refusal and martyrdom at age twelve became a galvanizing symbol for the Praja Mandal movement in Dhenkanal and is remembered across Odisha as an act of extraordinary courage.',
+        rareFacts: 'Remembered as one of the youngest martyrs of India\'s freedom struggle; several institutions in Odisha are named in his honor.',
+        quote: 'I will not take the police to catch my own people.',
+        explorerLink: '../baji-rout-explorer/index.html'
+    },
+    {
+        id: 'vanchinathan',
+        name: 'Vanchinathan',
+        title: 'South Indian Revolutionary',
+        lifespan: '1886 – 1911',
+        era: 'Swadeshi & Revolutionary Movement',
+        region: 'South',
+        birthplace: 'Senkottai, Tirunelveli',
+        movements: ['Swadeshi Movement', 'South Indian Revolutionary Circles'],
+        biography: 'Vanchinathan was a young revolutionary from Tirunelveli, Tamil Nadu, part of an early 20th-century South Indian nationalist movement influenced by the Swadeshi era and by regional leaders such as V. O. Chidambaram Pillai.',
+        timeline: [
+            { year: '1886', event: 'Born in Senkottai, Tirunelveli region, Madras Presidency.' },
+            { year: '1908', event: 'Tirunelveli-Tuticorin region saw major unrest connected to Swadeshi-era resistance.' },
+            { year: '1911', event: 'A significant, widely documented turning point in South India\'s revolutionary history.' }
+        ],
+        contributions: 'Part of the broader network of early 20th-century revolutionary nationalists demonstrating the geographic reach of anti-colonial resistance across South India.',
+        rareFacts: 'His activity is studied alongside other regional revolutionary movements active in Bengal, Maharashtra, and Punjab during the same period.',
+        quote: 'For the motherland, no sacrifice is too great.',
+        explorerLink: '../vanchinathan-explorer/index.html'
+    },
+    {
+        id: 'bagha-jatin',
+        name: 'Jatindranath Mukherjee (Bagha Jatin)',
+        title: 'Leader of the Jugantar Movement',
+        lifespan: '1879 – 1915',
+        era: 'Bengal Revolutionary Movement',
+        region: 'East',
+        birthplace: 'Kaya, Bengal Presidency',
+        movements: ['Jugantar Group', 'Bengal Revolutionary Network'],
+        biography: 'Jatindranath Mukherjee, known as "Bagha Jatin," was a central organizing leader of Bengal\'s early 20th-century revolutionary movement, associated with the Jugantar group, who died following the 1915 Battle of Balasore.',
+        timeline: [
+            { year: '1879', event: 'Born in Kaya, Bengal Presidency.' },
+            { year: '1900s–1910s', event: 'Rose to leadership within the Jugantar revolutionary network.' },
+            { year: 'Sept 1915', event: 'Fatally wounded in a confrontation with British forces near Balasore.' }
+        ],
+        contributions: 'Built and led an extensive revolutionary network across Bengal, mentoring a generation of nationalists and becoming a central figure in the region\'s armed independence movement.',
+        rareFacts: 'Earned the name "Bagha Jatin" (Tiger Jatin) after a widely recounted incident demonstrating his physical courage.',
+        quote: 'We shall die to awaken the nation.',
+        explorerLink: '../bagha-jatin-explorer/index.html'
+    },
+    {
+        id: 'underground-resistance-networks',
+        name: 'Underground Resistance Networks — 1942–44',
+        title: 'The Leaderless Years of the Quit India Movement',
+        lifespan: '9 August 1942 – 1944',
+        era: 'Gandhian Era',
+        region: 'West',
+        birthplace: 'Bombay, Delhi, Bihar, Satara, Midnapore',
+        movements: ['Quit India Movement', 'Congress Radio', 'Underground Resistance'],
+        biography: 'When "Operation Zero Hour" swept Gandhi, Nehru, Patel, Azad and the entire Congress Working Committee into prison on 9 August 1942, the movement did not stop — it went to ground. From Bombay to Bihar, from Satara to Midnapore, younger leaders built a web of secret radio stations, illegal newspapers, student couriers and regional organisers. Congress Radio broadcast from hidden Bombay rooms on 42.34 metres, Aruna Asaf Ali and Ram Manohar Lohia edited the underground Inquilab, Jayaprakash Narayan built the Azad Dastas guerrilla squads after escaping Hazaribagh jail, and the Satara Prati Sarkar and Tamluk Jatiya Sarkar ran parallel governments until the networks were hunted down one by one.',
+        timeline: [
+            { year: '9 Aug 1942', event: 'Operation Zero Hour — mass arrests of the Congress leadership; the underground is born.' },
+            { year: '27 Aug 1942', event: 'Congress Radio begins broadcasting on 42.34 metres from a hidden Bombay room.' },
+            { year: 'Sep 1942', event: 'Aruna Asaf Ali and Ram Manohar Lohia begin publishing the underground monthly Inquilab.' },
+            { year: '9 Nov 1942', event: 'Jayaprakash Narayan escapes Hazaribagh jail and builds the Azad Dasta guerrillas of Bihar.' },
+            { year: '12 Nov 1942', event: 'A police raid silences Congress Radio; Usha Mehta is arrested in the Radio Conspiracy Case.' },
+            { year: 'Dec 1942', event: 'The Tamluk Jatiya Sarkar is established in Midnapore, printing its weekly Biplabi.' },
+            { year: '1943', event: 'The Satara Prati Sarkar consolidates under Nana Patil — the longest-running parallel government.' },
+            { year: '1944', event: 'Arrests, informers and raids thin the networks; the underground phase closes as the leaders are released.' }
+        ],
+        contributions: 'The underground networks sustained the Quit India Movement through its darkest period — carrying uncensored news, preserving morale, distributing arms, and proving village by village in Satara and Tamluk that Indians could govern themselves, forging the leaders who shaped independent India.',
+        rareFacts: 'The slogan "Quit India" was coined by Yusuf Meherally, a founding figure of the underground; a reward of ₹5,000 was placed on Aruna Asaf Ali, who eluded capture for nearly four years; and the student Usha Mehta, who ran Congress Radio, was a 22-year-old Wilson College master\'s student.',
+        quote: '"This is the Congress Radio calling on 42.34 metres from somewhere in India." — Congress Radio, 27 August 1942',
+        explorerLink: '../underground-resistance-explorer/index.html'
+    },
+    {
+        id: 'telangana-struggle',
+        name: 'Telangana People\'s Struggle — 1946–51',
+        title: 'The Telangana Rebellion',
+        lifespan: '1946 – 1951',
+        era: 'Pre-Independence & Post-Independence',
+        region: 'South',
+        birthplace: 'Nalgonda, Warangal, Khammam and Karimnagar districts, Hyderabad State',
+        movements: ['Telangana Rebellion', 'Communist-led Agrarian Uprising', 'Indian National Congress'],
+        biography: 'The Telangana People\'s Struggle was the largest armed peasant uprising of independent India. Against the oppressive rule of the Nizam\'s jagirdars (deshmukhs and deshpandes) and the private Razakar militia, peasants in the Telugu-speaking districts of Hyderabad State rose up in 1946 under the leadership of the Communist Party of India and Andhra Mahasabha. The movement began as a fight against forced labour (vetti), grain levies and land evictions, and grew into a guerrilla war in which peasants seized land and established gram rajya (village governments) across an estimated 3,000 villages. The Razakars retaliated with mass burnings and killings, and the movement reached its peak between 1948 and 1951, ultimately involving hundreds of thousands of peasants before the Indian Army\'s "Operation Polo" and the subsequent military suppression in 1951. It forced land reforms in the region and demonstrated the strength of bottom-up agrarian resistance, and is remembered today as a defining chapter of Telangana\'s history.',
+        timeline: [
+            { year: '1920s–30s', event: 'Andhra Mahasabha organizes farmers and cultural reform across Telangana against feudal oppression.' },
+            { year: '1944', event: 'Communist organizers join the agrarian movement; demands take shape against vetti (forced labour) and grain levies.' },
+            { year: '1946', event: 'The Telangana Rebellion begins with armed attacks on deshmukh properties in Nalgonda and Warangal.' },
+            { year: '1947', event: 'Peasants seize land, abolish forced labour, and set up gram rajya councils across hundreds of villages.' },
+            { year: 'Aug 1948', event: 'The Indian Army\'s "Operation Polo" integrates Hyderabad into the Indian Union.' },
+            { year: '1951', event: 'The movement is militarily suppressed by the Indian state; several leaders are killed and thousands arrested.' },
+            { year: '1960s–80s', event: 'The legacy of the struggle persists in later agrarian movements, land-reform movements and the statehood movement.' }
+        ],
+        contributions: 'The Telangana Rebellion abolished feudal labour practices in thousands of villages, seeded land reforms in the region, and left a lasting legacy of peasant assertion that shaped Telangana\'s political identity through the statehood movement. It is also a touchstone in studies of agrarian uprisings across the subcontinent.',
+        rareFacts: 'Also called the Telangana People\'s Struggle, it was the largest armed peasant uprising in the history of independent India; it is commemorated annually in Telangana on "Telangana Liberation Day" and through cultural memory in Nalgonda, Warangal and Khammam.',
+        quote: 'For centuries the peasants laboured under feudalism; the earth of Telangana rose against it — and the crops grew green over the soil of the revolution.',
+        explorerLink: '../telangana-struggle-explorer/index.html'
     }
 ];
 

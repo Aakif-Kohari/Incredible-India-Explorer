@@ -15,7 +15,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 function loadPollywoodData() {
     const code = readFileSync(resolve(__dirname, '../../pollywood-cinema-explorer/script.js'), 'utf-8');
     // Strip the DOMContentLoaded block / router hook so it doesn't throw in Node/JSDOM
-    const stripped = code.replace(/document\.addEventListener[\s\S]*$/, '');
+    const stripped = code.replace(/document\.addEventListener\("app:route-changed"[\s\S]*$/, '');
     const fn = new Function(
         stripped +
             '\nreturn { POLLYWOOD_CINEMA_INFO, POLLYWOOD_FILMS, POLLYWOOD_ARTISTS, POLLYWOOD_TIMELINE, POLLYWOOD_GALLERY, POLLYWOOD_REFERENCES };'
