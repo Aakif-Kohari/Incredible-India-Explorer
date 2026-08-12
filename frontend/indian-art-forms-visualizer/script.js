@@ -20,6 +20,7 @@ const artFormsData = [
     
     { id: 'gond', name: 'Gond Art', region: 'Madhya Pradesh', category: 'other', desc: 'Tribal art characterized by vibrant colors and dot/line patterns.', img: 'https://placehold.co/400x300/15803d/fff' },
     { id: 'chittara', name: 'Chittara Painting', region: 'Karnataka', category: 'other', desc: 'Traditional geometric folk art from the Devaragudda village.', img: 'https://placehold.co/400x300/8B4513/fff', link: '../chittara-art-explorer/index.html' },
+    { id: 'lacquerware', name: 'Indian Lacquerware', region: 'Karnataka, Andhra Pradesh & Rajasthan', category: 'other', desc: 'Lac-turned wood craft behind Channapatna toys, Etikoppaka toys, Nirmal figures, and Jaipur lac bangles.', img: 'https://placehold.co/400x300/7c2d12/f59e0b', link: '../lacquerware-explorer/index.html' },
 ];
 
 let currentCategory = 'all';

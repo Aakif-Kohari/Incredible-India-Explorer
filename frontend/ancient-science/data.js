@@ -7,7 +7,8 @@ export const ancientScienceData = [
     image: "assets/zero.svg",
     contributor: "Brahmagupta, Aryabhata",
     summary: "The concept of zero as a number and the decimal place-value system transformed mathematics, enabling modern arithmetic, algebra, calculus, and computing systems.",
-    significance: "Foundation of positional notation and modern mathematics worldwide."
+    significance: "Foundation of positional notation and modern mathematics worldwide.",
+    link: "../decimal-number-system-explorer/index.html"
   },
   {
     id: "aryabhata",

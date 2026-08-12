@@ -26,7 +26,8 @@ window.paintingsData = [
         region: "Tamil Nadu",
         image: "assets/tanjore-1.jpg",
         highRes: "assets/high-res/tanjore-1.jpg",
-        description: "A classical South Indian painting style characterized by rich, flat, and vivid colors, simple iconic composition, glittering gold foils overlaid on delicate but extensive gesso work."
+        description: "A classical South Indian painting style characterized by rich, flat, and vivid colors, simple iconic composition, glittering gold foils overlaid on delicate but extensive gesso work.",
+        link: "../tanjore-painting-showcase/index.html"
     },
     {
         id: "pattachitra-1",
@@ -53,7 +54,58 @@ window.paintingsData = [
         region: "Madhya Pradesh",
         image: "assets/gond-1.jpg",
         highRes: "assets/high-res/gond-1.jpg",
-        description: "Tribal art originating from the Gond community, characterized by an imaginative use of lines, dots, and vibrant colors to depict mystical flora and fauna."
+        description: "Tribal art originating from the Gond community, characterized by an imaginative use of lines, dots, and vibrant colors to depict mystical flora and fauna.",
+        link: "../gond-art-explorer/index.html"
+    },
+    {
+        id: "mughal-1",
+        title: "Emperor Akbar in Durbar",
+        style: "Mughal Miniature",
+        region: "North India",
+        image: "assets/mughal-1.jpg",
+        highRes: "assets/high-res/mughal-1.jpg",
+        description: "Imperial court miniature artwork fusing Persian elegance with Indian realism, featuring royal durbars, hunting expeditions, and botanical studies.",
+        link: "../mughal-miniature-paintings/index.html"
+    },
+    {
+        id: "rajput-1",
+        title: "Bani Thani of Kishangarh",
+        style: "Rajput Miniature",
+        region: "Rajasthan",
+        image: "assets/rajput-1.jpg",
+        highRes: "assets/high-res/rajput-1.jpg",
+        description: "Vibrant royal court miniature art showcasing kingdom-wise traditions of Mewar, Marwar, Kishangarh, Bundi-Kota, and Jaipur with rich mineral colors and Ragamala themes.",
+        link: "../rajput-miniature-paintings/index.html"
+    },
+    {
+        id: "pahari-1",
+        title: "Radha & Krishna in Kangra Valley",
+        style: "Pahari Miniature",
+        region: "Himachal Pradesh",
+        image: "assets/pahari-1.jpg",
+        highRes: "assets/high-res/pahari-1.jpg",
+        description: "Poetic Himalayan miniature painting style featuring school comparisons of Kangra, Basohli, and Guler with delicate lines and lush nature backgrounds.",
+        link: "../pahari-miniature-art/index.html"
+    },
+    {
+        id: "bhil-1",
+        title: "Sacred Pithora & Dot Motifs",
+        style: "Bhil Art",
+        region: "Madhya Pradesh",
+        image: "assets/bhil-1.jpg",
+        highRes: "assets/high-res/bhil-1.jpg",
+        description: "Vibrant tribal art of the Bhil community featuring rhythmic multi-colored dot patterns, Pithora sacred horses, sun-moon deities, and ancestral folklore themes.",
+        link: "../bhil-art-explorer/index.html"
+    },
+    {
+        id: "aipan-1",
+        title: "Lakshmi Chowki & Vasudhara",
+        style: "Aipan Art",
+        region: "Uttarakhand",
+        image: "assets/aipan-1.jpg",
+        highRes: "assets/high-res/aipan-1.jpg",
+        description: "Sacred Kumaoni ritual floor art created with Geru red terracotta clay and Biswar white rice paste, featuring traditional Chowki geometries and Lakshmi footprints.",
+        link: "../aipan-art-visualizer/index.html"
     },
     {
         id: "miniature-1",
@@ -65,13 +117,24 @@ window.paintingsData = [
         description: "Highly detailed and intricately painted small-scale artwork that flourished under Rajput and Mughal patronage, known for delicate brushwork and rich colors."
     },
     {
+        id: "mughal-1",
+        title: "Emperor Akbar in Durbar",
+        style: "Mughal Miniature",
+        region: "North India",
+        image: "assets/mughal-1.jpg",
+        highRes: "assets/high-res/mughal-1.jpg",
+        description: "Imperial court miniature artwork fusing Persian elegance with Indian realism, featuring royal durbars, hunting expeditions, and botanical studies.",
+        link: "../mughal-miniature-paintings/index.html"
+    },
+    {
         id: "phad-1",
         title: "Tale of Pabuji",
         style: "Phad",
         region: "Rajasthan",
         image: "assets/phad-1.jpg",
         highRes: "assets/high-res/phad-1.jpg",
-        description: "A religious scroll painting and folk art form used by Bhopas (priest-singers) as a mobile temple, traditionally depicting the epics of local deities like Pabuji and Devnarayan."
+        description: "A religious scroll painting and folk art form used by Bhopas (priest-singers) as a mobile temple, traditionally depicting the epics of local deities like Pabuji and Devnarayan.",
+        link: "../phad-painting-explorer/index.html"
     },
     {
         id: "madhubani-2",
