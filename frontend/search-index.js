@@ -686,6 +686,12 @@ window.indiaSearchIndex = [
     url: "frontend/tollywood-explorer/index.html"
   },
   {
+    title: "Pollywood (Punjabi Cinema) Explorer",
+    category: "Culture",
+    description: "Discover Pollywood — the Punjabi film industry highlighting its music-driven culture, cinema evolution from Sheila (1935) to modern global crossover blockbusters.",
+    url: "frontend/pollywood-cinema-explorer/index.html"
+  },
+  {
     title: "River Krishna",
     category: "Rivers",
     description: "Major river of southern India, supporting agriculture across Maharashtra, Karnataka, and Andhra Pradesh.",
