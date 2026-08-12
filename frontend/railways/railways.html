@@ -1,360 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Indian Railways Explorer | railways.html</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trains of India | Incredible India Explorer</title>
+  <meta name="description" content="Explore India's incredible railway journeys, from luxury trains and historic mountain railways to modern express services connecting the country.">
+  
+  <meta property="og:title" content="Trains of India | Incredible India Explorer">
+  <meta property="og:description" content="Explore India's incredible railway journeys, from luxury trains and historic mountain railways to modern express services connecting the country.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/railways.html">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1601565415267-724d3d8f7b70?w=1600&h=900&fit=crop&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Trains of India | Incredible India Explorer">
+  <meta name="twitter:description" content="Explore India's incredible railway journeys, from luxury trains and historic mountain railways to modern express services connecting the country.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1601565415267-724d3d8f7b70?w=1600&h=900&fit=crop&q=80">
+
+  <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/railways.html">
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-  <!-- Global site stylesheet (navbar, footer, theme variables) -->
   <link rel="stylesheet" href="../../styles.css">
-
-  <style>
-    body[data-page="railways"] {
-      background: var(--bg-dark-deep);
-    }
-    .hero {
-      background: linear-gradient(rgba(10,14,20,0.75), rgba(10,14,20,0.85)), 
-                  url('https://images.unsplash.com/photo-1601565415267-724d3d8f7b70?w=1600&h=900&fit=crop&q=80') center/cover no-repeat;
-      height: 65vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: var(--text-light);
-    }
-    .hero h1 {
-      font-family: var(--font-heading);
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-      color: var(--text-light);
-    }
-    .hero p {
-      font-family: var(--font-body);
-      font-size: 1.4rem;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      color: var(--text-muted);
-    }
-    .search-bar {
-      width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .search-bar input {
-      width: 100%;
-      padding: 18px 25px;
-      font-family: var(--font-body);
-      font-size: 1.1rem;
-      color: var(--text-light);
-      background: var(--bg-dark-card);
-      border: 1px solid rgba(255, 176, 31, 0.35);
-      border-radius: 50px;
-      outline: none;
-      transition: var(--transition-snappy);
-    }
-    .search-bar input::placeholder {
-      color: var(--text-muted);
-    }
-    .search-bar input:focus {
-      border-color: var(--primary-gold);
-      box-shadow: var(--shadow-glow-active);
-    }
-    .filters {
-      background: var(--bg-dark-card);
-      padding: 15px;
-      border-radius: var(--border-radius-lg);
-      border: 1px solid rgba(255, 176, 31, 0.35);
-      margin: -30px auto 40px;
-      max-width: 1100px;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 2;
-    }
-    .filter-btn {
-      padding: 10px 22px;
-      border: 1px solid rgba(255, 176, 31, 0.4);
-      background: transparent;
-      color: var(--primary-gold);
-      font-family: var(--font-body);
-      border-radius: 30px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: var(--transition-snappy);
-    }
-    .filter-btn.active,
-    .filter-btn:hover {
-      background: var(--primary-gold);
-      color: var(--bg-dark-deep);
-      border-color: var(--primary-gold);
-    }
-    .trains-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 25px;
-      margin-bottom: 60px;
-    }
-    .train-card {
-      background: var(--bg-dark-card);
-      border: 1px solid rgba(255, 176, 31, 0.35);
-      border-radius: var(--border-radius-lg);
-      overflow: hidden;
-      transition: var(--transition-smooth);
-    }
-    .train-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--primary-gold);
-      box-shadow: var(--shadow-glow-active);
-    }
-    .train-header {
-      background: linear-gradient(135deg, hsla(28, 40%, 14%, 0.9), hsla(222, 47%, 10%, 0.9));
-      border-bottom: 1px solid rgba(255, 176, 31, 0.25);
-      color: var(--text-light);
-      font-family: var(--font-heading);
-      padding: 18px;
-    }
-    .train-body {
-      padding: 20px;
-      font-family: var(--font-body);
-      color: var(--text-light);
-    }
-    .route {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 15px 0;
-    }
-    .route small {
-      color: var(--text-muted);
-    }
-    .status {
-      padding: 6px 14px;
-      background: hsla(140, 40%, 12%, 0.5);
-      color: var(--primary-green);
-      border: 1px solid rgba(34, 139, 34, 0.35);
-      border-radius: 20px;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-    .timeline {
-      background: var(--bg-dark-card);
-      border: 1px solid rgba(255, 176, 31, 0.35);
-      padding: 30px;
-      border-radius: var(--border-radius-lg);
-      margin: 40px auto;
-      max-width: 900px;
-    }
-    .timeline h2 {
-      font-family: var(--font-heading);
-      color: var(--text-light);
-    }
-    .timeline h3 {
-      font-family: var(--font-body);
-      color: var(--text-light);
-    }
-    .timeline p {
-      font-family: var(--font-body);
-      color: var(--primary-gold);
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-  </style>
-
-    <!-- Open Graph / Social Media Tags -->
-    <meta property="og:title" content="Indian Railways Explorer | railways.html | Incredible India Explorer">
-    <meta property="og:description" content="Explore Indian Railways Explorer | railways.html on Incredible India Explorer">
-    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/railways.html">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Incredible India Explorer">
-    <meta property="og:locale" content="en_IN">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Indian Railways Explorer | railways.html | Incredible India Explorer">
-    <meta name="twitter:description" content="Explore Indian Railways Explorer | railways.html on Incredible India Explorer">
-    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/railways.html">
+  <link rel="stylesheet" href="trains.css">
 </head>
-<body data-page="railways">
-    <script>
-        (function() {
-            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
-            if (theme === 'light') {
-                document.body.classList.add('light-theme');
-            }
-        })();
-    </script>
+<body data-page="trains">
 
-  <!-- Sticky Navigation Bar (matches site-wide navbar) -->
+  <script>
+    (function() {
+      let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+      if (theme === 'light') { document.body.classList.add('light-theme'); }
+    })();
+  </script>
+
+  <!-- Global Navbar (Reusable Component) -->
   <header class="navbar" id="navbar">
     <div class="nav-container">
-        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
-            <span class="saffron">Incredible</span>
-            <span class="gold">India</span>
-            <span class="green">Explorer</span>
-        </a>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-        <nav class="nav-menu" id="nav-menu">
-            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
-
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
-                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
-                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
-                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
-                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
-                </div>
-            </div>
-
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
-                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
-                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
-                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
-                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
-                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
-                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
-                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
-                </div>
-            </div>
-
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
-                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
-                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
-                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
-                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
-                </div>
-            </div>
-
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
-                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
-                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
-                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
-                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
-                </div>
-            </div>
-
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
-                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
-                </div>
-            </div>
-            
-            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
-        </nav>
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../../index.html#states" class="nav-link">States</a>
+        <a href="../../index.html#cuisine" class="nav-link">Cuisine</a>
+        <a href="../../index.html#festivals" class="nav-link">Festivals</a>
+        <a href="../../index.html#heritage" class="nav-link">Heritage</a>
+        <a href="../railways/railways.html" class="nav-link active">Trains of India</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
     </div>
-</header>
+  </header>
 
   <main id="app-root">
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h1>Explore India's Pride</h1>
-      <p>Real-time train status, routes &amp; booking information</p>
-      <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search by train name, number or station..." />
+    
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-subtitle">Incredible India Explorer</span>
+        <h1>Trains of India</h1>
+        <p>Explore India's incredible railway journeys — from luxurious royal trains and historic mountain railways to modern express services connecting the length and breadth of the country.</p>
+        <a href="#explore" class="cta-btn">Explore Trains</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Filters -->
-  <div class="container">
-    <div class="filters">
-      <button class="filter-btn active" onclick="filterCategory('all')">All Trains</button>
-      <button class="filter-btn" onclick="filterCategory('express')">Express</button>
-      <button class="filter-btn" onclick="filterCategory('luxury')">Luxury</button>
-      <button class="filter-btn" onclick="filterCategory('heritage')">Heritage</button>
-    </div>
-  </div>
+    <!-- Introduction Section -->
+    <section class="section" style="text-align: center; max-width: 900px;">
+      <span class="hero-subtitle">Railway Heritage</span>
+      <h2 style="font-family: var(--font-heading); font-size: 2.5rem; margin: 10px 0 20px;">A Journey Across India</h2>
+      <p style="font-size: 1.15rem; line-height: 1.7; color: rgba(255,255,255,0.75);">
+        India's railway network connects diverse landscapes, cities and communities across the country. From historic mountain railways to contemporary express services, railway journeys offer a unique way to experience India's geography, engineering and cultural heritage.
+      </p>
+    </section>
 
-  <!-- Train Cards -->
-  <div class="container">
-    <h2 style="text-align:center; margin-bottom:30px;">Popular Trains</h2>
-    <div class="trains-grid" id="trainsGrid"></div>
-  </div>
+    <!-- Train Categories Section -->
+    <section id="explore" class="section">
+      <div class="section-header">
+        <h2>Explore Train Categories</h2>
+        <p>Discover railway experiences across India.</p>
+      </div>
+      <div class="categories-grid" id="categories-container">
+        <!-- JS Populated -->
+      </div>
+    </section>
 
-  <!-- Route Visualization -->
-  <div class="container">
-    <div class="timeline">
-      <h2 style="text-align:center; margin-bottom:25px;">Vande Bharat Express Route</h2>
-      <div style="display:flex; justify-content:space-between; position:relative;">
-        <div style="text-align:center;">
-          <h3>Delhi</h3>
-          <p>06:00 AM</p>
+    <!-- Featured Trains Section -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Featured Trains</h2>
+        <p>Discover some of India's most memorable railway journeys.</p>
+      </div>
+      <div class="featured-grid" id="featured-trains-container">
+        <!-- JS Populated -->
+      </div>
+    </section>
+
+    <!-- Explore By Region Section -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Explore by Region</h2>
+        <p>Find railway journeys specific to different parts of India.</p>
+      </div>
+      <div class="regions-grid" id="regions-container">
+        <!-- JS Populated -->
+      </div>
+    </section>
+
+    <!-- Railway Heritage Section -->
+    <section class="section heritage-section">
+      <div class="heritage-wrapper">
+        <div>
+          <span class="hero-subtitle">Heritage</span>
+          <h2 style="font-family: var(--font-heading); font-size: 2.8rem; color: #fff; margin: 15px 0;">India's Railway Heritage</h2>
+          <p style="font-size: 1.1rem; line-height: 1.6; color: rgba(255,255,255,0.7); margin-bottom: 30px;">
+            India's railway story spans historic routes, remarkable engineering achievements, mountain railways, and preserved traditions that live on today.
+          </p>
         </div>
-        <div style="text-align:center;">
-          <h3>Agra Cantt</h3>
-          <p>08:50 AM</p>
-        </div>
-        <div style="text-align:center;">
-          <h3>Jaipur</h3>
-          <p>12:40 PM</p>
-        </div>
-        <div style="text-align:center;">
-          <h3>Mumbai</h3>
-          <p>08:15 PM</p>
+        <div class="heritage-grid" id="heritage-container">
+          <!-- JS Populated -->
         </div>
       </div>
-    </div>
-  </div>
-  </main>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-      <div class="footer-container">
-          <div class="footer-brand">
-              <h3>Incredible India Explorer</h3>
-              <p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India. Built
-                  with passion and pure vanilla web technologies.</p>
-          </div>
-          <div class="footer-links">
-              <h3>Quick Navigation</h3>
-              <ul>
-                  <li><a href="../../index.html#home">Home</a></li>
-                  <li><a href="../../index.html#map">Interactive Map</a></li>
-                  <li><a href="../cuisine/cuisine.html">Cuisine</a></li>
-                  <li><a href="../festivals/festivals.html">Festivals</a></li>
-                  <li><a href="../culture/culture.html">Culture</a></li>
-                  <li><a href="../startup/startup.html">Startup</a></li>
-                  <li><a href="../../index.html#quiz">Quiz</a></li>
-              </ul>
-          </div>
+    <!-- Scenic Journeys Section -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Scenic Train Journeys</h2>
+        <p>Travel through some of India's most spectacular landscapes.</p>
       </div>
-      <div class="footer-credits footer-credits-center">
-          <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS & JavaScript.</p>
+      <div class="scenic-grid" id="scenic-container">
+        <!-- JS Populated -->
       </div>
+ feat/trains-of-india-landing
+    </section>
+
   </footer>
 
   <!-- Scroll To Top Button -->
@@ -518,41 +301,52 @@
         grid.appendChild(card);
       });
     }
+ main
 
-    function filterCategory(category) {
-      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-      
-      if (category === 'all') {
-        renderTrains(trains);
-      } else {
-        const filtered = trains.filter(t => t.type === category);
-        renderTrains(filtered);
-      }
-    }
+    <!-- Facts Section -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Did You Know?</h2>
+        <p>Interesting facts about India's legendary railway network.</p>
+      </div>
+      <div class="facts-grid" id="facts-container">
+        <!-- JS Populated -->
+      </div>
+    </section>
 
-    function bookTrain(name) {
-      alert(`Booking opened for ${name} 🚂\n(Frontend Demo)`);
-    }
+    <!-- Explore All Trains Section -->
+    <section id="all-trains" class="section">
+      <div class="section-header">
+        <h2>Explore All Trains</h2>
+        <p>Browse the complete collection of India's railway experiences.</p>
+      </div>
+      <div class="featured-grid" id="all-trains-container">
+        <!-- JS Populated -->
+      </div>
+    </section>
 
-    // Search
-    document.getElementById('searchInput').addEventListener('keyup', (e) => {
-      const term = e.target.value.toLowerCase();
-      const filtered = trains.filter(train => 
-        train.name.toLowerCase().includes(term) || 
-        train.from.toLowerCase().includes(term) || 
-        train.to.toLowerCase().includes(term)
-      );
-      renderTrains(filtered);
-    });
+    <!-- Final CTA -->
+    <section class="section">
+      <div class="final-cta">
+        <h2>Ready to Explore India's Railways?</h2>
+        <p>Discover historic railway routes, modern express services, luxury journeys and scenic train experiences.</p>
+        <a href="#all-trains" class="cta-btn" style="margin-top: 15px;">Explore All Trains &rarr;</a>
+      </div>
+    </section>
 
-    // Initial Load
-    renderTrains(trains);
-  </script>
+  </main>
 
-  <!-- Site scripts: wires up navbar menu toggle, theme toggle, scroll-to-top -->
-  <script src="../data.js" defer></script>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>Incredible India Explorer</h3>
+        <p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India.</p>
+      </div>
+    </div>
+  </footer>
+
   <script src="../js-modules/storage.js" defer></script>
-    <script src="../app.js" defer></script>
-  <script src="../router.js" defer></script>
+  <script src="../app.js" defer></script>
+  <script src="trains.js" defer></script>
 </body>
 </html>
