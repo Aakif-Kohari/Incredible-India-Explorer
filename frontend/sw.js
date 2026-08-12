@@ -55,6 +55,10 @@ const STATIC_ASSETS_TO_PRECACHE = [
   './telangana-struggle-explorer/index.html',
   './telangana-struggle-explorer/style.css',
   './telangana-struggle-explorer/script.js'
+  './tebhaga-movement-explorer/index.html',
+  './tebhaga-movement-explorer/style.css',
+  './tebhaga-movement-explorer/script.js',
+  './tebhaga-movement-explorer/assets/hero-bg.jpg'
 ];
 
 // Max items allowed in dynamic caches to prevent storage overflow

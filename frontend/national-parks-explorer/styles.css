@@ -530,4 +530,327 @@ body.light-theme {
     .np-section {
         padding: 3rem 1rem;
     }
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .tiger-parks-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .wildlife-grid {
+        grid-template-columns: 1fr;
+    }
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-quick-stats {
+        gap: 24px;
+    }
+    .tiger-parks-list {
+        grid-template-columns: 1fr;
+    }
+    .lightbox-prev {
+        left: 5px;
+    }
+    .lightbox-next {
+        right: 5px;
+    }
+}
+
+/* ==========================================================================
+   State Map Paths
+   ========================================================================== */
+.india-map-container svg .state-path {
+    fill: rgba(34, 197, 94, 0.22);
+    stroke: rgba(255, 255, 255, 0.35);
+    stroke-width: 0.8;
+    cursor: pointer;
+    transition:
+        fill 0.25s ease,
+        stroke 0.25s ease,
+        filter 0.25s ease;
+}
+
+.india-map-container svg .state-path:hover {
+    fill: rgba(34, 197, 94, 0.45);
+    stroke: rgba(34, 197, 94, 0.8);
+    filter: drop-shadow(0 0 6px rgba(34, 197, 94, 0.3));
+}
+
+.light-theme .india-map-container svg .state-path {
+    fill: rgba(21, 128, 61, 0.15);
+    stroke: rgba(21, 128, 61, 0.3);
+}
+
+.light-theme .india-map-container svg .state-path:hover {
+    fill: rgba(34, 197, 94, 0.3);
+    stroke: rgba(21, 128, 61, 0.6);
+}
+
+/* ==========================================================================
+   Park Card Images
+   ========================================================================== */
+.park-card-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 14px 14px 0 0;
+}
+
+.park-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+
+.park-card:hover .park-card-img {
+    transform: scale(1.08);
+}
+
+.park-card-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(10, 15, 24, 0.65));
+    pointer-events: none;
+}
+
+.park-card-img-wrap.img-failed {
+    background: linear-gradient(135deg, #1a472a, #0f2918);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.park-card-img-wrap.img-failed::after {
+    content: '🌿';
+    font-size: 2.4rem;
+    opacity: 0.4;
+}
+
+/* ==========================================================================
+   Wildlife Card Images
+   ========================================================================== */
+.wildlife-card-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+}
+
+.wildlife-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.wildlife-card:hover .wildlife-card-img {
+    transform: scale(1.06);
+}
+
+.wildlife-card-status-badge {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+}
+
+.wildlife-card-img-wrap.img-failed {
+    background: linear-gradient(135deg, #1a3a4a, #0f2029);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wildlife-card-img-wrap.img-failed::after {
+    content: '🦁';
+    font-size: 2.4rem;
+    opacity: 0.4;
+}
+
+.wildlife-card-parks {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--text-sub);
+}
+
+/* ==========================================================================
+   Tiger Reserve Card Images
+   ========================================================================== */
+.tiger-park-card {
+    background: var(--card-bg-glass);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.tiger-park-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.tiger-card-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+
+.tiger-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.tiger-park-card:hover .tiger-card-img {
+    transform: scale(1.06);
+}
+
+.tiger-card-number {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 28px;
+    height: 28px;
+    background: var(--tiger-orange);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.tiger-card-body {
+    padding: 14px;
+}
+
+.tiger-card-body h4 {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+}
+
+.tiger-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    font-size: 0.78rem;
+    color: var(--text-sub);
+    margin-bottom: 8px;
+}
+
+.tiger-card-desc {
+    font-size: 0.82rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tiger-card-img-wrap.img-failed {
+    background: linear-gradient(135deg, #4a2a1a, #291f0f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tiger-card-img-wrap.img-failed::after {
+    content: '🐅';
+    font-size: 2.4rem;
+    opacity: 0.4;
+}
+
+/* ==========================================================================
+   Scroll Animations
+   ========================================================================== */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+.animate-on-scroll.animate-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Focus Indicators for Keyboard Navigation
+   ========================================================================== */
+*:focus-visible {
+    outline: 2px solid var(--forest-light);
+    outline-offset: 2px;
+}
+
+.map-marker:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+    transform: translate(-50%, -50%) scale(1.6);
+    z-index: 5;
+}
+
+.park-card:focus-visible,
+.tiger-park-card:focus-visible,
+.gallery-item:focus-visible {
+    outline: 2px solid var(--forest-light);
+    outline-offset: 3px;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(34, 197, 94, 0.2);
+}
+
+.park-modal.hidden,
+.lightbox.hidden {
+    display: none;
+}
+
+/* Search Input */
+.parks-search-container {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+.parks-search-input {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 24px;
+    background: var(--card-bg-glass);
+    color: var(--text-main);
+    border: 1px solid var(--card-border);
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.parks-search-input:focus {
+    border-color: var(--forest-light);
+}
+.parks-search-status:not(.sr-only) {
+    margin-top: 10px;
+    color: var(--text-sub);
+    font-size: 0.9rem;
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
 }
