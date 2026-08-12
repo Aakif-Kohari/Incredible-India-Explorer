@@ -725,6 +725,18 @@ window.indiaSearchIndex = [
         url: 'frontend/sanjhi-art-explorer/index.html'
     },
     {
+        title: "Indigo Revolt (1859–1860) Explorer",
+        category: "Peasant & Agrarian Movements",
+        description: "Explore the Indigo Revolt of 1859-1860: forced indigo cultivation in Bengal, cultivator debt bondage, nationwide peasant resistance, the Indigo Commission, and its lasting impact on India's agrarian movements.",
+        url: "frontend/indigo-revolt-explorer/index.html"
+    },
+    {
+        title: "Simon Commission Protests (1928) Explorer",
+        category: "Political Movements",
+        description: "Explore the 1928 Simon Commission protests: an all-white Commission, the nationwide 'Simon Go Back' boycott, the Lahore lathi charge on Lala Lajpat Rai, and its revolutionary aftermath.",
+        url: "frontend/simon-commission-protests/index.html"
+    },
+    {
         title: 'Gujarati Cinema (Dhollywood) Explorer',
         category: 'Culture',
         description:
@@ -1735,6 +1747,20 @@ window.indiaSearchIndex = [
     description: "Build a dedicated interactive explorer for Bhimlat Falls, Rajasthan — highlighting the contrast between the 60-meter seasonal cascade, seismic fault origins, Pandava legend, and Bundi eco-landscape.",
     url: "frontend/bhimlat-falls-explorer/index.html"
   },
+       
+    // --- Menal Falls Explorer ---
+    {
+        title: "Menal Falls Explorer",
+        category: "Nature & Geography",
+        description: "Create an interactive page for Menal Falls, Rajasthan — connecting the 150-foot natural waterfall landscape with 11th-century Mahanaleshwar Shiva Temple and Prithviraj Chauhan's monsoon palace.",
+        url: "frontend/menal-falls-explorer/index.html"},
+    // --- Keoti Falls Explorer ---
+    {
+        title: "Keoti Falls Explorer",
+        category: "Nature & Geography",
+        description: "Develop an interactive explorer for Keoti Falls, Madhya Pradesh — focusing on its 98-meter Rewa plateau elevation drop, Mahana River water source, height visualizer, and seasonal flow.",
+        url: "frontend/keoti-falls-explorer/index.html"
+    },
     // --- Terracotta Pottery Explorer ---
     {
         title: 'Terracotta Pottery Explorer',
@@ -2567,130 +2593,130 @@ window.indiaSearchIndex = [
             "Explore the Battle of Ghaghra (1529 CE) - Babur's decisive riverine and amphibious campaign against the Eastern Afghan Confederacy and Bengal Sultanate.",
         url: 'frontend/battle-of-ghaghra-explorer/index.html'
     },
-  // --- Battle of Ghaghra Explorer ---
-  {
-    title: "Battle of Ghaghra Explorer",
-    category: "Featured Explorers",
-    description: "Explore the Battle of Ghaghra (1529 CE) - Babur's decisive riverine and amphibious campaign against the Eastern Afghan Confederacy and Bengal Sultanate.",
-    url: "frontend/battle-of-ghaghra-explorer/index.html"
-  },
-  // --- Vaduvur Wetland Explorer ---
-  {
-    title: "Vaduvur Wetland Explorer",
-    category: "Featured Explorers",
-    description: "Explore Vaduvur Wetland & Bird Sanctuary — Ramsar Site No. 2480 in Tiruvarur, Tamil Nadu. A 128-hectare human-made irrigation tank hosting over 20,000 wintering migratory waterfowl along the Central Asian Flyway.",
-    url: "frontend/vaduvur-wetland-explorer/index.html"
-  },
-  // --- Suchindram Wetland Explorer ---
-  {
-    title: "Suchindram Wetland Explorer",
-    category: "Featured Explorers",
-    description: "Explore Suchindram Wetland & Bird Sanctuary — Ramsar Site No. 2484 in Kanyakumari, Tamil Nadu. A 94-hectare freshwater tank complex serving as mainland India's southernmost sanctuary along the Central Asian Flyway.",
-    url: "frontend/suchindram-wetland-explorer/index.html"
-  },
-  // --- Mysore Painting Explorer ---
-  {
-    title: "Mysore Painting Explorer",
-    category: "Featured Explorers",
-    description: "Explore Mysore Paintings — classical South Indian art form celebrated for delicate brushwork, 24-karat pure gold gesso embossing, Sritattvanidhi iconographic tradition, and royal Wodeyar heritage.",
-    url: "frontend/mysore-painting-explorer/index.html"
-  },
-  // --- Jawaharlal Nehru Explorer ---
-  {
-    title: "Jawaharlal Nehru Explorer",
-    category: "Featured Explorers",
-    description: "Chronicle Jawaharlal Nehru's leadership in the Indian freedom movement, Congress presidency, Purna Swaraj declaration, 9 prison incarcerations, historic speeches, and nation-building.",
-    url: "frontend/jawaharlal-nehru-explorer/index.html"
-  },
-  // --- RIAF Revolt of 1946 Explorer ---
-  {
-    title: "RIAF Revolt of 1946 Explorer",
-    category: "Military Resistance",
-    description: "Explore the Royal Indian Air Force revolt of January 1946 - post-war grievances, discrimination, the strike across 20+ air force stations, and its link to the Royal Indian Navy Mutiny.",
-    url: "frontend/riaf-revolt-1946-explorer/index.html"
-  },
-  // --- Siege of Seringapatam Explorer ---
-  {
-    title: "Siege of Seringapatam Explorer",
-    category: "Featured Explorers",
-    description: "Explore the Siege of Seringapatam (1799 CE) - the final clash of the Fourth Anglo-Mysore War and the fall of the Kingdom of Mysore under Tipu Sultan.",
-    url: "frontend/siege-of-seringapatam-explorer/index.html"
-  },
-  // --- August Offer 1940 Explorer ---
-  {
-    title: "August Offer, 1940 Explorer",
-    category: "Constitutional Developments",
-    description: "Explore the August Offer of 8 August 1940 - Britain's wartime promise of Dominion Status, the expanded Executive Council, the minority veto, and how its rejection led to Individual Satyagraha.",
-    url: "frontend/august-offer-1940-explorer/index.html"
-  },
-  {
-    title: "August Offer, 1940 - Main Proposals",
-    category: "Constitutional Developments",
-    description: "The four clauses of the August Offer - Dominion Status as the objective, a future constitution-making body, expansion of the Executive Council, and constitutional commitments to minority interests.",
-    url: "frontend/august-offer-1940-explorer/index.html#proposals"
-  },
-  {
-    title: "August Offer, 1940 - Responses",
-    category: "Constitutional Developments",
-    description: "Congress rejected the August Offer, the Muslim League welcomed it as recognition of the two-nation theory, and Gandhi answered with Individual Satyagraha.",
-    url: "frontend/august-offer-1940-explorer/index.html#responses"
-  },
-  {
-    title: "August Offer, 1940 - Political Timeline",
-    category: "Constitutional Developments",
-    description: "A phase-filterable chronology from the outbreak of World War II and the Lahore Resolution to the August Offer, the Congress rejection, and Individual Satyagraha.",
-    url: "frontend/august-offer-1940-explorer/index.html#timeline"
-  },
-  // --- Non-Cooperation Movement Explorer ---
-  {
-    title: "Non-Cooperation Movement Explorer",
-    category: "Freedom Struggle",
-    description: "Explore the Non-Cooperation Movement (1920–1922) — India's first mass movement under Gandhi, covering boycotts, khadi promotion, regional participation, the Khilafat connection, Chauri Chaura, and long-term impact.",
-    url: "frontend/non-cooperation-movement-explorer/index.html"
-  },
-  // --- Parallel Governments of Quit India Explorer ---
-  {
-    title: "Parallel Governments of Quit India Explorer",
-    category: "Freedom Struggle",
-    description: "Explore the Tamralipta Jatiya Sarkar in Midnapore, the Prati Sarkar in Satara, and other underground administrations that ran courts, police, and relief systems during the Quit India Movement.",
-    url: "frontend/parallel-governments-explorer/index.html"
-  },
-  // --- Rowlatt Satyagraha Explorer ---
-  {
-    title: "Rowlatt Satyagraha Explorer",
-    category: "Freedom Struggle",
-    description: "Explore the Rowlatt Satyagraha of 1919 — Gandhi's first all-India protest against the Rowlatt Acts, covering the political background, nationwide hartals, major city protests, the Punjab unrest, Jallianwala Bagh connection, and historical significance.",
-    url: "frontend/rowlatt-satyagraha-explorer/index.html"
-  },
-  // --- Indian National Army Explorer ---
-  {
-    title: "Indian National Army (INA) Explorer",
-    category: "Freedom Struggle",
-    description: "Explore the INA's journey from Indian POWs in Southeast Asia and Mohan Singh's First INA, through Subhas Chandra Bose's Azad Hind Government and the Rani of Jhansi Regiment, to the Imphal-Kohima campaign and Red Fort Trials.",
-    url: "frontend/indian-national-army-explorer/index.html"
-  },
-  // --- Elvira Rat Explorer ---
-  {
-    title: "Elvira Rat Explorer",
-    category: "Nature & Wildlife",
-    description: "Explore the Elvira Rat (Cremnomys elvira) — one of India's rarest endemic rodents, found only in isolated boulder habitats of southern India, covering its taxonomy, distribution, behaviour, conservation status, threats, and protected areas.",
-    url: "frontend/elvira-rat-explorer/index.html"
-  },
-  // --- Imphal-Kohima Campaign Explorer ---
-  {
-    title: "Imphal–Kohima Campaign Explorer",
-    category: "Military Resistance",
-    description: "Map the INA's 1944 march alongside the Japanese 15th Army toward India's northeastern frontier - the Burma Campaign, the sieges of Imphal and Kohima, the monsoon retreat, and the campaign's historical significance.",
-    url: "frontend/imphal-kohima-campaign-explorer/index.html"
-  },
-  // --- Neelakurinji Explorer ---
-  {
-    title: "Neelakurinji Explorer",
-    category: "Nature & Wildlife",
-    description: "Explore Neelakurinji (Strobilanthes kunthiana) — the famous flowering shrub endemic to the Western Ghats that blooms once every twelve years, covering its taxonomy, 12-year flowering cycle, ecology, conservation status, and cultural significance.",
-    url: "frontend/neelakurinji-explorer/index.html"
-  },
-  // --- INA Red Fort Trials Explorer ---
+    // --- Battle of Ghaghra Explorer ---
+    {
+        title: "Battle of Ghaghra Explorer",
+        category: "Featured Explorers",
+        description: "Explore the Battle of Ghaghra (1529 CE) - Babur's decisive riverine and amphibious campaign against the Eastern Afghan Confederacy and Bengal Sultanate.",
+        url: "frontend/battle-of-ghaghra-explorer/index.html"
+    },
+    // --- Vaduvur Wetland Explorer ---
+    {
+        title: "Vaduvur Wetland Explorer",
+        category: "Featured Explorers",
+        description: "Explore Vaduvur Wetland & Bird Sanctuary — Ramsar Site No. 2480 in Tiruvarur, Tamil Nadu. A 128-hectare human-made irrigation tank hosting over 20,000 wintering migratory waterfowl along the Central Asian Flyway.",
+        url: "frontend/vaduvur-wetland-explorer/index.html"
+    },
+    // --- Suchindram Wetland Explorer ---
+    {
+        title: "Suchindram Wetland Explorer",
+        category: "Featured Explorers",
+        description: "Explore Suchindram Wetland & Bird Sanctuary — Ramsar Site No. 2484 in Kanyakumari, Tamil Nadu. A 94-hectare freshwater tank complex serving as mainland India's southernmost sanctuary along the Central Asian Flyway.",
+        url: "frontend/suchindram-wetland-explorer/index.html"
+    },
+    // --- Mysore Painting Explorer ---
+    {
+        title: "Mysore Painting Explorer",
+        category: "Featured Explorers",
+        description: "Explore Mysore Paintings — classical South Indian art form celebrated for delicate brushwork, 24-karat pure gold gesso embossing, Sritattvanidhi iconographic tradition, and royal Wodeyar heritage.",
+        url: "frontend/mysore-painting-explorer/index.html"
+    },
+    // --- Jawaharlal Nehru Explorer ---
+    {
+        title: "Jawaharlal Nehru Explorer",
+        category: "Featured Explorers",
+        description: "Chronicle Jawaharlal Nehru's leadership in the Indian freedom movement, Congress presidency, Purna Swaraj declaration, 9 prison incarcerations, historic speeches, and nation-building.",
+        url: "frontend/jawaharlal-nehru-explorer/index.html"
+    },
+    // --- RIAF Revolt of 1946 Explorer ---
+    {
+        title: "RIAF Revolt of 1946 Explorer",
+        category: "Military Resistance",
+        description: "Explore the Royal Indian Air Force revolt of January 1946 - post-war grievances, discrimination, the strike across 20+ air force stations, and its link to the Royal Indian Navy Mutiny.",
+        url: "frontend/riaf-revolt-1946-explorer/index.html"
+    },
+    // --- Siege of Seringapatam Explorer ---
+    {
+        title: "Siege of Seringapatam Explorer",
+        category: "Featured Explorers",
+        description: "Explore the Siege of Seringapatam (1799 CE) - the final clash of the Fourth Anglo-Mysore War and the fall of the Kingdom of Mysore under Tipu Sultan.",
+        url: "frontend/siege-of-seringapatam-explorer/index.html"
+    },
+    // --- August Offer 1940 Explorer ---
+    {
+        title: "August Offer, 1940 Explorer",
+        category: "Constitutional Developments",
+        description: "Explore the August Offer of 8 August 1940 - Britain's wartime promise of Dominion Status, the expanded Executive Council, the minority veto, and how its rejection led to Individual Satyagraha.",
+        url: "frontend/august-offer-1940-explorer/index.html"
+    },
+    {
+        title: "August Offer, 1940 - Main Proposals",
+        category: "Constitutional Developments",
+        description: "The four clauses of the August Offer - Dominion Status as the objective, a future constitution-making body, expansion of the Executive Council, and constitutional commitments to minority interests.",
+        url: "frontend/august-offer-1940-explorer/index.html#proposals"
+    },
+    {
+        title: "August Offer, 1940 - Responses",
+        category: "Constitutional Developments",
+        description: "Congress rejected the August Offer, the Muslim League welcomed it as recognition of the two-nation theory, and Gandhi answered with Individual Satyagraha.",
+        url: "frontend/august-offer-1940-explorer/index.html#responses"
+    },
+    {
+        title: "August Offer, 1940 - Political Timeline",
+        category: "Constitutional Developments",
+        description: "A phase-filterable chronology from the outbreak of World War II and the Lahore Resolution to the August Offer, the Congress rejection, and Individual Satyagraha.",
+        url: "frontend/august-offer-1940-explorer/index.html#timeline"
+    },
+    // --- Non-Cooperation Movement Explorer ---
+    {
+        title: "Non-Cooperation Movement Explorer",
+        category: "Freedom Struggle",
+        description: "Explore the Non-Cooperation Movement (1920–1922) — India's first mass movement under Gandhi, covering boycotts, khadi promotion, regional participation, the Khilafat connection, Chauri Chaura, and long-term impact.",
+        url: "frontend/non-cooperation-movement-explorer/index.html"
+    },
+    // --- Parallel Governments of Quit India Explorer ---
+    {
+        title: "Parallel Governments of Quit India Explorer",
+        category: "Freedom Struggle",
+        description: "Explore the Tamralipta Jatiya Sarkar in Midnapore, the Prati Sarkar in Satara, and other underground administrations that ran courts, police, and relief systems during the Quit India Movement.",
+        url: "frontend/parallel-governments-explorer/index.html"
+    },
+    // --- Rowlatt Satyagraha Explorer ---
+    {
+        title: "Rowlatt Satyagraha Explorer",
+        category: "Freedom Struggle",
+        description: "Explore the Rowlatt Satyagraha of 1919 — Gandhi's first all-India protest against the Rowlatt Acts, covering the political background, nationwide hartals, major city protests, the Punjab unrest, Jallianwala Bagh connection, and historical significance.",
+        url: "frontend/rowlatt-satyagraha-explorer/index.html"
+    },
+    // --- Indian National Army Explorer ---
+    {
+        title: "Indian National Army (INA) Explorer",
+        category: "Freedom Struggle",
+        description: "Explore the INA's journey from Indian POWs in Southeast Asia and Mohan Singh's First INA, through Subhas Chandra Bose's Azad Hind Government and the Rani of Jhansi Regiment, to the Imphal-Kohima campaign and Red Fort Trials.",
+        url: "frontend/indian-national-army-explorer/index.html"
+    },
+    // --- Elvira Rat Explorer ---
+    {
+        title: "Elvira Rat Explorer",
+        category: "Nature & Wildlife",
+        description: "Explore the Elvira Rat (Cremnomys elvira) — one of India's rarest endemic rodents, found only in isolated boulder habitats of southern India, covering its taxonomy, distribution, behaviour, conservation status, threats, and protected areas.",
+        url: "frontend/elvira-rat-explorer/index.html"
+    },
+    // --- Imphal-Kohima Campaign Explorer ---
+    {
+        title: "Imphal–Kohima Campaign Explorer",
+        category: "Military Resistance",
+        description: "Map the INA's 1944 march alongside the Japanese 15th Army toward India's northeastern frontier - the Burma Campaign, the sieges of Imphal and Kohima, the monsoon retreat, and the campaign's historical significance.",
+        url: "frontend/imphal-kohima-campaign-explorer/index.html"
+    },
+    // --- Neelakurinji Explorer ---
+    {
+        title: "Neelakurinji Explorer",
+        category: "Nature & Wildlife",
+        description: "Explore Neelakurinji (Strobilanthes kunthiana) — the famous flowering shrub endemic to the Western Ghats that blooms once every twelve years, covering its taxonomy, 12-year flowering cycle, ecology, conservation status, and cultural significance.",
+        url: "frontend/neelakurinji-explorer/index.html"
+    },
+    // --- INA Red Fort Trials Explorer ---
     {
         title: "INA Red Fort Trials Explorer",
         category: "Military Resistance",
@@ -2699,8 +2725,8 @@ window.indiaSearchIndex = [
     },
     {
         title: "Nilgiri Pipit Explorer",
-    category: "Nature & Wildlife",
-    description: "Explore the Nilgiri Pipit (Anthus nilghiriensis) — an endemic bird of the montane grasslands of southern India's Western Ghats, covering taxonomy, distribution, habitat, diet, behaviour, conservation status, and threats.",
-    url: "frontend/nilgiri-pipit-explorer/index.html"
-  },
+        category: "Nature & Wildlife",
+        description: "Explore the Nilgiri Pipit (Anthus nilghiriensis) — an endemic bird of the montane grasslands of southern India's Western Ghats, covering taxonomy, distribution, habitat, diet, behaviour, conservation status, and threats.",
+        url: "frontend/nilgiri-pipit-explorer/index.html"
+    },
 ];
