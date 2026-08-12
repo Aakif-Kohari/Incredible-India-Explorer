@@ -725,6 +725,12 @@ window.indiaSearchIndex = [
         url: 'frontend/sanjhi-art-explorer/index.html'
     },
     {
+        title: "Civil Disobedience Movement (1930–1934) Explorer",
+        category: "National Movements",
+        description: "Explore the Civil Disobedience Movement (1930-1934): Purna Swaraj, the Dandi March, salt law violations, regional uprisings, boycott campaigns, women's and peasant participation, British repression, the Gandhi-Irwin Pact, and its long-term impact.",
+        url: "frontend/civil-disobedience-movement/index.html"
+    },
+    {
         title: "Indigo Revolt (1859–1860) Explorer",
         category: "Peasant & Agrarian Movements",
         description: "Explore the Indigo Revolt of 1859-1860: forced indigo cultivation in Bengal, cultivator debt bondage, nationwide peasant resistance, the Indigo Commission, and its lasting impact on India's agrarian movements.",
