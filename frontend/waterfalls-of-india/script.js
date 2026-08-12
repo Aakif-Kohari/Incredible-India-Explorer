@@ -162,7 +162,21 @@
             attractions: "Thenzawl, Chhingpuii Thlan.",
             image: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=40&w=400",
-            url: "../vantawng-falls-explorer/index.html"
+            url: "../vantawng-falls-explorer/index.html"},
+      {
+            id: "nuranang",
+            name: "Nuranang Falls",
+            state: "Arunachal Pradesh",
+            river: "Nuranang River",
+            height: "100 meters",
+            season: "Monsoon",
+            tags: ["monsoon", "year-round"],
+            description: "Also known as Bong Bong Falls, a spectacular ~100m drop in the Himalayas.",
+            flow: "Powerful in monsoon, serene and crystal clear in winter.",
+            attractions: "Tawang, Sela Pass.",
+            image: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&q=40&w=400",
+            url: "../nuranang-falls-explorer/index.html"
         }
     ];
 

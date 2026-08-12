@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" href="../../styles.css?v=20260704e">
     <link rel="stylesheet" href="../pages-common.css?v=20260710a">
+    <link rel="stylesheet" href="coin.css">
 
     
     <!-- Open Graph / Social Media Tags -->
@@ -143,8 +144,216 @@
             </div>
         </section>
 
+        <!-- ================= INTERACTIVE COIN MAP ================= -->
+        <section class="coin-map-section" id="coin-map-section">
+            <div class="coin-map-header">
+                <h2>Interactive India Coin Map</h2>
+                <p>Explore the geographic spread of India's numismatic traditions. Click on a highlighted state or trade marker to discover historical coin collections.</p>
+            </div>
+
+            <div class="coin-map-container">
+                <!-- SVG Interactive Map -->
+                <div class="coin-map-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" id="india-coin-map">
+                        <g id="map-states">
+                            <!-- Jammu & Kashmir -->
+                            <path id="jammu-kashmir" class="state" aria-label="Jammu &amp; Kashmir" tabindex="0" 
+                                  d="M 280,50 L 350,20 L 420,80 L 450,150 L 380,220 L 260,180 Z" />
+                            
+                            <!-- Punjab -->
+                            <path id="punjab" class="state" aria-label="Punjab" tabindex="0" 
+                                  d="M 260,180 L 320,240 L 280,300 L 220,250 Z" />
+                            
+                            <!-- Rajasthan -->
+                            <path id="rajasthan" class="state" aria-label="Rajasthan" tabindex="0" 
+                                  d="M 220,250 L 280,300 L 300,420 L 150,400 L 130,300 Z" />
+                            
+                            <!-- Gujarat -->
+                            <path id="gujarat" class="state" aria-label="Gujarat" tabindex="0" 
+                                  d="M 130,400 L 250,420 L 280,500 L 180,550 L 50,480 Z" />
+                            
+                            <!-- Maharashtra -->
+                            <path id="maharashtra" class="state" aria-label="Maharashtra" tabindex="0" 
+                                  d="M 180,550 L 280,500 L 380,550 L 400,650 L 250,700 L 160,650 Z" />
+                            
+                            <!-- Karnataka -->
+                            <path id="karnataka" class="state" aria-label="Karnataka" tabindex="0" 
+                                  d="M 250,700 L 350,680 L 380,780 L 300,850 L 220,780 Z" />
+                            
+                            <!-- Odisha -->
+                            <path id="odisha" class="state" aria-label="Odisha" tabindex="0" 
+                                  d="M 450,450 L 550,450 L 580,550 L 480,580 L 420,520 Z" />
+                            
+                            <!-- West Bengal -->
+                            <path id="west-bengal" class="state" aria-label="West Bengal" tabindex="0" 
+                                  d="M 550,450 L 600,420 L 650,480 L 600,550 L 580,500 Z" />
+                            
+                            <!-- Assam -->
+                            <path id="assam" class="state" aria-label="Assam" tabindex="0" 
+                                  d="M 600,420 L 650,350 L 750,350 L 780,400 L 650,450 Z" />
+                                  
+                            <!-- Background non-interactive regions to complete silhouette -->
+                            <path class="state non-interactive" style="pointer-events:none; fill:var(--state-fill);" 
+                                  d="M 380,220 L 450,150 L 520,250 L 600,300 L 550,380 L 450,400 L 300,350 L 320,240 Z" />
+                            <path class="state non-interactive" style="pointer-events:none; fill:var(--state-fill);" 
+                                  d="M 300,420 L 450,400 L 450,450 L 420,520 L 380,550 L 280,500 Z" />
+                            <path class="state non-interactive" style="pointer-events:none; fill:var(--state-fill);" 
+                                  d="M 400,650 L 480,580 L 500,650 L 400,750 L 350,680 Z" />
+                            <path class="state non-interactive" style="pointer-events:none; fill:var(--state-fill);" 
+                                  d="M 380,780 L 400,750 L 380,880 L 330,900 L 300,850 Z" />
+                        </g>
+
+                        <!-- Mints/Findspots markers -->
+                        <g id="coin-markers">
+                            <circle cx="180" cy="460" r="8" class="coin-marker" id="marker-vallabhi" data-state="gujarat" aria-label="Vallabhi Mint" />
+                            <circle cx="340" cy="110" r="8" class="coin-marker" id="marker-srinagar" data-state="jammu-kashmir" aria-label="Srinagar Mint" />
+                            <circle cx="270" cy="210" r="8" class="coin-marker" id="marker-taxila" data-state="punjab" aria-label="Taxila Mint" />
+                            <circle cx="230" cy="360" r="8" class="coin-marker" id="marker-mewar" data-state="rajasthan" aria-label="Mewar Mint" />
+                            <circle cx="210" cy="620" r="8" class="coin-marker" id="marker-sopara" data-state="maharashtra" aria-label="Sopara Mint" />
+                            <circle cx="290" cy="740" r="8" class="coin-marker" id="marker-hampi" data-state="karnataka" aria-label="Hampi Mint" />
+                            <circle cx="490" cy="510" r="8" class="coin-marker" id="marker-sisupalgarh" data-state="odisha" aria-label="Sisupalgarh Mint" />
+                            <circle cx="590" cy="480" r="8" class="coin-marker" id="marker-chandraketugarh" data-state="west-bengal" aria-label="Chandraketugarh Mint" />
+                            <circle cx="680" cy="380" r="8" class="coin-marker" id="marker-gargaon" data-state="assam" aria-label="Gargaon Mint" />
+                        </g>
+                        
+                        <g id="state-labels" style="pointer-events: none; font-family: var(--font-body); font-size: 14px; font-weight: bold;">
+                          <text x="310" y="140">J&amp;K</text>
+                          <text x="250" y="250">Punjab</text>
+                          <text x="180" y="350">Rajasthan</text>
+                          <text x="130" y="470">Gujarat</text>
+                          <text x="250" y="600">Maharashtra</text>
+                          <text x="270" y="770">Karnataka</text>
+                          <text x="480" y="520">Odisha</text>
+                          <text x="580" y="490">WB</text>
+                          <text x="680" y="400">Assam</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <!-- Info Sidebar Card -->
+                <div class="coin-info-sidebar">
+                    <div class="coin-info-card" id="coin-info-card">
+                        <div class="coin-info-placeholder">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <p>Select a region or mint on the map to explore its rich numismatic history.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= COIN COMPARISON ================= -->
+        <section class="coin-compare-section" id="coin-compare-section">
+            <div class="coin-compare-header">
+                <h2>Numismatic Comparison Studio</h2>
+                <p>Select two coin collections from different historical eras side-by-side to discover differences in their rulers, scripts, weights, metals, and historical context.</p>
+            </div>
+
+            <div class="coin-compare-container">
+                <!-- Dropdown selectors -->
+                <div class="coin-compare-selectors">
+                    <div class="coin-compare-select-group">
+                        <label for="coin-select-a">Coin A</label>
+                        <select id="coin-select-a" class="coin-compare-select">
+                            <option value="punch-marked" selected>Punch-Marked Silver Tanka</option>
+                            <option value="kushan-dinar">Kushan Gold Dinar</option>
+                            <option value="gupta-archer">Gupta Gold Archer Coin</option>
+                            <option value="suri-rupiya">Sher Shah Suri Rupiya</option>
+                            <option value="ahom-octagonal">Ahom Octagonal Rupee</option>
+                            <option value="mysore-elephant">Mysore Elephant Paisa</option>
+                        </select>
+                    </div>
+
+                    <div class="coin-compare-selectors-vs" style="align-self: flex-end; font-family: var(--font-heading); font-size: 1.5rem; font-weight: bold; color: var(--primary-gold); padding-bottom: 10px;">VS</div>
+
+                    <div class="coin-compare-select-group">
+                        <label for="coin-select-b">Coin B</label>
+                        <select id="coin-select-b" class="coin-compare-select">
+                            <option value="punch-marked">Punch-Marked Silver Tanka</option>
+                            <option value="kushan-dinar" selected>Kushan Gold Dinar</option>
+                            <option value="gupta-archer">Gupta Gold Archer Coin</option>
+                            <option value="suri-rupiya">Sher Shah Suri Rupiya</option>
+                            <option value="ahom-octagonal">Ahom Octagonal Rupee</option>
+                            <option value="mysore-elephant">Mysore Elephant Paisa</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Side-by-side Visuals -->
+                <div class="coin-compare-visuals-grid">
+                    <div class="coin-compare-visual-card" id="visual-card-a">
+                        <!-- Content loaded by JS -->
+                    </div>
+                    <div class="coin-compare-visual-card" id="visual-card-b">
+                        <!-- Content loaded by JS -->
+                    </div>
+                </div>
+
+                <!-- Comparison Table -->
+                <div class="coin-compare-table-wrapper">
+                    <table class="coin-compare-table">
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th id="table-header-coin-a">Coin A</th>
+                                <th id="table-header-coin-b">Coin B</th>
+                            </tr>
+                        </thead>
+                        <tbody id="compare-table-body">
+                            <!-- Comparison fields populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= COIN SYMBOLS EXPLORER ================= -->
+        <section class="coin-symbols-section" id="coin-symbols-section">
+            <div class="coin-symbols-header">
+                <h2>Coin Symbols Explorer</h2>
+                <p>Discover the rich vocabulary of recurring iconography printed and stamped across 2,500+ years of Indian coinage. Search or filter by categories.</p>
+            </div>
+
+            <div class="coin-symbols-container">
+                <!-- Search & Filters -->
+                <div class="symbols-controls">
+                    <div class="symbols-search-wrapper">
+                        <i class="fa-solid fa-magnifying-glass symbols-search-icon"></i>
+                        <input type="text" id="symbols-search-input" class="symbols-search-input" placeholder="Search symbols (e.g. Bull, Sun, Lotus)...">
+                    </div>
+                    <div class="symbols-filter-row" id="symbols-filter-row">
+                        <button class="symbols-filter-btn active" data-category="all">All Categories</button>
+                        <button class="symbols-filter-btn" data-category="animals">Animals</button>
+                        <button class="symbols-filter-btn" data-category="deities">Deities</button>
+                        <button class="symbols-filter-btn" data-category="weapons">Weapons</button>
+                        <button class="symbols-filter-btn" data-category="plants">Plants</button>
+                        <button class="symbols-filter-btn" data-category="royal symbols">Royal symbols</button>
+                        <button class="symbols-filter-btn" data-category="religious symbols">Religious symbols</button>
+                    </div>
+                </div>
+
+                <!-- Grid of Symbols -->
+                <div class="symbols-grid" id="symbols-grid">
+                    <!-- Populated dynamically by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Details Modal Overlay -->
+        <div class="symbol-modal-overlay" id="symbol-modal-overlay">
+            <div class="symbol-modal-card">
+                <button class="symbol-modal-close-btn" id="symbol-modal-close-btn">&times;</button>
+                <div id="symbol-modal-content">
+                    <!-- Loaded dynamically by JS -->
+                </div>
+            </div>
+        </div>
+
         <!-- ================= TIMELINE + PROGRESS ================= -->
         <section class="coins-timeline-section">
+            <section class="coins-timeline-section">
+            <div class="coins-era-filter" id="coins-era-filter"></div>
+            <div class="section-container coins-timeline-layout">
             <div class="section-container coins-timeline-layout">
 
                 <div class="coins-timeline-main" id="coins-timeline-main">
@@ -202,7 +411,528 @@
         // this is the only line needed to boot the coin-page-specific rendering.
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof initCoinsPage === 'function') initCoinsPage();
+            initCoinMap();
+            initCoinComparison();
+            initCoinSymbols();
         });
+
+        function initCoinMap() {
+            const COIN_REGIONS = {
+                'gujarat': {
+                    name: 'Gujarat',
+                    region: 'Western India',
+                    traditions: ['Punch-Marked', 'Indo-Greek', 'Sultanate', 'Princely Coins'],
+                    desc: 'As a vital maritime trade hub, Gujarat features a rich numismatic heritage ranging from early silver punch-marked coins to Indo-Greek drachms, exquisite silver tankas of the Gujarat Sultanate, and regional Princely State issues.',
+                    explorers: [
+                        { name: 'Explore Ancient Trade Coinage', link: '#era-ancient' },
+                        { name: 'Explore Gujarat Sultanate Era', link: '#era-medieval' }
+                    ]
+                },
+                'jammu-kashmir': {
+                    name: 'Jammu & Kashmir',
+                    region: 'Northern India',
+                    traditions: ['Indo-Greek', 'Kushan', 'Shahi Coins'],
+                    desc: 'Historically positioned along the Silk Road, this region saw coinages strongly influenced by Greco-Bactrian, Kushan, and Kidarite styles, featuring distinct ruler portraits and deities.',
+                    explorers: [
+                        { name: 'Explore Kushan & Indo-Greek Era', link: '#era-mauryan-gupta' }
+                    ]
+                },
+                'punjab': {
+                    name: 'Punjab',
+                    region: 'Northern India',
+                    traditions: ['Punch-Marked', 'Kushan', 'Delhi Sultanate Coins'],
+                    desc: 'The gateway of the Indian subcontinent, Punjab holds deep numismatic roots from ancient punch-marked coins to Indo-Scythian, Kushan copper/gold issues, and medieval Delhi Sultanate mints.',
+                    explorers: [
+                        { name: 'Explore Kushan Gold Coinage', link: '#era-mauryan-gupta' },
+                        { name: 'Explore Sultanate Coinage', link: '#era-medieval' }
+                    ]
+                },
+                'rajasthan': {
+                    name: 'Rajasthan',
+                    region: 'Western India',
+                    traditions: ['Punch-Marked', 'Gupta', 'Rajput', 'Princely Coins'],
+                    desc: 'Renowned for Mewar, Marwar, and Jaipur coinage, Rajasthan has a vast monetary history starting with punch-marked silver and transitioning to medieval Rajput coins and diverse local princely state issues.',
+                    explorers: [
+                        { name: 'Explore Rajput Coinage', link: '#era-medieval' },
+                        { name: 'Explore Princely State Coins', link: '#era-colonial' }
+                    ]
+                },
+                'maharashtra': {
+                    name: 'Maharashtra',
+                    region: 'Western / Central India',
+                    traditions: ['Satavahana', 'Western Kshatrapa', 'Yadava', 'Maratha Coins'],
+                    desc: 'Home to the famous port of Sopara, Maharashtra produced early Satavahana lead coins, Yadava gold padmatankas, and Shivaji Maharaj\'s iconic copper Shivrai coins.',
+                    explorers: [
+                        { name: 'Explore Satavahana Era', link: '#era-ancient' },
+                        { name: 'Explore Maratha Coinage', link: '#era-medieval' }
+                    ]
+                },
+                'karnataka': {
+                    name: 'Karnataka',
+                    region: 'Southern India',
+                    traditions: ['Kadamba', 'Vijayanagara', 'Mysore', 'Princely Coins'],
+                    desc: 'Karnataka boasts the gold fanams and pagodas of the Kadambas, the magnificent gold coinage of the Vijayanagara Empire, and the highly organized mints of Hyder Ali and Tipu Sultan.',
+                    explorers: [
+                        { name: 'Explore Vijayanagara Gold Pagodas', link: '#era-medieval' }
+                    ]
+                },
+                'odisha': {
+                    name: 'Odisha',
+                    region: 'Eastern India',
+                    traditions: ['Punch-Marked', 'Gupta', 'Ganga Dynasty Coins'],
+                    desc: 'Featuring Sisupalgarh as a primary historical hub, Odisha\'s coinage includes ancient silver punch-marked coins, Kushan-style imitation coins, and Eastern Ganga gold fanams.',
+                    explorers: [
+                        { name: 'Explore Ganga Dynasty Fanams', link: '#era-medieval' }
+                    ]
+                },
+                'west-bengal': {
+                    name: 'West Bengal',
+                    region: 'Eastern India',
+                    traditions: ['Punch-Marked', 'Gupta', 'Bengal Sultanate Coins'],
+                    desc: 'Bengal hosted key ancient ports like Tamralipta, issuing punch-marked silver coins, high-quality Gupta gold dinars, and highly artistic silver tankas during the Bengal Sultanate.',
+                    explorers: [
+                        { name: 'Explore Gupta Gold Dinars', link: '#era-mauryan-gupta' },
+                        { name: 'Explore Bengal Sultanate Tankas', link: '#era-medieval' }
+                    ]
+                },
+                'assam': {
+                    name: 'Assam',
+                    region: 'Northeastern India',
+                    traditions: ['Koch', 'Ahom', 'Jaintia Kingdom Coins'],
+                    desc: 'Northeastern coinage is unique for the octagonal coins of the Ahom Kingdom, featuring Assamese and Sanskrit inscriptions celebrating regional deities and rulers.',
+                    explorers: [
+                        { name: 'Explore Ahom Octagonal Coins', link: '#era-medieval' }
+                    ]
+                }
+            };
+
+            const infoCard = document.getElementById('coin-info-card');
+
+            function updateSidebar(stateId) {
+                const data = COIN_REGIONS[stateId];
+                if (!data) return;
+
+                const traditionsHtml = data.traditions.map(t => `<span class="coin-tradition-badge">${t}</span>`).join('');
+                const explorersHtml = data.explorers.map(exp => `
+                    <a href="${exp.link}" class="coin-explorer-btn">
+                        <span>${exp.name}</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                `).join('');
+
+                infoCard.innerHTML = `
+                    <div>
+                        <div class="coin-info-header">
+                            <h3>${data.name}</h3>
+                            <span class="coin-info-region-tag">${data.region}</span>
+                        </div>
+                        <div class="coin-tradition-list">
+                            ${traditionsHtml}
+                        </div>
+                        <p class="coin-info-desc">${data.desc}</p>
+                    </div>
+                    <div class="coin-explorer-links">
+                        ${explorersHtml}
+                    </div>
+                `;
+            }
+
+            // Click listener for states
+            document.querySelectorAll('#india-coin-map .state').forEach(statePath => {
+                if (statePath.classList.contains('non-interactive')) return;
+
+                statePath.addEventListener('click', () => {
+                    const stateId = statePath.id;
+                    document.querySelectorAll('#india-coin-map .state').forEach(s => s.classList.remove('active'));
+                    statePath.classList.add('active');
+                    updateSidebar(stateId);
+                });
+            });
+
+            // Click listener for markers
+            document.querySelectorAll('#india-coin-map .coin-marker').forEach(marker => {
+                marker.addEventListener('click', () => {
+                    const stateId = marker.dataset.state;
+                    document.querySelectorAll('#india-coin-map .state').forEach(s => s.classList.remove('active'));
+                    const statePath = document.getElementById(stateId);
+                    if (statePath) statePath.classList.add('active');
+                    updateSidebar(stateId);
+                });
+            });
+        }
+
+        function initCoinComparison() {
+            const COINS_COMPARE_DB = {
+                'punch-marked': {
+                    name: 'Punch-Marked Silver Tanka',
+                    era: 'Ancient coinage',
+                    img: '../assets/coin1.png',
+                    period: 'Ancient (~600 BCE – 300 BCE)',
+                    ruler: 'Maurya Empire / Mahajanapadas',
+                    region: 'Gandhara / Magadha (North & East)',
+                    metal: 'Silver (Karshapana / Tanka)',
+                    weight: '~3.4 grams',
+                    symbols: 'Sun, Six-armed wheel, Hill, Bull, Elephant',
+                    script: 'Uninscribed (Symbols only)',
+                    design: 'Flat, irregular-shaped silver ingot punched with 5 distinct punch symbols.',
+                    context: 'The earliest form of currency in India, backing major ancient trade networks.'
+                },
+                'kushan-dinar': {
+                    name: 'Kushan Gold Dinar',
+                    era: 'Gupta & Kushan Era',
+                    img: '../assets/coin2.png',
+                    period: 'Kushan Era (1st – 3rd Century CE)',
+                    ruler: 'Kanishka the Great',
+                    region: 'Gandhara / Northwestern India',
+                    metal: 'Gold (Dinar / Suvarna)',
+                    weight: '~7.9 grams',
+                    symbols: 'King standing at altar, Greek/Bactrian deity on reverse',
+                    script: 'Greek / Bactrian script',
+                    design: 'Circular coin, high relief portraiture with Greco-Roman stylistic influence.',
+                    context: 'Showcases the economic peak of Silk Road trade under Kushan sovereignty.'
+                },
+                'gupta-archer': {
+                    name: 'Gupta Gold Archer Coin',
+                    era: 'Gupta Era',
+                    img: '../assets/coin3.png',
+                    period: 'Gupta Empire (320 – 550 CE)',
+                    ruler: 'Chandragupta II (Vikramaditya)',
+                    region: 'Northern & Central India',
+                    metal: 'Gold (Dinar / Suvarna)',
+                    weight: '~8.2 grams',
+                    symbols: 'King with Bow, Garuda banner, Goddess Lakshmi seated on lotus',
+                    script: 'Brahmi script (Classical Sanskrit)',
+                    design: 'Circular coin featuring exquisite classical Indian execution.',
+                    context: 'Minted during India\'s Golden Age, representing state prosperity and fine art.'
+                },
+                'suri-rupiya': {
+                    name: 'Sher Shah Suri Rupiya',
+                    era: 'Medieval / Mughal Era',
+                    img: '../assets/coin4.png',
+                    period: 'Medieval Era (1540 – 1545 CE)',
+                    ruler: 'Sher Shah Suri',
+                    region: 'Northern India / Bengal',
+                    metal: 'Silver (Rupiya)',
+                    weight: '~11.5 grams',
+                    symbols: 'Kalima declaration, Names of 4 Caliphs in margins',
+                    script: 'Persian-Arabic & Devanagari script',
+                    design: 'Circular, broad flat coin with neat geometric border lines.',
+                    context: 'The original standardized silver coin that established the modern Rupee denomination.'
+                },
+                'ahom-octagonal': {
+                    name: 'Ahom Octagonal Rupee',
+                    era: 'Medieval Era',
+                    img: '../assets/coin5.png',
+                    period: 'Ahom Dynasty (18th Century CE)',
+                    ruler: 'Pramatta Singha',
+                    region: 'Assam (Northeastern India)',
+                    metal: 'Silver (Rupee)',
+                    weight: '~11.2 grams',
+                    symbols: 'Ngilikhlam (winged Ahom dragon) at bottom margin',
+                    script: 'Bengali-Assamese script (Sanskrit language)',
+                    design: 'Unique octagonal shape, dense inscription margins on both sides.',
+                    context: 'Ahom coinage retained its distinct octagonal shape following regional mystic cosmologies.'
+                },
+                'mysore-elephant': {
+                    name: 'Mysore Elephant Paisa',
+                    era: 'Princely States Era',
+                    img: '../assets/coin6.png',
+                    period: 'Mysore Kingdom (~1782 – 1799 CE)',
+                    ruler: 'Tipu Sultan',
+                    region: 'Seringapatam (Southern India)',
+                    metal: 'Copper (Paisa)',
+                    weight: '~11.0 grams',
+                    symbols: 'Caparisoned elephant on obverse, floral motifs',
+                    script: 'Persian script (dating in Mauludi calendar)',
+                    design: 'Circular copper coin with bold animal motif and decorative borders.',
+                    context: 'Tipu Sultan\'s independent economic reforms defying British East India Company.'
+                }
+            };
+
+            const selectA = document.getElementById('coin-select-a');
+            const selectB = document.getElementById('coin-select-b');
+            const cardA = document.getElementById('visual-card-a');
+            const cardB = document.getElementById('visual-card-b');
+            const tableBody = document.getElementById('compare-table-body');
+            const headerA = document.getElementById('table-header-coin-a');
+            const headerB = document.getElementById('table-header-coin-b');
+
+            function renderComparison() {
+                const idA = selectA.value;
+                const idB = selectB.value;
+                const coinA = COINS_COMPARE_DB[idA];
+                const coinB = COINS_COMPARE_DB[idB];
+
+                if (!coinA || !coinB) return;
+
+                // Update headers
+                headerA.textContent = coinA.name;
+                headerB.textContent = coinB.name;
+
+                // Update visual cards
+                cardA.innerHTML = `
+                    <div class="coin-compare-visual-image-wrapper">
+                        <img src="${coinA.img}" alt="${coinA.name}" onerror="this.replaceWith(Object.assign(document.createElement('i'), {className: 'fa-solid fa-coins fallback-icon'}))">
+                    </div>
+                    <h3>${coinA.name}</h3>
+                    <p>${coinA.era}</p>
+                `;
+
+                cardB.innerHTML = `
+                    <div class="coin-compare-visual-image-wrapper">
+                        <img src="${coinB.img}" alt="${coinB.name}" onerror="this.replaceWith(Object.assign(document.createElement('i'), {className: 'fa-solid fa-coins fallback-icon'}))">
+                    </div>
+                    <h3>${coinB.name}</h3>
+                    <p>${coinB.era}</p>
+                `;
+
+                // Update comparison table fields
+                const fields = [
+                    { label: 'Period', key: 'period' },
+                    { label: 'Ruler', key: 'ruler' },
+                    { label: 'Region', key: 'region' },
+                    { label: 'Metal', key: 'metal' },
+                    { label: 'Weight', key: 'weight' },
+                    { label: 'Symbols', key: 'symbols' },
+                    { label: 'Script', key: 'script' },
+                    { label: 'Design', key: 'design' },
+                    { label: 'Historical Context', key: 'context' }
+                ];
+
+                tableBody.innerHTML = fields.map(field => `
+                    <tr>
+                        <td>${field.label}</td>
+                        <td>${coinA[field.key]}</td>
+                        <td>${coinB[field.key]}</td>
+                    </tr>
+                `).join('');
+            }
+
+            selectA.addEventListener('change', renderComparison);
+            selectB.addEventListener('change', renderComparison);
+
+            // Initial render
+            renderComparison();
+        }
+
+        function initCoinSymbols() {
+            const SYMBOLS_DB = [
+                {
+                    id: 'bull',
+                    name: 'Bull (Vrishabha)',
+                    category: 'animals',
+                    icon: 'fa-cow',
+                    meaning: 'Represents power, strength, agricultural prosperity, and spiritual fertility. In many ancient dynastic contexts, it is directly associated with Nandi, the vehicle of Lord Shiva, indicating Shaivite state patronage.',
+                    reference: 'Cunningham, A. (1891). Coins of Ancient India. London.',
+                    coins: [
+                        { name: 'Punch-Marked Silver Tanka', link: '#era-ancient' }
+                    ]
+                },
+                {
+                    id: 'garuda',
+                    name: 'Garuda Banner',
+                    category: 'royal symbols',
+                    icon: 'fa-dove',
+                    meaning: 'The celestial eagle Garuda is the vahana (vehicle) of Lord Vishnu. The Garudadhvaja (Garuda banner) was the official royal emblem of the imperial Guptas, signifying their sovereignty and Vaishnava faith.',
+                    reference: 'Altekar, A. S. (1954). Catalogue of the Gupta Gold Coins in the Bayana Hoard.',
+                    coins: [
+                        { name: 'Gupta Gold Archer Coin', link: '#era-mauryan-gupta' }
+                    ]
+                },
+                {
+                    id: 'elephant',
+                    name: 'Elephant (Gaja)',
+                    category: 'animals',
+                    icon: 'fa-hippo', // Closest FontAwesome icon for elephant if gaja is not standard
+                    meaning: 'A traditional symbol of royalty, majesty, strength, and abundance. Also symbolizes Gajalakshmi (goddess of wealth and fortune), bringing divine blessing to the state treasury.',
+                    reference: 'Gupta, P. L. (1969). Coins. National Book Trust, India.',
+                    coins: [
+                        { name: 'Punch-Marked Silver Tanka', link: '#era-ancient' },
+                        { name: 'Mysore Elephant Paisa', link: '#era-medieval' }
+                    ]
+                },
+                {
+                    id: 'kalima',
+                    name: 'Kalima Inscription',
+                    category: 'religious symbols',
+                    icon: 'fa-file-signature',
+                    meaning: 'The Islamic shahada declaration of faith stamped in neat calligraphy. Asserts the sovereign\'s religious alignment and political legitimacy within the medieval Islamic world.',
+                    reference: 'Lane-Poole, S. (1892). The Coins of the Moghul Emperors of Hindustan.',
+                    coins: [
+                        { name: 'Sher Shah Suri Rupiya', link: '#era-medieval' }
+                    ]
+                },
+                {
+                    id: 'dragon',
+                    name: 'Winged Dragon (Ngilikhlam)',
+                    category: 'royal symbols',
+                    icon: 'fa-dragon',
+                    meaning: 'The mythical winged dragon, a traditional sacred protector and royal crest of the Tai-Ahom dynasty. It signifies cosmic authority, strength, and ancestral protection of the state.',
+                    reference: 'Phukan, J. N. (1987). Ahom Numismatics: A Study of Royal Emblems.',
+                    coins: [
+                        { name: 'Ahom Octagonal Rupee', link: '#era-medieval' }
+                    ]
+                },
+                {
+                    id: 'lotus',
+                    name: 'Lotus (Padma)',
+                    category: 'plants',
+                    icon: 'fa-spa',
+                    meaning: 'Symbol of spiritual purity, beauty, and auspicious creation. Frequently shown holding the seating of Goddess Lakshmi, signifying prosperity and divine sanction.',
+                    reference: 'Sahni, B. (1945). The Technique of Casting Coins in Ancient India.',
+                    coins: [
+                        { name: 'Gupta Gold Archer Coin', link: '#era-mauryan-gupta' },
+                        { name: 'Mysore Elephant Paisa', link: '#era-medieval' }
+                    ]
+                },
+                {
+                    id: 'bow-arrow',
+                    name: 'Bow & Arrow (Dhanush)',
+                    category: 'weapons',
+                    icon: 'fa-bow-arrow',
+                    meaning: 'Indicates military valor, martial skills, and active protection of dharma. Used by the Guptas to portray the king as a universal conqueror (Chakravartin) and hunter.',
+                    reference: 'Allan, J. (1936). Catalogue of the Coins of Ancient India in the British Museum.',
+                    coins: [
+                        { name: 'Gupta Gold Archer Coin', link: '#era-mauryan-gupta' }
+                    ]
+                },
+                {
+                    id: 'sun',
+                    name: 'Sun Symbol (Surya)',
+                    category: 'astronomical symbols',
+                    icon: 'fa-sun',
+                    meaning: 'One of the oldest cosmic punch-marks. Signifies energy, light, truth, and imperial light. Also claims descent from the legendary Solar Dynasty (Suryavansha).',
+                    reference: 'Rapson, E. J. (1897). Indian Coins. Strassburg.',
+                    coins: [
+                        { name: 'Punch-Marked Silver Tanka', link: '#era-ancient' },
+                        { name: 'Kushan Gold Dinar', link: '#era-mauryan-gupta' }
+                    ]
+                },
+                {
+                    id: 'lakshmi',
+                    name: 'Goddess Lakshmi',
+                    category: 'deities',
+                    icon: 'fa-hands-holding',
+                    meaning: 'The Hindu goddess of wealth, fortune, and beauty. Seated on a lotus, she blesses the sovereign state with economic abundance and financial stability.',
+                    reference: 'Bhandarkar, D. R. (1921). Lectures on Ancient Indian Numismatics.',
+                    coins: [
+                        { name: 'Gupta Gold Archer Coin', link: '#era-mauryan-gupta' }
+                    ]
+                }
+            ];
+
+            const grid = document.getElementById('symbols-grid');
+            const searchInput = document.getElementById('symbols-search-input');
+            const filterRow = document.getElementById('symbols-filter-row');
+            const modal = document.getElementById('symbol-modal-overlay');
+            const modalContent = document.getElementById('symbol-modal-content');
+            const closeBtn = document.getElementById('symbol-modal-close-btn');
+
+            let currentCategory = 'all';
+            let searchQuery = '';
+
+            function renderGrid() {
+                const filtered = SYMBOLS_DB.filter(symbol => {
+                    const matchesCategory = currentCategory === 'all' || symbol.category === currentCategory;
+                    const matchesSearch = symbol.name.toLowerCase().includes(searchQuery) || 
+                                          symbol.meaning.toLowerCase().includes(searchQuery);
+                    return matchesCategory && matchesSearch;
+                });
+
+                if (filtered.length === 0) {
+                    grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 2rem;">No symbols found matching your criteria.</div>`;
+                    return;
+                }
+
+                grid.innerHTML = filtered.map(symbol => `
+                    <div class="symbol-card" data-id="${symbol.id}">
+                        <div class="symbol-card-icon-wrapper">
+                            <i class="fa-solid ${symbol.icon === 'fa-bow-arrow' ? 'fa-crosshairs' : symbol.icon}"></i>
+                        </div>
+                        <h3>${symbol.name}</h3>
+                        <span class="symbol-card-category">${symbol.category}</span>
+                    </div>
+                `).join('');
+
+                // Re-wire click events
+                grid.querySelectorAll('.symbol-card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        const id = card.dataset.id;
+                        openModal(id);
+                    });
+                });
+            }
+
+            function openModal(id) {
+                const symbol = SYMBOLS_DB.find(s => s.id === id);
+                if (!symbol) return;
+
+                const coinsHtml = symbol.coins.map(c => `
+                    <a href="${c.link}" class="symbol-coin-link">
+                        <i class="fa-solid fa-circle-arrow-right"></i>
+                        <span>${c.name}</span>
+                    </a>
+                `).join('');
+
+                modalContent.innerHTML = `
+                    <div class="symbol-modal-header">
+                        <div class="symbol-modal-icon-wrapper">
+                            <i class="fa-solid ${symbol.icon === 'fa-bow-arrow' ? 'fa-crosshairs' : symbol.icon}"></i>
+                        </div>
+                        <div class="symbol-modal-title">
+                            <h3>${symbol.name}</h3>
+                            <span class="symbol-card-category">${symbol.category}</span>
+                        </div>
+                    </div>
+                    <div class="symbol-modal-body">
+                        <h4>Symbolic Meaning</h4>
+                        <p>${symbol.meaning}</p>
+                        
+                        <h4>Associated Coins</h4>
+                        <div class="symbol-coins-links">
+                            ${coinsHtml}
+                        </div>
+
+                        <h4>Credible Reference</h4>
+                        <p class="symbol-modal-reference">${symbol.reference}</p>
+                    </div>
+                `;
+
+                modal.classList.add('active');
+
+                // Clicking explorer link closes modal
+                modalContent.querySelectorAll('.symbol-coin-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        modal.classList.remove('active');
+                    });
+                });
+            }
+
+            // Search input listener
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value.toLowerCase().trim();
+                renderGrid();
+            });
+
+            // Filter button listeners
+            filterRow.querySelectorAll('.symbols-filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterRow.querySelectorAll('.symbols-filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentCategory = btn.dataset.category;
+                    renderGrid();
+                });
+            });
+
+            // Close modal events
+            closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.classList.remove('active');
+            });
+
+            // Initial render
+            renderGrid();
+        }
     </script>
     <script type="module" src="../auth.js"></script>
 </body>
