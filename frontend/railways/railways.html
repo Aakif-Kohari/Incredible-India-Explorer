@@ -135,7 +135,173 @@
       <div class="scenic-grid" id="scenic-container">
         <!-- JS Populated -->
       </div>
+ feat/trains-of-india-landing
     </section>
+
+  </footer>
+
+  <!-- Scroll To Top Button -->
+  <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
+
+  <script>
+    const trains = [
+      {
+        name: "Vande Bharat Express",
+        number: "22401",
+        from: "New Delhi",
+        to: "Mumbai Central",
+        departure: "06:00",
+        arrival: "20:45",
+        duration: "14h 45m",
+        type: "express",
+        status: "On Time"
+      },
+      {
+        name: "Humsafar Express",
+        number: "Various",
+        from: "Pan India",
+        to: "Destinations",
+        departure: "Flexible",
+        arrival: "Flexible",
+        duration: "Overnight",
+        type: "express",
+        status: "Running",
+        link: "../humsafar-express-explorer/index.html"
+      },
+      {
+        name: "Duronto Express",
+        number: "Various",
+        from: "Metros",
+        to: "State Capitals",
+        departure: "Flexible",
+        arrival: "Flexible",
+        duration: "Non-Stop",
+        type: "express",
+        status: "Scheduled",
+        link: "../duronto-express-explorer/index.html"
+      },
+      {
+        name: "Rajdhani Express",
+        number: "12952",
+        from: "New Delhi",
+        to: "Mumbai Central",
+        departure: "16:55",
+        arrival: "08:15",
+        duration: "15h 20m",
+        type: "express",
+        status: "Running"
+      },
+      {
+        name: "Deccan Odyssey",
+        number: "Luxury",
+        from: "Mumbai/Delhi",
+        to: "Pan India",
+        departure: "Scheduled",
+        arrival: "Scheduled",
+        duration: "8 Days",
+        type: "luxury",
+        status: "Scheduled",
+        link: "../deccan-odyssey-explorer/index.html"},
+      {
+        name: "Duronto Express",
+        number: "Various",
+        from: "Metros",
+        to: "State Capitals",
+        departure: "Flexible",
+        arrival: "Flexible",
+        duration: "Non-Stop",
+        type: "express",
+        status: "Scheduled",
+        link: "../duronto-express-explorer/index.html"
+      },
+      {
+        name: "Tejas Express",
+        number: "Various",
+        from: "Metro Cities",
+        to: "Key Destinations",
+        departure: "Flexible",
+        arrival: "Flexible",
+        duration: "Day Journey",
+        type: "express",
+        status: "Running",
+        link: "../tejas-express-explorer/index.html"
+      },
+      {
+        name: "Palace on Wheels",
+        number: "POW01",
+        from: "Delhi",
+        to: "Jodhpur",
+        departure: "18:00",
+        arrival: "Next Day",
+        duration: "24h",
+        type: "luxury",
+        status: "Scheduled"
+      },
+      {
+        name: "Darjeeling Himalayan Toy Train",
+        number: "DHT01",
+        from: "Siliguri",
+        to: "Darjeeling",
+        departure: "08:30",
+        arrival: "16:45",
+        duration: "8h 15m",
+        type: "heritage",
+        status: "On Time"
+      },
+      {
+        name: "Humsafar Express",
+        number: "Various",
+        from: "Pan India",
+        to: "Destinations",
+        departure: "Flexible",
+        arrival: "Flexible",
+        duration: "Overnight",
+        type: "express",
+        status: "Running",
+        link: "../humsafar-express-explorer/index.html"
+      }
+    ];
+
+    function renderTrains(data) {
+      const grid = document.getElementById('trainsGrid');
+      grid.innerHTML = '';
+
+      data.forEach(train => {
+        const card = document.createElement('div');
+        card.className = 'train-card';
+        card.innerHTML = `
+          <div class="train-header">
+            <h3>${train.name}</h3>
+            <p style="margin-top:5px;">${train.number}</p>
+          </div>
+          <div class="train-body">
+            <div class="route">
+              <div>
+                <strong>${train.from}</strong><br>
+                <small>${train.departure}</small>
+              </div>
+              <div style="text-align:center; color:#666;">
+                <i class="fas fa-arrow-right"></i><br>
+                <small>${train.duration}</small>
+              </div>
+              <div style="text-align:right;">
+                <strong>${train.to}</strong><br>
+                <small>${train.arrival}</small>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:15px;">
+              <span class="status">${train.status}</span>
+              <button onclick="${train.link ? `window.location.href='${train.link}'` : `bookTrain('${train.name}')`}" 
+                      style="background:var(--primary-gold); color:var(--bg-dark-deep); border:none; padding:10px 20px; border-radius:8px; cursor:pointer; font-weight:600;">
+                ${train.link ? 'Explore' : 'Book Now'}
+              </button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+ main
 
     <!-- Facts Section -->
     <section class="section">
