@@ -725,6 +725,12 @@ window.indiaSearchIndex = [
         url: 'frontend/sanjhi-art-explorer/index.html'
     },
     {
+        title: "Indigo Revolt (1859–1860) Explorer",
+        category: "Peasant & Agrarian Movements",
+        description: "Explore the Indigo Revolt of 1859-1860: forced indigo cultivation in Bengal, cultivator debt bondage, nationwide peasant resistance, the Indigo Commission, and its lasting impact on India's agrarian movements.",
+        url: "frontend/indigo-revolt-explorer/index.html"
+    },
+    {
         title: "Simon Commission Protests (1928) Explorer",
         category: "Political Movements",
         description: "Explore the 1928 Simon Commission protests: an all-white Commission, the nationwide 'Simon Go Back' boycott, the Lahore lathi charge on Lala Lajpat Rai, and its revolutionary aftermath.",
