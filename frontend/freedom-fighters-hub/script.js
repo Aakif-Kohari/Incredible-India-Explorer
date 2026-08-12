@@ -65,6 +65,31 @@ const FREEDOM_FIGHTERS_DATA = [
         quote: 'They may kill me, but they cannot kill my ideas.'
     },
     {
+        id: 'batukeshwar-dutt',
+        name: 'Batukeshwar Dutt',
+        title: 'Partner of Bhagat Singh',
+        lifespan: '1910 – 1965',
+        era: 'Revolutionary',
+        region: 'East',
+        birthplace: 'Khanari, Bardhaman, West Bengal',
+        movements: ['Hindustan Socialist Republican Association (HSRA)', 'Central Legislative Assembly Bombing (1929)'],
+        biography: 'Batukeshwar Dutt was a revolutionary of the Hindustan Socialist Republican Association who, with Bhagat Singh, hurled smoke bombs into the Central Legislative Assembly in Delhi on 8 April 1929 to protest repressive colonial bills. Shouting "Inquilab Zindabad! Long Live Revolution!", the pair deliberately surrendered to arrest, turning the Assembly bombing trial into a platform for revolutionary propaganda. Sentenced to transportation for life, Dutt endured years of imprisonment in Lahore, Multan, and Hazaribagh before release in the late 1930s.',
+        timeline: [
+            { year: '1910', event: 'Born on 18 November at Khanari, Bardhaman, Bengal Presidency.' },
+            { year: 'c. 1928', event: 'Joined the Hindustan Socialist Republican Association and forged his partnership with Bhagat Singh.' },
+            { year: '8 Apr 1929', event: 'Threw smoke bombs into the Central Legislative Assembly with Bhagat Singh and shouted "Long Live Revolution!"' },
+            { year: '1929', event: 'Sentenced to transportation for life in the sensational Central Assembly Bomb Case.' },
+            { year: '1930s', event: 'Imprisoned in Lahore, Multan, and Hazaribagh Central Jail during the years of the Lahore Conspiracy Case.' },
+            { year: 'late 1930s', event: 'Released from prison and continued working for the freedom movement.' },
+            { year: '1965', event: 'Died on 20 July in New Delhi; honoured with a commemorative postage stamp in 1967.' }
+        ],
+        contributions: 'With Bhagat Singh, staged the landmark Central Legislative Assembly bombing of 8 April 1929 that made the "deaf" colonial legislature hear the cry of revolution; used the Assembly bomb trial to popularise the ideals of the HSRA and the slogan "Inquilab Zindabad!"',
+        rareFacts: 'The bombs in the Assembly were deliberately low-strength and non-lethal — designed to make a point, not to harm. A park in New Delhi\'s Lodi Estate and an Indian postage stamp (1967) commemorate him.',
+        quote: 'Long live revolution! (Inquilab Zindabad!)',
+        explorerLink: '../batukeshwar-dutt-explorer/index.html',
+        explorerUrl: '../batukeshwar-dutt-explorer/index.html'
+    },
+    {
         id: 'rani-lakshmibai',
         name: 'Rani Lakshmibai',
         title: 'Rani of Jhansi',
