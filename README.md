@@ -47,6 +47,27 @@ This project uses no complex build tools or backend frameworks. It runs purely i
 
 3. Open `index.html` in your favorite web browser!
 
+### Development Workflow
+
+You can continue working without running a build step. If you want to use a local development server to avoid CORS issues with modules:
+
+```bash
+npm install
+npm run dev
+```
+This will start a local server on port 3000.
+
+### Production Build
+
+Before deploying, run the minification script to generate compressed CSS and JavaScript assets:
+
+```bash
+npm run build
+```
+
+The script will automatically traverse the `frontend/` directory (and root files like `style.css` and `app.js`) and generate optimized `.min.css` and `.min.js` files alongside their originals. 
+Do not edit `.min.*` files directly; edit the source files and re-run the build command.
+
 ### Firebase configuration for Vercel
 
 Do not commit real Firebase secrets to GitHub. Copy [.env.example](.env.example) to your deployment environment and set these values in Vercel:

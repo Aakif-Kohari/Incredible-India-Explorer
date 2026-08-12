@@ -1,234 +1,251 @@
-const timelineEvents = [
-    {
-        year: 1857,
-        title: "Revolt of 1857",
-        image: "assets/1857.jpg",
-        leaders: [
-            "Mangal Pandey",
-            "Rani Lakshmibai",
-            "Bahadur Shah Zafar",
-            "Nana Sahib"
-        ],
-        location: "Meerut, Delhi, Kanpur, Lucknow, Jhansi",
-        description: "Also known as the First War of Independence or the Sepoy Mutiny, it was the first large-scale uprising against British East India Company rule.",
-        significance: "It marked the end of the East India Company's rule in India and led to the direct governance of India by the British Crown (the British Raj)."
-// data.js - Event data for the Freedom Struggle Timeline
+// data.js - Master timeline data for the Freedom Struggle Timeline (1857-1947)
 
 window.FREEDOM_TIMELINE_DATA = [
     {
         year: 1857,
         title: "Revolt of 1857",
         imageEmoji: "⚔️",
-        imageColor: "#e63946",
-        leaders: ["Mangal Pandey", "Rani Lakshmibai", "Bahadur Shah Zafar"],
-        location: "Meerut, Delhi, Kanpur, Lucknow, Jhansi",
-        description: "The first major, widespread uprising against the rule of the British East India Company.",
-        significance: "Often called the First War of Indian Independence, it marked the end of Company rule and the beginning of the British Raj."
+        imageColor: "#ef4444",
+        category: "Early Resistance",
+        location: "Meerut, Delhi, Lucknow, Jhansi",
+        coords: [28.9845, 77.7064],
+        leaders: ["Mangal Pandey", "Rani Lakshmibai", "Bahadur Shah Zafar", "Tatya Tope"],
+        description: "The first large-scale organized armed rebellion against British East India Company rule, triggered by sepoy grievances.",
+        significance: "Brought an end to East India Company governance and shifted control directly to the British Crown, creating early national consciousness.",
+        link: "../freedom-movement-explorer/index.html"
+    },
+    {
+        year: 1859,
+        title: "Indigo Revolt",
+        imageEmoji: "🌿",
+        imageColor: "#3b82f6",
+        category: "Peasant/Tribal",
+        location: "Nadia, Bengal",
+        coords: [23.2324, 88.3639],
+        leaders: ["Bishnucharan Biswas", "Digambar Biswas"],
+        description: "Peasant uprising against British planters who forced cultivators to grow indigo under extremely exploitative terms.",
+        significance: "Led to the appointment of the Indigo Commission, which ruled that peasants could not be forced to grow indigo, a major victory for peasant resistance.",
+        link: "../freedom-movement-explorer/index.html"
     },
     {
         year: 1885,
         title: "Formation of Indian National Congress",
-        image: "assets/swadeshi.jpg",
-        leaders: [
-            "A.O. Hume",
-            "Dadabhai Naoroji",
-            "Dinshaw Wacha"
-        ],
-        location: "Bombay",
-        description: "The Indian National Congress (INC) was founded to create a platform for civic and political dialogue between educated Indians and the British Raj.",
-        significance: "It became the principal leader of the Indian independence movement, transforming from a moderate body into a mass organization."
         imageEmoji: "📜",
-        imageColor: "#1d3557",
-        leaders: ["Allan Octavian Hume", "Dadabhai Naoroji", "Dinshaw Wacha"],
+        imageColor: "#1e3a8a",
+        category: "Constitutional",
         location: "Bombay",
-        description: "The first modern nationalist movement to emerge in the British Empire in Asia and Africa.",
-        significance: "Became the principal leader of the Indian independence movement."
+        coords: [18.9220, 72.8347],
+        leaders: ["Allan Octavian Hume", "Dadabhai Naoroji", "Dinshaw Wacha"],
+        description: "Educated Indians and British civil servants formed the INC in Bombay to create a platform for political dialogue.",
+        significance: "Established the political organization that would eventually grow into the primary mass movement leading India to independence.",
+        link: "../freedom-movement-explorer/index.html"
     },
     {
         year: 1905,
-        title: "Swadeshi Movement",
-        image: "assets/swadeshi.jpg",
-        leaders: [
-            "Bal Gangadhar Tilak",
-            "Bipin Chandra Pal",
-            "Lala Lajpat Rai",
-            "Aurobindo Ghosh"
-        ],
-        location: "Bengal",
-        description: "Initiated in response to the Partition of Bengal by Lord Curzon, this movement involved boycotting British products and the revival of domestic products and production processes.",
-        significance: "It was one of the most successful pre-Gandhian movements, laying the foundation for self-reliance and nationalist sentiment."
+        title: "Swadeshi & Boycott Movement",
         imageEmoji: "🔥",
         imageColor: "#d97706",
-        leaders: ["Bal Gangadhar Tilak", "Bipin Chandra Pal", "Lala Lajpat Rai"],
-        location: "Bengal",
-        description: "An economic strategy aimed at removing the British Empire from power and improving economic conditions in India by following the principles of swadeshi (self-sufficiency).",
-        significance: "Promoted the use of Indian goods and the boycott of British products, highly effective during the partition of Bengal."
+        category: "Swadeshi",
+        location: "Bengal & Nationwide",
+        coords: [22.5726, 88.3639],
+        leaders: ["Bal Gangadhar Tilak", "Bipin Chandra Pal", "Lala Lajpat Rai", "Aurobindo Ghosh"],
+        description: "Launched in response to Lord Curzon's partition of Bengal, promoting domestic products (Swadeshi) and boycotting British imports.",
+        significance: "Transformed Indian nationalism into an active mass economic and political campaign, setting the stage for future satyagrahas.",
+        link: "../freedom-movement-explorer/index.html"
+    },
+    {
+        year: 1913,
+        title: "Ghadar Movement",
+        imageEmoji: "📢",
+        imageColor: "#b91c1c",
+        category: "Revolutionary",
+        location: "Punjab / San Francisco",
+        coords: [31.1471, 75.3412],
+        leaders: ["Lala Har Dayal", "Sohan Singh Bhakna", "Kartar Singh Sarabha"],
+        description: "An international political movement founded by expatriate Indians, primarily from Punjab, to overthrow British rule through armed revolution.",
+        significance: "Inspired revolutionary spirit in Punjab and among overseas Indians, leading to early conspiracies during World War I.",
+        link: "../freedom-movement-explorer/index.html"
     },
     {
         year: 1915,
         title: "Gandhi Returns to India",
-        image: "assets/swadeshi.jpg",
-        leaders: [
-            "Mahatma Gandhi"
-        ],
-        location: "Bombay",
-        description: "After spending 21 years in South Africa, Mahatma Gandhi returned to India. He travelled across the country to understand the people and their issues.",
-        significance: "His return marked the beginning of a new phase in the freedom struggle, introducing Satyagraha (non-violent resistance) to the Indian masses."
         imageEmoji: "🚢",
-        imageColor: "#457b9d",
-        leaders: ["Mahatma Gandhi"],
+        imageColor: "#059669",
+        category: "Gandhian",
         location: "Bombay",
-        description: "Mohandas Karamchand Gandhi returned to India from South Africa, where he had successfully used satyagraha (non-violent resistance).",
-        significance: "Transformed the independence movement into a mass movement involving peasants and workers."
+        coords: [18.9220, 72.8347],
+        leaders: ["Mahatma Gandhi"],
+        description: "Mohandas Karamchand Gandhi returned to India on January 9, 1915, after 21 years of successful civil rights activism in South Africa.",
+        significance: "Marked the beginning of the Gandhian era of the independence movement, introducing nonviolent Satyagraha on a national scale.",
+        link: "../gandhi-explorer/index.html"
     },
     {
         year: 1917,
         title: "Champaran Satyagraha",
         imageEmoji: "🌾",
-        imageColor: "#2a9d8f",
-        leaders: ["Mahatma Gandhi", "Rajendra Prasad"],
+        imageColor: "#10b981",
+        category: "Gandhian",
         location: "Champaran, Bihar",
-        description: "The first Satyagraha movement inspired by Gandhi, fighting for the rights of farmers forced to grow indigo.",
-        significance: "Established Gandhi's leadership and the power of non-violent civil disobedience in India."
+        coords: [26.6536, 84.9126],
+        leaders: ["Mahatma Gandhi", "Rajendra Prasad", "Raj Kumar Shukla"],
+        description: "Gandhi's first Satyagraha campaign in India, defending indigo peasants against exploitative colonial land revenue contracts.",
+        significance: "Demonstrated the power of Satyagraha in India, establishing Gandhi as a prominent leader of the poor masses.",
+        link: "../gandhi-explorer/index.html"
     },
     {
         year: 1919,
         title: "Jallianwala Bagh Massacre",
-        image: "assets/swadeshi.jpg",
-        leaders: [
-            "General Dyer (Perpetrator)",
-            "Dr. Saifuddin Kitchlew",
-            "Dr. Satyapal"
-        ],
-        location: "Amritsar, Punjab",
-        description: "British troops under the command of General Dyer fired upon a peaceful gathering of unarmed Indians who had assembled to protest the arrest of nationalist leaders.",
-        significance: "The massacre caused profound outrage across India and alienated many Indians from British rule, catalyzing the Non-Cooperation Movement."
         imageEmoji: "🕊️",
-        imageColor: "#343a40",
-        leaders: ["Dr. Saifuddin Kitchlew", "Dr. Satyapal"],
+        imageColor: "#374151",
+        category: "Early Resistance",
         location: "Amritsar, Punjab",
-        description: "British troops fired on a large crowd of unarmed Indians who had gathered in the Jallianwala Bagh.",
-        significance: "Deeply scarred the nation and turned millions of Indians from loyal supporters of the British Raj into nationalists."
+        coords: [31.6340, 74.8723],
+        leaders: ["Dr. Saifuddin Kitchlew", "Dr. Satyapal", "General Dyer (Perpetrator)"],
+        description: "British troops opened fire on a peaceful protest gathering at Jallianwala Bagh garden, killing hundreds of unarmed civilians.",
+        significance: "Severely alienated Indians from the British Raj, leading to Rabindranath Tagore renouncing his knighthood and Gandhi launching the Non-Cooperation movement.",
+        link: "../freedom-movement-explorer/index.html"
     },
     {
         year: 1920,
         title: "Non-Cooperation Movement",
-        image: "assets/swadeshi.jpg",
-        leaders: [
-            "Mahatma Gandhi",
-            "Motilal Nehru",
-            "C.R. Das"
-        ],
-        location: "Nationwide",
-        description: "Led by Mahatma Gandhi, the movement called for the boycott of British goods, courts, educational institutions, and elections, urging Indians to adopt Swadeshi.",
-        significance: "It marked the transition of the Indian National Congress from a middle-class assembly to a mass organization involving millions of peasants and workers."
         imageEmoji: "🛑",
-        imageColor: "#e07a5f",
-        leaders: ["Mahatma Gandhi", "Chittaranjan Das", "Motilal Nehru"],
+        imageColor: "#f97316",
+        category: "Gandhian",
         location: "Nationwide",
-        description: "A major phase of the Indian independence movement, calling on Indians to revoke their cooperation from the British government.",
-        significance: "Marked a transition to direct action and mass mobilization."
+        coords: [21.1458, 79.0882],
+        leaders: ["Mahatma Gandhi", "Chittaranjan Das", "Motilal Nehru", "Shaukat Ali"],
+        description: "Mass civil disobedience campaign boycotting British government institutions, courts, educational centers, and foreign cloth.",
+        significance: "The first nationwide mass Satyagraha campaign, transforming the Indian National Congress into a household political force.",
+        link: "../gandhi-explorer/index.html"
+    },
+    {
+        year: 1922,
+        title: "Chauri Chaura Incident",
+        imageEmoji: "🔥",
+        imageColor: "#dc2626",
+        category: "Gandhian",
+        location: "Chauri Chaura, Gorakhpur, UP",
+        coords: [26.6438, 83.5878],
+        leaders: ["Mahatma Gandhi"],
+        description: "A violent clash between protesters and police led to the burning of a police station. Outraged by the violence, Gandhi suspended the Non-Cooperation movement.",
+        significance: "Reasserted Gandhi's strict adherence to absolute nonviolence (Ahimsa) as the foundational baseline of the struggle.",
+        link: "../gandhi-explorer/index.html"
+    },
+    {
+        year: 1925,
+        title: "Kakori Train Action",
+        imageEmoji: "🚂",
+        imageColor: "#7c3aed",
+        category: "Revolutionary",
+        location: "Kakori, Uttar Pradesh",
+        coords: [26.8687, 80.7951],
+        leaders: ["Ram Prasad Bismil", "Ashfaqulla Khan", "Chandrashekhar Azad", "Rajendra Lahiri"],
+        description: "HRA revolutionaries intercepted a British government treasury train to secure funding for armed activities.",
+        significance: "Highlighted the active underground armed resistance movement and inspired deep patriotic sentiment among the youth.",
+        link: "../freedom-movement-explorer/index.html"
+    },
+    {
+        year: 1928,
+        title: "Simon Commission Protests",
+        imageEmoji: "🚫",
+        imageColor: "#2563eb",
+        category: "Constitutional",
+        location: "Lahore, Punjab",
+        coords: [31.5204, 74.3587],
+        leaders: ["Lala Lajpat Rai", "Bhagat Singh"],
+        description: "Mass protests against the all-British Simon Commission. Lala Lajpat Rai was fatally injured during a police lathi charge.",
+        significance: "Triggered severe national resentment and directly led to retaliatory revolutionary activities by the HSRA.",
+        link: "../freedom-movement-explorer/index.html"
     },
     {
         year: 1930,
-        title: "Dandi March",
-        image: "assets/dandi-march.jpg",
-        leaders: [
-            "Mahatma Gandhi",
-            "Sarojini Naidu"
-        ],
-        location: "Sabarmati to Dandi, Gujarat",
-        description: "Also known as the Salt March, Gandhi led followers on a 240-mile march to the Arabian Sea to produce salt from seawater, in defiance of the British salt monopoly.",
-        significance: "The Salt March challenged the British salt monopoly and became a major act of civil disobedience, sparking nationwide protests."
+        title: "Dandi March (Salt Satyagraha)",
         imageEmoji: "🧂",
-        imageColor: "#8ab17d",
-        leaders: ["Mahatma Gandhi", "Sarojini Naidu"],
+        imageColor: "#059669",
+        category: "Gandhian",
         location: "Sabarmati to Dandi, Gujarat",
-        description: "An act of nonviolent civil disobedience in colonial India to produce salt from the seawater, defying the British salt tax.",
-        significance: "Triggered the wider Civil Disobedience Movement, gaining worldwide attention."
+        coords: [20.8879, 72.7844],
+        leaders: ["Mahatma Gandhi", "Sarojini Naidu", "Kamaladevi Chattopadhyay"],
+        description: "Gandhi led a 240-mile walk to the coast at Dandi to make salt from seawater, violating the British state salt tax monopoly.",
+        significance: "Sparked the massive Civil Disobedience Movement, attracting global media attention to the Indian self-determination campaign.",
+        link: "../gandhi-explorer/index.html"
     },
     {
         year: 1931,
-        title: "Gandhi-Irwin Pact",
-        image: "assets/dandi-march.jpg",
-        leaders: [
-            "Mahatma Gandhi",
-            "Lord Irwin"
-        ],
-        location: "Delhi",
-        description: "A political agreement signed by Gandhi and Lord Irwin, the Viceroy of India, which ended the civil disobedience movement in exchange for the release of political prisoners.",
-        significance: "It represented a significant concession by the British government and marked the INC's agreement to participate in the Second Round Table Conference."
-        imageEmoji: "🤝",
-        imageColor: "#6c757d",
-        leaders: ["Mahatma Gandhi", "Lord Irwin"],
-        location: "Delhi",
-        description: "A political agreement signed before the second Round Table Conference in London.",
-        significance: "Led to the suspension of the civil disobedience movement and the release of political prisoners."
+        title: "Martyrdom of Bhagat Singh & HRA Heroes",
+        imageEmoji: "🥀",
+        imageColor: "#db2777",
+        category: "Revolutionary",
+        location: "Lahore Central Jail",
+        coords: [31.5204, 74.3587],
+        leaders: ["Bhagat Singh", "Shivaram Rajguru", "Sukhdev Thapar"],
+        description: "The execution of young revolutionary leaders Bhagat Singh, Rajguru, and Sukhdev for their active resistance operations.",
+        significance: "Immortalized the sacrifices of revolutionary nationalists and galvanized millions of youth across the country.",
+        link: "../freedom-movement-explorer/index.html"
     },
     {
         year: 1942,
         title: "Quit India Movement",
-        image: "assets/quit-india.jpg",
-        leaders: [
-            "Mahatma Gandhi",
-            "Maulana Abul Kalam Azad",
-            "Subhas Chandra Bose",
-            "Aruna Asaf Ali"
-        ],
-        location: "Bombay (Gowalia Tank Maidan)",
-        description: "During World War II, Gandhi launched the Quit India Movement demanding an end to British rule, accompanied by his famous call to 'Do or Die'.",
-        significance: "Despite the immediate arrest of the INC leadership, it sparked massive spontaneous protests nationwide, making it clear that the British could no longer govern India."
+        imageEmoji: "✊",
+        imageColor: "#f97316",
+        category: "Gandhian",
+        location: "Bombay",
+        coords: [18.9220, 72.8347],
+        leaders: ["Mahatma Gandhi", "Aruna Asaf Ali", "Jayaprakash Narayan", "Maulana Azad"],
+        description: "Launched during World War II with Gandhi's call to 'Do or Die', demanding immediate British withdrawal from India.",
+        significance: "Despite the arrest of the entire Congress leadership, it sparked massive spontaneous protests, signaling the final phase of British colonial rule.",
+        link: "../gandhi-explorer/index.html"
     },
     {
-        year: 1946,
-        title: "Naval Mutiny",
-        image: "assets/independence.jpg",
-        leaders: [
-            "Indian Sailors of the Royal Indian Navy",
-            "M.S. Khan"
-        ],
-        location: "Bombay, Karachi, Calcutta",
-        description: "A strike and subsequent mutiny by Indian sailors of the Royal Indian Navy on board ships and shore establishments, rebelling against poor conditions and British rule.",
-        significance: "It demonstrated that the British could no longer rely on the Indian armed forces to maintain control, accelerating the decision to grant independence."
-        imageEmoji: "📢",
-        imageColor: "#d62828",
-        leaders: ["Mahatma Gandhi", "Aruna Asaf Ali", "Jayaprakash Narayan"],
-        location: "Bombay (launch)",
-        description: "A movement demanding an end to British Rule in India, launched at the Bombay session of the All-India Congress Committee.",
-        significance: "The most massive anti-British rebellion since 1857, leading to the imprisonment of the entire Congress leadership."
+        year: 1944,
+        title: "INA Battle of Imphal & Kohima",
+        imageEmoji: "🎖️",
+        imageColor: "#059669",
+        category: "Armed/Military",
+        location: "Imphal & Kohima",
+        coords: [24.8170, 93.9368],
+        leaders: ["Subhas Chandra Bose", "Shah Nawaz Khan", "Prem Sahgal"],
+        description: "The Indian National Army (Azad Hind Fauj), allied with Japanese forces, advanced into Northeast India, engaging British forces.",
+        significance: "The first armed campaign on Indian soil by an independent Indian military command, severely threatening British military prestige.",
+        link: "../freedom-movement-explorer/index.html"
     },
     {
         year: 1946,
         title: "Royal Indian Navy Mutiny",
         imageEmoji: "⚓",
-        imageColor: "#003049",
+        imageColor: "#1e3a8a",
+        category: "Armed/Military",
+        location: "Bombay / Karachi",
+        coords: [18.9220, 72.8347],
         leaders: ["M.S. Khan", "Madan Singh"],
-        location: "Bombay, Karachi, Calcutta",
-        description: "A total strike and subsequent mutiny by Indian sailors of the Royal Indian Navy on board ship and shore establishments.",
-        significance: "Demonstrated that the British could no longer rely on the Indian armed forces to maintain their rule."
+        description: "A total strike and mutiny by Indian sailors of the Royal Indian Navy on ships and shore installations in Bombay and Karachi.",
+        significance: "Demonstrated to the British government that they could no longer rely on the Indian armed forces to maintain control over the country.",
+        link: "../freedom-movement-explorer/index.html"
+    },
+    {
+        year: 1946,
+        title: "Cabinet Mission Scheme",
+        imageEmoji: "🏢",
+        imageColor: "#4b5563",
+        category: "Constitutional",
+        location: "New Delhi",
+        coords: [28.6139, 77.2090],
+        leaders: ["Jawaharlal Nehru", "Sardar Patel", "Pethick-Lawrence", "Stafford Cripps"],
+        description: "British delegation formulated plans for a federal union of India, transition of power, and establishment of a Constituent Assembly.",
+        significance: "Laid the legal-constitutional groundwork for the transfer of power and creation of the Constituent Assembly.",
+        link: "../freedom-movement-explorer/index.html"
     },
     {
         year: 1947,
-        title: "Independence and Partition",
-        image: "assets/independence.jpg",
-        leaders: [
-            "Jawaharlal Nehru",
-            "Sardar Vallabhbhai Patel",
-            "Dr. B.R. Ambedkar",
-            "Lord Mountbatten"
-        ],
-        location: "New Delhi",
-        description: "India achieved independence from British rule, but the subcontinent was partitioned into two independent dominions: India and Pakistan.",
-        significance: "It marked the culmination of nearly a century of struggle for self-rule, birth of a free democratic nation, but also resulted in mass migration and tragic communal violence."
-    }
-];
-
-export { timelineEvents };
+        title: "Independence & Partition of India",
         imageEmoji: "🇮🇳",
-        imageColor: "#f77f00",
-        leaders: ["Jawaharlal Nehru", "Sardar Vallabhbai Patel", "Muhammad Ali Jinnah"],
+        imageColor: "#ef4444",
+        category: "Constitutional",
         location: "New Delhi",
-        description: "The Indian Independence Act partitioned British India into two independent dominions: India and Pakistan.",
-        significance: "Marked the end of nearly 200 years of British rule and the birth of a free democratic nation, amidst the tragic consequences of partition."
+        coords: [28.6139, 77.2090],
+        leaders: ["Jawaharlal Nehru", "Sardar Vallabhbhai Patel", "Lord Mountbatten"],
+        description: "The Indian Independence Act terminated British rule on August 15, 1947, partitioning the subcontinent into India and Pakistan.",
+        significance: "Marked the culmination of nearly a century of struggle, birth of a free democratic nation, but accompanied by tragic partition violence.",
+        link: "../freedom-movement-explorer/index.html"
     }
 ];

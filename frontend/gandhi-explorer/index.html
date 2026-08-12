@@ -24,6 +24,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <link rel="stylesheet" href="style.css">
 
     <!-- Open Graph / Social Media Tags -->
@@ -36,29 +37,84 @@
 
 <body class="gandhi-page-body">
     <!-- Navbar Header -->
-    <header class="navbar scrolled" id="navbar">
-        <div class="nav-container">
-            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
-                <span class="saffron">Incredible</span>
-                <span class="gold">India</span>
-                <span class="green">Explorer</span>
-            </a>
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
 
-            <nav class="nav-menu" id="nav-menu">
-                <a href="../../index.html#home" class="nav-link">Home</a>
-                <a href="../freedom-fighters-hub/index.html" class="nav-link">Freedom Fighters Hub</a>
-                <a href="../freedom-movement-explorer/index.html" class="nav-link">Freedom Movement</a>
-                <a href="index.html" class="nav-link active" style="color: var(--saffron)">Mahatma Gandhi</a>
-                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
-            </nav>
-        </div>
-    </header>
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
 
     <main class="gandhi-main">
         <!-- Hero Banner -->
@@ -128,6 +184,7 @@
         <div class="gandhi-nav-tabs">
             <button class="gandhi-tab active" data-tab="biography">📜 Biography</button>
             <button class="gandhi-tab" data-tab="timeline">📅 Timeline</button>
+            <button class="gandhi-tab" data-tab="journeys">🗺️ Journeys</button>
             <button class="gandhi-tab" data-tab="movements">✊ Movements</button>
             <button class="gandhi-tab" data-tab="quotes">💬 Quotes</button>
             <button class="gandhi-tab" data-tab="legacy">🕊️ Legacy</button>
@@ -180,6 +237,48 @@
                                 loading="lazy">
                             <figcaption>The charkha — symbol of Swadeshi and self-reliance</figcaption>
                         </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Journeys Section -->
+            <section id="journeys" class="gandhi-section">
+                <div class="gandhi-content-card journeys-container">
+                    <h2>🗺️ Major Journeys Across India</h2>
+                    <p class="section-intro">Explore the historic routes and stops that Mahatma Gandhi traversed during the Indian freedom struggle.</p>
+                    
+                    <div class="journeys-layout">
+                        <div class="journeys-sidebar">
+                            <div class="journey-selector-wrapper">
+                                <label for="journey-select">Select a Journey:</label>
+                                <select id="journey-select" class="journey-dropdown"></select>
+                            </div>
+                            
+                            <div id="journey-info-card" class="journey-info-card">
+                                <h3 id="journey-title">Journey Title</h3>
+                                <p id="journey-period" class="journey-meta"><strong>Period:</strong> <span class="meta-value">1915</span></p>
+                                <p id="journey-distance" class="journey-meta"><strong>Est. Distance:</strong> <span class="meta-value">N/A</span></p>
+                                <p id="journey-description">Description of the journey.</p>
+                                
+                                <div class="journey-controls">
+                                    <button id="btn-play-route" class="btn-primary">⚡ Trace Route</button>
+                                </div>
+                            </div>
+
+                            <div class="journey-stops-list-container">
+                                <h4>📍 Major Stops & Events</h4>
+                                <ul id="journey-stops-list" class="journey-stops-list"></ul>
+                            </div>
+                        </div>
+                        
+                        <div class="map-wrapper">
+                            <div id="gandhi-map" class="gandhi-map"></div>
+                            <div id="map-legend" class="map-legend">
+                                <div><span class="legend-dot start"></span> Start Point</div>
+                                <div><span class="legend-dot stop"></span> Major Stop</div>
+                                <div><span class="legend-dot end"></span> End Point</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -536,6 +635,7 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="script.js"></script>
     <script src="../pages-common.js"></script>
 </body>

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * router.js
  * Vanilla JavaScript Single Page Application Routing & Lifecycle Engine
  * Fixes variable redeclaration crashes and manages execution life cycles.
@@ -200,6 +200,17 @@ class RouteLifecycleManager {
      * Cleans up all event listeners and timers allocated by the target route.
      */
     cleanupRoute(route) {
+        // Clean up injected script tags and loadedScripts tracking for this route
+        const scripts = document.querySelectorAll(`script[data-route-script="${route}"]`);
+        scripts.forEach(s => {
+            const src = s.getAttribute('src');
+            if (src && window.appRouter && window.appRouter.loadedScripts) {
+                const absoluteSrc = new URL(src, new URL(route, window.location.origin)).href;
+                window.appRouter.loadedScripts.delete(absoluteSrc);
+            }
+            s.remove();
+        });
+
         // Remove event listeners
         this.routeListeners = this.routeListeners.filter(item => {
             if (item.route === route) {
@@ -463,6 +474,18 @@ class RouteLogger {
 // 6. MAIN ROUTER ENGINE
 // ==========================================================================
 
+function getNormalizedPathname(p) {
+    let clean = p || '';
+    if (clean === '/' || clean === '') return '/index.html';
+    if (clean.endsWith('/')) return clean + 'index.html';
+    const segments = clean.split('/');
+    const last = segments[segments.length - 1];
+    if (last && !last.includes('.')) {
+        return clean + '/index.html';
+    }
+    return clean;
+}
+
 class Router {
     constructor() {
         this.appRoot = document.getElementById('app-root');
@@ -514,8 +537,34 @@ class Router {
                 const currentUrl = new URL(window.location.href);
 
                 if (url.origin === currentUrl.origin) {
-                    // Let default browser scroll take place if target is a simple hash on same page
-                    if (url.pathname === currentUrl.pathname && url.search === currentUrl.search) {
+                    const normTarget = getNormalizedPathname(url.pathname);
+                    const normCurrent = getNormalizedPathname(currentUrl.pathname);
+
+                    if (normTarget === normCurrent && url.search === currentUrl.search) {
+                        // Let default browser scroll take place if it's the exact same URL (including hash)
+                        if (url.href === currentUrl.href) {
+                            return;
+                        }
+                        
+                        e.preventDefault();
+                        const hash = url.hash;
+                        if (hash) {
+                            const target = document.querySelector(hash);
+                            if (target) {
+                                target.scrollIntoView({ behavior: 'smooth' });
+                            }
+                            if (window.location.hash !== hash) {
+                                window.history.pushState(null, '', url.pathname + url.search + hash);
+                            }
+                        } else {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                            if (window.location.hash) {
+                                window.history.pushState(null, '', url.pathname + url.search);
+                            }
+                        }
+                        
+                        // Publish route change event to keep navigation links and states highlighted
+                        window.AppEventBus.emit('page:changed', { path: url.pathname + url.search + url.hash });
                         return;
                     }
 
@@ -554,6 +603,36 @@ class Router {
                     return;
                 }
             }
+        }
+
+        // Parse and check same conceptual page match before loading
+        const targetUrl = new URL(path, window.location.origin);
+        const currentUrl = new URL(this.currentPath || window.location.href, window.location.origin);
+        const normTarget = getNormalizedPathname(targetUrl.pathname);
+        const normCurrent = getNormalizedPathname(currentUrl.pathname);
+
+        if (normTarget === normCurrent && targetUrl.search === currentUrl.search) {
+            this.logger.info(`Same page navigation detected for: ${path}`);
+            if (push) {
+                window.history.pushState(null, '', path);
+            }
+            this.currentPath = path;
+
+            const hash = targetUrl.hash;
+            if (hash) {
+                setTimeout(() => {
+                    const target = document.querySelector(hash);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 100);
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            window.AppEventBus.emit('page:changed', { path: path });
+            RouteLoadingOverlay.hide();
+            return;
         }
 
         const startTime = performance.now();
@@ -808,6 +887,7 @@ class Router {
                 if (!this.loadedScripts.has(absoluteSrc)) {
                     const newScript = document.createElement('script');
                     newScript.src = src;
+                    newScript.setAttribute('data-route-script', path);
                     Array.from(oldScript.attributes).forEach(attr => {
                         if (attr.name !== 'src') {
                             newScript.setAttribute(attr.name, attr.value);
