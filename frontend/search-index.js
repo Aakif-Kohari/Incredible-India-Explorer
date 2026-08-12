@@ -1739,21 +1739,22 @@ window.indiaSearchIndex = [
         description:
             "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
         url: "frontend/simlipal-national-park-explorer/index.html"
-  },
-  // --- Bhimlat Falls Explorer ---
-  {
-    title: "Bhimlat Falls Explorer",
-    category: "Nature & Geography",
-    description: "Build a dedicated interactive explorer for Bhimlat Falls, Rajasthan — highlighting the contrast between the 60-meter seasonal cascade, seismic fault origins, Pandava legend, and Bundi eco-landscape.",
-    url: "frontend/bhimlat-falls-explorer/index.html"
-  },
-       
+    },
+    // --- Bhimlat Falls Explorer ---
+    {
+        title: "Bhimlat Falls Explorer",
+        category: "Nature & Geography",
+        description: "Build a dedicated interactive explorer for Bhimlat Falls, Rajasthan — highlighting the contrast between the 60-meter seasonal cascade, seismic fault origins, Pandava legend, and Bundi eco-landscape.",
+        url: "frontend/bhimlat-falls-explorer/index.html"
+    },
+
     // --- Menal Falls Explorer ---
     {
         title: "Menal Falls Explorer",
         category: "Nature & Geography",
         description: "Create an interactive page for Menal Falls, Rajasthan — connecting the 150-foot natural waterfall landscape with 11th-century Mahanaleshwar Shiva Temple and Prithviraj Chauhan's monsoon palace.",
-        url: "frontend/menal-falls-explorer/index.html"},
+        url: "frontend/menal-falls-explorer/index.html"
+    },
     // --- Keoti Falls Explorer ---
     {
         title: "Keoti Falls Explorer",
@@ -2701,6 +2702,13 @@ window.indiaSearchIndex = [
         category: "Freedom Struggle",
         description: "Explore the Rowlatt Satyagraha of 1919 — Gandhi's first all-India protest against the Rowlatt Acts, covering the political background, nationwide hartals, major city protests, the Punjab unrest, Jallianwala Bagh connection, and historical significance.",
         url: "frontend/rowlatt-satyagraha-explorer/index.html"
+    },
+    // --- Lahore Congress Session & Purna Swaraj Explorer ---
+    {
+        title: "Lahore Congress Session & Purna Swaraj Explorer",
+        category: "Freedom Struggle",
+        description: "The December 1929 Lahore session on the banks of the Ravi, Jawaharlal Nehru's presidency, the Purna Swaraj declaration of complete independence, the 26 January 1930 observance, and the road to Civil Disobedience.",
+        url: "frontend/lahore-congress-session-explorer/index.html"
     },
     // --- Indian National Army Explorer ---
     {
