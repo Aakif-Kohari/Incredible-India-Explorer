@@ -2757,4 +2757,11 @@ window.indiaSearchIndex = [
         description: "Explore the Nilgiri Pipit (Anthus nilghiriensis) — an endemic bird of the montane grasslands of southern India's Western Ghats, covering taxonomy, distribution, habitat, diet, behaviour, conservation status, and threats.",
         url: "frontend/nilgiri-pipit-explorer/index.html"
     },
+    // --- Shivanasamudra Falls Explorer ---
+    {
+        title: "Shivanasamudra Falls Explorer",
+        category: "Nature & Wildlife",
+        description: "Explore Shivanasamudra Falls on the Kaveri River in Karnataka — Gaganachukki and Bharachukki twin falls comparison, river map, seasonal flow visualization, hydroelectric history (Asia's first, 1902), and nearby attractions.",
+        url: "frontend/shivanasamudra-falls-explorer/index.html"
+    },
 ];
