@@ -2764,4 +2764,11 @@ window.indiaSearchIndex = [
         description: "Explore Shivanasamudra Falls on the Kaveri River in Karnataka — Gaganachukki and Bharachukki twin falls comparison, river map, seasonal flow visualization, hydroelectric history (Asia's first, 1902), and nearby attractions.",
         url: "frontend/shivanasamudra-falls-explorer/index.html"
     },
+    // --- Bengali Cinema Explorer ---
+    {
+        title: "Bengali Cinema (Tollywood) Explorer",
+        category: "Culture",
+        description: "Explore the artistic heritage of Bengali Cinema (Tollywood): Satyajit Ray's masterpieces, Ritwik Ghatak, Mrinal Sen, and the Parallel Cinema movement.",
+        url: "frontend/bengali-cinema-explorer/index.html"
+    },
 ];
