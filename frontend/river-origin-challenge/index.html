@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>River Origin Challenge | Incredible India Explorer</title>
+  <meta name="description" content="Master Indian geography in this interactive game matching major rivers (Ganga, Yamuna, Godavari, Brahmaputra, Kaveri, Narmada & more) with their origin glaciers, tributaries, and sea destinations on an interactive map.">
+  
+  <!-- Google Fonts -->
+  <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Leaflet CSS for Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- Shared & Local Styles -->
+  <link rel="stylesheet" href="../pages-common.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="river-challenge-body">
+  <header class="game-header">
+    <div class="header-container">
+      <a href="../../index.html" class="back-link" aria-label="Back to main explorer">← Back to Explorer</a>
+      <div class="header-title-badge">
+        <span class="header-icon">💧</span>
+        <h1>River Origin Challenge</h1>
+      </div>
+      <p class="subtitle">Match India's sacred & vital river systems with their origin glaciers, major tributaries, and sea destinations!</p>
+    </div>
+  </header>
+
+  <main class="game-container">
+    <!-- Live Scoreboard Bar -->
+    <section class="scoreboard-bar" aria-label="Game Scoreboard">
+      <div class="score-card">
+        <span class="score-label">Score</span>
+        <span class="score-value" id="score-display">0</span>
+      </div>
+      <div class="score-card">
+        <span class="score-label">Streak</span>
+        <span class="score-value streak-val" id="streak-display">🔥 0x</span>
+      </div>
+      <div class="score-card">
+        <span class="score-label">Progress</span>
+        <span class="score-value" id="progress-display">0 / 5</span>
+      </div>
+      <div class="score-card">
+        <span class="score-label">Timer</span>
+        <span class="score-value" id="timer-display">00:00</span>
+      </div>
+      <div class="score-card highlight-card">
+        <span class="score-label">High Score</span>
+        <span class="score-value" id="highscore-display">0</span>
+      </div>
+    </section>
+
+    <!-- Navigation Mode Tabs -->
+    <nav class="mode-nav" aria-label="Game Mode Switcher">
+      <button id="tab-dragdrop" class="mode-tab-btn active" data-mode="dragdrop">
+        <span class="tab-icon">🎯</span> Drag & Drop Matching
+      </button>
+      <button id="tab-map" class="mode-tab-btn" data-mode="map">
+        <span class="tab-icon">🗺️</span> Interactive Map Explorer
+      </button>
+      <button id="tab-atlas" class="mode-tab-btn" data-mode="atlas">
+        <span class="tab-icon">📚</span> Hydrological Atlas
+      </button>
+    </nav>
+
+    <!-- Section 1: Drag & Drop Gameplay View -->
+    <section id="view-dragdrop" class="game-view active-view" aria-label="Drag and Drop Challenge Board">
+      <!-- Game Action Controls -->
+      <div class="controls-bar">
+        <div class="difficulty-group">
+          <label for="difficulty-select">Mode:</label>
+          <select id="difficulty-select" class="styled-select">
+            <option value="origin">Match River ➔ Origin</option>
+            <option value="full" selected>Triple Match (Origin + Tributary + Outflow)</option>
+          </select>
+        </div>
+        <div class="action-buttons">
+          <button id="btn-next-round" class="action-btn primary-btn">🎮 New Round (5 Rivers)</button>
+          <button id="btn-reset-score" class="action-btn secondary-btn">🔄 Reset Game</button>
+        </div>
+      </div>
+
+      <!-- Instruction Banner -->
+      <div class="instruction-box">
+        <span class="instruction-icon">💡</span>
+        <span id="instruction-text">Drag cards from the options pools on the right into the matching River Dropzones on the left. (Or tap a card to select, then tap target slot!)</span>
+      </div>
+
+      <!-- Main Drag & Drop Board -->
+      <div class="dragdrop-board">
+        <!-- Target River Dropzone Columns -->
+        <div class="target-rivers-column">
+          <h2 class="column-title">🏞️ Active Challenge Rivers</h2>
+          <div id="river-cards-container" class="river-cards-list">
+            <!-- Dynamically populated target river cards with dropzones -->
+          </div>
+        </div>
+
+        <!-- Draggable Attributes Columns -->
+        <div class="draggable-pools-column">
+          <h2 class="column-title">🧩 Hydrological Attribute Pools</h2>
+          
+          <!-- Pool 1: Origins -->
+          <div class="pool-section">
+            <h3 class="pool-title">🏔️ Origins / Sources</h3>
+            <div id="origins-pool" class="drag-pool" data-pool-type="origin">
+              <!-- Draggable origin cards -->
+            </div>
+          </div>
+
+          <!-- Pool 2: Tributaries -->
+          <div class="pool-section" id="tributaries-pool-section">
+            <h3 class="pool-title">🌿 Key Tributaries</h3>
+            <div id="tributaries-pool" class="drag-pool" data-pool-type="tributary">
+              <!-- Draggable tributary cards -->
+            </div>
+          </div>
+
+          <!-- Pool 3: Destinations -->
+          <div class="pool-section" id="destinations-pool-section">
+            <h3 class="pool-title">🌊 Destinations / Mouths</h3>
+            <div id="destinations-pool" class="drag-pool" data-pool-type="destination">
+              <!-- Draggable destination cards -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive Map View -->
+    <section id="view-map" class="game-view" aria-label="Interactive Geography Map">
+      <div class="map-view-header">
+        <div class="map-selector-box">
+          <label for="map-river-select"><strong>Select River to Trace:</strong></label>
+          <select id="map-river-select" class="styled-select">
+            <!-- Dynamically filled with river options -->
+          </select>
+        </div>
+        <div class="map-legend">
+          <span class="legend-item"><span class="legend-pin origin-pin"></span> Origin (Glacier/Source)</span>
+          <span class="legend-item"><span class="legend-pin trib-pin"></span> Tributary Junction</span>
+          <span class="legend-item"><span class="legend-pin dest-pin"></span> Sea Destination / Mouth</span>
+        </div>
+      </div>
+
+      <div class="map-layout-wrapper">
+        <div id="interactive-river-map" class="map-canvas-container" role="region" aria-label="River Interactive Leaflet Map"></div>
+        
+        <div class="map-river-info-card" id="map-info-card">
+          <h3 id="map-info-title">Select a river on the map</h3>
+          <p class="map-info-subtitle" id="map-info-subtitle">Explore real geographical coordinates, elevation, length, and basin details.</p>
+          <div class="map-info-details" id="map-info-details">
+            <div class="info-row"><span class="info-lbl">Origin:</span> <span class="info-val" id="map-val-origin">-</span></div>
+            <div class="info-row"><span class="info-lbl">Elevation:</span> <span class="info-val" id="map-val-elevation">-</span></div>
+            <div class="info-row"><span class="info-lbl">Total Length:</span> <span class="info-val" id="map-val-length">-</span></div>
+            <div class="info-row"><span class="info-lbl">Key Tributaries:</span> <span class="info-val" id="map-val-tributaries">-</span></div>
+            <div class="info-row"><span class="info-lbl">Outflow Mouth:</span> <span class="info-val" id="map-val-mouth">-</span></div>
+            <div class="info-row"><span class="info-lbl">States Basin:</span> <span class="info-val" id="map-val-states">-</span></div>
+            <div class="info-description" id="map-val-desc">Click any pin on the map to view detailed hydrological data.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Hydrological Atlas View -->
+    <section id="view-atlas" class="game-view" aria-label="River Atlas and Reference Guide">
+      <div class="atlas-header">
+        <h2>📚 Indian River Origin & Systems Atlas</h2>
+        <p>Comprehensive guide to major river origins across the Himalayas, Vindhyas, Satpura, and Western Ghats.</p>
+        <div class="atlas-search-box">
+          <input type="text" id="atlas-search-input" placeholder="🔍 Search by river name, origin state, or tributary..." class="styled-input">
+        </div>
+      </div>
+      
+      <div id="atlas-grid" class="atlas-cards-grid">
+        <!-- Dynamically rendered river atlas cards -->
+      </div>
+    </section>
+
+    <!-- Educational Explanation Modal -->
+    <div id="edu-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="edu-modal-title">
+      <div class="modal-card edu-modal-card">
+        <button class="modal-close-btn" id="btn-close-edu" aria-label="Close modal">✕</button>
+        <div class="edu-header">
+          <span class="edu-icon">💡</span>
+          <div>
+            <h2 id="edu-modal-title">River Knowledge Spotlight</h2>
+            <p id="edu-modal-subtitle" class="edu-subtitle">Hydro-geographical explanation</p>
+          </div>
+        </div>
+        <div class="edu-body" id="edu-modal-body">
+          <!-- Dynamic details filled on match or info request -->
+        </div>
+        <div class="edu-footer">
+          <button id="btn-edu-continue" class="action-btn primary-btn">Got It! Continue Playing →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Round Completion / Victory Modal -->
+    <div id="victory-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="victory-modal-title">
+      <div class="modal-card victory-card">
+        <div class="victory-header">
+          <span class="victory-emoji">🏆</span>
+          <h2 id="victory-modal-title">Round Complete!</h2>
+          <p id="victory-message">Outstanding geography mastery!</p>
+        </div>
+        <div class="victory-stats-grid">
+          <div class="vstat-item">
+            <span class="vstat-label">Round Score</span>
+            <span class="vstat-val" id="vstat-score">+0</span>
+          </div>
+          <div class="vstat-item">
+            <span class="vstat-label">Accuracy</span>
+            <span class="vstat-val" id="vstat-accuracy">100%</span>
+          </div>
+          <div class="vstat-item">
+            <span class="vstat-label">Time Elapsed</span>
+            <span class="vstat-val" id="vstat-time">00:45</span>
+          </div>
+          <div class="vstat-item">
+            <span class="vstat-label">Highest Streak</span>
+            <span class="vstat-val" id="vstat-streak">🔥 5</span>
+          </div>
+        </div>
+        <div class="badge-earned-box" id="badge-earned-box">
+          <span class="badge-icon">🏅</span>
+          <div>
+            <div class="badge-title" id="badge-title">Master Navigator</div>
+            <div class="badge-desc" id="badge-desc">Matched all river origins and tributaries without a mistake!</div>
+          </div>
+        </div>
+        <div class="victory-actions">
+          <button id="btn-next-round-modal" class="action-btn primary-btn">Play Next Round →</button>
+          <button id="btn-explore-map-modal" class="action-btn secondary-btn">View Map Details 🗺️</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="game-footer">
+    <div class="footer-content">
+      <p>© 2026 Incredible India Explorer. Dedicated to celebrating India's rich hydrological & geographic heritage.</p>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <!-- Global pages common JS -->
+  <script src="../pages-common.js"></script>
+  <!-- River Origin Challenge Script -->
+  <script src="script.js"></script>
+</body>
+</html>

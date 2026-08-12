@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the underground resistance networks of 1942–44: how Aruna Asaf Ali, Jayaprakash Narayan, Ram Manohar Lohia, Usha Mehta and a generation of students and regional organisers kept the Quit India Movement alive after the mass arrests of 9 August 1942 — secret communication, underground publications, Congress Radio, government surveillance and the parallel governments.">
+  <title>Underground Resistance Networks of 1942–44 | Incredible India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../js-modules/page-progress/page-progress.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+  <!-- Open Graph / Social Media Tags -->
+  <meta property="og:title" content="Underground Resistance Networks of 1942–44 | Incredible India Explorer">
+  <meta property="og:description" content="An interactive explorer of the clandestine networks that kept the Quit India Movement alive after the arrests of 9 August 1942 — Congress Radio, underground publications, student couriers, regional organisers, parallel governments and the surveillance that finally broke them.">
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/9/93/Quit_India_Movement.JPG">
+  <meta property="og:image:width" content="2487">
+  <meta property="og:image:height" content="1256">
+  <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/underground-resistance-explorer/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Incredible India Explorer">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/underground-resistance-explorer/index.html">
+</head>
+<body>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+
+  <!-- Sticky Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+  <!-- SPA Router Target Container -->
+  <main id="app-root" class="ur-main">
+
+    <!-- Hero Banner -->
+    <section class="ur-hero" id="hero" aria-label="Underground resistance networks hero">
+      <div class="ur-hero-bg" aria-hidden="true"></div>
+      <div class="ur-hero-veil" aria-hidden="true"></div>
+      <div class="ur-hero-orbs" aria-hidden="true">
+        <span class="ur-orb ur-orb-one"></span>
+        <span class="ur-orb ur-orb-two"></span>
+        <span class="ur-orb ur-orb-three"></span>
+      </div>
+      <div class="ur-hero-content">
+        <span class="ur-kicker">🇮🇳 India · August 1942 – May 1944</span>
+        <h1>Underground Resistance <span>— The Leaderless Years</span></h1>
+        <p class="ur-hero-subtitle">When the British jailed the Congress leadership overnight, the movement did not stop — it went to ground.</p>
+        <p>On the night of 8–9 August 1942, "Operation Zero Hour" swept Gandhi, Nehru, Patel, Azad and the entire Congress Working Committee into prison. The Congress was declared unlawful and its presses shut. Yet from Bombay to Bihar, from Satara to Midnapore, a web of secret radio stations, illegal newspapers, student couriers and regional organisers rose to keep the Quit India Movement breathing. For nearly two years — until the networks were hunted down, one by one — the underground carried the voice that the Empire had tried to silence.</p>
+
+        <ul class="ur-hero-badges" aria-label="Key facts about the underground resistance networks">
+          <li>🎙️ Congress Radio · 42.34 m</li>
+          <li>📰 Inquilab &amp; Congress Bulletin</li>
+          <li>🕸️ Azad Dastas of Bihar</li>
+          <li>🏛️ Satara &amp; Tamluk Prati Sarkars</li>
+          <li>👩‍🎓 Student courier networks</li>
+        </ul>
+
+        <div class="ur-hero-actions">
+          <a href="#overview" class="ur-cta-btn">Enter the Underground <span aria-hidden="true">↓</span></a>
+          <div class="ur-bookmark-container">
+            <button class="ur-bookmark-btn journey-bookmark-btn" type="button" data-bookmark-id="underground-resistance-networks" aria-pressed="false" aria-label="Bookmark the underground resistance networks of 1942–44">
+              ♡ Save to Journey
+            </button>
+          </div>
+        </div>
+      </div>
+      <a class="ur-scroll-hint" href="#overview" aria-label="Scroll down to the story of the underground resistance">
+        <span class="ur-scroll-line" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- Sticky Section Navigator -->
+    <nav class="ur-section-nav" id="ur-section-nav" aria-label="Underground resistance sections">
+      <div class="ur-section-nav-inner">
+        <a href="#overview" class="ur-section-nav-link" data-nav-target="overview">Origins</a>
+        <a href="#network" class="ur-section-nav-link" data-nav-target="network">Network</a>
+        <a href="#map" class="ur-section-nav-link" data-nav-target="map">Map &amp; Routes</a>
+        <a href="#publications" class="ur-section-nav-link" data-nav-target="publications">Publications</a>
+        <a href="#communication" class="ur-section-nav-link" data-nav-target="communication">Communication</a>
+        <a href="#students" class="ur-section-nav-link" data-nav-target="students">Students</a>
+        <a href="#regional" class="ur-section-nav-link" data-nav-target="regional">Regional Organisers</a>
+        <a href="#timeline" class="ur-section-nav-link" data-nav-target="timeline">Timeline</a>
+        <a href="#participants" class="ur-section-nav-link" data-nav-target="participants">Participants</a>
+        <a href="#surveillance" class="ur-section-nav-link" data-nav-target="surveillance">Surveillance</a>
+        <a href="#significance" class="ur-section-nav-link" data-nav-target="significance">Significance</a>
+        <a href="#references" class="ur-section-nav-link" data-nav-target="references">References</a>
+      </div>
+    </nav>
+
+    <!-- Section: Origins -->
+    <section class="ur-section" id="overview">
+      <div class="ur-container">
+        <div class="ur-section-header">
+          <span class="ur-eyebrow">Why the Underground Emerged</span>
+          <h2>A Movement Without a Leadership</h2>
+          <p>How the arrest of a party became the seedbed of its most secret phase.</p>
+        </div>
+
+        <div class="ur-bio-grid">
+          <div class="ur-bio-text reveal">
+            <p><strong>Operation Zero Hour</strong> — the codename the police used for the pre-dawn sweep of <strong>9 August 1942</strong> — removed the entire public face of the Indian National Congress in one coordinated move. Gandhi, Nehru, Patel, Azad, Rajendra Prasad, Sarojini Naidu and J. B. Kripalani were pulled from Birla House and carried by special train to Aga Khan Palace, Poona. Provincial committees were rounded up, the Congress was declared an unlawful association, its offices were seized, and its presses were closed. Overnight, India's largest political organisation had no visible leadership, no newspaper, and no legal standing.</p>
+            <p>The Empire expected silence. What it got instead was <strong>an underground movement</strong>. Younger leaders and organisers — many of them Congress Socialists — concluded that if the party could no longer speak openly, it would have to speak in code, from hiding. The underground networks were born of this necessity: they were built to <strong>maintain public morale, provide a line of command and guidance, distribute arms and ammunition, and break the government's information monopoly</strong> at a moment when the censored press carried only the colonial account of events.</p>
+            <p>By late 1942 the movement's open phase had been crushed — official figures counted over a thousand killed and tens of thousands arrested. But in the shadows, networks in Bombay, Delhi, Calcutta, Bihar, Satara and Midnapore kept the demand for freedom alive until the leaders emerged from prison in 1944–45.</p>
+          </div>
+          <aside class="ur-bio-profile reveal" aria-label="The underground at a glance">
+            <div class="ur-bio-portrait" aria-hidden="true">🕸️</div>
+            <h3>The Underground, 1942–44</h3>
+            <span class="ur-bio-title">A Leaderless Movement's Nervous System</span>
+            <ul>
+              <li><strong>Trigger</strong> — Mass arrests, 9 Aug 1942</li>
+              <li><strong>Core aims</strong> — Morale, command, arms, uncensored news</li>
+              <li><strong>Voices</strong> — Congress Radio &amp; illegal presses</li>
+              <li><strong>Carriers</strong> — Students, railwaymen, couriers</li>
+              <li><strong>Strongholds</strong> — Bombay, Bihar, Satara, Midnapore</li>
+              <li><strong>End</strong> — Networks disrupted by 1943–44</li>
+            </ul>
+            <blockquote>"The movement must be carried on. Even if our voices grow faint, let them be heard from underground."</blockquote>
+          </aside>
+        </div>
+
+        <div class="ur-theme-grid">
+          <article class="ur-theme-card reveal">
+            <span class="ur-theme-icon" aria-hidden="true">🔗</span>
+            <h3>Leaderless by Design</h3>
+            <p>Gandhi had told his followers to treat themselves as free agents if the leadership were arrested. The underground turned that instruction into an organisation.</p>
+          </article>
+          <article class="ur-theme-card reveal">
+            <span class="ur-theme-icon" aria-hidden="true">🔥</span>
+            <h3>Keeping Morale Alive</h3>
+            <p>Censored news of arrests, strikes and village resistance was countered with truthful, illegal bulletins so ordinary Indians knew the struggle had not died.</p>
+          </article>
+          <article class="ur-theme-card reveal">
+            <span class="ur-theme-icon" aria-hidden="true">🪖</span>
+            <h3>A Line of Command</h3>
+            <p>With every senior face in jail, the underground gave direction: which towns to hit, which railways to cut, which slogans to spread.</p>
+          </article>
+          <article class="ur-theme-card reveal">
+            <span class="ur-theme-icon" aria-hidden="true">💣</span>
+            <h3>Arms &amp; Guidance</h3>
+            <p>In regions like Bihar and Satara, underground groups coordinated the supply of arms and ammunition and organised guerrilla units such as the Azad Dastas and the Toofan Sena.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Network Graph -->
+    <section class="ur-section" id="network">
+      <div class="ur-container">
+        <div class="ur-section-header">
+          <span class="ur-eyebrow">Interactive Network Graph</span>
+          <h2>The Web Beneath the Empire</h2>
+          <p>How the underground was wired together — people, groups, publications and the Congress Radio. Select any node to trace its connections.</p>
+        </div>
+
+        <div class="ur-network-layout">
+          <div class="ur-network-canvas reveal" role="application" aria-label="Interactive network graph of the underground resistance, showing how participants, organisations, publications and the Congress Radio were connected">
+            <div id="ur-network" class="ur-network-board"></div>
+            <div class="ur-network-legend" aria-hidden="true">
+              <span class="ur-legend-key ur-legend-person">●</span> Participant
+              <span class="ur-legend-key ur-legend-group">●</span> Organisation
+              <span class="ur-legend-key ur-legend-publication">●</span> Publication
+              <span class="ur-legend-key ur-legend-radio">●</span> Radio
+              <span class="ur-legend-key ur-legend-link">—</span> Connection
+            </div>
+          </div>
+
+          <aside class="ur-network-detail" id="ur-network-detail" aria-live="polite">
+            <span class="ur-eyebrow">Selected Node</span>
+            <h3 id="ur-network-detail-title">Aruna Asaf Ali</h3>
+            <p id="ur-network-detail-body">The heroine of 9 August 1942. With a warrant out for her arrest, she spent nearly four years underground, moving between safe houses in Delhi, Calcutta, Bombay and Allahabad while editing the underground monthly <em>Inquilab</em>.</p>
+            <div class="ur-network-detail-tags" id="ur-network-detail-tags">
+              <span class="ur-network-tag">Inquilab</span>
+              <span class="ur-network-tag">Congress Radio</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Map -->
+    <section class="ur-section" id="map">
+      <div class="ur-container">
+        <div class="ur-section-header">
+          <span class="ur-eyebrow">Location Map &amp; Communication Routes</span>
+          <h2>Across India, in Hiding</h2>
+          <p>Underground activity was a national grid of cities, safe houses, press rooms and parallel governments — connected by courier routes, railways and airwaves. Select a marker to read what happened there.</p>
+        </div>
+
+        <div class="ur-map-layout">
+          <div class="ur-map-canvas reveal" role="application" aria-label="Interactive map of India with underground resistance locations, underground publication markers and communication routes of 1942–44">
+            <div id="ur-india-map" class="ur-india-map"></div>
+            <div class="ur-map-legend" aria-hidden="true">
+              <span class="ur-legend-key ur-legend-hub">H</span> Underground hub
+              <span class="ur-legend-key ur-legend-underground">U</span> Activity
+              <span class="ur-legend-key ur-legend-parallel">P</span> Parallel government
+              <span class="ur-legend-key ur-legend-jail">J</span> Jail &amp; escape
+              <span class="ur-legend-key ur-legend-publication">📰</span> Publication
+              <span class="ur-legend-key ur-legend-route">━━</span> Communication route
+            </div>
+          </div>
+
+          <aside class="ur-map-detail" id="ur-map-detail" aria-live="polite">
+            <span class="ur-eyebrow">Selected Location</span>
+            <h3 id="ur-map-detail-title">Bombay</h3>
+            <p id="ur-map-detail-body">The nerve centre of the underground. Congress Radio broadcast from hidden rooms here, <em>Inquilab</em> was printed in secret, and organisers like Yusuf Meherally and Chhotubhai Puranik coordinated the city's cells.</p>
+            <div class="ur-map-detail-tag" id="ur-map-detail-tag">🎙️ Underground Hub</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Publications -->
+    <section class="ur-section" id="publications">
+      <div class="ur-container">
+        <div class="ur-section-header">
+          <span class="ur-eyebrow">Underground Publications</span>
+          <h2>Printers That Defied the Ban</h2>
+          <p>With the Congress presses sealed and the mainstream press censored, the underground answered with a secret newsroom scattered across cities — cyclostyled in hiding, carried by students, read aloud in villages.</p>
+        </div>
+
+        <div class="ur-pub-grid">
+          <article class="ur-pub-card reveal">
+            <span class="ur-pub-icon" aria-hidden="true">📰</span>
+            <h3>Inquilab</h3>
+            <span class="ur-pub-meta">Bombay · 1942–1946</span>
+            <p>The monthly organ of the Congress underground, edited from hiding by Aruna Asaf Ali with Ram Manohar Lohia. It published news of local uprisings and police atrocities and urged the youth to keep the revolution alive. A reward of ₹5,000 was offered for Aruna's capture.</p>
+          </article>
+          <article class="ur-pub-card reveal">
+            <span class="ur-pub-icon" aria-hidden="true">📄</span>
+            <h3>Congress Bulletin</h3>
+            <span class="ur-pub-meta">Delhi · Bombay · 1942–43</span>
+            <p>The underground news bulletin of the movement, distributed illegally to keep workers and villagers informed of strikes, arrests and resistance across the country when the government press carried only the official story.</p>
+          </article>
+          <article class="ur-pub-card reveal">
+            <span class="ur-pub-icon" aria-hidden="true">📰</span>
+            <h3>Biplabi</h3>
+            <span class="ur-pub-meta">Tamluk, Midnapore · 1942–1944</span>
+            <p>The weekly paper of the Tamluk Jatiya Sarkar, the parallel government of Midnapore district. Printed while the British still claimed to control the area, it chronicled the sarkar's courts, relief work and volunteer corps.</p>
+          </article>
+          <article class="ur-pub-card reveal">
+            <span class="ur-pub-icon" aria-hidden="true">📜</span>
+            <h3>Patrikas &amp; Cyclostyled Leaflets</h3>
+            <span class="ur-pub-meta">Everywhere · 1942–44</span>
+            <p>Single-sheet "patrikas" and cyclostyled bulletins were the underground's fastest weapon — written by students, duplicated on hand-cranked machines, and passed hand-to-hand in marketplaces, mills and schools across Patna, Madras, Ahmedabad and Dharwad.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Communication -->
+    <section class="ur-section" id="communication">
+      <div class="ur-container">
+        <div class="ur-section-header">
+          <span class="ur-eyebrow">Secret Communication</span>
+          <h2>Messages That Could Not Be Traced</h2>
+          <p>How the underground talked to itself — and to a country under censorship.</p>
+        </div>
+
+        <div class="ur-comm-grid">
+          <article class="ur-comm-card reveal">
+            <span class="ur-comm-icon" aria-hidden="true">🎙️</span>
+            <h3>Coded Broadcasts</h3>
+            <p>Congress Radio broadcast short bursts — often 15–30 minutes in the evening — on 42.34 metres, changing timing and locations to evade detection. Coded phrasing and Morse code were used for messages that had to reach organisers without being read by the police.</p>
+          </article>
+          <article class="ur-comm-card reveal">
+            <span class="ur-comm-icon" aria-hidden="true">🚶</span>
+            <h3>Couriers &amp; Safe Houses</h3>
+            <p>Students, railwaymen and sympathetic pilots and drivers carried messages and supplies. Organisers moved through a chain of safe houses under disguised identities — Aruna Asaf Ali shifted between Delhi, Calcutta, Bombay and Allahabad for nearly four years.</p>
+          </article>
+          <article class="ur-comm-card reveal">
+            <span class="ur-comm-icon" aria-hidden="true">🖨️</span>
+            <h3>Cyclostyled Bulletins</h3>
+            <p>Hand-cranked duplicating machines in private homes produced the leaflets and bulletins that carried the movement's news from city to village, bypassing a press that had been shut down.</p>
+          </article>
+          <article class="ur-comm-card reveal">
+            <span class="ur-comm-icon" aria-hidden="true">🛤️</span>
+            <h3>Railways &amp; Posts</h3>
+            <p>The rail network — the same arteries the underground sabotaged — also carried its couriers. Railway workers passed intelligence, and sympathetic officials inside the police and administration leaked secrets to activists.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Students -->
+    <section class="ur-section" id="students">
+      <div class="ur-container">
+        <div class="ur-section-header">
+          <span class="ur-eyebrow">Student Networks</span>
+          <h2>The Youth Who Ran the Wires</h2>
+          <p>Students were the underground's youngest and fastest-moving nodes — walking couriers, printers of patrikas, and organisers in their own right.</p>
+        </div>
+
+        <div class="ur-grid-2col">
+          <div class="ur-text-block reveal">
+            <span class="ur-eyebrow">The College Front</span>
+            <h3>From Campus to Underground</h3>
+            <p>When the movement went underground, the students of India's colleges went with it. Schools and universities went on strike, and the same young men and women who had marched at Gowalia Tank now wrote and distributed illegal patrikas and acted as couriers between scattered cells. The most celebrated was <strong>Usha Mehta</strong>, a 22-year-old master's student at <strong>Wilson College, Bombay</strong>, who conceived and ran the Congress Radio. In Bihar, <strong>Tarkeshwari Sinha</strong> of Patna University emerged as one of the most energetic student organisers of the underground. In Delhi and Allahabad, students carried the <em>Congress Bulletin</em> and the messages of the imprisoned leadership.</p>
+          </div>
+          <div class="ur-text-block reveal">
+            <span class="ur-eyebrow">The Hidden Curriculum</span>
+            <h3>Couriers, Printers, Safekeepers</h3>
+            <p>The student role was deliberately diffuse — a face too young to be suspected, a bag of leaflets, a bicycle, a train ticket. Students safeguarded equipment, hid presses in hostels, memorised coded addresses and ran errands that senior organisers were too well-known to attempt. Their comparative anonymity, their mobility along the railway network, and their willingness to absorb risk made them the connective tissue of the underground.</p>
+          </div>
+        </div>
+
+        <div class="ur-student-grid">
+          <article class="ur-student-card reveal">
+            <span class="ur-student-avatar" aria-hidden="true">🎧</span>
+            <h3>Wilson College, Bombay</h3>
+            <p>Where Usha Mehta, a postgraduate student, conceived of a secret radio station after the arrests of 8–9 August — and where the plan for Congress Radio began to take shape.</p>
+          </article>
+          <article class="ur-student-card reveal">
+            <span class="ur-student-avatar" aria-hidden="true">📢</span>
+            <h3>Patna University</h3>
+            <p>Tarkeshwari Sinha organised student resistance and the distribution of underground literature in Bihar, working alongside the networks Jayaprakash Narayan built after his jail escape.</p>
+          </article>
+          <article class="ur-student-card reveal">
+            <span class="ur-student-avatar" aria-hidden="true">🚲</span>
+            <h3>The Courier Cadres</h3>
+            <p>Students across Bombay, Delhi, Allahabad and Calcutta acted as couriers, moving patrikas, funds and equipment between cells — the safest hands in a city under watch.</p>
+          </article>
+          <article class="ur-student-card reveal">
+            <span class="ur-student-avatar" aria-hidden="true">🖋️</span>
+            <h3>Writers of Patrikas</h3>
+            <p>Illegal newsletters were written by student editors and duplicated by hand. Their circulation kept schools, mills and villages inside the movement when the official press denied it existed.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Regional Organisers -->
+    <section class="ur-section" id="regional">
+      <div class="ur-container">
+        <div class="ur-section-header">
+          <span class="ur-eyebrow">Regional Organisers</span>
+          <h2>Many Fronts, One Underground</h2>
+          <p>The movement's underground phase was fought district by district, by organisers who knew their terrain.</p>
+        </div>
+
+        <div class="ur-region-grid">
+          <article class="ur-region-card reveal">
+            <span class="ur-region-icon" aria-hidden="true">🌾</span>
+            <h3>Bihar &amp; Nepal Border</h3>
+            <span class="ur-region-meta">Jayaprakash Narayan · Rameshwar Prasad · Tarkeshwari Sinha</span>
+            <p>After escaping Hazaribagh jail in November 1942, JP built underground guerrilla groups — the Azad Dastas — and operated from the Nepal border until his arrest in December 1943.</p>
+          </article>
+          <article class="ur-region-card reveal">
+            <span class="ur-region-icon" aria-hidden="true">🏙️</span>
+            <h3>Bombay</h3>
+            <span class="ur-region-meta">Yusuf Meherally · Chhotubhai Puranik · Usha Mehta</span>
+            <p>The city of the launch became the hub of the underground — the home of Congress Radio, the <em>Inquilab</em> press, and the organisational work of the Congress Socialists.</p>
+          </article>
+          <article class="ur-region-card reveal">
+            <span class="ur-region-icon" aria-hidden="true">🏛️</span>
+            <h3>Satara, Maharashtra</h3>
+            <span class="ur-region-meta">Nana Patil · Y. B. Chavan · Achyutrao Patwardhan</span>
+            <p>The longest-running parallel government of the movement — the Prati Sarkar of 1943–46 — ran people's courts, collected revenue and raised the Toofan Sena from hundreds of villages.</p>
+          </article>
+          <article class="ur-region-card reveal">
+            <span class="ur-region-icon" aria-hidden="true">🌊</span>
+            <h3>Midnapore, Bengal</h3>
+            <span class="ur-region-meta">Satish Chandra Samanta · Sushil Kumar Dhara · Ajoy Mukherjee</span>
+            <p>The Tamluk Jatiya Sarkar (December 1942 – September 1944) ran courts, schools and cyclone and famine relief through its volunteer corps, the Bidyut Vahini, and printed its own weekly, <em>Biplabi</em>.</p>
+          </article>
+          <article class="ur-region-card reveal">
+            <span class="ur-region-icon" aria-hidden="true">🕊️</span>
+            <h3>Delhi &amp; the United Provinces</h3>
+            <span class="ur-region-meta">Aruna Asaf Ali · Sucheta Kripalani · Chittu Pandey</span>
+            <p>Delhi and Allahabad hosted Aruna's safe houses and Sucheta Kripalani's networks of women activists. In August 1942 the town of Ballia in eastern UP briefly ran India's first parallel government under Chittu Pandey.</p>
+          </article>
+          <article class="ur-region-card reveal">
+            <span class="ur-region-icon" aria-hidden="true">🌐</span>
+            <h3>Gujarat &amp; the South</h3>
+            <span class="ur-region-meta">Ahmedabad · Baroda · Dharwad · Madras · Nagpur</span>
+            <p>Ahmedabad ran its own underground "Azad Government" ward by ward; Dharwad sustained guerrilla action into 1943; Madras and Nagpur printed and circulated patrikas that kept the southern and central provinces inside the movement.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Timeline -->
+    <section class="ur-section" id="timeline">
+      <div class="ur-container">
+        <div class="ur-section-header">
+          <span class="ur-eyebrow">The Underground Years</span>
+          <h2>1942–1944, Month by Month</h2>
+          <p>From the arrests that created the underground to the suppression that finally broke it.</p>
+        </div>
+
+        <div class="ur-timeline">
+          <div class="ur-timeline-step reveal">
+            <div class="ur-timeline-marker" aria-hidden="true"></div>
+            <div class="ur-timeline-card">
+              <span class="ur-timeline-year">8 Aug 1942</span>
+              <span class="ur-timeline-icon" aria-hidden="true">📜</span>
+              <h3>The Quit India Call</h3>
+              <p>The AICC at Gowalia Tank Maidan, Bombay, passes the Quit India resolution; Gandhi gives the "Do or Die" mantra. The stage is set for the arrest of the entire leadership.</p>
+            </div>
+          </div>
+          <div class="ur-timeline-step reveal">
+            <div class="ur-timeline-marker" aria-hidden="true"></div>
+            <div class="ur-timeline-card">
+              <span class="ur-timeline-year">9 Aug 1942</span>
+              <span class="ur-timeline-icon" aria-hidden="true">🚨</span>
+              <h3>Operation Zero Hour</h3>
+              <p>Gandhi, Nehru, Patel, Azad and the Working Committee are arrested before dawn. Aruna Asaf Ali hoists the flag at the maidan and goes underground; a warrant is issued for her arrest.</p>
+            </div>
+          </div>
+          <div class="ur-timeline-step reveal">
+            <div class="ur-timeline-marker" aria-hidden="true"></div>
+            <div class="ur-timeline-card">
+              <span class="ur-timeline-year">Aug 1942</span>
+              <span class="ur-timeline-icon" aria-hidden="true">⛔</span>
+              <h3>The Ban &amp; the First Cells</h3>
+              <p>The Congress is declared unlawful and its presses shut. Underground cells form in Bombay, Delhi and Calcutta. Ballia in UP overthrows its district administration under Chittu Pandey.</p>
+            </div>
+          </div>
+          <div class="ur-timeline-step reveal">
+            <div class="ur-timeline-marker" aria-hidden="true"></div>
+            <div class="ur-timeline-card">
+              <span class="ur-timeline-year">27 Aug 1942</span>
+              <span class="ur-timeline-icon" aria-hidden="true">🎙️</span>
+              <h3>Congress Radio Goes On Air</h3>
+              <p>Usha Mehta and her co-organisers begin broadcasting from a hidden Bombay room: "This is the Congress Radio calling on 42.34 metres from somewhere in India."</p>
+            </div>
+          </div>
+          <div class="ur-timeline-step reveal">
+            <div class="ur-timeline-marker" aria-hidden="true"></div>
+            <div class="ur-timeline-card">
+              <span class="ur-timeline-year">Sep 1942</span>
+              <span class="ur-timeline-icon" aria-hidden="true">📰</span>
+              <h3>Inquilab Begins</h3>
+              <p>Aruna Asaf Ali and Ram Manohar Lohia begin publishing <em>Inquilab</em> from hiding. Yusuf Meherally, the coiner of the "Quit India" slogan, is arrested.</p>
+            </div>
+          </div>
+          <div class="ur-timeline-step reveal">
+            <div class="ur-timeline-marker" aria-hidden="true"></div>
+            <div class="ur-timeline-card">
+              <span class="ur-timeline-year">9 Nov 1942</span>
+              <span class="ur-timeline-icon" aria-hidden="true">🗝️</span>
+              <h3>Jayaprakash Narayan Escapes</h3>
+              <p>JP breaks out of Hazaribagh Central Jail with comrades and crosses into the underground, building the Azad Dasta guerrilla units of Bihar.</p>
+            </div>
+          </div>
+          <div class="ur-timeline-step reveal">
+            <div class="ur-timeline-marker" aria-hidden="true"></div>
+            <div class="ur-timeline-card">
+              <span class="ur-timeline-year">12 Nov 1942</span>
+              <span class="ur-timeline-icon" aria-hidden="true">🔇</span>
+              <h3>The Radio Falls Silent</h3>
+              <p>Acting on information from a captured technician, police raid Congress Radio's last hideout. Usha Mehta and the operating crew are arrested; the station's broadcasts end.</p>
+            </div>
+          </div>
+          <div class="ur-timeline-step reveal">
+            <div class="ur-timeline-marker" aria-hidden="true"></div>
+            <div class="ur-timeline-card">
+              <span class="ur-timeline-year">Dec 1942</span>
+              <span class="ur-timeline-icon" aria-hidden="true">🏛️</span>
+              <h3>Tamluk Jatiya Sarkar</h3>
+              <p>Midnapore's parallel government is established. It runs courts and relief work and prints the weekly <em>Biplabi</em> until September 1944.</p>
+            </div>
+          </div>
+          <div class="ur-timeline-step reveal">
+            <div class="ur-timeline-marker" aria-hidden="true"></div>
+            <div class="ur-timeline-card">
+              <span class="ur-timeline-year">1943</span>
+              <span class="ur-timeline-icon" aria-hidden="true">🌪️</span>
+              <h3>Satara Prati Sarkar Consolidates</h3>
+              <p>By mid-1943 underground organisers led by Nana Patil and Y. B. Chavan consolidate the Prati Sarkar across hundreds of villages — the longest-running parallel government of the era. The Bengal famine suspends much eastern activity.</p>
+            </div>
+          </div>
+          <div class="ur-timeline-step reveal">
+            <div class="ur-timeline-marker" aria-hidden="true"></div>
+            <div class="ur-timeline-card">
+              <span class="ur-timeline-year">Dec 1943</span>
+              <span class="ur-timeline-icon" aria-hidden="true">⛓️</span>
+              <h3>JP Arrested Again</h3>
+              <p>Jayaprakash Narayan is captured while trying to cross into Nepal. The Bihar underground loses its most effective organiser.</p>
+            </div>
+          </div>
+          <div class="ur-timeline-step reveal">
+            <div class="ur-timeline-marker" aria-hidden="true"></div>
+            <div class="ur-timeline-card">
+              <span class="ur-timeline-year">1944</span>
+              <span class="ur-timeline-icon" aria-hidden="true">🧱</span>
+              <h3>The Networks Wind Down</h3>
+              <p>Lohia is jailed again; informers, raids and arrests have thinned the networks. Gandhi, released from Aga Khan Palace on health grounds in May 1944, calls for restraint. The underground phase closes as the war ends.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Participants -->
+    <section class="ur-section" id="participants">
+      <div class="ur-container">
+        <div class="ur-section-header">
+          <span class="ur-eyebrow">Major Participants</span>
+          <h2>The Faces of the Underground</h2>
+          <p>Select a participant to highlight them in the network graph and fly the map to the ground they worked. Each card records their connection to the underground.</p>
+        </div>
+
+        <div class="ur-participant-grid" id="ur-participant-grid">
+          <button class="ur-participant-card reveal" type="button" data-node="aruna" data-map="bombay">
+            <span class="ur-participant-avatar" aria-hidden="true">🇮🇳</span>
+            <h3>Aruna Asaf Ali</h3>
+            <span class="ur-participant-role">Underground Organiser · Editor of <em>Inquilab</em></span>
+            <p>Underground 1942–46, moving between Delhi, Calcutta, Bombay and Allahabad. A reward of ₹5,000 was offered for her capture; she evaded it all.</p>
+          </button>
+          <button class="ur-participant-card reveal" type="button" data-node="jp" data-map="patna">
+            <span class="ur-participant-avatar" aria-hidden="true">🔥</span>
+            <h3>Jayaprakash Narayan</h3>
+            <span class="ur-participant-role">Escapee · Organiser of the Azad Dastas</span>
+            <p>Escaped Hazaribagh jail (Nov 1942), built the Bihar underground and its guerrilla units from the Nepal border, and was re-arrested in December 1943.</p>
+          </button>
+          <button class="ur-participant-card reveal" type="button" data-node="lohia" data-map="delhi">
+            <span class="ur-participant-avatar" aria-hidden="true">✊</span>
+            <h3>Ram Manohar Lohia</h3>
+            <span class="ur-participant-role">Underground Coordinator · Broadcaster</span>
+            <p>Co-edited <em>Inquilab</em> and the <em>Congress Bulletin</em> with Aruna, broadcast on Congress Radio, and mobilised the underground until jailed again in 1944.</p>
+          </button>
+          <button class="ur-participant-card reveal" type="button" data-node="achyut" data-map="satara">
+            <span class="ur-participant-avatar" aria-hidden="true">🌾</span>
+            <h3>Achyutrao Patwardhan</h3>
+            <span class="ur-participant-role">Underground Organiser · Maharashtra</span>
+            <p>Worked underground in Bombay and Maharashtra, broadcasting on Congress Radio and feeding the networks that grew into the Satara Prati Sarkar.</p>
+          </button>
+          <button class="ur-participant-card reveal" type="button" data-node="usha" data-map="bombay">
+            <span class="ur-participant-avatar" aria-hidden="true">🎙️</span>
+            <h3>Usha Mehta</h3>
+            <span class="ur-participant-role">Founder of Congress Radio</span>
+            <p>The 22-year-old Wilson College student who conceived and ran the secret station. Arrested at its final location on 12 November 1942 and jailed in the Radio Conspiracy Case.</p>
+          </button>
+          <button class="ur-participant-card reveal" type="button" data-node="vithalbhai" data-map="bombay">
+            <span class="ur-participant-avatar" aria-hidden="true">🔧</span>
+            <h3>Vithalbhai Jhaveri</h3>
+            <span class="ur-participant-role">Congress Radio Co-organiser</span>
+            <p>A Congress leader who worked with Usha Mehta to find the amateur radio operators and organise the station that broadcast from Bombay between August and November 1942.</p>
+          </button>
+          <button class="ur-participant-card reveal" type="button" data-node="yusuf" data-map="bombay">
+            <span class="ur-participant-avatar" aria-hidden="true">📣</span>
+            <h3>Yusuf Meherally</h3>
+            <span class="ur-participant-role">Bombay Coordinator · Coiner of "Quit India"</span>
+            <p>The young socialist who coined the slogan "Quit India" and helped coordinate the underground in Bombay before his arrest in September 1942.</p>
+          </button>
+          <button class="ur-participant-card reveal" type="button" data-node="sucheta" data-map="allahabad">
+            <span class="ur-participant-avatar" aria-hidden="true">🕊️</span>
+            <h3>Sucheta Kripalani</h3>
+            <span class="ur-participant-role">Underground Organiser · United Provinces</span>
+            <p>Organised underground resistance and women's networks in the United Provinces while her husband J. B. Kripalani was in prison — the future first woman Chief Minister of Uttar Pradesh.</p>
+          </button>
+          <button class="ur-participant-card reveal" type="button" data-node="nana" data-map="satara">
+            <span class="ur-participant-avatar" aria-hidden="true">⚡</span>
+            <h3>Nana Patil</h3>
+            <span class="ur-participant-role">Leader of the Satara Prati Sarkar</span>
+            <p>"Krantisinh" of the longest-running parallel government (1943–46), which raised the Toofan Sena, ran people's courts and collected its own revenue across the Satara countryside.</p>
+          </button>
+          <button class="ur-participant-card reveal" type="button" data-node="biju" data-map="calcutta">
+            <span class="ur-participant-avatar" aria-hidden="true">✈️</span>
+            <h3>Biju Patnaik</h3>
+            <span class="ur-participant-role">Logistics &amp; Aviation Support</span>
+            <p>The young pilot and industrialist who used his aircraft and industrial network to move money and supplies to Jayaprakash Narayan's underground in Bihar.</p>
+          </button>
+          <button class="ur-participant-card reveal" type="button" data-node="chhotu" data-map="bombay">
+            <span class="ur-participant-avatar" aria-hidden="true">🕯️</span>
+            <h3>Chhotubhai Puranik</h3>
+            <span class="ur-participant-role">Bombay Underground Organiser</span>
+            <p>A Bombay Congress worker who organised underground cells and kept the city's networks fed with information and funds during the leaderless years.</p>
+          </button>
+          <button class="ur-participant-card reveal" type="button" data-node="tarkeshwari" data-map="patna">
+            <span class="ur-participant-avatar" aria-hidden="true">📚</span>
+            <h3>Tarkeshwari Sinha</h3>
+            <span class="ur-participant-role">Student Organiser · Bihar</span>
+            <p>A Patna University student leader who organised the student underground in Bihar and helped distribute illegal literature for JP's networks.</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Surveillance & Arrests -->
+    <section class="ur-section" id="surveillance">
+      <div class="ur-container">
+        <div class="ur-section-header">
+          <span class="ur-eyebrow">Government Surveillance &amp; Arrests</span>
+          <h2>Hunting the Underground</h2>
+          <p>The Empire fought the leaderless movement with every intelligence tool it had — and, in the end, the networks were broken by betrayal as much as by force.</p>
+        </div>
+
+        <div class="ur-grid-2col">
+          <div class="ur-text-block reveal">
+            <span class="ur-eyebrow">Watching the Shadows</span>
+            <h3>Special Branch, CID &amp; Informers</h3>
+            <p>The hunt for the underground was run by the police's Special Branch and the Criminal Investigation Department (CID), with Military Intelligence, the Naval Department and the Air Force all drawn into the search for Congress Radio. The station was detected within days of its first broadcast, but operators masked their location; the CID's Special Branch only began systematically monitoring the transmissions in <strong>October 1942</strong>. The decisive weapon was the informer: when the technician <strong>Nariman Printer</strong> was captured, his cooperation led the police straight to the station's final hideout. A reward of ₹5,000 was placed on Aruna Asaf Ali, and her property was seized — yet she eluded capture for nearly four years.</p>
+          </div>
+          <div class="ur-text-block reveal">
+            <span class="ur-eyebrow">The Cost of the Hunt</span>
+            <h3>Arrests &amp; Censorship</h3>
+            <p>The Raj answered the underground with <strong>over 60,000–100,000 arrests</strong> in the first year, mass fines, public flogging, total press censorship and the seizure of presses. Arrest followed arrest: <strong>Yusuf Meherally</strong> (September 1942), <strong>Usha Mehta</strong> and the Congress Radio crew (12 November 1942), <strong>Jayaprakash Narayan</strong> (December 1943), <strong>Ram Manohar Lohia</strong> (1944), and finally the Satara organisers as the Prati Sarkar was dismantled in 1945–46.</p>
+          </div>
+        </div>
+
+        <div class="ur-disruption-grid">
+          <article class="ur-disruption-card reveal">
+            <span class="ur-disruption-icon" aria-hidden="true">🔇</span>
+            <h3>Silencing the Voice</h3>
+            <p>The raid on Congress Radio on 12 November 1942 removed the underground's loudest instrument. The trial that followed — the "Radio Conspiracy Case" — sent its organisers to prison and deterred others from broadcasting.</p>
+          </article>
+          <article class="ur-disruption-card reveal">
+            <span class="ur-disruption-icon" aria-hidden="true">🐀</span>
+            <h3>Informers Inside</h3>
+            <p>From the betrayed radio technician to the police's network of paid agents, informers were the single greatest threat. A single captured name could dismantle a city's cells.</p>
+          </article>
+          <article class="ur-disruption-card reveal">
+            <span class="ur-disruption-icon" aria-hidden="true">⚖️</span>
+            <h3>Trials &amp; Detention</h3>
+            <p>Underground workers were tried under the Defence of India Rules in special courts. Sentences of four and five years' rigorous imprisonment broke the ranks of the young organisers.</p>
+          </article>
+          <article class="ur-disruption-card reveal">
+            <span class="ur-disruption-icon" aria-hidden="true">🧱</span>
+            <h3>The Slow Erosion</h3>
+            <p>By 1944 the combination of arrests, raids and betrayal had thinned the networks. Gandhi's release in May 1944 and his counsel against further underground action brought the phase to a close.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Significance -->
+    <section class="ur-section" id="significance">
+      <div class="ur-container">
+        <div class="ur-section-header">
+          <span class="ur-eyebrow">Historical Significance</span>
+          <h2>What the Underground Left Behind</h2>
+          <p>Why the leaderless years mattered — and the generation they forged.</p>
+        </div>
+
+        <div class="ur-grid-2col">
+          <div class="ur-text-block reveal">
+            <span class="ur-eyebrow">A Movement That Refused to Die</span>
+            <h3>Keeping the Flame Alight</h3>
+            <p>The underground sustained the Quit India Movement through its darkest period, when the public leadership was behind bars and the press was censored. By carrying news of strikes, arrests and village resistance, and by demonstrating that ordinary Indians would govern themselves, the networks denied the Empire its victory by silence.</p>
+          </div>
+          <div class="ur-text-block reveal">
+            <span class="ur-eyebrow">Forging a Generation</span>
+            <h3>The Young Leaders of 1947</h3>
+            <p>The underground years trained the leaders who would shape independent India's politics. Jayaprakash Narayan, Ram Manohar Lohia, Aruna Asaf Ali and Yusuf Meherally emerged from hiding as the architects of India's socialist movements — and the parallel governments of Satara and Tamluk proved, village by village, that Indians could run their own affairs.</p>
+          </div>
+        </div>
+
+        <div class="ur-roll-call reveal">
+          <h3>🕊️ From Underground to Independence</h3>
+          <p>The underground did not win freedom by itself — but it made it impossible for the Empire to pretend the struggle was over. When the leaders were released in 1945, they returned to a country whose morale had been kept alive in cellars, safe houses and hidden printing rooms. The networks of 1942–44 fed directly into the post-war surge — the INA trials, the Royal Indian Navy mutiny of 1946 and, finally, the transfer of power in 1947. <strong>The leaderless years were the bridge between Gowalia Tank and the Gateway of India.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: References -->
+    <section class="ur-section" id="references">
+      <div class="ur-container">
+        <div class="ur-section-header">
+          <span class="ur-eyebrow">References &amp; Further Reading</span>
+          <h2>Sources Behind the Story</h2>
+          <p>The primary records, standard histories and scholarly treatments of the underground resistance and the parallel governments.</p>
+        </div>
+
+        <div class="ur-ref-grid">
+          <article class="ur-ref-card reveal">
+            <span class="ur-ref-icon" aria-hidden="true">📖</span>
+            <div>
+              <h3>Bipan Chandra et al. (1989)</h3>
+              <p><em>India's Struggle for Independence</em>, Viking. The standard account of the Quit India Movement's underground phase and the Satara, Tamluk and Ballia parallel governments.</p>
+            </div>
+          </article>
+          <article class="ur-ref-card reveal">
+            <span class="ur-ref-icon" aria-hidden="true">📖</span>
+            <div>
+              <h3>Chopra, P. N. (ed.)</h3>
+              <p><em>Quit India Movement: British Secret Report</em>. The colonial government's own secret assessment of the underground networks, published for the movement's golden jubilee.</p>
+            </div>
+          </article>
+          <article class="ur-ref-card reveal">
+            <span class="ur-ref-icon" aria-hidden="true">📖</span>
+            <div>
+              <h3>Thakkar, Usha (2021)</h3>
+              <p><em>Congress Radio: Usha Mehta and the Underground Radio Station of 1942</em>, Viking/Penguin. The fullest account of the secret station and the Radio Conspiracy Case.</p>
+            </div>
+          </article>
+          <article class="ur-ref-card reveal">
+            <span class="ur-ref-icon" aria-hidden="true">📖</span>
+            <div>
+              <h3>Sengupta &amp; Chatterjee (1988)</h3>
+              <p><em>Secret Congress Broadcasts and Storming Railway Tracks During Quit India Movement</em>, Navrang. Documenting the radio's broadcasts and the sabotage that accompanied the underground years.</p>
+            </div>
+          </article>
+          <article class="ur-ref-card reveal">
+            <span class="ur-ref-icon" aria-hidden="true">📖</span>
+            <div>
+              <h3>Wikipedia</h3>
+              <p><em>Congress Radio</em>, <em>Aruna Asaf Ali</em>, <em>Jayaprakash Narayan</em>, <em>Ram Manohar Lohia</em>, <em>Quit India Movement</em>, <em>Parallel Governments During Quit India Movement</em>. General reference for chronology, names and the colonial record.</p>
+              <a href="https://en.wikipedia.org/wiki/Congress_Radio" target="_blank" rel="noopener">Congress Radio <span aria-hidden="true">↗</span></a>
+              <a href="https://en.wikipedia.org/wiki/Aruna_Asaf_Ali" target="_blank" rel="noopener">Aruna Asaf Ali <span aria-hidden="true">↗</span></a>
+              <a href="https://en.wikipedia.org/wiki/Quit_India_Movement" target="_blank" rel="noopener">Quit India Movement <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="ur-ref-card reveal">
+            <span class="ur-ref-icon" aria-hidden="true">🔗</span>
+            <div>
+              <h3>Related Explorers</h3>
+              <p>Continue the story across the collection: the <a href="../quit-india-movement-explorer/index.html">Bombay launch of Quit India</a>, the <a href="../congress-radio-explorer/index.html">Congress Radio</a>, and <a href="../aruna-asaf-ali-explorer/index.html">Aruna Asaf Ali</a>.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer ur-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="../../index.html#home" class="ur-footer-logo">
+          <span class="saffron">Incredible</span>
+          <span class="gold">India</span>
+          <span class="green">Explorer</span>
+        </a>
+        <p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India. Built with passion and pure vanilla web technologies.</p>
+        <p class="ur-footer-note">In honour of the men and women who kept the Quit India Movement alive from underground between 1942 and 1944.</p>
+      </div>
+
+      <div class="footer-links">
+        <h3>Freedom Struggle</h3>
+        <ul>
+          <li><a href="../freedom-fighters-hub/index.html">Freedom Fighters Hub</a></li>
+          <li><a href="../quit-india-movement-explorer/index.html">Quit India Movement</a></li>
+          <li><a href="../congress-radio-explorer/index.html">Congress Radio</a></li>
+          <li><a href="../aruna-asaf-ali-explorer/index.html">Aruna Asaf Ali</a></li>
+          <li><a href="../freedom-movement-explorer/index.html">Freedom Movement</a></li>
+          <li><a href="../freedom-timeline/index.html">Freedom Timeline</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h3>Quick Navigation</h3>
+        <ul>
+          <li><a href="../../index.html#home">Home</a></li>
+          <li><a href="../../index.html#map">Interactive Map</a></li>
+          <li><a href="../cuisine/cuisine.html">Cuisine</a></li>
+          <li><a href="../festivals/festivals.html">Festivals</a></li>
+          <li><a href="../culture/culture.html">Culture</a></li>
+          <li><a href="../../index.html#quiz">Quiz</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h3>Legal &amp; Support</h3>
+        <ul>
+          <li><a href="../about/about.html">About</a></li>
+          <li><a href="../support/support.html">Help &amp; Support</a></li>
+          <li><a href="../changelog/changelog.html">What's New</a></li>
+          <li><a href="../newsletter/newsletter.html">Newsletter</a></li>
+          <li><a href="../terms/terms.html">Terms of Service</a></li>
+          <li><a href="../privacy/privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-credits footer-credits-center">
+      <p>&copy; 2026 Incredible India Explorer · <a href="../../index.html">Home</a> · From the cellars of 1942 to the freedom of 1947 — the underground never truly went silent.</p>
+    </div>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+  <!-- JS Dependencies -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="../app.js" defer></script>
+  <script src="../../frontend/journey/journey.js" defer></script>
+  <script src="script.js" defer></script>
+  <script type="module" src="../firebase-config.js"></script>
+  <script type="module" src="../auth.js"></script>
+  <script src="../router.js" defer></script>
+  <script src="../js-modules/page-progress/page-progress.js"></script>
+</body>
+</html>
