@@ -1728,6 +1728,13 @@ window.indiaSearchIndex = [
             "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
         url: 'frontend/simlipal-national-park-explorer/index.html'
     },
+    // --- Menal Falls Explorer ---
+    {
+        title: "Menal Falls Explorer",
+        category: "Nature & Geography",
+        description: "Create an interactive page for Menal Falls, Rajasthan — connecting the 150-foot natural waterfall landscape with 11th-century Mahanaleshwar Shiva Temple and Prithviraj Chauhan's monsoon palace.",
+        url: "frontend/menal-falls-explorer/index.html"
+    },
     // --- Terracotta Pottery Explorer ---
     {
         title: 'Terracotta Pottery Explorer',
