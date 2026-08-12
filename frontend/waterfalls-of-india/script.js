@@ -150,6 +150,20 @@
             thumb: "https://images.unsplash.com/photo-1620959451996-037340c2be43?auto=format&fit=crop&q=40&w=400"
         },
         {
+            id: "vantawng",
+            name: "Vantawng Falls",
+            state: "Mizoram",
+            river: "Vanva River",
+            height: "229 meters",
+            season: "Monsoon",
+            tags: ["monsoon", "year-round"],
+            description: "Mizoram's tallest waterfall, cascading 229 metres in a stunning two-tiered drop amid deep bamboo forests.",
+            flow: "Massive roaring curtain in monsoon; clearer two-tiered cascade in winter.",
+            attractions: "Thenzawl, Chhingpuii Thlan.",
+            image: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=40&w=400",
+            url: "../vantawng-falls-explorer/index.html"},
+      {
             id: "nuranang",
             name: "Nuranang Falls",
             state: "Arunachal Pradesh",
