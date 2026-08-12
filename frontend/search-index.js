@@ -1768,6 +1768,13 @@ window.indiaSearchIndex = [
         description: "Create an interactive explorer for Mysore coinage, with special attention to monetary changes during the reign of Tipu Sultan — featuring gold Ahmadis, silver Zohras, Mauludi solar calendar converter, and mints.",
         url: "frontend/mysore-coinage-explorer/index.html"
     },
+    // --- Sikh Empire Coinage Explorer ---
+    {
+        title: "Explore Sikh Empire Coinage Explorer",
+        category: "Arts & Culture",
+        description: "Create an interactive explorer for Sikh Empire coinage — focusing on Nanakshahi & Gobindshahi silver rupees, Deg Tegh Fateh Persian sacred couplet inscriptions, Peepal leaf motifs, and Lahore mints.",
+        url: "frontend/sikh-empire-coinage-explorer/index.html"
+    },
     // --- Terracotta Pottery Explorer ---
     {
         title: 'Terracotta Pottery Explorer',
