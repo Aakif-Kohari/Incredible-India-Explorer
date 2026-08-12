@@ -1738,8 +1738,16 @@ window.indiaSearchIndex = [
         category: 'National Parks & Wildlife',
         description:
             "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
-        url: 'frontend/simlipal-national-park-explorer/index.html'
-    },
+        url: "frontend/simlipal-national-park-explorer/index.html"
+  },
+  // --- Bhimlat Falls Explorer ---
+  {
+    title: "Bhimlat Falls Explorer",
+    category: "Nature & Geography",
+    description: "Build a dedicated interactive explorer for Bhimlat Falls, Rajasthan — highlighting the contrast between the 60-meter seasonal cascade, seismic fault origins, Pandava legend, and Bundi eco-landscape.",
+    url: "frontend/bhimlat-falls-explorer/index.html"
+  },
+       
     // --- Menal Falls Explorer ---
     {
         title: "Menal Falls Explorer",
