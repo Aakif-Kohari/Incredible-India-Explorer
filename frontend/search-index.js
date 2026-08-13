@@ -4857,6 +4857,13 @@ window.indiaSearchIndex = [
         description: "Explore the Non-Cooperation Movement (1920–1922) — India's first mass movement under Gandhi, covering boycotts, khadi promotion, regional participation, the Khilafat connection, Chauri Chaura, and long-term impact.",
         url: "frontend/non-cooperation-movement-explorer/index.html"
     },
+    // --- Arishina Gundi Falls Explorer ---
+    {
+        title: "Arishina Gundi Falls Explorer",
+        category: "Nature & Wildlife",
+        description: "Explore Arishina Gundi Falls near Kollur, Karnataka - a hidden forest cascade in the Western Ghats featuring trek route visualization, seasonal flow patterns, forest ecosystem, and responsible tourism guidance.",
+        url: "frontend/arishina-gundi-falls-explorer/index.html"
+    },
     // --- Parallel Governments of Quit India Explorer ---
     {
         title: "Parallel Governments of Quit India Explorer",
