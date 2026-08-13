@@ -1570,7 +1570,7 @@ window.indiaSearchIndex = [
     category: "History & Royalty",
     description: "Create a dedicated historical profile page for Lalitaditya Muktapida (c. 724–760 CE), ruler of the Karkota dynasty of Kashmir — covering his reign, Martand Sun Temple architecture, Parihaspore capital, and Rajatarangini chronicle.",
     url: "frontend/lalitaditya-muktapida-explorer/index.html"},
-      
+
   // --- Yashovarman of Kannauj Explorer ---
   {
     title: "Add Yashovarman of Kannauj – Early Medieval North Indian Ruler Explorer",
@@ -4925,6 +4925,13 @@ window.indiaSearchIndex = [
         category: "Nature & Wildlife",
         description: "Explore Shivanasamudra Falls on the Kaveri River in Karnataka — Gaganachukki and Bharachukki twin falls comparison, river map, seasonal flow visualization, hydroelectric history (Asia's first, 1902), and nearby attractions.",
         url: "frontend/shivanasamudra-falls-explorer/index.html"
+    },
+    // --- Vazhachal Falls Explorer ---
+    {
+        title: "Vazhachal Falls Explorer",
+        category: "Nature & Wildlife",
+        description: "Explore Vazhachal Falls on the Chalakudy River in Kerala - cascading rapids in pristine evergreen forests, river ecosystem, seasonal flow patterns, geological setting, and nearby Athirappilly Falls.",
+        url: "frontend/vazhachal-falls-explorer/index.html"
     },
     // --- Bengali Cinema Explorer ---
     {
