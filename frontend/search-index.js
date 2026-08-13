@@ -3851,6 +3851,12 @@ window.indiaSearchIndex = [
             "Explore Beddome's Coral Snake (Calliophis beddomei) — endemic venomous elapid of Western Ghats leaf litter, scientific taxonomy, behavior, diet, and conservation status.",
         url: 'frontend/beddomes-coral-snake-explorer/index.html'
     },
+    {
+    title: "Taxila: The Ancient Crossroads of Gandhara",
+    category: "Heritage & History",
+    description: "Recreate Taxila — compare Bhir Mound, Sirkap, and Sirsukh settlements, explore Silk Road trade routes, Buddhist sites, learning traditions, artifacts, and a full archaeological timeline.",
+    url: "frontend/taxila-explorer/index.html"
+    },
     // --- Sikh Empire Explorer ---
     {
         title: 'Sikh Empire Explorer',
