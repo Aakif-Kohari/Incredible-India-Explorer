@@ -663,6 +663,12 @@ window.indiaSearchIndex = [
     url: "frontend/cellular-jail-explorer/index.html"
   },
   {
+    title: "Rajgir Sacred Landscape Explorer",
+    category: "Archaeological Excavations",
+    description: "Discover Rajgir's transition from the ancient Magadhan capital to a sacred landscape for Buddhist and Jain traditions — the Cyclopean Wall, Gridhrakuta, Saptaparni Cave, and Bimbisara's prison.",
+    url: "frontend/rajgir-explorer/index.html"
+  },
+  {
     title: "Sanjhi Art Explorer",
     category: "Culture",
     description: "Discover Sanjhi, the ancient paper-cut stencil art of Mathura and Vrindavan — intricate Radha-Krishna motifs cut by hand for centuries of temple rituals.",
@@ -4926,5 +4932,12 @@ window.indiaSearchIndex = [
         category: "Culture",
         description: "Explore the artistic heritage of Bengali Cinema (Tollywood): Satyajit Ray's masterpieces, Ritwik Ghatak, Mrinal Sen, and the Parallel Cinema movement.",
         url: "frontend/bengali-cinema-explorer/index.html"
+    },
+    // --- Rajgir Sacred Landscape Explorer ---
+    {
+        title: "Rajgir Sacred Landscape Explorer",
+        category: "Archaeological Excavations",
+        description: "Discover Rajgir's transition from the ancient Magadhan capital to a sacred landscape for Buddhist and Jain traditions.",
+        url: "frontend/rajgir-explorer/index.html"
     },
 ];
