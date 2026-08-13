@@ -1546,7 +1546,7 @@ window.indiaSearchIndex = [
     category: "History & Royalty",
     description: "Create a dedicated historical profile page for Lalitaditya Muktapida (c. 724–760 CE), ruler of the Karkota dynasty of Kashmir — covering his reign, Martand Sun Temple architecture, Parihaspore capital, and Rajatarangini chronicle.",
     url: "frontend/lalitaditya-muktapida-explorer/index.html"},
-      
+
   // --- Yashovarman of Kannauj Explorer ---
   {
     title: "Add Yashovarman of Kannauj – Early Medieval North Indian Ruler Explorer",
@@ -1641,14 +1641,14 @@ window.indiaSearchIndex = [
     description: "Explore the Kingdom of Cochin (1102–1949) — Queen of the Arabian Sea, spice trade routes, Sakthan Thampuran, Mattancherry Palace, and Thrissur Pooram.",
     url: "frontend/cochin-kingdom-explorer/index.html"
   },
-   
+
   // --- Kingdom of Mysore Explorer ---
   {
     title: "Kingdom of Mysore Explorer",
     category: "Indian Empires & History",
     description: "Explore the Kingdom of Mysore (1399–1947) — Wadiyar dynasty, Hyder Ali, Tipu Sultan, Mysorean rockets, Mysore Dasara, and Mysore Palace.",
     url: "frontend/mysore-kingdom-explorer/index.html"},
-    
+
   // --- Kingdom of Travancore Explorer ---
   {
     title: "Kingdom of Travancore Explorer",
@@ -1842,7 +1842,7 @@ window.indiaSearchIndex = [
     category: "Historical Cartography",
     description: "Interactive SVG maps rendering foundation, peak apex territory, and decline stages for Maurya, Gupta, Chola, Vijayanagara, Mughal, Maratha, and Sikh empires.",
     url: "frontend/indian-empires-explorer/index.html"},
-  
+
   // --- General Elections Timeline ---
   {
     title: "Interactive General Elections Timeline",
@@ -4901,6 +4901,13 @@ window.indiaSearchIndex = [
         category: "Nature & Wildlife",
         description: "Explore Shivanasamudra Falls on the Kaveri River in Karnataka — Gaganachukki and Bharachukki twin falls comparison, river map, seasonal flow visualization, hydroelectric history (Asia's first, 1902), and nearby attractions.",
         url: "frontend/shivanasamudra-falls-explorer/index.html"
+    },
+    // --- Vazhachal Falls Explorer ---
+    {
+        title: "Vazhachal Falls Explorer",
+        category: "Nature & Wildlife",
+        description: "Explore Vazhachal Falls on the Chalakudy River in Kerala - cascading rapids in pristine evergreen forests, river ecosystem, seasonal flow patterns, geological setting, and nearby Athirappilly Falls.",
+        url: "frontend/vazhachal-falls-explorer/index.html"
     },
     // --- Bengali Cinema Explorer ---
     {

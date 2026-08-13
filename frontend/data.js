@@ -366,6 +366,16 @@ const mapData = {
       "description": "The 'Land of Gods', Uttarakhand is a hub of pilgrimage (Char Dham), yoga (Rishikesh), wildlife (Jim Corbett Park), and snow-capped Himalayan peaks.",
       "story": "The 'Land of Gods', Uttarakhand is a hub of pilgrimage (Char Dham), yoga (Rishikesh), wildlife (Jim Corbett Park), and snow-capped Himalayan peaks.\n\nThe vibrant region of Uttarakhand is governed from its beautiful capital, Dehradun. The land is deeply connected to its roots, celebrating grand occasions like Ganga Aarti & Nanda Devi Jat with unmatched energy and devotion.\n\nVisitors from around the world are mesmerized by the local culinary delights, particularly the iconic Kafuli & Aloo ke Gutke, which represents centuries of refined regional cooking techniques and traditional spices. A journey to Uttarakhand is a journey through time, culture, and nature."
     },
+    // Vazhachal Falls Card
+    {
+        id: "vazhachal-falls",
+        name: "Vazhachal Falls",
+        category: "waterfall",
+        location: "Chalakudy River, Kerala",
+        image: "assets/waterfalls/vazhachal.jpg",
+        description: "Cascading rapids of the Chalakudy River flowing through pristine evergreen forests of the Western Ghats, 5 km from Athirappilly Falls.",
+        link: "frontend/vazhachal-falls-explorer/index.html"
+    },
     {
       "id": "wb",
       "name": "West Bengal",
