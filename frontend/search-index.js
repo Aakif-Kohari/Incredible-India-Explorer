@@ -4885,6 +4885,13 @@ window.indiaSearchIndex = [
         description: "Explore the INA's journey from Indian POWs in Southeast Asia and Mohan Singh's First INA, through Subhas Chandra Bose's Azad Hind Government and the Rani of Jhansi Regiment, to the Imphal-Kohima campaign and Red Fort Trials.",
         url: "frontend/indian-national-army-explorer/index.html"
     },
+    // --- Lakkam Waterfalls Explorer ---
+    {
+        title: "Lakkam Waterfalls Explorer",
+        category: "Nature & Wildlife",
+        description: "Explore Lakkam Waterfalls near Munnar, Kerala - a pristine high-range cascade at 2,730m in the Anaimalai Hills, featuring waterfall structure visualization, seasonal flow patterns, mountain map, and shola-grassland ecosystem.",
+        url: "frontend/lakkam-waterfalls-explorer/index.html"
+    },
     // --- Elvira Rat Explorer ---
     {
         title: "Elvira Rat Explorer",
