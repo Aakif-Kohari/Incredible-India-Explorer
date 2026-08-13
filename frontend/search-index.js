@@ -1540,6 +1540,12 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Purwa Falls Explorer ---
+  {
+    title: "Purwa Falls: Follow the Tamas River Cascade Explorer",
+    category: "Nature & Geography",
+    description: "Create a dedicated interactive page for Purwa Falls, Madhya Pradesh — focusing on its 70-meter Tamas (Tons) River cascade, Ramayana Tamasa connection, plateau geology, and seasonal flow.",
+    url: "frontend/purwa-falls-explorer/index.html"},
   // --- Raneh Falls Explorer ---
   {
     title: "Raneh Falls: Explore the Ken River Canyon Explorer",
