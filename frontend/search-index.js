@@ -1545,7 +1545,32 @@ window.indiaSearchIndex = [
     title: "Purwa Falls: Follow the Tamas River Cascade Explorer",
     category: "Nature & Geography",
     description: "Create a dedicated interactive page for Purwa Falls, Madhya Pradesh — focusing on its 70-meter Tamas (Tons) River cascade, Ramayana Tamasa connection, plateau geology, and seasonal flow.",
-    url: "frontend/purwa-falls-explorer/index.html"
+    url: "frontend/purwa-falls-explorer/index.html"},
+  // --- Raneh Falls Explorer ---
+  {
+    title: "Raneh Falls: Explore the Ken River Canyon Explorer",
+    category: "Nature & Geography",
+    description: "Build an interactive explorer for Raneh Falls, Madhya Pradesh — emphasizing its 30-meter Ken River canyon, 5-color volcanic rock formations, Ken Gharial Wildlife Sanctuary, and seasonal flow.",
+    url: "frontend/raneh-falls-explorer/index.html"},
+  // --- Bhoja of Malwa Explorer ---
+  {
+    title: "Add Bhoja of Malwa – Paramara Scholar-King Explorer",
+    category: "History & Royalty",
+    description: "Create a dedicated historical profile page for Bhoja of Malwa (c. 1010–1055 CE), celebrated Paramara ruler — exploring his reign, Samarangana Sutradhara architecture treatise, Bhojeshwar Temple, and scholarship.",
+    url: "frontend/bhoja-malwa-explorer/index.html"},
+  // --- Lalitaditya Muktapida Explorer ---
+  {
+    title: "Add Lalitaditya Muktapida – Karkota Ruler of Kashmir Explorer",
+    category: "History & Royalty",
+    description: "Create a dedicated historical profile page for Lalitaditya Muktapida (c. 724–760 CE), ruler of the Karkota dynasty of Kashmir — covering his reign, Martand Sun Temple architecture, Parihaspore capital, and Rajatarangini chronicle.",
+    url: "frontend/lalitaditya-muktapida-explorer/index.html"},
+      
+  // --- Yashovarman of Kannauj Explorer ---
+  {
+    title: "Add Yashovarman of Kannauj – Early Medieval North Indian Ruler Explorer",
+    category: "History & Royalty",
+    description: "Create a dedicated historical profile page for Yashovarman of Kannauj (c. 725–752 CE) — introducing his reign, Kannauj's political importance, court scholars Bhavabhuti & Vakpati, Gaudavaho epic, and Tang China diplomacy.",
+    url: "frontend/yashovarman-kannauj-explorer/index.html"
   },
   // --- Terracotta Pottery Explorer ---
   {
