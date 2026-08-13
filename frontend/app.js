@@ -1200,17 +1200,15 @@ function initCultureSlider() {
         const cardWidthPercent = 100 / visibleSlides;
 
         /*
-         * CSS gap is approximately 20px.
+         * CSS gap is approximately 30px.
          * The percentage handles responsive card width.
          */
         const translation =
             currentSlide * cardWidthPercent;
 
         track.style.transform =
-            `translateX(calc(-${translation}% - ${currentSlide * 20}px))`;
-
-
-        // Update active dot
+            `translateX(calc(-${translation}% - ${currentSlide * 30}px))`;
+      // Update active dot
         const dots =
             dotsContainer.querySelectorAll('.dot');
 
