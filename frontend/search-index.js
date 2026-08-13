@@ -47,6 +47,12 @@ window.indiaSearchIndex = [
     description: "Explore Kerala's historic Beypore port: 2,000-year-old traditional Uru wooden shipbuilding, Nilambur teak, and legendary Khalasi mechanical engineering.",
     url: "frontend/beypore-port-explorer/index.html"
   },
+  {
+    title: "Mughal Coinage Explorer",
+    category: "Heritage & History",
+    description: "Explore the fascinating history of Mughal coinage across the empire, including major emperors, denominations, mint maps, and coin comparisons.",
+    url: "frontend/mughal-coinage/index.html"
+  },
   // --- States & Union Territories ---
   {
     title: "Andaman and Nicobar Islands",
