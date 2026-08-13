@@ -1540,6 +1540,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Raneh Falls Explorer ---
+  {
+    title: "Raneh Falls: Explore the Ken River Canyon Explorer",
+    category: "Nature & Geography",
+    description: "Build an interactive explorer for Raneh Falls, Madhya Pradesh — emphasizing its 30-meter Ken River canyon, 5-color volcanic rock formations, Ken Gharial Wildlife Sanctuary, and seasonal flow.",
+    url: "frontend/raneh-falls-explorer/index.html"
+  },
   // --- Terracotta Pottery Explorer ---
   {
     title: "Terracotta Pottery Explorer",
