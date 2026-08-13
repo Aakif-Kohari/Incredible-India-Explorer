@@ -314,6 +314,16 @@ const mapData = {
       "bestTimeToVisit": "March to June, October to December",      "description": "Sikkim is a clean, organic Himalayan state surrounding Mt. Kanchenjunga. It is famous for alpine meadows, glaciers, and Buddhist monasteries.",
       "story": "Sikkim is a clean, organic Himalayan state surrounding Mt. Kanchenjunga. It is famous for alpine meadows, glaciers, and Buddhist monasteries.\n\nThe vibrant region of Sikkim is governed from its beautiful capital, Gangtok. The land is deeply connected to its roots, celebrating grand occasions like Saga Dawa & Losar with unmatched energy and devotion.\n\nVisitors from around the world are mesmerized by the local culinary delights, particularly the iconic Momo, Thukpa & Gundruk, which represents centuries of refined regional cooking techniques and traditional spices. A journey to Sikkim is a journey through time, culture, and nature."
     },
+    // Lakkam Waterfalls Card
+    {
+        id: "lakkam-waterfalls",
+        name: "Lakkam Waterfalls",
+        category: "waterfall",
+        location: "Munnar, Kerala",
+        image: "assets/waterfalls/lakkam.jpg",
+        description: "A pristine high-range cascade at 2,730 metres in the Anaimalai Hills, fed by the Pambar River and surrounded by shola forests and tea estates.",
+        link: "frontend/lakkam-waterfalls-explorer/index.html"
+    },
     {
       "id": "tn",
       "name": "Tamil Nadu",
