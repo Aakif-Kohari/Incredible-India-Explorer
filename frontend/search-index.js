@@ -1540,6 +1540,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Lalitaditya Muktapida Explorer ---
+  {
+    title: "Add Lalitaditya Muktapida – Karkota Ruler of Kashmir Explorer",
+    category: "History & Royalty",
+    description: "Create a dedicated historical profile page for Lalitaditya Muktapida (c. 724–760 CE), ruler of the Karkota dynasty of Kashmir — covering his reign, Martand Sun Temple architecture, Parihaspore capital, and Rajatarangini chronicle.",
+    url: "frontend/lalitaditya-muktapida-explorer/index.html"},
+      
   // --- Yashovarman of Kannauj Explorer ---
   {
     title: "Add Yashovarman of Kannauj – Early Medieval North Indian Ruler Explorer",
