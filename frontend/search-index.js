@@ -3847,6 +3847,12 @@ window.indiaSearchIndex = [
         description: "Create an interactive explorer for Sikh Empire coinage — focusing on Nanakshahi & Gobindshahi silver rupees, Deg Tegh Fateh Persian sacred couplet inscriptions, Peepal leaf motifs, and Lahore mints.",
         url: "frontend/sikh-empire-coinage-explorer/index.html"
     },
+    {
+    title: "Nalanda: The Ancient University City",
+    category: "Heritage & History",
+    description: "Reconstruct Nalanda — building-by-building campus explorer, scholar network, Xuanzang and Yijing accounts, international student connections, historical timeline, and archaeological evidence.",
+    url: "frontend/nalanda-explorer/index.html"
+    },
     // --- Terracotta Pottery Explorer ---
     {
         title: 'Terracotta Pottery Explorer',
