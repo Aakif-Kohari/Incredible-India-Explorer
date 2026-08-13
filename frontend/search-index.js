@@ -750,6 +750,13 @@ window.indiaSearchIndex = [
         url: 'frontend/gujarati-cinema-explorer/index.html'
     },
     {
+        title: 'Sandalwood (Kannada Cinema) Explorer',
+        category: 'Culture',
+        description:
+            'Discover Sandalwood, the Kannada film industry of Karnataka — from Sati Sulochana (1934) and Dr. Rajkumar to Lucia and pan-India hits like KGF and Kantara.',
+        url: 'sandalwood/sandalwood.html'
+    },
+    {
         title: 'Ollywood (Odia Cinema) Explorer',
         category: 'Culture',
         description:
