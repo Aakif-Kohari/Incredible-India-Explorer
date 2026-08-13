@@ -771,6 +771,13 @@ window.indiaSearchIndex = [
         url: 'frontend/bollywood-explorer/index.html'
     },
     {
+        title: 'Mollywood (Malayalam Cinema) Explorer',
+        category: 'Culture',
+        description:
+            'Discover Mollywood, the Malayalam film industry of Kerala — from Vigathakumaran (1928) and Chemmeen (1965) to realistic, script-driven narratives and the New Generation wave.',
+        url: 'frontend/mollywood-cinema-explorer/index.html'
+    },
+    {
         title: 'River Krishna',
         category: 'Rivers',
         description:
