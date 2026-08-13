@@ -985,6 +985,20 @@ window.indiaSearchIndex = [
             'Largest Indus Valley Civilisation site in the Indian subcontinent spanning over 350 hectares in Haryana.',
         url: 'frontend/excavations/excavations.html?site=rakhigarhi'
     },
+    {
+        title: 'Daimabad Deccan Settlement Explorer',
+        category: 'Archaeological Excavations',
+        description:
+            'A key Deccan Chalcolithic settlement on the Pravara River, famous for the 1974 discovery of a 60 kg solid-cast bronze hoard.',
+        url: 'daimabad/daimabad.html'
+    },
+    {
+        title: 'Daimabad Chalcolithic Site',
+        category: 'Archaeological Excavations',
+        description:
+            'Explore the continuous 5-metre cultural deposit and famous bronze hoard of Daimabad in Maharashtra.',
+        url: 'frontend/excavations/excavations.html?site=daimabad'
+    },
     // --- Space Heritage ---
     {
         title: 'Indian Space Heritage Explorer',
