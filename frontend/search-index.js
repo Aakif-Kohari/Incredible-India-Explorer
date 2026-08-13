@@ -3828,6 +3828,18 @@ window.indiaSearchIndex = [
         description: "Create an interactive explorer for Mysore coinage, with special attention to monetary changes during the reign of Tipu Sultan — featuring gold Ahmadis, silver Zohras, Mauludi solar calendar converter, and mints.",
         url: "frontend/mysore-coinage-explorer/index.html"
     },
+    {
+    title: "Gupta Coinage Gallery",
+    category: "Arts & Culture",
+    description: "Explore Gupta-era gold Dinars — from Chandragupta I's marriage type to Skandagupta's Hun-era issues. Filter by ruler, coin type, metal, and script, with an obverse/reverse viewer.",
+    url: "frontend/gupta-coinage-gallery/index.html"
+    },
+    {
+    title: "Kushan Gold Coinage Explorer",
+    category: "Arts & Culture",
+    description: "Discover Kushan gold coinage from Kujula Kadphises to Vasudeva I — ruler selector, interactive coin viewer with deity hotspots, inscription viewer, historical timeline, and Kushan territory map.",
+    url: "frontend/kushan-gold-coinage/index.html"
+    },
     // --- Sikh Empire Coinage Explorer ---
     {
         title: "Explore Sikh Empire Coinage Explorer",
