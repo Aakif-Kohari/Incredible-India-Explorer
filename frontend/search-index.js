@@ -6,6 +6,12 @@
 window.indiaSearchIndex = [
 
   {
+    title: "Pandya Fish-Symbol Coins Explorer",
+    category: "Heritage & History",
+    description: "Explore the ancient coinage of the Pandya Dynasty and the evolution of their royal fish emblem.",
+    url: "frontend/pandya-fish-coins-explorer/index.html"
+  },
+  {
     title: "Ancient Ports of India Explorer",
     category: "Heritage & History",
     description: "Explore 5,000 years of India's maritime heritage: interactive maps, search, historical timelines, and deep dive explorers into Lothal, Muziris, Arikamedu, and Tamralipta.",
