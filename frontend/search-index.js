@@ -985,6 +985,20 @@ window.indiaSearchIndex = [
             'Largest Indus Valley Civilisation site in the Indian subcontinent spanning over 350 hectares in Haryana.',
         url: 'frontend/excavations/excavations.html?site=rakhigarhi'
     },
+    {
+        title: 'Banawali Harappan Town Explorer',
+        category: 'Archaeological Excavations',
+        description:
+            'A fortified settlement on the dried bed of the Sarasvati, occupied for nearly a thousand years — from a Pre-Harappan village to a walled Mature Harappan town.',
+        url: 'banawali/banawali.html'
+    },
+    {
+        title: 'Banawali Indus Site',
+        category: 'Archaeological Excavations',
+        description:
+            'Explore the excavation findings, stratigraphic layers, and advanced town planning of Banawali in Haryana.',
+        url: 'frontend/excavations/excavations.html?site=banawali'
+    },
     // --- Space Heritage ---
     {
         title: 'Indian Space Heritage Explorer',
