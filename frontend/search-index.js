@@ -1627,14 +1627,14 @@ window.indiaSearchIndex = [
     description: "Explore the Kingdom of Cochin (1102–1949) — Queen of the Arabian Sea, spice trade routes, Sakthan Thampuran, Mattancherry Palace, and Thrissur Pooram.",
     url: "frontend/cochin-kingdom-explorer/index.html"
   },
-   
+
   // --- Kingdom of Mysore Explorer ---
   {
     title: "Kingdom of Mysore Explorer",
     category: "Indian Empires & History",
     description: "Explore the Kingdom of Mysore (1399–1947) — Wadiyar dynasty, Hyder Ali, Tipu Sultan, Mysorean rockets, Mysore Dasara, and Mysore Palace.",
     url: "frontend/mysore-kingdom-explorer/index.html"},
-    
+
   // --- Kingdom of Travancore Explorer ---
   {
     title: "Kingdom of Travancore Explorer",
@@ -1828,7 +1828,7 @@ window.indiaSearchIndex = [
     category: "Historical Cartography",
     description: "Interactive SVG maps rendering foundation, peak apex territory, and decline stages for Maurya, Gupta, Chola, Vijayanagara, Mughal, Maratha, and Sikh empires.",
     url: "frontend/indian-empires-explorer/index.html"},
-  
+
   // --- General Elections Timeline ---
   {
     title: "Interactive General Elections Timeline",
@@ -4894,5 +4894,12 @@ window.indiaSearchIndex = [
         category: "Culture",
         description: "Explore the artistic heritage of Bengali Cinema (Tollywood): Satyajit Ray's masterpieces, Ritwik Ghatak, Mrinal Sen, and the Parallel Cinema movement.",
         url: "frontend/bengali-cinema-explorer/index.html"
+    },
+    // --- Thalaiyar Falls Explorer ---
+    {
+        title: "Thalaiyar Falls Explorer",
+        category: "Nature & Wildlife",
+        description: "Explore Thalaiyar Falls (Rat Tail Falls) in Tamil Nadu - the highest waterfall in the state at 297m, featuring dramatic vertical drop in the Palani Hills, height comparisons, seasonal flow visualization, and nearby Kodaikanal attractions.",
+        url: "frontend/thalaiyar-falls-explorer/index.html"
     },
 ];

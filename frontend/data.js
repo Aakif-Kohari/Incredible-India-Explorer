@@ -376,7 +376,17 @@ const mapData = {
       "attractions": ["Victoria Memorial", "Howrah Bridge", "Darjeeling Tea Gardens", "Sundarbans National Park", "Dakshineswar Temple"],
       "bestTimeToVisit": "October to March",      "description": "West Bengal is the cultural capital, famous for literature (Rabindranath Tagore), colonial structures in Kolkata, Darjeeling tea, and Sundarbans tigers.",
       "story": "West Bengal is the cultural capital, famous for literature (Rabindranath Tagore), colonial structures in Kolkata, Darjeeling tea, and Sundarbans tigers.\n\nThe vibrant region of West Bengal is governed from its beautiful capital, Kolkata. The land is deeply connected to its roots, celebrating grand occasions like Durga Puja & Poila Baisakh with unmatched energy and devotion.\n\nVisitors from around the world are mesmerized by the local culinary delights, particularly the iconic Machher Jhol & Rasgulla, which represents centuries of refined regional cooking techniques and traditional spices. A journey to West Bengal is a journey through time, culture, and nature."
-    }
+    },
+    // Thalaiyar Falls Card
+    {
+        id: "thalaiyar-falls",
+        name: "Thalaiyar Falls",
+        category: "waterfall",
+        location: "Palani Hills, Tamil Nadu",
+        image: "assets/waterfalls/thalaiyar.jpg",
+        description: "Tamil Nadu's highest waterfall (297m) cascading down sheer cliffs of the Palani Hills, known as Rat Tail Falls for its distinctive thin stream.",
+        link: "frontend/thalaiyar-falls-explorer/index.html"
+    },
   ]
 };
 
