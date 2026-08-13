@@ -4906,6 +4906,13 @@ window.indiaSearchIndex = [
         description: "Explore Neelakurinji (Strobilanthes kunthiana) — the famous flowering shrub endemic to the Western Ghats that blooms once every twelve years, covering its taxonomy, 12-year flowering cycle, ecology, conservation status, and cultural significance.",
         url: "frontend/neelakurinji-explorer/index.html"
     },
+    // --- Thommankuthu Falls Explorer ---
+    {
+        title: "Thommankuthu Falls Explorer",
+        category: "Nature & Wildlife",
+        description: "Explore Thommankuthu Falls in Kerala - a seven-step cascade on the Keezharkuthu River in Idukki district, featuring interactive cascade explorer, forest ecosystem, seasonal flow, and trek access information.",
+        url: "frontend/thommankuthu-falls-explorer/index.html"
+    },
     // --- INA Red Fort Trials Explorer ---
     {
         title: "INA Red Fort Trials Explorer",
