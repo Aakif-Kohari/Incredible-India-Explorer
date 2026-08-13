@@ -4946,4 +4946,11 @@ window.indiaSearchIndex = [
         description: "Discover Rajgir's transition from the ancient Magadhan capital to a sacred landscape for Buddhist and Jain traditions.",
         url: "frontend/rajgir-explorer/index.html"
     },
+    // --- Gandhi's Noakhali Peace Mission Explorer ---
+    {
+        title: "Gandhi's Noakhali Peace Mission Explorer",
+        category: "Road to Partition",
+        description: "Follow Mahatma Gandhi's 1946-47 walking peace mission through the villages of Noakhali: the October 1946 communal violence, his arrival at Chandpur, the villages he visited, his peace meetings and community outreach, and the wider road to Partition.",
+        url: "frontend/noakhali-peace-mission-explorer/index.html"
+    },
 ];
