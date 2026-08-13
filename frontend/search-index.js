@@ -4933,6 +4933,12 @@ window.indiaSearchIndex = [
         description: "Explore the artistic heritage of Bengali Cinema (Tollywood): Satyajit Ray's masterpieces, Ritwik Ghatak, Mrinal Sen, and the Parallel Cinema movement.",
         url: "frontend/bengali-cinema-explorer/index.html"
     },
+    // --- 1946 Calcutta Crisis Explorer ---
+    {
+        title: "1946 Calcutta Crisis Explorer",
+        category: "Road to Partition",
+        description: "Explore the Great Calcutta Killings of August 1946: the political crisis behind Direct Action Day, the events of the violence, the human impact, the spread to Noakhali and Bihar, the administrative response, and the road to Partition.",
+        url: "frontend/calcutta-1946-crisis-explorer/index.html"},
     // --- Rajgir Sacred Landscape Explorer ---
     {
         title: "Rajgir Sacred Landscape Explorer",
