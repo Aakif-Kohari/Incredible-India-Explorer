@@ -1540,6 +1540,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Yashovarman of Kannauj Explorer ---
+  {
+    title: "Add Yashovarman of Kannauj – Early Medieval North Indian Ruler Explorer",
+    category: "History & Royalty",
+    description: "Create a dedicated historical profile page for Yashovarman of Kannauj (c. 725–752 CE) — introducing his reign, Kannauj's political importance, court scholars Bhavabhuti & Vakpati, Gaudavaho epic, and Tang China diplomacy.",
+    url: "frontend/yashovarman-kannauj-explorer/index.html"
+  },
   // --- Terracotta Pottery Explorer ---
   {
     title: "Terracotta Pottery Explorer",
