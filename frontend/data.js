@@ -356,6 +356,16 @@ const mapData = {
       "bestTimeToVisit": "October to March",      "description": "India's cultural heartland, Uttar Pradesh is home to the world-renowned Taj Mahal, sacred Ganges at Varanasi, and historical cities of Ayodhya and Mathura.",
       "story": "India's cultural heartland, Uttar Pradesh is home to the world-renowned Taj Mahal, sacred Ganges at Varanasi, and historical cities of Ayodhya and Mathura.\n\nThe vibrant region of Uttar Pradesh is governed from its beautiful capital, Lucknow. The land is deeply connected to its roots, celebrating grand occasions like Durga Puja & Taj Mahotsav with unmatched energy and devotion.\n\nVisitors from around the world are mesmerized by the local culinary delights, particularly the iconic Tunday Kababi, Petha & Chaat, which represents centuries of refined regional cooking techniques and traditional spices. A journey to Uttar Pradesh is a journey through time, culture, and nature."
     },
+    // Thommankuthu Falls Card
+    {
+        id: "thommankuthu-falls",
+        name: "Thommankuthu Falls",
+        category: "waterfall",
+        location: "Idukki, Kerala",
+        image: "assets/waterfalls/thommankuthu.jpg",
+        description: "A spectacular seven-step cascade on the Keezharkuthu River in the Western Ghats, featuring roaring rapids, natural pools, and pristine forest surroundings.",
+        link: "frontend/thommankuthu-falls-explorer/index.html"
+    },
     {
       "id": "ut",
       "name": "Uttarakhand",
