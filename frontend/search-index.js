@@ -1540,6 +1540,13 @@ window.indiaSearchIndex = [
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
   },
+  // --- Bhoja of Malwa Explorer ---
+  {
+    title: "Add Bhoja of Malwa – Paramara Scholar-King Explorer",
+    category: "History & Royalty",
+    description: "Create a dedicated historical profile page for Bhoja of Malwa (c. 1010–1055 CE), celebrated Paramara ruler — exploring his reign, Samarangana Sutradhara architecture treatise, Bhojeshwar Temple, and scholarship.",
+    url: "frontend/bhoja-malwa-explorer/index.html"
+  },
   // --- Terracotta Pottery Explorer ---
   {
     title: "Terracotta Pottery Explorer",
