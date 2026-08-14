@@ -5505,4 +5505,34 @@ function initPersonalitiesPage() {
     filterCards('historical');
 }
 
+/* ==========================================================================
+   Global Back to Top Utility
+   ========================================================================== */
+(function initBackToTop() {
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+    document.addEventListener('DOMContentLoaded', function() {
+        let btn = document.getElementById('btn-scroll-top');
+        if (!btn) {
+            btn = document.createElement('button');
+            btn.id = 'btn-scroll-top';
+            btn.className = 'btn-scroll-top';
+            btn.setAttribute('aria-label', 'Scroll to top');
+            btn.innerHTML = '↑';
+            document.body.appendChild(btn);
+        }
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+
+        btn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    });
+})();
+
 

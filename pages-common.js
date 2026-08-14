@@ -83,16 +83,29 @@ function initSiteChrome() {
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
-    const btnScrollTop = document.getElementById('btn-scroll-top');
+    let btnScrollTop = document.getElementById('btn-scroll-top');
+    if (!btnScrollTop) {
+        btnScrollTop = document.createElement('button');
+        btnScrollTop.id = 'btn-scroll-top';
+        btnScrollTop.className = 'btn-scroll-top';
+        btnScrollTop.setAttribute('aria-label', 'Scroll to top');
+        btnScrollTop.innerHTML = '↑';
+        document.body.appendChild(btnScrollTop);
+    }
     const themeBtn = document.getElementById('theme-toggle');
 
     // Sticky navbar shadow on scroll
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar?.classList.add('scrolled');
-            btnScrollTop?.classList.add('visible');
         } else {
-            btnScrollTop?.classList.remove('visible');
+            navbar?.classList.remove('scrolled');
+        }
+        
+        if (window.scrollY > 300) {
+            btnScrollTop.classList.add('visible');
+        } else {
+            btnScrollTop.classList.remove('visible');
         }
     });
 
@@ -112,11 +125,9 @@ function initSiteChrome() {
     }
 
     // Scroll to top
-    if (btnScrollTop) {
-        btnScrollTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
+    btnScrollTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
     // Theme toggle (dark/light) - persisted via localStorage, same key as main site
 if (themeBtn && !themeBtn.dataset.listenerBound) {
