@@ -166,6 +166,33 @@ export const ancientCitiesData = [
     }
   },
   {
+    id: "pushkalavati",
+    name: "Pushkalavati",
+    civilization: "Ancient Gandhara Civilization",
+    eraPeriod: "c. 6th century BCE – 2nd century CE",
+    location: "Charsadda District, Khyber Pakhtunkhwa (Ancient Gandhara)",
+    region: "Northwest",
+    mapCoords: { x: 20, y: 19 },
+    icon: "🏺",
+    shortSummary: "A great Gandharan capital at the confluence of the Swat and Kabul rivers, which withstood a month-long siege by Alexander before flourishing as a centre of Gandharan Buddhist art.",
+    archaeologicalDiscoveries: [
+      "Bala Hisar's fortified mound, occupied continuously from the Achaemenid period through Kushan times.",
+      "Shaikhan Dheri's Indo-Greek and Kushan-era city layers, rich in coins and Gandharan sculpture.",
+      "Terracotta figurines and pottery sequences spanning nearly a millennium of occupation."
+    ],
+    excavationFacts: {
+      discoveredBy: "Sir Alexander Cunningham (Archaeological Survey, 19th century)",
+      keyExcavator: "Sir Mortimer Wheeler (Bala Hisar, 1958) & Ahmad Hassan Dani (Shaikhan Dheri, 1960s)",
+      status: "Protected archaeological site under Pakistan's Department of Archaeology",
+      historicalSignificance: "A key Gandharan capital whose layered ruins trace the region's transformation from Achaemenid outpost to cradle of Greco-Buddhist art."
+    },
+    beforeVsToday: {
+      ancientLayout: "A fortified river-confluence city of two mounds, ringed by mudbrick walls, sustaining trade routes toward Central Asia and a flourishing Buddhist monastic landscape.",
+      todayStatus: "Two excavated mounds — Bala Hisar and Shaikhan Dheri — preserving stratified remains of walls, coins, pottery and Gandharan sculpture fragments."
+    },
+    exploreUrl: "../pushkalavati-explorer/index.html"
+  },
+  {
     id: "fatehpur-sikri",
     name: "Fatehpur Sikri",
     civilization: "Mughal Imperial City",
@@ -247,8 +274,8 @@ export function filterCities(query = "", filterTag = "all", list = ancientCities
       ...city.archaeologicalDiscoveries
     ].some(field => field && field.toLowerCase().includes(q));
 
-    const matchesFilter = f === "all" || 
-      city.region.toLowerCase() === f || 
+    const matchesFilter = f === "all" ||
+      city.region.toLowerCase() === f ||
       city.civilization.toLowerCase().includes(f);
 
     return matchesQuery && matchesFilter;
@@ -424,6 +451,10 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
             </a>
             ` : ''}
           </div>
+         <button type="button" class="btn-compare-trigger" data-city="${city.id}">
+            🔄 View Before vs Today Comparison
+          </button>
+          ${city.exploreUrl ? `<a href="${city.exploreUrl}" class="btn-compare-trigger" style="display:block; text-align:center; text-decoration:none; margin-top:10px;">🧭 Explore ${city.name}</a>` : ""}
         `;
 
         const compareBtn = card.querySelector(".btn-compare-trigger");
