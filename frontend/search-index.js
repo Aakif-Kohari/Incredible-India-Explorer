@@ -3852,6 +3852,12 @@ window.indiaSearchIndex = [
             'Horizontal filmstrip timeline detailing Indian cinema from 1913 Raja Harishchandra, talkies, parallel cinema, masala era, and diaspora boom to modern global Oscar triumphs.',
         url: 'frontend/indian-cinema-timeline/index.html'
     },
+    {
+    title: "Punjabi: ਪੰਜਾਬੀ and Gurmukhi",
+    category: "Languages & Culture",
+    description: "Discover Punjabi — Gurmukhi script, a verified greeting with pronunciation, common Punjabi words, its place in the Indo-Aryan family, major Punjabi-speaking regions, and cultural notes.",
+    url: "frontend/punjabi-explorer/index.html"
+    },
     // --- Reo Purgyil Mountain ---
     {
         title: 'Reo Purgyil Mountain Explorer',
