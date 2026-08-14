@@ -6,6 +6,11 @@
 window.indiaSearchIndex = [
 
     {
+        title: "Arunachal Pradesh's Tani Languages Explorer",
+        category: "Culture & Languages",
+        description: "Explore the diverse Tani language family of Arunachal Pradesh (Nyishi, Adi, Apatani, Galo, Tagin, Mising): regional map, verified audio greetings, comparative vocabulary matrix, and cultural heritage.",
+        url: "frontend/arunachal-tani-languages/index.html"},
+  {
         title: "Balti Language Explorer (Himalayan Heritage)",
         category: "Culture & Languages",
         description: "Explore the ancient Balti language of Ladakh (Kargil, Turtuk, Nubra Valley, Leh): 3 writing scripts, Old Tibetan consonant preservation, verified audio greetings, and cultural heritage.",
