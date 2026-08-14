@@ -186,6 +186,30 @@
             image: "../../assets/images/placeholder.jpg",
             imageAlt: "Example of Kerala architecture",
             imageCredit: "Representative Image"
+        },
+        {
+            id: "shekhawati-haveli",
+            name: "Shekhawati Havelis",
+            region: "Rajasthan (Shekhawati Region)",
+            period: "18th to 20th Century",
+            description: "Traditional courtyard mansions of Marwari merchants, renowned for their intricate fresco paintings, jharokhas, and passive desert-climate adaptations.",
+            features: [
+                "Extensive fresco paintings covering interior and exterior walls",
+                "Internal courtyards (chowks) serving as cooling shafts and family centers",
+                "Jharokhas (overhanging enclosed balconies) for ventilation and privacy",
+                "Constructed from local stone, lime plaster, and robust timber",
+                "Massive wooden entrance doors (torana) with intricate carvings",
+                "Designed for passive cooling in extreme desert climates"
+            ],
+            examples: [
+                "Nawalgarh Havelis",
+                "Mandawa Havelis",
+                "Fatehpur Havelis"
+            ],
+            image: "../../assets/images/placeholder.jpg",
+            imageAlt: "Example of a Shekhawati Haveli",
+            imageCredit: "Representative Image",
+            exploreUrl: "../shekhawati-haveli-explorer/index.html"
         }
     ];
 
