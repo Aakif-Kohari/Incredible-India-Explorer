@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Chandragupta Maurya Profile Page Stylesheet
+   Chandragupta Maurya Profile Page Stylesheet (Interactive & Visual)
    ========================================================================== */
 
 :root {
@@ -10,9 +10,9 @@
     --maurya-blue: #3b82f6;
     --maurya-emerald: #10b981;
     --maurya-bg: #0b0f19;
-    --maurya-surface: rgba(30, 41, 59, 0.5);
-    --maurya-surface-hover: rgba(30, 41, 59, 0.8);
-    --maurya-border: rgba(245, 158, 11, 0.18);
+    --maurya-surface: rgba(30, 41, 59, 0.55);
+    --maurya-surface-hover: rgba(30, 41, 59, 0.85);
+    --maurya-border: rgba(245, 158, 11, 0.22);
     --maurya-text: #f8fafc;
     --maurya-muted: #94a3b8;
     --maurya-card-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
@@ -20,9 +20,9 @@
 
 .light-theme {
     --maurya-bg: #f8fafc;
-    --maurya-surface: rgba(255, 255, 255, 0.9);
+    --maurya-surface: rgba(255, 255, 255, 0.92);
     --maurya-surface-hover: #ffffff;
-    --maurya-border: rgba(217, 119, 6, 0.25);
+    --maurya-border: rgba(217, 119, 6, 0.3);
     --maurya-text: #0f172a;
     --maurya-muted: #475569;
     --maurya-card-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
@@ -69,14 +69,20 @@
 /* --- Hero Section --- */
 .maurya-hero {
     position: relative;
-    padding: 60px 20px;
-    text-align: center;
+    padding: 60px 0;
     background: 
         radial-gradient(circle at 50% 20%, rgba(217, 119, 6, 0.18), transparent 60%),
         radial-gradient(circle at 80% 80%, rgba(153, 27, 27, 0.15), transparent 50%),
         linear-gradient(180deg, #0b0f19 0%, #111827 100%);
     border-bottom: 1px solid var(--maurya-border);
     overflow: hidden;
+}
+
+.hero-grid-split {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
 }
 
 .hero-kicker {
@@ -95,7 +101,7 @@
 
 .maurya-hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
     font-weight: 800;
     line-height: 1.15;
     margin-bottom: 16px;
@@ -105,42 +111,82 @@
 }
 
 .hero-subtitle {
-    font-size: 1.15rem;
+    font-size: 1.08rem;
     color: var(--maurya-muted);
-    max-width: 780px;
-    margin: 0 auto 36px;
     line-height: 1.65;
+    margin-bottom: 28px;
 }
 
 .hero-stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px;
-    max-width: 860px;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
 }
 
 .hero-stat-card {
     background: var(--maurya-surface);
     border: 1px solid var(--maurya-border);
     border-radius: 16px;
-    padding: 16px 20px;
+    padding: 14px 18px;
     backdrop-filter: blur(12px);
 }
 
 .stat-value {
     display: block;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: var(--maurya-amber);
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .stat-label {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     color: var(--maurya-muted);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+/* Hero Portrait Image Card */
+.hero-art-card {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--maurya-border);
+    background: var(--maurya-surface);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    transform: perspective(1000px) rotateY(-5deg);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-art-card:hover {
+    transform: perspective(1000px) rotateY(0deg) translateY(-6px);
+    box-shadow: 0 25px 50px rgba(245, 158, 11, 0.25);
+}
+
+.hero-portrait-img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-art-caption {
+    padding: 16px 20px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--maurya-border);
+}
+
+.hero-art-caption span {
+    display: block;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--maurya-amber);
+}
+
+.hero-art-caption small {
+    font-size: 0.82rem;
+    color: var(--maurya-muted);
 }
 
 /* --- Section Container Glass Cards --- */
@@ -194,11 +240,41 @@
     color: var(--maurya-text);
 }
 
-/* --- Section Two Column Layout --- */
+/* --- Section Two Column Layout & Images --- */
 .section-two-col {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     gap: 32px;
+    align-items: center;
+}
+
+.col-image-card {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--maurya-border);
+    background: rgba(0, 0, 0, 0.25);
+    padding: 12px;
+}
+
+.feature-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.col-image-card:hover .feature-img {
+    transform: scale(1.03);
+}
+
+.img-caption {
+    font-size: 0.86rem !important;
+    color: var(--maurya-muted);
+    margin-top: 10px !important;
+    margin-bottom: 0 !important;
+    text-align: center;
 }
 
 .col-highlight-box {
@@ -221,9 +297,37 @@
     margin-bottom: 0;
 }
 
+/* --- Campaign Selector Bar --- */
+.campaign-selector-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.campaign-btn {
+    padding: 10px 18px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--maurya-border);
+    color: var(--maurya-text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.campaign-btn:hover,
+.campaign-btn.active {
+    background: var(--maurya-amber);
+    border-color: var(--maurya-amber);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+}
+
 /* --- Map Container --- */
 .map-container-box {
-    margin-top: 24px;
+    margin-top: 16px;
     padding: 24px;
     border-radius: 18px;
     background: rgba(0, 0, 0, 0.25);
@@ -274,57 +378,75 @@
     font-size: 0.95rem;
     color: var(--maurya-muted);
     min-height: 52px;
+    line-height: 1.5;
 }
 
-/* --- Administration Grid --- */
-.admin-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
-    margin-top: 20px;
+/* --- Administration Tabbed Component --- */
+.admin-tab-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
-.admin-card {
+.admin-tab-btn {
+    padding: 12px 20px;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--maurya-border);
+    color: var(--maurya-text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.admin-tab-btn:hover,
+.admin-tab-btn.active {
+    background: rgba(217, 119, 6, 0.2);
+    border-color: var(--maurya-amber);
+    color: var(--maurya-amber);
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+}
+
+.admin-tab-display {
     padding: 24px;
     border-radius: 18px;
     background: rgba(0, 0, 0, 0.2);
     border: 1px solid var(--maurya-border);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    animation: fadeInAnim 0.3s ease;
 }
 
-.admin-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--maurya-amber);
-    background: var(--maurya-surface-hover);
+@keyframes fadeInAnim {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.admin-icon {
+.admin-display-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.admin-display-icon {
     font-size: 2.2rem;
-    margin-bottom: 12px;
 }
 
-.admin-card h3 {
-    font-size: 1.2rem;
+.admin-display-header h3 {
+    font-size: 1.4rem;
     color: var(--maurya-amber);
-    margin-bottom: 8px;
+    margin: 0;
 }
 
-.admin-card p {
-    font-size: 0.95rem;
-    color: var(--maurya-muted);
-    margin-bottom: 0;
-}
-
-/* --- Greek Relations --- */
-.greek-content-flex ul {
-    margin-top: 12px;
-    padding-left: 20px;
-}
-
-.greek-content-flex li {
-    font-size: 1.02rem;
-    line-height: 1.6;
-    margin-bottom: 10px;
+.arthashastra-quote {
+    margin-top: 16px;
+    padding: 14px 18px;
+    border-left: 3px solid var(--maurya-amber);
+    background: rgba(245, 158, 11, 0.08);
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+    color: var(--maurya-text);
 }
 
 /* --- Timeline --- */
@@ -351,6 +473,14 @@
     border-radius: 16px;
     background: rgba(0, 0, 0, 0.2);
     border: 1px solid var(--maurya-border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.timeline-item:hover {
+    border-color: var(--maurya-amber);
+    background: var(--maurya-surface-hover);
+    transform: translateX(4px);
 }
 
 .timeline-item::before {
@@ -416,6 +546,64 @@
     margin-bottom: 0;
 }
 
+/* --- Interactive Quiz Section --- */
+.quiz-box {
+    padding: 24px;
+    border-radius: 18px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--maurya-border);
+}
+
+.quiz-question {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--maurya-text);
+    margin-bottom: 18px;
+}
+
+.quiz-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.quiz-opt-btn {
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--maurya-border);
+    color: var(--maurya-text);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quiz-opt-btn:hover {
+    border-color: var(--maurya-amber);
+    background: rgba(245, 158, 11, 0.12);
+}
+
+.quiz-opt-btn.correct-ans {
+    background: rgba(16, 185, 129, 0.2) !important;
+    border-color: #10b981 !important;
+    color: #10b981 !important;
+}
+
+.quiz-opt-btn.wrong-ans {
+    background: rgba(239, 68, 68, 0.2) !important;
+    border-color: #ef4444 !important;
+    color: #ef4444 !important;
+}
+
+.quiz-feedback {
+    margin-top: 16px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    min-height: 24px;
+}
+
 /* --- Sources --- */
 .sources-section h3 {
     font-size: 1.25rem;
@@ -435,6 +623,9 @@
 
 /* --- Responsiveness --- */
 @media (max-width: 860px) {
+    .hero-grid-split {
+        grid-template-columns: 1fr;
+    }
     .section-two-col {
         grid-template-columns: 1fr;
     }

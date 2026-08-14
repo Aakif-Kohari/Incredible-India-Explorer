@@ -1,9 +1,12 @@
-// Chandragupta Maurya Profile Page JavaScript
+// Chandragupta Maurya Profile Page JavaScript (Interactive & Dynamic)
 
 document.addEventListener('DOMContentLoaded', () => {
     initTimeline();
     initInterestingFacts();
     initMapInteractivity();
+    initCampaignSelector();
+    initAdminTabs();
+    initQuizWidget();
     initThemeToggle();
 });
 
@@ -100,17 +103,115 @@ function initInterestingFacts() {
     });
 }
 
-// 3. Interactive Map Pins Logic
+// 3. Campaign Selector Logic
+function initCampaignSelector() {
+    const btns = document.querySelectorAll('.campaign-btn');
+    const poly = document.getElementById('map-empire-poly');
+    const infoPanel = document.getElementById('map-region-info');
+    if (!btns.length || !poly || !infoPanel) return;
+
+    const campaignConfigs = {
+        all: {
+            points: "140,110 320,70 650,150 720,260 620,380 440,360 280,290 160,200",
+            text: "<strong>Full Mauryan Extent (c. 300 BCE):</strong> Spanning from Kabul (Afghanistan) and Gedrosia (Balochistan) in the west to Bengal in the east, and from the Himalayas to the Deccan Plateau."
+        },
+        nanda: {
+            points: "360,140 520,130 680,180 660,280 500,290 380,230",
+            text: "<strong>Nanda Conquest (321 BCE):</strong> Mobilizing alliances with regional chieftains, Chandragupta besieged the Magadhan heartland and captured Pataliputra, seizing the Nanda treasury and crown."
+        },
+        seleucid: {
+            points: "130,90 280,70 340,160 280,220 140,200",
+            text: "<strong>Seleucid Campaign (305 BCE):</strong> Confronting Seleucus I Nicator along the Indus, Chandragupta secured the eastern satrapies of Arachosia, Gedrosia, Paropamisadae, and Aria in exchange for 500 war elephants."
+        },
+        deccan: {
+            points: "320,220 580,210 620,380 440,360 280,290",
+            text: "<strong>Western &amp; Deccan Annexations:</strong> Subjugating Avanti (Ujjain), Surashtra (Gujarat), and extending Mauryan suzerainty into northern Karnataka."
+        }
+    };
+
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const key = btn.dataset.campaign;
+            if (campaignConfigs[key]) {
+                poly.setAttribute('points', campaignConfigs[key].points);
+                infoPanel.innerHTML = campaignConfigs[key].text;
+            }
+        });
+    });
+}
+
+// 4. Interactive Administration Tabs
+function initAdminTabs() {
+    const btns = document.querySelectorAll('.admin-tab-btn');
+    const display = document.getElementById('admin-tab-content');
+    if (!btns.length || !display) return;
+
+    const tabData = {
+        central: {
+            icon: "🏛️",
+            title: "Central Governance & Council of Ministers",
+            desc: "The Emperor governed with the assistance of the <strong>Mantriparishad</strong> (Council of Ministers). Executive decisions were executed by specialized departmental heads (<em>Adhyakshas</em>) overseeing state treasuries, customs, agriculture, and public works.",
+            quote: "“In the happiness of his subjects lies his happiness; in their welfare his welfare.” — Kautilya's Arthashastra"
+        },
+        military: {
+            icon: "⚔️",
+            title: "Military Engine & Six Administrative Boards",
+            desc: "According to Pliny and Megasthenes, Chandragupta commanded a standing force of <strong>600,000 infantry, 30,000 cavalry, and 9,000 war elephants</strong>. Military affairs were managed by a war office composed of 30 members divided into 6 specialized boards (Infantry, Cavalry, Elephants, Chariots, Navy, and Commissariat).",
+            quote: "“A disciplined army and well-stocked arsenal form the pillar of imperial sovereignty.” — Arthashastra Book VI"
+        },
+        espionage: {
+            icon: "🕵️",
+            title: "Gudhavapurusha Spy & Intelligence Network",
+            desc: "Chanakya established an advanced intelligence system. Secret agents code-named <strong>Gudhavapurushas</strong> were stationed across towns, foreign embassies, and administrative offices to counter corruption, gather public sentiment, and thwart insurrections.",
+            quote: "“The King shall listen to secret intelligence continuously, ensuring no officer acts beyond law.” — Arthashastra Book I"
+        },
+        economy: {
+            icon: "💰",
+            title: "Economic System & Silver Punch-Marked Coinage",
+            desc: "The state controlled strategic resources including mines, forests, and salt pans. Standardized silver punch-marked coins (<em>Pana</em>) bearing solar and animal motifs facilitated long-distance trade across the Royal Road from Taxila to Pataliputra.",
+            quote: "“All administrative measures originate with finance; therefore supreme attention shall be given to the treasury.” — Arthashastra Book II"
+        }
+    };
+
+    function renderTab(key) {
+        const d = tabData[key];
+        if (!d) return;
+        display.innerHTML = `
+            <div class="admin-display-header">
+                <span class="admin-display-icon">${d.icon}</span>
+                <h3>${d.title}</h3>
+            </div>
+            <p>${d.desc}</p>
+            <div class="arthashastra-quote">${d.quote}</div>
+        `;
+    }
+
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderTab(btn.dataset.tab);
+        });
+    });
+
+    // Default load
+    renderTab('central');
+}
+
+// 5. Interactive Map Pins Logic
 function initMapInteractivity() {
     const pins = document.querySelectorAll('.map-pin-group');
     const infoPanel = document.getElementById('map-region-info');
     if (!pins.length || !infoPanel) return;
 
     const regionData = {
-        pataliputra: "<strong>Pataliputra (Imperial Capital):</strong> Located near modern Patna at the confluence of the Ganges and Sone rivers. It served as the central administrative hub with royal council halls, state treasury, and imperial mints.",
-        taxila: "<strong>Taxila (Northwestern Province):</strong> Seat of the northwestern viceroyalty near modern Islamabad, Pakistan. A premier ancient university city where Chanakya taught and where Chandragupta studied statecraft.",
-        ujjain: "<strong>Ujjain (Avanti Province):</strong> Capital of the western province of Avanti. A major commercial crossroads regulating trade routes between Pataliputra and the Arabian Sea ports.",
-        kandahar: "<strong>Arachosia (Kandahar & Kabul territories):</strong> Acquired in 305 BCE following the treaty with Seleucus I. Established peaceful diplomatic relations and Greek-Aramaic bilingual inscriptions."
+        pataliputra: "<strong>Pataliputra (Imperial Capital):</strong> Situated near modern Patna at the Ganges-Sone confluence. Megasthenes described it as a magnificent city with 64 gates, 570 towers, and royal timber palaces.",
+        taxila: "<strong>Taxila (Northwestern Seat):</strong> Ancient university hub where Chanakya taught. Served as the administrative capital for the northwestern frontier satrapies.",
+        ujjain: "<strong>Ujjain (Western Province):</strong> Capital of Avanti province regulating overland trade routes between the Gangetic plain and Arabian Sea trade ports.",
+        kandahar: "<strong>Arachosia (Kandahar Territory):</strong> Transferred to Mauryan sovereignty following the 305 BCE treaty with Seleucus I Nicator."
     };
 
     pins.forEach(pin => {
@@ -123,7 +224,50 @@ function initMapInteractivity() {
     });
 }
 
-// 4. Dark/Light Theme Toggle Logic
+// 6. Interactive Quiz Widget Logic
+function initQuizWidget() {
+    const qText = document.getElementById('quiz-question-text');
+    const optionsBox = document.getElementById('quiz-options-box');
+    const feedbackBox = document.getElementById('quiz-feedback-box');
+    if (!qText || !optionsBox || !feedbackBox) return;
+
+    const quizData = {
+        question: "Which Greek ruler signed the 305 BCE peace treaty with Chandragupta Maurya, ceding Arachosia and receiving 500 war elephants?",
+        options: [
+            { text: "Alexander the Great", correct: false },
+            { text: "Seleucus I Nicator", correct: true },
+            { text: "Antiochus III", correct: false },
+            { text: "Ptolemy I Soter", correct: false }
+        ],
+        explanation: "Correct! Seleucus I Nicator signed the 305 BCE treaty, ceding the eastern satrapies of Arachosia, Gedrosia, and Kabul in exchange for 500 Mauryan war elephants."
+    };
+
+    qText.textContent = quizData.question;
+    optionsBox.innerHTML = '';
+
+    quizData.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-opt-btn';
+        btn.textContent = opt.text;
+        btn.addEventListener('click', () => {
+            const allBtns = optionsBox.querySelectorAll('.quiz-opt-btn');
+            allBtns.forEach(b => b.disabled = true);
+
+            if (opt.correct) {
+                btn.classList.add('correct-ans');
+                feedbackBox.style.color = '#10b981';
+                feedbackBox.innerHTML = `✅ ${quizData.explanation}`;
+            } else {
+                btn.classList.add('wrong-ans');
+                feedbackBox.style.color = '#ef4444';
+                feedbackBox.innerHTML = `❌ Incorrect. The correct answer is <strong>Seleucus I Nicator</strong>.`;
+            }
+        });
+        optionsBox.appendChild(btn);
+    });
+}
+
+// 7. Dark/Light Theme Toggle Logic
 function initThemeToggle() {
     const toggleBtn = document.getElementById('theme-toggle');
     if (!toggleBtn) return;
