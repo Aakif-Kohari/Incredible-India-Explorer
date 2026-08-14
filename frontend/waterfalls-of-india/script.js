@@ -221,6 +221,21 @@
             image: "https://images.unsplash.com/photo-1467890947394-8171244e5410?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1467890947394-8171244e5410?auto=format&fit=crop&q=40&w=400",
             url: "../kempty-falls-explorer/index.html"
+        },
+        {
+            id: "chitrakote",
+            name: "Chitrakote Falls",
+            state: "Chhattisgarh",
+            river: "Indravati River",
+            height: "29 meters",
+            season: "Monsoon",
+            tags: ["monsoon", "widest"],
+            description: "India's widest waterfall, spreading nearly 300m across the Indravati in a horseshoe shape.",
+            flow: "Roaring reddish-brown curtain in monsoon; narrower clear streams in the dry season.",
+            attractions: "Tirathgarh Falls, Kanger Valley National Park, Kailash Caves.",
+            image: "https://images.unsplash.com/photo-1620641622310-c1c243e4959c?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1620641622310-c1c243e4959c?auto=format&fit=crop&q=40&w=400",
+            url: "../chitrakote-falls-explorer/index.html"
         }
     ];
 
