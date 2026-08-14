@@ -384,7 +384,8 @@
                 { name: 'Urdu', script: 'السلام علیکم', region: 'Jammu & Kashmir, Telangana, UP, Bihar', code: 'ur-IN' },
                 { name: 'Gujarati', script: 'નમસ્તે', region: 'Gujarat', code: 'gu-IN' },
                 { name: 'Kannada', script: 'ನಮಸ್ಕಾರ', region: 'Karnataka', code: 'kn-IN' },
-                { name: 'Malayalam', script: 'നമസ്കാരം', region: 'Kerala', code: 'ml-IN' }
+                { name: 'Malayalam', script: 'നമസ്കാരം', region: 'Kerala', code: 'ml-IN' },
+                { name: 'Mizo', script: 'Chibai', region: 'Mizoram', code: 'en-IN', description: 'A Tibeto-Burman language with a Roman-based orthography, deeply rooted in Mizoram.', exploreUrl: '../mizo-language-explorer/index.html' }
             ];
 
             const grid = document.getElementById('lang-grid');
@@ -502,9 +503,11 @@
                     <div class="lang-script" aria-hidden="true">${lang.script}</div>
                     <h3 class="lang-name">${lang.name}</h3>
                     <div class="lang-region">${lang.region}</div>
+                    ${lang.description ? \`<p style="font-size: 0.9rem; margin: 10px 0; color: #ddd;">${lang.description}</p>\` : ''}
                     <button class="play-btn" data-lang="${lang.code}" data-text="${lang.script}" data-name="${lang.name}" aria-label="Play greeting in ${lang.name}">
                         ▶ Listen
                     </button>
+                    ${lang.exploreUrl ? \`<a href="${lang.exploreUrl}" class="play-btn" style="margin-top: 10px; background: transparent; border: 1px solid var(--saffron, #FF9933); color: var(--saffron, #FF9933); text-decoration: none;">Explore ${lang.name}</a>\` : ''}
                 `;
                 
                 const btn = card.querySelector('.play-btn');

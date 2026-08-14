@@ -99,5 +99,16 @@ window.languageData = {
         states: ["Punjab"],
         audio: "assets/audio/punjabi.mp3",
         description: "A tonal language spoken in the Punjab region, commonly written in the Gurmukhi script in India."
+    },
+    "kokborok": {
+        language: "Kokborok (Tripuri)",
+        script: "কোকবরক / 𑰐𑰺𑰐𑰤𑰺𑰐",
+        greeting: "খুলুমখা",
+        pronunciation: "Khulumkha",
+        family: "Sino-Tibetan (Tibeto-Burman)",
+        states: ["Tripura"],
+        audio: "../kokborok-language-explorer/index.html",
+        description: "The indigenous official language of Tripura, belonging to the Sal (Bodo-Garo) family. Written in Koloma, Roman, and Bengali scripts."
     }
 };
+
