@@ -699,6 +699,12 @@ window.indiaSearchIndex = [
         url: "frontend/odia-cinema-explorer/index.html"
     },
     {
+        title: "Kui Language & Culture Explorer",
+        category: "Culture",
+        description: "Discover the indigenous Kui language of Odisha's Eastern Ghats highlands — native script, greetings, verified audio pronunciations, Dravidian cognates, regional map, and Kondha tribal heritage.",
+        url: "frontend/kui-language-explorer/index.html"
+    },
+    {
         title: "Tollywood (Telugu Cinema) Explorer",
         category: "Culture",
         description: "Discover Tollywood, the Telugu film industry — from Bhakta Prahlada (1931), the first Telugu talkie, to globally acclaimed epics like Baahubali and Oscar-winning RRR.",
