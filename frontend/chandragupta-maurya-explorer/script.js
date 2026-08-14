@@ -1,13 +1,16 @@
 // Chandragupta Maurya Profile Page JavaScript (Interactive & Dynamic)
 
 function runInit() {
-    initTimeline();
-    initInterestingFacts();
-    initMapInteractivity();
-    initCampaignSelector();
-    initAdminTabs();
-    initQuizWidget();
-    initThemeToggle();
+    const safeExec = (fn, name) => {
+        try { fn(); } catch (e) { console.error(`Error in ${name}:`, e); }
+    };
+    safeExec(initTimeline, 'initTimeline');
+    safeExec(initInterestingFacts, 'initInterestingFacts');
+    safeExec(initMapInteractivity, 'initMapInteractivity');
+    safeExec(initCampaignSelector, 'initCampaignSelector');
+    safeExec(initAdminTabs, 'initAdminTabs');
+    safeExec(initQuizWidget, 'initQuizWidget');
+    safeExec(initThemeToggle, 'initThemeToggle');
 }
 
 if (document.readyState === 'loading') {
@@ -237,39 +240,24 @@ function initQuizWidget() {
     const feedbackBox = document.getElementById('quiz-feedback-box');
     if (!qText || !optionsBox || !feedbackBox) return;
 
-    const quizData = {
-        question: "Which Greek ruler signed the 305 BCE peace treaty with Chandragupta Maurya, ceding Arachosia and receiving 500 war elephants?",
-        options: [
-            { text: "Alexander the Great", correct: false },
-            { text: "Seleucus I Nicator", correct: true },
-            { text: "Antiochus III", correct: false },
-            { text: "Ptolemy I Soter", correct: false }
-        ],
-        explanation: "Correct! Seleucus I Nicator signed the 305 BCE treaty, ceding the eastern satrapies of Arachosia, Gedrosia, and Kabul in exchange for 500 Mauryan war elephants."
-    };
+    const explanation = "Correct! Seleucus I Nicator signed the 305 BCE treaty, ceding the eastern satrapies of Arachosia, Gedrosia, and Kabul in exchange for 500 Mauryan war elephants.";
 
-    qText.textContent = quizData.question;
-    optionsBox.innerHTML = '';
-
-    quizData.options.forEach(opt => {
-        const btn = document.createElement('button');
-        btn.className = 'quiz-opt-btn';
-        btn.textContent = opt.text;
+    const buttons = optionsBox.querySelectorAll('.quiz-opt-btn');
+    buttons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const allBtns = optionsBox.querySelectorAll('.quiz-opt-btn');
-            allBtns.forEach(b => b.disabled = true);
+            buttons.forEach(b => b.disabled = true);
+            const isCorrect = btn.getAttribute('data-correct') === 'true';
 
-            if (opt.correct) {
+            if (isCorrect) {
                 btn.classList.add('correct-ans');
                 feedbackBox.style.color = '#10b981';
-                feedbackBox.innerHTML = `✅ ${quizData.explanation}`;
+                feedbackBox.innerHTML = `✅ ${explanation}`;
             } else {
                 btn.classList.add('wrong-ans');
                 feedbackBox.style.color = '#ef4444';
                 feedbackBox.innerHTML = `❌ Incorrect. The correct answer is <strong>Seleucus I Nicator</strong>.`;
             }
         });
-        optionsBox.appendChild(btn);
     });
 }
 
