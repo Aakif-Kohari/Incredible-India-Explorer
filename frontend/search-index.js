@@ -3836,6 +3836,21 @@ window.indiaSearchIndex = [
             "Discover the ancient Ashokan pillar, Buddha's Relic Stupa, the sacred Coronation Tank, and early democratic structures in Bihar.",
         url: 'frontend/vaishali-explorer/index.html'
     },
+    // --- Chandragupta Maurya – Founder of the Mauryan Empire ---
+    {
+        title: "Chandragupta Maurya: Founder of the Mauryan Empire",
+        category: 'Famous Rulers & History',
+        description:
+            'Explore Chandragupta Maurya (c. 321–297 BCE), founder of the Mauryan Empire, unifier of ancient India, Chanakya relationship, Seleucid treaty, and administrative statecraft.',
+        url: 'frontend/chandragupta-maurya-explorer/index.html'
+    },
+    {
+        title: 'Mauryan Administration & Seleucid War Guide',
+        category: 'Ancient History',
+        description:
+            "Discover Pataliputra's palisades, the 305 BCE treaty with Seleucus I Nicator, Arthashastra governance, and Megasthenes' Indika records.",
+        url: 'frontend/chandragupta-maurya-explorer/index.html'
+    },
     // --- India's Border Explorer ---
     {
         title: "India's Border Explorer",
