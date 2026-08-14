@@ -3877,7 +3877,11 @@ window.indiaSearchIndex = [
         url: 'frontend/indian-cinema-timeline/index.html'
     },
     {
-    title: "Punjabi: ਪੰਜਾਬੀ and Gurmukhi",
+    title: "Awadhi: अवधी and Its Literary Tradition",
+    category: "Languages & Culture",
+    description: "Explore Awadhi — Devanagari script, a verified greeting with pronunciation, common Awadhi words, its place in the Indo-Aryan family, the Awadh region, and its literary tradition including Tulsidas's Ramcharitmanas.",
+    url: "frontend/awadhi-explorer/index.html"},
+  {title: "Punjabi: ਪੰਜਾਬੀ and Gurmukhi",
     category: "Languages & Culture",
     description: "Discover Punjabi — Gurmukhi script, a verified greeting with pronunciation, common Punjabi words, its place in the Indo-Aryan family, major Punjabi-speaking regions, and cultural notes.",
     url: "frontend/punjabi-explorer/index.html"},
