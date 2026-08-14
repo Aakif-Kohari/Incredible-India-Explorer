@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Mughal Coinage: interactive guides to gold, silver, and copper coins struck by Akbar, Jahangir, Shah Jahan, and Aurangzeb. Explore inscriptions, mint maps, and compare coins.">
+  <title>Mughal Coinage Explorer | Incredible India</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="mughal-body">
+  <!-- Sticky Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Back Link & Header -->
+  <header class="explorer-header">
+    <div class="header-inner">
+      <a href="../dynasties-of-india-explorer/index.html" class="back-link">← Back to Dynasties</a>
+      <div class="hero-card">
+        <div class="hero-copy">
+          <span class="eyebrow">Numismatic Heritage</span>
+          <h1>Mughal Coinage Explorer</h1>
+          <p>Delve into the currency of one of the world's wealthiest empires. Discover how gold mohurs, silver rupees, and copper dams evolved in design, calligraphy, and weight across three centuries of Mughal rule.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="explorer-main">
+    <!-- Section 1: Emperor Selector & Coin Viewer -->
+    <section class="content-section coin-viewer-section">
+      <div class="section-header">
+        <span class="section-tag">Interactive Gallery</span>
+        <h2>Explore Emperor Coinage</h2>
+        <p class="section-desc">Select an emperor to view their representative coins, design innovations, scripts, and inscriptions.</p>
+      </div>
+
+      <div class="viewer-layout">
+        <!-- Sidebar: Emperor Selector -->
+        <div class="emperor-sidebar">
+          <div class="sidebar-list" id="emperor-list" role="tablist" aria-label="Mughal Emperors">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Main Panel: Coin Display & Info -->
+        <div class="coin-display-panel" id="coin-display-panel">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive Mint Map -->
+    <section class="content-section mint-map-section">
+      <div class="section-header">
+        <span class="section-tag">Geographic Distribution</span>
+        <h2>Mints of the Empire</h2>
+        <p class="section-desc">Mughal currency was struck across a massive network of provincial mints. Click on a mint to see its history and the coins produced there.</p>
+      </div>
+
+      <div class="map-layout">
+        <!-- SVG Map Container -->
+        <div class="map-container">
+          <div class="map-wrapper" id="map-wrapper">
+            <!-- Stylized SVG Map of Mughal Empire/India -->
+            <svg class="india-map-svg" viewBox="0 0 600 700" xmlns="http://www.w3.org/2000/svg">
+              <!-- Outline representation of South Asia / Mughal Peak Extent -->
+              <path class="map-country-outline" d="M 120,80 L 150,60 L 220,50 L 270,30 L 290,40 L 320,60 L 310,120 L 340,150 L 380,140 L 410,160 L 460,150 L 520,200 L 530,250 L 480,270 L 460,260 L 430,300 L 400,310 L 360,290 L 380,350 L 410,400 L 420,440 L 400,480 L 380,510 L 350,560 L 330,620 L 320,640 L 305,650 L 295,640 L 290,560 L 300,500 L 280,450 L 250,420 L 220,380 L 180,360 L 160,370 L 140,320 L 120,300 L 110,260 L 80,245 L 70,220 L 90,180 L 80,150 L 100,120 Z" />
+              <path class="map-peak-extent" d="M 140,120 L 190,80 L 260,70 L 300,80 L 310,130 L 350,160 L 390,170 L 420,180 L 470,210 L 460,240 L 420,270 L 380,280 L 360,320 L 380,380 L 395,430 L 360,450 L 310,460 L 290,420 L 250,380 L 190,350 L 150,300 L 110,250 L 100,180 Z" />
+              <!-- Graticules or River indicators for flavor -->
+              <path class="map-river" d="M 120,150 Q 200,230 380,200 Q 450,220 480,250" />
+              <path class="map-river" d="M 280,70 Q 320,180 320,350" />
+              <!-- Mint dots populated dynamically -->
+              <g id="map-mint-markers"></g>
+            </svg>
+            <div id="map-tooltip" class="map-tooltip"></div>
+          </div>
+        </div>
+
+        <!-- Mint Info Panel -->
+        <div class="mint-info-panel" id="mint-info-panel">
+          <div class="mint-placeholder">
+            <span class="mint-placeholder-icon">📍</span>
+            <h3>Select a Mint</h3>
+            <p>Click on any mint location on the map to explore its history, role in trade, and currency output.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Coin Comparison -->
+    <section class="content-section coin-comparison-section">
+      <div class="section-header">
+        <span class="section-tag">Comparison Tool</span>
+        <h2>Compare Coins Side-by-Side</h2>
+        <p class="section-desc">Select any two coins from the Mughal treasury to compare their metal composition, inscriptions, weights, and scripts.</p>
+      </div>
+
+      <div class="comparison-selectors">
+        <div class="selector-group">
+          <label for="coin-a-select">Select Coin A:</label>
+          <select id="coin-a-select" class="comparison-select"></select>
+        </div>
+        <div class="comparison-vs">VS</div>
+        <div class="selector-group">
+          <label for="coin-b-select">Select Coin B:</label>
+          <select id="coin-b-select" class="comparison-select"></select>
+        </div>
+      </div>
+
+      <div class="comparison-results" id="comparison-results">
+        <!-- Populated dynamically -->
+      </div>
+    </section>
+
+    <!-- Section 4: Evolution Timeline -->
+    <section class="content-section timeline-section">
+      <div class="section-header">
+        <span class="section-tag">Historical Timeline</span>
+        <h2>Evolution of Mughal Currency</h2>
+        <p class="section-desc">Key milestones in the standardisation, artistic design, and reform of the Mughal empire's monetary system.</p>
+      </div>
+      <div class="timeline-list" id="timeline-list">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+
+    <!-- Section 5: References & Resources -->
+    <section class="content-section references-section">
+      <div class="section-header">
+        <span class="section-tag">Sources</span>
+        <h2>Historical References & Sources</h2>
+      </div>
+      <div class="reference-panel">
+        <h3>Numismatic Literature</h3>
+        <ul>
+          <li><strong>Stanley Lane-Poole:</strong> <i>The Coins of the Moghul Emperors in the British Museum</i> (London, 1892) — A fundamental catalog detailing inscription variations.</li>
+          <li><strong>R. B. Whitehead:</strong> <i>Catalogue of Coins in the Punjab Museum, Lahore: Coins of the Mughal Emperors</i> (Oxford, 1914) — Key records of regional mint marks.</li>
+          <li><strong>S. H. Hodivala:</strong> <i>Historical Studies in Mughal Numismatics</i> (Calcutta, 1923) — Detailed analysis of Persian couplets and metrology.</li>
+          <li><strong>C. J. Brown:</strong> <i>The Coins of India</i> (Heritage of India Series) — Accessible guide to coinage transitions from Delhi Sultanate to Mughal standardisation.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mughal-footer">
+    <p>Mughal Coinage Explorer — part of Incredible India Explorer.</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

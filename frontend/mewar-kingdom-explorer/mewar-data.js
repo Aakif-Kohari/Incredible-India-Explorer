@@ -1,0 +1,88 @@
+/**
+ * Kingdom of Mewar Explorer — Data Module
+ * Comprehensive dataset covering historical overview, timeline, major rulers,
+ * hill forts of Rajasthan, Rajput resistance, gallery, and references.
+ */
+
+const MEWAR_INFO = {
+    id: "mewar-kingdom",
+    name: "Kingdom of Mewar",
+    motto: "Jo Dhradh Rakhe Dharam Ko, Tihi Rakhe Kartar (He who preserves righteousness is protected by God)",
+    capital: "Chittorgarh (until 1568) / Udaipur (City of Lakes)",
+    period: "728 – 1949 CE",
+    stateRegion: "Mewar Region, Southern Rajasthan (India)",
+    dynasty: "Guhila / Sisodia Rajput Dynasty",
+    stateDeity: "Shree Eklingji (Lord Shiva)",
+    quickStats: [
+        { label: "Founded Year", value: "728 CE", icon: "👑" },
+        { label: "Founder", value: "Bappa Rawal", icon: "⚔️" },
+        { label: "Heroic Ruler", value: "Maharana Pratap", icon: "🐎" },
+        { label: "Longest Wall", value: "Kumbhalgarh (36 km)", icon: "🏰" },
+        { label: "UNESCO Fort", value: "Chittorgarh Fort", icon: "🛡️" },
+        { label: "Accession", value: "1949 to India", icon: "🇮🇳" }
+    ]
+};
+
+const TIMELINE_DATA = [
+    { year: "728 CE", title: "Founding of Mewar State", description: "Bappa Rawal captures Chittor Fort from Man Mori and establishes the legendary Guhila dynasty under divine blessing of Eklingji." },
+    { year: "1303 CE", title: "Siege of Chittorgarh & Rani Padmini", description: "Rawal Ratan Singh defends Chittorgarh against Alauddin Khalji; Rani Padmini leads heroic Jauhar to protect honor." },
+    { year: "1433–1468 CE", title: "Era of Rana Kumbha", description: "Rana Kumbha constructs 32 of Mewar's 84 forts including Kumbhalgarh (36 km defense wall) and Victory Tower (Vijay Stambha)." },
+    { year: "1527 CE", title: "Battle of Khanwa", description: "Rana Sanga unites Rajput confederacy to fight Babur at Khanwa in a landmark clash for North Indian supremacy." },
+    { year: "1559 CE", title: "Foundation of Udaipur", description: "Maharana Udai Singh II founds Udaipur in the Aravalli hills as the new capital after Chittorgarh falls to Akbar." },
+    { year: "1576 CE", title: "Battle of Haldighati", description: "Maharana Pratap on his loyal steed Chetak fights the Mughal army of Akbar led by Man Singh I, sustaining fiercely independent guerrilla resistance." },
+    { year: "1949 CE", title: "Accession to Republic of India", description: "Maharana Bhupal Singh signs the covenant, merging Mewar into the United State of Rajasthan." }
+];
+
+const RULERS_DATA = [
+    {
+        name: "Bappa Rawal (728–753)",
+        role: "Founder & Liberator of Mewar",
+        achievements: "Unified Mewar, repelled Arab invasions into western India, captured Chittorgarh, and declared Eklingji as supreme sovereign."
+    },
+    {
+        name: "Rana Kumbha (1433–1468)",
+        role: "Polymath, Musician & Fort Architect",
+        achievements: "Defeated Sultanates of Malwa & Gujarat, built Vijay Stambha (Tower of Victory), and constructed Kumbhalgarh Fort."
+    },
+    {
+        name: "Rana Sanga (1508–1528)",
+        role: "Supreme Warrior & Confederation Leader",
+        achievements: "Fought 100 battles, expanded Mewar into Central India, and organized the grandest Rajput alliance against early Mughal rule."
+    },
+    {
+        name: "Maharana Pratap (1572–1597)",
+        role: "Symbol of Unyielding Patriotism",
+        achievements: "Fought Battle of Haldighati (1576), liberated most of Mewar during Battle of Dewair (1582), and established Chavand capital."
+    }
+];
+
+const CONTRIBUTIONS_DATA = {
+    overview: "The Kingdom of Mewar is immortalized in Indian history for its unbending commitment to independence, chivalry, fort architecture, and lake conservation.",
+    fortsAndPalaces: "Home to 2 UNESCO Hill Forts of Rajasthan: Chittorgarh Fort (India's largest fort spread over 700 acres) and Kumbhalgarh Fort (possessing the 2nd longest continuous wall on Earth).",
+    waterEngineering: "Maharanas engineered Lake Pichola, Fateh Sagar Lake, and Udai Sagar Lake, transforming arid Udaipur into the romantic 'City of Lakes'.",
+    vijayStambha: "Rana Kumbha erected the 9-story, 37-meter high Vijay Stambha in 1448 to commemorate victory over Mahmud Khalji, decorated with intricate Hindu deity sculptures.",
+    rajputResilience: "Mewar holds the unique record of being the only major Rajput kingdom that refused to enter matrimonial alliances with the Mughal empire."
+};
+
+const GALLERY_IMAGES = [
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Chittorgarh_Fort_View.jpg/800px-Chittorgarh_Fort_View.jpg",
+        caption: "Chittorgarh Fort — UNESCO World Heritage Site & pride of Mewar Rajput chivalry",
+        category: "Architecture"
+    },
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Kumbhalgarh_Fort_Wall.jpg/800px-Kumbhalgarh_Fort_Wall.jpg",
+        caption: "Kumbhalgarh Fort Wall — 36 km long defense wall surrounding the Aravalli hills",
+        category: "Heritage"
+    }
+];
+
+const REFERENCES = [
+    { text: "Tod, James (1829). Annals and Antiquities of Rajast'han. Smith, Elder, and Co., London.", link: "#" },
+    { text: "Ojha, Gauri Shankar Hirachand (1928). History of Rajputana: Mewar. Ajmer Press.", link: "#" },
+    { text: "Somani, Ram Vallabh (1976). History of Mewar: From Earliest Times to 1751 A.D. C.L. Ranka & Co.", link: "#" }
+];
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { MEWAR_INFO, TIMELINE_DATA, RULERS_DATA, CONTRIBUTIONS_DATA, GALLERY_IMAGES, REFERENCES };
+}
