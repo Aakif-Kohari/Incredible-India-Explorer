@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Explore Kuno National Park in Madhya Pradesh — globally recognized for the historic African Cheetah reintroduction project." />
   <title>Kuno National Park Explorer | Incredible India</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../../styles.css" />
+  <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../styles.css" />
   <link rel="stylesheet" href="kuno.css" />
   <meta property="og:title" content="Kuno National Park Explorer | Incredible India" />
   <meta property="og:description" content="Interactive guide to Kuno National Park, MP — the historic site of Project Cheetah and a thriving dry deciduous ecosystem." />
@@ -17,7 +18,7 @@
 <body class="kuno-main">
     <script>
         (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
             if (theme === 'light') {
                 document.body.classList.add('light-theme');
             }
@@ -192,7 +193,8 @@
     <p>&copy; 2026 Incredible India Explorer. Kuno National Park Explorer.</p>
   </footer>
 
-  <script src="../app.js" defer></script>
+  <script src="../js-modules/storage.js" defer></script>
+    <script src="../app.js" defer></script>
   <script src="kuno-data.js" defer></script>
   <script src="kuno.js" defer></script>
   <script type="module" src="../../auth.js"></script>

@@ -148,6 +148,62 @@
             attractions: "Bundi Fort, Taragarh Fort.",
             image: "https://images.unsplash.com/photo-1620959451996-037340c2be43?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1620959451996-037340c2be43?auto=format&fit=crop&q=40&w=400"
+        },
+        {
+            id: "bishop",
+            name: "Bishop Falls",
+            state: "Meghalaya",
+            river: "Umiam River",
+            height: "135 meters",
+            season: "Post-Monsoon",
+            tags: ["monsoon"],
+            description: "A spectacular three-tiered cascade plunging down the steep gorges of Shillong, famed for its twin relationship with Beadon Falls.",
+            flow: "Powerful roar during monsoon; clearer three-tiered cascade post-monsoon.",
+            attractions: "Beadon Falls, Umiam Lake.",
+            image: "https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&fit=crop&q=40&w=400",
+            url: "../bishop-falls-explorer/index.html"
+            id: "nohsngithiang",
+            name: "Nohsngithiang Falls",
+            state: "Meghalaya",
+            river: "Monsoon Rainfall",
+            height: "315 meters",
+            season: "Monsoon",
+            tags: ["monsoon"],
+            description: "Also known as the Seven Sisters Falls, this majestic 315m segmented waterfall transforms the Khasi Hills cliffs during the monsoon.",
+            flow: "Thundering seven streams in monsoon; completely dry in winter.",
+            attractions: "Mawsmai Cave, Cherrapunji.",
+            image: "https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=40&w=400",
+            url: "../nohsngithiang-falls-explorer/index.html"},
+ {
+            id: "vantawng",
+            name: "Vantawng Falls",
+            state: "Mizoram",
+            river: "Vanva River",
+            height: "229 meters",
+            season: "Monsoon",
+            tags: ["monsoon", "year-round"],
+            description: "Mizoram's tallest waterfall, cascading 229 metres in a stunning two-tiered drop amid deep bamboo forests.",
+            flow: "Massive roaring curtain in monsoon; clearer two-tiered cascade in winter.",
+            attractions: "Thenzawl, Chhingpuii Thlan.",
+            image: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=40&w=400",
+            url: "../vantawng-falls-explorer/index.html"},
+      {
+            id: "nuranang",
+            name: "Nuranang Falls",
+            state: "Arunachal Pradesh",
+            river: "Nuranang River",
+            height: "100 meters",
+            season: "Monsoon",
+            tags: ["monsoon", "year-round"],
+            description: "Also known as Bong Bong Falls, a spectacular ~100m drop in the Himalayas.",
+            flow: "Powerful in monsoon, serene and crystal clear in winter.",
+            attractions: "Tawang, Sela Pass.",
+            image: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&q=40&w=400",
+            url: "../nuranang-falls-explorer/index.html"
         }
     ];
 
@@ -204,12 +260,19 @@
                 </div>
             `;
 
-            // Event Listeners for Modal
-            card.addEventListener('click', () => openModal(item));
+            // Event Listeners for Modal or External URL
+            const handleAction = () => {
+                if (item.url) {
+                    window.location.href = item.url;
+                } else {
+                    openModal(item);
+                }
+            };
+            card.addEventListener('click', handleAction);
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    openModal(item);
+                    handleAction();
                 }
             });
 

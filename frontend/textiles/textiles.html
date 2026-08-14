@@ -34,7 +34,7 @@
 <body>
     <script>
         (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
             if (theme === 'light') {
                 document.body.classList.add('light-theme');
             }
@@ -205,6 +205,7 @@
           <span>Interesting fact</span>
           <p id="modal-fact"></p>
         </div>
+        <a id="modal-explorer-link" class="explorer-link-btn" href="" hidden style="text-decoration: none; text-align: center; display: block; margin-top: 15px; padding: 12px; border-radius: 10px; background: #b45309; color: #fff; font-weight: 700; font-size: 0.95rem;">Go to Interactive Explorer →</a>
       </div>
     </div>
   </div>
@@ -214,7 +215,8 @@
   </footer>
 
   <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
-  <script src="../app.js" defer></script>
+  <script src="../js-modules/storage.js" defer></script>
+    <script src="../app.js" defer></script>
   <script src="textiles.js" defer></script>
   <script src="../js-modules/compare-drawer/compare-drawer.js"></script>
     <script type="module" src="../auth.js"></script>

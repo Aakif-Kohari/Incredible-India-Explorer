@@ -6,9 +6,10 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Travel Explorer - Discover the diverse destinations and breathtaking road trips of Incredible India." name="description"/>
 <title>Travel Explorer | Incredible India</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
 <link href="../../styles.css" rel="stylesheet"/>
 <style>
         /* Custom Styles for Travel Explorer */
@@ -284,7 +285,7 @@
 <body>
     <script>
         (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
             if (theme === 'light') {
                 document.body.classList.add('light-theme');
             }
@@ -372,7 +373,10 @@
 <main id="app-root" style="padding-top: 80px;">
 <!-- Hero Section -->
 <section class="cuisine-hero scroll-section" style="height: 60vh;">
-<img class="hero-video" src="../assets/travel_hero.png" alt="A scenic view of a mountain winding road with valleys and trees under sunset" style="width: 100%; height: 100%; object-fit: cover;"/>
+<picture>
+  <source srcset="../assets/travel_hero.webp" type="image/webp">
+  <img class="hero-video" src="../assets/travel_hero.png" alt="A scenic view of a mountain winding road with valleys and trees under sunset" style="width: 100%; height: 100%; object-fit: cover;"/>
+</picture>
 <div class="hero-overlay"></div>
 <div class="hero-content">
 <span class="hero-tagline animate-fade-in">🏔️ The Great Indian Journey</span>
@@ -431,7 +435,10 @@
 </div>
 <div class="travel-grid">
 <div class="destination-card" data-id="travel-mountains">
-<img alt="Mountains" class="destination-img" src="../assets/travel_mountains.png"/>
+<picture>
+  <source srcset="../assets/travel_mountains.webp" type="image/webp">
+  <img alt="Mountains" class="destination-img" src="../assets/travel_mountains.png"/>
+</picture>
 <div class="destination-content">
 <span class="destination-tag">Himalayas</span>
 <h3 class="destination-title">Mountains</h3>
@@ -439,7 +446,10 @@
 </div>
 <button aria-label="Save Mountains to My Journey" aria-pressed="false" class="destination-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="travel-mountains" type="button">♡</button></div>
 <div class="destination-card" data-id="travel-beaches">
-<img alt="Beaches" class="destination-img" src="../assets/travel_beaches.png" loading="lazy"/>
+<picture>
+  <source srcset="../assets/travel_beaches.webp" type="image/webp">
+  <img alt="Beaches" class="destination-img" src="../assets/travel_beaches.png" loading="lazy"/>
+</picture>
 <div class="destination-content">
 <span class="destination-tag">Coastal Lines</span>
 <h3 class="destination-title">Beaches</h3>
@@ -447,7 +457,10 @@
 </div>
 <button aria-label="Save Beaches to My Journey" aria-pressed="false" class="destination-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="travel-beaches" type="button">♡</button></div>
 <div class="destination-card" data-id="travel-deserts">
-<img alt="Deserts" class="destination-img" src="../assets/travel_deserts.png" loading="lazy"/>
+<picture>
+  <source srcset="../assets/travel_deserts.webp" type="image/webp">
+  <img alt="Deserts" class="destination-img" src="../assets/travel_deserts.png" loading="lazy"/>
+</picture>
 <div class="destination-content">
 <span class="destination-tag">Thar Desert</span>
 <h3 class="destination-title">Deserts</h3>
@@ -455,7 +468,10 @@
 </div>
 <button aria-label="Save Deserts to My Journey" aria-pressed="false" class="destination-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="travel-deserts" type="button">♡</button></div>
 <div class="destination-card" data-id="travel-forests">
-<img alt="Forests" class="destination-img" src="../assets/travel_forests.png" loading="lazy"/>
+<picture>
+  <source srcset="../assets/travel_forests.webp" type="image/webp">
+  <img alt="Forests" class="destination-img" src="../assets/travel_forests.png" loading="lazy"/>
+</picture>
 <div class="destination-content">
 <span class="destination-tag">Western Ghats</span>
 <h3 class="destination-title">Forests</h3>
@@ -463,7 +479,10 @@
 </div>
 <button aria-label="Save Forests to My Journey" aria-pressed="false" class="destination-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="travel-forests" type="button">♡</button></div>
 <div class="destination-card" data-id="travel-islands">
-<img alt="Islands" class="destination-img" src="../assets/travel_islands.png"/>
+<picture>
+  <source srcset="../assets/travel_islands.webp" type="image/webp">
+  <img alt="Islands" class="destination-img" src="../assets/travel_islands.png"/>
+</picture>
 <div class="destination-content">
 <span class="destination-tag">Archipelagos</span>
 <h3 class="destination-title">Islands</h3>
@@ -471,7 +490,10 @@
 </div>
 <button aria-label="Save Islands to My Journey" aria-pressed="false" class="destination-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="travel-islands" type="button">♡</button></div>
 <div class="destination-card" data-id="travel-hidden-gems">
-<img alt="Hidden Gems" class="destination-img" src="../assets/travel_hidden.png" loading="lazy"/>
+<picture>
+  <source srcset="../assets/travel_hidden.webp" type="image/webp">
+  <img alt="Hidden Gems" class="destination-img" src="../assets/travel_hidden.png" loading="lazy"/>
+</picture>
 <div class="destination-content">
 <span class="destination-tag">Offbeat</span>
 <h3 class="destination-title">Hidden Gems</h3>
@@ -562,7 +584,10 @@
 <button class="btn btn-primary ripple roadtrip-flip-btn" style="width: 100%;">View Route Map</button>
 </div>
 <div class="roadtrip-card-back">
-<img alt="Leh-Ladakh Highway route map" src="../assets/Manalileh.png" loading="lazy"/>
+<picture>
+  <source srcset="../assets/Manalileh.webp" type="image/webp">
+  <img alt="Leh-Ladakh Highway route map" src="../assets/Manalileh.png" loading="lazy"/>
+</picture>
 </div>
 </div>
 </div>
@@ -577,7 +602,10 @@
 <button class="btn btn-primary ripple roadtrip-flip-btn" style="width: 100%;">View Route Map</button>
 </div>
 <div class="roadtrip-card-back">
-<img alt="Leh-Ladakh Highway route map" src="../assets/Shimlakaza.png"/>
+<picture>
+  <source srcset="../assets/Shimlakaza.webp" type="image/webp">
+  <img alt="Leh-Ladakh Highway route map" src="../assets/Shimlakaza.png"/>
+</picture>
 </div>
 </div>
 </div>
@@ -592,7 +620,10 @@
 <button class="btn btn-primary ripple roadtrip-flip-btn" style="width: 100%;">View Route Map</button>
 </div>
 <div class="roadtrip-card-back">
-<img alt="Leh-Ladakh Highway route map" src="../assets/Kochitri.png" loading="lazy"/>
+<picture>
+  <source srcset="../assets/Kochitri.webp" type="image/webp">
+  <img alt="Leh-Ladakh Highway route map" src="../assets/Kochitri.png" loading="lazy"/>
+</picture>
 </div>
 </div>
 </div>
@@ -656,7 +687,8 @@
 </footer>
 <!-- Scroll To Top Button -->
 <button aria-label="Scroll to Top" class="btn-scroll-top" id="btn-scroll-top">↑</button>
-<script src="../app.js" defer></script>
+<script src="../js-modules/storage.js" defer></script>
+    <script src="../app.js" defer></script>
 <script src="../firebase-config.js" type="module"></script>
 <script src="../auth.js" type="module"></script>
 <script src="../router.js" defer></script>
@@ -670,5 +702,22 @@
   <script src="../js-modules/keyboard-shortcuts/keyboard-shortcuts.js"></script>
   <script src="../js-modules/smart-empty-state/smart-empty-state.js"></script>
   <script src="../card-deeplink/card-deeplink.js"></script>
+  <script src="../components/quick-nav-map.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.QuickNavMap) {
+        QuickNavMap.init({
+          sectionMap: {
+            north: 'travel-mountains',
+            south: 'travel-beaches',
+            east: 'travel-forests',
+            west: 'travel-deserts',
+            central: 'travel-hidden-gems',
+            northeast: 'travel-islands'
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>

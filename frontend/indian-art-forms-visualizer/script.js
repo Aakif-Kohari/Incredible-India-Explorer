@@ -16,7 +16,11 @@ const artFormsData = [
     { id: 'tanchoi', name: 'Tanchoi Weaving', region: 'Varanasi', category: 'other', desc: 'Intricate brocade weaving technique blending Indian and Chinese traditions.', img: 'https://placehold.co/400x300/4c1d95/fff' },
     { id: 'phad', name: 'Phad Painting', region: 'Rajasthan', category: 'other', desc: 'Traditional scroll painting depicting folk deities like Pabuji and Devnarayan.', img: 'https://placehold.co/400x300/be123c/fff' },
     { id: 'miniature', name: 'Rajput Miniature', region: 'Rajasthan', category: 'other', desc: 'Highly detailed, small-scale paintings often illustrating royal courts and ragas.', img: 'https://placehold.co/400x300/0369a1/fff' },
-    { id: 'gond', name: 'Gond Art', region: 'Madhya Pradesh', category: 'other', desc: 'Tribal art characterized by vibrant colors and dot/line patterns.', img: 'https://placehold.co/400x300/15803d/fff' }
+    { id: 'thangka', name: 'Thangka Painting', region: 'Himalayas', category: 'other', desc: 'Sacred Tibetan Buddhist scroll paintings depicting deities and mandalas.', img: 'https://placehold.co/400x300/1e3a8a/d4af37', link: '../thangka-painting-explorer/index.html' },
+    
+    { id: 'gond', name: 'Gond Art', region: 'Madhya Pradesh', category: 'other', desc: 'Tribal art characterized by vibrant colors and dot/line patterns.', img: 'https://placehold.co/400x300/15803d/fff' },
+    { id: 'chittara', name: 'Chittara Painting', region: 'Karnataka', category: 'other', desc: 'Traditional geometric folk art from the Devaragudda village.', img: 'https://placehold.co/400x300/8B4513/fff', link: '../chittara-art-explorer/index.html' },
+    { id: 'lacquerware', name: 'Indian Lacquerware', region: 'Karnataka, Andhra Pradesh & Rajasthan', category: 'other', desc: 'Lac-turned wood craft behind Channapatna toys, Etikoppaka toys, Nirmal figures, and Jaipur lac bangles.', img: 'https://placehold.co/400x300/7c2d12/f59e0b', link: '../lacquerware-explorer/index.html' },
 ];
 
 let currentCategory = 'all';

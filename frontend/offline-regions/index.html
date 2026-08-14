@@ -5,9 +5,10 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Download complete destination packages for any Indian state and explore them fully offline — no connection required." name="description"/>
 <title>Offline Region Downloads | Incredible India</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+<!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
 <link href="../../styles.css" rel="stylesheet"/>
 <style>
   .offline-hero { padding: 140px 24px 30px; max-width: 1000px; margin: 0 auto; text-align: center; }
@@ -57,7 +58,7 @@
 <body>
     <script>
         (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
             if (theme === 'light') {
                 document.body.classList.add('light-theme');
             }

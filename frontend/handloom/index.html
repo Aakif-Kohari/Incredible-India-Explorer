@@ -5,16 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Explore India's famous handloom traditions by state, weaving techniques, and cultural significance.">
   <title>Indian Handloom Explorer | Incredible India</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../styles.css">
-  <link rel="stylesheet" href="../traditional-games/style.css">
+  <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <script>
         (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
             if (theme === 'light') {
                 document.body.classList.add('light-theme');
             }
@@ -171,7 +172,12 @@
 
           <article class="handloom-card" data-region="west" data-search="patola silk gujarat double ikat geometric patterns patan saree">
             <div class="handloom-media"><img src="../assets/traditional_attires.png" alt="Patola silk with intricate double ikat" loading="lazy"><span class="handloom-region">West</span></div>
-            <div class="handloom-body"><h3>Patola Silk</h3><p class="handloom-location">Patan, Gujarat</p><div class="handloom-meta"><span>Weaving Technique</span><strong>Double Ikat</strong></div><p class="handloom-description">One of the most complex textiles in the world, featuring double Ikat with precise geometric patterns and vibrant natural dyes.</p><button class="details-button" type="button" data-name="Patola Silk" data-location="Patan, Gujarat" data-technique="Double Ikat" data-region-label="West" data-significance="Royal heritage, expensive luxury, master craftsmanship" data-details="Patola is among the most difficult textiles to create, requiring both warp and weft threads to be tie-dyed with extreme precision before weaving. A single mistake can ruin months of work. The Salvi weavers of Patan have kept this 900-year-old tradition alive. Traditional Patola uses natural dyes and features geometric, floral, and figurative motifs. A genuine Patola can take 4-6 months to complete and is considered a family heirloom.">View Details</button></div>
+            <div class="handloom-body"><h3>Patola Silk</h3><p class="handloom-location">Patan, Gujarat</p><div class="handloom-meta"><span>Weaving Technique</span><strong>Double Ikat</strong></div><p class="handloom-description">One of the most complex textiles in the world, featuring double Ikat with precise geometric patterns and vibrant natural dyes.</p>
+            <div class="handloom-actions" style="display: flex; gap: 8px; margin-top: 15px;">
+              <button class="details-button" type="button" data-name="Patola Silk" data-location="Patan, Gujarat" data-technique="Double Ikat" data-region-label="West" data-significance="Royal heritage, expensive luxury, master craftsmanship" data-details="Patola is among the most difficult textiles to create, requiring both warp and weft threads to be tie-dyed with extreme precision before weaving. A single mistake can ruin months of work. The Salvi weavers of Patan have kept this 900-year-old tradition alive. Traditional Patola uses natural dyes and features geometric, floral, and figurative motifs. A genuine Patola can take 4-6 months to complete and is considered a family heirloom." style="width: auto; flex: 1;">View Details</button>
+              <a href="../patola-weaving-explorer/index.html" class="explorer-link-btn" style="text-decoration: none; text-align: center; display: inline-block; width: auto; flex: 1; box-sizing: border-box; padding: 12px; border: 2px solid var(--saffron); border-radius: 10px; background: var(--saffron); color: #fff; font-size: 0.92rem; font-weight: 700; transition: all 0.25s ease;">Explore Double Ikat →</a>
+            </div>
+            </div>
           </article>
 
           <article class="handloom-card" data-region="west" data-search="bandhani tie-dye gujarat rajasthan kutch dots patterns leheriya gharchola">
@@ -216,8 +222,9 @@
 
   <footer class="handloom-footer"><div class="handloom-container"><p>Part of <a href="../../index.html">Incredible India Explorer</a> · Explore India's handloom heritage and weaving traditions.</p></div></footer>
   <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
-  <script src="../app.js" defer></script>
-  <script src="../traditional-games/script.js" defer></script>
+  <script src="../js-modules/storage.js" defer></script>
+    <script src="../app.js" defer></script>
+  <script src="script.js" defer></script>
     <script src="../router.js" defer></script>
     <script type="module" src="../auth.js"></script>
 </body>

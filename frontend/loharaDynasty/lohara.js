@@ -56,6 +56,7 @@ const galleryItems = [
     description:'Samgrāmarāja consolidated Lohara authority in Kashmir and successfully resisted attempts by Mahmud of Ghazni to enter the Kashmir Valley. ',
       
     imageUrl: '/assets/images/lohara-ananta.jng'
+    
   },
   {
     title: 'Kashmir Heritage',

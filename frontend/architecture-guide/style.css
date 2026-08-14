@@ -3,121 +3,47 @@
    ========================================================================== */
 
 :root {
-    --sandstone: #D2A679;
-    --granite-gray: #4A4A4A;
-    --deep-blue: #0A192F;
-    --bronze: #CD7F32;
-    --ivory: #FFFFF0;
-    
-    --card-bg: var(--surface-dark);
-    --border-color: rgba(255, 255, 255, 0.1);
-}
-
-.light-theme {
-    --card-bg: #FFFFFF;
-    --border-color: rgba(0, 0, 0, 0.1);
-}
-
-.architecture-page {
-    background-color: var(--bg-dark);
-    min-height: 100vh;
-}
-
-.light-theme .architecture-page {
-    background-color: var(--ivory);
-}
-
-/* Hero Section */
-.hero-section {
-    padding: 100px 20px 40px;
-    text-align: center;
-    background: linear-gradient(to bottom, var(--deep-blue), var(--bg-dark));
-    color: var(--ivory);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.light-theme .hero-section {
-    background: linear-gradient(to bottom, #F0F4F8, var(--ivory));
-    color: var(--text-dark);
-}
-
-.hero-content h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    color: var(--sandstone);
-    margin-bottom: 15px;
-}
-
-.light-theme .hero-content h1 {
-    color: var(--bronze);
-}
-
-.hero-content p {
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto 30px;
-    opacity: 0.9;
-}
-
-/* Style Selector */
-.style-selector {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-/* Architecture Guide Styles */
-
-/* 
-Palette:
-Sandstone: #c28e5c
-Granite gray: #606060
-Deep blue: #0b3954
-Bronze: #cd7f32
-Ivory: #fffff0
-*/
-
-:root {
     --arch-sandstone: #c28e5c;
     --arch-granite: #606060;
     --arch-blue: #0b3954;
     --arch-bronze: #cd7f32;
     --arch-ivory: #fffff0;
     
-    --bg-main: #f4f1ea; /* Very light sandstone tone */
-    --panel-bg: #ffffff;
-    --text-main: #333333;
-    --text-muted: #555555;
-    --border-color: #e0dcd3;
-}
-
-body.dark-theme {
     --bg-main: #1a1a1a;
     --panel-bg: #2d2d2d;
     --text-main: #e0e0e0;
     --text-muted: #a0a0a0;
     --border-color: #404040;
-    --arch-ivory: #2a2a2a;
+}
+
+.light-theme {
+    --bg-main: #f4f1ea;
+    --panel-bg: #ffffff;
+    --text-main: #333333;
+    --text-muted: #555555;
+    --border-color: #e0dcd3;
+    --arch-ivory: #fffff0;
 }
 
 .architecture-module {
     background-color: var(--bg-main);
     min-height: calc(100vh - 60px);
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Outfit', sans-serif;
 }
 
 /* Hero Section & Style Selector */
 .hero-section {
     background-color: var(--arch-blue);
     color: white;
-    padding: 3rem 2rem 2rem;
+    padding: 6rem 2rem 3rem;
     text-align: center;
 }
 
 .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
     margin-bottom: 1rem;
-    font-family: 'Georgia', serif;
+    font-family: 'Playfair Display', serif;
+    color: var(--arch-sandstone);
 }
 
 .subtitle {
@@ -138,17 +64,11 @@ body.dark-theme {
 
 .style-btn {
     background: transparent;
-    border: 2px solid var(--sandstone);
-    color: var(--ivory);
-    padding: 10px 24px;
+    border: 2px solid rgba(255,255,255,0.5);
+    color: white;
+    padding: 0.6rem 1.5rem;
     border-radius: 30px;
     font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-    color: white;
-    border: 2px solid rgba(255,255,255,0.5);
-    padding: 0.6rem 1.5rem;
-    border-radius: 4px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -215,6 +135,38 @@ body.dark-theme {
 .arch-svg {
     width: 100%;
     height: auto;
+    max-height: 600px;
+}
+
+/* Hotspots */
+.hotspot {
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.3s ease;
+}
+
+/* Hit Area (Invisible but large for touch targets) */
+.hotspot-hit {
+    fill: transparent;
+    stroke: none;
+}
+
+/* Visible Dot */
+.hotspot-dot {
+    fill: var(--sandstone);
+    stroke: var(--ivory);
+    stroke-width: 2;
+    transition: all 0.3s ease;
+}
+
+.hotspot:hover .hotspot-dot,
+.hotspot:focus .hotspot-dot {
+    fill: var(--bronze);
+    stroke-width: 4;
+    r: 18;
+}
+
+.hotspot.active .hotspot-dot {
 .style-btn:hover,
 .style-btn:focus-visible {
     background: rgba(255,255,255,0.1);
@@ -258,15 +210,13 @@ body.dark-theme {
 }
 
 /* Hotspots */
-.hotspot {
-    fill: var(--sandstone);
-    stroke: var(--ivory);
-    stroke-width: 2;
+.hotspot-group {
     cursor: pointer;
-    transition: all 0.3s ease;
     outline: none;
 }
 
+/* Visual appearance of the dot */
+.hotspot-visual {
 .hotspot:hover,
 .hotspot:focus {
     fill: var(--bronze);
@@ -280,6 +230,43 @@ body.dark-theme {
     fill: #4CAF50;
     stroke: #FFFFFF;
     stroke-width: 3;
+}
+
+/* Mobile Responsive Hotspots */
+@media (max-width: 768px) {
+    /* Increase effective touch area further on mobile */
+    .hotspot-hit {
+        r: 60; /* Scales to ~30px on small screens -> 60px diameter hit target */
+    }
+
+    /* Keep the visible dot legible */
+    .hotspot-dot {
+        r: 20; 
+    }
+    
+    .hotspot:hover .hotspot-dot,
+    .hotspot:focus .hotspot-dot {
+        r: 24;
+    }
+
+    /* Reposition overlapping or clustered hotspots by translating their group */
+    /* Dravidian */
+    #vimana { transform: translate(10px, -15px); }
+    #mandapa { transform: translate(-10px, 15px); }
+    #gopuram { transform: translate(-15px, 0); }
+    
+    /* Indo-Islamic */
+    #arch { transform: translate(0px, 20px); }
+    #dome { transform: translate(0px, -20px); }
+    
+    /* Nagara */
+    #shikhara { transform: translate(15px, -10px); }
+    #amalaka { transform: translate(0px, -20px); }
+    #mandapa { transform: translate(-15px, 15px); }
+    
+    /* Vesara */
+    #hybrid-tower { transform: translate(15px, -15px); }
+    #pillared-hall { transform: translate(-15px, 15px); }
 }
 
 /* Connecting Lines (Optional depending on SVG implementation) */
@@ -381,20 +368,25 @@ body.dark-theme {
     fill: var(--arch-bronze);
     stroke: white;
     stroke-width: 2;
-    cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.hotspot:hover,
-.hotspot:focus-visible {
+/* Hover/Focus state targets the group, but styles the visual circle */
+.hotspot-group:hover .hotspot-visual,
+.hotspot-group:focus-visible .hotspot-visual {
     fill: var(--arch-sandstone);
     stroke: var(--arch-blue);
     stroke-width: 3;
-    r: 18; /* Slightly enlarge */
-    outline: none;
+    r: 18; /* Enlarge visually */
 }
 
-.hotspot.active {
+/* Ensure focus outline is visible on keyboard nav but hidden on click */
+.hotspot-group:focus-visible {
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(205, 127, 50, 0.4);
+}
+
+.hotspot-visual.active {
     fill: var(--arch-blue);
     stroke: white;
     r: 20;
@@ -445,7 +437,7 @@ body.dark-theme {
 }
 
 .details-content h2 {
-    font-family: 'Georgia', serif;
+    font-family: 'Playfair Display', serif;
     color: var(--arch-sandstone);
     font-size: 2rem;
     margin-top: 0;
@@ -468,8 +460,8 @@ body.dark-theme {
     margin-bottom: 0.3rem;
 }
 
-body.dark-theme .detail-label {
-    color: #b0b0b0;
+.light-theme .detail-label {
+    color: var(--arch-granite); /* Or slightly darker */
 }
 
 .detail-value,
@@ -507,7 +499,7 @@ body.dark-theme .detail-label {
 
 @media (max-width: 600px) {
     .hero-section {
-        padding: 2rem 1rem 1rem;
+        padding: 6rem 1rem 1rem;
     }
     
     .style-selector {
@@ -516,5 +508,10 @@ body.dark-theme .detail-label {
     
     .style-btn {
         width: 100%;
+    }
+    
+    /* Ensure the hit area meets minimum 44px by forcing a larger radius on the transparent hit circle on small screens */
+    .hotspot-hit-area {
+        r: 44; 
     }
 }

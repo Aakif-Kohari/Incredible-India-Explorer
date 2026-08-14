@@ -134,6 +134,16 @@
         setTimeout(() => {
             lightbox.classList.remove('hidden');
             document.body.classList.add('lightbox-open');
+            
+            // Background Accessibility: Prevent interaction with background content
+            const appChildren = document.getElementById('app').children;
+            Array.from(appChildren).forEach(child => {
+                if (child.id !== 'lightbox') {
+                    child.inert = true;
+                    child.setAttribute('aria-hidden', 'true');
+                }
+            });
+
             // Move focus to modal
             btnClose.focus();
         }, 10);
@@ -147,6 +157,15 @@
         document.body.classList.remove('lightbox-open');
         document.removeEventListener('keydown', handleLightboxKeydown);
         
+        // Background Accessibility: Restore interaction with background content
+        const appChildren = document.getElementById('app').children;
+        Array.from(appChildren).forEach(child => {
+            if (child.id !== 'lightbox') {
+                child.inert = false;
+                child.removeAttribute('aria-hidden');
+            }
+        });
+
         // Wait for fade out
         setTimeout(() => {
             lightbox.style.display = 'none';
@@ -214,7 +233,19 @@
 
         // Focus Trap logic for Tab
         if (e.key === 'Tab') {
-            const focusableElements = lightbox.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            const focusableSelectors = [
+                'a[href]',
+                'button:not([disabled])',
+                'textarea:not([disabled])',
+                'input:not([disabled])',
+                'select:not([disabled])',
+                '[tabindex]:not([tabindex="-1"])'
+            ].join(',');
+            
+            const focusableElements = Array.from(lightbox.querySelectorAll(focusableSelectors));
+            
+            if (focusableElements.length === 0) return;
+
             const firstElement = focusableElements[0];
             const lastElement = focusableElements[focusableElements.length - 1];
 

@@ -7,11 +7,11 @@
     <title>Rivers of India | Incredible India</title>
 
     <!-- Google Fonts (same as rest of site) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome (icons used by this page's cards/filters/popup) -->
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Font Awesome (icons used by this page's cards/filters/popup) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Custom Stylesheets -->
@@ -40,7 +40,7 @@
 <body class="rivers-page-body" data-page="rivers">
     <script>
         (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
             if (theme === 'light') {
                 document.body.classList.add('light-theme');
             }
@@ -131,7 +131,10 @@
         <!-- ================= HERO ================= -->
         <section class="rivers-hero">
             <div class="rivers-hero-bg">
-                <img src="../assets/heroriver.png" alt="Rivers of India">
+<picture>
+  <source srcset="../assets/heroriver.webp" type="image/webp">
+  <img src="../assets/heroriver.png" alt="Rivers of India">
+</picture>
             </div>
             <div class="rivers-hero-overlay"></div>
             <div class="rivers-hero-inner">
@@ -224,6 +227,7 @@
 
     <!-- JavaScript Files -->
     <script src="../data.js" defer></script>
+    <script src="../js-modules/storage.js" defer></script>
     <script src="../app.js" defer></script>
     <script src="../pages-common.js" defer></script>
     <script type="module" src="../auth.js"></script>

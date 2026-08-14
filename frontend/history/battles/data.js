@@ -234,6 +234,60 @@ export const battles = [
         tactics: "High-altitude mountain warfare, artillery bombardment at extreme altitude, air strikes on supply lines, infantry assaults on fortified positions. First major use of laser-guided bombs by India.",
         impact: "Reinforced India's territorial sovereignty. Led to improved India-Pakistan relations (Agra Summit). Exposed the dangers of nuclear-armed neighbours in conflict. The bravery of soldiers at Tiger Hill, Tololing, and Dras became legendary.",
         color: "#DC143C"
+    },
+    {
+        name: "Battle of Samugarh",
+        date: "3 February 1658",
+        year: 1658,
+        era: "medieval",
+        location: "Samugarh, near Agra, Uttar Pradesh",
+        coordinates: { top: "33%", left: "48%" },
+        combatants: {
+            side1: { name: "Mughal Empire", leader: "Prince Aurangzeb", forces: "~30,000-40,000" },
+            side2: { name: "Mughal Succession Forces", leader: "Prince Dara Shikoh", forces: "~50,000-70,000" }
+        },
+        outcome: "Decisive victory for Aurangzeb — Dara Shikoh defeated and forced to flee; Shah Jahan deposed",
+        significance: "Determined the Mughal throne; Aurangzeb emerged victorious in the war of succession, establishing the Mughal Empire under his rule",
+        summary: "The Battle of Samugarh was a decisive engagement fought on 3 February 1658 between the forces of Prince Aurangzeb and his brother Prince Dara Shikoh, the eldest son and heir of Emperor Shah Jahan. Despite being outnumbered, Aurangzeb's forces used superior artillery positioning and tactical coordination to rout Dara's larger army. This victory effectively ended the Mughal war of succession and led to Aurangzeb's ascension to the throne.",
+        keyEvents: [
+            "Prince Aurangzeb marched from Burhanpur to confront Dara Shikoh near Samugarh, ~15 km south of Agra",
+            "Aurangzeb positioned heavy artillery along the riverbank to counter Dara's superior numbers",
+            "Dara Shikoh's forces, including Rajput allies and Mughal nobles, formed up across the Yamuna river",
+            "Aurangzeb's artillery and musket volleys decimated Dara's left flank and war elephants",
+            "Dara Shikoh fled the battlefield, abandoning his camp and treasury to Aurangzeb's forces",
+            "Shah Jahan, hearing of defeat, was compelled to abdicate in favor of Aurangzeb"
+        ],
+        casualties: { side1: "Moderate (~2,000-4,000)", side2: "Heavy (~10,000-15,000); entire camp lost" },
+        tactics: "Artillery superiority, tactical positioning along the Yamuna riverbank, concentrated musket volleys, coordinated cavalry charges exploiting gaps in enemy lines. Aurangzeb's commanders Mahabat Khan and Jai Singh played key roles in the flanking maneuvers.",
+        impact: "Secured Aurangzeb's claim to the Mughal throne, ending the war of succession. Established the Mughal Empire under Aurangzeb's 54-year reign, which reshaped Indo-Islamic rule. Dara Shikoh's defeat marked the end of the more syncretic, liberal approach to governance that characterized Shah Jahan's later years.",
+        color: "#8B0000"
+    },
+  {
+        name: "Battle of Colachel",
+        date: "10 March 1741",
+        year: 1741,
+        era: "colonial",
+        location: "Colachel, Travancore (modern Tamil Nadu)",
+        coordinates: { top: "78%", left: "52%" },
+        combatants: {
+            side1: { name: "Kingdom of Travancore", leader: "Maharaja Marthanda Varma", forces: "~20,000–25,000 (Nair riflemen, Ezhava levies, rocket artillery, European-trained infantry)" },
+            side2: { name: "Dutch East India Company", leader: "Captain Jan Plaisier", forces: "~3,000–4,000 European troops with naval gun support" }
+        },
+        outcome: "Decisive Travancore victory — Dutch column broken and forced to surrender",
+        significance: "Ended Dutch colonial ambition in India and secured Travancore's rise as a regional power.",
+        summary: "Fought at the southernmost tip of the Indian subcontinent, the Battle of Colachel pitted Maharaja Marthanda Varma's modernising Travancore forces against a Dutch expedition seeking to dominate the Malabar spice trade. Using rocket artillery and disciplined infantry squares, Varma broke the Dutch landing column in open combat — the first time a native Indian army defeated a European colonial force in a set-piece battle. The defeat ended the Dutch East India Company's remaining ambition to establish a colony in India.",
+        keyEvents: [
+            "Dutch ships anchor off Colachel and attempt to land a battalion to seize the spice-trading harbour",
+            "Marthanda Varma positions his army behind the town's fortifications and rocket batteries",
+            "Dutch advance is torn apart by concentrated rocket and musket fire as it forms up on the beach",
+            "Commander Jan Plaisier and many of his officers are captured as the landing column collapses",
+            "The Dutch sue for peace, surrender their Malabar factories, and agree to a treaty of friendship with Travancore",
+            "Captured officers including Eustachius De Lannoy later rise to senior rank and help modernise Travancore's army"
+        ],
+        casualties: { side1: "~1,000–2,000 killed and wounded", side2: "~800 killed and captured" },
+        tactics: "Defensive positions anchored on native fortifications, concentrated rocket artillery fire, disciplined infantry squares, and a flanking manoeuvre that collapsed the Dutch landing column before naval gunfire could support it.",
+        impact: "The Dutch East India Company never mounted another major expedition to India, abandoning its remaining coastal factories. Travancore emerged as the dominant power in southern India, its army later reinforced by Dutch officers — including Eustachius De Lannoy — who entered the king's service. The victory is regarded as one of the earliest examples of modern, combined-arms warfare on Indian soil.",
+        color: "#0d7c66"
     }
 ];
 
@@ -247,7 +301,9 @@ export const commanders = [
     { name: "Hemu (Hemchandra Vikramaditya)", era: "Medieval", title: "Last Hindu Emperor of Delhi", battles: ["Battle of Panipat (Second)"], description: "A Hindu general who briefly restored Hindu rule in Delhi and Agra. Killed by an arrow in the eye during the Second Battle of Panipat, ending his short reign.", color: "#8B0000" },
     { name: "Siraj ud-Daulah", era: "Colonial", title: "Last Independent Nawab of Bengal", battles: ["Battle of Plassey"], description: "The young Nawab of Bengal who opposed British interference in trade and politics. Betrayed by his own commander Mir Jafar during the Battle of Plassey.", color: "#4B0082" },
     { name: "Chhatrapati Shivaji Maharaj", era: "Medieval", title: "Founder of the Maratha Empire", battles: ["Battle of Pratapgad"], description: "The legendary Maratha warrior-king who carved out a sovereign kingdom from the declining Adil Shahi and Mughal empires. At Pratapgad, he used guerrilla tactics, terrain advantage, and a deceptive truce to destroy Afzal Khan's larger army, establishing Maratha military prowess.", color: "#1A7040" },
-    { name: "Afzal Khan", era: "Medieval", title: "Adil Shahi General", battles: ["Battle of Pratapgad"], description: "The trusted general of the Adil Shah of Bijapur, known for his military experience and elite cavalry. He was killed by Shivaji in single combat during a deceptive truce meeting at Pratapgad, leading to the catastrophic defeat of his forces.", color: "#8B0000" }
+    { name: "Afzal Khan", era: "Medieval", title: "Adil Shahi General", battles: ["Battle of Pratapgad"], description: "The trusted general of the Adil Shah of Bijapur, known for his military experience and elite cavalry. He was killed by Shivaji in single combat during a deceptive truce meeting at Pratapgad, leading to the catastrophic defeat of his forces.", color: "#8B0000" },
+    { name: "Aurangzeb", era: "Medieval", title: "Mughal Emperor", battles: ["Battle of Samugarh"], description: "The sixth Mughal emperor who seized the throne after defeating his brothers in the war of succession. At Samugarh, he defeated the forces of his elder brother Dara Shikoh, consolidating his claim to the empire. His reign marked the height of Mughal territorial expansion but also the beginning of decline due to religious orthodoxy.", color: "#006400" },
+    { name: "Dara Shikoh", era: "Medieval", title: "Crown Prince of the Mughal Empire", battles: ["Battle of Samugarh"], description: "The eldest son of Emperor Shah Jahan and heir to the throne. A Sufi-influenced prince known for his syncretic views and dialogue with Sikh gurus. Defeated by his younger brother Aurangzeb at Samugarh, he was executed in 1659, ending any chance of a more liberal Mughal succession.", color: "#1E90FF" }
 ];
 
 export const eraInfo = {

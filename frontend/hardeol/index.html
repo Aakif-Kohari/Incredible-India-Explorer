@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Hardeol Peak, a 7,151 m high peak in the Kumaon Himalayas of Uttarakhand. Discover facts, trekking guide, map locations, and image gallery.">
+    <title>Hardeol Peak Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="hardeol.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Hardeol Peak Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Explore Hardeol Peak, a 7,151 m high peak in the Kumaon Himalayas of Uttarakhand. Discover facts, trekking guide, map locations, and image gallery.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_mountains.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/hardeol/index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hardeol Peak Explorer | Incredible India Explorer">
+    <meta name="twitter:description" content="Explore Hardeol Peak, a 7,151 m high peak in the Kumaon Himalayas of Uttarakhand. Discover facts, trekking guide, map locations, and image gallery.">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_mountains.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/hardeol/index.html">
+</head>
+
+<body class="hardeol-body-wrapper">
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+    <main class="hardeol-page" id="app-root">
+        <!-- Hero Section -->
+        <section class="hardeol-hero">
+            <div class="hardeol-hero-content">
+                <a href="../mountains/index.html" class="hardeol-back-link">← Back to Mountains</a>
+                <span class="hardeol-hero-kicker">🏔️ Kumaon Himalayas</span>
+                <h1>Hardeol <span>Explorer</span></h1>
+                <p>Standing at 7,151 meters, Hardeol crowns the northeast corner of the Nanda Devi Sanctuary ring in the Kumaon Himalayas. Known as the 'Temple of God', this majestic peak guards the northern end of the Milam valley in Pithoragarh, Uttarakhand.</p>
+
+                <div class="hardeol-hero-stats">
+                    <div class="hardeol-stat-box">
+                        <strong>7,151 m</strong>
+                        <span>Peak Elevation</span>
+                    </div>
+                    <div class="hardeol-stat-box">
+                        <strong>Uttarakhand</strong>
+                        <span>State Location</span>
+                    </div>
+                    <div class="hardeol-stat-box">
+                        <strong>Kumaon Himalayas</strong>
+                        <span>Mountain Range</span>
+                    </div>
+                    <div class="hardeol-stat-box">
+                        <strong>Temple of God</strong>
+                        <span>Name Meaning</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="hardeol-section" id="hardeol-overview">
+            <div class="hardeol-container">
+                <div class="hardeol-section-heading">
+                    <span class="hardeol-section-badge">Peak Profile</span>
+                    <h2>Geography, History &amp; Significance</h2>
+                </div>
+                
+                <div class="hardeol-overview-grid">
+                    <div class="hardeol-overview-text">
+                        <h3>The Sacred Sentinel</h3>
+                        <p>Hardeol is a major peak of the Kumaon Himalayas, situated at the northern end of the Milam valley in the Pithoragarh district of Uttarakhand. The name 'Hardeol' translates to 'Temple of God', reflecting its sacred stature among local communities.</p>
+                        <p>The mountain stands at the northeast corner of the Nanda Devi Sanctuary ring, making it a prominent landmark visible from several trekking routes in the region.</p>
+                        <p>Hardeol remained unclimbed for decades due to its remote location and challenging terrain. It was finally summited in 1978 by an ITBP (Indo-Tibetan Border Police) expedition. Only one other ascent has been recorded — by a BSF expedition in 1991 — making it one of the less frequently climbed 7,000 m peaks in India.</p>
+                    </div>
+                    <div class="hardeol-overview-spec-card">
+                        <h3>Technical Specifications</h3>
+                        <ul class="spec-list">
+                            <li><strong>Elevation:</strong> 7,151 m (23,461 ft)</li>
+                            <li><strong>Prominence:</strong> ~1,691 m</li>
+                            <li><strong>Coordinates:</strong> 30°23′00″N 80°08′00″E</li>
+                            <li><strong>Climbing Difficulty:</strong> Hard</li>
+                            <li><strong>First Ascent:</strong> 1978</li>
+                            <li><strong>Expedition Team:</strong> ITBP Expedition</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trekking Guide Section -->
+        <section class="hardeol-section" id="hardeol-trekking">
+            <div class="hardeol-container">
+                <div class="hardeol-section-heading">
+                    <span class="hardeol-section-badge">Trekking Guide</span>
+                    <h2>How to Reach &amp; Trek Route</h2>
+                    <p>Hardeol is a serious mountaineering expedition, not a casual trek. Here's what you need to know.</p>
+                </div>
+                <div class="hardeol-trekking-grid">
+                    <div class="hardeol-trek-card">
+                        <div class="hardeol-trek-icon">🚗</div>
+                        <h3>Getting There</h3>
+                        <p>The journey begins at Kathgodam, the nearest major railway head. From there, travel to Munsiyari (approximately 200 km) by road. Munsiyari serves as the base town for expeditions into the Milam valley.</p>
+                    </div>
+                    <div class="hardeol-trek-card">
+                        <div class="hardeol-trek-icon">🏕️</div>
+                        <h3>Base Camp</h3>
+                        <p>The approach trek follows the Milam valley northward. The base camp is typically established near the Milam glacier area. The trek from Munsiyari to base camp takes approximately 6-8 days through remote Himalayan terrain.</p>
+                    </div>
+                    <div class="hardeol-trek-card">
+                        <div class="hardeol-trek-icon">🧊</div>
+                        <h3>Climbing Route</h3>
+                        <p>The standard route involves glacier travel, ice walls, and steep snow slopes. Technical climbing skills are essential. The summit push typically requires fixed ropes and high-altitude camp establishment above 6,000 m.</p>
+                    </div>
+                    <div class="hardeol-trek-card">
+                        <div class="hardeol-trek-icon">📅</div>
+                        <h3>Best Season</h3>
+                        <p>The ideal climbing window is from May to October, with September being the most favorable month. Pre-monsoon (May-June) and post-monsoon (September-October) offer the most stable weather conditions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facts Section -->
+        <section class="hardeol-section" id="hardeol-facts-section">
+            <div class="hardeol-container">
+                <div class="hardeol-section-heading">
+                    <span class="hardeol-section-badge">Did You Know?</span>
+                    <h2>Interesting Facts</h2>
+                </div>
+                <div class="hardeol-fact-panel">
+                    <div class="hardeol-fact-icon">💡</div>
+                    <p id="hardeol-fact-text" aria-live="polite">Loading fact...</p>
+                    <div class="hardeol-fact-dots" id="hardeol-fact-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map Section -->
+        <section class="hardeol-section" id="hardeol-map-section">
+            <div class="hardeol-container">
+                <div class="hardeol-section-heading">
+                    <span class="hardeol-section-badge">Interactive Map</span>
+                    <h2>Key Locations Around Hardeol</h2>
+                    <p>Click on any marker to learn about that geographic landmark.</p>
+                </div>
+                <div class="hardeol-map-wrap">
+                    <div id="hardeol-map" aria-label="Interactive Leaflet Map showing Hardeol and surrounding landmarks"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery Section -->
+        <section class="hardeol-section" id="hardeol-gallery-section">
+            <div class="hardeol-container">
+                <div class="hardeol-section-heading">
+                    <span class="hardeol-section-badge">Image Gallery</span>
+                    <h2>Views of the Peak &amp; Kumaon Range</h2>
+                    <p>Explore the stunning peaks and valleys of Uttarakhand. Click an image to view it larger.</p>
+                </div>
+                <div id="hardeol-gallery-grid" class="hardeol-gallery-grid"></div>
+            </div>
+        </section>
+
+        <!-- FAQs Section -->
+        <section class="hardeol-section" id="hardeol-faq-section">
+            <div class="hardeol-container">
+                <div class="hardeol-section-heading">
+                    <span class="hardeol-section-badge">FAQ</span>
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="hardeol-faq-container" id="hardeol-faq-accordion">
+                    <!-- Populated via JS for modularity and keyboard support -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="hardeol-lightbox-overlay" id="hardeol-lightbox" hidden role="dialog" aria-modal="true" aria-label="Image Lightbox">
+        <div class="hardeol-lightbox-content">
+            <button class="hardeol-lightbox-close" data-close-lightbox="true" aria-label="Close Lightbox">&times;</button>
+            <button class="hardeol-lightbox-nav prev" id="hardeol-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="hardeol-lightbox-image" src="" alt="">
+            <button class="hardeol-lightbox-nav next" id="hardeol-lightbox-next" aria-label="Next image">›</button>
+            <p class="hardeol-lightbox-caption" id="hardeol-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Highlighting and documenting India's magnificent geography, mountains, and cultural heritage.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html#home">Home</a>
+                <a href="../mountains/index.html">Mountains of India</a>
+                <a href="../travel/travel.html">Travel &amp; Destinations</a>
+                <a href="index.html">Hardeol Explorer</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Developed with Vanilla Web Tech.</p>
+        </div>
+    </footer>
+
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- Local Javascript Module -->
+    <script type="module" src="hardeol.js"></script>
+    <script src="../pages-common.js"></script>
+</body>
+</html>
