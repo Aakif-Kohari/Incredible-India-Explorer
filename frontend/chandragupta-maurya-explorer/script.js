@@ -1,6 +1,6 @@
 // Chandragupta Maurya Profile Page JavaScript (Interactive & Dynamic)
 
-document.addEventListener('DOMContentLoaded', () => {
+function runInit() {
     initTimeline();
     initInterestingFacts();
     initMapInteractivity();
@@ -8,7 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initAdminTabs();
     initQuizWidget();
     initThemeToggle();
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', runInit);
+} else {
+    runInit();
+}
 
 // 1. Chronological Timeline Data & Renderer
 function initTimeline() {
