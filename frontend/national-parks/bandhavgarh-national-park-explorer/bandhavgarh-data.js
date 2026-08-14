@@ -1,0 +1,177 @@
+/**
+ * Bandhavgarh National Park Explorer — Data Module
+ * Covers History, Bandhavgarh Fort, Tiger Reserve, Wildlife,
+ * Safari Zones, Flora, Gallery, and Interactive Map.
+ */
+
+const BANDHAVGARH_INFO = {
+  id: "bandhavgarh",
+  name: "Bandhavgarh National Park",
+  aka: "Bandhavgarh Tiger Reserve",
+  location: "Umaria District, Madhya Pradesh, India",
+  state: "Madhya Pradesh",
+  coordinates: { lat: 23.72, lng: 80.96 },
+  area: "1536 km² (Core: 716 km², Buffer: 820 km²)",
+  establishedYear: 1968,
+  tigerReserveYear: 1993,
+  etymology: "Named after the ancient Bandhavgarh Fort that stands atop an 800-metre hill at the heart of the park. According to legend, the fort was gifted by Lord Rama to his brother Lakshmana to keep watch over Lanka — 'Bandhav' meaning brother and 'Garh' meaning fort.",
+  climate: "Subtropical, with hot summers, monsoon rains (park closed to visitors), and mild, dry winters.",
+  bestTime: "October to June (closed during the monsoon, 1 July – 30 September)",
+  entryFees: "₹150 (Indian Nationals), ₹500 (Foreigners) — varies by zone and vehicle type",
+  nearestTransport: {
+    railway: "Umaria Railway Station (32 km) / Katni Junction (100 km)",
+    airport: "Khajuraho Airport (~245 km) / Jabalpur Airport (~200 km)",
+    gatewayTown: "Tala"
+  },
+  quickStats: [
+    { label: "Highest Tiger Density", value: "India's Best", icon: "🐅" },
+    { label: "Tiger Reserve", value: "Since 1993", icon: "🏞️" },
+    { label: "Total Area", value: "1536 km²", icon: "🌲" },
+    { label: "Ancient Fort", value: "~2000 yrs", icon: "🏰" },
+    { label: "Safari Zones", value: "4", icon: "🚙" },
+    { label: "Bird Species", value: "250+", icon: "🦅" }
+  ]
+};
+
+const HISTORY = [
+  {
+    year: "1st century BCE",
+    title: "Ancient Beginnings",
+    description: "Rock-cut caves and Brahmi inscriptions near the fort hill suggest the area was inhabited and revered as far back as the 1st century BCE, long before it became a protected forest."
+  },
+  {
+    year: "1617-1949",
+    title: "Royal Hunting Reserve",
+    description: "For centuries the forest served as the private hunting grounds of the Maharajas of Rewa, who strictly protected its tiger population, laying the groundwork for its later conservation success."
+  },
+  {
+    year: "1968",
+    title: "National Park Established",
+    description: "Bandhavgarh was officially declared a National Park, initially covering a core area of just 105 km² around the fort hill, later expanded significantly."
+  },
+  {
+    year: "1993",
+    title: "Project Tiger Reserve",
+    description: "The park was brought under Project Tiger and declared a Tiger Reserve, formalising its status as one of India's most important habitats for the Bengal Tiger."
+  }
+];
+
+const BANDHAVGARH_FORT = {
+  title: "Bandhavgarh Fort",
+  description: "Perched atop an 800-metre hill at the centre of the park, Bandhavgarh Fort is believed to be over 2,000 years old, with mentions in ancient texts such as the Narad-Panchratra and the Shiva Purana. The fort's ramparts, ancient caves, and rock-cut chambers overlook the entire Tala zone, and a series of caves at its base bear Brahmi inscriptions dating to the 1st century BCE.",
+  keyHighlights: [
+    "A massive reclining statue of Lord Vishnu, carved from a single rock, lies at the fort's base near the Charanganga river source",
+    "The fort changed hands between several dynasties, including the Baghels of Rewa, before the forest around it became a protected area",
+    "Ancient caves at the base of the hill contain some of the oldest inscriptions found in Madhya Pradesh",
+    "The fort ruins remain within the core zone and can be viewed as part of the Tala zone safari route"
+  ]
+};
+
+const TIGER_RESERVE = {
+  title: "Bandhavgarh Tiger Reserve",
+  description: "Bandhavgarh is renowned for having the highest known density of Bengal Tigers of any park in India, thanks to its rich alluvial grasslands, dense sal forests, and abundant prey base. The reserve first rose to global fame in 1951 when Maharaja Martand Singh of Rewa captured a white tiger cub here, later named Mohan — the ancestor of most white tigers found in captivity worldwide today."
+};
+
+const WILDLIFE = [
+  {
+    id: "bengal-tiger",
+    name: "Bengal Tiger",
+    scientificName: "Panthera tigris tigris",
+    status: "Endangered",
+    icon: "🐅",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Royal_Bengal_Tiger_at_Nandankanan.jpg/800px-Royal_Bengal_Tiger_at_Nandankanan.jpg",
+    description: "Bandhavgarh's star attraction and the reason for its fame — home to the highest recorded density of wild tigers in India, including the legendary male 'Charger'."
+  },
+  {
+    id: "leopard",
+    name: "Leopard",
+    scientificName: "Panthera pardus fusca",
+    status: "Vulnerable",
+    icon: "🐆",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Indian_leopard.jpg/800px-Indian_leopard.jpg",
+    description: "Shares the forest with tigers, often seen along the rocky slopes near the fort hill where it avoids competition with the larger cats."
+  },
+  {
+    id: "gaur",
+    name: "Gaur",
+    scientificName: "Bos gaurus",
+    status: "Vulnerable",
+    icon: "🐃",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Gaur%28Bos_gaurus%29.jpg/800px-Gaur%28Bos_gaurus%29.jpg",
+    description: "The world's largest wild bovine, reintroduced successfully into Bandhavgarh's grasslands where herds now graze in the open meadows."
+  },
+  {
+    id: "sambar",
+    name: "Sambar Deer",
+    scientificName: "Rusa unicolor",
+    status: "Vulnerable",
+    icon: "🦌",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Sloth_Bear.jpg/800px-Sloth_Bear.jpg",
+    description: "The largest deer species in the park and a primary prey species for the resident tiger population."
+  },
+  {
+    id: "nilgai",
+    name: "Nilgai",
+    scientificName: "Boselaphus tragocamelus",
+    status: "Least Concern",
+    icon: "🐂",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Dhole_%28Cuon_alpinus%29_in_Nagarhole_National_Park.jpg/800px-Dhole_%28Cuon_alpinus%29_in_Nagarhole_National_Park.jpg",
+    description: "Asia's largest antelope, commonly spotted grazing in the buffer zone grasslands surrounding the core forest."
+  }
+];
+
+const FLORA = {
+  title: "Flora of Bandhavgarh",
+  description: "The park's vegetation is predominantly moist and dry deciduous forest, dominated by towering Sal trees on the lower hill slopes, giving way to mixed forest, bamboo groves, and open grasslands (locally called 'bohera') that sustain the park's large herbivore population.",
+  keySpecies: [
+    { name: "Sal", description: "The dominant tree species, forming dense canopies across the core zone's hill slopes." },
+    { name: "Bamboo", description: "Found in thick clusters along nullahs and moist depressions, providing cover for wildlife." },
+    { name: "Dhobin", description: "A common mixed-forest tree found alongside Sal in the park's transitional forest zones." },
+    { name: "Grasslands", description: "Open meadows, especially in the Tala zone, that support large grazing herds and easy tiger sightings." }
+  ]
+};
+
+const SAFARI_INFO = {
+  title: "Planning Your Safari",
+  description: "Bandhavgarh's safari zones are spread across the core and buffer areas, with Tala offering the highest tiger sighting frequency in India and the other zones providing quieter, less crowded alternatives.",
+  zones: [
+    { name: "Tala Zone", description: "The most famous and productive zone, covering the fort hill area, with the highest tiger sighting frequency in the park." },
+    { name: "Magadhi Zone", description: "A core zone bordering Tala, known for resident tigresses and their cubs, with slightly fewer crowds." },
+    { name: "Khitauli Zone", description: "A core zone with varied terrain, offering good sightings of tigers, gaur, and birdlife." },
+    { name: "Panpatha Zone", description: "A buffer zone opened to ease pressure on the core, good for a quieter, nature-focused safari experience." }
+  ],
+  timings: "Morning: 6:00 AM – 11:00 AM | Evening: 2:30 PM – 6:00 PM (varies seasonally)",
+  vehicleTypes: "6-seater open Gypsy (shared or private) per zone",
+  closedDays: "Core zones closed on Wednesday afternoons; entire park closed 1 July – 30 September",
+  bookingTip: "Book safari permits well in advance through the MP Forest Department's online portal, especially for the Tala zone during peak season (December–February)."
+};
+
+const MAP_HOTSPOTS = [
+  { id: "spot-tala", name: "Tala Gate & Zone", category: "gate", x: 50, y: 25, description: "The main entry gate and the most productive zone for tiger sightings in the entire park." },
+  { id: "spot-fort", name: "Bandhavgarh Fort", category: "heritage", x: 55, y: 45, description: "The ancient hilltop fort at the heart of the park, over 2,000 years old, with rock-cut caves and inscriptions." },
+  { id: "spot-magadhi", name: "Magadhi Zone", category: "wildlife", x: 30, y: 60, description: "A core zone known for resident tigresses raising cubs, bordering Tala to the west." },
+  { id: "spot-khitauli", name: "Khitauli Zone", category: "wildlife", x: 70, y: 65, description: "A core zone with varied terrain, good for tiger and gaur sightings." },
+  { id: "spot-panpatha", name: "Panpatha Buffer Zone", category: "gate", x: 65, y: 85, description: "The buffer zone that eases pressure on the core areas, offering a quieter safari experience." }
+];
+
+const GALLERY_IMAGES = [
+  {
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg/960px-1_Bandhavgarh_National_Park_Madhya_Pradesh_India.jpg",
+    title: "Bandhavgarh Landscape",
+    caption: "The sal forests and grasslands of Bandhavgarh National Park, Madhya Pradesh."
+  },
+  {
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Royal_Bengal_Tiger_at_Nandankanan.jpg/800px-Royal_Bengal_Tiger_at_Nandankanan.jpg",
+    title: "Bengal Tiger",
+    caption: "A Bengal tiger in Bandhavgarh — home to the highest tiger density of any Indian reserve."
+  },
+  {
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Indian_leopard.jpg/800px-Indian_leopard.jpg",
+    title: "Indian Leopard",
+    caption: "A leopard resting near the rocky slopes below Bandhavgarh Fort."
+  }
+];
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { BANDHAVGARH_INFO, HISTORY, BANDHAVGARH_FORT, TIGER_RESERVE, WILDLIFE, FLORA, SAFARI_INFO, MAP_HOTSPOTS, GALLERY_IMAGES };
+}
