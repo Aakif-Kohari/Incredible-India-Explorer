@@ -5059,4 +5059,11 @@ window.indiaSearchIndex = [
         description: "Follow Mahatma Gandhi's 1946-47 walking peace mission through the villages of Noakhali: the October 1946 communal violence, his arrival at Chandpur, the villages he visited, his peace meetings and community outreach, and the wider road to Partition.",
         url: "frontend/noakhali-peace-mission-explorer/index.html"
     },
+    // --- Narasimhavarman I Explorer ---
+    {
+        title: "Add Narasimhavarman I – Pallava Ruler of Kanchipuram Explorer",
+        category: "History & Royalty",
+        description: "Create a dedicated historical profile page for Narasimhavarman I (Mamalla, c. 630–668 CE), supreme Pallava monarch of Kanchipuram — highlighting his victory at Vatapi, Mamallapuram monolithic Pancha Rathas, Descent of the Ganges bas-relief, and Xuanzang's visit.",
+        url: "frontend/narasimhavarman-i-explorer/index.html"
+    },
 ];
