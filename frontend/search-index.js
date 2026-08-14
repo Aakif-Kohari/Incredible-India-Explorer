@@ -2885,6 +2885,12 @@ window.indiaSearchIndex = [
         url: 'frontend/sanjhi-art-explorer/index.html'
     },
     {
+        title: "Pushkalavati Explorer | Ancient City of Gandhara",
+        category: "Ancient Cities & Heritage",
+        description: "Explore Pushkalavati, the ancient capital of Gandhara: Bala Hisar, Shaikhan Dheri, fortifications, Silk Road trade routes, Buddhist heritage, and the archaeological discoveries that trace its journey from the Achaemenid era to the Kushan Empire.",
+        url: "frontend/pushkalavati-explorer/index.html"
+    },
+    {
         title: "Royal Indian Navy Mutiny (1946) Explorer",
         category: "Final Resistance Movements",
         description: "Explore the Royal Indian Navy Mutiny of February 1946: conditions faced by ratings, the strike aboard HMIS Talwar, its spread across India, civilian solidarity, political responses, and its role in hastening the end of British rule.",
