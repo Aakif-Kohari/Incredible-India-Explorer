@@ -6,6 +6,18 @@
 window.indiaSearchIndex = [
 
     {
+        title: "Arunachal Pradesh's Tani Languages Explorer",
+        category: "Culture & Languages",
+        description: "Explore the diverse Tani language family of Arunachal Pradesh (Nyishi, Adi, Apatani, Galo, Tagin, Mising): regional map, verified audio greetings, comparative vocabulary matrix, and cultural heritage.",
+        url: "frontend/arunachal-tani-languages/index.html"},
+  {
+        title: "Balti Language Explorer (Himalayan Heritage)",
+        category: "Culture & Languages",
+        description: "Explore the ancient Balti language of Ladakh (Kargil, Turtuk, Nubra Valley, Leh): 3 writing scripts, Old Tibetan consonant preservation, verified audio greetings, and cultural heritage.",
+        url: "frontend/balti-language-explorer/index.html"
+    },
+
+    {
         title: "Pandya Fish-Symbol Coins Explorer",
         category: "Heritage & History",
         description: "Explore the ancient coinage of the Pandya Dynasty and the evolution of their royal fish emblem.",
@@ -697,6 +709,12 @@ window.indiaSearchIndex = [
         category: "Culture",
         description: "Discover Ollywood, the Odia film industry of Odisha — from Sita Bibaha (1936), the first Odia film, to National Award-winning classics and the artists who built its legacy.",
         url: "frontend/odia-cinema-explorer/index.html"
+    },
+    {
+        title: "Kui Language & Culture Explorer",
+        category: "Culture",
+        description: "Discover the indigenous Kui language of Odisha's Eastern Ghats highlands — native script, greetings, verified audio pronunciations, Dravidian cognates, regional map, and Kondha tribal heritage.",
+        url: "frontend/kui-language-explorer/index.html"
     },
     {
         title: "Tollywood (Telugu Cinema) Explorer",
@@ -2885,6 +2903,12 @@ window.indiaSearchIndex = [
         url: 'frontend/sanjhi-art-explorer/index.html'
     },
     {
+        title: "Pushkalavati Explorer | Ancient City of Gandhara",
+        category: "Ancient Cities & Heritage",
+        description: "Explore Pushkalavati, the ancient capital of Gandhara: Bala Hisar, Shaikhan Dheri, fortifications, Silk Road trade routes, Buddhist heritage, and the archaeological discoveries that trace its journey from the Achaemenid era to the Kushan Empire.",
+        url: "frontend/pushkalavati-explorer/index.html"
+    },
+    {
         title: "Royal Indian Navy Mutiny (1946) Explorer",
         category: "Final Resistance Movements",
         description: "Explore the Royal Indian Navy Mutiny of February 1946: conditions faced by ratings, the strike aboard HMIS Talwar, its spread across India, civilian solidarity, political responses, and its role in hastening the end of British rule.",
@@ -3856,7 +3880,12 @@ window.indiaSearchIndex = [
     title: "Punjabi: ਪੰਜਾਬੀ and Gurmukhi",
     category: "Languages & Culture",
     description: "Discover Punjabi — Gurmukhi script, a verified greeting with pronunciation, common Punjabi words, its place in the Indo-Aryan family, major Punjabi-speaking regions, and cultural notes.",
-    url: "frontend/punjabi-explorer/index.html"
+    url: "frontend/punjabi-explorer/index.html"},
+  {
+    title: "Magahi: मगही and the Magadha Region",
+    category: "Languages & Culture",
+    description: "Discover Magahi — Devanagari script, a verified greeting with pronunciation, common Magahi words, its place in the Indo-Aryan family, and the Bihar/Jharkhand Magadha region.",
+    url: "frontend/magahi-explorer/index.html"
     },
     // --- Reo Purgyil Mountain ---
     {
@@ -4000,6 +4029,12 @@ window.indiaSearchIndex = [
         category: "Arts & Culture",
         description: "Discover Kushan gold coinage from Kujula Kadphises to Vasudeva I — ruler selector, interactive coin viewer with deity hotspots, inscription viewer, historical timeline, and Kushan territory map.",
         url: "frontend/kushan-gold-coinage/index.html"
+    },
+    {
+        title: "Vijayanagara Gold Coinage Explorer",
+        category: "Arts & Culture",
+        description: "Reconstruct Vijayanagara gold coinage from Harihara I to Achyuta Raya — zoomable coin viewer with symbol hotspots, ruler selector, coin comparison, territory map of mints, and historical timeline of the Varaha standard.",
+        url: "frontend/vijayanagara-gold-coinage-explorer/index.html"
     },
     // --- Sikh Empire Coinage Explorer ---
     {
@@ -5065,4 +5100,11 @@ window.indiaSearchIndex = [
         description: "Follow Mahatma Gandhi's 1946-47 walking peace mission through the villages of Noakhali: the October 1946 communal violence, his arrival at Chandpur, the villages he visited, his peace meetings and community outreach, and the wider road to Partition.",
         url: "frontend/noakhali-peace-mission-explorer/index.html"
     },
+    // --- Nilgiri Tahr Explorer ---
+    {
+        title: "Nilgiri Tahr Explorer",
+        category: "Nature & Wildlife",
+        description: "Explore the Nilgiri Tahr (Nilgiritragus hylocrius) — India's only endemic mountain goat, official State Animal of Tamil Nadu, high-altitude Shola-grassland habitat, cliff adaptations, saddleback bulls, and Project Nilgiri Tahr.",
+        url: "frontend/nilgiri-tahr-explorer/index.html"
+    }
 ];
