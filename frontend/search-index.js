@@ -3876,6 +3876,12 @@ window.indiaSearchIndex = [
             'Horizontal filmstrip timeline detailing Indian cinema from 1913 Raja Harishchandra, talkies, parallel cinema, masala era, and diaspora boom to modern global Oscar triumphs.',
         url: 'frontend/indian-cinema-timeline/index.html'
     },
+    {
+    title: "Magahi: मगही and the Magadha Region",
+    category: "Languages & Culture",
+    description: "Discover Magahi — Devanagari script, a verified greeting with pronunciation, common Magahi words, its place in the Indo-Aryan family, and the Bihar/Jharkhand Magadha region.",
+    url: "frontend/magahi-explorer/index.html"
+    },
     // --- Reo Purgyil Mountain ---
     {
         title: 'Reo Purgyil Mountain Explorer',
