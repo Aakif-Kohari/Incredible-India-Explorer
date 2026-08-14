@@ -1589,6 +1589,21 @@ window.indiaSearchIndex = [
             "Discover Bronze Age water reservoirs, world's earliest dockyards, Mauryan pillared halls, and UNESCO World Heritage excavation records.",
         url: 'frontend/ancient-cities/ancient-cities.html'
     },
+    // --- Explore Vaishali: The Ancient Republican City ---
+    {
+        title: "Vaishali: The Ancient Republican City",
+        category: 'History & Archaeology',
+        description:
+            'Explore Vaishali, the capital of the Vajji Confederacy and the birthplace of Lord Mahavira, with interactive maps, historical timeline, monument explorer, and Vajji assembly structure visualizer.',
+        url: 'frontend/vaishali-explorer/index.html'
+    },
+    {
+        title: 'Vaishali Archaeological & Spiritual Guide',
+        category: 'Archaeology',
+        description:
+            "Discover the ancient Ashokan pillar, Buddha's Relic Stupa, the sacred Coronation Tank, and early democratic structures in Bihar.",
+        url: 'frontend/vaishali-explorer/index.html'
+    },
     // --- India's Border Explorer ---
     {
         title: "India's Border Explorer",
