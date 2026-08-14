@@ -148,6 +148,109 @@
             attractions: "Bundi Fort, Taragarh Fort.",
             image: "https://images.unsplash.com/photo-1620959451996-037340c2be43?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1620959451996-037340c2be43?auto=format&fit=crop&q=40&w=400"
+        },
+        {
+            id: "bishop",
+            name: "Bishop Falls",
+            state: "Meghalaya",
+            river: "Umiam River",
+            height: "135 meters",
+            season: "Post-Monsoon",
+            tags: ["monsoon"],
+            description: "A spectacular three-tiered cascade plunging down the steep gorges of Shillong, famed for its twin relationship with Beadon Falls.",
+            flow: "Powerful roar during monsoon; clearer three-tiered cascade post-monsoon.",
+            attractions: "Beadon Falls, Umiam Lake.",
+            image: "https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&fit=crop&q=40&w=400",
+            url: "../bishop-falls-explorer/index.html"
+            id: "nohsngithiang",
+            name: "Nohsngithiang Falls",
+            state: "Meghalaya",
+            river: "Monsoon Rainfall",
+            height: "315 meters",
+            season: "Monsoon",
+            tags: ["monsoon"],
+            description: "Also known as the Seven Sisters Falls, this majestic 315m segmented waterfall transforms the Khasi Hills cliffs during the monsoon.",
+            flow: "Thundering seven streams in monsoon; completely dry in winter.",
+            attractions: "Mawsmai Cave, Cherrapunji.",
+            image: "https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=40&w=400",
+            url: "../nohsngithiang-falls-explorer/index.html"
+        },
+        {
+            id: "vantawng",
+            name: "Vantawng Falls",
+            state: "Mizoram",
+            river: "Vanva River",
+            height: "229 meters",
+            season: "Monsoon",
+            tags: ["monsoon", "year-round"],
+            description: "Mizoram's tallest waterfall, cascading 229 metres in a stunning two-tiered drop amid deep bamboo forests.",
+            flow: "Massive roaring curtain in monsoon; clearer two-tiered cascade in winter.",
+            attractions: "Thenzawl, Chhingpuii Thlan.",
+            image: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=40&w=400",
+            url: "../vantawng-falls-explorer/index.html"
+        },
+        {
+            id: "nuranang",
+            name: "Nuranang Falls",
+            state: "Arunachal Pradesh",
+            river: "Nuranang River",
+            height: "100 meters",
+            season: "Monsoon",
+            tags: ["monsoon", "year-round"],
+            description: "Also known as Bong Bong Falls, a spectacular ~100m drop in the Himalayas.",
+            flow: "Powerful in monsoon, serene and crystal clear in winter.",
+            attractions: "Tawang, Sela Pass.",
+            image: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&q=40&w=400",
+            url: "../nuranang-falls-explorer/index.html"
+        },
+        {
+            id: "kempty",
+            name: "Kempty Falls",
+            state: "Uttarakhand",
+            river: "Garhwal hill stream (Yamuna tributary)",
+            height: "40-50 feet",
+            season: "Year-round",
+            tags: ["year-round"],
+            description: "A five-tiered cascade near Mussoorie, developed as a tea-party spot in 1835.",
+            flow: "Powerful and flood-prone in monsoon; clear and gentle March-June and Sept-Nov.",
+            attractions: "Mussoorie Mall Road, Camel's Back Road, Lal Tibba.",
+            image: "https://images.unsplash.com/photo-1467890947394-8171244e5410?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1467890947394-8171244e5410?auto=format&fit=crop&q=40&w=400",
+            url: "../kempty-falls-explorer/index.html"
+        },
+        {
+            id: "chitrakote",
+            name: "Chitrakote Falls",
+            state: "Chhattisgarh",
+            river: "Indravati River",
+            height: "29 meters",
+            season: "Monsoon",
+            tags: ["monsoon", "widest"],
+            description: "India's widest waterfall, spreading nearly 300m across the Indravati in a horseshoe shape.",
+            flow: "Roaring reddish-brown curtain in monsoon; narrower clear streams in the dry season.",
+            attractions: "Tirathgarh Falls, Kanger Valley National Park, Kailash Caves.",
+            image: "https://images.unsplash.com/photo-1620641622310-c1c243e4959c?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1620641622310-c1c243e4959c?auto=format&fit=crop&q=40&w=400",
+            url: "../chitrakote-falls-explorer/index.html"
+        },
+        {
+            id: "tirathgarh",
+            name: "Tirathgarh Falls",
+            state: "Chhattisgarh",
+            river: "Munga Bahar (Kanger River tributary)",
+            height: "91 meters",
+            season: "Year-round",
+            tags: ["year-round", "monsoon"],
+            description: "A multi-tiered, milky-white cascade inside Kanger Valley National Park.",
+            flow: "Full and flooded in monsoon; clear, milky-white and distinctly tiered Oct-Feb.",
+            attractions: "Kanger Valley National Park, Kutumsar Caves, Kailash Caves, Chitrakote Falls.",
+            image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=40&w=400",
+            url: "../tirathgarh-falls-explorer/index.html"
         }
     ];
 
@@ -173,7 +276,7 @@
 
     function renderGrid(data) {
         gridContainer.innerHTML = '';
-        
+
         if (data.length === 0) {
             gridContainer.innerHTML = '<p style="color:var(--text-muted); text-align:center;">No waterfalls found for this filter.</p>';
             return;
@@ -204,12 +307,19 @@
                 </div>
             `;
 
-            // Event Listeners for Modal
-            card.addEventListener('click', () => openModal(item));
+            // Event Listeners for Modal or External URL
+            const handleAction = () => {
+                if (item.url) {
+                    window.location.href = item.url;
+                } else {
+                    openModal(item);
+                }
+            };
+            card.addEventListener('click', handleAction);
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    openModal(item);
+                    handleAction();
                 }
             });
 
@@ -225,7 +335,7 @@
 
     function setupIntersectionObserver() {
         const cards = document.querySelectorAll('.waterfall-card');
-        
+
         if (!('IntersectionObserver' in window)) {
             // Fallback for older browsers
             cards.forEach(card => card.classList.add('fade-in'));
@@ -281,7 +391,7 @@
         };
 
         modalCloseBtn.addEventListener('click', closeModal);
-        
+
         modal.addEventListener('click', (e) => {
             if (e.target.classList.contains('modal-backdrop')) {
                 closeModal();

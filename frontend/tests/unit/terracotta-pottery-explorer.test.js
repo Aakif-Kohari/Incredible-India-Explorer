@@ -54,4 +54,16 @@ describe('Terracotta Pottery Explorer — Data Tests', () => {
             expect(data.REFERENCES.length).toBeGreaterThanOrEqual(2);
         });
     });
+
+    describe('Molela explorer integration', () => {
+        it('loads the shared Journey module and bookmark button on the Molela page', () => {
+            const html = readFileSync(
+                resolve(__dirname, '../../molela-clay-art-explorer/index.html'),
+                'utf-8'
+            );
+
+            expect(html).toContain('journey.js');
+            expect(html).toContain('id="molela-bookmark-btn"');
+        });
+    });
 });

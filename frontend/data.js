@@ -314,6 +314,16 @@ const mapData = {
       "bestTimeToVisit": "March to June, October to December",      "description": "Sikkim is a clean, organic Himalayan state surrounding Mt. Kanchenjunga. It is famous for alpine meadows, glaciers, and Buddhist monasteries.",
       "story": "Sikkim is a clean, organic Himalayan state surrounding Mt. Kanchenjunga. It is famous for alpine meadows, glaciers, and Buddhist monasteries.\n\nThe vibrant region of Sikkim is governed from its beautiful capital, Gangtok. The land is deeply connected to its roots, celebrating grand occasions like Saga Dawa & Losar with unmatched energy and devotion.\n\nVisitors from around the world are mesmerized by the local culinary delights, particularly the iconic Momo, Thukpa & Gundruk, which represents centuries of refined regional cooking techniques and traditional spices. A journey to Sikkim is a journey through time, culture, and nature."
     },
+    // Lakkam Waterfalls Card
+    {
+        id: "lakkam-waterfalls",
+        name: "Lakkam Waterfalls",
+        category: "waterfall",
+        location: "Munnar, Kerala",
+        image: "assets/waterfalls/lakkam.jpg",
+        description: "A pristine high-range cascade at 2,730 metres in the Anaimalai Hills, fed by the Pambar River and surrounded by shola forests and tea estates.",
+        link: "frontend/lakkam-waterfalls-explorer/index.html"
+    },
     {
       "id": "tn",
       "name": "Tamil Nadu",
@@ -356,6 +366,16 @@ const mapData = {
       "bestTimeToVisit": "October to March",      "description": "India's cultural heartland, Uttar Pradesh is home to the world-renowned Taj Mahal, sacred Ganges at Varanasi, and historical cities of Ayodhya and Mathura.",
       "story": "India's cultural heartland, Uttar Pradesh is home to the world-renowned Taj Mahal, sacred Ganges at Varanasi, and historical cities of Ayodhya and Mathura.\n\nThe vibrant region of Uttar Pradesh is governed from its beautiful capital, Lucknow. The land is deeply connected to its roots, celebrating grand occasions like Durga Puja & Taj Mahotsav with unmatched energy and devotion.\n\nVisitors from around the world are mesmerized by the local culinary delights, particularly the iconic Tunday Kababi, Petha & Chaat, which represents centuries of refined regional cooking techniques and traditional spices. A journey to Uttar Pradesh is a journey through time, culture, and nature."
     },
+    // Thommankuthu Falls Card
+    {
+        id: "thommankuthu-falls",
+        name: "Thommankuthu Falls",
+        category: "waterfall",
+        location: "Idukki, Kerala",
+        image: "assets/waterfalls/thommankuthu.jpg",
+        description: "A spectacular seven-step cascade on the Keezharkuthu River in the Western Ghats, featuring roaring rapids, natural pools, and pristine forest surroundings.",
+        link: "frontend/thommankuthu-falls-explorer/index.html"
+    },
     {
       "id": "ut",
       "name": "Uttarakhand",
@@ -365,6 +385,16 @@ const mapData = {
       "festival": "Ganga Aarti & Nanda Devi Jat",
       "description": "The 'Land of Gods', Uttarakhand is a hub of pilgrimage (Char Dham), yoga (Rishikesh), wildlife (Jim Corbett Park), and snow-capped Himalayan peaks.",
       "story": "The 'Land of Gods', Uttarakhand is a hub of pilgrimage (Char Dham), yoga (Rishikesh), wildlife (Jim Corbett Park), and snow-capped Himalayan peaks.\n\nThe vibrant region of Uttarakhand is governed from its beautiful capital, Dehradun. The land is deeply connected to its roots, celebrating grand occasions like Ganga Aarti & Nanda Devi Jat with unmatched energy and devotion.\n\nVisitors from around the world are mesmerized by the local culinary delights, particularly the iconic Kafuli & Aloo ke Gutke, which represents centuries of refined regional cooking techniques and traditional spices. A journey to Uttarakhand is a journey through time, culture, and nature."
+    },
+    // Vazhachal Falls Card
+    {
+        id: "vazhachal-falls",
+        name: "Vazhachal Falls",
+        category: "waterfall",
+        location: "Chalakudy River, Kerala",
+        image: "assets/waterfalls/vazhachal.jpg",
+        description: "Cascading rapids of the Chalakudy River flowing through pristine evergreen forests of the Western Ghats, 5 km from Athirappilly Falls.",
+        link: "frontend/vazhachal-falls-explorer/index.html"
     },
     {
       "id": "wb",
@@ -376,7 +406,17 @@ const mapData = {
       "attractions": ["Victoria Memorial", "Howrah Bridge", "Darjeeling Tea Gardens", "Sundarbans National Park", "Dakshineswar Temple"],
       "bestTimeToVisit": "October to March",      "description": "West Bengal is the cultural capital, famous for literature (Rabindranath Tagore), colonial structures in Kolkata, Darjeeling tea, and Sundarbans tigers.",
       "story": "West Bengal is the cultural capital, famous for literature (Rabindranath Tagore), colonial structures in Kolkata, Darjeeling tea, and Sundarbans tigers.\n\nThe vibrant region of West Bengal is governed from its beautiful capital, Kolkata. The land is deeply connected to its roots, celebrating grand occasions like Durga Puja & Poila Baisakh with unmatched energy and devotion.\n\nVisitors from around the world are mesmerized by the local culinary delights, particularly the iconic Machher Jhol & Rasgulla, which represents centuries of refined regional cooking techniques and traditional spices. A journey to West Bengal is a journey through time, culture, and nature."
-    }
+    },
+    // Thalaiyar Falls Card
+    {
+        id: "thalaiyar-falls",
+        name: "Thalaiyar Falls",
+        category: "waterfall",
+        location: "Palani Hills, Tamil Nadu",
+        image: "assets/waterfalls/thalaiyar.jpg",
+        description: "Tamil Nadu's highest waterfall (297m) cascading down sheer cliffs of the Palani Hills, known as Rat Tail Falls for its distinctive thin stream.",
+        link: "frontend/thalaiyar-falls-explorer/index.html"
+    },
   ]
 };
 
@@ -816,6 +856,14 @@ const cultureData = [
     "state": "Odisha, West Bengal & Jharkhand",
     "description": "A vigorous mask dance blending martial arts, acrobatics, and folk tradition, performed to depict stories from Hindu epics like the Mahabharata.",
     "image": "assets/dances/chhau.png"
+  },
+  {
+    "title": "Sandalwood Carving",
+    "category": "craft",
+    "state": "Karnataka",
+    "description": "Karnataka's world-famous Mysore sandalwood (Santalum album) carving tradition spans 2,000+ years. Master shilpis sculpt fragrant heartwood into divine deities, royal elephants, and intricate decorative objects — a GI-tagged craft with deep Wadiyar royal heritage.",
+    "image": "frontend/sandalwood-carving-explorer/assets/sandalwood_hero.jpg",
+    "link": "frontend/sandalwood-carving-explorer/index.html"
   }
 ];
 
