@@ -4001,6 +4001,12 @@ window.indiaSearchIndex = [
         description: "Discover Kushan gold coinage from Kujula Kadphises to Vasudeva I — ruler selector, interactive coin viewer with deity hotspots, inscription viewer, historical timeline, and Kushan territory map.",
         url: "frontend/kushan-gold-coinage/index.html"
     },
+    {
+        title: "Vijayanagara Gold Coinage Explorer",
+        category: "Arts & Culture",
+        description: "Reconstruct Vijayanagara gold coinage from Harihara I to Achyuta Raya — zoomable coin viewer with symbol hotspots, ruler selector, coin comparison, territory map of mints, and historical timeline of the Varaha standard.",
+        url: "frontend/vijayanagara-gold-coinage-explorer/index.html"
+    },
     // --- Sikh Empire Coinage Explorer ---
     {
         title: "Explore Sikh Empire Coinage Explorer",
