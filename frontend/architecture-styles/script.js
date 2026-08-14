@@ -186,6 +186,28 @@
             image: "../../assets/images/placeholder.jpg",
             imageAlt: "Example of Kerala architecture",
             imageCredit: "Representative Image"
+        },
+        {
+            id: "pol-houses",
+            name: "Pol Houses",
+            region: "Ahmedabad (Gujarat)",
+            period: "Traditional / Vernacular Architecture",
+            description: "A traditional, community-oriented housing cluster found in Ahmedabad, known for intricately carved wooden facades and shared courtyard spaces.",
+            features: [
+                "Clustered housing forming a secure neighborhood",
+                "Intricately carved wooden facades, brackets, and columns",
+                "Central open-to-sky courtyards (chowks) for ventilation",
+                "Chabutras (bird-feeding towers) placed in community squares",
+                "Narrow, shaded streets serving as pedestrian zones and social spaces",
+                "Heavy wooden main entrance gates (Pratoli)"
+            ],
+            examples: [
+                "Old City of Ahmedabad (UNESCO World Heritage City)"
+            ],
+            image: "../../assets/images/placeholder.jpg",
+            imageAlt: "Example of an Ahmedabad Pol",
+            imageCredit: "Representative Image",
+            exploreUrl: "../pol-houses-explorer/index.html"
         }
     ];
 
