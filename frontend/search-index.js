@@ -3877,6 +3877,11 @@ window.indiaSearchIndex = [
         url: 'frontend/indian-cinema-timeline/index.html'
     },
     {
+    title: "Punjabi: ਪੰਜਾਬੀ and Gurmukhi",
+    category: "Languages & Culture",
+    description: "Discover Punjabi — Gurmukhi script, a verified greeting with pronunciation, common Punjabi words, its place in the Indo-Aryan family, major Punjabi-speaking regions, and cultural notes.",
+    url: "frontend/punjabi-explorer/index.html"},
+  {
     title: "Magahi: मगही and the Magadha Region",
     category: "Languages & Culture",
     description: "Discover Magahi — Devanagari script, a verified greeting with pronunciation, common Magahi words, its place in the Indo-Aryan family, and the Bihar/Jharkhand Magadha region.",
