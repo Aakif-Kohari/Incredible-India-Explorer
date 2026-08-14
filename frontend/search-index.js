@@ -6,6 +6,13 @@
 window.indiaSearchIndex = [
 
     {
+        title: "Arunachal Pradesh's Tani Languages Explorer",
+        category: "Culture & Languages",
+        description: "Explore the diverse Tani language family of Arunachal Pradesh (Nyishi, Adi, Apatani, Galo, Tagin, Mising): regional map, verified audio greetings, comparative vocabulary matrix, and cultural heritage.",
+        url: "frontend/arunachal-tani-languages/index.html"
+    },
+
+    {
         title: "Pandya Fish-Symbol Coins Explorer",
         category: "Heritage & History",
         description: "Explore the ancient coinage of the Pandya Dynasty and the evolution of their royal fish emblem.",
