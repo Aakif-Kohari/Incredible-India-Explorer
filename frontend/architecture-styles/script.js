@@ -208,7 +208,51 @@
             image: "../../assets/images/placeholder.jpg",
             imageAlt: "Example of a Toda House",
             imageCredit: "Representative Image",
-            exploreUrl: "../toda-houses-explorer/index.html"
+            exploreUrl: "../toda-houses-explorer/index.html"},
+ {
+            id: "shekhawati-haveli",
+            name: "Shekhawati Havelis",
+            region: "Rajasthan (Shekhawati Region)",
+            period: "18th to 20th Century",
+            description: "Traditional courtyard mansions of Marwari merchants, renowned for their intricate fresco paintings, jharokhas, and passive desert-climate adaptations.",
+            features: [
+                "Extensive fresco paintings covering interior and exterior walls",
+                "Internal courtyards (chowks) serving as cooling shafts and family centers",
+                "Jharokhas (overhanging enclosed balconies) for ventilation and privacy",
+                "Constructed from local stone, lime plaster, and robust timber",
+                "Massive wooden entrance doors (torana) with intricate carvings",
+                "Designed for passive cooling in extreme desert climates"
+            ],
+            examples: [
+                "Nawalgarh Havelis",
+                "Mandawa Havelis",
+                "Fatehpur Havelis"
+            ],
+            image: "../../assets/images/placeholder.jpg",
+            imageAlt: "Example of a Shekhawati Haveli",
+            imageCredit: "Representative Image",
+            exploreUrl: "../shekhawati-haveli-explorer/index.html"},
+ {
+            id: "pol-houses",
+            name: "Pol Houses",
+            region: "Ahmedabad (Gujarat)",
+            period: "Traditional / Vernacular Architecture",
+            description: "A traditional, community-oriented housing cluster found in Ahmedabad, known for intricately carved wooden facades and shared courtyard spaces.",
+            features: [
+                "Clustered housing forming a secure neighborhood",
+                "Intricately carved wooden facades, brackets, and columns",
+                "Central open-to-sky courtyards (chowks) for ventilation",
+                "Chabutras (bird-feeding towers) placed in community squares",
+                "Narrow, shaded streets serving as pedestrian zones and social spaces",
+                "Heavy wooden main entrance gates (Pratoli)"
+            ],
+            examples: [
+                "Old City of Ahmedabad (UNESCO World Heritage City)"
+            ],
+            image: "../../assets/images/placeholder.jpg",
+            imageAlt: "Example of an Ahmedabad Pol",
+            imageCredit: "Representative Image",
+            exploreUrl: "../pol-houses-explorer/index.html"
         }
     ];
 
