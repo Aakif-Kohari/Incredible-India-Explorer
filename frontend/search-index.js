@@ -3852,6 +3852,12 @@ window.indiaSearchIndex = [
             'Horizontal filmstrip timeline detailing Indian cinema from 1913 Raja Harishchandra, talkies, parallel cinema, masala era, and diaspora boom to modern global Oscar triumphs.',
         url: 'frontend/indian-cinema-timeline/index.html'
     },
+    {
+    title: "Awadhi: अवधी and Its Literary Tradition",
+    category: "Languages & Culture",
+    description: "Explore Awadhi — Devanagari script, a verified greeting with pronunciation, common Awadhi words, its place in the Indo-Aryan family, the Awadh region, and its literary tradition including Tulsidas's Ramcharitmanas.",
+    url: "frontend/awadhi-explorer/index.html"
+    },
     // --- Reo Purgyil Mountain ---
     {
         title: 'Reo Purgyil Mountain Explorer',
