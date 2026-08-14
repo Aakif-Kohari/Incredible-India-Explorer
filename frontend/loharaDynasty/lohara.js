@@ -49,19 +49,20 @@ const galleryItems = [
     title: 'Queen Didda',
     description:
       'Queen Didda was a powerful ruler of Kashmir and a member of the Lohara royal family. Her succession decisions played an important role in establishing Lohara rule in Kashmir.',
-    imageUrl: '../assets/queen-didda.jpg'
+    imageUrl: '/assets/images/queen-lohara.jpg'
   },
   {
     title: 'King Samgrāmarāja',
     description:'Samgrāmarāja consolidated Lohara authority in Kashmir and successfully resisted attempts by Mahmud of Ghazni to enter the Kashmir Valley. ',
       
-    imageUrl: '../assets/lohara-ananta.png'
+    imageUrl: '/assets/images/lohara-ananta.jng'
+    
   },
   {
     title: 'Kashmir Heritage',
     description:
       'The monuments and cultural heritage of Kashmir provide a glimpse into the historical landscape of the period associated with the Lohara rulers.',
-    imageUrl: '../assets/lohara-temple.jpg'
+    imageUrl: '/assets/images/lohara-temple1.jpg'
   }
 ];
 
