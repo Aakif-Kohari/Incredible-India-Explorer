@@ -5110,6 +5110,13 @@ window.indiaSearchIndex = [
         description: "Follow Mahatma Gandhi's 1946-47 walking peace mission through the villages of Noakhali: the October 1946 communal violence, his arrival at Chandpur, the villages he visited, his peace meetings and community outreach, and the wider road to Partition.",
         url: "frontend/noakhali-peace-mission-explorer/index.html"
     },
+    // --- Krishnaraja Wadiyar IV Explorer ---
+    {
+        title: "Add Krishnaraja Wadiyar IV – Mysore's Progressive Maharaja Explorer",
+        category: "History & Royalty",
+        description: "Create a dedicated historical profile page for Krishnaraja Wadiyar IV (1902–1940 CE), Maharaja of Mysore — presenting developments in education (IISc land grant, Mysore University), infrastructure (Shivanasamudra, KRS Dam), and Amba Vilas Palace.",
+        url: "frontend/krishnaraja-wadiyar-iv-explorer/index.html"
+    },
     // --- Nilgiri Tahr Explorer ---
     {
         title: "Nilgiri Tahr Explorer",
