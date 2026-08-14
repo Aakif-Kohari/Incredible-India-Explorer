@@ -6,6 +6,13 @@
 window.indiaSearchIndex = [
 
     {
+        title: "Balti Language Explorer (Himalayan Heritage)",
+        category: "Culture & Languages",
+        description: "Explore the ancient Balti language of Ladakh (Kargil, Turtuk, Nubra Valley, Leh): 3 writing scripts, Old Tibetan consonant preservation, verified audio greetings, and cultural heritage.",
+        url: "frontend/balti-language-explorer/index.html"
+    },
+
+    {
         title: "Pandya Fish-Symbol Coins Explorer",
         category: "Heritage & History",
         description: "Explore the ancient coinage of the Pandya Dynasty and the evolution of their royal fish emblem.",
