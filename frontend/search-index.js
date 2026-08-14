@@ -5089,4 +5089,11 @@ window.indiaSearchIndex = [
         description: "Follow Mahatma Gandhi's 1946-47 walking peace mission through the villages of Noakhali: the October 1946 communal violence, his arrival at Chandpur, the villages he visited, his peace meetings and community outreach, and the wider road to Partition.",
         url: "frontend/noakhali-peace-mission-explorer/index.html"
     },
+    // --- Nilgiri Tahr Explorer ---
+    {
+        title: "Nilgiri Tahr Explorer",
+        category: "Nature & Wildlife",
+        description: "Explore the Nilgiri Tahr (Nilgiritragus hylocrius) — India's only endemic mountain goat, official State Animal of Tamil Nadu, high-altitude Shola-grassland habitat, cliff adaptations, saddleback bulls, and Project Nilgiri Tahr.",
+        url: "frontend/nilgiri-tahr-explorer/index.html"
+    }
 ];
