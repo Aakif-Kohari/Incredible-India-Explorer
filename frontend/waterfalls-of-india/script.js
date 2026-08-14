@@ -236,6 +236,21 @@
             image: "https://images.unsplash.com/photo-1620641622310-c1c243e4959c?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1620641622310-c1c243e4959c?auto=format&fit=crop&q=40&w=400",
             url: "../chitrakote-falls-explorer/index.html"
+        },
+        {
+            id: "tirathgarh",
+            name: "Tirathgarh Falls",
+            state: "Chhattisgarh",
+            river: "Munga Bahar (Kanger River tributary)",
+            height: "91 meters",
+            season: "Year-round",
+            tags: ["year-round", "monsoon"],
+            description: "A multi-tiered, milky-white cascade inside Kanger Valley National Park.",
+            flow: "Full and flooded in monsoon; clear, milky-white and distinctly tiered Oct-Feb.",
+            attractions: "Kanger Valley National Park, Kutumsar Caves, Kailash Caves, Chitrakote Falls.",
+            image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=40&w=400",
+            url: "../tirathgarh-falls-explorer/index.html"
         }
     ];
 
