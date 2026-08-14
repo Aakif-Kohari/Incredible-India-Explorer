@@ -190,6 +190,33 @@ export const ancientCitiesData = [
       ancientLayout: "Planned imperial capital built on a rocky ridge with an artificial lake, royal audience halls, Sufi shrines, and courtly quarters.",
       todayStatus: "A remarkably intact red sandstone ghost city near Agra, recognized as a masterpiece of Mughal urban design."
     }
+  },
+  {
+    id: "rajgir",
+    name: "Rajgir",
+    civilization: "Magadha Empire & Sacred Buddhist/Jain Landscape",
+    eraPeriod: "c. 1000 BCE – 12th century CE",
+    location: "Nalanda District, Bihar",
+    region: "East",
+    mapCoords: { x: 69, y: 44 },
+    icon: "🏔️",
+    shortSummary: "The ancient valley capital of Magadha nestled within five hills, which evolved from a mighty fortress into a sacred Buddhist and Jain pilgrimage landscape.",
+    archaeologicalDiscoveries: [
+      "Cyclopean Wall of Rajgir: 40 km long ancient stone fortifications built without mortar.",
+      "Gridhrakuta (Vulture Peak) where Gautama Buddha delivered major Mahayana sutras.",
+      "Son Bhandar Caves: Rock-cut caves with Jain carvings and ancient inscriptions."
+    ],
+    excavationFacts: {
+      discoveredBy: "Francis Buchanan-Hamilton (1811) & Sir Alexander Cunningham (1861-62)",
+      keyExcavator: "John Marshall & Archaeological Survey of India",
+      status: "Protected State & ASI Monument Complex",
+      historicalSignificance: "Served as the early Magadha capital under Bimbisara and Ajatashatru, and hosted the First Buddhist Council in Saptaparni Cave."
+    },
+    beforeVsToday: {
+      ancientLayout: "A valley surrounded by high stone fortifications, royal palaces, monasteries, and pilgrimage routes frequented by Buddha and Mahavira.",
+      todayStatus: "A major historical tourist center featuring the Cyclopean Wall ruins, hot springs, ropeway to Vishwa Shanti Stupa, and ruins of Bimbisara's jail."
+    },
+    explorerUrl: "../rajgir-explorer/index.html"
   }
 ];
 
