@@ -3877,6 +3877,12 @@ window.indiaSearchIndex = [
         url: 'frontend/indian-cinema-timeline/index.html'
     },
     {
+    title: "Bhojpuri: भोजपुरी and Its Folk Heritage",
+    category: "Languages & Culture",
+    description: "Discover Bhojpuri — Devanagari script, a verified greeting with pronunciation, common Bhojpuri words, its place in the Indo-Aryan family, major regions, and its folk music, cinema, and Bidesia theatre heritage.",
+    url: "frontend/bhojpuri-explorer/index.html"
+    },
+  {
     title: "Awadhi: अवधी and Its Literary Tradition",
     category: "Languages & Culture",
     description: "Explore Awadhi — Devanagari script, a verified greeting with pronunciation, common Awadhi words, its place in the Indo-Aryan family, the Awadh region, and its literary tradition including Tulsidas's Ramcharitmanas.",
