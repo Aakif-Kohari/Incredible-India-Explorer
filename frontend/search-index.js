@@ -2903,6 +2903,12 @@ window.indiaSearchIndex = [
         url: 'frontend/sanjhi-art-explorer/index.html'
     },
     {
+        title: "Pushkalavati Explorer | Ancient City of Gandhara",
+        category: "Ancient Cities & Heritage",
+        description: "Explore Pushkalavati, the ancient capital of Gandhara: Bala Hisar, Shaikhan Dheri, fortifications, Silk Road trade routes, Buddhist heritage, and the archaeological discoveries that trace its journey from the Achaemenid era to the Kushan Empire.",
+        url: "frontend/pushkalavati-explorer/index.html"
+    },
+    {
         title: "Royal Indian Navy Mutiny (1946) Explorer",
         category: "Final Resistance Movements",
         description: "Explore the Royal Indian Navy Mutiny of February 1946: conditions faced by ratings, the strike aboard HMIS Talwar, its spread across India, civilian solidarity, political responses, and its role in hastening the end of British rule.",
@@ -4012,6 +4018,12 @@ window.indiaSearchIndex = [
         category: "Arts & Culture",
         description: "Discover Kushan gold coinage from Kujula Kadphises to Vasudeva I — ruler selector, interactive coin viewer with deity hotspots, inscription viewer, historical timeline, and Kushan territory map.",
         url: "frontend/kushan-gold-coinage/index.html"
+    },
+    {
+        title: "Vijayanagara Gold Coinage Explorer",
+        category: "Arts & Culture",
+        description: "Reconstruct Vijayanagara gold coinage from Harihara I to Achyuta Raya — zoomable coin viewer with symbol hotspots, ruler selector, coin comparison, territory map of mints, and historical timeline of the Varaha standard.",
+        url: "frontend/vijayanagara-gold-coinage-explorer/index.html"
     },
     // --- Sikh Empire Coinage Explorer ---
     {
