@@ -82,7 +82,36 @@ export const ancientCitiesData = [
     beforeVsToday: {
       ancientLayout: "Fortified riverine mega-city featuring 64 gates, 570 towers, royal gardens, and timber palaces along the confluence of the Ganges and Sone rivers.",
       todayStatus: "Archaeological park at Kumrahar in modern Patna displaying stone pillar bases, ancient brick monasteries, and historical artifacts."
-    }
+    },
+    explorerUrl: "../pataliputra-explorer/index.html"
+  },
+  {
+    id: "vaishali",
+    name: "Vaishali",
+    civilization: "Licchavi / Vajji Confederacy",
+    eraPeriod: "c. 6th Century BCE – 4th Century CE",
+    location: "Vaishali District, Bihar",
+    region: "East",
+    mapCoords: { x: 67, y: 40 },
+    icon: "🦁",
+    shortSummary: "The birthplace of Lord Mahavira, site of Buddha's last sermon, and the capital of the Vajji confederacy, recognized as the world's first republic.",
+    archaeologicalDiscoveries: [
+      "The perfectly preserved Ashokan pillar topped by a single lion facing north.",
+      "The Relic Stupa which housed a portion of Gautama Buddha's cremated remains.",
+      "Abhisheka Pushkarini (Coronation Tank) used for crowning the Vajji republican rulers."
+    ],
+    excavationFacts: {
+      discoveredBy: "Alexander Cunningham (1861)",
+      keyExcavator: "Dr. Spooner, Dr. Altekar, and Archaeological Survey of India",
+      status: "Protected ASI Monument Complex",
+      historicalSignificance: "Stands as a monumental center of early democracy, Buddhist Councils, and Jain spiritual history."
+    },
+    beforeVsToday: {
+      ancientLayout: "A vibrant democratic capital protected by triple fortified walls, boasting royal council halls, spiritual stupas, and large water systems.",
+      todayStatus: "A serene archaeological park in Bihar displaying the majestic Ashokan lion pillar, relic mound, and the ancient coronation reservoir."
+    },
+    explorerUrl: "../vaishali-explorer/index.html",
+    thumbnail: "../assets/vaishali_thumbnail.jpg"
   },
   {
     id: "vijayanagara",
@@ -389,6 +418,12 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
             </div>
           </div>
 
+          ${city.thumbnail ? `
+          <div class="city-card-thumbnail" style="width: 100%; height: 180px; overflow: hidden; border-radius: 14px; margin: 4px 0 8px;">
+            <img src="${city.thumbnail}" alt="${city.name} Archaeological site" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          ` : ''}
+
           <p class="era-tag">⏳ <strong>Era / Period:</strong> ${city.eraPeriod}</p>
           <p class="location-tag">📍 <strong>Location:</strong> ${city.location}</p>
           <p class="short-summary">${city.shortSummary}</p>
@@ -406,6 +441,16 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
             <p class="significance-text">${city.excavationFacts.historicalSignificance}</p>
           </div>
 
+          <div class="city-card-actions">
+            <button type="button" class="btn-compare-trigger" data-city="${city.id}">
+              🔄 View Before vs Today Comparison
+            </button>
+            ${city.explorerUrl ? `
+            <a href="${city.explorerUrl}" class="btn-explore-link">
+              🏛️ Explore ${city.name}
+            </a>
+            ` : ''}
+          </div>
          <button type="button" class="btn-compare-trigger" data-city="${city.id}">
             🔄 View Before vs Today Comparison
           </button>
