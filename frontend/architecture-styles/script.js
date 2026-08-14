@@ -186,6 +186,29 @@
             image: "../../assets/images/placeholder.jpg",
             imageAlt: "Example of Kerala architecture",
             imageCredit: "Representative Image"
+        },
+        {
+            id: "toda-houses",
+            name: "Toda Houses",
+            region: "Tamil Nadu (Nilgiri Hills)",
+            period: "Indigenous / Vernacular Architecture",
+            description: "Traditional barrel-vaulted houses of the Toda pastoral community, seamlessly integrated with the Shola forests and grasslands.",
+            features: [
+                "Distinctive barrel-vaulted/half-barrel roof structure",
+                "Constructed from natural materials: bamboo, dried grass, and rattan",
+                "Thick thatch insulation for the cool mountain climate",
+                "Tiny entrances to protect from cold winds and wildlife",
+                "Intricate mural decorations on the front wooden facade",
+                "Surrounded by low, semi-circular stone walls in hamlets called munds"
+            ],
+            examples: [
+                "Toda munds near Ooty",
+                "Muttunadu Mund"
+            ],
+            image: "../../assets/images/placeholder.jpg",
+            imageAlt: "Example of a Toda House",
+            imageCredit: "Representative Image",
+            exploreUrl: "../toda-houses-explorer/index.html"
         }
     ];
 
@@ -293,6 +316,29 @@
             elements.image.src = style.image;
             elements.image.alt = style.imageAlt;
             elements.imageCredit.textContent = "Image: " + style.imageCredit;
+            
+            // Update CTA button if exploreUrl is provided
+            let exploreBtn = document.getElementById("arch-explore-btn");
+            if (!exploreBtn) {
+                exploreBtn = document.createElement("a");
+                exploreBtn.id = "arch-explore-btn";
+                exploreBtn.style.display = "inline-block";
+                exploreBtn.style.marginTop = "20px";
+                exploreBtn.style.padding = "10px 20px";
+                exploreBtn.style.background = "var(--primary-color, #FF9933)";
+                exploreBtn.style.color = "#111";
+                exploreBtn.style.textDecoration = "none";
+                exploreBtn.style.fontWeight = "bold";
+                exploreBtn.style.borderRadius = "8px";
+                elements.description.parentNode.insertBefore(exploreBtn, elements.description.nextSibling);
+            }
+            if (style.exploreUrl) {
+                exploreBtn.href = style.exploreUrl;
+                exploreBtn.textContent = "Explore " + style.name;
+                exploreBtn.style.display = "inline-block";
+            } else {
+                exploreBtn.style.display = "none";
+            }
             
         } catch (error) {
             console.error("Error rendering architecture style:", error);
