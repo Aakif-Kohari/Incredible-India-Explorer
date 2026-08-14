@@ -175,8 +175,9 @@
             attractions: "Mawsmai Cave, Cherrapunji.",
             image: "https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=40&w=400",
-            url: "../nohsngithiang-falls-explorer/index.html"},
- {
+            url: "../nohsngithiang-falls-explorer/index.html"
+        },
+        {
             id: "vantawng",
             name: "Vantawng Falls",
             state: "Mizoram",
@@ -189,8 +190,9 @@
             attractions: "Thenzawl, Chhingpuii Thlan.",
             image: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=40&w=400",
-            url: "../vantawng-falls-explorer/index.html"},
-      {
+            url: "../vantawng-falls-explorer/index.html"
+        },
+        {
             id: "nuranang",
             name: "Nuranang Falls",
             state: "Arunachal Pradesh",
@@ -204,6 +206,51 @@
             image: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&q=40&w=400",
             url: "../nuranang-falls-explorer/index.html"
+        },
+        {
+            id: "kempty",
+            name: "Kempty Falls",
+            state: "Uttarakhand",
+            river: "Garhwal hill stream (Yamuna tributary)",
+            height: "40-50 feet",
+            season: "Year-round",
+            tags: ["year-round"],
+            description: "A five-tiered cascade near Mussoorie, developed as a tea-party spot in 1835.",
+            flow: "Powerful and flood-prone in monsoon; clear and gentle March-June and Sept-Nov.",
+            attractions: "Mussoorie Mall Road, Camel's Back Road, Lal Tibba.",
+            image: "https://images.unsplash.com/photo-1467890947394-8171244e5410?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1467890947394-8171244e5410?auto=format&fit=crop&q=40&w=400",
+            url: "../kempty-falls-explorer/index.html"
+        },
+        {
+            id: "chitrakote",
+            name: "Chitrakote Falls",
+            state: "Chhattisgarh",
+            river: "Indravati River",
+            height: "29 meters",
+            season: "Monsoon",
+            tags: ["monsoon", "widest"],
+            description: "India's widest waterfall, spreading nearly 300m across the Indravati in a horseshoe shape.",
+            flow: "Roaring reddish-brown curtain in monsoon; narrower clear streams in the dry season.",
+            attractions: "Tirathgarh Falls, Kanger Valley National Park, Kailash Caves.",
+            image: "https://images.unsplash.com/photo-1620641622310-c1c243e4959c?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1620641622310-c1c243e4959c?auto=format&fit=crop&q=40&w=400",
+            url: "../chitrakote-falls-explorer/index.html"
+        },
+        {
+            id: "tirathgarh",
+            name: "Tirathgarh Falls",
+            state: "Chhattisgarh",
+            river: "Munga Bahar (Kanger River tributary)",
+            height: "91 meters",
+            season: "Year-round",
+            tags: ["year-round", "monsoon"],
+            description: "A multi-tiered, milky-white cascade inside Kanger Valley National Park.",
+            flow: "Full and flooded in monsoon; clear, milky-white and distinctly tiered Oct-Feb.",
+            attractions: "Kanger Valley National Park, Kutumsar Caves, Kailash Caves, Chitrakote Falls.",
+            image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=40&w=400",
+            url: "../tirathgarh-falls-explorer/index.html"
         }
     ];
 
@@ -229,7 +276,7 @@
 
     function renderGrid(data) {
         gridContainer.innerHTML = '';
-        
+
         if (data.length === 0) {
             gridContainer.innerHTML = '<p style="color:var(--text-muted); text-align:center;">No waterfalls found for this filter.</p>';
             return;
@@ -288,7 +335,7 @@
 
     function setupIntersectionObserver() {
         const cards = document.querySelectorAll('.waterfall-card');
-        
+
         if (!('IntersectionObserver' in window)) {
             // Fallback for older browsers
             cards.forEach(card => card.classList.add('fade-in'));
@@ -344,7 +391,7 @@
         };
 
         modalCloseBtn.addEventListener('click', closeModal);
-        
+
         modal.addEventListener('click', (e) => {
             if (e.target.classList.contains('modal-backdrop')) {
                 closeModal();
