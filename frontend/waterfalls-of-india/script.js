@@ -254,6 +254,20 @@
             url: "../tirathgarh-falls-explorer/index.html"
         },
         {
+            id: "joranda",
+            name: "Joranda Falls",
+            state: "Odisha",
+            river: "Budhabalanga Basin Tributary",
+            height: "181 meters",
+            season: "Post-Monsoon",
+            tags: ["tallest", "monsoon"],
+            description: "A breathtaking 181m single uninterrupted plunge off ancient volcanic cliffs within the Similipal Tiger Reserve core zone.",
+            flow: "Spectacular roaring single-stream column post-monsoon; mist-filled forest cauldron.",
+            attractions: "Similipal National Park, Barehipani Falls, Chahala, Meghasani Peak.",
+            image: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=40&w=400",
+            url: "../joranda-falls-explorer/index.html"},
+              {
             id: "barehipani",
             name: "Barehipani Falls",
             state: "Odisha",
