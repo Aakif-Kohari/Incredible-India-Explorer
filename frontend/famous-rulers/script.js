@@ -5,6 +5,16 @@
 // Structured Data for Rulers
 const rulersData = [
   {
+    name: "Chandragupta Maurya",
+    era: "Ancient",
+    dynasty: "Maurya",
+    region: "Pan-Indian",
+    reign: "c. 321 – 297 BCE",
+    image: "ruler-ashoka..jpg",
+    description: "Founder of the Mauryan Empire and unifier of ancient India. Mentored by Chanakya, he overthrew Nanda rule, repelled Seleucus I Nicator, and established a centralized subcontinental state.",
+    link: "../chandragupta-maurya-explorer/index.html"
+  },
+  {
     name: "Ashoka the Great",
     era: "Ancient",
     dynasty: "Maurya",
