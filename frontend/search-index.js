@@ -5249,6 +5249,13 @@ window.indiaSearchIndex = [
         description: "Create a dedicated historical profile page for Krishnaraja Wadiyar IV (1902–1940 CE), Maharaja of Mysore — presenting developments in education (IISc land grant, Mysore University), infrastructure (Shivanasamudra, KRS Dam), and Amba Vilas Palace.",
         url: "frontend/krishnaraja-wadiyar-iv-explorer/index.html"
     },
+    // --- Chandraketugarh Explorer ---
+    {
+        title: "Chandraketugarh River Port Explorer",
+        category: "Heritage & History",
+        description: "Explore Chandraketugarh, an ancient river port in West Bengal associated with the Gangaridai kingdom, featuring 1,500 years of settlement from Mauryan to Pala periods.",
+        url: "frontend/chandraketugarh-port-explorer/index.html"
+    },
     // --- Nilgiri Tahr Explorer ---
     {
         title: "Nilgiri Tahr Explorer",
