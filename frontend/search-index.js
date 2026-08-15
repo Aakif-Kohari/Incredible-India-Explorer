@@ -1684,6 +1684,13 @@ window.indiaSearchIndex = [
         description: "Explore Dokra Art — ancient lost-wax metal casting by tribal artisans, Indus Valley roots, the cire-perdue process, artisan communities of Bastar, Dhenkanal and Bankura, and gallery.",
         url: "frontend/dokra-art-explorer/index.html"
     },
+    // --- Sultan Azlan Shah Cup Explorer ---
+    {
+        title: "Sultan Azlan Shah Cup: Explore India's Hockey Journey Explorer",
+        category: "Sports & Culture",
+        description: "Create an interactive explorer focusing on India's hockey journey at the Sultan Azlan Shah Cup — documenting 5 championship gold triumphs, medal finishes, and icons (Dhanraj Pillay, P.R. Sreejesh, Sandeep Singh).",
+        url: "frontend/azlan-shah-cup-explorer/index.html"
+    },
     // --- Kalighat Painting Showcase ---
     {
         title: "Kalighat Painting Showcase",
