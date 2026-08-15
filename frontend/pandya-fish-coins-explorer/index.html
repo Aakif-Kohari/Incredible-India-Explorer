@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Pandya-associated coinage and discover the recurring fish symbol across different coin designs and historical periods.">
+    <title>Pandya Coins Explorer | Incredible India Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../pages-common.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="coins-page-body" data-page="coins">
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                if (document.body) document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">☀️</button>
+        </div>
+    </header>
+
+    <main class="explorer-main">
+        <a class="back-link" id="dynamic-back-link" href="../coin-search-and-advanced-filters/index.html">← Back to Coins Explorer</a>
+        
+        <!-- Hero Section -->
+        <section class="hero pandya-hero">
+            <div class="hero-content">
+                <p class="hero-eyebrow">NUMISMATIC HERITAGE</p>
+                <h1 class="hero-title">Pandya Fish-Symbol Coins</h1>
+                <p class="hero-description">Discover the evolution of the iconic fish motif—the dynastic emblem of the Pandyas—stamped on the ancient coinage of Tamilakam.</p>
+                <a href="#symbol-viewer" class="btn-explore">Interactive Viewer</a>
+            </div>
+        </section>
+
+        <!-- Historical Context -->
+        <section id="context" class="section-container mt-negative">
+            <div class="content-card context-card">
+                <h2>Historical Context</h2>
+                <div class="context-grid">
+                    <div>
+                        <h3>The Pandya Dynasty</h3>
+                        <p>The Pandyas were one of the three ancient Tamil dynasties (Muvendar). Their kingdom traditionally encompassed the southern regions of Tamil Nadu, centered around Madurai and Korkai.</p>
+                    </div>
+                    <div>
+                        <h3>The Fish Emblem (Meen)</h3>
+                        <p>The fish was the royal crest of the Pandyas. It symbolized prosperity, maritime power, and authority. It appeared on their flags, seals, and predominantly on their coinage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Symbol Evolution Viewer -->
+        <section id="symbol-viewer" class="section-container">
+            <div class="section-header">
+                <h2>Symbol Evolution Viewer</h2>
+                <p>Select a coin to explore its symbols, inscriptions, and historical period.</p>
+            </div>
+            
+            <div class="viewer-container">
+                <!-- Controls -->
+                <div class="viewer-controls">
+                    <label for="coin-selector">Select a coin:</label>
+                    <select id="coin-selector" aria-label="Select a coin">
+                        <!-- Options injected via JS -->
+                    </select>
+                </div>
+
+                <div class="viewer-layout">
+                    <!-- Image Area -->
+                    <div class="coin-display">
+                        <div class="image-wrapper" id="coin-image-wrapper">
+                            <img id="current-coin-img" src="" alt="Coin image" tabindex="0" role="button" aria-label="Zoom coin image">
+                            <!-- Highlight Box -->
+                            <div id="fish-highlight" class="fish-highlight hidden" aria-hidden="true"></div>
+                        </div>
+                        
+                        <div class="display-actions">
+                            <button id="btn-toggle-side" class="action-btn">View Reverse</button>
+                            <button id="btn-highlight-fish" class="action-btn highlight">Highlight Fish Symbol</button>
+                        </div>
+                    </div>
+
+                    <!-- Details Area -->
+                    <div class="coin-details">
+                        <h3 id="detail-name">Coin Name</h3>
+                        <div class="detail-row"><span class="detail-label">Period:</span> <span id="detail-period"></span></div>
+                        <div class="detail-row"><span class="detail-label">Region:</span> <span id="detail-region"></span></div>
+                        <div class="detail-row"><span class="detail-label">Symbols:</span> <span id="detail-symbols"></span></div>
+                        <div class="detail-row"><span class="detail-label">Inscription:</span> <span id="detail-inscription"></span></div>
+                        
+                        <div class="detail-description">
+                            <h4>Description</h4>
+                            <p id="detail-desc"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compare Coins Section -->
+        <section id="compare" class="section-container">
+            <div class="section-header">
+                <h2>Compare Coins</h2>
+                <p>Observe the evolution of the fish symbol across different periods.</p>
+            </div>
+            <div class="compare-container">
+                <div class="compare-slot">
+                    <select id="compare-select-1" aria-label="Select first coin to compare"></select>
+                    <div class="compare-img-box">
+                        <img id="compare-img-1" src="" alt="">
+                    </div>
+                    <div id="compare-details-1" class="compare-details"></div>
+                </div>
+                <div class="compare-divider">VS</div>
+                <div class="compare-slot">
+                    <select id="compare-select-2" aria-label="Select second coin to compare"></select>
+                    <div class="compare-img-box">
+                        <img id="compare-img-2" src="" alt="">
+                    </div>
+                    <div id="compare-details-2" class="compare-details"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pandya Timeline -->
+        <section id="timeline" class="section-container">
+            <div class="section-header">
+                <h2>Pandya Coinage Timeline</h2>
+            </div>
+            <div class="timeline-container" id="timeline-wrapper">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Sources -->
+        <section id="sources" class="section-container">
+            <div class="section-header">
+                <h2>Sources & Further Reading</h2>
+            </div>
+            <div class="content-card sources-card">
+                <ul id="sources-list">
+                    <li>R. Krishnamurthy (1997). <i>Sangam Age Tamil Coins</i>. Garnet Publications.</li>
+                    <li>Walter Elliot (1886). <i>Coins of Southern India</i>.</li>
+                    <li>Archaeological Survey of India (ASI) - Excavation reports from Madurai and Korkai regions.</li>
+                    <li>Government Museum, Chennai - Numismatic Collection.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Zoom Dialog -->
+    <dialog id="zoom-dialog" class="zoom-dialog">
+        <div class="dialog-content">
+            <button id="close-dialog" class="close-btn" aria-label="Close zoom dialog">✕</button>
+            <img id="zoomed-image" src="" alt="Zoomed coin">
+            <p id="zoomed-caption"></p>
+        </div>
+    </dialog>
+
+    <footer class="footer">
+        <div class="footer-credits">
+            <p>&copy; 2026 Incredible India Explorer.</p>
+        </div>
+    </footer>
+
+    <script src="../../pages-common.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
