@@ -3813,6 +3813,18 @@ window.indiaSearchIndex = [
             'Chronological milestone timeline from 1853 to 1984, category filters, and multiple-choice knowledge quiz testing famous Indian firsts.',
         url: 'frontend/indias-firsts/indias-firsts.html'
     },
+    {
+        title: "India's Firsts in Sports",
+        category: "History & Achievements",
+        description: "Interactive encyclopedia of India's landmark sporting firsts: first Olympic medal (Norman Pritchard), first Olympic gold (1928 Hockey Team), first individual Olympic gold (Abhinav Bindra), first woman Olympic medalist (Karnam Malleswari), first Cricket World Cup (1983), and more.",
+        url: "frontend/indias-firsts-sports/indias-firsts-sports.html"
+    },
+    {
+        title: "India's Sporting Firsts Timeline & Knowledge Quiz",
+        category: "Interactive Learning",
+        description: "Chronological milestone timeline from 1900 to 2023, category filters (Olympics, Cricket, Hockey, Badminton, Chess, Tennis, Paralympics), and multiple-choice knowledge quiz testing India's biggest sporting firsts.",
+        url: "frontend/indias-firsts-sports/indias-firsts-sports.html"
+    },
     // --- India's Lost Cities & Ancient Civilizations ---
     {
         title: "India's Lost Cities & Ancient Civilizations Explorer",
