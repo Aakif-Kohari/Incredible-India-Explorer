@@ -3851,6 +3851,12 @@ window.indiaSearchIndex = [
             'Explore Wagah-Attari, Nathu La Pass, Petrapole-Benapole, Moreh-Tamu and other major border checkpoints. Learn about BSF, ITBP, SSB, Assam Rifles, and Indian Coast Guard deployments.',
         url: 'frontend/border-explorer/border-explorer.html'
     },
+    {
+    title: "Chhattisgarhi: छत्तीसगढ़ी and Its Folk Heritage",
+    category: "Languages & Culture",
+    description: "Explore Chhattisgarhi — Devanagari script, a verified greeting with pronunciation, common Chhattisgarhi words, its language family, the Chhattisgarh region, and folk heritage including Pandwani storytelling.",
+    url: "frontend/chhattisgarhi-explorer/index.html"
+    },
     // --- Important Government Institutions Explorer ---
     {
         title: 'Important Government Institutions Knowledge Hub',
