@@ -692,6 +692,13 @@ window.indiaSearchIndex = [
         description: "Discover Sanjhi, the ancient paper-cut stencil art of Mathura and Vrindavan — intricate Radha-Krishna motifs cut by hand for centuries of temple rituals.",
         url: "frontend/sanjhi-art-explorer/index.html"
     },
+    // --- Durand Cup Explorer ---
+    {
+        title: "Durand Cup: Explore India's Historic Football Tournament Explorer",
+        category: "Sports & Culture",
+        description: "Create a dedicated Durand Cup explorer — discovering Asia's oldest football tournament founded in 1888, 3 rolling trophies, historic venues from Shimla to Salt Lake Stadium, and champions (Mohun Bagan 17 titles, East Bengal 16 titles).",
+        url: "frontend/durand-cup-explorer/index.html"
+    },
     {
         title: "Congress Radio Explorer",
         category: "Culture",
