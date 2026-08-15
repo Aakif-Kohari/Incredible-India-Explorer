@@ -251,6 +251,21 @@
             image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=40&w=400",
             url: "../tirathgarh-falls-explorer/index.html"
+        },
+        {
+            id: "agaya-gangai",
+            name: "Agaya Gangai",
+            state: "Tamil Nadu",
+            river: "Aiyaru River",
+            height: "91 meters",
+            season: "Post-Monsoon",
+            tags: ["year-round", "monsoon"],
+            description: "A sheer 300-foot 'Ganges of the Sky' falls in the Kolli Hills, reached by a 1,300-step forest trek.",
+            flow: "Forceful in monsoon; clear and comfortable to trek Nov-Jan.",
+            attractions: "Arapaleeswarar Temple, Siddhar Caves, Kolli Hills ghat road.",
+            image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=40&w=400",
+            url: "../agaya-gangai-explorer/index.html"
         }
     ];
 
