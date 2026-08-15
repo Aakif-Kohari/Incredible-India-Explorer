@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandalwood — Kannada Cinema Explorer | Incredible India Explorer</title>
+<meta name="description" content="An explorer of Sandalwood, the Kannada film industry: its origins, timeline, notable films, industry statistics and gallery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Kannada:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1b1210;
+    --ink-soft:#241a17;
+    --panel:#2a1f1b;
+    --sandal:#c9974b;
+    --sandal-light:#e8c285;
+    --peacock:#1e6b62;
+    --peacock-light:#3a9c8f;
+    --maroon:#7a2331;
+    --cream:#f3e8d8;
+    --cream-dim:#c9b8a3;
+    --line:rgba(243,232,216,0.14);
+    --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--cream);
+    font-family:"Work Sans", sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--sandal-light);}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+  .eyebrow{
+    font-family:"IBM Plex Mono", monospace;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:.72rem;
+    color:var(--sandal);
+  }
+  h1,h2,h3{font-family:"Fraunces", serif;font-weight:600;margin:0;color:var(--cream);}
+  .kn{font-family:"Noto Sans Kannada", sans-serif;}
+
+  /* ---- carved-panel divider (signature motif) ---- */
+  .carved-divider{
+    height:34px;
+    width:100%;
+    background-image:
+      radial-gradient(circle at 10px 17px, transparent 6px, var(--ink) 7px),
+      linear-gradient(var(--sandal) 1px, transparent 1px);
+    background-size:34px 34px, 100% 34px;
+    background-position:center;
+    opacity:.55;
+  }
+
+  /* ---- header ---- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(27,18,16,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1120px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:"Fraunces",serif;font-weight:600;color:var(--cream);text-decoration:none;font-size:1rem;}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--peacock-light);}
+  .crumbs{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--cream-dim);}
+  .crumbs a{color:var(--cream-dim);text-decoration:none;}
+  .crumbs a:hover{color:var(--sandal-light);}
+
+  /* ---- hero ---- */
+  .hero{
+    position:relative;
+    padding:96px 0 64px;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse at 80% -10%, rgba(30,107,98,0.35), transparent 55%),
+      radial-gradient(ellipse at -10% 110%, rgba(122,35,49,0.3), transparent 55%),
+      var(--ink);
+  }
+  .hero-kn{
+    font-size:clamp(2.4rem, 7vw, 4.6rem);
+    color:var(--sandal);
+    line-height:1;
+    margin-bottom:6px;
+  }
+  .hero h1{
+    font-size:clamp(2.2rem, 5.5vw, 3.6rem);
+    letter-spacing:-0.01em;
+    max-width:14ch;
+  }
+  .hero p.lede{
+    max-width:56ch;
+    color:var(--cream-dim);
+    font-size:1.05rem;
+    margin-top:18px;
+  }
+  .fact-strip{
+    display:flex;flex-wrap:wrap;gap:0;
+    margin-top:44px;
+    border-top:1px solid var(--line);
+  }
+  .fact{
+    flex:1 1 160px;
+    padding:18px 0;
+    border-right:1px solid var(--line);
+    padding-right:20px;
+  }
+  .fact:last-child{border-right:none;}
+  .fact b{display:block;font-family:"Fraunces",serif;font-size:1.5rem;color:var(--sandal-light);font-weight:600;}
+  .fact span{font-size:.82rem;color:var(--cream-dim);}
+
+  /* ---- sections ---- */
+  section{padding:72px 0;}
+  section.alt{background:var(--ink-soft);}
+  .section-head{margin-bottom:36px;max-width:60ch;}
+  .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-top:8px;}
+  .section-head p{color:var(--cream-dim);margin-top:10px;}
+
+  /* ---- historical overview ---- */
+  .overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+  .overview-card{border-left:2px solid var(--peacock-light);padding-left:20px;}
+  .overview-card h3{font-size:1.15rem;color:var(--sandal-light);margin-bottom:10px;}
+  .overview-card p{color:var(--cream-dim);font-size:.95rem;}
+
+  /* ---- timeline ---- */
+  .timeline-scroll{
+    display:flex;gap:0;overflow-x:auto;padding-bottom:20px;scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+  }
+  .timeline-scroll::-webkit-scrollbar{height:6px;}
+  .timeline-scroll::-webkit-scrollbar-thumb{background:var(--sandal);border-radius:3px;}
+  .t-item{
+    flex:0 0 260px;scroll-snap-align:start;
+    padding:0 24px 0 0;margin-right:24px;
+    border-top:3px solid var(--sandal);
+    position:relative;
+  }
+  .t-item::before{
+    content:"";position:absolute;top:-7px;left:0;width:11px;height:11px;border-radius:50%;
+    background:var(--peacock-light);border:2px solid var(--ink-soft);
+  }
+  .t-year{font-family:"IBM Plex Mono",monospace;color:var(--sandal-light);font-size:1.3rem;display:block;margin-top:18px;}
+  .t-item h4{font-family:"Fraunces",serif;font-weight:600;margin:6px 0 8px;font-size:1.05rem;}
+  .t-item p{color:var(--cream-dim);font-size:.9rem;margin:0;}
+
+  /* ---- movie collection ---- */
+  .movie-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px;}
+  .movie-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px;transition:transform .18s ease, border-color .18s ease;
+  }
+  .movie-card:hover{transform:translateY(-4px);border-color:var(--sandal);}
+  .movie-year{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--peacock-light);}
+  .movie-card h3{font-size:1.08rem;margin-top:6px;color:var(--cream);}
+  .movie-tag{
+    display:inline-block;margin-top:10px;font-size:.72rem;
+    font-family:"IBM Plex Mono",monospace;color:var(--sandal);
+    border:1px solid var(--sandal);border-radius:20px;padding:3px 10px;
+  }
+  .movie-card p{color:var(--cream-dim);font-size:.88rem;margin-top:10px;}
+
+  /* ---- stats ---- */
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);}
+  .stat{padding:28px 22px;border-right:1px solid var(--line);}
+  .stat:last-child{border-right:none;}
+  .stat b{font-family:"Fraunces",serif;font-size:2.2rem;color:var(--sandal-light);display:block;font-weight:600;}
+  .stat span{font-size:.82rem;color:var(--cream-dim);}
+  .stat-note{margin-top:16px;font-size:.8rem;color:var(--cream-dim);font-style:italic;}
+
+  /* ---- gallery / lightbox ---- */
+  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;}
+  .g-item{
+    aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;
+    border:1px solid var(--line);background:var(--panel);
+  }
+  .g-item:focus-visible{outline:2px solid var(--sandal-light);outline-offset:3px;}
+  .g-swatch{width:100%;height:100%;display:flex;align-items:flex-end;padding:14px;}
+  .g-item figcaption{
+    position:absolute;inset:0;display:flex;align-items:flex-end;padding:14px;
+    background:linear-gradient(to top, rgba(0,0,0,.72), transparent 55%);
+    color:var(--cream);font-size:.85rem;font-family:"Fraunces",serif;font-weight:600;
+  }
+  .g-item .reel{
+    position:absolute;top:10px;right:10px;width:22px;height:22px;border-radius:50%;
+    border:2px solid rgba(243,232,216,0.55);
+  }
+  .lightbox{
+    position:fixed;inset:0;background:rgba(11,7,6,0.92);display:none;
+    align-items:center;justify-content:center;z-index:100;padding:24px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox-inner{max-width:560px;width:100%;text-align:center;}
+  .lightbox-swatch{width:100%;aspect-ratio:3/4;border-radius:var(--radius);margin-bottom:18px;border:1px solid var(--line);}
+  .lightbox h3{color:var(--sandal-light);font-size:1.3rem;}
+  .lightbox p{color:var(--cream-dim);margin-top:8px;font-size:.92rem;}
+  .lightbox-controls{
+    display:flex;justify-content:space-between;align-items:center;margin-top:22px;
+  }
+  .lightbox-controls button{
+    background:none;border:1px solid var(--line);color:var(--cream);
+    font-family:"IBM Plex Mono",monospace;font-size:.8rem;padding:8px 14px;
+    border-radius:20px;cursor:pointer;transition:border-color .15s ease;
+  }
+  .lightbox-controls button:hover{border-color:var(--sandal);}
+  .lightbox-close{
+    position:absolute;top:24px;right:28px;background:none;border:none;
+    color:var(--cream);font-size:1.6rem;cursor:pointer;line-height:1;
+  }
+
+  /* ---- references ---- */
+  .ref-list{list-style:none;margin:0;padding:0;max-width:70ch;}
+  .ref-list li{
+    padding:14px 0;border-bottom:1px solid var(--line);
+    display:flex;justify-content:space-between;gap:20px;font-size:.92rem;
+  }
+  .ref-list li span{color:var(--cream-dim);font-family:"IBM Plex Mono",monospace;font-size:.78rem;white-space:nowrap;}
+
+  footer{padding:36px 0;text-align:center;color:var(--cream-dim);font-size:.82rem;border-top:1px solid var(--line);}
+
+  @media (max-width:820px){
+    .overview-grid{grid-template-columns:1fr;}
+    .stat-grid{grid-template-columns:repeat(2,1fr);}
+    .stat:nth-child(2){border-right:none;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .movie-card{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="brand" href="../index.html"><span class="dot"></span>Incredible India Explorer</a>
+    <div class="crumbs"><a href="../index.html">Home</a> / Sandalwood</div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Regional Cinema Explorer</p>
+    <div class="hero-kn kn">ಗಂಧದ ಸಿನಿಮಾ</div>
+    <h1>Sandalwood: Kannada Cinema</h1>
+    <p class="lede">Named for Karnataka's centuries-old sandalwood trade centred on Mysore and Bengaluru, Sandalwood is the Kannada-language film industry — nine decades of talkies, theatre-trained stars, and a recent run of pan-India blockbusters.</p>
+
+    <div class="fact-strip">
+      <div class="fact"><b>1934</b><span>First Kannada talkie, Sati Sulochana</span></div>
+      <div class="fact"><b>Bengaluru</b><span>Industry hub</span></div>
+      <div class="fact"><b>90+ yrs</b><span>Of continuous filmmaking</span></div>
+      <div class="fact"><b>Kannada</b><span>~45M native speakers reached</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="carved-divider"></div>
+
+<section id="overview">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Historical Overview</p>
+      <h2>From silent reels to a national stage</h2>
+    </div>
+    <div class="overview-grid">
+      <div class="overview-card">
+        <h3>Origins &amp; the Talkie Era</h3>
+        <p>Kannada cinema's silent era began in the early 1930s. Sound arrived with <em>Sati Sulochana</em>, released 3 March 1934 in Bengaluru — a Ramayana-based feature that ran to full houses for six weeks and gave the industry its first stars.</p>
+      </div>
+      <div class="overview-card">
+        <h3>The Golden Age</h3>
+        <p>From the 1950s, theatre-trained performers — most famously Dr. Rajkumar — moved into film, and directors like Puttanna Kanagal brought a distinct literary sensibility, adapting Kannada novels into landmark features through the 1970s.</p>
+      </div>
+      <div class="overview-card">
+        <h3>New Wave &amp; Global Reach</h3>
+        <p>The 2000s–2010s brought genre experimentation from directors like Yogaraj Bhat and Upendra, before the <em>KGF</em> and <em>Kantara</em> era carried Sandalwood productions to pan-India and overseas audiences for the first time at scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="timeline">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Timeline</p>
+      <h2>Nine decades, decade by decade</h2>
+      <p>Scroll to move through the industry's chronology.</p>
+    </div>
+    <div class="timeline-scroll" tabindex="0" aria-label="Sandalwood timeline, scroll horizontally">
+      <div class="t-item"><span class="t-year">1934</span><h4>The talkie arrives</h4><p>Sati Sulochana becomes the first Kannada sound film, released in Bengaluru.</p></div>
+      <div class="t-item"><span class="t-year">1954</span><h4>A theatre star turns to film</h4><p>Dr. Rajkumar makes his lead debut, beginning a career that would define the industry for decades.</p></div>
+      <div class="t-item"><span class="t-year">1966</span><h4>Colour comes to Sandalwood</h4><p><em>Amarashilpi Jakanachari</em> is released as the first Kannada colour feature.</p></div>
+      <div class="t-item"><span class="t-year">1972</span><h4>Literary adaptations peak</h4><p>Puttanna Kanagal's <em>Naagarahaavu</em> and <em>Bangaarada Manushya</em> mark a golden run of novel-to-film adaptations.</p></div>
+      <div class="t-item"><span class="t-year">1990s</span><h4>New leading men</h4><p>A new generation of stars and directors reshapes the industry's commercial formula.</p></div>
+      <div class="t-item"><span class="t-year">2013</span><h4>Crowd-funded cinema</h4><p><em>Lucia</em>, funded through public contributions, becomes a landmark for independent Kannada filmmaking.</p></div>
+      <div class="t-item"><span class="t-year">2018–22</span><h4>Pan-India breakout</h4><p>The <em>KGF</em> films and <em>Kantara</em> become nationwide and overseas box-office successes.</p></div>
+      <div class="t-item"><span class="t-year">Today</span><h4>A wider audience</h4><p>Sandalwood productions now routinely release simultaneously in multiple Indian languages.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="movies">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Movie Collection</p>
+      <h2>Ten films that shaped the industry</h2>
+    </div>
+    <div class="movie-grid">
+      <div class="movie-card"><span class="movie-year">1934</span><h3>Sati Sulochana</h3><span class="movie-tag">Mythological</span><p>The first Kannada talkie, based on an episode from the Ramayana.</p></div>
+      <div class="movie-card"><span class="movie-year">1958</span><h3>School Master</h3><span class="movie-tag">Drama</span><p>An early Dr. Rajkumar vehicle credited with popularising Kannada cinema statewide.</p></div>
+      <div class="movie-card"><span class="movie-year">1966</span><h3>Amarashilpi Jakanachari</h3><span class="movie-tag">Historical</span><p>The first Kannada film shot in colour, based on the legendary sculptor.</p></div>
+      <div class="movie-card"><span class="movie-year">1972</span><h3>Naagarahaavu</h3><span class="movie-tag">Drama</span><p>A Puttanna Kanagal adaptation regarded as a landmark of Kannada literary cinema.</p></div>
+      <div class="movie-card"><span class="movie-year">1972</span><h3>Bangaarada Manushya</h3><span class="movie-tag">Drama</span><p>One of the highest-grossing Kannada films of its era, credited with inspiring real agricultural reform.</p></div>
+      <div class="movie-card"><span class="movie-year">1997</span><h3>America America</h3><span class="movie-tag">Comedy</span><p>A cult hit that became a touchstone of 1990s Kannada comedy.</p></div>
+      <div class="movie-card"><span class="movie-year">2006</span><h3>Mungaru Male</h3><span class="movie-tag">Romance</span><p>A box-office phenomenon that shaped a generation of Kannada romantic cinema.</p></div>
+      <div class="movie-card"><span class="movie-year">2013</span><h3>Lucia</h3><span class="movie-tag">Sci-Fi / Indie</span><p>India's first crowd-funded feature, notable for its non-linear structure.</p></div>
+      <div class="movie-card"><span class="movie-year">2018</span><h3>KGF: Chapter 1</h3><span class="movie-tag">Action</span><p>The film that launched Sandalwood's pan-India franchise era.</p></div>
+      <div class="movie-card"><span class="movie-year">2022</span><h3>Kantara</h3><span class="movie-tag">Folklore / Thriller</span><p>Rooted in coastal Karnataka's Bhoota Kola tradition; a nationwide critical and commercial success.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="stats">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Industry Statistics</p>
+      <h2>Sandalwood by the numbers</h2>
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><b>90+</b><span>Years of continuous production</span></div>
+      <div class="stat"><b>150–200</b><span>Kannada films released per year (recent decade average)</span></div>
+      <div class="stat"><b>3</b><span>Dr. Rajkumar's Guinness-recognised feat: lead in the most films by one actor in a language, at the time of the record</span></div>
+      <div class="stat"><b>2</b><span>KGF films that crossed ₹1,000 crore combined worldwide gross</span></div>
+    </div>
+    <p class="stat-note">Figures are illustrative placeholders for this feature branch — confirm against a current, cited source (e.g. Karnataka Film Chamber of Commerce) before merging to production.</p>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Gallery</p>
+      <h2>Click a frame to open it</h2>
+      <p>Placeholder art — swap each swatch for a licensed still or poster before shipping.</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <figure class="g-item" tabindex="0" role="button" data-index="0" aria-label="Open Sati Sulochana, 1934">
+        <div class="g-swatch" style="background:linear-gradient(160deg,#7a2331,#c9974b)"></div>
+        <span class="reel"></span>
+        <figcaption>Sati Sulochana (1934)</figcaption>
+      </figure>
+      <figure class="g-item" tabindex="0" role="button" data-index="1" aria-label="Open School Master, 1958">
+        <div class="g-swatch" style="background:linear-gradient(160deg,#1e6b62,#c9974b)"></div>
+        <span class="reel"></span>
+        <figcaption>School Master (1958)</figcaption>
+      </figure>
+      <figure class="g-item" tabindex="0" role="button" data-index="2" aria-label="Open Amarashilpi Jakanachari, 1966">
+        <div class="g-swatch" style="background:linear-gradient(160deg,#c9974b,#7a2331)"></div>
+        <span class="reel"></span>
+        <figcaption>Amarashilpi Jakanachari (1966)</figcaption>
+      </figure>
+      <figure class="g-item" tabindex="0" role="button" data-index="3" aria-label="Open Naagarahaavu, 1972">
+        <div class="g-swatch" style="background:linear-gradient(160deg,#3a9c8f,#1b1210)"></div>
+        <span class="reel"></span>
+        <figcaption>Naagarahaavu (1972)</figcaption>
+      </figure>
+      <figure class="g-item" tabindex="0" role="button" data-index="4" aria-label="Open Bangaarada Manushya, 1972">
+        <div class="g-swatch" style="background:linear-gradient(160deg,#e8c285,#7a2331)"></div>
+        <span class="reel"></span>
+        <figcaption>Bangaarada Manushya (1972)</figcaption>
+      </figure>
+      <figure class="g-item" tabindex="0" role="button" data-index="5" aria-label="Open America America, 1997">
+        <div class="g-swatch" style="background:linear-gradient(160deg,#1b1210,#c9974b)"></div>
+        <span class="reel"></span>
+        <figcaption>America America (1997)</figcaption>
+      </figure>
+      <figure class="g-item" tabindex="0" role="button" data-index="6" aria-label="Open Mungaru Male, 2006">
+        <div class="g-swatch" style="background:linear-gradient(160deg,#7a2331,#1e6b62)"></div>
+        <span class="reel"></span>
+        <figcaption>Mungaru Male (2006)</figcaption>
+      </figure>
+      <figure class="g-item" tabindex="0" role="button" data-index="7" aria-label="Open Lucia, 2013">
+        <div class="g-swatch" style="background:linear-gradient(160deg,#1e6b62,#e8c285)"></div>
+        <span class="reel"></span>
+        <figcaption>Lucia (2013)</figcaption>
+      </figure>
+      <figure class="g-item" tabindex="0" role="button" data-index="8" aria-label="Open KGF: Chapter 1, 2018">
+        <div class="g-swatch" style="background:linear-gradient(160deg,#1b1210,#7a2331)"></div>
+        <span class="reel"></span>
+        <figcaption>KGF: Chapter 1 (2018)</figcaption>
+      </figure>
+      <figure class="g-item" tabindex="0" role="button" data-index="9" aria-label="Open Kantara, 2022">
+        <div class="g-swatch" style="background:linear-gradient(160deg,#c9974b,#1e6b62)"></div>
+        <span class="reel"></span>
+        <figcaption>Kantara (2022)</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <div class="lightbox-inner">
+    <div class="lightbox-swatch" id="lightboxSwatch"></div>
+    <h3 id="lightboxTitle"></h3>
+    <p id="lightboxCaption"></p>
+    <div class="lightbox-controls">
+      <button id="lightboxPrev">&larr; Prev</button>
+      <span class="eyebrow" id="lightboxCount"></span>
+      <button id="lightboxNext">Next &rarr;</button>
+    </div>
+  </div>
+</div>
+
+<section class="alt" id="references">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">References</p>
+      <h2>Sources</h2>
+    </div>
+    <ul class="ref-list">
+      <li><a href="https://en.wikipedia.org/wiki/Sati_Sulochana" target="_blank" rel="noopener">Sati Sulochana (1934) — Wikipedia</a><span>Wikipedia</span></li>
+      <li><a href="https://en.wikipedia.org/wiki/Kannada_cinema" target="_blank" rel="noopener">Kannada cinema — overview</a><span>Wikipedia</span></li>
+      <li><a href="https://en.wikipedia.org/wiki/Rajkumar" target="_blank" rel="noopener">Dr. Rajkumar — biography</a><span>Wikipedia</span></li>
+      <li><a href="https://en.wikipedia.org/wiki/Naagarahaavu" target="_blank" rel="noopener">Naagarahaavu (1972)</a><span>Wikipedia</span></li>
+      <li><a href="https://en.wikipedia.org/wiki/Lucia_(2013_film)" target="_blank" rel="noopener">Lucia (2013) — India's first crowd-funded film</a><span>Wikipedia</span></li>
+      <li><a href="https://en.wikipedia.org/wiki/KGF:_Chapter_1" target="_blank" rel="noopener">KGF: Chapter 1 (2018)</a><span>Wikipedia</span></li>
+      <li><a href="https://en.wikipedia.org/wiki/Kantara" target="_blank" rel="noopener">Kantara (2022)</a><span>Wikipedia</span></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Sandalwood explorer — part of Incredible India Explorer's regional cinema series.</div>
+</footer>
+
+<script>
+(function(){
+  // Caption text shown in the lightbox for each tile, keyed by data-index
+  // (the tiles themselves are already in the HTML — this just enhances them).
+  var captions = [
+    "The film that began Kannada sound cinema.",
+    "An early star vehicle for Dr. Rajkumar.",
+    "Kannada cinema's first colour feature.",
+    "A landmark literary adaptation.",
+    "A film credited with inspiring real reform.",
+    "A cult comedy of the 1990s.",
+    "A box-office phenomenon in romance.",
+    "India's first crowd-funded feature film.",
+    "Sandalwood's pan-India franchise breakout.",
+    "Rooted in coastal Karnataka's folk tradition."
+  ];
+
+  var grid = document.getElementById('galleryGrid');
+  var items = Array.prototype.map.call(grid.querySelectorAll('.g-item'), function(el, i){
+    return {
+      title: el.querySelector('figcaption').textContent.replace(/\s*\(\d{4}\)\s*$/, ''),
+      year: (el.querySelector('figcaption').textContent.match(/\((\d{4})\)/) || [,''])[1],
+      caption: captions[i] || '',
+      grad: el.querySelector('.g-swatch').style.background
+    };
+  });
+
+  var lightbox = document.getElementById('lightbox');
+  var lbSwatch = document.getElementById('lightboxSwatch');
+  var lbTitle = document.getElementById('lightboxTitle');
+  var lbCaption = document.getElementById('lightboxCaption');
+  var lbCount = document.getElementById('lightboxCount');
+  var current = 0;
+
+  function openLightbox(i){
+    current = i;
+    render();
+    lightbox.classList.add('open');
+    document.getElementById('lightboxClose').focus();
+  }
+  function render(){
+    var item = items[current];
+    lbSwatch.style.background = item.grad;
+    lbTitle.textContent = item.title + ' (' + item.year + ')';
+    lbCaption.textContent = item.caption;
+    lbCount.textContent = (current + 1) + ' / ' + items.length;
+  }
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+  }
+  function next(){ current = (current + 1) % items.length; render(); }
+  function prev(){ current = (current - 1 + items.length) % items.length; render(); }
+
+  grid.addEventListener('click', function(e){
+    var card = e.target.closest('.g-item');
+    if(card) openLightbox(parseInt(card.dataset.index, 10));
+  });
+  grid.addEventListener('keydown', function(e){
+    var card = e.target.closest('.g-item');
+    if(card && (e.key === 'Enter' || e.key === ' ')){
+      e.preventDefault();
+      openLightbox(parseInt(card.dataset.index, 10));
+    }
+  });
+
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxNext').addEventListener('click', next);
+  document.getElementById('lightboxPrev').addEventListener('click', prev);
+  lightbox.addEventListener('click', function(e){ if(e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', function(e){
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowRight') next();
+    if(e.key === 'ArrowLeft') prev();
+  });
+})();
+</script>
+
+</body>
+</html>

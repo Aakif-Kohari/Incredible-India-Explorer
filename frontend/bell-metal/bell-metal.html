@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bell Metal Craft Explorer - Interactive visualization of traditional metal casting, artisan techniques, products, and cultural uses.">
+    <title>Bell Metal Craft Explorer | Incredible India</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages-common.css">
+    <style>
+        .bellmetal-hero {
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.9), transparent), url('assets/hero_banner.png') center/cover;
+            height: 50vh;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 50px;
+            margin-top: 40px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .interactive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .interactive-card {
+            background: var(--bg-dark-card);
+            border: 1px solid rgba(255, 176, 31, 0.3);
+            border-radius: var(--border-radius-lg);
+            padding: 25px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .interactive-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow-active);
+        }
+
+        .interactive-card h3 {
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: var(--border-radius-sm);
+            margin-bottom: 15px;
+        }
+
+        /* Casting Process Visualizer */
+        .process-visualizer {
+            background: var(--bg-dark-card);
+            border: 1px solid rgba(255, 176, 31, 0.3);
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-container {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .step-container.active {
+            display: block;
+        }
+
+        .step-image {
+            max-width: 100%;
+            height: 250px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--primary-gold);
+            color: #000;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .step-controls {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-step {
+            background: transparent;
+            color: var(--primary-gold);
+            border: 1px solid var(--primary-gold);
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: var(--font-primary);
+            font-weight: 600;
+        }
+
+        .btn-step:hover {
+            background: var(--primary-gold);
+            color: #000;
+        }
+
+        .btn-step:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            background: transparent;
+            color: var(--primary-gold);
+        }
+
+        .progress-dots {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .progress-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: background 0.3s;
+        }
+
+        .progress-dot.active {
+            background: var(--primary-gold);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .details-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .details-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-dark-card);
+            padding: 40px;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--primary-gold);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+    <main id="app-root" style="padding-top: 80px;">
+        <section class="bellmetal-hero scroll-section">
+            <div class="section-container">
+                <span class="hero-tagline animate-fade-in" style="color: var(--gold);">✨ Ancient Forges</span>
+                <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Bell Metal <span class="highlight" style="color: var(--gold);">Craft</span></h1>
+                <p class="hero-description animate-fade-in-delayed" style="color: #eee; max-width: 600px;">
+                    Explore traditional metal casting, artisan techniques, products, and cultural uses.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-padding fade-in-section">
+            <div class="section-container">
+                <h2 class="premium-heading">History</h2>
+                <p class="premium-subtitle" style="text-align: left;">Bell metal, an alloy primarily of copper and tin, has been used in the Indian subcontinent for thousands of years. Its unique resonance makes it the traditional choice for bells, while its purported health benefits make it highly valued for utensils.<br><br>
+                <strong>Assam:</strong> Sarthebari is renowned for its Kah (bell metal) utensils, heavily patronised by the Ahom kings.<br>
+                <strong>Odisha:</strong> The Kansari artisans of Odisha have a rich heritage in crafting intricate temple bells and household items using traditional lost-wax casting and forging.<br>
+                <strong>Chhattisgarh:</strong> Bastar's Dhokra art heavily features bell metal, creating rustic, primitive, and intricate tribal motifs using the cire-perdue (lost wax) technique.</p>
+            </div>
+        </section>
+
+        <section class="section-padding bg-alternate fade-in-section">
+            <div class="section-container">
+                <h2 class="premium-heading">Product Gallery</h2>
+                <p class="premium-subtitle">Click on a product to learn more about its region and crafting.</p>
+                <div class="interactive-grid" id="product-gallery">
+                    <!-- Injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding fade-in-section">
+            <div class="section-container">
+                <h2 class="premium-heading">Metal Casting Process</h2>
+                <p class="premium-subtitle">Follow the journey from raw alloy to finished masterpiece.</p>
+                <div class="process-visualizer" id="process-visualizer">
+                    <!-- Steps will be injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding bg-alternate fade-in-section">
+            <div class="section-container">
+                <h2 class="premium-heading">Traditional Uses</h2>
+                <div class="interactive-grid" id="traditional-uses">
+                    <!-- Injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding fade-in-section">
+            <div class="section-container">
+                <h2 class="premium-heading">References</h2>
+                <div style="background: var(--bg-dark-card); padding: 30px; border-radius: var(--border-radius-lg); border: 1px solid rgba(255, 176, 31, 0.3);">
+                    <ul style="color: var(--text-muted); line-height: 1.8; list-style-type: square; padding-left: 20px;">
+                        <li>Assam State Gazetteer, Government of Assam - Sarthebari Bell Metal Industry.</li>
+                        <li>Krishnan, M. V. (1976). "Cire Perdue Casting in India". Kanak Publications, New Delhi.</li>
+                        <li>Tribal Cooperative Marketing Development Federation of India (TRIFED) - Documentation of Dhokra Art.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="details-modal" id="details-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal">&times;</button>
+            <h3 id="modal-title" style="color: var(--primary-gold); margin-bottom: 15px; font-size: 1.8rem;"></h3>
+            <p id="modal-subtitle" style="font-weight: bold; margin-bottom: 15px; color: var(--text-light);"></p>
+            <p id="modal-desc" style="color: var(--text-muted); line-height: 1.6;"></p>
+        </div>
+    </div>
+
+    <script src="bell-metal.js"></script>
+</body>
+</html>
