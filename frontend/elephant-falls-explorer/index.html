@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elephant Falls — Ka Kshaid Lai Pateng Khohsiew | Incredible India Explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine-0:#0e1f16;
+    --pine-1:#173b28;
+    --pine-2:#20512f;
+    --mist:#c3d6cf;
+    --basalt:#12100f;
+    --brass:#c2914f;
+    --brass-dark:#8f6633;
+    --parchment:#f0e8d8;
+    --parchment-dim:#e2d7bd;
+    --moss:#87a479;
+    --ink:#182018;
+    --white:#faf8f2;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--pine-0);
+    color:var(--white);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Fraunces',serif;margin:0;font-weight:600;letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;letter-spacing:0.04em;text-transform:uppercase;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+  .credit{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--mist);opacity:0.75;margin-top:6px;letter-spacing:0.02em;}
+
+  /* ---- stream rail (signature structural device) ---- */
+  .stream-rail{
+    position:relative;
+  }
+  .stream-rail::before{
+    content:"";
+    position:absolute;
+    left:14px;
+    top:0;
+    bottom:0;
+    width:2px;
+    background:linear-gradient(to bottom, transparent, var(--moss) 8%, var(--moss) 92%, transparent);
+    opacity:0.35;
+  }
+  @media (max-width:820px){ .stream-rail::before{ left:8px; } }
+
+  /* ---- top nav ---- */
+  .topnav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(14,31,22,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(195,214,207,0.15);
+  }
+  .topnav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;}
+  .topnav .brand{font-family:'Fraunces',serif;font-size:17px;font-weight:600;}
+  .topnav .brand span{color:var(--brass);}
+  .topnav nav{display:flex;gap:22px;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;}
+  .topnav nav a{opacity:0.75;text-decoration:none;transition:opacity .2s;}
+  .topnav nav a:hover{opacity:1;color:var(--brass);}
+  @media (max-width:700px){ .topnav nav{display:none;} }
+
+  /* ---- hero ---- */
+  .hero{
+    position:relative;
+    min-height:88vh;
+    display:flex;
+    align-items:flex-end;
+    background:#0a1610;
+    overflow:hidden;
+  }
+  .hero img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    filter:saturate(0.9) brightness(0.6);
+  }
+  .hero::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(to top, rgba(10,22,16,0.96) 0%, rgba(10,22,16,0.35) 55%, rgba(10,22,16,0.15) 100%);
+  }
+  .hero-content{position:relative;z-index:2;padding:64px 28px 56px;width:100%;}
+  .eyebrow-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--brass);background:rgba(194,145,79,0.12);border:1px solid rgba(194,145,79,0.4);
+    padding:6px 12px;border-radius:100px;margin-bottom:22px;
+  }
+  .hero h1{font-size:clamp(38px,7vw,84px);line-height:0.98;color:var(--white);max-width:820px;}
+  .hero .khasi{
+    display:block;font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+    font-size:clamp(16px,2vw,22px);color:var(--mist);margin-top:16px;
+  }
+  .hero .sub{max-width:520px;margin-top:22px;color:var(--mist);font-size:16px;}
+  .hero-stats{display:flex;gap:32px;margin-top:36px;flex-wrap:wrap;}
+  .hero-stats div{border-left:2px solid var(--brass);padding-left:12px;}
+  .hero-stats .num{font-family:'Fraunces',serif;font-size:22px;color:var(--white);}
+  .hero-stats .lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--mist);}
+
+  /* ---- signboard (signature element) ---- */
+  .signboard{
+    background:linear-gradient(180deg,#d6a866,#a9773f 45%,#8f6633);
+    border-radius:4px;
+    padding:26px 30px;
+    position:relative;
+    color:#2b1c0d;
+    box-shadow:0 14px 28px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.25);
+  }
+  .signboard::before,.signboard::after,
+  .signboard .rivet-tl,.signboard .rivet-br{
+    content:"";position:absolute;width:9px;height:9px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #3a2c1a, #17110a);
+    box-shadow:0 1px 1px rgba(255,255,255,0.2);
+  }
+  .signboard::before{top:10px;left:10px;}
+  .signboard::after{top:10px;right:10px;}
+  .signboard .rivet-tl{bottom:10px;left:10px;}
+  .signboard .rivet-br{bottom:10px;right:10px;}
+  .signboard h3{font-size:15px;text-transform:uppercase;letter-spacing:0.08em;color:#2b1c0d;margin-bottom:10px;}
+  .signboard p{font-size:14.5px;margin:0;color:#2b1c0d;opacity:0.92;}
+  .signboard p + p{margin-top:10px;}
+
+  /* ---- sections ---- */
+  section{padding:88px 0;}
+  .section-head{margin-bottom:36px;max-width:640px;}
+  .section-head .eyebrow-tag{margin-bottom:16px;}
+  .section-head h2{font-size:clamp(28px,4vw,42px);}
+  .section-head p{color:var(--mist);margin-top:14px;font-size:16px;}
+
+  .pad-left{padding-left:44px;}
+  @media (max-width:820px){ .pad-left{padding-left:30px;} }
+
+  .grid-2{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:start;}
+  @media (max-width:820px){ .grid-2{grid-template-columns:1fr;} }
+
+  .fact-list{list-style:none;margin:0;padding:0;display:grid;gap:16px;}
+  .fact-list li{display:grid;grid-template-columns:110px 1fr;gap:16px;border-bottom:1px solid rgba(195,214,207,0.14);padding-bottom:16px;}
+  .fact-list .k{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--brass);}
+  .fact-list .v{font-size:14.5px;color:var(--white);}
+
+  .photo-frame{border-radius:6px;overflow:hidden;border:1px solid rgba(195,214,207,0.18);}
+  .photo-frame img{width:100%;height:100%;object-fit:cover;}
+
+  /* ---- three stage viewer (staircase) ---- */
+  .stage-wrap{display:grid;grid-template-columns:230px 1fr;gap:0;border:1px solid rgba(195,214,207,0.18);border-radius:8px;overflow:hidden;}
+  @media (max-width:760px){ .stage-wrap{grid-template-columns:1fr;} }
+  .stair-nav{background:var(--pine-1);padding:22px 0;position:relative;}
+  .stair-step{
+    display:block;width:100%;text-align:left;background:none;border:none;color:var(--mist);
+    cursor:pointer;padding:18px 24px 18px 30px;font-family:'Inter',sans-serif;
+    position:relative;transition:all .25s ease;border-left:3px solid transparent;
+  }
+  .stair-step .tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.7;}
+  .stair-step .name{display:block;font-family:'Fraunces',serif;font-size:19px;color:var(--white);margin-top:4px;}
+  .stair-step .desc{display:block;font-size:12.5px;margin-top:4px;opacity:0.65;}
+  .stair-step:hover{background:rgba(194,145,79,0.08);}
+  .stair-step.active{border-left-color:var(--brass);background:rgba(194,145,79,0.14);}
+  .stair-step.active .tag{color:var(--brass);opacity:1;}
+  /* connecting water line between steps */
+  .stair-nav::before{
+    content:"";position:absolute;left:10px;top:34px;bottom:34px;width:2px;
+    background:repeating-linear-gradient(to bottom, var(--brass) 0 6px, transparent 6px 12px);
+    opacity:0.5;
+  }
+
+  .stage-detail{position:relative;background:var(--basalt);min-height:460px;}
+  .stage-pane{display:none;}
+  .stage-pane.active{display:block;}
+  .stage-photo{position:relative;height:280px;overflow:hidden;}
+  .stage-photo img{width:100%;height:100%;object-fit:cover;}
+  .stage-photo .cap{position:absolute;bottom:0;left:0;right:0;padding:14px 20px;background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--parchment);}
+  .stage-body{padding:26px 28px 30px;}
+  .stage-body h4{font-size:22px;color:var(--white);margin-bottom:10px;}
+  .stage-body p{color:var(--mist);font-size:14.5px;margin:0;}
+  .stage-body .drop{display:inline-block;margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--brass);border:1px solid rgba(194,145,79,0.4);padding:5px 10px;border-radius:100px;}
+
+  /* ---- seasonal comparison ---- */
+  .season-toggle{display:inline-flex;background:var(--pine-1);border-radius:100px;padding:4px;border:1px solid rgba(195,214,207,0.18);margin-bottom:26px;}
+  .season-toggle button{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;
+    background:none;border:none;color:var(--mist);padding:9px 20px;border-radius:100px;cursor:pointer;transition:all .2s;
+  }
+  .season-toggle button.active{background:var(--brass);color:#2b1c0d;font-weight:600;}
+  .season-panel{display:none;grid-template-columns:1fr 1fr;gap:32px;}
+  .season-panel.active{display:grid;}
+  @media (max-width:760px){ .season-panel.active{grid-template-columns:1fr;} }
+  .flow-meter{margin-top:18px;}
+  .flow-meter .label{font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;color:var(--mist);margin-bottom:6px;}
+  .flow-bar{height:8px;border-radius:100px;background:rgba(195,214,207,0.15);overflow:hidden;}
+  .flow-bar span{display:block;height:100%;background:linear-gradient(to right, var(--moss), var(--brass));border-radius:100px;transition:width .5s ease;}
+  .season-card{background:var(--pine-1);border-radius:8px;padding:24px;border:1px solid rgba(195,214,207,0.14);}
+  .season-card h4{font-size:18px;margin-bottom:10px;color:var(--white);}
+  .season-card p{color:var(--mist);font-size:14px;margin:0 0 14px;}
+
+  /* ---- vegetation / geology ---- */
+  .info-tiles{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media (max-width:760px){ .info-tiles{grid-template-columns:1fr;} }
+  .tile{background:var(--pine-1);border-radius:8px;padding:22px;border:1px solid rgba(195,214,207,0.14);}
+  .tile h4{font-size:16px;color:var(--brass);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.04em;font-family:'IBM Plex Mono',monospace;font-weight:500;}
+  .tile p{color:var(--mist);font-size:14.5px;margin:0;}
+
+  /* ---- map ---- */
+  .map-wrap{border-radius:8px;overflow:hidden;border:1px solid rgba(195,214,207,0.18);}
+  .map-wrap iframe{width:100%;height:380px;border:0;filter:grayscale(0.15) contrast(1.05);}
+  .map-meta{display:flex;justify-content:space-between;align-items:center;margin-top:14px;flex-wrap:wrap;gap:10px;}
+  .map-meta .coords{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--brass);}
+  .map-meta a{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--mist);text-decoration:none;border-bottom:1px solid rgba(195,214,207,0.4);}
+
+  /* ---- attractions explorer ---- */
+  .attr-scroll{display:flex;gap:18px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory;}
+  .attr-scroll::-webkit-scrollbar{height:6px;}
+  .attr-scroll::-webkit-scrollbar-thumb{background:var(--brass);border-radius:100px;}
+  .attr-card{
+    scroll-snap-align:start;flex:0 0 250px;background:var(--pine-1);border-radius:8px;overflow:hidden;
+    border:1px solid rgba(195,214,207,0.14);
+  }
+  .attr-card .top{padding:20px 18px 14px;}
+  .attr-card .dist{font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;color:var(--brass);letter-spacing:0.06em;}
+  .attr-card h4{font-size:17px;margin-top:8px;color:var(--white);}
+  .attr-card p{font-size:13px;color:var(--mist);padding:0 18px 20px;margin:0;}
+
+  /* ---- landing card preview ---- */
+  .landing-demo{
+    background:var(--pine-1);border:1px dashed rgba(195,214,207,0.3);border-radius:12px;padding:30px;
+  }
+  .landing-demo .demo-label{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--mist);margin-bottom:18px;opacity:0.7;}
+  .site-card{
+    display:grid;grid-template-columns:140px 1fr;gap:0;background:var(--basalt);border-radius:8px;overflow:hidden;
+    max-width:520px;border:1px solid rgba(195,214,207,0.18);text-decoration:none;color:inherit;transition:transform .2s;
+  }
+  .site-card:hover{transform:translateY(-2px);}
+  .site-card img{height:100%;object-fit:cover;}
+  .site-card .body{padding:18px 20px;}
+  .site-card .tag{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--brass);text-transform:uppercase;letter-spacing:0.06em;}
+  .site-card h4{font-size:19px;margin-top:6px;}
+  .site-card p{font-size:12.5px;color:var(--mist);margin:8px 0 0;}
+  .site-card .cta{margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--white);text-transform:uppercase;letter-spacing:0.06em;}
+
+  footer{padding:50px 0 40px;border-top:1px solid rgba(195,214,207,0.15);color:var(--mist);font-size:13px;}
+  footer .credits-block{margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.9;opacity:0.7;}
+
+  .skip-note{font-size:12px;color:var(--mist);opacity:0.6;margin-top:8px;}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="wrap">
+    <div class="brand">Incredible India Explorer <span>/ Meghalaya</span></div>
+    <nav>
+      <a href="#stages">Three Stages</a>
+      <a href="#seasons">Seasons</a>
+      <a href="#setting">Setting</a>
+      <a href="#map">Map</a>
+      <a href="#nearby">Nearby</a>
+    </nav>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Elephant%20Falls%201.jpg"
+       alt="Wide view of Elephant Falls cascading over dark rock through the forested slopes of the Khasi Hills, Meghalaya">
+  <div class="hero-content wrap">
+    <span class="eyebrow-tag">East Khasi Hills · Meghalaya</span>
+    <h1>Elephant Falls
+      <span class="khasi">Ka Kshaid Lai Pateng Khohsiew — "the three-step waterfall"</span>
+    </h1>
+    <p class="sub">A single mountain stream, broken into three unequal falls by the folded rock of the Khasi Hills — the same descent that gave the falls their older, truer name.</p>
+    <div class="hero-stats">
+      <div><div class="num">3</div><div class="lbl">Cascades</div></div>
+      <div><div class="num">~12 km</div><div class="lbl">From Shillong</div></div>
+      <div><div class="num">1897</div><div class="lbl">Quake felled the namesake rock</div></div>
+      <div><div class="num">Oct–Feb</div><div class="lbl">Clearest viewing</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="stream-rail">
+
+<!-- INTRO / SIGNBOARD -->
+<section class="wrap pad-left">
+  <div class="grid-2">
+    <div>
+      <div class="section-head">
+        <span class="eyebrow-tag">Why "Elephant" Falls?</span>
+        <h2>Two names, one waterfall</h2>
+        <p>The story is usually told on a weathered signboard partway down the walk — reproduced here in spirit.</p>
+      </div>
+      <ul class="fact-list">
+        <li><span class="k">Location</span><span class="v">Upper Shillong, East Khasi Hills district, Meghalaya — about 12 km from central Shillong, opposite Mattilang Park in Laitmynsaw, within the Eastern Air Command grounds.</span></li>
+        <li><span class="k">Coordinates</span><span class="v">25.5379° N, 91.8221° E — roughly 1,600–1,900 m up on the Shillong Plateau.</span></li>
+        <li><span class="k">Water source</span><span class="v">A monsoon-fed hill stream draining the Khasi Hills plateau, one of the wettest highland regions on earth, feeding the falls in three successive drops rather than one sheer plunge.</span></li>
+        <li><span class="k">Access</span><span class="v">A paved, railed stairway descends past all three tiers, with benches at the first two levels. Entry ₹20, camera permit ₹20, parking ₹20.</span></li>
+      </ul>
+    </div>
+    <div class="signboard">
+      <div class="rivet-tl"></div><div class="rivet-br"></div>
+      <h3>Trailside Notice</h3>
+      <p>Local Khasi memory calls this fall <em>Ka Kshaid Lai Pateng Khohsiew</em> — the three-step waterfall — for the way the stream drops in three distinct stages down the hillside.</p>
+      <p>British officers stationed nearby renamed it "Elephant Falls" after a boulder beside the third tier that resembled an elephant. The rock was destroyed in the great earthquake of 12 June 1897 — but the colonial name outlasted the stone that inspired it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THREE STAGE VIEWER -->
+<section class="wrap pad-left" id="stages">
+  <div class="section-head">
+    <span class="eyebrow-tag">Interactive · Three-Stage Viewer</span>
+    <h2>Walk the falls, stage by stage</h2>
+    <p>Each stage has its own character and its own weather-dependence. Step through them the way a visitor descends the stairway — first to third.</p>
+  </div>
+
+  <div class="stage-wrap">
+    <div class="stair-nav" role="tablist" aria-label="Waterfall stages">
+      <button class="stair-step active" data-stage="1" role="tab" aria-selected="true">
+        <span class="tag">Step 01</span>
+        <span class="name">First Fall</span>
+        <span class="desc">Wide, screened by trees</span>
+      </button>
+      <button class="stair-step" data-stage="2" role="tab" aria-selected="false">
+        <span class="tag">Step 02</span>
+        <span class="name">Second Fall</span>
+        <span class="desc">Slender, seasonal</span>
+      </button>
+      <button class="stair-step" data-stage="3" role="tab" aria-selected="false">
+        <span class="tag">Step 03</span>
+        <span class="name">Third Fall</span>
+        <span class="desc">Tallest, most photographed</span>
+      </button>
+    </div>
+
+    <div class="stage-detail">
+      <div class="stage-pane active" data-pane="1">
+        <div class="stage-photo">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/1st%20fall%20of%20the%20Elephant%20falls,%20Shillong.jpg"
+               alt="The first tier of Elephant Falls, a broad curtain of water partly hidden among trees">
+          <div class="cap">First Fall — broad curtain, half-hidden in tree cover · Wikimedia Commons</div>
+        </div>
+        <div class="stage-body">
+          <h4>The First Fall</h4>
+          <p>The entry point of the cascade: wide rather than tall, with the stream spreading across a broad rock shelf that's largely screened from view by surrounding trees until you're close to the railing.</p>
+          <span class="drop">Widest of the three tiers</span>
+        </div>
+      </div>
+
+      <div class="stage-pane" data-pane="2">
+        <div class="stage-photo">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Elephant%20Fall%20of%20Shillong.JPG"
+               alt="The middle tier of Elephant Falls, a narrower ribbon of water on darker rock">
+          <div class="cap">Second Fall — the most weather-dependent tier · Wikimedia Commons</div>
+        </div>
+        <div class="stage-body">
+          <h4>The Second Fall</h4>
+          <p>A narrower, more modest drop connecting the first tier to the third. This is the stage that changes the most with the season — a strong ribbon in the monsoon, reduced to thin threads of water (or nearly dry) by winter.</p>
+          <span class="drop">Most seasonal of the three</span>
+        </div>
+      </div>
+
+      <div class="stage-pane" data-pane="3">
+        <div class="stage-photo">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Beautiful%20Elephant%20Falls%20-%203rd%20step%20falls.jpg"
+               alt="The third and tallest tier of Elephant Falls, water sheeting over dark basalt rock">
+          <div class="cap">Third Fall — the tallest, and the one on the postcards · Wikimedia Commons</div>
+        </div>
+        <div class="stage-body">
+          <h4>The Third Fall</h4>
+          <p>The final and tallest drop, where the stream sheets over dark, clinging rock in a near-milky curtain. This is the stage closest to where the elephant-shaped boulder once stood, and the one most visitors photograph.</p>
+          <span class="drop">Tallest tier · closest viewing platform</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEASONAL COMPARISON -->
+<section class="wrap pad-left" id="seasons">
+  <div class="section-head">
+    <span class="eyebrow-tag">Interactive · Seasonal Comparison</span>
+    <h2>The same falls, two different moods</h2>
+    <p>Guides disagree on a single "best" month because the falls reward different things at different times of year — raw volume in the monsoon, clarity and comfort in winter.</p>
+  </div>
+
+  <div class="season-toggle" role="tablist" aria-label="Seasonal comparison">
+    <button class="active" data-season="monsoon">Monsoon (Jun–Sep)</button>
+    <button data-season="winter">Winter (Dec–Feb)</button>
+  </div>
+
+  <div class="season-panel active" data-season-panel="monsoon">
+    <div class="season-card">
+      <h4>Monsoon · June to September</h4>
+      <p>All three stages run at full volume, fed directly by rain over one of the wettest highland regions on earth. The second fall — thin or absent in the dry months — becomes a strong, continuous ribbon. Expect louder water, more mist, and slicker stone steps.</p>
+      <div class="flow-meter"><div class="label">Relative water volume</div><div class="flow-bar"><span style="width:95%"></span></div></div>
+    </div>
+    <div class="photo-frame">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Three%20stage%20waterfall%20(Elephanta%20falls)%20Shillog.jpg" alt="All three stages of Elephant Falls visible together, running with heavy water volume">
+      <div class="credit" style="padding:8px 12px;">Photo: Wikimedia Commons — full-volume cascade view</div>
+    </div>
+  </div>
+
+  <div class="season-panel" data-season-panel="winter">
+    <div class="season-card">
+      <h4>Winter · December to February</h4>
+      <p>Water levels drop noticeably; the second tier can shrink to thin threads or near-stillness. In exchange, the air clears, skies stay bright, and the stone stairway is drier and easier underfoot — many visitors find this the more comfortable window for photography.</p>
+      <div class="flow-meter"><div class="label">Relative water volume</div><div class="flow-bar"><span style="width:35%"></span></div></div>
+    </div>
+    <div class="photo-frame">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Elephant%20Falls%20-%20Shillong%20Meghalaya.jpg" alt="Elephant Falls with a reduced water flow, clearer skies and drier surrounding rock">
+      <div class="credit" style="padding:8px 12px;">Photo: Wikimedia Commons — drier-season view</div>
+    </div>
+  </div>
+</section>
+
+<!-- VEGETATION + GEOLOGY -->
+<section class="wrap pad-left" id="setting">
+  <div class="section-head">
+    <span class="eyebrow-tag">Setting</span>
+    <h2>Forest, rock, and the plateau beneath it</h2>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:36px;">
+    <div class="photo-frame">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Forest%20in%20East%20Khashi%20hills%20district%20JEG7532.jpg" alt="Dense subtropical pine and broadleaf forest typical of the East Khasi Hills surrounding Elephant Falls">
+      <div class="credit" style="padding:10px 14px;">Forest surrounding the East Khasi Hills · Wikimedia Commons</div>
+    </div>
+    <div class="info-tiles">
+      <div class="tile">
+        <h4>Vegetation</h4>
+        <p>The stairway down to the falls passes through fern-draped rock and subtropical pine and broadleaf forest characteristic of the Khasi Hills — moss-slick boulders, hanging ferns, and, higher up the plateau, wild orchids typical of Meghalaya's cloud-forest belt.</p>
+      </div>
+      <div class="tile">
+        <h4>Geological setting</h4>
+        <p>The falls sit on the Shillong Plateau, a raised block of ancient crystalline and basaltic rock in the Khasi Hills. Centuries of monsoon-fed stream erosion cut the stream's path into three separate rock steps rather than one sheer drop.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="signboard">
+    <div class="rivet-tl"></div><div class="rivet-br"></div>
+    <h3>A seismic footnote</h3>
+    <p>On 12 June 1897, one of the most powerful earthquakes on record in the region struck the Shillong Plateau, reshaping hillsides across the Khasi Hills. Among the casualties was the elephant-shaped boulder beside the third fall — the very rock that gave these falls their English name.</p>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="wrap pad-left" id="map">
+  <div class="section-head">
+    <span class="eyebrow-tag">Location Map</span>
+    <h2>Finding the falls</h2>
+    <p>Elephant Falls sits in Upper Shillong, just off the Shillong–Nongthymmai road, roughly 12 km from the city centre and close to Shillong Peak.</p>
+  </div>
+  <div class="map-wrap">
+    <iframe
+      loading="lazy"
+      title="Map showing the location of Elephant Falls in Upper Shillong, Meghalaya"
+      src="https://www.openstreetmap.org/export/embed.html?bbox=91.7921%2C25.5129%2C91.8521%2C25.5629&layer=mapnik&marker=25.53786%2C91.82205">
+    </iframe>
+  </div>
+  <div class="map-meta">
+    <span class="coords">25.5379° N · 91.8221° E</span>
+    <a href="https://www.openstreetmap.org/?mlat=25.53786&mlon=91.82205#map=14/25.53786/91.82205" target="_blank" rel="noopener">View larger map ↗</a>
+  </div>
+</section>
+
+<!-- NEARBY ATTRACTIONS -->
+<section class="wrap pad-left" id="nearby">
+  <div class="section-head">
+    <span class="eyebrow-tag">Interactive · Nearby Attraction Explorer</span>
+    <h2>Worth combining with your visit</h2>
+    <p>Most visitors pair Elephant Falls with one or two nearby stops on the same day out from Shillong.</p>
+  </div>
+  <div class="attr-scroll">
+    <div class="attr-card"><div class="top"><span class="dist">~10 km</span><h4>Shillong Peak</h4></div><p>The highest point in the area, with panoramic views over Shillong and the surrounding hills, plus an on-site Air Force Museum.</p></div>
+    <div class="attr-card"><div class="top"><span class="dist">~12 km</span><h4>Ward's Lake</h4></div><p>A man-made lake in the city centre with a wooden footbridge and paddle boating — a calmer, flatter contrast to the falls.</p></div>
+    <div class="attr-card"><div class="top"><span class="dist">~13 km</span><h4>Lady Hydari Park</h4></div><p>A landscaped garden with a small mini-zoo, popular for an easy walk after the falls' stairway.</p></div>
+    <div class="attr-card"><div class="top"><span class="dist">~14 km</span><h4>Don Bosco Centre for Indigenous Cultures</h4></div><p>A museum devoted to the tribal cultures of Northeast India, including the Khasi communities who named the falls.</p></div>
+    <div class="attr-card"><div class="top"><span class="dist">~25 km</span><h4>Mawphlang Sacred Forest</h4></div><p>A Khasi sacred grove protected by centuries of tradition — a living counterpart to the falls' own forest setting.</p></div>
+    <div class="attr-card"><div class="top"><span class="dist">~15 km</span><h4>Umiam Lake</h4></div><p>A large reservoir popular for kayaking, boating, and lakeside picnics on the road toward Guwahati.</p></div>
+  </div>
+</section>
+
+<!-- LANDING CARD INTEGRATION -->
+<section class="wrap pad-left">
+  <div class="section-head">
+    <span class="eyebrow-tag">Landing Page Integration</span>
+    <h2>How this appears on the explorer grid</h2>
+    <p>A preview of the card that should link out to this page from the main Incredible India Explorer landing grid.</p>
+  </div>
+  <div class="landing-demo">
+    <div class="demo-label">Preview — Meghalaya destination grid</div>
+    <a class="site-card" href="#top">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Elephant%20Falls%20-%20Shillong%20Meghalaya.jpg" alt="Thumbnail of Elephant Falls, a three-stage waterfall in the East Khasi Hills, Meghalaya">
+      <div class="body">
+        <span class="tag">Meghalaya · Waterfall</span>
+        <h4>Elephant Falls</h4>
+        <p>A three-stage cascade above Shillong, named twice over — once by the Khasi, once by the British.</p>
+        <span class="cta">Explore the falls →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer class="wrap pad-left">
+  <div>Built for Incredible India Explorer · Issue #2204 — Elephant Falls, Meghalaya.</div>
+  <div class="credits-block">
+    Photo credits (Wikimedia Commons, hosted via commons.wikimedia.org):<br>
+    Hero &amp; overview — "Elephant Falls 1.jpg" · First fall — "1st fall of the Elephant falls, Shillong.jpg" ·
+    Second fall — "Elephant Fall of Shillong.JPG" · Third fall — "Beautiful Elephant Falls - 3rd step falls.jpg" ·
+    Monsoon view — "Three stage waterfall (Elephanta falls) Shillog.jpg" · Winter/drier view — "Elephant Falls - Shillong Meghalaya.jpg" ·
+    Forest — "Forest in East Khashi hills district JEG7532.jpg" · Landing thumbnail — "Elephant Falls - Shillong Meghalaya.jpg"<br>
+    Map data © OpenStreetMap contributors.
+  </div>
+</footer>
+
+</main>
+
+<script>
+  // Three-stage viewer
+  document.querySelectorAll('.stair-step').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.stair-step').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-selected','false');});
+      document.querySelectorAll('.stage-pane').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      document.querySelector('.stage-pane[data-pane="'+btn.dataset.stage+'"]').classList.add('active');
+    });
+  });
+
+  // Seasonal comparison toggle
+  document.querySelectorAll('.season-toggle button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.season-toggle button').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.season-panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector('.season-panel[data-season-panel="'+btn.dataset.season+'"]').classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

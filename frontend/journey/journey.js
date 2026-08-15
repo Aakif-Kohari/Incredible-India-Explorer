@@ -29,61 +29,70 @@
     // when the lightweight router swaps pages in and out.
     let searchIndex = [];
 
+    
     /* ---------------------------------------------------------------- */
     /* Core storage helpers                                             */
     /* ---------------------------------------------------------------- */
 
     function readJourney() {
-        try {
-            const stored = JSON.parse(localStorage.getItem(JOURNEY_KEY) || '[]');
-            return Array.isArray(stored) ? stored : [];
-        } catch (error) {
-            return [];
-        }
+        return window.IIEStorage ? window.IIEStorage.getBookmarks() : [];
     }
 
     function writeJourney(items) {
-        localStorage.setItem(JOURNEY_KEY, JSON.stringify(items));
+        // Handled by IIEStorage internally
         return items;
     }
 
     function getJourney() {
-        return readJourney();
+        const ids = readJourney();
+        return ids.map(id => {
+            // Find metadata in the dynamically built searchIndex
+            const localMatch = searchIndex.find(entry => entry.id === id);
+            
+            // Or try the global indiaSearchIndex if available
+            const globalMatch = typeof window.indiaSearchIndex !== 'undefined' 
+                ? window.indiaSearchIndex.find(entry => entry.url && entry.url.includes(id)) 
+                : null;
+                
+            return {
+                id: id,
+                explorerPage: localMatch ? localMatch.page : (globalMatch ? globalMatch.url.split('/').pop() : 'unknown.html'),
+                title: localMatch ? localMatch.title : (globalMatch ? globalMatch.title : id.replace(/-/g, ' ')),
+                thumbnail: localMatch ? localMatch.image : (globalMatch ? globalMatch.image : ''),
+                category: localMatch ? localMatch.category : (globalMatch ? globalMatch.category : 'General'),
+                savedAt: new Date().toISOString() // Dynamic
+            };
+        });
     }
 
     function isSaved(id) {
-        return readJourney().some((item) => item.id === id);
+        return window.IIEStorage ? window.IIEStorage.isBookmarked(id) : false;
     }
 
     function saveToJourney(item) {
         if (!item || !item.id) {
             throw new Error('saveToJourney requires an item with an id');
         }
-
-        const items = readJourney();
-        const existingIndex = items.findIndex((entry) => entry.id === item.id);
-
-        const record = {
-            id: item.id,
-            explorerPage: item.explorerPage || window.location.pathname.split('/').pop(),
-            title: item.title || item.name || 'Untitled',
-            thumbnail: item.thumbnail || item.image || '',
-            category: item.category || 'general',
-            savedAt: existingIndex >= 0 ? items[existingIndex].savedAt : new Date().toISOString()
-        };
-
-        if (existingIndex >= 0) {
-            items[existingIndex] = record;
-        } else {
-            items.push(record);
+        if (window.IIEStorage) window.IIEStorage.addBookmark(item.id);
+        
+        // Ensure it's in the local search index so we have metadata right away
+        if (!searchIndex.find(e => e.id === item.id)) {
+            searchIndex.push({
+                page: item.explorerPage || window.location.pathname.split('/').pop(),
+                id: item.id,
+                title: item.title || item.name || 'Untitled',
+                description: item.description || '',
+                category: item.category || 'general',
+                image: item.thumbnail || item.image || '',
+                link: item.link || ''
+            });
         }
-
-        return writeJourney(items);
+        return getJourney();
     }
 
     function removeFromJourney(id) {
-        const items = readJourney().filter((item) => item.id !== id);
-        return writeJourney(items);
+        if (window.IIEStorage) window.IIEStorage.removeBookmark(id);
+        return getJourney();
     }
 
     function toggle(item) {
@@ -94,61 +103,11 @@
         saveToJourney(item);
         return true;
     }
-
-    /* ---------------------------------------------------------------- */
-    /* One-time migration from the legacy startup-favorites key          */
-    /* ---------------------------------------------------------------- */
-
+    
     function migrateLegacyStartupFavorites() {
-        const legacyRaw = localStorage.getItem(LEGACY_STARTUP_KEY);
-        if (!legacyRaw) return;
-
-        let legacyIds = [];
-        try {
-            const parsed = JSON.parse(legacyRaw);
-            if (Array.isArray(parsed)) legacyIds = parsed;
-        } catch (error) {
-            localStorage.removeItem(LEGACY_STARTUP_KEY);
-            return;
-        }
-
-        if (legacyIds.length === 0) {
-            localStorage.removeItem(LEGACY_STARTUP_KEY);
-            return;
-        }
-
-        const items = readJourney();
-        const existingIds = new Set(items.map((item) => item.id));
-
-        // startupData (defined in app.js) gives us the title/category to
-        // enrich the migrated record. Fall back to a minimal record if the
-        // page that owns this data hasn't loaded (e.g. migration running
-        // from a different explorer page).
-        const startupLookup = Array.isArray(window.startupData)
-            ? new Map(window.startupData.map((s) => [s.id, s]))
-            : new Map();
-
-        legacyIds.forEach((legacyId) => {
-            const journeyId = `startup-${legacyId}`;
-            if (existingIds.has(journeyId)) return;
-
-            const source = startupLookup.get(legacyId);
-            items.push({
-                id: journeyId,
-                explorerPage: 'startup.html',
-                title: source ? source.name : `Startup #${legacyId}`,
-                thumbnail: source ? (source.logo || '') : '',
-                category: source ? (source.category || 'startup') : 'startup',
-                savedAt: new Date().toISOString()
-            });
-            existingIds.add(journeyId);
-        });
-
-        writeJourney(items);
-        localStorage.removeItem(LEGACY_STARTUP_KEY);
+        // Now handled by IIEStorage.migrate()
     }
-
-    /* ---------------------------------------------------------------- */
+/* ---------------------------------------------------------------- */
     /* Cross-explorer search index                                      */
     /* ---------------------------------------------------------------- */
     function registerSearchItems(page, items) {
