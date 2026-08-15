@@ -1487,6 +1487,13 @@ window.indiaSearchIndex = [
         description: "Educational portal covering India's Supreme Court history from 1950, CJI timeline, landmark judgments (Kesavananda, Puttaswamy, Maneka Gandhi), Article 124 powers, Article 32 Writs, and judicial hierarchy.",
         url: "frontend/supreme-court-explorer/index.html"
     },
+    // --- Santosh Trophy Explorer ---
+    {
+        title: "Santosh Trophy: Explore India's State-Level Football Championship Explorer",
+        category: "Sports & Culture",
+        description: "Create an interactive Santosh Trophy explorer — discovering India's premier inter-state football championship founded in 1941, Maharaja of Santosh namesake, 38 participating teams, and roll of honour (West Bengal 32 titles).",
+        url: "frontend/santosh-trophy-explorer/index.html"
+    },
     // --- Scrollytelling: The Making of the Taj Mahal ---
     {
         title: "Scrollytelling: The Making of the Taj Mahal",
