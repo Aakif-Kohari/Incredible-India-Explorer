@@ -82,7 +82,36 @@ export const ancientCitiesData = [
     beforeVsToday: {
       ancientLayout: "Fortified riverine mega-city featuring 64 gates, 570 towers, royal gardens, and timber palaces along the confluence of the Ganges and Sone rivers.",
       todayStatus: "Archaeological park at Kumrahar in modern Patna displaying stone pillar bases, ancient brick monasteries, and historical artifacts."
-    }
+    },
+    explorerUrl: "../pataliputra-explorer/index.html"
+  },
+  {
+    id: "vaishali",
+    name: "Vaishali",
+    civilization: "Licchavi / Vajji Confederacy",
+    eraPeriod: "c. 6th Century BCE – 4th Century CE",
+    location: "Vaishali District, Bihar",
+    region: "East",
+    mapCoords: { x: 67, y: 40 },
+    icon: "🦁",
+    shortSummary: "The birthplace of Lord Mahavira, site of Buddha's last sermon, and the capital of the Vajji confederacy, recognized as the world's first republic.",
+    archaeologicalDiscoveries: [
+      "The perfectly preserved Ashokan pillar topped by a single lion facing north.",
+      "The Relic Stupa which housed a portion of Gautama Buddha's cremated remains.",
+      "Abhisheka Pushkarini (Coronation Tank) used for crowning the Vajji republican rulers."
+    ],
+    excavationFacts: {
+      discoveredBy: "Alexander Cunningham (1861)",
+      keyExcavator: "Dr. Spooner, Dr. Altekar, and Archaeological Survey of India",
+      status: "Protected ASI Monument Complex",
+      historicalSignificance: "Stands as a monumental center of early democracy, Buddhist Councils, and Jain spiritual history."
+    },
+    beforeVsToday: {
+      ancientLayout: "A vibrant democratic capital protected by triple fortified walls, boasting royal council halls, spiritual stupas, and large water systems.",
+      todayStatus: "A serene archaeological park in Bihar displaying the majestic Ashokan lion pillar, relic mound, and the ancient coronation reservoir."
+    },
+    explorerUrl: "../vaishali-explorer/index.html",
+    thumbnail: "../assets/vaishali_thumbnail.jpg"
   },
   {
     id: "vijayanagara",
@@ -137,6 +166,33 @@ export const ancientCitiesData = [
     }
   },
   {
+    id: "pushkalavati",
+    name: "Pushkalavati",
+    civilization: "Ancient Gandhara Civilization",
+    eraPeriod: "c. 6th century BCE – 2nd century CE",
+    location: "Charsadda District, Khyber Pakhtunkhwa (Ancient Gandhara)",
+    region: "Northwest",
+    mapCoords: { x: 20, y: 19 },
+    icon: "🏺",
+    shortSummary: "A great Gandharan capital at the confluence of the Swat and Kabul rivers, which withstood a month-long siege by Alexander before flourishing as a centre of Gandharan Buddhist art.",
+    archaeologicalDiscoveries: [
+      "Bala Hisar's fortified mound, occupied continuously from the Achaemenid period through Kushan times.",
+      "Shaikhan Dheri's Indo-Greek and Kushan-era city layers, rich in coins and Gandharan sculpture.",
+      "Terracotta figurines and pottery sequences spanning nearly a millennium of occupation."
+    ],
+    excavationFacts: {
+      discoveredBy: "Sir Alexander Cunningham (Archaeological Survey, 19th century)",
+      keyExcavator: "Sir Mortimer Wheeler (Bala Hisar, 1958) & Ahmad Hassan Dani (Shaikhan Dheri, 1960s)",
+      status: "Protected archaeological site under Pakistan's Department of Archaeology",
+      historicalSignificance: "A key Gandharan capital whose layered ruins trace the region's transformation from Achaemenid outpost to cradle of Greco-Buddhist art."
+    },
+    beforeVsToday: {
+      ancientLayout: "A fortified river-confluence city of two mounds, ringed by mudbrick walls, sustaining trade routes toward Central Asia and a flourishing Buddhist monastic landscape.",
+      todayStatus: "Two excavated mounds — Bala Hisar and Shaikhan Dheri — preserving stratified remains of walls, coins, pottery and Gandharan sculpture fragments."
+    },
+    exploreUrl: "../pushkalavati-explorer/index.html"
+  },
+  {
     id: "fatehpur-sikri",
     name: "Fatehpur Sikri",
     civilization: "Mughal Imperial City",
@@ -161,6 +217,33 @@ export const ancientCitiesData = [
       ancientLayout: "Planned imperial capital built on a rocky ridge with an artificial lake, royal audience halls, Sufi shrines, and courtly quarters.",
       todayStatus: "A remarkably intact red sandstone ghost city near Agra, recognized as a masterpiece of Mughal urban design."
     }
+  },
+  {
+    id: "rajgir",
+    name: "Rajgir",
+    civilization: "Magadha Empire & Sacred Buddhist/Jain Landscape",
+    eraPeriod: "c. 1000 BCE – 12th century CE",
+    location: "Nalanda District, Bihar",
+    region: "East",
+    mapCoords: { x: 69, y: 44 },
+    icon: "🏔️",
+    shortSummary: "The ancient valley capital of Magadha nestled within five hills, which evolved from a mighty fortress into a sacred Buddhist and Jain pilgrimage landscape.",
+    archaeologicalDiscoveries: [
+      "Cyclopean Wall of Rajgir: 40 km long ancient stone fortifications built without mortar.",
+      "Gridhrakuta (Vulture Peak) where Gautama Buddha delivered major Mahayana sutras.",
+      "Son Bhandar Caves: Rock-cut caves with Jain carvings and ancient inscriptions."
+    ],
+    excavationFacts: {
+      discoveredBy: "Francis Buchanan-Hamilton (1811) & Sir Alexander Cunningham (1861-62)",
+      keyExcavator: "John Marshall & Archaeological Survey of India",
+      status: "Protected State & ASI Monument Complex",
+      historicalSignificance: "Served as the early Magadha capital under Bimbisara and Ajatashatru, and hosted the First Buddhist Council in Saptaparni Cave."
+    },
+    beforeVsToday: {
+      ancientLayout: "A valley surrounded by high stone fortifications, royal palaces, monasteries, and pilgrimage routes frequented by Buddha and Mahavira.",
+      todayStatus: "A major historical tourist center featuring the Cyclopean Wall ruins, hot springs, ropeway to Vishwa Shanti Stupa, and ruins of Bimbisara's jail."
+    },
+    explorerUrl: "../rajgir-explorer/index.html"
   }
 ];
 
@@ -191,8 +274,8 @@ export function filterCities(query = "", filterTag = "all", list = ancientCities
       ...city.archaeologicalDiscoveries
     ].some(field => field && field.toLowerCase().includes(q));
 
-    const matchesFilter = f === "all" || 
-      city.region.toLowerCase() === f || 
+    const matchesFilter = f === "all" ||
+      city.region.toLowerCase() === f ||
       city.civilization.toLowerCase().includes(f);
 
     return matchesQuery && matchesFilter;
@@ -335,6 +418,12 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
             </div>
           </div>
 
+          ${city.thumbnail ? `
+          <div class="city-card-thumbnail" style="width: 100%; height: 180px; overflow: hidden; border-radius: 14px; margin: 4px 0 8px;">
+            <img src="${city.thumbnail}" alt="${city.name} Archaeological site" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          ` : ''}
+
           <p class="era-tag">⏳ <strong>Era / Period:</strong> ${city.eraPeriod}</p>
           <p class="location-tag">📍 <strong>Location:</strong> ${city.location}</p>
           <p class="short-summary">${city.shortSummary}</p>
@@ -352,9 +441,20 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
             <p class="significance-text">${city.excavationFacts.historicalSignificance}</p>
           </div>
 
-          <button type="button" class="btn-compare-trigger" data-city="${city.id}">
+          <div class="city-card-actions">
+            <button type="button" class="btn-compare-trigger" data-city="${city.id}">
+              🔄 View Before vs Today Comparison
+            </button>
+            ${city.explorerUrl ? `
+            <a href="${city.explorerUrl}" class="btn-explore-link">
+              🏛️ Explore ${city.name}
+            </a>
+            ` : ''}
+          </div>
+         <button type="button" class="btn-compare-trigger" data-city="${city.id}">
             🔄 View Before vs Today Comparison
           </button>
+          ${city.exploreUrl ? `<a href="${city.exploreUrl}" class="btn-compare-trigger" style="display:block; text-align:center; text-decoration:none; margin-top:10px;">🧭 Explore ${city.name}</a>` : ""}
         `;
 
         const compareBtn = card.querySelector(".btn-compare-trigger");

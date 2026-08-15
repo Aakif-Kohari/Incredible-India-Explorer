@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
     const dropdowns = document.querySelectorAll('.nav-dropdown');
-    const navLinks = document.querySelectorAll('a.nav-link');
-    const dropdowns = document.querySelectorAll('.nav-dropdown');
 
     // --- Mobile menu toggle ---
     if (menuToggle && navMenu) {

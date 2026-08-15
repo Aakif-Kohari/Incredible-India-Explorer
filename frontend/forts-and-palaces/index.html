@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forts & Palaces Gallery | Incredible India Explorer</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+    <main class="gallery-page">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Forts & Palaces Gallery</h1>
+                <p>Explore the architectural grandeur of Rajput, Maratha, and Mughal monuments across India.</p>
+            </div>
+        </section>
+
+        <!-- Category Navigation -->
+        <nav class="category-nav" aria-label="Filter by Architecture">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="rajput">Rajput</button>
+            <button class="filter-btn" data-filter="maratha">Maratha</button>
+            <button class="filter-btn" data-filter="mughal">Mughal</button>
+        </nav>
+
+        <!-- Gallery Grid -->
+        <section class="gallery-grid" id="gallery-grid">
+            <!-- Amber Fort -->
+            <article class="gallery-card" data-category="rajput" tabindex="0">
+                <figure class="card-image-wrapper">
+                    <img src="assets/amber-fort.jpg" alt="Amber Fort in Rajasthan showing Rajput architecture" class="card-image" loading="lazy">
+                    <figcaption class="architectural-detail">
+                        <h3>Amber Fort</h3>
+                        <p class="dynasty">Dynasty: Kachwaha Rajputs</p>
+                        <p class="materials">Materials: Red sandstone and marble</p>
+                        <ul class="features">
+                            <li>Hill fort defenses</li>
+                            <li>Sheesh Mahal (Mirror Palace)</li>
+                            <li>Ganesh Pol gate</li>
+                        </ul>
+                        <p class="built">Built: 1592 CE</p>
+                    </figcaption>
+                </figure>
+                <div class="card-info">
+                    <h2>Amber Fort</h2>
+                    <span class="badge badge-rajput">Rajput</span>
+                    <p class="location">Jaipur, Rajasthan</p>
+                    <p class="period">16th Century</p>
+                    <p class="style-note">Extensive palatial complex</p>
+                </div>
+            </article>
+
+            <!-- Mehrangarh Fort -->
+            <article class="gallery-card" data-category="rajput" tabindex="0">
+                <figure class="card-image-wrapper">
+                    <img src="assets/mehrangarh-fort.jpg" alt="Mehrangarh Fort overlooking Jodhpur city in Rajasthan" class="card-image" loading="lazy">
+                    <figcaption class="architectural-detail">
+                        <h3>Mehrangarh Fort</h3>
+                        <p class="dynasty">Dynasty: Rathore Rajputs</p>
+                        <p class="materials">Materials: Red sandstone</p>
+                        <ul class="features">
+                            <li>Defensive walls (up to 36m high)</li>
+                            <li>Pol courtyards</li>
+                            <li>Carved balconies (Jharokhas)</li>
+                            <li>Cannon bastions</li>
+                        </ul>
+                        <p class="built">Built: 1459 CE</p>
+                    </figcaption>
+                </figure>
+                <div class="card-info">
+                    <h2>Mehrangarh Fort</h2>
+                    <span class="badge badge-rajput">Rajput</span>
+                    <p class="location">Jodhpur, Rajasthan</p>
+                    <p class="period">15th Century</p>
+                    <p class="style-note">Massive sandstone fortifications</p>
+                </div>
+            </article>
+
+            <!-- Red Fort -->
+            <article class="gallery-card large-card" data-category="mughal" tabindex="0">
+                <figure class="card-image-wrapper">
+                    <img src="assets/red-fort.jpg" alt="Red Fort in Delhi with Mughal architecture" class="card-image" loading="lazy">
+                    <figcaption class="architectural-detail">
+                        <h3>Red Fort (Lal Qila)</h3>
+                        <p class="dynasty">Dynasty: Mughal Empire</p>
+                        <p class="materials">Materials: Red sandstone and white marble</p>
+                        <ul class="features">
+                            <li>Octagonal plan</li>
+                            <li>Lahori Gate</li>
+                            <li>Diwan-i-Aam and Diwan-i-Khas</li>
+                            <li>Chhatris and domes</li>
+                        </ul>
+                        <p class="built">Built: 1639 CE</p>
+                    </figcaption>
+                </figure>
+                <div class="card-info">
+                    <h2>Red Fort</h2>
+                    <span class="badge badge-mughal">Mughal</span>
+                    <p class="location">Delhi</p>
+                    <p class="period">17th Century</p>
+                    <p class="style-note">Zenith of Mughal creativity</p>
+                </div>
+            </article>
+
+            <!-- Agra Fort -->
+            <article class="gallery-card" data-category="mughal" tabindex="0">
+                <figure class="card-image-wrapper">
+                    <img src="assets/agra-fort.jpg" alt="Agra Fort, warm ivory and sandstone" class="card-image" loading="lazy">
+                    <figcaption class="architectural-detail">
+                        <h3>Agra Fort</h3>
+                        <p class="dynasty">Dynasty: Mughal Empire</p>
+                        <p class="materials">Materials: Red sandstone and marble</p>
+                        <ul class="features">
+                            <li>Semicircular plan</li>
+                            <li>Massive double ramparts</li>
+                            <li>Jahangiri Mahal</li>
+                            <li>Musamman Burj</li>
+                        </ul>
+                        <p class="built">Built: 1565 CE</p>
+                    </figcaption>
+                </figure>
+                <div class="card-info">
+                    <h2>Agra Fort</h2>
+                    <span class="badge badge-mughal">Mughal</span>
+                    <p class="location">Agra, Uttar Pradesh</p>
+                    <p class="period">16th Century</p>
+                    <p class="style-note">Walled palatial city</p>
+                </div>
+            </article>
+
+            <!-- Raigad Fort -->
+            <article class="gallery-card" data-category="maratha" tabindex="0">
+                <figure class="card-image-wrapper">
+                    <img src="assets/raigad-fort.jpg" alt="Raigad Fort, Maratha hill fort" class="card-image" loading="lazy">
+                    <figcaption class="architectural-detail">
+                        <h3>Raigad Fort</h3>
+                        <p class="dynasty">Dynasty: Maratha Empire</p>
+                        <p class="materials">Materials: Basalt rock</p>
+                        <ul class="features">
+                            <li>Steep hill fort typography</li>
+                            <li>Maha Darwaja (Main Gate)</li>
+                            <li>Hirkani Buruj bastion</li>
+                            <li>Raj Bhavan (King's Palace)</li>
+                        </ul>
+                        <p class="built">Built: 1030 CE, fortified 1674 CE</p>
+                    </figcaption>
+                </figure>
+                <div class="card-info">
+                    <h2>Raigad Fort</h2>
+                    <span class="badge badge-maratha">Maratha</span>
+                    <p class="location">Raigad, Maharashtra</p>
+                    <p class="period">17th Century</p>
+                    <p class="style-note">Strategic hill fortress</p>
+                </div>
+            </article>
+
+            <!-- Shaniwar Wada -->
+            <article class="gallery-card" data-category="maratha" tabindex="0">
+                <figure class="card-image-wrapper">
+                    <img src="assets/shaniwar-wada.jpg" alt="Shaniwar Wada in Pune" class="card-image" loading="lazy">
+                    <figcaption class="architectural-detail">
+                        <h3>Shaniwar Wada</h3>
+                        <p class="dynasty">Dynasty: Peshwas of Maratha Empire</p>
+                        <p class="materials">Materials: Stone, brick, and teak wood</p>
+                        <ul class="features">
+                            <li>Dilli Darwaja with spiked doors</li>
+                            <li>Nine bastions</li>
+                            <li>Lotus-shaped fountain (Hazari Karanje)</li>
+                        </ul>
+                        <p class="built">Built: 1732 CE</p>
+                    </figcaption>
+                </figure>
+                <div class="card-info">
+                    <h2>Shaniwar Wada</h2>
+                    <span class="badge badge-maratha">Maratha</span>
+                    <p class="location">Pune, Maharashtra</p>
+                    <p class="period">18th Century</p>
+                    <p class="style-note">Peshwa palatial fortification</p>
+                </div>
+            </article>
+
+            <!-- City Palace Udaipur -->
+            <article class="gallery-card large-card" data-category="rajput" tabindex="0">
+                <figure class="card-image-wrapper">
+                    <img src="assets/city-palace-udaipur.jpg" alt="City Palace Udaipur over lake" class="card-image" loading="lazy">
+                    <figcaption class="architectural-detail">
+                        <h3>City Palace, Udaipur</h3>
+                        <p class="dynasty">Dynasty: Mewar Rajputs</p>
+                        <p class="materials">Materials: Granite and marble</p>
+                        <ul class="features">
+                            <li>Lakefront facade</li>
+                            <li>Cupolas and chhatris</li>
+                            <li>Intricate mirror-work ( कांच काम )</li>
+                            <li>Hanging gardens</li>
+                        </ul>
+                        <p class="built">Built: 1559 CE</p>
+                    </figcaption>
+                </figure>
+                <div class="card-info">
+                    <h2>City Palace</h2>
+                    <span class="badge badge-rajput">Rajput</span>
+                    <p class="location">Udaipur, Rajasthan</p>
+                    <p class="period">16th Century</p>
+                    <p class="style-note">Flamboyant Mewar style</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Incredible India Explorer</h3>
+                <p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India.</p>
+            </div>
+        </div>
+        <div class="footer-credits">
+            <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS & JavaScript.</p>
+        </div>
+    </footer>
+
+    <script src="../../js-modules/storage.js" defer></script>
+    <script src="../../app.js" defer></script>
+    <script src="../../router.js" defer></script>
+    <script type="module" src="../../auth.js"></script>
+    <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forts & Palaces Gallery | Incredible India Explorer</title>
+    <!-- Include global styles -->
+    <link rel="stylesheet" href="../../style.css">
+    <!-- Local styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+    <div id="app">
+        <!-- Navigation Bar -->
+        <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+        <main class="gallery-module">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1>Forts & Palaces Gallery</h1>
+                    <p class="subtitle">Explore the architectural grandeur of Rajput, Maratha, and Mughal monuments across India.</p>
+                </div>
+            </section>
+
+            <!-- Category Navigation -->
+            <section class="filter-section" aria-label="Gallery category filters">
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="rajput">Rajput</button>
+                    <button class="filter-btn" data-filter="maratha">Maratha</button>
+                    <button class="filter-btn" data-filter="mughal">Mughal</button>
+                </div>
+            </section>
+
+            <!-- Gallery Grid -->
+            <section class="gallery-section" aria-label="Image gallery of forts and palaces">
+                <div class="gallery-grid" id="gallery-grid">
+                    <!-- Cards rendered dynamically by script.js -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Incredible India Explorer. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/app.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

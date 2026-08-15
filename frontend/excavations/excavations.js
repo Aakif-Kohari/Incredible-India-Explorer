@@ -394,6 +394,21 @@ export const excavationsData = [
     description: "Located near Tral in Kashmir, Gufkral (meaning 'Cave of the Potter' in Kashmiri) spans Pre-Pottery Neolithic to Megalithic eras.",
     significance: "Provided rare stratigraphical proof of the transition from pre-pottery foraging to pottery-making agricultural village life in Kashmir.",
     tags: ["gufkral", "pulwama", "jammu and kashmir", "potter cave", "neolithic", "tral", "asi"]
+  },
+  {
+    id: "daimabad",
+    title: "Daimabad (Deccan Bronze Hoard)",
+    state: "Maharashtra",
+    stateCode: "mh",
+    location: "Ahmednagar District",
+    period: "Chalcolithic & Late Harappan",
+    discoveryYear: 1958,
+    archaeologistOrAgency: "B.P. Bopardikar, S.R. Rao & S.A. Sali (ASI)",
+    artifactsDiscovered: "Four Solid-Cast Bronzes (Chariot, Elephant, Rhinoceros, Buffalo), Terracotta Seals with Indus Script, Copper Bangles",
+    image: "assets/Central_India.png",
+    description: "A continuous 5-metre cultural deposit spanning five Chalcolithic phases on the left bank of the Pravara River, famous for the 1974 discovery of a 60 kg solid-cast bronze hoard.",
+    significance: "Yielded the southernmost evidence of Harappan-related script and sophisticated solid-cast bronze metallurgy in the Deccan plateau.",
+    tags: ["daimabad", "ahmednagar", "maharashtra", "bronze hoard", "harappan", "chalcolithic", "godavari", "pravara"]
   }
 ];
 
