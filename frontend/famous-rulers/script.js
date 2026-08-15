@@ -12,7 +12,7 @@ const rulersData = [
     reign: "c. 268 – 232 BCE",
     image: "ruler-ashoka..jpg",
     description: "Expanded the Mauryan Empire across the subcontinent before renouncing war after Kalinga. Spread messages of Dhamma (Buddhism) through his famous rock and pillar edicts.",
-    link: "../ruler/ashoka.html"
+    link: "../ashoka-the-great-explorer/index.html"
   },
   {
     name: "Samudragupta",

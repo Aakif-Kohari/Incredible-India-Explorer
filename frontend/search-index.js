@@ -3836,6 +3836,21 @@ window.indiaSearchIndex = [
             "Discover the ancient Ashokan pillar, Buddha's Relic Stupa, the sacred Coronation Tank, and early democratic structures in Bihar.",
         url: 'frontend/vaishali-explorer/index.html'
     },
+    // --- Ashoka the Great – Mauryan Emperor & Patron of Dhamma ---
+    {
+        title: "Ashoka the Great: Mauryan Emperor & Patron of Dhamma",
+        category: 'Famous Rulers & History',
+        description:
+            'Explore Ashoka the Great (c. 268–232 BCE), the Kalinga War transformation, policy of Dhamma, Major Rock & Pillar Edicts, Third Buddhist Council, and national symbols of India.',
+        url: 'frontend/ashoka-the-great-explorer/index.html'
+    },
+    {
+        title: 'Rock and Pillar Edicts of Ashoka Guide',
+        category: 'Ancient Inscriptions & Archaeology',
+        description:
+            'Interactive guide to Ashokan inscriptions at Sarnath, Girnar, Dhauli, Kalsi, and Kandahar in Brahmi, Kharosthi, Greek, and Aramaic scripts.',
+        url: 'frontend/ashoka-the-great-explorer/index.html'
+    },
     // --- India's Border Explorer ---
     {
         title: "India's Border Explorer",
