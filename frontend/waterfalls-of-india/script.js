@@ -133,7 +133,8 @@
             flow: "Good flow year-round, but highly spectacular (and sometimes restricted for boating) during heavy monsoons.",
             attractions: "Coracle Rides, Melagiri Hills.",
             image: "https://images.unsplash.com/photo-1595878715977-2e8f8df18ea8?auto=format&fit=crop&q=80&w=600",
-            thumb: "https://images.unsplash.com/photo-1595878715977-2e8f8df18ea8?auto=format&fit=crop&q=40&w=400"
+            thumb: "https://images.unsplash.com/photo-1595878715977-2e8f8df18ea8?auto=format&fit=crop&q=40&w=400",
+            url: "../hogenakkal-falls-explorer/index.html"
         },
         {
             id: "bhimlat",
