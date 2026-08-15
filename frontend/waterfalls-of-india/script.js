@@ -254,6 +254,20 @@
             url: "../tirathgarh-falls-explorer/index.html"
         },
         {
+            id: "tiger-falls",
+            name: "Tiger Falls",
+            state: "Uttarakhand",
+            river: "Keraao Stream (Yamuna Basin)",
+            height: "95 meters",
+            season: "Spring / Summer",
+            tags: ["year-round"],
+            description: "A hidden 95-meter direct drop cascade enveloped in ancient deodar and oak woods near Chakrata in Garhwal Himalayas.",
+            flow: "Roaring clear stream in summer and monsoon; crystal wading pool at the base.",
+            attractions: "Chakrata Cantonment, Deoban, Chilmiri Neck, Kanasar Deodars.",
+            image: "https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=40&w=400",
+            url: "../tiger-falls-explorer/index.html"},
+              {
             id: "joranda",
             name: "Joranda Falls",
             state: "Odisha",
