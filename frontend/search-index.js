@@ -1943,6 +1943,13 @@ window.indiaSearchIndex = [
         description: "Historical timeline of all Lok Sabha elections from 1951 to 2024 featuring winning parties, Prime Ministers, voter turnout trends, major issues, and coalition dynamics.",
         url: "frontend/general-elections-timeline/index.html"
     },
+    // --- India's Sporting Milestones Timeline ---
+    {
+        title: "India's Sporting Milestones: Interactive Timeline",
+        category: "History & Achievements",
+        description: "Explore India's sporting history from Norman Pritchard's 1900 Olympic silvers to Neeraj Chopra's javelin gold and D. Gukesh's world chess title — filterable by year, sport, era, and athlete, with verified sources.",
+        url: "frontend/sporting-milestones-timeline/index.html"
+    },
     // --- Chief Justices of India Timeline ---
     {
         title: "Interactive Chief Justices of India Timeline",
@@ -3806,6 +3813,18 @@ window.indiaSearchIndex = [
             'Chronological milestone timeline from 1853 to 1984, category filters, and multiple-choice knowledge quiz testing famous Indian firsts.',
         url: 'frontend/indias-firsts/indias-firsts.html'
     },
+    {
+        title: "India's Firsts in Sports",
+        category: "History & Achievements",
+        description: "Interactive encyclopedia of India's landmark sporting firsts: first Olympic medal (Norman Pritchard), first Olympic gold (1928 Hockey Team), first individual Olympic gold (Abhinav Bindra), first woman Olympic medalist (Karnam Malleswari), first Cricket World Cup (1983), and more.",
+        url: "frontend/indias-firsts-sports/indias-firsts-sports.html"
+    },
+    {
+        title: "India's Sporting Firsts Timeline & Knowledge Quiz",
+        category: "Interactive Learning",
+        description: "Chronological milestone timeline from 1900 to 2023, category filters (Olympics, Cricket, Hockey, Badminton, Chess, Tennis, Paralympics), and multiple-choice knowledge quiz testing India's biggest sporting firsts.",
+        url: "frontend/indias-firsts-sports/indias-firsts-sports.html"
+    },
     // --- India's Lost Cities & Ancient Civilizations ---
     {
         title: "India's Lost Cities & Ancient Civilizations Explorer",
@@ -3849,7 +3868,49 @@ window.indiaSearchIndex = [
         category: 'Ancient Epigraphy & History',
         description:
             "Discover Harishena's Sanskrit inscription celebrating Samudragupta's northern and southern campaigns, veena gold coins, and Gupta expansion.",
-        url: 'frontend/samudragupta-explorer/index.html'
+        url: 'frontend/samudragupta-explorer/index.html'},
+    // --- Chandragupta II Vikramaditya – Gupta Emperor ---
+    {
+        title: "Chandragupta II Vikramaditya: Gupta Emperor",
+        category: 'Famous Rulers & History',
+        description:
+            'Explore Chandragupta II Vikramaditya (c. 375–415 CE), defeat of Western Kshatrapas, Mehrauli Iron Pillar, Faxian travelogue, Gupta Golden Age, and gold dinar coinage.',
+        url: 'frontend/chandragupta-ii-explorer/index.html'
+    },
+    {
+        title: 'Gupta Golden Age & Mehrauli Iron Pillar Guide',
+        category: 'Ancient Metallurgy & Classical Culture',
+        description:
+            "Discover the metallurgical marvel of Delhi's 1,600-year rust-resistant Iron Pillar, Ujjain's Navaratnas, and Faxian's 5th-century travelogue.",
+        url: 'frontend/chandragupta-ii-explorer/index.html'},
+    // --- Ashoka the Great – Mauryan Emperor & Patron of Dhamma ---
+    {
+        title: "Ashoka the Great: Mauryan Emperor & Patron of Dhamma",
+        category: 'Famous Rulers & History',
+        description:
+            'Explore Ashoka the Great (c. 268–232 BCE), the Kalinga War transformation, policy of Dhamma, Major Rock & Pillar Edicts, Third Buddhist Council, and national symbols of India.',
+        url: 'frontend/ashoka-the-great-explorer/index.html'
+    },
+    {
+        title: 'Rock and Pillar Edicts of Ashoka Guide',
+        category: 'Ancient Inscriptions & Archaeology',
+        description:
+            'Interactive guide to Ashokan inscriptions at Sarnath, Girnar, Dhauli, Kalsi, and Kandahar in Brahmi, Kharosthi, Greek, and Aramaic scripts.',
+        url: 'frontend/ashoka-the-great-explorer/index.html'},
+    // --- Chandragupta Maurya – Founder of the Mauryan Empire ---
+    {
+        title: "Chandragupta Maurya: Founder of the Mauryan Empire",
+        category: 'Famous Rulers & History',
+        description:
+            'Explore Chandragupta Maurya (c. 321–297 BCE), founder of the Mauryan Empire, unifier of ancient India, Chanakya relationship, Seleucid treaty, and administrative statecraft.',
+        url: 'frontend/chandragupta-maurya-explorer/index.html'
+    },
+    {
+        title: 'Mauryan Administration & Seleucid War Guide',
+        category: 'Ancient History',
+        description:
+            "Discover Pataliputra's palisades, the 305 BCE treaty with Seleucus I Nicator, Arthashastra governance, and Megasthenes' Indika records.",
+        url: 'frontend/chandragupta-maurya-explorer/index.html'
     },
     // --- India's Border Explorer ---
     {
@@ -3865,6 +3926,12 @@ window.indiaSearchIndex = [
         description:
             'Explore Wagah-Attari, Nathu La Pass, Petrapole-Benapole, Moreh-Tamu and other major border checkpoints. Learn about BSF, ITBP, SSB, Assam Rifles, and Indian Coast Guard deployments.',
         url: 'frontend/border-explorer/border-explorer.html'
+    },
+    {
+    title: "Chhattisgarhi: छत्तीसगढ़ी and Its Folk Heritage",
+    category: "Languages & Culture",
+    description: "Explore Chhattisgarhi — Devanagari script, a verified greeting with pronunciation, common Chhattisgarhi words, its language family, the Chhattisgarh region, and folk heritage including Pandwani storytelling.",
+    url: "frontend/chhattisgarhi-explorer/index.html"
     },
     // --- Important Government Institutions Explorer ---
     {
