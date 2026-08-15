@@ -253,28 +253,28 @@ function initCoinTabs() {
     const coinData = {
         archer: {
             icon: "🏹",
-            img: "./gupta_gold_coin.jpg",
+            img: "../../frontend/assets/gupta_gold_coin.jpg",
             title: "Archer Type Gold Dinar",
             desc: "The most popular gold coin type of Chandragupta II's reign. The obverse features the Emperor standing left holding a bow in his left hand and an arrow in his right, with a Garuda banner behind. The reverse depicts Goddess Lakshmi seated on a lotus, holding a lotus flower and cornucopia.",
             quote: "“Deva-Sri-Maharajadhiraja-Sri-Chandragupta” — Brahmi Obverse Legend"
         },
         lion: {
             icon: "🦁",
-            img: "./gupta_gold_coin.jpg",
+            img: "../../frontend/assets/gupta_gold_coin.jpg",
             title: "Lion-Slayer Type Gold Dinar",
             desc: "Issued to commemorate the conquest of Gujarat and Malwa. The obverse portrays the Emperor hunting a lion with bow and arrow, trampling the lion with his foot. The reverse depicts Goddess Durga seated on a lion (*Simhavahini*).",
             quote: "“Simhavikrama” ('He who possesses the prowess of a lion') — Brahmi Reverse Title"
         },
         chhatra: {
             icon: "☂️",
-            img: "./gupta_gold_coin.jpg",
+            img: "../../frontend/assets/gupta_gold_coin.jpg",
             title: "Chhatra (Parasol) Type Gold Dinar",
             desc: "Depicts Chandragupta II offering oblations at a fire altar while an attendant behind holds a royal parasol (*Chhatra*) over the monarch, symbolizing universal imperial suzerainty.",
             quote: "“Vikramaditya” ('Sun of Valor') — Brahmi Reverse Legend"
         },
         silver: {
             icon: "🪙",
-            img: "./silver_coin.jpg",
+            img: "../../frontend/assets/silver_coin.jpg",
             title: "Western Kshatrapa Style Silver Coin",
             desc: "First silver coinage issued by a Gupta ruler. Issued in Gujarat after defeating Rudrasimha III. Features the Emperor's bust on the obverse and a peacock with outspread wings or Garuda on the reverse.",
             quote: "“Paramabhagavata-Maharajadhiraja-Sri-Chandragupta-Vikramaditya” — Reverse Legend"
