@@ -133,7 +133,8 @@
             flow: "Good flow year-round, but highly spectacular (and sometimes restricted for boating) during heavy monsoons.",
             attractions: "Coracle Rides, Melagiri Hills.",
             image: "https://images.unsplash.com/photo-1595878715977-2e8f8df18ea8?auto=format&fit=crop&q=80&w=600",
-            thumb: "https://images.unsplash.com/photo-1595878715977-2e8f8df18ea8?auto=format&fit=crop&q=40&w=400"
+            thumb: "https://images.unsplash.com/photo-1595878715977-2e8f8df18ea8?auto=format&fit=crop&q=40&w=400",
+            url: "../hogenakkal-falls-explorer/index.html"
         },
         {
             id: "bhimlat",
@@ -265,7 +266,21 @@
             attractions: "Similipal Tiger Reserve, Joranda Falls, Meghasani Peak, Chahala.",
             image: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=40&w=400",
-            url: "../barehipani-falls-explorer/index.html"
+            url: "../barehipani-falls-explorer/index.html"},
+              {
+            id: "soochipara",
+            name: "Soochipara Falls",
+            state: "Kerala",
+            river: "Chaliyar River",
+            height: "200 meters",
+            season: "Post-Monsoon",
+            tags: ["year-round", "tallest"],
+            description: "A three-tiered cascade nestled in the dense montane evergreen rainforests of Wayanad, surrounded by Sentinel Rock cliffs.",
+            flow: "Spectacular flow post-monsoon; safe natural plunge pool for swimming in winter.",
+            attractions: "Chembra Peak, Meenmutty Falls, Kanthanpara Falls, Vellarimala.",
+            image: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=40&w=400",
+            url: "../soochipara-falls-explorer/index.html"
         }
     ];
 
