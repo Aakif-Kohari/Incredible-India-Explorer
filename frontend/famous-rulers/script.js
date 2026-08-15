@@ -30,7 +30,7 @@ const rulersData = [
     dynasty: "Gupta",
     region: "Pan-Indian",
     reign: "c. 375 – 415 CE",
-    image: "ruler-samudragupta..jpg",
+    image: "../assets/gupta_gold_coin.jpg",
     description: "Vanquished the Western Kshatrapas, extended Gupta rule from coast to coast, ushered in classical India's Golden Age, and commissioned the Mehrauli Iron Pillar.",
     link: "../chandragupta-ii-explorer/index.html"
   },
