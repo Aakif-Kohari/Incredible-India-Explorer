@@ -5125,6 +5125,13 @@ window.indiaSearchIndex = [
         description: "Follow Mahatma Gandhi's 1946-47 walking peace mission through the villages of Noakhali: the October 1946 communal violence, his arrival at Chandpur, the villages he visited, his peace meetings and community outreach, and the wider road to Partition.",
         url: "frontend/noakhali-peace-mission-explorer/index.html"
     },
+    // --- Subroto Cup Explorer ---
+    {
+        title: "Subroto Cup: Explore India's Historic School Football Tournament Explorer",
+        category: "Sports & Culture",
+        description: "Build an interactive Subroto Cup explorer — discovering India's premier inter-school football tournament since 1960, Air Marshal Subroto Mukerjee, famous alumni (Sunil Chhetri, Bhaichung Bhutia), and youth player pipeline.",
+        url: "frontend/subroto-cup-explorer/index.html"
+    },
     // --- Narasimhavarman I Explorer ---
     {
         title: "Add Narasimhavarman I – Pallava Ruler of Kanchipuram Explorer",
