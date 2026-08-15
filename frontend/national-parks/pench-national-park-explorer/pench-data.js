@@ -1,0 +1,173 @@
+/**
+ * Pench National Park Explorer — Data Module
+ * Covers History, Jungle Book Connection, Pench River, Wildlife,
+ * Safari Information, Gallery, and Interactive Map.
+ */
+
+const PENCH_INFO = {
+  id: "pench",
+  name: "Pench National Park",
+  aka: "Indira Priyadarshini Pench National Park / Pench Tiger Reserve",
+  location: "Seoni and Chhindwara Districts, Madhya Pradesh, India",
+  state: "Madhya Pradesh",
+  coordinates: { lat: 21.74, lng: 79.29 },
+  area: "757.85 km² (Core: 411.33 km², Buffer: 346.52 km²)",
+  establishedYear: 1975,
+  tigerReserveYear: 1992,
+  etymology: "Named after the Pench River, which flows through the park from north to south, dividing it into almost two equal halves.",
+  climate: "Tropical, with hot summers, monsoon rains (park closed to visitors), and mild, dry winters.",
+  bestTime: "October to June (closed during the monsoon, 1 July – 30 September)",
+  entryFees: "₹100 (Indian Nationals), ₹1500 (Foreigners) — varies by zone and vehicle type",
+  nearestTransport: {
+    railway: "Seoni Railway Station (55 km) / Nagpur Junction (90 km)",
+    airport: "Dr. Babasaheb Ambedkar International Airport, Nagpur (~92 km)",
+    gatewayTown: "Turia / Khawasa"
+  },
+  quickStats: [
+    { label: "Jungle Book Muse", value: "Yes", icon: "📖" },
+    { label: "Tiger Reserve", value: "Since 1992", icon: "🐅" },
+    { label: "Total Area", value: "758 km²", icon: "🌲" },
+    { label: "Mammal Species", value: "39+", icon: "🦌" },
+    { label: "Bird Species", value: "285+", icon: "🦅" },
+    { label: "Safari Gates", value: "3", icon: "🚙" }
+  ]
+};
+
+const HISTORY = [
+  {
+    year: "1965",
+    title: "Wildlife Sanctuary Notified",
+    description: "The forests along the Pench River valley were first notified as a protected wildlife sanctuary to safeguard the region's dwindling tiger and prey populations."
+  },
+  {
+    year: "1975",
+    title: "National Park Established",
+    description: "The core forests on both banks of the Pench River were upgraded to full National Park status under the Wildlife Protection Act."
+  },
+  {
+    year: "1992",
+    title: "Project Tiger Reserve",
+    description: "Declared the 19th Tiger Reserve of India and renamed Indira Priyadarshini Pench National Park, marking a new chapter in its conservation history."
+  },
+  {
+    year: "2011",
+    title: "Buffer Zone Notified",
+    description: "A buffer zone was formally added around the core, extending protection to surrounding forest corridors that link Pench to Kanha and Satpura."
+  }
+];
+
+const JUNGLE_BOOK = {
+  title: "The Real Jungle Book",
+  description: "Pench's forests on the Seoni plateau are widely believed to have inspired Rudyard Kipling's classic 'The Jungle Book'. Although Kipling never visited India himself, he drew heavily on 'Seonee', an 1877 account of the region's wildlife and folklore written by British forest officer Robert Armitage Sterndale. The undulating teak forests, the winding Pench River, and local legends of wolf-raised children echo throughout Mowgli's story of Shere Khan, Baloo, and Bagheera.",
+  keyHighlights: [
+    "Seoni district's forests are the geographic namesake of Sterndale's 'Seonee'",
+    "A nature trail near Karmajhiri retraces landscapes associated with the tale",
+    "Interpretation centers at the park narrate the Kipling connection to visitors",
+    "The park's resident Indian Wolf population echoes Mowgli's wolf-pack origins"
+  ]
+};
+
+const PENCH_RIVER = {
+  title: "The Pench River",
+  description: "The Pench River rises in the Satpura Range and flows roughly north to south, splitting the park into nearly equal eastern and western halves before being dammed to form the Totladoh and Pench reservoirs. Its perennial pools and moist deciduous banks sustain the park through the dry months, drawing tigers, gaur, and sambar to drink even as surrounding water sources vanish — and giving the reserve its name."
+};
+
+const WILDLIFE = [
+  {
+    id: "bengal-tiger",
+    name: "Bengal Tiger",
+    scientificName: "Panthera tigris tigris",
+    status: "Endangered",
+    icon: "🐅",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Royal_Bengal_Tiger_at_Nandankanan.jpg/800px-Royal_Bengal_Tiger_at_Nandankanan.jpg",
+    description: "Pench's apex predator and star attraction. The reserve was once home to the famous tigress 'Collarwali', renowned for raising 29 cubs over her lifetime."
+  },
+  {
+    id: "leopard",
+    name: "Leopard",
+    scientificName: "Panthera pardus fusca",
+    status: "Vulnerable",
+    icon: "🐆",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Indian_leopard.jpg/800px-Indian_leopard.jpg",
+    description: "Thrives alongside tigers thanks to abundant prey and dense tree cover, often spotted resting on low branches during the day."
+  },
+  {
+    id: "indian-wolf",
+    name: "Indian Wolf",
+    scientificName: "Canis lupus pallipes",
+    status: "Endangered",
+    icon: "🐺",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Indian_wolf_%28Canis_lupus_pallipes%29_by_Sandeep_Thakur.jpg/800px-Indian_wolf_%28Canis_lupus_pallipes%29_by_Sandeep_Thakur.jpg",
+    description: "A rare sighting in the buffer grasslands, and the species most directly tied to the park's Jungle Book legend."
+  },
+  {
+    id: "dhole",
+    name: "Dhole (Indian Wild Dog)",
+    scientificName: "Cuon alpinus",
+    status: "Endangered",
+    icon: "🐕",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Dhole_%28Cuon_alpinus%29_in_Nagarhole_National_Park.jpg/800px-Dhole_%28Cuon_alpinus%29_in_Nagarhole_National_Park.jpg",
+    description: "Highly social pack hunters that patrol Pench's deciduous forests, frequently competing with tigers and leopards for prey."
+  },
+  {
+    id: "gaur",
+    name: "Gaur",
+    scientificName: "Bos gaurus",
+    status: "Vulnerable",
+    icon: "🐃",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Gaur%28Bos_gaurus%29.jpg/800px-Gaur%28Bos_gaurus%29.jpg",
+    description: "The world's largest wild bovine, commonly seen grazing near the Pench River's grassy banks."
+  },
+  {
+    id: "sloth-bear",
+    name: "Sloth Bear",
+    scientificName: "Melursus ursinus",
+    status: "Vulnerable",
+    icon: "🐻",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Sloth_Bear.jpg/800px-Sloth_Bear.jpg",
+    description: "Often spotted foraging for termites and mahua flowers in the dry deciduous stretches of the reserve."
+  }
+];
+
+const SAFARI_INFO = {
+  title: "Planning Your Safari",
+  description: "Pench offers jeep safaris across three main gates, each with a distinct character — from high tiger-sighting frequency to quieter buffer-zone birding trails.",
+  zones: [
+    { name: "Turia Gate", description: "The main entry gate, closest to the Nagpur–Jabalpur highway, with the highest tiger sighting frequency." },
+    { name: "Karmajhiri Gate", description: "A quieter buffer-zone gate known for birdlife and the Jungle Book interpretation trail." },
+    { name: "Jamtara Gate", description: "Located on the Maharashtra side, popular for night safaris in the buffer zone." }
+  ],
+  timings: "Morning: 6:00 AM – 11:00 AM | Evening: 3:00 PM – 6:00 PM (varies seasonally)",
+  vehicleTypes: "6-seater open Gypsy (shared or private); canters for larger groups in select buffer zones",
+  closedDays: "Core zone closed on Wednesday afternoons; entire park closed 1 July – 30 September",
+  bookingTip: "Book safari permits online in advance via the MP Forest Department portal, especially during peak season (November–February)."
+};
+
+const MAP_HOTSPOTS = [
+  { id: "spot-turia", name: "Turia Gate", category: "gate", x: 50, y: 20, description: "The main entry point, closest to the highway, with excellent tiger sighting odds." },
+  { id: "spot-river", name: "Pench River & Totladoh Reservoir", category: "water", x: 50, y: 50, description: "The lifeline of the park, splitting it into eastern and western halves." },
+  { id: "spot-karmajhiri", name: "Karmajhiri Buffer Zone", category: "wildlife", x: 30, y: 65, description: "Known for birdlife and the trail retracing Kipling's Jungle Book setting." },
+  { id: "spot-jamtara", name: "Jamtara Gate", category: "gate", x: 70, y: 80, description: "The Maharashtra-side gate, popular for night safaris." }
+];
+
+const GALLERY_IMAGES = [
+  {
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Pench_National_Park%2C_Madhya_Pradesh_-_by_Ishani_Mehta.jpg/960px-Pench_National_Park%2C_Madhya_Pradesh_-_by_Ishani_Mehta.jpg",
+    title: "Pench Landscape",
+    caption: "The open teak canopy and rolling terrain of Pench National Park, Madhya Pradesh."
+  },
+  {
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Royal_Bengal_Tiger_at_Nandankanan.jpg/800px-Royal_Bengal_Tiger_at_Nandankanan.jpg",
+    title: "Bengal Tiger",
+    caption: "A Bengal tiger in the dense forests of central India, Pench's most iconic resident."
+  },
+  {
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Indian_leopard.jpg/800px-Indian_leopard.jpg",
+    title: "Indian Leopard",
+    caption: "A leopard resting in the tree cover — a frequent sighting for early-morning safari-goers."
+  }
+];
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { PENCH_INFO, HISTORY, JUNGLE_BOOK, PENCH_RIVER, WILDLIFE, SAFARI_INFO, MAP_HOTSPOTS, GALLERY_IMAGES };
+}

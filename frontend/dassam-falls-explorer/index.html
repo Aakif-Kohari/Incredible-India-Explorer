@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dassam Falls — Kanchi River Cascade Explorer</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0F1B16;
+    --bg-panel:#172621;
+    --bg-panel-2:#1D3129;
+    --river:#4FB8AE;
+    --river-dim:#2E6D66;
+    --rock:#C97A3D;
+    --rock-dim:#8C5629;
+    --foam:#EFE9DA;
+    --text:#E7EFE9;
+    --text-muted:#93A79D;
+    --line:#2A3B34;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg-deep);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--river);
+  }
+  a{color:var(--river);}
+  img{max-width:100%;display:block;}
+
+  /* ---- NAV ---- */
+  nav{
+    position:sticky;top:0;z-index:40;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;
+    background:rgba(15,27,22,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;}
+  .nav-brand span{color:var(--rock);}
+  .nav-links{display:flex;gap:22px;font-size:0.82rem;color:var(--text-muted);}
+  .nav-links a{color:var(--text-muted);text-decoration:none;}
+  .nav-links a:hover{color:var(--foam);}
+  @media(max-width:760px){.nav-links{display:none;}}
+
+  /* ---- HERO ---- */
+  .hero{position:relative;height:88vh;min-height:520px;overflow:hidden;}
+  .hero img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.03);}
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(15,27,22,0.15) 0%, rgba(15,27,22,0.15) 45%, rgba(15,27,22,0.96) 100%);
+  }
+  .hero-content{
+    position:absolute;left:0;right:0;bottom:0;
+    padding:0 28px 46px;
+    max-width:920px;
+  }
+  .hero-content .eyebrow{margin-bottom:10px;display:block;}
+  .hero h1{font-size:clamp(2.4rem,6vw,4.4rem);line-height:0.98;color:var(--foam);}
+  .hero h1 em{font-style:italic;color:var(--river);}
+  .hero-sub{margin-top:14px;max-width:560px;color:var(--text-muted);font-size:1.02rem;}
+  .stat-strip{
+    display:flex;flex-wrap:wrap;gap:0;margin-top:30px;
+    border-top:1px solid rgba(239,233,218,0.2);
+  }
+  .stat{padding:14px 26px 0 0;margin-right:26px;}
+  .stat .num{font-family:'Fraunces',serif;font-size:1.7rem;color:var(--foam);}
+  .stat .lbl{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);}
+
+  /* ---- SECTION shell ---- */
+  section{padding:88px 28px;max-width:1140px;margin:0 auto;}
+  .section-head{max-width:640px;margin-bottom:44px;}
+  .section-head h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin-top:8px;}
+  .section-head p{color:var(--text-muted);margin-top:12px;}
+  .panel{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:4px;
+  }
+
+  /* ---- OVERVIEW / LOCATION ---- */
+  .overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  @media(max-width:860px){.overview-grid{grid-template-columns:1fr;}}
+  .fact-list{list-style:none;margin:0;padding:0;}
+  .fact-list li{
+    display:flex;justify-content:space-between;gap:16px;
+    padding:13px 0;border-bottom:1px solid var(--line);font-size:0.92rem;
+  }
+  .fact-list li:last-child{border-bottom:none;}
+  .fact-list .k{color:var(--text-muted);}
+  .fact-list .v{text-align:right;color:var(--foam);font-weight:500;}
+  #map{height:340px;border-radius:4px;filter:saturate(0.9);}
+  .leaflet-container{background:#172621;}
+
+  /* ---- CASCADE VISUALIZER ---- */
+  .cascade-wrap{padding:26px;}
+  .toggle-row{display:flex;align-items:center;gap:12px;margin-bottom:22px;flex-wrap:wrap;}
+  .toggle-row .lbl{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);}
+  .seg{display:flex;border:1px solid var(--line);border-radius:20px;overflow:hidden;}
+  .seg button{
+    background:transparent;border:none;color:var(--text-muted);
+    font-family:'IBM Plex Mono',monospace;font-size:0.75rem;padding:8px 16px;cursor:pointer;
+    transition:all .2s;
+  }
+  .seg button.active{background:var(--river);color:#0F1B16;}
+  .cascade-caption{margin-top:16px;color:var(--text-muted);font-size:0.88rem;max-width:600px;}
+  .cascade-caption b{color:var(--foam);}
+  .stream{transition:opacity .5s ease, stroke-width .5s ease;}
+
+  /* ---- SEASONAL TABS ---- */
+  .season-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;}
+  .season-tab{
+    padding:10px 18px;border:1px solid var(--line);border-radius:20px;
+    background:transparent;color:var(--text-muted);font-family:'Inter';font-size:0.85rem;cursor:pointer;
+  }
+  .season-tab.active{background:var(--rock);border-color:var(--rock);color:#0F1B16;font-weight:600;}
+  .season-panel{display:none;grid-template-columns:1.1fr 1fr;gap:30px;}
+  .season-panel.active{display:grid;}
+  @media(max-width:800px){.season-panel.active{grid-template-columns:1fr;}}
+  .season-panel img{border-radius:4px;aspect-ratio:4/3;object-fit:cover;}
+  .flow-meter{margin-top:18px;}
+  .flow-meter .bar-bg{height:8px;background:var(--line);border-radius:4px;overflow:hidden;}
+  .flow-meter .bar-fill{height:100%;background:linear-gradient(90deg,var(--river-dim),var(--river));border-radius:4px;transition:width .6s ease;}
+  .flow-meter .cap{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--text-muted);margin-top:6px;text-transform:uppercase;letter-spacing:.06em;}
+
+  /* ---- GALLERY ---- */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  @media(max-width:860px){.gallery{grid-template-columns:repeat(2,1fr);}}
+  .g-item{position:relative;overflow:hidden;border-radius:4px;aspect-ratio:3/4;}
+  .g-item:first-child{grid-row:span 2;aspect-ratio:auto;}
+  .g-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+  .g-item:hover img{transform:scale(1.06);}
+  .g-cap{
+    position:absolute;left:0;right:0;bottom:0;padding:10px 12px;
+    background:linear-gradient(180deg,transparent,rgba(15,27,22,0.92));
+    font-size:0.72rem;color:var(--text-muted);
+  }
+
+  /* ---- NEARBY ATTRACTIONS ---- */
+  .nearby-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  @media(max-width:860px){.nearby-grid{grid-template-columns:1fr;}}
+  #nearby-map{height:380px;border-radius:4px;}
+  .attraction-card{
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+    padding:16px 18px;border-bottom:1px solid var(--line);cursor:pointer;
+  }
+  .attraction-card:last-child{border-bottom:none;}
+  .attraction-card:hover{background:var(--bg-panel-2);}
+  .attraction-card .name{font-weight:600;color:var(--foam);font-size:0.95rem;}
+  .attraction-card .meta{color:var(--text-muted);font-size:0.78rem;margin-top:3px;}
+  .attraction-card .dist{font-family:'IBM Plex Mono',monospace;font-size:0.76rem;color:var(--rock);white-space:nowrap;}
+
+  /* ---- BEST SEASON CALLOUT ---- */
+  .callout{
+    padding:40px;
+    background:linear-gradient(135deg,var(--bg-panel-2),var(--bg-panel));
+    border:1px solid var(--line);border-radius:4px;
+    display:flex;gap:30px;align-items:center;flex-wrap:wrap;
+  }
+  .callout .big{font-family:'Fraunces',serif;font-size:2.4rem;color:var(--river);}
+  .callout p{color:var(--text-muted);max-width:520px;margin:0;}
+
+  /* ---- LANDING CARD PREVIEW ---- */
+  .landing-preview{display:flex;justify-content:center;padding:10px 0 0;}
+  .land-card{
+    width:100%;max-width:340px;border-radius:6px;overflow:hidden;
+    border:1px solid var(--line);background:var(--bg-panel);
+    text-decoration:none;color:inherit;display:block;transition:transform .25s, border-color .25s;
+  }
+  .land-card:hover{transform:translateY(-4px);border-color:var(--river);}
+  .land-card .thumb{height:180px;overflow:hidden;}
+  .land-card .thumb img{width:100%;height:100%;object-fit:cover;}
+  .land-card .body{padding:16px 18px 20px;}
+  .land-card .tag{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--river);}
+  .land-card h3{font-size:1.2rem;margin-top:6px;color:var(--foam);}
+  .land-card .sub{color:var(--text-muted);font-size:0.82rem;margin-top:6px;}
+  .land-card .foot{display:flex;justify-content:space-between;margin-top:14px;font-size:0.74rem;color:var(--text-muted);font-family:'IBM Plex Mono',monospace;}
+
+  /* ---- SOURCES / FOOTER ---- */
+  footer{padding:60px 28px 90px;border-top:1px solid var(--line);}
+  .footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;}
+  @media(max-width:800px){.footer-inner{grid-template-columns:1fr;}}
+  .src-list{list-style:none;margin:0;padding:0;font-size:0.82rem;}
+  .src-list li{padding:8px 0;border-bottom:1px solid var(--line);}
+  .src-list a{text-decoration:none;}
+  .src-list a:hover{text-decoration:underline;}
+  .credit-list{list-style:none;margin:0;padding:0;font-size:0.78rem;color:var(--text-muted);}
+  .credit-list li{padding:6px 0;}
+  .credit-list a{color:var(--text-muted);}
+  .safety-note{
+    margin-top:16px;font-size:0.82rem;color:var(--text-muted);
+    border-left:2px solid var(--rock);padding-left:14px;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Dassam <span>Falls</span></div>
+  <div class="nav-links">
+    <a href="#overview">Overview</a>
+    <a href="#cascade">Cascade</a>
+    <a href="#seasons">Seasons</a>
+    <a href="#landscape">Landscape</a>
+    <a href="#nearby">Nearby</a>
+    <a href="#sources">Sources</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dasam%20falls%20jharkhand.jpg?width=1600"
+       alt="Dassam Falls plunging over the Ranchi plateau scarp" id="hero-img">
+  <div class="hero-content">
+    <span class="eyebrow">Ranchi District · Jharkhand · India</span>
+    <h1>Where the Kanchi<br><em>splits into ten</em> and falls.</h1>
+    <p class="hero-sub">A 44-metre knickpoint on the Ranchi plateau where the Kanchi River braids into
+      multiple channels before plunging over a laterite scarp in a wide curtain of white water.</p>
+    <div class="stat-strip">
+      <div class="stat"><div class="num">144 ft</div><div class="lbl">Total height (44 m)</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">Main tiers</div></div>
+      <div class="stat"><div class="num">~10</div><div class="lbl">Braided streams</div></div>
+      <div class="stat"><div class="num">40 km</div><div class="lbl">From Ranchi city</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= OVERVIEW ================= -->
+<section id="overview">
+  <div class="section-head">
+    <span class="eyebrow">01 — Location &amp; setting</span>
+    <h2>A scarp fall on the edge of the plateau</h2>
+    <p>Dassam Falls sits near Taimara village in the Bundu subdivision of Ranchi district, about
+      34–40&nbsp;km from Ranchi along the Ranchi–Tata road (NH‑33). The Kanchi River, a tributary of the
+      Subarnarekha River, drops off the rim of the Chota Nagpur / Ranchi plateau here — a classic
+      <b>nick point</b> formed where a break in the river's long profile lets water fall vertically
+      instead of running as a gentle rapid.</p>
+  </div>
+  <div class="overview-grid">
+    <div class="panel" style="padding:24px;">
+      <ul class="fact-list">
+        <li><span class="k">Watercourse</span><span class="v">Kanchi River (→ Subarnarekha River)</span></li>
+        <li><span class="k">Coordinates</span><span class="v">23.1434° N, 85.4664° E</span></li>
+        <li><span class="k">Elevation</span><span class="v">336 m (1,102 ft)</span></li>
+        <li><span class="k">Total drop</span><span class="v">44 m / 144 ft, in 2 tiers</span></li>
+        <li><span class="k">Nearest town</span><span class="v">Bundu, Ranchi district</span></li>
+        <li><span class="k">Distance from Ranchi</span><span class="v">≈ 34–40 km</span></li>
+        <li><span class="k">Access</span><span class="v">300+ steps down to the viewing level</span></li>
+        <li><span class="k">Landform type</span><span class="v">Scarp fall / knickpoint (rejuvenation)</span></li>
+      </ul>
+    </div>
+    <div>
+      <div id="map"></div>
+      <p style="color:var(--text-muted);font-size:0.8rem;margin-top:10px;">Map data © OpenStreetMap contributors · tiles via CARTO.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CASCADE ================= -->
+<section id="cascade">
+  <div class="section-head">
+    <span class="eyebrow">02 — Cascade structure</span>
+    <h2>A braided curtain, not a single column</h2>
+    <p>Unlike a single-drop waterfall, the Kanchi spreads across the wide lip of the scarp and separates
+      into a number of parallel streams — popularly described as <b>ten</b> — before falling together over
+      two rocky tiers. How many of those streams you actually see depends on how much water the river is
+      carrying.</p>
+  </div>
+  <div class="panel cascade-wrap">
+    <div class="toggle-row">
+      <span class="lbl">Simulate flow:</span>
+      <div class="seg" id="flow-seg">
+        <button data-flow="monsoon" class="active">Monsoon</button>
+        <button data-flow="post">Post-monsoon</button>
+        <button data-flow="winter">Winter</button>
+        <button data-flow="summer">Summer</button>
+      </div>
+    </div>
+    <svg viewBox="0 0 900 380" width="100%" style="max-height:420px;" id="cascade-svg">
+      <!-- sky/back -->
+      <rect x="0" y="0" width="900" height="380" fill="#132119"></rect>
+      <!-- distant tree line -->
+      <g fill="#1D3129">
+        <path d="M0 150 L40 120 L80 150 L120 110 L160 150 L200 125 L240 150 L900 150 L900 180 L0 180 Z"></path>
+      </g>
+      <!-- plateau top rock -->
+      <path d="M0 150 L900 150 L900 175 L620 178 L560 168 L520 175 L0 175 Z" fill="#3A2E22"></path>
+      <!-- upper tier lip -->
+      <path d="M480 172 L640 172 L660 205 L460 205 Z" fill="#4A3826"></path>
+      <!-- lower rock face -->
+      <path d="M420 205 L700 205 L760 330 L360 330 Z" fill="#3A2E22"></path>
+      <!-- rock texture lines -->
+      <g stroke="#2A2018" stroke-width="2" opacity="0.6">
+        <path d="M440 215 L400 325"></path>
+        <path d="M500 210 L470 328"></path>
+        <path d="M560 208 L555 330"></path>
+        <path d="M620 210 L645 328"></path>
+        <path d="M680 215 L720 325"></path>
+      </g>
+      <!-- pool at base -->
+      <ellipse cx="560" cy="345" rx="230" ry="26" fill="#1E4B47"></ellipse>
+      <ellipse cx="560" cy="342" rx="200" ry="18" fill="#2E6D66" opacity="0.7"></ellipse>
+
+      <!-- STREAMS: 10 braided channels from lip to pool -->
+      <g id="streams">
+        <!-- x-start values spread across the lip 480-660 -->
+      </g>
+
+      <!-- mist -->
+      <g id="mist" fill="#EFE9DA" opacity="0.18">
+        <ellipse cx="560" cy="320" rx="180" ry="30"></ellipse>
+        <ellipse cx="520" cy="300" rx="90" ry="20"></ellipse>
+        <ellipse cx="610" cy="300" rx="90" ry="20"></ellipse>
+      </g>
+
+      <!-- labels -->
+      <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#93A79D">
+        <line x1="740" y1="175" x2="740" y2="330" stroke="#93A79D" stroke-width="1"></line>
+        <line x1="734" y1="175" x2="746" y2="175" stroke="#93A79D" stroke-width="1"></line>
+        <line x1="734" y1="330" x2="746" y2="330" stroke="#93A79D" stroke-width="1"></line>
+        <text x="752" y="256">44 m / 144 ft</text>
+        <text x="752" y="270">total, 2 tiers</text>
+      </g>
+      <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#93A79D">
+        <text x="20" y="168">Ranchi plateau rim (≈336 m elevation)</text>
+        <text x="20" y="358">Kanchi River continues toward the Subarnarekha</text>
+      </g>
+    </svg>
+    <p class="cascade-caption" id="cascade-caption">
+      <b>Monsoon (Jul–Sep):</b> all channels run full and merge into one continuous sheet — the falls are at
+      their loudest and widest.
+    </p>
+  </div>
+</section>
+
+<!-- ================= SEASONS ================= -->
+<section id="seasons">
+  <div class="section-head">
+    <span class="eyebrow">03 — Seasonal variation</span>
+    <h2>The same falls, four different moods</h2>
+    <p>Flow volume swings sharply across the year because the Kanchi is monsoon-fed. Use the tabs to
+      compare what the cascade looks like — and how safe the rocks and current are — in each season.</p>
+  </div>
+  <div class="season-tabs" id="season-tabs">
+    <button class="season-tab active" data-season="monsoon">Monsoon · Jul–Sep</button>
+    <button class="season-tab" data-season="post">Post-monsoon · Oct–Nov</button>
+    <button class="season-tab" data-season="winter">Winter · Dec–Feb</button>
+    <button class="season-tab" data-season="summer">Summer · Mar–Jun</button>
+  </div>
+
+  <div class="season-panel active" data-season="monsoon">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dasam%20Falls%20in%20September.jpg?width=900" alt="Dassam Falls in full monsoon flow, September">
+    <div>
+      <h3 style="font-size:1.3rem;">Peak volume, peak roar</h3>
+      <p style="color:var(--text-muted);">Fed directly by monsoon rainfall, the Kanchi swells and the falls
+        reach maximum width and force — this is the classic, most-photographed view of Dassam. Surroundings
+        turn deep green. Rocks are slick and the current at the base is at its strongest, so the area near
+        the water needs real caution even though the view is the most dramatic of the year.</p>
+      <div class="flow-meter">
+        <div class="bar-bg"><div class="bar-fill" style="width:96%;"></div></div>
+        <div class="cap"><span>Flow intensity</span><span>Very high</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="season-panel" data-season="post">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dassam%20waterfall.jpg?width=900" alt="Dassam Falls shortly after the monsoon">
+    <div>
+      <h3 style="font-size:1.3rem;">Still full, slightly calmer</h3>
+      <p style="color:var(--text-muted);">October–November keeps most of the monsoon's volume while the
+        skies clear, giving some of the best visibility and lighting of the year alongside a still-powerful
+        cascade. Vegetation around the falls remains lush.</p>
+      <div class="flow-meter">
+        <div class="bar-bg"><div class="bar-fill" style="width:78%;"></div></div>
+        <div class="cap"><span>Flow intensity</span><span>High</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="season-panel" data-season="winter">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dassam%20waterfall2.jpg?width=900" alt="Dassam Falls in the drier winter months">
+    <div>
+      <h3 style="font-size:1.3rem;">Gentler flow, pleasant weather</h3>
+      <p style="color:var(--text-muted);">December–February sees the river settle into a steadier, thinner
+        flow. Cool, dry weather makes the surrounding plateau and picnic areas comfortable, even as the
+        cascade itself narrows down toward its fewest visible streams.</p>
+      <div class="flow-meter">
+        <div class="bar-bg"><div class="bar-fill" style="width:42%;"></div></div>
+        <div class="cap"><span>Flow intensity</span><span>Moderate</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="season-panel" data-season="summer">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20mist%20of%20Dasam.jpg?width=900" alt="Dassam Falls with reduced flow in the dry summer">
+    <div>
+      <h3 style="font-size:1.3rem;">Lean season</h3>
+      <p style="color:var(--text-muted);">March–June is the dry stretch before the monsoon returns.
+        Water volume drops to its lowest point, several of the ten channels can run dry, and the exposed
+        rock face becomes far more visible than the water itself.</p>
+      <div class="flow-meter">
+        <div class="bar-bg"><div class="bar-fill" style="width:18%;"></div></div>
+        <div class="cap"><span>Flow intensity</span><span>Low</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LANDSCAPE GALLERY ================= -->
+<section id="landscape">
+  <div class="section-head">
+    <span class="eyebrow">04 — Surrounding landscape</span>
+    <h2>Forest, laterite rock, and the river below</h2>
+    <p>The falls sit inside dense sal-forest cover typical of the Chota Nagpur plateau, opening onto a
+      broad sandy riverbank at the base that has long served as a picnic spot near Ranchi.</p>
+  </div>
+  <div class="gallery">
+    <div class="g-item">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dassam%20Falls1.jpg?width=900" alt="Wide view of Dassam Falls and its rock face">
+      <div class="g-cap">Full cascade &amp; rock face — hero angle</div>
+    </div>
+    <div class="g-item">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dassam%20waterfall.jpg?width=700" alt="Close view of the cascade streams">
+      <div class="g-cap">Cascade close-up</div>
+    </div>
+    <div class="g-item">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dassam%20waterfall2.jpg?width=700" alt="Kanchi River downstream of the falls">
+      <div class="g-cap">River landscape downstream</div>
+    </div>
+    <div class="g-item">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dasam%20fall.jpg?width=700" alt="Viewpoint over Dassam Falls from the plateau rim">
+      <div class="g-cap">Viewpoint from the plateau rim</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEARBY ================= -->
+<section id="nearby">
+  <div class="section-head">
+    <span class="eyebrow">05 — Nearby attractions</span>
+    <h2>Other scarp falls on the same plateau</h2>
+    <p>Dassam is one of several nick-point waterfalls ringing Ranchi where rivers drop off the plateau
+      edge. Click a card to locate it on the map.</p>
+  </div>
+  <div class="nearby-grid">
+    <div id="nearby-map"></div>
+    <div class="panel" id="attraction-list">
+      <div class="attraction-card" data-lat="23.45" data-lng="85.65" data-zoom="10">
+        <div><div class="name">Hundru Falls</div><div class="meta">Subarnarekha River · 98 m drop</div></div>
+        <div class="dist">≈45 km</div>
+      </div>
+      <div class="attraction-card" data-lat="23.34167" data-lng="85.60833" data-zoom="10">
+        <div><div class="name">Jonha Falls (Gautamdhara)</div><div class="meta">Raru River · 43 m drop</div></div>
+        <div class="dist">≈40 km</div>
+      </div>
+      <div class="attraction-card" data-lat="23.3441" data-lng="85.3096" data-zoom="10">
+        <div><div class="name">Ranchi city</div><div class="meta">State capital · gateway to the plateau falls</div></div>
+        <div class="dist">≈40 km</div>
+      </div>
+      <div class="attraction-card" data-lat="23.143358" data-lng="85.466441" data-zoom="11">
+        <div><div class="name">Dassam Falls</div><div class="meta">Kanchi River · 44 m drop</div></div>
+        <div class="dist">You are here</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BEST SEASON CALLOUT ================= -->
+<section>
+  <div class="callout">
+    <div class="big">Jul – Sep</div>
+    <p>The best time to see Dassam Falls at full force is during the <b style="color:var(--foam);">monsoon</b>,
+      when the Kanchi River runs highest and the whole rock face disappears under water. October–November
+      keeps much of that volume with clearer skies. Whatever the season, footing near the base is uneven
+      and slippery — stay back from the current.</p>
+  </div>
+</section>
+
+<!-- ================= LANDING CARD ================= -->
+<section>
+  <div class="section-head">
+    <span class="eyebrow">06 — Landing page integration</span>
+    <h2>Card for the Incredible India Explorer grid</h2>
+    <p>Preview of the card that links out to this explorer from the main landing page.</p>
+  </div>
+  <div class="landing-preview">
+    <a class="land-card" href="#overview">
+      <div class="thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dasam%20falls%20jharkhand.jpg?width=500" alt="Dassam Falls thumbnail"></div>
+      <div class="body">
+        <span class="tag">Jharkhand · Waterfall</span>
+        <h3>Dassam Falls</h3>
+        <div class="sub">The Kanchi River braids into ten streams over a 44 m plateau scarp near Ranchi.</div>
+        <div class="foot"><span>44 m / 144 ft</span><span>Explore →</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ================= SOURCES / FOOTER ================= -->
+<footer id="sources">
+  <div class="footer-inner">
+    <div>
+      <span class="eyebrow">Sources</span>
+      <ul class="src-list" style="margin-top:16px;">
+        <li><a href="https://en.wikipedia.org/wiki/Dassam_Falls" target="_blank" rel="noopener">Wikipedia — Dassam Falls</a> (coordinates, height, drops, nick-point description)</li>
+        <li><a href="https://www.incredibleindia.gov.in/en/jharkhand/ranchi/dassam-falls" target="_blank" rel="noopener">Incredible India — Dassam Falls</a> (height, distance from Ranchi, best season)</li>
+        <li><a href="https://cm.jharkhand.gov.in/dassam-falls" target="_blank" rel="noopener">Government of Jharkhand — Dassam Falls</a> (naming, history)</li>
+        <li><a href="https://ranchi.nic.in/tourist-place/dassam-fall/" target="_blank" rel="noopener">District Ranchi (nic.in) — Dassam Fall</a> (distance, access route)</li>
+        <li><a href="https://www.experiencejharkhand.in/destinations/dassam-falls" target="_blank" rel="noopener">Experience Jharkhand — Dassam Falls</a> (ten-stream cascade description, water volume timing)</li>
+        <li><a href="https://en.wikipedia.org/wiki/Hundru_Falls" target="_blank" rel="noopener">Wikipedia — Hundru Falls</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Jonha_Falls" target="_blank" rel="noopener">Wikipedia — Jonha Falls</a></li>
+      </ul>
+      <p class="safety-note">Some sources note drownings have occurred at the base of the falls due to
+        strong currents and uneven, slippery rock — treat this as a caution to stay well back from the
+        water rather than to swim or wade in.</p>
+    </div>
+    <div>
+      <span class="eyebrow">Image credits</span>
+      <ul class="credit-list" style="margin-top:16px;">
+        <li>Hero &amp; landing thumbnail: <a href="https://commons.wikimedia.org/wiki/File:Dasam_falls_jharkhand.jpg" target="_blank" rel="noopener">"Dasam falls jharkhand.jpg"</a>, Wikimedia Commons, CC BY-SA</li>
+        <li>Cascade / monsoon: <a href="https://commons.wikimedia.org/wiki/File:Dasam_Falls_in_September.jpg" target="_blank" rel="noopener">"Dasam Falls in September.jpg"</a>, Wikimedia Commons, CC BY-SA</li>
+        <li>Cascade close-up: <a href="https://commons.wikimedia.org/wiki/File:Dassam_waterfall.jpg" target="_blank" rel="noopener">"Dassam waterfall.jpg"</a>, Wikimedia Commons, CC BY-SA</li>
+        <li>River landscape: <a href="https://commons.wikimedia.org/wiki/File:Dassam_waterfall2.jpg" target="_blank" rel="noopener">"Dassam waterfall2.jpg"</a>, Wikimedia Commons, CC BY-SA</li>
+        <li>Viewpoint / mist: <a href="https://commons.wikimedia.org/wiki/File:The_mist_of_Dasam.jpg" target="_blank" rel="noopener">"The mist of Dasam.jpg"</a>, Wikimedia Commons, CC BY-SA</li>
+        <li>Rim viewpoint: <a href="https://commons.wikimedia.org/wiki/File:Dasam_fall.jpg" target="_blank" rel="noopener">"Dasam fall.jpg"</a>, Wikimedia Commons, CC BY-SA</li>
+        <li>Wide rock face: <a href="https://commons.wikimedia.org/wiki/File:Dassam_Falls1.jpg" target="_blank" rel="noopener">"Dassam Falls1.jpg"</a>, Wikimedia Commons, CC BY-SA</li>
+        <li style="margin-top:8px;">All photos via <a href="https://commons.wikimedia.org/wiki/Category:Dassam_Falls" target="_blank" rel="noopener">Wikimedia Commons — Category:Dassam Falls</a>. Verify individual license terms on each file page before reuse.</li>
+        <li>Map tiles: © <a href="https://carto.com/attributmetabolism" target="_blank" rel="noopener">CARTO</a>, data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+  // ---------- Location map ----------
+  const dassamCoord = [23.143358, 85.466441];
+  const map = L.map('map', {scrollWheelZoom:false}).setView(dassamCoord, 11);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+    maxZoom: 18
+  }).addTo(map);
+  L.circleMarker(dassamCoord, {radius:8, color:'#4FB8AE', fillColor:'#4FB8AE', fillOpacity:0.9}).addTo(map)
+    .bindPopup('<b>Dassam Falls</b><br>Kanchi River, Ranchi district').openPopup();
+
+  // ---------- Nearby attractions map ----------
+  const nmap = L.map('nearby-map', {scrollWheelZoom:false}).setView(dassamCoord, 9);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+    maxZoom: 18
+  }).addTo(nmap);
+
+  const markers = {};
+  const points = [
+    {name:'Dassam Falls', lat:23.143358, lng:85.466441, color:'#4FB8AE'},
+    {name:'Hundru Falls', lat:23.45, lng:85.65, color:'#C97A3D'},
+    {name:'Jonha Falls', lat:23.34167, lng:85.60833, color:'#C97A3D'},
+    {name:'Ranchi', lat:23.3441, lng:85.3096, color:'#EFE9DA'}
+  ];
+  points.forEach(p=>{
+    const m = L.circleMarker([p.lat,p.lng], {radius:7, color:p.color, fillColor:p.color, fillOpacity:0.9}).addTo(nmap)
+      .bindPopup('<b>'+p.name+'</b>');
+    markers[p.name]=m;
+  });
+
+  document.querySelectorAll('.attraction-card').forEach(card=>{
+    card.addEventListener('click', ()=>{
+      const lat = parseFloat(card.dataset.lat), lng = parseFloat(card.dataset.lng), zoom = parseInt(card.dataset.zoom);
+      nmap.setView([lat,lng], zoom, {animate:true});
+      const name = card.querySelector('.name').textContent;
+      if(markers[name]) markers[name].openPopup();
+    });
+  });
+
+  // ---------- Cascade SVG streams (10 braided channels) ----------
+  const streamGroup = document.getElementById('streams');
+  const lipXs = [488, 505, 522, 539, 556, 573, 590, 607, 624, 641]; // 10 start points across the lip
+  const baseXs = [400, 425, 460, 490, 520, 555, 590, 620, 655, 690]; // spread out toward pool
+  streamGroup.innerHTML = lipXs.map((x,i)=>{
+    const bx = baseXs[i];
+    return `<path class="stream" data-idx="${i}" d="M${x} 175 Q ${x} 230 ${bx} 335"
+      stroke="#DCEfe9" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"></path>`;
+  }).join('');
+
+  const flowProfiles = {
+    monsoon: {active:10, width:9, caption:'<b>Monsoon (Jul\u2013Sep):</b> all channels run full and merge into one continuous sheet \u2014 the falls are at their loudest and widest.'},
+    post:    {active:9,  width:7, caption:'<b>Post-monsoon (Oct\u2013Nov):</b> nearly all ten streams stay visible as the river slowly draws down from its monsoon peak.'},
+    winter:  {active:6,  width:5, caption:'<b>Winter (Dec\u2013Feb):</b> flow thins to roughly half the channels, with clear gaps of exposed rock between streams.'},
+    summer:  {active:3,  width:3, caption:'<b>Summer (Mar\u2013Jun):</b> only a few channels keep running \u2014 the dry lean season before the monsoon returns.'}
+  };
+
+  function applyFlow(key){
+    const p = flowProfiles[key];
+    const streams = streamGroup.querySelectorAll('.stream');
+    streams.forEach((s,i)=>{
+      if(i < p.active){
+        s.style.opacity = 0.92;
+        s.setAttribute('stroke-width', p.width);
+      } else {
+        s.style.opacity = 0.08;
+        s.setAttribute('stroke-width', 2);
+      }
+    });
+    document.getElementById('mist').style.opacity = 0.06 + (p.active/10)*0.22;
+    document.getElementById('cascade-caption').innerHTML = p.caption;
+  }
+  applyFlow('monsoon');
+
+  document.querySelectorAll('#flow-seg button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('#flow-seg button').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFlow(btn.dataset.flow);
+    });
+  });
+
+  // ---------- Season tabs ----------
+  document.querySelectorAll('.season-tab').forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      document.querySelectorAll('.season-tab').forEach(t=>t.classList.remove('active'));
+      document.querySelectorAll('.season-panel').forEach(p=>p.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector('.season-panel[data-season="'+tab.dataset.season+'"]').classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

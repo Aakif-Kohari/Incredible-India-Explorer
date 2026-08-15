@@ -1,0 +1,157 @@
+// data.js - Traditional Paintings Data
+
+window.paintingsData = [
+    {
+        id: "madhubani-1",
+        title: "Tree of Life",
+        style: "Madhubani",
+        region: "Bihar",
+        image: "assets/madhubani-1.jpg",
+        highRes: "assets/high-res/madhubani-1.jpg",
+        description: "Traditional Mithila painting depicting fertility and nature symbolism, known for intricate geometric patterns and vibrant colors extracted from plants."
+    },
+    {
+        id: "warli-1",
+        title: "Village Dance (Tarpa)",
+        style: "Warli",
+        region: "Maharashtra",
+        image: "assets/warli-1.jpg",
+        highRes: "assets/high-res/warli-1.jpg",
+        description: "An ancient tribal art form using basic geometric shapes (circles, triangles, squares) painted in white rice paste over a red ochre background to depict daily village life."
+    },
+    {
+        id: "tanjore-1",
+        title: "Lord Krishna with Butter",
+        style: "Tanjore",
+        region: "Tamil Nadu",
+        image: "assets/tanjore-1.jpg",
+        highRes: "assets/high-res/tanjore-1.jpg",
+        description: "A classical South Indian painting style characterized by rich, flat, and vivid colors, simple iconic composition, glittering gold foils overlaid on delicate but extensive gesso work.",
+        link: "../tanjore-painting-showcase/index.html"
+    },
+    {
+        id: "pattachitra-1",
+        title: "Krishna Leela",
+        style: "Pattachitra",
+        region: "Odisha",
+        image: "assets/pattachitra-1.jpg",
+        highRes: "assets/high-res/pattachitra-1.jpg",
+        description: "A traditional cloth-based scroll painting, widely known for its intricate details and mythological narratives inspired by the Jagannath and Vaishnava cults."
+    },
+    {
+        id: "kalamkari-1",
+        title: "Epic of Ramayana",
+        style: "Kalamkari",
+        region: "Andhra Pradesh",
+        image: "assets/kalamkari-1.jpg",
+        highRes: "assets/high-res/kalamkari-1.jpg",
+        description: "Hand-painted or block-printed cotton textile art produced using natural dyes and a tamarind pen (kalam), often illustrating Hindu epics."
+    },
+    {
+        id: "gond-1",
+        title: "Spirits of the Forest",
+        style: "Gond",
+        region: "Madhya Pradesh",
+        image: "assets/gond-1.jpg",
+        highRes: "assets/high-res/gond-1.jpg",
+        description: "Tribal art originating from the Gond community, characterized by an imaginative use of lines, dots, and vibrant colors to depict mystical flora and fauna.",
+        link: "../gond-art-explorer/index.html"
+    },
+    {
+        id: "mughal-1",
+        title: "Emperor Akbar in Durbar",
+        style: "Mughal Miniature",
+        region: "North India",
+        image: "assets/mughal-1.jpg",
+        highRes: "assets/high-res/mughal-1.jpg",
+        description: "Imperial court miniature artwork fusing Persian elegance with Indian realism, featuring royal durbars, hunting expeditions, and botanical studies.",
+        link: "../mughal-miniature-paintings/index.html"
+    },
+    {
+        id: "rajput-1",
+        title: "Bani Thani of Kishangarh",
+        style: "Rajput Miniature",
+        region: "Rajasthan",
+        image: "assets/rajput-1.jpg",
+        highRes: "assets/high-res/rajput-1.jpg",
+        description: "Vibrant royal court miniature art showcasing kingdom-wise traditions of Mewar, Marwar, Kishangarh, Bundi-Kota, and Jaipur with rich mineral colors and Ragamala themes.",
+        link: "../rajput-miniature-paintings/index.html"
+    },
+    {
+        id: "pahari-1",
+        title: "Radha & Krishna in Kangra Valley",
+        style: "Pahari Miniature",
+        region: "Himachal Pradesh",
+        image: "assets/pahari-1.jpg",
+        highRes: "assets/high-res/pahari-1.jpg",
+        description: "Poetic Himalayan miniature painting style featuring school comparisons of Kangra, Basohli, and Guler with delicate lines and lush nature backgrounds.",
+        link: "../pahari-miniature-art/index.html"
+    },
+    {
+        id: "bhil-1",
+        title: "Sacred Pithora & Dot Motifs",
+        style: "Bhil Art",
+        region: "Madhya Pradesh",
+        image: "assets/bhil-1.jpg",
+        highRes: "assets/high-res/bhil-1.jpg",
+        description: "Vibrant tribal art of the Bhil community featuring rhythmic multi-colored dot patterns, Pithora sacred horses, sun-moon deities, and ancestral folklore themes.",
+        link: "../bhil-art-explorer/index.html"
+    },
+    {
+        id: "aipan-1",
+        title: "Lakshmi Chowki & Vasudhara",
+        style: "Aipan Art",
+        region: "Uttarakhand",
+        image: "assets/aipan-1.jpg",
+        highRes: "assets/high-res/aipan-1.jpg",
+        description: "Sacred Kumaoni ritual floor art created with Geru red terracotta clay and Biswar white rice paste, featuring traditional Chowki geometries and Lakshmi footprints.",
+        link: "../aipan-art-visualizer/index.html"
+    },
+    {
+        id: "miniature-1",
+        title: "Royal Hunt",
+        style: "Miniature",
+        region: "Rajasthan",
+        image: "assets/miniature-1.jpg",
+        highRes: "assets/high-res/miniature-1.jpg",
+        description: "Highly detailed and intricately painted small-scale artwork that flourished under Rajput and Mughal patronage, known for delicate brushwork and rich colors."
+    },
+    {
+        id: "mughal-1",
+        title: "Emperor Akbar in Durbar",
+        style: "Mughal Miniature",
+        region: "North India",
+        image: "assets/mughal-1.jpg",
+        highRes: "assets/high-res/mughal-1.jpg",
+        description: "Imperial court miniature artwork fusing Persian elegance with Indian realism, featuring royal durbars, hunting expeditions, and botanical studies.",
+        link: "../mughal-miniature-paintings/index.html"
+    },
+    {
+        id: "phad-1",
+        title: "Tale of Pabuji",
+        style: "Phad",
+        region: "Rajasthan",
+        image: "assets/phad-1.jpg",
+        highRes: "assets/high-res/phad-1.jpg",
+        description: "A religious scroll painting and folk art form used by Bhopas (priest-singers) as a mobile temple, traditionally depicting the epics of local deities like Pabuji and Devnarayan.",
+        link: "../phad-painting-explorer/index.html"
+    },
+    {
+        id: "madhubani-2",
+        title: "Fish Motif (Matsya)",
+        style: "Madhubani",
+        region: "Bihar",
+        image: "assets/madhubani-2.jpg",
+        highRes: "assets/high-res/madhubani-2.jpg",
+        description: "In Mithila art, fishes symbolize fertility and prosperity, often drawn with sharp, double-line borders and filled with bright, flat colors."
+    },
+    {
+        id: "warli-2",
+        title: "The Harvest",
+        style: "Warli",
+        region: "Maharashtra",
+        image: "assets/warli-2.jpg",
+        highRes: "assets/high-res/warli-2.jpg",
+        description: "A rhythmic depiction of men and women harvesting crops, showcasing the close connection between the Warli tribe and nature."
+    }
+];

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street Food Map of India | Incredible India Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+    <!-- Header -->
+    <header class="module-header">
+        <a href="../../index.html" class="back-link" aria-label="Back to home">&larr; Back to Home</a>
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">🌙</button>
+    </header>
+
+    <main class="street-food-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">Street Food Map of India</h1>
+            <p class="hero-subtitle">
+                Explore iconic street foods across different states. Search, filter by ingredients, and discover culinary origins.
+            </p>
+            
+            <!-- Filter & Search Controls -->
+            <div class="controls-container">
+                <div class="search-wrapper">
+                    <input type="text" id="search-input" placeholder="Search foods (e.g. Vada Pav, spicy)..." aria-label="Search foods">
+                </div>
+                
+                <div class="filters-wrapper">
+                    <div class="filter-group">
+                        <label for="state-filter">State:</label>
+                        <select id="state-filter" aria-label="Filter by State">
+                            <option value="all">All States</option>
+                            <!-- Injected via JS -->
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="ingredient-filter">Ingredient:</label>
+                        <select id="ingredient-filter" aria-label="Filter by Ingredient">
+                            <option value="all">All Ingredients</option>
+                            <!-- Injected via JS -->
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="results-count" id="results-count" aria-live="polite">
+                    Showing all foods
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Layout (Map + Detail Panel) -->
+        <section class="map-layout">
+            
+            <!-- Interactive Map Container -->
+            <div class="map-container" id="map-container">
+                <!-- Abstract India Map Background -->
+                <object data="assets/india-map.svg" type="image/svg+xml" class="map-background" aria-hidden="true" tabindex="-1"></object>
+                
+                <!-- Markers Layer -->
+                <div id="markers-layer" class="markers-layer" role="application" aria-label="Interactive Food Map">
+                    <!-- Markers injected via JS -->
+                </div>
+            </div>
+
+            <!-- Food Detail Panel -->
+            <div class="detail-panel">
+                <div class="detail-card" id="detail-card" aria-live="polite">
+                    
+                    <div class="empty-state" id="empty-state">
+                        <span class="empty-icon">📍</span>
+                        <p>Click a marker on the map to view food details.</p>
+                    </div>
+
+                    <div class="food-details hidden" id="food-details">
+                        <div class="food-header">
+                            <div class="food-image-placeholder" id="food-image">🍔</div>
+                            <div>
+                                <h2 class="food-name" id="food-name">Food Name</h2>
+                                <p class="food-state">📍 <span id="food-state">State</span>, <span id="food-city">City</span></p>
+                            </div>
+                        </div>
+
+                        <div class="food-meta">
+                            <div class="meta-badge"><strong>Popularity:</strong> <span id="food-popularity">★★★★★</span></div>
+                            <div class="meta-badge"><strong>Flavor:</strong> <span id="food-flavor">Spicy</span></div>
+                        </div>
+
+                        <div class="food-description-section">
+                            <h3>About</h3>
+                            <p id="food-description">Description goes here.</p>
+                        </div>
+
+                        <div class="food-ingredients-section">
+                            <h3>Key Ingredients</h3>
+                            <ul class="ingredients-list" id="ingredients-list">
+                                <!-- Injected via JS -->
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
