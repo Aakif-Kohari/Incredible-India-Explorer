@@ -2,21 +2,14 @@
 
 <html lang="en">
 <head>
-    <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
-            if (theme === 'light') {
-                document.body.classList.add('light-theme');
-            }
-        })();
-    </script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Explore historic and modern lighthouses along India's coastline." name="description"/>
 <title>Indian Lighthouses Explorer | Incredible India</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
 <link href="../../styles.css" rel="stylesheet"/>
 <style>
     .lighthouse-hero {
@@ -350,54 +343,91 @@
     <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/lighthouses.html">
 </head>
 <body>
-<header class="navbar scrolled" id="navbar">
-<div class="nav-container">
-<a class="nav-logo" href="../../index.html#home" id="nav-logo">
-<span class="saffron">Incredible</span>
-<span class="gold">India</span>
-<span class="green">Explorer</span>
-</a>
-<button aria-expanded="false" aria-label="Toggle Menu" class="menu-toggle" id="menu-toggle">
-<span class="bar"></span>
-<span class="bar"></span>
-<span class="bar"></span>
-</button>
-<nav class="nav-menu" id="nav-menu">
-<a class="nav-link" href="../../index.html#home" id="link-home">Home</a>
-<a class="nav-link" href="../../index.html#map" id="link-map">Interactive Map</a>
-<a class="nav-link" href="../cuisine/cuisine.html" id="link-cuisine">Cuisine</a>
-<a class="nav-link" href="../festivals/festivals.html" id="link-festivals">Festivals</a>
-<a class="nav-link" href="../culture/culture.html" id="link-culture">Culture</a>
-<div class="nav-dropdown">
-<button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
-<div class="dropdown-menu">
-<a class="dropdown-item" href="../travel/travel.html">Travel &amp; Destinations</a>
-<a class="dropdown-item" href="lighthouses.html" style="color: var(--saffron)">Lighthouses</a>
-<a class="dropdown-item" href="../wildlife/wildlife.html">Nature &amp; Wildlife</a>
-<a class="dropdown-item" href="../personalities/personalities.html">Famous Personalities</a>
-<a class="dropdown-item" href="../spiritual/spiritual.html">Spiritual India</a>
-<a class="dropdown-item" href="../arts-crafts/arts-crafts.html">Arts &amp; Crafts</a>
-</div>
-</div>
-<div class="nav-dropdown">
-<button class="nav-link dropdown-toggle" id="link-learn-data">Learn &amp; Data ▾</button>
-<div class="dropdown-menu">
-<a class="dropdown-item" href="../smart-cities/smart-cities.html">Smart Cities</a>
-<a class="dropdown-item" href="../languages/languages.html">Languages of India</a>
-<a class="dropdown-item" href="../data-india/data-india.html">Data &amp; Statistics</a>
-<a class="dropdown-item" href="../learn/learn.html">Learn &amp; Quiz</a>
-</div>
-</div>
-<button aria-label="Toggle Dark/Light Mode" class="btn-theme-toggle" id="theme-toggle" title="Toggle Light Mode">☀️</button>
-<a class="nav-link" href="../premium/premium.html" style="color: var(--gold); font-weight: bold;">★ Premium</a>
-<a class="nav-link" href="../../login.html" id="link-login">Login</a>
-<div class="journey-nav-search">
-                    <input type="search" id="journey-search-input" class="journey-search-input" placeholder="Search all explorers…" aria-label="Search across all explorers" autocomplete="off">
-                    <div id="journey-search-results" class="journey-search-results" hidden></div>
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+<header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
                 </div>
-                <a href="../journey/journey.html" class="nav-link" id="link-journey">🧭 My Journey</a>
-            </nav>
-</div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
 </header>
 <main id="app-root" style="padding-top: 80px;">
 <section class="lighthouse-hero">
@@ -442,7 +472,10 @@
 <div class="lighthouse-grid" id="lighthouse-grid">
 <article class="lighthouse-card" data-id="lighthouses-mahabalipuram-lighthouse" data-search="mahabalipuram mammallapuram tamil nadu heritage temple historic beacon" data-state="tamil-nadu">
 <div class="lighthouse-media">
-<img alt="Coastal scenery representing Mahabalipuram Lighthouse" loading="lazy" src="../../assets/travel_beaches.png"/>
+<picture>
+  <source srcset="../assets/travel_beaches.webp" type="image/webp">
+  <img alt="Coastal scenery representing Mahabalipuram Lighthouse" loading="lazy" src="../assets/travel_beaches.png"/>
+</picture>
 <span class="state-badge">Tamil Nadu</span>
 <span class="era-badge">Historic</span>
 <button aria-label="Save Mahabalipuram Lighthouse to My Journey" aria-pressed="false" class="lighthouse-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="lighthouses-mahabalipuram-lighthouse" type="button">♡</button></div>
@@ -455,7 +488,10 @@
 </article>
 <article class="lighthouse-card" data-id="lighthouses-alappuzha-lighthouse" data-search="alappuzha alleppey kerala historic port coir maritime trade" data-state="kerala">
 <div class="lighthouse-media">
-<img alt="Coastal scenery representing Alappuzha Lighthouse" loading="lazy" src="../../assets/travel_islands.png"/>
+<picture>
+  <source srcset="../assets/travel_islands.webp" type="image/webp">
+  <img alt="Coastal scenery representing Alappuzha Lighthouse" loading="lazy" src="../assets/travel_islands.png"/>
+</picture>
 <span class="state-badge">Kerala</span>
 <span class="era-badge">Historic</span>
 <button aria-label="Save Alappuzha Lighthouse to My Journey" aria-pressed="false" class="lighthouse-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="lighthouses-alappuzha-lighthouse" type="button">♡</button></div>
@@ -468,7 +504,10 @@
 </article>
 <article class="lighthouse-card" data-id="lighthouses-chennai-lighthouse" data-search="chennai marina tamil nadu urban modern lighthouse city coast" data-state="tamil-nadu">
 <div class="lighthouse-media">
-<img alt="Coastal city scenery representing Chennai Lighthouse" loading="lazy" src="../../assets/travel_beaches.png"/>
+<picture>
+  <source srcset="../assets/travel_beaches.webp" type="image/webp">
+  <img alt="Coastal city scenery representing Chennai Lighthouse" loading="lazy" src="../assets/travel_beaches.png"/>
+</picture>
 <span class="state-badge">Tamil Nadu</span>
 <span class="era-badge">Modern</span>
 <button aria-label="Save Chennai Lighthouse to My Journey" aria-pressed="false" class="lighthouse-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="lighthouses-chennai-lighthouse" type="button">♡</button></div>
@@ -481,7 +520,10 @@
 </article>
 <article class="lighthouse-card" data-id="lighthouses-vizhinjam-lighthouse" data-search="vizhinjam kovalam kerala modern red white tower tourism coast" data-state="kerala">
 <div class="lighthouse-media">
-<img alt="Coastal scenery representing Vizhinjam Lighthouse" loading="lazy" src="../../assets/travel_beaches.png"/>
+<picture>
+  <source srcset="../assets/travel_beaches.webp" type="image/webp">
+  <img alt="Coastal scenery representing Vizhinjam Lighthouse" loading="lazy" src="../assets/travel_beaches.png"/>
+</picture>
 <span class="state-badge">Kerala</span>
 <span class="era-badge">Modern</span>
 <button aria-label="Save Vizhinjam Lighthouse to My Journey" aria-pressed="false" class="lighthouse-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="lighthouses-vizhinjam-lighthouse" type="button">♡</button></div>
@@ -494,7 +536,10 @@
 </article>
 <article class="lighthouse-card" data-id="lighthouses-tangasseri-lighthouse" data-search="tangasseri thangassery kollam kerala historic 1902" data-state="kerala">
 <div class="lighthouse-media">
-<img alt="Coastal scenery representing Tangasseri Lighthouse" loading="lazy" src="../../assets/travel_islands.png"/>
+<picture>
+  <source srcset="../assets/travel_islands.webp" type="image/webp">
+  <img alt="Coastal scenery representing Tangasseri Lighthouse" loading="lazy" src="../assets/travel_islands.png"/>
+</picture>
 <span class="state-badge">Kerala</span>
 <span class="era-badge">Historic</span>
 <button aria-label="Save Tangasseri Lighthouse to My Journey" aria-pressed="false" class="lighthouse-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="lighthouses-tangasseri-lighthouse" type="button">♡</button></div>
@@ -507,7 +552,10 @@
 </article>
 <article class="lighthouse-card" data-id="lighthouses-pamban-lighthouse" data-search="pamban rameswaram tamil nadu island channel historic navigation" data-state="tamil-nadu">
 <div class="lighthouse-media">
-<img alt="Island coast scenery representing Pamban Lighthouse" loading="lazy" src="../../assets/travel_islands.png"/>
+<picture>
+  <source srcset="../assets/travel_islands.webp" type="image/webp">
+  <img alt="Island coast scenery representing Pamban Lighthouse" loading="lazy" src="../assets/travel_islands.png"/>
+</picture>
 <span class="state-badge">Tamil Nadu</span>
 <span class="era-badge">Historic</span>
 <button aria-label="Save Pamban Lighthouse to My Journey" aria-pressed="false" class="lighthouse-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="lighthouses-pamban-lighthouse" type="button">♡</button></div>
@@ -520,7 +568,10 @@
 </article>
 <article class="lighthouse-card" data-id="lighthouses-okha-lighthouse" data-search="okha gujarat gulf kutch modern navigation radio beacon dgps" data-state="gujarat">
 <div class="lighthouse-media">
-<img alt="Arabian Sea coast representing Okha Lighthouse" loading="lazy" src="../../assets/travel_beaches.png"/>
+<picture>
+  <source srcset="../assets/travel_beaches.webp" type="image/webp">
+  <img alt="Arabian Sea coast representing Okha Lighthouse" loading="lazy" src="../assets/travel_beaches.png"/>
+</picture>
 <span class="state-badge">Gujarat</span>
 <span class="era-badge">Modern</span>
 <button aria-label="Save Okha Lighthouse to My Journey" aria-pressed="false" class="lighthouse-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="lighthouses-okha-lighthouse" type="button">♡</button></div>
@@ -533,7 +584,10 @@
 </article>
 <article class="lighthouse-card" data-id="lighthouses-diu-head-lighthouse" data-search="diu head gujarat union territory historic sandstone tower modern replacement" data-state="gujarat">
 <div class="lighthouse-media">
-<img alt="Coastal fort-like scenery representing Diu Head Lighthouse" loading="lazy" src="../../assets/travel_islands.png"/>
+<picture>
+  <source srcset="../assets/travel_islands.webp" type="image/webp">
+  <img alt="Coastal fort-like scenery representing Diu Head Lighthouse" loading="lazy" src="../assets/travel_islands.png"/>
+</picture>
 <span class="state-badge">Diu</span>
 <span class="era-badge">Historic roots</span>
 <button aria-label="Save Diu Head Lighthouse to My Journey" aria-pressed="false" class="lighthouse-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="lighthouses-diu-head-lighthouse" type="button">♡</button></div>
@@ -546,7 +600,10 @@
 </article>
 <article class="lighthouse-card" data-id="lighthouses-murud-janjira-lighthouse" data-search="murud janjira maharashtra raigad fishing harbour hill maritime" data-state="maharashtra">
 <div class="lighthouse-media">
-<img alt="Konkan coast scenery representing Murud Janjira Lighthouse" loading="lazy" src="../../assets/travel_beaches.png"/>
+<picture>
+  <source srcset="../assets/travel_beaches.webp" type="image/webp">
+  <img alt="Konkan coast scenery representing Murud Janjira Lighthouse" loading="lazy" src="../assets/travel_beaches.png"/>
+</picture>
 <span class="state-badge">Maharashtra</span>
 <span class="era-badge">Coastal</span>
 <button aria-label="Save Murud Janjira Lighthouse to My Journey" aria-pressed="false" class="lighthouse-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="lighthouses-murud-janjira-lighthouse" type="button">♡</button></div>
@@ -559,7 +616,10 @@
 </article>
 <article class="lighthouse-card" data-id="lighthouses-aguada-lighthouse" data-search="aguada goa fort portuguese heritage mandovi arabian sea lighthouse" data-state="goa">
 <div class="lighthouse-media">
-<img alt="Goa coast scenery representing Aguada Lighthouse" loading="lazy" src="../../assets/travel_beaches.png"/>
+<picture>
+  <source srcset="../assets/travel_beaches.webp" type="image/webp">
+  <img alt="Goa coast scenery representing Aguada Lighthouse" loading="lazy" src="../assets/travel_beaches.png"/>
+</picture>
 <span class="state-badge">Goa</span>
 <span class="era-badge">Heritage</span>
 <button aria-label="Save Aguada Lighthouse to My Journey" aria-pressed="false" class="lighthouse-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="lighthouses-aguada-lighthouse" type="button">♡</button></div>
@@ -572,7 +632,10 @@
 </article>
 <article class="lighthouse-card" data-id="lighthouses-gopalpur-lighthouse" data-search="gopalpur odisha bay bengal port lighthouse coastal trade" data-state="odisha">
 <div class="lighthouse-media">
-<img alt="Bay of Bengal coast representing Gopalpur Lighthouse" loading="lazy" src="../../assets/travel_beaches.png"/>
+<picture>
+  <source srcset="../assets/travel_beaches.webp" type="image/webp">
+  <img alt="Bay of Bengal coast representing Gopalpur Lighthouse" loading="lazy" src="../assets/travel_beaches.png"/>
+</picture>
 <span class="state-badge">Odisha</span>
 <span class="era-badge">Coastal</span>
 <button aria-label="Save Gopalpur Lighthouse to My Journey" aria-pressed="false" class="lighthouse-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="lighthouses-gopalpur-lighthouse" type="button">♡</button></div>
@@ -585,7 +648,10 @@
 </article>
 <article class="lighthouse-card" data-id="lighthouses-sagar-island-lighthouse" data-search="sagar island west bengal gangasagar bengal delta island lighthouse" data-state="west-bengal">
 <div class="lighthouse-media">
-<img alt="Delta island scenery representing Sagar Island Lighthouse" loading="lazy" src="../../assets/travel_islands.png"/>
+<picture>
+  <source srcset="../assets/travel_islands.webp" type="image/webp">
+  <img alt="Delta island scenery representing Sagar Island Lighthouse" loading="lazy" src="../assets/travel_islands.png"/>
+</picture>
 <span class="state-badge">West Bengal</span>
 <span class="era-badge">Island</span>
 <button aria-label="Save Sagar Island Lighthouse to My Journey" aria-pressed="false" class="lighthouse-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="lighthouses-sagar-island-lighthouse" type="button">♡</button></div>
@@ -609,11 +675,12 @@
 </main>
 <footer class="lighthouse-footer">
 <div class="lighthouse-container">
-<p>Part of <a href="../traditional-games/index.html">Incredible India Explorer</a> · Explore India's maritime heritage.</p>
+<p>Part of <a href="../../index.html">Incredible India Explorer</a> · Explore India's maritime heritage.</p>
 </div>
 </footer>
 <button aria-label="Scroll to top" class="btn-scroll-top" id="btn-scroll-top">↑</button>
-<script src="../../app.js" defer></script>
+<script src="../js-modules/storage.js" defer></script>
+    <script src="../app.js" defer></script>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
       const searchInput = document.getElementById("lighthouse-search");
@@ -656,9 +723,9 @@
       }
     });
   </script>
-<script src="../../firebase-config.js" type="module"></script>
-<script src="../../auth.js" type="module"></script>
-<script src="../../router.js" defer></script>
+<script src="../firebase-config.js" type="module"></script>
+<script src="../auth.js" type="module"></script>
+<script src="../router.js" defer></script>
     <script src="lighthouses-journey.js" defer></script>
 </body>
 </html>

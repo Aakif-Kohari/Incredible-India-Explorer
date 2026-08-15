@@ -1,24 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
-            if (theme === 'light') {
-                document.body.classList.add('light-theme');
-            }
-        })();
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Languages of India - Explore the linguistic diversity, dialects, and scripts.">
     <title>Languages of India | Incredible India</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="../../styles.css">
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../styles.css">
     <style>
         .lang-hero {
             background: linear-gradient(135deg, rgba(255, 153, 51, 0.2) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(19, 136, 8, 0.2) 100%);
@@ -238,66 +230,92 @@
     <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/languages.html">
 </head>
 <body>
-    <header class="navbar scrolled" id="navbar">
-        <div class="nav-container">
-            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
-                <span class="saffron">Incredible</span>
-                <span class="gold">India</span>
-                <span class="green">Explorer</span>
-            </a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <nav class="nav-menu" id="nav-menu">
-                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
-                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
-                <a href="../cuisine/cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
-                <a href="../festivals/festivals.html" class="nav-link" id="link-festivals">Festivals</a>
-                <a href="../culture/culture.html" class="nav-link" id="link-culture">Culture</a>
-                <div class="nav-dropdown">
-                    <button class="nav-link dropdown-toggle" id="link-explore-more">Explore More ▾</button>
-                    <div class="dropdown-menu">
-                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
-                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
-                        <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
-                        <a href="../monuments/monuments.html" class="dropdown-item">Monuments</a>
-                        <a href="../hidden-gems/hidden-gems.html" class="dropdown-item">Hidden Gems</a>
-                        <a href="../railways/railways.html" class="dropdown-item">Railways Explorer</a>
-                        <a href="../adventure/adventure.html" class="dropdown-item">Adventure</a>
-                        <a href="../personalities/personalities.html" class="dropdown-item">Famous Personalities</a>
-                        <a href="../spiritual/spiritual.html" class="dropdown-item">Spiritual India</a>
-                        <a href="../arts-crafts/arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
-                        <a href="../tribes/tribes.html" class="dropdown-item">Tribes</a>
-                        <a href="../hill-stations/hill-stations.html" class="dropdown-item">Hill-stations</a>
-                        <a href="../lighthouses/lighthouses.html" class="dropdown-item">Lighthouses</a>
-                        <a href="../coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
-                        <a href="../museums/museums.html" class="dropdown-item">Museum</a>
-                        <a href="../stepwells/stepwells.html" class="dropdown-item">Stepwells</a>
-                        <a href="../music/music.html" class="dropdown-item">Music</a>
-                        <a href="../astronomy/astronomy.html" class="dropdown-item">Astronomy</a>
-                        <a href="../dance/dance.html" class="dropdown-item">Dance</a>
-                        <a href="../traditional-games/index.html" class="dropdown-item">Handloom</a>
-                        <a href="../traditional-games/index.html" class="dropdown-item">Postal Stamps</a>
-                        <a href="../traditional-games/index.html" class="dropdown-item">Freedom Timeline</a>
-                    </div>
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
                 </div>
-                <div class="nav-dropdown">
-                    <button class="nav-link dropdown-toggle nav-active-item" id="link-learn-data">Learn & Data ▾</button>
-                    <div class="dropdown-menu">
-                        <a href="../smart-cities/smart-cities.html" class="dropdown-item">Smart Cities</a>
-                        <a href="languages.html" class="dropdown-item nav-active-item">Languages of India</a>
-                        <a href="../data-india/data-india.html" class="dropdown-item">Data & Statistics</a>
-                        <a href="../learn/learn.html" class="dropdown-item">Learn & Quiz</a>
-                    </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
                 </div>
-                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
-                <a href="../premium/premium.html" class="nav-link premium-link">★ Premium</a>
-                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
-            </nav>
-        </div>
-    </header>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
 
     <main id="app-root" class="main-pt">
         <section class="lang-hero scroll-section">
@@ -366,7 +384,8 @@
                 { name: 'Urdu', script: 'السلام علیکم', region: 'Jammu & Kashmir, Telangana, UP, Bihar', code: 'ur-IN' },
                 { name: 'Gujarati', script: 'નમસ્તે', region: 'Gujarat', code: 'gu-IN' },
                 { name: 'Kannada', script: 'ನಮಸ್ಕಾರ', region: 'Karnataka', code: 'kn-IN' },
-                { name: 'Malayalam', script: 'നമസ്കാരം', region: 'Kerala', code: 'ml-IN' }
+                { name: 'Malayalam', script: 'നമസ്കാരം', region: 'Kerala', code: 'ml-IN' },
+                { name: 'Mizo', script: 'Chibai', region: 'Mizoram', code: 'en-IN', description: 'A Tibeto-Burman language with a Roman-based orthography, deeply rooted in Mizoram.', exploreUrl: '../mizo-language-explorer/index.html' }
             ];
 
             const grid = document.getElementById('lang-grid');
@@ -484,9 +503,11 @@
                     <div class="lang-script" aria-hidden="true">${lang.script}</div>
                     <h3 class="lang-name">${lang.name}</h3>
                     <div class="lang-region">${lang.region}</div>
+                    ${lang.description ? \`<p style="font-size: 0.9rem; margin: 10px 0; color: #ddd;">${lang.description}</p>\` : ''}
                     <button class="play-btn" data-lang="${lang.code}" data-text="${lang.script}" data-name="${lang.name}" aria-label="Play greeting in ${lang.name}">
                         ▶ Listen
                     </button>
+                    ${lang.exploreUrl ? \`<a href="${lang.exploreUrl}" class="play-btn" style="margin-top: 10px; background: transparent; border: 1px solid var(--saffron, #FF9933); color: var(--saffron, #FF9933); text-decoration: none;">Explore ${lang.name}</a>\` : ''}
                 `;
                 
                 const btn = card.querySelector('.play-btn');
@@ -499,10 +520,11 @@
         });
     </script>
 
-    <script src="../../app.js" defer></script>
-    <script type="module" src="../../firebase-config.js"></script>
-    <script type="module" src="../../auth.js"></script>
-    <script src="../../router.js" defer></script>
+    <script src="../js-modules/storage.js" defer></script>
+    <script src="../app.js" defer></script>
+    <script type="module" src="../firebase-config.js"></script>
+    <script type="module" src="../auth.js"></script>
+    <script src="../router.js" defer></script>
 </body>
 </html>
 
