@@ -3836,6 +3836,21 @@ window.indiaSearchIndex = [
             "Discover the ancient Ashokan pillar, Buddha's Relic Stupa, the sacred Coronation Tank, and early democratic structures in Bihar.",
         url: 'frontend/vaishali-explorer/index.html'
     },
+    // --- Chandragupta II Vikramaditya – Gupta Emperor ---
+    {
+        title: "Chandragupta II Vikramaditya: Gupta Emperor",
+        category: 'Famous Rulers & History',
+        description:
+            'Explore Chandragupta II Vikramaditya (c. 375–415 CE), defeat of Western Kshatrapas, Mehrauli Iron Pillar, Faxian travelogue, Gupta Golden Age, and gold dinar coinage.',
+        url: 'frontend/chandragupta-ii-explorer/index.html'
+    },
+    {
+        title: 'Gupta Golden Age & Mehrauli Iron Pillar Guide',
+        category: 'Ancient Metallurgy & Classical Culture',
+        description:
+            "Discover the metallurgical marvel of Delhi's 1,600-year rust-resistant Iron Pillar, Ujjain's Navaratnas, and Faxian's 5th-century travelogue.",
+        url: 'frontend/chandragupta-ii-explorer/index.html'
+    },
     // --- India's Border Explorer ---
     {
         title: "India's Border Explorer",
