@@ -20,9 +20,9 @@ const rulersData = [
     dynasty: "Gupta",
     region: "North India",
     reign: "c. 335 – 375 CE",
-    image: "ruler-samudragupta..jpg",
+    image: "../assets/samudragupta_veena_coin.jpg",
     description: "A brilliant military tactician and patron of the arts. His reign laid the foundation for the 'Golden Age of India', and he was known for his poetry and musical skills.",
-    link: "../ruler/samudragupta.html"
+    link: "../samudragupta-explorer/index.html"
   },
   {
     name: "Rajaraja Chola I",

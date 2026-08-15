@@ -3836,6 +3836,21 @@ window.indiaSearchIndex = [
             "Discover the ancient Ashokan pillar, Buddha's Relic Stupa, the sacred Coronation Tank, and early democratic structures in Bihar.",
         url: 'frontend/vaishali-explorer/index.html'
     },
+    // --- Samudragupta – The Gupta Empire's Expansive Ruler ---
+    {
+        title: "Samudragupta: The Gupta Empire's Expansive Ruler",
+        category: 'Famous Rulers & History',
+        description:
+            'Explore Samudragupta (c. 335–375 CE), the Prayaga Prashasti Allahabad Pillar, Dakshinapatha expedition, Ashvamedha revival, and gold dinar coinage.',
+        url: 'frontend/samudragupta-explorer/index.html'
+    },
+    {
+        title: 'Prayaga Prashasti & Allahabad Pillar Guide',
+        category: 'Ancient Epigraphy & History',
+        description:
+            "Discover Harishena's Sanskrit inscription celebrating Samudragupta's northern and southern campaigns, veena gold coins, and Gupta expansion.",
+        url: 'frontend/samudragupta-explorer/index.html'
+    },
     // --- India's Border Explorer ---
     {
         title: "India's Border Explorer",
