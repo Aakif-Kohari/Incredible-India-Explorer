@@ -1,0 +1,926 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the raised traditional houses and village architecture of Arunachal Pradesh.">
+  <title>Arunachal Traditional Houses | Incredible India Explorer</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f2f5ee;
+      color: #26352b;
+      line-height: 1.6;
+    }
+
+    header {
+      min-height: 440px;
+      padding: 80px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      background:
+        linear-gradient(rgba(25, 65, 42, 0.78), rgba(20, 82, 52, 0.78)),
+        linear-gradient(135deg, #285f42, #789b69);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    header h1 {
+      font-size: clamp(2.3rem, 6vw, 4.4rem);
+      margin-bottom: 18px;
+    }
+
+    header p {
+      font-size: 1.15rem;
+      max-width: 760px;
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #153d29;
+      padding: 13px 15px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    section > h2 {
+      text-align: center;
+      color: #225b3a;
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+
+    .intro {
+      background: white;
+      padding: 32px;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .intro h2 {
+      color: #225b3a;
+      margin-bottom: 15px;
+    }
+
+    .intro p {
+      margin-bottom: 15px;
+    }
+
+    .highlight {
+      margin-top: 25px;
+      padding: 20px;
+      background: #e0eadb;
+      border-left: 5px solid #34724b;
+      border-radius: 10px;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .filter-btn {
+      border: 2px solid #34724b;
+      background: white;
+      color: #225b3a;
+      padding: 10px 18px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #34724b;
+      color: white;
+    }
+
+    .houses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .house-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.09);
+      transition: transform 0.25s ease;
+    }
+
+    .house-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .house-visual {
+      height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      background: linear-gradient(135deg, #71966a, #cbd9bc);
+    }
+
+    .house-content {
+      padding: 22px;
+    }
+
+    .house-content h3 {
+      color: #225b3a;
+      margin-bottom: 8px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 4px 10px;
+      border-radius: 15px;
+      background: #e0eadb;
+      color: #225b3a;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .learn-btn {
+      margin-top: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #225b3a;
+      color: white;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .learn-btn:hover,
+    .learn-btn:focus {
+      background: #143b26;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .feature {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      border-top: 5px solid #34724b;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .feature h3 {
+      color: #225b3a;
+      margin-bottom: 8px;
+    }
+
+    .regions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .region {
+      background: white;
+      padding: 24px;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+    }
+
+    .region h3 {
+      color: #225b3a;
+      margin-bottom: 8px;
+    }
+
+    .quiz {
+      background: #e0eadb;
+      padding: 35px;
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    .quiz h2 {
+      color: #225b3a;
+      margin-bottom: 12px;
+    }
+
+    .quiz-options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .quiz-options button {
+      border: none;
+      background: #225b3a;
+      color: white;
+      padding: 11px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .quiz-options button:hover,
+    .quiz-options button:focus {
+      background: #143b26;
+    }
+
+    #quiz-result {
+      margin-top: 18px;
+      min-height: 25px;
+      font-weight: bold;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(0, 0, 0, 0.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      position: relative;
+      width: 100%;
+      max-width: 620px;
+      background: white;
+      padding: 32px;
+      border-radius: 16px;
+    }
+
+    .modal-content h2 {
+      color: #225b3a;
+      margin-bottom: 15px;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      border: none;
+      background: transparent;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .back-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 50%;
+      background: #225b3a;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      z-index: 1500;
+    }
+
+    .back-top.show {
+      display: block;
+    }
+
+    footer {
+      background: #153d29;
+      color: white;
+      text-align: center;
+      padding: 28px 15px;
+    }
+
+    footer p {
+      margin: 5px;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        min-height: 360px;
+        padding: 60px 15px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px 7px;
+        font-size: 14px;
+      }
+
+      .intro,
+      .quiz {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="top">
+    <div class="hero-content">
+      <h1>🏡 Arunachal Houses</h1>
+      <p>
+        Explore the raised homes, indigenous building traditions,
+        and climate-responsive architecture of Arunachal Pradesh.
+      </p>
+    </div>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <a href="#about">About</a>
+    <a href="#houses">House Types</a>
+    <a href="#features">Architecture</a>
+    <a href="#regions">Communities</a>
+    <a href="#quiz">Quiz</a>
+  </nav>
+
+  <main>
+
+    <section id="about">
+      <div class="intro">
+        <h2>Raised Homes of the Northeast</h2>
+
+        <p>
+          Arunachal Pradesh has a rich variety of traditional
+          architecture shaped by its mountainous landscape, climate,
+          forests, and the cultural traditions of its many indigenous
+          communities.
+        </p>
+
+        <p>
+          In several parts of the state, houses are traditionally
+          raised above the ground using posts or stilts. Bamboo,
+          timber, cane, thatch, and other locally available materials
+          have historically been important in construction.
+        </p>
+
+        <div class="highlight">
+          <strong>🏔️ Why raise a house?</strong>
+          Raised construction can help adapt homes to uneven terrain,
+          moisture, local climatic conditions, and everyday community
+          needs. The exact design varies significantly between regions
+          and communities.
+        </div>
+      </div>
+    </section>
+
+    <section id="houses">
+      <h2>Explore Traditional House Styles</h2>
+
+      <div class="controls" role="group" aria-label="House type filters">
+
+        <button class="filter-btn active" data-filter="all">
+          All
+        </button>
+
+        <button class="filter-btn" data-filter="raised">
+          Raised
+        </button>
+
+        <button class="filter-btn" data-filter="bamboo">
+          Bamboo
+        </button>
+
+        <button class="filter-btn" data-filter="timber">
+          Timber
+        </button>
+
+        <button class="filter-btn" data-filter="mountain">
+          Mountain
+        </button>
+
+      </div>
+
+      <div class="houses-grid">
+
+        <article class="house-card" data-type="raised">
+          <div class="house-visual" aria-hidden="true">
+            🏠
+          </div>
+
+          <div class="house-content">
+            <span class="tag">Raised House</span>
+
+            <h3>Stilted Houses</h3>
+
+            <p>
+              Houses elevated above the ground are an important
+              architectural response found in parts of Arunachal
+              Pradesh.
+            </p>
+
+            <button
+              class="learn-btn"
+              data-title="Stilted Houses"
+              data-info="Raised houses use posts or stilts to lift the living space above ground level. This approach can be useful in wet environments, on uneven terrain, and where ventilation beneath the house is desirable.">
+              Learn More
+            </button>
+          </div>
+        </article>
+
+        <article class="house-card" data-type="bamboo">
+          <div class="house-visual" aria-hidden="true">
+            🎋
+          </div>
+
+          <div class="house-content">
+            <span class="tag">Bamboo</span>
+
+            <h3>Bamboo Houses</h3>
+
+            <p>
+              Bamboo and cane can be used for walls, floors,
+              partitions, frameworks, and other parts of traditional
+              homes.
+            </p>
+
+            <button
+              class="learn-btn"
+              data-title="Bamboo Houses"
+              data-info="Bamboo is lightweight, flexible, and locally available in many parts of Northeast India. Traditional construction techniques make extensive use of bamboo and cane.">
+              Learn More
+            </button>
+          </div>
+        </article>
+
+        <article class="house-card" data-type="timber">
+          <div class="house-visual" aria-hidden="true">
+            🪵
+          </div>
+
+          <div class="house-content">
+            <span class="tag">Timber</span>
+
+            <h3>Timber Houses</h3>
+
+            <p>
+              Timber is traditionally used for posts, beams, floors,
+              doors, walls, and structural elements.
+            </p>
+
+            <button
+              class="learn-btn"
+              data-title="Timber Houses"
+              data-info="Wood has historically been an important construction material in the forested Himalayan and Northeast regions. Traditional carpentry techniques vary between communities.">
+              Learn More
+            </button>
+          </div>
+        </article>
+
+        <article class="house-card" data-type="mountain">
+          <div class="house-visual" aria-hidden="true">
+            ⛰️
+          </div>
+
+          <div class="house-content">
+            <span class="tag">Mountain Architecture</span>
+
+            <h3>Mountain Village Homes</h3>
+
+            <p>
+              Homes in mountainous regions are adapted to slopes,
+              elevation, weather, and the surrounding landscape.
+            </p>
+
+            <button
+              class="learn-btn"
+              data-title="Mountain Village Homes"
+              data-info="Arunachal Pradesh contains diverse mountainous environments. Traditional settlement and house forms therefore vary according to altitude, terrain, climate, and local cultural practices.">
+              Learn More
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="features">
+      <h2>Architectural Features</h2>
+
+      <div class="features">
+
+        <div class="feature">
+          <div class="feature-icon">⬆️</div>
+
+          <h3>Raised Construction</h3>
+
+          <p>
+            Elevating the living area can reduce direct contact with
+            damp ground and adapt a house to particular terrain.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🎋</div>
+
+          <h3>Bamboo & Cane</h3>
+
+          <p>
+            Bamboo and cane provide lightweight materials suitable for
+            a variety of traditional structural and non-structural
+            elements.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🪵</div>
+
+          <h3>Timber Framework</h3>
+
+          <p>
+            Timber can provide posts, beams, floors, doors, and other
+            structural components.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🌧️</div>
+
+          <h3>Climate Response</h3>
+
+          <p>
+            Roofs, floors, walls, and openings can be designed around
+            rainfall, temperature, ventilation, and local weather.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🏔️</div>
+
+          <h3>Terrain Adaptation</h3>
+
+          <p>
+            Traditional houses respond to steep slopes and the varied
+            geography of Arunachal Pradesh.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🌿</div>
+
+          <h3>Local Resources</h3>
+
+          <p>
+            Traditional builders have made use of materials available
+            within their surrounding environment.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="regions">
+      <h2>Architecture Across Communities</h2>
+
+      <div class="regions">
+
+        <div class="region">
+          <h3>🌿 Adi</h3>
+          <p>
+            Adi communities have distinctive traditional houses and
+            settlement patterns shaped by the mountainous environment
+            of their region.
+          </p>
+        </div>
+
+        <div class="region">
+          <h3>🏡 Apatani</h3>
+          <p>
+            Apatani villages of the Ziro Valley are known for their
+            distinctive settlement traditions and closely connected
+            relationship between houses, agriculture, and community
+            life.
+          </p>
+        </div>
+
+        <div class="region">
+          <h3>🌲 Nyishi</h3>
+          <p>
+            Nyishi traditional architecture reflects local materials,
+            indigenous craftsmanship, and adaptation to the landscape.
+          </p>
+        </div>
+
+        <div class="region">
+          <h3>⛰️ Monpa</h3>
+          <p>
+            In the higher Himalayan areas, Monpa architecture reflects
+            colder climatic conditions and different construction
+            traditions from the lower valleys.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="quiz">
+      <div class="quiz">
+
+        <h2>🏆 Test Your Knowledge</h2>
+
+        <p>
+          What is one important characteristic of many traditional
+          houses found in parts of Arunachal Pradesh?
+        </p>
+
+        <div class="quiz-options">
+
+          <button onclick="checkAnswer('raised')">
+            Raised Above Ground
+          </button>
+
+          <button onclick="checkAnswer('underground')">
+            Underground
+          </button>
+
+          <button onclick="checkAnswer('floating')">
+            Floating on Water
+          </button>
+
+        </div>
+
+        <p id="quiz-result" aria-live="polite"></p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <button
+    class="back-top"
+    id="backTop"
+    aria-label="Back to top">
+    ↑
+  </button>
+
+  <div
+    class="modal"
+    id="infoModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle">
+
+    <div class="modal-content">
+
+      <button
+        class="close-modal"
+        id="closeModal"
+        aria-label="Close dialog">
+        &times;
+      </button>
+
+      <h2 id="modalTitle"></h2>
+
+      <p id="modalInfo"></p>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>© Incredible India Explorer</p>
+    <p>Discover India's diverse architectural heritage.</p>
+  </footer>
+
+  <script>
+    // ==================================
+    // HOUSE FILTER
+    // ==================================
+
+    const filterButtons =
+      document.querySelectorAll(".filter-btn");
+
+    const houseCards =
+      document.querySelectorAll(".house-card");
+
+    filterButtons.forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        const selectedFilter =
+          button.dataset.filter;
+
+        filterButtons.forEach(btn => {
+          btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        houseCards.forEach(card => {
+
+          const cardType =
+            card.dataset.type;
+
+          if (
+            selectedFilter === "all" ||
+            cardType === selectedFilter
+          ) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
+
+        });
+
+      });
+
+    });
+
+
+    // ==================================
+    // INFORMATION MODAL
+    // ==================================
+
+    const modal =
+      document.getElementById("infoModal");
+
+    const modalTitle =
+      document.getElementById("modalTitle");
+
+    const modalInfo =
+      document.getElementById("modalInfo");
+
+    const closeModal =
+      document.getElementById("closeModal");
+
+    const learnButtons =
+      document.querySelectorAll(".learn-btn");
+
+
+    learnButtons.forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        modalTitle.textContent =
+          button.dataset.title;
+
+        modalInfo.textContent =
+          button.dataset.info;
+
+        modal.classList.add("show");
+
+        closeModal.focus();
+
+      });
+
+    });
+
+
+    function hideModal() {
+      modal.classList.remove("show");
+    }
+
+
+    closeModal.addEventListener(
+      "click",
+      hideModal
+    );
+
+
+    modal.addEventListener(
+      "click",
+      event => {
+
+        if (event.target === modal) {
+          hideModal();
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (event.key === "Escape") {
+          hideModal();
+        }
+
+      }
+    );
+
+
+    // ==================================
+    // QUIZ
+    // ==================================
+
+    function checkAnswer(answer) {
+
+      const result =
+        document.getElementById("quiz-result");
+
+      if (answer === "raised") {
+
+        result.textContent =
+          "Correct! 🎉 Raised construction is an important feature of traditional houses in parts of Arunachal Pradesh.";
+
+      } else {
+
+        result.textContent =
+          "Not quite. Try again!";
+
+      }
+
+    }
+
+
+    // ==================================
+    // BACK TO TOP
+    // ==================================
+
+    const backTop =
+      document.getElementById("backTop");
+
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        if (window.scrollY > 400) {
+          backTop.classList.add("show");
+        } else {
+          backTop.classList.remove("show");
+        }
+
+      }
+    );
+
+
+    backTop.addEventListener(
+      "click",
+      () => {
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }
+    );
+  </script>
+
+</body>
+</html>
+```
