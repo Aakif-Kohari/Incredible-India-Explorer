@@ -254,19 +254,19 @@
             url: "../tirathgarh-falls-explorer/index.html"
         },
         {
-            id: "agaya-gangai",
-            name: "Agaya Gangai",
-            state: "Tamil Nadu",
-            river: "Aiyaru River",
-            height: "91 meters",
+            id: "soochipara",
+            name: "Soochipara Falls",
+            state: "Kerala",
+            river: "Chaliyar River",
+            height: "200 meters",
             season: "Post-Monsoon",
-            tags: ["year-round", "monsoon"],
-            description: "A sheer 300-foot 'Ganges of the Sky' falls in the Kolli Hills, reached by a 1,300-step forest trek.",
-            flow: "Forceful in monsoon; clear and comfortable to trek Nov-Jan.",
-            attractions: "Arapaleeswarar Temple, Siddhar Caves, Kolli Hills ghat road.",
-            image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=80&w=600",
-            thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=40&w=400",
-            url: "../agaya-gangai-explorer/index.html"
+            tags: ["year-round", "tallest"],
+            description: "A three-tiered cascade nestled in the dense montane evergreen rainforests of Wayanad, surrounded by Sentinel Rock cliffs.",
+            flow: "Spectacular flow post-monsoon; safe natural plunge pool for swimming in winter.",
+            attractions: "Chembra Peak, Meenmutty Falls, Kanthanpara Falls, Vellarimala.",
+            image: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=40&w=400",
+            url: "../soochipara-falls-explorer/index.html"
         }
     ];
 
