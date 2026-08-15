@@ -251,6 +251,21 @@
             image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=40&w=400",
             url: "../tirathgarh-falls-explorer/index.html"
+        },
+        {
+            id: "barehipani",
+            name: "Barehipani Falls",
+            state: "Odisha",
+            river: "Budhabalanga River",
+            height: "399 meters",
+            season: "Post-Monsoon",
+            tags: ["tallest", "monsoon"],
+            description: "India's 2nd highest two-tiered waterfall, cascading 399 meters amidst the core tiger habitats of Similipal National Park.",
+            flow: "Roaring two-tiered silver torrent post-monsoon; perennial flow through ancient Meghasani basalt.",
+            attractions: "Similipal Tiger Reserve, Joranda Falls, Meghasani Peak, Chahala.",
+            image: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=40&w=400",
+            url: "../barehipani-falls-explorer/index.html"
         }
     ];
 
