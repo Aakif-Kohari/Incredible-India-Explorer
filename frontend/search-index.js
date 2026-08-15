@@ -5235,6 +5235,13 @@ window.indiaSearchIndex = [
         description: "Build an interactive Subroto Cup explorer — discovering India's premier inter-school football tournament since 1960, Air Marshal Subroto Mukerjee, famous alumni (Sunil Chhetri, Bhaichung Bhutia), and youth player pipeline.",
         url: "frontend/subroto-cup-explorer/index.html"
     },
+    // --- Ghogha Port Explorer ---
+    {
+        title: "Ghogha Ancient Port Explorer",
+        category: "Heritage & History",
+        description: "Explore Ghogha, one of Gujarat's oldest ports with 4,000 years of Arabian Sea trade history from Harappan to colonial periods, on the Gulf of Khambhat.",
+        url: "frontend/ghogha-port-explorer/index.html"
+    },
     // --- Narasimhavarman I Explorer ---
     {
         title: "Add Narasimhavarman I – Pallava Ruler of Kanchipuram Explorer",
