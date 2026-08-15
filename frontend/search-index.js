@@ -5255,5 +5255,12 @@ window.indiaSearchIndex = [
         category: "Nature & Wildlife",
         description: "Explore the Nilgiri Tahr (Nilgiritragus hylocrius) — India's only endemic mountain goat, official State Animal of Tamil Nadu, high-altitude Shola-grassland habitat, cliff adaptations, saddleback bulls, and Project Nilgiri Tahr.",
         url: "frontend/nilgiri-tahr-explorer/index.html"
-    }
+    },
+    // --- Palur Port Explorer ---
+    {
+        title: "Palur Ancient Port Explorer",
+        category: "Heritage & History",
+        description: "Explore Palur, an ancient port in Odisha mentioned by Ptolemy and Pliny, serving as a critical gateway for maritime trade between India and Southeast Asia from 3rd century BCE to 8th century CE.",
+        url: "frontend/palur-port-explorer/index.html"
+    },
 ];
