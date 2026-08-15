@@ -5242,6 +5242,13 @@ window.indiaSearchIndex = [
         description: "Create a dedicated historical profile page for Narasimhavarman I (Mamalla, c. 630–668 CE), supreme Pallava monarch of Kanchipuram — highlighting his victory at Vatapi, Mamallapuram monolithic Pancha Rathas, Descent of the Ganges bas-relief, and Xuanzang's visit.",
         url: "frontend/narasimhavarman-i-explorer/index.html"
     },
+    // --- Tuticorin Port Explorer ---
+    {
+        title: "Tuticorin Ancient Port Explorer",
+        category: "Heritage & History",
+        description: "Explore Tuticorin (Thoothukudi), the historic Pearl City of Tamil Nadu — ancient maritime hub on the Gulf of Mannar renowned for pearl fisheries and trade with Rome and Southeast Asia.",
+        url: "frontend/tuticorin-port-explorer/index.html"
+    },
     // --- Krishnaraja Wadiyar IV Explorer ---
     {
         title: "Add Krishnaraja Wadiyar IV – Mysore's Progressive Maharaja Explorer",
