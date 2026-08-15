@@ -1943,6 +1943,13 @@ window.indiaSearchIndex = [
         description: "Historical timeline of all Lok Sabha elections from 1951 to 2024 featuring winning parties, Prime Ministers, voter turnout trends, major issues, and coalition dynamics.",
         url: "frontend/general-elections-timeline/index.html"
     },
+    // --- India's Sporting Milestones Timeline ---
+    {
+        title: "India's Sporting Milestones: Interactive Timeline",
+        category: "History & Achievements",
+        description: "Explore India's sporting history from Norman Pritchard's 1900 Olympic silvers to Neeraj Chopra's javelin gold and D. Gukesh's world chess title — filterable by year, sport, era, and athlete, with verified sources.",
+        url: "frontend/sporting-milestones-timeline/index.html"
+    },
     // --- Chief Justices of India Timeline ---
     {
         title: "Interactive Chief Justices of India Timeline",
