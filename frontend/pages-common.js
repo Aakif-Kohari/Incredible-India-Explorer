@@ -55,7 +55,12 @@ if (typeof window.setupFocusTrap !== 'function') {
 /* Initialise the unified toast notification system for pages using this loader */
 (function loadToastModule() {
     var script = document.createElement('script');
-    script.src = 'js-modules/toast-system.js';
+    var base = '';
+    var currentScript = document.currentScript;
+    if (currentScript && currentScript.src) {
+        base = currentScript.src.substring(0, currentScript.src.lastIndexOf('/') + 1);
+    }
+    script.src = base + 'js-modules/toast-system.js';
     script.async = true;
     document.head.appendChild(script);
 })();
@@ -83,29 +88,16 @@ function initSiteChrome() {
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
-    let btnScrollTop = document.getElementById('btn-scroll-top');
-    if (!btnScrollTop) {
-        btnScrollTop = document.createElement('button');
-        btnScrollTop.id = 'btn-scroll-top';
-        btnScrollTop.className = 'btn-scroll-top';
-        btnScrollTop.setAttribute('aria-label', 'Scroll to top');
-        btnScrollTop.innerHTML = '↑';
-        document.body.appendChild(btnScrollTop);
-    }
+    const btnScrollTop = document.getElementById('btn-scroll-top');
     const themeBtn = document.getElementById('theme-toggle');
 
     // Sticky navbar shadow on scroll
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar?.classList.add('scrolled');
+            btnScrollTop?.classList.add('visible');
         } else {
-            navbar?.classList.remove('scrolled');
-        }
-        
-        if (window.scrollY > 300) {
-            btnScrollTop.classList.add('visible');
-        } else {
-            btnScrollTop.classList.remove('visible');
+            btnScrollTop?.classList.remove('visible');
         }
     });
 
@@ -125,9 +117,11 @@ function initSiteChrome() {
     }
 
     // Scroll to top
-    btnScrollTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    if (btnScrollTop) {
+        btnScrollTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 
     // Theme toggle (dark/light) - persisted via localStorage, same key as main site
 if (themeBtn && !themeBtn.dataset.listenerBound) {
@@ -160,7 +154,7 @@ if (themeBtn && !themeBtn.dataset.listenerBound) {
     if (!('serviceWorker' in navigator)) return;
 
     function detectPrefix() {
-        const subdirPatterns = ['/states/', '/forts/', '/freedom-timeline/', '/handloom/',
+        const subdirPatterns = ['/frontend/states/', '/frontend/forts/', '/freedom-timeline/', '/handloom/',
             '/kingdoms/', '/postal-stamps/', '/traditional-games/', '/toys/',
             '/geological-wonders/', '/innovation-timeline/'];
         const isSubdir = subdirPatterns.some(p => window.location.pathname.includes(p));
@@ -745,6 +739,23 @@ const COINS_DATA = [
         ]
     },
     {
+        id: 'chola',
+        number: '2.5',
+        title: 'Chola Dynasty',
+        date: '850 CE – 1279 CE',
+        desc: 'Chola coins famously feature the royal crest of a tiger (Chola) flanked by a bow (Chera) and fish (Pandya), signifying their imperial conquests.',
+        dyk: 'Rajaraja I introduced the "Ceylon Man" coin type which became a standard in South India and Sri Lanka. Click below to decode the symbols!',
+        side: 'right',
+        theme: 'red',
+        circleImage: 'assets/coin5.png',
+        thumbs: [
+            { img: 'assets/coin3.png', label: '<a href="../chola-coin-decoder/index.html" style="color: inherit; text-decoration: underline;">Open Decoder</a>' },
+            { img: 'assets/coin1.png', label: 'Rajaraja I Copper' },
+            { img: 'assets/coin2.png', label: 'Tiger Crest' },
+            { img: 'assets/coin4.png', label: 'Gold Kahavanu' }
+        ]
+    },
+    {
         id: 'medieval',
         number: '03',
         title: 'Medieval / Sultanate & Mughal Era',
@@ -836,6 +847,31 @@ function initCoinsPage() {
     const progressList = document.getElementById('coins-progress-list');
  
     if (!timelineMain || !progressList) return;
+    const eraFilterBar = document.getElementById('coins-era-filter');
+
+    /* ---------- Render clickable era filter buttons ---------- */
+    if (eraFilterBar) {
+        eraFilterBar.innerHTML = COINS_DATA.map((era, idx) => `
+            <button class="coins-era-filter-btn${idx === 0 ? ' active' : ''}" data-target="era-${era.id}">
+                ${era.title}
+            </button>
+        `).join('');
+
+        eraFilterBar.querySelectorAll('.coins-era-filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = document.getElementById(btn.dataset.target);
+                if (!target) return;
+
+                eraFilterBar.querySelectorAll('.coins-era-filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                target.classList.add('era-highlight-pulse');
+                setTimeout(() => target.classList.remove('era-highlight-pulse'), 1500);
+            });
+        });
+    }
  
     /* ---------- Render progress sidebar ---------- */
     progressList.innerHTML = COINS_DATA.map((era, idx) => `
