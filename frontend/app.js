@@ -99,15 +99,7 @@ window.setupFocusTrap = function(modalElement) {
         }
     };
 };
-// Back to Top button
-if (btnScrollTop) {
-    btnScrollTop.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-}
+
 // Global state for route-level listener/observer management
 window.__iiRouteState = window.__iiRouteState || {
     observers: new Set(),
@@ -5646,4 +5638,5 @@ function initPersonalitiesPage() {
     // Show only Historical Legends by default on page load
     filterCards('historical');
 }
+
 
