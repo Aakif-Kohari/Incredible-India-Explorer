@@ -310,18 +310,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!grid || !window.NEPALI_LITERATURE_CULTURE) return;
 
         const images = [
-            { primary: 'assets/images/nepali_bhanu_literature.jpg', altSrc: '../assets/nepali_bhanu_literature.jpg' },
-            { primary: 'assets/images/nepali_hero_banner.jpg', altSrc: '../assets/nepali_hero_banner.jpg' },
-            { primary: 'assets/images/nepali_cultural_festivals.jpg', altSrc: '../assets/nepali_cultural_festivals.jpg' },
-            { primary: 'assets/images/nepali_cultural_festivals.jpg', altSrc: '../assets/nepali_cultural_festivals.jpg' }
+            'assets/images/nepali_bhanu_literature.jpg',
+            'assets/images/nepali_hero_banner.jpg',
+            'assets/images/nepali_cultural_festivals.jpg',
+            'assets/images/nepali_cultural_festivals.jpg'
         ];
 
         grid.innerHTML = NEPALI_LITERATURE_CULTURE.map((c, i) => {
-            const imgObj = images[i] || images[0];
+            const imgPath = images[i] || images[0];
+            const fileName = imgPath.split('/').pop();
             return `
             <div class="culture-card">
-                <img src="${imgObj.primary}" alt="${c.title}" class="culture-card-img" loading="lazy"
-                     onerror="if(this.src.indexOf('../assets/') === -1){this.src='${imgObj.altSrc}';}else if(this.src.indexOf('../../frontend/assets/') === -1){this.src='../../frontend/${imgObj.altSrc}';}">
+                <img src="${imgPath}" alt="${c.title}" class="culture-card-img" loading="lazy"
+                     onerror="this.onerror=null; this.src='../assets/${fileName}';">
                 <div class="culture-card-body">
                     <div class="culture-category">${c.category}</div>
                     <h3>${c.title}</h3>
