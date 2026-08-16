@@ -163,7 +163,7 @@
             attractions: "Beadon Falls, Umiam Lake.",
             image: "https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&fit=crop&q=40&w=400",
-            url: "../bishop-falls-explorer/index.html"
+            url: "../bishop-falls-explorer/index.html",
             id: "nohsngithiang",
             name: "Nohsngithiang Falls",
             state: "Meghalaya",
