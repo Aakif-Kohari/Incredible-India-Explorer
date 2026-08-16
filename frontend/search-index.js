@@ -5291,4 +5291,11 @@ window.indiaSearchIndex = [
         description: "Interactive map of India's freedom movement newspapers, journals, pamphlets and underground publications — founders, editors, languages, anti-colonial writings, and the colonial censorship laws used against them.",
         url: "frontend/freedom-press-explorer/index.html"
     },
+    // --- Indian Sports Trophy Design Explorer ---
+    {
+        title: "Indian Sports Trophy Design Explorer",
+        category: "Sports",
+        description: "Decode the symbols and meaning behind India's sporting trophies — shapes and forms, materials, national symbols, sport-specific elements, names and inscriptions, and a clickable trophy diagram of design evolution from the Durand Cup to the Khel Ratna.",
+        url: "frontend/indian-sports-trophy-design-explorer/index.html"
+    },
 ];
