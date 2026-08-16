@@ -266,8 +266,9 @@
             attractions: "Chakrata Cantonment, Deoban, Chilmiri Neck, Kanasar Deodars.",
             image: "https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=40&w=400",
-            url: "../tiger-falls-explorer/index.html"},
-              {
+            url: "../tiger-falls-explorer/index.html"
+        },
+        {
             id: "joranda",
             name: "Joranda Falls",
             state: "Odisha",
@@ -280,8 +281,9 @@
             attractions: "Similipal National Park, Barehipani Falls, Chahala, Meghasani Peak.",
             image: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=40&w=400",
-            url: "../joranda-falls-explorer/index.html"},
-              {
+            url: "../joranda-falls-explorer/index.html"
+        },
+        {
             id: "barehipani",
             name: "Barehipani Falls",
             state: "Odisha",
@@ -294,8 +296,9 @@
             attractions: "Similipal Tiger Reserve, Joranda Falls, Meghasani Peak, Chahala.",
             image: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=40&w=400",
-            url: "../barehipani-falls-explorer/index.html"},
-              {
+            url: "../barehipani-falls-explorer/index.html"
+        },
+        {
             id: "soochipara",
             name: "Soochipara Falls",
             state: "Kerala",
@@ -309,6 +312,36 @@
             image: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=40&w=400",
             url: "../soochipara-falls-explorer/index.html"
+        },
+        {
+            id: "agaya-gangai",
+            name: "Agaya Gangai",
+            state: "Tamil Nadu",
+            river: "Aiyaru River",
+            height: "91 meters",
+            season: "Post-Monsoon",
+            tags: ["year-round", "monsoon"],
+            description: "A sheer 300-foot 'Ganges of the Sky' falls in the Kolli Hills, reached by a 1,300-step forest trek.",
+            flow: "Forceful in monsoon; clear and comfortable to trek Nov-Jan.",
+            attractions: "Arapaleeswarar Temple, Siddhar Caves, Kolli Hills ghat road.",
+            image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=40&w=400",
+            url: "../agaya-gangai-explorer/index.html"
+        },
+        {
+            id: "pykara",
+            name: "Pykara Falls",
+            state: "Tamil Nadu",
+            river: "Pykara River",
+            height: "61 meters",
+            season: "Post-Monsoon",
+            tags: ["year-round", "monsoon"],
+            description: "Twin cascades (55m and 61m) where the sacred Pykara river drops off the Nilgiri plateau near Ooty.",
+            flow: "Full and lush Aug-Jan; noticeably reduced in the dry summer months.",
+            attractions: "Pykara Lake, Mukurthi National Park, Doddabetta Peak.",
+            image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=40&w=400",
+            url: "../pykara-falls-explorer/index.html"
         }
     ];
 
