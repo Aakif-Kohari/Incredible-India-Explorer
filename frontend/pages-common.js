@@ -156,7 +156,7 @@ if (themeBtn && !themeBtn.dataset.listenerBound) {
     function detectPrefix() {
         const subdirPatterns = ['/frontend/states/', '/frontend/forts/', '/freedom-timeline/', '/handloom/',
             '/kingdoms/', '/postal-stamps/', '/traditional-games/', '/toys/',
-            '/geological-wonders/', '/innovation-timeline/'];
+            '/geological-wonders/', '/innovation-timeline/', '/frontend/islands/'];
         const isSubdir = subdirPatterns.some(p => window.location.pathname.includes(p));
         return isSubdir ? '../' : './';
     }
