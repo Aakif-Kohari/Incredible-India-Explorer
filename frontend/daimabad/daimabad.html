@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daimabad — A Deccan Settlement Across Civilizations | Incredible India Explorer</title>
+<meta name="description" content="An interactive explorer of Daimabad: five Chalcolithic cultural phases, the 1974 bronze hoard, Harappan connections, and the archaeology of a Deccan settlement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15110d;
+    --ink-soft:#1f1912;
+    --panel:#251e16;
+    --clay:#c1652f;
+    --clay-light:#e2985f;
+    --patina:#6f9c86;
+    --patina-light:#9cc4b0;
+    --indigo:#4a5a86;
+    --cream:#ede3d3;
+    --dim:#c4b6a0;
+    --line:rgba(237,227,211,0.14);
+    --radius:2px;
+    /* period colors, oldest to youngest */
+    --p1:#a85c2e; /* Savalda */
+    --p2:#4a5a86; /* Late Harappan */
+    --p3:#9c8a4a; /* Daimabad culture */
+    --p4:#c1652f; /* Malwa */
+    --p5:#8c3b3b; /* Jorwe */
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--ink);color:var(--cream);font-family:"Work Sans",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:var(--clay-light);}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:var(--clay);}
+  h1,h2,h3,h4{font-family:"Fraunces",serif;font-weight:600;margin:0;color:var(--cream);}
+  .dv{font-family:"Noto Sans Devanagari",sans-serif;}
+
+  .strata-divider{height:26px;width:100%;display:flex;opacity:.9;}
+  .strata-divider span{flex:1;}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(21,17,13,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1120px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:"Fraunces",serif;font-weight:600;color:var(--cream);text-decoration:none;font-size:1rem;}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--patina-light);}
+  .crumbs{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--dim);}
+  .crumbs a{color:var(--dim);text-decoration:none;}
+  .crumbs a:hover{color:var(--clay-light);}
+
+  .hero{position:relative;padding:96px 0 64px;overflow:hidden;
+    background:radial-gradient(ellipse at 85% -10%, rgba(74,90,134,0.32), transparent 55%),
+               radial-gradient(ellipse at -10% 110%, rgba(193,101,47,0.28), transparent 55%),
+               var(--ink);}
+  .hero-dv{font-size:clamp(2rem,6vw,3.4rem);color:var(--clay);line-height:1;margin-bottom:6px;}
+  .hero h1{font-size:clamp(2.1rem,5vw,3.3rem);letter-spacing:-0.01em;max-width:18ch;}
+  .hero p.lede{max-width:60ch;color:var(--dim);font-size:1.05rem;margin-top:18px;}
+  .fact-strip{display:flex;flex-wrap:wrap;gap:0;margin-top:44px;border-top:1px solid var(--line);}
+  .fact{flex:1 1 160px;padding:18px 0;border-right:1px solid var(--line);padding-right:20px;}
+  .fact:last-child{border-right:none;}
+  .fact b{display:block;font-family:"Fraunces",serif;font-size:1.4rem;color:var(--clay-light);font-weight:600;}
+  .fact span{font-size:.8rem;color:var(--dim);}
+
+  section{padding:72px 0;}
+  section.alt{background:var(--ink-soft);}
+  .section-head{margin-bottom:36px;max-width:64ch;}
+  .section-head h2{font-size:clamp(1.5rem,3vw,2.1rem);margin-top:8px;}
+  .section-head p{color:var(--dim);margin-top:10px;}
+
+  /* geographic setting map */
+  .geo-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;}
+  .geo-text p{color:var(--dim);font-size:.95rem;margin:0 0 14px;}
+  .geo-text .coord{font-family:"IBM Plex Mono",monospace;font-size:.82rem;color:var(--patina-light);}
+  .map-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px;}
+  .map-card svg{width:100%;height:auto;}
+  .map-caption{font-size:.76rem;color:var(--dim);margin-top:10px;font-style:italic;}
+
+  /* timeline */
+  .timeline-scroll{display:flex;overflow-x:auto;padding-bottom:20px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;}
+  .timeline-scroll::-webkit-scrollbar{height:6px;}
+  .timeline-scroll::-webkit-scrollbar-thumb{background:var(--clay);border-radius:3px;}
+  .t-item{flex:0 0 250px;scroll-snap-align:start;padding:0 22px 0 0;margin-right:22px;border-top:3px solid var(--phase);position:relative;}
+  .t-item::before{content:"";position:absolute;top:-7px;left:0;width:11px;height:11px;border-radius:50%;background:var(--phase);border:2px solid var(--ink-soft);}
+  .t-phase-label{font-family:"IBM Plex Mono",monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--phase);display:block;margin-top:16px;}
+  .t-year{font-family:"IBM Plex Mono",monospace;color:var(--cream);font-size:1.05rem;display:block;margin-top:4px;}
+  .t-item h4{font-family:"Fraunces",serif;font-weight:600;margin:6px 0 8px;font-size:1.02rem;}
+  .t-item p{color:var(--dim);font-size:.88rem;margin:0;}
+
+  /* stratigraphy visualization */
+  .strata-wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+  .strata-visual{display:flex;flex-direction:column;min-height:420px;}
+  .strata-band{flex:1;display:flex;align-items:center;padding:0 18px;cursor:pointer;transition:filter .15s ease;position:relative;}
+  .strata-band:hover{filter:brightness(1.12);}
+  .strata-band b{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:rgba(21,17,13,0.85);text-transform:uppercase;letter-spacing:.06em;}
+  .strata-detail{padding:26px;border-left:1px solid var(--line);}
+  .strata-item{padding:18px 0;border-bottom:1px solid var(--line);}
+  .strata-item:last-child{border-bottom:none;}
+  .strata-item .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.68rem;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin-bottom:8px;color:var(--ink);font-weight:600;}
+  .strata-item h4{font-size:1.02rem;margin-bottom:6px;}
+  .strata-item p{color:var(--dim);font-size:.88rem;margin:0;}
+  .gap-callout{margin-top:18px;padding:14px 16px;border-left:2px solid var(--clay);background:rgba(193,101,47,0.08);font-size:.85rem;color:var(--dim);}
+  .gap-callout b{color:var(--clay-light);}
+
+  /* culture cards */
+  .culture-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;}
+  .culture-card{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--phase);border-radius:var(--radius);padding:20px;}
+  .culture-card .tag{font-family:"IBM Plex Mono",monospace;font-size:.68rem;color:var(--phase);text-transform:uppercase;letter-spacing:.06em;}
+  .culture-card h3{font-size:1.05rem;margin-top:8px;}
+  .culture-card p{color:var(--dim);font-size:.87rem;margin-top:10px;}
+
+  /* two-column info blocks (harappan evidence, agriculture, crafts) */
+  .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;}
+  .info-block h3{font-size:1.1rem;color:var(--clay-light);margin-bottom:10px;}
+  .info-block p{color:var(--dim);font-size:.92rem;margin:0 0 10px;}
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+  .chip{font-family:"IBM Plex Mono",monospace;font-size:.74rem;border:1px solid var(--line);border-radius:20px;padding:5px 12px;color:var(--dim);}
+
+  /* trade map */
+  .trade-layout{display:grid;grid-template-columns:1fr;gap:24px;}
+
+  /* artifact explorer */
+  .artifact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;}
+  .a-item{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:transform .18s ease,border-color .18s ease;}
+  .a-item:hover{transform:translateY(-4px);border-color:var(--clay);}
+  .a-item:focus-visible{outline:2px solid var(--clay-light);outline-offset:3px;}
+  .a-swatch{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;}
+  .a-swatch svg{width:58%;height:58%;opacity:.92;}
+  .a-body{padding:16px 18px 18px;}
+  .a-body .tag{font-family:"IBM Plex Mono",monospace;font-size:.68rem;color:var(--indigo);}
+  .a-body h3{font-size:1.02rem;margin-top:6px;}
+  .a-body p{color:var(--dim);font-size:.84rem;margin-top:8px;}
+
+  .lightbox{position:fixed;inset:0;background:rgba(9,7,5,0.92);display:none;align-items:center;justify-content:center;z-index:100;padding:24px;}
+  .lightbox.open{display:flex;}
+  .lightbox-inner{max-width:600px;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:32px;position:relative;}
+  .lightbox-swatch{width:100%;aspect-ratio:16/9;border-radius:var(--radius);margin-bottom:20px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);}
+  .lightbox-swatch svg{width:36%;height:36%;}
+  .lightbox h3{color:var(--clay-light);font-size:1.35rem;}
+  .lightbox .meta{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--patina-light);margin-top:6px;}
+  .lightbox p{color:var(--dim);margin-top:12px;font-size:.92rem;}
+  .lightbox-controls{display:flex;justify-content:space-between;align-items:center;margin-top:22px;}
+  .lightbox-controls button{background:none;border:1px solid var(--line);color:var(--cream);font-family:"IBM Plex Mono",monospace;font-size:.8rem;padding:8px 14px;border-radius:20px;cursor:pointer;transition:border-color .15s ease;}
+  .lightbox-controls button:hover{border-color:var(--clay);}
+  .lightbox-close{position:absolute;top:18px;right:20px;background:none;border:none;color:var(--cream);font-size:1.6rem;cursor:pointer;line-height:1;}
+
+  /* excavation history */
+  .dig-list{list-style:none;margin:0;padding:0;max-width:76ch;}
+  .dig-list li{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);}
+  .dig-list .yr{font-family:"IBM Plex Mono",monospace;color:var(--clay-light);font-size:.92rem;}
+  .dig-list h4{font-size:1rem;margin-bottom:4px;}
+  .dig-list p{color:var(--dim);font-size:.88rem;margin:0;}
+
+  .ref-list{list-style:none;margin:0;padding:0;max-width:70ch;}
+  .ref-list li{padding:14px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;font-size:.92rem;}
+  .ref-list li span{color:var(--dim);font-family:"IBM Plex Mono",monospace;font-size:.78rem;white-space:nowrap;}
+
+  footer{padding:36px 0;text-align:center;color:var(--dim);font-size:.82rem;border-top:1px solid var(--line);}
+
+  @media (max-width:860px){
+    .geo-layout, .info-grid{grid-template-columns:1fr;}
+    .strata-wrap{grid-template-columns:1fr;}
+    .strata-visual{min-height:260px;flex-direction:row;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .a-item{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="brand" href="../index.html"><span class="dot"></span>Incredible India Explorer</a>
+    <div class="crumbs"><a href="../index.html">Home</a> / Daimabad</div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Archaeology Explorer</p>
+    <div class="hero-dv dv">दैमाबाद</div>
+    <h1>Daimabad: A Deccan Settlement Across Civilizations</h1>
+    <p class="lede">On the left bank of the Pravara River in Ahmednagar (Ahilyanagar) district, Maharashtra, Daimabad preserves a continuous 5-metre cultural deposit spanning five Chalcolithic phases — and the chance 1974 discovery of a hoard of bronze sculptures that reopened the question of how far south Harappan influence reached.</p>
+
+    <div class="fact-strip">
+      <div class="fact"><b>1958</b><span>Site discovered by B. P. Bopardikar</span></div>
+      <div class="fact"><b>5</b><span>Successive cultural phases, c. 2300–1000 BCE</span></div>
+      <div class="fact"><b>30 ha</b><span>Peak settlement size, Jorwe phase</span></div>
+      <div class="fact"><b>4</b><span>Bronze sculptures found in the 1974 hoard</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="strata-divider">
+  <span style="background:var(--p5)"></span><span style="background:var(--p4)"></span><span style="background:var(--p3)"></span><span style="background:var(--p2)"></span><span style="background:var(--p1)"></span>
+</div>
+
+<section id="geography">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Geographic Setting</p>
+      <h2>A river-bank site on the Deccan's black-cotton plain</h2>
+    </div>
+    <div class="geo-layout">
+      <div class="geo-text">
+        <p>Daimabad sits on the left bank of the <strong>Pravara River</strong>, a tributary of the <strong>Godavari</strong>, in Shrirampur taluka of Ahmednagar district, Maharashtra — now part of the revenue village of Ladgaon.</p>
+        <p>The surrounding plain is heavy black-cotton soil, with a patch of shallow, coarse soil about 5&nbsp;km away that would have supported pasture — a combination well suited to the mixed farming-and-herding economy archaeologists have reconstructed for the site.</p>
+        <p class="coord">≈ 19.51° N, 74.70° E</p>
+      </div>
+      <div class="map-card">
+        <svg viewBox="0 0 380 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic locator map showing Daimabad on the Pravara River, a Godavari tributary, in Maharashtra">
+          <title>Schematic locator map</title>
+          <rect x="0" y="0" width="380" height="320" fill="#1f1912"/>
+          <path d="M20,40 Q60,120 40,220 Q30,280 60,300" stroke="#4a5a86" stroke-width="3" fill="none" opacity=".5"/>
+          <text x="15" y="30" fill="#c4b6a0" font-size="11" font-family="IBM Plex Mono, monospace">Arabian Sea</text>
+          <path d="M70,60 Q160,90 200,140 Q260,170 340,180" stroke="#6f9c86" stroke-width="4" fill="none"/>
+          <text x="250" y="170" fill="#9cc4b0" font-size="11" font-family="IBM Plex Mono, monospace">Godavari →</text>
+          <path d="M200,140 Q220,190 230,230" stroke="#e2985f" stroke-width="3" fill="none"/>
+          <text x="205" y="250" fill="#e2985f" font-size="10" font-family="IBM Plex Mono, monospace">Pravara</text>
+          <circle cx="222" cy="222" r="6" fill="#c1652f"/>
+          <circle cx="222" cy="222" r="11" fill="none" stroke="#c1652f" stroke-width="1.5" opacity=".6"/>
+          <text x="235" y="218" fill="#ede3d3" font-size="12" font-family="Fraunces, serif" font-weight="600">Daimabad</text>
+          <circle cx="90" cy="70" r="4" fill="#c4b6a0"/>
+          <text x="98" y="74" fill="#c4b6a0" font-size="10" font-family="IBM Plex Mono, monospace">Mumbai</text>
+          <circle cx="140" cy="110" r="4" fill="#c4b6a0"/>
+          <text x="148" y="114" fill="#c4b6a0" font-size="10" font-family="IBM Plex Mono, monospace">Nashik</text>
+          <circle cx="270" cy="200" r="4" fill="#c4b6a0"/>
+          <text x="278" y="204" fill="#c4b6a0" font-size="10" font-family="IBM Plex Mono, monospace">Pune</text>
+        </svg>
+        <p class="map-caption">Schematic locator — not to scale. Coordinates from Google Places.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="timeline">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Multi-Period Timeline · Settlement Chronology</p>
+      <h2>Five phases, c. 2300–1000 BCE</h2>
+      <p>Scroll to move through the sequence excavators identified in Daimabad's cultural deposit.</p>
+    </div>
+    <div class="timeline-scroll" tabindex="0" aria-label="Daimabad settlement chronology, scroll horizontally">
+      <div class="t-item" style="--phase:var(--p1)"><span class="t-phase-label">Phase I</span><span class="t-year">Before c. 2300 BCE</span><h4>Savalda culture</h4><p>The earliest farming community: trilateral mud-walled houses, a surrounding village wall, black-on-red painted pottery, and early copper objects alongside stone tools.</p></div>
+      <div class="t-item" style="--phase:var(--p2)"><span class="t-phase-label">Phase II</span><span class="t-year">c. 2300–1800 BCE</span><h4>Late Harappan culture</h4><p>Ceramics resembling Indus styles, mud-brick structures, and terracotta button-seals carrying Indus script — the strongest evidence tying Daimabad to the wider Harappan world.</p></div>
+      <div class="t-item" style="--phase:var(--p3)"><span class="t-phase-label">Phase III</span><span class="t-year">c. 1800–1600 BCE</span><h4>Daimabad culture</h4><p>A locally distinct black-on-buff/cream ware phase, following a occupation gap of roughly half a century after Phase II ends.</p></div>
+      <div class="t-item" style="--phase:var(--p4)"><span class="t-phase-label">Phase IV</span><span class="t-year">c. 1600–1400 BCE</span><h4>Malwa culture</h4><p>Fine orange-slipped ware with channel-spouted bowls and high-necked storage jars; permanent farming villages become established across the region.</p></div>
+      <div class="t-item" style="--phase:var(--p5)"><span class="t-phase-label">Phase V</span><span class="t-year">c. 1400–1000 BCE</span><h4>Jorwe culture</h4><p>Daimabad reaches its peak of roughly 30 hectares, with a fortified mud wall, planned housing, and craft-specialist quarters before the site is abandoned.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="strata">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Cultural-Layer Visualization</p>
+      <h2>Reading the 5-metre deposit</h2>
+      <p>Excavators found the phases stacked in a clean stratigraphic sequence — youngest near the surface, oldest at the base. Select a band for detail.</p>
+    </div>
+    <div class="strata-wrap">
+      <div class="strata-visual" id="strataVisual">
+        <div class="strata-band" data-phase="5" style="background:var(--p5)"><b>Phase V — Jorwe</b></div>
+        <div class="strata-band" data-phase="4" style="background:var(--p4)"><b>Phase IV — Malwa</b></div>
+        <div class="strata-band" data-phase="3" style="background:var(--p3)"><b>Phase III — Daimabad</b></div>
+        <div class="strata-band" data-phase="2" style="background:var(--p2)"><b>Phase II — Late Harappan</b></div>
+        <div class="strata-band" data-phase="1" style="background:var(--p1)"><b>Phase I — Savalda</b></div>
+      </div>
+      <div class="strata-detail">
+        <div class="strata-item">
+          <span class="tag" style="background:var(--p5)">Phase V</span>
+          <h4>Jorwe — the settlement's peak</h4>
+          <p>25 excavated houses across five structural sub-phases, with quarters identified for a butcher, lime-maker, potter, bead-maker and merchant, plus traces of a mud fortification wall with bastions. Of 48 burials found in this phase, 44 were urn burials.</p>
+        </div>
+        <div class="strata-item">
+          <span class="tag" style="background:var(--p4)">Phase IV</span>
+          <h4>Malwa — orange-slipped ware</h4>
+          <p>Channel-spouted bowls and storage jars in a fine orange slip mark this phase, alongside an expanded farming repertoire of wheat, barley, pulses and lentils.</p>
+        </div>
+        <div class="strata-item">
+          <span class="tag" style="background:var(--p3)">Phase III</span>
+          <h4>Daimabad culture — a local recovery</h4>
+          <p>Named for the site itself: a black-on-buff/cream ware distinct from both the Savalda and Late Harappan traditions that preceded it.</p>
+        </div>
+        <div class="strata-item">
+          <span class="tag" style="background:var(--p2)">Phase II</span>
+          <h4>Late Harappan — the Indus connection</h4>
+          <p>Mud-brick structures and Indus-style black-on-red ceramics, plus two terracotta button-seals and three potsherds bearing Indus script symbols.</p>
+        </div>
+        <div class="strata-item">
+          <span class="tag" style="background:var(--p1)">Phase I</span>
+          <h4>Savalda — first farmers</h4>
+          <p>Mud-walled trilateral houses with hearths and storage pits, protected by a surrounding wall; pottery painted with arrowheads, harpoons and animal figures.</p>
+        </div>
+        <div class="gap-callout"><b>Cultural transition:</b> excavators identified a break in occupation of roughly half a century between the end of Phase II (Late Harappan) and the start of Phase III (Daimabad culture) — a gap, not a gradual blend.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="harappan">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Harappan-Related Evidence</p>
+      <h2>How far south did the Indus world reach?</h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-block">
+        <h3>Ceramic and structural links</h3>
+        <p>Phase II pottery is a painted black-on-red ware whose forms — including the dish-on-stand — closely echo Indus ceramic traditions, appearing alongside mud-brick structures rather than Phase I's simpler mud-wall construction.</p>
+      </div>
+      <div class="info-block">
+        <h3>Script and seals</h3>
+        <p>Two terracotta button-seals and three potsherds bearing Indus script symbols gave the clearest confirmation of Harappan affinity, prompting decades of scholarly debate over whether Daimabad represents a genuine southward expansion of Indus civilization or a zone of strong indirect influence.</p>
+        <div class="chip-row"><span class="chip">Button-seals ×2</span><span class="chip">Inscribed potsherds ×3</span><span class="chip">Dish-on-stand ware</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="culture-cards">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Chalcolithic Cultures</p>
+      <h2>Five communities, five ways of living on the same mound</h2>
+    </div>
+    <div class="culture-grid">
+      <div class="culture-card" style="--phase:var(--p1)"><span class="tag">Savalda</span><h3>Before c. 2300 BCE</h3><p>Likely arose from contact between Mesolithic groups and Harappan communities in Saurashtra; used siliceous-stone beads and bone arrowheads alongside early copper.</p></div>
+      <div class="culture-card" style="--phase:var(--p2)"><span class="tag">Late Harappan</span><h3>c. 2300–1800 BCE</h3><p>The only site in the region with confirmed Late Harappan material — the basis for arguments that Indus influence extended into the Deccan.</p></div>
+      <div class="culture-card" style="--phase:var(--p3)"><span class="tag">Daimabad culture</span><h3>c. 1800–1600 BCE</h3><p>A short, locally distinctive phase named after the site itself, following the occupation gap noted above.</p></div>
+      <div class="culture-card" style="--phase:var(--p4)"><span class="tag">Malwa</span><h3>c. 1600–1400 BCE</h3><p>Part of a wider Malwa-culture horizon reaching across central India, arriving in the region around 1600 BCE.</p></div>
+      <div class="culture-card" style="--phase:var(--p5)"><span class="tag">Jorwe</span><h3>c. 1400–1000 BCE</h3><p>Named after the type-site of Jorwe; represented at some 200 sites across Maharashtra, with Daimabad and Inamgaon among the largest.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="agri-crafts">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Agriculture · Crafts &amp; Metallurgy</p>
+      <h2>Farming and making, phase by phase</h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-block">
+        <h3>Agriculture</h3>
+        <p>Savalda-phase farmers grew wheat, barley and lentil, and gathered <em>Zizyphus</em> (jujube). By the Malwa phase the range had expanded to include pisum, lathyrus and dolichos alongside the earlier staples.</p>
+        <div class="chip-row"><span class="chip">Wheat</span><span class="chip">Barley</span><span class="chip">Lentil</span><span class="chip">Zizyphus</span><span class="chip">Pisum</span><span class="chip">Dolichos</span></div>
+      </div>
+      <div class="info-block">
+        <h3>Crafts &amp; metallurgy</h3>
+        <p>Savalda-phase toolkits combined copper bangles with chalcedony, agate and jasper microliths. By the Jorwe phase, craft had specialized enough for excavators to identify separate potter's, bead-maker's and lime-maker's houses — and metallurgy had advanced to the solid-cast bronze technique behind the famous hoard.</p>
+        <div class="chip-row"><span class="chip">Copper bangles</span><span class="chip">Chalcedony microliths</span><span class="chip">Solid-cast bronze</span><span class="chip">Bead-working</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="trade">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Trade · Regional Trade Map</p>
+      <h2>An inland node in a wider exchange network</h2>
+      <p>Daimabad had no metal or fine-stone sources of its own — its copper, chalcedony, agate, carnelian and steatite point to exchange with communities across the Deccan and beyond.</p>
+    </div>
+    <div class="trade-layout">
+      <div class="map-card">
+        <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic regional trade network diagram centred on Daimabad">
+          <title>Schematic regional trade network</title>
+          <rect x="0" y="0" width="700" height="260" fill="#1f1912"/>
+          <circle cx="350" cy="130" r="8" fill="#c1652f"/>
+          <text x="350" y="150" fill="#ede3d3" font-size="13" font-family="Fraunces, serif" font-weight="600" text-anchor="middle">Daimabad</text>
+
+          <line x1="350" y1="130" x2="110" y2="60" stroke="#4a5a86" stroke-width="2" opacity=".7"/>
+          <circle cx="110" cy="60" r="5" fill="#4a5a86"/>
+          <text x="55" y="45" fill="#8ea0d1" font-size="11" font-family="IBM Plex Mono, monospace">Gujarat (Harappan sites)</text>
+
+          <line x1="350" y1="130" x2="150" y2="200" stroke="#6f9c86" stroke-width="2" opacity=".7"/>
+          <circle cx="150" cy="200" r="5" fill="#6f9c86"/>
+          <text x="60" y="220" fill="#9cc4b0" font-size="11" font-family="IBM Plex Mono, monospace">Malwa plateau</text>
+
+          <line x1="350" y1="130" x2="580" y2="70" stroke="#9c8a4a" stroke-width="2" opacity=".7"/>
+          <circle cx="580" cy="70" r="5" fill="#9c8a4a"/>
+          <text x="560" y="55" fill="#c9b96a" font-size="11" font-family="IBM Plex Mono, monospace">Deccan interior</text>
+
+          <line x1="350" y1="130" x2="600" y2="200" stroke="#8c3b3b" stroke-width="2" opacity=".7"/>
+          <circle cx="600" cy="200" r="5" fill="#8c3b3b"/>
+          <text x="565" y="222" fill="#c98a8a" font-size="11" font-family="IBM Plex Mono, monospace">Konkan coast</text>
+        </svg>
+        <p class="map-caption">Schematic exchange network — not literal trade routes. Based on material sourcing described in the archaeological literature.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="bronzes">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Artifact Explorer · Famous Bronze Discoveries</p>
+      <h2>The 1974 hoard</h2>
+      <p>In 1974, farmer Chhabu Laxman Bhil uncovered four solid-cast bronze sculptures — together weighing roughly 60&nbsp;kg — while digging at the base of a shrub near the site. Select a piece for detail.</p>
+    </div>
+    <div class="artifact-grid" id="artifactGrid">
+
+      <figure class="a-item" tabindex="0" role="button" data-index="0" aria-label="Open the chariot and driver">
+        <div class="a-swatch" style="background:linear-gradient(160deg,#4a5a86,#251e16)">
+          <svg viewBox="0 0 64 64"><circle cx="18" cy="48" r="8" fill="#ede3d3" opacity=".85"/><circle cx="46" cy="48" r="8" fill="#ede3d3" opacity=".85"/><rect x="14" y="30" width="36" height="10" rx="2" fill="#ede3d3" opacity=".85"/><rect x="28" y="10" width="6" height="22" fill="#ede3d3" opacity=".85"/></svg>
+        </div>
+        <div class="a-body"><span class="tag">Late Harappan · Phase II context</span><h3>Chariot &amp; driver</h3><p>A standing male figure drives a two-wheeled chariot yoked to two humped oxen, 45 × 16 cm.</p></div>
+      </figure>
+
+      <figure class="a-item" tabindex="0" role="button" data-index="1" aria-label="Open the elephant">
+        <div class="a-swatch" style="background:linear-gradient(160deg,#9c8a4a,#251e16)">
+          <svg viewBox="0 0 64 64"><ellipse cx="30" cy="38" rx="20" ry="14" fill="#ede3d3" opacity=".85"/><path d="M14,38 Q4,50 10,58" stroke="#ede3d3" stroke-width="4" fill="none" opacity=".85"/><circle cx="46" cy="24" r="6" fill="#ede3d3" opacity=".85"/></svg>
+        </div>
+        <div class="a-body"><span class="tag">Late Harappan · Phase II context</span><h3>Elephant</h3><p>The largest single piece in the hoard, modeled with an elongated trunk on a wheeled platform.</p></div>
+      </figure>
+
+      <figure class="a-item" tabindex="0" role="button" data-index="2" aria-label="Open the rhinoceros">
+        <div class="a-swatch" style="background:linear-gradient(160deg,#a85c2e,#251e16)">
+          <svg viewBox="0 0 64 64"><ellipse cx="32" cy="40" rx="22" ry="12" fill="#ede3d3" opacity=".85"/><path d="M50,36 L60,32" stroke="#ede3d3" stroke-width="4" opacity=".85"/></svg>
+        </div>
+        <div class="a-body"><span class="tag">Late Harappan · Phase II context</span><h3>Rhinoceros</h3><p>A single-horned rhinoceros with stylized skin-folds, echoing depictions on Indus seals; 28.5 cm high.</p></div>
+      </figure>
+
+      <figure class="a-item" tabindex="0" role="button" data-index="3" aria-label="Open the water buffalo">
+        <div class="a-swatch" style="background:linear-gradient(160deg,#8c3b3b,#251e16)">
+          <svg viewBox="0 0 64 64"><ellipse cx="32" cy="42" rx="20" ry="12" fill="#ede3d3" opacity=".85"/><path d="M22,30 Q18,20 26,22 M42,30 Q46,20 38,22" stroke="#ede3d3" stroke-width="3" fill="none" opacity=".85"/></svg>
+        </div>
+        <div class="a-body"><span class="tag">Late Harappan · Phase II context</span><h3>Water buffalo</h3><p>A charging buffalo with sweeping horns, 27.5 × 24.8 cm, mounted on a four-wheeled base.</p></div>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Artifact viewer">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <div class="lightbox-swatch" id="lightboxSwatch"></div>
+    <h3 id="lightboxTitle"></h3>
+    <div class="meta" id="lightboxMeta"></div>
+    <p id="lightboxCaption"></p>
+    <div class="lightbox-controls">
+      <button id="lightboxPrev">&larr; Prev</button>
+      <span class="eyebrow" id="lightboxCount"></span>
+      <button id="lightboxNext">Next &rarr;</button>
+    </div>
+  </div>
+</div>
+
+<section id="excavation">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Archaeological Excavation · Excavation Map</p>
+      <h2>Three campaigns, four decades apart</h2>
+    </div>
+    <ul class="dig-list">
+      <li><span class="yr">1958</span><div><h4>Discovery</h4><p>B. P. Bopardikar identifies the site.</p></div></li>
+      <li><span class="yr">1958–59</span><div><h4>First excavation</h4><p>Directed by M. N. Deshpande (ASI); reveals the site's earliest three-phase sequence.</p></div></li>
+      <li><span class="yr">1974</span><div><h4>The bronze hoard</h4><p>Farmer Chhabu Laxman Bhil finds the four bronzes; reported via village social worker Lal Hussein Patel to the ASI.</p></div></li>
+      <li><span class="yr">1974–75</span><div><h4>Second excavation</h4><p>Directed by S. R. Rao, prompted by the hoard's discovery, to establish its archaeological context.</p></div></li>
+      <li><span class="yr">1975–79</span><div><h4>Third excavation</h4><p>Directed by S. A. Sali; refines the site into the five-phase sequence used today and uncovers the Indus-script seals.</p></div></li>
+    </ul>
+    <div class="map-card" style="margin-top:32px;max-width:520px;">
+      <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustrative excavation grid diagram over the settlement mound">
+        <title>Illustrative excavation grid</title>
+        <rect x="0" y="0" width="400" height="240" fill="#1f1912"/>
+        <ellipse cx="200" cy="120" rx="150" ry="80" fill="#251e16" stroke="#c1652f" stroke-width="1" opacity=".8"/>
+        <g stroke="#4a5a86" stroke-width="1" opacity=".5">
+          <line x1="80" y1="60" x2="80" y2="180"/><line x1="140" y1="45" x2="140" y2="195"/>
+          <line x1="200" y1="40" x2="200" y2="200"/><line x1="260" y1="45" x2="260" y2="195"/>
+          <line x1="320" y1="60" x2="320" y2="180"/>
+          <line x1="55" y1="90" x2="345" y2="90"/><line x1="55" y1="150" x2="345" y2="150"/>
+        </g>
+        <text x="200" y="18" fill="#c4b6a0" font-size="11" font-family="IBM Plex Mono, monospace" text-anchor="middle">Settlement mound (illustrative)</text>
+      </svg>
+      <p class="map-caption">Illustrative excavation-grid diagram — trench layout simplified for this explorer, not a literal ASI site plan.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="later-history">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Later History</p>
+      <h2>Abandonment and rediscovery</h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-block">
+        <p>Occupation ends with the close of the Jorwe phase around 1000 BCE; the site was not resettled during the historic period, leaving its stratigraphy undisturbed for nearly three millennia.</p>
+      </div>
+      <div class="info-block">
+        <p>Today the mound lies within the revenue village of Ladgaon. The 1974 bronze hoard is held at the Chhatrapati Shivaji Maharaj Vastu Sangrahalaya (formerly the Prince of Wales Museum) in Mumbai; the chariot sculpture is recorded as being at the National Museum, New Delhi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="references">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">References</p>
+      <h2>Sources</h2>
+    </div>
+    <ul class="ref-list">
+      <li><a href="https://en.wikipedia.org/wiki/Daimabad" target="_blank" rel="noopener">Daimabad — overview and cultural sequence</a><span>Wikipedia</span></li>
+      <li><a href="https://en.wikipedia.org/wiki/Jorwe_culture" target="_blank" rel="noopener">Jorwe culture</a><span>Wikipedia</span></li>
+      <li><a href="https://en.wikipedia.org/wiki/Chhatrapati_Shivaji_Maharaj_Vastu_Sangrahalaya" target="_blank" rel="noopener">Chhatrapati Shivaji Maharaj Vastu Sangrahalaya (CSMVS)</a><span>Wikipedia</span></li>
+      <li><a href="https://www.livehistoryindia.com/story/art-history/daimabads-mystery-man" target="_blank" rel="noopener">Daimabad's Mystery Man — the chariot bronze</a><span>Live History India</span></li>
+      <li><a href="https://theprint.in/opinion/daimabad-home-to-skilled-agriculturalists-before-harappans-cultural-influence/2382933/" target="_blank" rel="noopener">Daimabad's agriculturalists before Harappan influence</a><span>ThePrint</span></li>
+      <li><a href="https://erenow.org/common/india-an-archaeological-history/37.php" target="_blank" rel="noopener">Maharashtra chalcolithic sequence</a><span>India: An Archaeological History</span></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Daimabad explorer — part of Incredible India Explorer's archaeology series.</div>
+</footer>
+
+<script>
+(function(){
+  // Strata visualization: click a band to highlight its detail card (progressive enhancement —
+  // all detail text is already present and readable in the markup without this script).
+  var bands = document.querySelectorAll('.strata-band');
+  var details = document.querySelectorAll('.strata-item');
+  bands.forEach(function(band){
+    band.addEventListener('click', function(){
+      var phase = band.dataset.phase;
+      details.forEach(function(d, i){
+        var order = [5,4,3,2,1][i];
+        d.style.opacity = (String(order) === phase) ? '1' : '.45';
+      });
+      d_scroll(phase);
+    });
+  });
+  function d_scroll(phase){
+    var idx = [5,4,3,2,1].indexOf(parseInt(phase,10));
+    var target = details[idx];
+    if(target) target.scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+
+  // Artifact explorer lightbox — tiles already exist in markup; this only adds the modal viewer.
+  var artifacts = [
+    {title:"Chariot & driver", meta:"45 × 16 cm · solid-cast bronze", caption:"A standing male figure drives a two-wheeled chariot yoked to two humped oxen. A small dog stands on the central pole, with a pair of birds flanking the driver's platform — details echoing terracotta bird-whistles found at Harappan sites.", grad:"linear-gradient(160deg,#4a5a86,#251e16)"},
+    {title:"Elephant", meta:"≈36.5 cm high · solid-cast bronze", caption:"The largest single piece in the hoard, mounted on a wheeled platform (now missing its wheels), with a realistically modeled trunk.", grad:"linear-gradient(160deg,#9c8a4a,#251e16)"},
+    {title:"Rhinoceros", meta:"28.5 cm high · solid-cast bronze", caption:"A single-horned rhinoceros with stylized skin-folds, similar to rhinoceros depictions on some Indus seals — an animal rarely shown in ancient Indian art outside Harappan contexts.", grad:"linear-gradient(160deg,#a85c2e,#251e16)"},
+    {title:"Water buffalo", meta:"27.5 × 24.8 cm · solid-cast bronze", caption:"A charging water buffalo with sweeping horns, standing on a four-wheeled base — the front wheels smaller than the rear.", grad:"linear-gradient(160deg,#8c3b3b,#251e16)"}
+  ];
+
+  var grid = document.getElementById('artifactGrid');
+  var lightbox = document.getElementById('lightbox');
+  var lbSwatch = document.getElementById('lightboxSwatch');
+  var lbTitle = document.getElementById('lightboxTitle');
+  var lbMeta = document.getElementById('lightboxMeta');
+  var lbCaption = document.getElementById('lightboxCaption');
+  var lbCount = document.getElementById('lightboxCount');
+  var current = 0;
+
+  function openLightbox(i){
+    current = i;
+    render();
+    lightbox.classList.add('open');
+    document.getElementById('lightboxClose').focus();
+  }
+  function render(){
+    var item = artifacts[current];
+    lbSwatch.style.background = item.grad;
+    lbTitle.textContent = item.title;
+    lbMeta.textContent = item.meta;
+    lbCaption.textContent = item.caption;
+    lbCount.textContent = (current + 1) + ' / ' + artifacts.length;
+  }
+  function closeLightbox(){ lightbox.classList.remove('open'); }
+  function next(){ current = (current + 1) % artifacts.length; render(); }
+  function prev(){ current = (current - 1 + artifacts.length) % artifacts.length; render(); }
+
+  grid.addEventListener('click', function(e){
+    var card = e.target.closest('.a-item');
+    if(card) openLightbox(parseInt(card.dataset.index, 10));
+  });
+  grid.addEventListener('keydown', function(e){
+    var card = e.target.closest('.a-item');
+    if(card && (e.key === 'Enter' || e.key === ' ')){
+      e.preventDefault();
+      openLightbox(parseInt(card.dataset.index, 10));
+    }
+  });
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxNext').addEventListener('click', next);
+  document.getElementById('lightboxPrev').addEventListener('click', prev);
+  lightbox.addEventListener('click', function(e){ if(e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', function(e){
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowRight') next();
+    if(e.key === 'ArrowLeft') prev();
+  });
+})();
+</script>
+
+</body>
+</html>

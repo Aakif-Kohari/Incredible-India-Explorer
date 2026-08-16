@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Sultanpur Wetland Explorer - Explore the birding paradise of Sultanpur National Park, near Delhi, known for hundreds of migratory and resident bird species." name="description"/>
+    <meta property="og:title" content="Sultanpur Wetland Explorer | Incredible India"/>
+    <meta property="og:description" content="Discover Sultanpur Wetland, a vital bird sanctuary and photography destination in Haryana."/>
+    
+    <title>Sultanpur Wetland Explorer | Incredible India</title>
+    
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/frontend/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <link href="../../styles.css"stylesheet"/>
+    <link href="../pages-common.css" rel="stylesheet"/>
+    <link href="sultanpur-wetland-explorer.css" rel="stylesheet"/>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Sultanpur National Park",
+      "description": "A premier bird sanctuary and wetland ecosystem in Haryana, India.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Gurugram",
+        "addressRegion": "Haryana",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+</head>
+<body>
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+    <main id="app-root" style="padding-top: 80px;">
+        
+        <!-- Hero Section -->
+        <section class="wetland-hero">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge sanctuary"><i class="fa-solid fa-tree"></i> Bird Sanctuary</span>
+                    <span class="badge ramsar"><i class="fa-solid fa-water"></i> Ramsar Wetland</span>
+                    <span class="badge migration"><i class="fa-solid fa-dove"></i> Migratory Birds</span>
+                    <span class="badge photo"><i class="fa-solid fa-camera"></i> Photography Destination</span>
+                </div>
+                <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Sultanpur Wetland</h1>
+                <p class="hero-subtitle animate-fade-in-delayed" style="color: var(--saffron); font-size: 1.5rem; font-family: 'Playfair Display', serif; margin-bottom: 15px;">A Paradise for Migratory Birds Near Delhi</p>
+                <p class="hero-location" style="color: #eee; font-size: 1.1rem; margin-bottom: 25px;"><i class="fa-solid fa-map-pin"></i> Gurugram District, Haryana, India</p>
+                <div class="hero-actions">
+                    <a href="#birds" class="btn btn-primary ripple">View Bird Checklist</a>
+                    <a href="#map" class="btn btn-secondary ripple">View Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wetland Ecology -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge gold-bg">Ecology</span>
+                    <h2>A Thriving Freshwater Ecosystem</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-leaf"></i> Dynamic Habitats</h3>
+                        <p>This freshwater wetland features seasonal water level fluctuations that create diverse micro-habitats, including open water, marshes, grasslands, and scattered woodland patches essential for different bird groups.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-bug"></i> Rich Food Web</h3>
+                        <p>The ecological importance of Sultanpur lies in its prolific food web. The nutrient-rich waters support abundant aquatic insects, molluscs, and small fish, which in turn sustain hundreds of resident and migratory bird species.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-sun"></i> Seasonal Visitors</h3>
+                        <p><strong>Winter:</strong> Peak migration brings thousands of birds. <strong>Summer:</strong> Resident species dominate the landscape. <strong>Monsoon:</strong> Brings crucial wetland regeneration.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Migratory Birds & Photography -->
+        <section id="migratory" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Avian Wonders</span>
+                    <h2>Flyways and Feathers</h2>
+                    <p class="section-subtitle">An important stopover on the Central Asian Flyway.</p>
+                </div>
+                <div class="wildlife-grid">
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Painted_Stork_%28Mycteria_leucocephala%29_Photograph_By_Shantanu_Kuveskar.jpg/800px-Painted_Stork_%28Mycteria_leucocephala%29_Photograph_By_Shantanu_Kuveskar.jpg" alt="Painted Stork" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1596766632420-9426f83ecff9?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Painted Stork</h3>
+                            <span class="wildlife-status status-near-threatened">Near Threatened</span>
+                            <p>A beautifully patterned resident bird that forms noisy nesting colonies in the acacia trees surrounding the wetland.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Northern_Pintail.jpg/800px-Northern_Pintail.jpg" alt="Northern Pintail" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1616781297597-402a5a0fb773?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Northern Pintail</h3>
+                            <span class="wildlife-status status-least-concern">Winter Migrant</span>
+                            <p>Arriving from Europe and Siberia, these elegant dabbling ducks flock to the shallow waters during the peak winter months.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bar-headed_goose_%28Anser_indicus%29.jpg/800px-Bar-headed_goose_%28Anser_indicus%29.jpg" alt="Bar-headed Goose" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1574068468668-a05a11f871da?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Bar-headed Goose</h3>
+                            <span class="wildlife-status status-least-concern">High-Altitude Flyer</span>
+                            <p>One of the world's highest flying birds, migrating over the Himalayas to spend the winter in the Indian plains.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eurasian_Spoonbill_%28Platalea_leucorodia%29.jpg/800px-Eurasian_Spoonbill_%28Platalea_leucorodia%29.jpg" alt="Eurasian Spoonbill" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1555541655-081b22306c59?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Eurasian Spoonbill</h3>
+                            <span class="wildlife-status status-least-concern">Winter Migrant</span>
+                            <p>Easily identified by its spatulate bill, which it sweeps side-to-side in the shallow mud to catch small aquatic prey.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photography-section" style="margin-top: 50px; background: var(--glass-bg); padding: 30px; border-radius: 16px; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--gold); margin-bottom: 15px;"><i class="fa-solid fa-camera-retro"></i> Bird Photography</h3>
+                    <p style="color: var(--text-muted); line-height: 1.6;">Sultanpur is a haven for wildlife photographers. Purpose-built <strong>photography hides</strong> and strategically placed <strong>observation towers</strong> offer incredible vantage points. For the best lighting and bird activity, early morning <strong>sunrise photography</strong> is highly recommended. Always practice <strong>responsible wildlife photography</strong>: minimize noise, do not disturb nesting birds, and stick to the marked trails. A telephoto lens (400mm+) is ideal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bird Checklist Section -->
+        <section id="birds" class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: var(--green); color: white;">Interactive Tool</span>
+                    <h2>Bird Checklist</h2>
+                    <p class="section-subtitle">Keep track of the species you spot during your visit.</p>
+                </div>
+                
+                <div class="checklist-container">
+                    <div class="checklist-controls">
+                        <input type="text" id="bird-search" placeholder="Search species..." aria-label="Search birds">
+                        <select id="bird-filter" aria-label="Filter by bird group">
+                            <option value="all">All Groups</option>
+                            <option value="waterbirds">Water Birds</option>
+                            <option value="waders">Waders</option>
+                            <option value="raptors">Raptors</option>
+                            <option value="ducks">Ducks & Geese</option>
+                        </select>
+                    </div>
+                    <div class="checklist-grid" id="checklist-grid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conservation and Facts -->
+        <section class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+                <div class="activities-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: #00bcd4; color: white;">Conservation</span>
+                        <h2>Protecting the Habitat</h2>
+                    </div>
+                    <ul>
+                        <li><strong>Protected Area Management:</strong> Declared a National Park in 1991 to elevate protection status and enforce anti-poaching measures.</li>
+                        <li><strong>Water Conservation:</strong> Artificial pumping and habitat restoration efforts maintain water levels during dry seasons to support resident fauna.</li>
+                        <li><strong>Eco-Tourism Initiatives:</strong> Educational programs and visitor awareness centers help promote responsible tourism and wetland conservation.</li>
+                    </ul>
+                </div>
+                <div class="facts-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: #e91e63; color: white;">Facts</span>
+                        <h2>Did You Know?</h2>
+                    </div>
+                    <ul>
+                        <li>Located less than an hour's drive from Delhi, making it an accessible urban escape.</li>
+                        <li>Despite its compact size (1.42 sq km), it supports over 250 bird species annually.</li>
+                        <li>Designated as a Ramsar Wetland of International Importance.</li>
+                        <li>A globally recognized Important Bird Area (IBA).</li>
+                        <li>The best time to visit is from October to March for peak winter migration.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery (Lazy Loaded) -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #ff9800; color: white;">Gallery</span>
+                    <h2 id="gallery-heading">Visual Journey</h2>
+                </div>
+                <div class="gallery-grid" id="gallery-grid" role="region" aria-labelledby="gallery-heading">
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Wetland Landscape">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?auto=format&fit=crop&w=800&q=80" alt="Beautiful wetland landscape at dawn">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Migratory Birds">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1555541655-081b22306c59?auto=format&fit=crop&w=800&q=80" alt="Flock of migratory birds in flight">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Birdwatchers">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Photographers observing birds from a hide">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Native Vegetation">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=800&q=80" alt="Acacia trees surrounding the marsh">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section id="map" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Map</span>
+                    <h2>Explore the Park</h2>
+                    <p class="section-subtitle">Find nature trails, bird hides, and visitor facilities.</p>
+                </div>
+                <div id="map-container" aria-label="Interactive map of Sultanpur National Park"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/frontend/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../pages-common.js"></script>
+    <script src="sultanpur-wetland-explorer.js"></script>
+</body>
+</html>
