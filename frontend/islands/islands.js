@@ -18,7 +18,7 @@ const ISLANDS_DATA = [
     tagline: "India's largest island archipelago",
     description: "A chain of 572 islands, islets and rocky outcrops formed by the collision of the Indian and Burma tectonic plates. Only about 38 islands are inhabited, and the region is home to dense tropical rainforests, coral reefs, and several protected tribal communities.",
     highlights: ["Cellular Jail, Port Blair", "Radhanagar Beach, Havelock", "Barren Island — India's only active volcano", "Jarawa & Sentinelese tribal reserves"],
-    image: "../../assets/travel_beaches.png"
+    image: "https://images.unsplash.com/photo-1589136777351-fdc9c9cb15f9?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "great-nicobar",
@@ -31,8 +31,8 @@ const ISLANDS_DATA = [
     islandCount: "1 island",
     tagline: "India's southernmost island, home to Indira Point",
     description: "The largest island in the Nicobar group and India's southernmost territory, home to Indira Point, Campbell Bay National Park, and rare endemic wildlife.",
-highlights: ["Indira Point — southernmost tip of India", "Campbell Bay National Park", "UNESCO Biosphere Reserve (2013)", "Nesting ground for Giant Leatherback turtles"],
-    image: "../../assets/travel_hidden.png"
+    highlights: ["Indira Point — southernmost tip of India", "Campbell Bay National Park", "UNESCO Biosphere Reserve (2013)", "Nesting ground for Giant Leatherback turtles"],
+    image: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "car-nicobar",
@@ -46,8 +46,9 @@ highlights: ["Indira Point — southernmost tip of India", "Campbell Bay Nationa
     tagline: "The Nicobars' most populated island, home of the Nicobarese",
     description: "A flat, coral-fringed island and the administrative headquarters of the Nicobar district, Car Nicobar is home to the indigenous Nicobarese community, vast coconut plantations, sandy beaches and traditional hodi boat races.",
     highlights: ["Largest Nicobarese population in the islands", "Extensive coconut plantations and copra economy", "Traditional villages and Chowra-style huts", "Malacca and Kakana beaches"],
-    image: "../../assets/travel_beaches.png"
-  },  {
+    image: "https://images.unsplash.com/photo-1620023605809-5a81eab74513?auto=format&fit=crop&q=80&w=800"
+  },
+  {
     id: "south-andaman",
     name: "South Andaman",
     group: "Andaman & Nicobar",
@@ -59,7 +60,7 @@ highlights: ["Indira Point — southernmost tip of India", "Campbell Bay Nationa
     tagline: "Gateway to the Andamans — Port Blair, Cellular Jail & Ross Island",
     description: "Home to Port Blair, the capital of Andaman & Nicobar Islands, South Andaman blends colonial history, museums, and coastal scenery — from the Cellular Jail to Chidiya Tapu's sunsets and the ruins of Ross Island.",
     highlights: ["Cellular Jail National Memorial", "Ross Island's British colonial ruins", "Chidiya Tapu — Bird Island & sunset point", "Anthropological & Samudrika Marine Museums"],
-    image: "../../assets/travel_beaches.png"
+    image: "https://images.unsplash.com/photo-1596489375713-132d7334ed6a?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "middle-andaman",
@@ -73,7 +74,7 @@ highlights: ["Indira Point — southernmost tip of India", "Campbell Bay Nationa
     tagline: "Limestone caves, mangrove creeks & quiet beaches",
     description: "Home to Baratang's limestone caves and mud volcanoes, sprawling mangrove forests, and the towns of Rangat and Mayabunder, Middle Andaman offers a quieter, nature-focused side of the archipelago.",
     highlights: ["Limestone Caves, Baratang Island", "Mangrove creek boat rides", "Karmatang Beach — sea turtle nesting site", "Rangat & Mayabunder villages"],
-    image: "../../assets/travel_hidden.png"
+    image: "https://images.unsplash.com/photo-1544498308-3ab9eb395896?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "shaheed-dweep",
@@ -87,9 +88,9 @@ highlights: ["Indira Point — southernmost tip of India", "Campbell Bay Nationa
     tagline: "The Natural Bridge, beaches & the Andamans' vegetable bowl",
     description: "Formerly Neil Island, officially renamed Shaheed Dweep in 2018 — a small, laid-back island known for its Natural Bridge rock arch, Bharatpur & Laxmanpur beaches, accessible coral reefs, and the farms that supply Port Blair's markets.",
     highlights: ["Natural Bridge (Howrah Bridge)", "Bharatpur Beach snorkelling & coral reefs", "Laxmanpur Beach sunsets", "Vegetable farms — the 'vegetable bowl' of the Andamans"],
-    image: "../../assets/travel_islands.png"
+    image: "https://images.unsplash.com/photo-1560965319-3f0e0df6deeb?auto=format&fit=crop&q=80&w=800"
   },
-{
+  {
     id: "little-andaman",
     name: "Little Andaman",
     group: "Andaman & Nicobar",
@@ -101,7 +102,7 @@ highlights: ["Indira Point — southernmost tip of India", "Campbell Bay Nationa
     tagline: "Butler Bay surfing, White Surf Waterfall & pristine forests",
     description: "India's fourth-largest Andaman island (~730 km²) with world-class surfing at Butler Bay, the spectacular 60m White Surf Waterfall, ancient evergreen rainforests covering 80% of the island, and critical habitat for dugongs, sea turtles, and swimming elephants.",
     highlights: ["Butler Bay — India's premier surfing beach", "White Surf Waterfall (60m cascade)", "Evergreen rainforests with high endemism", "Dugong & sea turtle nesting habitat", "Hut Bay — main settlement & ferry port"],
-    image: "../../assets/travel_beaches.png"
+    image: "https://images.unsplash.com/photo-1596895111956-bf57bce19b26?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "swaraj-dweep",
@@ -115,7 +116,7 @@ highlights: ["Indira Point — southernmost tip of India", "Campbell Bay Nationa
     tagline: "Home of Radhanagar Beach, Asia's Best Beach",
     description: "Formerly Havelock Island, renamed Swaraj Dweep in 2018 — the Andamans' premier tourism hub, famed for Radhanagar and Elephant Beach, accessible coral reefs, rich marine life, and some of the best scuba diving in India.",
     highlights: ["Radhanagar Beach — Asia's Best Beach (Time, 2004)", "Elephant Beach snorkelling & water sports", "20+ scuba diving sites, incl. Dixon's Pinnacle", "Renamed Swaraj Dweep in 2018 to honour Netaji Subhas Chandra Bose"],
-    image: "../../assets/travel_beaches.png"
+    image: "https://images.unsplash.com/photo-1589136777351-fdc9c9cb15f9?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "narcondam",
@@ -128,8 +129,8 @@ highlights: ["Indira Point — southernmost tip of India", "Campbell Bay Nationa
     islandCount: "1 island",
     tagline: "An extinct volcano and the only home of the Narcondam Hornbill",
     description: "A small, remote, densely-forested volcanic island east of the main Andaman group. Formed by an extinct volcano, it is the sole habitat of the endemic Narcondam Hornbill and is protected as a wildlife sanctuary.",
-highlights: ["Extinct volcanic cone rising steeply from the sea", "Endemic Narcondam Hornbill found nowhere else on Earth", "Declared a Wildlife Sanctuary in 1977", "Dense tropical evergreen forest cover"],
-    image: "../../assets/travel_hidden.png"
+    highlights: ["Extinct volcanic cone rising steeply from the sea", "Endemic Narcondam Hornbill found nowhere else on Earth", "Declared a Wildlife Sanctuary in 1977", "Dense tropical evergreen forest cover"],
+    image: "https://images.unsplash.com/photo-1544498308-3ab9eb395896?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "north-andaman",
@@ -143,9 +144,9 @@ highlights: ["Extinct volcanic cone rising steeply from the sea", "Endemic Narco
     tagline: "Saddle Peak, mangrove creeks & the Andamans' highest point",
     description: "The northernmost of the main Andaman islands, home to Saddle Peak — the highest point in the Andaman & Nicobar Islands — the Saddle Peak National Park, sprawling mangrove creeks, and the trekking and birding hub of Diglipur.",
     highlights: ["Saddle Peak — highest peak in the Andaman & Nicobar Islands", "Saddle Peak National Park", "Extensive mangrove creeks and forests", "Trekking trails through tropical rainforest"],
-    image: "../../assets/travel_mountains.png"
-  },  {
-    id: "lakshadweep",    name: "Lakshadweep Islands",
+    image: "https://images.unsplash.com/photo-1596489375713-132d7334ed6a?auto=format&fit=crop&q=80&w=800"
+  },
+  {
     id: "barren-island",
     name: "Barren Island",
     group: "Andaman & Nicobar",
@@ -157,7 +158,7 @@ highlights: ["Extinct volcanic cone rising steeply from the sea", "Endemic Narco
     tagline: "India's only confirmed active volcano",
     description: "An uninhabited volcanic island in the Andaman Sea, home to India's only confirmed active volcano, a 2-km-wide caldera, and dive sites known for volcanic drop-offs and rich marine life.",
     highlights: ["India's only confirmed active volcano", "First recorded eruption in 1787, most recently in 2022", "Horseshoe-shaped caldera roughly 2 km wide", "Popular deep-sea diving site around the island"],
-    image: "../../assets/travel_hidden.png"
+    image: "https://images.unsplash.com/photo-1580100586938-02822d99c4a8?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "north-sentinel-island",
@@ -171,7 +172,7 @@ highlights: ["Extinct volcanic cone rising steeply from the sea", "Endemic Narco
     tagline: "A protected, off-limits home to the Sentinelese people",
     description: "North Sentinel Island is home to the Sentinelese, one of the world's last uncontacted tribes. Entry is strictly prohibited by Indian law to protect the tribe's health, safety and way of life.",
     highlights: ["Home to the uncontacted Sentinelese tribe", "Protected under the Protection of Aboriginal Tribes Regulation, 1956", "Off-limits — no tourism or unauthorised entry permitted", "Part of the Andaman & Nicobar tribal reserve system"],
-    image: "../../assets/travel_hidden.png"
+    image: "https://images.unsplash.com/photo-1620023605809-5a81eab74513?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "lakshadweep",
@@ -184,8 +185,8 @@ highlights: ["Extinct volcanic cone rising steeply from the sea", "Endemic Narco
     islandCount: "36 islands",
     tagline: "India's smallest Union Territory",
     description: "A cluster of 36 coral islands and atolls scattered in the Arabian Sea off the Kerala coast. Built entirely from coral deposits, the islands are ringed by turquoise lagoons and are among the most pristine coral reef ecosystems in India.",
-highlights: ["Kavaratti — administrative capital", "Agatti coral lagoon", "Bangaram atoll", "Minicoy — largest island in the group"],
-    image: "../../assets/travel_beaches.png"
+    highlights: ["Kavaratti — administrative capital", "Agatti coral lagoon", "Bangaram atoll", "Minicoy — largest island in the group"],
+    image: "https://images.unsplash.com/photo-1506461883276-594540eb36cb?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "minicoy",
@@ -199,8 +200,9 @@ highlights: ["Kavaratti — administrative capital", "Agatti coral lagoon", "Ban
     tagline: "Lakshadweep's second-largest island, famed for its lighthouse and tuna fishing",
     description: "Geographically and culturally distinct from the rest of Lakshadweep, Minicoy is known for its historic lighthouse, thriving tuna fishing industry, a large lagoon, rich marine biodiversity and the Mahl-speaking community that shares close ties with the Maldives.",
     highlights: ["19th-century Minicoy Lighthouse", "Traditional pole-and-line tuna fishing", "Mahl — a language closely related to Dhivehi", "One of Lakshadweep's largest lagoons"],
-    image: "../../assets/travel_beaches.png"
-  },  {
+    image: "https://images.unsplash.com/photo-1516815231560-8f41ec531527?auto=format&fit=crop&q=80&w=800"
+  },
+  {
     id: "kavaratti",
     name: "Kavaratti Island",
     group: "Lakshadweep",
@@ -212,8 +214,9 @@ highlights: ["Kavaratti — administrative capital", "Agatti coral lagoon", "Ban
     tagline: "The administrative capital of Lakshadweep",
     description: "The capital of the Lakshadweep Union Territory, Kavaratti is known for its calm turquoise lagoon, vivid coral reefs, a well-known marine aquarium and several historic mosques woven into the island's small, close-knit community.",
     highlights: ["Wide, calm lagoon ideal for swimming and boating", "Marine Aquarium showcasing lagoon and reef life", "Vibrant coral reefs for snorkelling and diving", "Ujra Mosque and other historic island mosques"],
-    image: "../../assets/travel_beaches.png"
-  },  {
+    image: "https://images.unsplash.com/photo-1506461883276-594540eb36cb?auto=format&fit=crop&q=80&w=800"
+  },
+  {
     id: "majuli",
     name: "Majuli",
     group: "River Islands",
@@ -225,7 +228,7 @@ highlights: ["Kavaratti — administrative capital", "Agatti coral lagoon", "Ban
     tagline: "World's largest inhabited river island",
     description: "Formed by the Brahmaputra and its tributaries, Majuli is a seasonally shifting river island and the cultural heart of Assamese Vaishnavite tradition, dotted with satras (monasteries) that preserve centuries-old dance, mask-making and music.",
     highlights: ["Kamalabari Satra", "Mask-making workshops", "Migratory bird habitat", "Neo-Vaishnavite culture"],
-    image: "../../assets/river6.png"
+    image: "https://images.unsplash.com/photo-1580100586938-02822d99c4a8?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "elephanta",
@@ -239,7 +242,7 @@ highlights: ["Kavaratti — administrative capital", "Agatti coral lagoon", "Ban
     tagline: "UNESCO World Heritage rock-cut caves",
     description: "A short ferry ride from Mumbai's Gateway of India, Elephanta Island houses 5th–8th century rock-cut cave temples dedicated to Shiva, carved directly into basalt hillsides.",
     highlights: ["UNESCO World Heritage Site", "Trimurti Sadashiva sculpture", "Rock-cut Shiva caves"],
-    image: "../../assets/Taj_Mahal.png"
+    image: "https://images.unsplash.com/photo-1544498308-3ab9eb395896?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "sundarbans",
@@ -253,7 +256,7 @@ highlights: ["Kavaratti — administrative capital", "Agatti coral lagoon", "Ban
     tagline: "World's largest mangrove delta",
     description: "A vast, low-lying cluster of islands formed where the Ganges, Brahmaputra and Meghna rivers meet the Bay of Bengal. The Sundarbans is a UNESCO World Heritage Site and the only mangrove habitat where wild Royal Bengal Tigers still swim between islands.",
     highlights: ["Royal Bengal Tiger reserve", "UNESCO World Heritage & Biosphere Reserve", "Largest mangrove forest on Earth", "Shared with Bangladesh"],
-    image: "../../assets/river6.png"
+    image: "https://images.unsplash.com/photo-1588630328906-8fbce38b43bd?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "st-marys",
@@ -267,7 +270,7 @@ highlights: ["Kavaratti — administrative capital", "Agatti coral lagoon", "Ban
     tagline: "Rare hexagonal basalt rock formations",
     description: "A cluster of four small islets off the Karnataka coast known for striking hexagonal, columnar basalt rock formations created by cooling volcanic lava — a geological rarity on India's western coast.",
     highlights: ["Columnar basalt rock formations", "Vasco da Gama's landing site", "Geological Monument of India"],
-    image: "../../assets/travel_beaches.png"
+    image: "https://images.unsplash.com/photo-1605649487212-4d515d9afb21?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "diu",
@@ -281,7 +284,7 @@ highlights: ["Kavaratti — administrative capital", "Agatti coral lagoon", "Ban
     tagline: "Former Portuguese coastal enclave",
     description: "A small island off the Saurashtra coast connected to the mainland by bridges, Diu retains strong Portuguese colonial influence in its fort, churches and architecture after nearly 450 years of Portuguese rule.",
     highlights: ["Diu Fort (1535 CE)", "Portuguese colonial architecture", "Nagoa Beach"],
-    image: "../../assets/West_India.png"
+    image: "https://images.unsplash.com/photo-1596489375713-132d7334ed6a?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "munroe",
@@ -295,7 +298,7 @@ highlights: ["Kavaratti — administrative capital", "Agatti coral lagoon", "Ban
     tagline: "A cluster of islets in Kerala's backwaters",
     description: "Named after British Resident Colonel John Munro, this cluster of small islets sits where the Kallada River meets Ashtamudi Lake, connected by a maze of narrow canals best explored by traditional canoe.",
     highlights: ["Canal canoe rides", "Coir-making villages", "Ashtamudi Lake backwaters"],
-    image: "../../assets/river6.png"
+    image: "https://images.unsplash.com/photo-1588630328906-8fbce38b43bd?auto=format&fit=crop&q=80&w=800"
   }
 ];
 
@@ -420,24 +423,31 @@ function initSearchAndFilters() {
 
 // ---------- 7. MODAL ----------
 function openModal(islandId) {
-  const island = ISLANDS_DATA.find((i) => i.id === islandId);
-  if (!island) return;
+  const pageMap = {
+    "great-nicobar": "../great-nicobar/great-nicobar.html",
+    "car-nicobar": "../car-nicobar-island/car-nicobar-island.html",
+    "south-andaman": "../south-andaman/south-andaman.html",
+    "middle-andaman": "../middle-andaman/middle-andaman.html",
+    "shaheed-dweep": "../shaheed-dweep/shaheed-dweep.html",
+    "little-andaman": "../little-andaman/index.html",
+    "swaraj-dweep": "../swaraj-dweep/swaraj-dweep.html",
+    "narcondam": "../narcondam-island/narcondam-island.html",
+    "north-andaman": "../north-andaman-island/north-andaman-island.html",
+    "barren-island": "../barren-island/barren-island.html",
+    "north-sentinel-island": "../north-sentinel-island/north-sentinel-island.html",
+    "lakshadweep": "../lakshadweep/lakshadweep.html",
+    "minicoy": "../minicoy-island/minicoy-island.html",
+    "kavaratti": "../kavaratti-island/kavaratti-island.html",
+    "majuli": "../majuli/majuli.html"
+  };
 
-if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "narcondam" || island.id === "minicoy") {
-    const pageMap = {
-      "great-nicobar": "../great-nicobar/great-nicobar.html",
-      "south-andaman": "../south-andaman/south-andaman.html",
-      "middle-andaman": "../middle-andaman/middle-andaman.html",
-      "shaheed-dweep": "../shaheed-dweep/shaheed-dweep.html",
-      "little-andaman": "../little-andaman/index.html",
-      "swaraj-dweep": "../swaraj-dweep/swaraj-dweep.html",
-      "narcondam": "../narcondam-island/narcondam-island.html",
-      "barren-island": "../barren-island/barren-island.html",
-      "north-sentinel-island": "../north-sentinel-island/north-sentinel-island.html",
-      "minicoy": "../minicoy-island/minicoy-island.html"
-    };    window.location.href = pageMap[island.id];
+  if (pageMap[islandId]) {
+    window.location.href = pageMap[islandId];
     return;
   }
+
+  const island = ISLANDS_DATA.find((i) => i.id === islandId);
+  if (!island) return;
   document.getElementById("island-modal-title").textContent = island.name;
   document.getElementById("island-modal-location").textContent = island.location;
   document.getElementById("island-modal-group").textContent = island.group;
