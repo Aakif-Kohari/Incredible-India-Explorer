@@ -3807,17 +3807,27 @@ window.indiaSearchIndex = [
     {
         title: 'Swargarohini Mountain Explorer',
         category: 'Mountains & Geography',
-        description:
-            'Dedicated explorer for Swargarohini, a 6,252 m high massif in the Garhwal Himalayas of Uttarakhand, featuring mythological history, trekking routes, map locations, image gallery, and FAQs.',
+        description: 'Dedicated explorer for Swargarohini, a 6,252 m high massif in the Garhwal Himalayas of Uttarakhand, featuring mythological history, trekking routes, map locations, image gallery, and FAQs.',
         url: 'frontend/swargarohini/swargarohini.html'
     },
     // --- Bandarpoonch Mountain ---
     {
         title: 'Bandarpoonch Mountain Explorer',
         category: 'Mountains & Geography',
-        description:
-            'Dedicated explorer for Bandarpoonch, a 6,316 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, trekking details, and FAQs.',
+        description:'Dedicated explorer for Bandarpoonch, a 6,316 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, trekking details, and FAQs.',
         url: 'frontend/bandarpoonch/bandarpoonch.html'
+    },
+    {
+        title: "Davis Cup: Explore India's Tennis Journey",
+        category: "Sports & Culture",
+        description: "Interactive archive of India's Davis Cup history since 1921 — 3 finals (1966, 1974 forfeit, 1987), key players (Leander Paes, Amritraj brothers), and a searchable, filterable timeline with sources.",
+        url: "frontend/davis-cup-explorer/davis-cup-explorer.html"
+    },
+    {
+        title: "Thomas Cup: India's Badminton Journey",
+        category: "Sports & Culture",
+        description: "Interactive archive of India's Thomas Cup history since 1952 — maiden 2022 title over Indonesia, top-4 finishes (1952, 1955, 1979), key players (Prakash Padukone, Lakshya Sen, Satwik-Chirag), and a searchable timeline with sources.",
+        url: "frontend/thomas-cup-explorer/thomas-cup-explorer.html"
     },
     // --- India's Firsts Encyclopedia ---
     {
