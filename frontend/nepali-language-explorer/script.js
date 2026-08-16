@@ -112,11 +112,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Safe data getters
+    const getStats = () => window.NEPALI_STATS || (typeof NEPALI_STATS !== 'undefined' ? NEPALI_STATS : []);
+    const getGreetings = () => window.NEPALI_GREETINGS || (typeof NEPALI_GREETINGS !== 'undefined' ? NEPALI_GREETINGS : []);
+    const getWords = () => window.NEPALI_WORDS || (typeof NEPALI_WORDS !== 'undefined' ? NEPALI_WORDS : []);
+    const getClassification = () => window.NEPALI_CLASSIFICATION || (typeof NEPALI_CLASSIFICATION !== 'undefined' ? NEPALI_CLASSIFICATION : null);
+    const getRegions = () => window.NEPALI_INDIAN_REGIONS || (typeof NEPALI_INDIAN_REGIONS !== 'undefined' ? NEPALI_INDIAN_REGIONS : []);
+    const getCulture = () => window.NEPALI_LITERATURE_CULTURE || (typeof NEPALI_LITERATURE_CULTURE !== 'undefined' ? NEPALI_LITERATURE_CULTURE : []);
+    const getSources = () => window.NEPALI_SOURCES || (typeof NEPALI_SOURCES !== 'undefined' ? NEPALI_SOURCES : []);
+
     // Render Stats
     function renderStats() {
         const container = document.getElementById('stats-strip');
-        if (!container || !window.NEPALI_STATS) return;
-        container.innerHTML = NEPALI_STATS.map(s => `
+        const stats = getStats();
+        if (!container || !stats.length) return;
+        container.innerHTML = stats.map(s => `
             <div class="stat-box">
                 <div class="stat-value">${s.value}</div>
                 <div class="stat-label">${s.label}</div>
@@ -128,9 +138,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render Greetings
     function renderGreetings() {
         const grid = document.getElementById('greetings-grid');
-        if (!grid || !window.NEPALI_GREETINGS) return;
+        const greetings = getGreetings();
+        if (!grid || !greetings.length) return;
 
-        grid.innerHTML = NEPALI_GREETINGS.map((g, i) => `
+        grid.innerHTML = greetings.map((g, i) => `
             <div class="greeting-card">
                 <div>
                     <div class="greeting-header">
@@ -157,15 +168,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render Script Details
     function renderScript() {
         const matrix = document.getElementById('vowel-matrix');
-        if (matrix && window.NEPALI_SCRIPT_DATA) {
-            matrix.innerHTML = NEPALI_SCRIPT_DATA.vowels.map(v => `
+        const scriptData = window.NEPALI_SCRIPT_DATA || (typeof NEPALI_SCRIPT_DATA !== 'undefined' ? NEPALI_SCRIPT_DATA : null);
+        
+        if (matrix && scriptData && scriptData.vowels) {
+            matrix.innerHTML = scriptData.vowels.map(v => `
                 <div class="vowel-cell" data-char="${v.char}" title="Click to hear vowel ${v.rom}" role="button" tabindex="0">
                     <div class="vowel-char">${v.char}</div>
                     <div class="vowel-rom">${v.rom}</div>
                     <div class="vowel-ipa">${v.ipa}</div>
                 </div>
             `).join('');
+        }
 
+        if (matrix) {
             matrix.querySelectorAll('.vowel-cell').forEach(cell => {
                 const trigger = () => speakText(cell.dataset.char, cell, cell.dataset.char);
                 cell.addEventListener('click', trigger);
@@ -179,8 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const features = document.getElementById('script-features');
-        if (features && window.NEPALI_SCRIPT_DATA) {
-            features.innerHTML = NEPALI_SCRIPT_DATA.features.map(f => `
+        if (features && scriptData && scriptData.features) {
+            features.innerHTML = scriptData.features.map(f => `
                 <div class="script-feature-item">
                     <h4>${f.title}</h4>
                     <p>${f.description}</p>
@@ -195,9 +210,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderWords() {
         const grid = document.getElementById('vocab-grid');
-        if (!grid || !window.NEPALI_WORDS) return;
+        const words = getWords();
+        if (!grid || !words.length) return;
 
-        let filtered = NEPALI_WORDS.filter(w => {
+        let filtered = words.filter(w => {
             const matchesCategory = activeFilter === 'All' || w.category === activeFilter;
             const q = searchQuery.toLowerCase();
             const matchesSearch = !q || 
@@ -265,25 +281,26 @@ document.addEventListener('DOMContentLoaded', () => {
         const flow = document.getElementById('tree-flow');
         const sisters = document.getElementById('sister-chips');
         const traits = document.getElementById('linguistic-traits');
+        const classification = getClassification();
 
-        if (flow && window.NEPALI_CLASSIFICATION) {
-            const steps = NEPALI_CLASSIFICATION.familyTree.split('➔').map(s => s.trim());
+        if (flow && classification && classification.familyTree) {
+            const steps = classification.familyTree.split('➔').map(s => s.trim());
             flow.innerHTML = steps.map((s, idx) => `
                 <span class="tree-step">${s}</span>
                 ${idx < steps.length - 1 ? '<span class="tree-arrow">➔</span>' : ''}
             `).join('');
         }
 
-        if (sisters && window.NEPALI_CLASSIFICATION) {
-            sisters.innerHTML = NEPALI_CLASSIFICATION.sisterLanguages.map(l => `
+        if (sisters && classification && classification.sisterLanguages) {
+            sisters.innerHTML = classification.sisterLanguages.map(l => `
                 <div class="sister-chip">
                     <strong>${l.name}</strong>: <span>${l.relation}</span>
                 </div>
             `).join('');
         }
 
-        if (traits && window.NEPALI_CLASSIFICATION) {
-            traits.innerHTML = NEPALI_CLASSIFICATION.linguisticTraits.map(t => `
+        if (traits && classification && classification.linguisticTraits) {
+            traits.innerHTML = classification.linguisticTraits.map(t => `
                 <li style="margin-bottom: 8px; color: var(--text-secondary);">${t}</li>
             `).join('');
         }
@@ -292,9 +309,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render Regions
     function renderRegions() {
         const grid = document.getElementById('regions-grid');
-        if (!grid || !window.NEPALI_INDIAN_REGIONS) return;
+        const regions = getRegions();
+        if (!grid || !regions.length) return;
 
-        grid.innerHTML = NEPALI_INDIAN_REGIONS.map(r => `
+        grid.innerHTML = regions.map(r => `
             <div class="region-card">
                 <span class="region-badge">${r.badge}</span>
                 <h3>${r.state}</h3>
@@ -307,7 +325,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render Literature & Culture
     function renderCulture() {
         const grid = document.getElementById('culture-grid');
-        if (!grid || !window.NEPALI_LITERATURE_CULTURE) return;
+        const culture = getCulture();
+        if (!grid || !culture.length) return;
 
         const images = [
             'assets/images/nepali_bhanu_literature.jpg',
@@ -316,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'assets/images/nepali_cultural_festivals.jpg'
         ];
 
-        grid.innerHTML = NEPALI_LITERATURE_CULTURE.map((c, i) => {
+        grid.innerHTML = culture.map((c, i) => {
             const imgPath = images[i] || images[0];
             const fileName = imgPath.split('/').pop();
             return `
@@ -336,9 +355,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render Sources
     function renderSources() {
         const list = document.getElementById('sources-list');
-        if (!list || !window.NEPALI_SOURCES) return;
+        const sources = getSources();
+        if (!list || !sources.length) return;
 
-        list.innerHTML = NEPALI_SOURCES.map(s => `
+        list.innerHTML = sources.map(s => `
             <li class="source-item">
                 <a href="${s.link}" target="_blank" rel="noopener noreferrer">
                     <span>📑</span> ${s.title} <span>↗</span>
