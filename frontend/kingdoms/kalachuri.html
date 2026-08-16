@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the Kalachuri Dynasty of Central India, known for their powerful rulers, Shaivite devotion, and architectural masterpieces.">
+  <title>Kalachuri Dynasty Explorer | Incredible India</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .explorer-header { padding: 8rem 2rem 4rem; text-align: center; }
+    .explorer-header h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+    .explorer-header h1 span { color: var(--sa); }
+    .content-section { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+    .content-section h2 { margin-bottom: 2rem; display: inline-block; border-bottom: 3px solid var(--sa); padding-bottom: 0.5rem; color: var(--st); }
+    .content-block { background: var(--ss); padding: 2rem; border-radius: 12px; margin-bottom: 2rem; border: 1px solid var(--sb); }
+    .content-block p { color: var(--sm); line-height: 1.6; margin-bottom: 1rem; }
+    
+    .timeline-list { list-style: none; padding: 0; position: relative; border-left: 2px solid var(--sb); margin-left: 1rem; }
+    .timeline-list li { padding: 0 0 2rem 2rem; position: relative; }
+    .timeline-list li::before { content: ''; position: absolute; left: -9px; top: 5px; width: 16px; height: 16px; background: var(--sa); border-radius: 50%; }
+    .timeline-year { font-weight: bold; color: var(--st); display: block; margin-bottom: 0.5rem; }
+    
+    .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .card-item { background: var(--sp); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--sb); }
+    .card-item h3 { color: var(--sa); margin-bottom: 0.5rem; }
+    .card-item p { color: var(--sm); font-size: 0.95rem; }
+    
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+    .gallery-img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; border: 1px solid var(--sb); transition: transform 0.3s ease; }
+    .gallery-img:hover { transform: scale(1.02); }
+    
+    .ref-list { list-style-type: square; padding-left: 1.5rem; color: var(--sm); }
+    .ref-list li { margin-bottom: 0.5rem; }
+  </style>
+</head>
+<body>
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+  <main>
+    <section class="explorer-header">
+      <h1>Kalachuri <span>Dynasty</span></h1>
+      <p style="color: var(--sm); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">A glorious era of military prowess, cultural renaissance, and architectural magnificence in Central India.</p>
+    </section>
+
+    <section class="content-section">
+      
+      <div class="content-block">
+        <h2>Historical Overview</h2>
+        <p>The Kalachuri Dynasty (also known as the Haihayas) was a prominent Indian dynasty that ruled over vast regions of central and western India between the 6th and 12th centuries CE. There were primarily two main branches: the early Kalachuris of Mahishmati and the later Kalachuris of Tripuri (modern Tewar near Jabalpur, Madhya Pradesh).</p>
+        <p>They were formidable warriors and devout followers of Shaivism, leaving a lasting legacy in the form of magnificent temples, robust administrative systems, and extensive cultural patronage.</p>
+      </div>
+
+      <div class="content-block">
+        <h2>Timeline of Major Events</h2>
+        <ul class="timeline-list">
+          <li>
+            <span class="timeline-year">Mid-6th Century CE</span>
+            <p>Rise of the early Kalachuris of Mahishmati under rulers like Krishnaraja, who established a strong power base in the Narmada valley.</p>
+          </li>
+          <li>
+            <span class="timeline-year">c. 845 CE</span>
+            <p>Kokalla I establishes the prominent Kalachuri branch of Tripuri, cementing their role as a dominant regional power.</p>
+          </li>
+          <li>
+            <span class="timeline-year">1015 – 1041 CE</span>
+            <p>Reign of Gangeyadeva. He expanded the empire's territories significantly and assumed the prestigious title of Vikramaditya.</p>
+          </li>
+          <li>
+            <span class="timeline-year">1041 – 1073 CE</span>
+            <p>Reign of Lakshmikarna. The dynasty reached its zenith, characterized by extensive military campaigns, vast territorial holdings, and grand temple constructions.</p>
+          </li>
+          <li>
+            <span class="timeline-year">Late 12th Century CE</span>
+            <p>Gradual decline of the Kalachuri power due to invasions and the rise of neighboring powers like the Paramaras and Chandelas.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="content-block">
+        <h2>Major Rulers</h2>
+        <div class="grid-layout">
+          <div class="card-item">
+            <h3>Kokalla I</h3>
+            <p>The visionary founder of the Tripuri branch. He was known for his strategic matrimonial alliances with neighboring kingdoms such as the Rashtrakutas, establishing a strong foundation for his successors.</p>
+          </div>
+          <div class="card-item">
+            <h3>Gangeyadeva</h3>
+            <p>A powerful military leader who launched successful campaigns across northern and eastern India. He was the first Kalachuri ruler to issue gold coins featuring the goddess Lakshmi.</p>
+          </div>
+          <div class="card-item">
+            <h3>Lakshmikarna</h3>
+            <p>Often considered the greatest Kalachuri monarch, Lakshmikarna expanded the empire to its maximum extent. He was a great patron of scholars, including the famous poet Bilhana, and a prolific builder of temples.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block">
+        <h2>Political & Cultural Contributions</h2>
+        <p>The Kalachuris maintained a sophisticated administrative system that heavily influenced later central Indian kingdoms. Culturally, they were great patrons of Sanskrit literature. The court of Tripuri was adorned by prominent poets and dramatists like Rajasekhara, who authored the famous play <em>Karpuramanjari</em>.</p>
+        <p>Their reign is also notable for religious syncretism, although they were predominantly ardent followers of Pashupata Shaivism. They established numerous monasteries and granted extensive lands to Shaiva ascetics.</p>
+      </div>
+
+      <div class="content-block">
+        <h2>Architectural Heritage</h2>
+        <p>The Kalachuri era witnessed the flourish of central Indian temple architecture. Their structures are characterized by intricate carvings, towering shikharas, and precise geometric layouts.</p>
+        <p>The most iconic monument attributed to their patronage is the <strong>Chausath Yogini Temple at Bhedaghat</strong> (near Jabalpur). It is one of the few standing circular, roofless temples in India, featuring 64 shrines dedicated to the Yoginis, showcasing unparalleled sculptural finesse and mystical alignment.</p>
+      </div>
+
+      <div class="content-block">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+          <img src="../assets/monuments.png" alt="Kalachuri Monument" class="gallery-img" loading="lazy">
+          <img src="../assets/architecture.png" alt="Temple Architecture" class="gallery-img" loading="lazy">
+          <img src="../assets/culture.png" alt="Cultural Sculpture" class="gallery-img" loading="lazy">
+        </div>
+      </div>
+
+      <div class="content-block">
+        <h2>References & Sources</h2>
+        <ul class="ref-list">
+          <li><em>Corpus Inscriptionum Indicarum Vol. IV</em>: Inscriptions of the Kalachuri-Chedi Era by V.V. Mirashi.</li>
+          <li>Archaeological Survey of India (ASI) Reports on Bhedaghat and Tripuri.</li>
+          <li><em>The Early History of India</em> by Vincent A. Smith.</li>
+          <li><em>History of the Kalachuris</em> by R.K. Sharma.</li>
+        </ul>
+      </div>
+      
+    </section>
+  </main>
+
+  <script src="../pages-common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const themeToggle = document.getElementById('theme-toggle');
+      if(themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          document.body.classList.toggle('light-theme');
+          const isLight = document.body.classList.contains('light-theme');
+          localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+      }
+      
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      if(menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+          menuToggle.classList.toggle('active');
+          navMenu.classList.toggle('active');
+          const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+          menuToggle.setAttribute('aria-expanded', !expanded);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
