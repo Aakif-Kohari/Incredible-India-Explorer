@@ -1,0 +1,908 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Meghalaya's traditional houses and rain-adapted vernacular architecture.">
+  <title>Meghalaya Traditional Houses | Incredible India Explorer</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #eef5f0;
+      color: #20352a;
+      line-height: 1.6;
+    }
+
+    header {
+      min-height: 430px;
+      padding: 90px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      background:
+        linear-gradient(rgba(13, 57, 39, 0.78), rgba(16, 73, 48, 0.78)),
+        linear-gradient(135deg, #1c6847, #6c9d76);
+    }
+
+    header .hero-content {
+      max-width: 850px;
+    }
+
+    header h1 {
+      font-size: clamp(2.3rem, 6vw, 4.5rem);
+      margin-bottom: 18px;
+    }
+
+    header p {
+      font-size: 1.15rem;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #123c2b;
+      padding: 13px 15px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #bfe6c8;
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    section > h2 {
+      text-align: center;
+      color: #185438;
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+
+    .intro {
+      background: white;
+      padding: 32px;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .intro h2 {
+      color: #185438;
+      margin-bottom: 15px;
+    }
+
+    .intro p {
+      margin-bottom: 15px;
+    }
+
+    .rain-banner {
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 12px;
+      background: #dcefe2;
+      border-left: 5px solid #28734b;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .filter-btn {
+      border: 2px solid #28734b;
+      background: white;
+      color: #185438;
+      padding: 10px 18px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #28734b;
+      color: white;
+    }
+
+    .houses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .house-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.09);
+      transition: transform 0.25s ease;
+    }
+
+    .house-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .house-visual {
+      height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      background: linear-gradient(135deg, #5c9270, #c6d9bf);
+    }
+
+    .house-content {
+      padding: 22px;
+    }
+
+    .house-content h3 {
+      color: #185438;
+      margin-bottom: 8px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 4px 10px;
+      border-radius: 15px;
+      background: #dcefe2;
+      color: #185438;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .learn-btn {
+      margin-top: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #185438;
+      color: white;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .learn-btn:hover,
+    .learn-btn:focus {
+      background: #0e3323;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .feature {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      border-top: 5px solid #28734b;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .feature h3 {
+      color: #185438;
+      margin-bottom: 8px;
+    }
+
+    .timeline {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 18px;
+      padding: 22px 25px;
+      background: white;
+      border-left: 5px solid #28734b;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .timeline-item h3 {
+      color: #185438;
+      margin-bottom: 6px;
+    }
+
+    .quiz {
+      background: #dcefe2;
+      padding: 35px;
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    .quiz h2 {
+      color: #185438;
+      margin-bottom: 12px;
+    }
+
+    .quiz-options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .quiz-options button {
+      border: none;
+      background: #185438;
+      color: white;
+      padding: 11px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .quiz-options button:hover {
+      background: #0e3323;
+    }
+
+    #quiz-result {
+      margin-top: 18px;
+      font-weight: bold;
+      min-height: 25px;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(0, 0, 0, 0.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      position: relative;
+      width: 100%;
+      max-width: 620px;
+      background: white;
+      padding: 32px;
+      border-radius: 16px;
+    }
+
+    .modal-content h2 {
+      color: #185438;
+      margin-bottom: 15px;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      border: none;
+      background: transparent;
+      font-size: 30px;
+      cursor: pointer;
+      color: #20352a;
+    }
+
+    .back-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 50%;
+      background: #185438;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      z-index: 1500;
+    }
+
+    .back-top.show {
+      display: block;
+    }
+
+    footer {
+      background: #123c2b;
+      color: white;
+      text-align: center;
+      padding: 28px 15px;
+    }
+
+    footer p {
+      margin: 5px;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        min-height: 360px;
+        padding: 60px 15px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px 7px;
+        font-size: 14px;
+      }
+
+      .intro,
+      .quiz {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="top">
+    <div class="hero-content">
+      <h1>🌧️ Meghalaya Traditional Houses</h1>
+      <p>
+        Explore the remarkable architecture of Meghalaya's villages,
+        shaped by heavy rainfall, hilly terrain, local materials,
+        and indigenous building knowledge.
+      </p>
+    </div>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <a href="#about">About</a>
+    <a href="#houses">House Types</a>
+    <a href="#features">Rain Adaptation</a>
+    <a href="#heritage">Heritage</a>
+    <a href="#quiz">Quiz</a>
+  </nav>
+
+  <main>
+
+    <section id="about">
+      <div class="intro">
+        <h2>Architecture Shaped by Rain</h2>
+
+        <p>
+          Meghalaya is known for its exceptionally wet climate and
+          mountainous landscape. Traditional homes developed by local
+          communities demonstrate how architecture can respond to
+          climate, terrain, available materials, and everyday life.
+        </p>
+
+        <p>
+          Traditional Khasi and Jaintia structures commonly used
+          timber, bamboo, thatch, stone, and other locally available
+          materials. Raised platforms, carefully designed roofs, and
+          lightweight construction helped communities adapt their homes
+          to local environmental conditions.
+        </p>
+
+        <div class="rain-banner">
+          <strong>🌧️ Rain Adaptation:</strong>
+          Roof forms, raised floors, local materials, and careful
+          construction techniques are important features of Meghalaya's
+          vernacular architecture.
+        </div>
+      </div>
+    </section>
+
+    <section id="houses">
+      <h2>Explore Traditional House Types</h2>
+
+      <div class="controls" role="group" aria-label="House type filters">
+        <button class="filter-btn active" data-filter="all">
+          All
+        </button>
+
+        <button class="filter-btn" data-filter="khasi">
+          Khasi
+        </button>
+
+        <button class="filter-btn" data-filter="assam">
+          Assam Type
+        </button>
+
+        <button class="filter-btn" data-filter="raised">
+          Raised Houses
+        </button>
+
+        <button class="filter-btn" data-filter="bamboo">
+          Bamboo
+        </button>
+      </div>
+
+      <div class="houses-grid">
+
+        <article class="house-card" data-type="khasi">
+          <div class="house-visual" aria-hidden="true">
+            🏡
+          </div>
+
+          <div class="house-content">
+            <span class="tag">Khasi</span>
+            <h3>Traditional Khasi House</h3>
+
+            <p>
+              Traditional Khasi houses use forms and materials adapted
+              to Meghalaya's cool, wet and mountainous environment.
+            </p>
+
+            <button
+              class="learn-btn"
+              data-title="Traditional Khasi House"
+              data-info="Traditional Khasi structures are associated with raised platforms and timber-based construction. Government documentation identifies the Khasi hut as an iconic traditional structure in the high-rainfall Khasi and Jaintia region.">
+              Learn More
+            </button>
+          </div>
+        </article>
+
+        <article class="house-card" data-type="assam">
+          <div class="house-visual" aria-hidden="true">
+            🏠
+          </div>
+
+          <div class="house-content">
+            <span class="tag">Assam Type</span>
+            <h3>Assam Type House</h3>
+
+            <p>
+              Assam-type construction is common across Meghalaya and
+              uses lightweight walling and roof systems.
+            </p>
+
+            <button
+              class="learn-btn"
+              data-title="Assam Type House"
+              data-info="The Government of Meghalaya lists Assam Type houses among common rural house constructions. Variations include bamboo or ekra walling, timber floors, and gable or cross-hipped roofs.">
+              Learn More
+            </button>
+          </div>
+        </article>
+
+        <article class="house-card" data-type="raised">
+          <div class="house-visual" aria-hidden="true">
+            🪵
+          </div>
+
+          <div class="house-content">
+            <span class="tag">Raised</span>
+            <h3>Raised-Floor House</h3>
+
+            <p>
+              Elevated floors can help buildings respond to uneven
+              terrain, water, and ventilation requirements.
+            </p>
+
+            <button
+              class="learn-btn"
+              data-title="Raised-Floor Houses"
+              data-info="Raised traditional houses occur in parts of Meghalaya. Government rural housing models include raised Assam-type houses with local wooden floors, particularly for flood-affected areas.">
+              Learn More
+            </button>
+          </div>
+        </article>
+
+        <article class="house-card" data-type="bamboo">
+          <div class="house-visual" aria-hidden="true">
+            🎋
+          </div>
+
+          <div class="house-content">
+            <span class="tag">Bamboo</span>
+            <h3>Bamboo & Ekra Houses</h3>
+
+            <p>
+              Bamboo mats and frameworks have long been important
+              elements of vernacular construction in Meghalaya.
+            </p>
+
+            <button
+              class="learn-btn"
+              data-title="Bamboo & Ekra Construction"
+              data-info="Bamboo and ekra walling are included in Meghalaya's rural housing models. Bamboo offers a lightweight construction material that can be combined with timber, mud blocks, or other materials.">
+              Learn More
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="features">
+      <h2>How Houses Adapt to the Environment</h2>
+
+      <div class="features">
+
+        <div class="feature">
+          <div class="feature-icon">🌧️</div>
+          <h3>Rainwater Management</h3>
+          <p>
+            Sloped and hipped roof forms help shed rainwater quickly,
+            an important consideration in Meghalaya's high-rainfall
+            regions.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">⬆️</div>
+          <h3>Raised Floors</h3>
+          <p>
+            Raised floors can reduce direct contact with wet ground and
+            are especially useful in areas affected by flooding or
+            difficult terrain.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🎋</div>
+          <h3>Local Materials</h3>
+          <p>
+            Bamboo, timber, stone, mud, and other locally available
+            materials have played an important role in traditional
+            construction.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🏔️</div>
+          <h3>Hilly Terrain</h3>
+          <p>
+            Traditional construction responds to Meghalaya's
+            mountainous landscape instead of relying on a single
+            universal house design.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">💨</div>
+          <h3>Resilience</h3>
+          <p>
+            Traditional Khasi structures demonstrate construction
+            approaches that can respond to strong winds and seismic
+            conditions.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🌿</div>
+          <h3>Sustainable Building</h3>
+          <p>
+            The use of renewable and locally sourced materials connects
+            traditional architecture with sustainable construction.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="heritage">
+      <h2>Architecture & Cultural Heritage</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <h3>🌱 Indigenous Knowledge</h3>
+          <p>
+            Traditional builders developed techniques based on local
+            climate, terrain, materials, and community needs.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>🏘️ Village Communities</h3>
+          <p>
+            Houses are not isolated structures. Traditional settlements
+            include shared spaces and architectural patterns connected
+            to community life.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>🪵 Local Craftsmanship</h3>
+          <p>
+            Carpentry, bamboo framework, bamboo mat making, and stone
+            masonry are among the traditional skills associated with
+            Meghalaya's rural architecture.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>🌧️ Climate-Responsive Design</h3>
+          <p>
+            The architecture demonstrates how local communities
+            developed practical responses to heavy rainfall, strong
+            winds, cold conditions, and challenging terrain.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="quiz">
+      <div class="quiz">
+        <h2>🏆 Test Your Knowledge</h2>
+
+        <p>
+          Which environmental condition has strongly influenced
+          Meghalaya's traditional house design?
+        </p>
+
+        <div class="quiz-options">
+          <button onclick="checkAnswer('rain')">
+            Heavy Rainfall
+          </button>
+
+          <button onclick="checkAnswer('desert')">
+            Desert Heat
+          </button>
+
+          <button onclick="checkAnswer('snow')">
+            Arctic Snow
+          </button>
+        </div>
+
+        <p id="quiz-result" aria-live="polite"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <button
+    class="back-top"
+    id="backTop"
+    aria-label="Back to top">
+    ↑
+  </button>
+
+  <div
+    class="modal"
+    id="infoModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle">
+
+    <div class="modal-content">
+
+      <button
+        class="close-modal"
+        id="closeModal"
+        aria-label="Close dialog">
+        &times;
+      </button>
+
+      <h2 id="modalTitle"></h2>
+      <p id="modalInfo"></p>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>© Incredible India Explorer</p>
+    <p>Discover India's diverse architectural heritage.</p>
+  </footer>
+
+  <script>
+    // ==============================
+    // HOUSE FILTER
+    // ==============================
+
+    const filterButtons =
+      document.querySelectorAll(".filter-btn");
+
+    const houseCards =
+      document.querySelectorAll(".house-card");
+
+    filterButtons.forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        const selectedFilter =
+          button.dataset.filter;
+
+        filterButtons.forEach(btn => {
+          btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        houseCards.forEach(card => {
+
+          const cardType =
+            card.dataset.type;
+
+          if (
+            selectedFilter === "all" ||
+            cardType === selectedFilter
+          ) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
+
+        });
+
+      });
+
+    });
+
+
+    // ==============================
+    // MODAL
+    // ==============================
+
+    const modal =
+      document.getElementById("infoModal");
+
+    const modalTitle =
+      document.getElementById("modalTitle");
+
+    const modalInfo =
+      document.getElementById("modalInfo");
+
+    const closeModal =
+      document.getElementById("closeModal");
+
+    const learnButtons =
+      document.querySelectorAll(".learn-btn");
+
+
+    learnButtons.forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        modalTitle.textContent =
+          button.dataset.title;
+
+        modalInfo.textContent =
+          button.dataset.info;
+
+        modal.classList.add("show");
+
+        closeModal.focus();
+
+      });
+
+    });
+
+
+    function hideModal() {
+      modal.classList.remove("show");
+    }
+
+
+    closeModal.addEventListener(
+      "click",
+      hideModal
+    );
+
+
+    modal.addEventListener(
+      "click",
+      event => {
+
+        if (event.target === modal) {
+          hideModal();
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (event.key === "Escape") {
+          hideModal();
+        }
+
+      }
+    );
+
+
+    // ==============================
+    // QUIZ
+    // ==============================
+
+    function checkAnswer(answer) {
+
+      const result =
+        document.getElementById("quiz-result");
+
+      if (answer === "rain") {
+
+        result.textContent =
+          "Correct! 🎉 Meghalaya's heavy rainfall has strongly influenced its traditional architecture.";
+
+      } else {
+
+        result.textContent =
+          "Not quite. Try again!";
+
+      }
+
+    }
+
+
+    // ==============================
+    // BACK TO TOP
+    // ==============================
+
+    const backTop =
+      document.getElementById("backTop");
+
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        if (window.scrollY > 400) {
+          backTop.classList.add("show");
+        } else {
+          backTop.classList.remove("show");
+        }
+
+      }
+    );
+
+
+    backTop.addEventListener(
+      "click",
+      () => {
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }
+    );
+  </script>
+
+</body>
+</html>
+```

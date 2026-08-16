@@ -1,6 +1,93 @@
 // ---------- Handicrafts Data (16 crafts across UP districts) ----------
 const allCrafts = [
   {
+    name: "Terracotta Pottery (Baked Earth Art)",
+    icon: "🏺",
+    district: "Gorakhpur & Bankura",
+    category: "pottery",
+    tags: ["GI Tagged", "Clay Art", "Handicrafts"],
+    description: "Ancient 5,000-year-old clay craft tradition featuring Bankura horses, Gorakhpur elephants, and Molela relief plaques.",
+    history: "Dating back to the Indus Valley Civilization, terracotta represents sacred earth molded by human hands and kiln-fired to warm orange-red stoneware.",
+    artisan: "Prajapati and Kumhar potters manually shaping riverbed silt on wooden wheels and open kilns.",
+    detailsUrl: "../terracotta-pottery-explorer/index.html"
+  },
+  {
+    name: "Channapatna Toys",
+    icon: "🐘",
+    district: "Channapatna, Karnataka",
+    category: "toy",
+    tags: ["GI Tagged", "Lacquerware", "Wooden Toys"],
+    description: "Karnataka's iconic lacquerware wooden toys — ivory wood turned on a bow lathe and finished with natural lac in warm, glossy colours.",
+    history: "Handcrafted in the 'City of Toys' since the 18th century, when Tipu Sultan brought Persian lacquer artisans to Channapatna; GI-tagged in 2005.",
+    artisan: "Channapatna toymakers who shape soft aale-mara wood on bow-powered lathes and seal it with molten natural lac resin.",
+    detailsUrl: "../channapatna-toys-explorer/index.html"
+},
+  {
+    name: "Dokra Art",
+    icon: "🪔",
+    district: "Bastar, Dhenkanal & Bankura",
+    category: "metal",
+    tags: ["Lost-Wax Casting", "Tribal Art", "Indus Valley Roots"],
+    description: "India's ancient lost-wax metal casting craft — seamless bronze and brass figures of gods, beasts and ornaments by tribal artisans.",
+    history: "Traced to the Indus Valley 'Dancing Girl' of Mohenjo-daro (c. 2500 BCE), Dokra keeps a 4,500-year-old casting lineage alive in Bastar, Dhenkanal and Bankura.",
+    artisan: "Dokra Damar and Kamar tribal smiths who shape beeswax models, encase them in clay and pour molten bronze into the cavity left behind.",
+    detailsUrl: "../dokra-art-explorer/index.html"
+    },
+  {
+    name: "Kalighat Painting",
+    icon: "🎨",
+    district: "Kalighat, Kolkata",
+    category: "folk-art",
+    tags: ["Bold Brushwork", "Social Satire", "19th Century Bengal"],
+    description: "Bengal's iconic temple-ghat painting school — bold single-stroke brushwork on mill paper, fusing divine icons with biting social commentary.",
+    history: "Emerged in 19th-century Calcutta near the Kalighat temple, where patua painters turned pilgrim souvenirs into India's first popular urban art school, lampooning baboos, priests and zamindars.",
+    artisan: "Patua painters of the Kali ghat who drew each figure in one unbroken tapering stroke, now carried forward by revivalists like Santanu Chakraverty.",
+    detailsUrl: "../kalighat-painting-showcase/index.html"
+  },
+  {  name: "Manjusha Painting",
+    icon: "🐍",
+    district: "Bhagalpur, Bihar",
+    category: "folk-art",
+    tags: ["GI Tagged", "Snake Painting", "Bihula–Bishari"],
+    description: "Mythology-inspired temple-box folk art of the Anga region, painted for the Bishari Puja with swirling serpent motifs.",
+    history: "A 7th-century folk-art tradition from Bhagalpur (Anga Mahajanapada), Manjusha paintings retell the Bihula–Bishari legend on temple-shaped bamboo, jute and paper caskets.",
+    artisan: "Kumbhakar and Malakar community artists who paint bold outlines with bamboo kalams on gum-pasted cloth, keeping the Shravan Bishari Puja alive.",
+    detailsUrl: "../manjusha-painting-explorer/index.html"
+  },
+  {
+    name: "Chhau Dance Masks",
+    icon: "🎭",
+    district: "Purulia & Charida",
+    category: "mask",
+    tags: ["UNESCO Listed", "Paper-Mache", "Folk Art"],
+    description: "Vibrant hand-sculpted papier-mâché dance masks used in Purulia and Seraikela Chhau martial folk theater.",
+    history: "Centuries-old folk performance mask art created by Sutradhar artisans depicting Ramayana, Mahabharata, and Puranic deities.",
+    artisan: "Charida village artisans in Purulia crafting lightweight paper-mache shells embellished with peacock feathers and zari crowns.",
+    detailsUrl: "../chhau-masks-explorer/index.html"
+  },
+  {
+    name: "Bidriware Metal Inlay",
+    icon: "✨",
+    district: "Bidar, Karnataka",
+    category: "metal",
+    tags: ["GI Tagged", "Silver Inlay", "Metalcraft"],
+    description: "Iconic metal handicraft of Karnataka featuring pure silver wire inlay on a jet-black zinc alloy base.",
+    history: "14th-century Bahmani Sultanate metalcraft developed in Bidar using unique nitrate-rich Bidar Fort soil for oxidation.",
+    artisan: "Master Bidri engravers hammering pure silver wire into zinc-copper castings.",
+    detailsUrl: "../bidriware-craftsmanship-explorer/index.html"
+  },
+  {
+    name: "Bastar Iron Craft (Loha Shilp)",
+    icon: "🔨",
+    district: "Bastar & Kondagaon",
+    category: "metal",
+    tags: ["GI Tagged", "Wrought Iron", "Tribal Art"],
+    description: "Traditional hand-forged wrought iron craft by Bastar tribal artisans creating sleek figurines and oil lamps.",
+    history: "Ancestral metal forging tradition practiced by Lohar artisans of Chhattisgarh using charcoal kilns and anvils without any welding.",
+    artisan: "Kondagaon Lohar craftspersons manually beating scrap iron into tribal dancers, deer, and Dipa Stambha tree lamps.",
+    detailsUrl: "../bastar-iron-craft-explorer/index.html"
+  },
+  {
     name: "Lucknow Chikankari",
     icon: "🪡",
     district: "Lucknow",

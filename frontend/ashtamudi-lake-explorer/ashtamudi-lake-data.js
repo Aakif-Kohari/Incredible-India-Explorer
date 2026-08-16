@@ -1,0 +1,146 @@
+/**
+ * Ashtamudi Lake Explorer — Data Module
+ * Comprehensive dataset covering Kerala's palm-shaped backwater lake, Ramsar Site #1214,
+ * Kettuvallam houseboats, MSC-certified clam fisheries, mangroves, and birdlife.
+ */
+
+const ASHTAMUDI_LAKE_INFO = {
+    id: "ashtamudi-lake-explorer",
+    name: "Ashtamudi Lake & Backwaters Explorer",
+    location: "Kollam District, Kerala, India",
+    state: "Kerala",
+    coordinates: { lat: 8.950, lng: 76.583 },
+    area: "61.4 km²",
+    establishedYear: 2002,
+    ramsarYear: 2002,
+    ramsarSiteNo: 1214,
+    wetlandType: "Estuarine Lagoon & Backwater Complex",
+    climate: "Tropical Maritime Monsoon",
+    bestTime: "September to March (Ideal Houseboat & Birding Season)",
+    nearestTransport: {
+        town: "Kollam City (2 km)",
+        airport: "Trivandrum International Airport (68 km)",
+        railway: "Kollam Junction Railway Station (3 km)"
+    },
+    quickStats: [
+        { label: "Ramsar Site Declared", value: "2002", icon: "💧" },
+        { label: "Branching Arms (Ashta)", value: "8 Creeks", icon: "🌴" },
+        { label: "Clam Fishery Certification", value: "MSC Eco-Label", icon: "🦪" },
+        { label: "Avian Species Count", value: "100+", icon: "🦩" },
+        { label: "Kettuvallam Houseboats", value: "500+ Boats", icon: "🛶" },
+        { label: "Surface Water Area", value: "61.4 km²", icon: "🌊" }
+    ]
+};
+
+const ECOLOGY_HYDROLOGY = {
+    ramsarSite: "Designated as a Ramsar Wetland of International Importance (#1214) in August 2002 due to its unique estuarine ecosystem and rich marine biodiversity.",
+    backwaters: "Named 'Ashtamudi' in Malayalam because of its 8 distinct branching channels or arms (Ashta = eight, Mudi = hair/cone). It forms the southern gateway to Kerala's world-renowned backwaters.",
+    houseboats: "Famous for traditional wooden Kettuvallam houseboats cruising the scenic 8-hour water highway between Kollam and Alappuzha past lush coconut groves.",
+    mangroves: "Hosts dense mangrove clusters at Asramam Mangrove Park and Munroe Island delta, featuring Avicennia marina, Rhizophora mucronata, and rare mangrove associate ferns.",
+    fisheries: "Home to India's first MSC (Marine Stewardship Council) eco-certified short-neck clam fishery (Paphia malabarica), sustaining 3,000+ local clam gatherers through seasonal catch limits.",
+    birdlife: "Sanctuary for resident and migratory aquatic birds including Indian Cormorants, Little Egrets, Stork-billed Kingfishers, Black-capped Kingfishers, and terns."
+};
+
+const WILDLIFE_SPECIES = [
+    {
+        id: "stork-billed-kingfisher",
+        name: "Stork-billed Kingfisher",
+        scientificName: "Pelargopsis capensis",
+        category: "bird",
+        status: "Least Concern",
+        season: "Year-round",
+        diet: "Fish, crabs, frogs",
+        wingspan: "35 cm",
+        icon: "🪶",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Stork-billed_kingfisher_%28Pelargopsis_capensis_capensis%29.jpg/800px-Stork-billed_kingfisher_%28Pelargopsis_capensis_capensis%29.jpg",
+        description: "Large kingfisher with bright blue back, orange head, and massive dagger-like red bill perching on mangrove roots."
+    },
+    {
+        id: "short-neck-clam",
+        name: "Malabar Short-neck Clam",
+        scientificName: "Paphia malabarica",
+        category: "mollusk",
+        status: "MSC Certified Sustainable",
+        season: "October to May Harvest",
+        diet: "Filter feeder (Phytoplankton)",
+        wingspan: "Shell: 4–6 cm",
+        icon: "🦪",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Clam_shell_open.jpg/800px-Clam_shell_open.jpg",
+        description: "Bivalve mollusk sustaining the eco-friendly MSC certified hand-dredging clam fishery of Ashtamudi."
+    },
+    {
+        id: "indian-cormorant",
+        name: "Indian Cormorant",
+        scientificName: "Phalacrocorax fuscicollis",
+        category: "waterbird",
+        status: "Least Concern",
+        season: "Year-round",
+        diet: "Fish",
+        wingspan: "100–110 cm",
+        icon: "🦅",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Indian_cormorant_%28Phalacrocorax_fuscicollis%29.jpg/800px-Indian_cormorant_%28Phalacrocorax_fuscicollis%29.jpg",
+        description: "Dark waterbird frequently seen drying wings outstretched on wooden stakes along Ashtamudi's fishing channels."
+    },
+    {
+        id: "little-egret",
+        name: "Little Egret",
+        scientificName: "Egretta garzetta",
+        category: "wader",
+        status: "Least Concern",
+        season: "Year-round",
+        diet: "Small fish, crustaceans, insects",
+        wingspan: "88–95 cm",
+        icon: "🦩",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Little_egret_%28Egretta_garzetta_garzetta%29.jpg/800px-Little_egret_%28Egretta_garzetta_garzetta%29.jpg",
+        description: "Snow-white wader with black bill and yellow feet, foraging in shallow estuarine mud flats."
+    }
+];
+
+const MAP_HOTSPOTS = [
+    {
+        id: "kollam-dtpc-jetty",
+        title: "Kollam DTPC Houseboat Jetty",
+        lat: 8.892,
+        lng: 76.584,
+        type: "Houseboat Terminal",
+        description: "Primary embarkation hub for Kettuvallam backwater cruises to Alappuzha and Munroe Island."
+    },
+    {
+        id: "munroe-island-delta",
+        title: "Munroe Island Mangrove Delta",
+        lat: 8.990,
+        lng: 76.615,
+        type: "Ecological Island",
+        description: "Cluster of 8 scenic islets enclosed by Ashtamudi's channels, renowned for canoe tours and mangrove canals."
+    },
+    {
+        id: "neendakara-estuary-bar",
+        title: "Neendakara Arabian Sea Outlet",
+        lat: 8.937,
+        lng: 76.540,
+        type: "Estuarine Confluence",
+        description: "Natural sea mouth where Ashtamudi Lake discharges into the Arabian Sea, featuring fishing harbor jetties."
+    }
+];
+
+const GALLERY_IMAGES = [
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Stork-billed_kingfisher_%28Pelargopsis_capensis_capensis%29.jpg/800px-Stork-billed_kingfisher_%28Pelargopsis_capensis_capensis%29.jpg",
+        caption: "Stork-billed Kingfisher perched on Ashtamudi branch",
+        category: "Birdlife"
+    },
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Little_egret_%28Egretta_garzetta_garzetta%29.jpg/800px-Little_egret_%28Egretta_garzetta_garzetta%29.jpg",
+        caption: "Little Egret in shallow backwater marsh",
+        category: "Fauna"
+    },
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Indian_cormorant_%28Phalacrocorax_fuscicollis%29.jpg/800px-Indian_cormorant_%28Phalacrocorax_fuscicollis%29.jpg",
+        caption: "Indian Cormorant resting near backwaters",
+        category: "Birdlife"
+    }
+];
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { ASHTAMUDI_LAKE_INFO, ECOLOGY_HYDROLOGY, WILDLIFE_SPECIES, MAP_HOTSPOTS, GALLERY_IMAGES };
+}

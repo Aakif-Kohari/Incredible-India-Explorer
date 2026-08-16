@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banawali — A Harappan Town Through Time</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  --soil-950:#171009;
+  --soil-900:#20160e;
+  --soil-800:#2d2015;
+  --soil-700:#3c2c1c;
+  --soil-600:#513c26;
+  --sherd:#b5502e;
+  --sherd-light:#d97a4f;
+  --ochre:#cf9b46;
+  --ochre-light:#e6bd76;
+  --lapis:#3c6a93;
+  --lapis-light:#6f9ec5;
+  --bone:#efe6d3;
+  --bone-dim:#c9bda3;
+  --line:rgba(239,230,211,0.14);
+  --display:'Fraunces', serif;
+  --body:'IBM Plex Sans', sans-serif;
+  --mono:'IBM Plex Mono', monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--soil-950);
+  color:var(--bone);
+  font-family:var(--body);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--sherd);color:var(--bone);}
+img,svg{max-width:100%;display:block;}
+h1,h2,h3{font-family:var(--display);font-weight:600;margin:0 0 .4em;letter-spacing:.005em;}
+p{margin:0 0 1em;color:var(--bone-dim);}
+a{color:var(--sherd-light);}
+.eyebrow{
+  font-family:var(--mono);
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-size:.72rem;
+  color:var(--ochre-light);
+  display:flex;
+  align-items:center;
+  gap:.6em;
+  margin-bottom:.9em;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--ochre);display:inline-block;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+@media(max-width:640px){.wrap{padding:0 18px;}}
+
+/* ===== Stratigraphy rail (signature nav) ===== */
+.strata-rail{
+  position:fixed; top:0; left:0; bottom:0; width:64px;
+  background:linear-gradient(180deg,var(--soil-900),var(--soil-950));
+  border-right:1px solid var(--line);
+  z-index:60;
+  display:flex; flex-direction:column;
+  padding:18px 0;
+}
+.strata-rail .layer{
+  flex:1; position:relative; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  border-top:1px solid rgba(239,230,211,0.08);
+  transition:background .25s ease;
+}
+.strata-rail .layer:first-child{border-top:none;}
+.strata-rail .layer:hover{background:rgba(239,230,211,0.05);}
+.strata-rail .layer .tick{
+  writing-mode:vertical-rl; text-orientation:mixed;
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.1em;
+  color:var(--bone-dim); transform:rotate(180deg);
+}
+.strata-rail .layer.active .tick{color:var(--soil-950);}
+.strata-rail .layer.active{background:var(--ochre);}
+.strata-rail .layer[data-p="pre"].active{background:var(--bone-dim);}
+.strata-rail .layer[data-p="mature"].active{background:var(--sherd);}
+.strata-rail .layer[data-p="late"].active{background:var(--lapis);}
+@media(max-width:900px){.strata-rail{display:none;}}
+.has-rail{margin-left:64px;}
+@media(max-width:900px){.has-rail{margin-left:0;}}
+
+/* ===== Hero ===== */
+.hero{
+  min-height:92vh;
+  display:flex; align-items:center;
+  position:relative; overflow:hidden;
+  background:
+    radial-gradient(1200px 600px at 78% -10%, rgba(207,155,70,0.16), transparent 60%),
+    radial-gradient(900px 500px at 10% 110%, rgba(60,106,147,0.14), transparent 60%),
+    var(--soil-950);
+}
+.hero .strata-bg{position:absolute; inset:0; opacity:.5; pointer-events:none;}
+.hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; position:relative; z-index:2; padding:120px 0 80px;}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr; padding-top:90px;}}
+.hero h1{font-size:clamp(2.6rem,6vw,4.4rem); line-height:1.02; color:var(--bone);}
+.hero h1 em{font-style:normal; color:var(--sherd-light);}
+.hero .lede{font-size:1.05rem; max-width:46ch;}
+.coord{font-family:var(--mono); font-size:.78rem; color:var(--ochre-light); letter-spacing:.04em;}
+.hero-stats{display:flex; gap:28px; margin-top:28px; flex-wrap:wrap;}
+.hero-stats div{border-left:2px solid var(--sherd); padding-left:12px;}
+.hero-stats b{display:block; font-family:var(--display); font-size:1.5rem; color:var(--bone);}
+.hero-stats span{font-size:.74rem; color:var(--bone-dim); text-transform:uppercase; letter-spacing:.08em;}
+.scroll-cue{position:absolute; bottom:26px; left:50%; transform:translateX(-50%); font-family:var(--mono); font-size:.7rem; color:var(--bone-dim); letter-spacing:.15em; text-transform:uppercase; opacity:.7;}
+
+/* ===== Section framing ===== */
+section{padding:96px 0; border-top:1px solid var(--line); position:relative;}
+.section-head{max-width:70ch; margin-bottom:44px;}
+.section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);}
+.two-col{display:grid; grid-template-columns:.9fr 1.1fr; gap:56px;}
+@media(max-width:860px){.two-col{grid-template-columns:1fr;}}
+
+/* ===== Cards ===== */
+.card{
+  background:var(--soil-800); border:1px solid var(--line); border-radius:3px;
+  padding:22px 24px;
+}
+.grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+.grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
+@media(max-width:760px){.grid-3,.grid-2{grid-template-columns:1fr;}}
+.card h3{font-size:1.05rem; color:var(--bone); font-family:var(--body); font-weight:600;}
+.card .tag{font-family:var(--mono); font-size:.68rem; color:var(--ochre-light); text-transform:uppercase; letter-spacing:.08em;}
+
+/* ===== Geographic map ===== */
+.geo-map{background:var(--soil-800); border:1px solid var(--line); border-radius:4px; padding:18px;}
+
+/* ===== Phase explorer ===== */
+.phase-tabs{display:flex; gap:8px; margin-bottom:26px; flex-wrap:wrap;}
+.phase-tab{
+  font-family:var(--mono); font-size:.74rem; letter-spacing:.05em; text-transform:uppercase;
+  background:transparent; border:1px solid var(--line); color:var(--bone-dim);
+  padding:10px 16px; cursor:pointer; border-radius:2px; transition:.2s;
+}
+.phase-tab:hover{border-color:var(--ochre); color:var(--bone);}
+.phase-tab.active{background:var(--sherd); border-color:var(--sherd); color:var(--bone);}
+.phase-panel{display:none;}
+.phase-panel.active{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;}
+@media(max-width:860px){.phase-panel.active{grid-template-columns:1fr;}}
+.map-frame{background:var(--soil-900); border:1px solid var(--line); border-radius:4px; padding:16px;}
+.map-caption{font-family:var(--mono); font-size:.68rem; color:var(--bone-dim); margin-top:10px; text-align:center;}
+.legend{display:flex; gap:16px; flex-wrap:wrap; margin-top:14px; font-family:var(--mono); font-size:.68rem; color:var(--bone-dim);}
+.legend span{display:inline-flex; align-items:center; gap:6px;}
+.legend i{width:10px; height:10px; display:inline-block; border-radius:1px;}
+.feature-list{list-style:none; margin:0; padding:0;}
+.feature-list li{padding:12px 0; border-top:1px solid var(--line);}
+.feature-list li:first-child{border-top:none;}
+.feature-list b{color:var(--bone); font-family:var(--body);}
+
+/* ===== Comparison slider ===== */
+.compare-wrap{position:relative; user-select:none; border:1px solid var(--line); border-radius:4px; overflow:hidden; background:var(--soil-900);}
+.compare-stage{position:relative; aspect-ratio:3/2; width:100%;}
+.compare-stage .layer-img{position:absolute; inset:0; width:100%; height:100%;}
+.compare-stage .layer-img.top{clip-path:inset(0 0 0 50%);}
+.compare-handle{
+  position:absolute; top:0; bottom:0; left:50%; width:2px; background:var(--ochre);
+  cursor:ew-resize; transform:translateX(-1px);
+}
+.compare-handle::after{
+  content:"⇔"; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:38px; height:38px; border-radius:50%; background:var(--ochre); color:var(--soil-950);
+  display:flex; align-items:center; justify-content:center; font-size:1rem; box-shadow:0 4px 14px rgba(0,0,0,.4);
+}
+.compare-label{position:absolute; bottom:12px; font-family:var(--mono); font-size:.68rem; text-transform:uppercase; letter-spacing:.06em; background:rgba(23,16,9,0.75); padding:6px 10px; border:1px solid var(--line);}
+.compare-label.left{left:12px;}
+.compare-label.right{right:12px;}
+input[type=range].compare-range{
+  width:100%; margin-top:16px; appearance:none; height:2px; background:var(--soil-600); outline:none;
+}
+input[type=range].compare-range::-webkit-slider-thumb{appearance:none; width:16px; height:16px; border-radius:50%; background:var(--ochre); cursor:pointer;}
+
+/* ===== Timeline ===== */
+.timeline{position:relative; padding:50px 0 10px;}
+.timeline-track{position:relative; height:6px; background:var(--soil-700); border-radius:3px; margin:0 6px;}
+.timeline-fill{position:absolute; left:0; top:0; bottom:0; background:linear-gradient(90deg,var(--bone-dim),var(--sherd),var(--lapis)); border-radius:3px; width:100%;}
+.timeline-events{position:relative; margin-top:-6px;}
+.tl-event{
+  position:absolute; top:0; transform:translate(-50%,-50%); cursor:pointer;
+  width:18px; height:18px; border-radius:50%; background:var(--soil-950); border:3px solid var(--ochre);
+  transition:.2s;
+}
+.tl-event:hover, .tl-event.active{background:var(--ochre); transform:translate(-50%,-50%) scale(1.25);}
+.tl-labels{position:relative; height:70px; margin-top:6px;}
+.tl-label{position:absolute; top:0; transform:translateX(-50%); text-align:center; width:150px;}
+.tl-label .date{font-family:var(--mono); font-size:.68rem; color:var(--ochre-light);}
+.tl-label .name{font-size:.8rem; color:var(--bone); margin-top:2px;}
+.tl-detail{margin-top:26px; padding:20px 22px; background:var(--soil-800); border:1px solid var(--line); border-radius:4px; min-height:64px;}
+
+/* ===== Life & economy ===== */
+.icon-card{background:var(--soil-800); border:1px solid var(--line); padding:20px; border-radius:3px;}
+.icon-card svg{width:100%; height:110px; margin-bottom:14px;}
+
+/* ===== Trade diagram ===== */
+.trade-frame{background:var(--soil-900); border:1px solid var(--line); border-radius:4px; padding:10px;}
+
+/* ===== Artifact explorer ===== */
+.photo-note{font-size:.85rem; color:var(--bone-dim); max-width:70ch; margin-bottom:24px;}
+.photo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+@media(max-width:760px){.photo-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.photo-grid{grid-template-columns:1fr;}}
+.photo-card{background:var(--soil-800); border:1px solid var(--line); border-radius:3px; overflow:hidden;}
+.photo-card .ph{width:100%; aspect-ratio:4/3; object-fit:cover; display:block; background:var(--soil-700);}
+.photo-card .cap{padding:12px 14px;}
+.photo-card .cap h4{margin:0 0 3px; font-size:.85rem; color:var(--bone); font-family:var(--body); font-weight:600;}
+.photo-card .cap .src{font-family:var(--mono); font-size:.62rem; color:var(--ochre-light); text-transform:uppercase; letter-spacing:.05em;}
+.artifact-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+@media(max-width:900px){.artifact-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.artifact-grid{grid-template-columns:1fr;}}
+.artifact-card{
+  background:var(--soil-800); border:1px solid var(--line); border-radius:3px; padding:16px;
+  cursor:pointer; transition:.2s; text-align:left;
+}
+.artifact-card:hover{border-color:var(--sherd); transform:translateY(-2px);}
+.artifact-card svg{width:100%; height:88px;}
+.artifact-card h4{margin:10px 0 2px; font-size:.88rem; color:var(--bone); font-family:var(--body); font-weight:600;}
+.artifact-card .where{font-family:var(--mono); font-size:.64rem; color:var(--ochre-light); text-transform:uppercase;}
+
+.modal-overlay{
+  position:fixed; inset:0; background:rgba(23,16,9,0.82); backdrop-filter:blur(3px);
+  display:none; align-items:center; justify-content:center; z-index:100; padding:24px;
+}
+.modal-overlay.open{display:flex;}
+.modal{
+  background:var(--soil-800); border:1px solid var(--sherd); max-width:520px; width:100%;
+  padding:28px; border-radius:5px; position:relative;
+}
+.modal svg{width:120px; height:120px; margin-bottom:16px;}
+.modal-close{position:absolute; top:14px; right:16px; background:none; border:none; color:var(--bone-dim); font-size:1.3rem; cursor:pointer;}
+.evidence{font-family:var(--mono); font-size:.72rem; color:var(--lapis-light); border-top:1px solid var(--line); padding-top:12px; margin-top:12px;}
+
+/* ===== Discoveries ===== */
+.dig-list{border-left:2px solid var(--soil-600); padding-left:22px; margin-left:6px;}
+.dig-item{position:relative; padding-bottom:30px;}
+.dig-item::before{content:""; position:absolute; left:-28px; top:4px; width:11px; height:11px; border-radius:50%; background:var(--ochre); border:2px solid var(--soil-950);}
+.dig-item .yr{font-family:var(--mono); font-size:.72rem; color:var(--ochre-light);}
+
+footer{padding:60px 0 100px; text-align:center;}
+footer .sources{font-family:var(--mono); font-size:.68rem; color:var(--bone-dim); max-width:70ch; margin:18px auto 0; line-height:1.9;}
+.pill{display:inline-block; font-family:var(--mono); font-size:.65rem; background:var(--soil-700); color:var(--bone-dim); padding:3px 9px; border-radius:20px; margin:2px;}
+</style>
+</head>
+<body>
+
+<nav class="strata-rail" id="strataRail">
+  <div class="layer" data-p="pre"><span class="tick">PERIOD I · PRE-HARAPPAN</span></div>
+  <div class="layer" data-p="mature"><span class="tick">PERIOD II · MATURE HARAPPAN</span></div>
+  <div class="layer" data-p="late"><span class="tick">PERIOD III · LATE / BARA</span></div>
+</nav>
+
+<div class="has-rail">
+
+<!-- HERO -->
+<header class="hero">
+  <svg class="strata-bg" viewBox="0 0 1200 800" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect y="600" width="1200" height="200" fill="#241a10"/>
+    <rect y="660" width="1200" height="140" fill="#2d2015"/>
+    <rect y="720" width="1200" height="80" fill="#3c2c1c"/>
+  </svg>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Fatehabad District · Haryana, India</div>
+      <h1>Banawali<br><em>a Harappan town</em><br>through time</h1>
+      <p class="lede">A fortified settlement on the dried bed of the Sarasvati, occupied for nearly a thousand years — from a Pre‑Harappan farming village to a walled Mature Harappan town, and into its slow late decline. Excavated by R. S. Bisht from 1974.</p>
+      <div class="coord">29°35′54″N · 75°23′31″E — 120 km NE of Kalibangan, 16 km from Fatehabad</div>
+      <div class="hero-stats">
+        <div><b>c. 2500–1500 BCE</b><span>Occupation span</span></div>
+        <div><b>200 × 500 m</b><span>Fortified town</span></div>
+        <div><b>3</b><span>Cultural periods</span></div>
+      </div>
+    </div>
+    <div class="map-frame" style="align-self:center;">
+      <svg viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" id="heroMap"></svg>
+      <div class="map-caption">Mature Harappan plan — citadel &amp; lower town (schematic, after ASI reports)</div>
+    </div>
+  </div>
+  <div class="scroll-cue">↓ scroll into the trench</div>
+</header>
+
+<!-- GEOGRAPHIC SETTING -->
+<section id="geo">
+  <div class="wrap two-col">
+    <div class="section-head">
+      <div class="eyebrow">01 · Geographic Setting</div>
+      <h2>On the upper Sarasvati, between three capitals</h2>
+      <p>Banawali sits on the left bank of the now-dried Sarasvati (Ghaggar) river, on its upper-middle valley — unlike Kalibangan, which occupied the lower-middle valley of the same dead river. That position placed the town within reach of three major Harappan centres without belonging fully to any one cluster.</p>
+      <p>The mound rises roughly 10 m above the surrounding plain, a visible marker of the site's long, repeated rebuilding — each generation raising floors and walls on the ruins of the last.</p>
+    </div>
+    <div class="geo-map">
+      <svg viewBox="0 0 560 340" id="geoSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div class="legend">
+        <span><i style="background:var(--sherd)"></i>Banawali</span>
+        <span><i style="background:var(--ochre)"></i>Nearby Harappan sites</span>
+        <span><i style="background:var(--lapis)"></i>Sarasvati–Ghaggar palaeochannel</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE EXPLORER -->
+<section id="phases">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">02 · Phase-by-Phase City Map</div>
+      <h2>How the town itself changed</h2>
+      <p>Three tabs, three excavated horizons. Town planning, fortification, houses and streets all shifted between phases — select a period to see its plan and read what changed.</p>
+    </div>
+    <div class="phase-tabs" id="phaseTabs">
+      <button class="phase-tab active" data-phase="pre">Period I — Pre‑Harappan (c. 2500–2300 BCE)</button>
+      <button class="phase-tab" data-phase="mature">Period II — Mature Harappan (c. 2300–1700 BCE)</button>
+      <button class="phase-tab" data-phase="late">Period III — Late / Bara (c. 1700–1500 BCE)</button>
+    </div>
+
+    <div class="phase-panel active" data-panel="pre">
+      <div class="map-frame">
+        <svg viewBox="0 0 420 300" id="mapPre" xmlns="http://www.w3.org/2000/svg"></svg>
+        <div class="map-caption">Sub-phases: IA pre-defence → IB defence wall raised → IC transitional (Proto-Harappan)</div>
+      </div>
+      <div>
+        <ul class="feature-list">
+          <li><b>Town planning.</b> An unwalled farming settlement at first (Period IA), already showing well-planned houses rather than a random cluster.</li>
+          <li><b>Fortification.</b> A defence wall of moulded mud brick is added in Period IB — the town's first perimeter, well before the Mature Harappan citadel existed.</li>
+          <li><b>Houses.</b> Simple mud-brick houses, modest room counts, hand-finished floors.</li>
+          <li><b>Pottery.</b> Sothi–Siswal-related painted wares; motifs grow simpler and sparser through the phase, with white pigment used less and less over time.</li>
+          <li><b>Continuity.</b> Excavators read this as one continuous population, not a replacement — the same community that later builds the Mature Harappan town.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-panel" data-panel="mature">
+      <div class="map-frame">
+        <svg viewBox="0 0 420 300" id="mapMature" xmlns="http://www.w3.org/2000/svg"></svg>
+        <div class="map-caption">Trapezoidal fortified town, c. 200 × 500 m, with apsidal citadel</div>
+      </div>
+      <div>
+        <ul class="feature-list">
+          <li><b>Town planning.</b> A fully walled, chess-board-influenced town divided into two adjoining sectors — a raised citadel for the ruling/elite class and a lower town for everyone else. Unusually for a Harappan site, the citadel here is <em>apsidal</em> (semicircular-ended) rather than rectangular, and the lower town is trapezoidal — a real deviation from the classic grid.</li>
+          <li><b>Fortification.</b> A defence wall over 105 m long, 4.5 m high and 6 m wide has been traced; late in this period a broad moat was dug around the town, likely as flood defence against the Sarasvati — the wall itself may ultimately have failed to water damage.</li>
+          <li><b>Streets.</b> The lower town has north–south thoroughfares cutting at right angles, linked by east–west lanes — genuinely urban street planning. Near the citadel gateway complex the layout curves into a radial pattern, a direct consequence of the semicircular citadel.</li>
+          <li><b>Houses.</b> Kiln-burnt and moulded brick construction, rammed-earth floors, mud-plastered walls, multiple rooms, kitchens and toilets. One multi-room house with seals and weights suggests a merchant's residence; a larger house with gold beads, lapis lazuli, carnelian and a gold-streaked touchstone suggests a jeweller's.</li>
+          <li><b>Drainage.</b> No public street-drain network here (unlike Mohenjo-daro) — households instead used soak jars sunk at fixed points along the streets to absorb waste water.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-panel" data-panel="late">
+      <div class="map-frame">
+        <svg viewBox="0 0 420 300" id="mapLate" xmlns="http://www.w3.org/2000/svg"></svg>
+        <div class="map-caption">Contraction and reoccupation — Banawali-Bara horizon</div>
+      </div>
+      <div>
+        <ul class="feature-list">
+          <li><b>Town planning.</b> Occupation contracts and reorganises; the strict citadel/lower-town division loses its earlier force.</li>
+          <li><b>Culture.</b> This period is represented by the Bara culture — sometimes described as post-Harappan or a late contemporary of Harappa itself, with a distinct pottery style overlying the Mature Harappan levels.</li>
+          <li><b>Decline.</b> Urban life at both Banawali and Kalibangan appears to end abruptly rather than fade gradually — a pattern excavators still debate.</li>
+          <li><b>Brick ratios shift.</b> Earlier bricks follow the Kalibangan 3:2:1 ratio; later bricks shift to 4:2:1 — a small but telling sign of changing building convention over the town's lifetime.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON SLIDER -->
+<section id="compare">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">03 · Settlement Comparison</div>
+      <h2>Drag to compare: village → walled town</h2>
+      <p>The same footprint, roughly six centuries apart. Slide to see the Pre-Harappan settlement give way to the fortified Mature Harappan town.</p>
+    </div>
+    <div class="compare-wrap">
+      <div class="compare-stage" id="compareStage">
+        <svg class="layer-img bottom" viewBox="0 0 420 300" id="cmpBottom" xmlns="http://www.w3.org/2000/svg"></svg>
+        <svg class="layer-img top" id="cmpTopSvg" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg"></svg>
+        <div class="compare-handle" id="cmpHandle"></div>
+        <div class="compare-label left">Pre-Harappan (Period I)</div>
+        <div class="compare-label right">Mature Harappan (Period II)</div>
+      </div>
+    </div>
+    <input type="range" class="compare-range" id="cmpRange" min="0" max="100" value="50">
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">04 · Timeline</div>
+      <h2>Nearly a millennium, three horizons</h2>
+      <p>Click a marker — it updates the phase map above too.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-track"><div class="timeline-fill"></div></div>
+      <div class="timeline-events" id="tlEvents"></div>
+      <div class="tl-labels" id="tlLabels"></div>
+      <div class="tl-detail" id="tlDetail"></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFE & ECONOMY -->
+<section id="life">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">05 · Pottery, Agriculture &amp; Crafts</div>
+      <h2>What daily life left behind</h2>
+    </div>
+    <div class="grid-3" id="lifeGrid"></div>
+  </div>
+</section>
+
+<!-- TRADE -->
+<section id="trade">
+  <div class="wrap two-col">
+    <div class="section-head" style="margin-bottom:0;">
+      <div class="eyebrow">06 · Trade Connections</div>
+      <h2>A node between metropolises</h2>
+      <p>Weights, seals and imported raw materials — gold, lapis lazuli, carnelian, marine shell — show Banawali plugged into both regional exchange with nearby Harappan towns and long-distance networks reaching toward the coast and the northwest highlands. Marine shell found this far from any coastline is itself evidence of active internal trade during the early Indus period.</p>
+    </div>
+    <div class="trade-frame">
+      <svg viewBox="0 0 560 420" id="tradeSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ARTIFACT EXPLORER -->
+<section id="photos">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">07 · Photo Reference Gallery</div>
+      <h2>What these object types actually look like</h2>
+      <p class="photo-note">Most material excavated at Banawali itself has since been reburied, standard practice for site conservation. These photos show the same categories of object — seals, pottery, beads, figurines — as held in museum collections elsewhere in the Harappan world, for reference alongside the illustrated reconstructions below. Images via Wikimedia Commons.</p>
+    </div>
+    <div class="photo-grid" id="photoGrid"></div>
+  </div>
+</section>
+
+<section id="artifacts">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">08 · Artifact Explorer</div>
+      <h2>Objects out of the trench</h2>
+      <p>Tap any object for what it is, where it turned up, and why it matters.</p>
+    </div>
+    <div class="artifact-grid" id="artifactGrid"></div>
+  </div>
+</section>
+
+<!-- DISCOVERIES -->
+<section id="discoveries">
+  <div class="wrap two-col">
+    <div class="section-head" style="margin-bottom:0;">
+      <div class="eyebrow">09 · Archaeological Discoveries</div>
+      <h2>The excavation record</h2>
+      <p>Most finds have since been reburied, as is standard practice — but a preserved Harappan-era well still stands at the site as physical testimony to its antiquity.</p>
+    </div>
+    <div class="dig-list" id="digList"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center;">Sources consulted</div>
+    <div class="sources">
+      Wikipedia — Banawali · Archaeological Survey of India, "Excavations – Banawali" · Indian Archaeology 1987–88, A Review (ASI) · Upinder Singh, <em>A History of Ancient and Early Medieval India</em> (2008) · Jane R. McIntosh, <em>The Ancient Indus Valley: New Perspectives</em> (2008) · B.B. Lal, <em>The Sarasvatī Flows On</em> (2002) · Haryana Tourism, "Ancient Site of Banawali" · ThePrint, "Harappan small town Banawali is full of surprises" (2023)
+    </div>
+    <div style="margin-top:14px;">
+      <span class="pill">R.S. Bisht, excavator, 1974</span>
+      <span class="pill">Fatehabad District, Haryana</span>
+      <span class="pill">Indus Valley Civilization</span>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalBody"></div>
+</div>
+
+<script>
+/* ---------- shared drawing helpers ---------- */
+const NS = "http://www.w3.org/2000/svg";
+function el(tag, attrs){
+  const e = document.createElementNS(NS, tag);
+  for(const k in attrs) e.setAttribute(k, attrs[k]);
+  return e;
+}
+function clear(svg){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
+
+/* ---------- Town plan drawings (viewBox 0 0 420 300) ---------- */
+function drawPre(svg){
+  clear(svg);
+  svg.appendChild(el('rect',{x:0,y:0,width:420,height:300,fill:'#241a10'}));
+  // scattered pre-Harappan houses, no fortification (IA), thin wall forming (IB)
+  const grp = el('g',{});
+  svg.appendChild(grp);
+  const houses = [[70,90,34,26],[120,70,30,24],[80,140,40,30],[150,120,26,22],[190,80,32,26],[210,150,36,28],
+                   [260,100,30,24],[130,190,38,28],[190,200,30,22],[250,180,34,26],[300,140,28,24],[300,210,32,26]];
+  houses.forEach(h=>{
+    grp.appendChild(el('rect',{x:h[0],y:h[1],width:h[2],height:h[3],fill:'#8a6a48',stroke:'#c9bda3',"stroke-width":1,rx:1}));
+  });
+  // faint dashed perimeter suggesting emerging defence wall
+  grp.appendChild(el('rect',{x:40,y:40,width:320,height:220,fill:'none',stroke:'#e6bd76',"stroke-width":2,"stroke-dasharray":"6 6",opacity:.55}));
+  grp.appendChild(el('text',{x:210,y:270,fill:'#c9bda3','font-size':11,'text-anchor':'middle','font-family':'IBM Plex Mono, monospace'})).textContent='wall raised in Period IB →';
+  svg.appendChild(grp);
+}
+
+function drawMature(svg){
+  clear(svg);
+  svg.appendChild(el('rect',{x:0,y:0,width:420,height:300,fill:'#241a10'}));
+  const g = el('g',{}); svg.appendChild(g);
+  // trapezoidal lower town outline
+  const outline = "40,120 380,90 380,260 60,270";
+  g.appendChild(el('polygon',{points:outline, fill:'#2d2015', stroke:'#cf9b46','stroke-width':3}));
+  // apsidal citadel (semicircular end) upper-left
+  const cit = el('path',{d:"M40,120 L150,110 A55,55 0 0 1 150,220 L40,215 Z", fill:'#3c2c1c', stroke:'#b5502e','stroke-width':3});
+  g.appendChild(cit);
+  g.appendChild(el('text',{x:80,y:168,fill:'#efe6d3','font-size':11,'font-family':'IBM Plex Mono, monospace','text-anchor':'middle'})).textContent='CITADEL';
+  // grid streets in lower town (N-S thoroughfares x E-W lanes)
+  for(let x=190; x<380; x+=42){
+    g.appendChild(el('line',{x1:x,y1:100,x2:x,y2:265,stroke:'#513c26','stroke-width':2}));
+  }
+  for(let y=140; y<260; y+=38){
+    g.appendChild(el('line',{x1:160,y1:y,x2:380,y2:y,stroke:'#513c26','stroke-width':2}));
+  }
+  // radial lanes near gateway (citadel/lower town junction)
+  const gate = [150,165];
+  [ [190,110],[195,150],[190,200],[195,240] ].forEach(p=>{
+    g.appendChild(el('line',{x1:gate[0],y1:gate[1],x2:p[0],y2:p[1],stroke:'#e6bd76','stroke-width':1.4,opacity:.7}));
+  });
+  g.appendChild(el('circle',{cx:gate[0],cy:gate[1],r:5,fill:'#e6bd76'}));
+  g.appendChild(el('text',{x:gate[0]-6,y:gate[1]-12,fill:'#e6bd76','font-size':9,'font-family':'IBM Plex Mono, monospace'})).textContent='gateway';
+  // houses as small blocks
+  const hpos=[[200,110],[240,110],[280,110],[320,110],[200,150],[240,150],[280,150],[320,150],[200,190],[240,190],[280,190],[320,190],[200,225],[240,225],[280,225],[320,225]];
+  hpos.forEach(p=>{ g.appendChild(el('rect',{x:p[0]+4,y:p[1]+4,width:30,height:26,fill:'#8a6a48',stroke:'#c9bda3','stroke-width':.6})); });
+  // moat (late addition)
+  g.appendChild(el('polygon',{points:outline, fill:'none', stroke:'#3c6a93','stroke-width':2,'stroke-dasharray':'3 5', transform:'translate(0,0) scale(1.04)', 'transform-origin':'210 175'}));
+  g.appendChild(el('text',{x:210,y:290,fill:'#6f9ec5','font-size':10,'text-anchor':'middle','font-family':'IBM Plex Mono, monospace'})).textContent='dashed = late-phase moat';
+}
+
+function drawLate(svg){
+  clear(svg);
+  svg.appendChild(el('rect',{x:0,y:0,width:420,height:300,fill:'#241a10'}));
+  const g = el('g',{opacity:.85}); svg.appendChild(g);
+  const outline = "40,120 380,90 380,260 60,270";
+  g.appendChild(el('polygon',{points:outline, fill:'#2d2015', stroke:'#513c26','stroke-width':2,'stroke-dasharray':'4 4'}));
+  // fewer, sparser structures; breached wall segment
+  const hpos=[[210,120],[260,140],[300,170],[220,200],[270,220],[160,150]];
+  hpos.forEach(p=>{ g.appendChild(el('rect',{x:p[0],y:p[1],width:26,height:22,fill:'#6f5638',stroke:'#c9bda3','stroke-width':.6})); });
+  g.appendChild(el('path',{d:"M40,120 L150,110 A55,55 0 0 1 150,220 L40,215 Z", fill:'#302418', stroke:'#8a6a48','stroke-width':2,'stroke-dasharray':'5 5'}));
+  g.appendChild(el('text',{x:95,y:170,fill:'#c9bda3','font-size':9,'text-anchor':'middle','font-family':'IBM Plex Mono, monospace'})).textContent='citadel divide fades';
+  // breach mark
+  g.appendChild(el('line',{x1:300,y1:88,x2:320,y2:95,stroke:'#b5502e','stroke-width':4}));
+  g.appendChild(el('text',{x:330,y:80,fill:'#d97a4f','font-size':9,'font-family':'IBM Plex Mono, monospace'})).textContent='wall breach / flood damage';
+  g.appendChild(el('text',{x:210,y:288,fill:'#c9bda3','font-size':10,'text-anchor':'middle','font-family':'IBM Plex Mono, monospace'})).textContent='Bara-culture pottery overlies these levels';
+}
+
+drawMature(document.getElementById('heroMap'));
+drawPre(document.getElementById('mapPre'));
+drawMature(document.getElementById('mapMature'));
+drawLate(document.getElementById('mapLate'));
+drawPre(document.getElementById('cmpBottom'));
+drawMature(document.getElementById('cmpTopSvg'));
+
+/* ---------- Phase tabs ---------- */
+const tabs = document.querySelectorAll('.phase-tab');
+const panels = document.querySelectorAll('.phase-panel');
+const railLayers = document.querySelectorAll('.strata-rail .layer');
+function setPhase(p){
+  tabs.forEach(t=>t.classList.toggle('active', t.dataset.phase===p));
+  panels.forEach(pl=>pl.classList.toggle('active', pl.dataset.panel===p));
+  railLayers.forEach(r=>r.classList.toggle('active', r.dataset.p===p));
+  const tlBtn = document.querySelector('.tl-event[data-phase="'+p+'"]');
+  if(tlBtn) selectTimelineEvent(tlBtn);
+}
+tabs.forEach(t=> t.addEventListener('click', ()=> setPhase(t.dataset.phase)));
+railLayers.forEach(r=> r.addEventListener('click', ()=>{ setPhase(r.dataset.p); document.getElementById('phases').scrollIntoView({behavior:'smooth'}); }));
+setPhase('pre');
+
+/* ---------- Comparison slider ---------- */
+const cmpRange = document.getElementById('cmpRange');
+const cmpTop = document.querySelector('#compareStage .layer-img.top');
+const cmpHandle = document.getElementById('cmpHandle');
+function updateCompare(v){
+  cmpTop.style.clipPath = 'inset(0 0 0 '+v+'%)';
+  cmpHandle.style.left = v+'%';
+}
+cmpRange.addEventListener('input', e=> updateCompare(e.target.value));
+updateCompare(50);
+// drag directly on the image too
+const stage = document.getElementById('compareStage');
+let dragging=false;
+stage.addEventListener('pointerdown',()=>dragging=true);
+window.addEventListener('pointerup',()=>dragging=false);
+window.addEventListener('pointermove', e=>{
+  if(!dragging) return;
+  const r = stage.getBoundingClientRect();
+  let v = ((e.clientX - r.left)/r.width)*100;
+  v = Math.max(0, Math.min(100, v));
+  cmpRange.value = v;
+  updateCompare(v);
+});
+
+/* ---------- Geographic setting map ---------- */
+(function(){
+  const svg = document.getElementById('geoSvg');
+  svg.appendChild(el('rect',{x:0,y:0,width:560,height:340,fill:'#1c140d'}));
+  // schematic palaeochannel
+  const river = el('path',{d:"M60,20 C90,80 60,140 110,190 S180,260 220,320", fill:'none', stroke:'#3c6a93','stroke-width':10, opacity:.5,'stroke-linecap':'round'});
+  svg.appendChild(river);
+  svg.appendChild(el('text',{x:66,y:14,fill:'#6f9ec5','font-size':10,'font-family':'IBM Plex Mono, monospace'})).textContent='Sarasvati–Ghaggar (dried)';
+  const sites = [
+    {n:'Harappa', x:250, y:20, c:'#cf9b46', note:'~far N, Punjab'},
+    {n:'Banawali', x:250, y:150, c:'#b5502e', note:'this site'},
+    {n:'Kalibangan', x:120, y:230, c:'#cf9b46', note:'120 km SW'},
+    {n:'Rakhigarhi', x:420, y:200, c:'#cf9b46', note:'east, Haryana'},
+    {n:'Fatehabad', x:290, y:190, c:'#efe6d3', note:'16 km away'}
+  ];
+  sites.forEach(s=>{
+    const r = s.n==='Banawali' ? 8:5.5;
+    svg.appendChild(el('circle',{cx:s.x,cy:s.y,r:r, fill:s.c, stroke:'#171009','stroke-width':1.5}));
+    svg.appendChild(el('text',{x:s.x+10,y:s.y+4,fill:'#efe6d3','font-size':11,'font-family':'IBM Plex Sans, sans-serif'})).textContent=s.n;
+    svg.appendChild(el('text',{x:s.x+10,y:s.y+16,fill:'#c9bda3','font-size':8.5,'font-family':'IBM Plex Mono, monospace'})).textContent=s.note;
+  });
+  svg.appendChild(el('line',{x1:250,y1:150,x2:120,y2:230,stroke:'#c9bda3','stroke-width':1,'stroke-dasharray':'2 4'}));
+  svg.appendChild(el('line',{x1:250,y1:150,x2:420,y2:200,stroke:'#c9bda3','stroke-width':1,'stroke-dasharray':'2 4'}));
+})();
+
+/* ---------- Timeline ---------- */
+const tlData = [
+  {phase:'pre', pos:6, date:'c. 2500 BCE', name:'IA — Pre-defence', body:'First occupation: unwalled village of well-planned mud-brick houses on the upper Sarasvati valley.'},
+  {phase:'pre', pos:16, date:'c. 2450 BCE', name:'IB — Defence phase', body:'A mud-brick defence wall is raised — Banawali\'s earliest fortification, well before any citadel/lower-town division existed.'},
+  {phase:'pre', pos:26, date:'c. 2350 BCE', name:'IC — Transitional', body:'Proto-Harappan phase: painted pottery motifs simplify, white pigment use declines, groundwork laid for the coming urban town.'},
+  {phase:'mature', pos:48, date:'c. 2300 BCE', name:'II — Town founded', body:'The trapezoidal fortified town with apsidal citadel is laid out — houses of kiln-burnt brick, planned streets, gateway complex.'},
+  {phase:'mature', pos:62, date:'c. 2000 BCE', name:'II — Peak urbanism', body:'Seals, weights, gold beads, lapis lazuli and a gold-testing touchstone appear in merchant and jeweller houses; soak-jar drainage in active use.'},
+  {phase:'mature', pos:70, date:'c. 1850 BCE', name:'II — Moat &amp; flood defence', body:'A broad moat is dug around the town late in this period, likely to hold back Sarasvati floodwater; the wall ultimately suffers water damage.'},
+  {phase:'late', pos:86, date:'c. 1700 BCE', name:'III — Bara horizon', body:'Post-Harappan Bara-culture pottery overlies Mature Harappan levels; the citadel/lower-town divide loses its earlier force.'},
+  {phase:'late', pos:97, date:'c. 1500 BCE', name:'III — Abandonment', body:'Urban life ends abruptly rather than fading — a pattern shared with Kalibangan, and still debated by excavators.'}
+];
+const tlEvents = document.getElementById('tlEvents');
+const tlLabels = document.getElementById('tlLabels');
+const tlDetail = document.getElementById('tlDetail');
+tlData.forEach((d,i)=>{
+  const dot = el('div',{class:'tl-event', style:'left:'+d.pos+'%', 'data-phase':d.phase, 'data-i':i});
+  dot.className='tl-event';
+  dot.style.left = d.pos+'%';
+  dot.dataset.phase = d.phase;
+  dot.dataset.i = i;
+  tlEvents.appendChild(dot);
+  const lab = document.createElement('div');
+  lab.className='tl-label';
+  lab.style.left = d.pos+'%';
+  lab.innerHTML = '<div class="date">'+d.date+'</div><div class="name">'+d.name+'</div>';
+  tlLabels.appendChild(lab);
+});
+function selectTimelineEvent(node){
+  document.querySelectorAll('.tl-event').forEach(n=>n.classList.remove('active'));
+  node.classList.add('active');
+  const d = tlData[node.dataset.i];
+  tlDetail.innerHTML = '<b style="color:var(--bone);font-family:var(--display);font-size:1.05rem;">'+d.name+'</b> <span style="font-family:var(--mono);color:var(--ochre-light);font-size:.72rem;">'+d.date+'</span><p style="margin:8px 0 0;">'+d.body+'</p>';
+}
+document.querySelectorAll('.tl-event').forEach(n=>{
+  n.addEventListener('click', ()=>{ selectTimelineEvent(n); setPhase(n.dataset.phase); });
+});
+selectTimelineEvent(document.querySelector('.tl-event[data-i="0"]'));
+
+/* ---------- Life & economy ---------- */
+const lifeData = [
+  {tag:'Pottery', title:'Red ware, animal &amp; floral motifs', body:'Sophisticated wheel-turned red ware decorated with animal and floral designs: dish-on-stand, S-shaped jars, perforated jars, cooking handis, beakers, basins and goblets. Painted motifs include peacocks, pipal leaves, deer, fish, stars, intersecting circles, checkerboard and honeycomb patterns. The assemblage compares closely with Kalibangan Period I pottery.',
+   icon:'pot'},
+  {tag:'Agriculture', title:'The only known Harappan plough', body:'A terracotta plough model found at Banawali is the sole physical specimen of what an ancient Harappan plough looked like — direct evidence for plough agriculture behind the surplus that fed the town.',
+   icon:'plough'},
+  {tag:'Crafts', title:'Jewellers, seal-cutters, weight-makers', body:'One house yielded gold beads, lapis lazuli, carnelian and a touchstone streaked with gold — used to test gold purity, a technique still practised locally today. Seals and small stone weights turn up only in the lower town, never the citadel, pointing to merchant households there.',
+   icon:'craft'}
+];
+const lifeGrid = document.getElementById('lifeGrid');
+function iconFor(kind){
+  if(kind==='pot') return '<svg viewBox="0 0 100 100"><path d="M35 20 Q50 10 65 20 L60 35 Q75 45 70 65 Q65 85 50 88 Q35 85 30 65 Q25 45 40 35 Z" fill="none" stroke="#d97a4f" stroke-width="2.5"/><circle cx="50" cy="55" r="3" fill="#cf9b46"/><path d="M40 50 q10 6 20 0" stroke="#cf9b46" fill="none" stroke-width="1.5"/></svg>';
+  if(kind==='plough') return '<svg viewBox="0 0 100 100"><path d="M15 75 L55 30" stroke="#d97a4f" stroke-width="3" fill="none"/><path d="M55 30 L85 25" stroke="#cf9b46" stroke-width="3" fill="none"/><path d="M15 75 L30 82" stroke="#d97a4f" stroke-width="3" fill="none"/><circle cx="15" cy="75" r="4" fill="#cf9b46"/></svg>';
+  if(kind==='craft') return '<svg viewBox="0 0 100 100"><circle cx="35" cy="45" r="9" fill="none" stroke="#cf9b46" stroke-width="2.5"/><circle cx="58" cy="35" r="6" fill="none" stroke="#6f9ec5" stroke-width="2.5"/><circle cx="60" cy="60" r="7" fill="none" stroke="#d97a4f" stroke-width="2.5"/><line x1="35" y1="45" x2="58" y2="35" stroke="#c9bda3" stroke-width="1"/><line x1="58" y1="35" x2="60" y2="60" stroke="#c9bda3" stroke-width="1"/></svg>';
+}
+lifeData.forEach(d=>{
+  const c = document.createElement('div');
+  c.className='icon-card';
+  c.innerHTML = iconFor(d.icon)+'<div class="tag">'+d.tag+'</div><h3>'+d.title+'</h3><p>'+d.body+'</p>';
+  lifeGrid.appendChild(c);
+});
+
+/* ---------- Trade diagram ---------- */
+(function(){
+  const svg = document.getElementById('tradeSvg');
+  svg.setAttribute('viewBox','0 0 560 420');
+  svg.appendChild(el('rect',{x:0,y:0,width:560,height:420,fill:'#1c140d'}));
+  const center = {x:280,y:220,n:'Banawali'};
+  const nodes = [
+    {n:'Kalibangan', x:110, y:290, note:'weights & pottery affinity'},
+    {n:'Rakhigarhi', x:470, y:250, note:'regional Harappan network'},
+    {n:'Harappa', x:280, y:40, note:'far north, Punjab'},
+    {n:'Coast (Gujarat/Makran)', x:120, y:390, note:'marine shell, carnelian'},
+    {n:'Badakhshan region (NW)', x:60, y:70, note:'lapis lazuli source'},
+  ];
+  nodes.forEach(n=>{
+    svg.appendChild(el('line',{x1:center.x,y1:center.y,x2:n.x,y2:n.y, stroke:'#3c6a93','stroke-width':1.4,'stroke-dasharray':'4 5', opacity:.8}));
+  });
+  svg.appendChild(el('circle',{cx:center.x,cy:center.y,r:12,fill:'#b5502e',stroke:'#efe6d3','stroke-width':2}));
+  svg.appendChild(el('text',{x:center.x,y:center.y+30,fill:'#efe6d3','font-size':13,'text-anchor':'middle','font-family':'IBM Plex Sans, sans-serif'})).textContent=center.n;
+  nodes.forEach(n=>{
+    svg.appendChild(el('circle',{cx:n.x,cy:n.y,r:6,fill:'#cf9b46'}));
+    const t1 = el('text',{x:n.x, y:n.y-12, fill:'#efe6d3','font-size':11,'text-anchor':'middle','font-family':'IBM Plex Sans, sans-serif'});
+    t1.textContent = n.n; svg.appendChild(t1);
+    const t2 = el('text',{x:n.x, y:n.y+18, fill:'#6f9ec5','font-size':8.5,'text-anchor':'middle','font-family':'IBM Plex Mono, monospace'});
+    t2.textContent = n.note; svg.appendChild(t2);
+  });
+})();
+
+/* ---------- Photo reference gallery (real photos, Wikimedia Commons) ---------- */
+const commonsBase = 'https://commons.wikimedia.org/wiki/Special:FilePath/';
+const photos = [
+  {file:'Pashupati Seal from the Harappan Civilization.jpg', title:'Steatite seal (Mohenjo-daro)', note:'National Museum, Delhi — comparable to sealings found in Banawali\'s lower town'},
+  {file:'Harappan seals (Indus Valley).jpg', title:'Harappan seals', note:'Carved steatite seals, Indus Valley Civilization'},
+  {file:'Storage Jar from the Mature Harappan Period.jpg', title:'Storage jar, Mature Harappan', note:'National Museum, Delhi — red-ware storage vessel'},
+  {file:'Terracotta Bird Figurines from Indus Valley Civilisation.jpg', title:'Terracotta figurines', note:'National Museum, Delhi'},
+  {file:'Harappan carnelian and terracotta beads - Mohenjo-daro.jpg', title:'Carnelian &amp; terracotta beads', note:'Comparable to beadwork found in Banawali\'s jeweller\'s house'},
+  {file:'Female figurine 1. Mature Harappan period. Indus civilization.jpg', title:'Female figurine, Mature Harappan', note:'A find-type also recorded in large numbers at Banawali'}
+];
+const photoGrid = document.getElementById('photoGrid');
+photos.forEach(p=>{
+  const c = document.createElement('div');
+  c.className='photo-card';
+  const img = document.createElement('img');
+  img.className='ph';
+  img.loading='lazy';
+  img.alt = p.title;
+  img.src = commonsBase + encodeURIComponent(p.file).replace(/%20/g,'%20');
+  img.onerror = function(){ this.parentElement.style.display='none'; };
+  c.appendChild(img);
+  const cap = document.createElement('div');
+  cap.className='cap';
+  cap.innerHTML = '<h4>'+p.title+'</h4><div class="src">'+p.note+' · Wikimedia Commons</div>';
+  c.appendChild(cap);
+  photoGrid.appendChild(c);
+});
+
+/* ---------- Artifact explorer ---------- */
+const artifacts = [
+  {name:'Terracotta plough model', where:'Lower town', icon:'plough',
+   body:'The only complete specimen of a plough form known from the entire Harappan Civilization. It is direct physical evidence that Banawali\'s farmers used plough agriculture, not just hand tools, to work the fields that fed the town.',
+   evidence:'Cited by ASI excavation reports and Haryana Tourism as a unique find.'},
+  {name:'Stamp seals & sealings', where:'Lower town only — none in citadel', icon:'seal',
+   body:'Carved seals showing rhinoceros, wild goat, ibex, the "unicorn" motif, and composite tiger-bodied animals. Their concentration in the lower town, absent from the citadel, is one clue used to argue merchant households lived there.',
+   evidence:'Wikipedia / ASI excavation summary; Upinder Singh (2008), pp.152–153, 171, 179.'},
+  {name:'Gold beads & lapis lazuli', where:"A large house, lower town", icon:'beads',
+   body:'Found together with carnelian, tiny stone weights and a touchstone bearing streaks of gold — read as the workshop or home of a jeweller or ornament-maker.',
+   evidence:'B.B. Lal (2002), The Sarasvatī Flows On, p.147.'},
+  {name:'Gold-testing touchstone', where:'Jeweller\'s house', icon:'stone',
+   body:'A stone bearing streaks of gold, likely used to assess gold purity by comparing streak colour — a technique still practised in the region today.',
+   evidence:'B.B. Lal (2002).'},
+  {name:'Stone weights', where:'Merchant house, lower town', icon:'weight',
+   body:'Small cubical stone weights used for trade transactions. One weighed 87.855 g — close to 100× the more common 0.857 g Harappan weight unit — evidence of a standardised weight system in use.',
+   evidence:'Jane R. McIntosh (2008), The Ancient Indus Valley, p.229.'},
+  {name:'Marine shell ornaments', where:'Across the settlement', icon:'shell',
+   body:'Shell bangles and ornaments, found here as well as at Harappa and Kalibangan — all far from any coastline. Their presence is treated as evidence of active internal trade networks during the early Indus period.',
+   evidence:'Jane R. McIntosh (2008), p.229.'},
+  {name:'Ivory comb & terracotta figurines', where:'Various excavation seasons', icon:'figure',
+   body:'An ivory comb, terracotta cakes (one engraved with an ass), and human figurines — a notably large number of female figurines, as also seen at Mohenjo-daro and Harappa.',
+   evidence:'ASI, Indian Archaeology 1987–88 – A Review, pp.21–27.'},
+  {name:'Fire altars', where:'Several houses, apsidal structures', icon:'altar',
+   body:'Evidence of fire altars associated with apsidal (rounded-end) structures, interpreted as having a ritual or ceremonial purpose within domestic space.',
+   evidence:'Upinder Singh (2008), pp.152–153.'}
+];
+function artIcon(kind){
+  const s='<svg viewBox="0 0 100 100" fill="none" stroke="#e6bd76" stroke-width="2.2">';
+  const map = {
+    plough:'<path d="M15 78 L55 32"/><path d="M55 32 L86 27"/><path d="M15 78 L30 85"/><circle cx="15" cy="78" r="4" fill="#e6bd76"/>',
+    seal:'<rect x="30" y="30" width="40" height="40" rx="3"/><circle cx="50" cy="45" r="7"/><path d="M38 62 h24"/>',
+    beads:'<circle cx="30" cy="55" r="6"/><circle cx="46" cy="45" r="6"/><circle cx="62" cy="55" r="6"/><circle cx="50" cy="68" r="6"/><path d="M30 55 L46 45 L62 55 L50 68 Z" stroke-width="1"/>',
+    stone:'<path d="M30 65 L40 32 L65 30 L74 60 L55 78 Z"/><path d="M40 45 L60 42" stroke-width="1.4"/>',
+    weight:'<rect x="35" y="35" width="30" height="30" rx="4"/>',
+    shell:'<path d="M50 25 C30 35 25 65 50 78 C75 65 70 35 50 25 Z"/><path d="M50 30 L50 74" stroke-width="1.2"/><path d="M38 40 L50 50 L62 40" stroke-width="1.2"/>',
+    figure:'<circle cx="50" cy="35" r="10"/><path d="M50 45 L50 75 M38 55 L62 55 M42 75 L42 85 M58 75 L58 85"/>',
+    altar:'<path d="M30 75 L70 75 L62 45 L38 45 Z"/><path d="M45 45 q5 -18 5 -18 q5 0 5 18" stroke="#d97a4f"/>'
+  };
+  return s+(map[kind]||map.seal)+'</svg>';
+}
+const artGrid = document.getElementById('artifactGrid');
+artifacts.forEach((a,i)=>{
+  const btn = document.createElement('button');
+  btn.className='artifact-card';
+  btn.innerHTML = artIcon(a.icon)+'<h4>'+a.name+'</h4><div class="where">'+a.where+'</div>';
+  btn.addEventListener('click', ()=> openModal(a));
+  artGrid.appendChild(btn);
+});
+function openModal(a){
+  const body = document.getElementById('modalBody');
+  body.innerHTML = '<button class="modal-close" id="modalClose">&times;</button>'+artIcon(a.icon)+'<div class="tag">'+a.where+'</div><h3>'+a.name+'</h3><p>'+a.body+'</p><div class="evidence">Evidence: '+a.evidence+'</div>';
+  document.getElementById('modalOverlay').classList.add('open');
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+}
+function closeModal(){ document.getElementById('modalOverlay').classList.remove('open'); }
+document.getElementById('modalOverlay').addEventListener('click', e=>{ if(e.target.id==='modalOverlay') closeModal(); });
+
+/* ---------- Discoveries timeline list ---------- */
+const digs = [
+  {yr:'1974', body:'R. S. Bisht (Archaeological Survey of India) begins excavation at Banawali, uncovering a three-fold cultural sequence: Pre-Harappan, Mature Harappan, and post-Harappan (Bara).'},
+  {yr:'1987–88', body:'A key season yields a burnished grey-ware sherd with appliqué bucranian (bull-head) motifs closely resembling Pre-Harappan painted bovine motifs from Kot Diji and Kalibangan, plus an unbaked clay figure with incised marks suggestive of a horse — both flagged as significant, debated finds.'},
+  {yr:'Ongoing analysis', body:'Structural and town-planning studies continue to compare Banawali\'s asymmetrical, apsidal-citadel layout against the more familiar grid towns of Mohenjo-daro, Harappa and Kalibangan, using it to argue Harappan urban planning was more regionally varied than once assumed.'},
+  {yr:'Today', body:'Most excavated material has been reburied, standard practice for site conservation — but a preserved Harappan-era well remains visible at Banawali as a tangible link to the town\'s nearly thousand-year history.'}
+];
+const digList = document.getElementById('digList');
+digs.forEach(d=>{
+  const item = document.createElement('div');
+  item.className='dig-item';
+  item.innerHTML = '<div class="yr">'+d.yr+'</div><p style="margin-top:4px;">'+d.body+'</p>';
+  digList.appendChild(item);
+});
+</script>
+</body>
+</html>
