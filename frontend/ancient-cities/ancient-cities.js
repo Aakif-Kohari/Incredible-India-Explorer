@@ -244,6 +244,121 @@ export const ancientCitiesData = [
       todayStatus: "A major historical tourist center featuring the Cyclopean Wall ruins, hot springs, ropeway to Vishwa Shanti Stupa, and ruins of Bimbisara's jail."
     },
     explorerUrl: "../rajgir-explorer/index.html"
+  },
+  {
+    id: "ancient-ports",
+    name: "Ancient Ports of India",
+    civilization: "Maritime Heritage",
+    eraPeriod: "c. 3000 BCE – 1500 CE",
+    location: "Coastal India",
+    region: "all",
+    mapCoords: { x: 45, y: 80 },
+    icon: "⚓",
+    shortSummary: "Discover the legendary maritime heritage, ancient trade routes, and historic ports of Incredible India.",
+    archaeologicalDiscoveries: ["Lothal tidal dockyard", "Muziris Roman trade artifacts", "Arikamedu amphorae"],
+    excavationFacts: {
+      discoveredBy: "Various Archaeologists",
+      keyExcavator: "ASI & Maritime Historians",
+      status: "Multiple Heritage Sites",
+      historicalSignificance: "Showcases India's vast maritime trade networks spanning the Mediterranean to Southeast Asia."
+    },
+    beforeVsToday: {
+      ancientLayout: "Thriving coastal hubs of global commerce and spice trade.",
+      todayStatus: "Excavated coastal sites preserving the remnants of ancient maritime glory."
+    },
+    explorerUrl: "../ancient-ports-explorer/index.html"
+  },
+  {
+    id: "ancient-mathematics",
+    name: "Ancient Mathematics",
+    civilization: "Vedic & Classical Indian",
+    eraPeriod: "c. 1200 BCE – 1500 CE",
+    location: "Across India",
+    region: "all",
+    mapCoords: { x: 50, y: 50 },
+    icon: "🧮",
+    shortSummary: "Explore the brilliant mathematical concepts of ancient India, including the invention of Zero and the decimal system.",
+    archaeologicalDiscoveries: ["Bakhshali manuscript (earliest use of zero)", "Sulba Sutras geometry", "Aryabhatiya astronomical text"],
+    excavationFacts: {
+      discoveredBy: "Scholars & Historians",
+      keyExcavator: "Manuscript Recoveries",
+      status: "Global Intangible Heritage",
+      historicalSignificance: "Fundamentally shaped global mathematics, astronomy, and modern computing concepts."
+    },
+    beforeVsToday: {
+      ancientLayout: "Scholarly traditions preserved on palm leaves and through oral transmission.",
+      todayStatus: "Foundational principles forming the bedrock of modern digital technology."
+    },
+    explorerUrl: "../ancient-mathematics-explorer/index.html"
+  },
+  {
+    id: "ancient-science",
+    name: "Ancient Science & Technology",
+    civilization: "Classical Indian Science",
+    eraPeriod: "c. 1500 BCE - 1700 CE",
+    location: "Across India",
+    region: "all",
+    mapCoords: { x: 40, y: 55 },
+    icon: "🔬",
+    shortSummary: "A journey through India's pioneering advancements in metallurgy, medicine (Ayurveda), and engineering.",
+    archaeologicalDiscoveries: ["Iron Pillar of Delhi (rust-resistant)", "Sushruta Samhita surgical instruments", "Zawar zinc distillation furnaces"],
+    excavationFacts: {
+      discoveredBy: "Scientific Historians",
+      keyExcavator: "ASI & Scholars",
+      status: "Global Scientific Heritage",
+      historicalSignificance: "Demonstrates advanced scientific understanding and engineering marvels far ahead of their time."
+    },
+    beforeVsToday: {
+      ancientLayout: "Advanced observatories, metallurgical furnaces, and medical schools.",
+      todayStatus: "Ancient techniques validated by modern scientific research and archaeology."
+    },
+    explorerUrl: "../ancient-science/index.html"
+  },
+  {
+    id: "ancient-universities",
+    name: "Ancient Universities",
+    civilization: "Classical & Medieval India",
+    eraPeriod: "c. 600 BCE - 1200 CE",
+    location: "Nalanda, Taxila, Vikramashila",
+    region: "East",
+    mapCoords: { x: 70, y: 45 },
+    icon: "🎓",
+    shortSummary: "Explore the world's earliest residential universities that attracted scholars from across Asia.",
+    archaeologicalDiscoveries: ["Nalanda extensive monastery complex", "Taxila lecture halls", "Vikramashila stupa"],
+    excavationFacts: {
+      discoveredBy: "Alexander Cunningham",
+      keyExcavator: "ASI",
+      status: "UNESCO World Heritage Sites",
+      historicalSignificance: "Served as premier global centers of learning for logic, medicine, astronomy, and philosophy."
+    },
+    beforeVsToday: {
+      ancientLayout: "Massive brick complexes with multi-story libraries, meditation cells, and lecture halls.",
+      todayStatus: "Extensive archaeological parks with restored stupas and monastery ruins."
+    },
+    explorerUrl: "../ancient-universities/index.html"
+  },
+  {
+    id: "ancient-caves",
+    name: "Ancient Caves",
+    civilization: "Rock-cut Architecture",
+    eraPeriod: "c. 3rd Century BCE - 10th Century CE",
+    location: "Ajanta, Ellora, Elephanta, Badami",
+    region: "West",
+    mapCoords: { x: 35, y: 65 },
+    icon: "⛰️",
+    shortSummary: "Discover the breathtaking rock-cut cave temples and monasteries carved into solid basalt cliffs.",
+    archaeologicalDiscoveries: ["Ajanta vibrant murals", "Ellora Kailasanatha temple monolith", "Barabar caves acoustics"],
+    excavationFacts: {
+      discoveredBy: "John Smith (Ajanta, 1819)",
+      keyExcavator: "ASI",
+      status: "UNESCO World Heritage Sites",
+      historicalSignificance: "Represents the pinnacle of rock-cut engineering and classical Indian painting."
+    },
+    beforeVsToday: {
+      ancientLayout: "Vibrant living monasteries and temples hidden in deep river gorges.",
+      todayStatus: "Preserved monuments showcasing incredible sculptural and painting heritage."
+    },
+    explorerUrl: "../ancient-caves/index.html"
   }
 ];
 
