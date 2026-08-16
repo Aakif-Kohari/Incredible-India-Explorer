@@ -1,0 +1,2226 @@
+/* =========================================================
+   LODH FALLS EXPLORER
+   Jharkhand
+========================================================= */
+
+:root {
+
+  --lodh-green-950: #10251d;
+  --lodh-green-900: #17382b;
+  --lodh-green-800: #24513d;
+  --lodh-green-700: #326b50;
+
+  --lodh-moss: #718c55;
+  --lodh-leaf: #91a968;
+
+  --lodh-earth: #8b6045;
+  --lodh-rock: #655b52;
+
+  --lodh-cream: #f4efe3;
+  --lodh-paper: #fbf8f0;
+
+  --lodh-gold: #d6a84f;
+
+  --lodh-shadow:
+    0 20px 60px rgba(16, 37, 29, 0.15);
+
+  --lodh-radius: 20px;
+
+}
+
+
+/* =========================================================
+   GLOBAL PAGE
+========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ---------- NAVBAR ---------- */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background: rgba(16, 37, 30, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Navbar when scrolling */
+
+.navbar.scrolled {
+  background: rgba(16, 37, 30, 0.98);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+}
+
+
+/* ---------- NAV CONTAINER ---------- */
+
+.nav-container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+
+  min-height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+
+/* ---------- LOGO ---------- */
+
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 4px;
+
+  text-decoration: none;
+
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+
+  white-space: nowrap;
+
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: translateY(-1px);
+}
+
+
+/* Logo colors */
+
+.nav-logo .saffron {
+  color: #f28c28;
+}
+
+.nav-logo .gold {
+  color: #f5c45b;
+}
+
+.nav-logo .green {
+  color: #72b58d;
+}
+
+
+/* ---------- NAV MENU ---------- */
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 4px;
+}
+
+
+/* ---------- NAV LINKS ---------- */
+
+.nav-link {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 8px 13px;
+
+  border: none;
+  background: transparent;
+
+  color: #f5f1e8;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  border-radius: 8px;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease;
+}
+
+
+/* Hover */
+
+.nav-link:hover {
+  color: #f5c45b;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+
+/* Active navigation */
+
+.nav-link.active {
+  color: #f5c45b;
+}
+
+
+/* Underline */
+
+.nav-link.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 13px;
+  right: 13px;
+  bottom: 3px;
+
+  height: 2px;
+
+  background: #f5c45b;
+
+  border-radius: 20px;
+}
+
+
+/* ---------- DROPDOWN ---------- */
+
+.nav-dropdown {
+  position: relative;
+}
+
+
+/* Dropdown arrow */
+
+.dropdown-toggle {
+  gap: 5px;
+}
+
+
+/* ---------- DROPDOWN MENU ---------- */
+
+.dropdown-menu {
+  position: absolute;
+
+  top: calc(100% + 10px);
+  left: 50%;
+
+  transform: translateX(-50%) translateY(-8px);
+
+  min-width: 220px;
+
+  padding: 8px;
+
+  background: #17382c;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.28);
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* Dropdown hover */
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transform: translateX(-50%) translateY(0);
+}
+
+
+/* ---------- DROPDOWN ITEM ---------- */
+
+.dropdown-item {
+  display: block;
+
+  padding: 11px 13px;
+
+  color: #f5f1e8;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.86rem;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  border-radius: 8px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+
+.dropdown-item:hover {
+  color: #f5c45b;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  padding-left: 17px;
+}
+
+
+/* ---------- THEME BUTTON ---------- */
+
+.btn-theme-toggle {
+  width: 40px;
+  height: 40px;
+
+  margin-left: 7px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  color: #f5c45b;
+
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+.btn-theme-toggle:hover {
+  background: rgba(245, 196, 91, 0.14);
+
+  border-color: rgba(245, 196, 91, 0.35);
+
+  transform: rotate(15deg) scale(1.05);
+}
+
+
+/* ---------- MOBILE MENU BUTTON ---------- */
+
+.menu-toggle {
+  display: none;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  cursor: pointer;
+}
+
+
+.menu-toggle .bar {
+  display: block;
+
+  width: 23px;
+  height: 2px;
+
+  margin: 5px auto;
+
+  background: #f5f1e8;
+
+  border-radius: 10px;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+/* ---------- MOBILE ACTIVE ICON ---------- */
+
+.menu-toggle.active .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+body.light-theme .navbar {
+  background: rgba(250, 248, 242, 0.96);
+
+  border-bottom-color: rgba(16, 37, 30, 0.1);
+
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+body.light-theme .navbar.scrolled {
+  background: rgba(250, 248, 242, 0.99);
+}
+
+
+body.light-theme .nav-link {
+  color: #17382c;
+}
+
+
+body.light-theme .nav-link:hover {
+  color: #a86122;
+
+  background: rgba(16, 37, 30, 0.06);
+}
+
+
+body.light-theme .nav-link.active {
+  color: #a86122;
+}
+
+
+body.light-theme .nav-link.active::after {
+  background: #a86122;
+}
+
+
+body.light-theme .dropdown-menu {
+  background: #fffdf8;
+
+  border-color: rgba(16, 37, 30, 0.1);
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.14);
+}
+
+
+body.light-theme .dropdown-item {
+  color: #17382c;
+}
+
+
+body.light-theme .dropdown-item:hover {
+  color: #a86122;
+
+  background: rgba(16, 37, 30, 0.06);
+}
+
+
+body.light-theme .btn-theme-toggle {
+  background: rgba(16, 37, 30, 0.06);
+
+  border-color: rgba(16, 37, 30, 0.12);
+
+  color: #a86122;
+}
+
+
+body.light-theme .menu-toggle {
+  background: rgba(16, 37, 30, 0.05);
+
+  border-color: rgba(16, 37, 30, 0.12);
+}
+
+
+body.light-theme .menu-toggle .bar {
+  background: #17382c;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+  .nav-container {
+    width: min(94%, 1200px);
+  }
+
+  .nav-menu {
+    gap: 1px;
+  }
+
+  .nav-link {
+    padding-left: 9px;
+    padding-right: 9px;
+
+    font-size: 0.84rem;
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .nav-container {
+    min-height: 68px;
+  }
+
+
+  /* Show hamburger */
+
+  .menu-toggle {
+    display: block;
+  }
+
+
+  /* Mobile navigation */
+
+  .nav-menu {
+
+    position: absolute;
+
+    top: calc(100% + 1px);
+
+    left: 0;
+    right: 0;
+
+    width: 100%;
+
+    max-height: calc(100vh - 68px);
+
+    overflow-y: auto;
+
+    padding: 15px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 5px;
+
+    background: #10251e;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+      0 15px 30px rgba(0, 0, 0, 0.25);
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: translateY(-10px);
+
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s ease,
+      transform 0.25s ease;
+  }
+
+
+  /* Open menu */
+
+  .nav-menu.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform: translateY(0);
+  }
+
+
+  /* Mobile links */
+
+  .nav-link {
+
+    width: 100%;
+
+    justify-content: flex-start;
+
+    padding: 13px 14px;
+
+    font-size: 0.95rem;
+
+    border-radius: 8px;
+  }
+
+
+  .nav-link.active::after {
+    left: 14px;
+    right: auto;
+
+    width: 35px;
+
+    bottom: 5px;
+  }
+
+
+  /* Dropdown */
+
+  .nav-dropdown {
+    width: 100%;
+  }
+
+
+  .dropdown-toggle {
+    width: 100%;
+  }
+
+
+  .dropdown-menu {
+
+    position: static;
+
+    width: 100%;
+
+    min-width: 0;
+
+    margin-top: 3px;
+
+    padding: 4px;
+
+    transform: none;
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    display: none;
+
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    box-shadow: none;
+
+    border: none;
+  }
+
+
+  /* Open dropdown */
+
+  .nav-dropdown.open .dropdown-menu {
+    display: block;
+  }
+
+
+  .nav-dropdown:hover .dropdown-menu {
+    display: none;
+  }
+
+
+  .nav-dropdown.open:hover .dropdown-menu {
+    display: block;
+  }
+
+
+  .dropdown-item {
+    padding: 10px 15px;
+
+    font-size: 0.88rem;
+  }
+
+
+  .dropdown-item:hover {
+    padding-left: 19px;
+  }
+
+
+  /* Theme button */
+
+  .btn-theme-toggle {
+
+    margin: 8px 0 2px;
+
+    width: 100%;
+
+    height: 42px;
+
+    border-radius: 8px;
+
+    justify-content: center;
+  }
+
+
+  /* Light mobile menu */
+
+  body.light-theme .nav-menu {
+    background: #fffdf8;
+
+    border-bottom-color: rgba(16, 37, 30, 0.1);
+  }
+
+
+  body.light-theme .dropdown-menu {
+    background: rgba(16, 37, 30, 0.04);
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .nav-container {
+    width: 94%;
+  }
+
+
+  .nav-logo {
+    font-size: 1.05rem;
+  }
+
+
+  .menu-toggle {
+    width: 41px;
+    height: 41px;
+  }
+
+}
+/* =====================================================
+   HERO ACTION BUTTONS
+===================================================== */
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.hero-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 150px;
+  min-height: 48px;
+
+  padding: 12px 24px;
+
+  border-radius: 8px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* Explore Falls */
+
+.hero-actions .btn-primary {
+  background: #f5c45b;
+  color: #17382c;
+
+  border: 2px solid #f5c45b;
+}
+
+.hero-actions .btn-primary:hover {
+  background: #ffffff;
+  color: #17382c;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* View Location */
+
+.hero-actions .btn-outline {
+  background: transparent;
+  color: #ffffff;
+
+  border: 2px solid #ffffff;
+}
+
+.hero-actions .btn-outline:hover {
+  background: #ffffff;
+  color: #17382c;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.nav-link:focus-visible,
+.dropdown-item:focus-visible,
+.menu-toggle:focus-visible,
+.btn-theme-toggle:focus-visible {
+  outline: 2px solid #f5c45b;
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .navbar,
+  .nav-logo,
+  .nav-link,
+  .dropdown-menu,
+  .dropdown-item,
+  .btn-theme-toggle,
+  .menu-toggle .bar,
+  .nav-menu {
+    transition: none;
+  }
+
+}
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 25, 18, 0.92),
+      rgba(8, 25, 18, 0.58),
+      rgba(8, 25, 18, 0.18)
+    );
+}
+
+.hero-content {
+  width: min(1200px, 92%);
+  margin: auto;
+  padding: 140px 0 100px;
+  color: white;
+}
+
+.hero-tag {
+  display: inline-block;
+  margin-bottom: 18px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: #e8c979;
+}
+
+.hero h1 {
+  margin: 0;
+  max-width: 800px;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: clamp(4rem, 9vw, 8rem);
+  line-height: 0.9;
+}
+
+.hero h1 span {
+  display: block;
+  color: #d6a84f;
+}
+
+.hero-subtitle {
+  max-width: 680px;
+  margin: 30px 0 15px;
+
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 600;
+}
+
+.hero-description {
+  max-width: 680px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  transform: translateX(-50%);
+
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+}
+
+.scroll-arrow {
+  font-size: 1.5rem;
+  animation: lodhBounce 1.6s infinite;
+}
+
+@keyframes lodhBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(7px);
+  }
+
+}
+
+
+/* =========================================================
+   COMMON SECTIONS
+========================================================= */
+
+.section {
+  padding: 110px 0;
+}
+
+.container {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+.section-heading {
+  max-width: 750px;
+  margin-bottom: 55px;
+}
+
+.section-heading.centered {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 13px;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+
+  color: var(--lodh-green-700);
+}
+
+.section-heading h2,
+.content-block h2 {
+  margin: 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: clamp(2.3rem, 5vw, 4.2rem);
+  line-height: 1.05;
+
+  color: var(--lodh-green-950);
+}
+
+.section-heading h2 span,
+.content-block h2 span {
+  color: var(--lodh-green-700);
+}
+
+.section-heading p {
+  margin-top: 18px;
+  line-height: 1.8;
+  color: #6c716a;
+}
+
+
+/* =========================================================
+   FACTS
+========================================================= */
+
+.facts-section {
+  padding: 95px 0;
+  background: var(--lodh-paper);
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.fact-card {
+  position: relative;
+  padding: 35px 25px;
+
+  background: white;
+  border: 1px solid rgba(23, 56, 43, 0.1);
+  border-radius: var(--lodh-radius);
+
+  box-shadow: var(--lodh-shadow);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.fact-card:hover {
+  transform: translateY(-8px);
+}
+
+.fact-icon {
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 20px;
+
+  border-radius: 50%;
+
+  background: rgba(50, 107, 80, 0.1);
+
+  color: var(--lodh-green-700);
+
+  font-size: 1.3rem;
+}
+
+.fact-value {
+  display: block;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 3rem;
+  font-weight: 700;
+
+  color: var(--lodh-green-900);
+}
+
+.fact-value.small {
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+.fact-unit {
+  display: block;
+
+  margin-top: -4px;
+
+  font-weight: 700;
+  color: var(--lodh-earth);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+}
+
+.fact-card p {
+  margin-top: 18px;
+  line-height: 1.7;
+  color: #6c716a;
+}
+
+
+/* =========================================================
+   TWO COLUMN
+========================================================= */
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 75px;
+  align-items: center;
+}
+
+
+/* =========================================================
+   IMAGE CARD
+========================================================= */
+
+.image-card {
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 26px;
+
+  box-shadow: var(--lodh-shadow);
+}
+
+.image-card img {
+  width: 100%;
+  min-height: 500px;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.6s ease;
+}
+
+.image-card:hover img {
+  transform: scale(1.04);
+}
+
+.image-caption {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: 15px 18px;
+
+  background: rgba(16, 37, 29, 0.85);
+  backdrop-filter: blur(10px);
+
+  border-radius: 12px;
+
+  color: white;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content-block p {
+  line-height: 1.85;
+  color: #666c66;
+}
+
+.info-list {
+  margin-top: 35px;
+  border-top: 1px solid rgba(23, 56, 43, 0.12);
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 17px 0;
+
+  border-bottom: 1px solid rgba(23, 56, 43, 0.12);
+}
+
+.info-row span {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #858a83;
+}
+
+.info-row strong {
+  text-align: right;
+  color: var(--lodh-green-900);
+}
+
+
+/* =========================================================
+   HEIGHT VISUALIZER
+========================================================= */
+
+.height-section {
+  background:
+    linear-gradient(
+      135deg,
+      #edf2e9,
+      #f7f3e8
+    );
+}
+
+.height-visualizer {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+  align-items: center;
+
+  max-width: 900px;
+  margin: auto;
+}
+
+.height-scale {
+  position: relative;
+
+  height: 500px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.height-column {
+  position: relative;
+
+  width: 90px;
+  height: 430px;
+
+  overflow: hidden;
+
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #dce6d7,
+      #87927d
+    );
+
+  border: 6px solid white;
+
+  box-shadow:
+    0 20px 40px rgba(16, 37, 29, 0.18);
+}
+
+.waterfall-fill {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #b9d8dc,
+      #4e8e92
+    );
+
+  transition: height 0.4s ease;
+}
+
+.height-rock {
+  position: absolute;
+  bottom: 0;
+  left: -10px;
+
+  width: 110px;
+  height: 45px;
+
+  border-radius: 50% 50% 0 0;
+
+  background: #625b51;
+}
+
+.scale-label {
+  position: absolute;
+
+  font-weight: 800;
+  color: var(--lodh-green-900);
+}
+
+.scale-label.top {
+  top: 15px;
+}
+
+.scale-label.bottom {
+  bottom: 15px;
+}
+
+.height-control {
+  padding: 40px;
+
+  background: white;
+
+  border-radius: 24px;
+
+  box-shadow: var(--lodh-shadow);
+}
+
+.height-number strong {
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 5rem;
+  color: var(--lodh-green-800);
+}
+
+.height-number span {
+  color: #777;
+  font-weight: 700;
+}
+
+.height-control p {
+  line-height: 1.7;
+  color: #70756f;
+}
+
+#height-slider {
+  width: 100%;
+  margin-top: 25px;
+
+  accent-color: var(--lodh-green-700);
+
+  cursor: pointer;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 8px;
+
+  font-size: 0.75rem;
+  color: #777;
+}
+
+
+/* =========================================================
+   GEOLOGY TAGS
+========================================================= */
+
+.geology-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.geology-tags span {
+  padding: 9px 14px;
+
+  border-radius: 100px;
+
+  background: rgba(50, 107, 80, 0.1);
+
+  color: var(--lodh-green-800);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   SEASONS
+========================================================= */
+
+.season-section {
+  background: var(--lodh-paper);
+}
+
+.season-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  margin-bottom: 30px;
+}
+
+.season-tab {
+  padding: 13px 24px;
+
+  border: 1px solid rgba(23, 56, 43, 0.15);
+
+  border-radius: 100px;
+
+  background: transparent;
+
+  color: var(--lodh-green-900);
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.season-tab:hover,
+.season-tab.active {
+  background: var(--lodh-green-800);
+  color: white;
+}
+
+.season-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  overflow: hidden;
+
+  border-radius: 25px;
+
+  background: white;
+
+  box-shadow: var(--lodh-shadow);
+}
+
+.season-image-wrap {
+  position: relative;
+  min-height: 460px;
+}
+
+.season-image-wrap img {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  inset: 0;
+
+  object-fit: cover;
+}
+
+.season-badge {
+  position: absolute;
+  left: 25px;
+  top: 25px;
+
+  padding: 9px 14px;
+
+  border-radius: 100px;
+
+  background: rgba(16, 37, 29, 0.88);
+
+  color: white;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.season-content {
+  padding: 55px;
+}
+
+.season-content h3 {
+  margin: 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 2.4rem;
+
+  color: var(--lodh-green-900);
+}
+
+.season-content p {
+  line-height: 1.8;
+  color: #6d726d;
+}
+
+.flow-meter {
+  margin-top: 40px;
+}
+
+.flow-meter-header {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.flow-track {
+  height: 12px;
+
+  overflow: hidden;
+
+  border-radius: 100px;
+
+  background: #e2e7df;
+}
+
+.flow-progress {
+  height: 100%;
+  width: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--lodh-green-700),
+      #8baa62
+    );
+
+  transition: width 0.5s ease;
+}
+
+
+/* =========================================================
+   LANDSCAPE EXPLORER
+========================================================= */
+
+.viewpoint-section {
+  background: white;
+}
+
+.viewpoint-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+
+  gap: 50px;
+
+  align-items: stretch;
+}
+
+.viewpoint-image {
+  position: relative;
+
+  min-height: 500px;
+
+  overflow: hidden;
+
+  border-radius: 25px;
+
+  box-shadow: var(--lodh-shadow);
+}
+
+.viewpoint-image img {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  inset: 0;
+
+  object-fit: cover;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.5s ease;
+}
+
+.viewpoint-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+
+  padding: 10px 15px;
+
+  background: rgba(16, 37, 29, 0.85);
+
+  color: white;
+
+  border-radius: 10px;
+
+  font-weight: 800;
+}
+
+.viewpoint-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.viewpoint-buttons {
+  display: grid;
+  gap: 10px;
+}
+
+.viewpoint-button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  padding: 17px;
+
+  border: 1px solid rgba(23, 56, 43, 0.13);
+
+  border-radius: 13px;
+
+  background: white;
+
+  text-align: left;
+
+  color: var(--lodh-green-900);
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.viewpoint-button span {
+  font-size: 0.72rem;
+  color: #8b918a;
+}
+
+.viewpoint-button:hover,
+.viewpoint-button.active {
+  background: var(--lodh-green-800);
+  color: white;
+  transform: translateX(6px);
+}
+
+.viewpoint-description {
+  margin-top: 45px;
+}
+
+.viewpoint-description h3 {
+  margin: 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 2.2rem;
+
+  color: var(--lodh-green-900);
+}
+
+.viewpoint-description p {
+  line-height: 1.8;
+  color: #6d726d;
+}
+
+
+/* =========================================================
+   LANDSCAPE GALLERY
+========================================================= */
+
+.landscape-section {
+  background: var(--lodh-paper);
+}
+
+.landscape-grid {
+  display: grid;
+
+  grid-template-columns: 1.5fr 1fr;
+
+  gap: 20px;
+}
+
+.landscape-card {
+  position: relative;
+
+  min-height: 300px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+}
+
+.landscape-card.large {
+  grid-row: span 2;
+  min-height: 620px;
+}
+
+.landscape-card img {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  inset: 0;
+
+  object-fit: cover;
+
+  transition: transform 0.6s ease;
+}
+
+.landscape-card:hover img {
+  transform: scale(1.06);
+}
+
+.landscape-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 30px;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(10, 27, 20, 0.9)
+    );
+
+  color: white;
+}
+
+.landscape-overlay span {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.landscape-overlay h3 {
+  margin: 8px 0 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 1.8rem;
+}
+
+
+/* =========================================================
+   ATTRACTIONS
+========================================================= */
+
+.attractions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.attraction-card {
+  padding: 30px;
+
+  border: 1px solid rgba(23, 56, 43, 0.12);
+
+  border-radius: 20px;
+
+  background: white;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.attraction-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--lodh-shadow);
+}
+
+.attraction-number {
+  color: var(--lodh-gold);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.attraction-card h3 {
+  margin: 20px 0 10px;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  color: var(--lodh-green-900);
+}
+
+.attraction-card p {
+  line-height: 1.7;
+  color: #6e736d;
+}
+
+
+/* =========================================================
+   BEST SEASON
+========================================================= */
+
+.best-season {
+  background: var(--lodh-green-950);
+}
+
+.best-season-card {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+
+  gap: 50px;
+  align-items: center;
+
+  padding: 55px;
+
+  border-radius: 25px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--lodh-green-900),
+      var(--lodh-green-800)
+    );
+
+  color: white;
+}
+
+.best-season .eyebrow {
+  color: #d8c477;
+}
+
+.best-season h2 {
+  margin: 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 3rem;
+}
+
+.best-season h2 span {
+  color: #d6a84f;
+}
+
+.best-season p {
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.season-highlight {
+  padding: 35px;
+
+  text-align: center;
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.season-highlight span,
+.season-highlight small {
+  display: block;
+}
+
+.season-highlight span {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+}
+
+.season-highlight strong {
+  display: block;
+
+  margin: 10px 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 2.4rem;
+
+  color: #e2c56d;
+}
+
+
+/* =========================================================
+   MAP
+========================================================= */
+
+.location-section {
+  background: white;
+}
+
+.map-wrapper {
+  position: relative;
+
+  min-height: 500px;
+
+  overflow: hidden;
+
+  border-radius: 25px;
+
+  box-shadow: var(--lodh-shadow);
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 500px;
+
+  display: block;
+
+  border: 0;
+}
+
+.map-info {
+  position: absolute;
+
+  left: 20px;
+  bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 15px 20px;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.map-pin {
+  font-size: 1.5rem;
+  color: var(--lodh-green-700);
+}
+
+.map-info strong,
+.map-info span {
+  display: block;
+}
+
+.map-info strong {
+  color: var(--lodh-green-900);
+}
+
+.map-info span {
+  margin-top: 3px;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+
+/* =========================================================
+   SOURCES
+========================================================= */
+
+.sources-section {
+  background: var(--lodh-paper);
+}
+
+.sources-list {
+  display: grid;
+  gap: 12px;
+}
+
+.sources-list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 22px;
+
+  border-radius: 12px;
+
+  background: white;
+
+  border: 1px solid rgba(23, 56, 43, 0.1);
+
+  color: var(--lodh-green-900);
+
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+}
+
+.sources-list a:hover {
+  transform: translateX(5px);
+  border-color: var(--lodh-green-700);
+}
+
+.credits-box {
+  margin-top: 35px;
+
+  padding: 30px;
+
+  border-radius: 18px;
+
+  background: #eef2e9;
+
+  border-left: 4px solid var(--lodh-green-700);
+}
+
+.credits-box p,
+.credits-box li {
+  line-height: 1.7;
+  color: #656b64;
+}
+
+.credits-box ul {
+  padding-left: 20px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+  background: var(--lodh-green-950);
+  color: white;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+
+.footer h3 {
+  margin: 0;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+}
+
+.footer p {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.back-top {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer-bottom {
+  padding: 18px;
+
+  text-align: center;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 0.8rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .facts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .attractions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .two-column {
+    gap: 40px;
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .section {
+    padding: 75px 0;
+  }
+
+  .two-column,
+  .season-panel,
+  .viewpoint-grid,
+  .height-visualizer,
+  .best-season-card {
+    grid-template-columns: 1fr;
+  }
+
+  .height-visualizer {
+    gap: 30px;
+  }
+
+  .height-scale {
+    height: 420px;
+  }
+
+  .height-column {
+    height: 350px;
+  }
+
+  .season-image-wrap {
+    min-height: 350px;
+  }
+
+  .landscape-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landscape-card.large {
+    grid-row: auto;
+    min-height: 400px;
+  }
+
+  .landscape-card {
+    min-height: 300px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .hero-content {
+    padding-top: 120px;
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+  }
+
+  .facts-grid,
+  .attractions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-row {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .info-row strong {
+    text-align: left;
+  }
+
+  .season-tabs {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .season-content {
+    padding: 30px;
+  }
+
+  .viewpoint-image {
+    min-height: 350px;
+  }
+
+  .best-season-card {
+    padding: 30px;
+  }
+
+  .best-season h2 {
+    font-size: 2.3rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+
+}
