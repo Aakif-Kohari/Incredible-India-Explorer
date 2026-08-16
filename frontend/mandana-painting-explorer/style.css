@@ -1,0 +1,488 @@
+/* =========================================================================
+   Mandana Painting Explorer — Styles
+   Palette: deep maroon / clay red / chalk white — drawn from the
+   traditional geru + khariya medium.
+   ========================================================================= */
+
+:root {
+    --bg-primary: #1a0c0a;
+    --bg-secondary: #2a1410;
+    --bg-card: rgba(58, 22, 18, 0.6);
+    --text-primary: #f5e6d3;
+    --text-secondary: #c4a899;
+    --accent: #d4654a;
+    --accent-hover: #c54e30;
+    --accent-soft: rgba(212, 101, 74, 0.15);
+    --border-color: rgba(212, 101, 74, 0.2);
+    --geru-red: #a83d28;
+    --khariya-white: #f8f0e0;
+}
+
+.light-theme {
+    --bg-primary: #fef6ec;
+    --bg-secondary: #ffffff;
+    --bg-card: rgba(255, 255, 255, 0.9);
+    --text-primary: #2a1410;
+    --text-secondary: #6b4030;
+    --accent: #a83d28;
+    --accent-hover: #8a2f1e;
+    --accent-soft: rgba(168, 61, 40, 0.08);
+    --border-color: rgba(168, 61, 40, 0.2);
+}
+
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    margin: 0;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.explorer-nav {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ── HERO ─────────────────────────────────────────────────────── */
+.mandana-hero {
+    background:
+        radial-gradient(circle at 30% 40%, rgba(168, 61, 40, 0.4), transparent 60%),
+        radial-gradient(circle at 70% 60%, rgba(212, 101, 74, 0.25), transparent 60%),
+        linear-gradient(180deg, #2a1410 0%, #1a0c0a 100%);
+    padding: 6rem 1.5rem 4rem;
+    text-align: center;
+    position: relative;
+}
+
+.light-theme .mandana-hero {
+    background:
+        radial-gradient(circle at 30% 40%, rgba(168, 61, 40, 0.15), transparent 60%),
+        radial-gradient(circle at 70% 60%, rgba(212, 101, 74, 0.1), transparent 60%),
+        linear-gradient(180deg, #fef6ec 0%, #fde8d6 100%);
+}
+
+.hero-badge {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 1rem;
+    line-height: 1.1;
+}
+
+.hero-title .accent {
+    color: var(--accent);
+}
+
+.hero-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+}
+
+.btn-bookmark {
+    background: var(--accent);
+    color: var(--bg-primary);
+    border: none;
+    padding: 0.7rem 1.4rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.btn-bookmark:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.btn-bookmark:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* ── EXPLORER CONTENT ─────────────────────────────────────────── */
+.explorer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+}
+
+.tab-intro {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+/* ── TABS ─────────────────────────────────────────────────────── */
+.tabs {
+    display: flex;
+    gap: 0.25rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.tab-btn {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid transparent;
+    padding: 0.55rem 1rem;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    font-family: inherit;
+}
+
+.tab-btn:hover {
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.tab-btn.active {
+    background: var(--accent);
+    color: var(--bg-primary);
+}
+
+.tab-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* ── TAB CONTENT ──────────────────────────────────────────────── */
+.tab-content {
+    display: none;
+    animation: tab-fade 0.4s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes tab-fade {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.tab-content h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* ── HISTORY ──────────────────────────────────────────────────── */
+.history-item {
+    margin-bottom: 1.5rem;
+}
+
+.history-item h3 {
+    color: var(--accent);
+    font-size: 1.15rem;
+    margin: 0 0 0.6rem;
+}
+
+.history-item p {
+    line-height: 1.75;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ── MOTIFS GRID ───────────────────────────────────────────────── */
+.motifs-grid,
+.symbols-grid,
+.materials-grid,
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.motif-card,
+.symbol-card,
+.material-card,
+.gallery-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.motif-card:hover,
+.material-card:hover,
+.gallery-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+
+.motif-card img,
+.material-card img,
+.gallery-card img,
+.symbol-card img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: var(--bg-secondary);
+}
+
+.symbol-card img {
+    height: 120px;
+    object-fit: contain;
+    padding: 1rem;
+    background: var(--bg-secondary);
+}
+
+.motif-card-body,
+.symbol-card-body,
+.material-card-body,
+.gallery-card-body {
+    padding: 1rem 1.25rem;
+}
+
+.motif-card h3,
+.material-card h3,
+.gallery-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+}
+
+.motif-meta,
+.gallery-meta {
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+}
+
+.motif-card p,
+.material-card p,
+.gallery-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.symbol-card h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.symbol-card p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ── GALLERY FILTERS ───────────────────────────────────────────── */
+.gallery-filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 0.4rem 0.9rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    font-family: inherit;
+}
+
+.filter-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.filter-btn.active {
+    background: var(--accent);
+    color: var(--bg-primary);
+    border-color: var(--accent);
+}
+
+/* ── REFERENCES ────────────────────────────────────────────────── */
+.references-list {
+    counter-reset: ref;
+}
+
+.references-list .reference-item {
+    counter-increment: ref;
+    padding: 1rem 1.5rem 1rem 3rem;
+    margin-bottom: 0.75rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    position: relative;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.references-list .reference-item::before {
+    content: counter(ref) ".";
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.references-list .reference-item a {
+    color: var(--accent);
+    text-decoration: none;
+    word-break: break-word;
+}
+
+.references-list .reference-item a:hover {
+    text-decoration: underline;
+}
+
+.references-list .reference-item strong {
+    color: var(--text-primary);
+}
+
+/* ── LIGHTBOX ──────────────────────────────────────────────────── */
+.lightbox-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+}
+
+.lightbox-modal img {
+    max-width: 90vw;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.18s ease;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox-caption {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #fff;
+    padding: 0 2rem;
+}
+
+.lightbox-caption h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1.1rem;
+}
+
+.lightbox-caption p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #c4a899;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ── FOOTER ────────────────────────────────────────────────────── */
+.explorer-footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.explorer-footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.explorer-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .mandana-hero {
+        padding: 4rem 1rem 3rem;
+    }
+    .explorer-content {
+        padding: 2rem 1rem 4rem;
+    }
+    .tabs {
+        padding: 0.5rem;
+        gap: 0.2rem;
+    }
+    .tab-btn {
+        padding: 0.45rem 0.75rem;
+        font-size: 0.82rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tab-content { animation: none; }
+    .motif-card:hover,
+    .material-card:hover,
+    .gallery-card:hover,
+    .btn-bookmark:hover {
+        transform: none;
+    }
+}

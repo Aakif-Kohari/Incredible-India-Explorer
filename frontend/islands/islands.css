@@ -22,7 +22,7 @@
   text-align: center;
   background:
     linear-gradient(180deg, rgba(4, 23, 42, 0.55) 0%, rgba(4, 23, 42, 0.92) 100%),
-    url("../../assets/travel_beaches.png") center/cover no-repeat;
+    url("https://images.unsplash.com/photo-1596895111956-bf57bce19b26?auto=format&fit=crop&q=80&w=1920") center/cover no-repeat;
 }
 
 .islands-hero-content {
@@ -274,87 +274,119 @@
 }
 
 .island-card {
-  background: var(--bg-dark-card);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--border-radius-lg);
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
-  transition: var(--transition-smooth);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .island-card:hover,
 .island-card:focus-visible {
-  transform: translateY(-6px);
-  border-color: var(--primary-saffron);
-  box-shadow: var(--shadow-glow);
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(255, 153, 51, 0.5); /* Saffron */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 153, 51, 0.2);
 }
 
 .island-card-image {
   position: relative;
-  height: 170px;
+  height: 200px;
   overflow: hidden;
+}
+
+.island-card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(4, 23, 42, 1) 0%, rgba(4, 23, 42, 0) 60%);
+  z-index: 1;
 }
 
 .island-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .island-card:hover .island-card-image img {
-  transform: scale(1.08);
+  transform: scale(1.15) rotate(1deg);
 }
 
 .island-card-badge {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(4, 23, 42, 0.75);
-  color: var(--primary-gold);
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 600;
+  top: 14px;
+  right: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .island-card-body {
-  padding: 18px 20px 20px;
+  padding: 24px;
+  position: relative;
+  z-index: 2;
 }
 
 .island-card-body h3 {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
-  color: var(--text-light);
-  margin-bottom: 6px;
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 8px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .island-card-location {
-  color: var(--text-muted);
-  font-size: 0.82rem;
-  margin-bottom: 8px;
+  color: var(--primary-gold);
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .island-card-tagline {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
 .island-card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  border-top: 1px solid var(--glass-border);
-  padding-top: 12px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 16px;
 }
 
 .island-card-link {
   color: var(--primary-saffron);
-  font-weight: 600;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.3s ease;
+}
+
+.island-card:hover .island-card-link {
+  gap: 8px;
 }
 
 /* ---------- Empty state ---------- */

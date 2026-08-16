@@ -1,4 +1,4 @@
-# Contributing to Incredible India Explorer 🇮🇳
+﻿# Contributing to Incredible India Explorer 🇮🇳
 
 Thank you for your interest in contributing to **Incredible India Explorer**! We welcome contributions from developers of all experience levels. Whether you're fixing bugs, improving the UI, creating educational games, or adding new explorer modules, your contributions help make this project better for everyone.
 
@@ -186,6 +186,19 @@ Loose HTML, CSS, or JavaScript files inside the `frontend` directory are **not a
 - Use semantic HTML5 elements (`<header>`, `<main>`, `<section>`, `<nav>`, `<footer>`).
 - Include `aria-label`, `role`, and `alt` attributes for accessibility.
 - Use lowercase for tag and attribute names.
+
+### Generated pages
+
+State pages under `dist/frontend/states/` are **generated** from `scripts/layout.html` and
+`data.js` — do not hand-edit them. Edit the layout or the data, then run:
+
+```bash
+npm run generate        # rewrite dist/frontend/states/
+npm run generate:check  # verify the committed output is current (CI runs this)
+```
+
+`npm run generate:check` fails if `dist/` has drifted from the layout, so commit
+the regenerated files alongside any layout change.
 
 ### CSS
 
