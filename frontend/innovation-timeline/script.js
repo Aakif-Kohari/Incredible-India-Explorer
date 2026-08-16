@@ -288,11 +288,14 @@ document.addEventListener("DOMContentLoaded", () => {
       store.theme = isLight ? "light" : "dark";
       localStorage.setItem("iie_storage", JSON.stringify(store));
     } catch (e) {}
+
+    
     syncThemeIcon();
   });
 
   /* ================= BACK TO TOP & INIT ================= */
   $("btn-top").addEventListener("click", () => scrollTo({ top: 0, behavior: REDUCED ? "auto" : "smooth" }));
+
 
   syncThemeIcon();
   renderTimeline();
