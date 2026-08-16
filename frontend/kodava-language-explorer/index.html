@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kodava Takk — Explore the Language &amp; Culture of Kodagu | Incredible India Explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  :root{
+    --forest:#1F3D2B;
+    --forest-deep:#152A1E;
+    --sage:#8FA98C;
+    --kupya:#A13D2A;
+    --kupya-deep:#7E2F1F;
+    --parchment:#F1E9D8;
+    --parchment-hi:#FAF6EC;
+    --gold:#C9A24B;
+    --ink:#201F1A;
+    --line: rgba(32,31,26,0.14);
+    --shadow: 0 18px 40px rgba(21,42,30,0.18);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .mono{font-family:'JetBrains Mono', monospace;}
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .container{max-width:1080px; margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:12px;
+    color:var(--kupya-deep);
+    font-weight:500;
+  }
+
+  /* ---------- ridgeline signature ---------- */
+  .ridge{width:100%; display:block; line-height:0;}
+
+  /* ---------- LANDING PAGE STRIP ---------- */
+  .landing{
+    background:var(--forest-deep);
+    color:var(--parchment-hi);
+    padding:56px 0 40px;
+  }
+  .landing-head{display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:28px;}
+  .landing-head h2{color:var(--parchment-hi); font-size:clamp(22px,3vw,30px);}
+  .landing-head p{color:rgba(241,233,216,0.65); max-width:520px; margin-top:8px; font-size:14.5px; line-height:1.55;}
+  .lang-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px;}
+  .lang-card{
+    background:rgba(241,233,216,0.05);
+    border:1px solid rgba(241,233,216,0.14);
+    border-radius:4px;
+    padding:20px;
+    position:relative;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .lang-card:hover{border-color:rgba(241,233,216,0.35); transform:translateY(-2px);}
+  .lang-card .tag{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:rgba(241,233,216,0.5);}
+  .lang-card h3{color:var(--parchment-hi); font-size:19px; margin-top:6px;}
+  .lang-card .native{color:var(--sage); font-size:13px; margin-top:2px; font-family:'JetBrains Mono',monospace;}
+  .lang-card.featured{
+    background:linear-gradient(155deg, rgba(161,61,42,0.28), rgba(161,61,42,0.06));
+    border:1px solid rgba(201,162,75,0.5);
+    grid-column:span 1;
+  }
+  .lang-card.featured .tag{color:var(--gold);}
+  .explore-btn{
+    margin-top:14px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--kupya);
+    color:var(--parchment-hi);
+    border:none;
+    padding:10px 16px;
+    border-radius:3px;
+    font-family:'Work Sans',sans-serif;
+    font-weight:600;
+    font-size:13.5px;
+    cursor:pointer;
+    transition:background .2s ease;
+  }
+  .explore-btn:hover{background:#8C3524;}
+  .explore-btn svg{width:14px; height:14px;}
+  .lang-card .status-dot{
+    position:absolute; top:20px; right:20px;
+    width:8px; height:8px; border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 0 3px rgba(201,162,75,0.18);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:linear-gradient(180deg, var(--forest) 0%, #24462F 60%, var(--forest) 100%);
+    color:var(--parchment-hi);
+    padding:90px 0 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-inner{position:relative; z-index:2; text-align:center; padding-bottom:70px;}
+  .hero .eyebrow{color:var(--gold);}
+  .hero h1{
+    font-size:clamp(46px,8vw,86px);
+    line-height:0.98;
+    margin:14px 0 6px;
+  }
+  .hero .kan{font-size:clamp(20px,3vw,28px); color:var(--sage); margin-top:6px; font-family:'Fraunces',serif; font-weight:500;}
+  .hero .ipa{
+    font-family:'JetBrains Mono',monospace;
+    color:rgba(241,233,216,0.7);
+    font-size:15px;
+    margin-top:10px;
+  }
+  .hero .gloss{
+    max-width:560px; margin:22px auto 0;
+    color:rgba(241,233,216,0.82);
+    font-size:16.5px; line-height:1.6;
+  }
+  .listen-row{display:flex; justify-content:center; gap:12px; margin-top:28px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 20px; border-radius:3px;
+    font-weight:600; font-size:14px; cursor:pointer;
+    border:1px solid rgba(241,233,216,0.4);
+    background:transparent; color:var(--parchment-hi);
+    transition:all .2s ease;
+    font-family:'Work Sans',sans-serif;
+  }
+  .btn:hover{background:rgba(241,233,216,0.1);}
+  .btn.solid{background:var(--gold); color:var(--forest-deep); border-color:var(--gold);}
+  .btn.solid:hover{background:#dcb35c;}
+  .btn svg{width:15px; height:15px;}
+
+  .ridgeline-svg{display:block; width:100%; height:auto; margin-top:20px;}
+
+  /* stat strip */
+  .stats{
+    background:var(--parchment-hi);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .stats-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  }
+  .stat{
+    padding:26px 22px;
+    border-right:1px solid var(--line);
+  }
+  .stat:last-child{border-right:none;}
+  .stat .num{font-family:'Fraunces',serif; font-size:26px; font-weight:600; color:var(--kupya-deep);}
+  .stat .label{font-size:12px; color:rgba(32,31,26,0.6); margin-top:4px; line-height:1.4;}
+
+  /* ---------- SECTIONS ---------- */
+  section.block{padding:76px 0;}
+  section.block.alt{background:var(--parchment-hi);}
+  .section-head{max-width:640px; margin-bottom:40px;}
+  .section-head h2{font-size:clamp(28px,4vw,38px); margin-top:10px;}
+  .section-head p{margin-top:12px; font-size:15.5px; line-height:1.6; color:rgba(32,31,26,0.72);}
+
+  /* script tabs */
+  .tabs{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;}
+  .tab{
+    padding:9px 16px; border-radius:20px; font-size:13px; font-weight:600;
+    border:1px solid var(--line); background:transparent; cursor:pointer;
+    font-family:'Work Sans',sans-serif; color:var(--ink);
+  }
+  .tab.active{background:var(--forest); color:var(--parchment-hi); border-color:var(--forest);}
+  .tab-panel{display:none; animation:fade .3s ease;}
+  .tab-panel.active{display:grid; grid-template-columns:1.1fr 1fr; gap:32px; align-items:center;}
+  @keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+  .script-card{
+    background:var(--parchment-hi); border:1px solid var(--line); border-radius:6px; padding:26px;
+  }
+  .script-card .sample{font-size:34px; margin:8px 0 14px; color:var(--kupya-deep);}
+  .script-card p{font-size:14px; line-height:1.6; color:rgba(32,31,26,0.75);}
+  .script-meta{display:flex; gap:18px; margin-top:16px; flex-wrap:wrap;}
+  .script-meta div{font-size:12px; font-family:'JetBrains Mono',monospace; color:rgba(32,31,26,0.55);}
+  .script-meta b{display:block; color:var(--ink); font-family:'Work Sans',sans-serif; font-size:14px; font-weight:600;}
+
+  /* greeting card */
+  .greeting-wrap{
+    display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center;
+  }
+  .greeting-card{
+    background:linear-gradient(160deg, var(--forest) 0%, #2C5138 100%);
+    color:var(--parchment-hi);
+    border-radius:8px; padding:40px;
+    position:relative; overflow:hidden;
+  }
+  .greeting-card::after{
+    content:"卐"; display:none;
+  }
+  .greeting-word{font-size:44px; margin:10px 0 4px;}
+  .greeting-ipa{font-family:'JetBrains Mono',monospace; color:var(--sage); font-size:14px;}
+  .greeting-gloss{margin-top:16px; font-size:14.5px; line-height:1.65; color:rgba(241,233,216,0.85);}
+  .gesture-note{
+    margin-top:20px; padding-top:18px; border-top:1px solid rgba(241,233,216,0.2);
+    font-size:13px; color:rgba(241,233,216,0.7); line-height:1.6;
+  }
+
+  /* word cards */
+  .word-grid{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px;
+  }
+  .flip-outer{ perspective:1200px; height:170px; }
+  .flip-inner{
+    position:relative; width:100%; height:100%;
+    transition:transform .55s cubic-bezier(.4,.2,.2,1);
+    transform-style:preserve-3d; cursor:pointer;
+  }
+  .flip-outer.flipped .flip-inner{transform:rotateY(180deg);}
+  .flip-face{
+    position:absolute; inset:0; backface-visibility:hidden;
+    border-radius:6px; padding:18px; border:1px solid var(--line);
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .flip-front{background:var(--parchment-hi);}
+  .flip-back{background:var(--forest); color:var(--parchment-hi); transform:rotateY(180deg);}
+  .flip-front .idx{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--kupya); font-weight:600;}
+  .flip-front .word{font-family:'Fraunces',serif; font-size:22px; margin-top:8px; font-weight:600;}
+  .flip-front .kan{font-size:14px; color:rgba(32,31,26,0.5); margin-top:4px;}
+  .flip-front .hint{font-size:11px; color:rgba(32,31,26,0.45); margin-top:auto;}
+  .flip-back .meaning{font-size:17px; font-family:'Fraunces',serif; font-weight:600;}
+  .flip-back .note{font-size:12px; color:var(--sage); margin-top:8px; line-height:1.5;}
+  .audio-dot{
+    align-self:flex-end; width:28px; height:28px; border-radius:50%;
+    background:rgba(241,233,216,0.15); display:flex; align-items:center; justify-content:center;
+    border:1px solid rgba(241,233,216,0.3);
+  }
+  .audio-dot svg{width:12px; height:12px;}
+
+  /* family tree */
+  .tree{
+    background:var(--parchment-hi); border:1px solid var(--line); border-radius:8px; padding:36px;
+    overflow-x:auto;
+  }
+  .tree-row{display:flex; align-items:center; gap:10px; margin-bottom:6px;}
+  .tree-node{
+    padding:9px 15px; border-radius:4px; font-size:13px; font-weight:600;
+    white-space:nowrap; border:1px solid var(--line);
+  }
+  .n0{background:var(--forest); color:var(--parchment-hi);}
+  .n1{background:rgba(31,61,43,0.1); margin-left:28px;}
+  .n2{background:rgba(31,61,43,0.06); margin-left:56px;}
+  .n3{background:var(--kupya); color:var(--parchment-hi); margin-left:84px;}
+  .n3 span{opacity:.8; font-weight:400;}
+  .tree-arrow{color:rgba(32,31,26,0.3); font-family:'JetBrains Mono',monospace;}
+
+  /* region / culture */
+  .region-grid{display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center;}
+  .region-fig{border-radius:8px; overflow:hidden; box-shadow:var(--shadow);}
+  .region-fig img{height:320px; width:100%; object-fit:cover;}
+  .region-fig figcaption{
+    background:var(--forest); color:rgba(241,233,216,0.75);
+    font-size:11.5px; padding:8px 12px; font-family:'JetBrains Mono',monospace;
+  }
+
+  .culture-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .culture-card{
+    background:var(--parchment-hi); border:1px solid var(--line); border-radius:8px; overflow:hidden;
+    transition:transform .2s ease;
+  }
+  .culture-card:hover{transform:translateY(-3px);}
+  .culture-card img{height:190px; width:100%; object-fit:cover;}
+  .culture-body{padding:18px;}
+  .culture-body .eyebrow{font-size:10.5px;}
+  .culture-body h3{font-size:17px; margin-top:6px;}
+  .culture-body p{font-size:13.3px; line-height:1.55; color:rgba(32,31,26,0.7); margin-top:8px;}
+
+  /* sources */
+  .sources{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px;
+  }
+  .source-card{
+    border:1px solid var(--line); border-radius:6px; padding:16px 18px;
+    background:var(--parchment-hi);
+    font-size:13px;
+  }
+  .source-card a{text-decoration:none; font-weight:600; color:var(--kupya-deep);}
+  .source-card .desc{color:rgba(32,31,26,0.6); margin-top:5px; font-size:12.5px; line-height:1.5;}
+
+  footer{
+    background:var(--forest-deep); color:rgba(241,233,216,0.55);
+    padding:36px 0; text-align:center; font-size:12.5px;
+  }
+  footer strong{color:var(--parchment-hi);}
+
+  @media (max-width:760px){
+    .tab-panel.active{grid-template-columns:1fr;}
+    .greeting-wrap{grid-template-columns:1fr;}
+    .region-grid{grid-template-columns:1fr;}
+    .culture-grid{grid-template-columns:1fr;}
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    .stat{border-right:none; border-bottom:1px solid var(--line);}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ LANDING PAGE PREVIEW ============ -->
+<div class="landing">
+  <div class="container">
+    <div class="landing-head">
+      <div>
+        <div class="eyebrow" style="color:var(--gold)">Incredible India Explorer</div>
+        <h2 class="display">Languages of India</h2>
+        <p>A living atlas of India's languages — scripts, sounds, and the communities who carry them forward.</p>
+      </div>
+    </div>
+    <div class="lang-grid">
+      <div class="lang-card">
+        <div class="tag">Dravidian · Tamil Nadu</div>
+        <h3>Tamil</h3>
+        <div class="native">தமிழ்</div>
+      </div>
+      <div class="lang-card">
+        <div class="tag">Indo-Aryan · Maharashtra</div>
+        <h3>Marathi</h3>
+        <div class="native">मराठी</div>
+      </div>
+      <div class="lang-card featured">
+        <span class="status-dot" title="Definitively Endangered — UNESCO"></span>
+        <div class="tag">Dravidian · Kodagu, Karnataka</div>
+        <h3>Kodava</h3>
+        <div class="native mono">koḍava takki</div>
+        <button class="explore-btn" onclick="document.getElementById('explorer').scrollIntoView({behavior:'smooth'})">
+          Explore Kodava
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <div class="lang-card">
+        <div class="tag">Dravidian · Karnataka</div>
+        <h3>Tulu</h3>
+        <div class="native">ತುಳು</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ EXPLORER ============ -->
+<div id="explorer">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="eyebrow">Kodagu district · Karnataka, India</div>
+    <h1>Kodava Takk</h1>
+    <div class="kan mono">ಕೊಡವ ತಕ್ಕ್</div>
+    <div class="ipa">/koɖɐʋɐ t̪ɐkːɨ/ — "the speech of the Kodavas"</div>
+    <p class="gloss">A Dravidian language native to the misty Western Ghats of Kodagu (Coorg), spoken by the Kodava people and several other communities of the region. UNESCO classifies it as <strong>Definitively Endangered</strong>.</p>
+    <div class="listen-row">
+      <button class="btn solid" onclick="speakText('Kodava takki', 'listen-hero')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>
+        <span id="listen-hero">Hear "Kodava takki"</span>
+      </button>
+      <a href="#greeting" class="btn">👋 Jump to greeting</a>
+      <a href="#words" class="btn">Browse words</a>
+    </div>
+    <svg class="ridgeline-svg" viewBox="0 0 1200 160" preserveAspectRatio="none">
+      <path d="M0,160 L0,95 C120,60 180,110 260,80 C340,50 400,95 480,70 C560,45 620,100 700,75 C780,50 860,105 940,78 C1020,52 1090,95 1200,70 L1200,160 Z" fill="#2C5138" opacity="0.65"/>
+      <path d="M0,160 L0,120 C100,90 200,130 300,105 C400,80 480,125 580,100 C680,75 760,120 860,100 C960,80 1060,118 1200,95 L1200,160 Z" fill="#1F3D2B"/>
+    </svg>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat"><div class="num">113,857</div><div class="label">Mother-tongue speakers, 2011 Census of India</div></div>
+      <div class="stat"><div class="num">South Dravidian</div><div class="label">Language family branch, close to Tamil–Kannada–Tulu</div></div>
+      <div class="stat"><div class="num">kfa</div><div class="label">ISO 639-3 language code</div></div>
+      <div class="stat"><div class="num">2</div><div class="label">Dialects: Mendale (north/central) &amp; Kiggat (south Kodagu)</div></div>
+      <div class="stat"><div class="num">2022</div><div class="label">Year Kodava Lipi was adopted as the official script</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPT -->
+<section class="block">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Writing &amp; script</div>
+      <h2>A spoken language, written many ways</h2>
+      <p>Kodava had no dedicated script for most of its history — genealogies and rituals were once recorded on palm-leaf manuscripts called <em>Pattole</em>, while the language itself was mainly oral. Several scripts have been proposed since 1867; explore them below.</p>
+    </div>
+    <div class="tabs" id="scriptTabs">
+      <button class="tab active" data-tab="lipi">Kodava Lipi (official)</button>
+      <button class="tab" data-tab="kannada">Kannada script</button>
+      <button class="tab" data-tab="coorgi">Coorgi-Cox alphabet</button>
+    </div>
+
+    <div class="tab-panel active" id="panel-lipi">
+      <div class="script-card">
+        <div class="eyebrow">Also called the Muthanna script</div>
+        <div class="sample mono">𑙨𑙩𑙪 →  ಕೊಡವ ತಕ್ಕ್</div>
+        <p>Developed in 1970 by Dr. I. M. Muthanna — a Kodagu-born writer, scholar and translator — this abugida script was adopted by the Karnataka Kodava Sahitya Academy in 2022 as the official <strong>Kodava Lipi</strong> ("Kodava script"). It is deliberately simpler than other Brahmic scripts, built to represent Kodava's distinctive vowel sounds that Kannada script cannot capture cleanly.</p>
+        <div class="script-meta">
+          <div><b>16</b>vowels</div>
+          <div><b>24</b>consonants</div>
+          <div><b>2022</b>official adoption</div>
+        </div>
+      </div>
+      <div class="region-fig">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Omkareshwara%20Temple%2C%20Madikeri%2C%20Kodagu%20(Coorg)%2C%20Karnataka.jpg" alt="Madikeri, the cultural capital of Kodagu">
+        <figcaption>Madikeri (Mercara) — seat of the Kodava Sahitya Academy, which regulates the language today</figcaption>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="panel-kannada">
+      <div class="script-card">
+        <div class="eyebrow">The most common everyday script</div>
+        <div class="sample mono">ಕೊಡವ ತಕ್ಕ್</div>
+        <p>Since Captain R. A. Cole's 1867 book <em>An Elementary Grammar of the Coorg Language</em>, Kodava has most often been written using the Kannada alphabet, sometimes with small modifications to represent extra Kodava vowel sounds. Because Kannada is the state language of Karnataka, this remains the script most Kodava speakers actually read and write in today.</p>
+        <div class="script-meta">
+          <div><b>1867</b>first grammar published</div>
+          <div><b>Brahmic</b>script family</div>
+        </div>
+      </div>
+      <div class="region-fig">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Street%20views%20from%20Coorg%20(Kodagu)%20district%20-%20vrvkbgmtmk1024%20(29).jpg" alt="A street in Kodagu district">
+        <figcaption>A town street in Kodagu, where Kannada-script signage is most common</figcaption>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="panel-coorgi">
+      <div class="script-card">
+        <div class="eyebrow">A modern proposal</div>
+        <div class="sample mono">◯ — ｜ — ◐</div>
+        <p>In 2005, German linguist Gregg M. Cox designed the Coorgi-Cox alphabet at the community's request: a script built from straight lines for the five core vowels and circular forms for diphthongs. It exists alongside Kodava Lipi, Kannada, Malayalam and Tamil-based spellings — a reminder that a spoken-first language can carry more than one written identity at once.</p>
+        <div class="script-meta">
+          <div><b>2005</b>created</div>
+          <div><b>Gregg M. Cox</b>designer</div>
+        </div>
+      </div>
+      <div class="region-fig">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20landscape%20-%20Talakaveri.jpg" alt="Talakaveri, source of the river Kaveri">
+        <figcaption>Talakaveri — the sacred source of the Kaveri, high in the Kodagu hills</figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GREETING -->
+<section class="block alt" id="greeting">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">👋 Say hello</div>
+      <h2>The common Kodava greeting</h2>
+      <p>Kodava is an overwhelmingly oral, everyday-speech language, and its greeting is shared with the wider Kannada-speaking region of which Kodagu is part — spoken with the same warmth, but carrying local custom in how it's performed.</p>
+    </div>
+    <div class="greeting-wrap">
+      <div class="greeting-card">
+        <div class="eyebrow" style="color:var(--gold)">Hello / greetings</div>
+        <div class="greeting-word display">Namaskāra</div>
+        <div class="greeting-ipa mono">nə-məs-kaː-rə · ನಮಸ್ಕಾರ</div>
+        <div class="greeting-gloss">Said with the palms pressed together at chest height (añjali mudrā) and a slight bow of the head — used for hello and goodbye alike, to elders, guests and strangers.</div>
+        <div class="gesture-note">🙏 In Kodava homes, greeting often extends further: younger family members bow to touch the feet of elders for blessings, especially during festivals such as Puthari and Kailpodh.</div>
+        <div class="listen-row" style="justify-content:flex-start; margin-top:22px;">
+          <button class="btn solid" onclick="speakText('Namaskara', 'listen-greet')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>
+            <span id="listen-greet">Play pronunciation</span>
+          </button>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:20px; margin-bottom:12px;">Everyday exchanges</h3>
+        <div class="script-card" style="margin-bottom:14px;">
+          <b class="mono" style="color:var(--kupya-deep)">Ninga ennane ullira?</b>
+          <p style="margin-top:6px;">"How are you?" — a common formal check-in among Kodava speakers.</p>
+        </div>
+        <div class="script-card">
+          <b class="mono" style="color:var(--kupya-deep)">Undith aacha?</b>
+          <p style="margin-top:6px;">Literally "have you eaten?" — asked as a mark of hospitality, much like "how are you" in English.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORDS -->
+<section class="block" id="words">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">🔤 Vocabulary</div>
+      <h2>10 common Kodava words &amp; phrases</h2>
+      <p>Tap any card to reveal the meaning. Transliterations follow common community usage; Kodava is primarily spoken, so spellings can vary between sources.</p>
+    </div>
+    <div class="word-grid" id="wordGrid"></div>
+  </div>
+</section>
+
+<!-- FAMILY TREE -->
+<section class="block alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">🌳 Language family</div>
+      <h2>Where Kodava sits in the Dravidian family</h2>
+      <p>Once dismissed as a dialect of Kannada, Kodava was recognised as an independent language by philologists in the early 20th century. It belongs to the same close-knit branch as Tamil, Kannada, Tulu and Toda.</p>
+    </div>
+    <div class="tree">
+      <div class="tree-row"><div class="tree-node n0">Dravidian language family</div></div>
+      <div class="tree-row"><span class="tree-arrow">└─</span><div class="tree-node n1">South Dravidian</div></div>
+      <div class="tree-row"><span class="tree-arrow" style="margin-left:28px">└─</span><div class="tree-node n2">Tamil–Kannada subgroup</div></div>
+      <div class="tree-row"><span class="tree-arrow" style="margin-left:56px">└─</span><div class="tree-node n2">Tamil–Kodagu–Toda cluster <span style="opacity:.6">(incl. Tulu, Toda, Kota, Irula)</span></div></div>
+      <div class="tree-row"><span class="tree-arrow" style="margin-left:84px">└─</span><div class="tree-node n3">Kodava <span>— spoken in Kodagu district</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REGION -->
+<section class="block">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">📍 The homeland</div>
+      <h2>Kodagu — the land the language belongs to</h2>
+    </div>
+    <div class="region-grid">
+      <div>
+        <p style="font-size:15px; line-height:1.7; color:rgba(32,31,26,0.75);">Kodagu district (formerly Coorg State, merged into Mysore State in 1956) sits on the eastern slopes of the Western Ghats in southern Karnataka. Its cool, misty hills, coffee and cardamom estates, and dense forest have sheltered the Kodava-speaking communities for centuries — historians consider the Kodavas among the earliest settled agriculturists of the region.</p>
+        <p style="font-size:15px; line-height:1.7; color:rgba(32,31,26,0.75); margin-top:14px;">The Kaveri river, revered across South India, rises here at Talakaveri — a site of deep spiritual significance to the Kodava people.</p>
+        <div class="script-meta" style="margin-top:20px; gap:26px;">
+          <div><b>4,102 km²</b>geographical area</div>
+          <div><b>Madikeri</b>district headquarters</div>
+          <div><b>Western Ghats</b>UNESCO World Heritage mountain range</div>
+        </div>
+      </div>
+      <div class="region-fig">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20view%20of%20Coorg.jpg" alt="Aerial view of the hills of Coorg (Kodagu)">
+        <figcaption>Coffee-covered hills of Kodagu, seen from above</figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CULTURE -->
+<section class="block alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">🏵️ Cultural heritage</div>
+      <h2>Beyond the language</h2>
+      <p>Kodava identity is inseparable from custom — ancestral homes, martial tradition, and festivals tied to the agricultural calendar.</p>
+    </div>
+    <div class="culture-grid">
+      <div class="culture-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kodava%20guy%20in%20traditional%20attire.jpg" alt="A Kodava man in traditional Kupya-Chele attire">
+        <div class="culture-body">
+          <div class="eyebrow">Attire</div>
+          <h3>Kupya &amp; Chele</h3>
+          <p>The knee-length black or white coat (kupya), secured with a gold-embroidered maroon sash (chele) and a silver dagger (peeche kathi), remains the ceremonial dress at weddings and festivals.</p>
+        </div>
+      </div>
+      <div class="culture-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20landscape%20-%20Talakaveri.jpg" alt="Talakaveri, sacred source of the Kaveri river">
+        <div class="culture-body">
+          <div class="eyebrow">Faith &amp; ancestry</div>
+          <h3>Ain Mane &amp; Kaveri reverence</h3>
+          <p>Every Kodava traces descent to an <em>ain mane</em> (ancestral house) and clan (okka). The Kaveri river's source at Talakaveri is honoured every year at Kaveri Sankramana.</p>
+        </div>
+      </div>
+      <div class="culture-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/ABBEY%20FALLS%20%2CCOORG%20%2CKARNATAKA.jpg" alt="Abbey Falls, Coorg">
+        <div class="culture-body">
+          <div class="eyebrow">Festivals</div>
+          <h3>Puthari &amp; Kailpodh</h3>
+          <p>Puthari celebrates the rice harvest; Kailpodh honours ancestral weapons — Kodavas are traditionally among the few Indian communities permitted firearms without a license.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="block">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">📚 Sources</div>
+      <h2>Verified against</h2>
+    </div>
+    <div class="sources">
+      <div class="source-card">
+        <a href="https://en.wikipedia.org/wiki/Kodava_language" target="_blank" rel="noopener">Wikipedia — Kodava language</a>
+        <div class="desc">Classification, speaker count, ISO code, endangerment status, script history.</div>
+      </div>
+      <div class="source-card">
+        <a href="https://www.omniglot.com/writing/kodava.htm" target="_blank" rel="noopener">Omniglot — Kodava writing systems</a>
+        <div class="desc">Kannada, Malayalam, Latin, Kodava Lipi and Coorgi-Cox script details.</div>
+      </div>
+      <div class="source-card">
+        <a href="https://en.wikipedia.org/wiki/Kodagu_district" target="_blank" rel="noopener">Wikipedia — Kodagu district</a>
+        <div class="desc">Geography, history and etymology of the Kodagu region.</div>
+      </div>
+      <div class="source-card">
+        <a href="https://www.translation-services-usa.com/languages/kodava.php" target="_blank" rel="noopener">Translation Services USA — Kodava</a>
+        <div class="desc">Everyday conversational phrases used as a cross-check for vocabulary.</div>
+      </div>
+      <div class="source-card">
+        <a href="http://go2coorg.blogspot.com/2014/02/learn-coorgi-simple-sentences-in-kodava.html" target="_blank" rel="noopener">A Guide to Coorg — simple Kodava sentences</a>
+        <div class="desc">Word-by-word breakdowns of common Kodava phrases.</div>
+      </div>
+      <div class="source-card">
+        <a href="https://kodavame.wordpress.com/2016/01/29/traditional-coorg-dress-kupya-chale/" target="_blank" rel="noopener">Kodavame — Kupya Chale</a>
+        <div class="desc">Detail on traditional Kodava dress and its components.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /explorer -->
+
+<footer>
+  <div class="container">
+    Built for the <strong>Languages of India</strong> series · Incredible India Explorer<br>
+    Pronunciation uses your browser's built-in speech synthesis as a listening aid — it approximates Kodava sound using the closest available voice, and is not a native-speaker recording.
+  </div>
+</footer>
+
+<script>
+  // Tabs
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      tabs.forEach(t=>t.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-'+tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Word data
+  const words = [
+    {kan:"ಕೊಡವ ತಕ್ಕ್", word:"Kodava takk", meaning:"The Kodava language", note:"Literally \"speech of the Kodavas.\""},
+    {kan:"ಕೊಡಗು", word:"Koḍagï", meaning:"Kodagu — the homeland", note:"The land and district itself, called Kodagu in Kannada."},
+    {kan:"ಕೊಡವನಿ", word:"Koḍavanï", meaning:"A Kodava person", note:"Koḍavarï is the plural, \"Kodava people.\""},
+    {kan:"ನೀನ್", word:"Neen", meaning:"You (informal)", note:"Used with friends, family and peers."},
+    {kan:"ನಿಂಗ", word:"Ninga", meaning:"You (formal / plural)", note:"Used with elders or groups, as in \"Ninga ennane ullira?\""},
+    {kan:"ಎಂತ", word:"Yentha", meaning:"What", note:"Core question word, e.g. \"Yentha aachchi?\" — What happened?"},
+    {kan:"ಎಲ್ಲಿ", word:"Yelli", meaning:"Where", note:"As in \"Neen yelli ulla?\" — Where do you live?"},
+    {kan:"ಪೆದ", word:"Peda", meaning:"Name", note:"\"Needa peda yentha?\" — What is your name?"},
+    {kan:"ಬಾ", word:"Baa", meaning:"Come", note:"An everyday, informal invitation."},
+    {kan:"ನಂಗಡ", word:"Nangada", meaning:"Our / my family's", note:"Used constantly to signal belonging to a clan or household."}
+  ];
+  const grid = document.getElementById('wordGrid');
+  words.forEach((w,i)=>{
+    const outer = document.createElement('div');
+    outer.className = 'flip-outer';
+    outer.innerHTML = `
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <div class="idx">${String(i+1).padStart(2,'0')} / 10</div>
+          <div>
+            <div class="word">${w.word}</div>
+            <div class="kan">${w.kan}</div>
+          </div>
+          <div class="hint">Tap to reveal meaning →</div>
+        </div>
+        <div class="flip-face flip-back">
+          <div class="audio-dot" title="Hear pronunciation">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>
+          </div>
+          <div>
+            <div class="meaning">${w.meaning}</div>
+            <div class="note">${w.note}</div>
+          </div>
+        </div>
+      </div>`;
+    outer.addEventListener('click', (e)=>{
+      if(e.target.closest('.audio-dot')){
+        e.stopPropagation();
+        speakText(w.word, null);
+        return;
+      }
+      outer.classList.toggle('flipped');
+    });
+    grid.appendChild(outer);
+  });
+
+  // Speech synthesis helper
+  function speakText(text, labelId){
+    if(!('speechSynthesis' in window)){
+      alert('Speech playback is not supported in this browser.');
+      return;
+    }
+    const utter = new SpeechSynthesisUtterance(text);
+    const voices = speechSynthesis.getVoices();
+    const knVoice = voices.find(v=>v.lang && v.lang.toLowerCase().startsWith('kn'));
+    const hiVoice = voices.find(v=>v.lang && v.lang.toLowerCase().startsWith('hi'));
+    utter.voice = knVoice || hiVoice || null;
+    utter.rate = 0.85;
+    if(labelId){
+      const el = document.getElementById(labelId);
+      const original = el.textContent;
+      el.textContent = 'Playing…';
+      utter.onend = ()=> el.textContent = original;
+    }
+    speechSynthesis.cancel();
+    speechSynthesis.speak(utter);
+  }
+  if('speechSynthesis' in window){ speechSynthesis.onvoiceschanged = ()=>{}; }
+</script>
+</body>
+</html>
