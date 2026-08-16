@@ -3830,9 +3830,14 @@ window.indiaSearchIndex = [
     {
         title: 'India Historical Firsts Timeline & Knowledge Quiz',
         category: 'Interactive Learning',
-        description:
-            'Chronological milestone timeline from 1853 to 1984, category filters, and multiple-choice knowledge quiz testing famous Indian firsts.',
+        description:'Chronological milestone timeline from 1853 to 1984, category filters, and multiple-choice knowledge quiz testing famous Indian firsts.',
         url: 'frontend/indias-firsts/indias-firsts.html'
+    },
+    {
+       title: "Forgotten Indian Sporting Tournaments",
+       category: "Sports & History",
+       description: "A Then vs Now archive of historic Indian tournaments like the Bombay Pentangular, Rovers Cup, and Beighton Cup that shaped Indian sport but are no longer widely remembered.",
+       url: "frontend/forgotten-tournaments-explorer/index.html"
     },
     {
         title: "India's Firsts in Sports",
