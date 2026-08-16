@@ -1,0 +1,136 @@
+/**
+ * Keshopur-Miani Wetland Explorer — Data Module
+ * Comprehensive dataset covering Punjab's first Ramsar Site, community reserve management,
+ * wetland ecology, bird diversity, sustainable fisheries, map hotspots, and image gallery.
+ */
+
+const KESHOPUR_MIANI_INFO = {
+    id: "keshopur-miani-wetland",
+    name: "Keshopur-Miani Community Reserve",
+    location: "Gurdaspur District, Punjab, India",
+    state: "Punjab",
+    coordinates: { lat: 32.091, lng: 75.385 },
+    area: "3.44 km² (344 hectares)",
+    establishedYear: 2007,
+    ramsarYear: 2019,
+    ramsarSiteNo: 2408,
+    wetlandType: "Freshwater Marsh & Aquaculture Mosaic",
+    climate: "Subtropical Monsoon with cold winters",
+    bestTime: "November to March (Peak Migratory Season)",
+    nearestTransport: {
+        town: "Gurdaspur (5 km) / Pathankot (35 km)",
+        airport: "Pathankot Airport (38 km) / Amritsar Airport (80 km)",
+        railway: "Gurdaspur Railway Station (5 km)"
+    },
+    quickStats: [
+        { label: "Punjab's First Ramsar Site", value: "2019", icon: "💧" },
+        { label: "Community Reserve", value: "5 Villages", icon: "👥" },
+        { label: "Migratory Birds", value: "25,000+", icon: "🦩" },
+        { label: "Bird Species", value: "120+", icon: "🦅" },
+        { label: "Sarus Crane Refuge", value: "Breeding Habitat", icon: "🪿" },
+        { label: "Surface Area", value: "3.44 km²", icon: "🌾" }
+    ]
+};
+
+const ECOLOGY_HYDROLOGY = {
+    overview: "Keshopur-Miani Community Reserve is a mosaic of natural freshwater marshes, agricultural lands, and managed fishponds located in Gurdaspur district, Punjab. It is Punjab's first notified Ramsar Site.",
+    wetlandEcology: "Fed by seasonal rainfall, agricultural runoff, and high groundwater tables, the wetland provides nutrient-rich shallow foraging grounds for migratory waterbirds traveling along the Central Asian Flyway.",
+    communityFisheries: "Uniquely owned and managed by five local village panchayats (Keshopur, Miani, Dalla, Mattam, and Dhirowal). The community practices regulated eco-friendly fish farming while preserving bird feeding zones.",
+    conservationStatus: "Notified as a Ramsar Site in 2019. Jointly protected by village conservation committees and the Punjab Department of Forests and Wildlife Preservation."
+};
+
+const BIRD_SPECIES = [
+    {
+        id: "sarus-crane",
+        name: "Sarus Crane",
+        scientificName: "Antigone antigone",
+        category: "resident-birds",
+        status: "Vulnerable",
+        season: "Resident Breeding",
+        diet: "Tubers, insects, small reptiles, seeds",
+        wingspan: "220–250 cm",
+        icon: "🦩",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sarus_Crane_%28Grus_antigone%29_in_head-up_display.jpg/800px-Sarus_Crane_%28Grus_antigone%29_in_head-up_display.jpg",
+        description: "World's tallest flying bird with bare red head and neck. Pairs build large floating nests in Keshopur's marshy grasses."
+    },
+    {
+        id: "common-teal",
+        name: "Common Teal",
+        scientificName: "Anas crecca",
+        category: "migratory-waterfowl",
+        status: "Least Concern",
+        season: "November to March",
+        diet: "Aquatic plant seeds, invertebrates",
+        wingspan: "53–59 cm",
+        icon: "🦆",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Eurasian_Teal_Anas_crecca.jpg/800px-Eurasian_Teal_Anas_crecca.jpg",
+        description: "Agile small dabbling duck that visits Keshopur in large winter flocks, foraging in shallow mudflats."
+    },
+    {
+        id: "black-headed-ibis",
+        name: "Black-headed Ibis",
+        scientificName: "Threskiornis melanocephalus",
+        category: "wading-birds",
+        status: "Near Threatened",
+        season: "Year-round / Winter Peak",
+        diet: "Fish, frogs, aquatic insects",
+        wingspan: "110–120 cm",
+        icon: "🪶",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Black-headed_Ibis_rwd.jpg/800px-Black-headed_Ibis_rwd.jpg",
+        description: "Striking white wading bird with featherless black neck and downcurved bill."
+    },
+    {
+        id: "common-pochard",
+        name: "Common Pochard",
+        scientificName: "Aythya ferina",
+        category: "migratory-waterfowl",
+        status: "Vulnerable",
+        season: "November to February",
+        diet: "Submerged water plants, mollusks",
+        wingspan: "72–82 cm",
+        icon: "🦆",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Common_Pochard_male.jpg/800px-Common_Pochard_male.jpg",
+        description: "Medium-sized diving duck that frequents deep open water fishponds within the community reserve."
+    }
+];
+
+const MAP_HOTSPOTS = [
+    {
+        id: "keshopur-watchtower",
+        title: "Keshopur Bird Watchtower",
+        lat: 32.093,
+        lng: 75.387,
+        type: "Observation Tower",
+        description: "Three-story eco tower overlooking main Sarus Crane nesting fields and central marsh lagoon."
+    },
+    {
+        id: "miani-fishpond-trail",
+        title: "Miani Community Fishponds",
+        lat: 32.088,
+        lng: 75.382,
+        type: "Eco-Trail",
+        description: "Walkway along sustainable community aquaculture ponds popular with wading storks and ibises."
+    }
+];
+
+const GALLERY_IMAGES = [
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sarus_Crane_%28Grus_antigone%29_in_head-up_display.jpg/800px-Sarus_Crane_%28Grus_antigone%29_in_head-up_display.jpg",
+        caption: "Sarus Crane calling in Keshopur marsh",
+        category: "Fauna"
+    },
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Black-headed_Ibis_rwd.jpg/800px-Black-headed_Ibis_rwd.jpg",
+        caption: "Black-headed Ibis foraging in shallow water",
+        category: "Fauna"
+    },
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Eurasian_Teal_Anas_crecca.jpg/800px-Eurasian_Teal_Anas_crecca.jpg",
+        caption: "Common Teal drake resting on wetland bank",
+        category: "Fauna"
+    }
+];
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { KESHOPUR_MIANI_INFO, ECOLOGY_HYDROLOGY, BIRD_SPECIES, MAP_HOTSPOTS, GALLERY_IMAGES };
+}
