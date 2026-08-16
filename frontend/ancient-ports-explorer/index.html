@@ -1,102 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ancient Ports of India Explorer</title>
-    <meta name="description" content="Discover the legendary maritime heritage, ancient trade routes, and historic ports of Incredible India.">
-    
+    <meta name="description"
+        content="Discover the legendary maritime heritage, ancient trade routes, and historic ports of Incredible India.">
+    <!-- Fix URL for relative path resolution without causing server redirect loops -->
+    <script>
+        if (!window.location.pathname.endsWith('/') && !window.location.pathname.endsWith('.html')) {
+            window.history.replaceState(null, '', window.location.pathname + '/');
+        }
+    </script>
+
     <!-- Shared Fonts & Global Styles -->
     <!-- Preload Critical Fonts -->
     <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="../styles/components.css">
-    
-    <!-- Local Page Styles -->
+
     <link rel="stylesheet" href="style.css">
+    <style>
+        .awards-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.75rem;
+            width: 100%;
+        }
+
+        @media (max-width: 1024px) {
+            .awards-cards-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .awards-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Hero clarity fix */
+        .hero-section,
+        .hero-section .hero-container,
+        .hero-section .hero-kicker,
+        .hero-section .hero-title,
+        .hero-section .hero-subtitle,
+        .hero-section .hero-stats,
+        .hero-section .stat-card {
+            filter: none !important;
+            -webkit-filter: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            transform: none;
+        }
+
+        .hero-section .hero-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section .hero-overlay {
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
 </head>
+
 <body class="dark-theme">
     <!-- Navbar -->
     <header class="navbar" id="navbar">
-    <div class="nav-container">
-        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
-            <span class="saffron">Incredible</span>
-            <span class="gold">India</span>
-            <span class="green">Explorer</span>
-        </a>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-        <nav class="nav-menu" id="nav-menu">
-            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
-                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
-                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
-                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
-                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports
+                            of India</a>
+                        <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                        <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route
+                            Planner</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
-                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
-                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
-                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
-                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
-                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
-                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
-                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                        <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                        <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                        <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical
+                            Timeline</a>
+                        <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html"
+                            class="dropdown-item">National Symbols</a>
+                        <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                        <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP
+                            Handicrafts</a>
+                        <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National
+                            Days</a>
+                        <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
-                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
-                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
-                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
-                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National
+                            Parks</a>
+                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife
+                            Rescue</a>
+                        <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic
+                            Flora & Fauna</a>
+                        <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike
+                            Wetland</a>
+                        <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                        <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density
+                            Predictor</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
-                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
-                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
-                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
-                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport
+                            Quest</a>
+                        <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary
+                            Challenge</a>
+                        <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                        <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                        <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
-                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                        <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                    </div>
                 </div>
-            </div>
-            
-            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
-        </nav>
-    </div>
-</header>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
 
     <main class="awards-main">
         <!-- Hero Section -->
@@ -106,7 +176,8 @@
                 <span class="hero-kicker">⚓ Maritime Heritage Hub</span>
                 <h1 class="hero-title">Ancient Ports of India</h1>
                 <p class="hero-subtitle">
-                    Embark on immersive journeys discovering India's legendary ports, islands, and ancient trade routes that connected the subcontinent with the world.
+                    Embark on immersive journeys discovering India's legendary ports, islands, and ancient trade routes
+                    that connected the subcontinent with the world.
                 </p>
                 <div class="hero-stats">
                     <div class="stat-card">
@@ -121,29 +192,463 @@
                         <span class="stat-number">Spice</span>
                         <span class="stat-label">Trade Legacy</span>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Featured Explorers Grid -->
         <section class="awards-grid-section" id="featured-awards">
             <div class="section-container">
                 <div class="section-header">
                     <h2 class="section-title">Explore Ancient Ports</h2>
-                    <p class="section-subtitle">Click on any port card to dive deep into its maritime history, trade legacy, and archaeological wonders.</p>
+                    <p class="section-subtitle">Click on any port card to dive deep into its maritime history, trade
+                        legacy, and archaeological wonders.</p>
                 </div>
 
-                 <div class="awards-cards-grid" id="awards-cards-container">
-                     <div class="award-card glass-card" data-category="West Coast"><div class="card-header"><span class="award-icon">⚓</span><span class="award-category">West Coast</span></div><h3 class="award-name">Bet Dwarka Ancient Port</h3><div class="award-meta"><span class="award-year">Island Archaeology</span><span class="award-tier">Stone Anchors</span></div><p class="award-description">Explore an island port associated with anchors, shell-working and maritime exchange along the Gujarat coast.</p><div class="card-footer"><a href="../bet-dwarka-port-explorer/index.html" class="award-btn">Explore Bet Dwarka &rarr;</a></div></div>
-                     <div class="award-card glass-card" data-category="West Coast"><div class="card-header"><span class="award-icon">⚓</span><span class="award-category">West Coast</span></div><h3 class="award-name">Bharuch (Barygaza)</h3><div class="award-meta"><span class="award-year">Roman Trade Gateway</span><span class="award-tier">Narmada Estuary</span></div><p class="award-description">Explore the prosperous port described in the Periplus, its Roman connections, trade goods and changing river channels.</p><div class="card-footer"><a href="../bharuch-port-explorer/index.html" class="award-btn">Explore Bharuch Port &rarr;</a></div></div>
-                     <!-- Poompuhar Ancient Port Explorer Card -->
-                     <div class="award-card glass-card" data-category="East Coast">
-                         <div class="card-header"><span class="award-icon">⚓</span><span class="award-category">East Coast</span></div>
-                         <h3 class="award-name">Poompuhar Ancient Port</h3>
-                         <div class="award-meta"><span class="award-year">Early Chola Harbour</span><span class="award-tier">Sangam Literature</span></div>
-                         <p class="award-description">Discover Kaveripattinam, the Chola river-mouth port celebrated in Tamil epics and explored through coastal archaeology.</p>
-                         <div class="card-footer"><a href="../poompuhar-port-explorer/index.html" class="award-btn">Explore Poompuhar Port &rarr;</a></div>
-                     </div>
+                <div class="awards-cards-grid" id="awards-cards-container">
+                    <!-- Barkur Ancient Port Explorer Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Barkur Ancient Port Explorer</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Barkur Ancient Port in Karnataka: the historic Brahmapuri settlement, capital of the
+                            Saluva dynasty, its Pancha Ganapati temples, and maritime trade along the Haladi and Sita
+                            rivers.
+                        </p>
+                        <div class="card-footer">
+                            <a href="../barkur-port-explorer/index.html" class="award-btn">Explore Barkur Ancient Port
+                                Explorer &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Beypore Ancient Port Explorer Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Beypore Ancient Port Explorer</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Beypore Ancient Port in Kerala: Famous for traditional wooden Uru shipbuilding,
+                            ancient Silk & Spice route trade, legendary Khalasi riggers, and maritime heritage.
+                        </p>
+                        <div class="card-footer">
+                            <a href="../beypore-port-explorer/index.html" class="award-btn">Explore Beypore Ancient Port
+                                Explorer &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Bhatkal Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Bhatkal</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore the rich maritime history of Bhatkal
+                        </p>
+                        <div class="card-footer">
+                            <a href="../bhatkal-port-explorer/index.html" class="award-btn">Explore Bhatkal &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Chandraketugarh Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Chandraketugarh</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Chandraketugarh, an ancient river port in West Bengal associated with the Gangaridai
+                            kingdom, featuring archaeological discoveries from Mauryan to Pala periods.
+                        </p>
+                        <div class="card-footer">
+                            <a href="../chandraketugarh-port-explorer/index.html" class="award-btn">Explore
+                                Chandraketugarh &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Chaul Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Chaul</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Chaul Ancient Port in Maharashtra: A historic stronghold of Arab and Portuguese
+                            trade, and the iconic Revdanda Fort.
+                        </p>
+                        <div class="card-footer">
+                            <a href="../chaul-port-explorer/index.html" class="award-btn">Explore Chaul &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Dabhol Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Dabhol</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore the rich maritime history of Dabhol
+                        </p>
+                        <div class="card-footer">
+                            <a href="../dabhol-port-explorer/index.html" class="award-btn">Explore Dabhol &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Ghogha Port Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Ghogha Port</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Ghogha, one of Gujarat
+                        </p>
+                        <div class="card-footer">
+                            <a href="../ghogha-port-explorer/index.html" class="award-btn">Explore Ghogha Port
+                                &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Karaikal Ancient Port Explorer Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Karaikal Ancient Port Explorer</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Karaikal: a Coromandel Coast enclave that grew as a Chola-era maritime trading hub
+                            in the Cauvery delta and later became a French comptoir from 1739 to 1954.
+                        </p>
+                        <div class="card-footer">
+                            <a href="../karaikal-port-explorer/index.html" class="award-btn">Explore Karaikal Ancient
+                                Port Explorer &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Khambhat (Cambay) Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Khambhat (Cambay)</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Khambhat (Cambay) Ancient Port in Gujarat: A historic hub for agate bead industry,
+                            Harappan maritime links, and Gulf of Khambhat underwater ruins.
+                        </p>
+                        <div class="card-footer">
+                            <a href="../khambhat-port-explorer/index.html" class="award-btn">Explore Khambhat (Cambay)
+                                &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Kodungallur Ancient Port Explorer Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Kodungallur Ancient Port Explorer</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Kodungallur Ancient Port in Kerala: legendary Muziris spice emporium, Greco-Roman
+                            trade routes, Pattanam excavations, and rich multi-religious heritage.
+                        </p>
+                        <div class="card-footer">
+                            <a href="../kodungallur-port-explorer/index.html" class="award-btn">Explore Kodungallur
+                                Ancient Port Explorer &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Kozhikode (Calicut) Ancient Port Explorer Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Kozhikode (Calicut) Ancient Port Explorer</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Kozhikode (Calicut) Ancient Port on the Malabar Coast: the Zamorin
+                        </p>
+                        <div class="card-footer">
+                            <a href="../kozhikode-port-explorer/index.html" class="award-btn">Explore Kozhikode
+                                (Calicut) Ancient Port Explorer &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Lothal Ancient Port Explorer Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Lothal Ancient Port Explorer</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Lothal Ancient Port in Gujarat: World
+                        </p>
+                        <div class="card-footer">
+                            <a href="../lothal-port-explorer/index.html" class="award-btn">Explore Lothal Ancient Port
+                                Explorer &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Mangalore Ancient Port Explorer Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Mangalore Ancient Port Explorer</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Mangalore Ancient Port in Karnataka: the historic maritime trade hub at the
+                            Netravati and Gurupura river confluence, its Bunder port, spice and sandalwood exports, and
+                            modern New Mangalore Port.
+                        </p>
+                        <div class="card-footer">
+                            <a href="../mangalore-port-explorer/index.html" class="award-btn">Explore Mangalore Ancient
+                                Port Explorer &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Motupalli Ancient Port Explorer Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Motupalli Ancient Port Explorer</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Motupalli Ancient Port in Andhra Pradesh: the Kakatiya dynasty
+                        </p>
+                        <div class="card-footer">
+                            <a href="../motupalli-port-explorer/index.html" class="award-btn">Explore Motupalli Ancient
+                                Port Explorer &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Muziris Ancient Port Explorer Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Muziris Ancient Port Explorer</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Muziris Ancient Port in Kerala: Chera Kingdom gateway, Indo-Roman spice trade,
+                            Pattanam archaeological excavations, and Roman amphorae discoveries.
+                        </p>
+                        <div class="card-footer">
+                            <a href="../muziris-port-explorer/index.html" class="award-btn">Explore Muziris Ancient Port
+                                Explorer &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Palur Port Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Palur Port</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Palur, an ancient port in Odisha mentioned by classical geographers, known for
+                            maritime trade between India and Southeast Asia from 3rd century BCE to 8th century CE.
+                        </p>
+                        <div class="card-footer">
+                            <a href="../palur-port-explorer/index.html" class="award-btn">Explore Palur Port &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Rajapur Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Rajapur</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore the rich maritime history of Rajapur
+                        </p>
+                        <div class="card-footer">
+                            <a href="../rajapur-port-explorer/index.html" class="award-btn">Explore Rajapur &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Tamralipta Ancient Port Explorer Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Tamralipta Ancient Port Explorer</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Tamralipta Ancient Port in West Bengal: Maritime Silk Route gateway, Mauryan and
+                            Gupta trade, Buddhist pilgrim embarkation of Faxian and Xuanzang.
+                        </p>
+                        <div class="card-footer">
+                            <a href="../tamralipta-port-explorer/index.html" class="award-btn">Explore Tamralipta
+                                Ancient Port Explorer &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Tuticorin Port Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Tuticorin Port</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Tuticorin (Thoothukudi), the historic Pearl City of Tamil Nadu — an ancient maritime
+                            port renowned for pearl fishing and trade with Romans, Greeks, and Southeast Asian kingdoms.
+                        </p>
+                        <div class="card-footer">
+                            <a href="../tuticorin-port-explorer/index.html" class="award-btn">Explore Tuticorin Port
+                                &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Vizhinjam Ancient Port Explorer Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">Ancient Port</span>
+                        </div>
+                        <h3 class="award-name">Vizhinjam Ancient Port Explorer</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Historic Harbour</span>
+                            <span class="award-tier">Maritime Trade</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Vizhinjam Ancient Port in Kerala: its natural deep-water harbour significance, Ay
+                            Dynasty capital heritage, spice trade legacy, and Chola naval history.
+                        </p>
+                        <div class="card-footer">
+                            <a href="../vizhinjam-port-explorer/index.html" class="award-btn">Explore Vizhinjam Ancient
+                                Port Explorer &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="award-card glass-card" data-category="West Coast">
+                        <div class="card-header"><span class="award-icon">⚓</span><span class="award-category">West
+                                Coast</span></div>
+                        <h3 class="award-name">Bet Dwarka Ancient Port</h3>
+                        <div class="award-meta"><span class="award-year">Island Archaeology</span><span
+                                class="award-tier">Stone Anchors</span></div>
+                        <p class="award-description">Explore an island port associated with anchors, shell-working and
+                            maritime exchange along the Gujarat coast.</p>
+                        <div class="card-footer"><a href="../bet-dwarka-port-explorer/index.html"
+                                class="award-btn">Explore Bet Dwarka &rarr;</a></div>
+                    </div>
+                    <div class="award-card glass-card" data-category="West Coast">
+                        <div class="card-header"><span class="award-icon">⚓</span><span class="award-category">West
+                                Coast</span></div>
+                        <h3 class="award-name">Bharuch (Barygaza)</h3>
+                        <div class="award-meta"><span class="award-year">Roman Trade Gateway</span><span
+                                class="award-tier">Narmada Estuary</span></div>
+                        <p class="award-description">Explore the prosperous port described in the Periplus, its Roman
+                            connections, trade goods and changing river channels.</p>
+                        <div class="card-footer"><a href="../bharuch-port-explorer/index.html" class="award-btn">Explore
+                                Bharuch Port &rarr;</a></div>
+                    </div>
+                    <!-- Poompuhar Ancient Port Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header"><span class="award-icon">⚓</span><span class="award-category">East
+                                Coast</span></div>
+                        <h3 class="award-name">Poompuhar Ancient Port</h3>
+                        <div class="award-meta"><span class="award-year">Early Chola Harbour</span><span
+                                class="award-tier">Sangam Literature</span></div>
+                        <p class="award-description">Discover Kaveripattinam, the Chola river-mouth port celebrated in
+                            Tamil epics and explored through coastal archaeology.</p>
+                        <div class="card-footer"><a href="../poompuhar-port-explorer/index.html"
+                                class="award-btn">Explore Poompuhar Port &rarr;</a></div>
+                    </div>
                     <!-- Mandvi Ancient Port Explorer Card -->
                     <div class="award-card glass-card" data-category="West Coast">
                         <div class="card-header">
@@ -156,10 +661,12 @@
                             <span class="award-tier">Wooden Dhows</span>
                         </div>
                         <p class="award-description">
-                            Explore Mandvi's 400-year-old traditional wooden shipbuilding yard, historical merchant connections, and dhow building legacy.
+                            Explore Mandvi's 400-year-old traditional wooden shipbuilding yard, historical merchant
+                            connections, and dhow building legacy.
                         </p>
                         <div class="card-footer">
-                            <a href="../mandvi-port-explorer/index.html" class="award-btn">Explore Mandvi Port &rarr;</a>
+                            <a href="../mandvi-port-explorer/index.html" class="award-btn">Explore Mandvi Port
+                                &rarr;</a>
                         </div>
                     </div>
 
@@ -175,10 +682,12 @@
                             <span class="award-tier">Textile Trade</span>
                         </div>
                         <p class="award-description">
-                            Discover Machilipatnam's role as a historic east-coast entrepôt for textiles, spices, and maritime commerce.
+                            Discover Machilipatnam's role as a historic east-coast entrepôt for textiles, spices, and
+                            maritime commerce.
                         </p>
                         <div class="card-footer">
-                            <a href="../Machilipatnam-port/MachilipatnamPort.html" class="award-btn">Explore Machilipatnam Port &rarr;</a>
+                            <a href="../Machilipatnam-port/MachilipatnamPort.html" class="award-btn">Explore
+                                Machilipatnam Port &rarr;</a>
                         </div>
                     </div>
 
@@ -194,10 +703,12 @@
                             <span class="award-tier">Porto Grande</span>
                         </div>
                         <p class="award-description">
-                            Explore Saptagram (Satgaon), medieval Bengal's prosperous river port, its trade in muslin and silk, and its eventual decline.
+                            Explore Saptagram (Satgaon), medieval Bengal's prosperous river port, its trade in muslin
+                            and silk, and its eventual decline.
                         </p>
                         <div class="card-footer">
-                            <a href="../satgaon-port-explorer/index.html" class="award-btn">Explore Satgaon Port &rarr;</a>
+                            <a href="../satgaon-port-explorer/index.html" class="award-btn">Explore Satgaon Port
+                                &rarr;</a>
                         </div>
                     </div>
 
@@ -213,10 +724,12 @@
                             <span class="award-tier">Red Lighthouse</span>
                         </div>
                         <p class="award-description">
-                            Explore Kalingapatnam, the historic trade gateway of the Kalinga dynasty, its voyages to Java and Sumatra, and the iconic British-era lighthouse.
+                            Explore Kalingapatnam, the historic trade gateway of the Kalinga dynasty, its voyages to
+                            Java and Sumatra, and the iconic British-era lighthouse.
                         </p>
                         <div class="card-footer">
-                            <a href="../kalingapatnam-port-explorer/index.html" class="award-btn">Explore Kalingapatnam &rarr;</a>
+                            <a href="../kalingapatnam-port-explorer/index.html" class="award-btn">Explore Kalingapatnam
+                                &rarr;</a>
                         </div>
                     </div>
 
@@ -232,10 +745,12 @@
                             <span class="award-tier">Gateway to Srivijaya</span>
                         </div>
                         <p class="award-description">
-                            Explore Nagapattinam (ancient Nagai), premier Chola naval harbour, departure point for Southeast Asian expeditions, and home of the Chudamani Vihara.
+                            Explore Nagapattinam (ancient Nagai), premier Chola naval harbour, departure point for
+                            Southeast Asian expeditions, and home of the Chudamani Vihara.
                         </p>
                         <div class="card-footer">
-                            <a href="../nagapattinam-port-explorer/index.html" class="award-btn">Explore Nagapattinam Port &rarr;</a>
+                            <a href="../nagapattinam-port-explorer/index.html" class="award-btn">Explore Nagapattinam
+                                Port &rarr;</a>
                         </div>
                     </div>
 
@@ -251,10 +766,12 @@
                             <span class="award-tier">Spice Dhows</span>
                         </div>
                         <p class="award-description">
-                            Explore Honnavar, the historic spice trade gateway of Karnataka, its pepper trade under Rani Chennabhairadevi, and Ibn Battuta's travel diaries.
+                            Explore Honnavar, the historic spice trade gateway of Karnataka, its pepper trade under Rani
+                            Chennabhairadevi, and Ibn Battuta's travel diaries.
                         </p>
                         <div class="card-footer">
-                            <a href="../honnavar-port-explorer/index.html" class="award-btn">Explore Honnavar Port &rarr;</a>
+                            <a href="../honnavar-port-explorer/index.html" class="award-btn">Explore Honnavar Port
+                                &rarr;</a>
                         </div>
                     </div>
 
@@ -270,10 +787,12 @@
                             <span class="award-tier">St. Angelo Fort</span>
                         </div>
                         <p class="award-description">
-                            Explore Kannur, the historic Malabar spice trade gateway of Kerala, its pepper trade under the Kolathiri Rajas, and St. Angelo Fort history.
+                            Explore Kannur, the historic Malabar spice trade gateway of Kerala, its pepper trade under
+                            the Kolathiri Rajas, and St. Angelo Fort history.
                         </p>
                         <div class="card-footer">
-                            <a href="../kannur-port-explorer/index.html" class="award-btn">Explore Kannur Port &rarr;</a>
+                            <a href="../kannur-port-explorer/index.html" class="award-btn">Explore Kannur Port
+                                &rarr;</a>
                         </div>
                     </div>
 
@@ -289,10 +808,12 @@
                             <span class="award-tier">Submerged Anchors</span>
                         </div>
                         <p class="award-description">
-                            Explore Sopara (Shurparaka), the ancient Buddhist emporium of Maharashtra's west coast, its Ashokan rock edict, maritime silk-route trade, stupas, and layered archaeological relics.
+                            Explore Sopara (Shurparaka), the ancient Buddhist emporium of Maharashtra's west coast, its
+                            Ashokan rock edict, maritime silk-route trade, stupas, and layered archaeological relics.
                         </p>
                         <div class="card-footer">
-                            <a href="../sopara-port-explorer/index.html" class="award-btn">Explore Sopara Port &rarr;</a>
+                            <a href="../sopara-port-explorer/index.html" class="award-btn">Explore Sopara Port
+                                &rarr;</a>
                         </div>
                     </div>
 
@@ -308,13 +829,14 @@
                             <span class="award-tier">Gulf of Mannar Pearls</span>
                         </div>
                         <p class="award-description">
-                            Explore Korkai (Kolkai), the ancient pearl-fishing capital of the Pandya Kingdom on the Tamiraparani river, its celebrated Gulf of Mannar pearl banks, Roman trade, and archaeological shell mounds.
+                            Explore Korkai (Kolkai), the ancient pearl-fishing capital of the Pandya Kingdom on the
+                            Tamiraparani river, its celebrated Gulf of Mannar pearl banks, Roman trade, and
+                            archaeological shell mounds.
                         </p>
                         <div class="card-footer">
-                            <a href="../korkai-port-explorer/index.html" class="award-btn">Explore Korkai Port &rarr;</a>
+                            <a href="../korkai-port-explorer/index.html" class="award-btn">Explore Korkai Port
+                                &rarr;</a>
                         </div>
-                    </div>
-                </div>
                     </div>
                     <!-- Kollam Ancient Port Explorer Card -->
                     <div class="award-card glass-card" data-category="West Coast">
@@ -328,10 +850,12 @@
                             <span class="award-tier">Black Pepper &amp; China Trade</span>
                         </div>
                         <p class="award-description">
-                            Explore Kollam (Quilon), the historic Malabar Coast spice gateway, its black pepper trade, and merchant relations with Rome, Arabia, and Chinese dynasties.
+                            Explore Kollam (Quilon), the historic Malabar Coast spice gateway, its black pepper trade,
+                            and merchant relations with Rome, Arabia, and Chinese dynasties.
                         </p>
                         <div class="card-footer">
-                            <a href="../kollam-port-explorer/index.html" class="award-btn">Explore Kollam Port &rarr;</a>
+                            <a href="../kollam-port-explorer/index.html" class="award-btn">Explore Kollam Port
+                                &rarr;</a>
                         </div>
                     </div>
 
@@ -347,48 +871,54 @@
                             <span class="award-tier">Royal Kadamba Port</span>
                         </div>
                         <p class="award-description">
-                            Explore Gopakapattana, the historic Kadamba port capital of Goa, its spice and horse trade, and the Rajvithi royal highway.
+                            Explore Gopakapattana, the historic Kadamba port capital of Goa, its spice and horse trade,
+                            and the Rajvithi royal highway.
                         </p>
                         <div class="card-footer">
-                            <a href="../gopakapattana-port-explorer/index.html" class="award-btn">Explore Gopakapattana Port &rarr;</a>
+                            <a href="../gopakapattana-port-explorer/index.html" class="award-btn">Explore Gopakapattana
+                                Port &rarr;</a>
                         </div>
                     </div>
 
-                    <!-- Vizhinjam Ancient Port Explorer Card -->
-                    <div class="award-card glass-card" data-category="West Coast">
-                        <div class="card-header">
-                            <span class="award-icon">⚓</span>
-                            <span class="award-category">West Coast</span>
-                        </div>
-                        <h3 class="award-name">Vizhinjam Ancient Port</h3>
-                        <div class="award-meta">
-                            <span class="award-year">Ay Dynasty Capital</span>
-                            <span class="award-tier">Natural Deep Harbour</span>
-                        </div>
-                        <p class="award-description">
-                            Explore Vizhinjam (ancient Viliñam), royal capital of the Ay Vel chieftains, its natural deep-water cove, 8th-century rock-cut cave temple, and spice trade legacy.
-                        </p>
-                        <div class="card-footer">
-                            <a href="../vizhinjam-port-explorer/index.html" class="award-btn">Explore Vizhinjam Port &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- Nagapattinam Ancient Port Explorer Card -->
+                    <!-- Tamralipti Ancient Port Explorer Card -->
                     <div class="award-card glass-card" data-category="East Coast">
                         <div class="card-header">
                             <span class="award-icon">⚓</span>
                             <span class="award-category">East Coast</span>
                         </div>
-                        <h3 class="award-name">Nagapattinam Ancient Port</h3>
+                        <h3 class="award-name">Tamralipti Ancient Port</h3>
                         <div class="award-meta">
-                            <span class="award-year">Chola Naval Capital</span>
-                            <span class="award-tier">Gateway to Srivijaya</span>
+                            <span class="award-year">Mauryan Gateway</span>
+                            <span class="award-tier">Bay of Bengal Trade</span>
                         </div>
                         <p class="award-description">
-                            Explore Nagapattinam (ancient Nagai), premier Chola naval harbour, departure point for Southeast Asian expeditions, and home of the Chudamani Vihara.
+                            Explore Tamralipti in Bengal, the ancient gateway to Southeast Asia, used by Mauryan and
+                            Gupta emperors for maritime expeditions.
                         </p>
                         <div class="card-footer">
-                            <a href="../nagapattinam-port-explorer/index.html" class="award-btn">Explore Nagapattinam Port &rarr;</a>
+                            <a href="../tamralipti-port-explorer/index.html" class="award-btn">Explore Tamralipti Port
+                                &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Arikamedu Ancient Port Explorer Card -->
+                    <div class="award-card glass-card" data-category="East Coast">
+                        <div class="card-header">
+                            <span class="award-icon">⚓</span>
+                            <span class="award-category">East Coast</span>
+                        </div>
+                        <h3 class="award-name">Arikamedu Ancient Port</h3>
+                        <div class="award-meta">
+                            <span class="award-year">Indo-Roman Trade</span>
+                            <span class="award-tier">Bead Manufacturing</span>
+                        </div>
+                        <p class="award-description">
+                            Explore Arikamedu near Puducherry, a major Chola and Roman trading station famous for its
+                            Rouletted ware and bead-making industry.
+                        </p>
+                        <div class="card-footer">
+                            <a href="../arikamedu-port-explorer/index.html" class="award-btn">Explore Arikamedu Port
+                                &rarr;</a>
                         </div>
                     </div>
 
@@ -404,10 +934,12 @@
                             <span class="award-tier">Fort St. David &amp; Handlooms</span>
                         </div>
                         <p class="award-description">
-                            Explore Cuddalore (ancient Koodaloor), historic estuarine trading port at the Gadilam River mouth, handloom textile commerce, and Fort St. David.
+                            Explore Cuddalore (ancient Koodaloor), historic estuarine trading port at the Gadilam River
+                            mouth, handloom textile commerce, and Fort St. David.
                         </p>
                         <div class="card-footer">
-                            <a href="../cuddalore-port-explorer/index.html" class="award-btn">Explore Cuddalore Port &rarr;</a>
+                            <a href="../cuddalore-port-explorer/index.html" class="award-btn">Explore Cuddalore Port
+                                &rarr;</a>
                         </div>
                     </div>
 
@@ -423,23 +955,23 @@
                             <span class="award-tier">Buddhist Stupa City</span>
                         </div>
                         <p class="award-description">
-                            Explore Sopara (Shurparaka), the ancient Buddhist emporium of Maharashtra's west coast, its Ashokan rock edict, maritime silk-route trade, stupas, and layered archaeological relics.
+                            Explore Sopara (Shurparaka), the ancient Buddhist emporium of Maharashtra's west coast, its
+                            Ashokan rock edict, maritime silk-route trade, stupas, and layered archaeological relics.
                         </p>
                         <div class="card-footer">
-                            <a href="../sopara-port-explorer/index.html" class="award-btn">Explore Sopara Port &rarr;</a>
+                            <a href="../sopara-port-explorer/index.html" class="award-btn">Explore Sopara Port
+                                &rarr;</a>
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
-    </main>
+        <footer class="site-footer">
+            <div class="footer-container">
+                <p>&copy; 2026 Incredible India Explorer. Preserving our maritime heritage.</p>
+            </div>
+        </footer>
 
-    <footer class="site-footer">
-        <div class="footer-container">
-            <p>&copy; 2026 Incredible India Explorer. Preserving our maritime heritage.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+        <script src="script.js"></script>
 </body>
+
 </html>

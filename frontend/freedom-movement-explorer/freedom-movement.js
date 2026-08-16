@@ -208,12 +208,24 @@ export const freedomTimeline = [
     location: "New Delhi",
     keyLeaders: ["Lord Pethick-Lawrence", "Sir Stafford Cripps", "A. V. Alexander", "Mahatma Gandhi", "Muhammad Ali Jinnah"],
     description: "A three-member British Cabinet delegation proposed a three-tier federal structure to keep India united, sparking negotiations that ultimately broke down over compulsory provincial grouping.",
-    historicalImpact: "The plan's collapse and the ensuing Direct Action Day violence made Partition all but inevitable within a year.",
+historicalImpact: "The plan's collapse and the ensuing Direct Action Day violence made Partition all but inevitable within a year.",
     explorerLink: "../cabinet-mission-plan-explorer/index.html"
   },
   {
-    id: "evt-1947-independence",    year: 1947,
-    date: "August 15, 1947",
+    id: "evt-1947-mountbatten-plan",
+    year: 1947,
+    date: "June 3, 1947",
+    title: "Mountbatten Plan (3 June Plan)",
+    movement: "Political Negotiations",
+    phase: "Final Push & Independence (1940–1947)",
+    location: "New Delhi",
+    keyLeaders: ["Lord Mountbatten", "Jawaharlal Nehru", "Muhammad Ali Jinnah", "Baldev Singh"],
+    description: "Viceroy Lord Mountbatten announced the final plan to partition British India into India and Pakistan, advancing the transfer of power from June 1948 to 15 August 1947.",
+    historicalImpact: "Set the legal and political framework for the Indian Independence Act 1947, the Radcliffe Boundary Commission, and the transfer of power on 15 August 1947.",
+    explorerLink: "../mountbatten-plan-explorer/index.html"
+  },
+  {
+    id: "evt-1947-independence",    year: 1947,    date: "August 15, 1947",
     title: "Indian Independence & 'Tryst with Destiny'",
     movement: "Civil Disobedience",
     phase: "Final Push & Independence (1940–1947)",
