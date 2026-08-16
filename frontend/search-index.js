@@ -5278,10 +5278,17 @@ window.indiaSearchIndex = [
         url: "frontend/nilgiri-tahr-explorer/index.html"
     },
     // --- Palur Port Explorer ---
-    {
+{
         title: "Palur Ancient Port Explorer",
         category: "Heritage & History",
         description: "Explore Palur, an ancient port in Odisha mentioned by Ptolemy and Pliny, serving as a critical gateway for maritime trade between India and Southeast Asia from 3rd century BCE to 8th century CE.",
         url: "frontend/palur-port-explorer/index.html"
+    },
+    // --- Freedom Movement Press Explorer ---
+    {
+        title: "Freedom Movement Press Explorer",
+        category: "Heritage & History",
+        description: "Interactive map of India's freedom movement newspapers, journals, pamphlets and underground publications — founders, editors, languages, anti-colonial writings, and the colonial censorship laws used against them.",
+        url: "frontend/freedom-press-explorer/index.html"
     },
 ];
