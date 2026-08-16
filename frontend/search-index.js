@@ -300,49 +300,49 @@ window.indiaSearchIndex = [
         title: "Masor Tenga",
         category: "Cuisine",
         description: "Traditional Assamese sour fish curry made with tomatoes, lemon, or elephant apple, flavored with spices.",
-        url: "frontend/cuisine/frontend/cuisine/cuisine.html"
+        url: "frontend//cuisine.html"
     },
     {
         title: "Litti Chokha",
         category: "Cuisine",
         description: "Traditional Bihari delicacy of roasted wheat balls stuffed with spiced sattu (roasted gram flour) served with mashed vegetables.",
-        url: "frontend/cuisine/frontend/cuisine/cuisine.html"
+        url: "frontend//cuisine.html"
     },
     {
         title: "Dhokla",
         category: "Cuisine",
         description: "Vibrant Gujarati snack made with fermented batter of chickpeas and rice, steamed to a fluffy, spongy finish.",
-        url: "frontend/cuisine/frontend/cuisine/cuisine.html"
+        url: "frontend//cuisine.html"
     },
     {
         title: "Vada Pav",
         category: "Cuisine",
         description: "The iconic street food of Mumbai, Maharashtra — a spicy deep-fried potato dumpling inside a soft bread bun.",
-        url: "frontend/cuisine/frontend/cuisine/cuisine.html"
+        url: "frontend//cuisine.html"
     },
     {
         title: "Bisi Bele Bath",
         category: "Cuisine",
         description: "A comforting hot lentil and rice dish from Karnataka, flavored with tamarind, jaggery, and a rich spice blend.",
-        url: "frontend/cuisine/frontend/cuisine/cuisine.html"
+        url: "frontend//cuisine.html"
     },
     {
         title: "Gongura Pachadi",
         category: "Cuisine",
         description: "A tangy, spicy Andhra chutney made from sorrel leaves, roasted red chilies, and garlic.",
-        url: "frontend/cuisine/frontend/cuisine/cuisine.html"
+        url: "frontend//cuisine.html"
     },
     {
         title: "Bebinca",
         category: "Cuisine",
         description: "Traditional multi-layered Goan dessert made with coconut milk, sugar, ghee, flour, and egg yolk.",
-        url: "frontend/cuisine/frontend/cuisine/cuisine.html"
+        url: "frontend//cuisine.html"
     },
     {
         title: "Dham",
         category: "Cuisine",
         description: "A traditional festive feast cooked by temple chefs in Himachal Pradesh, served in course meals on leaf plates.",
-        url: "frontend/cuisine/frontend/cuisine/cuisine.html"
+        url: "frontend//cuisine.html"
     },
 
     // --- Festivals ---
@@ -350,37 +350,37 @@ window.indiaSearchIndex = [
         title: "Diwali",
         category: "Festival",
         description: "The Festival of Lights celebrating the victory of good over evil. Homes are decorated with clay diyas and rangoli.",
-        url: "frontend/festivals/frontend/festivals/festivals.html"
+        url: "frontend//festivals.html"
     },
     {
         title: "Holi",
         category: "Festival",
         description: "The Festival of Colors celebrating spring's arrival, love, and colors using organic powders (gulal) and water.",
-        url: "frontend/festivals/frontend/festivals/festivals.html"
+        url: "frontend//festivals.html"
     },
     {
         title: "Eid",
         category: "Festival",
         description: "Congregational prayers, sweet sheer khurma feasts, charity, and gift-giving (Eidi) following Ramadan moon sightings.",
-        url: "frontend/festivals/frontend/festivals/festivals.html"
+        url: "frontend//festivals.html"
     },
     {
         title: "Pongal",
         category: "Festival",
         description: "Harvest festival of Tamil Nadu dedicating boiled sweet rice pots to the Sun God, Surya.",
-        url: "frontend/festivals/frontend/festivals/festivals.html"
+        url: "frontend//festivals.html"
     },
     {
         title: "Navratri",
         category: "Festival",
         description: "Nine nights of dancing (Garba & Dandiya), colorful attire, and worship of Goddess Durga's forms.",
-        url: "frontend/festivals/frontend/festivals/festivals.html"
+        url: "frontend//festivals.html"
     },
     {
         title: "Bihu",
         category: "Festival",
         description: "Vibrant Assamese spring festival marked with energetic dance steps, rhythmic dhols, and community feasts.",
-        url: "frontend/festivals/frontend/festivals/festivals.html"
+        url: "frontend//festivals.html"
     },
 
     // --- Spiritual India ---
@@ -388,43 +388,43 @@ window.indiaSearchIndex = [
         title: "Taj Mahal",
         category: "Spiritual & Monument",
         description: "Ivory-white marble mausoleum in Agra built by Emperor Shah Jahan for Mumtaz Mahal.",
-        url: "frontend/spiritual/frontend/spiritual/spiritual.html"
+        url: "frontend//spiritual.html"
     },
     {
         title: "Golden Temple",
         category: "Spiritual & Monument",
         description: "Harmandir Sahib in Amritsar, Punjab — the holiest shrine of Sikhism representing brotherhood and peace.",
-        url: "frontend/spiritual/frontend/spiritual/spiritual.html"
+        url: "frontend//spiritual.html"
     },
     {
         title: "Meenakshi Temple",
         category: "Spiritual & Monument",
         description: "Dravidian temple in Madurai, Tamil Nadu, famous for its colorful gopurams decorated with thousands of stone deities.",
-        url: "frontend/spiritual/frontend/spiritual/spiritual.html"
+        url: "frontend//spiritual.html"
     },
     {
         title: "Jama Masjid",
         category: "Spiritual & Monument",
         description: "Historic red sandstone mosque built by Shah Jahan in Old Delhi, one of India's largest places of worship.",
-        url: "frontend/spiritual/frontend/spiritual/spiritual.html"
+        url: "frontend//spiritual.html"
     },
     {
         title: "Basilica of Bom Jesus",
         category: "Spiritual & Monument",
         description: "UNESCO World Heritage Baroque church in Goa housing the sacred remains of Saint Francis Xavier.",
-        url: "frontend/spiritual/frontend/spiritual/spiritual.html"
+        url: "frontend//spiritual.html"
     },
     {
         title: "Kedarnath Temple",
         category: "Spiritual & Monument",
         description: "Sacred Himalayan Shiva temple perched at 3,583m in the Garhwal range, Uttarakhand.",
-        url: "frontend/spiritual/frontend/spiritual/spiritual.html"
+        url: "frontend//spiritual.html"
     },
     {
         title: "Hemis Monastery",
         category: "Spiritual & Monument",
         description: "Famous Buddhist monastery in Ladakh, home to sacred mask dances and rich thangka paintings.",
-        url: "frontend/spiritual/frontend/spiritual/spiritual.html"
+        url: "frontend//spiritual.html"
     },
 
     // --- Personalities ---
@@ -432,37 +432,37 @@ window.indiaSearchIndex = [
         title: "Mahatma Gandhi",
         category: "Famous Personalities",
         description: "Father of the Nation, pioneered non-violent resistance (Satyagraha) and led the Salt March in 1930.",
-        url: "frontend/personalities/frontend/personalities/personalities.html"
+        url: "frontend//personalities.html"
     },
     {
         title: "Bhagat Singh",
         category: "Famous Personalities",
         description: "Iconic revolutionary freedom fighter who challenged British rule with courage and assembly protests.",
-        url: "frontend/personalities/frontend/personalities/personalities.html"
+        url: "frontend//personalities.html"
     },
     {
         title: "Subhas Chandra Bose",
         category: "Famous Personalities",
         description: "Netaji who established the Indian National Army (INA) with the call 'Give me blood, and I shall give you freedom!'.",
-        url: "frontend/personalities/frontend/personalities/personalities.html"
+        url: "frontend//personalities.html"
     },
     {
         title: "APJ Abdul Kalam",
         category: "Famous Personalities",
         description: "The 'People's President' and Missile Man of India, who inspired millions of students and spearheaded ISRO programs.",
-        url: "frontend/personalities/frontend/personalities/personalities.html"
+        url: "frontend//personalities.html"
     },
     {
         title: "Sachin Tendulkar",
         category: "Famous Personalities",
         description: "Cricket legend and Master Blaster, widely regarded as one of the greatest batsmen in the history of sports.",
-        url: "frontend/personalities/frontend/personalities/personalities.html"
+        url: "frontend//personalities.html"
     },
     {
         title: "Mary Kom",
         category: "Famous Personalities",
         description: "Olympic boxer and six-time World Amateur Boxing Champion representing the grit of Manipur.",
-        url: "frontend/personalities/frontend/personalities/personalities.html"
+        url: "frontend//personalities.html"
     },
 
     // --- Special Topics & Attractions ---
@@ -470,121 +470,121 @@ window.indiaSearchIndex = [
         title: "Wildlife National Parks",
         category: "Nature & Wildlife",
         description: "Explore Jim Corbett, Kaziranga, Ranthambore, and Gir National Parks for tigers, rhinos, and lions.",
-        url: "frontend/wildlife/frontend/wildlife/wildlife.html"
+        url: "frontend//wildlife.html"
     },
     {
         title: "Bengali Tiger",
         category: "Nature & Wildlife",
         description: "The national animal of India, known for its grace, stripes, and preservation in Sundarbans and Corbett reserves.",
-        url: "frontend/wildlife/frontend/wildlife/wildlife.html"
+        url: "frontend//wildlife.html"
     },
     {
         title: "Living Root Bridges",
         category: "Heritage & Wildlife",
         description: "Amazing bio-engineering of tree roots by the Khasi people of Meghalaya to cross rushing mountain rivers.",
-        url: "frontend/tribes/frontend/tribes/tribes.html"
+        url: "frontend//tribes.html"
     },
     {
         title: "Heritage Stepwells",
         category: "Heritage & Architecture",
         description: "Rani Ki Vav, Chand Baori, and Adalaj. Explore underground water reservoirs with intricate stone carvings.",
-        url: "frontend/stepwells/frontend/stepwells/stepwells.html"
+        url: "frontend//stepwells.html"
     },
     {
         title: "UNESCO World Heritage Sites",
         category: "Heritage & Architecture",
         description: "Western Ghats, Sun Temple of Konark, Taj Mahal, Ajanta & Ellora caves, and historic ruins.",
-        url: "frontend/unesco/frontend/unesco/unesco.html"
+        url: "frontend//unesco.html"
     },
     {
         title: "Ancient Universities",
         category: "Heritage & Learn",
         description: "Nalanda and Takshashila. Discover early centers of global knowledge, philosophy, and sciences.",
-        url: "frontend/universities/frontend/universities/universities.html"
+        url: "frontend//universities.html"
     },
     {
         title: "Smart Cities",
         category: "Learn & Data",
         description: "Urban development initiatives across India, focusing on sustainable environments and smart infrastructure.",
-        url: "frontend/smart-cities/frontend/smart-cities/smart-cities.html"
+        url: "frontend//smart-cities.html"
     },
     {
         title: "Languages of India",
         category: "Learn & Data",
         description: "Explore linguistic diversity, major language families (Dravidian, Indo-Aryan), and regional scripts.",
-        url: "frontend/languages/frontend/languages/languages.html"
+        url: "frontend//languages.html"
     },
     {
         title: "Traditional Games",
         category: "Arts & Culture",
         description: "Kabaddi, Kho-Kho, Gilli Danda, Pachisi, and other ancestral sports played in villages.",
-        url: "frontend/frontend/traditional-games/index.html"
+        url: "frontend/traditional-games/index.html"
     },
     {
         title: "Postal Stamps",
         category: "Arts & Culture",
         description: "A chronological journey through philately, showcasing stamps representing key historical events and heritage.",
-        url: "frontend/frontend/postal-stamps/index.html"
+        url: "frontend/postal-stamps/index.html"
     },
     {
         title: "Handloom Heritage",
         category: "Arts & Culture",
         description: "Khadi, Banarasi Silk, Kanjeevaram, and other exquisite regional weaving styles of India.",
-        url: "frontend/frontend/handloom/index.html"
+        url: "frontend/handloom/index.html"
     },
     {
         title: "Freedom Timeline",
         category: "Heritage & Learn",
         description: "Chronology of the Indian Independence movement from the 1857 Revolt to the 1947 declaration.",
-        url: "frontend/frontend/freedom-timeline/index.html"
+        url: "frontend/freedom-timeline/index.html"
     },
     {
         title: "Hidden Gems",
         category: "Travel & Exploration",
         description: "Pristine travel destinations off the beaten path, from Majuli River Island to Ziro Valley.",
-        url: "frontend/hidden-gems/frontend/hidden-gems/hidden-gems.html"
+        url: "frontend//hidden-gems.html"
     },
     {
         title: "Lighthouses of India",
         category: "Travel & Exploration",
         description: "Coastal towers guiding sailors, containing history along the Arabian Sea and Bay of Bengal.",
-        url: "frontend/lighthouses/frontend/lighthouses/lighthouses.html"
+        url: "frontend//lighthouses.html"
     },
     {
         title: "Mountain Railways",
         category: "Heritage & Travel",
         description: "Darjeeling Himalayan Railway, Nilgiri Mountain Railway, and Kalka-Shimla Toy Train.",
-        url: "frontend/railways/frontend/railways/railways.html"
+        url: "frontend//railways.html"
     },
     {
         title: "Adventure Tourism",
         category: "Travel & Exploration",
         description: "White water rafting in Rishikesh, paragliding in Bir Billing, and trekking in Ladakh peaks.",
-        url: "frontend/adventure/frontend/adventure/adventure.html"
+        url: "frontend//adventure.html"
     },
     {
         title: "Indian Space Research (ISRO)",
         category: "Famous Science",
         description: "Chandrayaan missions to the Moon, Mangalyaan to Mars, and early rocket developments.",
-        url: "frontend/science/frontend/science/science.html"
+        url: "frontend//science.html"
     },
     {
         title: "Ancient Astronomy",
         category: "Famous Science",
         description: "Discover Aryabhata, Jantar Mantar observatory, and early cosmic mathematics of India.",
-        url: "frontend/astronomy/frontend/astronomy/astronomy.html"
+        url: "frontend//astronomy.html"
     },
     {
         title: "Classical Music Systems",
         category: "Arts & Culture",
         description: "Hindustani music of the North and Carnatic music of the South, ragas, talas, and instruments.",
-        url: "frontend/music/frontend/music/music.html"
+        url: "frontend//music.html"
     },
     {
         title: "Classical Dances",
         category: "Arts & Culture",
         description: "Bharatanatyam, Kathak, Kathakali, Kuchipudi, Odissi, Manipuri, and Sattriya.",
-        url: "frontend/dance/frontend/dance/dance.html"
+        url: "frontend//dance.html"
     },
 
     // --- Tribes ---
@@ -592,49 +592,49 @@ window.indiaSearchIndex = [
         title: "Gond Tribe",
         category: "Tribes & Indigenous",
         description: "One of India's largest tribal communities, known for Gond painting, nature worship, and agricultural traditions.",
-        url: "frontend/tribes/frontend/tribes/tribes.html"
+        url: "frontend//tribes.html"
     },
     {
         title: "Santhal Tribe",
         category: "Tribes & Indigenous",
         description: "Vibrant community from Jharkhand and West Bengal, famous for Sohrai festival, music, and dance.",
-        url: "frontend/tribes/frontend/tribes/tribes.html"
+        url: "frontend//tribes.html"
     },
     {
         title: "Naga Tribe",
         category: "Tribes & Indigenous",
         description: "Warrior tribes of Nagaland known for the Hornbill Festival, colorful shawls, and log drum ceremonies.",
-        url: "frontend/tribes/frontend/tribes/tribes.html"
+        url: "frontend//tribes.html"
     },
     {
         title: "Toda Tribe",
         category: "Tribes & Indigenous",
         description: "Pastoral community of the Nilgiris, renowned for distinctive embroidery and sacred buffalo herds.",
-        url: "frontend/tribes/frontend/tribes/tribes.html"
+        url: "frontend//tribes.html"
     },
     {
         title: "Bhil Tribe",
         category: "Tribes & Indigenous",
         description: "Ancient archer tribe of Rajasthan and Gujarat, celebrated for Pithora paintings and Bhagoria festival.",
-        url: "frontend/tribes/frontend/tribes/tribes.html"
+        url: "frontend//tribes.html"
     },
     {
         title: "Khasi Tribe",
         category: "Tribes & Indigenous",
         description: "Matrilineal society of Meghalaya famous for living root bridges and Shad Suk Mynsiem festival.",
-        url: "frontend/tribes/frontend/tribes/tribes.html"
+        url: "frontend//tribes.html"
     },
     {
         title: "Warli Tribe",
         category: "Tribes & Indigenous",
         description: "Known worldwide for minimalist white-on-mud mural art depicting harvests and daily rural life.",
-        url: "frontend/tribes/frontend/tribes/tribes.html"
+        url: "frontend//tribes.html"
     },
     {
         title: "Bhutia Tribe",
         category: "Tribes & Indigenous",
         description: "Himalayan highlanders of Sikkim, deeply connected to Vajrayana Buddhism and Thangka painting.",
-        url: "frontend/tribes/frontend/tribes/tribes.html"
+        url: "frontend//tribes.html"
     },
 
     // --- Rivers ---
@@ -642,31 +642,31 @@ window.indiaSearchIndex = [
         title: "River Ganga",
         category: "Rivers",
         description: "The sacred river of India, originating from Gangotri Glacier and flowing 2,525 km to the Bay of Bengal.",
-        url: "frontend/river/frontend/river/river.html"
+        url: "frontend//river.html"
     },
     {
         title: "River Yamuna",
         category: "Rivers",
         description: "Eternal companion of Ganga, flowing past the Taj Mahal and through Delhi's heartland.",
-        url: "frontend/river/frontend/river/river.html"
+        url: "frontend//river.html"
     },
     {
         title: "River Brahmaputra",
         category: "Rivers",
         description: "Mighty river carving through the Himalayas into Assam, creating the world's largest river island.",
-        url: "frontend/river/frontend/river/river.html"
+        url: "frontend//river.html"
     },
     {
         title: "River Godavari",
         category: "Rivers",
         description: "The second longest river in India, known as Dakshin Ganga, flowing through Maharashtra and Andhra Pradesh.",
-        url: "frontend/river/frontend/river/river.html"
+        url: "frontend//river.html"
     },
     {
         title: "River Narmada",
         category: "Rivers",
         description: "Flowing between the Vindhya and Satpura ranges, considered a sacred river in central India.",
-        url: "frontend/river/frontend/river/river.html"
+        url: "frontend//river.html"
     },
     {
         title: "Revolutionary Network Explorer",
@@ -691,6 +691,13 @@ window.indiaSearchIndex = [
         category: "Culture",
         description: "Discover Sanjhi, the ancient paper-cut stencil art of Mathura and Vrindavan — intricate Radha-Krishna motifs cut by hand for centuries of temple rituals.",
         url: "frontend/sanjhi-art-explorer/index.html"
+    },
+    // --- Durand Cup Explorer ---
+    {
+        title: "Durand Cup: Explore India's Historic Football Tournament Explorer",
+        category: "Sports & Culture",
+        description: "Create a dedicated Durand Cup explorer — discovering Asia's oldest football tournament founded in 1888, 3 rolling trophies, historic venues from Shimla to Salt Lake Stadium, and champions (Mohun Bagan 17 titles, East Bengal 16 titles).",
+        url: "frontend/durand-cup-explorer/index.html"
     },
     {
         title: "Congress Radio Explorer",
@@ -732,7 +739,7 @@ window.indiaSearchIndex = [
         title: "River Krishna",
         category: "Rivers",
         description: "Major river of southern India, supporting agriculture across Maharashtra, Karnataka, and Andhra Pradesh.",
-        url: "frontend/river/frontend/river/river.html"
+        url: "frontend//river.html"
     },
 
     // --- Stepwells ---
@@ -740,7 +747,7 @@ window.indiaSearchIndex = [
         title: "Stepwells of India",
         category: "Heritage & Architecture",
         description: "Rani Ki Vav, Chand Baori, and Adalaj — intricate underground water reservoirs with stunning stone carvings.",
-        url: "frontend/stepwells/frontend/stepwells/stepwells.html"
+        url: "frontend//stepwells.html"
     },
 
     // --- Architecture ---
@@ -748,7 +755,7 @@ window.indiaSearchIndex = [
         title: "Indian Architecture",
         category: "Heritage & Architecture",
         description: "Explore Dravidian temples, Mughal gardens, Indo-Saracenic buildings, and modern Indian architecture.",
-        url: "frontend/architecture/frontend/architecture/architecture.html"
+        url: "frontend//architecture.html"
     },
 
     // --- Heritage Trees ---
@@ -756,7 +763,7 @@ window.indiaSearchIndex = [
         title: "Heritage Trees of India",
         category: "Nature & Wildlife",
         description: "Ancient banyans, sacred peepals, and historically significant trees across the Indian landscape.",
-        url: "frontend/heritage-trees/frontend/heritage-trees/heritage-trees.html"
+        url: "frontend//heritage-trees.html"
     },
 
     // --- Medicinal Plants ---
@@ -764,7 +771,7 @@ window.indiaSearchIndex = [
         title: "Medicinal Plants of India",
         category: "Nature & Wildlife",
         description: "Ayurvedic herbs, traditional medicinal plants, and their therapeutic uses across Indian healing systems.",
-        url: "frontend/medicinal-plants/frontend/medicinal-plants/medicinal-plants.html"
+        url: "frontend//medicinal-plants.html"
     },
 
     // --- Water Systems ---
@@ -772,7 +779,7 @@ window.indiaSearchIndex = [
         title: "Traditional Water Systems",
         category: "Heritage & Architecture",
         description: "Ancient stepwells, tanks, and water management systems showcasing India's hydraulic engineering heritage.",
-        url: "frontend/water-systems/frontend/water-systems/water-systems.html"
+        url: "frontend//water-systems.html"
     },
 
     // --- Caves ---
@@ -780,7 +787,7 @@ window.indiaSearchIndex = [
         title: "Caves of India",
         category: "Heritage & Architecture",
         description: "Ajanta, Ellora, Elephanta, and other historic cave complexes with stunning rock-cut architecture.",
-        url: "frontend/caves/frontend/caves/caves.html"
+        url: "frontend//caves.html"
     },
 
     // --- Bazaars ---
@@ -788,7 +795,7 @@ window.indiaSearchIndex = [
         title: "Indian Bazaars",
         category: "Travel & Exploration",
         description: "Explore the vibrant traditional markets and bazaars of India from Chandni Chowk to Crawford Market.",
-        url: "frontend/bazaars/frontend/bazaars/bazaars.html"
+        url: "frontend//bazaars.html"
     },
 
     // --- Handloom ---
@@ -796,7 +803,7 @@ window.indiaSearchIndex = [
         title: "Handloom Heritage",
         category: "Arts & Culture",
         description: "Khadi, Banarasi Silk, Kanjeevaram, Pashmina, and other exquisite regional weaving styles of India.",
-        url: "frontend/frontend/handloom/index.html"
+        url: "frontend/handloom/index.html"
     },
 
     // --- Freedom Timeline ---
@@ -804,7 +811,7 @@ window.indiaSearchIndex = [
         title: "Indian Freedom Movement",
         category: "Heritage & Learn",
         description: "Timeline of India's independence struggle from the 1857 Revolt to the 1947 declaration of freedom.",
-        url: "frontend/frontend/freedom-timeline/index.html"
+        url: "frontend/freedom-timeline/index.html"
     },
 
     // --- Textiles ---
@@ -812,7 +819,7 @@ window.indiaSearchIndex = [
         title: "Textiles of India",
         category: "Arts & Culture",
         description: "Regional textile traditions including Bandhani, Ikat, Chikankari, Phulkari, and Patola weaving.",
-        url: "frontend/textiles/frontend/textiles/textiles.html"
+        url: "frontend//textiles.html"
     },
 
     // --- Musical Instruments ---
@@ -820,7 +827,7 @@ window.indiaSearchIndex = [
         title: "Indian Musical Instruments",
         category: "Arts & Culture",
         description: "Sitar, Tabla, Veena, Sarod, Bansuri, and other traditional instruments of Indian classical music.",
-        url: "frontend/musical-instruments/frontend/musical-instruments/musical-instruments.html"
+        url: "frontend//musical-instruments.html"
     },
 
     // --- Coastal India ---
@@ -828,7 +835,7 @@ window.indiaSearchIndex = [
         title: "Coastal India",
         category: "Travel & Exploration",
         description: "Explore the 7,500 km coastline from Gujarat to West Bengal, featuring beaches, ports, and coastal culture.",
-        url: "frontend/coastal-india/frontend/coastal-india/coastal-india.html"
+        url: "frontend//coastal-india.html"
     },
 
     // --- Hill Stations ---
@@ -836,7 +843,7 @@ window.indiaSearchIndex = [
         title: "Hill Stations of India",
         category: "Travel & Exploration",
         description: "Shimla, Darjeeling, Munnar, Ooty, Manali, and other picturesque hill retreats across India.",
-        url: "frontend/hill-stations/frontend/hill-stations/hill-stations.html"
+        url: "frontend//hill-stations.html"
     },
     // --- Mountains of India ---
     {
@@ -851,21 +858,21 @@ window.indiaSearchIndex = [
         title: "Butterflies of India",
         category: "Nature & Wildlife",
         description: "Discover the diverse butterfly species found across India's varied ecological zones.",
-        url: "frontend/butterfly/frontend/butterfly/butterfly.html"
+        url: "frontend//butterfly.html"
     },
     // --- National Parks ---
     {
         title: "National Parks of India",
         category: "Nature & Wildlife",
         description: "Search and filter Indian national parks like Jim Corbett, Kaziranga, Ranthambore, and Gir by region and fauna.",
-        url: "frontend/wildlife/frontend/wildlife/wildlife.html"
+        url: "frontend//wildlife.html"
     },
     // --- Bridges ---
     {
         title: "Indian Bridges Explorer",
         category: "Infrastructure & Heritage",
         description: "Discover famous engineering marvels, cable-stayed sea links, arch rail bridges, and living root bridges across India.",
-        url: "frontend/bridges/frontend/bridges/bridges.html"
+        url: "frontend//bridges.html"
     },
     {
         title: "Howrah Bridge (Rabindra Setu)",
@@ -884,7 +891,7 @@ window.indiaSearchIndex = [
         title: "Indian Folk Tales Explorer",
         category: "Culture & Literature",
         description: "Explore 30+ regional folk tales, legends, Panchatantra fables, and oral traditions from different states of India.",
-        url: "frontend/folk-tales/frontend/folk-tales/folk-tales.html"
+        url: "frontend//folk-tales.html"
     },
     {
         title: "Birbal's Khichdi (Uttar Pradesh Folk Tale)",
@@ -903,7 +910,7 @@ window.indiaSearchIndex = [
         title: "Archaeological Excavations Explorer",
         category: "Heritage & History",
         description: "Explore India's major archaeological sites including Dholavira, Lothal, Rakhigarhi, Kalibangan, Keezhadi, Sinauli, and Bhimbetka.",
-        url: "frontend/excavations/frontend/excavations/excavations.html"
+        url: "frontend//excavations.html"
     },
     {
         title: "Dholavira Harappan Citadel",
@@ -928,7 +935,7 @@ window.indiaSearchIndex = [
         title: "Indian Space Heritage Explorer",
         category: "Science & Technology",
         description: "Discover India's space exploration journey, ISRO research centres, launch sites, Chandrayaan-3, Mangalyaan, and Aditya-L1.",
-        url: "frontend/space/frontend/space/space.html"
+        url: "frontend//space.html"
     },
     {
         title: "Satish Dhawan Space Centre (SDSC SHAR)",
@@ -947,7 +954,7 @@ window.indiaSearchIndex = [
         title: "State Borders Journey Challenge",
         category: "Interactive Games",
         description: "Travel across India virtually by crossing adjacent state borders, answering regional trivia quizzes, and earning achievement badges.",
-        url: "frontend/state-challenge/frontend/state-challenge/state-challenge.html"
+        url: "frontend//state-challenge.html"
     },
     {
         title: "Border Patrol State Trivia",
@@ -972,7 +979,7 @@ window.indiaSearchIndex = [
         title: "Ancient Indian Trade Network",
         category: "Heritage & History",
         description: "Interactive visualizer of ancient land and maritime routes like the Silk Road and Spice Route connecting India with Rome, Arabia, and China.",
-        url: "frontend/trade-routes/frontend/trade-routes/trade-routes.html"
+        url: "frontend//trade-routes.html"
     },
     {
         title: "Muziris Spice Port",
@@ -991,7 +998,7 @@ window.indiaSearchIndex = [
         title: "Indian Cultural DNA Explorer",
         category: "Culture & Philosophy",
         description: "Interactive relationship network visualization mapping cross-regional influences between languages, cuisine, arts, and traditions.",
-        url: "frontend/cultural-dna/frontend/cultural-dna/cultural-dna.html"
+        url: "frontend//cultural-dna.html"
     },
     {
         title: "Bhakti-Sufi Synthesis",
@@ -1010,35 +1017,35 @@ window.indiaSearchIndex = [
         title: "Indian Fort Architecture Comparison Explorer",
         category: "Architecture & Heritage",
         description: "Compare Rajput, Mughal, Maratha, and European colonial fort architecture side-by-side.",
-        url: "fort-frontend/architecture/frontend/architecture/architecture.html"
+        url: "frontend//architecture.html"
     },
     // --- Volcanoes & Geological Formations ---
     {
         title: "Volcanoes & Geological Formations Explorer",
         category: "Nature & Geography",
         description: "Explore Barren Island volcano, Lonar crater, Deccan Traps, and India's most dramatic geological formations.",
-        url: "frontend/volcanoes-geology/frontend/volcanoes-geology/volcanoes-geology.html"
+        url: "frontend//volcanoes-geology.html"
     },
     // --- Photography Locations Explorer ---
     {
         title: "Photography Locations Explorer",
         category: "Travel & Exploration",
         description: "Discover India's best photography spots — sunrise viewpoints, golden hour destinations, and seasonal landscape locations.",
-        url: "frontend/photography-locations/frontend/photography-locations/photography-locations.html"
+        url: "frontend//photography-locations.html"
     },
     // --- Heritage Threat Monitor ---
     {
         title: "Heritage Threat Monitor",
         category: "Heritage & History",
         description: "Track endangered Indian heritage sites threatened by pollution, climate change, tourism pressure, and urban encroachment.",
-        url: "frontend/heritage-threats/frontend/heritage-threats/heritage-threats.html"
+        url: "frontend//heritage-threats.html"
     },
     // --- Then vs Now Heritage Comparison ---
     {
         title: "Then vs Now Heritage Comparison Explorer",
         category: "Heritage & History",
         description: "Compare historical and present-day images of India's iconic heritage sites with an interactive before/after slider.",
-        url: "frontend/then-vs-now/frontend/then-vs-now/then-vs-now.html"
+        url: "frontend//then-vs-now.html"
     },
     // --- State Shape Jigsaw Puzzle Game ---
     {
@@ -1102,7 +1109,7 @@ window.indiaSearchIndex = [
         title: "India's National Parks Timeline",
         category: "Nature & Wildlife",
         description: "Interactive visual timeline showing when India's national parks and wildlife sanctuaries were established.",
-        url: "frontend/national-parks-timeline/frontend/national-parks-timeline/national-parks-timeline.html"
+        url: "frontend//national-parks-timeline.html"
     },
     {
         title: "Nilgiri Marten Explorer",
@@ -1131,7 +1138,7 @@ window.indiaSearchIndex = [
         title: "Indian Climate Zones Explorer",
         category: "Nature & Geography",
         description: "Interactive visual explorer explaining India's climatic zones, rainfall distribution, and seasonal patterns.",
-        url: "frontend/climate-zones/frontend/climate-zones/climate-zones.html"
+        url: "frontend//climate-zones.html"
     },
     {
         title: "Tropical Wet / Monsoon Rainforest",
@@ -1487,6 +1494,13 @@ window.indiaSearchIndex = [
         description: "Educational portal covering India's Supreme Court history from 1950, CJI timeline, landmark judgments (Kesavananda, Puttaswamy, Maneka Gandhi), Article 124 powers, Article 32 Writs, and judicial hierarchy.",
         url: "frontend/supreme-court-explorer/index.html"
     },
+    // --- Santosh Trophy Explorer ---
+    {
+        title: "Santosh Trophy: Explore India's State-Level Football Championship Explorer",
+        category: "Sports & Culture",
+        description: "Create an interactive Santosh Trophy explorer — discovering India's premier inter-state football championship founded in 1941, Maharaja of Santosh namesake, 38 participating teams, and roll of honour (West Bengal 32 titles).",
+        url: "frontend/santosh-trophy-explorer/index.html"
+    },
     // --- Scrollytelling: The Making of the Taj Mahal ---
     {
         title: "Scrollytelling: The Making of the Taj Mahal",
@@ -1669,6 +1683,13 @@ window.indiaSearchIndex = [
         category: "Arts & Culture",
         description: "Explore Dokra Art — ancient lost-wax metal casting by tribal artisans, Indus Valley roots, the cire-perdue process, artisan communities of Bastar, Dhenkanal and Bankura, and gallery.",
         url: "frontend/dokra-art-explorer/index.html"
+    },
+    // --- Sultan Azlan Shah Cup Explorer ---
+    {
+        title: "Sultan Azlan Shah Cup: Explore India's Hockey Journey Explorer",
+        category: "Sports & Culture",
+        description: "Create an interactive explorer focusing on India's hockey journey at the Sultan Azlan Shah Cup — documenting 5 championship gold triumphs, medal finishes, and icons (Dhanraj Pillay, P.R. Sreejesh, Sandeep Singh).",
+        url: "frontend/azlan-shah-cup-explorer/index.html"
     },
     // --- Kalighat Painting Showcase ---
     {
@@ -1943,6 +1964,13 @@ window.indiaSearchIndex = [
         description: "Historical timeline of all Lok Sabha elections from 1951 to 2024 featuring winning parties, Prime Ministers, voter turnout trends, major issues, and coalition dynamics.",
         url: "frontend/general-elections-timeline/index.html"
     },
+    // --- India's Sporting Milestones Timeline ---
+    {
+        title: "India's Sporting Milestones: Interactive Timeline",
+        category: "History & Achievements",
+        description: "Explore India's sporting history from Norman Pritchard's 1900 Olympic silvers to Neeraj Chopra's javelin gold and D. Gukesh's world chess title — filterable by year, sport, era, and athlete, with verified sources.",
+        url: "frontend/sporting-milestones-timeline/index.html"
+    },
     // --- Chief Justices of India Timeline ---
     {
         title: "Interactive Chief Justices of India Timeline",
@@ -2179,7 +2207,7 @@ window.indiaSearchIndex = [
         category: "Featured Explorers",
         description: "Discover Cuddalore (Koodaloor), historic river-confluence harbour, handloom textile exports, Fort St. David, and Coromandel coastal heritage.",
         url: "frontend/cuddalore-port-explorer/index.html"
-
+    },
 
     {
         title: 'Ancient Ports of India Explorer',
@@ -2496,54 +2524,54 @@ window.indiaSearchIndex = [
         category: 'Cuisine',
         description:
             'Traditional Assamese sour fish curry made with tomatoes, lemon, or elephant apple, flavored with spices.',
-        url: 'frontend/cuisine/frontend/cuisine/cuisine.html'
+        url: 'frontend//cuisine.html'
     },
     {
         title: 'Litti Chokha',
         category: 'Cuisine',
         description:
             'Traditional Bihari delicacy of roasted wheat balls stuffed with spiced sattu (roasted gram flour) served with mashed vegetables.',
-        url: 'frontend/cuisine/frontend/cuisine/cuisine.html'
+        url: 'frontend//cuisine.html'
     },
     {
         title: 'Dhokla',
         category: 'Cuisine',
         description:
             'Vibrant Gujarati snack made with fermented batter of chickpeas and rice, steamed to a fluffy, spongy finish.',
-        url: 'frontend/cuisine/frontend/cuisine/cuisine.html'
+        url: 'frontend//cuisine.html'
     },
     {
         title: 'Vada Pav',
         category: 'Cuisine',
         description:
             'The iconic street food of Mumbai, Maharashtra — a spicy deep-fried potato dumpling inside a soft bread bun.',
-        url: 'frontend/cuisine/frontend/cuisine/cuisine.html'
+        url: 'frontend//cuisine.html'
     },
     {
         title: 'Bisi Bele Bath',
         category: 'Cuisine',
         description:
             'A comforting hot lentil and rice dish from Karnataka, flavored with tamarind, jaggery, and a rich spice blend.',
-        url: 'frontend/cuisine/frontend/cuisine/cuisine.html'
+        url: 'frontend//cuisine.html'
     },
     {
         title: 'Gongura Pachadi',
         category: 'Cuisine',
         description: 'A tangy, spicy Andhra chutney made from sorrel leaves, roasted red chilies, and garlic.',
-        url: 'frontend/cuisine/frontend/cuisine/cuisine.html'
+        url: 'frontend//cuisine.html'
     },
     {
         title: 'Bebinca',
         category: 'Cuisine',
         description: 'Traditional multi-layered Goan dessert made with coconut milk, sugar, ghee, flour, and egg yolk.',
-        url: 'frontend/cuisine/frontend/cuisine/cuisine.html'
+        url: 'frontend//cuisine.html'
     },
     {
         title: 'Dham',
         category: 'Cuisine',
         description:
             'A traditional festive feast cooked by temple chefs in Himachal Pradesh, served in course meals on leaf plates.',
-        url: 'frontend/cuisine/frontend/cuisine/cuisine.html'
+        url: 'frontend//cuisine.html'
     },
 
     // --- Festivals ---
@@ -2552,40 +2580,40 @@ window.indiaSearchIndex = [
         category: 'Festival',
         description:
             'The Festival of Lights celebrating the victory of good over evil. Homes are decorated with clay diyas and rangoli.',
-        url: 'frontend/festivals/frontend/festivals/festivals.html'
+        url: 'frontend//festivals.html'
     },
     {
         title: 'Holi',
         category: 'Festival',
         description:
             "The Festival of Colors celebrating spring's arrival, love, and colors using organic powders (gulal) and water.",
-        url: 'frontend/festivals/frontend/festivals/festivals.html'
+        url: 'frontend//festivals.html'
     },
     {
         title: 'Eid',
         category: 'Festival',
         description:
             'Congregational prayers, sweet sheer khurma feasts, charity, and gift-giving (Eidi) following Ramadan moon sightings.',
-        url: 'frontend/festivals/frontend/festivals/festivals.html'
+        url: 'frontend//festivals.html'
     },
     {
         title: 'Pongal',
         category: 'Festival',
         description: 'Harvest festival of Tamil Nadu dedicating boiled sweet rice pots to the Sun God, Surya.',
-        url: 'frontend/festivals/frontend/festivals/festivals.html'
+        url: 'frontend//festivals.html'
     },
     {
         title: 'Navratri',
         category: 'Festival',
         description: "Nine nights of dancing (Garba & Dandiya), colorful attire, and worship of Goddess Durga's forms.",
-        url: 'frontend/festivals/frontend/festivals/festivals.html'
+        url: 'frontend//festivals.html'
     },
     {
         title: 'Bihu',
         category: 'Festival',
         description:
             'Vibrant Assamese spring festival marked with energetic dance steps, rhythmic dhols, and community feasts.',
-        url: 'frontend/festivals/frontend/festivals/festivals.html'
+        url: 'frontend//festivals.html'
     },
 
     // --- Spiritual India ---
@@ -2593,46 +2621,46 @@ window.indiaSearchIndex = [
         title: 'Taj Mahal',
         category: 'Spiritual & Monument',
         description: 'Ivory-white marble mausoleum in Agra built by Emperor Shah Jahan for Mumtaz Mahal.',
-        url: 'frontend/spiritual/frontend/spiritual/spiritual.html'
+        url: 'frontend//spiritual.html'
     },
     {
         title: 'Golden Temple',
         category: 'Spiritual & Monument',
         description:
             'Harmandir Sahib in Amritsar, Punjab — the holiest shrine of Sikhism representing brotherhood and peace.',
-        url: 'frontend/spiritual/frontend/spiritual/spiritual.html'
+        url: 'frontend//spiritual.html'
     },
     {
         title: 'Meenakshi Temple',
         category: 'Spiritual & Monument',
         description:
             'Dravidian temple in Madurai, Tamil Nadu, famous for its colorful gopurams decorated with thousands of stone deities.',
-        url: 'frontend/spiritual/frontend/spiritual/spiritual.html'
+        url: 'frontend//spiritual.html'
     },
     {
         title: 'Jama Masjid',
         category: 'Spiritual & Monument',
         description:
             "Historic red sandstone mosque built by Shah Jahan in Old Delhi, one of India's largest places of worship.",
-        url: 'frontend/spiritual/frontend/spiritual/spiritual.html'
+        url: 'frontend//spiritual.html'
     },
     {
         title: 'Basilica of Bom Jesus',
         category: 'Spiritual & Monument',
         description: 'UNESCO World Heritage Baroque church in Goa housing the sacred remains of Saint Francis Xavier.',
-        url: 'frontend/spiritual/frontend/spiritual/spiritual.html'
+        url: 'frontend//spiritual.html'
     },
     {
         title: 'Kedarnath Temple',
         category: 'Spiritual & Monument',
         description: 'Sacred Himalayan Shiva temple perched at 3,583m in the Garhwal range, Uttarakhand.',
-        url: 'frontend/spiritual/frontend/spiritual/spiritual.html'
+        url: 'frontend//spiritual.html'
     },
     {
         title: 'Hemis Monastery',
         category: 'Spiritual & Monument',
         description: 'Famous Buddhist monastery in Ladakh, home to sacred mask dances and rich thangka paintings.',
-        url: 'frontend/spiritual/frontend/spiritual/spiritual.html'
+        url: 'frontend//spiritual.html'
     },
 
     // --- Personalities ---
@@ -2641,41 +2669,41 @@ window.indiaSearchIndex = [
         category: 'Famous Personalities',
         description:
             'Father of the Nation, pioneered non-violent resistance (Satyagraha) and led the Salt March in 1930.',
-        url: 'frontend/personalities/frontend/personalities/personalities.html'
+        url: 'frontend//personalities.html'
     },
     {
         title: 'Bhagat Singh',
         category: 'Famous Personalities',
         description:
             'Iconic revolutionary freedom fighter who challenged British rule with courage and assembly protests.',
-        url: 'frontend/personalities/frontend/personalities/personalities.html'
+        url: 'frontend//personalities.html'
     },
     {
         title: 'Subhas Chandra Bose',
         category: 'Famous Personalities',
         description:
             "Netaji who established the Indian National Army (INA) with the call 'Give me blood, and I shall give you freedom!'.",
-        url: 'frontend/personalities/frontend/personalities/personalities.html'
+        url: 'frontend//personalities.html'
     },
     {
         title: 'APJ Abdul Kalam',
         category: 'Famous Personalities',
         description:
             "The 'People's President' and Missile Man of India, who inspired millions of students and spearheaded ISRO programs.",
-        url: 'frontend/personalities/frontend/personalities/personalities.html'
+        url: 'frontend//personalities.html'
     },
     {
         title: 'Sachin Tendulkar',
         category: 'Famous Personalities',
         description:
             'Cricket legend and Master Blaster, widely regarded as one of the greatest batsmen in the history of sports.',
-        url: 'frontend/personalities/frontend/personalities/personalities.html'
+        url: 'frontend//personalities.html'
     },
     {
         title: 'Mary Kom',
         category: 'Famous Personalities',
         description: 'Olympic boxer and six-time World Amateur Boxing Champion representing the grit of Manipur.',
-        url: 'frontend/personalities/frontend/personalities/personalities.html'
+        url: 'frontend//personalities.html'
     },
 
     // --- Special Topics & Attractions ---
@@ -2684,127 +2712,127 @@ window.indiaSearchIndex = [
         category: 'Nature & Wildlife',
         description:
             'Explore Jim Corbett, Kaziranga, Ranthambore, and Gir National Parks for tigers, rhinos, and lions.',
-        url: 'frontend/wildlife/frontend/wildlife/wildlife.html'
+        url: 'frontend//wildlife.html'
     },
     {
         title: 'Bengali Tiger',
         category: 'Nature & Wildlife',
         description:
             'The national animal of India, known for its grace, stripes, and preservation in Sundarbans and Corbett reserves.',
-        url: 'frontend/wildlife/frontend/wildlife/wildlife.html'
+        url: 'frontend//wildlife.html'
     },
     {
         title: 'Living Root Bridges',
         category: 'Heritage & Wildlife',
         description:
             'Amazing bio-engineering of tree roots by the Khasi people of Meghalaya to cross rushing mountain rivers.',
-        url: 'frontend/tribes/frontend/tribes/tribes.html'
+        url: 'frontend//tribes.html'
     },
     {
         title: 'Heritage Stepwells',
         category: 'Heritage & Architecture',
         description:
             'Rani Ki Vav, Chand Baori, and Adalaj. Explore underground water reservoirs with intricate stone carvings.',
-        url: 'frontend/stepwells/frontend/stepwells/stepwells.html'
+        url: 'frontend//stepwells.html'
     },
     {
         title: 'UNESCO World Heritage Sites',
         category: 'Heritage & Architecture',
         description: 'Western Ghats, Sun Temple of Konark, Taj Mahal, Ajanta & Ellora caves, and historic ruins.',
-        url: 'frontend/unesco/frontend/unesco/unesco.html'
+        url: 'frontend//unesco.html'
     },
     {
         title: 'Ancient Universities',
         category: 'Heritage & Learn',
         description: 'Nalanda and Takshashila. Discover early centers of global knowledge, philosophy, and sciences.',
-        url: 'frontend/universities/frontend/universities/universities.html'
+        url: 'frontend//universities.html'
     },
     {
         title: 'Smart Cities',
         category: 'Learn & Data',
         description:
             'Urban development initiatives across India, focusing on sustainable environments and smart infrastructure.',
-        url: 'frontend/smart-cities/frontend/smart-cities/smart-cities.html'
+        url: 'frontend//smart-cities.html'
     },
     {
         title: 'Languages of India',
         category: 'Learn & Data',
         description:
             'Explore linguistic diversity, major language families (Dravidian, Indo-Aryan), and regional scripts.',
-        url: 'frontend/languages/frontend/languages/languages.html'
+        url: 'frontend//languages.html'
     },
     {
         title: 'Traditional Games',
         category: 'Arts & Culture',
         description: 'Kabaddi, Kho-Kho, Gilli Danda, Pachisi, and other ancestral sports played in villages.',
-        url: 'frontend/frontend/traditional-games/index.html'
+        url: 'frontend/traditional-games/index.html'
     },
     {
         title: 'Postal Stamps',
         category: 'Arts & Culture',
         description:
             'A chronological journey through philately, showcasing stamps representing key historical events and heritage.',
-        url: 'frontend/frontend/postal-stamps/index.html'
+        url: 'frontend/postal-stamps/index.html'
     },
     {
         title: 'Handloom Heritage',
         category: 'Arts & Culture',
         description: 'Khadi, Banarasi Silk, Kanjeevaram, and other exquisite regional weaving styles of India.',
-        url: 'frontend/frontend/handloom/index.html'
+        url: 'frontend/handloom/index.html'
     },
     {
         title: 'Freedom Timeline',
         category: 'Heritage & Learn',
         description: 'Chronology of the Indian Independence movement from the 1857 Revolt to the 1947 declaration.',
-        url: 'frontend/frontend/freedom-timeline/index.html'
+        url: 'frontend/freedom-timeline/index.html'
     },
     {
         title: 'Hidden Gems',
         category: 'Travel & Exploration',
         description: 'Pristine travel destinations off the beaten path, from Majuli River Island to Ziro Valley.',
-        url: 'frontend/hidden-gems/frontend/hidden-gems/hidden-gems.html'
+        url: 'frontend//hidden-gems.html'
     },
     {
         title: 'Lighthouses of India',
         category: 'Travel & Exploration',
         description: 'Coastal towers guiding sailors, containing history along the Arabian Sea and Bay of Bengal.',
-        url: 'frontend/lighthouses/frontend/lighthouses/lighthouses.html'
+        url: 'frontend//lighthouses.html'
     },
     {
         title: 'Mountain Railways',
         category: 'Heritage & Travel',
         description: 'Darjeeling Himalayan Railway, Nilgiri Mountain Railway, and Kalka-Shimla Toy Train.',
-        url: 'frontend/railways/frontend/railways/railways.html'
+        url: 'frontend//railways.html'
     },
     {
         title: 'Adventure Tourism',
         category: 'Travel & Exploration',
         description: 'White water rafting in Rishikesh, paragliding in Bir Billing, and trekking in Ladakh peaks.',
-        url: 'frontend/adventure/frontend/adventure/adventure.html'
+        url: 'frontend//adventure.html'
     },
     {
         title: 'Indian Space Research (ISRO)',
         category: 'Famous Science',
         description: 'Chandrayaan missions to the Moon, Mangalyaan to Mars, and early rocket developments.',
-        url: 'frontend/science/frontend/science/science.html'
+        url: 'frontend//science.html'
     },
     {
         title: 'Ancient Astronomy',
         category: 'Famous Science',
         description: 'Discover Aryabhata, Jantar Mantar observatory, and early cosmic mathematics of India.',
-        url: 'frontend/astronomy/frontend/astronomy/astronomy.html'
+        url: 'frontend//astronomy.html'
     },
     {
         title: 'Classical Music Systems',
         category: 'Arts & Culture',
         description: 'Hindustani music of the North and Carnatic music of the South, ragas, talas, and instruments.',
-        url: 'frontend/music/frontend/music/music.html'
+        url: 'frontend//music.html'
     },
     {
         title: 'Classical Dances',
         category: 'Arts & Culture',
         description: 'Bharatanatyam, Kathak, Kathakali, Kuchipudi, Odissi, Manipuri, and Sattriya.',
-        url: 'frontend/dance/frontend/dance/dance.html'
+        url: 'frontend//dance.html'
     },
 
     // --- Tribes ---
@@ -2813,52 +2841,52 @@ window.indiaSearchIndex = [
         category: 'Tribes & Indigenous',
         description:
             "One of India's largest tribal communities, known for Gond painting, nature worship, and agricultural traditions.",
-        url: 'frontend/tribes/frontend/tribes/tribes.html'
+        url: 'frontend//tribes.html'
     },
     {
         title: 'Santhal Tribe',
         category: 'Tribes & Indigenous',
         description: 'Vibrant community from Jharkhand and West Bengal, famous for Sohrai festival, music, and dance.',
-        url: 'frontend/tribes/frontend/tribes/tribes.html'
+        url: 'frontend//tribes.html'
     },
     {
         title: 'Naga Tribe',
         category: 'Tribes & Indigenous',
         description:
             'Warrior tribes of Nagaland known for the Hornbill Festival, colorful shawls, and log drum ceremonies.',
-        url: 'frontend/tribes/frontend/tribes/tribes.html'
+        url: 'frontend//tribes.html'
     },
     {
         title: 'Toda Tribe',
         category: 'Tribes & Indigenous',
         description:
             'Pastoral community of the Nilgiris, renowned for distinctive embroidery and sacred buffalo herds.',
-        url: 'frontend/tribes/frontend/tribes/tribes.html'
+        url: 'frontend//tribes.html'
     },
     {
         title: 'Bhil Tribe',
         category: 'Tribes & Indigenous',
         description:
             'Ancient archer tribe of Rajasthan and Gujarat, celebrated for Pithora paintings and Bhagoria festival.',
-        url: 'frontend/tribes/frontend/tribes/tribes.html'
+        url: 'frontend//tribes.html'
     },
     {
         title: 'Khasi Tribe',
         category: 'Tribes & Indigenous',
         description: 'Matrilineal society of Meghalaya famous for living root bridges and Shad Suk Mynsiem festival.',
-        url: 'frontend/tribes/frontend/tribes/tribes.html'
+        url: 'frontend//tribes.html'
     },
     {
         title: 'Warli Tribe',
         category: 'Tribes & Indigenous',
         description: 'Known worldwide for minimalist white-on-mud mural art depicting harvests and daily rural life.',
-        url: 'frontend/tribes/frontend/tribes/tribes.html'
+        url: 'frontend//tribes.html'
     },
     {
         title: 'Bhutia Tribe',
         category: 'Tribes & Indigenous',
         description: 'Himalayan highlanders of Sikkim, deeply connected to Vajrayana Buddhism and Thangka painting.',
-        url: 'frontend/tribes/frontend/tribes/tribes.html'
+        url: 'frontend//tribes.html'
     },
 
     // --- Rivers ---
@@ -2867,33 +2895,33 @@ window.indiaSearchIndex = [
         category: 'Rivers',
         description:
             'The sacred river of India, originating from Gangotri Glacier and flowing 2,525 km to the Bay of Bengal.',
-        url: 'frontend/river/frontend/river/river.html'
+        url: 'frontend//river.html'
     },
     {
         title: 'River Yamuna',
         category: 'Rivers',
         description: "Eternal companion of Ganga, flowing past the Taj Mahal and through Delhi's heartland.",
-        url: 'frontend/river/frontend/river/river.html'
+        url: 'frontend//river.html'
     },
     {
         title: 'River Brahmaputra',
         category: 'Rivers',
         description:
             "Mighty river carving through the Himalayas into Assam, creating the world's largest river island.",
-        url: 'frontend/river/frontend/river/river.html'
+        url: 'frontend//river.html'
     },
     {
         title: 'River Godavari',
         category: 'Rivers',
         description:
             'The second longest river in India, known as Dakshin Ganga, flowing through Maharashtra and Andhra Pradesh.',
-        url: 'frontend/river/frontend/river/river.html'
+        url: 'frontend//river.html'
     },
     {
         title: 'River Narmada',
         category: 'Rivers',
         description: 'Flowing between the Vindhya and Satpura ranges, considered a sacred river in central India.',
-        url: 'frontend/river/frontend/river/river.html'
+        url: 'frontend//river.html'
     },
     {
         title: 'Sanjhi Art Explorer',
@@ -2979,7 +3007,7 @@ window.indiaSearchIndex = [
         category: 'Rivers',
         description:
             'Major river of southern India, supporting agriculture across Maharashtra, Karnataka, and Andhra Pradesh.',
-        url: 'frontend/river/frontend/river/river.html'
+        url: 'frontend//river.html'
     },
 
     // --- Stepwells ---
@@ -2988,7 +3016,7 @@ window.indiaSearchIndex = [
         category: 'Heritage & Architecture',
         description:
             'Rani Ki Vav, Chand Baori, and Adalaj — intricate underground water reservoirs with stunning stone carvings.',
-        url: 'frontend/stepwells/frontend/stepwells/stepwells.html'
+        url: 'frontend//stepwells.html'
     },
 
     // --- Architecture ---
@@ -2997,7 +3025,7 @@ window.indiaSearchIndex = [
         category: 'Heritage & Architecture',
         description:
             'Explore Dravidian temples, Mughal gardens, Indo-Saracenic buildings, and modern Indian architecture.',
-        url: 'frontend/architecture/frontend/architecture/architecture.html'
+        url: 'frontend//architecture.html'
     },
 
     // --- Heritage Trees ---
@@ -3005,7 +3033,7 @@ window.indiaSearchIndex = [
         title: 'Heritage Trees of India',
         category: 'Nature & Wildlife',
         description: 'Ancient banyans, sacred peepals, and historically significant trees across the Indian landscape.',
-        url: 'frontend/heritage-trees/frontend/heritage-trees/heritage-trees.html'
+        url: 'frontend//heritage-trees.html'
     },
 
     // --- Medicinal Plants ---
@@ -3014,7 +3042,7 @@ window.indiaSearchIndex = [
         category: 'Nature & Wildlife',
         description:
             'Ayurvedic herbs, traditional medicinal plants, and their therapeutic uses across Indian healing systems.',
-        url: 'frontend/medicinal-plants/frontend/medicinal-plants/medicinal-plants.html'
+        url: 'frontend//medicinal-plants.html'
     },
 
     // --- Water Systems ---
@@ -3023,7 +3051,7 @@ window.indiaSearchIndex = [
         category: 'Heritage & Architecture',
         description:
             "Ancient stepwells, tanks, and water management systems showcasing India's hydraulic engineering heritage.",
-        url: 'frontend/water-systems/frontend/water-systems/water-systems.html'
+        url: 'frontend//water-systems.html'
     },
 
     // --- Caves ---
@@ -3032,7 +3060,7 @@ window.indiaSearchIndex = [
         category: 'Heritage & Architecture',
         description:
             'Ajanta, Ellora, Elephanta, and other historic cave complexes with stunning rock-cut architecture.',
-        url: 'frontend/caves/frontend/caves/caves.html'
+        url: 'frontend//caves.html'
     },
 
     // --- Bazaars ---
@@ -3041,7 +3069,7 @@ window.indiaSearchIndex = [
         category: 'Travel & Exploration',
         description:
             'Explore the vibrant traditional markets and bazaars of India from Chandni Chowk to Crawford Market.',
-        url: 'frontend/bazaars/frontend/bazaars/bazaars.html'
+        url: 'frontend//bazaars.html'
     },
 
     // --- Handloom ---
@@ -3050,7 +3078,7 @@ window.indiaSearchIndex = [
         category: 'Arts & Culture',
         description:
             'Khadi, Banarasi Silk, Kanjeevaram, Pashmina, and other exquisite regional weaving styles of India.',
-        url: 'frontend/frontend/handloom/index.html'
+        url: 'frontend/handloom/index.html'
     },
 
     // --- Freedom Timeline ---
@@ -3059,7 +3087,7 @@ window.indiaSearchIndex = [
         category: 'Heritage & Learn',
         description:
             "Timeline of India's independence struggle from the 1857 Revolt to the 1947 declaration of freedom.",
-        url: 'frontend/frontend/freedom-timeline/index.html'
+        url: 'frontend/freedom-timeline/index.html'
     },
 
     // --- Textiles ---
@@ -3067,7 +3095,7 @@ window.indiaSearchIndex = [
         title: 'Textiles of India',
         category: 'Arts & Culture',
         description: 'Regional textile traditions including Bandhani, Ikat, Chikankari, Phulkari, and Patola weaving.',
-        url: 'frontend/textiles/frontend/textiles/textiles.html'
+        url: 'frontend//textiles.html'
     },
 
     // --- Musical Instruments ---
@@ -3076,7 +3104,7 @@ window.indiaSearchIndex = [
         category: 'Arts & Culture',
         description:
             'Sitar, Tabla, Veena, Sarod, Bansuri, and other traditional instruments of Indian classical music.',
-        url: 'frontend/musical-instruments/frontend/musical-instruments/musical-instruments.html'
+        url: 'frontend//musical-instruments.html'
     },
 
     // --- Coastal India ---
@@ -3085,7 +3113,7 @@ window.indiaSearchIndex = [
         category: 'Travel & Exploration',
         description:
             'Explore the 7,500 km coastline from Gujarat to West Bengal, featuring beaches, ports, and coastal culture.',
-        url: 'frontend/coastal-india/frontend/coastal-india/coastal-india.html'
+        url: 'frontend//coastal-india.html'
     },
 
     // --- Hill Stations ---
@@ -3093,7 +3121,7 @@ window.indiaSearchIndex = [
         title: 'Hill Stations of India',
         category: 'Travel & Exploration',
         description: 'Shimla, Darjeeling, Munnar, Ooty, Manali, and other picturesque hill retreats across India.',
-        url: 'frontend/hill-stations/frontend/hill-stations/hill-stations.html'
+        url: 'frontend//hill-stations.html'
     },
     // --- Mountains of India ---
     {
@@ -3109,7 +3137,7 @@ window.indiaSearchIndex = [
         title: 'Butterflies of India',
         category: 'Nature & Wildlife',
         description: "Discover the diverse butterfly species found across India's varied ecological zones.",
-        url: 'frontend/butterfly/frontend/butterfly/butterfly.html'
+        url: 'frontend//butterfly.html'
     },
     // --- National Parks ---
     {
@@ -3117,7 +3145,7 @@ window.indiaSearchIndex = [
         category: 'Nature & Wildlife',
         description:
             'Search and filter Indian national parks like Jim Corbett, Kaziranga, Ranthambore, and Gir by region and fauna.',
-        url: 'frontend/wildlife/frontend/wildlife/wildlife.html'
+        url: 'frontend//wildlife.html'
     },
     // --- Bridges ---
     {
@@ -3125,7 +3153,7 @@ window.indiaSearchIndex = [
         category: 'Infrastructure & Heritage',
         description:
             'Discover famous engineering marvels, cable-stayed sea links, arch rail bridges, and living root bridges across India.',
-        url: 'frontend/bridges/frontend/bridges/bridges.html'
+        url: 'frontend//bridges.html'
     },
     {
         title: 'Howrah Bridge (Rabindra Setu)',
@@ -3145,7 +3173,7 @@ window.indiaSearchIndex = [
         category: 'Culture & Literature',
         description:
             'Explore 30+ regional folk tales, legends, Panchatantra fables, and oral traditions from different states of India.',
-        url: 'frontend/folk-tales/frontend/folk-tales/folk-tales.html'
+        url: 'frontend//folk-tales.html'
     },
     {
         title: "Birbal's Khichdi (Uttar Pradesh Folk Tale)",
@@ -3166,7 +3194,7 @@ window.indiaSearchIndex = [
         category: 'Heritage & History',
         description:
             "Explore India's major archaeological sites including Dholavira, Lothal, Rakhigarhi, Kalibangan, Keezhadi, Sinauli, and Bhimbetka.",
-        url: 'frontend/excavations/frontend/excavations/excavations.html'
+        url: 'frontend//excavations.html'
     },
     {
         title: 'Dholavira Harappan Citadel',
@@ -3223,7 +3251,7 @@ window.indiaSearchIndex = [
         category: 'Science & Technology',
         description:
             "Discover India's space exploration journey, ISRO research centres, launch sites, Chandrayaan-3, Mangalyaan, and Aditya-L1.",
-        url: 'frontend/space/frontend/space/space.html'
+        url: 'frontend//space.html'
     },
     {
         title: 'Satish Dhawan Space Centre (SDSC SHAR)',
@@ -3245,7 +3273,7 @@ window.indiaSearchIndex = [
         category: 'Interactive Games',
         description:
             'Travel across India virtually by crossing adjacent state borders, answering regional trivia quizzes, and earning achievement badges.',
-        url: 'frontend/state-challenge/frontend/state-challenge/state-challenge.html'
+        url: 'frontend//state-challenge.html'
     },
     {
         title: 'Border Patrol State Trivia',
@@ -3273,7 +3301,7 @@ window.indiaSearchIndex = [
         category: 'Heritage & History',
         description:
             'Interactive visualizer of ancient land and maritime routes like the Silk Road and Spice Route connecting India with Rome, Arabia, and China.',
-        url: 'frontend/trade-routes/frontend/trade-routes/trade-routes.html'
+        url: 'frontend//trade-routes.html'
     },
     {
         title: 'Muziris Spice Port',
@@ -3293,7 +3321,7 @@ window.indiaSearchIndex = [
         category: 'Culture & Philosophy',
         description:
             'Interactive relationship network visualization mapping cross-regional influences between languages, cuisine, arts, and traditions.',
-        url: 'frontend/cultural-dna/frontend/cultural-dna/cultural-dna.html'
+        url: 'frontend//cultural-dna.html'
     },
     {
         title: 'Bhakti-Sufi Synthesis',
@@ -3314,7 +3342,7 @@ window.indiaSearchIndex = [
         title: 'Indian Fort Architecture Comparison Explorer',
         category: 'Architecture & Heritage',
         description: 'Compare Rajput, Mughal, Maratha, and European colonial fort architecture side-by-side.',
-        url: 'fort-frontend/architecture/frontend/architecture/architecture.html'
+        url: 'frontend//architecture.html'
     },
     // --- Volcanoes & Geological Formations ---
     {
@@ -3322,7 +3350,7 @@ window.indiaSearchIndex = [
         category: 'Nature & Geography',
         description:
             "Explore Barren Island volcano, Lonar crater, Deccan Traps, and India's most dramatic geological formations.",
-        url: 'frontend/volcanoes-geology/frontend/volcanoes-geology/volcanoes-geology.html'
+        url: 'frontend//volcanoes-geology.html'
     },
     // --- Photography Locations Explorer ---
     {
@@ -3330,7 +3358,7 @@ window.indiaSearchIndex = [
         category: 'Travel & Exploration',
         description:
             "Discover India's best photography spots — sunrise viewpoints, golden hour destinations, and seasonal landscape locations.",
-        url: 'frontend/photography-locations/frontend/photography-locations/photography-locations.html'
+        url: 'frontend//photography-locations.html'
     },
     // --- Heritage Threat Monitor ---
     {
@@ -3338,7 +3366,7 @@ window.indiaSearchIndex = [
         category: 'Heritage & History',
         description:
             'Track endangered Indian heritage sites threatened by pollution, climate change, tourism pressure, and urban encroachment.',
-        url: 'frontend/heritage-threats/frontend/heritage-threats/heritage-threats.html'
+        url: 'frontend//heritage-threats.html'
     },
     // --- Then vs Now Heritage Comparison ---
     {
@@ -3346,7 +3374,7 @@ window.indiaSearchIndex = [
         category: 'Heritage & History',
         description:
             "Compare historical and present-day images of India's iconic heritage sites with an interactive before/after slider.",
-        url: 'frontend/then-vs-now/frontend/then-vs-now/then-vs-now.html'
+        url: 'frontend//then-vs-now.html'
     },
     // --- State Shape Jigsaw Puzzle Game ---
     {
@@ -3417,7 +3445,7 @@ window.indiaSearchIndex = [
         category: 'Nature & Wildlife',
         description:
             "Interactive visual timeline showing when India's national parks and wildlife sanctuaries were established.",
-        url: 'frontend/national-parks-timeline/frontend/national-parks-timeline/national-parks-timeline.html'
+        url: 'frontend//national-parks-timeline.html'
     },
     {
         title: 'Nilgiri Marten Explorer',
@@ -3451,7 +3479,7 @@ window.indiaSearchIndex = [
         category: 'Nature & Geography',
         description:
             "Interactive visual explorer explaining India's climatic zones, rainfall distribution, and seasonal patterns.",
-        url: 'frontend/climate-zones/frontend/climate-zones/climate-zones.html'
+        url: 'frontend//climate-zones.html'
     },
     {
         title: 'Tropical Wet / Monsoon Rainforest',
@@ -3779,17 +3807,27 @@ window.indiaSearchIndex = [
     {
         title: 'Swargarohini Mountain Explorer',
         category: 'Mountains & Geography',
-        description:
-            'Dedicated explorer for Swargarohini, a 6,252 m high massif in the Garhwal Himalayas of Uttarakhand, featuring mythological history, trekking routes, map locations, image gallery, and FAQs.',
+        description: 'Dedicated explorer for Swargarohini, a 6,252 m high massif in the Garhwal Himalayas of Uttarakhand, featuring mythological history, trekking routes, map locations, image gallery, and FAQs.',
         url: 'frontend/swargarohini/swargarohini.html'
     },
     // --- Bandarpoonch Mountain ---
     {
         title: 'Bandarpoonch Mountain Explorer',
         category: 'Mountains & Geography',
-        description:
-            'Dedicated explorer for Bandarpoonch, a 6,316 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, trekking details, and FAQs.',
+        description:'Dedicated explorer for Bandarpoonch, a 6,316 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, trekking details, and FAQs.',
         url: 'frontend/bandarpoonch/bandarpoonch.html'
+    },
+    {
+        title: "Davis Cup: Explore India's Tennis Journey",
+        category: "Sports & Culture",
+        description: "Interactive archive of India's Davis Cup history since 1921 — 3 finals (1966, 1974 forfeit, 1987), key players (Leander Paes, Amritraj brothers), and a searchable, filterable timeline with sources.",
+        url: "frontend/davis-cup-explorer/davis-cup-explorer.html"
+    },
+    {
+        title: "Thomas Cup: India's Badminton Journey",
+        category: "Sports & Culture",
+        description: "Interactive archive of India's Thomas Cup history since 1952 — maiden 2022 title over Indonesia, top-4 finishes (1952, 1955, 1979), key players (Prakash Padukone, Lakshya Sen, Satwik-Chirag), and a searchable timeline with sources.",
+        url: "frontend/thomas-cup-explorer/thomas-cup-explorer.html"
     },
     // --- India's Firsts Encyclopedia ---
     {
@@ -3802,9 +3840,26 @@ window.indiaSearchIndex = [
     {
         title: 'India Historical Firsts Timeline & Knowledge Quiz',
         category: 'Interactive Learning',
-        description:
-            'Chronological milestone timeline from 1853 to 1984, category filters, and multiple-choice knowledge quiz testing famous Indian firsts.',
+        description:'Chronological milestone timeline from 1853 to 1984, category filters, and multiple-choice knowledge quiz testing famous Indian firsts.',
         url: 'frontend/indias-firsts/indias-firsts.html'
+    },
+    {
+       title: "Forgotten Indian Sporting Tournaments",
+       category: "Sports & History",
+       description: "A Then vs Now archive of historic Indian tournaments like the Bombay Pentangular, Rovers Cup, and Beighton Cup that shaped Indian sport but are no longer widely remembered.",
+       url: "frontend/forgotten-tournaments-explorer/index.html"
+    },
+    {
+        title: "India's Firsts in Sports",
+        category: "History & Achievements",
+        description: "Interactive encyclopedia of India's landmark sporting firsts: first Olympic medal (Norman Pritchard), first Olympic gold (1928 Hockey Team), first individual Olympic gold (Abhinav Bindra), first woman Olympic medalist (Karnam Malleswari), first Cricket World Cup (1983), and more.",
+        url: "frontend/indias-firsts-sports/indias-firsts-sports.html"
+    },
+    {
+        title: "India's Sporting Firsts Timeline & Knowledge Quiz",
+        category: "Interactive Learning",
+        description: "Chronological milestone timeline from 1900 to 2023, category filters (Olympics, Cricket, Hockey, Badminton, Chess, Tennis, Paralympics), and multiple-choice knowledge quiz testing India's biggest sporting firsts.",
+        url: "frontend/indias-firsts-sports/indias-firsts-sports.html"
     },
     // --- India's Lost Cities & Ancient Civilizations ---
     {
@@ -3836,6 +3891,63 @@ window.indiaSearchIndex = [
             "Discover the ancient Ashokan pillar, Buddha's Relic Stupa, the sacred Coronation Tank, and early democratic structures in Bihar.",
         url: 'frontend/vaishali-explorer/index.html'
     },
+    // --- Samudragupta – The Gupta Empire's Expansive Ruler ---
+    {
+        title: "Samudragupta: The Gupta Empire's Expansive Ruler",
+        category: 'Famous Rulers & History',
+        description:
+            'Explore Samudragupta (c. 335–375 CE), the Prayaga Prashasti Allahabad Pillar, Dakshinapatha expedition, Ashvamedha revival, and gold dinar coinage.',
+        url: 'frontend/samudragupta-explorer/index.html'
+    },
+    {
+        title: 'Prayaga Prashasti & Allahabad Pillar Guide',
+        category: 'Ancient Epigraphy & History',
+        description:
+            "Discover Harishena's Sanskrit inscription celebrating Samudragupta's northern and southern campaigns, veena gold coins, and Gupta expansion.",
+        url: 'frontend/samudragupta-explorer/index.html'},
+    // --- Chandragupta II Vikramaditya – Gupta Emperor ---
+    {
+        title: "Chandragupta II Vikramaditya: Gupta Emperor",
+        category: 'Famous Rulers & History',
+        description:
+            'Explore Chandragupta II Vikramaditya (c. 375–415 CE), defeat of Western Kshatrapas, Mehrauli Iron Pillar, Faxian travelogue, Gupta Golden Age, and gold dinar coinage.',
+        url: 'frontend/chandragupta-ii-explorer/index.html'
+    },
+    {
+        title: 'Gupta Golden Age & Mehrauli Iron Pillar Guide',
+        category: 'Ancient Metallurgy & Classical Culture',
+        description:
+            "Discover the metallurgical marvel of Delhi's 1,600-year rust-resistant Iron Pillar, Ujjain's Navaratnas, and Faxian's 5th-century travelogue.",
+        url: 'frontend/chandragupta-ii-explorer/index.html'},
+    // --- Ashoka the Great – Mauryan Emperor & Patron of Dhamma ---
+    {
+        title: "Ashoka the Great: Mauryan Emperor & Patron of Dhamma",
+        category: 'Famous Rulers & History',
+        description:
+            'Explore Ashoka the Great (c. 268–232 BCE), the Kalinga War transformation, policy of Dhamma, Major Rock & Pillar Edicts, Third Buddhist Council, and national symbols of India.',
+        url: 'frontend/ashoka-the-great-explorer/index.html'
+    },
+    {
+        title: 'Rock and Pillar Edicts of Ashoka Guide',
+        category: 'Ancient Inscriptions & Archaeology',
+        description:
+            'Interactive guide to Ashokan inscriptions at Sarnath, Girnar, Dhauli, Kalsi, and Kandahar in Brahmi, Kharosthi, Greek, and Aramaic scripts.',
+        url: 'frontend/ashoka-the-great-explorer/index.html'},
+    // --- Chandragupta Maurya – Founder of the Mauryan Empire ---
+    {
+        title: "Chandragupta Maurya: Founder of the Mauryan Empire",
+        category: 'Famous Rulers & History',
+        description:
+            'Explore Chandragupta Maurya (c. 321–297 BCE), founder of the Mauryan Empire, unifier of ancient India, Chanakya relationship, Seleucid treaty, and administrative statecraft.',
+        url: 'frontend/chandragupta-maurya-explorer/index.html'
+    },
+    {
+        title: 'Mauryan Administration & Seleucid War Guide',
+        category: 'Ancient History',
+        description:
+            "Discover Pataliputra's palisades, the 305 BCE treaty with Seleucus I Nicator, Arthashastra governance, and Megasthenes' Indika records.",
+        url: 'frontend/chandragupta-maurya-explorer/index.html'
+    },
     // --- India's Border Explorer ---
     {
         title: "India's Border Explorer",
@@ -3850,6 +3962,12 @@ window.indiaSearchIndex = [
         description:
             'Explore Wagah-Attari, Nathu La Pass, Petrapole-Benapole, Moreh-Tamu and other major border checkpoints. Learn about BSF, ITBP, SSB, Assam Rifles, and Indian Coast Guard deployments.',
         url: 'frontend/border-explorer/border-explorer.html'
+    },
+    {
+    title: "Chhattisgarhi: छत्तीसगढ़ी and Its Folk Heritage",
+    category: "Languages & Culture",
+    description: "Explore Chhattisgarhi — Devanagari script, a verified greeting with pronunciation, common Chhattisgarhi words, its language family, the Chhattisgarh region, and folk heritage including Pandwani storytelling.",
+    url: "frontend/chhattisgarhi-explorer/index.html"
     },
     // --- Important Government Institutions Explorer ---
     {
@@ -5125,12 +5243,33 @@ window.indiaSearchIndex = [
         description: "Follow Mahatma Gandhi's 1946-47 walking peace mission through the villages of Noakhali: the October 1946 communal violence, his arrival at Chandpur, the villages he visited, his peace meetings and community outreach, and the wider road to Partition.",
         url: "frontend/noakhali-peace-mission-explorer/index.html"
     },
+    // --- Subroto Cup Explorer ---
+    {
+        title: "Subroto Cup: Explore India's Historic School Football Tournament Explorer",
+        category: "Sports & Culture",
+        description: "Build an interactive Subroto Cup explorer — discovering India's premier inter-school football tournament since 1960, Air Marshal Subroto Mukerjee, famous alumni (Sunil Chhetri, Bhaichung Bhutia), and youth player pipeline.",
+        url: "frontend/subroto-cup-explorer/index.html"
+    },
+    // --- Ghogha Port Explorer ---
+    {
+        title: "Ghogha Ancient Port Explorer",
+        category: "Heritage & History",
+        description: "Explore Ghogha, one of Gujarat's oldest ports with 4,000 years of Arabian Sea trade history from Harappan to colonial periods, on the Gulf of Khambhat.",
+        url: "frontend/ghogha-port-explorer/index.html"
+    },
     // --- Narasimhavarman I Explorer ---
     {
         title: "Add Narasimhavarman I – Pallava Ruler of Kanchipuram Explorer",
         category: "History & Royalty",
         description: "Create a dedicated historical profile page for Narasimhavarman I (Mamalla, c. 630–668 CE), supreme Pallava monarch of Kanchipuram — highlighting his victory at Vatapi, Mamallapuram monolithic Pancha Rathas, Descent of the Ganges bas-relief, and Xuanzang's visit.",
         url: "frontend/narasimhavarman-i-explorer/index.html"
+    },
+    // --- Tuticorin Port Explorer ---
+    {
+        title: "Tuticorin Ancient Port Explorer",
+        category: "Heritage & History",
+        description: "Explore Tuticorin (Thoothukudi), the historic Pearl City of Tamil Nadu — ancient maritime hub on the Gulf of Mannar renowned for pearl fisheries and trade with Rome and Southeast Asia.",
+        url: "frontend/tuticorin-port-explorer/index.html"
     },
     // --- Krishnaraja Wadiyar IV Explorer ---
     {
@@ -5139,11 +5278,39 @@ window.indiaSearchIndex = [
         description: "Create a dedicated historical profile page for Krishnaraja Wadiyar IV (1902–1940 CE), Maharaja of Mysore — presenting developments in education (IISc land grant, Mysore University), infrastructure (Shivanasamudra, KRS Dam), and Amba Vilas Palace.",
         url: "frontend/krishnaraja-wadiyar-iv-explorer/index.html"
     },
+    // --- Chandraketugarh Explorer ---
+    {
+        title: "Chandraketugarh River Port Explorer",
+        category: "Heritage & History",
+        description: "Explore Chandraketugarh, an ancient river port in West Bengal associated with the Gangaridai kingdom, featuring 1,500 years of settlement from Mauryan to Pala periods.",
+        url: "frontend/chandraketugarh-port-explorer/index.html"
+    },
     // --- Nilgiri Tahr Explorer ---
     {
         title: "Nilgiri Tahr Explorer",
         category: "Nature & Wildlife",
         description: "Explore the Nilgiri Tahr (Nilgiritragus hylocrius) — India's only endemic mountain goat, official State Animal of Tamil Nadu, high-altitude Shola-grassland habitat, cliff adaptations, saddleback bulls, and Project Nilgiri Tahr.",
         url: "frontend/nilgiri-tahr-explorer/index.html"
-    }
+    },
+    // --- Palur Port Explorer ---
+{
+        title: "Palur Ancient Port Explorer",
+        category: "Heritage & History",
+        description: "Explore Palur, an ancient port in Odisha mentioned by Ptolemy and Pliny, serving as a critical gateway for maritime trade between India and Southeast Asia from 3rd century BCE to 8th century CE.",
+        url: "frontend/palur-port-explorer/index.html"
+    },
+    // --- Freedom Movement Press Explorer ---
+    {
+        title: "Freedom Movement Press Explorer",
+        category: "Heritage & History",
+        description: "Interactive map of India's freedom movement newspapers, journals, pamphlets and underground publications — founders, editors, languages, anti-colonial writings, and the colonial censorship laws used against them.",
+        url: "frontend/freedom-press-explorer/index.html"
+    },
+    // --- Indian Sports Trophy Design Explorer ---
+    {
+        title: "Indian Sports Trophy Design Explorer",
+        category: "Sports",
+        description: "Decode the symbols and meaning behind India's sporting trophies — shapes and forms, materials, national symbols, sport-specific elements, names and inscriptions, and a clickable trophy diagram of design evolution from the Durand Cup to the Khel Ratna.",
+        url: "frontend/indian-sports-trophy-design-explorer/index.html"
+    },
 ];
