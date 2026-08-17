@@ -1,0 +1,793 @@
+/* ==========================================================================
+   Fabindia Explorer Stylesheet
+   Warm handloom textile color palette, terracotta tones, responsive grids,
+   modal popups, and dark/light mode support.
+   ========================================================================== */
+
+:root {
+    --craft-terracotta: #c2410c;
+    --craft-terracotta-hover: #9a3412;
+    --craft-indigo: #1e1b4b;
+    --craft-mustard: #d97706;
+    --craft-beige-bg: #fffbeb;
+    --craft-card-bg: #ffffff;
+    --craft-card-border: #f3f4f6;
+    --craft-text: #1f2937;
+    --craft-text-muted: #6b7280;
+    --craft-shadow: 0 10px 25px -5px rgba(194, 65, 12, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    --craft-glass: rgba(255, 255, 255, 0.85);
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Theme Overrides */
+body.dark-theme,
+[data-theme="dark"] body {
+    --craft-beige-bg: #1c1917;
+    --craft-indigo: #f8fafc;
+    --craft-card-bg: #262626;
+    --craft-card-border: #404040;
+    --craft-text: #f5f5f5;
+    --craft-text-muted: #a3a3a3;
+    --craft-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    --craft-glass: rgba(38, 38, 38, 0.9);
+}
+
+/* Base Setup */
+body {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--craft-text);
+    background-color: var(--craft-beige-bg);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.accent-craft {
+    color: var(--craft-terracotta);
+    background: linear-gradient(135deg, #c2410c 0%, #d97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+/* Section Formatting */
+.explorer-section,
+.crafts-section,
+.textiles-section,
+.artisans-section,
+.timeline-section,
+.expansion-section {
+    padding: 5rem 0;
+    position: relative;
+}
+
+.section-header {
+    margin-bottom: 3.5rem;
+}
+
+.section-tagline {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--craft-terracotta);
+    background-color: rgba(194, 65, 12, 0.1);
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 0.75rem;
+}
+
+.section-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.75rem;
+    font-weight: 700;
+    color: var(--craft-text);
+    margin: 0.5rem 0 1rem;
+}
+
+.section-description {
+    font-size: 1.125rem;
+    color: var(--craft-text-muted);
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+/* Buttons */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--craft-terracotta), var(--craft-mustard));
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(194, 65, 12, 0.3);
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(194, 65, 12, 0.4);
+}
+
+.btn-bookmark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--craft-card-bg);
+    color: var(--craft-text);
+    font-weight: 600;
+    padding: 0.85rem 1.75rem;
+    border-radius: 50px;
+    border: 2px solid var(--craft-card-border);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-bookmark:hover,
+.btn-bookmark.bookmarked {
+    border-color: var(--craft-terracotta);
+    color: var(--craft-terracotta);
+    background-color: rgba(194, 65, 12, 0.1);
+}
+
+/* Hero Section */
+.craft-hero {
+    position: relative;
+    padding: 8rem 1.5rem 5rem;
+    background: linear-gradient(180deg, rgba(254, 243, 199, 0.6) 0%, var(--craft-beige-bg) 100%);
+    text-align: center;
+}
+
+body.dark-theme .craft-hero,
+[data-theme="dark"] body .craft-hero {
+    background: linear-gradient(180deg, #292524 0%, var(--craft-beige-bg) 100%);
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--craft-terracotta), var(--craft-mustard));
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.4rem 1.25rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(194, 65, 12, 0.25);
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.75rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--craft-text-muted);
+    margin-bottom: 2.5rem;
+}
+
+.hero-stats-banner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.25rem;
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: var(--craft-glass);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--craft-card-border);
+    box-shadow: var(--craft-shadow);
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--craft-terracotta);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--craft-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Origins Grid */
+.origin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.origin-card {
+    background-color: var(--craft-card-bg);
+    border-radius: var(--radius-md);
+    padding: 2.25rem 1.75rem;
+    border: 1px solid var(--craft-card-border);
+    box-shadow: var(--craft-shadow);
+    position: relative;
+    transition: var(--transition);
+}
+
+.origin-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--craft-terracotta);
+}
+
+.card-badge {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--craft-terracotta);
+    background-color: rgba(194, 65, 12, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+}
+
+.origin-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.origin-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+    color: var(--craft-text);
+}
+
+.origin-card p {
+    color: var(--craft-text-muted);
+    font-size: 0.975rem;
+    margin: 0;
+}
+
+/* Crafts Grid */
+.timeline-controls,
+.category-filters,
+.textile-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.decade-btn,
+.category-btn,
+.textile-tab {
+    background-color: var(--craft-card-bg);
+    color: var(--craft-text-muted);
+    border: 1px solid var(--craft-card-border);
+    font-weight: 600;
+    padding: 0.6rem 1.35rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.decade-btn:hover,
+.category-btn:hover,
+.textile-tab:hover,
+.decade-btn.active,
+.category-btn.active,
+.textile-tab.active {
+    background-color: var(--craft-terracotta);
+    color: #ffffff;
+    border-color: var(--craft-terracotta);
+    box-shadow: 0 4px 12px rgba(194, 65, 12, 0.25);
+}
+
+.crafts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.craft-card {
+    background-color: var(--craft-card-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--craft-card-border);
+    box-shadow: var(--craft-shadow);
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.craft-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--craft-terracotta);
+    box-shadow: 0 15px 30px rgba(194, 65, 12, 0.15);
+}
+
+.craft-image-container {
+    height: 170px;
+    background: linear-gradient(135deg, rgba(194, 65, 12, 0.08), rgba(254, 243, 199, 0.5));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 1rem;
+}
+
+.craft-card-icon {
+    font-size: 4rem;
+}
+
+.craft-region-tag {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: rgba(194, 65, 12, 0.85);
+    color: #ffffff;
+    padding: 0.25rem 0.65rem;
+    border-radius: 50px;
+}
+
+.craft-card-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.craft-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    color: var(--craft-text);
+}
+
+.craft-card-tagline {
+    font-size: 0.875rem;
+    font-style: italic;
+    color: var(--craft-mustard);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.craft-card-desc {
+    font-size: 0.9rem;
+    color: var(--craft-text-muted);
+    margin-bottom: 1.25rem;
+    flex: 1;
+}
+
+.btn-view-details {
+    align-self: flex-start;
+    background-color: transparent;
+    color: var(--craft-terracotta);
+    border: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Textile Selector */
+.textile-selector-card {
+    background-color: var(--craft-card-bg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--craft-card-border);
+    padding: 2.5rem;
+    box-shadow: var(--craft-shadow);
+}
+
+.textile-info-display {
+    background-color: var(--craft-beige-bg);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    border: 1px solid var(--craft-card-border);
+}
+
+.textile-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.textile-info-header h4 {
+    font-size: 1.35rem;
+    margin: 0;
+    color: var(--craft-terracotta);
+}
+
+.textile-origin-tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    background-color: rgba(194, 65, 12, 0.1);
+    color: var(--craft-terracotta);
+    padding: 0.3rem 0.75rem;
+    border-radius: 50px;
+}
+
+.textile-info-desc {
+    color: var(--craft-text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+}
+
+/* Artisans Section */
+.artisan-banner {
+    background: linear-gradient(135deg, #c2410c, #9a3412);
+    color: #ffffff;
+    border-radius: var(--radius-lg);
+    padding: 3.5rem 3rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    box-shadow: 0 15px 35px rgba(194, 65, 12, 0.25);
+}
+
+.artisan-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    margin: 0 0 1rem;
+}
+
+.artisan-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    opacity: 0.95;
+    margin-bottom: 1.5rem;
+}
+
+.artisan-features {
+    padding-left: 1.25rem;
+}
+
+.artisan-features li {
+    margin-bottom: 0.75rem;
+}
+
+.artisan-badge-box {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.12);
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+    padding: 2.5rem 1.75rem;
+    border-radius: var(--radius-md);
+}
+
+.artisan-badge-stamp {
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    background-color: #ffffff;
+    color: var(--craft-terracotta);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.artisan-quote {
+    font-style: italic;
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+/* Timeline */
+.timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    border-left: 3px solid var(--craft-terracotta);
+}
+
+.timeline-item {
+    position: relative;
+    background-color: var(--craft-card-bg);
+    border: 1px solid var(--craft-card-border);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--craft-shadow);
+    transition: var(--transition);
+}
+
+.timeline-item:hover {
+    transform: translateX(8px);
+    border-color: var(--craft-terracotta);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 2rem;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--craft-terracotta);
+    border: 3px solid var(--craft-beige-bg);
+    box-shadow: 0 0 0 3px rgba(194, 65, 12, 0.3);
+}
+
+.timeline-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.timeline-year {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--craft-terracotta);
+}
+
+.timeline-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: rgba(194, 65, 12, 0.1);
+    color: var(--craft-terracotta);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+}
+
+.timeline-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--craft-text);
+}
+
+.timeline-desc {
+    color: var(--craft-text-muted);
+    font-size: 0.975rem;
+    margin: 0;
+}
+
+/* Expansion Grid */
+.expansion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.75rem;
+}
+
+.expansion-card {
+    background-color: var(--craft-card-bg);
+    border-radius: var(--radius-md);
+    padding: 2rem 1.5rem;
+    border: 1px solid var(--craft-card-border);
+    box-shadow: var(--craft-shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.expansion-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--craft-terracotta);
+}
+
+.exp-number {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--craft-terracotta);
+    margin-bottom: 0.5rem;
+}
+
+.expansion-card h4 {
+    font-size: 1.15rem;
+    margin: 0 0 0.5rem;
+    color: var(--craft-text);
+}
+
+.expansion-card p {
+    font-size: 0.875rem;
+    color: var(--craft-text-muted);
+    margin: 0;
+}
+
+/* Modal Popup */
+.product-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.product-modal-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.product-modal-card {
+    background-color: var(--craft-card-bg);
+    border-radius: var(--radius-lg);
+    width: 90%;
+    max-width: 650px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--craft-card-border);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.product-modal-backdrop.active .product-modal-card {
+    transform: scale(1);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--craft-text-muted);
+    cursor: pointer;
+    z-index: 2;
+}
+
+.modal-header-banner {
+    background: linear-gradient(135deg, #c2410c, #d97706);
+    color: #ffffff;
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+}
+
+.modal-product-icon {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-product-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    margin: 0;
+}
+
+.modal-product-tagline {
+    font-size: 1rem;
+    font-style: italic;
+    opacity: 0.9;
+    margin-top: 0.25rem;
+}
+
+.modal-content-body {
+    padding: 2rem;
+}
+
+.modal-detail-row {
+    margin-bottom: 1.25rem;
+}
+
+.modal-detail-label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--craft-terracotta);
+    letter-spacing: 1px;
+}
+
+.modal-detail-value {
+    font-size: 1rem;
+    color: var(--craft-text);
+}
+
+/* Footer */
+.explorer-footer {
+    background-color: var(--craft-indigo);
+    color: #ffffff;
+    padding: 4rem 0 2rem;
+    border-top: 1px solid var(--craft-card-border);
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.footer-subtitle {
+    opacity: 0.75;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.back-home-link {
+    display: inline-block;
+    color: var(--craft-mustard);
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid var(--craft-mustard);
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.back-home-link:hover {
+    background-color: var(--craft-mustard);
+    color: #ffffff;
+}
+
+/* Scroll Animation Utilities */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero-title { font-size: 2.75rem; }
+    .artisan-banner { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+    .hero-title { font-size: 2.25rem; }
+    .section-title { font-size: 2rem; }
+}
