@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chhatrapati Shivaji Maharaj Terminus | Incredible India Explorer</title>
+<meta name="description" content="Discover CSMT — Mumbai's UNESCO World Heritage railway terminus where Victorian Gothic architecture meets Indian craftsmanship.">
+
+<!-- Open Graph / Social Media -->
+<meta property="og:title" content="Chhatrapati Shivaji Maharaj Terminus | Incredible India Explorer">
+<meta property="og:description" content="Discover CSMT — Mumbai's UNESCO World Heritage railway terminus where Victorian Gothic architecture meets Indian craftsmanship.">
+<meta property="og:image" content="assets/csmt-facade.jpg">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="frontend/navbar-redesign/navbar.css">
+
+<style>
+  :root{
+    --stone:#E7D9AE;
+    --stone-deep:#C9A063;
+    --parchment:#F6EFDD;
+    --basalt:#14120F;
+    --basalt-soft:#211D17;
+    --brass:#B5842A;
+    --brass-light:#D9A73C;
+    --stained:#7A1E2B;
+    --stained-light:#9C2E3B;
+    --ink:#241F18;
+    --ink-soft:#544C3D;
+    --line: rgba(36,31,24,0.14);
+    --card-bg: rgba(255,255,255,0.7);
+    --card-border: rgba(181,132,42,0.35);
+    --shadow: 0 20px 50px -25px rgba(20,18,15,0.45);
+    --radius: 14px;
+    --bg: var(--stone);
+    --surface: var(--parchment);
+    --text: var(--ink);
+    --text-soft: var(--ink-soft);
+  }
+  html[data-theme="dark"], body.dark-theme{
+    --bg:#100E0B;
+    --surface:#1A1611;
+    --text:#EFE6D2;
+    --text-soft:#B7AB8E;
+    --line: rgba(239,230,210,0.12);
+    --card-bg: rgba(26,22,17,0.75);
+    --card-border: rgba(181,132,42,0.4);
+    --shadow: 0 25px 60px -20px rgba(0,0,0,0.6);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',-apple-system,sans-serif;
+    line-height:1.65;
+    transition:background .4s ease, color .4s ease;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:700;
+    letter-spacing:0.01em;
+    margin:0;
+    color:var(--text);
+  }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 28px;}
+  section{padding:100px 0; position:relative;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:""; width:26px; height:1px; background:var(--brass);}
+  .section-title{font-size:clamp(1.9rem, 3.4vw, 2.7rem); margin-bottom:14px;}
+  .section-lede{color:var(--text-soft); max-width:640px; font-size:1.05rem; margin-bottom:44px;}
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in{opacity:1; transform:none;}
+
+  /* ---------- Floating theme toggle fallback ---------- */
+  .theme-toggle-floating{
+    position:fixed; bottom:24px; right:24px; z-index:99;
+    width:48px; height:48px; border-radius:50%;
+    border:1px solid var(--card-border);
+    background:var(--card-bg); backdrop-filter:blur(10px);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; font-size:1.2rem; color:var(--brass);
+    box-shadow:var(--shadow); transition:transform 0.2s ease;
+  }
+  .theme-toggle-floating:hover{transform:scale(1.08);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:92vh; display:flex; align-items:center; position:relative;
+    padding:120px 0 90px;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(181,132,42,0.18), transparent 55%),
+      radial-gradient(ellipse at 85% 100%, rgba(122,30,43,0.15), transparent 55%);
+  }
+  .hero-grid{display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px; align-items:center;}
+  .hero-eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:0.75rem; letter-spacing:0.24em;
+    text-transform:uppercase; color:var(--brass); margin-bottom:22px;
+  }
+  .hero h1{font-size:clamp(2.6rem, 5.6vw, 4.6rem); line-height:1.04;}
+  .hero h1 em{font-style:italic; color:var(--stained-light);}
+  .hero-sub{color:var(--text-soft); font-size:1.12rem; max-width:520px; margin:26px 0 34px;}
+  .hero-meta{display:flex; gap:28px; flex-wrap:wrap;}
+  .hero-meta div{border-left:2px solid var(--brass); padding-left:12px;}
+  .hero-meta .num{font-family:'IBM Plex Mono', monospace; font-size:1.3rem; font-weight:600;}
+  .hero-meta .lbl{font-size:0.74rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.08em;}
+
+  /* Clock-face signature motif */
+  .clockface{
+    width:min(360px, 80vw); aspect-ratio:1; margin:0 auto; position:relative;
+  }
+  .clockface svg{width:100%; height:100%; overflow:visible;}
+  .clock-ring{fill:none; stroke:var(--brass); stroke-width:2;}
+  .clock-ring-inner{fill:none; stroke:var(--stained); stroke-width:1; opacity:0.5;}
+  .clock-tick{stroke:var(--brass); stroke-width:2;}
+  .clock-hand{stroke:var(--text); stroke-linecap:round;}
+  .clock-hub{fill:var(--brass);}
+  .clock-label{
+    position:absolute; bottom:-34px; left:50%; transform:translateX(-50%);
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.18em;
+    color:var(--text-soft); text-transform:uppercase; white-space:nowrap;
+  }
+
+  /* ---------- Info cards / grids ---------- */
+  .card{
+    background:var(--card-bg); border:1px solid var(--card-border);
+    border-radius:var(--radius); backdrop-filter:blur(14px);
+    box-shadow:var(--shadow); padding:30px;
+  }
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:26px;}
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .card h3{font-size:1.3rem; margin-bottom:10px;}
+  .card p{color:var(--text-soft); font-size:0.97rem; margin:0;}
+  .tag{
+    display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:0.68rem;
+    letter-spacing:0.1em; text-transform:uppercase; color:var(--brass);
+    border:1px solid var(--card-border); border-radius:100px; padding:4px 12px; margin-bottom:14px;
+  }
+
+  /* ---------- Location strip ---------- */
+  .location-strip{
+    display:flex; flex-wrap:wrap; gap:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .location-strip .cell{
+    flex:1 1 180px; padding:26px 0; text-align:center; border-left:1px solid var(--line);
+  }
+  .location-strip .cell:first-child{border-left:none;}
+  .location-strip .val{font-family:'IBM Plex Mono', monospace; font-size:1.05rem; font-weight:600; color:var(--brass);}
+  .location-strip .key{font-size:0.72rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:0.08em; margin-top:6px;}
+
+  /* ---------- Timeline (departure board) ---------- */
+  .board{
+    background:var(--basalt); border-radius:var(--radius); overflow:hidden;
+    border:1px solid rgba(181,132,42,0.3); box-shadow:var(--shadow);
+  }
+  .board-head{
+    display:grid; grid-template-columns:110px 1fr 140px; gap:16px;
+    padding:16px 24px; font-family:'IBM Plex Mono', monospace; font-size:0.68rem;
+    letter-spacing:0.14em; text-transform:uppercase; color:var(--brass-light);
+    border-bottom:1px solid rgba(181,132,42,0.25);
+  }
+  .board-row{
+    display:grid; grid-template-columns:110px 1fr 140px; gap:16px; align-items:center;
+    padding:20px 24px; border-bottom:1px solid rgba(239,230,210,0.06);
+    font-family:'IBM Plex Mono', monospace; color:#EFE6D2;
+  }
+  .board-row:last-child{border-bottom:none;}
+  .board-row .yr{font-size:1.15rem; font-weight:600; color:var(--brass-light);}
+  .board-row .ev{font-family:'Inter',sans-serif; color:#D9D0BA; font-size:0.94rem; line-height:1.5;}
+  .board-row .status{
+    font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; text-align:right; color:var(--stained-light);
+  }
+
+  /* ---------- Feature list w/ icon marks ---------- */
+  .feature-row{
+    display:grid; grid-template-columns:56px 1fr; gap:20px; padding:26px 0;
+    border-top:1px solid var(--line);
+  }
+  .feature-row:last-child{border-bottom:1px solid var(--line);}
+  .feature-mark{
+    width:44px; height:44px; border-radius:50%; border:1px solid var(--card-border);
+    display:flex; align-items:center; justify-content:center; color:var(--brass);
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem; font-weight:600;
+  }
+  .feature-row h3{font-size:1.2rem; margin-bottom:6px;}
+  .feature-row p{color:var(--text-soft); margin:0; font-size:0.96rem; max-width:620px;}
+
+  /* ---------- Facts strip ---------- */
+  .facts-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;}
+  .fact{background:var(--surface); padding:30px 24px;}
+  .fact .num{font-family:'Cormorant Garamond',serif; font-weight:700; font-size:2.1rem; color:var(--stained-light);}
+  .fact .txt{font-size:0.86rem; color:var(--text-soft); margin-top:6px;}
+
+  /* ---------- UNESCO panel ---------- */
+  .unesco-panel{
+    display:grid; grid-template-columns:220px 1fr; gap:40px; align-items:center;
+    background:linear-gradient(135deg, rgba(181,132,42,0.14), rgba(122,30,43,0.12));
+    border:1px solid var(--card-border); border-radius:var(--radius); padding:44px; box-shadow:var(--shadow);
+  }
+  .unesco-seal{
+    width:180px; height:180px; border-radius:50%; border:2px solid var(--brass);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.1em;
+    color:var(--brass); padding:18px; text-transform:uppercase; line-height:1.4;
+  }
+
+  /* ---------- Gallery ---------- */
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); grid-auto-rows:180px; gap:16px;
+  }
+  .gallery-grid .g-item{
+    border-radius:10px; position:relative; overflow:hidden;
+    display:flex; align-items:flex-end; padding:16px;
+    border:1px solid var(--card-border);
+    box-shadow:var(--shadow);
+  }
+  .gallery-grid .g-item img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;
+    transition:transform 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+  }
+  .gallery-grid .g-item:hover img{
+    transform:scale(1.06);
+  }
+  .gallery-grid .g-item span{
+    font-family:'IBM Plex Mono', monospace; font-size:0.75rem; letter-spacing:0.06em;
+    text-transform:uppercase; color:#F6EFDD; position:relative; z-index:2;
+    background:rgba(20, 18, 15, 0.72); padding:5px 10px; border-radius:6px;
+    backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,0.1);
+  }
+  .gallery-grid .g-item::after{
+    content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(0,0,0,0.65) 0%, transparent 60%); z-index:1;
+    pointer-events:none;
+  }
+  .g-tall{grid-row:span 2;}
+  .g-wide{grid-column:span 2;}
+  .gallery-note{
+    margin-top:18px; font-size:0.85rem; color:var(--text-soft); font-family:'IBM Plex Mono', monospace;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.csmt-footer{padding:60px 0 80px; border-top:1px solid var(--line); text-align:center;}
+  footer.csmt-footer p{color:var(--text-soft); font-size:0.88rem;}
+  .back-link{
+    display:inline-flex; align-items:center; gap:8px; margin-bottom:26px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.82rem; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--brass); text-decoration:none; border-bottom:1px solid var(--brass); padding-bottom:3px;
+    transition:color 0.2s ease, border-color 0.2s ease;
+  }
+  .back-link:hover{color:var(--stained-light); border-color:var(--stained-light);}
+
+  @media (max-width: 860px){
+    .hero-grid{grid-template-columns:1fr; text-align:center;}
+    .hero-meta{justify-content:center;}
+    .grid-2, .grid-3{grid-template-columns:1fr;}
+    .facts-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:160px;}
+    .g-wide{grid-column:span 1;}
+    .unesco-panel{grid-template-columns:1fr; text-align:center; justify-items:center;}
+    .board-head{display:none;}
+    .board-row{grid-template-columns:80px 1fr; grid-template-areas:"yr status" "ev ev";}
+    .board-row .yr{grid-area:yr;} .board-row .status{grid-area:status;} .board-row .ev{grid-area:ev; margin-top:8px;}
+    .location-strip .cell{border-left:none; border-top:1px solid var(--line);}
+    .location-strip .cell:first-child{border-top:none;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ SITE HEADER & NAVIGATION ============ -->
+<header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron" style="color:#FF9933;">Incredible</span>
+            <span class="gold" style="color:#FFD700;">India</span>
+            <span class="green" style="color:#138808;">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="csmt.html" class="dropdown-item" style="font-weight:600; color:#FF9933;">CSMT Mumbai (UNESCO)</a>
+                    <a href="frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">🌙</button>
+        </nav>
+    </div>
+</header>
+
+<button class="theme-toggle-floating" id="themeToggleFloating" aria-label="Toggle dark mode">🌙</button>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-eyebrow">Mumbai, Maharashtra · Est. 1887</div>
+      <h1>Chhatrapati Shivaji<br><em>Maharaj Terminus</em></h1>
+      <p class="hero-sub">A working railway station carved like a cathedral — where British Gothic Revival stonework and Indian craftsmanship were built, quite literally, side by side.</p>
+      <div class="hero-meta">
+        <div><div class="num mono">1878–1887</div><div class="lbl">Built over a decade</div></div>
+        <div><div class="num mono">2004</div><div class="lbl">UNESCO inscription</div></div>
+        <div><div class="num mono">3M+</div><div class="lbl">Commuters daily</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="clockface">
+        <svg viewBox="0 0 200 200">
+          <circle class="clock-ring" cx="100" cy="100" r="92"></circle>
+          <circle class="clock-ring-inner" cx="100" cy="100" r="78"></circle>
+          <g id="ticks"></g>
+          <line class="clock-hand" x1="100" y1="100" x2="100" y2="48" stroke-width="4"></line>
+          <line class="clock-hand" x1="100" y1="100" x2="140" y2="100" stroke-width="3"></line>
+          <circle class="clock-hub" cx="100" cy="100" r="6"></circle>
+        </svg>
+        <div class="clock-label">The 10-ft station clock</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ LOCATION ============ -->
+<div class="wrap">
+  <div class="location-strip reveal">
+    <div class="cell"><div class="val">Fort, Mumbai</div><div class="key">Neighbourhood</div></div>
+    <div class="cell"><div class="val">Maharashtra, 400001</div><div class="key">State / PIN</div></div>
+    <div class="cell"><div class="val">18.9398°N, 72.8354°E</div><div class="key">Coordinates</div></div>
+    <div class="cell"><div class="val">Central Railway HQ</div><div class="key">Current role</div></div>
+  </div>
+</div>
+
+<!-- ============ THE NAMESAKE ============ -->
+<section id="namesake">
+  <div class="wrap">
+    <div class="eyebrow reveal">The Namesake</div>
+    <h2 class="section-title reveal">Chhatrapati Shivaji Maharaj</h2>
+    <div class="grid-2" style="align-items:center;">
+      <div class="reveal">
+        <div class="card" style="padding:0; overflow:hidden;">
+          <img src="assets/shivaji-maharaj-portrait.jpg"
+               alt="Portrait of Chhatrapati Shivaji Maharaj, founder of the Maratha Empire"
+               style="width:100%; aspect-ratio:3/4; object-fit:cover; display:block;">
+        </div>
+        <p class="gallery-note">Portrait of Chhatrapati Shivaji Maharaj (1630–1680), founder and sovereign of the Maratha Empire.</p>
+      </div>
+      <div class="reveal">
+        <p style="color:var(--text-soft); font-size:1.02rem;">Shivaji Bhonsle (1630–1680) founded the Maratha Empire and was crowned Chhatrapati — sovereign — at Raigad Fort in 1674. Revered in Maharashtra for his military strategy, administrative reforms, and resistance to Mughal and Adilshahi expansion, he remains one of the most celebrated figures in Indian history.</p>
+        <p style="color:var(--text-soft); font-size:1.02rem;">The terminus was renamed in his honour in 1996 — replacing its colonial-era name, Victoria Terminus — and extended to "Chhatrapati Shivaji <em>Maharaj</em> Terminus" in 2017, aligning Mumbai's busiest railway landmark with the legacy of the king who built an empire on Maratha soil.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RAILWAY HISTORY ============ -->
+<section id="history">
+  <div class="wrap">
+    <div class="eyebrow reveal">Railway History</div>
+    <h2 class="section-title reveal">Built to be the grandest gateway in the East</h2>
+    <p class="section-lede reveal">Commissioned by the Great Indian Peninsular Railway (GIPR) as its headquarters, the terminus replaced the older Bori Bunder station and was designed to announce Bombay's arrival as a global mercantile port.</p>
+
+    <div class="grid-2">
+      <div class="card reveal">
+        <span class="tag">The Architect</span>
+        <h3>Frederick William Stevens</h3>
+        <p>English architectural engineer Frederick William Stevens won the commission after outdoing rival proposals with a design that fused High Victorian Gothic with Indian palace architecture. He worked alongside engineer Wilson Bell and artist Axel Haig, and was paid ₹16.14 lakh for a decade of work.</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag">The Build</span>
+        <h3>Ten years, stone by stone</h3>
+        <p>Construction began in May 1878 and finished in 1887–88, timed to mark Queen Victoria's Golden Jubilee — hence its original name, Victoria Terminus. At roughly £250,000, it was the most expensive building Bombay had ever seen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARCHITECTURAL STYLE ============ -->
+<section id="architecture" style="background:var(--surface);">
+  <div class="wrap">
+    <div class="eyebrow reveal">Architectural Style</div>
+    <h2 class="section-title reveal">A style with no name but its own — Bombay Gothic</h2>
+    <p class="section-lede reveal">Historians classify CSMT as High Victorian Gothic Revival, modelled on late-medieval Italian precedents, but its ground plan, ornament, and silhouette borrow so heavily from Indian tradition that it's often called simply "Bombay Gothic."</p>
+
+    <div class="grid-3">
+      <div class="card reveal">
+        <h3>Eccentric plan</h3>
+        <p>Unlike a typical symmetrical Gothic building, CSMT's asymmetrical, sprawling ground plan echoes the layout of a traditional Indian palace complex rather than a European cathedral.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Stone construction</h3>
+        <p>Built primarily from buff-coloured Kurla and Porbandar stone with blue-black Malad basalt trim — a distinctly regional material palette rather than imported European stone.</p>
+      </div>
+      <div class="card reveal">
+        <h3>A cathedral for trains</h3>
+        <p>Stevens used a masonry dome — a first for a secular Gothic Revival building — turning a functional transport hub into a monument with the presence of a place of worship.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VICTORIAN GOTHIC FEATURES ============ -->
+<section id="gothic-features">
+  <div class="wrap">
+    <div class="eyebrow reveal">Victorian Gothic Features</div>
+    <h2 class="section-title reveal">Façade, dome, arches, and every gargoyle in between</h2>
+    <p class="section-lede reveal">Walk the exterior and the European Gothic vocabulary is unmistakable — pointed arches, ribbed vaults, flying buttresses, and a skyline of spires.</p>
+
+    <div class="feature-row reveal">
+      <div class="feature-mark">01</div>
+      <div><h3>The central dome</h3><p>Rising roughly 160 ft, the octagonal ribbed dome is crowned by a 16-ft statue known as the "Lady of Progress," holding a torch aloft — added purely for dramatic silhouette, with no structural purpose.</p></div>
+    </div>
+    <div class="feature-row reveal">
+      <div class="feature-mark">02</div>
+      <div><h3>Pointed arches & turrets</h3><p>Sharply pointed Gothic arches frame the windows and entrances, while slender corner turrets and pinnacles break up the roofline in true High Victorian fashion.</p></div>
+    </div>
+    <div class="feature-row reveal">
+      <div class="feature-mark">03</div>
+      <div><h3>The great clock</h3><p>A clock face over 10 ft in diameter anchors the main façade — beneath it, an empty niche once held a statue of Queen Victoria, removed after the station's 1996 renaming.</p></div>
+    </div>
+    <div class="feature-row reveal">
+      <div class="feature-mark">04</div>
+      <div><h3>Gargoyles & grotesques</h3><p>Drainage spouts carved as dogs, crocodiles, rams, and lizards line the dome and roofline — a hallmark Gothic device repurposed with distinctly Indian fauna.</p></div>
+    </div>
+    <div class="feature-row reveal">
+      <div class="feature-mark">05</div>
+      <div><h3>Stained glass & ironwork</h3><p>Coloured stained-glass windows and elaborate wrought-iron and brass railings run throughout the interior, a level of decorative detail rare in a functioning transit building.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INDIAN INFLUENCES ============ -->
+<section id="indian-influences" style="background:var(--surface);">
+  <div class="wrap">
+    <div class="eyebrow reveal">Indian Influences</div>
+    <h2 class="section-title reveal">Where British stonework met Indian hands</h2>
+    <p class="section-lede reveal">CSMT is celebrated by UNESCO as an outstanding example of two cultures meeting: British architects designed it, but Indian craftsmen carved and built it — weaving in motifs and techniques from India's own architectural traditions.</p>
+
+    <div class="grid-2">
+      <div class="card reveal">
+        <span class="tag">Sculpture</span>
+        <h3>Peacocks, lotuses, and local wildlife</h3>
+        <p>Carvings across the façade depict Indian flora and fauna — monkeys, peacocks, and lotus motifs — alongside the more European gargoyles, blending two decorative languages into one.</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag">Guardians</span>
+        <h3>Lion and tiger at the entrance</h3>
+        <p>A stone lion (representing the United Kingdom) and tiger (representing India) flank the main entrance — a deliberate symbol of the two nations meeting at this gateway.</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag">Form</span>
+        <h3>Palace-like massing</h3>
+        <p>The building's turrets, domes, and irregular, courtyard-driven layout draw directly from Mughal and Indo-Saracenic palace architecture rather than a standard European rail-terminus plan.</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag">Craft</span>
+        <h3>Local stone, local stonemasons</h3>
+        <p>The buff Kurla and Porbandar stone was sourced regionally, and much of the fine detail carving was executed by local artisans working from Stevens' designs — a genuine collaboration rather than an imported style.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MUMBAI'S RAILWAY HERITAGE ============ -->
+<section id="mumbai-heritage">
+  <div class="wrap">
+    <div class="eyebrow reveal">Mumbai's Railway Heritage</div>
+    <h2 class="section-title reveal">The engine room of a city, still running</h2>
+    <p class="section-lede reveal">More than a monument, CSMT is a living headquarters — the nerve centre of the Central Railway network and one of the busiest stations on Earth.</p>
+
+    <div class="facts-grid reveal">
+      <div class="fact"><div class="num">3M+</div><div class="txt">Commuters pass through daily</div></div>
+      <div class="fact"><div class="num">18</div><div class="txt">Platforms in daily operation</div></div>
+      <div class="fact"><div class="num">1853</div><div class="txt">Year India's first train ran, from Bombay</div></div>
+      <div class="fact"><div class="num">#2</div><div class="txt">Most photographed monument in India</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UNESCO RECOGNITION ============ -->
+<section id="unesco" style="background:var(--surface);">
+  <div class="wrap">
+    <div class="eyebrow reveal">UNESCO Recognition</div>
+    <div class="unesco-panel reveal">
+      <div class="unesco-seal">World Heritage Site · Ref. 945 · Inscribed 2004</div>
+      <div>
+        <h2 class="section-title" style="margin-bottom:16px;">A monument, officially</h2>
+        <p style="color:var(--text-soft); font-size:1rem; max-width:600px;">In 2004, UNESCO inscribed the terminus on the World Heritage List under Criteria (ii) and (iv), recognising it as an outstanding example of the meeting of two cultures — Victorian Gothic Revival architecture fused with the living traditions of Indian craftsmanship, still functioning as the city's principal railway hub.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTERESTING FACTS / HISTORICAL TIMELINE ============ -->
+<section id="timeline">
+  <div class="wrap">
+    <div class="eyebrow reveal">Historical Timeline</div>
+    <h2 class="section-title reveal">The terminus, on the departure board</h2>
+    <p class="section-lede reveal">A century and a half of history, laid out the way the station itself tracks time.</p>
+
+    <div class="board reveal">
+      <div class="board-head"><div>Year</div><div>Event</div><div style="text-align:right;">Status</div></div>
+      <div class="board-row">
+        <div class="yr">1878</div>
+        <div class="ev">Construction begins south of the old Bori Bunder station, designed by F. W. Stevens.</div>
+        <div class="status">Foundation</div>
+      </div>
+      <div class="board-row">
+        <div class="yr">1887</div>
+        <div class="ev">Station opens as Victoria Terminus, named for Queen Victoria's Golden Jubilee year.</div>
+        <div class="status">Opened</div>
+      </div>
+      <div class="board-row">
+        <div class="yr">1888</div>
+        <div class="ev">Final decorative work and interior detailing completed after a decade of construction.</div>
+        <div class="status">Completed</div>
+      </div>
+      <div class="board-row">
+        <div class="yr">1996</div>
+        <div class="ev">Officially renamed Chhatrapati Shivaji Terminus, honouring the Maratha king Shivaji Maharaj.</div>
+        <div class="status">Renamed</div>
+      </div>
+      <div class="board-row">
+        <div class="yr">2004</div>
+        <div class="ev">Inscribed as a UNESCO World Heritage Site under Criteria (ii) and (iv).</div>
+        <div class="status">Heritage</div>
+      </div>
+      <div class="board-row">
+        <div class="yr">2017</div>
+        <div class="ev">Name formally extended to Chhatrapati Shivaji Maharaj Terminus (CSMT).</div>
+        <div class="status">Renamed</div>
+      </div>
+      <div class="board-row">
+        <div class="yr">Today</div>
+        <div class="ev">Still the operational headquarters of Central Railway, serving millions of daily commuters.</div>
+        <div class="status">Active</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery" style="background:var(--surface);">
+  <div class="wrap">
+    <div class="eyebrow reveal">Gallery</div>
+    <h2 class="section-title reveal">The station in stone and light</h2>
+    <p class="section-lede reveal">A curated photographic journey through Mumbai's premier Gothic masterpiece.</p>
+
+    <div class="gallery-grid reveal">
+      <div class="g-item g-tall">
+        <img src="assets/csmt-facade.jpg" alt="Main façade &amp; clock tower of CSMT Mumbai">
+        <span>Main façade &amp; clock tower</span>
+      </div>
+      <div class="g-item">
+        <img src="assets/csmt-dome.jpg" alt="Central dome and Lady of Progress statue">
+        <span>Central dome</span>
+      </div>
+      <div class="g-item">
+        <img src="assets/csmt-gargoyle.jpg" alt="Intricate carved stone gargoyle detail">
+        <span>Gargoyle detail</span>
+      </div>
+      <div class="g-item g-wide">
+        <img src="assets/csmt-interior.jpg" alt="Platform hall, concourse and interior gothic arches">
+        <span>Platform hall, interior arches</span>
+      </div>
+      <div class="g-item">
+        <img src="assets/csmt-lion.jpg" alt="Carved stone lion guardian sculpture at entrance">
+        <span>Stone lion, entrance</span>
+      </div>
+      <div class="g-item g-wide">
+        <img src="assets/csmt-night.jpg" alt="Illuminated CSMT façade at night with architectural lighting">
+        <span>Illuminated façade, night view</span>
+      </div>
+      <div class="g-item">
+        <img src="assets/csmt-stained-glass.jpg" alt="Stained glass rose window in gothic arches">
+        <span>Stained glass window</span>
+      </div>
+    </div>
+    <p class="gallery-note">Photographic showcase of Chhatrapati Shivaji Maharaj Terminus, Mumbai.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="csmt-footer">
+  <div class="wrap">
+    <a href="frontend/heritage/heritage.html" class="back-link">← Back to Heritage Sites</a>
+    <p>Chhatrapati Shivaji Maharaj Terminus — UNESCO World Heritage Site (Ref. 945), Mumbai, Maharashtra.<br>Part of the <a href="index.html" style="color:var(--brass); text-decoration:underline;">Incredible India Explorer</a> project.</p>
+  </div>
+</footer>
+
+<script>
+  // Clock ticks
+  const ticks = document.getElementById('ticks');
+  if(ticks){
+    for(let i=0;i<12;i++){
+      const angle = (i*30) * Math.PI/180;
+      const x1 = 100 + 84*Math.sin(angle), y1 = 100 - 84*Math.cos(angle);
+      const x2 = 100 + 92*Math.sin(angle), y2 = 100 - 92*Math.cos(angle);
+      const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+      line.setAttribute('x1',x1); line.setAttribute('y1',y1);
+      line.setAttribute('x2',x2); line.setAttribute('y2',y2);
+      line.setAttribute('class','clock-tick');
+      ticks.appendChild(line);
+    }
+  }
+
+  // Theme toggle functionality (syncs with site storage & floating toggle)
+  const root = document.documentElement;
+  const floatingBtn = document.getElementById('themeToggleFloating');
+  const navBtn = document.getElementById('theme-toggle');
+
+  function applyTheme(t){
+    root.setAttribute('data-theme', t);
+    document.body.classList.toggle('light-theme', t === 'light');
+    document.body.classList.toggle('dark-theme', t === 'dark');
+    const icon = t === 'dark' ? '☀️' : '🌙';
+    if(floatingBtn) floatingBtn.textContent = icon;
+    if(navBtn) navBtn.textContent = icon;
+    try {
+      const storage = JSON.parse(localStorage.getItem('iie_storage') || '{}');
+      storage.theme = t;
+      localStorage.setItem('iie_storage', JSON.stringify(storage));
+      localStorage.setItem('csmt-theme', t);
+    } catch(e){}
+  }
+
+  // Load existing theme preference
+  let initialTheme = 'light';
+  try {
+    const savedSiteTheme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme;
+    initialTheme = savedSiteTheme || localStorage.getItem('csmt-theme') || 'light';
+  } catch(e){
+    initialTheme = localStorage.getItem('csmt-theme') || 'light';
+  }
+  applyTheme(initialTheme);
+
+  function toggleTheme(){
+    const current = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(current);
+  }
+
+  if(floatingBtn) floatingBtn.addEventListener('click', toggleTheme);
+  if(navBtn) navBtn.addEventListener('click', toggleTheme);
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  if(menuToggle && navMenu){
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  }
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ 
+      if(e.isIntersecting){ 
+        e.target.classList.add('in'); 
+        io.unobserve(e.target);
+      } 
+    });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
