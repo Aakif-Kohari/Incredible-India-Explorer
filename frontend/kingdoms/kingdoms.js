@@ -222,15 +222,4 @@ const KINGDOMS = [
     ],
     legacy: ["Mughal miniature painting", "Urdu language synthesis", "Mansabdari administration", "Indo-Persian court culture"],
     architecture: ["Taj Mahal (UNESCO)", "Red Fort & Jama Masjid, Delhi", "Fatehpur Sikri", "Humayun's Tomb"],
-    tags: ["Taj Mahal", "Urdu", "Miniature"] },
-
-  { id: "maratha", name: "Maratha Empire", era: "earlymodern", region: "West",
-    period: "1674 – 1818 CE", tagline: "The saffron confederacy that challenged Mughal supremacy.",
-    image: "https://images.unsplash.com/photo-1587922546307-776227941871?w=900&q=70",
-    desc: "Shivaji's hill-forts grew into a confederacy that at its peak stretched from Attock to Cuttack — the last great indigenous empire before British rule.",
-    overview: "Shivaji carved out swarajya from the Deccan hills. His successors, especially the Peshwas, turned the Marathas into a pan-Indian power. The Third Battle of Panipat (1761) and Anglo-Maratha wars ended the confederacy.",
-    rulers: [
-      { n: "Shivaji Maharaj", r: "1674–1680 CE", d: "Founded swarajya; innovator of guerrilla warfare and naval strategy." },
-      { n: "Bajirao I", r: "1720–1740 CE", d: "Undefeated Peshwa; expanded Maratha power to Delhi." }
-    ],
-    legacy: ["Guerrilla warfare (ganimi kava)", "Naval forts (Sindhudurg, Vijayd
+    tags: ["Taj Mahal", "Urdu", "Miniature"] } ]
