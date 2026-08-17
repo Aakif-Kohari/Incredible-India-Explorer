@@ -6,6 +6,13 @@
 window.indiaSearchIndex = [
 
     {
+        title: "Transport Route Planner",
+        category: "Travel & Planning",
+        description: "Compare walking, bus, metro, cab and train options between Indian cities, rank routes by cost, time or walking distance, and save routes to My India Journey.",
+        url: "frontend/transport-route-planner/index.html"
+    },
+
+    {
         title: "Arunachal Pradesh's Tani Languages Explorer",
         category: "Culture & Languages",
         description: "Explore the diverse Tani language family of Arunachal Pradesh (Nyishi, Adi, Apatani, Galo, Tagin, Mising): regional map, verified audio greetings, comparative vocabulary matrix, and cultural heritage.",
