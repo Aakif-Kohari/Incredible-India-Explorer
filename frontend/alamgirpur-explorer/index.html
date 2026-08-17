@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alamgirpur — The Eastern Edge of the Harappan World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --soil-dark:#2b2620;
+    --soil-darker:#1e1a15;
+    --parchment:#f2e8d5;
+    --bone:#e3d5b5;
+    --clay:#c1663a;
+    --clay-bright:#d97a4d;
+    --river:#3f6672;
+    --river-light:#5c8896;
+    --ochre:#a9832f;
+    --ink:#241f1a;
+    --ink-soft:#5a5044;
+    --line:#c9b98f;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--parchment);color:var(--ink);font-family:'Source Sans 3',sans-serif;line-height:1.55;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;margin:0;color:var(--ink);}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:var(--clay);}
+
+  /* HERO */
+  .hero{
+    position:relative;background:var(--soil-dark);color:var(--parchment);
+    padding:64px 24px 0;overflow:hidden;
+  }
+  .hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:2;padding-bottom:40px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--clay-bright);margin-bottom:14px;}
+  .hero h1{font-size:clamp(34px,6vw,64px);line-height:1.02;max-width:800px;color:var(--parchment);}
+  .hero h1 em{font-style:italic;color:var(--clay-bright);}
+  .hero p.lede{max-width:620px;margin-top:20px;font-size:18px;color:#d8c9a8;}
+  .hero-stats{display:flex;gap:0;flex-wrap:wrap;margin-top:36px;border-top:1px solid #4a4238;}
+  .stat{flex:1 1 150px;padding:16px 18px 20px 0;border-right:1px solid #4a4238;}
+  .stat:last-child{border-right:none;}
+  .stat .k{font-family:'IBM Plex Mono',monospace;font-size:22px;color:var(--clay-bright);}
+  .stat .l{font-size:12.5px;color:#a99a7f;margin-top:4px;}
+
+  /* strata band behind hero */
+  .strata{position:absolute;left:0;right:0;bottom:0;height:100%;z-index:1;opacity:.9;pointer-events:none;}
+
+  nav{position:sticky;top:0;z-index:50;background:var(--soil-darker);border-bottom:1px solid #443c31;}
+  .nav-inner{max-width:1000px;margin:0 auto;display:flex;overflow-x:auto;}
+  .tab{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.02em;
+    color:#a99a7f;background:none;border:none;padding:14px 18px;cursor:pointer;white-space:nowrap;
+    border-bottom:2px solid transparent;
+  }
+  .tab.active{color:var(--clay-bright);border-bottom:2px solid var(--clay-bright);}
+  .tab:hover{color:var(--parchment);}
+
+  main{max-width:1000px;margin:0 auto;padding:48px 24px 100px;}
+  section.panel{display:none;}
+  section.panel.active{display:block;animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+
+  .section-head{margin-bottom:28px;}
+  .section-head .num{font-family:'IBM Plex Mono',monospace;color:var(--clay);font-size:13px;}
+  .section-head h2{font-size:clamp(24px,4vw,34px);margin-top:6px;}
+  .section-head p{color:var(--ink-soft);max-width:640px;margin-top:10px;}
+
+  .grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;}
+  @media(max-width:760px){.grid-2{grid-template-columns:1fr;}}
+  .card{background:var(--bone);border:1px solid var(--line);border-radius:2px;padding:22px;}
+  .card h3{font-size:18px;margin-bottom:8px;}
+  .card p{color:var(--ink-soft);font-size:15px;}
+
+  /* PHOTO GALLERY */
+  .photo-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:20px;}
+  .photo-card{background:var(--soil-dark);border-radius:2px;overflow:hidden;}
+  .photo-card img{width:100%;height:170px;object-fit:cover;display:block;filter:sepia(.15) contrast(1.03);}
+  .photo-card figcaption{padding:10px 12px 12px;color:#d8c9a8;font-size:12px;line-height:1.4;}
+  .photo-card figcaption b{color:var(--clay-bright);font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;display:block;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px;}
+  .photo-note{color:var(--ink-soft);font-size:12.5px;font-style:italic;margin-top:10px;}
+  .compare-photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:22px;}
+  .compare-photos .photo-card img{height:110px;}
+
+  /* STRATIGRAPHY / TIMELINE */
+  .trench{display:flex;gap:28px;align-items:flex-start;}
+  @media(max-width:760px){.trench{flex-direction:column;}}
+  .trench-wall{flex:0 0 220px;border:1px solid var(--soil-dark);position:relative;}
+  .layer{padding:0 12px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(0,0,0,.15);transition:filter .15s;position:relative;}
+  .layer:last-child{border-bottom:none;}
+  .layer:hover, .layer.active{filter:brightness(1.12);}
+  .layer .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(0,0,0,.55);}
+  .layer .yrs{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:rgba(0,0,0,.4);}
+  .layer.active::before{content:'';position:absolute;left:-8px;top:0;bottom:0;width:4px;background:var(--clay);}
+  .l-modern{background:#8a9a7d;height:44px;}
+  .l-pgw{background:#c9a86a;height:60px;}
+  .l-late{background:#b8804a;height:70px;}
+  .l-mature{background:#8a5236;height:90px;color:var(--parchment);}
+  .l-mature .tag,.l-mature .yrs{color:rgba(255,255,255,.75);}
+  .l-natural{background:#5c4a37;height:34px;color:var(--parchment);}
+  .l-natural .tag{color:rgba(255,255,255,.6);font-style:italic;}
+
+  .layer-detail{flex:1;background:var(--bone);border:1px solid var(--line);padding:22px 24px;min-height:280px;}
+  .layer-detail h3{font-size:20px;margin-bottom:4px;}
+  .layer-detail .period-range{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--clay);margin-bottom:14px;display:block;}
+  .layer-detail ul{margin:10px 0 0;padding-left:18px;color:var(--ink-soft);font-size:14.5px;}
+  .layer-detail li{margin-bottom:5px;}
+
+  /* MAP */
+  .map-wrap{background:var(--soil-dark);border-radius:2px;padding:20px;position:relative;}
+  svg{width:100%;height:auto;display:block;}
+  .site-dot{cursor:pointer;}
+  .site-dot circle{transition:r .15s;}
+  .site-dot:hover circle, .site-dot.active circle{r:9;}
+  .site-label{font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#cbb896;pointer-events:none;}
+  .site-label.hero-label{fill:var(--clay-bright);font-weight:600;}
+  .map-note{color:#a99a7f;font-size:12.5px;margin-top:10px;font-family:'IBM Plex Mono',monospace;}
+  .map-info{margin-top:16px;background:var(--bone);border:1px solid var(--line);padding:16px 18px;min-height:70px;}
+  .map-info b{font-family:'Fraunces',serif;}
+  .toggle-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+  .toggle{font-family:'IBM Plex Mono',monospace;font-size:12px;padding:8px 14px;border:1px solid var(--line);background:var(--parchment);cursor:pointer;border-radius:20px;}
+  .toggle.active{background:var(--clay);color:var(--parchment);border-color:var(--clay);}
+
+  /* ARTIFACTS */
+  .artifact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
+  .artifact{background:var(--bone);border:1px solid var(--line);padding:18px;cursor:pointer;transition:transform .12s, box-shadow .12s;}
+  .artifact:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.12);}
+  .artifact .icon{width:42px;height:42px;border-radius:50%;background:var(--clay);color:var(--parchment);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:18px;margin-bottom:12px;}
+  .artifact h4{font-size:16px;}
+  .artifact .cat{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ochre);text-transform:uppercase;letter-spacing:.06em;margin-top:4px;}
+  .artifact p{font-size:13.5px;color:var(--ink-soft);margin-top:10px;display:none;}
+  .artifact.open p{display:block;}
+  .artifact.open{background:#ede0bd;}
+
+  /* COMPARE */
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-family:'IBM Plex Mono',monospace;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);border-bottom:2px solid var(--soil-dark);}
+  tr.highlight td{background:#ede0bd;font-weight:600;}
+  .site-name-cell{font-family:'Fraunces',serif;font-weight:600;font-size:15.5px;}
+
+  /* CONNECTIONS */
+  .conn-list{display:flex;flex-direction:column;gap:14px;}
+  .conn-item{display:flex;gap:16px;background:var(--bone);border:1px solid var(--line);padding:16px 18px;}
+  .conn-item .dist{flex:0 0 90px;font-family:'IBM Plex Mono',monospace;color:var(--clay);font-size:14px;}
+  .conn-item div p{margin:2px 0 0;color:var(--ink-soft);font-size:14.5px;}
+
+  footer{border-top:1px solid var(--line);padding:26px 24px;text-align:center;color:var(--ink-soft);font-size:12.5px;font-family:'IBM Plex Mono',monospace;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <svg class="strata" viewBox="0 0 1000 260" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect y="180" width="1000" height="80" fill="#3a3226"/>
+    <rect y="205" width="1000" height="55" fill="#332b21"/>
+    <rect y="230" width="1000" height="30" fill="#2b241b"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="eyebrow">Harappan Archaeology · Meerut District, Uttar Pradesh</div>
+    <h1>Alamgirpur: the <em>eastern edge</em> of the Harappan world</h1>
+    <p class="lede">A modest mound on the Hindon River, 45&nbsp;km from Delhi, marks the farthest confirmed reach of the Indus Civilisation — nearly 1,000&nbsp;km from its Sindh heartland.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="k">29.00°N 77.48°E</div><div class="l">Coordinates</div></div>
+      <div class="stat"><div class="k">2600–2200 BCE</div><div class="l">Earliest AMS-dated layer</div></div>
+      <div class="stat"><div class="k">~965 km</div><div class="l">East of Mohenjo-daro</div></div>
+      <div class="stat"><div class="k">4</div><div class="l">Cultural periods excavated</div></div>
+    </div>
+  </div>
+</div>
+
+<nav><div class="nav-inner">
+  <button class="tab active" data-tab="overview">Overview</button>
+  <button class="tab" data-tab="strata">Stratigraphy</button>
+  <button class="tab" data-tab="map">Geographic Spread</button>
+  <button class="tab" data-tab="artifacts">Artifact Explorer</button>
+  <button class="tab" data-tab="compare">Compare Sites</button>
+  <button class="tab" data-tab="connect">Connections</button>
+</div></nav>
+
+<main>
+
+  <!-- OVERVIEW -->
+  <section class="panel active" id="overview">
+    <div class="section-head">
+      <div class="num">01 — Overview</div>
+      <h2>A river-side outpost at the edge of a civilisation</h2>
+      <p>Locally known as Parshuram ka Tila (Parshuram's Mound), the site is small — roughly 60 by 50 metres, rising just 6 metres above the surrounding sugarcane and wheat fields — yet it rewrote assumptions about how far Harappan culture actually travelled.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Geography &amp; river environment</h3>
+        <p>Alamgirpur sits on the left bank of the Hindon River, a tributary of the Yamuna, within the upper Ganga–Yamuna Doab — a landscape of Quaternary alluvium quite unlike the Indus basin itself. In antiquity the surroundings were open grassland with limited wood cover, so inhabitants supplemented timber with other fuel sources. The Hindon–Yamuna corridor likely served as the physical link connecting this outpost back to the Harappan world to the west.</p>
+      </div>
+      <div class="card">
+        <h3>Discovery</h3>
+        <p>First probed in 1958 by the Regional Camp Committee of the Bharat Sewak Samaj, which recovered pottery and beads. Y.D. Sharma of the Archaeological Survey of India then confirmed the site's Harappan affiliation and defined a four-fold cultural sequence — each period separated by a break in occupation. A 2008 re-excavation by Banaras Hindu University applied AMS radiocarbon dating, archaeobotany, and geoarchaeology to re-test that chronology.</p>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-top:20px;">
+      <div class="card">
+        <h3>Why it matters</h3>
+        <p>Until Alamgirpur's excavation, scholars assumed the Harappan world was confined to the Indus Valley and its immediate surrounds. Finding unmistakably Harappan pottery, terracotta cakes and faience bangles across the Yamuna — hundreds of kilometres from the nearest known site — proved the civilisation's cultural and economic reach extended into the Ganga plains.</p>
+      </div>
+      <div class="card">
+        <h3>A revised timeline</h3>
+        <p>Alamgirpur was originally filed away as purely "Late Harappan," which conveniently supported the old theory that Harappans declined in the west and migrated east. But the 2008 AMS dates push the earliest layer back to roughly 2600–2200 BCE — overlapping the Mature (urban) Harappan phase — complicating that tidy migration story.</p>
+      </div>
+    </div>
+
+    <div class="photo-row">
+      <figure class="photo-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Storage_jar._Mature_Harappan_period._Indus_civilization.jpg?width=400" alt="Mature Harappan-period storage jar">
+        <figcaption><b>Painted ware</b>Mature Harappan storage jar — the same red-slipped, black-painted tradition Alamgirpur's potters worked in.</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Harappan_carnelian_and_terracotta_beads_-_Mohenjo-daro.jpg?width=400" alt="Harappan carnelian and terracotta beads">
+        <figcaption><b>Craft goods</b>Carnelian and terracotta beadwork typical of Harappan sites — the same craft tradition behind Alamgirpur's terracotta cakes and faience.</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Great_Bath_of_Mohenjo-daro.jpg?width=400" alt="Great Bath of Mohenjo-daro">
+        <figcaption><b>The heartland</b>Mohenjo-daro's Great Bath — ~965 km west, the kind of urban core Alamgirpur stood at the very edge of.</figcaption>
+      </figure>
+    </div>
+    <p class="photo-note">Photos show representative Harappan material culture and sites (Mohenjo-daro, museum pieces) — no public photographs of the Alamgirpur excavation finds themselves are available; those are documented in the Stratigraphy and Artifact Explorer tabs. Images via Wikimedia Commons.</p>
+  </section>
+
+  <!-- STRATIGRAPHY -->
+  <section class="panel" id="strata">
+    <div class="section-head">
+      <div class="num">02 — Timeline</div>
+      <h2>Read the trench: four periods, three breaks</h2>
+      <p>Excavators found a genuine stratigraphic sequence — click a layer to open the excavation notes for that period, from the earliest Harappan floor to the medieval surface.</p>
+    </div>
+    <div class="trench">
+      <div class="trench-wall" id="trenchWall"></div>
+      <div class="layer-detail" id="layerDetail"></div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="panel" id="map">
+    <div class="section-head">
+      <div class="num">03 — Geographic Spread</div>
+      <h2>The Harappan world, and its easternmost point</h2>
+      <p>A schematic (not-to-scale) plot of major Harappan sites by relative position. Click a site to see how it compares to Alamgirpur.</p>
+    </div>
+    <div class="map-wrap">
+      <div class="toggle-row">
+        <button class="toggle active" id="toggleLines">Show river / trade corridor</button>
+      </div>
+      <svg viewBox="0 0 900 480" id="mapSvg"></svg>
+      <div class="map-note">Schematic diagram — relative geographic positions, not a georeferenced map.</div>
+    </div>
+    <div class="map-info" id="mapInfo"><b>Click a marker</b> — start with Alamgirpur, on the far right.</div>
+  </section>
+
+  <!-- ARTIFACTS -->
+  <section class="panel" id="artifacts">
+    <div class="section-head">
+      <div class="num">04 — Artifact Explorer</div>
+      <h2>What came out of the ground</h2>
+      <p>Click any card to expand the excavation notes.</p>
+    </div>
+    <div class="artifact-grid" id="artifactGrid"></div>
+  </section>
+
+  <!-- COMPARE -->
+  <section class="panel" id="compare">
+    <div class="section-head">
+      <div class="num">05 — Regional Comparison</div>
+      <h2>Alamgirpur among the major Harappan sites</h2>
+      <p>Set against the civilisation's core cities and ports, Alamgirpur is small, late-reaching, and river-fed rather than urban — but it's the outer boundary marker for the whole culture.</p>
+    </div>
+    <div class="compare-photos">
+      <figure class="photo-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Great_Bath_of_Mohenjo-daro.jpg?width=300" alt="Mohenjo-daro Great Bath">
+        <figcaption><b>Mohenjo-daro</b>The civilisation's core urban capital</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/View_of_Granary_and_Great_Hall_on_Mound_F_-_Archaeological_site_of_Harappa.jpg?width=300" alt="Granary and Great Hall, Harappa">
+        <figcaption><b>Harappa</b>Type-site with its famous granaries</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cicular_houses_Dholavira.jpg?width=300" alt="Circular houses at Dholavira">
+        <figcaption><b>Dholavira</b>Engineered water-conservation city</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ancient_site_at_Lothal115.jpg?width=300" alt="Ancient site at Lothal">
+        <figcaption><b>Lothal</b>Dockyard port, gateway to the sea</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rakhigarhi_Harappan_civilization.jpg?width=300" alt="Rakhigarhi Harappan civilization site">
+        <figcaption><b>Rakhigarhi</b>One of the civilisation's largest sites</figcaption>
+      </figure>
+    </div>
+    <div style="overflow-x:auto;">
+      <table id="compareTable"></table>
+    </div>
+    <p class="photo-note">Photos via Wikimedia Commons — for reference only; scale and appearance vary widely by excavation state.</p>
+  </section>
+
+  <!-- CONNECTIONS -->
+  <section class="panel" id="connect">
+    <div class="section-head">
+      <div class="num">06 — Trade &amp; Cultural Connections</div>
+      <h2>How a small doab site stayed linked to the Harappan network</h2>
+      <p>No dramatic trade-good hoard has been found at Alamgirpur — its links to the wider Harappan world are read through shared material culture rather than imported luxury goods.</p>
+    </div>
+    <div class="conn-list" id="connList"></div>
+  </section>
+
+</main>
+
+<footer>ALAMGIRPUR EXPLORER — built from published excavation reports (Y.D. Sharma 1959/1989; BHU 2008 re-excavation) · schematic diagrams, not survey-grade maps</footer>
+
+<script>
+// ---------- TAB NAV ----------
+const tabs = document.querySelectorAll('.tab');
+const panels = document.querySelectorAll('.panel');
+tabs.forEach(t=>t.addEventListener('click', ()=>{
+  tabs.forEach(x=>x.classList.remove('active'));
+  panels.forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById(t.dataset.tab).classList.add('active');
+}));
+
+// ---------- STRATIGRAPHY ----------
+const layers = [
+  {id:'modern', cls:'l-modern', tag:'SURFACE', yrs:'Modern', title:'Modern surface & agricultural fields',
+   range:'Present day', points:[
+    'The mound is now surrounded by sugarcane and wheat fields; a small ASI signboard marks the site as Parshuram ka Tila.',
+    'The mound itself stands ~6m above the surrounding plain, roughly 60m × 50m in extent.'
+   ]},
+  {id:'medieval', cls:'l-pgw', tag:'MEDIEVAL', yrs:'Historic era', title:'Medieval occupation',
+   range:'Later historic period', points:[
+    'Latest identified cultural period at the site, sitting above the Painted Grey Ware horizon.',
+    'Confirms the mound was reused long after its Harappan and PGW occupations ended.'
+   ]},
+  {id:'pgw', cls:'l-pgw', tag:'PGW', yrs:'Iron Age', title:'Painted Grey Ware (PGW) period',
+   range:'Iron Age, post-Harappan', points:[
+    'PGW sherds were the first material recognized here in 1958, before the Harappan connection was even suspected.',
+    'Recent geoarchaeological study found no stratigraphic gap between the Harappan and PGW levels — occupation was more continuous than the older "four breaks" model suggested.'
+   ]},
+  {id:'late', cls:'l-late', tag:'LATE HARAPPAN', yrs:'~2200–1900 BCE', title:'Late Harappan period',
+   range:'Post-urban Harappan phase', points:[
+    'Long treated as the site\'s primary identity — "the Late Harappan site of Alamgirpur" — fitting the old theory of an eastward migration as the Indus cities declined.',
+    'Painted pottery motifs from this horizon include bands, intersecting circles, plant motifs, and a peacock — classic Harappan decorative vocabulary.',
+    'A crushed pile of thick platters and troughs was recovered from a large pit, some bearing short two-symbol incised marks, likely potters\' marks.'
+   ]},
+  {id:'mature', cls:'l-mature', tag:'MATURE / EARLY HARAPPAN', yrs:'2600–2200 BCE (AMS)', title:'Earliest Harappan occupation',
+   range:'Urban Harappan phase, per 2008 AMS dating', points:[
+    'The earliest layer, about 6 feet thick, produced AMS radiocarbon dates of 2600–2200 BCE (calibrated) — placing initial settlement within the Mature Harappan urban phase, not just its aftermath.',
+    'A trough here preserved cloth impressions — rare direct evidence of textiles.',
+    'Faunal remains show heavy dependence on cattle and buffalo; archaeobotanical samples include barley, wheat, rice, and legumes such as vetch.',
+    'Traces of baked brick appear, though no complete structure survives from this layer.'
+   ]},
+  {id:'natural', cls:'l-natural', tag:'NATURAL', yrs:'Pre-settlement', title:'Sterile alluvium',
+   range:'Pre-occupation', points:[
+    'Quaternary alluvial deposits of the Hindon basin, part of the wider Ganges river system, underlie the settlement.',
+    'This is the base against which every later period at Alamgirpur is measured.'
+   ]},
+];
+const wall = document.getElementById('trenchWall');
+const detail = document.getElementById('layerDetail');
+function renderLayers(activeId){
+  wall.innerHTML='';
+  layers.forEach(l=>{
+    const div = document.createElement('div');
+    div.className = 'layer '+l.cls+(activeId===l.id?' active':'');
+    div.innerHTML = `<span class="tag">${l.tag}</span><span class="yrs">${l.yrs}</span>`;
+    div.addEventListener('click', ()=>{ renderLayers(l.id); renderDetail(l); });
+    wall.appendChild(div);
+  });
+}
+function renderDetail(l){
+  detail.innerHTML = `<h3>${l.title}</h3><span class="period-range">${l.range}</span><ul>${l.points.map(p=>`<li>${p}</li>`).join('')}</ul>`;
+}
+renderLayers('mature');
+renderDetail(layers.find(l=>l.id==='mature'));
+
+// ---------- MAP ----------
+const sites = [
+  {name:'Mohenjo-daro', x:70, y:210, core:true, note:'Core city on the Indus (Sindh, Pakistan). Great Bath, granary, planned street grid — a heartland capital, ~965 km west of Alamgirpur.'},
+  {name:'Harappa', x:210, y:80, core:true, note:'Type-site of the entire civilisation, on the Ravi River (Punjab, Pakistan). Gave the culture its name.'},
+  {name:'Dholavira', x:200, y:340, core:true, note:'Island city in Kutch, Gujarat, famed for sophisticated water-conservation engineering and a stone signboard inscription.'},
+  {name:'Lothal', x:250, y:400, core:true, note:'Coastal/riverine port town in Gujarat with a dockyard and major bead-making industry — the civilisation\'s trade gateway to the sea.'},
+  {name:'Kalibangan', x:340, y:150, core:true, note:'Site in Rajasthan on the dried Ghaggar-Hakra, notable for fire altars and the earliest known ploughed field.'},
+  {name:'Rakhigarhi', x:470, y:170, core:true, note:'One of the largest Harappan sites, in Haryana on the Ghaggar plain — a major population and DNA-study centre.'},
+  {name:'Alamgirpur', x:760, y:190, core:false, hero:true, note:'The easternmost confirmed Harappan settlement — on the Hindon River in the Ganga-Yamuna Doab, ~965 km from Mohenjo-daro. A frontier outpost, not a city.'},
+];
+const svg = document.getElementById('mapSvg');
+function drawMap(showLines){
+  svg.innerHTML = '';
+  const ns = 'http://www.w3.org/2000/svg';
+  // rough river guide lines (Indus west, Ganga-Yamuna east) - decorative
+  const riverPath = document.createElementNS(ns,'path');
+  riverPath.setAttribute('d','M90,60 C120,180 60,300 100,440');
+  riverPath.setAttribute('stroke','#3f6672'); riverPath.setAttribute('stroke-width','3');
+  riverPath.setAttribute('fill','none'); riverPath.setAttribute('opacity','0.5');
+  svg.appendChild(riverPath);
+  const riverPath2 = document.createElementNS(ns,'path');
+  riverPath2.setAttribute('d','M770,40 C790,150 740,300 780,460');
+  riverPath2.setAttribute('stroke','#3f6672'); riverPath2.setAttribute('stroke-width','3');
+  riverPath2.setAttribute('fill','none'); riverPath2.setAttribute('opacity','0.5');
+  svg.appendChild(riverPath2);
+
+  if(showLines){
+    const corridor = sites.filter(s=>s.core).sort((a,b)=>a.x-b.x);
+    let d = 'M'+corridor[0].x+','+corridor[0].y;
+    corridor.forEach(s=>{ d += ' L'+s.x+','+s.y; });
+    d += ' L' + sites.find(s=>s.hero).x + ',' + sites.find(s=>s.hero).y;
+    const path = document.createElementNS(ns,'path');
+    path.setAttribute('d', d);
+    path.setAttribute('stroke','#c1663a'); path.setAttribute('stroke-width','1.5');
+    path.setAttribute('stroke-dasharray','5,5'); path.setAttribute('fill','none'); path.setAttribute('opacity','0.7');
+    svg.appendChild(path);
+  }
+
+  sites.forEach(s=>{
+    const g = document.createElementNS(ns,'g');
+    g.setAttribute('class','site-dot'+(s.hero?' active':''));
+    g.setAttribute('data-name', s.name);
+    const c = document.createElementNS(ns,'circle');
+    c.setAttribute('cx', s.x); c.setAttribute('cy', s.y);
+    c.setAttribute('r', s.hero?9:6);
+    c.setAttribute('fill', s.hero?'#d97a4d':'#e3d5b5');
+    c.setAttribute('stroke', s.hero?'#f2e8d5':'#3f6672');
+    c.setAttribute('stroke-width', s.hero?2:1.5);
+    g.appendChild(c);
+    const t = document.createElementNS(ns,'text');
+    t.setAttribute('x', s.x + (s.x>800?-70:12));
+    t.setAttribute('y', s.y - 12);
+    t.setAttribute('class','site-label'+(s.hero?' hero-label':''));
+    t.textContent = s.name;
+    g.appendChild(t);
+    g.addEventListener('click', ()=>{
+      document.getElementById('mapInfo').innerHTML = `<b>${s.name}</b> — ${s.note}`;
+    });
+    svg.appendChild(g);
+  });
+}
+drawMap(true);
+document.getElementById('toggleLines').addEventListener('click', function(){
+  this.classList.toggle('active');
+  drawMap(this.classList.contains('active'));
+});
+document.getElementById('mapInfo').innerHTML = `<b>Alamgirpur</b> — the easternmost confirmed Harappan settlement, on the Hindon River in the Ganga-Yamuna Doab, ~965 km from Mohenjo-daro. A frontier outpost, not a city.`;
+
+// ---------- ARTIFACTS ----------
+const artifacts = [
+  {icon:'⌂', cat:'Pottery', name:'Painted Harappan ware', desc:'Sherds decorated with bands, intersecting circles, plant motifs and a peacock — standard Harappan decorative vocabulary, confirming cultural continuity with the west despite the distance.'},
+  {icon:'※', cat:'Pottery', name:'Potter\'s-mark troughs', desc:'A crushed pile of thick platters and troughs recovered from a large pit; some carry short two-symbol incised marks, interpreted as potters\' marks rather than full script.'},
+  {icon:'▦', cat:'Crafts', name:'Cloth-impressed trough', desc:'A trough preserving impressions of woven cloth — rare direct physical evidence for textile production and use at the site.'},
+  {icon:'○', cat:'Crafts', name:'Terracotta cakes', desc:'Small fired-clay cakes, a hallmark Harappan artefact type found across the civilisation, here helping confirm Alamgirpur\'s cultural affiliation.'},
+  {icon:'◐', cat:'Crafts', name:'Faience bangles', desc:'Fragments of glazed faience bangles, a distinctive Harappan craft technology, recovered alongside the Painted Grey Ware in early test excavations.'},
+  {icon:'⌘', cat:'Structures', name:'Rammed floor & postholes', desc:'A circular structural complex with a rammed floor, a small pit, three postholes and a larger pit — suggesting a thatched roof on wooden posts rather than a masonry building.'},
+  {icon:'▤', cat:'Structures', name:'Baked brick traces', desc:'Fragmentary traces of baked brick appear in the layers, though no complete standing structure has been recovered from this level.'},
+  {icon:'✦', cat:'Agriculture', name:'Barley, wheat, rice & legumes', desc:'Archaeobotanical sampling recovered barley, wheat, rice, and legumes including vetch — evidence of a mixed agricultural economy adapted to the doab environment.'},
+  {icon:'⁂', cat:'Fauna', name:'Cattle & buffalo bone', desc:'Faunal remains show heavy reliance on cattle and buffalo, with data allowing comparison of animal size and diversity between the Harappan and later PGW phases.'},
+];
+const grid = document.getElementById('artifactGrid');
+artifacts.forEach(a=>{
+  const el = document.createElement('div');
+  el.className = 'artifact';
+  el.innerHTML = `<div class="icon">${a.icon}</div><h4>${a.name}</h4><div class="cat">${a.cat}</div><p>${a.desc}</p>`;
+  el.addEventListener('click', ()=> el.classList.toggle('open'));
+  grid.appendChild(el);
+});
+
+// ---------- COMPARE ----------
+const compareData = [
+  {name:'Alamgirpur', region:'Meerut Dist., Uttar Pradesh', river:'Hindon (→ Yamuna)', dates:'~2600–2200 BCE onward', role:'Easternmost outpost', scale:'Small mound (~60×50m)', hero:true},
+  {name:'Mohenjo-daro', region:'Sindh, Pakistan', river:'Indus', dates:'~2500–1900 BCE', role:'Major urban centre', scale:'Large city, Great Bath & citadel'},
+  {name:'Harappa', region:'Punjab, Pakistan', river:'Ravi', dates:'~2600–1900 BCE', role:'Type-site of the civilisation', scale:'Large city, granaries'},
+  {name:'Dholavira', region:'Kutch, Gujarat', river:'Seasonal (Kutch marshes)', dates:'~2650–1450 BCE', role:'Engineered water-management city', scale:'Large fortified city'},
+  {name:'Lothal', region:'Gujarat', river:'Bhogavo / Gulf of Khambhat', dates:'~2400–1900 BCE', role:'Port town & bead-making centre', scale:'Medium town with dockyard'},
+  {name:'Kalibangan', region:'Rajasthan', river:'Ghaggar-Hakra (dried)', dates:'~2600–1900 BCE', role:'Ritual/agricultural centre', scale:'Medium town, fire altars'},
+  {name:'Rakhigarhi', region:'Haryana', river:'Ghaggar-Hakra (dried)', dates:'~2600–1900 BCE', role:'One of the largest Harappan sites', scale:'Very large settlement'},
+];
+const table = document.getElementById('compareTable');
+table.innerHTML = `<thead><tr><th>Site</th><th>Region</th><th>River</th><th>Approx. dates</th><th>Role</th><th>Scale</th></tr></thead>
+<tbody>${compareData.map(s=>`<tr class="${s.hero?'highlight':''}"><td class="site-name-cell">${s.name}</td><td>${s.region}</td><td>${s.river}</td><td>${s.dates}</td><td>${s.role}</td><td>${s.scale}</td></tr>`).join('')}</tbody>`;
+
+// ---------- CONNECTIONS ----------
+const connections = [
+  {dist:'~965 km', title:'Mohenjo-daro & the Indus heartland', text:'No direct trade-object link has been proven, but shared pottery decoration, terracotta cakes and faience bangles show Alamgirpur\'s makers shared the same craft traditions as the Indus core.'},
+  {dist:'Regional', title:'Ghaggar-Hakra sites (Kalibangan, Rakhigarhi)', text:'These sites sit along the likely overland/riverine route between the Indus plains and the Yamuna — plausible waypoints for how Harappan material culture reached the doab.'},
+  {dist:'Local', title:'The Hindon–Yamuna–Ganga river system', text:'Rather than a desert or overland caravan route, Alamgirpur\'s link to the wider world likely ran along this river corridor, explaining why a settlement this far east still used recognisably Harappan pottery and craft goods.'},
+  {dist:'Chronological', title:'Continuity into the Painted Grey Ware era', text:'Recent geoarchaeological work found no stratigraphic break between the Harappan and PGW occupation layers — suggesting cultural continuity on this mound long after the classic Harappan cities were abandoned.'},
+];
+document.getElementById('connList').innerHTML = connections.map(c=>`<div class="conn-item"><div class="dist mono">${c.dist}</div><div><h4 style="font-size:15.5px;">${c.title}</h4><p>${c.text}</p></div></div>`).join('');
+</script>
+</body>
+</html>

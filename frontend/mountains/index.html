@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
-            if (theme === 'light') {
-                document.body.classList.add('light-theme');
-            }
-        })();
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explore India's majestic mountains — from Himalayan giants to the Western Ghats. Discover peaks by range, height, difficulty, and region.">
     <title>Mountains of India | Incredible India Explorer</title>
     <link rel="icon" href="data:,">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
     <meta property="og:title" content="Mountains of India | Incredible India Explorer">
@@ -27,51 +20,93 @@
 </head>
 
 <body>
-    <header class="navbar scrolled" id="navbar">
-        <div class="nav-container">
-            <a class="nav-logo" href="../../index.html#home" id="nav-logo">
-                <span class="saffron">Incredible</span>
-                <span class="gold">India</span>
-                <span class="green">Explorer</span>
-            </a>
-            <button aria-expanded="false" aria-label="Toggle Menu" class="menu-toggle" id="menu-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <nav class="nav-menu" id="nav-menu">
-                <a class="nav-link" href="../../index.html#home" id="link-home">Home</a>
-                <a class="nav-link" href="../../index.html#map" id="link-map">Interactive Map</a>
-                <a class="nav-link" href="../cuisine/cuisine.html" id="link-cuisine">Cuisine</a>
-                <a class="nav-link" href="../festivals/festivals.html" id="link-festivals">Festivals</a>
-                <a class="nav-link" href="../culture/culture.html" id="link-culture">Culture</a>
-                <div class="nav-dropdown">
-                    <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../travel/travel.html">Travel &amp; Destinations</a>
-                        <a class="dropdown-item" href="../hill-stations/hill-stations.html">Hill Stations</a>
-                        <a class="dropdown-item" href="index.html" style="color: var(--saffron)">Mountains</a>
-                        <a class="dropdown-item" href="../wildlife/wildlife.html">Nature &amp; Wildlife</a>
-                        <a class="dropdown-item" href="../personalities/personalities.html">Famous Personalities</a>
-                        <a class="dropdown-item" href="../spiritual/spiritual.html">Spiritual India</a>
-                        <a class="dropdown-item" href="../arts-crafts/arts-crafts.html">Arts &amp; Crafts</a>
-                        <a class="dropdown-item" href="../glaciers-explorer/index.html">Himalayan Glaciers</a>
-                    </div>
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
                 </div>
-                <div class="nav-dropdown">
-                    <button class="nav-link dropdown-toggle" id="link-learn-data">Learn &amp; Data ▾</button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../smart-cities/smart-cities.html">Smart Cities</a>
-                        <a class="dropdown-item" href="../languages/languages.html">Languages of India</a>
-                        <a class="dropdown-item" href="../data-india/data-india.html">Data &amp; Statistics</a>
-                        <a class="dropdown-item" href="../learn/learn.html">Learn &amp; Quiz</a>
-                    </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
                 </div>
-                <button aria-label="Toggle Dark/Light Mode" class="btn-theme-toggle" id="theme-toggle" title="Toggle Light Mode">☀️</button>
-                <a class="nav-link" href="../../login.html" id="link-login">Login</a>
-            </nav>
-        </div>
-    </header>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
 
     <main id="app-root" style="padding-top: 80px;">
 
@@ -148,52 +183,52 @@
         </section>
     
         <article class="mountain-card abi-gamin-card">
-          <img src="assets/travel_mountains.png" alt="Abi Gamin mountain in the Garhwal Himalayas">
+          <img src="../assets/travel_mountains.png" alt="Abi Gamin mountain in the Garhwal Himalayas">
           <div class="mountain-card-content">
             <span class="mountain-badge">Uttarakhand · 7,355 m</span>
             <h3>Abi Gamin</h3>
             <p>Explore Abi Gamin's Garhwal Himalaya geography, climbing history, facts, gallery, and expedition details.</p>
-            <a href="frontend/abi-gamin/index.html" class="btn-primary">Explore Abi Gamin</a>
+            <a href="frontend/abi-gamin/../../../../index.html" class="btn-primary">Explore Abi Gamin</a>
           </div>
         </article>
 
         <article class="mountain-card mana-peak-card">
-          <img src="assets/travel_mountains.png" alt="Mana Peak mountain in the Garhwal Himalayas">
+          <img src="../assets/travel_mountains.png" alt="Mana Peak mountain in the Garhwal Himalayas" loading="lazy">
           <div class="mountain-card-content">
             <span class="mountain-badge">Uttarakhand · 7,272 m</span>
             <h3>Mana Peak</h3>
             <p>Explore Mana Peak's Garhwal Himalaya geography, quick facts, gallery, and trekking guide.</p>
-            <a href="frontend/mana-peak/index.html" class="btn-primary">Explore Mana Peak</a>
+            <a href="frontend/mana-peak/../../../../index.html" class="btn-primary">Explore Mana Peak</a>
           </div>
         </article>
 
         <article class="mountain-card kalanka-card">
-          <img src="assets/travel_mountains.png" alt="Kalanka mountain in the Garhwal Himalayas">
+          <img src="../assets/travel_mountains.png" alt="Kalanka mountain in the Garhwal Himalayas" loading="lazy">
           <div class="mountain-card-content">
             <span class="mountain-badge">Uttarakhand · 6,931 m</span>
             <h3>Kalanka</h3>
             <p>Explore Kalanka's Garhwal Himalaya geography, quick facts, gallery, and mountaineering context.</p>
-            <a href="frontend/kalanka/index.html" class="btn-primary">Explore Kalanka</a>
+            <a href="frontend/kalanka/../../../../index.html" class="btn-primary">Explore Kalanka</a>
           </div>
         </article>
 
         <article class="mountain-card deo-tibba-card">
-          <img src="assets/travel_mountains.png" alt="Deo Tibba mountain in Himachal Pradesh">
+          <img src="../assets/travel_mountains.png" alt="Deo Tibba mountain in Himachal Pradesh" loading="lazy">
           <div class="mountain-card-content">
             <span class="mountain-badge">Himachal Pradesh · 6,001 m</span>
             <h3>Deo Tibba</h3>
             <p>Explore Deo Tibba's Pir Panjal geography, natural beauty, quick facts, trekking information, and gallery.</p>
-            <a href="frontend/deo-tibba/index.html" class="btn-primary">Explore Deo Tibba</a>
+            <a href="frontend/deo-tibba/../../../../index.html" class="btn-primary">Explore Deo Tibba</a>
           </div>
         </article>
 
         <article class="mountain-card friendship-peak-card">
-          <img src="assets/travel_mountains.png" alt="Friendship Peak mountain in Himachal Pradesh">
+          <img src="../assets/travel_mountains.png" alt="Friendship Peak mountain in Himachal Pradesh" loading="lazy">
           <div class="mountain-card-content">
             <span class="mountain-badge">Himachal Pradesh · 5,289 m</span>
             <h3>Friendship Peak</h3>
             <p>Explore Friendship Peak's Pir Panjal geography, quick facts, trekking guide, natural beauty, and gallery.</p>
-            <a href="frontend/friendship-peak/index.html" class="btn-primary">Explore Friendship Peak</a>
+            <a href="frontend/friendship-peak/../../../../index.html" class="btn-primary">Explore Friendship Peak</a>
           </div>
         </article>
 </main>
@@ -212,7 +247,7 @@
                     <li><a href="../cuisine/cuisine.html">Cuisine</a></li>
                     <li><a href="../festivals/festivals.html">Festivals</a></li>
                     <li><a href="../culture/culture.html">Culture</a></li>
-                    <li><a href="index.html" style="color: var(--saffron)">Mountains</a></li>
+                    <li><a href="../../index.html" style="color: var(--saffron)">Mountains</a></li>
                     <li><a href="../travel/travel.html">Travel</a></li>
                 </ul>
             </div>
@@ -220,6 +255,7 @@
                 <h4>Explore Peaks</h4>
                 <ul>
                     <li><a href="../kanchenjunga/kanchenjunga.html">Kangchenjunga</a></li>
+                    <li><a href="../kinnaur-kailash/kinnaur-kailash.html">Kinnaur Kailash</a></li>
                     <li><a href="../satopanth/satopanth.html">Satopanth</a></li>
                     <li><a href="../shivling/shivling.html">Shivling</a></li>
                     <li><a href="../bandarpoonch/bandarpoonch.html">Bandarpoonch</a></li>
@@ -235,7 +271,8 @@
 
     <button aria-label="Scroll to Top" class="btn-scroll-top" id="btn-scroll-top">↑</button>
 
-    <script src="../../app.js" defer></script>
+    <script src="../js-modules/storage.js" defer></script>
+    <script src="../app.js" defer></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const menuToggle = document.getElementById("menu-toggle");
@@ -248,6 +285,6 @@
         });
     </script>
     <script src="script.js" defer></script>
-    <script src="../../router.js" defer></script>
+    <script src="../router.js" defer></script>
 </body>
 </html>

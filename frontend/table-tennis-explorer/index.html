@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Indian Table Tennis - Interactive archive of National Table Tennis Championship history, Singles, Doubles, Mixed Doubles, 10x Champion Sharath Kamal, Manika Batra, Indu Puri, and historic Olympic breakthroughs.">
+  <title>Explore Indian Table Tennis | Incredible India Explorer</title>
+
+  <!-- Favicon & Stylesheets -->
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="tt-explorer-page">
+  <script>
+    (function() {
+      let theme = 'dark';
+      try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+      if (theme === 'light') { document.body.classList.add('light-theme'); }
+    })();
+  </script>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../sports/sports.html" class="nav-link active">Sports</a>
+        <a href="#championships" class="nav-link">Championships</a>
+        <a href="#champions" class="nav-link">Major Champions</a>
+        <a href="#tactics" class="nav-link">Tactics & Rallies</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="tt-hero" id="hero">
+    <div class="tt-hero-grid-bg"></div>
+    <div class="hero-badge">🏓 National Sports Archive</div>
+    <h1>Explore Indian Table Tennis</h1>
+    <p class="hero-subtitle">
+      From the inaugural 1937 Calcutta Championship and the historic 1952 Bombay World Championship to Kamlesh Mehta's 8 titles, Achanta Sharath Kamal's record <strong>10 Senior National Titles</strong>, Manika Batra's CWG Gold, and the Paris 2024 Olympic team quarterfinals — discover India's table tennis legacy.
+    </p>
+
+    <!-- Key Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">10</div>
+        <div class="stat-label">National Titles (Sharath Kamal)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">8</div>
+        <div class="stat-label">National Titles (Indu Puri & Kamlesh Mehta)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1937</div>
+        <div class="stat-label">TTFI Founding & 1st National</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2024</div>
+        <div class="stat-label">Paris Olympic Team Quarterfinalists</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sub-Navigation Sticky Bar -->
+  <nav class="subnav-bar">
+    <div class="subnav-container">
+      <button class="subnav-btn active" data-target="evolution">Evolution</button>
+      <button class="subnav-btn" data-target="championships">National Championships</button>
+      <button class="subnav-btn" data-target="champions">Major Champions</button>
+      <button class="subnav-btn" data-target="womens-tt">Women's Heritage</button>
+      <button class="subnav-btn" data-target="tactics">Tactics & Spin</button>
+      <button class="subnav-btn" data-target="quiz">Table Tennis Quiz</button>
+    </div>
+  </nav>
+
+  <!-- Main Content Body -->
+  <main>
+    <!-- Section 1: Evolution of Indian Table Tennis -->
+    <section class="tt-section" id="evolution">
+      <div class="section-header">
+        <span class="section-tag">Timeline & Evolution</span>
+        <h2>The Story of Indian Table Tennis</h2>
+        <p>Trace the historic evolution of table tennis in India across 8 decades of competitive excellence.</p>
+      </div>
+
+      <div class="timeline-container" id="timeline-wrapper">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </section>
+
+    <!-- Section 2: National Championship Archive -->
+    <section class="tt-section" id="championships">
+      <div class="section-header">
+        <span class="section-tag">Archive & Records</span>
+        <h2>Senior National Championship Archive</h2>
+        <p>Complete historical records of Men's Singles, Women's Singles, Doubles, and Mixed Doubles championships since 1937.</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="tab-btn active" id="tab-mens-singles">Men's Singles (1937 - Present)</button>
+        <button class="tab-btn" id="tab-womens-singles">Women's Singles (1937 - Present)</button>
+        <button class="tab-btn" id="tab-doubles">Doubles & Mixed Doubles</button>
+      </div>
+
+      <!-- Search & Filters -->
+      <div class="search-filter-box">
+        <input type="text" id="tt-search" class="search-input" placeholder="Search champion, venue, state, or notes...">
+        <select id="tt-state-filter" class="select-filter">
+          <option value="all">All Champion States</option>
+          <option value="Tamil Nadu">Tamil Nadu</option>
+          <option value="Maharashtra">Maharashtra / Bombay</option>
+          <option value="West Bengal">West Bengal / Bengal</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Gujarat">Gujarat</option>
+          <option value="Telangana">Telangana / AP</option>
+          <option value="Karnataka">Karnataka / Mysore</option>
+        </select>
+      </div>
+
+      <!-- Table -->
+      <div class="table-responsive">
+        <table class="data-table" id="tt-table">
+          <thead>
+            <tr id="tt-table-head">
+              <th>Year</th>
+              <th>Host Venue</th>
+              <th>Champion</th>
+              <th>Runner-Up</th>
+              <th>State</th>
+              <th>Notes & Milestones</th>
+            </tr>
+          </thead>
+          <tbody id="tt-tbody">
+            <!-- Dynamic rows -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 3: Major Champions & Hall of Fame -->
+    <section class="tt-section" id="champions">
+      <div class="section-header">
+        <span class="section-tag">Hall of Legends</span>
+        <h2>Major Champions & Icons</h2>
+        <p>Discover the legendary players who elevated Indian table tennis onto the world stage.</p>
+      </div>
+
+      <div class="champions-grid" id="champions-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Section 4: Women's Championship & Heritage -->
+    <section class="tt-section" id="womens-tt">
+      <div class="section-header">
+        <span class="section-tag">Women's Legacy</span>
+        <h2>Women's Table Tennis Heritage</h2>
+        <p>Celebrating the women who shattered records and conquered global arenas.</p>
+      </div>
+
+      <div class="champions-grid" id="womens-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Section 5: Interactive Tactics & Spin Showcase -->
+    <section class="tt-section" id="tactics">
+      <div class="section-header">
+        <span class="section-tag">Mechanics & Strategy</span>
+        <h2>Interactive Tactics & Spin Showcase</h2>
+        <p>Learn how grip styles, rubber pimple variations, and 9,000 RPM topspin rotation shape elite table tennis.</p>
+      </div>
+
+      <div class="tactics-grid" id="tactics-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Section 6: Table Tennis Quiz -->
+    <section class="tt-section" id="quiz">
+      <div class="section-header" style="text-align: center;">
+        <span class="section-tag">Interactive Challenge</span>
+        <h2>Test Your Table Tennis Knowledge</h2>
+        <p>Answer 5 questions to test your knowledge of Indian table tennis history.</p>
+      </div>
+
+      <div class="quiz-card" id="quiz-box">
+        <div id="quiz-content">
+          <!-- Dynamically loaded quiz question -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Champion Detail Modal Overlay -->
+  <div class="modal-overlay" id="champion-modal">
+    <div class="modal-content">
+      <button class="close-modal-btn" id="modal-close-btn">&times;</button>
+      <div id="modal-body-content">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align:center; padding:40px 20px; background:#070a10; border-top:1px solid rgba(255,255,255,0.08); font-size:0.9rem; color:var(--text-muted);">
+    <p>© 2026 Incredible India Explorer. Celebrating Indian Table Tennis Heritage.</p>
+  </footer>
+
+  <!-- Script Imports -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>

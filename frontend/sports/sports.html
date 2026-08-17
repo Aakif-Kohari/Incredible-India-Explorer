@@ -2,14 +2,6 @@
 <html lang="en">
 
 <head>
-    <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
-            if (theme === 'light') {
-                document.body.classList.add('light-theme');
-            }
-        })();
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
@@ -17,13 +9,11 @@
     <title>Indian Sports Explorer | Incredible India</title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-        rel="stylesheet">
-
-    <!-- Custom Stylesheet -->
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Custom Stylesheet -->
 
     <link rel="stylesheet" href="../../styles.css">
 
@@ -47,54 +37,95 @@
 </head>
 
 <body class="sports-page-body">
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
 
     <!-- Sticky Navigation Bar -->
-    <header class="navbar scrolled" id="navbar">
-        <div class="nav-container">
-            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
-                <span class="saffron">Incredible</span>
-                <span class="gold">India</span>
-                <span class="green">Explorer</span>
-            </a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <nav class="nav-menu" id="nav-menu">
-                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
-                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
-                <a href="../cuisine/cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
-                <a href="../festivals/festivals.html" class="nav-link" id="link-festivals">Festivals</a>
-                <a href="../culture/culture.html" class="nav-link" id="link-culture">Culture</a>
-                <div class="nav-dropdown">
-                    <button class="nav-link dropdown-toggle" id="link-explore-more">Explore More &darr;</button>
-                    <div class="dropdown-menu">
-                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
-                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
-                        <a href="../personalities/personalities.html" class="dropdown-item">Famous Personalities</a>
-                        <a href="../spiritual/spiritual.html" class="dropdown-item">Spiritual India</a>
-                        <a href="../arts-crafts/arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
-                        <a href="../tribes/tribes.html" class="dropdown-item">Tribes</a>
-                        <a href="sports.html" class="dropdown-item">Sports</a>
-                    </div>
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
                 </div>
-                <div class="nav-dropdown">
-                    <button class="nav-link dropdown-toggle" id="link-learn-data">Learn & Data &darr;</button>
-                    <div class="dropdown-menu">
-                        <a href="../smart-cities/smart-cities.html" class="dropdown-item">Smart Cities</a>
-                        <a href="../languages/languages.html" class="dropdown-item">Languages of India</a>
-                        <a href="../data-india/data-india.html" class="dropdown-item">Data & Statistics</a>
-                        <a href="../learn/learn.html" class="dropdown-item">Learn & Quiz</a>
-                    </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
                 </div>
-                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode"
-                    title="Toggle Light Mode">&#9728;&#65039;</button>
-                <a href="../premium/premium.html" class="nav-link premium-link">★ Premium</a>
-                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
-            </nav>
-        </div>
-    </header>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
 
     <main id="app-root" class="page-padding">
         <!-- Hero Section -->
@@ -162,6 +193,93 @@
                 </div>
             </div>
         </section>
+        <!-- Explore Tournaments Section -->
+        <section class="sports-tournaments-section fade-in-section" style="margin-top: 4rem;">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">Championships</span>
+                    <h2>Explore Tournaments Deeply</h2>
+                    <p class="section-subtitle">Dive into the history, teams, and champions of India's major sporting tournaments.</p>
+                </div>
+                <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                    <!-- Kabaddi -->
+                    <div style="background: var(--card-bg, #fff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); max-width: 350px;">
+                        <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 0.5rem;">National Kabaddi Championship</h3>
+                        <p style="color: var(--text-muted, #666); margin-bottom: 2rem;">Explore the history, champions, teams, players and state participation in India's National Kabaddi Championship.</p>
+                        <a href="../national-kabaddi-championship/index.html" style="display: inline-block; background: #d97706; color: white; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: bold; transition: background 0.2s;">Explore Championship</a>
+                    </div>
+                    
+                    <!-- Volleyball -->
+                    <div style="background: var(--card-bg, #fff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); max-width: 350px;">
+                        <h3 style="color: #4f46e5; font-size: 1.8rem; margin-bottom: 0.5rem;">National Volleyball Championship</h3>
+                        <p style="color: var(--text-muted, #666); margin-bottom: 2rem;">Explore the history, champions, players, venues, and state participation in India's National Volleyball Championship.</p>
+                        <a href="../national-volleyball-championship/index.html" style="display: inline-block; background: #4f46e5; color: white; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: bold; transition: background 0.2s;">Explore Championship</a>
+                    </div>
+
+                    <!-- Basketball -->
+                    <div style="background: var(--card-bg, #fff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); max-width: 350px;">
+                        <h3 style="color: #ea580c; font-size: 1.8rem; margin-bottom: 0.5rem;">National Basketball Championship</h3>
+                        <p style="color: var(--text-muted, #666); margin-bottom: 2rem;">Explore the history, champions, players, venues, and achievements of India's National Basketball Championship.</p>
+                        <a href="../national-basketball-championship/index.html" style="display: inline-block; background: #ea580c; color: white; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: bold; transition: background 0.2s;">Explore Championship</a>
+                    </div>
+
+                    <!-- Historic Sports Venues -->
+                    <div style="background: var(--card-bg, #fff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); max-width: 350px;">
+                        <h3 style="color: #38bdf8; font-size: 1.8rem; margin-bottom: 0.5rem;">Historic Sports Venues of India</h3>
+                        <p style="color: var(--text-muted, #666); margin-bottom: 2rem;">Interactive map & guide to Eden Gardens, Wankhede, National Stadium, Salt Lake, Motera, Chepauk, Kalinga & more.</p>
+                        <a href="../historic-sports-venues/index.html" style="display: inline-block; background: #38bdf8; color: black; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: bold; transition: background 0.2s;">Explore Venues Map</a>
+                    <!-- Evolution of Sporting Trophies -->
+                    <div style="background: var(--card-bg, #fff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); max-width: 350px;">
+                        <h3 style="color: #ff9933; font-size: 1.8rem; margin-bottom: 0.5rem;">Evolution of Indian Sporting Trophies</h3>
+                        <p style="color: var(--text-muted, #666); margin-bottom: 2rem;">Interactive timeline of how Indian trophies evolved from British silver urns to Mahabharata bronze statuettes and 24K gold trophies.</p>
+                        <a href="../sporting-trophies-evolution/index.html" style="display: inline-block; background: #ff9933; color: black; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: bold; transition: background 0.2s;">Explore Timeline</a>
+                    <!-- Historical Trophies -->
+                    <div style="background: var(--card-bg, #fff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); max-width: 350px;">
+                        <h3 style="color: #ffb01f; font-size: 1.8rem; margin-bottom: 0.5rem;">Trophies Named After Historical Figures</h3>
+                        <p style="color: var(--text-muted, #666); margin-bottom: 2rem;">Explore the history, namesakes, and significance of Ranji Trophy, Durand Cup, Khel Ratna, Santosh Trophy, Nehru Boat Race & more.</p>
+                        <a href="../historical-trophies-archive/index.html" style="display: inline-block; background: #ffb01f; color: black; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: bold; transition: background 0.2s;">Explore Trophies</a>
+                    </div>
+
+                    <!-- Trophy Design & Symbols -->
+                    <div style="background: var(--card-bg, #fff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); max-width: 350px;">
+                        <h3 style="color: #9333ea; font-size: 1.8rem; margin-bottom: 0.5rem;">Indian Sports Trophy Design</h3>
+                        <p style="color: var(--text-muted, #666); margin-bottom: 2rem;">Decode the symbols and meaning behind Indian trophies — shapes, materials, national symbols, sport elements, inscriptions & a clickable trophy diagram.</p>
+                        <a href="../indian-sports-trophy-design-explorer/index.html" style="display: inline-block; background: #9333ea; color: white; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: bold; transition: background 0.2s;">Explore Trophy Design</a>
+                    </div>
+
+                    <!-- Table Tennis -->
+                    <div style="background: var(--card-bg, #fff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); max-width: 350px;">
+                        <h3 style="color: #0284c7; font-size: 1.8rem; margin-bottom: 0.5rem;">Indian Table Tennis Explorer</h3>
+                        <p style="color: var(--text-muted, #666); margin-bottom: 2rem;">Explore Senior National Championships, 10x Champion Sharath Kamal, Manika Batra, doubles records & historic milestones.</p>
+                        <a href="../table-tennis-explorer/index.html" style="display: inline-block; background: #0284c7; color: white; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: bold; transition: background 0.2s;">Explore Table Tennis</a>
+                    <!-- Chess Heritage -->
+                    <div style="background: var(--card-bg, #fff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); max-width: 350px;">
+                        <h3 style="color: #ff9933; font-size: 1.8rem; margin-bottom: 0.5rem;">Indian Chess Heritage & Championships</h3>
+                        <p style="color: var(--text-muted, #666); margin-bottom: 2rem;">Explore national chess championships, 85+ Grandmasters directory, women's milestones, and interactive historic game replays.</p>
+                        <a href="../chess-heritage-explorer/index.html" style="display: inline-block; background: #ff9933; color: black; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: bold; transition: background 0.2s;">Explore Chess Heritage</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Games Section -->
+        <section class="sports-games-section fade-in-section" style="margin-top: 4rem;">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">Games</span>
+                    <h2>Test Your Knowledge</h2>
+                    <p class="section-subtitle">Play interactive games and quizzes based on Indian sports history and culture.</p>
+                </div>
+                <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                    <!-- Sports Trophy Quiz -->
+                    <div style="background: var(--card-bg, #fff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); max-width: 350px;">
+                        <h3 style="color: #db2777; font-size: 1.8rem; margin-bottom: 0.5rem;">Guess the Indian Sports Trophy</h3>
+                        <p style="color: var(--text-muted, #666); margin-bottom: 2rem;">Test your sports knowledge by identifying famous Indian sporting trophies from images and silhouettes.</p>
+                        <a href="../sports-trophy-quiz/index.html" style="display: inline-block; background: #db2777; color: white; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: bold; transition: background 0.2s;">Play Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Athlete Details Modal -->
@@ -226,11 +344,12 @@
     <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
 
     <!-- JavaScript Files -->
-    <script src="../../data.js" defer></script>
-    <script src="../../app.js" defer></script>
-    <script type="module" src="../../firebase-config.js"></script>
-    <script type="module" src="../../auth.js"></script>
-    <script src="../../router.js" defer></script>
+    <script src="../data.js" defer></script>
+    <script src="../js-modules/storage.js" defer></script>
+    <script src="../app.js" defer></script>
+    <script type="module" src="../firebase-config.js"></script>
+    <script type="module" src="../auth.js"></script>
+    <script src="../router.js" defer></script>
 </body>
 
 </html>
