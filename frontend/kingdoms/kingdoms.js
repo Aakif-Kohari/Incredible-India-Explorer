@@ -73,6 +73,9 @@ const KINGDOMS = [
     architecture: ["Gandhara Buddha sculptures", "Kanishka's stupa at Peshawar", "Mathura school sculptures"],
     tags: ["Silk Road", "Buddhism", "Cosmopolitan"] },
 
+
+    
+
   { id: "gupta", name: "Gupta Empire", era: "classical", region: "North",
     period: "c. 320 – 550 CE", tagline: "India's Classical Age — the 'Golden Age' of art, science and literature.",
     image: "https://images.unsplash.com/photo-1609151941355-12a5309d6b61?w=900&q=70",
