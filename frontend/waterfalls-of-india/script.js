@@ -342,6 +342,21 @@
             image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=40&w=400",
             url: "../pykara-falls-explorer/index.html"
+        },
+        {
+            id: "meenmutty",
+            name: "Meenmutty Falls",
+            state: "Kerala",
+            river: "Banasura hill streams (Wayanad)",
+            height: "300 meters",
+            season: "Post-Monsoon",
+            tags: ["year-round"],
+            description: "The largest waterfall in Wayanad, a three-tiered ~300m cascade near Banasura Sagar Dam.",
+            flow: "Dangerous and often closed in monsoon; calm and swimmable Oct-May.",
+            attractions: "Banasura Sagar Dam, Soochipara Falls, Neelimala Viewpoint.",
+            image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=40&w=400",
+            url: "../meenmutty-falls-explorer/index.html"
         }
     ];
 
