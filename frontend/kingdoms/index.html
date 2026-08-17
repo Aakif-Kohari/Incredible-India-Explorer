@@ -3,176 +3,243 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore India's major ancient kingdoms and empires through an animated timeline and interactive cards.">
+  <meta name="description" content="Explore India's greatest kingdoms — from the Mauryas and Guptas to the Cholas, Vijayanagara, Mughals and Marathas — through an interactive timeline, maps and dynasty profiles.">
   <title>Ancient Kingdoms Explorer | Incredible India</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@500;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="../../styles.css">
-  <link rel="stylesheet" href="../traditional-games/style.css">
+  <link rel="stylesheet" href="kingdoms.css">
 </head>
-<body>
-    <script>
-        (function() {
-            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
-            if (theme === 'light') {
-                document.body.classList.add('light-theme');
-            }
-        })();
-    </script>
+<body class="kingdoms-body">
+  <script>
+    (function() {
+      let theme = 'dark';
+      try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+      if (theme === 'light') document.body.classList.add('light-theme');
+    })();
+  </script>
+
   <header class="navbar" id="navbar">
     <div class="nav-container">
-        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
-            <span class="saffron">Incredible</span>
-            <span class="gold">India</span>
-            <span class="green">Explorer</span>
-        </a>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-        <nav class="nav-menu" id="nav-menu">
-            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
-
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
-                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
-                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
-                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
-                    <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
-                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
-                </div>
-            </div>
-
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
-                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
-                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
-                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
-                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
-                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
-                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
-                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
-                </div>
-            </div>
-
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
-                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
-                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
-                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
-                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
-                </div>
-            </div>
-
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
-                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
-                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
-                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
-                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
-                </div>
-            </div>
-
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
-                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
-                </div>
-            </div>
-            
-            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
-        </nav>
+      <a href="../../index.html#home" class="nav-logo"><span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span></a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link active">Home</a>
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle">Culture ▾</button>
+          <div class="dropdown-menu">
+            <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+            <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+            <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+          </div>
+        </div>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Theme">☀️</button>
+      </nav>
     </div>
-</header>
+  </header>
 
   <main class="kingdoms-page">
-    <section class="kingdoms-hero">
-      <div class="kingdoms-hero-content">
-        <span class="hero-kicker">Journey Through Time</span>
-        <h1>Ancient Kingdoms <span>of India</span></h1>
-        <p>Discover the majesty of India's greatest empires, from the Mauryan conquests to the Maratha confederacy.</p>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-ornament" aria-hidden="true">
+        <svg viewBox="0 0 400 400" class="wheel-svg">
+          <g class="wheel-group">
+            <circle class="wheel-outer" cx="200" cy="200" r="180"/>
+            <circle class="wheel-inner" cx="200" cy="200" r="140"/>
+            <circle class="wheel-core" cx="200" cy="200" r="50"/>
+            <g class="wheel-spokes" id="wheel-spokes"></g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="hero-inner">
+        <span class="hero-stamp">इतिहास · Chronicle of Empires</span>
+        <h1>Ancient Kingdoms <em>of India</em></h1>
+        <p class="hero-lede">From the brick-laid cities of the Indus Valley to the golden ships of the Cholas, the mountain forts of the Marathas and the marble courts of the Mughals — 4,000 years of kingdoms, conquerors and ideas that shaped a civilisation.</p>
+
         <div class="hero-stats">
-          <div><strong id="hero-total">6</strong><span>Major Empires</span></div>
-          <div><strong>3000+</strong><span>Years of History</span></div>
-          <div><strong>∞</strong><span>Stories to explore</span></div>
+          <div class="stat-pill"><strong data-count="18">0</strong><span>Major Empires</span></div>
+          <div class="stat-pill"><strong data-count="4000">0</strong><span>Years of History</span></div>
+          <div class="stat-pill"><strong data-count="60">0</strong><span>Legendary Rulers</span></div>
         </div>
-        <a href="#explorer" class="hero-cta">Explore the empires ↓</a>
+
+        <div class="hero-year">
+          <span>From</span><strong id="year-from">2600 BCE</strong>
+          <span class="dash">—</span>
+          <span>to</span><strong id="year-to">1849 CE</strong>
+        </div>
+
+        <div class="hero-ctas">
+          <a href="#timeline" class="btn-primary">Walk the timeline ↓</a>
+          <a href="#explorer" class="btn-ghost">Browse empires</a>
+          <a href="#quiz" class="btn-ghost">🏛️ Which empire are you?</a>
+        </div>
       </div>
     </section>
 
-    <section class="timeline-section" id="timeline">
-      <div class="timeline-container">
+    <!-- ============ TIMELINE ============ -->
+    <section class="section timeline-section" id="timeline">
+      <div class="container">
         <div class="section-heading">
-          <span class="section-badge">Rise and Fall</span>
-          <h2>Interactive Timeline</h2>
-          <p>Trace the chronological journey of India's ancient kingdoms.</p>
+          <span class="section-badge">Rise &amp; fall</span>
+          <h2>An Interactive Chronicle</h2>
+          <p>Scroll horizontally — or tap any era to filter the empire gallery below. Each bar's length reflects the dynasty's duration.</p>
         </div>
-        <div class="timeline" id="timeline-track"></div>
+
+        <div class="timeline-wrap">
+          <div class="timeline-axis">
+            <div class="axis-ruler" id="axis-ruler"></div>
+            <div class="axis-bars" id="axis-bars"></div>
+          </div>
+          <div class="timeline-controls">
+            <button id="tl-reset" class="tl-ctrl">Reset view</button>
+            <span class="tl-hint" id="tl-hint">All eras shown</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="kingdoms-section" id="explorer">
-      <div class="kingdoms-container">
+    <!-- ============ EXPLORER ============ -->
+    <section class="section" id="explorer">
+      <div class="container">
         <div class="section-heading">
-          <span class="section-badge">Empire Profiles</span>
+          <span class="section-badge">Empire profiles</span>
           <h2>Explore the Kingdoms</h2>
-          <p>Click on any card to discover detailed information about each empire.</p>
+          <p>Filter by era or region, search by name or ruler, and tick up to two to compare.</p>
         </div>
 
-        <div class="kingdom-grid" id="kingdom-grid"></div>
+        <div class="explorer-controls">
+          <div class="search-box">
+            <span aria-hidden="true">🔍</span>
+            <input type="search" id="search-input" placeholder="Search Maurya, Ashoka, Chola, Taj Mahal..." autocomplete="off">
+          </div>
+          <div class="filter-chips" id="era-chips"></div>
+        </div>
+
+        <div class="region-filters" id="region-filters"></div>
+
+        <div class="results-bar">
+          <p id="result-status" aria-live="polite">Showing all kingdoms</p>
+          <span class="compare-indicator" id="compare-ind" hidden>
+            <b id="compare-count">0</b>/2 selected · <button id="open-compare">Compare →</button>
+          </span>
+        </div>
+
+        <div class="grid" id="kingdom-grid"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <span class="empty-icon">🏛️</span>
+          <h3>No kingdoms match</h3>
+          <p>Try a different era, region or keyword.</p>
+        </div>
       </div>
     </section>
+
+    <!-- ============ COMPARE ============ -->
+    <section class="section compare-section" id="compare-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-badge">Side by side</span>
+          <h2>Compare Empires</h2>
+          <p>Pick any two kingdoms from the gallery above — or use the selectors here.</p>
+        </div>
+        <div class="compare-pickers">
+          <label><span>Kingdom A</span><select id="pick-a"></select></label>
+          <span class="vs">vs</span>
+          <label><span>Kingdom B</span><select id="pick-b"></select></label>
+        </div>
+        <div class="compare-wrap">
+          <table class="compare-table" id="compare-table">
+            <thead><tr><th>Aspect</th><th id="ca-name">—</th><th id="cb-name">—</th></tr></thead>
+            <tbody id="compare-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RULERS SPOTLIGHT ============ -->
+    <section class="section rulers-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-badge">Who shaped an era</span>
+          <h2>Rulers Worth Remembering</h2>
+          <p>A handful of sovereigns whose names echo through the centuries.</p>
+        </div>
+        <div class="rulers-track" id="rulers-track"></div>
+      </div>
+    </section>
+
+    <!-- ============ QUIZ ============ -->
+    <section class="section quiz-section" id="quiz">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-badge">Interactive</span>
+          <h2>Which Empire Matches Your Values?</h2>
+          <p>Six questions — we'll pair you with the dynasty whose ideals most closely match yours.</p>
+        </div>
+        <div class="quiz-panel" id="quiz-panel">
+          <div class="quiz-progress"><i id="quiz-bar"></i></div>
+          <div class="quiz-stage" id="quiz-stage"></div>
+          <div class="quiz-result" id="quiz-result" hidden></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FACTS ============ -->
+    <section class="section facts-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-badge">Did you know?</span>
+          <h2>Facts From the Archives</h2>
+        </div>
+        <div class="facts-carousel" id="facts-carousel">
+          <button class="facts-nav prev" aria-label="Previous">‹</button>
+          <div class="fact-card"><span class="fact-icon">📜</span><p id="fact-text"></p><span class="fact-source" id="fact-source"></span></div>
+          <button class="facts-nav next" aria-label="Next">›</button>
+        </div>
+        <div class="facts-dots" id="facts-dots"></div>
+      </div>
+    </section>
+
   </main>
 
-  <div class="kingdom-modal" id="kingdom-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-backdrop" data-close-modal></div>
-    <div class="modal-dialog">
-      <button class="modal-close" id="modal-close" type="button" aria-label="Close details">×</button>
-      <div class="modal-content">
-        <span class="modal-kicker" id="modal-period"></span>
-        <h2 id="modal-title"></h2>
-        <div class="modal-image">
-          <img id="modal-img" src="" alt="">
-        </div>
-        <p id="modal-description"></p>
-        <div class="modal-details">
-          <div class="detail-item">
-            <span>Capital City</span>
-            <strong id="modal-capital"></strong>
-          </div>
-          <div class="detail-item">
-            <span>Famous Rulers</span>
-            <strong id="modal-rulers"></strong>
-          </div>
-          <div class="detail-item">
-            <span>Major Achievements</span>
-            <strong id="modal-achievements"></strong>
-          </div>
+  <!-- ============ MODAL ============ -->
+  <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <article class="modal-card">
+      <button class="modal-close" data-close aria-label="Close">✕</button>
+      <div class="modal-hero">
+        <div class="modal-hero-img" id="modal-img"></div>
+        <div class="modal-hero-content">
+          <span class="modal-era" id="modal-era"></span>
+          <h2 id="modal-title"></h2>
+          <p class="modal-period" id="modal-period"></p>
+          <p class="modal-tagline" id="modal-tagline"></p>
         </div>
       </div>
-    </div>
+      <nav class="modal-tabs">
+        <button class="tab active" data-tab="overview">Overview</button>
+        <button class="tab" data-tab="rulers">Rulers</button>
+        <button class="tab" data-tab="legacy">Legacy</button>
+        <button class="tab" data-tab="architecture">Architecture</button>
+      </nav>
+      <div class="modal-pane" id="tab-overview"></div>
+      <div class="modal-pane" id="tab-rulers" hidden></div>
+      <div class="modal-pane" id="tab-legacy" hidden></div>
+      <div class="modal-pane" id="tab-architecture" hidden></div>
+    </article>
   </div>
 
-  <footer class="kingdoms-footer">
-    <p>Part of <a href="../../index.html">Incredible India Explorer</a> · Explore the rich tapestry of Indian history.</p>
+  <footer class="site-footer">
+    <p>Part of <a href="../../index.html">Incredible India Explorer</a> · Exploring the rich tapestry of Indian history.</p>
   </footer>
 
-  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
-  <script src="../js-modules/storage.js" defer></script>
-    <script src="../app.js" defer></script>
-  <script src="../traditional-games/script.js" defer></script>
-    <script type="module" src="../auth.js"></script>
+  <button id="btn-top" class="btn-top" aria-label="Back to top">↑</button>
+
+  <script type="module" src="kingdoms.js"></script>
+  <script src="../pages-common.js"></script>
 </body>
 </html>
