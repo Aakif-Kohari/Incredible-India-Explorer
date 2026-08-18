@@ -234,11 +234,244 @@ body.light-theme {
 }
 /* ==========================================================================
    Ruler Individual Profile Styles (Harshavardhana Additions)
+   Famous Rulers of India Stylesheet (Landing Page & Profiles)
+   ========================================================================== */
+
+:root {
+  --rulers-primary: #c41e3a;
+  --rulers-primary-hover: #a01830;
+  --rulers-gold: #d4af37;
+  --rulers-bg-dark: #0f1115;
+  --rulers-card-dark: #1a1e24;
+  --rulers-border-dark: rgba(212, 175, 55, 0.25);
+  --rulers-text-light: #f8f9fa;
+  --rulers-text-muted: #adb5bd;
+}
+
+body.light-theme {
+  --rulers-bg-dark: #f4f6f9;
+  --rulers-card-dark: #ffffff;
+  --rulers-border-dark: rgba(196, 30, 58, 0.2);
+  --rulers-text-light: #212529;
+  --rulers-text-muted: #6c757d;
+}
+
+.rulers-main, .ruler-profile-page {
+  background-color: var(--rulers-bg-dark);
+  color: var(--rulers-text-light);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+
+.rulers-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* ==========================================================================
+   1. LANDING PAGE STYLES
+   ========================================================================== */
+
+.rulers-hero {
+  position: relative;
+  padding: 160px 20px 120px;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  border-bottom: 2px solid var(--rulers-border-dark);
+}
+
+.rulers-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.rulers-kicker {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--rulers-gold);
+  margin-bottom: 15px;
+  padding: 6px 16px;
+  background: rgba(212, 175, 55, 0.2);
+  border-radius: 50px;
+  border: 1px solid var(--rulers-border-dark);
+}
+
+.rulers-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.rulers-hero h1 span { color: var(--rulers-gold); }
+.rulers-hero p { font-size: 1.1rem; color: #e2e8f0; line-height: 1.6; margin-bottom: 30px; }
+
+.btn-primary {
+  display: inline-block;
+  background: var(--rulers-primary);
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+.btn-primary:hover { background: var(--rulers-primary-hover); }
+
+.rulers-intro {
+  padding: 80px 0;
+  text-align: center;
+  border-bottom: 1px solid var(--rulers-border-dark);
+}
+.rulers-intro h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 20px; color: var(--rulers-gold);}
+.rulers-intro p { max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.7; color: var(--rulers-text-muted);}
+
+.rulers-eras { padding: 80px 0; }
+.era-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.era-card {
+  background-size: cover;
+  background-position: center;
+  padding: 60px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--rulers-border-dark);
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.era-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+.era-card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 10px; }
+.era-card p { font-size: 0.95rem; opacity: 0.9; }
+
+.rulers-explore-section { padding: 80px 0; border-top: 1px solid var(--rulers-border-dark); }
+.rulers-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 40px;
+  background: var(--rulers-card-dark);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--rulers-border-dark);
+}
+.filter-group input, .filter-group select {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--rulers-border-dark);
+  background: var(--rulers-bg-dark);
+  color: var(--rulers-text-light);
+  font-family: 'Outfit', sans-serif;
+  min-width: 200px;
+}
+.btn-secondary {
+  padding: 10px 20px;
+  background: transparent;
+  color: var(--rulers-text-light);
+  border: 1px solid var(--rulers-border-dark);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn-secondary:hover { background: var(--rulers-border-dark); }
+
+.rulers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+.ruler-card {
+  background: var(--rulers-card-dark);
+  border: 1px solid var(--rulers-border-dark);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s;
+}
+.ruler-card:hover { transform: translateY(-5px); }
+.ruler-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--rulers-border-dark);
+}
+.ruler-info { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+.ruler-tags { margin-bottom: 10px; display: flex; gap: 8px; flex-wrap: wrap;}
+.ruler-tag {
+  font-size: 0.75rem; padding: 3px 8px; border-radius: 12px;
+  background: rgba(212, 175, 55, 0.15); color: var(--rulers-gold); border: 1px solid var(--rulers-gold);
+}
+.ruler-info h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 5px; }
+.ruler-reign { font-size: 0.85rem; color: var(--rulers-primary); font-weight: 600; margin-bottom: 15px; }
+.ruler-desc { font-size: 0.95rem; color: var(--rulers-text-muted); line-height: 1.5; margin-bottom: 20px; flex-grow: 1;}
+.btn-outline {
+  text-align: center; border: 1px solid var(--rulers-text-light); color: var(--rulers-text-light);
+  padding: 10px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s;
+}
+.btn-outline:hover { background: var(--rulers-text-light); color: var(--rulers-bg-dark); }
+
+.rulers-timeline-section { padding: 80px 0; background: var(--rulers-card-dark); border-top: 1px solid var(--rulers-border-dark); border-bottom: 1px solid var(--rulers-border-dark); }
+.timeline { position: relative; max-width: 800px; margin: 0 auto; padding-left: 30px; }
+.timeline::before { content: ''; position: absolute; left: 6px; top: 0; bottom: 0; width: 2px; background: var(--rulers-border-dark); }
+.timeline-item { position: relative; margin-bottom: 40px; }
+.timeline-dot { position: absolute; left: -30px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--rulers-gold); border: 3px solid var(--rulers-card-dark); }
+.timeline-content { padding-left: 15px; }
+.timeline-date { font-weight: 700; color: var(--rulers-primary); font-size: 0.9rem; letter-spacing: 1px; }
+.timeline-content h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin: 5px 0 10px; }
+.timeline-content p { color: var(--rulers-text-muted); line-height: 1.6; font-size: 1rem; }
+
+.rulers-legacy { padding: 80px 0; }
+.legacy-flex { display: flex; gap: 50px; align-items: center; }
+.legacy-text { flex: 1; }
+.rulers-eyebrow { color: var(--rulers-primary); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 10px;}
+.legacy-text h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px;}
+.legacy-text p { color: var(--rulers-text-muted); font-size: 1.1rem; line-height: 1.7; }
+.legacy-image { flex: 1; }
+.legacy-image img { width: 100%; border-radius: 12px; box-shadow: 0 15px 30px rgba(0,0,0,0.3); border: 1px solid var(--rulers-border-dark);}
+
+.rulers-facts { padding: 80px 0; background: var(--rulers-gold); color: #000; }
+.facts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.fact-card { background: rgba(255,255,255,0.2); padding: 30px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); }
+.fact-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 10px; color: #000;}
+.fact-card p { font-size: 0.95rem; line-height: 1.6; color: #222;}
+
+.rulers-footer { padding: 40px 0; text-align: center; border-top: 1px solid var(--rulers-border-dark); background: var(--rulers-bg-dark); }
+.rulers-footer p { color: var(--rulers-text-muted); }
+.rulers-footer a { color: var(--rulers-gold); text-decoration: none; }
+
+
+/* ==========================================================================
+   2. INDIVIDUAL RULER PROFILE STYLES (Harsha, Pulakeshin, etc.)
    ========================================================================== */
 
 .profile-hero-gradient {
   padding: 140px 20px 80px;
   background: linear-gradient(135deg, #181d24 0%, #2a1b18 50%, #0f1216 100%);
+   Krishnadevaraya Profile Additions (Hampi Layouts & Three-Grid Spacing)
+   ========================================================================== */
+
+.profile-hero-gradient {
+  padding: 160px 20px 100px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
   text-align: center;
   border-bottom: 2px solid var(--rulers-border-dark);
 }
@@ -250,6 +483,11 @@ body.light-theme .profile-hero-gradient {
 .profile-hero-container {
   max-width: 800px;
   margin: 0 auto;
+.profile-hero-container {
+  max-width: 800px;
+  margin: 0 auto;
+  z-index: 2;
+  position: relative;
 }
 
 .profile-kicker {
@@ -260,6 +498,9 @@ body.light-theme .profile-hero-gradient {
   color: var(--rulers-gold);
   letter-spacing: 2px;
   margin-bottom: 15px;
+  background: rgba(0,0,0,0.4);
+  padding: 4px 12px;
+  border-radius: 20px;
 }
 
 .profile-hero-container h1 {
@@ -270,6 +511,11 @@ body.light-theme .profile-hero-gradient {
 
 .profile-hero-container p {
   color: var(--rulers-text-muted);
+  color: #fff;
+}
+
+.profile-hero-container p {
+  color: #e2e8f0;
   font-size: 1.1rem;
   line-height: 1.6;
 }
@@ -284,6 +530,20 @@ body.light-theme .profile-hero-gradient {
   border-bottom: 1px solid var(--rulers-border-dark);
 }
 
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.profile-hero-container p {
+  color: #f1f5f9;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Quick Facts Configuration */
 .quick-facts-box {
   background: var(--rulers-card-dark);
   border: 1px solid var(--rulers-border-dark);
@@ -317,6 +577,36 @@ body.light-theme .profile-hero-gradient {
     grid-template-columns: 1fr;
     gap: 25px;
   }
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  font-size: 0.95rem;
+}
+
+/* Structural Configurations */
+.profile-section {
+  padding: 75px 0;
+}
+
+/* Structural Components */
+.profile-section { padding: 75px 0; }
+.profile-accent-bg {
+  background: var(--rulers-card-dark);
+  border-top: 1px solid var(--rulers-border-dark);
+  border-bottom: 1px solid var(--rulers-border-dark);
+}
+
+.profile-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.profile-three-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
 }
 
 .profile-eyebrow {
@@ -327,12 +617,16 @@ body.light-theme .profile-hero-gradient {
   letter-spacing: 1.5px;
   display: block;
   margin-bottom: 8px;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .profile-text-block h2 {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
   margin-bottom: 15px;
+  line-height: 1.3;
 }
 
 .profile-text-block p {
@@ -346,6 +640,16 @@ body.light-theme .profile-hero-gradient {
   border: 1px solid var(--rulers-border-dark);
   border-radius: 12px;
   padding: 25px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+}
+
+.profile-highlight-card {
+  background: rgba(212, 175, 55, 0.04);
+  border: 1px solid var(--rulers-border-dark);
+  border-radius: 12px;
+  padding: 30px;
 }
 
 .profile-highlight-card h3 {
@@ -432,6 +736,68 @@ body.light-theme .profile-hero-gradient {
   margin: 0 auto;
   border-left: 2px solid var(--rulers-border-dark);
   padding-left: 25px;
+  font-size: 2.4rem;
+  margin-top: 5px;
+}
+
+/* Multi-cards Design */
+.lit-card {
+  background: var(--rulers-bg-dark);
+  border: 1px solid var(--rulers-border-dark);
+  padding: 25px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.lit-card:hover {
+  transform: translateY(-4px);
+}
+
+.lit-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: var(--rulers-primary);
+}
+
+.lit-card p {
+  font-size: 0.95rem;
+  color: var(--rulers-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.text-map-box {
+  margin-top: 35px;
+  background: var(--rulers-bg-dark);
+  border: 1px solid var(--rulers-border-dark);
+  padding: 25px;
+  border-radius: 8px;
+}
+
+.text-map-box h4 {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  color: var(--rulers-gold);
+}
+
+.text-map-box p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  color: var(--rulers-text-muted);
+}
+
+/* Timeline Components */
+.text-map-box h4 { font-size: 1.05rem; margin-bottom: 10px; color: var(--rulers-gold); }
+.text-map-box p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 8px; color: var(--rulers-text-muted); }
+
+/* Timeline Configuration */
+.profile-timeline {
+  max-width: 750px;
+  margin: 0 auto;
+  border-left: 2px solid var(--rulers-border-dark);
+  padding-left: 30px;
 }
 
 .p-timeline-item {
