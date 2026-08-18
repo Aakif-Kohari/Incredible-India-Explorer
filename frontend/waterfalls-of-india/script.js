@@ -5,7 +5,7 @@
     'use strict';
 
     /* ================================================================
-       1. DATA
+       1. DATA (single source of truth: waterfalls-data.js)
        ================================================================ */
 
     const WATERFALLS_DATA = [
@@ -163,7 +163,7 @@
             attractions: "Beadon Falls, Umiam Lake.",
             image: "https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&fit=crop&q=40&w=400",
-            url: "../bishop-falls-explorer/index.html"
+            url: "../bishop-falls-explorer/index.html",
             id: "nohsngithiang",
             name: "Nohsngithiang Falls",
             state: "Meghalaya",
@@ -342,6 +342,21 @@
             image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=40&w=400",
             url: "../pykara-falls-explorer/index.html"
+        },
+        {
+            id: "meenmutty",
+            name: "Meenmutty Falls",
+            state: "Kerala",
+            river: "Banasura hill streams (Wayanad)",
+            height: "300 meters",
+            season: "Post-Monsoon",
+            tags: ["year-round"],
+            description: "The largest waterfall in Wayanad, a three-tiered ~300m cascade near Banasura Sagar Dam.",
+            flow: "Dangerous and often closed in monsoon; calm and swimmable Oct-May.",
+            attractions: "Banasura Sagar Dam, Soochipara Falls, Neelimala Viewpoint.",
+            image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=40&w=400",
+            url: "../meenmutty-falls-explorer/index.html"
         }
     ];
 
@@ -354,6 +369,7 @@
     const modal = document.getElementById('waterfall-modal');
     const modalBody = document.getElementById('modal-body');
     const modalCloseBtn = document.querySelector('.modal-close');
+    const difficultyChips = document.querySelectorAll('.trek-difficulty-chip');
 
     /* ================================================================
        3. INIT & RENDER
@@ -363,6 +379,8 @@
         renderGrid(WATERFALLS_DATA);
         setupFilters();
         setupModal();
+        setupTrekDifficultySection();
+        openModalFromQueryParam();
     });
 
     function renderGrid(data) {
@@ -530,6 +548,9 @@
                     
                     <h4>Nearby Attractions</h4>
                     <p>${escapeHTML(data.attractions)}</p>
+
+                    <h4>Trek Difficulty</h4>
+                    <p>${data.trek && data.trek.documented ? escapeHTML(trekLabel(data.trek.difficulty)) + ' — ' + escapeHTML(data.trek.approach) : 'Not yet documented for this waterfall.'}</p>
                 </div>
             </div>
         `;
@@ -539,8 +560,40 @@
         modalCloseBtn.focus();
     }
 
+    // Allows the Trek Difficulty Map's Explore buttons to deep-link back into
+    // this page's existing modal for waterfalls that don't have their own
+    // standalone explorer page (i.e. no "url" field).
+    function openModalFromQueryParam() {
+        const params = new URLSearchParams(window.location.search);
+        const openId = params.get('open');
+        if (!openId) return;
+        const item = WATERFALLS_DATA.find(w => w.id === openId);
+        if (item && !item.url) {
+            openModal(item);
+        }
+    }
+
     /* ================================================================
-       7. UTILS
+       7. EXPLORE BY TREK DIFFICULTY SECTION
+       ================================================================ */
+
+    function setupTrekDifficultySection() {
+        difficultyChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                const difficulty = chip.dataset.difficulty;
+                window.location.href = `../waterfall-trek-difficulty-map/index.html?difficulty=${encodeURIComponent(difficulty)}`;
+            });
+        });
+    }
+
+    function trekLabel(difficulty) {
+        const levels = window.WATERFALL_DIFFICULTY_LEVELS || [];
+        const match = levels.find(l => l.id === difficulty);
+        return match ? `${match.icon} ${match.label}` : 'Not yet documented';
+    }
+
+    /* ================================================================
+       8. UTILS
        ================================================================ */
 
     function escapeHTML(str) {
