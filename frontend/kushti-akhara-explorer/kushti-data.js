@@ -77,7 +77,7 @@ const KUSHTI_REGIONS = [
     { region: "Uttar Pradesh", note: "Varanasi in particular retains a strong akhara culture, with wrestling schools dating back generations along the banks of the Ganges." },
     { region: "Maharashtra", note: "Kolhapur is historically renowned as a wrestling hub, home to some of India's oldest and most respected akharas and the traditional Maharashtrian style of Kushti called 'Hatti'." },
     { region: "Rajasthan", note: "Towns like Nathdwara maintain multiple functioning akharas, several centered around temples to Hanuman, continuing centuries-old training traditions alongside modern gym equipment." },
-    { region: "Punjab (undivided) / Pakistan", note: "Related South Asian wrestling traditions, including Malakhra practiced by the Sindhi community, share deep historical roots with Kushti from the pre-Partition subcontinent." },
+    { region: "Sindh / Pakistan", note: "Malakhra, a traditional Sindhi wrestling form practiced across Sindh and parts of Pakistan, shares deep historical roots with Kushti from the pre-Partition subcontinent." },
 ];
 
 const KUSHTI_WRESTLERS = [

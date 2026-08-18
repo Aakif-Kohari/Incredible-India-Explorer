@@ -29,15 +29,18 @@
             .join("");
     }
 
-    function renderEquipmentGrid() {
+        function renderEquipmentGrid() {
         const grid = document.getElementById("equipment-grid");
         if (!grid) return;
         grid.innerHTML = KUSHTI_EQUIPMENT.map(
             (e) => `
-            <div class="equipment-card${e.id === selectedEquipmentId ? " selected" : ""}" data-id="${e.id}">
+            <button type="button"
+                    class="equipment-card${e.id === selectedEquipmentId ? " selected" : ""}"
+                    data-id="${e.id}"
+                    aria-pressed="${e.id === selectedEquipmentId}">
                 <div class="equipment-icon">${e.icon}</div>
                 <div class="equipment-name">${e.name}</div>
-            </div>`
+            </button>`
         ).join("");
 
         grid.querySelectorAll(".equipment-card").forEach((card) => {
@@ -47,7 +50,18 @@
 
     function selectEquipment(id) {
         selectedEquipmentId = id;
-        renderEquipmentGrid();
+
+        // Update classes/aria-pressed in place instead of re-rendering the
+        // grid, so keyboard focus stays on the clicked/tabbed button.
+        const grid = document.getElementById("equipment-grid");
+        if (grid) {
+            grid.querySelectorAll(".equipment-card").forEach((card) => {
+                const isSelected = card.dataset.id === id;
+                card.classList.toggle("selected", isSelected);
+                card.setAttribute("aria-pressed", isSelected);
+            });
+        }
+
         renderEquipmentDetail();
     }
 
