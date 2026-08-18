@@ -1,0 +1,575 @@
+/* ISL Trophy Explorer Styles */
+:root {
+  --isl-primary: #0284c7; /* ISL Ocean Blue */
+  --isl-primary-glow: rgba(2, 132, 199, 0.35);
+  --isl-gold: #f59e0b;
+  --isl-silver: #e2e8f0;
+  --isl-dark-bg: #090e17;
+  --isl-panel: rgba(15, 23, 42, 0.85);
+  --isl-panel-border: rgba(2, 132, 199, 0.22);
+  --isl-panel-hover: rgba(23, 37, 66, 0.98);
+  --isl-text: #f8fafc;
+  --isl-text-muted: #94a3b8;
+  --isl-alt-bg: #0d1524;
+}
+
+body.light-theme {
+  --isl-dark-bg: #f8fafc;
+  --isl-panel: rgba(255, 255, 255, 0.92);
+  --isl-panel-border: rgba(2, 132, 199, 0.2);
+  --isl-panel-hover: rgba(255, 255, 255, 1);
+  --isl-text: #0f172a;
+  --isl-text-muted: #475569;
+  --isl-alt-bg: #f1f5f9;
+}
+
+.isl-main {
+  min-height: 100vh;
+  padding-top: 72px;
+  background-color: var(--isl-dark-bg);
+  color: var(--isl-text);
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Hero Section */
+.isl-hero {
+  position: relative;
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  padding: 70px 24px;
+  background: radial-gradient(circle at 75% 25%, rgba(2, 132, 199, 0.22) 0%, rgba(245, 158, 11, 0.15) 45%, transparent 70%),
+              linear-gradient(180deg, rgba(9, 14, 23, 0.8) 0%, var(--isl-dark-bg) 100%);
+  border-bottom: 1px solid var(--isl-panel-border);
+}
+
+.isl-hero-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.isl-kicker {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--isl-primary);
+  background: rgba(2, 132, 199, 0.12);
+  border: 1px solid rgba(2, 132, 199, 0.3);
+  padding: 6px 16px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.isl-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.3rem;
+  font-weight: 700;
+  line-height: 1.12;
+  margin-bottom: 18px;
+}
+
+.isl-title span {
+  display: block;
+  font-size: 1.8rem;
+  background: linear-gradient(135deg, var(--isl-primary), var(--isl-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.isl-subtitle {
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: var(--isl-text-muted);
+  margin-bottom: 24px;
+}
+
+.isl-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.isl-badge {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--isl-panel-border);
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 0.88rem;
+  color: var(--isl-text);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.isl-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.isl-btn-primary {
+  background: var(--isl-primary);
+  color: #fff;
+}
+
+.isl-btn-primary:hover {
+  background: #0369a1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--isl-primary-glow);
+}
+
+.isl-btn-secondary {
+  background: transparent;
+  color: var(--isl-text);
+  border: 1px solid var(--isl-primary);
+}
+
+.isl-btn-secondary:hover {
+  background: rgba(2, 132, 199, 0.1);
+}
+
+/* Trophy Card */
+.isl-hero-trophy-card {
+  position: relative;
+  background: var(--isl-panel);
+  border: 1px solid var(--isl-panel-border);
+  border-radius: 16px;
+  padding: 30px 24px;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.trophy-glow-halo {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.28), transparent 70%);
+  filter: blur(20px);
+  z-index: 1;
+}
+
+.trophy-svg-container {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 18px;
+}
+
+.isl-trophy-svg {
+  width: 190px;
+  height: 220px;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.45));
+}
+
+.trophy-meta-box h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: var(--isl-primary);
+  margin-bottom: 6px;
+}
+
+.trophy-meta-box p {
+  font-size: 0.88rem;
+  color: var(--isl-text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Sections */
+.isl-section {
+  padding: 70px 24px;
+}
+
+.isl-section-alt {
+  background-color: var(--isl-alt-bg);
+}
+
+.isl-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.isl-grid-2col {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.isl-eyebrow {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--isl-primary);
+  margin-bottom: 10px;
+}
+
+.section-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.3rem;
+  margin-bottom: 12px;
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--isl-text-muted);
+  max-width: 680px;
+  margin: 0 auto 36px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.afc-callout {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: rgba(2, 132, 199, 0.12);
+  border-left: 4px solid var(--isl-primary);
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin-top: 24px;
+}
+
+.afc-icon {
+  font-size: 1.8rem;
+}
+
+.afc-content {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--isl-text);
+}
+
+/* Stats Card */
+.isl-stats-card {
+  background: var(--isl-panel);
+  border: 1px solid var(--isl-panel-border);
+  border-radius: 14px;
+  padding: 28px;
+}
+
+.isl-stats-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+  color: var(--isl-primary);
+}
+
+.stats-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stats-list li {
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+}
+
+.stats-list li span {
+  color: var(--isl-text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+/* Timeline Controls */
+.timeline-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.search-box input {
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: 1px solid var(--isl-panel-border);
+  background: var(--isl-panel);
+  color: var(--isl-text);
+  font-size: 0.95rem;
+  width: 280px;
+}
+
+.filter-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--isl-panel-border);
+  background: transparent;
+  color: var(--isl-text-muted);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.filter-chip.active, .filter-chip:hover {
+  background: var(--isl-primary);
+  color: #fff;
+  border-color: var(--isl-primary);
+}
+
+.timeline-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.season-card {
+  background: var(--isl-panel);
+  border: 1px solid var(--isl-panel-border);
+  border-radius: 14px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 110px 1.2fr 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+  transition: all 0.25s ease;
+}
+
+.season-card:hover {
+  border-color: var(--isl-primary);
+  background: var(--isl-panel-hover);
+}
+
+.season-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--isl-primary);
+}
+
+.season-champ-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.champ-tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--isl-text-muted);
+}
+
+.champ-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--isl-text);
+}
+
+.shield-title {
+  font-size: 0.82rem;
+  color: var(--isl-gold);
+  margin-top: 4px;
+}
+
+.season-match-info {
+  font-size: 0.9rem;
+  color: var(--isl-text-muted);
+}
+
+.final-score {
+  font-weight: 600;
+  color: var(--isl-silver);
+  display: block;
+}
+
+.final-venue {
+  font-size: 0.82rem;
+  color: var(--isl-text-muted);
+  margin-top: 2px;
+}
+
+.season-awards-info {
+  text-align: right;
+}
+
+.boot-badge {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--isl-gold);
+}
+
+.boot-goals {
+  font-size: 0.8rem;
+  color: var(--isl-text-muted);
+}
+
+/* Clubs Grid */
+.clubs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.club-card {
+  background: var(--isl-panel);
+  border: 1px solid var(--isl-panel-border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.club-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--isl-primary);
+}
+
+.club-city {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  color: var(--isl-primary);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.club-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 4px 0 10px;
+}
+
+.club-honours {
+  font-size: 0.85rem;
+  color: var(--isl-gold);
+  font-weight: 600;
+}
+
+.club-stadium {
+  font-size: 0.82rem;
+  color: var(--isl-text-muted);
+  margin-top: 4px;
+}
+
+/* Milestones Grid */
+.milestones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.milestone-card {
+  background: var(--isl-panel);
+  border: 1px solid var(--isl-panel-border);
+  border-radius: 14px;
+  padding: 26px;
+}
+
+.milestone-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--isl-primary);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.milestone-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+}
+
+.ms-sub {
+  font-size: 0.85rem;
+  color: var(--isl-gold);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.ms-detail {
+  font-size: 0.92rem;
+  color: var(--isl-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Sources */
+.sources-card {
+  background: var(--isl-panel);
+  border: 1px solid var(--isl-panel-border);
+  border-radius: 14px;
+  padding: 24px 30px;
+}
+
+.sources-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+  color: var(--isl-primary);
+}
+
+.sources-list {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.sources-list li {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--isl-text-muted);
+  margin-bottom: 8px;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .isl-hero-container, .isl-grid-2col {
+    grid-template-columns: 1fr;
+  }
+
+  .season-card {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .season-awards-info {
+    text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .isl-title {
+    font-size: 2.4rem;
+  }
+
+  .season-card {
+    grid-template-columns: 1fr;
+  }
+}
