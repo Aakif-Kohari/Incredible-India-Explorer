@@ -3825,6 +3825,11 @@ window.indiaSearchIndex = [
         url: 'frontend/bandarpoonch/bandarpoonch.html'
     },
     {
+    title: "Indian Kushti Competitions: The Akhara Tradition",
+    category: "Sports & Culture",
+    description: "Explore Kushti wrestling and the Akhara tradition — training equipment like the gada and mugdar, techniques, regional wrestling traditions, historic wrestlers, and cultural significance.",
+    url: "frontend/kushti-akhara-explorer/index.html"},
+  {
     title: "Zoho: India's Software Product Journey",
     category: "Technology & Business",
     description: "Explore Zoho's journey from a bootstrapped 1996 Chennai startup to a 55-product SaaS ecosystem — origin story, founder Sridhar Vembu, an interactive product ecosystem map, milestones, global presence, and company philosophy.",
