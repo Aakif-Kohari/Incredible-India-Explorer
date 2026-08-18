@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sliderMeaning = document.getElementById('slider-meaning');
     const sliderNotes = document.getElementById('slider-notes');
     const sliderCounter = document.getElementById('slider-counter');
+    const sliderImage = document.getElementById('slider-image');
     const btnPlaySlider = document.getElementById('btn-play-slider');
     const btnPrevSlider = document.getElementById('btn-prev-slider');
     const btnNextSlider = document.getElementById('btn-next-slider');
@@ -92,6 +93,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sliderMeaning) sliderMeaning.textContent = `${item.concept}: ${item.meaning}`;
         if (sliderNotes) sliderNotes.textContent = `💡 ${item.notes}`;
         if (sliderCounter) sliderCounter.textContent = `${currentVocabIdx + 1} / ${vocabList.length}`;
+        if (sliderImage && item.image) {
+            sliderImage.src = item.image;
+            sliderImage.alt = `${item.concept} - ${item.transliteration}`;
+            sliderImage.style.display = 'block';
+        }
 
         // Update active chip
         if (vocabChipsBar) {
@@ -150,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mapBadge.style.backgroundColor = regData.color;
             mapDesc.innerHTML = `
                 <p style="margin-bottom: 14px; font-size: 1rem; color: var(--text-secondary);">${regData.desc}</p>
-                <div style="font-size: 0.88rem; color: var(--text-muted); background: rgba(255,255,255,0.03); padding: 10px 14px; border-radius: 8px; border-left: 3px solid ${regData.color};">
+                <div style="font-size: 0.88rem; color: var(--text-muted); background: rgba(255,255,255,0.03); padding: 12px 16px; border-radius: 8px; border-left: 3px solid ${regData.color};">
                     <strong style="color: var(--text-primary);">Key Settlements:</strong> ${regData.subRegions.join(', ')}
                 </div>
             `;
@@ -258,17 +264,22 @@ document.addEventListener('DOMContentLoaded', () => {
     renderVocabTable();
 
     // -------------------------------------------------------------------------
-    // 7. Cultural Heritage Showcase
+    // 7. Cultural Heritage Showcase with Rich Images
     // -------------------------------------------------------------------------
     const cultureGrid = document.getElementById('culture-grid');
     if (cultureGrid && data.culturalHeritage) {
         cultureGrid.innerHTML = data.culturalHeritage.map(c => `
             <div class="culture-card">
+                ${c.image ? `
+                <div class="culture-img-wrap">
+                    <img src="${c.image}" alt="${c.title}" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>` : ''}
                 <div class="culture-card-body">
-                    <div style="font-size: 2.2rem; margin-bottom: 12px;">${c.icon}</div>
+                    <div style="font-size: 2rem; margin-bottom: 8px;">${c.icon}</div>
                     <span class="region-badge" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); margin-bottom: 12px; display: inline-block;">${c.category}</span>
                     <h3 class="culture-title">${c.title}</h3>
                     <p class="culture-text">${c.content}</p>
+                    ${c.imageCredit ? `<div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 14px;">Photo: ${c.imageCredit}</div>` : ''}
                 </div>
             </div>
         `).join('');

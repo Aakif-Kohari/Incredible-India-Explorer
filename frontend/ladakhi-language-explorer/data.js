@@ -46,6 +46,7 @@ window.LADAKHI_DATA = {
         {
             name: "Tibetan Uchen Script (དབུ་ཅན།)",
             status: "Primary Formal & Printed Script",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Tibetan_manuscripts_in_woodblock.jpg/640px-Tibetan_manuscripts_in_woodblock.jpg",
             desc: "Meaning 'with a head', Uchen is the classical block script used for Buddhist scriptures (Kangyur & Tengyur), school textbooks, monastery inscriptions, and official signboards across Ladakh.",
             example: "ལ་དྭགས་སྐད་ཁམས་བཟང་ཡོད།",
             translit: "La-dwags skad khams-bzang yod.",
@@ -54,6 +55,7 @@ window.LADAKHI_DATA = {
         {
             name: "Tibetan Yuged / Ume Script (དབུ་མེད།)",
             status: "Cursive & Administrative Script",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Gesar_of_Ling_Thangka.jpg/440px-Gesar_of_Ling_Thangka.jpg",
             desc: "Meaning 'headless', Yuged is the flowing cursive handwriting tradition historically used by Ladakhi scribes, local administrators, poets, and monastery ledgers.",
             example: "ཇུ་ལེགས་ཚང་མ།",
             translit: "Ju-leh tshang-ma.",
@@ -67,7 +69,7 @@ window.LADAKHI_DATA = {
             name: "Central Ladakh & Leh (Shamskat)",
             subRegions: ["Leh City", "Shey", "Thiksey", "Hemis", "Basgo", "Alchi"],
             speakers: "approx. 140,000",
-            color: "#eab308",
+            color: "#f59e0b",
             desc: "The cultural and administrative heartland along the Indus Valley. Central Ladakhi (Shamskat) is the prestige dialect used in education, broadcasting, and regional literature."
         },
         {
@@ -181,8 +183,9 @@ window.LADAKHI_DATA = {
             transliteration: "Chhu",
             ipa: "/t͡ɕʰu/",
             phonetic: "CHHOO",
-            meaning: "Water / Natural glacial stream water",
+            meaning: "Water / Glacial meltwater stream",
             category: "Nature & Elements",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Pangong_Lake_Ladakh.jpg/640px-Pangong_Lake_Ladakh.jpg",
             notes: "Direct preservation of the core Tibetic root for mountain meltwater, vital for desert oases."
         },
         {
@@ -194,6 +197,7 @@ window.LADAKHI_DATA = {
             phonetic: "REE",
             meaning: "Mountain / Himalayan peak",
             category: "Nature & Elements",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Stok_Kangri_from_Leh.jpg/640px-Stok_Kangri_from_Leh.jpg",
             notes: "Refers to both mountain ridges and sacred peaks like Stok Kangri and Nun-Kun."
         },
         {
@@ -203,8 +207,9 @@ window.LADAKHI_DATA = {
             transliteration: "Nyi-ma",
             ipa: "/ɲi.ma/",
             phonetic: "NYEE-mah",
-            meaning: "Sun / Daylight / Day",
+            meaning: "Sun / Daylight / Solar day",
             category: "Nature & Elements",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Nubra_Valley_Sand_Dunes.jpg/640px-Nubra_Valley_Sand_Dunes.jpg",
             notes: "Symbol of boundless warmth in Ladakh's high-altitude cold desert environment."
         },
         {
@@ -216,6 +221,7 @@ window.LADAKHI_DATA = {
             phonetic: "ZLAH-wah (Arch.) / DAH-wah",
             meaning: "Moon / Calendar month",
             category: "Nature & Elements",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Moon_over_Ladakh.jpg/640px-Moon_over_Ladakh.jpg",
             notes: "Archaic speakers preserve the initial 'zl-' cluster; governs Losar and monastic lunar dates."
         },
         {
@@ -225,8 +231,9 @@ window.LADAKHI_DATA = {
             transliteration: "Me",
             ipa: "/me/",
             phonetic: "MAY",
-            meaning: "Fire / Hearth fire / Warmth",
+            meaning: "Fire / Hearth fire / Bukhari warmth",
             category: "Home & Life",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Ladakhi_traditional_kitchen.jpg/640px-Ladakhi_traditional_kitchen.jpg",
             notes: "Central to the traditional Bukhari stove warming Ladakhi living rooms during sub-zero winters."
         },
         {
@@ -236,8 +243,9 @@ window.LADAKHI_DATA = {
             transliteration: "Lam",
             ipa: "/lam/",
             phonetic: "LAHM",
-            meaning: "Road / Path / High mountain pass",
+            meaning: "Road / High mountain pass (La)",
             category: "Geography",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Khardung_La_Pass_Ladakh.jpg/640px-Khardung_La_Pass_Ladakh.jpg",
             notes: "The root in 'La' (pass), as in Khardung La, Chang La, and Ladakh ('Land of High Passes')."
         },
         {
@@ -249,6 +257,7 @@ window.LADAKHI_DATA = {
             phonetic: "KHAHNG-pah",
             meaning: "House / Traditional mud-brick homestead",
             category: "Home & Life",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Leh_Old_Town_houses.jpg/640px-Leh_Old_Town_houses.jpg",
             notes: "Constructed with sun-dried adobe mud bricks with timber ceilings and insulating flat roofs."
         },
         {
@@ -260,6 +269,7 @@ window.LADAKHI_DATA = {
             phonetic: "YAHK / GYAHK",
             meaning: "Tibetan Yak (Bos grunniens)",
             category: "Fauna & Pastoralism",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Yak_in_Ladakh.jpg/640px-Yak_in_Ladakh.jpg",
             notes: "The lifeline of Changthang pastoralists, providing transport, wool, butter, and cheese (Chhurpi)."
         },
         {
@@ -271,6 +281,7 @@ window.LADAKHI_DATA = {
             phonetic: "CHAH / GOOR-goor chah",
             meaning: "Traditional salted yak-butter tea",
             category: "Cuisine & Culture",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Tibetan_butter_tea.jpg/640px-Tibetan_butter_tea.jpg",
             notes: "Churned in a wooden cylindrical churner (Gur-Gur) with tea leaves, yak butter, and salt."
         },
         {
@@ -280,8 +291,9 @@ window.LADAKHI_DATA = {
             transliteration: "Lha-khang",
             ipa: "/l̥a.kʰaŋ/",
             phonetic: "HLA-khahng",
-            meaning: "Temple / Shrine room / Abode of Deities",
+            meaning: "Temple / Shrine room of Deities",
             category: "Spiritual Heritage",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Thiksey_Monastery_Ladakh_India.jpg/640px-Thiksey_Monastery_Ladakh_India.jpg",
             notes: "The sanctum sanctorum within ancient monasteries like Alchi, Thiksey, Diskit, and Hemis."
         },
         {
@@ -293,6 +305,7 @@ window.LADAKHI_DATA = {
             phonetic: "TSAHM-pah",
             meaning: "Roasted barley flour staple food",
             category: "Cuisine & Culture",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Tsampa_porridge.jpg/640px-Tsampa_porridge.jpg",
             notes: "The universal staple energy food of the Himalayas, eaten mixed with butter tea or cheese."
         },
         {
@@ -304,6 +317,7 @@ window.LADAKHI_DATA = {
             phonetic: "GAH-moh",
             meaning: "Happy / Pleased / Joyous",
             category: "Emotions & Expressions",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Hemis_Festival_Ladakh.jpg/640px-Hemis_Festival_Ladakh.jpg",
             notes: "Used in celebratory poetry and folk songs during Losar and harvest festivals."
         }
     ],
