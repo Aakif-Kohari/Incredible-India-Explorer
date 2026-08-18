@@ -1,196 +1,140 @@
-(() => {
-    const timeline = [
-        [
-            'Early life',
-            "Komaram Bheem's early years were rooted in the Gond communities of the Adilabad region, where forests and land were central to everyday life."
-        ],
-        [
-            'Growing resistance',
-            'Experiences of exploitation and restrictions affecting tribal livelihoods helped shape a wider resistance to outside control.'
-        ],
-        [
-            'Leadership',
-            'Bheem emerged as a local leader and organised resistance around community dignity, customary rights and access to natural resources.'
-        ],
-        [
-            'Forest and land struggle',
-            'The movement is remembered for challenging systems that interfered with traditional relationships with forests, cultivation and land.'
-        ],
-        [
-            'Martyrdom',
-            'Bheem was killed during the conflict. Accounts differ on precise details, so this explorer avoids presenting disputed specifics as settled fact.'
-        ],
-        [
-            'Enduring legacy',
-            'His memory continues through public commemorations, cultural works and discussions of tribal rights in Telangana.'
-        ]
-    ];
-    const resistance = [
-        [
-            '🌳',
-            'Forest access',
-            'Forests provided food, fuel, materials and cultural meaning. Restrictions could directly affect community livelihoods.'
-        ],
-        [
-            '🌾',
-            'Land and cultivation',
-            'Land was tied to household security and customary use. Resistance included opposition to coercive control and displacement.'
-        ],
-        [
-            '⚖️',
-            'Community dignity',
-            'The struggle is remembered as a demand for respect, self-determination and fair treatment of tribal communities.'
-        ],
-        [
-            '🛡️',
-            'Collective resistance',
-            "Bheem's leadership became a symbol of organising communities around shared interests rather than isolated grievances."
-        ],
-        [
-            '💧',
-            'Water and livelihood',
-            'Water is part of the broader natural-resource framework represented by the phrase Jal, Jangal, Zameen.'
-        ],
-        [
-            '📚',
-            'Historical memory',
-            'Later commemorations have made Bheem an important figure in the public history of tribal resistance.'
-        ]
-    ];
-    const pillars = [
-        [
-            'jal',
-            '💧',
-            'Jal',
-            'Water',
-            'Water sustains households, agriculture, livestock and community life. In the three-part expression, Jal represents access to and stewardship of essential natural resources.'
-        ],
-        [
-            'jangal',
-            '🌳',
-            'Jangal',
-            'Forest',
-            'Forests were central to food, materials, medicine, culture and livelihood. Jangal expresses the demand to preserve community relationships with forest resources.'
-        ],
-        [
-            'zameen',
-            '🌾',
-            'Zameen',
-            'Land',
-            'Land represents home, cultivation, livelihood and continuity. Zameen captures the demand for security and recognition of customary relationships with ancestral land.'
-        ]
-    ];
-    const legacy = [
-        [
-            '🗿',
-            'Public remembrance',
-            "Memorials, statues and commemorative spaces keep Bheem's story visible in Telangana."
-        ],
-        [
-            '🎭',
-            'Popular culture',
-            'His life has been represented in literature, theatre, cinema and other cultural forms, bringing the story to new audiences.'
-        ],
-        [
-            '🌱',
-            'Tribal rights discourse',
-            'His name is frequently connected with conversations about community control over natural resources and dignity.'
-        ],
-        [
-            '🧭',
-            'Regional identity',
-            "Komaram Bheem remains an important figure in the historical and cultural identity of Telangana's tribal communities."
-        ]
-    ];
-    const references = [
-        [
-            'Government of Telangana',
-            'Use official Telangana cultural, tribal welfare and district resources for current commemorative information.'
-        ],
-        [
-            'Tribal Research Institute / academic sources',
-            'Consult institutional research on Gond communities, tribal movements and the Hyderabad State period.'
-        ],
-        [
-            'Ministry of Tribal Affairs, Government of India',
-            'Useful starting point for national context on tribal rights, communities and policy history.'
-        ],
-        [
-            'Archives and scholarly histories',
-            'Cross-check dates, locations and event details against archival or peer-reviewed historical sources before extending the timeline.'
-        ]
-    ];
-    const gallery = [
-        ['🌳', 'Forest landscape', 'Visual metaphor for the forest communities central to the story.'],
-        ['💧', 'Water and community', 'The water dimension of the three-part rights framework.'],
-        ['🌾', 'Land and livelihood', 'The land dimension of the struggle and community continuity.'],
-        ['🛡️', 'Resistance and memory', 'A symbolic visual for collective resistance and remembrance.']
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Data for Dynamic Sections
+    const timelineData = [
+        { year: "c. 1901", title: "Early Life", desc: "Born into a Gond tribal family in the Chandrapur/Adilabad region. Early exposure to the hardships faced by tribal communities under feudal rule." },
+        { year: "1920s", title: "Return & Organization", desc: "Returned to the Adilabad forests after working in coal mines. Began organizing Gond communities to resist oppressive taxation and forced labor (Vetti)." },
+        { year: "1928 - 1930s", title: "Peak of Resistance", desc: "Led armed resistance against the Nizam's Razakars and local landlords. Successfully established self-governance in several forest villages, rejecting the Nizam's authority." },
+        { year: "1940", title: "Martyrdom", desc: "After a prolonged siege by the Nizam's forces, Komaram Bheem was martyred. The exact date remains debated in oral histories, but his sacrifice cemented his status as a legendary icon." }
     ];
 
-    const renderCards = (id, items) => {
-        const el = document.getElementById(id);
-        if (!el) return;
-        el.innerHTML = items
-            .map(
-                ([icon, title, text]) =>
-                    `<article class="kb-card"><div class="icon" aria-hidden="true">${icon}</div><h3>${title}</h3><p>${text}</p></article>`
-            )
-            .join('');
-    };
-    const timelineEl = document.getElementById('timeline-list');
-    if (timelineEl)
-        timelineEl.innerHTML = timeline
-            .map(
-                ([year, text], i) =>
-                    `<article class="kb-event"><time>Chapter ${i + 1}</time><h3>${year}</h3><p>${text}</p></article>`
-            )
-            .join('');
-    renderCards('resistance-grid', resistance);
-    renderCards('legacy-grid', legacy);
-    renderCards('references-grid', references);
+    const resistanceData = [
+        { icon: "⛓️", title: "Abolition of Vetti", desc: "Fought against the systemic practice of forced, unpaid labor imposed on tribal people by feudal lords and the state administration." },
+        { icon: "🏹", title: "Hunting Rights", desc: "Resisted colonial and Nizam-era forest laws that criminalized the traditional Gond practice of hunting and gathering forest produce for survival." },
+        { icon: "📜", title: "Debt & Land Grabbing", desc: "Protected tribal communities from exploitative moneylenders (Sahukars) who used deceitful practices to seize ancestral lands." }
+    ];
 
-    const galleryEl = document.getElementById('gallery-grid');
-    if (galleryEl)
-        galleryEl.innerHTML = gallery
-            .map(
-                ([icon, title, text]) =>
-                    `<article class="kb-gallery-card"><div class="visual" aria-hidden="true">${icon}</div><div><h3>${title}</h3><p>${text}</p></div></article>`
-            )
-            .join('');
+    const legacyData = [
+        { icon: "🏙️", title: "Komaram Bheem Asifabad", desc: "The town of Asifabad in Telangana was officially renamed in his honor, serving as a constant reminder of his legacy in the region he fought for." },
+        { icon: "🗽", title: "Symbol of Telangana", desc: "His slogan 'Jal, Jangal, Zameen' became a foundational rallying cry for the broader Telangana statehood movement and indigenous rights activism across India." },
+        { icon: "🎬", title: "Cultural Immortality", desc: "His life story continues to inspire literature, folk arts (like Gond painting), and modern popular culture, ensuring new generations learn of his bravery." }
+    ];
 
-    const pillarsEl = document.getElementById('pillars');
-    const detailEl = document.getElementById('pillar-detail');
-    const showPillar = key => {
-        const p = pillars.find(x => x[0] === key) || pillars[0];
-        document
-            .querySelectorAll('.kb-pillar')
-            .forEach(btn => btn.classList.toggle('active', btn.dataset.key === p[0]));
-        detailEl.innerHTML = `<h3>${p[1]} ${p[2]} — ${p[3]}</h3><p>${p[4]}</p>`;
-    };
-    if (pillarsEl) {
-        pillarsEl.innerHTML = pillars
-            .map(
-                p =>
-                    `<button class="kb-pillar" type="button" data-key="${p[0]}" aria-label="Explore ${p[2]}"><strong>${p[1]}</strong><span>${p[2]} · ${p[3]}</span></button>`
-            )
-            .join('');
-        pillarsEl
-            .querySelectorAll('.kb-pillar')
-            .forEach(btn => btn.addEventListener('click', () => showPillar(btn.dataset.key)));
-        showPillar('jal');
+    const galleryData = [
+        { title: "Adilabad Forests", desc: "The dense forests that served as the backdrop and sanctuary for the resistance.", color: "#2d5a3f" },
+        { title: "Gond Art", desc: "Traditional indigenous art forms that keep the cultural memory alive.", color: "#c05838" },
+        { title: "Memorial at Asifabad", desc: "Modern tributes and statues honoring the Gond leader.", color: "#8B4513" },
+        { title: "Tribal Heritage", desc: "Representing the dignity and resilience of the Gond community.", color: "#1a3c27" }
+    ];
+
+    const referencesData = [
+        "Das, Kalpana. <em>Life and Times of Komaram Bheem</em>. Hyderabad: Telangana Sahitya Akademi.",
+        "Hardiman, David. <em>The Coming of the Devi: Adivasi Assertion in Western India</em>. (Provides comparative context on tribal resistance).",
+        "Telangana State Government Archives: Documentation on the renaming of Asifabad and state commemorative events.",
+        "Oral History Projects: Gond tribal narratives collected by regional anthropologists and historians."
+    ];
+
+    // 2. Render Functions
+    function renderTimeline() {
+        const container = document.getElementById('timeline-list');
+        container.innerHTML = timelineData.map(item => `
+            <div class="timeline-item">
+                <span class="timeline-year">${item.year}</span>
+                <div class="timeline-content">
+                    <h3>${item.title}</h3>
+                    <p>${item.desc}</p>
+                </div>
+            </div>
+        `).join('');
     }
 
-    const menu = document.getElementById('menu-toggle');
-    const nav = document.getElementById('nav-menu');
-    if (menu && nav) menu.addEventListener('click', () => nav.classList.toggle('active'));
+    function renderGrids() {
+        // Resistance
+        document.getElementById('resistance-grid').innerHTML = resistanceData.map(item => `
+            <article class="kb-card">
+                <span class="kb-card-icon">${item.icon}</span>
+                <h3>${item.title}</h3>
+                <p>${item.desc}</p>
+            </article>
+        `).join('');
 
-    document.querySelectorAll('.kb-section-nav a').forEach(a =>
-        a.addEventListener('click', e => {
-            const target = document.querySelector(a.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Legacy
+        document.getElementById('legacy-grid').innerHTML = legacyData.map(item => `
+            <article class="kb-card">
+                <span class="kb-card-icon">${item.icon}</span>
+                <h3>${item.title}</h3>
+                <p>${item.desc}</p>
+            </article>
+        `).join('');
+
+        // Gallery (Using CSS colors as placeholders for actual images)
+        document.getElementById('gallery-grid').innerHTML = galleryData.map(item => `
+            <div class="gallery-item">
+                <div style="width:100%; height:100%; background-color: ${item.color}; display:flex; align-items:center; justify-content:center; color:white; font-size:3rem;">
+                    ${item.icon || '🖼️'}
+                </div>
+                <div class="gallery-overlay">
+                    <h4>${item.title}</h4>
+                    <p>${item.desc}</p>
+                </div>
+            </div>
+        `).join('');
+
+        // References
+        document.getElementById('references-grid').innerHTML = referencesData.map(ref => `<li>${ref}</li>`).join('');
+    }
+
+    // 3. Tab Logic for Jal, Jangal, Zameen
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.pillar-content');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+
+            // Add active to clicked
+            btn.classList.add('active');
+            const targetId = btn.getAttribute('data-target');
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
+
+    // 4. Scroll Reveal Animation (Intersection Observer)
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Animate only once
             }
-        })
-    );
-})();
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-reveal').forEach(section => {
+        observer.observe(section);
+    });
+
+    // 5. Scroll to Top Button Logic
+    const scrollTopBtn = document.getElementById('btn-scroll-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Initialize
+    renderTimeline();
+    renderGrids();
+});
