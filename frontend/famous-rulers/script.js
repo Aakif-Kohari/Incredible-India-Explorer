@@ -15,6 +15,15 @@ const rulersData = [
     link: "../chandragupta-maurya-explorer/index.html"
   },
   {
+    name: "Harshavardhana",
+    era: "Ancient",
+    dynasty: "Pushyabhuti",
+    region: "North India",
+    reign: "c. 606 – 647 CE",
+    image: "ruler-harshvardhana.jpeg", 
+    description: "Unified the thrones of Thanesar and Kannauj, creating an expansive hegemony across northern plains. Celebrated as an accomplished playwright and noble patron of scholar Xuanzang.",
+    link: "harshavardhana.html" },
+  {
     name: "Pulakeshin II",
     era: "Early Medieval",
     dynasty: "Chalukya",
