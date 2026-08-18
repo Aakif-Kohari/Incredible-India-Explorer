@@ -56,6 +56,7 @@ const NAVBAR_TEMPLATE = `<header class="navbar" id="navbar">
                     <a href="{{PREFIX}}frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="{{PREFIX}}frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="{{PREFIX}}frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="{{PREFIX}}frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
                     <a href="{{PREFIX}}frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="{{PREFIX}}frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="{{PREFIX}}frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>

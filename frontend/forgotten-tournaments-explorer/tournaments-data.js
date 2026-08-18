@@ -1,0 +1,93 @@
+// tournaments-data.js
+// Data for the Forgotten Indian Sporting Tournaments Explorer
+
+const TOURNAMENT_STATS = [
+    { label: "Tournaments Archived", value: "6" },
+    { label: "Sports Covered", value: "4" },
+    { label: "Oldest Founded", value: "1891" },
+    { label: "Fully Discontinued", value: "3" },
+];
+
+const TOURNAMENTS = [
+    {
+        id: "pentangular",
+        name: "Bombay Pentangular (Bombay Tournament)",
+        sport: "Cricket",
+        period: "1892 – 1946",
+        location: "Bombay Gymkhana Ground & Brabourne Stadium, Bombay",
+        purpose: "An annual cricket competition organized on communal lines, originally a bilateral 'Presidency Match' between European and Parsi teams, later expanding to include Hindu (1907), Muslim (1912), and 'The Rest' (1937) teams.",
+        champions: "The Hindus won 7 of the final 10 editions once the Pentangular format (five teams) was established from 1937–38; earlier Quadrangular-era champions included the Europeans and various community sides.",
+        significance: "Before the Ranji Trophy took hold, the Pentangular was the most commercially important and widely attended cricket tournament in colonial India, drawing crowds far larger than any other domestic fixture and serving as a major talent pipeline for early Indian cricket stars.",
+        thenStatus: "India's most popular and financially significant domestic cricket tournament, played annually to packed stadiums in Bombay.",
+        nowStatus: "Discontinued in January 1946. The BCCI actively campaigned against its communal team structure amid rising nationalist sentiment, and it was formally abolished and effectively replaced by the region-based Ranji Trophy as India's premier domestic competition.",
+    },
+    {
+        id: "rovers-cup",
+        name: "Rovers Cup",
+        sport: "Football",
+        period: "1891 – 2001",
+        location: "Cooperage Ground, Bombay (later Mumbai)",
+        purpose: "One of India's oldest football tournaments, founded by British football enthusiasts in colonial Bombay, later organized by the Western India Football Association (WIFA) and opened to civilian and national club teams.",
+        champions: "Mohun Bagan AC is the tournament's most successful club, with 14 titles across its history, including the final edition in 2000–01 against Churchill Brothers.",
+        significance: "The Rovers Cup, alongside the Durand Cup and IFA Shield, formed one of India's three most prestigious historic football tournaments, and its Cooperage venue was central to the growth of the sport in western India.",
+        thenStatus: "A marquee national football tournament attracting India's top clubs, including Mohun Bagan, East Bengal, and Mohammedan Sporting.",
+        nowStatus: "Discontinued after the 2000–01 season due to financial and administrative strain following the launch of the National Football League, India's first national league. WIFA has periodically expressed interest in reviving it, but it has not been regularly held since.",
+    },
+    {
+        id: "beighton-cup",
+        name: "Beighton Cup",
+        sport: "Hockey",
+        period: "1895 – present (much reduced prominence)",
+        location: "Mohun Bagan Ground, Kolkata Maidan",
+        purpose: "India's first organized hockey tournament, and one of the oldest field hockey competitions in the world, historically considered the sport's premier domestic event.",
+        champions: "Mohun Bagan holds the record with 14 titles historically; the Indian Navy is among recent-era winners.",
+        significance: "Dhyan Chand himself wrote that winning the Beighton Cup was his life's ambition, regarding it as the 'blue riband' of Indian hockey — a measure of how central the tournament once was to the sport's prestige.",
+        thenStatus: "Considered the single most prestigious domestic hockey tournament in India, drawing the country's best clubs and future Olympians during hockey's golden era.",
+        nowStatus: "Still held annually in Kolkata, organized by Hockey Bengal, but with a fraction of its former national prominence — largely eclipsed today by franchise leagues like the Hockey India League and the national team's international schedule.",
+    },
+    {
+        id: "aga-khan-cup",
+        name: "Aga Khan Cup (Aga Khan Gold Cup)",
+        sport: "Hockey",
+        period: "1896 – present (intermittent)",
+        location: "Bombay Gymkhana Grounds, Bombay; later relocated to Pune",
+        purpose: "Founded a year after the Beighton Cup as Bombay's premier hockey tournament, named for Sir Sultan Muhammad Shah, Aga Khan III, and historically seen as the Beighton Cup's western Indian rival event.",
+        champions: "Historic winners have included the Calcutta Rangers Club and Ireland's touring teams (who won the cup outright in 1977–79); more recent editions have been won by corporate and PSU teams such as BPCL and SAIL.",
+        significance: "For decades the Aga Khan and Beighton Cups' overlapping calendar dates forced elite players to choose between them, a rivalry that shaped the geography of Indian hockey talent between Bombay and Calcutta.",
+        thenStatus: "One of India's two most prestigious hockey tournaments, rivalling the Beighton Cup for the country's best teams and players.",
+        nowStatus: "Held only intermittently in recent decades — for example, a 2011 edition was explicitly described as 'revived after a decade' — and now played at a much smaller, largely corporate-team level in Pune rather than its original Bombay home.",
+    },
+    {
+        id: "moin-ud-dowlah",
+        name: "Moin-ud-Dowlah Gold Cup",
+        sport: "Cricket",
+        period: "1930 – present (minor local event)",
+        location: "Hyderabad & Secunderabad",
+        purpose: "A cricket tournament established when the Nawab Moin-ud-Dowlah Bahadur Asman Jah donated a trophy for an annual invitational competition featuring Hyderabad teams and touring sides.",
+        champions: "Early finals featured legendary names — the 1930–31 final included England Test greats Jack Hobbs and Herbert Sutcliffe, while the all-conquering 'Freelooters' side won multiple editions in the early 1930s.",
+        significance: "Held first-class status from 1930–31 to 1937–38, and its early finals, some watched by crowds of 15,000, made it one of the best-attended domestic cricket events of colonial India.",
+        thenStatus: "A first-class tournament attracting Test-level Indian and touring international players, second in prestige in the region only to the Bombay Pentangular.",
+        nowStatus: "Lost its first-class status after 1938 as the Ranji Trophy rose to prominence, and today survives only as a minor local one-day tournament played intermittently by the Hyderabad Cricket Association since 1993–94, largely unknown outside the region.",
+    },
+    {
+        id: "marryatt-cup",
+        name: "Marryatt Cup",
+        sport: "Tennis",
+        period: "1891 – 1938",
+        location: "Bombay Gymkhana Club, Bombay",
+        purpose: "A men's clay-court tennis championship founded as the Marryatt Lawn Tennis Challenge Cup, one of colonial India's earliest organized tennis competitions.",
+        champions: "Contested annually among Bombay Gymkhana Club members and visiting players through the 1890s–1930s.",
+        significance: "As one of the first structured tennis tournaments in India, the Marryatt Cup reflects the early growth of organized racquet sports within colonial-era sporting clubs, decades before Indian tennis produced its modern Grand Slam contenders.",
+        thenStatus: "A leading annual tennis fixture at one of colonial India's most prominent sporting clubs.",
+        nowStatus: "Discontinued in 1938 due to the outbreak of the Second World War, and never revived — today it survives only as a historical footnote in the early history of Indian tennis.",
+    },
+];
+
+const TOURNAMENT_REFERENCES = [
+    { text: "Majumdar, Boria. 'Cricket in Colonial India: The Bombay Pentangular, 1892–1946.' The International Journal of the History of Sport, 2002.", url: "https://www.tandfonline.com/doi/pdf/10.1080/714001753" },
+    { text: "Wikipedia — Rovers Cup (football tournament history and championship record).", url: "https://en.wikipedia.org/wiki/Rovers_Cup" },
+    { text: "Wikipedia — Beighton Cup (field hockey tournament).", url: "https://en.wikipedia.org/wiki/Beighton_Cup" },
+    { text: "Wikipedia — Moin-ud-Dowlah Gold Cup Tournament.", url: "https://en.wikipedia.org/wiki/Moin-ud-Dowlah_Gold_Cup_Tournament" },
+    { text: "Wikipedia — Marryatt Cup (defunct Bombay Gymkhana tennis tournament).", url: "https://en.wikipedia.org/wiki/Marryatt_Cup" },
+    { text: "Scroll.in — 'Undisputed champions: The story of India's rise as a hockey giant in the pre-Independence era.'", url: "https://scroll.in/field/808487/undisputed-champions-the-story-of-indias-rise-as-a-hockey-giant-in-the-pre-independence-era" },
+];
