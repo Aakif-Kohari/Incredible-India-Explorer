@@ -25,6 +25,16 @@ const rulersData = [
     link: "../ashoka-the-great-explorer/index.html"
   },
   {
+    name: "Maharana Pratap",
+    era: "Early Modern",
+    dynasty: "Sisodia",
+    region: "West India",
+    reign: "1572 – 1597 CE",
+    image: "maharana.webp", // Matches your exact saved file name
+    description: "Sovereign of Mewar celebrated for his strategic defiance against Mughal expansion. He utilized the rugged Aravalli terrain to wage an enduring campaign of resistance and recovery.",
+    link: "maharana-pratap.html"
+  },
+  {
     name: "Samudragupta",
     era: "Ancient",
     dynasty: "Gupta",
