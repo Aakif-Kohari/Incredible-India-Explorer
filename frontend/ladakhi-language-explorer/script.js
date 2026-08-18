@@ -17,21 +17,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const savedTheme = localStorage.getItem('ladakhi_theme') || 'dark';
         if (savedTheme === 'light') {
             document.body.classList.add('light-theme');
-            themeBtn.textContent = '🌙';
+            themeBtn.textContent = '🌙 Theme';
         } else {
-            themeBtn.textContent = '☀️';
+            themeBtn.textContent = '☀️ Theme';
         }
 
         themeBtn.addEventListener('click', () => {
             document.body.classList.toggle('light-theme');
             const isLight = document.body.classList.contains('light-theme');
-            themeBtn.textContent = isLight ? '🌙' : '☀️';
+            themeBtn.textContent = isLight ? '🌙 Theme' : '☀️ Theme';
             localStorage.setItem('ladakhi_theme', isLight ? 'light' : 'dark');
         });
     }
 
     // -------------------------------------------------------------------------
-    // 2. Audio Player (SpeechSynthesis + Tone Fallback)
+    // 2. Audio Player (SpeechSynthesis + Phonetic Audio Cue)
     // -------------------------------------------------------------------------
     let voices = [];
     function loadVoices() {
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.rate = 0.85;
-        utterance.pitch = 1.0;
+        utterance.pitch = 1.05;
         utterance.lang = lang;
 
         const bestVoice = voices.find(v => v.lang.startsWith('bo') || v.lang.startsWith('hi') || v.lang.startsWith('ne'));
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // -------------------------------------------------------------------------
-    // 3. Interactive 4-Step Vocab Showcase Slider
+    // 3. Interactive 4-Step Vocab Showcase Slider & Word Chips
     // -------------------------------------------------------------------------
     let currentVocabIdx = 0;
     const vocabList = data.vocabulary || [];
@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnPlaySlider = document.getElementById('btn-play-slider');
     const btnPrevSlider = document.getElementById('btn-prev-slider');
     const btnNextSlider = document.getElementById('btn-next-slider');
+    const vocabChipsBar = document.getElementById('vocab-chips-bar');
 
     function renderSlider(idx) {
         if (vocabList.length === 0) return;
@@ -91,6 +92,27 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sliderMeaning) sliderMeaning.textContent = `${item.concept}: ${item.meaning}`;
         if (sliderNotes) sliderNotes.textContent = `💡 ${item.notes}`;
         if (sliderCounter) sliderCounter.textContent = `${currentVocabIdx + 1} / ${vocabList.length}`;
+
+        // Update active chip
+        if (vocabChipsBar) {
+            vocabChipsBar.querySelectorAll('.vocab-chip').forEach((chip, i) => {
+                chip.classList.toggle('active', i === currentVocabIdx);
+            });
+        }
+    }
+
+    if (vocabChipsBar && vocabList.length > 0) {
+        vocabChipsBar.innerHTML = vocabList.map((item, i) => `
+            <button class="vocab-chip ${i === 0 ? 'active' : ''}" data-idx="${i}">
+                ${item.concept} (${item.transliteration})
+            </button>
+        `).join('');
+
+        vocabChipsBar.querySelectorAll('.vocab-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                renderSlider(parseInt(chip.dataset.idx, 10));
+            });
+        });
     }
 
     if (btnPrevSlider) {
@@ -127,9 +149,9 @@ document.addEventListener('DOMContentLoaded', () => {
             mapBadge.textContent = regData.speakers;
             mapBadge.style.backgroundColor = regData.color;
             mapDesc.innerHTML = `
-                <p style="margin-bottom: 12px;">${regData.desc}</p>
-                <div style="font-size: 0.85rem; color: var(--text-muted);">
-                    <strong>Key Settlements:</strong> ${regData.subRegions.join(', ')}
+                <p style="margin-bottom: 14px; font-size: 1rem; color: var(--text-secondary);">${regData.desc}</p>
+                <div style="font-size: 0.88rem; color: var(--text-muted); background: rgba(255,255,255,0.03); padding: 10px 14px; border-radius: 8px; border-left: 3px solid ${regData.color};">
+                    <strong style="color: var(--text-primary);">Key Settlements:</strong> ${regData.subRegions.join(', ')}
                 </div>
             `;
         }
@@ -159,21 +181,21 @@ document.addEventListener('DOMContentLoaded', () => {
         );
 
         if (list.length === 0) {
-            greetingsGrid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">No greetings found matching "${filter}".</p>`;
+            greetingsGrid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 20px;">No greetings found matching "${filter}".</p>`;
             return;
         }
 
         greetingsGrid.innerHTML = list.map(g => `
             <div class="greeting-card">
                 <div>
-                    <span class="region-badge" style="background: rgba(245, 158, 11, 0.15); color: var(--accent-gold); margin-bottom: 10px; display: inline-block;">${g.category}</span>
+                    <span class="region-badge" style="background: rgba(245, 158, 11, 0.15); color: var(--accent-gold); margin-bottom: 12px; display: inline-block;">${g.category}</span>
                     <div class="greeting-native">${g.native}</div>
                     <div class="greeting-translit">${g.transliteration}</div>
-                    <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px;">IPA: ${g.ipa} • Pronounce: ${g.phonetic}</div>
-                    <div class="greeting-meaning"><strong>Meaning:</strong> ${g.meaning}</div>
+                    <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 8px;">IPA: ${g.ipa} • Pronounce: <strong>${g.phonetic}</strong></div>
+                    <div class="greeting-meaning">${g.meaning}</div>
                     <div class="greeting-context">${g.context}</div>
                 </div>
-                <button class="btn-audio" data-audio="${g.audioText || g.transliteration}" style="width: 100%; justify-content: center; margin-top: 12px;">
+                <button class="btn-audio" data-audio="${g.audioText || g.transliteration}" style="width: 100%; justify-content: center;">
                     🔊 Play Pronunciation
                 </button>
             </div>
@@ -208,19 +230,19 @@ document.addEventListener('DOMContentLoaded', () => {
         );
 
         if (list.length === 0) {
-            vocabTableBody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--text-muted);">No vocabulary items found.</td></tr>`;
+            vocabTableBody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--text-muted); padding: 20px;">No vocabulary items found.</td></tr>`;
             return;
         }
 
         vocabTableBody.innerHTML = list.map(v => `
             <tr>
-                <td style="font-weight: 600; color: var(--text-primary);">${v.concept}</td>
+                <td style="font-weight: 700; color: var(--text-primary);">${v.concept}</td>
                 <td class="vocab-tibetan">${v.native}</td>
-                <td style="font-family: var(--font-mono); color: var(--accent-cyan);">${v.transliteration}</td>
-                <td>IPA: ${v.ipa}<br><small style="color: var(--text-muted);">${v.phonetic}</small></td>
+                <td style="font-family: var(--font-mono); color: var(--accent-cyan); font-weight: 600;">${v.transliteration}</td>
+                <td>IPA: ${v.ipa}<br><small style="color: var(--text-muted); font-weight: 600;">${v.phonetic}</small></td>
                 <td>${v.meaning}</td>
                 <td>
-                    <button class="btn-mini-play" data-word="${v.phonetic || v.transliteration}">🔊 Play</button>
+                    <button class="btn-mini-play" data-word="${v.phonetic || v.transliteration}">🔊 Listen</button>
                 </td>
             </tr>
         `).join('');
@@ -242,10 +264,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cultureGrid && data.culturalHeritage) {
         cultureGrid.innerHTML = data.culturalHeritage.map(c => `
             <div class="culture-card">
-                <div class="culture-icon">${c.icon}</div>
-                <h3 class="culture-title">${c.title}</h3>
-                <span class="region-badge" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); margin-bottom: 12px; display: inline-block;">${c.category}</span>
-                <p class="culture-text">${c.content}</p>
+                <div class="culture-card-body">
+                    <div style="font-size: 2.2rem; margin-bottom: 12px;">${c.icon}</div>
+                    <span class="region-badge" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); margin-bottom: 12px; display: inline-block;">${c.category}</span>
+                    <h3 class="culture-title">${c.title}</h3>
+                    <p class="culture-text">${c.content}</p>
+                </div>
             </div>
         `).join('');
     }
@@ -263,12 +287,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (currentQ >= questions.length) {
             quizContainer.innerHTML = `
-                <div style="text-align: center; padding: 20px;">
-                    <div style="font-size: 3rem; margin-bottom: 12px;">🏆</div>
-                    <h3 style="font-size: 1.8rem; margin-bottom: 8px;">Quiz Completed!</h3>
-                    <p style="font-size: 1.2rem; color: var(--accent-gold); margin-bottom: 24px;">Your Score: ${score} / ${questions.length}</p>
-                    <p style="color: var(--text-secondary); margin-bottom: 24px;">${score === questions.length ? 'Julley! You have mastered Ladakhi language & heritage!' : 'Great exploration! Review the exhibits and try again.'}</p>
-                    <button class="btn-audio" id="btn-restart-quiz">🔄 Try Again</button>
+                <div style="text-align: center; padding: 24px;">
+                    <div style="font-size: 3.5rem; margin-bottom: 14px;">🏆</div>
+                    <h3 style="font-size: 2rem; margin-bottom: 10px; font-weight: 800;">Quiz Completed!</h3>
+                    <p style="font-size: 1.3rem; color: var(--accent-gold); margin-bottom: 20px; font-weight: 700;">Your Score: ${score} / ${questions.length}</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 28px; max-width: 500px; margin-left: auto; margin-right: auto;">
+                        ${score === questions.length ? 'Julley! You have achieved a perfect score on Ladakhi language & heritage!' : 'Great effort! Revisit the visualizer and greetings soundboard to master every concept.'}
+                    </p>
+                    <button class="btn-audio" id="btn-restart-quiz">🔄 Restart Quiz</button>
                 </div>
             `;
             document.getElementById('btn-restart-quiz').addEventListener('click', () => {
@@ -281,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const q = questions[currentQ];
         quizContainer.innerHTML = `
-            <div style="display: flex; justify-content: space-between; margin-bottom: 16px; font-size: 0.85rem; color: var(--text-muted);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 18px; font-size: 0.88rem; color: var(--text-muted); font-weight: 600;">
                 <span>Question ${currentQ + 1} of ${questions.length}</span>
                 <span>Score: ${score}</span>
             </div>
@@ -291,8 +317,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <button class="q-opt" data-idx="${i}">${opt}</button>
                 `).join('')}
             </div>
-            <div id="quiz-feedback" style="display: none; margin-top: 18px; padding: 14px; border-radius: 10px; font-size: 0.92rem;"></div>
-            <button id="btn-next-q" class="btn-audio" style="display: none; margin-top: 18px; width: 100%; justify-content: center;">Next Question ➔</button>
+            <div id="quiz-feedback" style="display: none; margin-top: 20px; padding: 16px; border-radius: 12px; font-size: 0.95rem; font-weight: 600;"></div>
+            <button id="btn-next-q" class="btn-audio" style="display: none; margin-top: 20px; width: 100%; justify-content: center;">Next Question ➔</button>
         `;
 
         const optBtns = quizContainer.querySelectorAll('.q-opt');
@@ -341,9 +367,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sourcesContainer && data.sources) {
         sourcesContainer.innerHTML = data.sources.map(s => `
             <div class="source-item">
-                <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">${s.title}</div>
-                <div style="color: var(--text-muted); margin-bottom: 6px;">${s.author}</div>
-                <a href="${s.link}" target="_blank" rel="noopener noreferrer">View Reference ↗</a>
+                <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">${s.title}</div>
+                <div style="color: var(--text-muted); margin-bottom: 8px; font-size: 0.82rem;">${s.author}</div>
+                <a href="${s.link}" target="_blank" rel="noopener noreferrer">View Academic Reference ↗</a>
             </div>
         `).join('');
     }

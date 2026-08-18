@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Serif+Tibetan:wght@400;600;700&display=swap" rel="stylesheet">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="dark-theme">
@@ -29,13 +29,13 @@
                 <a href="../../index.html#home" class="nav-link">Home</a>
                 <a href="../languages/languages.html" class="nav-link">Languages of India</a>
                 <a href="#interactive-section" class="nav-link">Vocab Visualizer</a>
-                <a href="#map-section" class="nav-link">Regions</a>
+                <a href="#map-section" class="nav-link">Valley Dialects</a>
                 <a href="#scripts-section" class="nav-link">Tibetan Scripts</a>
                 <a href="#greetings-section" class="nav-link">Greetings</a>
                 <a href="#vocabulary-section" class="nav-link">Vocabulary</a>
                 <a href="#heritage-section" class="nav-link">Cultural Heritage</a>
                 <a href="#quiz-section" class="nav-link">Quiz</a>
-                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️ Theme</button>
             </nav>
         </div>
     </header>
@@ -45,8 +45,19 @@
 
         <!-- Hero Section -->
         <section class="hero-section">
-            <div class="container">
-                <div class="prayer-flags-ribbon" aria-hidden="true">
+            <!-- Mountain Range Background Silhouette -->
+            <svg class="hero-mountain-bg" viewBox="0 0 1440 240" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,240 L0,140 L180,60 L360,150 L540,40 L720,130 L900,30 L1080,120 L1260,50 L1440,110 L1440,240 Z" fill="rgba(245, 158, 11, 0.15)"/>
+                <path d="M0,240 L0,180 L240,110 L480,190 L720,90 L960,170 L1200,100 L1440,160 L1440,240 Z" fill="rgba(56, 189, 248, 0.12)"/>
+            </svg>
+
+            <div class="container" style="position: relative; z-index: 2;">
+                <div class="prayer-flags-line" aria-hidden="true">
+                    <div class="prayer-flag flag-blue"></div>
+                    <div class="prayer-flag flag-white"></div>
+                    <div class="prayer-flag flag-red"></div>
+                    <div class="prayer-flag flag-green"></div>
+                    <div class="prayer-flag flag-yellow"></div>
                     <div class="prayer-flag flag-blue"></div>
                     <div class="prayer-flag flag-white"></div>
                     <div class="prayer-flag flag-red"></div>
@@ -90,18 +101,27 @@
                 <div class="section-header">
                     <span class="section-tag">Core Interactive Feature</span>
                     <h2 class="section-title">4-Step Vocabulary Flow</h2>
-                    <p class="section-desc">Experience the exact sequence: Native Tibetan Word ➔ Roman Transliteration ➔ Phonetic Pronunciation ➔ English Meaning.</p>
+                    <p class="section-desc">Experience the exact sequence: Native Tibetan Word (Uchen) ➔ Roman Transliteration ➔ Phonetic Pronunciation ➔ English Meaning.</p>
                 </div>
 
                 <div class="interactive-showcase-box">
                     <div class="flow-step-bar">
-                        <div class="flow-step active">1. Native Word (Uchen)</div>
-                        <span class="flow-arrow">➔</span>
-                        <div class="flow-step active">2. Transliteration</div>
-                        <span class="flow-arrow">➔</span>
-                        <div class="flow-step active">3. Pronunciation (IPA)</div>
-                        <span class="flow-arrow">➔</span>
-                        <div class="flow-step active">4. English Meaning</div>
+                        <div class="flow-step active">
+                            <span class="step-num">Step 1</span>
+                            <span>Native Word (Uchen)</span>
+                        </div>
+                        <div class="flow-step active">
+                            <span class="step-num">Step 2</span>
+                            <span>Transliteration</span>
+                        </div>
+                        <div class="flow-step active">
+                            <span class="step-num">Step 3</span>
+                            <span>Pronunciation (IPA)</span>
+                        </div>
+                        <div class="flow-step active">
+                            <span class="step-num">Step 4</span>
+                            <span>English Meaning</span>
+                        </div>
                     </div>
 
                     <div class="vocab-slider-card">
@@ -114,9 +134,14 @@
                         <div class="slider-controls">
                             <button class="btn-icon" id="btn-prev-slider" aria-label="Previous Word">◀</button>
                             <button class="btn-audio" id="btn-play-slider">🔊 Listen Audio</button>
-                            <span id="slider-counter" style="font-family: var(--font-mono); color: var(--text-muted);">1 / 12</span>
+                            <span id="slider-counter" style="font-family: var(--font-mono); font-weight: 700; color: var(--accent-gold);">1 / 12</span>
                             <button class="btn-icon" id="btn-next-slider" aria-label="Next Word">▶</button>
                         </div>
+                    </div>
+
+                    <!-- Quick Word Selector Chips -->
+                    <div class="vocab-chips-bar" id="vocab-chips-bar">
+                        <!-- Populated by script.js -->
                     </div>
                 </div>
             </div>
@@ -134,6 +159,9 @@
                 <div class="map-grid">
                     <div class="map-container">
                         <svg class="ladakh-map-svg" viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg">
+                            <!-- River Network (Indus, Shyok, Zanskar) -->
+                            <path d="M 720 180 Q 560 220 440 270 T 160 320" fill="none" stroke="rgba(56, 189, 248, 0.4)" stroke-width="2.5" stroke-dasharray="4 4"/>
+                            
                             <!-- Kargil / Lower Ladakh -->
                             <path class="region-path" data-id="kargil" d="M 140 220 L 260 160 L 320 280 L 180 340 Z">
                                 <title>Lower Ladakh & Purik Border (Kargil, Drass, Sankoo)</title>
@@ -188,20 +216,24 @@
 
                 <div class="culture-grid">
                     <div class="culture-card" style="border-top: 4px solid var(--accent-gold);">
-                        <div class="culture-icon">📜</div>
-                        <h3 class="culture-title">Uchen Script (དབུ་ཅན། - Headed Block Script)</h3>
-                        <p class="culture-text">Meaning 'with a head', Uchen is the block calligraphy style standard across Buddhist scriptures (Kangyur & Tengyur), monastery frescoes, school education, and public road signs across Ladakh.</p>
-                        <div style="margin-top: 14px; padding: 12px; background: rgba(0,0,0,0.3); border-radius: 8px; font-family: var(--font-tibetan); font-size: 1.4rem; color: var(--accent-gold);">
-                            ལ་དྭགས་སྐད་ཁམས་བཟང་ཡོད།
+                        <div class="culture-card-body">
+                            <div class="culture-icon">📜</div>
+                            <h3 class="culture-title">Uchen Script (དབུ་ཅན། - Headed Block Script)</h3>
+                            <p class="culture-text">Meaning 'with a head', Uchen is the block calligraphy style standard across Buddhist scriptures (Kangyur & Tengyur), monastery frescoes, school education, and public road signs across Ladakh.</p>
+                            <div style="margin-top: 18px; padding: 14px; background: rgba(0,0,0,0.35); border-radius: 10px; font-family: var(--font-tibetan); font-size: 1.5rem; color: var(--accent-gold); border: 1px solid var(--border-color);">
+                                ལ་དྭགས་སྐད་ཁམས་བཟང་ཡོད།
+                            </div>
                         </div>
                     </div>
 
                     <div class="culture-card" style="border-top: 4px solid var(--accent-cyan);">
-                        <div class="culture-icon">✒️</div>
-                        <h3 class="culture-title">Yuged / Ume Script (དབུ་མེད། - Cursive Script)</h3>
-                        <p class="culture-text">Meaning 'headless', Yuged is the flowing cursive handwriting tradition used by historic Ladakhi scribes, local administrators, monastic ledgers, and personal correspondence.</p>
-                        <div style="margin-top: 14px; padding: 12px; background: rgba(0,0,0,0.3); border-radius: 8px; font-family: var(--font-tibetan); font-size: 1.4rem; color: var(--accent-cyan);">
-                            ཇུ་ལེགས་ཚང་མ།
+                        <div class="culture-card-body">
+                            <div class="culture-icon">✒️</div>
+                            <h3 class="culture-title">Yuged / Ume Script (དབུ་མེད། - Cursive Script)</h3>
+                            <p class="culture-text">Meaning 'headless', Yuged is the flowing cursive handwriting tradition used by historic Ladakhi scribes, local administrators, monastic ledgers, and personal correspondence.</p>
+                            <div style="margin-top: 18px; padding: 14px; background: rgba(0,0,0,0.35); border-radius: 10px; font-family: var(--font-tibetan); font-size: 1.5rem; color: var(--accent-cyan); border: 1px solid rgba(56, 189, 248, 0.3);">
+                                ཇུ་ལེགས་ཚང་མ།
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -217,9 +249,9 @@
                     <p class="section-desc">Listen to verified native pronunciations of signature greetings from everyday 'Julley' to formal monastic honorifics.</p>
                 </div>
 
-                <div style="max-width: 440px; margin: 0 auto 32px;">
+                <div style="max-width: 460px; margin: 0 auto 36px;">
                     <input type="text" id="greeting-search" placeholder="🔍 Search greetings (e.g. Julley, Khamzang, Thukjeche)..." 
-                           style="width: 100%; padding: 12px 18px; border-radius: 30px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); font-size: 0.95rem;">
+                           style="width: 100%; padding: 14px 20px; border-radius: 100px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); font-size: 0.95rem; outline: none;">
                 </div>
 
                 <div class="greetings-grid" id="greetings-grid">
@@ -237,9 +269,9 @@
                     <p class="section-desc">10+ fundamental words spanning mountain elements, homestead, fauna, and traditional culinary staples.</p>
                 </div>
 
-                <div style="max-width: 440px; margin: 0 auto 24px;">
+                <div style="max-width: 460px; margin: 0 auto 28px;">
                     <input type="text" id="vocab-search" placeholder="🔍 Search words (e.g. Water, Mountain, Yak, Tsampa)..." 
-                           style="width: 100%; padding: 10px 16px; border-radius: 20px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); font-size: 0.9rem;">
+                           style="width: 100%; padding: 12px 18px; border-radius: 100px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); font-size: 0.92rem; outline: none;">
                 </div>
 
                 <div class="matrix-wrapper">
@@ -298,7 +330,7 @@
                 <div class="section-header">
                     <span class="section-tag">Academic Citations</span>
                     <h2 class="section-title">Sources & References</h2>
-                    <p class="section-desc">Linguistic and historical research sourced from recognized publications and peer-reviewed grammar surveys.</p>
+                    <p class="section-desc">Linguistic and historical research sourced from recognized publications, grammar surveys, and UNESCO records.</p>
                 </div>
 
                 <div class="sources-list" id="sources-list">
