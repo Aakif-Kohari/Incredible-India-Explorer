@@ -32,7 +32,16 @@ const rulersData = [
     reign: "1572 – 1597 CE",
     image: "maharana.webp", // Matches your exact saved file name
     description: "Sovereign of Mewar celebrated for his strategic defiance against Mughal expansion. He utilized the rugged Aravalli terrain to wage an enduring campaign of resistance and recovery.",
-    link: "maharana-pratap.html"
+    link: "maharana-pratap.html"},
+  {
+    name: "Rajaraja Chola I",
+    era: "Early Medieval",
+    dynasty: "Chola",
+    region: "South India",
+    reign: "985 – 1014 CE",
+    image: "raja1.jpeg", // Matches your exact saved file name
+    description: "Transformed the Chola dynasty into a formidable maritime empire. He commissioned the monumental Brihadisvara Temple at Thanjavur, a UNESCO World Heritage site.",
+    link: "rajaraja-chola.html" // Direct relative link path target to new profile layout
   },
   {
     name: "Samudragupta",
