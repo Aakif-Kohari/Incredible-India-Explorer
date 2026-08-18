@@ -3825,6 +3825,12 @@ window.indiaSearchIndex = [
         url: 'frontend/bandarpoonch/bandarpoonch.html'
     },
     {
+    title: "Zoho: India's Software Product Journey",
+    category: "Technology & Business",
+    description: "Explore Zoho's journey from a bootstrapped 1996 Chennai startup to a 55-product SaaS ecosystem — origin story, founder Sridhar Vembu, an interactive product ecosystem map, milestones, global presence, and company philosophy.",
+    url: "frontend/zoho-explorer/index.html"
+    },
+    {
         title: "Davis Cup: Explore India's Tennis Journey",
         category: "Sports & Culture",
         description: "Interactive archive of India's Davis Cup history since 1921 — 3 finals (1966, 1974 forfeit, 1987), key players (Leander Paes, Amritraj brothers), and a searchable, filterable timeline with sources.",
