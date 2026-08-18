@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Green Hydrogen Mission Explorer | Incredible India</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <i class="fa-solid fa-atom icon"></i>
+                <span>Incredible<span class="highlight">India</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../national-awards/national-awards.html">National Awards</a>
+                <a href="#h2hubs">Green H2 Hubs</a>
+                <a href="#calculator">SIGHT Electrolyser Simulator</a>
+                <a href="#registry">NGHM Registry</a>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <span class="badge"><i class="fa-solid fa-atom"></i> National Green Hydrogen Mission (NGHM) | MNRE & SIGHT Scheme</span>
+            <h1>National Green Hydrogen Mission Explorer</h1>
+            <p>Explore India's decarbonization megastructure—visualizing green hydrogen production hubs, water electrolyser gigafactories (PEM & Alkaline), green ammonia export terminals, and SIGHT scheme incentives across Kandla, Paradip, and Tuticorin.</p>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-num">5 MMT/Year</span>
+                    <span class="stat-label">Green H2 Production Target by 2030</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">₹19,744 Crore</span>
+                    <span class="stat-label">NGHM Outlay & SIGHT Financial Incentive</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">50 MMT</span>
+                    <span class="stat-label">Annual CO2 Abatement Target</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Explorer Section -->
+    <main class="dashboard-container">
+        <!-- Hub & Technology Filter Controls -->
+        <section class="filter-section" id="h2hubs">
+            <h2><i class="fa-solid fa-sliders"></i> Technology & Industrial Port Filters</h2>
+            <div class="filter-controls">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="h2-search" placeholder="Search hydrogen hubs (e.g. Kandla Port, Paradip Ammonia, Electrolyser Gigafactory, SIGHT)...">
+                </div>
+                <div class="category-filters" id="category-buttons">
+                    <button class="filter-btn active" data-type="all">All Infrastructure</button>
+                    <button class="filter-btn" data-type="electrolyser">Electrolyser Gigafactories</button>
+                    <button class="filter-btn" data-type="hub">Green H2 & Ammonia Hubs</button>
+                    <button class="filter-btn" data-type="port">Bunkering & Export Ports</button>
+                    <button class="filter-btn" data-type="mobility">H2 Fuel Cell Mobility</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Green Hydrogen Cards Grid -->
+        <section class="grid-section">
+            <div class="section-title">
+                <h3><i class="fa-solid fa-industry"></i> Flagship Green Hydrogen Hubs & Electrolyser Megafactories</h3>
+                <span class="counter" id="active-count">Showing 6 Hydrogen Projects</span>
+            </div>
+            <div class="h2-grid" id="h2-cards-container">
+                <!-- Injected via script.js -->
+            </div>
+        </section>
+
+        <!-- Interactive Electrolyser Yield & SIGHT Incentive Simulator -->
+        <section class="calculator-section" id="calculator">
+            <div class="calc-card">
+                <div class="calc-header">
+                    <h2><i class="fa-solid fa-calculator"></i> SIGHT Electrolyser & H2 Production Simulator</h2>
+                    <p>Calculate annual green hydrogen output (Metric Tons), required renewable energy power capacity (MW), and SIGHT financial incentive benefits based on electrolyser technology type.</p>
+                </div>
+                <div class="calc-grid">
+                    <div class="form-group">
+                        <label for="calc-capacity">Electrolyser Plant Capacity (MW):</label>
+                        <input type="number" id="calc-capacity" value="500" min="50" max="5000" step="50" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="calc-tech">Electrolyser Technology Type:</label>
+                        <select id="calc-tech" class="form-control">
+                            <option value="alkaline">Pressurized Alkaline Electrolysis (AEL)</option>
+                            <option value="pem">Proton Exchange Membrane (PEM) Electrolysis</option>
+                            <option value="soec">Solid Oxide Electrolyser Cell (SOEC)</option>
+                            <option value="aem">Anion Exchange Membrane (AEM)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <button id="run-calc-btn" class="primary-btn">
+                            <i class="fa-solid fa-play"></i> Simulate Green H2 Output & SIGHT Incentives
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Calculator Output Box -->
+                <div class="calc-result-box hidden" id="calc-result">
+                    <div class="res-header">
+                        <i class="fa-solid fa-circle-check text-emerald"></i>
+                        <h4 id="calc-title">Green Hydrogen Yield Calculated</h4>
+                    </div>
+                    <div class="res-body">
+                        <div class="res-metric">
+                            <span class="m-label">Annual Green H2 Production:</span>
+                            <span class="m-val" id="res-h2">78,840 Metric Tons / Year</span>
+                        </div>
+                        <div class="res-metric">
+                            <span class="m-label">Required Dedicated RE Power:</span>
+                            <span class="m-val" id="res-power">1,150 MW Solar-Wind Hybrid</span>
+                        </div>
+                        <div class="res-metric">
+                            <span class="m-label">SIGHT Scheme Direct Subsidy:</span>
+                            <span class="m-val" id="res-subsidy">₹236.5 Crore (Year-1 Allocation)</span>
+                        </div>
+                        <p class="res-desc" id="res-desc">Production parameters comply with MNRE Green Hydrogen Standard definition (≤ 2 kg CO2 eq / kg H2).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NGHM Approved Grid Registry Table -->
+        <section class="registry-section" id="registry">
+            <h2><i class="fa-solid fa-building-circle-check"></i> MNRE SIGHT Approved Project Registry</h2>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Project Code</th>
+                            <th>Hub / Project Name</th>
+                            <th>Lead Industrial Developer</th>
+                            <th>Location / Port</th>
+                            <th>Target Annual Output</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>NGHM-H2-01</code></td>
+                            <td>Kandla Deendayal Port Green H2 Hub</td>
+                            <td>L&T / Reliance / Adani Total</td>
+                            <td>Deendayal Port, Gujarat</td>
+                            <td>1 MMT Green H2 / Year</td>
+                            <td><span class="tag tag-construction">Land Allocation Phase</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>NGHM-H2-02</code></td>
+                            <td>Paradip Green Ammonia Export Hub</td>
+                            <td>ACME Group / IFFCO</td>
+                            <td>Paradip Port, Odisha</td>
+                            <td>1.2 MMT Green Ammonia</td>
+                            <td><span class="tag tag-active">Front-End Engineering (FEED)</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>NGHM-H2-03</code></td>
+                            <td>V.O. Chidambaranar Port Bunkering Hub</td>
+                            <td>VOCPT / NTPC Green Energy</td>
+                            <td>Tuticorin, Tamil Nadu</td>
+                            <td>500,000 Tons H2 / Year</td>
+                            <td><span class="tag tag-construction">Under Construction</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>NGHM-H2-04</code></td>
+                            <td>Sanand Alkaline Electrolyser Gigafactory</td>
+                            <td>Ohmium International / Reliance</td>
+                            <td>Bengaluru & Gujarat</td>
+                            <td>2,000 MW Electrolysers/Year</td>
+                            <td><span class="tag tag-active">Commercial Production</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Incredible India Explorer. Green Hydrogen Integration powered by Ministry of New & Renewable Energy (MNRE) and Strategic Interventions for Green Hydrogen Transition (SIGHT).</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
