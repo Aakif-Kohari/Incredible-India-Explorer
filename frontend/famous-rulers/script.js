@@ -15,6 +15,16 @@ const rulersData = [
     link: "../chandragupta-maurya-explorer/index.html"
   },
   {
+    name: "Pulakeshin II",
+    era: "Early Medieval",
+    dynasty: "Chalukya",
+    region: "South India",
+    reign: "c. 610 – 642 CE",
+    image: "pulakeshin.jpg",
+    description: "The greatest monarch of the Chalukyas of Vatapi. A brilliant military tactician, he famously halted Emperor Harshavardhana’s expansion at the Narmada River.",
+    link: "pulakeshin-ii.html"
+  },
+  {
     name: "Ashoka the Great",
     era: "Ancient",
     dynasty: "Maurya",
