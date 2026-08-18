@@ -1,384 +1,93 @@
-/**
- * Kokborok (Tripuri) Language Explorer Dataset
- * Comprehensive linguistic, cultural, audio-synthesis, and geographical data.
- */
+const VOCAB = [
+  { word: "Khulumkha", ipa: "/kʰu.lum.kʰa/", meaning: "Hello / Greetings", example: "Khulumkha! Nwng kaham?", cat: "greetings", audio: "khulumkha.mp3" },
+  { word: "Kaham", ipa: "/ka.ɦam/", meaning: "Good / Fine", example: "Ang kaham deo.", cat: "greetings", audio: "kaham.mp3" },
+  { word: "Nwng", ipa: "/nʊŋ/", meaning: "You", example: "Nwng mwichwi?", cat: "essentials", audio: "nwng.mp3" },
+  { word: "Ang", ipa: "/aŋ/", meaning: "I / Me", example: "Ang Tripura-yao.", cat: "essentials", audio: "ang.mp3" },
+  { word: "Nok", ipa: "/nɔk/", meaning: "House", example: "Ang-no nok-ha.", cat: "essentials", audio: "nok.mp3" },
+  { word: "Twi", ipa: "/twi/", meaning: "Water", example: "Twi thak-nai?", cat: "nature", audio: "twi.mp3" },
+  { word: "Huk", ipa: "/ɦuk/", meaning: "Fire", example: "Huk mwk-nai.", cat: "nature", audio: "huk.mp3" },
+  { word: "Boro", ipa: "/bɔ.ɾo/", meaning: "Big / Large", example: "Boro nok-ha.", cat: "essentials", audio: "boro.mp3" },
+  { word: "Gwran", ipa: "/gʷɾan/", meaning: "Small / Little", example: "Gwran twi.", cat: "essentials", audio: "gwran.mp3" },
+  { word: "Hachuk", ipa: "/ɦa.tʃuk/", meaning: "Mountain", example: "Hachuk-yao boro.", cat: "nature", audio: "hachuk.mp3" },
+  { word: "Dung", ipa: "/duŋ/", meaning: "Tree", example: "Dung-ha gwran.", cat: "nature", audio: "dung.mp3" },
+  { word: "Bisi", ipa: "/bi.si/", meaning: "Garia Festival", example: "Bisi-yao thang-nai.", cat: "culture", audio: "bisi.mp3" },
+  { word: "Lebang", ipa: "/le.baŋ/", meaning: "Traditional Dance", example: "Lebang-bo mani-nai.", cat: "culture", audio: "lebang.mp3" },
+  { word: "Risa", ipa: "/ɾi.sa/", meaning: "Traditional Cloth", example: "Risa-ha thwi-nai.", cat: "culture", audio: "risa.mp3" }
+];
 
-const KOKBOROK_DATA = {
-    overview: {
-        title: "Kokborok (Tripuri)",
-        nativeName: "কোকবরক / 𑰐𑰺𑰐𑰤𑰺𑰐 / Kokborok",
-        etymology: "'Kok' means 'Language' and 'Borok' means 'People' or 'Human' — literally 'The Language of the Tripuri People'.",
-        speakersCount: "1.1+ Million (2011 Census)",
-        officialStatus: "Official Language of Tripura (Recognized on Jan 19, 1979)",
-        family: "Sino-Tibetan > Tibeto-Burman > Sal (Bodo-Garo)",
-        primaryRegion: "Tripura, Northeast India & Chittagong Hill Tracts (Bangladesh)",
-        kokborokDay: "January 19 (Kokborok Sal celebrated annually)"
-    },
+const SCRIPTS = [
+  {
+    name: "Koloma Script",
+    icon: "📜",
+    period: "Ancient (Royal Era)",
+    desc: "The indigenous script used by Tripuri royalty for centuries. Now primarily ceremonial and historical.",
+    sample: "𑰏𑰲𑰩𑰲𑰦𑰏𑰯",
+    status: "Historical"
+  },
+  {
+    name: "Bengali Script",
+    icon: "অ",
+    period: "Modern Official",
+    desc: "Eastern Nagari (Bengali) script adopted for official and educational purposes in Tripura state.",
+    sample: "খুলুমখা",
+    status: "Official"
+  },
+  {
+    name: "Roman Script",
+    icon: "Aa",
+    period: "Contemporary",
+    desc: "Latin alphabet widely used for digital communication, social media, and youth literature.",
+    sample: "Khulumkha",
+    status: "Common"
+  }
+];
 
-    featuredGreeting: {
-        word: "Khulumkha",
-        kolomaScript: "𑰏𑰲𑰩𑰲𑰦𑰏𑰯",
-        bengaliScript: "খুলুমখা",
-        latinScript: "Khulumkha",
-        ipa: "/kʰu.lum.kʰa/",
-        meaning: "Greetings / Hello / Welcome",
-        literal: "I salute / fold hands in respect to you",
-        category: "Greeting",
-        audioFrequency: [440, 554.37, 659.25], // Musical chord frequencies for synthesized voice tone
-        usage: "Used universally across Tripura when meeting someone, showing deep respect and warmth.",
-        exampleSentence: {
-            kokborok: "Khulumkha! Nwng bahae tongo?",
-            english: "Hello! How are you?",
-            transliteration: "Khulumkha! Nung bahae tongo?"
-        }
-    },
+const FEATURES = [
+  { title: "Tonal Language", desc: "Kokborok uses pitch variations to distinguish word meanings — a hallmark of Tibeto-Burman languages." },
+  { title: "SOV Word Order", desc: "Subject-Object-Verb structure, unlike Indo-European SVO pattern. Example: 'Ang (I) twi (water) thak (drink).'" },
+  { title: "Agglutinative", desc: "Words formed by stringing morphemes together — each affix adds specific grammatical meaning." },
+  { title: "Rich Oral Tradition", desc: "Centuries of folk tales, songs, and poetry transmitted orally before modern literacy campaigns." }
+];
 
-    vocabulary: [
-        {
-            id: "khulumkha",
-            word: "Khulumkha",
-            kolomaScript: "𑰏𑰲𑰩𑰲𑰦𑰏𑰯",
-            bengaliScript: "খুলুমখা",
-            latinScript: "Khulumkha",
-            ipa: "/kʰu.lum.kʰa/",
-            meaning: "Hello / Greetings",
-            category: "greetings",
-            notes: "Traditional Tripuri greeting performed with folded hands.",
-            audioFrequency: [440, 523.25, 659.25],
-            example: "Khulumkha! Phai di, chani phano.",
-            exampleTranslation: "Welcome! Please come, sit down."
-        },
-        {
-            id: "hamba",
-            word: "Hamba",
-            kolomaScript: "𑰮𑰦𑰤𑰯",
-            bengaliScript: "হাম্বা",
-            latinScript: "Hamba",
-            ipa: "/ham.ba/",
-            meaning: "Thank you / Gratitude",
-            category: "greetings",
-            notes: "Used to express sincere gratitude or appreciation.",
-            audioFrequency: [349.23, 440, 523.25],
-            example: "Nini hamjakma bagui hamba.",
-            exampleTranslation: "Thank you for your love and kindness."
-        },
-        {
-            id: "bahae_tongo",
-            word: "Bahae tongo?",
-            kolomaScript: "𑰤𑰯𑰮𑰹 𑰝𑰺𑰒𑰺",
-            bengaliScript: "বাহায় তঙ?",
-            latinScript: "Bahae tongo?",
-            ipa: "/ba.hæ tɔ.ŋɔ/",
-            meaning: "How are you?",
-            category: "greetings",
-            notes: "Common polite inquiry about well-being.",
-            audioFrequency: [392, 493.88, 587.33],
-            example: "Khulumkha, nwng bahae tongo?",
-            exampleTranslation: "Hello, how are you doing?"
-        },
-        {
-            id: "kaham",
-            word: "Kaham",
-            kolomaScript: "𑰐𑰯𑰮𑰦",
-            bengaliScript: "কাহাম",
-            latinScript: "Kaham",
-            ipa: "/ka.ham/",
-            meaning: "Good / Fine / Beautiful",
-            category: "essentials",
-            notes: "Multi-purpose positive descriptor for status, health, or aesthetics.",
-            audioFrequency: [440, 554.37, 659.25],
-            example: "Ang kaham tongo.",
-            exampleTranslation: "I am fine / doing well."
-        },
-        {
-            id: "mung",
-            word: "Mung",
-            kolomaScript: "𑰦𑰲𑰒",
-            bengaliScript: "মুং",
-            latinScript: "Mung",
-            ipa: "/muŋ/",
-            meaning: "Name",
-            category: "essentials",
-            notes: "Used when introducing yourself or asking someone's identity.",
-            audioFrequency: [329.63, 415.30, 493.88],
-            example: "Nini mung tamo?",
-            exampleTranslation: "What is your name?"
-        },
-        {
-            id: "nok",
-            word: "Nok",
-            kolomaScript: "𑰡𑰺𑰐",
-            bengaliScript: "নক",
-            latinScript: "Nok",
-            ipa: "/nɔk/",
-            meaning: "House / Home",
-            category: "nature_people",
-            notes: "Reflects indigenous Tripuri architectural traditions like bamboo houses.",
-            audioFrequency: [293.66, 369.99, 440],
-            example: "Boro tabuk nok-o tongo.",
-            exampleTranslation: "He is at home right now."
-        },
-        {
-            id: "twi",
-            word: "Twi",
-            kolomaScript: "𑰝𑰿𑰪𑰰",
-            bengaliScript: "ত্বি / টুই",
-            latinScript: "Twi",
-            ipa: "/twi/",
-            meaning: "Water / River",
-            category: "nature_people",
-            notes: "Fundamental word seen in Tripura river names (e.g. Twi-pra = Tripura, Land of Water).",
-            audioFrequency: [523.25, 659.25, 783.99],
-            example: "Twi nuksa-o nwng twi nwng di.",
-            exampleTranslation: "Drink water when you feel thirsty."
-        },
-        {
-            id: "huk",
-            word: "Huk",
-            kolomaScript: "𑰮𑰲𑰐",
-            bengaliScript: "হুক",
-            latinScript: "Huk",
-            ipa: "/huk/",
-            meaning: "Jhum Farm / Hill Field",
-            category: "culture_land",
-            notes: "Reflects the traditional shifting cultivation (Jhum) practice of the Tripura hills.",
-            audioFrequency: [261.63, 329.63, 392],
-            example: "Huk-o mai rogo nanggo.",
-            exampleTranslation: "Paddy is grown in the Jhum fields."
-        },
-        {
-            id: "chakhrok",
-            word: "Chakhrok",
-            kolomaScript: "𑰓𑰯𑰏𑰿𑰨𑰺𑰐",
-            bengaliScript: "চাখ্রক",
-            latinScript: "Chakhrok",
-            ipa: "/tʃa.kʰɾɔk/",
-            meaning: "Tasty / Delicious",
-            category: "culture_land",
-            notes: "Used to praise traditional Tripuri culinary dishes like Mui Borok and Berma.",
-            audioFrequency: [440, 523.25, 659.25],
-            example: "Aborok mui bwtwi chakhrok rwkha.",
-            exampleTranslation: "That indigenous Tripuri curry is very tasty."
-        },
-        {
-            id: "nwng",
-            word: "Nwng",
-            kolomaScript: "𑰡𑰿𑰪𑰒",
-            bengaliScript: "নূং",
-            latinScript: "Nwng",
-            ipa: "/nɯŋ/",
-            meaning: "You (Singular)",
-            category: "essentials",
-            notes: "Second person pronoun.",
-            audioFrequency: [349.23, 440, 523.25],
-            example: "Nwng tamo phano rang khnai?",
-            exampleTranslation: "Where are you going?"
-        },
-        {
-            id: "ang",
-            word: "Ang",
-            kolomaScript: "𑰀𑰒",
-            bengaliScript: "আং",
-            latinScript: "Ang",
-            ipa: "/aŋ/",
-            meaning: "I / Me",
-            category: "essentials",
-            notes: "First person pronoun.",
-            audioFrequency: [392, 493.88, 587.33],
-            example: "Ang Kokborok kok kok-rwo.",
-            exampleTranslation: "I speak the Kokborok language."
-        },
-        {
-            id: "hamjakma",
-            word: "Hamjakma",
-            kolomaScript: "𑰮𑰦𑰕𑰯𑰐𑰦𑰯",
-            bengaliScript: "হামজাকমা",
-            latinScript: "Hamjakma",
-            ipa: "/ham.jak.ma/",
-            meaning: "Love / Affection",
-            category: "culture_land",
-            notes: "Deep emotive word expressed in songs, poetry, and folk ballads.",
-            audioFrequency: [440, 554.37, 659.25],
-            example: "Ang Tripurani bagui hamjakma tongo.",
-            exampleTranslation: "I have immense love for Tripura."
-        }
-    ],
+const DISTRICTS = [
+  { name: "West Tripura", x: 45, y: 55, speakers: "320,000", note: "Highest concentration in Agartala and surrounding areas" },
+  { name: "Sipahijala", x: 50, y: 60, speakers: "180,000", note: "Mixed Kokborok-Bengali speaking region" },
+  { name: "Gomati", x: 55, y: 65, speakers: "150,000", note: "Strong traditional practices and festivals" },
+  { name: "South Tripura", x: 60, y: 70, speakers: "140,000", note: "Border region with Bangladesh influence" },
+  { name: "Khowai", x: 40, y: 50, speakers: "120,000", note: "Hilly terrain with distinct dialect features" },
+  { name: "Dhalai", x: 55, y: 45, speakers: "95,000", note: "Forest communities with traditional lifestyle" },
+  { name: "North Tripura", x: 50, y: 35, speakers: "85,000", note: "Proximity to Assam and Mizoram" },
+  { name: "Unakoti", x: 45, y: 30, speakers: "70,000", note: "Ancient archaeological sites" }
+];
 
-    writingSystems: {
-        koloma: {
-            name: "Koloma (𑰐𑰺𑰩𑰺𑰦)",
-            type: "Ancient Indigenous Script",
-            period: "Royal Era of Manikya Kings (14th Century & earlier)",
-            description: "The historical indigenous script of the Tripuri kingdom. Royal chronicles ('Rajmala') record that royal decrees and religious texts were originally inscribed in Koloma before Bengali script gained administrative usage.",
-            features: "Distinctive angular glyphs carved on bamboo and stone tablets.",
-            status: "Cultural heritage symbol; actively undergoing preservation and digitization movement."
-        },
-        latin: {
-            name: "Roman / Latin Script",
-            type: "Modern Orthography (Popular & Standard)",
-            period: "Late 19th Century – Present",
-            description: "Widely used modern script system standardized by Kokborok language organizations (such as Kokborok Tei Hukumu Mission). Uses specific digraphs like 'nw' (/ɯ/) and 'bw' to capture distinct tonal Tibeto-Burman vowels.",
-            features: "Features unique vowel orthography like 'w' representing the close back unrounded vowel [ɯ].",
-            status: "Dominant script in contemporary digital media, textbooks, and popular literature."
-        },
-        bengali: {
-            name: "Bengali / Eastern Nagari Script",
-            type: "Official Regional Script",
-            period: "19th – 20th Century",
-            description: "Adopted during the Manikya dynasty's court patronage of regional literature. Recognized alongside Latin script for official publications and government curricula in Tripura.",
-            features: "Modified Eastern Nagari letters adapted with special phonetic markers for Kokborok tones.",
-            status: "Used in formal state school education and government publications in Tripura."
-        }
-    },
+const DIALECTS = [
+  { name: "Debbarma", region: "Royal clan", note: "Considered the prestige dialect, basis for standard Kokborok" },
+  { name: "Jamatia", region: "Central Tripura", note: "Distinct vocabulary related to agriculture and forest" },
+  { name: "Noatia", region: "Southern areas", note: "Influenced by Bengali and neighboring languages" },
+  { name: "Reang/Bru", region: "Northern hills", note: "Significant phonological differences from standard Kokborok" }
+];
 
-    languageFamily: {
-        tree: {
-            name: "Sino-Tibetan Family",
-            children: [
-                {
-                    name: "Tibeto-Burman Branch",
-                    children: [
-                        {
-                            name: "Sal (Bodo-Garo Group)",
-                            description: "A major ethnolinguistic cluster across Northeast India & Chittagong Hills",
-                            children: [
-                                {
-                                    name: "Luish / Koch-Bodo Cluster",
-                                    children: [
-                                        { name: "Kokborok (Tripuri)", active: true },
-                                        { name: "Bodo (Assam)", active: false },
-                                        { name: "Garo (Meghalaya)", active: false },
-                                        { name: "Dimasa (Assam)", active: false },
-                                        { name: "Tiwa (Lalung)", active: false },
-                                        { name: "Rabha", active: false }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        linguisticFeatures: [
-            {
-                feature: "Tonal Nuances",
-                description: "Kokborok has two distinct lexical tones: High Tone (marked by glottal stops or vowel length) and Low Tone. For instance, 'kah' (to roast) vs 'kah' (to climb)."
-            },
-            {
-                feature: "Agglutinative Morphology",
-                description: "Words are built by adding suffixes to root verbs. Example: 'Phai' (Come) ➔ 'Phai-di' (Please come) ➔ 'Phai-ya' (Did not come)."
-            },
-            {
-                feature: "Numeral Classifiers",
-                description: "Nouns use specialized classifiers based on shape/nature. Example: 'khorok' (for humans), 'sa' (for animals), 'kham' (for flat objects)."
-            }
-        ]
-    },
+const CULTURE = [
+  { icon: "🎭", title: "Garia & Buisu Festivals", desc: "Annual harvest celebrations with traditional music, Lebang dance, and community feasts honoring nature's bounty." },
+  { icon: "🧵", title: "Risa & Rignai Textiles", desc: "Handwoven fabrics with geometric patterns — each motif carries clan identity and cultural symbolism." },
+  { icon: "🎵", title: "Lebang Dance & Music", desc: "Traditional folk dance performed during festivals, accompanied by drums (kham), flute (sumui), and cymbals." },
+  { icon: "🍚", title: "Culinary Traditions", desc: "Fermented foods, bamboo shoots, and fish preparations — cuisine reflects forest and river ecology." },
+  { icon: "🏹", title: "Oral Literature", desc: "Epic tales, proverbs, and riddles transmitted across generations — now being documented and digitized." },
+  { icon: "🎨", title: "Bamboo & Cane Crafts", desc: "Intricate basket-weaving, furniture, and architectural elements — sustainable craft traditions." }
+];
 
-    regionsAndDialects: {
-        tripuraDistricts: [
-            { name: "West Tripura", capital: "Agartala", speakersPct: "32%", note: "Major cultural center & hub of Debbarma dialect." },
-            { name: "Gomati", capital: "Udaipur", speakersPct: "22%", note: "Rich in Jamatia and Debbarma heritage." },
-            { name: "Dhalai", capital: "Ambassa", speakersPct: "28%", note: "Significant Reang (Bru) & Kalai speaker population." },
-            { name: "South Tripura", capital: "Belonia", speakersPct: "18%", note: "Strong Tripuri communities along Bangladesh border." },
-            { name: "Khowai", capital: "Khowai", speakersPct: "25%", note: "Famous for traditional bamboo crafts & agricultural folk traditions." },
-            { name: "North Tripura", capital: "Dharmanagar", speakersPct: "15%", note: "Diverse mixed Tripuri & Reang settlements." },
-            { name: "Sepahijala", capital: "Bishramganj", speakersPct: "29%", note: "Heartland of traditional weaving and Garia Puja." },
-            { name: "Unakoti", capital: "Kailashahar", speakersPct: "12%", note: "Historic rock-cut sculpture region with indigenous folklore." }
-        ],
-        surroundingRegions: [
-            { region: "Chittagong Hill Tracts (Bangladesh)", details: "Home to over 100,000 Tipra/Tripuri speakers across Khagrachari and Rangamati districts." },
-            { region: "Barak Valley (Assam)", details: "Historic Tripuri communities in Cachar and Hailakandi districts." },
-            { region: "Mizoram Border Belt", details: "Reang/Bru communities inhabiting western Mizoram (Mamit district)." }
-        ],
-        dialects: [
-            { name: "Debbarma", description: "Standard Kokborok dialect, spoken in central & western Tripura; base for literary standards." },
-            { name: "Reang / Bru (Kowbrung)", description: "Spoken by the Reang community; features unique vocal pitch and archaic vocabulary." },
-            { name: "Jamatia", description: "Dialect of the Jamatia clan, preserving unique agricultural terminology." },
-            { name: "Kalai & Noatia", description: "Eastern & southern regional dialects with distinct tonal shifts." },
-            { name: "Murasing, Rupini & Uchoi", description: "Clannish dialects with localized idioms and folk song traditions." }
-        ]
-    },
+const QUIZ = [
+  { q: "What does 'Khulumkha' mean?", opts: ["Goodbye", "Hello / Greetings", "Thank you", "Please"], correct: 1 },
+  { q: "Which script is historically used by Tripuri royalty?", opts: ["Devanagari", "Bengali", "Koloma", "Roman"], correct: 2 },
+  { q: "Kokborok belongs to which language family?", opts: ["Indo-European", "Dravidian", "Sino-Tibetan", "Austroasiatic"], correct: 2 },
+  { q: "What is the word order in Kokborok?", opts: ["SVO", "SOV", "VSO", "OVS"], correct: 1 },
+  { q: "Which festival is celebrated with Lebang dance?", opts: ["Diwali", "Garia/Buisu", "Holi", "Christmas"], correct: 1 },
+  { q: "How many speakers does Kokborok have approximately?", opts: ["100,000", "500,000", "1.1 million", "5 million"], correct: 2 }
+];
 
-    culturalHeritage: [
-        {
-            id: "garia_puja",
-            title: "Garia Puja & Mamita Festival",
-            category: "Festivals & Rituals",
-            imageTag: "🌿",
-            description: "Garia Puja is the most sacred spring festival of Tripura celebrated in the month of Vaisakha. A bamboo pole representing Lord Garia is worshipped with flowers, cotton, and rice beer. The accompanying Garia dance is performed with traditional drums ('Kham').",
-            significance: "Celebrates livestock, fertility, prosperity, and communal harmony."
-        },
-        {
-            id: "rignai_risa",
-            title: "Rignai & Risa (Tripuri Textile Craft)",
-            category: "Traditional Attire",
-            imageTag: "🧵",
-            description: "Tripuri women handweave stunning garments on back-strap looms. 'Rignai' is the lower wrap-around garment, while 'Risa' is the embroidered chest-wrap carrying intricate geometric motifs passed down through generations.",
-            significance: "Symbol of Tripuri female artistry, identity, and tribal pride."
-        },
-        {
-            id: "traditional_music",
-            title: "Sumui, Kham & Sarinda Instruments",
-            category: "Musical Heritage",
-            imageTag: "🎶",
-            description: "Tripuri folk music relies on indigenous bamboo flutes ('Sumui'), thunderous double-sided drums ('Kham'), bowed string instruments ('Sarinda'), and jew's harps ('Dangdu') to accompany folk songs ('Longoi').",
-            significance: "Integral to storytelling, seasonal harvest songs, and ceremonial rituals."
-        },
-        {
-            id: "kokborok_day",
-            title: "Kokborok Sal (Kokborok Day - Jan 19)",
-            category: "Linguistic Renaissance",
-            imageTag: "📜",
-            description: "Every year on January 19th, Tripura celebrates Kokborok Day commemorating the official recognition of Kokborok language in 1979. Cultural rallies, literary summits, and poetry recitations take place state-wide.",
-            significance: "Promotes language revival, digital literacy, and youth participation in indigenous literature."
-        }
-    ],
-
-    quizQuestions: [
-        {
-            question: "What does the word 'Kokborok' literally translate to?",
-            options: [
-                "Language of the Mountains",
-                "Language of the Tripuri People",
-                "Ancient Song of Water",
-                "Words of Friendship"
-            ],
-            correct: 1,
-            explanation: "'Kok' means 'Language' and 'Borok' means 'People/Human' in Tripuri."
-        },
-        {
-            question: "What is the traditional Tripuri greeting performed with respect?",
-            options: ["Namaste", "Khulumkha", "Khamani", "Juhar"],
-            correct: 1,
-            explanation: "'Khulumkha' is the authentic greeting used across Tripura."
-        },
-        {
-            question: "Which ancient indigenous script was historically used by Tripuri Kings?",
-            options: ["Brahmi", "Koloma", "Kharosthi", "Meitei Mayek"],
-            correct: 1,
-            explanation: "Koloma is the ancient Tripuri script recorded in historical royal chronicles."
-        },
-        {
-            question: "Which larger language family does Kokborok belong to?",
-            options: [
-                "Indo-Aryan",
-                "Dravidian",
-                "Sino-Tibetan (Tibeto-Burman)",
-                "Austroasiatic"
-            ],
-            correct: 2,
-            explanation: "Kokborok belongs to the Sino-Tibetan family under the Tibeto-Burman / Sal (Bodo-Garo) sub-branch."
-        },
-        {
-            question: "What date is celebrated every year as Kokborok Day (Kokborok Sal)?",
-            options: ["August 15", "January 19", "March 26", "October 2"],
-            correct: 1,
-            explanation: "January 19 marks Kokborok Day in honor of its official language status recognition in 1979."
-        }
-    ]
-};
-
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = KOKBOROK_DATA;
-}
+const STATS = [
+  { label: "Speakers", value: "1.1M+", suffix: "" },
+  { label: "Official Status", value: "Tripura", suffix: "" },
+  { label: "Scripts", value: "3", suffix: "" },
+  { label: "Dialects", value: "4+", suffix: "" }
+];
