@@ -6,6 +6,13 @@
 window.indiaSearchIndex = [
 
     {
+        title: "Transport Route Planner",
+        category: "Travel & Planning",
+        description: "Compare walking, bus, metro, cab and train options between Indian cities, rank routes by cost, time or walking distance, and save routes to My India Journey.",
+        url: "frontend/transport-route-planner/index.html"
+    },
+
+    {
         title: "Arunachal Pradesh's Tani Languages Explorer",
         category: "Culture & Languages",
         description: "Explore the diverse Tani language family of Arunachal Pradesh (Nyishi, Adi, Apatani, Galo, Tagin, Mising): regional map, verified audio greetings, comparative vocabulary matrix, and cultural heritage.",
@@ -3816,6 +3823,22 @@ window.indiaSearchIndex = [
         category: 'Mountains & Geography',
         description:'Dedicated explorer for Bandarpoonch, a 6,316 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, trekking details, and FAQs.',
         url: 'frontend/bandarpoonch/bandarpoonch.html'
+    },
+    {
+    title: "Indian Kushti Competitions: The Akhara Tradition",
+    category: "Sports & Culture",
+    description: "Explore Kushti wrestling and the Akhara tradition — training equipment like the gada and mugdar, techniques, regional wrestling traditions, historic wrestlers, and cultural significance.",
+    url: "frontend/kushti-akhara-explorer/index.html"},
+  {
+    title: "Zoho: India's Software Product Journey",
+    category: "Technology & Business",
+    description: "Explore Zoho's journey from a bootstrapped 1996 Chennai startup to a 55-product SaaS ecosystem — origin story, founder Sridhar Vembu, an interactive product ecosystem map, milestones, global presence, and company philosophy.",
+    url: "frontend/zoho-explorer/index.html"},
+  {
+        title: "Infosys: India's Technology Success Story",
+        category: "Featured Explorers",
+        description: "Interactive archive of Infosys's growth from $250 in founding capital (1981) to a nearly $19 billion global IT services leader — founders, 1999 NASDAQ listing, milestones, and global presence, with sources.",
+        url: "frontend/infosys-explorer/infosys-explorer.html"
     },
     {
         title: "Davis Cup: Explore India's Tennis Journey",

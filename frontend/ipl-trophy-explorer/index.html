@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The IPL Trophy — Explore India's Premier T20 League</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#080B1C;
+    --bg-alt:#0E1430;
+    --panel:#111938;
+    --line:rgba(232,181,77,0.16);
+    --gold:#E8B54D;
+    --gold-bright:#FFDA8A;
+    --ivory:#F3F0E4;
+    --muted:#8B93B8;
+    --muted-dim:#5C6389;
+    --floodlight:#FFF7DE;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -5%, rgba(232,181,77,0.10), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 90% 10%, rgba(80,60,160,0.18), transparent 55%),
+      var(--bg);
+    color:var(--ivory);
+    font-family:'Manrope', sans-serif;
+    overflow-x:hidden;
+  }
+  ::selection{ background:var(--gold); color:#0A0E20; }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:16px;
+  }
+  .eyebrow::before{ content:''; width:22px; height:1px; background:var(--gold); display:inline-block; }
+
+  h1,h2,h3{ font-family:'Anton', sans-serif; font-weight:400; letter-spacing:0.01em; text-transform:uppercase; line-height:1.02; }
+  a{ color:inherit; }
+
+  /* ================= NAV ================= */
+  nav{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 6vw;
+    background:rgba(8,11,28,0.75);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{ display:flex; align-items:center; gap:10px; font-family:'Anton', sans-serif; letter-spacing:0.03em; font-size:18px; }
+  .brand svg{ width:26px; height:26px; }
+  .navlinks{ display:flex; gap:26px; font-size:13px; color:var(--muted); }
+  .navlinks a{ text-decoration:none; transition:color .2s; white-space:nowrap; }
+  .navlinks a:hover{ color:var(--gold-bright); }
+  @media (max-width:820px){ .navlinks{ display:none; } }
+
+  /* ================= HERO ================= */
+  .hero{
+    position:relative;
+    padding:9vh 6vw 8vh;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:40px;
+    align-items:center;
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  @media (max-width:900px){ .hero{ grid-template-columns:1fr; padding-top:6vh; } }
+  .hero h1{ font-size:clamp(46px,7vw,92px); color:var(--ivory); }
+  .hero h1 span{ color:var(--gold); display:block; -webkit-text-stroke:1px rgba(232,181,77,0.6); }
+  .hero p.lead{ margin-top:22px; max-width:46ch; color:var(--muted); font-size:17px; line-height:1.65; }
+  .hero-cta{ margin-top:34px; display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    font-family:'JetBrains Mono', monospace; font-size:12.5px; letter-spacing:0.08em; text-transform:uppercase;
+    padding:13px 22px; border-radius:2px; text-decoration:none; cursor:pointer; border:1px solid var(--gold);
+    transition:all .2s;
+  }
+  .btn.solid{ background:var(--gold); color:#161022; font-weight:700; }
+  .btn.solid:hover{ background:var(--gold-bright); }
+  .btn.ghost{ color:var(--gold); background:transparent; }
+  .btn.ghost:hover{ background:rgba(232,181,77,0.1); }
+
+  .trophy-stage{ position:relative; display:flex; justify-content:center; align-items:center; min-height:420px; }
+  .trophy-glow{
+    position:absolute; width:340px; height:340px; border-radius:50%;
+    background:radial-gradient(circle, rgba(232,181,77,0.35), transparent 70%);
+    filter:blur(10px);
+    animation:pulseGlow 4.5s ease-in-out infinite;
+  }
+  @keyframes pulseGlow{ 0%,100%{ opacity:0.7; transform:scale(1);} 50%{ opacity:1; transform:scale(1.08);} }
+  .trophy-svg{ position:relative; width:260px; z-index:2; filter:drop-shadow(0 20px 40px rgba(0,0,0,0.55)); }
+  .ray{ position:absolute; inset:0; z-index:1; opacity:0.5; animation:spinRay 40s linear infinite; }
+  @keyframes spinRay{ to{ transform:rotate(360deg); } }
+  @media (prefers-reduced-motion:reduce){ .trophy-glow,.ray{ animation:none; } }
+
+  /* ================= SECTION SHELL ================= */
+  section{ padding:9vh 6vw; border-bottom:1px solid var(--line); position:relative; }
+  .section-head{ max-width:680px; margin-bottom:52px; }
+  .section-head h2{ font-size:clamp(30px,4vw,48px); color:var(--ivory); }
+  .section-head p{ color:var(--muted); margin-top:14px; font-size:15.5px; line-height:1.7; }
+
+  /* ================= HISTORY ================= */
+  .history-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  @media (max-width:900px){ .history-grid{ grid-template-columns:repeat(2,1fr); } }
+  .history-card{ background:var(--bg-alt); padding:28px 24px; }
+  .history-card .num{ font-family:'JetBrains Mono',monospace; color:var(--gold); font-size:12px; letter-spacing:0.1em; }
+  .history-card h3{ font-size:22px; margin-top:10px; color:var(--ivory); }
+  .history-card p{ margin-top:10px; font-size:13.5px; color:var(--muted); line-height:1.6; }
+
+  .trophy-facts{ margin-top:56px; display:grid; grid-template-columns:1.1fr 1fr; gap:44px; align-items:start; }
+  @media (max-width:900px){ .trophy-facts{ grid-template-columns:1fr; } }
+  .trophy-facts p{ color:var(--muted); font-size:15px; line-height:1.75; }
+  .trophy-facts p + p{ margin-top:14px; }
+  .fact-list{ display:flex; flex-direction:column; gap:0; border-top:1px solid var(--line); }
+  .fact-row{ display:flex; justify-content:space-between; gap:20px; padding:14px 0; border-bottom:1px solid var(--line); font-size:14px; }
+  .fact-row .k{ color:var(--muted); }
+  .fact-row .v{ font-family:'JetBrains Mono',monospace; color:var(--gold-bright); text-align:right; }
+
+  /* ================= FLOODLIGHT TIMELINE (signature) ================= */
+  .timeline-wrap{ background:var(--panel); border:1px solid var(--line); border-radius:4px; padding:44px 6vw 40px; }
+  .timeline-top{ display:flex; justify-content:space-between; align-items:flex-end; gap:20px; flex-wrap:wrap; margin-bottom:30px; }
+  .season-display{ font-family:'Anton',sans-serif; font-size:clamp(60px,8vw,110px); line-height:1; color:var(--gold-bright); text-shadow:0 0 40px rgba(232,181,77,0.35); }
+  .season-tag{ font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; }
+
+  .towers{ position:relative; padding-top:10px; }
+  .towers-track{ position:relative; height:120px; display:flex; align-items:flex-end; gap:3px; }
+  .tower{
+    flex:1; min-width:0; height:14%; background:var(--muted-dim); opacity:0.5; border-radius:2px 2px 0 0;
+    cursor:pointer; transition:height .25s ease, background .25s ease, opacity .25s ease;
+    position:relative;
+  }
+  .tower:hover{ opacity:0.85; }
+  .tower.active{ opacity:1; height:100%; box-shadow:0 0 24px 2px var(--tcolor, var(--gold)); }
+  .tower .beam{
+    position:absolute; bottom:100%; left:50%; transform:translateX(-50%);
+    width:2px; height:0; background:linear-gradient(to top, var(--tcolor,var(--gold)), transparent);
+    opacity:0;
+  }
+  .tower.active .beam{ height:60px; opacity:0.85; }
+
+  input[type=range].season-slider{
+    -webkit-appearance:none; appearance:none; width:100%; height:2px; background:var(--line); margin-top:16px; outline:none;
+  }
+  input[type=range].season-slider::-webkit-slider-thumb{
+    -webkit-appearance:none; appearance:none; width:16px; height:16px; border-radius:50%;
+    background:var(--gold-bright); cursor:pointer; box-shadow:0 0 12px rgba(232,181,77,0.7); border:2px solid #0A0E20;
+    margin-top:-7px;
+  }
+  input[type=range].season-slider::-moz-range-thumb{
+    width:16px; height:16px; border-radius:50%; background:var(--gold-bright); cursor:pointer; border:2px solid #0A0E20;
+  }
+  .tick-years{ display:flex; justify-content:space-between; margin-top:8px; font-family:'JetBrains Mono',monospace; font-size:9.5px; color:var(--muted-dim); }
+  .tick-years span{ writing-mode:horizontal-tb; }
+
+  .scoreboard{
+    margin-top:38px; display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line);
+  }
+  @media (max-width:820px){ .scoreboard{ grid-template-columns:1fr; } }
+  .board-cell{ background:#0A0E24; padding:26px 24px; }
+  .board-cell .lbl{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+  .board-cell .champ-name{ font-family:'Anton',sans-serif; font-size:26px; color:var(--tcolor2,var(--gold-bright)); text-transform:uppercase; }
+  .board-cell .sub{ color:var(--muted); font-size:13px; margin-top:6px; }
+  .stat-line{ display:flex; justify-content:space-between; font-size:13.5px; padding:6px 0; border-bottom:1px dashed rgba(255,255,255,0.08); }
+  .stat-line:last-child{ border-bottom:none; }
+  .stat-line .k{ color:var(--muted); }
+  .stat-line .v{ font-family:'JetBrains Mono',monospace; color:var(--ivory); text-align:right; }
+  .cap-chip{ display:inline-block; font-family:'JetBrains Mono',monospace; font-size:10px; padding:2px 8px; border-radius:10px; margin-left:8px; }
+  .cap-chip.orange{ background:rgba(242,101,34,0.18); color:#F2A45B; border:1px solid rgba(242,101,34,0.4); }
+  .cap-chip.purple{ background:rgba(147,88,204,0.18); color:#C6A6F5; border:1px solid rgba(147,88,204,0.4); }
+
+  /* ================= FRANCHISES ================= */
+  .franchise-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
+  @media (max-width:1000px){ .franchise-grid{ grid-template-columns:repeat(3,1fr);} }
+  @media (max-width:640px){ .franchise-grid{ grid-template-columns:repeat(2,1fr);} }
+  .fcard{
+    background:var(--bg-alt); border:1px solid var(--line); border-top:3px solid var(--fcolor,var(--gold));
+    padding:20px 18px; min-height:150px; display:flex; flex-direction:column; justify-content:space-between;
+    transition:transform .2s;
+  }
+  .fcard:hover{ transform:translateY(-4px); }
+  .fcard .abbr{ font-family:'Anton',sans-serif; font-size:26px; color:var(--fcolor,var(--gold)); }
+  .fcard .fname{ font-size:13px; color:var(--ivory); margin-top:6px; line-height:1.35; }
+  .fcard .ftitles{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); margin-top:14px; }
+  .defunct-note{ margin-top:26px; color:var(--muted); font-size:13.5px; line-height:1.7; }
+  .defunct-note b{ color:var(--ivory); }
+
+  /* ================= HONOURS ================= */
+  .honours-list{ display:flex; flex-direction:column; }
+  .honour-row{ display:grid; grid-template-columns:50px 1fr 90px 1fr; align-items:center; gap:16px; padding:18px 0; border-bottom:1px solid var(--line); }
+  @media (max-width:700px){ .honour-row{ grid-template-columns:34px 1fr 50px; } .honour-row .years{ display:none; } }
+  .honour-row .rank{ font-family:'Anton',sans-serif; font-size:22px; color:var(--muted-dim); }
+  .honour-row .tname{ font-size:16px; font-weight:700; }
+  .honour-row .tcount{ font-family:'JetBrains Mono',monospace; color:var(--gold-bright); font-size:20px; text-align:center; }
+  .honour-row .years{ font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--muted); }
+  .swatch{ display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px; }
+
+  /* ================= CAPS ================= */
+  .caps-intro{ display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-bottom:44px; }
+  @media (max-width:820px){ .caps-intro{ grid-template-columns:1fr; } }
+  .cap-explain{ padding:26px; border:1px solid var(--line); background:var(--bg-alt); }
+  .cap-explain.orange-b{ border-left:3px solid #F2A45B; }
+  .cap-explain.purple-b{ border-left:3px solid #9358CC; }
+  .cap-explain h3{ font-size:20px; margin-bottom:10px; }
+  .cap-explain.orange-b h3{ color:#F2A45B; }
+  .cap-explain.purple-b h3{ color:#C6A6F5; }
+  .cap-explain p{ color:var(--muted); font-size:14px; line-height:1.7; }
+
+  table.caps-table{ width:100%; border-collapse:collapse; font-size:13px; }
+  table.caps-table th{
+    text-align:left; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--muted); padding:10px 12px; border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--bg);
+  }
+  table.caps-table td{ padding:10px 12px; border-bottom:1px solid rgba(255,255,255,0.06); }
+  table.caps-table tr:hover td{ background:rgba(232,181,77,0.04); }
+  .table-scroll{ max-height:420px; overflow-y:auto; border:1px solid var(--line); }
+  .table-scroll::-webkit-scrollbar{ width:8px; }
+  .table-scroll::-webkit-scrollbar-thumb{ background:var(--line); }
+
+  /* ================= RECORDS ================= */
+  .records-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  @media (max-width:900px){ .records-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px){ .records-grid{ grid-template-columns:1fr; } }
+  .rcard{ background:#0A0E24; padding:28px 24px; }
+  .rcard .rlabel{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); }
+  .rcard .rval{ font-family:'Anton',sans-serif; font-size:30px; color:var(--gold-bright); margin-top:10px; line-height:1.1; }
+  .rcard .rwho{ font-size:13px; color:var(--ivory); margin-top:8px; }
+  .rcard .ryear{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted-dim); margin-top:2px; }
+
+  /* ================= SOURCES / FOOTER ================= */
+  footer{ padding:7vh 6vw 6vh; }
+  .sources-list{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px 40px; margin-top:20px; }
+  @media (max-width:700px){ .sources-list{ grid-template-columns:1fr; } }
+  .sources-list a{ font-size:13px; color:var(--muted); text-decoration:none; display:flex; gap:10px; }
+  .sources-list a:hover{ color:var(--gold-bright); }
+  .sources-list a::before{ content:'→'; color:var(--gold); }
+  .foot-bottom{ margin-top:50px; padding-top:24px; border-top:1px solid var(--line); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; color:var(--muted-dim); font-size:12px; font-family:'JetBrains Mono',monospace; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C9 2 7 4 7 7c0 3 2 5 5 6 3-1 5-3 5-6 0-3-2-5-5-5Z" fill="#E8B54D"/><rect x="10.3" y="13" width="3.4" height="6" fill="#E8B54D"/><path d="M6 19h12v2H6z" fill="#E8B54D"/></svg>
+    IPL TROPHY EXPLORER
+  </div>
+  <div class="navlinks">
+    <a href="#history">History</a>
+    <a href="#timeline">Season Timeline</a>
+    <a href="#franchises">Franchises</a>
+    <a href="#honours">Champions</a>
+    <a href="#caps">Orange &amp; Purple Cap</a>
+    <a href="#records">Records</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="eyebrow">Est. 2008 · BCCI · Twenty20</div>
+    <h1>The<br>IPL <span>Trophy.</span></h1>
+    <p class="lead">Every April and May, ten franchises chase the same gold-plated silver prize — a globe balanced on three stumps, engraved with a promise in Sanskrit: <em>where talent meets opportunity.</em> Explore eighteen years of champions, records and rivalries.</p>
+    <div class="hero-cta">
+      <a href="#timeline" class="btn solid">Explore the season timeline</a>
+      <a href="#honours" class="btn ghost">See the champions</a>
+    </div>
+  </div>
+  <div class="trophy-stage">
+    <div class="trophy-glow"></div>
+    <svg class="ray" viewBox="0 0 400 400"><g opacity="0.55">
+      <path d="M200 200 L200 10" stroke="#E8B54D" stroke-width="1"/>
+      <path d="M200 200 L340 60" stroke="#E8B54D" stroke-width="1"/>
+      <path d="M200 200 L390 200" stroke="#E8B54D" stroke-width="1"/>
+      <path d="M200 200 L340 340" stroke="#E8B54D" stroke-width="1"/>
+      <path d="M200 200 L200 390" stroke="#E8B54D" stroke-width="1"/>
+      <path d="M200 200 L60 340" stroke="#E8B54D" stroke-width="1"/>
+      <path d="M200 200 L10 200" stroke="#E8B54D" stroke-width="1"/>
+      <path d="M200 200 L60 60" stroke="#E8B54D" stroke-width="1"/>
+    </g></svg>
+    <!-- Custom illustrated trophy (not official IPL/BCCI artwork) -->
+    <svg class="trophy-svg" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="globeGrad" cx="35%" cy="30%" r="75%">
+          <stop offset="0%" stop-color="#FFF0C4"/>
+          <stop offset="45%" stop-color="#E8B54D"/>
+          <stop offset="100%" stop-color="#9C6B1F"/>
+        </radialGradient>
+        <linearGradient id="stumpGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#C99A45"/>
+          <stop offset="50%" stop-color="#FFDA8A"/>
+          <stop offset="100%" stop-color="#9C6B1F"/>
+        </linearGradient>
+        <linearGradient id="baseGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3A2E14"/>
+          <stop offset="100%" stop-color="#1C1608"/>
+        </linearGradient>
+      </defs>
+      <circle cx="100" cy="90" r="62" fill="url(#globeGrad)"/>
+      <ellipse cx="100" cy="90" rx="62" ry="18" fill="none" stroke="#7A5215" stroke-width="2" opacity="0.5" transform="rotate(-18 100 90)"/>
+      <path d="M100 28 A62 62 0 0 1 100 152" fill="none" stroke="#7A5215" stroke-width="1.5" opacity="0.35"/>
+      <rect x="72" y="150" width="9" height="110" fill="url(#stumpGrad)"/>
+      <rect x="95.5" y="150" width="9" height="118" fill="url(#stumpGrad)"/>
+      <rect x="119" y="150" width="9" height="110" fill="url(#stumpGrad)"/>
+      <rect x="68" y="146" width="17" height="8" rx="2" fill="#FFDA8A"/>
+      <rect x="91.5" y="140" width="17" height="8" rx="2" fill="#FFDA8A"/>
+      <rect x="115" y="146" width="17" height="8" rx="2" fill="#FFDA8A"/>
+      <path d="M50 260 L150 260 L165 300 L35 300 Z" fill="url(#baseGrad)" stroke="#E8B54D" stroke-width="1" opacity="0.9"/>
+      <rect x="30" y="300" width="140" height="14" rx="2" fill="#120D05" stroke="#7A5215" stroke-width="1"/>
+    </svg>
+  </div>
+</section>
+
+<section id="history">
+  <div class="section-head">
+    <div class="eyebrow">01 · Origins</div>
+    <h2>How the league began</h2>
+    <p>The Indian Premier League was launched by the BCCI in 2008 as a franchise Twenty20 tournament, reshaping how the sport is played, sold and watched.</p>
+  </div>
+  <div class="history-grid">
+    <div class="history-card">
+      <div class="num">2007</div>
+      <h3>The spark</h3>
+      <p>Fresh off India's win at the inaugural T20 World Cup, the BCCI moved to build a city-based T20 league with an open player auction — a first for cricket.</p>
+    </div>
+    <div class="history-card">
+      <div class="num">2008</div>
+      <h3>Season one</h3>
+      <p>Eight franchises, bought at auction for a combined $723.59 million, took the field. Shane Warne's Rajasthan Royals won the very first title.</p>
+    </div>
+    <div class="history-card">
+      <div class="num">2011–13</div>
+      <h3>Expansion &amp; churn</h3>
+      <p>The league grew to ten teams, then contracted again as Deccan Chargers, Kochi Tuskers Kerala and Pune Warriors India all folded within a few seasons.</p>
+    </div>
+    <div class="history-card">
+      <div class="num">2022–now</div>
+      <h3>Ten-team era</h3>
+      <p>Gujarat Titans and Lucknow Super Giants joined in 2022, restoring a ten-team league now valued among the world's richest sporting properties.</p>
+    </div>
+  </div>
+
+  <div class="trophy-facts">
+    <div>
+      <p>The trophy itself has barely changed since it was redesigned in 2011: a golden globe — representing cricket's global reach — balanced on three silver columns styled as stumps and bails, standing for batting, bowling and fielding. The seam running across the globe is set at a tilt, echoing the axial tilt of the Earth.</p>
+      <p>Around its base runs a line of Sanskrit: <em>"Yatra Pratibha Avsara Prapnotihi"</em> — "where talent meets opportunity." The winning captain lifts the original each final; a replica engraved with that year's result is what the franchise actually keeps, since the master trophy returns to the BCCI.</p>
+      <p>Reported dimensions vary by source — most accounts put it around 60&nbsp;cm tall and roughly 6–11&nbsp;kg of sterling silver with gold plating, since the BCCI has never published exact official specifications.</p>
+    </div>
+    <div class="fact-list">
+      <div class="fact-row"><span class="k">Material</span><span class="v">Sterling silver, gold-plated</span></div>
+      <div class="fact-row"><span class="k">Maker</span><span class="v">Orra (jewellery house)</span></div>
+      <div class="fact-row"><span class="k">Current design since</span><span class="v">2011</span></div>
+      <div class="fact-row"><span class="k">Inscription</span><span class="v">Sanskrit · "talent meets opportunity"</span></div>
+      <div class="fact-row"><span class="k">Symbolism</span><span class="v">3 stumps = bat / bowl / field</span></div>
+      <div class="fact-row"><span class="k">Held by</span><span class="v">BCCI — replica given to winners</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="section-head">
+    <div class="eyebrow">02 · Interactive</div>
+    <h2>The season timeline</h2>
+    <p>Drag the slider or click a floodlight to relive any final since 2008 — champion, runner-up, venue, and the season's Orange and Purple Cap winners.</p>
+  </div>
+
+  <div class="timeline-wrap">
+    <div class="timeline-top">
+      <div>
+        <div class="season-tag">Selected season</div>
+        <div class="season-display" id="seasonYear">2025</div>
+      </div>
+      <div class="season-tag" id="seasonMeta">18th edition · Final played at Ahmedabad</div>
+    </div>
+
+    <div class="towers">
+      <div class="towers-track" id="towersTrack"></div>
+      <input type="range" min="0" max="18" value="17" step="1" class="season-slider" id="seasonSlider">
+      <div class="tick-years" id="tickYears"></div>
+    </div>
+
+    <div class="scoreboard">
+      <div class="board-cell">
+        <div class="lbl">Champion</div>
+        <div class="champ-name" id="champName" style="--tcolor2:#FFDA8A">Royal Challengers Bengaluru</div>
+        <div class="sub" id="champCaptain">Captain: Rajat Patidar</div>
+        <div class="stat-line" style="margin-top:14px;"><span class="k">Runner-up</span><span class="v" id="runnerUp">Punjab Kings</span></div>
+        <div class="stat-line"><span class="k">Margin</span><span class="v" id="margin">6 runs</span></div>
+        <div class="stat-line"><span class="k">Venue</span><span class="v" id="venue">Narendra Modi Stadium, Ahmedabad</span></div>
+      </div>
+      <div class="board-cell">
+        <div class="lbl">Match honours</div>
+        <div class="stat-line"><span class="k">Man of the Match</span><span class="v" id="mom">Krunal Pandya</span></div>
+        <div class="stat-line"><span class="k">Player of the Tournament</span><span class="v" id="pot">Suryakumar Yadav</span></div>
+      </div>
+      <div class="board-cell">
+        <div class="lbl">Cap winners <span class="cap-chip orange">Orange</span><span class="cap-chip purple">Purple</span></div>
+        <div class="stat-line"><span class="k" id="orangeName">Sai Sudharsan (GT)</span><span class="v" id="orangeRuns">759 runs</span></div>
+        <div class="stat-line"><span class="k" id="purpleName">Prasidh Krishna (GT)</span><span class="v" id="purpleWkts">25 wkts</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="franchises">
+  <div class="section-head">
+    <div class="eyebrow">03 · The teams</div>
+    <h2>Participating franchises</h2>
+    <p>Ten city-based franchises currently compete for the trophy. Five earlier franchises have folded, been rebranded or replaced along the way.</p>
+  </div>
+  <div class="franchise-grid" id="franchiseGrid"></div>
+  <div class="defunct-note">
+    <b>No longer in the league:</b> Deccan Chargers (2008–2012, champions 2009), Kochi Tuskers Kerala (2011 only), Pune Warriors India (2011–2013), Gujarat Lions (2016–2017) and Rising Pune Supergiant(s) (2016–2017, runners-up 2017). Delhi Daredevils were rebranded Delhi Capitals in 2019; Kings XI Punjab became Punjab Kings in 2021.
+  </div>
+</section>
+
+<section id="honours">
+  <div class="section-head">
+    <div class="eyebrow">04 · Roll of honour</div>
+    <h2>Champions by titles won</h2>
+    <p>Mumbai Indians and Chennai Super Kings share the record with five titles each — but eight different franchises have lifted the trophy since 2008.</p>
+  </div>
+  <div class="honours-list" id="honoursList"></div>
+</section>
+
+<section id="caps">
+  <div class="section-head">
+    <div class="eyebrow">05 · Individual honours</div>
+    <h2>Orange Cap &amp; Purple Cap</h2>
+    <p>Alongside the team trophy, two caps track the tournament's leading individual performers all season long — and change hands match by match until the final ball is bowled.</p>
+  </div>
+  <div class="caps-intro">
+    <div class="cap-explain orange-b">
+      <h3>Orange Cap</h3>
+      <p>Awarded to the season's leading run-scorer. The cap physically passes to whoever holds the top spot after every match, so the "current" holder can change mid-tournament before the season's final owner is confirmed at the end of the league.</p>
+    </div>
+    <div class="cap-explain purple-b">
+      <h3>Purple Cap</h3>
+      <p>The bowling equivalent, given to the season's leading wicket-taker. Like the Orange Cap, it is a running award — spinners have taken it more often than raw pace, with six of the IPL's ten all-time leading wicket-takers being spin bowlers.</p>
+    </div>
+  </div>
+  <div class="table-scroll">
+    <table class="caps-table">
+      <thead><tr><th>Season</th><th>Orange Cap</th><th>Runs</th><th>Purple Cap</th><th>Wickets</th></tr></thead>
+      <tbody id="capsTableBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<section id="records">
+  <div class="section-head">
+    <div class="eyebrow">06 · The record books</div>
+    <h2>Major records</h2>
+    <p>Two decades of six-hitting have rewritten these marks repeatedly — most recently in the high-scoring 2024 and 2026 seasons.</p>
+  </div>
+  <div class="records-grid" id="recordsGrid"></div>
+</section>
+
+<footer>
+  <div class="section-head" style="margin-bottom:0;">
+    <div class="eyebrow">Sources</div>
+    <h2 style="font-size:28px;">Where this data comes from</h2>
+  </div>
+  <div class="sources-list">
+    <a href="https://www.crictracker.com/ipl-winners-and-runners-list/" target="_blank" rel="noopener">CricTracker — IPL winners, runners-up, venues, Orange &amp; Purple Cap history</a>
+    <a href="https://www.britannica.com/sports/Indian-Premier-League-Records" target="_blank" rel="noopener">Britannica — IPL records &amp; franchise history</a>
+    <a href="https://ipldaily.com/ipl-records/" target="_blank" rel="noopener">IPL Daily — all-time record leaderboard</a>
+    <a href="https://africa.espn.com/cricket/story/_/id/39820940/srh-vs-mi-stats-sunrisers-break-record-highest-ever-ipl-total-six-fest" target="_blank" rel="noopener">ESPNcricinfo — highest team total &amp; match records</a>
+    <a href="https://www.quora.com/Does-BCCI-make-new-trophy-of-IPL-every-year" target="_blank" rel="noopener">Trophy design, symbolism &amp; dimensions</a>
+    <a href="https://www.crickcore.com/news-blog/how-much-does-the-ipl-trophy-weigh-and-what-s-it-made-of" target="_blank" rel="noopener">Trophy materials &amp; manufacturer (Orra)</a>
+    <a href="https://sportskeeda.com/cricket/ipl-2020-complete-list-season-award-winners" target="_blank" rel="noopener">IPL 2020 season award winners</a>
+    <a href="https://gulfnews.com/sport/cricket/ipl/ipl-2026-from-gayles-175-to-chahals-228-wickets-a-look-at-some-of-the-records-1.500487583" target="_blank" rel="noopener">Gulf News — batting &amp; bowling career records</a>
+  </div>
+  <div class="foot-bottom">
+    <span>Illustrations are original artwork, not official IPL/BCCI imagery.</span>
+    <span>Built for Incredible India Explorer</span>
+  </div>
+</footer>
+
+<script>
+const seasons = [
+  {y:2008, champ:"Rajasthan Royals", champKey:"RR", runner:"Chennai Super Kings", margin:"3 wickets", venue:"DY Patil Stadium, Mumbai", captain:"Shane Warne", mom:"Yusuf Pathan", pot:"Shane Watson", orange:{p:"Shaun Marsh",t:"PBKS",r:616}, purple:{p:"Sohail Tanvir",t:"RR",w:22}},
+  {y:2009, champ:"Deccan Chargers", champKey:"DCH", runner:"Royal Challengers Bangalore", margin:"6 runs", venue:"Wanderers Stadium, Johannesburg", captain:"Adam Gilchrist", mom:"Anil Kumble", pot:"Adam Gilchrist", orange:{p:"Matthew Hayden",t:"CSK",r:572}, purple:{p:"RP Singh",t:"DCH",w:23}},
+  {y:2010, champ:"Chennai Super Kings", champKey:"CSK", runner:"Mumbai Indians", margin:"22 runs", venue:"DY Patil Stadium, Mumbai", captain:"MS Dhoni", mom:"Suresh Raina", pot:"Sachin Tendulkar", orange:{p:"Sachin Tendulkar",t:"MI",r:618}, purple:{p:"Pragyan Ojha",t:"DCH",w:21}},
+  {y:2011, champ:"Chennai Super Kings", champKey:"CSK", runner:"Royal Challengers Bangalore", margin:"58 runs", venue:"MA Chidambaram Stadium, Chennai", captain:"MS Dhoni", mom:"Murali Vijay", pot:"Chris Gayle", orange:{p:"Chris Gayle",t:"RCB",r:608}, purple:{p:"Lasith Malinga",t:"MI",w:28}},
+  {y:2012, champ:"Kolkata Knight Riders", champKey:"KKR", runner:"Chennai Super Kings", margin:"5 wickets", venue:"MA Chidambaram Stadium, Chennai", captain:"Gautam Gambhir", mom:"Manvinder Bisla", pot:"Sunil Narine", orange:{p:"Chris Gayle",t:"RCB",r:733}, purple:{p:"Morne Morkel",t:"DCH",w:25}},
+  {y:2013, champ:"Mumbai Indians", champKey:"MI", runner:"Chennai Super Kings", margin:"23 runs", venue:"Eden Gardens, Kolkata", captain:"Rohit Sharma", mom:"Kieron Pollard", pot:"Shane Watson", orange:{p:"Michael Hussey",t:"CSK",r:733}, purple:{p:"Dwayne Bravo",t:"CSK",w:32}},
+  {y:2014, champ:"Kolkata Knight Riders", champKey:"KKR", runner:"Kings XI Punjab", margin:"3 wickets", venue:"M. Chinnaswamy Stadium, Bangalore", captain:"Gautam Gambhir", mom:"Manish Pandey", pot:"Glenn Maxwell", orange:{p:"Robin Uthappa",t:"KKR",r:660}, purple:{p:"Mohit Sharma",t:"CSK",w:23}},
+  {y:2015, champ:"Mumbai Indians", champKey:"MI", runner:"Chennai Super Kings", margin:"41 runs", venue:"Eden Gardens, Kolkata", captain:"Rohit Sharma", mom:"Rohit Sharma", pot:"Andre Russell", orange:{p:"David Warner",t:"SRH",r:562}, purple:{p:"Dwayne Bravo",t:"CSK",w:26}},
+  {y:2016, champ:"Sunrisers Hyderabad", champKey:"SRH", runner:"Royal Challengers Bangalore", margin:"8 runs", venue:"M. Chinnaswamy Stadium, Bangalore", captain:"David Warner", mom:"Ben Cutting", pot:"Virat Kohli", orange:{p:"Virat Kohli",t:"RCB",r:973}, purple:{p:"Bhuvneshwar Kumar",t:"SRH",w:23}},
+  {y:2017, champ:"Mumbai Indians", champKey:"MI", runner:"Rising Pune Supergiant", margin:"1 run", venue:"Rajiv Gandhi Stadium, Hyderabad", captain:"Rohit Sharma", mom:"Krunal Pandya", pot:"Ben Stokes", orange:{p:"David Warner",t:"SRH",r:641}, purple:{p:"Bhuvneshwar Kumar",t:"SRH",w:26}},
+  {y:2018, champ:"Chennai Super Kings", champKey:"CSK", runner:"Sunrisers Hyderabad", margin:"8 wickets", venue:"Wankhede Stadium, Mumbai", captain:"MS Dhoni", mom:"Shane Watson", pot:"Sunil Narine", orange:{p:"Kane Williamson",t:"SRH",r:735}, purple:{p:"Andrew Tye",t:"PBKS",w:24}},
+  {y:2019, champ:"Mumbai Indians", champKey:"MI", runner:"Chennai Super Kings", margin:"1 run", venue:"Rajiv Gandhi Stadium, Hyderabad", captain:"Rohit Sharma", mom:"Jasprit Bumrah", pot:"Andre Russell", orange:{p:"David Warner",t:"SRH",r:692}, purple:{p:"Imran Tahir",t:"CSK",w:26}},
+  {y:2020, champ:"Mumbai Indians", champKey:"MI", runner:"Delhi Capitals", margin:"5 wickets", venue:"Dubai International Stadium", captain:"Rohit Sharma", mom:"Trent Boult", pot:"Jofra Archer", orange:{p:"KL Rahul",t:"PBKS",r:670}, purple:{p:"Kagiso Rabada",t:"DC",w:30}},
+  {y:2021, champ:"Chennai Super Kings", champKey:"CSK", runner:"Kolkata Knight Riders", margin:"27 runs", venue:"Dubai International Stadium", captain:"MS Dhoni", mom:"Faf du Plessis", pot:"Harshal Patel", orange:{p:"Ruturaj Gaikwad",t:"CSK",r:635}, purple:{p:"Harshal Patel",t:"RCB",w:32}},
+  {y:2022, champ:"Gujarat Titans", champKey:"GT", runner:"Rajasthan Royals", margin:"7 wickets", venue:"Narendra Modi Stadium, Ahmedabad", captain:"Hardik Pandya", mom:"Hardik Pandya", pot:"Jos Buttler", orange:{p:"Jos Buttler",t:"RR",r:863}, purple:{p:"Yuzvendra Chahal",t:"RR",w:27}},
+  {y:2023, champ:"Chennai Super Kings", champKey:"CSK", runner:"Gujarat Titans", margin:"5 wickets", venue:"Narendra Modi Stadium, Ahmedabad", captain:"MS Dhoni", mom:"Devon Conway", pot:"Shubman Gill", orange:{p:"Shubman Gill",t:"GT",r:890}, purple:{p:"Mohammed Shami",t:"GT",w:28}},
+  {y:2024, champ:"Kolkata Knight Riders", champKey:"KKR", runner:"Sunrisers Hyderabad", margin:"8 wickets", venue:"MA Chidambaram Stadium, Chennai", captain:"Shreyas Iyer", mom:"Mitchell Starc", pot:"Sunil Narine", orange:{p:"Virat Kohli",t:"RCB",r:741}, purple:{p:"Harshal Patel",t:"PBKS",w:24}},
+  {y:2025, champ:"Royal Challengers Bengaluru", champKey:"RCB", runner:"Punjab Kings", margin:"6 runs", venue:"Narendra Modi Stadium, Ahmedabad", captain:"Rajat Patidar", mom:"Krunal Pandya", pot:"Suryakumar Yadav", orange:{p:"Sai Sudharsan",t:"GT",r:759}, purple:{p:"Prasidh Krishna",t:"GT",w:25}},
+  {y:2026, champ:"Royal Challengers Bengaluru", champKey:"RCB", runner:"Gujarat Titans", margin:"5 wickets", venue:"Narendra Modi Stadium, Ahmedabad", captain:"Rajat Patidar", mom:"Virat Kohli", pot:"Vaibhav Sooryavanshi", orange:{p:"Vaibhav Sooryavanshi",t:"—",r:776}, purple:{p:"Kagiso Rabada",t:"GT",w:29}},
+];
+
+const teamColors = {
+  RR:"#EA1F8E", DCH:"#41B6E6", CSK:"#F9CD05", KKR:"#3A225D", MI:"#045093",
+  SRH:"#F26522", GT:"#1B2133", RCB:"#D71920", DC:"#17479E", PBKS:"#ED1B24", LSG:"#00B9F1"
+};
+
+/* Towers */
+const track = document.getElementById('towersTrack');
+const ticks = document.getElementById('tickYears');
+seasons.forEach((s, i) => {
+  const t = document.createElement('div');
+  t.className = 'tower';
+  t.style.setProperty('--tcolor', teamColors[s.champKey] || '#E8B54D');
+  t.dataset.index = i;
+  const beam = document.createElement('div');
+  beam.className = 'beam';
+  t.appendChild(beam);
+  t.addEventListener('click', () => { slider.value = i; render(i); });
+  track.appendChild(t);
+
+  const tick = document.createElement('span');
+  tick.textContent = (i % 3 === 0 || i === seasons.length-1) ? "'" + String(s.y).slice(2) : "";
+  ticks.appendChild(tick);
+});
+
+const slider = document.getElementById('seasonSlider');
+slider.addEventListener('input', () => render(+slider.value));
+
+function render(i){
+  const s = seasons[i];
+  const color = teamColors[s.champKey] || '#E8B54D';
+
+  document.querySelectorAll('.tower').forEach((t, idx) => t.classList.toggle('active', idx === i));
+
+  document.getElementById('seasonYear').textContent = s.y;
+  document.getElementById('seasonMeta').textContent = `${i+1}${i===0?'st':i===1?'nd':i===2?'rd':'th'} edition · Final played at ${s.venue.split(',').pop().trim()}`;
+
+  const champEl = document.getElementById('champName');
+  champEl.textContent = s.champ;
+  champEl.style.setProperty('--tcolor2', color);
+
+  document.getElementById('champCaptain').textContent = `Captain: ${s.captain}`;
+  document.getElementById('runnerUp').textContent = s.runner;
+  document.getElementById('margin').textContent = s.margin;
+  document.getElementById('venue').textContent = s.venue;
+  document.getElementById('mom').textContent = s.mom;
+  document.getElementById('pot').textContent = s.pot;
+  document.getElementById('orangeName').textContent = `${s.orange.p} (${s.orange.t})`;
+  document.getElementById('orangeRuns').textContent = `${s.orange.r} runs`;
+  document.getElementById('purpleName').textContent = `${s.purple.p} (${s.purple.t})`;
+  document.getElementById('purpleWkts').textContent = `${s.purple.w} wkts`;
+}
+render(17); // default to 2025
+
+/* Caps table */
+const capsBody = document.getElementById('capsTableBody');
+seasons.forEach(s => {
+  const row = document.createElement('tr');
+  row.innerHTML = `<td>${s.y}</td><td>${s.orange.p} (${s.orange.t})</td><td>${s.orange.r}</td><td>${s.purple.p} (${s.purple.t})</td><td>${s.purple.w}</td>`;
+  capsBody.appendChild(row);
+});
+
+/* Franchises */
+const franchises = [
+  {abbr:"CSK", name:"Chennai Super Kings", titles:"5 titles · 2010, 2011, 2018, 2021, 2023", color:"#F9CD05"},
+  {abbr:"MI", name:"Mumbai Indians", titles:"5 titles · 2013, 2015, 2017, 2019, 2020", color:"#045093"},
+  {abbr:"KKR", name:"Kolkata Knight Riders", titles:"3 titles · 2012, 2014, 2024", color:"#3A225D"},
+  {abbr:"RCB", name:"Royal Challengers Bengaluru", titles:"2 titles · 2025, 2026", color:"#D71920"},
+  {abbr:"SRH", name:"Sunrisers Hyderabad", titles:"1 title · 2016", color:"#F26522"},
+  {abbr:"GT", name:"Gujarat Titans", titles:"1 title · 2022", color:"#FFDA8A"},
+  {abbr:"RR", name:"Rajasthan Royals", titles:"1 title · 2008", color:"#EA1F8E"},
+  {abbr:"DC", name:"Delhi Capitals", titles:"0 titles · runners-up 2020", color:"#17479E"},
+  {abbr:"PBKS", name:"Punjab Kings", titles:"0 titles · runners-up 2014, 2025", color:"#ED1B24"},
+  {abbr:"LSG", name:"Lucknow Super Giants", titles:"0 titles · joined 2022", color:"#00B9F1"},
+];
+const fgrid = document.getElementById('franchiseGrid');
+franchises.forEach(f => {
+  const el = document.createElement('div');
+  el.className = 'fcard';
+  el.style.setProperty('--fcolor', f.color);
+  el.innerHTML = `<div><div class="abbr">${f.abbr}</div><div class="fname">${f.name}</div></div><div class="ftitles">${f.titles}</div>`;
+  fgrid.appendChild(el);
+});
+
+/* Honours */
+const honours = [
+  {name:"Mumbai Indians", count:5, years:"2013,2015,2017,2019,2020", color:"#045093"},
+  {name:"Chennai Super Kings", count:5, years:"2010,2011,2018,2021,2023", color:"#F9CD05"},
+  {name:"Kolkata Knight Riders", count:3, years:"2012,2014,2024", color:"#3A225D"},
+  {name:"Royal Challengers Bengaluru", count:2, years:"2025,2026", color:"#D71920"},
+  {name:"Sunrisers Hyderabad", count:1, years:"2016", color:"#F26522"},
+  {name:"Rajasthan Royals", count:1, years:"2008", color:"#EA1F8E"},
+  {name:"Deccan Chargers", count:1, years:"2009", color:"#41B6E6"},
+  {name:"Gujarat Titans", count:1, years:"2022", color:"#FFDA8A"},
+];
+const hlist = document.getElementById('honoursList');
+honours.forEach((h, i) => {
+  const row = document.createElement('div');
+  row.className = 'honour-row';
+  row.innerHTML = `<div class="rank">${String(i+1).padStart(2,'0')}</div>
+    <div class="tname"><span class="swatch" style="background:${h.color}"></span>${h.name}</div>
+    <div class="tcount">${h.count}</div>
+    <div class="years">${h.years}</div>`;
+  hlist.appendChild(row);
+});
+
+/* Records */
+const records = [
+  {label:"Most career runs", val:"9,336", who:"Virat Kohli (RCB)", year:"through 2026"},
+  {label:"Most career wickets", val:"228+", who:"Yuzvendra Chahal", year:"through 2026"},
+  {label:"Highest individual score", val:"175*", who:"Chris Gayle vs Pune Warriors", year:"2013"},
+  {label:"Fastest century", val:"30 balls", who:"Chris Gayle vs Pune Warriors", year:"2013"},
+  {label:"Most career sixes", val:"357", who:"Chris Gayle", year:"through 2026"},
+  {label:"Most runs, single season", val:"973", who:"Virat Kohli", year:"2016"},
+  {label:"Highest team total", val:"287/3", who:"Sunrisers Hyderabad", year:"2026"},
+  {label:"Best bowling figures", val:"6/12", who:"Alzarri Joseph (MI)", year:"2019"},
+  {label:"Highest successful chase", val:"262", who:"Punjab Kings vs KKR", year:"2024"},
+  {label:"Most sixes in a match", val:"42", who:"Punjab Kings vs KKR (combined)", year:"2024"},
+  {label:"Highest match aggregate", val:"523 runs", who:"Sunrisers Hyderabad vs Mumbai Indians", year:"2024"},
+  {label:"Most titles as captain", val:"5", who:"MS Dhoni (CSK)", year:"2010–2023"},
+];
+const rgrid = document.getElementById('recordsGrid');
+records.forEach(r => {
+  const el = document.createElement('div');
+  el.className = 'rcard';
+  el.innerHTML = `<div class="rlabel">${r.label}</div><div class="rval">${r.val}</div><div class="rwho">${r.who}</div><div class="ryear">${r.year}</div>`;
+  rgrid.appendChild(el);
+});
+</script>
+
+</body>
+</html>

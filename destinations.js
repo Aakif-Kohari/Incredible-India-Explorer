@@ -46,5 +46,13 @@ const DESTINATIONS = [
     avgCost: 150, openHours: "9:00 AM - 5:00 PM",
     nearBy: ["city-palace-jaipur"],
     description: "Oldest museum in Rajasthan, great indoor option on a rainy day."
+  },
+  {
+    id: "aga-khan-palace", name: "Aga Khan Palace", city: "Pune",
+    tags: ["heritage", "monument", "freedom-struggle", "historical", "museum"],
+    indoorOutdoor: "mixed", bestWeather: ["clear", "clouds"],
+    avgCost: 100, openHours: "9:00 AM - 6:00 PM",
+    nearBy: [],
+    description: "Historic palace where Mahatma Gandhi was imprisoned during the Quit India Movement. Now a national monument and museum dedicated to the freedom struggle."
   }
 ];
