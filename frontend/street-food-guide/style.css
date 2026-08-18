@@ -1,0 +1,384 @@
+:root {
+  --food-primary: #ea580c; /* Spicy Orange */
+  --food-secondary: #f59e0b; /* Turmeric Yellow */
+  --food-bg: #fff7ed;
+  --food-card: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-light: #fed7aa;
+}
+
+body {
+  background-color: var(--food-bg);
+  color: var(--text-main);
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, var(--food-primary), var(--food-secondary));
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  color: white;
+  box-shadow: 0 10px 25px -5px rgba(234, 88, 12, 0.3);
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.hero-content p {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* Controls (Search & Filters) */
+.controls-section {
+  background: var(--food-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  border: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.search-bar {
+  position: relative;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+#food-search {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.5rem;
+  font-size: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 30px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#food-search:focus {
+  border-color: var(--food-primary);
+}
+
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-group label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+  color: var(--text-main);
+}
+
+#region-filter {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+  background-color: white;
+  color: var(--text-main);
+  outline: none;
+}
+
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cat-btn {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: var(--text-muted);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.cat-btn:hover {
+  background: #e2e8f0;
+}
+
+.cat-btn.active {
+  background: var(--food-primary);
+  color: white;
+  border-color: var(--food-primary);
+}
+
+/* Food Grid */
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.food-card {
+  background: var(--food-card);
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(234, 88, 12, 0.2);
+}
+
+.food-image-placeholder {
+  height: 180px;
+  background: linear-gradient(135deg, #fed7aa, #ffedd5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: var(--food-primary);
+}
+
+.food-info {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.food-info h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--food-primary);
+  font-size: 1.4rem;
+}
+
+.food-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.food-state {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.food-category {
+  background: #ffedd5;
+  color: var(--food-primary);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.food-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.read-more {
+  margin-top: 1rem;
+  color: var(--food-secondary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  padding: 1rem;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: var(--food-bg);
+  width: 100%;
+  max-width: 700px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--text-main);
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s;
+}
+
+.close-modal:hover {
+  background: #f1f5f9;
+}
+
+.modal-hero {
+  height: 200px;
+  background: linear-gradient(135deg, var(--food-primary), var(--food-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  color: white;
+  position: relative;
+}
+
+.modal-details {
+  padding: 2rem;
+  background: white;
+}
+
+.modal-title {
+  font-size: 2.2rem;
+  color: var(--food-primary);
+  margin-bottom: 0.5rem;
+}
+
+.modal-meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.modal-meta-bar span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-section {
+  margin-bottom: 1.5rem;
+}
+
+.modal-section h4 {
+  color: var(--text-main);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-section p {
+  line-height: 1.6;
+  color: #475569;
+}
+
+.ingredients-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ingredient-chip {
+  background: #fff7ed;
+  border: 1px solid var(--border-light);
+  color: var(--food-primary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.no-results {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+/* Dark mode overrides (minimal support based on project structure) */
+@media (prefers-color-scheme: dark) {
+  /* If project has a global dark mode, these could hook into it. Left standard for now per requirement. */
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .filters-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .category-filters {
+    justify-content: center;
+  }
+  
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+  
+  .modal-details {
+    padding: 1.5rem;
+  }
+}
