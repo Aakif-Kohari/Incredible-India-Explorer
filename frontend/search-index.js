@@ -3825,6 +3825,12 @@ window.indiaSearchIndex = [
         url: 'frontend/bandarpoonch/bandarpoonch.html'
     },
     {
+    title: "Indian Kushti Competitions: The Akhara Tradition",
+    category: "Sports & Culture",
+    description: "Explore Kushti wrestling and the Akhara tradition — training equipment like the gada and mugdar, techniques, regional wrestling traditions, historic wrestlers, and cultural significance.",
+    url: "frontend/kushti-akhara-explorer/index.html"
+    },
+    {
         title: "Davis Cup: Explore India's Tennis Journey",
         category: "Sports & Culture",
         description: "Interactive archive of India's Davis Cup history since 1921 — 3 finals (1966, 1974 forfeit, 1987), key players (Leander Paes, Amritraj brothers), and a searchable, filterable timeline with sources.",
