@@ -1,0 +1,350 @@
+/**
+ * Interactive Script for Ladakhi Language Explorer
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+    const data = window.LADAKHI_DATA;
+    if (!data) {
+        console.error("Ladakhi dataset missing!");
+        return;
+    }
+
+    // -------------------------------------------------------------------------
+    // 1. Theme Toggle
+    // -------------------------------------------------------------------------
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) {
+        const savedTheme = localStorage.getItem('ladakhi_theme') || 'dark';
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-theme');
+            themeBtn.textContent = '🌙';
+        } else {
+            themeBtn.textContent = '☀️';
+        }
+
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            const isLight = document.body.classList.contains('light-theme');
+            themeBtn.textContent = isLight ? '🌙' : '☀️';
+            localStorage.setItem('ladakhi_theme', isLight ? 'light' : 'dark');
+        });
+    }
+
+    // -------------------------------------------------------------------------
+    // 2. Audio Player (SpeechSynthesis + Tone Fallback)
+    // -------------------------------------------------------------------------
+    let voices = [];
+    function loadVoices() {
+        if ('speechSynthesis' in window) {
+            voices = window.speechSynthesis.getVoices();
+        }
+    }
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.onvoiceschanged = loadVoices;
+        loadVoices();
+    }
+
+    function playAudio(text, lang = 'hi-IN') {
+        if (!('speechSynthesis' in window)) {
+            alert(`Pronunciation: "${text}" (Speech synthesis not supported on this browser)`);
+            return;
+        }
+
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.85;
+        utterance.pitch = 1.0;
+        utterance.lang = lang;
+
+        const bestVoice = voices.find(v => v.lang.startsWith('bo') || v.lang.startsWith('hi') || v.lang.startsWith('ne'));
+        if (bestVoice) {
+            utterance.voice = bestVoice;
+        }
+
+        window.speechSynthesis.speak(utterance);
+    }
+
+    // -------------------------------------------------------------------------
+    // 3. Interactive 4-Step Vocab Showcase Slider
+    // -------------------------------------------------------------------------
+    let currentVocabIdx = 0;
+    const vocabList = data.vocabulary || [];
+
+    const sliderTibetan = document.getElementById('slider-tibetan');
+    const sliderTranslit = document.getElementById('slider-translit');
+    const sliderPronounce = document.getElementById('slider-pronounce');
+    const sliderMeaning = document.getElementById('slider-meaning');
+    const sliderNotes = document.getElementById('slider-notes');
+    const sliderCounter = document.getElementById('slider-counter');
+    const btnPlaySlider = document.getElementById('btn-play-slider');
+    const btnPrevSlider = document.getElementById('btn-prev-slider');
+    const btnNextSlider = document.getElementById('btn-next-slider');
+
+    function renderSlider(idx) {
+        if (vocabList.length === 0) return;
+        currentVocabIdx = (idx + vocabList.length) % vocabList.length;
+        const item = vocabList[currentVocabIdx];
+
+        if (sliderTibetan) sliderTibetan.textContent = item.native;
+        if (sliderTranslit) sliderTranslit.textContent = item.transliteration;
+        if (sliderPronounce) sliderPronounce.textContent = `IPA: ${item.ipa} • Phonetic: ${item.phonetic}`;
+        if (sliderMeaning) sliderMeaning.textContent = `${item.concept}: ${item.meaning}`;
+        if (sliderNotes) sliderNotes.textContent = `💡 ${item.notes}`;
+        if (sliderCounter) sliderCounter.textContent = `${currentVocabIdx + 1} / ${vocabList.length}`;
+    }
+
+    if (btnPrevSlider) {
+        btnPrevSlider.addEventListener('click', () => renderSlider(currentVocabIdx - 1));
+    }
+    if (btnNextSlider) {
+        btnNextSlider.addEventListener('click', () => renderSlider(currentVocabIdx + 1));
+    }
+    if (btnPlaySlider) {
+        btnPlaySlider.addEventListener('click', () => {
+            const item = vocabList[currentVocabIdx];
+            if (item) playAudio(item.phonetic || item.transliteration);
+        });
+    }
+
+    renderSlider(0);
+
+    // -------------------------------------------------------------------------
+    // 4. Regional Map Interactivity
+    // -------------------------------------------------------------------------
+    const regionPaths = document.querySelectorAll('.region-path');
+    const mapTitle = document.getElementById('map-region-title');
+    const mapBadge = document.getElementById('map-region-badge');
+    const mapDesc = document.getElementById('map-region-desc');
+
+    function selectRegion(regionId) {
+        regionPaths.forEach(p => {
+            p.classList.toggle('active', p.dataset.id === regionId);
+        });
+
+        const regData = data.regions.find(r => r.id === regionId);
+        if (regData && mapTitle && mapBadge && mapDesc) {
+            mapTitle.textContent = regData.name;
+            mapBadge.textContent = regData.speakers;
+            mapBadge.style.backgroundColor = regData.color;
+            mapDesc.innerHTML = `
+                <p style="margin-bottom: 12px;">${regData.desc}</p>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">
+                    <strong>Key Settlements:</strong> ${regData.subRegions.join(', ')}
+                </div>
+            `;
+        }
+    }
+
+    regionPaths.forEach(path => {
+        path.addEventListener('click', () => selectRegion(path.dataset.id));
+    });
+
+    if (data.regions.length > 0) {
+        selectRegion(data.regions[0].id);
+    }
+
+    // -------------------------------------------------------------------------
+    // 5. Greetings Soundboard & Search
+    // -------------------------------------------------------------------------
+    const greetingsGrid = document.getElementById('greetings-grid');
+    const greetingSearch = document.getElementById('greeting-search');
+
+    function renderGreetings(filter = '') {
+        if (!greetingsGrid) return;
+        const q = filter.toLowerCase();
+        const list = (data.greetings || []).filter(g => 
+            g.transliteration.toLowerCase().includes(q) ||
+            g.meaning.toLowerCase().includes(q) ||
+            g.native.includes(q)
+        );
+
+        if (list.length === 0) {
+            greetingsGrid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">No greetings found matching "${filter}".</p>`;
+            return;
+        }
+
+        greetingsGrid.innerHTML = list.map(g => `
+            <div class="greeting-card">
+                <div>
+                    <span class="region-badge" style="background: rgba(245, 158, 11, 0.15); color: var(--accent-gold); margin-bottom: 10px; display: inline-block;">${g.category}</span>
+                    <div class="greeting-native">${g.native}</div>
+                    <div class="greeting-translit">${g.transliteration}</div>
+                    <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px;">IPA: ${g.ipa} • Pronounce: ${g.phonetic}</div>
+                    <div class="greeting-meaning"><strong>Meaning:</strong> ${g.meaning}</div>
+                    <div class="greeting-context">${g.context}</div>
+                </div>
+                <button class="btn-audio" data-audio="${g.audioText || g.transliteration}" style="width: 100%; justify-content: center; margin-top: 12px;">
+                    🔊 Play Pronunciation
+                </button>
+            </div>
+        `).join('');
+
+        greetingsGrid.querySelectorAll('.btn-audio').forEach(btn => {
+            btn.addEventListener('click', () => {
+                playAudio(btn.dataset.audio);
+            });
+        });
+    }
+
+    if (greetingSearch) {
+        greetingSearch.addEventListener('input', (e) => renderGreetings(e.target.value));
+    }
+    renderGreetings();
+
+    // -------------------------------------------------------------------------
+    // 6. Vocabulary Matrix Table & Filter
+    // -------------------------------------------------------------------------
+    const vocabTableBody = document.getElementById('vocab-table-body');
+    const vocabSearch = document.getElementById('vocab-search');
+
+    function renderVocabTable(filter = '') {
+        if (!vocabTableBody) return;
+        const q = filter.toLowerCase();
+        const list = (data.vocabulary || []).filter(v =>
+            v.concept.toLowerCase().includes(q) ||
+            v.transliteration.toLowerCase().includes(q) ||
+            v.meaning.toLowerCase().includes(q) ||
+            v.native.includes(q)
+        );
+
+        if (list.length === 0) {
+            vocabTableBody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--text-muted);">No vocabulary items found.</td></tr>`;
+            return;
+        }
+
+        vocabTableBody.innerHTML = list.map(v => `
+            <tr>
+                <td style="font-weight: 600; color: var(--text-primary);">${v.concept}</td>
+                <td class="vocab-tibetan">${v.native}</td>
+                <td style="font-family: var(--font-mono); color: var(--accent-cyan);">${v.transliteration}</td>
+                <td>IPA: ${v.ipa}<br><small style="color: var(--text-muted);">${v.phonetic}</small></td>
+                <td>${v.meaning}</td>
+                <td>
+                    <button class="btn-mini-play" data-word="${v.phonetic || v.transliteration}">🔊 Play</button>
+                </td>
+            </tr>
+        `).join('');
+
+        vocabTableBody.querySelectorAll('.btn-mini-play').forEach(btn => {
+            btn.addEventListener('click', () => playAudio(btn.dataset.word));
+        });
+    }
+
+    if (vocabSearch) {
+        vocabSearch.addEventListener('input', (e) => renderVocabTable(e.target.value));
+    }
+    renderVocabTable();
+
+    // -------------------------------------------------------------------------
+    // 7. Cultural Heritage Showcase
+    // -------------------------------------------------------------------------
+    const cultureGrid = document.getElementById('culture-grid');
+    if (cultureGrid && data.culturalHeritage) {
+        cultureGrid.innerHTML = data.culturalHeritage.map(c => `
+            <div class="culture-card">
+                <div class="culture-icon">${c.icon}</div>
+                <h3 class="culture-title">${c.title}</h3>
+                <span class="region-badge" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); margin-bottom: 12px; display: inline-block;">${c.category}</span>
+                <p class="culture-text">${c.content}</p>
+            </div>
+        `).join('');
+    }
+
+    // -------------------------------------------------------------------------
+    // 8. Interactive Quiz
+    // -------------------------------------------------------------------------
+    const quizContainer = document.getElementById('quiz-card');
+    let currentQ = 0;
+    let score = 0;
+    const questions = data.quizQuestions || [];
+
+    function renderQuiz() {
+        if (!quizContainer || questions.length === 0) return;
+
+        if (currentQ >= questions.length) {
+            quizContainer.innerHTML = `
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 3rem; margin-bottom: 12px;">🏆</div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 8px;">Quiz Completed!</h3>
+                    <p style="font-size: 1.2rem; color: var(--accent-gold); margin-bottom: 24px;">Your Score: ${score} / ${questions.length}</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 24px;">${score === questions.length ? 'Julley! You have mastered Ladakhi language & heritage!' : 'Great exploration! Review the exhibits and try again.'}</p>
+                    <button class="btn-audio" id="btn-restart-quiz">🔄 Try Again</button>
+                </div>
+            `;
+            document.getElementById('btn-restart-quiz').addEventListener('click', () => {
+                currentQ = 0;
+                score = 0;
+                renderQuiz();
+            });
+            return;
+        }
+
+        const q = questions[currentQ];
+        quizContainer.innerHTML = `
+            <div style="display: flex; justify-content: space-between; margin-bottom: 16px; font-size: 0.85rem; color: var(--text-muted);">
+                <span>Question ${currentQ + 1} of ${questions.length}</span>
+                <span>Score: ${score}</span>
+            </div>
+            <div class="quiz-q">${q.question}</div>
+            <div class="quiz-options">
+                ${q.options.map((opt, i) => `
+                    <button class="q-opt" data-idx="${i}">${opt}</button>
+                `).join('')}
+            </div>
+            <div id="quiz-feedback" style="display: none; margin-top: 18px; padding: 14px; border-radius: 10px; font-size: 0.92rem;"></div>
+            <button id="btn-next-q" class="btn-audio" style="display: none; margin-top: 18px; width: 100%; justify-content: center;">Next Question ➔</button>
+        `;
+
+        const optBtns = quizContainer.querySelectorAll('.q-opt');
+        const feedback = document.getElementById('quiz-feedback');
+        const nextBtn = document.getElementById('btn-next-q');
+
+        optBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const selected = parseInt(btn.dataset.idx, 10);
+                optBtns.forEach(b => b.disabled = true);
+
+                if (selected === q.correct) {
+                    score++;
+                    btn.classList.add('correct');
+                    feedback.style.display = 'block';
+                    feedback.style.background = 'rgba(16, 185, 129, 0.15)';
+                    feedback.style.border = '1px solid #10b981';
+                    feedback.style.color = '#10b981';
+                    feedback.innerHTML = `✓ Correct! ${q.explanation}`;
+                } else {
+                    btn.classList.add('wrong');
+                    optBtns[q.correct].classList.add('correct');
+                    feedback.style.display = 'block';
+                    feedback.style.background = 'rgba(244, 63, 94, 0.15)';
+                    feedback.style.border = '1px solid #f43f5e';
+                    feedback.style.color = '#f43f5e';
+                    feedback.innerHTML = `✗ Incorrect. ${q.explanation}`;
+                }
+
+                nextBtn.style.display = 'inline-flex';
+            });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentQ++;
+            renderQuiz();
+        });
+    }
+
+    renderQuiz();
+
+    // -------------------------------------------------------------------------
+    // 9. Sources List
+    // -------------------------------------------------------------------------
+    const sourcesContainer = document.getElementById('sources-list');
+    if (sourcesContainer && data.sources) {
+        sourcesContainer.innerHTML = data.sources.map(s => `
+            <div class="source-item">
+                <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">${s.title}</div>
+                <div style="color: var(--text-muted); margin-bottom: 6px;">${s.author}</div>
+                <a href="${s.link}" target="_blank" rel="noopener noreferrer">View Reference ↗</a>
+            </div>
+        `).join('');
+    }
+});
