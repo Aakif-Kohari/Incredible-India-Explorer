@@ -25,6 +25,15 @@ const rulersData = [
     link: "../ashoka-the-great-explorer/index.html"
   },
   {
+    name: "Krishnadevaraya",
+    era: "Medieval",
+    dynasty: "Vijayanagara",
+    region: "South India",
+    reign: "1509 – 1529 CE",
+    image: "krishnadev.webp", 
+    description: "The greatest emperor of the Vijayanagara Empire. A military genius and a celebrated scholar, his reign saw exceptional architectural and literary achievements at Hampi.",
+    link: "krishnadevaraya.html" 
+  }, 
     name: "Maharana Pratap",
     era: "Early Modern",
     dynasty: "Sisodia",
