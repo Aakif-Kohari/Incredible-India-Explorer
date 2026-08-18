@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "assets/travel_hidden.png",
       "assets/hero_banner.png"
     ],
+    "explorerUrl": "../patola-weaving-explorer/index.html",
     "search": "patola gujarat west silk double ikat resist dyeing a highly skilled textile tradition where both warp and weft threads are dyed before weaving to create precise patterns. double ikat patola weaving requires exceptional planning because the pattern appears only when dyed threads align on the loom."
   },
   {
@@ -307,6 +308,17 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("modal-technique").textContent = textile.technique;
     document.getElementById("modal-significance").textContent = textile.significance;
     document.getElementById("modal-fact").textContent = textile.fact;
+    
+    const explorerLink = document.getElementById("modal-explorer-link");
+    if (explorerLink) {
+      if (textile.explorerUrl) {
+        explorerLink.href = textile.explorerUrl;
+        explorerLink.hidden = false;
+      } else {
+        explorerLink.hidden = true;
+      }
+    }
+
     updateImage();
     modal.hidden = false;
     document.body.classList.add("modal-open");

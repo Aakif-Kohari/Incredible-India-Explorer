@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.classList.add('light-theme');
+            }
+        })();
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+        name="description"
+        content="Explore India's diverse film industries through languages, states, interactive industry cards, maps, and cinema statistics."
+    />
+
+    <title>Cinema of India Explorer | Incredible India</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cinema of India Explorer | Incredible India" />
+    <meta
+        property="og:description"
+        content="Discover India's diverse regional film industries through languages, states, interactive cards, maps, and cinema statistics."
+    />
+    <meta property="og:type" content="website" />
+</head>
+
+<body class="cinema-main">
+
+    <!-- Site Navbar -->
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                type="button"
+                aria-label="Toggle Menu"
+                aria-expanded="false"
+                aria-controls="nav-menu"
+            >
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
+
+                <a href="../../index.html#home" class="nav-link">
+                    Home
+                </a>
+
+                <a href="index.html" class="nav-link active">
+                    Cinema of India
+                </a>
+
+                <button
+                    id="theme-toggle"
+                    class="btn-theme-toggle"
+                    type="button"
+                    aria-label="Toggle Dark/Light Mode"
+                    title="Toggle Light Mode"
+                >
+                    ☀️
+                </button>
+
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="cinema-hero" id="home">
+            <div class="section-container">
+
+                <div class="hero-badges-row">
+                    <span class="hero-pill">
+                        🎬 Diverse Film Industries
+                    </span>
+
+                    <span class="hero-pill">
+                        🗣️ Many Languages
+                    </span>
+
+                    <span class="hero-pill">
+                        🇮🇳 One Nation
+                    </span>
+                </div>
+
+                <h1>
+                    Cinema of India
+                    <span>Explorer</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Explore India's vibrant film industries across languages,
+                    states, and cultures — from Bollywood and Tollywood to the
+                    many regional cinemas that make Indian cinema one of the
+                    world's most diverse.
+                </p>
+
+                <!-- Search -->
+                <div class="cinema-search-wrap">
+
+                    <label
+                        for="cinema-search"
+                        class="visually-hidden"
+                    >
+                        Search film industries
+                    </label>
+
+                    <div class="cinema-search-box">
+
+                        <span
+                            class="search-icon"
+                            aria-hidden="true"
+                        >
+                            🔎
+                        </span>
+
+                        <input
+                            type="search"
+                            id="cinema-search"
+                            class="cinema-search"
+                            placeholder="Search film industries, languages, states..."
+                            autocomplete="off"
+                            aria-label="Search film industries"
+                        />
+
+                        <button
+                            type="button"
+                            class="clear-search"
+                            id="clear-search"
+                            aria-label="Clear search"
+                            hidden
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Filters Section -->
+        <section class="filters-section" id="filters">
+            <div class="section-container">
+
+                <div class="section-header">
+
+                    <span class="section-tag">
+                        EXPLORE BY REGION
+                    </span>
+
+                    <h2>
+                        Find Your Cinema
+                    </h2>
+
+                    <p>
+                        Filter India's film industries by language or state
+                        to discover regional cinema.
+                    </p>
+
+                </div>
+
+
+                <div class="filters-row">
+
+                    <div class="filter-group">
+
+                        <label for="language-filter">
+                            Language
+                        </label>
+
+                        <select
+                            id="language-filter"
+                            aria-label="Filter by language"
+                        >
+                            <option value="all">
+                                All Languages
+                            </option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label for="state-filter">
+                            State
+                        </label>
+
+                        <select
+                            id="state-filter"
+                            aria-label="Filter by state"
+                        >
+                            <option value="all">
+                                All States
+                            </option>
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="clear-filters-btn"
+                        id="clear-filters"
+                        aria-label="Clear cinema filters"
+                    >
+                        Clear Filters
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="filter-status"
+                    id="filter-status"
+                    aria-live="polite"
+                ></div>
+
+            </div>
+        </section>
+
+
+        <!-- Interactive Map Section -->
+        <section
+            class="map-section"
+            id="cinema-map-section"
+        >
+            <div class="section-container">
+
+                <div class="section-header">
+
+                    <span class="section-tag">
+                        CINEMA ACROSS INDIA
+                    </span>
+
+                    <h2>
+                        Explore the Map
+                    </h2>
+
+                    <p>
+                        Discover where India's major film industries are
+                        rooted and select an industry to learn more.
+                    </p>
+
+                </div>
+
+
+                <div class="map-layout">
+
+                    <!-- India Map -->
+                    <div
+                        class="cinema-map"
+                        id="cinema-map"
+                        role="application"
+                        aria-label="Interactive map of Indian film industries"
+                    >
+
+                        <!-- India Map Background (replaced/rebuilt by script.js at runtime) -->
+                        <img
+                            class="india-map-bg"
+                            src="https://placehold.co/900x1000/1b1114/fbbf24?text=India&font=playfair-display"
+                            alt=""
+                            aria-hidden="true"
+                        />
+
+                        <!-- Map Markers -->
+                        <div
+                            class="map-markers"
+                            id="map-markers"
+                            aria-label="Film industry locations"
+                        >
+                            <!-- Industry markers populated dynamically -->
+                        </div>
+
+                    </div>
+
+
+                    <!-- Map Details -->
+                    <aside
+                        class="map-detail"
+                        id="map-detail"
+                        aria-live="polite"
+                    >
+
+                        <div class="map-detail-empty">
+
+                            <span
+                                class="map-detail-icon"
+                                aria-hidden="true"
+                            >
+                                🎬
+                            </span>
+
+                            <h3>
+                                Select an Industry
+                            </h3>
+
+                            <p class="map-detail-hint">
+                                Select an industry marker on the map to
+                                explore its cinema.
+                            </p>
+
+                        </div>
+
+                    </aside>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Industry Cards Section -->
+        <section
+            class="industries-section"
+            id="industries"
+        >
+            <div class="section-container">
+
+                <div class="section-header">
+
+                    <span class="section-tag">
+                        REGIONAL FILM INDUSTRIES
+                    </span>
+
+                    <h2>
+                        Explore Indian Cinema
+                    </h2>
+
+                    <p>
+                        Discover the languages, regions, and traditions
+                        behind India's diverse film industries.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="industries-grid"
+                    id="industries-grid"
+                    aria-live="polite"
+                >
+                    <!-- Industry cards populated dynamically -->
+                </div>
+
+
+                <div
+                    class="no-results"
+                    id="no-results"
+                    aria-live="polite"
+                    hidden
+                >
+
+                    <span
+                        class="no-results-icon"
+                        aria-hidden="true"
+                    >
+                        🎬
+                    </span>
+
+                    <h3>
+                        No Industries Found
+                    </h3>
+
+                    <p>
+                        Try changing your search or filter selections.
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Featured Industries Section -->
+        <section
+            class="featured-section"
+            id="featured-industries"
+        >
+            <div class="section-container">
+
+                <div class="section-header">
+
+                    <span class="section-tag">
+                        INDIA'S CINEMA HIGHLIGHTS
+                    </span>
+
+                    <h2>
+                        Featured Film Industries
+                    </h2>
+
+                    <p>
+                        Take a closer look at some of India's most
+                        influential film industries.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="featured-grid"
+                    id="featured-grid"
+                >
+                    <!-- Featured industries populated dynamically -->
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Statistics Section -->
+        <section
+            class="stats-section"
+            id="statistics"
+        >
+            <div class="section-container">
+
+                <div class="section-header">
+
+                    <span class="section-tag">
+                        BY THE NUMBERS
+                    </span>
+
+                    <h2>
+                        Indian Cinema at a Glance
+                    </h2>
+
+                    <p>
+                        A snapshot of the diversity and scale of India's
+                        film landscape.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="stats-grid"
+                    id="stats-grid"
+                >
+                    <!-- Statistics populated dynamically -->
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="section-container">
+
+            <div class="footer-content">
+
+                <div class="footer-logo">
+
+                    <h3>
+                        Incredible India Explorer
+                    </h3>
+
+                    <p>
+                        Celebrating India's scientific, cultural,
+                        and strategic heritage.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-links">
+
+                    <a href="../../index.html#home">
+                        Home
+                    </a>
+
+                    <a href="#industries">
+                        Cinema Industries
+                    </a>
+
+                    <a href="#cinema-map-section">
+                        Cinema Map
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    &copy; 2026 Incredible India Explorer.
+                    Open Source Educational Platform.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Scripts -->
+    <script
+        type="module"
+        src="script.js"
+    ></script>
+
+</body>
+</html>

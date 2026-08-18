@@ -1,0 +1,76 @@
+// Spice Identifier Quiz Data
+
+window.SPICE_QUIZ_DATA = [
+    {
+        id: "black-pepper",
+        name: "Black Pepper",
+        image: "⚫", // Emoji placeholder
+        imageBg: "#eeeeee",
+        imageColor: "#212121",
+        historicalClue: "Known as 'Black Gold' and traded extensively from the Malabar Coast to Europe in ancient times.",
+        culinaryClue: "Used globally, but in India, it forms a base for garam masala, rasam, and savory meat dishes.",
+        options: ["Cardamom", "Black Pepper", "Cloves", "Cinnamon"],
+        answer: "Black Pepper",
+        fact: "Black pepper was one of the most valuable commodities in the medieval spice trade, often used as currency."
+    },
+    {
+        id: "cardamom",
+        name: "Cardamom",
+        image: "🌿", 
+        imageBg: "#e8f5e9",
+        imageColor: "#2e7d32",
+        historicalClue: "Known as the 'Queen of Spices', this was traded along ancient routes linking India, the Middle East, and Europe.",
+        culinaryClue: "A highly aromatic pod used extensively in desserts (like kheer), chai, and rich curries like biryani.",
+        options: ["Cumin", "Turmeric", "Cardamom", "Fennel"],
+        answer: "Cardamom",
+        fact: "Cardamom is the world's third most expensive spice, behind only saffron and vanilla."
+    },
+    {
+        id: "turmeric",
+        name: "Turmeric",
+        image: "🫚", 
+        imageBg: "#fff3e0",
+        imageColor: "#e65100",
+        historicalClue: "Used for over 4,000 years in India, holding immense significance in Ayurveda and religious ceremonies.",
+        culinaryClue: "Gives Indian curries their distinct yellow color and is commonly consumed in 'Golden Milk' for its medicinal properties.",
+        options: ["Turmeric", "Saffron", "Mustard Seeds", "Ginger"],
+        answer: "Turmeric",
+        fact: "The active compound in turmeric, curcumin, is known for its powerful anti-inflammatory and antioxidant properties."
+    },
+    {
+        id: "cloves",
+        name: "Cloves",
+        image: "🪵", 
+        imageBg: "#efebe9",
+        imageColor: "#4e342e",
+        historicalClue: "Originally from the Maluku Islands, they became a crucial spice in India, heavily prized during the Portuguese and Dutch trade eras.",
+        culinaryClue: "A small, nail-shaped spice with a strong, pungent flavor, used in biryani, meat dishes, and masalas.",
+        options: ["Star Anise", "Black Pepper", "Cloves", "Cinnamon"],
+        answer: "Cloves",
+        fact: "Cloves have been used in traditional Ayurvedic and Chinese medicine for centuries to treat toothaches due to their eugenol content."
+    },
+    {
+        id: "cinnamon",
+        name: "Cinnamon",
+        image: "📜", 
+        imageBg: "#fff8e1",
+        imageColor: "#8d6e63",
+        historicalClue: "Sourced heavily from Sri Lanka and the Malabar coast, it was so valuable in ancient times it was regarded as a gift fit for monarchs.",
+        culinaryClue: "The inner bark of a tree, used as a stick or powder to sweeten desserts and add depth to savory curries.",
+        options: ["Nutmeg", "Cinnamon", "Cardamom", "Mace"],
+        answer: "Cinnamon",
+        fact: "True cinnamon (Ceylon cinnamon) is native to Sri Lanka and Southern India, differing from the more common Cassia cinnamon."
+    },
+    {
+        id: "cumin",
+        name: "Cumin",
+        image: "🌾", 
+        imageBg: "#f9fbe7",
+        imageColor: "#827717",
+        historicalClue: "Excavations in Syria and Egypt show it was used over 4,000 years ago, eventually becoming a staple of the Indus Valley civilization.",
+        culinaryClue: "Often the first spice added to hot oil (tadka/tempering) to release its earthy, warm aroma before cooking dal or vegetables.",
+        options: ["Coriander", "Cumin", "Fennel", "Mustard"],
+        answer: "Cumin",
+        fact: "India is the world's largest producer and consumer of cumin, accounting for over 70% of global production."
+    }
+];
