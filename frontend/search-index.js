@@ -6,6 +6,13 @@
 window.indiaSearchIndex = [
 
     {
+        title: "Transport Route Planner",
+        category: "Travel & Planning",
+        description: "Compare walking, bus, metro, cab and train options between Indian cities, rank routes by cost, time or walking distance, and save routes to My India Journey.",
+        url: "frontend/transport-route-planner/index.html"
+    },
+
+    {
         title: "Arunachal Pradesh's Tani Languages Explorer",
         category: "Culture & Languages",
         description: "Explore the diverse Tani language family of Arunachal Pradesh (Nyishi, Adi, Apatani, Galo, Tagin, Mising): regional map, verified audio greetings, comparative vocabulary matrix, and cultural heritage.",
@@ -3807,17 +3814,43 @@ window.indiaSearchIndex = [
     {
         title: 'Swargarohini Mountain Explorer',
         category: 'Mountains & Geography',
-        description:
-            'Dedicated explorer for Swargarohini, a 6,252 m high massif in the Garhwal Himalayas of Uttarakhand, featuring mythological history, trekking routes, map locations, image gallery, and FAQs.',
+        description: 'Dedicated explorer for Swargarohini, a 6,252 m high massif in the Garhwal Himalayas of Uttarakhand, featuring mythological history, trekking routes, map locations, image gallery, and FAQs.',
         url: 'frontend/swargarohini/swargarohini.html'
     },
     // --- Bandarpoonch Mountain ---
     {
         title: 'Bandarpoonch Mountain Explorer',
         category: 'Mountains & Geography',
-        description:
-            'Dedicated explorer for Bandarpoonch, a 6,316 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, trekking details, and FAQs.',
+        description:'Dedicated explorer for Bandarpoonch, a 6,316 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, trekking details, and FAQs.',
         url: 'frontend/bandarpoonch/bandarpoonch.html'
+    },
+    {
+    title: "Indian Kushti Competitions: The Akhara Tradition",
+    category: "Sports & Culture",
+    description: "Explore Kushti wrestling and the Akhara tradition — training equipment like the gada and mugdar, techniques, regional wrestling traditions, historic wrestlers, and cultural significance.",
+    url: "frontend/kushti-akhara-explorer/index.html"},
+  {
+    title: "Zoho: India's Software Product Journey",
+    category: "Technology & Business",
+    description: "Explore Zoho's journey from a bootstrapped 1996 Chennai startup to a 55-product SaaS ecosystem — origin story, founder Sridhar Vembu, an interactive product ecosystem map, milestones, global presence, and company philosophy.",
+    url: "frontend/zoho-explorer/index.html"},
+  {
+        title: "Infosys: India's Technology Success Story",
+        category: "Featured Explorers",
+        description: "Interactive archive of Infosys's growth from $250 in founding capital (1981) to a nearly $19 billion global IT services leader — founders, 1999 NASDAQ listing, milestones, and global presence, with sources.",
+        url: "frontend/infosys-explorer/infosys-explorer.html"
+    },
+    {
+        title: "Davis Cup: Explore India's Tennis Journey",
+        category: "Sports & Culture",
+        description: "Interactive archive of India's Davis Cup history since 1921 — 3 finals (1966, 1974 forfeit, 1987), key players (Leander Paes, Amritraj brothers), and a searchable, filterable timeline with sources.",
+        url: "frontend/davis-cup-explorer/davis-cup-explorer.html"
+    },
+    {
+        title: "Thomas Cup: India's Badminton Journey",
+        category: "Sports & Culture",
+        description: "Interactive archive of India's Thomas Cup history since 1952 — maiden 2022 title over Indonesia, top-4 finishes (1952, 1955, 1979), key players (Prakash Padukone, Lakshya Sen, Satwik-Chirag), and a searchable timeline with sources.",
+        url: "frontend/thomas-cup-explorer/thomas-cup-explorer.html"
     },
     // --- India's Firsts Encyclopedia ---
     {
@@ -3830,9 +3863,14 @@ window.indiaSearchIndex = [
     {
         title: 'India Historical Firsts Timeline & Knowledge Quiz',
         category: 'Interactive Learning',
-        description:
-            'Chronological milestone timeline from 1853 to 1984, category filters, and multiple-choice knowledge quiz testing famous Indian firsts.',
+        description:'Chronological milestone timeline from 1853 to 1984, category filters, and multiple-choice knowledge quiz testing famous Indian firsts.',
         url: 'frontend/indias-firsts/indias-firsts.html'
+    },
+    {
+       title: "Forgotten Indian Sporting Tournaments",
+       category: "Sports & History",
+       description: "A Then vs Now archive of historic Indian tournaments like the Bombay Pentangular, Rovers Cup, and Beighton Cup that shaped Indian sport but are no longer widely remembered.",
+       url: "frontend/forgotten-tournaments-explorer/index.html"
     },
     {
         title: "India's Firsts in Sports",
@@ -5290,5 +5328,12 @@ window.indiaSearchIndex = [
         category: "Heritage & History",
         description: "Interactive map of India's freedom movement newspapers, journals, pamphlets and underground publications — founders, editors, languages, anti-colonial writings, and the colonial censorship laws used against them.",
         url: "frontend/freedom-press-explorer/index.html"
+    },
+    // --- Indian Sports Trophy Design Explorer ---
+    {
+        title: "Indian Sports Trophy Design Explorer",
+        category: "Sports",
+        description: "Decode the symbols and meaning behind India's sporting trophies — shapes and forms, materials, national symbols, sport-specific elements, names and inscriptions, and a clickable trophy diagram of design evolution from the Durand Cup to the Khel Ratna.",
+        url: "frontend/indian-sports-trophy-design-explorer/index.html"
     },
 ];

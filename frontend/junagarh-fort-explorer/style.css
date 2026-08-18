@@ -1,0 +1,606 @@
+/* ============================================================
+   Junagarh Fort Explorer — Bikaner, Rajasthan
+   Palette: deep maroon + red sandstone + royal gold
+   ============================================================ */
+
+:root {
+  --jun-bg: #170d0d;
+  --jun-bg-soft: #1f1312;
+  --jun-card: #271616;
+  --jun-border: rgba(226, 140, 120, 0.16);
+  --jun-text: #f1e6e2;
+  --jun-muted: #b8a39c;
+  --jun-accent: #ef6a5a;
+  --jun-accent-strong: #e0523f;
+  --jun-gold: #d4a03c;
+  --jun-gold-soft: #e0b45e;
+  --jun-hero-overlay: linear-gradient(180deg, rgba(23, 13, 13, 0.55) 0%, rgba(23, 13, 13, 0.82) 70%, var(--jun-bg) 100%);
+}
+
+body.light-theme {
+  --jun-bg: #faf5f0;
+  --jun-bg-soft: #ffffff;
+  --jun-card: #ffffff;
+  --jun-border: rgba(80, 40, 30, 0.14);
+  --jun-text: #3a2620;
+  --jun-muted: #6b564c;
+  --jun-accent: #c2410c;
+  --jun-accent-strong: #b3380a;
+  --jun-gold: #a16207;
+  --jun-gold-soft: #b45309;
+  --jun-hero-overlay: linear-gradient(180deg, rgba(23, 13, 13, 0.45) 0%, rgba(23, 13, 13, 0.78) 70%, var(--jun-bg) 100%);
+}
+
+.junagarh-main {
+  background: var(--jun-bg);
+  color: var(--jun-text);
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+}
+
+/* ---------- Hero ---------- */
+.junagarh-hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 1.5rem 4rem;
+  background:
+    var(--jun-hero-overlay),
+    url('https://images.unsplash.com/photo-1652019126778-c0937662c884?w=1600&q=80&fm=jpg&fit=crop') center 30% / cover no-repeat;
+}
+
+.junagarh-hero-content {
+  max-width: 860px;
+  animation: jun-fade-up 0.9s ease both;
+}
+
+.junagarh-kicker {
+  display: inline-block;
+  padding: 0.45rem 1.1rem;
+  border: 1px solid rgba(239, 106, 90, 0.45);
+  border-radius: 999px;
+  background: rgba(23, 13, 13, 0.55);
+  color: var(--jun-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+}
+
+.junagarh-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  line-height: 1.08;
+  margin: 0 0 1.2rem;
+  color: #ffffff;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+}
+
+.junagarh-hero h1 span {
+  display: block;
+  color: var(--jun-gold-soft);
+  font-style: italic;
+}
+
+.junagarh-hero p {
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.75;
+  color: rgba(241, 230, 226, 0.92);
+  max-width: 720px;
+  margin: 0 auto 2rem;
+}
+
+.junagarh-bookmark-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.8rem;
+  border: 1px solid rgba(239, 106, 90, 0.5);
+  border-radius: 999px;
+  background: rgba(224, 82, 63, 0.18);
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.junagarh-bookmark-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(224, 82, 63, 0.32);
+  box-shadow: 0 8px 24px rgba(224, 82, 63, 0.35);
+}
+
+.junagarh-bookmark-btn.saved {
+  background: rgba(212, 160, 60, 0.28);
+  border-color: rgba(212, 160, 60, 0.6);
+}
+
+/* ---------- Sections ---------- */
+.junagarh-section {
+  padding: 5rem 1.5rem;
+  border-top: 1px solid var(--jun-border);
+}
+
+.junagarh-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.junagarh-section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3rem;
+}
+
+.junagarh-eyebrow {
+  display: inline-block;
+  color: var(--jun-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.junagarh-section-header h2,
+.junagarh-text-block h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  margin: 0 0 1rem;
+  color: var(--jun-text);
+}
+
+.junagarh-section-header p {
+  color: var(--jun-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.junagarh-grid-2col {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.junagarh-text-block p {
+  color: var(--jun-muted);
+  line-height: 1.8;
+  margin: 0 0 1.1rem;
+}
+
+.junagarh-text-block strong {
+  color: var(--jun-text);
+}
+
+/* ---------- Highlight box ---------- */
+.junagarh-highlight-box {
+  background: rgba(239, 106, 90, 0.07);
+  border: 1px solid rgba(239, 106, 90, 0.22);
+  border-radius: 18px;
+  padding: 2rem;
+}
+
+.junagarh-highlight-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  margin: 0 0 1.2rem;
+  color: var(--jun-text);
+}
+
+.junagarh-highlight-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.junagarh-highlight-box li {
+  position: relative;
+  padding: 0.55rem 0 0.55rem 1.4rem;
+  color: var(--jun-muted);
+  line-height: 1.6;
+  border-bottom: 1px dashed var(--jun-border);
+}
+
+.junagarh-highlight-box li:last-child {
+  border-bottom: none;
+}
+
+.junagarh-highlight-box li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  color: var(--jun-gold);
+  font-size: 0.7rem;
+}
+
+.junagarh-highlight-box strong {
+  color: var(--jun-text);
+}
+
+/* ---------- Cards ---------- */
+.junagarh-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+
+.junagarh-card {
+  background: var(--jun-card);
+  border: 1px solid var(--jun-border);
+  border-radius: 18px;
+  padding: 1.8rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.junagarh-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(239, 106, 90, 0.4);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+}
+
+.junagarh-card-icon {
+  font-size: 1.9rem;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+.junagarh-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin: 0 0 0.7rem;
+  color: var(--jun-text);
+}
+
+.junagarh-card p {
+  color: var(--jun-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ---------- Timeline ---------- */
+.junagarh-timeline {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  padding-left: 2rem;
+}
+
+.junagarh-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.45rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--jun-gold), var(--jun-accent));
+}
+
+.junagarh-timeline-item {
+  position: relative;
+  padding: 0.9rem 0 0.9rem 1.4rem;
+}
+
+.junagarh-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.05rem;
+  top: 1.35rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--jun-bg);
+  border: 3px solid var(--jun-gold);
+}
+
+.junagarh-timeline-item h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin: 0 0 0.3rem;
+  color: var(--jun-gold);
+}
+
+.junagarh-timeline-item p {
+  color: var(--jun-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ---------- Facts ---------- */
+.junagarh-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+
+.junagarh-fact-item {
+  background: var(--jun-card);
+  border: 1px solid var(--jun-border);
+  border-left: 4px solid var(--jun-gold);
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+
+.junagarh-fact-item h3 {
+  font-size: 1.05rem;
+  margin: 0 0 0.5rem;
+  color: var(--jun-gold);
+}
+
+.junagarh-fact-item p {
+  color: var(--jun-muted);
+  font-size: 0.93rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ---------- Gallery ---------- */
+.junagarh-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+
+.junagarh-gallery-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--jun-border);
+  aspect-ratio: 4 / 3;
+}
+
+.junagarh-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.junagarh-gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+.junagarh-gallery-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.1rem 1.2rem;
+  background: linear-gradient(180deg, transparent, rgba(23, 13, 13, 0.88));
+  color: #ffffff;
+  transition: opacity 0.3s ease;
+}
+
+.junagarh-gallery-overlay h4 {
+  margin: 0 0 0.2rem;
+  font-size: 1.05rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.junagarh-gallery-overlay p {
+  margin: 0;
+  font-size: 0.82rem;
+  opacity: 0.85;
+}
+
+/* ---------- Modal ---------- */
+.junagarh-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(10, 5, 5, 0.88);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.junagarh-modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.junagarh-modal-card {
+  position: relative;
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--jun-card);
+  border: 1px solid var(--jun-border);
+  border-radius: 20px;
+  padding: 2rem;
+  transform: translateY(18px);
+  transition: transform 0.3s ease;
+}
+
+.junagarh-modal.open .junagarh-modal-card {
+  transform: translateY(0);
+}
+
+.junagarh-modal-close {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--jun-border);
+  background: var(--jun-bg-soft);
+  color: var(--jun-text);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.junagarh-modal-close:hover {
+  background: var(--jun-accent-strong);
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+.junagarh-modal-category {
+  display: inline-block;
+  color: var(--jun-gold);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.junagarh-modal-image {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 1.2rem;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.junagarh-modal-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin: 0 0 0.4rem;
+  color: var(--jun-text);
+}
+
+.junagarh-modal-location {
+  color: var(--jun-accent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+.junagarh-modal-divider {
+  border-top: 1px solid var(--jun-border);
+  padding-top: 1rem;
+}
+
+.junagarh-modal-description {
+  color: var(--jun-muted);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ---------- References ---------- */
+.junagarh-references {
+  background: var(--jun-card);
+  border: 1px solid var(--jun-border);
+  border-radius: 18px;
+  padding: 2rem;
+}
+
+.junagarh-references h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  margin: 0 0 1.2rem;
+  color: var(--jun-text);
+}
+
+.junagarh-references ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.junagarh-references li {
+  padding: 0.5rem 0;
+  color: var(--jun-muted);
+  line-height: 1.65;
+  border-bottom: 1px dashed var(--jun-border);
+}
+
+.junagarh-references li:last-child {
+  border-bottom: none;
+}
+
+/* ---------- Footer ---------- */
+.junagarh-footer {
+  border-top: 1px solid var(--jun-border);
+  padding: 2.2rem 1.5rem;
+  text-align: center;
+  background: var(--jun-bg-soft);
+}
+
+.junagarh-footer p {
+  color: var(--jun-muted);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.junagarh-footer a {
+  color: var(--jun-accent);
+  text-decoration: none;
+}
+
+.junagarh-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Animations ---------- */
+@keyframes jun-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .junagarh-grid-2col {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .junagarh-card-grid,
+  .junagarh-facts-grid,
+  .junagarh-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .junagarh-section {
+    padding: 3.5rem 1.1rem;
+  }
+
+  .junagarh-hero {
+    min-height: 78vh;
+    padding: 6rem 1.1rem 3rem;
+  }
+
+  .junagarh-card-grid,
+  .junagarh-facts-grid,
+  .junagarh-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .junagarh-highlight-box,
+  .junagarh-references {
+    padding: 1.4rem;
+  }
+
+  .junagarh-timeline {
+    padding-left: 1.4rem;
+  }
+
+  .junagarh-modal-card {
+    padding: 1.4rem;
+  }
+}
