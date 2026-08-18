@@ -3,7 +3,9 @@
         {id:1, name:"Taj Mahal", state:"Uttar Pradesh", category:"cultural", image:"../assets/Taj_Mahal.png", description:"Symbol of love and Mughal architecture.", details:"UNESCO World Heritage Site built by Shah Jahan."},
         {id:2, name:"Red Fort", state:"Delhi", category:"cultural", image:"../assets/red_fort.png", description:"Historic fort and seat of Mughal power.", details:"Symbol of India's independence."},
         {id:3, name:"Ajanta Caves", state:"Maharashtra", category:"cultural", image:"../assets/ajanta_caves.png", description:"Ancient Buddhist rock-cut caves with paintings.", details:"UNESCO site from 2nd century BCE."},
-        {id:4, name:"Great Himalayan National Park", state:"Himachal Pradesh", category:"natural", image:"https://picsum.photos/id/1016/600/400", description:"Biodiversity hotspot in the Himalayas.", details:"Home to rare wildlife."}
+        {id:4, name:"Great Himalayan National Park", state:"Himachal Pradesh", category:"natural", image:"https://picsum.photos/id/1016/600/400", description:"Biodiversity hotspot in the Himalayas.", details:"Home to rare wildlife."},
+        {id:5, name:"Chhatrapati Shivaji Maharaj Terminus", state:"Maharashtra", category:"cultural", image:"../../assets/csmt-facade.jpg", description:"Victorian Gothic architectural masterpiece and UNESCO World Heritage site.", details:"Mumbai's historic railway headquarters blending Victorian Gothic Revival with Indian craftsmanship. <br><br><a href='../../csmt.html' style='display:inline-block; margin-top:10px; padding:6px 14px; background:#B5842A; color:#fff; border-radius:6px; text-decoration:none; font-weight:600;'>Explore Full CSMT Page &rarr;</a>"},
+        {id:6, name:"Bibi Ka Maqbara", state:"Maharashtra", category:"cultural", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Bibi_Ka_Maqbara%2C_Aurangabad.jpg/1200px-Bibi_Ka_Maqbara%2C_Aurangabad.jpg", description:"The Taj of the Deccan - Mughal-Deccan architectural masterpiece.", details:"Built by Prince Azam Shah in memory of his mother Dilras Banu Begum. Mughal-Deccan architectural fusion."}
     ];
 
     function renderHeritage(filtered) {
@@ -21,7 +23,15 @@
                     <p>${site.description}</p>
                 </div>
             `;
-            card.onclick = () => showModal(site);
+            card.onclick = () => {
+                if (site.id === 5) {
+                    window.location.href = "../../csmt.html";
+                } else if (site.id === 6) {
+                    window.location.href = "../bibi-ka-maqbara-explorer/index.html";
+                } else {
+                    showModal(site);
+                }
+            };
             grid.appendChild(card);
         });
     }
