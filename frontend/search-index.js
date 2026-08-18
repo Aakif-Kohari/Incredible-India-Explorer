@@ -3825,6 +3825,12 @@ window.indiaSearchIndex = [
         url: 'frontend/bandarpoonch/bandarpoonch.html'
     },
     {
+        title: "Infosys: India's Technology Success Story",
+        category: "Featured Explorers",
+        description: "Interactive archive of Infosys's growth from $250 in founding capital (1981) to a nearly $19 billion global IT services leader — founders, 1999 NASDAQ listing, milestones, and global presence, with sources.",
+        url: "frontend/infosys-explorer/infosys-explorer.html"
+    },
+    {
         title: "Davis Cup: Explore India's Tennis Journey",
         category: "Sports & Culture",
         description: "Interactive archive of India's Davis Cup history since 1921 — 3 finals (1966, 1974 forfeit, 1987), key players (Leander Paes, Amritraj brothers), and a searchable, filterable timeline with sources.",

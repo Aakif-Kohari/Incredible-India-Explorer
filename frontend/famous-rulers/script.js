@@ -35,6 +35,34 @@ const rulersData = [
     link: "../ashoka-the-great-explorer/index.html"
   },
   {
+    name: "Krishnadevaraya",
+    era: "Medieval",
+    dynasty: "Vijayanagara",
+    region: "South India",
+    reign: "1509 – 1529 CE",
+    image: "krishnadev.webp", 
+    description: "The greatest emperor of the Vijayanagara Empire. A military genius and a celebrated scholar, his reign saw exceptional architectural and literary achievements at Hampi.",
+    link: "krishnadevaraya.html" 
+  }, 
+    name: "Maharana Pratap",
+    era: "Early Modern",
+    dynasty: "Sisodia",
+    region: "West India",
+    reign: "1572 – 1597 CE",
+    image: "maharana.webp", // Matches your exact saved file name
+    description: "Sovereign of Mewar celebrated for his strategic defiance against Mughal expansion. He utilized the rugged Aravalli terrain to wage an enduring campaign of resistance and recovery.",
+    link: "maharana-pratap.html"},
+  {
+    name: "Rajaraja Chola I",
+    era: "Early Medieval",
+    dynasty: "Chola",
+    region: "South India",
+    reign: "985 – 1014 CE",
+    image: "raja1.jpeg", // Matches your exact saved file name
+    description: "Transformed the Chola dynasty into a formidable maritime empire. He commissioned the monumental Brihadisvara Temple at Thanjavur, a UNESCO World Heritage site.",
+    link: "rajaraja-chola.html" // Direct relative link path target to new profile layout
+  },
+  {
     name: "Samudragupta",
     era: "Ancient",
     dynasty: "Gupta",
