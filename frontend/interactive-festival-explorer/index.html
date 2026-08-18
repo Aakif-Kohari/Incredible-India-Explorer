@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Festival Explorer | Colors, Traditions & Celebrations of India</title>
+    <meta name="description"
+        content="Explore the vibrant festivals of India by region, month, season, category, and state. Discover traditions, lunar calendar dates, mouth-watering delicacies, and mythological stories.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar explorer-nav" role="banner">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo" aria-label="Return to Home">
+                <span class="saffron">Incredible</span> <span class="gold">India</span> <span
+                    class="green">Explorer</span>
+            </a>
+            <nav class="nav-menu" role="navigation">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="#map-section" class="nav-link">Region Map</a>
+                <a href="#calendar-section" class="nav-link">Festival Calendar</a>
+                <a href="#filters-section" class="nav-link">Filter Festivals</a>
+                <a href="#featured" class="nav-link">Featured</a>
+                <a href="#all-festivals" class="nav-link">All Celebrations</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark/Light Theme">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <main role="main">
+        <!-- Hero Section -->
+        <section class="hero-section festival-hero" id="home">
+            <div class="hero-bg-overlay" aria-hidden="true"></div>
+            <div class="hero-content animate-on-scroll">
+                <div class="hero-badge">🎉 Cultural Heritage • Land of a Thousand Celebrations</div>
+                <h1 class="hero-title">Interactive <span class="accent-festival">Festival Explorer</span></h1>
+                <p class="hero-subtitle">Immerse yourself in India's rich tapestry of harvest joys, illuminated nights, grand chariot processions, sacred rituals, and regional melodies celebrated across 28 States and 8 Union Territories.</p>
+
+                <!-- Stat Banner -->
+                <div class="hero-stats-banner">
+                    <div class="stat-box">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Iconic Festivals</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Calendar Months</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Indian Seasons (Ritus)</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">28</span>
+                        <span class="stat-label">States & UTs</span>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#filters-section" class="btn-primary">Explore Festivals</a>
+                    <a href="#map-section" class="btn-secondary">Explore Region Map 🗺️</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Search Bar Section -->
+        <section class="search-section">
+            <div class="container">
+                <div class="search-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="festival-search" placeholder="Search festivals by name, state, delicacy (e.g. Onam, Modak, Durga Puja, Bihu, Hornbill, Ladakh)..." aria-label="Search festivals">
+                    <button class="btn-clear-search" id="clear-search" style="display: none;" aria-label="Clear Search">✕</button>
+                </div>
+                <div id="search-results-summary" class="search-summary-text"></div>
+            </div>
+        </section>
+
+        <!-- Interactive Map Section -->
+        <section class="explorer-section" id="map-section">
+            <div class="container">
+                <div class="section-header text-center animate-on-scroll">
+                    <span class="section-tagline">Cultural Geography</span>
+                    <h2 class="section-title">Explore Festivals by Region</h2>
+                    <p class="section-description">Click on any region on the interactive map or buttons below to filter celebrations and discover unique regional heritage.</p>
+                </div>
+
+                <div class="map-explorer-layout animate-on-scroll">
+                    <!-- Interactive SVG Map Canvas -->
+                    <div class="map-canvas-container">
+                        <svg class="india-regional-svg" viewBox="0 0 600 650" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Map of Indian Cultural Regions">
+                            <defs>
+                                <linearGradient id="grad-north" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#3B82F6" />
+                                    <stop offset="100%" stop-color="#1D4ED8" />
+                                </linearGradient>
+                                <linearGradient id="grad-south" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#10B981" />
+                                    <stop offset="100%" stop-color="#047857" />
+                                </linearGradient>
+                                <linearGradient id="grad-east" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#F59E0B" />
+                                    <stop offset="100%" stop-color="#D97706" />
+                                </linearGradient>
+                                <linearGradient id="grad-west" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#EC4899" />
+                                    <stop offset="100%" stop-color="#BE185D" />
+                                </linearGradient>
+                                <linearGradient id="grad-central" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#8B5CF6" />
+                                    <stop offset="100%" stop-color="#6D28D9" />
+                                </linearGradient>
+                                <linearGradient id="grad-ne" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#06B6D4" />
+                                    <stop offset="100%" stop-color="#0E7490" />
+                                </linearGradient>
+                            </defs>
+
+                            <!-- Region 1: North India (JK, HP, Punjab, HR, UK, Delhi) -->
+                            <path class="region-path" data-region="north" d="M 220,50 L 320,40 L 350,110 L 310,210 L 210,200 L 190,120 Z" fill="url(#grad-north)" opacity="0.85" />
+                            <text x="250" y="120" class="map-label">NORTH</text>
+
+                            <!-- Region 2: West India (Rajasthan, Gujarat, Goa, MH) -->
+                            <path class="region-path" data-region="west" d="M 120,200 L 210,200 L 230,330 L 160,420 L 90,320 L 110,230 Z" fill="url(#grad-west)" opacity="0.85" />
+                            <text x="140" y="290" class="map-label">WEST</text>
+
+                            <!-- Region 3: Central India (MP, Chhattisgarh) -->
+                            <path class="region-path" data-region="central" d="M 230,210 L 340,210 L 360,330 L 250,340 Z" fill="url(#grad-central)" opacity="0.85" />
+                            <text x="270" y="270" class="map-label">CENTRAL</text>
+
+                            <!-- Region 4: East India (WB, Odisha, Bihar, Jharkhand) -->
+                            <path class="region-path" data-region="east" d="M 340,210 L 420,200 L 440,340 L 350,350 Z" fill="url(#grad-east)" opacity="0.85" />
+                            <text x="375" y="275" class="map-label">EAST</text>
+
+                            <!-- Region 5: North-East India (Assam, Meghalaya, Nagaland, Manipur, Mizoram, Tripura, Arunachal, Sikkim) -->
+                            <path class="region-path" data-region="northeast" d="M 425,180 L 550,150 L 570,250 L 460,260 Z" fill="url(#grad-ne)" opacity="0.85" />
+                            <text x="475" y="205" class="map-label">N-EAST</text>
+
+                            <!-- Region 6: South India (TN, Kerala, Karnataka, AP, Telangana) -->
+                            <path class="region-path" data-region="south" d="M 165,425 L 255,345 L 345,355 L 290,560 L 210,570 Z" fill="url(#grad-south)" opacity="0.85" />
+                            <text x="235" y="450" class="map-label">SOUTH</text>
+                        </svg>
+                    </div>
+
+                    <!-- Region Selector Buttons & Quick Info Panel -->
+                    <div class="map-info-panel">
+                        <h3>Select Cultural Region</h3>
+                        <div class="region-buttons-grid">
+                            <button class="region-btn active" data-region="all">🌏 All India (50+)</button>
+                            <button class="region-btn" data-region="north">🏔️ North India (Lohri, Baisakhi, Hemis)</button>
+                            <button class="region-btn" data-region="south">🌴 South India (Onam, Pongal, Ugadi)</button>
+                            <button class="region-btn" data-region="east">🎨 East India (Durga Puja, Chhath, Rath Yatra)</button>
+                            <button class="region-btn" data-region="west">🪔 West India (Ganesh Chaturthi, Navratri, Rann Utsav)</button>
+                            <button class="region-btn" data-region="central">🛕 Central India (Khajuraho, Lokrang, Bhagoria)</button>
+                            <button class="region-btn" data-region="northeast">🦏 North-East (Bihu, Hornbill, Sangai)</button>
+                        </div>
+
+                        <div class="region-summary-box" id="region-summary-box">
+                            <h4 id="region-title">🌏 All India Festival Mosaic</h4>
+                            <p id="region-desc">Explore the tapestry of Indian celebrations spanning solar solstices, lunar tides, seasonal agricultural harvests, and deep spiritual traditions across every state.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Month-Wise Browsing & Indian Calendar Section -->
+        <section class="explorer-section bg-alt" id="calendar-section">
+            <div class="container">
+                <div class="section-header text-center animate-on-scroll">
+                    <span class="section-tagline">12-Month Calendar & 6 Ritus</span>
+                    <h2 class="section-title">Month-Wise Festival Calendar</h2>
+                    <p class="section-description">Browse festivals according to the Gregorian calendar months and traditional Indian Ritus (Seasons) tied to cosmic solstices and harvest cycles.</p>
+                </div>
+
+                <!-- Seasons (Ritus) Banner -->
+                <div class="ritus-bar animate-on-scroll">
+                    <div class="ritu-pill" data-ritu="vasant">🌸 Vasant (Spring: Mar–Apr)</div>
+                    <div class="ritu-pill" data-ritu="greeshma">☀️ Greeshma (Summer: May–Jun)</div>
+                    <div class="ritu-pill" data-ritu="varsha">🌧️ Varsha (Monsoon: Jul–Aug)</div>
+                    <div class="ritu-pill" data-ritu="sharad">🍁 Sharad (Autumn: Sep–Oct)</div>
+                    <div class="ritu-pill" data-ritu="hemant">🌾 Hemant (Pre-Winter: Nov–Dec)</div>
+                    <div class="ritu-pill" data-ritu="shishir">❄️ Shishir (Winter: Jan–Feb)</div>
+                </div>
+
+                <!-- 12 Month Selector Grid -->
+                <div class="month-selector-grid animate-on-scroll">
+                    <button class="month-btn active" data-month="all">All Months</button>
+                    <button class="month-btn" data-month="jan">Jan (Pausha/Magha)</button>
+                    <button class="month-btn" data-month="feb">Feb (Magha/Phalguna)</button>
+                    <button class="month-btn" data-month="mar">Mar (Phalguna/Chaitra)</button>
+                    <button class="month-btn" data-month="apr">Apr (Chaitra/Vaisakha)</button>
+                    <button class="month-btn" data-month="may">May (Vaisakha/Jyeshtha)</button>
+                    <button class="month-btn" data-month="jun">Jun (Jyeshtha/Ashadha)</button>
+                    <button class="month-btn" data-month="jul">Jul (Ashadha/Shravana)</button>
+                    <button class="month-btn" data-month="aug">Aug (Shravana/Bhadra)</button>
+                    <button class="month-btn" data-month="sep">Sep (Bhadra/Ashwin)</button>
+                    <button class="month-btn" data-month="oct">Oct (Ashwin/Kartik)</button>
+                    <button class="month-btn" data-month="nov">Nov (Kartik/Margashirsha)</button>
+                    <button class="month-btn" data-month="dec">Dec (Margashirsha/Pausha)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters Section: Category & State -->
+        <section class="explorer-section" id="filters-section">
+            <div class="container">
+                <div class="section-header text-center animate-on-scroll">
+                    <span class="section-tagline">Multi-Criteria Filtering</span>
+                    <h2 class="section-title">Discover by Category & State</h2>
+                    <p class="section-description">Filter celebrations by thematic category or select a specific state of India.</p>
+                </div>
+
+                <!-- Category Filters Bar -->
+                <div class="category-tabs animate-on-scroll">
+                    <button class="cat-tab active" data-cat="all">All Categories</button>
+                    <button class="cat-tab" data-cat="harvest">🌾 Harvest & Agricultural</button>
+                    <button class="cat-tab" data-cat="light-color">🪔 Lights, Colors & Devotion</button>
+                    <button class="cat-tab" data-cat="chariot">🛕 Temple & Rath Yatra</button>
+                    <button class="cat-tab" data-cat="new-year">🌅 New Year & Solar Transit</button>
+                    <button class="cat-tab" data-cat="cultural">💃 Folk, Dance & Music</button>
+                    <button class="cat-tab" data-cat="tribal">🏹 Tribal & Indigenous Heritage</button>
+                </div>
+
+                <!-- State Dropdown Selector -->
+                <div class="state-filter-wrapper animate-on-scroll">
+                    <label for="state-select" class="filter-label">📍 Select Specific State / UT:</label>
+                    <select id="state-select" class="state-dropdown" aria-label="Select State or Union Territory">
+                        <option value="all">All States & Union Territories (28 States)</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jammu & Kashmir / Ladakh">Jammu & Kashmir / Ladakh</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="West Bengal">West Bengal</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Festivals Section -->
+        <section class="explorer-section bg-alt" id="featured">
+            <div class="container">
+                <div class="section-header text-center animate-on-scroll">
+                    <span class="section-tagline">Flagship Celebrations</span>
+                    <h2 class="section-title">Featured Iconic Festivals</h2>
+                    <p class="section-description">India's grandest, world-famous celebrations that capture the soul of the subcontinent.</p>
+                </div>
+
+                <div class="featured-grid" id="featured-grid">
+                    <!-- Dynamic Featured Festival Cards Rendered by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- All Festivals Grid Section -->
+        <section class="explorer-section" id="all-festivals">
+            <div class="container">
+                <div class="section-header text-center animate-on-scroll">
+                    <span class="section-tagline">Complete Festival Directory</span>
+                    <h2 class="section-title">All Festivals Directory</h2>
+                    <p class="section-description" id="directory-count">Showing all festivals matching your filter choices.</p>
+                </div>
+
+                <div class="festivals-grid" id="festivals-grid">
+                    <!-- Rendered by script.js -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Lightbox for Full Festival Story -->
+    <div class="modal-overlay" id="festival-modal" aria-hidden="true" role="dialog">
+        <div class="modal-card">
+            <button class="modal-close" id="modal-close-btn" aria-label="Close Modal">✕</button>
+            <div class="modal-body" id="modal-body">
+                <!-- Content injected via script.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3><span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span></h3>
+                <p>Documenting the rich cultural heritage, seasonal celebrations, and timeless traditions of India.</p>
+            </div>
+            <div class="footer-links">
+                <h4>More Culture Explorers</h4>
+                <ul>
+                    <li><a href="../classical-dances/index.html">Classical Dances of India</a></li>
+                    <li><a href="../folk-dances/index.html">Folk Dances Explorer</a></li>
+                    <li><a href="../cuisine-discovery-hub/index.html">Cuisine & Regional Thalis</a></li>
+                    <li><a href="../godrej-brand-explorer/index.html">Godrej Brand Evolution</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Incredible India Explorer • Celebrating the Festivals & Traditions of India</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
