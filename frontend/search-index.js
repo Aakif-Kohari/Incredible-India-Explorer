@@ -5850,5 +5850,13 @@ window.indiaSearchIndex = [
         description:
             "Explore Havells' origin, product categories, major milestones, brand evolution and Indian manufacturing story through an interactive product-category explorer.",
         url: 'frontend/havells-explorer/index.html'
+    },
+    // --- Chittorgarh Fort Explorer ---
+    {
+        title: 'Chittorgarh Fort: Explore the Legacy of Mewar',
+        category: 'Monuments & Architecture',
+        description:
+            "Explore Chittorgarh Fort — UNESCO World Heritage Site in Rajasthan, capital of the Mewar dynasty, Vijay Stambh, Kirti Stambh, Padmini Palace, Gaumukh Reservoir, and historic sieges.",
+        url: 'frontend/chittorgarh-fort-explorer/index.html'
     }
 ];
