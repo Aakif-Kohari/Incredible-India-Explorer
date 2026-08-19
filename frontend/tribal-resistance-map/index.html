@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tribal Resistance Movements Against Colonial Rule | Incredible India Explorer</title>
+  <meta name="description" content="Interactive map of major Adivasi and tribal resistance movements against colonial policies and exploitation — Santhal Hul, Munda Ulgulan, Rampa Rebellion, Bhil resistance, Koya resistance, Tana Bhagat Movement, Rani Gaidinliu's Heraka movement, and more.">
+  <link rel="stylesheet" href="../pages-common.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="page-header">
+    <div class="header-container">
+      <a href="../../index.html" class="back-link">← Back to Explorer</a>
+      <a href="../freedom-fighters-hub/index.html" class="back-link back-link-secondary">← Freedom Fighters Hub</a>
+      <h1>🗺️ Tribal Resistance Movements Against Colonial Rule</h1>
+      <p class="subtitle">Adivasi uprisings against colonial forest laws, forced labour and exploitation, 1820s–1940s</p>
+    </div>
+  </header>
+
+  <main class="explorer-container">
+    <div class="disclaimer-banner" role="note">
+      <p>📜 <strong>Historical Note:</strong> This map is a schematic overview, not a survey-accurate map. Marker positions indicate the general area associated with each movement. Content is drawn from published historical sources; see the Sources panel for each movement.</p>
+    </div>
+
+    <section class="filters-section" aria-label="Movement filters">
+      <div class="filter-group">
+        <span class="filter-label">Region</span>
+        <div class="filter-row" id="region-filters" role="group" aria-label="Filter by region"></div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Period</span>
+        <div class="filter-row" id="era-filters" role="group" aria-label="Filter by period"></div>
+      </div>
+      <div class="filter-group filter-actions">
+        <button id="clear-filters-btn" class="chip-btn clear-btn" type="button">Clear filters</button>
+        <button id="compare-mode-btn" class="chip-btn compare-toggle-btn" type="button" aria-pressed="false">⇄ Compare movements</button>
+      </div>
+    </section>
+
+    <section class="map-workspace" aria-label="Tribal resistance map of India">
+      <div class="map-card">
+        <div class="map-canvas-container">
+          <svg id="tribal-map-svg" viewBox="0 0 500 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic map of India showing locations of tribal resistance movements">
+            <defs>
+              <filter id="marker-glow" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+            <path class="landmass" d="M 250 20 Q 340 30 380 90 Q 430 130 440 190 Q 470 210 460 250 Q 430 260 420 300 Q 400 340 360 360 Q 340 420 300 470 Q 280 520 250 545 Q 220 510 210 460 Q 180 430 170 380 Q 140 360 130 320 Q 100 300 110 260 Q 90 220 120 190 Q 110 140 160 100 Q 180 50 250 20 Z"
+                  fill="rgba(245, 158, 11, 0.08)" stroke="rgba(245, 158, 11, 0.35)" stroke-width="2" />
+            <g id="markers-layer"></g>
+          </svg>
+          <p class="map-caption">Click a marker, timeline entry, or card below to view details.</p>
+        </div>
+        <div class="map-legend" id="map-legend" aria-label="Region legend"></div>
+      </div>
+    </section>
+
+    <section id="detail-section" class="detail-section" aria-live="polite">
+      <p class="detail-placeholder">Select a movement from the map, timeline, or cards below to see its leaders, causes, outcome, and sources.</p>
+    </section>
+
+    <section id="comparison-section" class="comparison-section" hidden aria-live="polite">
+      <div class="comparison-header">
+        <h2>Movement Comparison</h2>
+        <button id="close-comparison-btn" class="chip-btn" type="button">Close comparison</button>
+      </div>
+      <div id="comparison-table-wrap"></div>
+    </section>
+
+    <section class="timeline-section" aria-label="Timeline of tribal resistance movements">
+      <h2 class="section-heading">Timeline</h2>
+      <div class="timeline" id="timeline-list"></div>
+    </section>
+
+    <section class="cards-section" aria-label="All tribal resistance movements">
+      <h2 class="section-heading">All Movements</h2>
+      <div class="movement-cards" id="movement-cards"></div>
+    </section>
+  </main>
+
+  <script src="../pages-common.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

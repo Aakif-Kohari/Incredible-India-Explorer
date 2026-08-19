@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Geo-Spatial Data Explorer | Incredible India</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <i class="fa-solid fa-earth-asia icon"></i>
+                <span>Incredible<span class="highlight">India</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../national-awards/national-awards.html">National Awards</a>
+                <a href="#layers">GIS Layers</a>
+                <a href="#analytics">Spatial Analytics</a>
+                <a href="#dataset-registry">Datasets</a>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge"><i class="fa-solid fa-layer-group"></i> ISRO Bhuvan & Survey of India GIS Portal</span>
+            <h1>National Geo-Spatial Data Explorer</h1>
+            <p>Explore India's comprehensive geospatial data infrastructure—mapping topography, forest canopy, satellite remote sensing, river basins, and urban infrastructure node networks.</p>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-num" id="stat-layers">120+</span>
+                    <span class="stat-label">GIS Vector Layers</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num" id="stat-resolution">0.5m</span>
+                    <span class="stat-label">Cartosat Satellite Resolution</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num" id="stat-coverage">100%</span>
+                    <span class="stat-label">National Land Boundary Coverage</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Explorer Dashboard -->
+    <main class="dashboard-container">
+        <!-- Interactive Layer Selector Bar -->
+        <section class="filter-section" id="layers">
+            <h2><i class="fa-solid fa-sliders"></i> Geospatial Layer & Domain Filters</h2>
+            <div class="filter-controls">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="layer-search" placeholder="Search GIS layers (e.g. Forest canopy, Brahmaputra basin, Mineral deposits)...">
+                </div>
+                <div class="category-filters" id="category-buttons">
+                    <button class="filter-btn active" data-category="all">All Layers</button>
+                    <button class="filter-btn" data-category="topography">Topography & Relief</button>
+                    <button class="filter-btn" data-category="hydrology">Hydrology & River Basins</button>
+                    <button class="filter-btn" data-category="vegetation">Forest & Agro-Ecology</button>
+                    <button class="filter-btn" data-category="urban">Urban & Infrastructure</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- GIS Layer Cards Grid -->
+        <section class="grid-section">
+            <div class="section-title">
+                <h3><i class="fa-solid fa-map-location-dot"></i> Available Geospatial Datasets</h3>
+                <span class="counter" id="active-count">Showing 6 Datasets</span>
+            </div>
+            <div class="layer-grid" id="layer-cards-container">
+                <!-- Injected via JavaScript script.js -->
+            </div>
+        </section>
+
+        <!-- Interactive Spatial Analytics Simulator -->
+        <section class="analytics-section" id="analytics">
+            <div class="analytics-card">
+                <div class="analytics-header">
+                    <h2><i class="fa-solid fa-chart-area"></i> National GIS Spatial Analytics Simulator</h2>
+                    <p>Select a geographic region and spatial dataset domain to run real-time raster overlays, land-use queries, and satellite elevation contours.</p>
+                </div>
+                <div class="simulator-grid">
+                    <div class="form-group">
+                        <label for="sim-region">Select Geographic Region:</label>
+                        <select id="sim-region" class="form-control">
+                            <option value="Himalayan Ecology Belt">Himalayan Ecology & Glacier Belt</option>
+                            <option value="Indo-Gangetic Alluvial Plains">Indo-Gangetic Alluvial Plains</option>
+                            <option value="Deccan Plateau Volcanic Region">Deccan Plateau Volcanic Region</option>
+                            <option value="Western Ghats Biodiversity Hotspot">Western Ghats Biodiversity Hotspot</option>
+                            <option value="Sundarbans Delta Coastal Zone">Sundarbans Delta Coastal Zone</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sim-domain">Select GIS Analytics Engine:</label>
+                        <select id="sim-domain" class="form-control">
+                            <option value="NDVI Forest Canopy Index">NDVI Forest Canopy & Vegetation Index</option>
+                            <option value="Elevation Contours & Slope Relief">Elevation Contours & DEM Slope Relief</option>
+                            <option value="Hydrological Flood Inundation">Hydrological Flood Inundation Radar</option>
+                            <option value="Urban Sprawl & Impervious Surface">Urban Sprawl & Impervious Surface Growth</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <button id="run-simulation-btn" class="primary-btn">
+                            <i class="fa-solid fa-play"></i> Run Spatial Query Analysis
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Simulation Output Box -->
+                <div class="sim-result-box hidden" id="sim-result">
+                    <div class="res-header">
+                        <i class="fa-solid fa-circle-check text-emerald"></i>
+                        <h4 id="sim-title">Spatial Query Calculated Successfully</h4>
+                    </div>
+                    <div class="res-body">
+                        <div class="res-metric">
+                            <span class="m-label">Area Analyzed:</span>
+                            <span class="m-val" id="res-area">14,250 sq km</span>
+                        </div>
+                        <div class="res-metric">
+                            <span class="m-label">Mean Elevation / Canopy Density:</span>
+                            <span class="m-val" id="res-density">78.4% Density</span>
+                        </div>
+                        <div class="res-metric">
+                            <span class="m-label">Cartosat 3 Resolution Match:</span>
+                            <span class="m-val" id="res-resolution">0.35m Sub-Meter</span>
+                        </div>
+                        <p class="res-desc" id="res-description">The geospatial raster query confirms robust canopy density across the designated zone with zero critical land degradation vectors detected.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dataset Registry Table -->
+        <section class="registry-section" id="dataset-registry">
+            <h2><i class="fa-solid fa-database"></i> National Geospatial Open Dataset Registry</h2>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Dataset ID</th>
+                            <th>Layer Name</th>
+                            <th>Responsible Nodal Agency</th>
+                            <th>Format</th>
+                            <th>Spatial Resolution</th>
+                            <th>Access Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>GIS-IND-101</code></td>
+                            <td>Cartosat-3 High Resolution Topography</td>
+                            <td>ISRO NRSC</td>
+                            <td>GeoTIFF / DEM</td>
+                            <td>0.35 Meters</td>
+                            <td><span class="tag tag-open">Public Open Data</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>GIS-IND-102</code></td>
+                            <td>National Hydrological Basin Matrix</td>
+                            <td>Central Water Commission</td>
+                            <td>ESRI Shapefile</td>
+                            <td>1:50,000 Scale</td>
+                            <td><span class="tag tag-open">Public Open Data</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>GIS-IND-103</code></td>
+                            <td>National Forest Canopy Density Map</td>
+                            <td>Forest Survey of India (FSI)</td>
+                            <td>GeoPackage</td>
+                            <td>24 Meters</td>
+                            <td><span class="tag tag-open">Public Open Data</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>GIS-IND-104</code></td>
+                            <td>Urban Sprawl & PM GatiShakti Corridor</td>
+                            <td>Survey of India (SoI)</td>
+                            <td>GeoJSON Vector</td>
+                            <td>Sub-meter Vector</td>
+                            <td><span class="tag tag-open">Public Open Data</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Incredible India Explorer. Interactive Geospatial Telemetry Portal (Simulated Demonstration Environment based on ISRO Bhuvan & Survey of India Specifications).</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

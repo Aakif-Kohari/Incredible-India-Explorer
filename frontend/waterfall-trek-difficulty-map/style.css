@@ -1,0 +1,643 @@
+/* ================================================================
+   Waterfall Trek Difficulty Map Styles
+   Reuses the same tokens/conventions as waterfalls-of-india/style.css
+   ================================================================ */
+
+.trek-map-page {
+    padding-top: var(--nav-height);
+    min-height: 100vh;
+    background-color: var(--bg-dark);
+}
+
+body.light-theme .trek-map-page {
+    background-color: var(--bg-light);
+}
+
+/* ================================================================
+   Hero Section
+   ================================================================ */
+
+.trek-map-hero {
+    position: relative;
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+    color: var(--text-light);
+    overflow: hidden;
+}
+
+.trek-map-hero .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #064e3b 100%);
+    z-index: 0;
+}
+
+body.light-theme .trek-map-hero .hero-bg {
+    background: linear-gradient(135deg, var(--bg-light) 0%, #d1fae5 100%);
+}
+
+.trek-map-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.5);
+    z-index: 1;
+}
+
+body.light-theme .trek-map-hero .hero-overlay {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.trek-map-hero .hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+    color: #34d399;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+}
+
+body.light-theme .hero-badge {
+    color: #059669;
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.trek-map-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.trek-map-hero h1 span {
+    color: #34d399;
+}
+
+.trek-map-hero p {
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* ================================================================
+   Explorer Section / Filters
+   ================================================================ */
+
+.trek-explorer-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+}
+
+.filters-container {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+}
+
+body.light-theme .filters-container {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+}
+
+.filter-btn {
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text-muted);
+    border: 1px solid transparent;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body.light-theme .filter-btn {
+    background: #ffffff;
+    color: var(--text-secondary);
+    border: 1px solid #e2e8f0;
+}
+
+.filter-btn:hover,
+.filter-btn:focus-visible {
+    color: var(--text-light);
+    border-color: rgba(52, 211, 153, 0.4);
+}
+
+body.light-theme .filter-btn:hover,
+body.light-theme .filter-btn:focus-visible {
+    color: var(--text-dark);
+    border-color: #6ee7b7;
+}
+
+.filter-btn.active {
+    background: rgba(52, 211, 153, 0.15);
+    color: #34d399;
+    border-color: #34d399;
+}
+
+body.light-theme .filter-btn.active {
+    background: #d1fae5;
+    color: #059669;
+    border-color: #34d399;
+}
+
+.filters-note {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* ================================================================
+   Map + Detail Layout
+   ================================================================ */
+
+.trek-map-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    background-color: var(--bg-dark-card, rgba(255,255,255,0.04));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+body.light-theme .map-container {
+    background-color: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.map-background {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8%;
+    pointer-events: none;
+}
+
+.markers-layer {
+    position: absolute;
+    top: 8%;
+    left: 8%;
+    width: 84%;
+    height: 84%;
+}
+
+.trek-marker {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: var(--bg-dark, #0f172a);
+    border: 2px solid #34d399;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 0;
+}
+
+body.light-theme .trek-marker {
+    background-color: #ffffff;
+}
+
+.trek-marker.difficulty-easy { border-color: #22c55e; }
+.trek-marker.difficulty-moderate { border-color: #eab308; }
+.trek-marker.difficulty-challenging { border-color: #f97316; }
+.trek-marker.difficulty-difficult { border-color: #ef4444; }
+.trek-marker.difficulty-undocumented { border-color: #94a3b8; }
+
+.trek-marker:hover,
+.trek-marker.active-marker {
+    transform: translate(-50%, -50%) scale(1.35);
+    z-index: 20;
+}
+
+.trek-marker:focus-visible {
+    outline: 3px solid #34d399;
+    outline-offset: 3px;
+}
+
+.trek-marker.marker-hidden {
+    display: none;
+}
+
+.marker-tooltip {
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s;
+    pointer-events: none;
+}
+
+.trek-marker:hover .marker-tooltip,
+.trek-marker:focus-visible .marker-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.detail-panel {
+    display: flex;
+}
+
+.detail-card {
+    padding: 1.75rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.empty-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.detail-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.waterfall-detail h2 {
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+body.light-theme .waterfall-detail h2 {
+    color: var(--text-dark);
+}
+
+.detail-meta p {
+    color: var(--text-muted);
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+.detail-approach {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+
+.detail-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+/* ================================================================
+   Difficulty Badges
+   ================================================================ */
+
+.difficulty-badge {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+}
+
+body.light-theme .difficulty-badge {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-dark);
+}
+
+.difficulty-badge.difficulty-easy { color: #22c55e; }
+.difficulty-badge.difficulty-moderate { color: #eab308; }
+.difficulty-badge.difficulty-challenging { color: #f97316; }
+.difficulty-badge.difficulty-difficult { color: #ef4444; }
+.difficulty-badge.difficulty-undocumented { color: #94a3b8; }
+
+/* ================================================================
+   Buttons
+   ================================================================ */
+
+.compare-toggle-btn {
+    background: rgba(52, 211, 153, 0.15);
+    color: #34d399;
+    border: 1px solid #34d399;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.compare-toggle-btn:hover,
+.compare-toggle-btn:focus-visible {
+    background: #34d399;
+    color: #0f172a;
+}
+
+.explore-btn {
+    background: #34d399;
+    color: #0f172a;
+    border: none;
+    padding: 0.5rem 1.1rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.explore-btn:hover,
+.explore-btn:focus-visible {
+    transform: translateY(-2px);
+}
+
+/* ================================================================
+   Results / Cards Grid
+   ================================================================ */
+
+.results-count {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.trek-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.trek-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+body.light-theme .trek-card {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.trek-card-image {
+    position: relative;
+    cursor: pointer;
+    height: 160px;
+}
+
+.trek-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.trek-card-image .difficulty-badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(15, 23, 42, 0.85);
+    margin: 0;
+}
+
+.trek-card-content {
+    padding: 1.1rem 1.25rem 1.4rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.trek-card-content h3 {
+    cursor: pointer;
+    color: var(--text-light);
+    margin-bottom: 0.4rem;
+}
+
+body.light-theme .trek-card-content h3 {
+    color: var(--text-dark);
+}
+
+.trek-card-meta,
+.trek-card-season {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+}
+
+.trek-card-approach {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 0.6rem;
+    flex: 1;
+}
+
+.trek-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.compare-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+/* ================================================================
+   Accessibility Comparison Table
+   ================================================================ */
+
+.compare-section {
+    padding: 1.75rem;
+}
+
+.compare-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.compare-header h2 {
+    color: var(--text-light);
+}
+
+body.light-theme .compare-header h2 {
+    color: var(--text-dark);
+}
+
+.compare-clear-btn {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--text-muted);
+    padding: 0.4rem 0.9rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.compare-clear-btn:hover,
+.compare-clear-btn:focus-visible {
+    color: #ef4444;
+    border-color: #ef4444;
+}
+
+.compare-table-wrapper {
+    overflow-x: auto;
+}
+
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 480px;
+}
+
+.compare-table th,
+.compare-table td {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+body.light-theme .compare-table th,
+body.light-theme .compare-table td {
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+.compare-table thead th {
+    color: var(--text-light);
+    font-weight: 700;
+}
+
+body.light-theme .compare-table thead th {
+    color: var(--text-dark);
+}
+
+.compare-table tbody th {
+    color: var(--text-light);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+body.light-theme .compare-table tbody th {
+    color: var(--text-dark);
+}
+
+/* ================================================================
+   Responsive / Mobile
+   ================================================================ */
+
+@media (max-width: 900px) {
+    .trek-map-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .map-container {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+@media (max-width: 600px) {
+    .trek-map-hero h1 { font-size: 2rem; }
+    .trek-explorer-section { padding: 0 1.25rem 3rem; }
+    .filter-btn { padding: 0.45rem 1rem; font-size: 0.85rem; }
+    .trek-cards-grid { grid-template-columns: 1fr; }
+    .compare-header { flex-direction: column; align-items: flex-start; }
+}
