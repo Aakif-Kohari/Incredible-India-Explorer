@@ -1613,6 +1613,13 @@ window.indiaSearchIndex = [
         description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
         url: "frontend/simlipal-national-park-explorer/index.html"
     },
+    // --- Kudlu Theertha Falls Explorer ---
+    {
+        title: "Kudlu Theertha Falls: Navigate the Forest Waterfall Trail",
+        category: "Nature & Geography",
+        description: "Explore Kudlu Theertha Falls near Hebri, Karnataka — following the Trail → Forest → Waterfall journey, seasonal flow, Sita River setting, access information, maps, nearby attractions, and image credits.",
+        url: "frontend/kudlu-theertha-falls-explorer/index.html"
+    },
     // --- Purwa Falls Explorer ---
     {
         title: "Purwa Falls: Follow the Tamas River Cascade Explorer",
