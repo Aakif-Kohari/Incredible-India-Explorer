@@ -491,6 +491,16 @@ const mapData = {
                 "The 'Land of Gods', Uttarakhand is a hub of pilgrimage (Char Dham), yoga (Rishikesh), wildlife (Jim Corbett Park), and snow-capped Himalayan peaks.",
             story: "The 'Land of Gods', Uttarakhand is a hub of pilgrimage (Char Dham), yoga (Rishikesh), wildlife (Jim Corbett Park), and snow-capped Himalayan peaks.\n\nThe vibrant region of Uttarakhand is governed from its beautiful capital, Dehradun. The land is deeply connected to its roots, celebrating grand occasions like Ganga Aarti & Nanda Devi Jat with unmatched energy and devotion.\n\nVisitors from around the world are mesmerized by the local culinary delights, particularly the iconic Kafuli & Aloo ke Gutke, which represents centuries of refined regional cooking techniques and traditional spices. A journey to Uttarakhand is a journey through time, culture, and nature."
         },
+        // Kudlu Theertha Falls Card
+        {
+            id: "kudlu-theertha-falls",
+            name: "Kudlu Theertha Falls",
+            category: "waterfall",
+            location: "Near Hebri, Udupi district, Karnataka",
+            image: "https://commons.wikimedia.org/wiki/Special:FilePath/Kudlu_theertha_falls.jpg",
+            description: "A forest-hidden Sita River waterfall near Hebri, reached through a Western Ghats trail in the Someshwara landscape.",
+            link: "frontend/kudlu-theertha-falls-explorer/index.html"
+        },
         // Vazhachal Falls Card
         {
             id: 'vazhachal-falls',
