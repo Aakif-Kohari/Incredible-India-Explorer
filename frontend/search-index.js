@@ -5711,6 +5711,13 @@ window.indiaSearchIndex = [
             "Explore Havells' origin, product categories, major milestones, brand evolution and Indian manufacturing story through an interactive product-category explorer.",
         url: 'frontend/havells-explorer/index.html'
     },
+    // --- Nalanda Mahavihara Explorer ---
+    {
+        title: "Nalanda Mahavihara: Explore Ancient India's Centre of Learning",
+        category: 'Heritage & History',
+        description:
+            "Explore the ancient Nalanda Mahavihara in Bihar — UNESCO World Heritage Site, ancient world's premier residential university (5th–12th century CE), Dharmaganja library, and famous scholars (Xuanzang, Aryabhata, Nagarjuna).",
+        url: 'frontend/nalanda-mahavihara-explorer/index.html'},
     // --- Mahabodhi Temple Explorer ---
     {
         title: 'Mahabodhi Temple: Discover the Sacred Site of Enlightenment',
