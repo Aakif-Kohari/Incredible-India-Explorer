@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Discover Bhili, the Western Indo-Aryan language of India's largest tribal community. Interactive dictionary, verified audio pronunciations, regional maps across Rajasthan, Gujarat, Madhya Pradesh and Maharashtra, and Bhil heritage.">
+    <meta name="keywords"
+        content="Bhili language, Bhil tribe, Western Indian Tribal Belt, Rajasthan, Gujarat, Madhya Pradesh, Maharashtra, Indo-Aryan languages, Devanagari, Bhagoria Haat, Baneshwar Fair, Pithora art">
+    <title>Bhili Language & Culture Explorer | Western Indian Tribal Belt</title>
+    <link rel="icon" href="data:,">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="bhili-language-explorer.css">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Bhili Language & Culture Explorer | Western Indian Tribal Belt">
+    <meta property="og:description"
+        content="Explore भीली, the language of the Bhil people across Rajasthan, Gujarat, Madhya Pradesh and Maharashtra. Interactive audio, vocabulary, regional map, and tribal heritage.">
+    <meta property="og:type" content="website">
+</head>
+
+<body class="bhili-explorer-body">
+    <script>
+        (function () {
+            let theme = 'dark';
+            try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch (e) { }
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+
+    <!-- Global Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle active" aria-haspopup="true" aria-expanded="false">Culture
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                        <a href="../../frontend/languages-of-india/index.html" class="dropdown-item">Languages of
+                            India</a>
+                        <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">Handicrafts
+                            Showcase</a>
+                        <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                        <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event
+                            Discovery</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National
+                            Parks</a>
+                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    </div>
+                </div>
+
+                <a href="../../frontend/about/about.html" class="nav-link">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="bhili-app" id="bhili-app-root">
+        <!-- Hero Section -->
+        <section class="bhili-hero" id="bhili-hero">
+            <div class="hero-bg-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">🏹</span>
+                    <span>Western Indian Tribal Belt</span>
+                </div>
+
+                <h1 class="hero-title">
+                    Discover <span class="highlight-text">Bhili</span> (भीली / ભીલી)
+                </h1>
+
+                <p class="hero-native-subtitle">
+                    Native designation: <strong class="bhili-native-name">भीली / ભીલી (Bhili)</strong> &bull; Language
+                    of the Bhil People, India's Largest Tribal Community
+                </p>
+
+                <p class="hero-description">
+                    Explore the Western Indo-Aryan language spoken by over 3.2 million people of the Bhil community,
+                    scattered across the hills and forests of Rajasthan, Gujarat, Madhya Pradesh and Maharashtra.
+                </p>
+
+                <!-- Audio Hero Player -->
+                <div class="hero-audio-card">
+                    <div class="audio-card-header">
+                        <span class="speaker-icon">🔊</span>
+                        <div>
+                            <span class="audio-label">Listen to Native Name Pronunciation:</span>
+                            <span class="audio-phonetic">/bʱiːliː/ &bull; [Bhili]</span>
+                        </div>
+                    </div>
+                    <div class="audio-controls-row">
+                        <button class="btn-play-audio hero-play-btn" id="btn-hero-audio" data-word="Bhili"
+                            data-ipa="bhiili" data-text="Bhili" aria-label="Play Bhili Pronunciation">
+                            <span class="play-icon">▶</span>
+                            <span class="play-text">Play Audio</span>
+                        </button>
+                        <div class="speed-toggle-group">
+                            <button class="speed-btn active" data-speed="1.0">1.0x</button>
+                            <button class="speed-btn" data-speed="0.75">0.75x Slow</button>
+                        </div>
+                    </div>
+                    <!-- Audio Wave Canvas Visualizer -->
+                    <div class="visualizer-container">
+                        <canvas class="audio-wave-canvas" id="hero-wave-canvas" width="300" height="30"></canvas>
+                    </div>
+                </div>
+
+                <!-- Fast Jump Navigation Grid -->
+                <div class="quick-nav-grid">
+                    <a href="#section-greetings" class="quick-nav-pill">👋 Common Greetings</a>
+                    <a href="#section-vocabulary" class="quick-nav-pill">💬 Bhili Word Bank</a>
+                    <a href="#section-transcription" class="quick-nav-pill">✍️ Writing & Script</a>
+                    <a href="#section-family" class="quick-nav-pill">🌳 Language Family</a>
+                    <a href="#section-regions" class="quick-nav-pill">🗺️ Tribal Belt Regions</a>
+                    <a href="#section-culture" class="quick-nav-pill">🏹 Bhil Culture</a>
+                    <a href="#section-quiz" class="quick-nav-pill">🎯 Interactive Quiz</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Counter Ribbon -->
+        <section class="bhili-stats-ribbon">
+            <div class="stat-card">
+                <span class="stat-value">3.2M+</span>
+                <span class="stat-label">Native Speakers (2011 Census)</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">Indo-Aryan</span>
+                <span class="stat-label">Western Zone Branch</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">Bhil</span>
+                <span class="stat-label">Heritage Community</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">4 States</span>
+                <span class="stat-label">Rajasthan, Gujarat, MP, Maharashtra</span>
+            </div>
+        </section>
+
+        <!-- Section 1: Common Bhili Greetings -->
+        <section class="bhili-section" id="section-greetings">
+            <div class="section-header">
+                <div class="section-tag">👋 Essential Communication</div>
+                <h2 class="section-title">Common Bhili Greetings & Everyday Phrases</h2>
+                <p class="section-subtitle">Experience the warmth of Bhil hospitality. Listen to pronunciations with
+                    phonetic transcriptions.</p>
+            </div>
+
+            <div class="greetings-grid" id="greetings-container">
+                <!-- Greeting Card 1 -->
+                <div class="greeting-card featured">
+                    <div class="greeting-badge">Primary Greeting</div>
+                    <div class="greeting-main">
+                        <div class="bhili-script-lg">राम राम</div>
+                        <div class="bhili-latin-lg">Ram Ram</div>
+                        <div class="bhili-ipa">[raːm raːm]</div>
+                    </div>
+                    <div class="greeting-meaning">
+                        <span class="meaning-icon">✨</span>
+                        <span class="meaning-text">"Hello / Greetings of Peace"</span>
+                    </div>
+                    <p class="greeting-note">The everyday salutation exchanged across Bhil villages in Rajasthan,
+                        Gujarat, Madhya Pradesh and Maharashtra, used at any time of day.</p>
+                    <div class="card-audio-footer">
+                        <button class="btn-play-audio card-play-btn" data-word="Ram Ram" data-ipa="raam raam"
+                            data-text="Ram Ram">
+                            <span class="play-icon">🔊</span>
+                            <span>Play Pronunciation</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Greeting Card 2 -->
+                <div class="greeting-card">
+                    <div class="greeting-main">
+                        <div class="bhili-script-lg">जय रामजी की</div>
+                        <div class="bhili-latin-lg">Jai Ramji ki</div>
+                        <div class="bhili-ipa">[dʒəj raːmdʒiː kiː]</div>
+                    </div>
+                    <div class="greeting-meaning">
+                        <span class="meaning-icon">🙏</span>
+                        <span class="meaning-text">"Glory to Ram" — a respectful greeting</span>
+                    </div>
+                    <p class="greeting-note">Used as a formal, respectful greeting among elders and in rural gatherings
+                        across the tribal belt.</p>
+                    <div class="card-audio-footer">
+                        <button class="btn-play-audio card-play-btn" data-word="Jai Ramji ki" data-ipa="jai ramji ki"
+                            data-text="Jai Ramji ki">
+                            <span class="play-icon">🔊</span>
+                            <span>Play Pronunciation</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Greeting Card 3 -->
+                <div class="greeting-card">
+                    <div class="greeting-main">
+                        <div class="bhili-script-lg">थारो नाम काय?</div>
+                        <div class="bhili-latin-lg">Tharo naam kaay?</div>
+                        <div class="bhili-ipa">[t̪ʰaːro naːm kaːj]</div>
+                    </div>
+                    <div class="greeting-meaning">
+                        <span class="meaning-icon">❓</span>
+                        <span class="meaning-text">"What is your name?"</span>
+                    </div>
+                    <p class="greeting-note">A common conversational opener, close in form to neighbouring Rajasthani
+                        and Gujarati.</p>
+                    <div class="card-audio-footer">
+                        <button class="btn-play-audio card-play-btn" data-word="Tharo naam kaay"
+                            data-ipa="tharo naam kaay" data-text="Tharo naam kaay">
+                            <span class="play-icon">🔊</span>
+                            <span>Play Pronunciation</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Greeting Card 4 -->
+                <div class="greeting-card">
+                    <div class="greeting-main">
+                        <div class="bhili-script-lg">आवो, बेसो</div>
+                        <div class="bhili-latin-lg">Aavo, beso</div>
+                        <div class="bhili-ipa">[aːʋo beːso]</div>
+                    </div>
+                    <div class="greeting-meaning">
+                        <span class="meaning-icon">🌿</span>
+                        <span class="meaning-text">"Come, sit down" — a welcome to guests</span>
+                    </div>
+                    <p class="greeting-note">A warm invitation extended to visitors arriving at a Bhil home.</p>
+                    <div class="card-audio-footer">
+                        <button class="btn-play-audio card-play-btn" data-word="Aavo beso" data-ipa="aavo beso"
+                            data-text="Aavo, beso">
+                            <span class="play-icon">🔊</span>
+                            <span>Play Pronunciation</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Bhili Common Vocabulary (5-10+ Words Explorer) -->
+        <section class="bhili-section" id="section-vocabulary">
+            <div class="section-header">
+                <div class="section-tag">💬 Interactive Word Bank</div>
+                <h2 class="section-title">Common Bhili Vocabulary & Meanings</h2>
+                <p class="section-subtitle">Search, filter, and hear pronunciations of fundamental Bhili words with
+                    Indo-Aryan cognates.</p>
+            </div>
+
+            <!-- Controls: Search & Category Filter -->
+            <div class="vocab-controls">
+                <div class="search-box-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="vocab-search-input" class="vocab-search-input"
+                        placeholder="Search by Bhili word, English meaning, or Devanagari script..."
+                        aria-label="Search vocabulary">
+                    <button id="vocab-search-clear" class="btn-search-clear" aria-label="Clear search">✕</button>
+                </div>
+
+                <div class="filter-tabs" id="vocab-filter-tabs">
+                    <button class="filter-tab active" data-category="all">All Words (10)</button>
+                    <button class="filter-tab" data-category="nature">🌿 Nature & Elements</button>
+                    <button class="filter-tab" data-category="life">🏡 House & Kinship</button>
+                    <button class="filter-tab" data-category="body">👤 People</button>
+                    <button class="filter-tab" data-category="culture">🏹 Culture & Deities</button>
+                </div>
+            </div>
+
+            <!-- Vocabulary Cards Grid -->
+            <div class="vocab-grid" id="vocab-grid">
+                <!-- Word Cards will be rendered dynamically by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Section 3: Writing & Transcription Information -->
+        <section class="bhili-section" id="section-transcription">
+            <div class="section-header">
+                <div class="section-tag">✍️ Script & Phonetics</div>
+                <h2 class="section-title">Writing System & Transcription</h2>
+                <p class="section-subtitle">Understanding how the historically oral Bhili language is transcribed and
+                    spoken today.</p>
+            </div>
+
+            <div class="info-two-column">
+                <div class="info-card">
+                    <div class="info-card-icon">📜</div>
+                    <h3>Oral Tradition & Script Adoption</h3>
+                    <p>
+                        Bhili was traditionally an <strong>oral, unwritten language</strong>, carried through folk
+                        songs, proverbs and oral storytelling passed down among Bhil communities.
+                    </p>
+                    <p>
+                        Today Bhili is most commonly written using the <strong>Devanagari script (देवनागरी)</strong>
+                        across Rajasthan, Madhya Pradesh and Maharashtra, and the <strong>Gujarati script
+                            (ગુજરાતી)</strong> in Gujarat, alongside the standard <strong>Latin transcription</strong>
+                        with IPA phonetic diacritics.
+                    </p>
+                    <div class="script-comparison-box">
+                        <div class="script-item">
+                            <span class="script-name">Devanagari Script Rendering:</span>
+                            <span class="script-value deva-font">भीली भाषा</span>
+                        </div>
+                        <div class="script-item">
+                            <span class="script-name">Latin Phonetic Notation:</span>
+                            <span class="script-value">Bhili Bhasha</span>
+                        </div>
+                        <div class="script-item">
+                            <span class="script-name">IPA International Phonetic:</span>
+                            <span class="script-value">[bʱiːliː bʱaːʂaː]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">🎙️</div>
+                    <h3>Unique Phonetic Features</h3>
+                    <ul class="phonetics-list">
+                        <li>
+                            <strong>Aspirated Consonants (bʱ, dʱ, kʰ):</strong> Distinctive breathy-voiced stops, as in
+                            <em>Bhili</em> and <em>Ghar</em> (house).
+                        </li>
+                        <li>
+                            <strong>Retroflex Consonants (ɳ, ʈ, ɖ):</strong> Pronounced with the tongue curled toward
+                            the roof of the mouth, e.g. <em>Pani</em> [paːɳiː] - water.
+                        </li>
+                        <li>
+                            <strong>Dialectal Variation:</strong> Pronunciation and vocabulary can shift noticeably
+                            every few villages, shaped by nearby Gujarati, Rajasthani or Marathi.
+                        </li>
+                        <li>
+                            <strong>Vowel Length Contrast:</strong> Short and long vowels distinguish meaning, similar
+                            to other Western Indo-Aryan languages.
+                        </li>
+                    </ul>
+
+                    <div class="interactive-sound-test">
+                        <span class="sound-test-title">Interactive Sound Explorer:</span>
+                        <div class="sound-chip-group">
+                            <button class="sound-chip btn-play-audio" data-word="Pani" data-ipa="paani"
+                                data-text="Pani (Retroflex)">🔊 Pani [paːɳiː]</button>
+                            <button class="sound-chip btn-play-audio" data-word="Ghar" data-ipa="ghar"
+                                data-text="Ghar (Aspirated)">🔊 Ghar [ɡʱər]</button>
+                            <button class="sound-chip btn-play-audio" data-word="Devta" data-ipa="devta"
+                                data-text="Devta (Vowel Length)">🔊 Devta [d̪eːʋt̪aː]</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Indo-Aryan Language Family Context -->
+        <section class="bhili-section" id="section-family">
+            <div class="section-header">
+                <div class="section-tag">🌳 Linguistic Family Lineage</div>
+                <h2 class="section-title">Indo-Aryan Language Family Context</h2>
+                <p class="section-subtitle">Bhili belongs to the Bhil group of Western Indo-Aryan languages, closely
+                    related to Gujarati and Rajasthani.</p>
+            </div>
+
+            <div class="family-tree-card">
+                <h3 class="tree-heading">Indo-Aryan Language Tree Classification</h3>
+                <div class="tree-diagram">
+                    <div class="tree-node root">Indo-European</div>
+                    <div class="tree-branches">
+                        <div class="branch">
+                            <span class="branch-label">Northwestern Zone</span>
+                            <span class="branch-examples">Sindhi, Punjabi, Kashmiri</span>
+                        </div>
+                        <div class="branch">
+                            <span class="branch-label">Eastern Zone</span>
+                            <span class="branch-examples">Bengali, Odia, Assamese</span>
+                        </div>
+                        <div class="branch active-branch">
+                            <span class="branch-label highlight">Western Indo-Aryan ⭐</span>
+                            <span class="branch-examples active-text"><strong>Bhili</strong>, Gujarati, Rajasthani,
+                                Bhilali, Wagdi, Rathwi</span>
+                        </div>
+                        <div class="branch">
+                            <span class="branch-label">Central Zone</span>
+                            <span class="branch-examples">Hindi, Marathi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cognate Matrix Table -->
+            <div class="cognate-matrix-wrapper">
+                <h3 class="matrix-heading">Comparative Indo-Aryan Cognate Matrix</h3>
+                <p class="matrix-desc">Notice how closely Bhili vocabulary mirrors its sister Western Indo-Aryan
+                    languages, reflecting their shared roots:</p>
+
+                <div class="table-responsive">
+                    <table class="cognate-table">
+                        <thead>
+                            <tr>
+                                <th>Meaning</th>
+                                <th>Bhili (भीली)</th>
+                                <th>Gujarati</th>
+                                <th>Rajasthani</th>
+                                <th>Hindi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Water</strong></td>
+                                <td class="bhili-cell"><button class="btn-inline-audio btn-play-audio" data-word="Pani"
+                                        data-text="Pani">🔊 <strong>Pani</strong></button></td>
+                                <td>Pani (પાણી)</td>
+                                <td>Paani</td>
+                                <td>Paani (पानी)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>House</strong></td>
+                                <td class="bhili-cell"><button class="btn-inline-audio btn-play-audio" data-word="Ghar"
+                                        data-text="Ghar">🔊 <strong>Ghar</strong></button></td>
+                                <td>Ghar (ઘર)</td>
+                                <td>Ghar</td>
+                                <td>Ghar (घर)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Father</strong></td>
+                                <td class="bhili-cell"><button class="btn-inline-audio btn-play-audio" data-word="Baap"
+                                        data-text="Baap">🔊 <strong>Baap</strong></button></td>
+                                <td>Baap (બાપ)</td>
+                                <td>Baap</td>
+                                <td>Baap (बाप)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Boy</strong></td>
+                                <td class="bhili-cell"><button class="btn-inline-audio btn-play-audio"
+                                        data-word="Chokro" data-text="Chokro">🔊 <strong>Chokro</strong></button></td>
+                                <td>Chokro (છોકરો)</td>
+                                <td>Chhokro</td>
+                                <td>Ladka (लड़का)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hill</strong></td>
+                                <td class="bhili-cell"><button class="btn-inline-audio btn-play-audio"
+                                        data-word="Dungar" data-text="Dungar">🔊 <strong>Dungar</strong></button></td>
+                                <td>Dungar (ડુંગર)</td>
+                                <td>Dungar</td>
+                                <td>Pahaad (पहाड़)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Western Indian Tribal Belt Regions -->
+        <section class="bhili-section" id="section-regions">
+            <div class="section-header">
+                <div class="section-tag">🗺️ Regional Geography</div>
+                <h2 class="section-title">The Western Indian Tribal Belt</h2>
+                <p class="section-subtitle">Explore the four states where the Bhil people and Bhili speech communities
+                    live.</p>
+            </div>
+
+            <div class="region-explorer-layout">
+                <!-- Region Info Panel -->
+                <div class="region-info-panel" id="region-info-panel">
+                    <div class="region-card active" id="region-card-rajasthan">
+                        <span class="region-badge">Southern Tribal Heartland</span>
+                        <h3>Rajasthan (Wagad Region)</h3>
+                        <p class="region-elevation">📍 Districts: Banswara, Dungarpur, Pratapgarh</p>
+                        <p class="region-desc">
+                            Home to the largest concentration of Bhil Garasia and Dungri Bhil communities. The annual
+                            Baneshwar Fair at the sacred Som-Mahi river confluence draws lakhs of Bhil pilgrims each
+                            Shivratri.
+                        </p>
+                        <div class="region-tags">
+                            <span class="tag">Banswara</span>
+                            <span class="tag">Dungarpur</span>
+                            <span class="tag">Baneshwar Fair</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Region Selector List -->
+                <div class="region-selector-list">
+                    <button class="region-item active" data-region="rajasthan">
+                        <div class="region-item-header">
+                            <span class="region-icon">📍</span>
+                            <span class="region-name">Rajasthan</span>
+                        </div>
+                        <span class="region-sub">Banswara & Dungarpur (Wagad)</span>
+                    </button>
+
+                    <button class="region-item" data-region="gujarat">
+                        <div class="region-item-header">
+                            <span class="region-icon">📍</span>
+                            <span class="region-name">Gujarat</span>
+                        </div>
+                        <span class="region-sub">Panchmahal & Dahod</span>
+                    </button>
+
+                    <button class="region-item" data-region="madhyapradesh">
+                        <div class="region-item-header">
+                            <span class="region-icon">📍</span>
+                            <span class="region-name">Madhya Pradesh</span>
+                        </div>
+                        <span class="region-sub">Jhabua & Alirajpur</span>
+                    </button>
+
+                    <button class="region-item" data-region="maharashtra">
+                        <div class="region-item-header">
+                            <span class="region-icon">📍</span>
+                            <span class="region-name">Maharashtra</span>
+                        </div>
+                        <span class="region-sub">Dhule & Nandurbar (Khandesh)</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Short Cultural Section -->
+        <section class="bhili-section" id="section-culture">
+            <div class="section-header">
+                <div class="section-tag">🏹 Bhil Heritage</div>
+                <h2 class="section-title">Bhil Culture, Art & Traditions</h2>
+                <p class="section-subtitle">Discover the festivals, art forms and traditions of India's largest tribal
+                    community.</p>
+            </div>
+
+            <div class="culture-cards-grid">
+                <!-- Culture Card 1 -->
+                <div class="culture-card">
+                    <div class="culture-card-img-placeholder eco-bg">
+                        <span class="culture-card-emoji">🎉</span>
+                    </div>
+                    <div class="culture-card-body">
+                        <h3>Bhagoria Haat Festival</h3>
+                        <p>
+                            Celebrated in <strong>Jhabua and Alirajpur</strong> (Madhya Pradesh) in the week before
+                            Holi, the colourful <strong>Bhagoria Haat</strong> turns village markets into a vibrant
+                            gathering of music, dance, and traditional courtship customs.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Culture Card 2 -->
+                <div class="culture-card">
+                    <div class="culture-card-img-placeholder shawl-bg">
+                        <span class="culture-card-emoji">🐎</span>
+                    </div>
+                    <div class="culture-card-body">
+                        <h3>Pithora Wall Paintings</h3>
+                        <p>
+                            A sacred ritual art practiced by Bhil and Rathwa communities in Gujarat and Madhya Pradesh,
+                            featuring horses, deities and nature spirits painted on home walls to fulfil vows and invoke
+                            blessings.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Culture Card 3 -->
+                <div class="culture-card">
+                    <div class="culture-card-img-placeholder dhokra-bg">
+                        <span class="culture-card-emoji">🏹</span>
+                    </div>
+                    <div class="culture-card-body">
+                        <h3>Bow & Arrow Tradition</h3>
+                        <p>
+                            The Bhils are historically renowned as skilled archers and hunters, a tradition still
+                            associated with the community in folklore. The bow and arrow remain enduring symbols of Bhil
+                            identity.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Culture Card 4 -->
+                <div class="culture-card">
+                    <div class="culture-card-img-placeholder fest-bg">
+                        <span class="culture-card-emoji">🪔</span>
+                    </div>
+                    <div class="culture-card-body">
+                        <h3>Baneshwar Fair</h3>
+                        <p>
+                            Held annually at the confluence of the Som and Mahi rivers in <strong>Dungarpur,
+                                Rajasthan</strong>, this major Bhil pilgrimage draws lakhs of devotees around Shivratri
+                            for ritual bathing, trade and celebration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Interactive Quiz Challenge -->
+        <section class="bhili-section" id="section-quiz">
+            <div class="section-header">
+                <div class="section-tag">🎯 Test Your Knowledge</div>
+                <h2 class="section-title">Interactive Bhili Explorer Quiz</h2>
+                <p class="section-subtitle">Put your Bhili language and Bhil culture learning to the test!</p>
+            </div>
+
+            <div class="quiz-container" id="quiz-container">
+                <div class="quiz-card" id="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+                    </div>
+
+                    <div class="quiz-question-header">
+                        <span class="quiz-q-num" id="quiz-q-num">Question 1 of 5</span>
+                        <span class="quiz-score" id="quiz-score">Score: 0</span>
+                    </div>
+
+                    <h3 class="quiz-question-text" id="quiz-question-text">
+                        What is the common everyday Bhili greeting?
+                    </h3>
+
+                    <div class="quiz-options-grid" id="quiz-options-grid">
+                        <!-- Quiz options dynamically generated -->
+                    </div>
+
+                    <div class="quiz-feedback hidden" id="quiz-feedback">
+                        <span class="feedback-icon" id="feedback-icon">✅</span>
+                        <span class="feedback-text" id="feedback-text">Correct answer!</span>
+                    </div>
+
+                    <div class="quiz-footer">
+                        <button class="btn-quiz-next" id="btn-quiz-next" disabled>Next Question ➔</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-logo">Incredible India Explorer</h3>
+                    <p class="footer-desc">An interactive digital exploration of India's vast cultural heritage,
+                        indigenous languages, and natural wonders.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Language Modules</h4>
+                    <ul>
+                        <li><a href="#bhili-hero">Bhili Language Explorer</a></li>
+                        <li><a href="../../frontend/languages-of-india/index.html">Languages of India</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore Bhil Heritage</h4>
+                    <ul>
+                        <li><a href="../../frontend/bhil-art-explorer/index.html">Bhil Art Explorer</a></li>
+                        <li><a href="../../frontend/tantia-bhil-explorer/index.html">Tantia Bhil</a></li>
+                        <li><a href="../../frontend/tribes/tribes.html">Tribes of India</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Incredible India Explorer. Dedicated to indigenous linguistic heritage preservation.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Synth & Explorer Script -->
+    <script src="bhili-language-explorer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bundeli Explorer — Incredible India</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Explore बुंदेली (Bundeli), the language of Bundelkhand — its Devanagari script, greeting, common words, and folk and literary heritage.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,560;9..144,680&family=Noto+Serif+Devanagari:wght@500;700&family=Noto+Sans+Devanagari:wght@400;600&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        :root {
+            --terracotta: #8a3324;
+            --terracotta-deep: #5e2018;
+            --sand: #ece2cd;
+            --sand-dark: #59503f;
+            --paper: #f8f3e6;
+            --ochre: #c07f1f;
+            --ochre-deep: #93630f;
+            --marigold: #e0a933;
+            --ink: #231c19;
+            --rule: rgba(35, 28, 25, 0.14);
+            --shadow: 0 14px 34px rgba(35, 20, 15, 0.16);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--sand);
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .dev {
+            font-family: 'Noto Sans Devanagari', 'Noto Serif Devanagari', serif;
+        }
+
+        .dev-display {
+            font-family: 'Noto Serif Devanagari', serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        .display {
+            font-family: 'Fraunces', serif;
+            font-weight: 680;
+            letter-spacing: -0.01em;
+            margin: 0;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* ---------- Kaanch-motif signature strip (SVG pattern) ---------- */
+        .kaanch-strip {
+            height: 22px;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='88' height='22' viewBox='0 0 88 22'><rect width='88' height='22' fill='%238a3324'/><g fill='none' stroke='%23f8f3e6' stroke-width='1.6' stroke-linecap='round'><path d='M6 17 L6 6 M6 6 L16 6 M16 6 L16 17'/><circle cx='30' cy='11' r='3.2'/><path d='M40 17 L40 6 M40 6 L50 6 M50 6 L50 17'/><circle cx='66' cy='11' r='3.2'/><path d='M76 17 L76 6 L86 6'/></g></svg>");
+            background-repeat: repeat-x;
+            background-size: 88px 22px;
+        }
+
+        .kaanch-strip.thin {
+            height: 10px;
+            background-size: 44px 10px;
+        }
+
+        /* ---------- shared containers ---------- */
+        .wrap {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--paper);
+            border: 1px solid var(--rule);
+            border-radius: 999px;
+            padding: 7px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--terracotta-deep);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: var(--ochre);
+            color: var(--paper);
+            border: none;
+            padding: 13px 24px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform .15s ease, background .15s ease;
+            box-shadow: 0 8px 18px rgba(192, 127, 31, 0.35);
+        }
+
+        .btn:hover {
+            background: var(--ochre-deep);
+            transform: translateY(-1px);
+        }
+
+        .btn:focus-visible,
+        a:focus-visible,
+        .speak:focus-visible {
+            outline: 3px solid var(--marigold);
+            outline-offset: 2px;
+        }
+
+        .btn.ghost {
+            background: transparent;
+            color: var(--paper);
+            box-shadow: none;
+            border: 1.5px solid rgba(248, 243, 230, 0.55);
+        }
+
+        .btn.ghost:hover {
+            background: rgba(248, 243, 230, 0.12);
+        }
+
+        .speak {
+            border: 1.5px solid var(--terracotta);
+            background: var(--paper);
+            color: var(--terracotta-deep);
+            border-radius: 999px;
+            width: 38px;
+            height: 38px;
+            min-width: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 15px;
+            transition: background .15s ease;
+        }
+
+        .speak:hover {
+            background: var(--sand);
+        }
+
+        .speak.playing {
+            background: var(--marigold);
+            border-color: var(--marigold);
+            color: var(--terracotta-deep);
+        }
+
+        /* =====================================================
+     LANDING PAGE (Languages of India)
+     ===================================================== */
+        #landing .hero {
+            background:
+                radial-gradient(ellipse at 20% -10%, rgba(224, 169, 51, 0.18), transparent 55%),
+                linear-gradient(180deg, var(--terracotta-deep), var(--terracotta));
+            color: var(--paper);
+            padding: 64px 0 46px;
+        }
+
+        #landing .hero .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--marigold);
+        }
+
+        #landing .hero h1 {
+            font-size: clamp(34px, 5vw, 52px);
+            margin-top: 10px;
+            color: var(--paper);
+        }
+
+        #landing .hero p.lede {
+            max-width: 560px;
+            font-size: 16.5px;
+            line-height: 1.6;
+            color: rgba(248, 243, 230, 0.82);
+            margin-top: 14px;
+        }
+
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            padding: 38px 0 60px;
+        }
+
+        .lang-card {
+            background: var(--paper);
+            border-radius: 16px;
+            padding: 22px 20px 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border: 1px solid var(--rule);
+        }
+
+        .lang-card .region-tag {
+            font-size: 11.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--sand-dark);
+        }
+
+        .lang-card .native {
+            font-size: 26px;
+        }
+
+        .lang-card .eng {
+            font-size: 14px;
+            color: var(--sand-dark);
+            font-weight: 600;
+        }
+
+        .lang-card p.blurb {
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: #3a352f;
+            margin: 0;
+            flex: 1;
+        }
+
+        .lang-card.featured {
+            outline: 2.5px solid var(--ochre);
+        }
+
+        .lang-card.featured::before {
+            content: "Featured this month";
+            position: absolute;
+            top: 12px;
+            right: -34px;
+            background: var(--ochre);
+            color: var(--paper);
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 4px 38px;
+            transform: rotate(38deg);
+            letter-spacing: .05em;
+        }
+
+        .lang-card .card-btn {
+            margin-top: 4px;
+            align-self: flex-start;
+            background: var(--terracotta);
+            color: var(--paper);
+            border: none;
+            padding: 9px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .lang-card.featured .card-btn {
+            background: var(--ochre);
+        }
+
+        .lang-card.locked {
+            opacity: .6;
+        }
+
+        .lang-card.locked .card-btn {
+            background: var(--sand-dark);
+            cursor: default;
+        }
+
+        /* =====================================================
+     EXPLORER PAGE
+     ===================================================== */
+        #explorer .topbar {
+            background: var(--terracotta-deep);
+            color: var(--paper);
+            padding: 16px 0;
+        }
+
+        #explorer .topbar .wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #explorer .back {
+            background: none;
+            border: none;
+            color: var(--paper);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 4px;
+        }
+
+        #explorer .back:hover {
+            color: var(--marigold);
+        }
+
+        #explorer .hero {
+            background: linear-gradient(180deg, var(--terracotta-deep) 0%, var(--terracotta) 72%, var(--terracotta) 100%);
+            color: var(--paper);
+            padding: 52px 0 0;
+            position: relative;
+        }
+
+        .hero-inner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 36px;
+            align-items: flex-end;
+            padding-bottom: 40px;
+        }
+
+        .hero-text {
+            flex: 1 1 380px;
+        }
+
+        .hero-text .eyebrow {
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: .14em;
+            color: var(--marigold);
+            font-weight: 700;
+        }
+
+        .hero-text .title-dev {
+            font-size: clamp(40px, 7vw, 64px);
+            margin-top: 8px;
+            line-height: 1;
+        }
+
+        .hero-text .title-en {
+            font-size: clamp(17px, 2.4vw, 20px);
+            color: rgba(248, 243, 230, 0.85);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .hero-text .ipa {
+            font-size: 14px;
+            color: rgba(248, 243, 230, 0.65);
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        .hero-text p.tagline {
+            max-width: 480px;
+            font-size: 15.5px;
+            line-height: 1.65;
+            color: rgba(248, 243, 230, 0.85);
+            margin-top: 16px;
+        }
+
+        /* fort/terracotta signature illustration */
+        .fort-illus {
+            flex: 1 1 300px;
+            min-width: 260px;
+        }
+
+        .fort-illus svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .fact-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            background: var(--paper);
+            border-radius: 16px 16px 0 0;
+            box-shadow: 0 -4px 0 var(--ochre) inset;
+            margin-top: -2px;
+        }
+
+        .fact {
+            padding: 20px 18px;
+            border-right: 1px solid var(--rule);
+        }
+
+        .fact:last-child {
+            border-right: none;
+        }
+
+        .fact .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            font-weight: 700;
+            color: var(--ochre-deep);
+        }
+
+        .fact .value {
+            font-size: 14.5px;
+            font-weight: 600;
+            margin-top: 5px;
+            line-height: 1.4;
+            color: var(--ink);
+        }
+
+        section.block {
+            padding: 56px 0;
+        }
+
+        section.block.tint {
+            background: var(--paper);
+        }
+
+        .section-head {
+            margin-bottom: 26px;
+        }
+
+        .section-head .kicker {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--ochre-deep);
+        }
+
+        .section-head h2 {
+            font-size: clamp(24px, 3.4vw, 32px);
+            margin-top: 6px;
+            color: var(--terracotta-deep);
+        }
+
+        .section-head p {
+            max-width: 600px;
+            color: #4a453c;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-top: 8px;
+        }
+
+        /* greeting spotlight */
+        .greet-card {
+            background: linear-gradient(135deg, var(--ochre), var(--ochre-deep));
+            color: var(--paper);
+            border-radius: 20px;
+            padding: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            align-items: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .greet-card::after {
+            content: "";
+            position: absolute;
+            right: -40px;
+            bottom: -40px;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: rgba(248, 243, 230, 0.08);
+        }
+
+        .greet-main {
+            flex: 1 1 260px;
+            z-index: 1;
+        }
+
+        .greet-main .dev-word {
+            font-size: 44px;
+            line-height: 1.1;
+        }
+
+        .greet-main .translit {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .greet-main .meaning {
+            font-size: 14.5px;
+            color: rgba(248, 243, 230, 0.85);
+            margin-top: 6px;
+        }
+
+        .greet-main .ipa-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .greet-main .ipa {
+            font-family: monospace;
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.18);
+            padding: 5px 10px;
+            border-radius: 7px;
+        }
+
+        .exchange {
+            flex: 1 1 260px;
+            background: rgba(248, 243, 230, 0.1);
+            border-radius: 14px;
+            padding: 18px 20px;
+            z-index: 1;
+        }
+
+        .exchange .line {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 0;
+            border-bottom: 1px dashed rgba(248, 243, 230, 0.25);
+        }
+
+        .exchange .line:last-child {
+            border-bottom: none;
+        }
+
+        .exchange .line .txt {
+            flex: 1;
+        }
+
+        .exchange .line .dev {
+            font-size: 16px;
+        }
+
+        .exchange .line .en {
+            font-size: 12.5px;
+            color: rgba(248, 243, 230, 0.72);
+        }
+
+        .exchange .speak {
+            background: rgba(248, 243, 230, 0.9);
+        }
+
+        .verify-note {
+            font-size: 12px;
+            color: rgba(248, 243, 230, 0.68);
+            margin-top: 16px;
+            line-height: 1.5;
+            z-index: 1;
+            position: relative;
+        }
+
+        /* script showcase */
+        .script-panel {
+            background: var(--terracotta-deep);
+            color: var(--paper);
+            border-radius: 18px;
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .script-panel .letters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            flex: 1 1 300px;
+        }
+
+        .letter-tile {
+            background: rgba(248, 243, 230, 0.08);
+            border: 1px solid rgba(248, 243, 230, 0.18);
+            border-radius: 10px;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            font-family: 'Noto Serif Devanagari', serif;
+        }
+
+        .script-panel .note {
+            flex: 1 1 260px;
+            font-size: 14.5px;
+            line-height: 1.7;
+            color: rgba(248, 243, 230, 0.85);
+        }
+
+        /* words grid */
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 16px;
+        }
+
+        .word-card {
+            background: var(--paper);
+            border: 1px solid var(--rule);
+            border-radius: 14px;
+            padding: 18px 18px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .word-card .top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .word-card .dev-word {
+            font-size: 26px;
+        }
+
+        .word-card .translit {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--ochre-deep);
+            text-transform: capitalize;
+        }
+
+        .word-card .meaning {
+            font-size: 13.5px;
+            color: #4a453c;
+        }
+
+        /* classification / region */
+        .region-panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .region-card {
+            background: var(--paper);
+            border: 1px solid var(--rule);
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        .region-card h3 {
+            font-size: 15.5px;
+            color: var(--terracotta-deep);
+            margin-bottom: 8px;
+        }
+
+        .region-card p,
+        .region-card ul {
+            font-size: 13.8px;
+            line-height: 1.65;
+            color: #4a453c;
+            margin: 0;
+        }
+
+        .region-card ul {
+            padding-left: 18px;
+            margin-top: 6px;
+        }
+
+        .chain {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: #4a453c;
+            margin-top: 6px;
+        }
+
+        .chain .node {
+            background: var(--sand);
+            border-radius: 999px;
+            padding: 4px 10px;
+            font-weight: 600;
+        }
+
+        .chain .sep {
+            color: var(--sand-dark);
+        }
+
+        /* culture section */
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .culture-card {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .culture-card .icon-wrap {
+            width: 52px;
+            height: 52px;
+            min-width: 52px;
+            border-radius: 12px;
+            background: var(--terracotta);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .culture-card .icon-wrap svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .culture-card h3 {
+            font-size: 16.5px;
+            color: var(--terracotta-deep);
+        }
+
+        .culture-card p {
+            font-size: 13.8px;
+            line-height: 1.6;
+            color: #4a453c;
+            margin: 6px 0 0;
+        }
+
+        .status-band {
+            margin-top: 36px;
+            background: var(--sand);
+            border: 1px dashed var(--sand-dark);
+            border-radius: 14px;
+            padding: 18px 22px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .status-band svg {
+            width: 26px;
+            height: 26px;
+            min-width: 26px;
+            margin-top: 2px;
+        }
+
+        .status-band p {
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: #3a352f;
+            margin: 0;
+        }
+
+        /* sources */
+        .source-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .source-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            background: var(--paper);
+            border: 1px solid var(--rule);
+            border-radius: 10px;
+            padding: 13px 16px;
+            font-size: 13.5px;
+            text-decoration: none;
+            color: var(--ink);
+            transition: border-color .15s ease;
+        }
+
+        .source-item:hover {
+            border-color: var(--ochre);
+        }
+
+        .source-item .name {
+            font-weight: 600;
+        }
+
+        .source-item .arrow {
+            color: var(--ochre-deep);
+            font-weight: 700;
+        }
+
+        footer {
+            background: var(--terracotta-deep);
+            color: rgba(248, 243, 230, 0.65);
+            text-align: center;
+            padding: 26px 0;
+            font-size: 12.5px;
+        }
+
+        @media (max-width:640px) {
+            .wrap {
+                padding: 0 18px;
+            }
+
+            .greet-card {
+                padding: 24px;
+            }
+
+            .fact {
+                border-right: none;
+                border-bottom: 1px solid var(--rule);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+     LANDING PAGE
+===================================================== -->
+    <div id="landing">
+        <div class="kaanch-strip"></div>
+        <div class="hero">
+            <div class="wrap">
+                <div class="eyebrow">Incredible India Explorer</div>
+                <h1>Languages of India</h1>
+                <p class="lede">India speaks in hundreds of tongues carried down mountains, rivers, and river plains.
+                    This month's spotlight travels to the Bundela forts of central India to meet the language of
+                    Bundelkhand's fields, ballads, and folk festivals.</p>
+            </div>
+        </div>
+
+        <div class="wrap">
+            <div class="lang-grid">
+                <div class="lang-card featured">
+                    <div class="region-tag">Bundelkhand · MP &amp; UP</div>
+                    <div class="native dev-display">बुंदेली</div>
+                    <div class="eng">Bundeli</div>
+                    <p class="blurb">The Indo-Aryan language of Bundelkhand, carried in Alha-Udal ballads, Rai folk
+                        dance, and everyday village greetings.</p>
+                    <button class="card-btn" onclick="goExplorer()">Explore Bundeli →</button>
+                </div>
+
+                <div class="lang-card locked">
+                    <div class="region-tag">Central India</div>
+                    <div class="native dev-display">बघेली</div>
+                    <div class="eng">Bagheli</div>
+                    <p class="blurb">Bundeli's eastern neighbour, spoken across the Baghelkhand region.</p>
+                    <button class="card-btn">Coming soon</button>
+                </div>
+
+                <div class="lang-card locked">
+                    <div class="region-tag">Braj region, UP</div>
+                    <div class="native dev-display">ब्रज भाषा</div>
+                    <div class="eng">Braj Bhasha</div>
+                    <p class="blurb">The classical literary language closely related to Bundeli.</p>
+                    <button class="card-btn">Coming soon</button>
+                </div>
+
+                <div class="lang-card locked">
+                    <div class="region-tag">Malwa, MP</div>
+                    <div class="native dev-display">मालवी</div>
+                    <div class="eng">Malvi</div>
+                    <p class="blurb">A Western Hindi language of the Malwa plateau, bordering Bundeli country.</p>
+                    <button class="card-btn">Coming soon</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================
+     EXPLORER PAGE
+===================================================== -->
+    <div id="explorer" class="hidden">
+
+        <div class="topbar">
+            <div class="wrap">
+                <button class="back" onclick="goLanding()">← Languages of India</button>
+                <span class="chip"
+                    style="background:transparent;border-color:rgba(248,243,230,0.3);color:var(--paper);">🏰
+                    Bundelkhand, MP &amp; UP</span>
+            </div>
+        </div>
+
+        <div class="hero">
+            <div class="wrap">
+                <div class="hero-inner">
+                    <div class="hero-text">
+                        <div class="eyebrow">Language Spotlight</div>
+                        <div class="title-dev dev-display">बुंदेली</div>
+                        <div class="title-en">Bundeli</div>
+                        <div class="ipa">/bʊnˈdeːli/</div>
+                        <p class="tagline">Spoken by over five and a half million people across the Bundelkhand region
+                            of Madhya Pradesh and Uttar Pradesh — a language of terracotta forts, Alha-Udal ballads, and
+                            Devanagari verse descended from the courts of the Bundela Rajputs.</p>
+                    </div>
+                    <div class="fort-illus" aria-hidden="true">
+                        <svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0" stop-color="#a8481f" />
+                                    <stop offset="1" stop-color="#5e2018" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="420" height="220" fill="url(#sky)" />
+                            <circle cx="330" cy="52" r="26" fill="#f8f3e6" opacity="0.9" />
+                            <rect x="40" y="120" width="340" height="80" fill="#3a1a12" />
+                            <rect x="60" y="90" width="30" height="110" fill="#4a2216" />
+                            <rect x="120" y="70" width="34" height="130" fill="#4a2216" />
+                            <rect x="200" y="55" width="40" height="145" fill="#582a1c" />
+                            <rect x="280" y="80" width="32" height="120" fill="#4a2216" />
+                            <rect x="340" y="95" width="28" height="105" fill="#3a1a12" />
+                            <polygon points="215,40 200,55 240,55" fill="#f8f3e6" opacity="0.85" />
+                            <g stroke="#f8f3e6" stroke-width="2" opacity="0.55">
+                                <path d="M0 200 h420" />
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div class="fact-strip">
+                    <div class="fact">
+                        <div class="label">Classification</div>
+                        <div class="value">Indo-European → Indo-Aryan → Western Hindi</div>
+                    </div>
+                    <div class="fact">
+                        <div class="label">Region</div>
+                        <div class="value">Bundelkhand: MP &amp; UP border districts</div>
+                    </div>
+                    <div class="fact">
+                        <div class="label">Speakers</div>
+                        <div class="value">~5.6 million (2011 census, native tongue)</div>
+                    </div>
+                    <div class="fact">
+                        <div class="label">Script</div>
+                        <div class="value">Devanagari</div>
+                    </div>
+                    <div class="fact">
+                        <div class="label">ISO 639-3</div>
+                        <div class="value">bns</div>
+                    </div>
+                    <div class="fact">
+                        <div class="label">Also called</div>
+                        <div class="value">Bundelkhandi</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GREETING -->
+        <section class="block">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="kicker">👋 Say hello</div>
+                    <h2>The Bundeli greeting</h2>
+                    <p>Devanagari script with transliteration, IPA pronunciation, and a speaker button. Browsers don't
+                        yet offer a native Bundeli voice, so playback uses the closest available Hindi voice as an
+                        approximation — the IPA below is the verified pronunciation.</p>
+                </div>
+
+                <div class="greet-card">
+                    <div class="greet-main">
+                        <div class="dev-word dev-display">राम राम</div>
+                        <div class="translit">Ram Ram</div>
+                        <div class="meaning">The everyday greeting across Bundelkhand and the wider Hindi heartland,
+                            invoking Lord Ram — whose legend is closely tied to the region, with Chitrakoot in
+                            Bundelkhand traditionally held as a site of his forest exile.</div>
+                        <div class="ipa-row">
+                            <span class="ipa">raːm raːm</span>
+                            <button class="speak" aria-label="Play pronunciation of Ram Ram"
+                                onclick="speakWord('राम राम', this)">🔊</button>
+                        </div>
+                    </div>
+                    <div class="exchange">
+                        <div class="line">
+                            <div class="txt">
+                                <div class="dev dev-display">कैसे हो?</div>
+                                <div class="en">Kaise ho? — How are you?</div>
+                            </div>
+                            <button class="speak" aria-label="Play Kaise ho"
+                                onclick="speakWord('कैसे हो', this)">🔊</button>
+                        </div>
+                        <div class="line">
+                            <div class="txt">
+                                <div class="dev dev-display">ठीक अंईं</div>
+                                <div class="en">Theek ain — I am fine</div>
+                            </div>
+                            <button class="speak" aria-label="Play Theek ain"
+                                onclick="speakWord('ठीक अंईं', this)">🔊</button>
+                        </div>
+                        <div class="line">
+                            <div class="txt">
+                                <div class="dev dev-display">तुम्हारो नाम का आय?</div>
+                                <div class="en">Tumharo naam ka aay? — What is your name?</div>
+                            </div>
+                            <button class="speak" aria-label="Play Tumharo naam ka aay"
+                                onclick="speakWord('तुम्हारो नाम का आय', this)">🔊</button>
+                        </div>
+                        <div class="line">
+                            <div class="txt">
+                                <div class="dev dev-display">बड़ी मया</div>
+                                <div class="en">Badi maya — Much affection / thank you (folk usage)</div>
+                            </div>
+                            <button class="speak" aria-label="Play Badi maya"
+                                onclick="speakWord('बड़ी मया', this)">🔊</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCRIPT -->
+        <section class="block tint">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="kicker">✒️ Writing system</div>
+                    <h2>Devanagari script</h2>
+                    <p>Bundeli is written in Devanagari, the same script as Hindi and Sanskrit. Historic Bundeli land
+                        records, treaties, and manuscripts — including correspondence attributed to regional rulers —
+                        were also composed in Devanagari, giving the region a long documentary tradition.</p>
+                </div>
+                <div class="script-panel">
+                    <div class="letters">
+                        <div class="letter-tile">बुं</div>
+                        <div class="letter-tile">दे</div>
+                        <div class="letter-tile">ली</div>
+                        <div class="letter-tile">राम</div>
+                        <div class="letter-tile">इतै</div>
+                        <div class="letter-tile">उतै</div>
+                        <div class="letter-tile">खरी</div>
+                        <div class="letter-tile">पानी</div>
+                    </div>
+                    <div class="note">
+                        The word <strong class="dev-display" style="font-size:17px;">बुंदेली</strong> (Bundeli) derives
+                        from <em>Bundelkhand</em>, in turn named for the Bundela Rajput dynasty that ruled much of the
+                        region from the 16th century onward. The anusvara (ं) nasalises the preceding vowel, a common
+                        feature across the Western Hindi languages.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORDS -->
+        <section class="block">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="kicker">📖 Vocabulary</div>
+                    <h2>Common Bundeli words</h2>
+                    <p>Everyday words rooted in Bundeli's Sanskrit-descended Western Hindi vocabulary, including a few
+                        terms distinctive to the dialect.</p>
+                </div>
+                <div class="word-grid" id="wordGrid"></div>
+            </div>
+        </section>
+
+        <!-- CLASSIFICATION & REGION -->
+        <section class="block tint">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="kicker">🗺️ Classification &amp; region</div>
+                    <h2>Where Bundeli fits</h2>
+                </div>
+                <div class="region-panel">
+                    <div class="region-card">
+                        <h3>Language family</h3>
+                        <div class="chain">
+                            <span class="node">Indo-European</span><span class="sep">→</span>
+                            <span class="node">Indo-Iranian</span><span class="sep">→</span>
+                            <span class="node">Indo-Aryan</span><span class="sep">→</span>
+                            <span class="node">Western Hindi</span><span class="sep">→</span>
+                            <span class="node">Bundeli</span>
+                        </div>
+                        <p style="margin-top:12px;">A descendant of Sauraseni Apabhramsha, Bundeli was classified under
+                            the Western Hindi group by linguist George Abraham Grierson in his <em>Linguistic Survey of
+                                India</em>. It is closely related to Braj Bhasha, once the leading literary language of
+                            north-central India, and neighbours Bagheli, Kannauji, and Malvi.</p>
+                    </div>
+                    <div class="region-card">
+                        <h3>The Bundelkhand region</h3>
+                        <p>Bundelkhand spans southern Uttar Pradesh and northern Madhya Pradesh, roughly bounded by
+                            districts including:</p>
+                        <ul>
+                            <li>Jhansi, Banda, Hamirpur, Mahoba, Lalitpur, Chitrakoot (UP)</li>
+                            <li>Sagar, Damoh, Panna, Chhatarpur, Tikamgarh, Datia (MP)</li>
+                        </ul>
+                        <p style="margin-top:8px;">Census figures often merge Bundeli speakers with Hindi, so the ~5.6
+                            million counted natively in 2011 is considered an undercount by regional researchers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CULTURE -->
+        <section class="block">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="kicker">🎭 Folk &amp; literary heritage</div>
+                    <h2>A language of ballads and forts</h2>
+                </div>
+                <div class="culture-grid">
+                    <div class="culture-card">
+                        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#f8f3e6" stroke-width="1.8">
+                                <path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z" />
+                            </svg></div>
+                        <div>
+                            <h3>Alha-Khand epic</h3>
+                            <p>The earliest known Bundelkhandi literature: heroic verses about the 12th-century warriors
+                                Alha and Udal, still preserved and sung by Banaphari bards across the region.</p>
+                        </div>
+                    </div>
+                    <div class="culture-card">
+                        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#f8f3e6" stroke-width="1.8">
+                                <circle cx="12" cy="8" r="3" />
+                                <path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" />
+                            </svg></div>
+                        <div>
+                            <h3>Rai &amp; Faag folk traditions</h3>
+                            <p>The Rai folk dance and Faag (Holi) songs remain central to Bundelkhand's festival
+                                calendar, sung in Bundeli verse passed down through generations of village performers.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="culture-card">
+                        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#f8f3e6" stroke-width="1.8">
+                                <path d="M4 19V5a2 2 0 012-2h9l5 5v11a2 2 0 01-2 2H6a2 2 0 01-2-2z" />
+                                <path d="M14 3v5h5" />
+                            </svg></div>
+                        <div>
+                            <h3>Court literature</h3>
+                            <p>Formal Bundeli literary works date from the reign of Emperor Akbar; the poet Keshavdas
+                                (16th century) and later Padmakar Bhatt (19th century) are among its best-known writers.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="culture-card">
+                        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#f8f3e6" stroke-width="1.8">
+                                <path d="M3 20h18M5 20l4-9 3 5 2-4 5 8" />
+                            </svg></div>
+                        <div>
+                            <h3>Bundela forts</h3>
+                            <p>Orchha and Jhansi's terracotta-red forts, built under Bundela rule, remain the region's
+                                most visible cultural landmarks and a backdrop to much of Bundeli's oral history.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="status-band">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#93630f" stroke-width="1.8">
+                        <path
+                            d="M12 9v4M12 17h.01M10.3 3.9L2.7 17a2 2 0 001.7 3h15.2a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z" />
+                    </svg>
+                    <p>Bundeli is not officially recognised in the Eighth Schedule of the Indian Constitution, and
+                        census returns are frequently merged with Hindi — regional linguists and cultural groups
+                        continue to campaign for its formal recognition, which makes documentation projects like this
+                        one part of active conservation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOURCES -->
+        <section class="block tint">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="kicker">🔗 Sources</div>
+                    <h2>Verified against</h2>
+                </div>
+                <div class="source-list">
+                    <a class="source-item" href="https://en.wikipedia.org/wiki/Bundeli_language" target="_blank"
+                        rel="noopener">
+                        <span class="name">Wikipedia — Bundeli language</span><span class="arrow">↗</span>
+                    </a>
+                    <a class="source-item" href="https://en.wikipedia.org/wiki/Bundelkhand" target="_blank"
+                        rel="noopener">
+                        <span class="name">Wikipedia — Bundelkhand</span><span class="arrow">↗</span>
+                    </a>
+                    <a class="source-item" href="https://www.ethnologue.com/language/bns/" target="_blank"
+                        rel="noopener">
+                        <span class="name">Ethnologue — Bundeli (bns)</span><span class="arrow">↗</span>
+                    </a>
+                    <a class="source-item" href="https://bundeliijhalak.com/bundeli-shabdkosh/" target="_blank"
+                        rel="noopener">
+                        <span class="name">Bundeli Jhalak — Bundeli Shabdkosh (vocabulary archive)</span><span
+                            class="arrow">↗</span>
+                    </a>
+                    <a class="source-item" href="https://bundelkhand.in/bundeli-language-vocabulary-collection"
+                        target="_blank" rel="noopener">
+                        <span class="name">Bundelkhand Research Portal — Bundeli Language Vocabulary</span><span
+                            class="arrow">↗</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            Bundeli Explorer · Incredible India Explorer — Languages of India series
+        </footer>
+    </div>
+
+    <script>
+        function goExplorer() {
+            document.getElementById('landing').classList.add('hidden');
+            document.getElementById('explorer').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+        function goLanding() {
+            document.getElementById('explorer').classList.add('hidden');
+            document.getElementById('landing').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+
+        function speakWord(text, btn) {
+            if (!('speechSynthesis' in window)) {
+                alert('Speech playback is not supported in this browser.');
+                return;
+            }
+            window.speechSynthesis.cancel();
+            const utter = new SpeechSynthesisUtterance(text);
+            const voices = window.speechSynthesis.getVoices();
+            const hindiVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('hi'));
+            if (hindiVoice) utter.voice = hindiVoice;
+            utter.lang = 'hi-IN';
+            utter.rate = 0.85;
+            btn.classList.add('playing');
+            utter.onend = () => btn.classList.remove('playing');
+            utter.onerror = () => btn.classList.remove('playing');
+            window.speechSynthesis.speak(utter);
+        }
+
+        const WORDS = [
+            { dev: "पानी", tr: "Pani", en: "Water" },
+            { dev: "घर", tr: "Ghar", en: "House / home" },
+            { dev: "इतै", tr: "Itai", en: "Here" },
+            { dev: "उतै", tr: "Utai", en: "There" },
+            { dev: "ओदौ", tr: "Odau", en: "Wet" },
+            { dev: "सूकौ", tr: "Sukau", en: "Dry" },
+            { dev: "खरी", tr: "Khari", en: "True / honest" },
+            { dev: "खोटी", tr: "Khoti", en: "False / untrue" }
+        ];
+        const grid = document.getElementById('wordGrid');
+        WORDS.forEach(w => {
+            const card = document.createElement('div');
+            card.className = 'word-card';
+            card.innerHTML = `
+      <div class="top">
+        <div class="dev-word dev-display">${w.dev}</div>
+        <button class="speak" aria-label="Play ${w.tr}" onclick="speakWord('${w.dev}', this)">🔊</button>
+      </div>
+      <div class="translit">${w.tr}</div>
+      <div class="meaning">${w.en}</div>
+    `;
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+
+</html>
