@@ -37,6 +37,20 @@ const NAVBAR_TEMPLATE = `<header class="navbar" id="navbar">
         </button>
         <nav class="nav-menu" id="nav-menu">
             <a href="{{PREFIX}}index.html#home" class="nav-link active" id="link-home">Home</a>
+            
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                    Safety ▾
+                </button>
+                <div class="dropdown-menu">
+                    <a
+                        href="{{PREFIX}}frontend/emergency-assistance/emergency.html"
+                        class="dropdown-item"
+                    >
+                        🚨 Emergency Assistance
+                    </a>
+                </div>
+            </div>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
