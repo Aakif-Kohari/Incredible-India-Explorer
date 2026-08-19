@@ -491,6 +491,16 @@ const mapData = {
                 "The 'Land of Gods', Uttarakhand is a hub of pilgrimage (Char Dham), yoga (Rishikesh), wildlife (Jim Corbett Park), and snow-capped Himalayan peaks.",
             story: "The 'Land of Gods', Uttarakhand is a hub of pilgrimage (Char Dham), yoga (Rishikesh), wildlife (Jim Corbett Park), and snow-capped Himalayan peaks.\n\nThe vibrant region of Uttarakhand is governed from its beautiful capital, Dehradun. The land is deeply connected to its roots, celebrating grand occasions like Ganga Aarti & Nanda Devi Jat with unmatched energy and devotion.\n\nVisitors from around the world are mesmerized by the local culinary delights, particularly the iconic Kafuli & Aloo ke Gutke, which represents centuries of refined regional cooking techniques and traditional spices. A journey to Uttarakhand is a journey through time, culture, and nature."
         },
+        // Kudlu Theertha Falls Card
+        {
+            id: "kudlu-theertha-falls",
+            name: "Kudlu Theertha Falls",
+            category: "waterfall",
+            location: "Near Hebri, Udupi district, Karnataka",
+            image: "https://commons.wikimedia.org/wiki/Special:FilePath/Kudlu_theertha_falls.jpg",
+            description: "A forest-hidden Sita River waterfall near Hebri, reached through a Western Ghats trail in the Someshwara landscape.",
+            link: "frontend/kudlu-theertha-falls-explorer/index.html"
+        },
         // Vazhachal Falls Card
         {
             id: 'vazhachal-falls',
@@ -530,7 +540,17 @@ const mapData = {
             image: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Palace_on_Wheels_luxury_train_at_Jaipur_India.jpg',
             description:
                 "Trace India's iconic royal luxury train through Jaipur, Ranthambore, Chittorgarh, Udaipur, Jaisalmer, Jodhpur, Bharatpur and Agra, with its history, cabins, dining and cultural experiences.",
-            link: 'frontend/palace-on-wheels-explorer/index.html'
+            link: 'frontend/palace-on-wheels-explorer/index.html'},
+        // Abbey Falls Card
+        {
+            id: 'abbey-falls',
+            name: 'Abbey Falls',
+            category: 'waterfall',
+            location: 'Kodagu, Karnataka',
+            image: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Abbey%20Falls.jpg',
+            description:
+                "Trace Abbey Falls through Coorg's coffee-and-spice landscape, with seasonal flow comparisons, an interactive map, nearby attractions, and a visual field guide.",
+            link: 'frontend/abbey-falls-explorer/index.html'
         },
         // Thalaiyar Falls Card
         {
