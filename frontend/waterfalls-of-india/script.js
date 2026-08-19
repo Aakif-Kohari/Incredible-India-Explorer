@@ -35,7 +35,8 @@
             flow: "Heavy during monsoons, creating a milky white appearance as it cascades down.",
             attractions: "Bhagwan Mahavir Wildlife Sanctuary, Tambdi Surla Temple.",
             image: "https://images.unsplash.com/photo-1599394676579-a1b73e35186b?auto=format&fit=crop&q=80&w=600",
-            thumb: "https://images.unsplash.com/photo-1599394676579-a1b73e35186b?auto=format&fit=crop&q=40&w=400"
+            thumb: "https://images.unsplash.com/photo-1599394676579-a1b73e35186b?auto=format&fit=crop&q=40&w=400",
+            url: "../dudhsagar-falls-explorer/index.html"
         },
         {
             id: "nohkalikai",
@@ -49,7 +50,8 @@
             flow: "Consistent throughout the year, but strongest during the heavy monsoons of Meghalaya.",
             attractions: "Mawsmai Cave, Seven Sisters Falls, Double Decker Living Root Bridge.",
             image: "https://images.unsplash.com/photo-1592683935213-90d16edb5709?auto=format&fit=crop&q=80&w=600",
-            thumb: "https://images.unsplash.com/photo-1592683935213-90d16edb5709?auto=format&fit=crop&q=40&w=400"
+            thumb: "https://images.unsplash.com/photo-1592683935213-90d16edb5709?auto=format&fit=crop&q=40&w=400",
+            url: "../nohkalikai-falls-explorer/index.html"
         },
         {
             id: "athirappilly",
@@ -63,7 +65,8 @@
             flow: "Powerful and wide during the monsoon, offering a majestic view.",
             attractions: "Vazhachal Waterfalls, Charpa Falls, Sholayar Dam.",
             image: "https://images.unsplash.com/photo-1621614769004-ee9cfa11794b?auto=format&fit=crop&q=80&w=600",
-            thumb: "https://images.unsplash.com/photo-1621614769004-ee9cfa11794b?auto=format&fit=crop&q=40&w=400"
+            thumb: "https://images.unsplash.com/photo-1621614769004-ee9cfa11794b?auto=format&fit=crop&q=40&w=400",
+            url: "../athirappilly-falls-explorer/index.html"
         },
         {
             id: "shivanasamudra",
