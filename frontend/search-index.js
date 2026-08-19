@@ -5717,6 +5717,14 @@ window.indiaSearchIndex = [
             "Explore the artistic heritage of Bengali Cinema (Tollywood): Satyajit Ray's masterpieces, Ritwik Ghatak, Mrinal Sen, and the Parallel Cinema movement.",
         url: 'frontend/bengali-cinema-explorer/index.html'
     },
+    // --- Palace on Wheels Explorer ---
+    {
+        title: 'Palace on Wheels Explorer',
+        category: 'Travel & Heritage',
+        description:
+            'Explore Palace on Wheels — the iconic royal luxury train journey through Rajasthan and Agra, with history, route, destinations, cabins, dining, onboard services and cultural experiences.',
+        url: 'frontend/palace-on-wheels-explorer/index.html'
+    },
     // --- Thalaiyar Falls Explorer ---
     {
         title: 'Thalaiyar Falls Explorer',

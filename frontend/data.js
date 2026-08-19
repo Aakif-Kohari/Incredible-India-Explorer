@@ -531,6 +531,16 @@ const mapData = {
                 'West Bengal is the cultural capital, famous for literature (Rabindranath Tagore), colonial structures in Kolkata, Darjeeling tea, and Sundarbans tigers.',
             story: 'West Bengal is the cultural capital, famous for literature (Rabindranath Tagore), colonial structures in Kolkata, Darjeeling tea, and Sundarbans tigers.\n\nThe vibrant region of West Bengal is governed from its beautiful capital, Kolkata. The land is deeply connected to its roots, celebrating grand occasions like Durga Puja & Poila Baisakh with unmatched energy and devotion.\n\nVisitors from around the world are mesmerized by the local culinary delights, particularly the iconic Machher Jhol & Rasgulla, which represents centuries of refined regional cooking techniques and traditional spices. A journey to West Bengal is a journey through time, culture, and nature.'
         },
+        // Palace on Wheels Card
+        {
+            id: 'palace-on-wheels',
+            name: 'Palace on Wheels',
+            category: 'luxury-train',
+            location: 'Rajasthan & Agra',
+            image: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Palace_on_Wheels_luxury_train_at_Jaipur_India.jpg',
+            description:
+                "Trace India's iconic royal luxury train through Jaipur, Ranthambore, Chittorgarh, Udaipur, Jaisalmer, Jodhpur, Bharatpur and Agra, with its history, cabins, dining and cultural experiences.",
+            link: 'frontend/palace-on-wheels-explorer/index.html'},
         // Abbey Falls Card
         {
             id: 'abbey-falls',
