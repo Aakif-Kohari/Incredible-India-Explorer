@@ -93,7 +93,7 @@ describe('Khajuraho Explorer — Assets', () => {
         expect(css).toContain('.khajuraho-highlight-box');
         expect(css).toContain('.khajuraho-timeline-flow');
         expect(css).toContain('.khajuraho-references');
-        expect(css).toContain('body.light-theme');
+        expect(css).toContain('[data-theme="light"]');
     });
 
     it('includes a valid interactive script with required features', () => {

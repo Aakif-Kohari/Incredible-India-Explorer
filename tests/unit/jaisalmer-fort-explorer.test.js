@@ -93,7 +93,7 @@ describe('Jaisalmer Fort Explorer — Assets', () => {
         expect(css).toContain('.jaisalmer-highlight-box');
         expect(css).toContain('.jaisalmer-facts-grid');
         expect(css).toContain('.jaisalmer-references');
-        expect(css).toContain('body.light-theme');
+        expect(css).toContain('[data-theme="light"]');
     });
 
     it('includes a valid interactive script with required features', () => {

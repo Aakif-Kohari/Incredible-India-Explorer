@@ -149,7 +149,7 @@ describe('Ram Prasad Bismil Explorer — Styles & Scripts', () => {
         expect(css).toContain('.bismil-tabs-bar');
         expect(css).toContain('.timeline-track');
         expect(css).toContain('.poetry-verses');
-        expect(css).toContain('body.light-theme');
+        expect(css).toContain('[data-theme="light"]');
     });
 
     it('includes script logic for rendering, filtering, timeline, Kakori, poetry, and lightbox', () => {
