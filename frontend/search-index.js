@@ -5711,6 +5711,13 @@ window.indiaSearchIndex = [
             "Explore Havells' origin, product categories, major milestones, brand evolution and Indian manufacturing story through an interactive product-category explorer.",
         url: 'frontend/havells-explorer/index.html'
     },
+    // --- Gwalior Fort Explorer ---
+    {
+        title: "Gwalior Fort: Discover Madhya Pradesh's Historic Hill Fortress",
+        category: 'Monuments & Architecture',
+        description:
+            "Explore Gwalior Fort — Madhya Pradesh's majestic hill fortress, Man Mandir Palace, Teli Ka Mandir, Sas Bahu Temples, and Gopachal Parvat Jain rock sculptures.",
+        url: 'frontend/gwalior-fort-explorer/index.html'},
     // --- Golconda Fort Explorer ---
     {
         title: "Golconda Fort: Explore Hyderabad's Historic Fortress",
