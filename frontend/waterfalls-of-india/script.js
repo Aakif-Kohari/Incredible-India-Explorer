@@ -63,7 +63,8 @@
             flow: "Powerful and wide during the monsoon, offering a majestic view.",
             attractions: "Vazhachal Waterfalls, Charpa Falls, Sholayar Dam.",
             image: "https://images.unsplash.com/photo-1621614769004-ee9cfa11794b?auto=format&fit=crop&q=80&w=600",
-            thumb: "https://images.unsplash.com/photo-1621614769004-ee9cfa11794b?auto=format&fit=crop&q=40&w=400"
+            thumb: "https://images.unsplash.com/photo-1621614769004-ee9cfa11794b?auto=format&fit=crop&q=40&w=400",
+            url: "../athirappilly-falls-explorer/index.html"
         },
         {
             id: "shivanasamudra",
