@@ -24,17 +24,7 @@ window.indiaSearchIndex = [
         category: 'Culture & Languages',
         description:
             'Explore the ancient Balti language of Ladakh (Kargil, Turtuk, Nubra Valley, Leh): 3 writing scripts, Old Tibetan consonant preservation, verified audio greetings, and cultural heritage.',
-        url: 'frontend/balti-language-explorer/index.html'},
-  {
-        category: "Culture & Languages",
-        description: "Explore the diverse Tani language family of Arunachal Pradesh (Nyishi, Adi, Apatani, Galo, Tagin, Mising): regional map, verified audio greetings, comparative vocabulary matrix, and cultural heritage.",
-        url: "frontend/arunachal-tani-languages/index.html"
-    },
-    {
-        title: "Balti Language Explorer (Himalayan Heritage)",
-        category: "Culture & Languages",
-        description: "Explore the ancient Balti language of Ladakh (Kargil, Turtuk, Nubra Valley, Leh): 3 writing scripts, Old Tibetan consonant preservation, verified audio greetings, and cultural heritage.",
-        url: "frontend/balti-language-explorer/index.html"
+        url: 'frontend/balti-language-explorer/index.html'
     },
 
     {
@@ -1824,13 +1814,6 @@ window.indiaSearchIndex = [
         description:
             "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
         url: 'frontend/simlipal-national-park-explorer/index.html'
-    },
-    // --- Kudlu Theertha Falls Explorer ---
-    {
-        title: "Kudlu Theertha Falls: Navigate the Forest Waterfall Trail",
-        category: "Nature & Geography",
-        description: "Explore Kudlu Theertha Falls near Hebri, Karnataka — following the Trail → Forest → Waterfall journey, seasonal flow, Sita River setting, access information, maps, nearby attractions, and image credits.",
-        url: "frontend/kudlu-theertha-falls-explorer/index.html"
     },
     // --- Purwa Falls Explorer ---
     {
@@ -4148,19 +4131,6 @@ window.indiaSearchIndex = [
         description:
             "Explore Zoho's journey from a bootstrapped 1996 Chennai startup to a 55-product SaaS ecosystem — origin story, founder Sridhar Vembu, an interactive product ecosystem map, milestones, global presence, and company philosophy.",
         url: 'frontend/zoho-explorer/index.html'
-        
-    },
-    {
-        title: "Indian Kushti Competitions: The Akhara Tradition",
-        category: "Sports & Culture",
-        description: "Explore Kushti wrestling and the Akhara tradition — training equipment like the gada and mugdar, techniques, regional wrestling traditions, historic wrestlers, and cultural significance.",
-        url: "frontend/kushti-akhara-explorer/index.html"
-    },
-    {
-        title: "Zoho: India's Software Product Journey",
-        category: "Technology & Business",
-        description: "Explore Zoho's journey from a bootstrapped 1996 Chennai startup to a 55-product SaaS ecosystem — origin story, founder Sridhar Vembu, an interactive product ecosystem map, milestones, global presence, and company philosophy.",
-        url: "frontend/zoho-explorer/index.html"
     },
     {
         title: "Infosys: India's Technology Success Story",
@@ -4204,13 +4174,6 @@ window.indiaSearchIndex = [
         description:
             'A Then vs Now archive of historic Indian tournaments like the Bombay Pentangular, Rovers Cup, and Beighton Cup that shaped Indian sport but are no longer widely remembered.',
         url: 'frontend/forgotten-tournaments-explorer/index.html'
-       
-    },
-    {
-        title: "Forgotten Indian Sporting Tournaments",
-        category: "Sports & History",
-        description: "A Then vs Now archive of historic Indian tournaments like the Bombay Pentangular, Rovers Cup, and Beighton Cup that shaped Indian sport but are no longer widely remembered.",
-        url: "frontend/forgotten-tournaments-explorer/index.html"
     },
     {
         title: "India's Firsts in Sports",
@@ -4336,12 +4299,7 @@ window.indiaSearchIndex = [
         category: 'Languages & Culture',
         description:
             'Explore Chhattisgarhi — Devanagari script, a verified greeting with pronunciation, common Chhattisgarhi words, its language family, the Chhattisgarh region, and folk heritage including Pandwani storytelling.',
-        url: 'frontend/chhattisgarhi-explorer/index.html'},
-  {
-        title: "Chhattisgarhi: छत्तीसगढ़ी and Its Folk Heritage",
-        category: "Languages & Culture",
-        description: "Explore Chhattisgarhi — Devanagari script, a verified greeting with pronunciation, common Chhattisgarhi words, its language family, the Chhattisgarh region, and folk heritage including Pandwani storytelling.",
-        url: "frontend/chhattisgarhi-explorer/index.html"
+        url: 'frontend/chhattisgarhi-explorer/index.html'
     },
     // --- Important Government Institutions Explorer ---
     {
@@ -4409,42 +4367,7 @@ window.indiaSearchIndex = [
         category: 'Languages & Culture',
         description:
             'Discover Magahi — Devanagari script, a verified greeting with pronunciation, common Magahi words, its place in the Indo-Aryan family, and the Bihar/Jharkhand Magadha region.',
-        url: 'frontend/magahi-explorer/index.html'},
-  {
-        title: "Bhojpuri: भोजपुरी and Its Folk Heritage",
-        category: "Languages & Culture",
-        description: "Discover Bhojpuri — Devanagari script, a verified greeting with pronunciation, common Bhojpuri words, its place in the Indo-Aryan family, major regions, and its folk music, cinema, and Bidesia theatre heritage.",
-        url: "frontend/bhojpuri-explorer/index.html"
-    },
-    {
-        title: "Awadhi: अवधी and Its Literary Tradition",
-        category: "Languages & Culture",
-        description: "Explore Awadhi — Devanagari script, a verified greeting with pronunciation, common Awadhi words, its place in the Indo-Aryan family, the Awadh region, and its literary tradition including Tulsidas's Ramcharitmanas.",
-        url: "frontend/awadhi-explorer/index.html"
-    },
-    {
-        title: "Punjabi: ਪੰਜਾਬੀ and Gurmukhi",
-        category: "Languages & Culture",
-        description: "Discover Punjabi — Gurmukhi script, a verified greeting with pronunciation, common Punjabi words, its place in the Indo-Aryan family, major Punjabi-speaking regions, and cultural notes.",
-        url: "frontend/punjabi-explorer/index.html"
-    },
-    {
-        title: "Magahi: मगही and the Magadha Region",
-        category: "Languages & Culture",
-        description: "Discover Magahi — Devanagari script, a verified greeting with pronunciation, common Magahi words, its place in the Indo-Aryan family, and the Bihar/Jharkhand Magadha region.",
-        url: "frontend/magahi-explorer/index.html"
-    },
-    {
-        title: "Marwari: मारवाड़ी and Rajasthan's Desert Heritage",
-        category: "Languages & Culture",
-        description: "Explore Marwari — Devanagari and Mahajani script heritage, a verified greeting with pronunciation, common Marwari words, its place in the Rajasthani/Indo-Aryan family, Marwar's regions, and folk music, poetry and cultural heritage.",
-        url: "frontend/marwari-explorer/index.html"
-    },
-    {
-        title: "Mewari: मेवाड़ी and the Mewar Region",
-        category: "Languages & Culture",
-        description: "Discover Mewari — Devanagari script heritage, a verified greeting with pronunciation, common Mewari words, its place in the Rajasthani/Indo-Aryan family, the Mewar region, and folk and cultural heritage.",
-        url: "frontend/mewari-explorer/index.html"
+        url: 'frontend/magahi-explorer/index.html'
     },
     // --- Reo Purgyil Mountain ---
     {
@@ -4593,28 +4516,7 @@ window.indiaSearchIndex = [
         category: 'Arts & Culture',
         description:
             'Discover Kushan gold coinage from Kujula Kadphises to Vasudeva I — ruler selector, interactive coin viewer with deity hotspots, inscription viewer, historical timeline, and Kushan territory map.',
-        url: 'frontend/kushan-gold-coinage/index.html'},
-  {
-        title: "Gupta Coinage Gallery",
-        category: "Arts & Culture",
-        description: "Explore Gupta-era gold Dinars — from Chandragupta I's marriage type to Skandagupta's Hun-era issues. Filter by ruler, coin type, metal, and script, with an obverse/reverse viewer.",
-        url: "frontend/gupta-coinage-gallery/index.html"},
-  {
-        title: "Gupta Coinage Gallery",
-        category: "Arts & Culture",
-        description: "Explore Gupta-era gold Dinars — from Chandragupta I's marriage type to Skandagupta's Hun-era issues. Filter by ruler, coin type, metal, and script, with an obverse/reverse viewer.",
-        url: "frontend/gupta-coinage-gallery/index.html"
-    },
-    {
-        title: "Kushan Gold Coinage Explorer",
-        category: "Arts & Culture",
-        description: "Discover Kushan gold coinage from Kujula Kadphises to Vasudeva I — ruler selector, interactive coin viewer with deity hotspots, inscription viewer, historical timeline, and Kushan territory map.",
-        url: "frontend/kushan-gold-coinage/index.html"},
-  {
-        title: "Kushan Gold Coinage Explorer",
-        category: "Arts & Culture",
-        description: "Discover Kushan gold coinage from Kujula Kadphises to Vasudeva I — ruler selector, interactive coin viewer with deity hotspots, inscription viewer, historical timeline, and Kushan territory map.",
-        url: "frontend/kushan-gold-coinage/index.html"
+        url: 'frontend/kushan-gold-coinage/index.html'
     },
     {
         title: 'Vijayanagara Gold Coinage Explorer',
@@ -4636,17 +4538,7 @@ window.indiaSearchIndex = [
         category: 'Heritage & History',
         description:
             'Reconstruct Nalanda — building-by-building campus explorer, scholar network, Xuanzang and Yijing accounts, international student connections, historical timeline, and archaeological evidence.',
-        url: 'frontend/nalanda-explorer/index.html'},
-  {
-        title: "Nalanda: The Ancient University City",
-        category: "Heritage & History",
-        description: "Reconstruct Nalanda — building-by-building campus explorer, scholar network, Xuanzang and Yijing accounts, international student connections, historical timeline, and archaeological evidence.",
-        url: "frontend/nalanda-explorer/index.html"},
-  {
-        title: "Nalanda: The Ancient University City",
-        category: "Heritage & History",
-        description: "Reconstruct Nalanda — building-by-building campus explorer, scholar network, Xuanzang and Yijing accounts, international student connections, historical timeline, and archaeological evidence.",
-        url: "frontend/nalanda-explorer/index.html"
+        url: 'frontend/nalanda-explorer/index.html'
     },
     // --- Terracotta Pottery Explorer ---
     {
@@ -4669,17 +4561,7 @@ window.indiaSearchIndex = [
         category: 'Heritage & History',
         description:
             'Recreate Taxila — compare Bhir Mound, Sirkap, and Sirsukh settlements, explore Silk Road trade routes, Buddhist sites, learning traditions, artifacts, and a full archaeological timeline.',
-        url: 'frontend/taxila-explorer/index.html'},
-  {
-        title: "Taxila: The Ancient Crossroads of Gandhara",
-        category: "Heritage & History",
-        description: "Recreate Taxila — compare Bhir Mound, Sirkap, and Sirsukh settlements, explore Silk Road trade routes, Buddhist sites, learning traditions, artifacts, and a full archaeological timeline.",
-        url: "frontend/taxila-explorer/index.html"},
-  {
-        title: "Taxila: The Ancient Crossroads of Gandhara",
-        category: "Heritage & History",
-        description: "Recreate Taxila — compare Bhir Mound, Sirkap, and Sirsukh settlements, explore Silk Road trade routes, Buddhist sites, learning traditions, artifacts, and a full archaeological timeline.",
-        url: "frontend/taxila-explorer/index.html"
+        url: 'frontend/taxila-explorer/index.html'
     },
     // --- Sikh Empire Explorer ---
     {
@@ -5693,14 +5575,6 @@ window.indiaSearchIndex = [
             "Explore Shivanasamudra Falls on the Kaveri River in Karnataka — Gaganachukki and Bharachukki twin falls comparison, river map, seasonal flow visualization, hydroelectric history (Asia's first, 1902), and nearby attractions.",
         url: 'frontend/shivanasamudra-falls-explorer/index.html'
     },
-    // --- Abbey Falls Explorer ---
-    {
-        title: 'Abbey Falls Explorer',
-        category: 'Nature & Wildlife',
-        description:
-            'Trace Abbey Falls in Kodagu, Karnataka — the Kaveri-connected cascade through Coorg coffee and spice estates, seasonal flow comparison, landscape explorer, location map, nearby attractions, and image credits.',
-        url: 'frontend/abbey-falls-explorer/index.html'
-    },
     // --- Vazhachal Falls Explorer ---
     {
         title: 'Vazhachal Falls Explorer',
@@ -5716,14 +5590,6 @@ window.indiaSearchIndex = [
         description:
             "Explore the artistic heritage of Bengali Cinema (Tollywood): Satyajit Ray's masterpieces, Ritwik Ghatak, Mrinal Sen, and the Parallel Cinema movement.",
         url: 'frontend/bengali-cinema-explorer/index.html'
-    },
-    // --- Palace on Wheels Explorer ---
-    {
-        title: 'Palace on Wheels Explorer',
-        category: 'Travel & Heritage',
-        description:
-            'Explore Palace on Wheels — the iconic royal luxury train journey through Rajasthan and Agra, with history, route, destinations, cabins, dining, onboard services and cultural experiences.',
-        url: 'frontend/palace-on-wheels-explorer/index.html'
     },
     // --- Thalaiyar Falls Explorer ---
     {
@@ -5819,12 +5685,7 @@ window.indiaSearchIndex = [
         category: 'Heritage & History',
         description:
             'Explore Palur, an ancient port in Odisha mentioned by Ptolemy and Pliny, serving as a critical gateway for maritime trade between India and Southeast Asia from 3rd century BCE to 8th century CE.',
-        url: 'frontend/palur-port-explorer/index.html'},
-  {
-        title: "Palur Ancient Port Explorer",
-        category: "Heritage & History",
-        description: "Explore Palur, an ancient port in Odisha mentioned by Ptolemy and Pliny, serving as a critical gateway for maritime trade between India and Southeast Asia from 3rd century BCE to 8th century CE.",
-        url: "frontend/palur-port-explorer/index.html"
+        url: 'frontend/palur-port-explorer/index.html'
     },
     // --- Freedom Movement Press Explorer ---
     {
@@ -5842,11 +5703,10 @@ window.indiaSearchIndex = [
             "Decode the symbols and meaning behind India's sporting trophies — shapes and forms, materials, national symbols, sport-specific elements, names and inscriptions, and a clickable trophy diagram of design evolution from the Durand Cup to the Khel Ratna.",
         url: 'frontend/indian-sports-trophy-design-explorer/index.html'
     },
-
-    // --- Havells Explorer ---
+    // --- IRCTC Explorer ---
     {
-        title: "Havells: Explore India's Electrical Consumer Brand",
-        category: 'Business & Industry',
+        title: "IRCTC: Explore India's Railway Services Brand",
+        category: 'Travel & Transport',
         description:
             "Explore Havells' origin, product categories, major milestones, brand evolution and Indian manufacturing story through an interactive product-category explorer.",
         url: 'frontend/havells-explorer/index.html'
@@ -5857,6 +5717,14 @@ window.indiaSearchIndex = [
         category: 'Monuments & Architecture',
         description:
             "Develop a dedicated Golconda Fort explorer covering its Qutb Shahi history, acoustic engineering, 87 bastions, diamond trade vaults, and royal palaces in Hyderabad.",
-        url: 'frontend/golconda-fort-explorer/index.html'
+        url: 'frontend/golconda-fort-explorer/index.html'},
+    // --- Chittorgarh Fort Explorer Q
+    {
+        title: 'Chittorgarh Fort: Explore the Legacy of Mewar',
+        category: 'Monuments & Architecture',
+        description:
+            "Explore Chittorgarh Fort — UNESCO World Heritage Site in Rajasthan, capital of the Mewar dynasty, Vijay Stambh, Kirti Stambh, Padmini Palace, Gaumukh Reservoir, and historic sieges.",
+        url: 'frontend/chittorgarh-fort-explorer/index.html'
+            "Explore IRCTC's 1999 origin and evolution across online railway ticketing, catering, tourism and digital passenger services through an interactive timeline."
     }
 ];
