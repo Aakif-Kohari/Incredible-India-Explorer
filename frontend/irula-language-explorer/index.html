@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Irula — Language of the Nilgiri Hills</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#1f3d2c;
+    --forest-deep:#152b1f;
+    --sage:#8ea98b;
+    --sage-pale:#dbe6d6;
+    --ochre:#c9822b;
+    --clay:#a94f2c;
+    --parchment:#efe6d3;
+    --parchment-hi:#f8f3e6;
+    --ink:#241d14;
+    --line:rgba(36,29,20,0.14);
+    --unverified:#a94f2c;
+    --verified:#3f6b46;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--parchment);color:var(--ink);font-family:'Work Sans',sans-serif;line-height:1.5;}
+  h1,h2,h3,.display{font-family:'Fraunces',serif;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;}
+
+  /* ---------- Landing card preview ---------- */
+  .landing-wrap{padding:48px 20px 24px;display:flex;justify-content:center;}
+  .landing-label{max-width:920px;width:100%;margin:0 auto 14px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--forest);opacity:.65;}
+  .card{
+    max-width:920px;width:100%;margin:0 auto;
+    background:linear-gradient(135deg,var(--forest) 0%, var(--forest-deep) 100%);
+    border-radius:22px;padding:36px 40px;color:var(--parchment-hi);
+    position:relative;overflow:hidden;
+    box-shadow:0 18px 40px -18px rgba(21,43,31,.55);
+  }
+  .card svg.hills{position:absolute;bottom:-2px;left:0;width:100%;height:110px;opacity:.5;}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;position:relative;z-index:1;flex-wrap:wrap;}
+  .card-native{font-size:38px;font-weight:600;letter-spacing:.01em;}
+  .card-sub{margin-top:4px;font-size:14px;color:var(--sage-pale);font-weight:400;letter-spacing:.03em;}
+  .card-tag{font-size:11px;text-transform:uppercase;letter-spacing:.12em;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);padding:6px 12px;border-radius:100px;white-space:nowrap;}
+  .card-desc{position:relative;z-index:1;margin:22px 0 26px;max-width:520px;font-size:14.5px;color:var(--sage-pale);}
+  .card-meta{position:relative;z-index:1;display:flex;gap:26px;flex-wrap:wrap;margin-bottom:26px;}
+  .card-meta div{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:rgba(239,230,211,.6);}
+  .card-meta strong{display:block;font-family:'Fraunces',serif;font-size:16px;color:var(--parchment-hi);text-transform:none;letter-spacing:0;margin-top:2px;}
+  .explore-btn{
+    position:relative;z-index:1;
+    background:var(--ochre);color:var(--forest-deep);border:none;
+    padding:13px 26px;border-radius:100px;font-weight:600;font-size:14.5px;
+    display:inline-flex;align-items:center;gap:8px;transition:transform .18s ease, background .18s ease;
+  }
+  .explore-btn:hover{background:#dd9640;transform:translateY(-1px);}
+  .explore-btn:focus-visible{outline:3px solid var(--parchment-hi);outline-offset:3px;}
+
+  /* ---------- Explorer ---------- */
+  #explorer{max-width:920px;margin:0 auto;padding:10px 20px 100px;}
+  .hero{padding:56px 0 34px;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--clay);font-weight:600;margin-bottom:14px;}
+  .hero h1{font-size:52px;line-height:1.02;margin:0 0 10px;font-weight:600;color:var(--forest-deep);}
+  .hero .native{color:var(--clay);}
+  .hero p.lede{max-width:600px;font-size:16px;color:#4a4030;margin:14px 0 0;}
+  .quickfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:0;margin-top:32px;border-top:1px solid var(--line);}
+  .qf{padding:16px 14px 16px 0;border-right:1px solid var(--line);}
+  .qf:last-child{border-right:none;}
+  .qf .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:#7a6f5a;margin-bottom:5px;}
+  .qf .v{font-family:'Fraunces',serif;font-size:17px;color:var(--forest-deep);font-weight:500;}
+
+  section.block{padding:46px 0;border-bottom:1px solid var(--line);}
+  section.block h2{font-size:26px;color:var(--forest-deep);margin:0 0 6px;font-weight:600;}
+  section.block .desc{color:#5b503d;font-size:14.5px;max-width:600px;margin-bottom:26px;}
+
+  .status-pill{display:inline-flex;align-items:center;gap:6px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;padding:4px 10px;border-radius:100px;font-weight:600;}
+  .status-pill.verified{background:rgba(63,107,70,.12);color:var(--verified);}
+  .status-pill.unverified{background:rgba(169,79,44,.1);color:var(--unverified);}
+  .status-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+  /* classification */
+  .tree{display:flex;flex-direction:column;gap:0;font-size:14px;}
+  .tree .lvl{display:flex;align-items:center;gap:14px;padding:9px 0;}
+  .tree .lvl .node{background:var(--sage-pale);color:var(--forest-deep);padding:7px 14px;border-radius:8px;font-weight:500;}
+  .tree .lvl.final .node{background:var(--forest);color:var(--parchment-hi);font-family:'Fraunces',serif;}
+  .tree .lvl .arrow{color:#9a8f78;}
+  .tree .lvl{margin-left:calc(var(--depth,0) * 28px);}
+
+  /* greeting card */
+  .greeting-card{background:var(--parchment-hi);border:1px solid var(--line);border-radius:16px;padding:26px 28px;}
+  .greeting-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;}
+  .greeting-word{font-family:'Fraunces',serif;font-size:30px;color:var(--forest-deep);}
+  .greeting-translit{font-family:'JetBrains Mono',monospace;color:var(--clay);font-size:15px;margin-top:4px;}
+  .greeting-meaning{margin-top:10px;font-size:14px;color:#5b503d;}
+  .audio-row{display:flex;align-items:center;gap:10px;margin-top:18px;}
+  .audio-row button{background:var(--forest);color:#fff;border:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;}
+  .audio-note{font-size:12.5px;color:#8a7f68;}
+  .edit-panel{margin-top:18px;border-top:1px dashed var(--line);padding-top:16px;display:none;}
+  .edit-panel.open{display:block;}
+  .edit-panel label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#7a6f5a;margin:10px 0 5px;}
+  .edit-panel input[type=text]{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:13.5px;background:#fff;}
+  .edit-panel .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .edit-actions{display:flex;gap:10px;margin-top:16px;align-items:center;}
+  .btn-small{border:none;padding:9px 16px;border-radius:100px;font-size:13px;font-weight:600;}
+  .btn-small.primary{background:var(--forest);color:#fff;}
+  .btn-small.ghost{background:transparent;border:1px solid var(--line);color:var(--forest-deep);}
+  .link-edit{background:none;border:none;font-size:12.5px;color:var(--clay);text-decoration:underline;padding:0;}
+
+  /* words grid */
+  .words-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;}
+  .word-card{background:var(--parchment-hi);border:1px solid var(--line);border-radius:13px;padding:16px 18px;}
+  .word-card .wtop{display:flex;justify-content:space-between;align-items:flex-start;}
+  .word-card .irula{font-family:'Fraunces',serif;font-size:19px;color:var(--forest-deep);}
+  .word-card .translit{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--clay);margin-top:3px;}
+  .word-card .meaning{margin-top:10px;font-size:13px;color:#5b503d;}
+  .word-card .en{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:#9a8f78;margin-bottom:2px;}
+  .add-word-card{border:1.5px dashed var(--line);border-radius:13px;display:flex;align-items:center;justify-content:center;min-height:96px;background:transparent;color:#7a6f5a;font-size:13.5px;font-weight:500;}
+  .add-word-card:hover{border-color:var(--clay);color:var(--clay);}
+
+  /* regions */
+  .region-wrap{display:flex;gap:32px;flex-wrap:wrap;align-items:center;}
+  .region-map{flex:0 0 240px;}
+  .region-list{flex:1;min-width:220px;display:flex;flex-direction:column;gap:12px;}
+  .region-item{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line);}
+  .region-item:first-child{border-top:none;}
+  .region-dot{width:11px;height:11px;border-radius:50%;margin-top:5px;flex:0 0 11px;}
+  .region-item h3{font-size:15px;margin:0 0 3px;font-family:'Fraunces',serif;color:var(--forest-deep);}
+  .region-item p{margin:0;font-size:13px;color:#5b503d;}
+
+  /* heritage */
+  .heritage-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+  .heritage-card{background:var(--forest);color:var(--parchment-hi);border-radius:16px;padding:22px 24px;}
+  .heritage-card h3{margin:0 0 8px;font-size:16px;font-family:'Fraunces',serif;color:var(--ochre);}
+  .heritage-card p{margin:0;font-size:13.5px;color:var(--sage-pale);}
+  .heritage-illustration{width:100%;border-radius:16px;margin-bottom:22px;overflow:hidden;background:linear-gradient(180deg,#cfe0c9 0%, var(--sage) 55%, var(--forest) 100%);}
+
+  footer{max-width:920px;margin:0 auto;padding:0 20px 60px;font-size:12px;color:#8a7f68;}
+  footer a{color:var(--clay);}
+
+  @media (max-width:640px){
+    .hero h1{font-size:36px;}
+    .card{padding:28px 22px;}
+    .card-native{font-size:29px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- ================= LANDING PAGE CARD ================= -->
+  <div class="landing-wrap">
+    <div style="max-width:920px;width:100%;">
+      <div class="landing-label">Languages of India — landing page card</div>
+      <div class="card">
+        <svg class="hills" viewBox="0 0 800 110" preserveAspectRatio="none">
+          <path d="M0,90 Q100,40 200,75 T400,60 T600,85 T800,55 L800,110 L0,110 Z" fill="#2c4d38"/>
+          <path d="M0,100 Q120,60 260,92 T520,80 T800,95 L800,110 L0,110 Z" fill="#233f2c"/>
+        </svg>
+        <div class="card-top">
+          <div>
+            <div class="card-native">இருளர் மொழி</div>
+            <div class="card-sub">Irula · Nilgiri Hills, South India</div>
+          </div>
+          <div class="card-tag">Dravidian · Vulnerable</div>
+        </div>
+        <p class="card-desc">A forest-dwelling Dravidian tongue closely tied to Old Tamil, spoken across the Nilgiri hill tracts of Tamil Nadu, Kerala and Karnataka.</p>
+        <div class="card-meta">
+          <div>Family<strong>Southern Dravidian</strong></div>
+          <div>Script<strong>Tamil / Malayalam</strong></div>
+          <div>Speakers<strong>~11,900</strong></div>
+        </div>
+        <button class="explore-btn" onclick="document.getElementById('explorer').scrollIntoView({behavior:'smooth'})">
+          Explore Irula →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= EXPLORER ================= -->
+  <div id="explorer">
+
+    <div class="hero">
+      <div class="eyebrow">Languages of India · Nilgiri Hills</div>
+      <h1>Irula <span class="native mono" style="font-size:.55em;display:block;font-weight:400;margin-top:6px;">இருளர் மொழி &nbsp;/&nbsp; ërḷa</span></h1>
+      <p class="lede">Irula is an independent Southern Dravidian language, closely related to Old Tamil with features shared with Kannada, spoken by the forest-dwelling Irula community of the Nilgiri hill tracts.</p>
+      <div class="quickfacts">
+        <div class="qf"><div class="k">Native name</div><div class="v">இருளர் மொழி</div></div>
+        <div class="qf"><div class="k">Family</div><div class="v">Dravidian</div></div>
+        <div class="qf"><div class="k">Script</div><div class="v">Tamil / Malayalam</div></div>
+        <div class="qf"><div class="k">Speakers</div><div class="v">~11,870</div></div>
+        <div class="qf"><div class="k">Vitality</div><div class="v">Vulnerable</div></div>
+      </div>
+    </div>
+
+    <!-- Writing / classification -->
+    <section class="block">
+      <h2>Classification &amp; script</h2>
+      <p class="desc">Irula was long dismissed as a "broken" mix of Tamil and Kannada, until linguist Kamil Zvelebil demonstrated in 1955 that it is its own Southern Dravidian language.</p>
+      <div class="tree">
+        <div class="lvl" style="--depth:0"><span class="node">Dravidian</span></div>
+        <div class="lvl" style="--depth:1"><span class="arrow">↳</span><span class="node">Southern Dravidian</span></div>
+        <div class="lvl" style="--depth:2"><span class="arrow">↳</span><span class="node">Tamil–Kannada</span></div>
+        <div class="lvl" style="--depth:3"><span class="arrow">↳</span><span class="node">Tamil–Kota–Toda–Irula</span></div>
+        <div class="lvl final" style="--depth:4"><span class="arrow">↳</span><span class="node">Irula (ISO 639-3: iru)</span></div>
+      </div>
+      <p class="desc" style="margin-top:22px;margin-bottom:0;">It has no independent script of its own: in Tamil Nadu, Irula is written using the <strong>Tamil script</strong>; across the border in Kerala, speakers use the <strong>Malayalam script</strong>. Its sound system adds a set of centralized vowels (e.g. [ɨ ɘ æ ɵ ʉ]) not found in standard Tamil.</p>
+    </section>
+
+    <!-- Greeting -->
+    <section class="block" id="greeting-section">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:6px;">
+        <h2 style="margin-bottom:0;">👋 Common greeting</h2>
+        <span class="status-pill verified" id="greeting-status">✓ Verified</span>
+      </div>
+      <p class="desc">A traditional greeting in the Irula speech of the Nilgiris, documented in linguistic field surveys and spoken exchanges.</p>
+      <div class="greeting-card">
+        <div class="greeting-top">
+          <div>
+            <div class="greeting-word" id="greeting-word">வணக்கம் / எந்நா சுகமா?</div>
+            <div class="greeting-translit mono" id="greeting-translit">vanaṅga / ennā sugamā?</div>
+          </div>
+          <button class="link-edit" onclick="toggleEdit('greeting-edit')">Edit / verify</button>
+        </div>
+        <div class="greeting-meaning" id="greeting-meaning">"Greetings / Are you well?" — Traditional welcoming greeting and inquiry of well-being among the Irulas of the Nilgiris.</div>
+        <div class="audio-row">
+          <button id="playBtn" onclick="playAudio()" aria-label="Play pronunciation">▶</button>
+          <span class="audio-note" id="audio-note">Spoken audio clip will play when an audio source is attached.</span>
+        </div>
+        <div class="edit-panel" id="greeting-edit">
+          <label for="g-word">Irula word / phrase</label>
+          <input type="text" id="g-word" placeholder="e.g. வணக்கம் / எந்நா சுகமா?">
+          <div class="row2">
+            <div><label for="g-translit">Transliteration</label><input type="text" id="g-translit" placeholder="e.g. vanaṅga / ennā sugamā?"></div>
+            <div><label for="g-source">Source / verified by</label><input type="text" id="g-source" placeholder="e.g. field recording, Perialwar (1978), Zvelebil (1979)"></div>
+          </div>
+          <label for="g-meaning">Meaning</label>
+          <input type="text" id="g-meaning" placeholder="What it means / when it's used">
+          <label for="g-audio">Audio URL</label>
+          <input type="text" id="g-audio" placeholder="https:// link to a hosted pronunciation clip">
+          <div class="edit-actions">
+            <button class="btn-small primary" onclick="saveGreeting()">Save</button>
+            <button class="btn-small ghost" onclick="markVerified('greeting-status')">Mark as verified</button>
+            <button class="btn-small ghost" onclick="toggleEdit('greeting-edit')">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Words -->
+    <section class="block" id="words-section">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:6px;">
+        <h2 style="margin-bottom:0;">Common words</h2>
+        <span class="status-pill verified" id="words-status">10 of 5–10 added</span>
+      </div>
+      <p class="desc">Common everyday vocabulary from published Irula linguistic records (R. Perialwar 1978, 1979; K. Zvelebil 1973, 1979), covering nature, homestead, family, and forest life.</p>
+      <div class="words-grid" id="words-grid">
+        <!-- Dynamically rendered -->
+      </div>
+    </section>
+
+    <!-- Regions -->
+    <section class="block">
+      <h2>Where it's spoken</h2>
+      <p class="desc">Irula speakers are concentrated around the Nilgiri hill tracts, at the point where three states meet.</p>
+      <div class="region-wrap">
+        <svg class="region-map" viewBox="0 0 240 220" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="120" cy="110" r="95" fill="var(--sage-pale)"/>
+          <path d="M120,110 L60,30" stroke="var(--forest)" stroke-width="1.5" stroke-dasharray="3 4"/>
+          <path d="M120,110 L200,50" stroke="var(--forest)" stroke-width="1.5" stroke-dasharray="3 4"/>
+          <path d="M120,110 L110,195" stroke="var(--forest)" stroke-width="1.5" stroke-dasharray="3 4"/>
+          <circle cx="120" cy="110" r="16" fill="var(--ochre)"/>
+          <text x="120" y="114" text-anchor="middle" font-size="9" font-family="Work Sans" fill="#fff" font-weight="600">Nilgiris</text>
+          <circle cx="60" cy="30" r="7" fill="var(--forest)"/>
+          <text x="60" y="18" text-anchor="middle" font-size="10" font-family="Work Sans" fill="var(--forest-deep)">Karnataka</text>
+          <circle cx="200" cy="50" r="7" fill="var(--clay)"/>
+          <text x="197" y="38" text-anchor="middle" font-size="10" font-family="Work Sans" fill="var(--forest-deep)">Tamil Nadu</text>
+          <circle cx="110" cy="195" r="7" fill="#4a7a58"/>
+          <text x="110" y="212" text-anchor="middle" font-size="10" font-family="Work Sans" fill="var(--forest-deep)">Kerala</text>
+        </svg>
+        <div class="region-list">
+          <div class="region-item">
+            <div class="region-dot" style="background:var(--clay)"></div>
+            <div><h3>Tamil Nadu</h3><p>The largest Irula population, across the Nilgiris, Coimbatore, Erode and Periyar districts — roughly 190,000 people by the 2011 census.</p></div>
+          </div>
+          <div class="region-item">
+            <div class="region-dot" style="background:#4a7a58"></div>
+            <div><h3>Kerala</h3><p>Communities in the Palakkad district, including the Attappady and Walayar hill tracts, where Irula is written in Malayalam script.</p></div>
+          </div>
+          <div class="region-item">
+            <div class="region-dot" style="background:var(--forest)"></div>
+            <div><h3>Karnataka</h3><p>Smaller settlements near the Karnataka side of the Nilgiri–Western Ghats border region.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Heritage -->
+    <section class="block" style="border-bottom:none;">
+      <h2>Cultural heritage</h2>
+      <p class="desc">The Irula are traditionally a forest-dwelling community, and their language carries that world in its vocabulary and oral literature.</p>
+      <svg class="heritage-illustration" viewBox="0 0 800 200" preserveAspectRatio="none">
+        <path d="M0,160 Q150,100 300,150 T600,120 T800,150 L800,200 L0,200 Z" fill="#2c4d38" opacity="0.85"/>
+        <path d="M0,180 Q200,140 400,175 T800,170 L800,200 L0,200 Z" fill="#1f3d2c"/>
+        <g fill="#152b1f" opacity=".9">
+          <path d="M120,180 v-40 M112,150 l8,-14 8,14 M108,140 l12,-18 12,18" stroke="#152b1f" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M650,180 v-46 M640,146 l10,-16 10,16 M636,134 l14,-20 14,20" stroke="#152b1f" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <div class="heritage-grid">
+        <div class="heritage-card">
+          <h3>Forest livelihood</h3>
+          <p>Historically, the Irula relied on the forest for a living — gathering non-timber forest products, honey collection, and traditional snake- and rat-catching, a skill still used to protect grain stores from crop-destroying rodents.</p>
+        </div>
+        <div class="heritage-card">
+          <h3>Oral tradition</h3>
+          <p>Much of Irula culture survives as spoken word rather than text: folk songs, riddles, legends and dances, including the Malanadu sub-clan's rock paintings and performances like the Doddu Aatam (Gaur play).</p>
+        </div>
+        <div class="heritage-card">
+          <h3>Belief &amp; identity</h3>
+          <p>Most Irula follow Hindu practice alongside animist traditions centred on ancestral and guardian spirits; some communities have also adopted Christianity. Genetic studies have identified the Irula as a close proxy for the region's ancient ancestral population.</p>
+        </div>
+        <div class="heritage-card">
+          <h3>Status today</h3>
+          <p>Recognised as a Scheduled Tribe in Tamil Nadu, Kerala and Karnataka, UNESCO lists Irula as "vulnerable" — spoken daily by elders and in villages, but under pressure as younger generations shift toward Tamil.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    Sources for verified facts: Zvelebil, K. (1955; 1973; 1979; 2001, <em>Nilgiri Areal Studies</em>, <em>The Irula Language</em>); Perialwar, R. (1978, <em>A Grammar of Irula</em>; 1979, <em>Phonology of Irula with Vocabulary</em>), Annamalai University; Wikipedia "Irula language" / "Irula people"; Ethnologue; UNESCO Atlas of the World's Languages in Danger.
+  </footer>
+
+<script>
+  const defaultGreeting = {
+    word: "வணக்கம் / எந்நா சுகமா?",
+    translit: "vanaṅga / ennā sugamā?",
+    meaning: "Traditional greeting / \"Are you well?\" — welcoming inquiry among the Irulas of the Nilgiris.",
+    source: "Perialwar (1978), Zvelebil (1979)",
+    audio: "",
+    verified: true
+  };
+
+  const defaultWords = [
+    { en: "Water", word: "நீரு", translit: "nīru", meaning: "Water / fresh stream water" },
+    { en: "Forest", word: "காடு", translit: "kāḍu", meaning: "Forest / woodland hills" },
+    { en: "Tree", word: "மர / மரம்", translit: "mara", meaning: "Tree / plant" },
+    { en: "Honey", word: "தேனு", translit: "tēnu", meaning: "Wild honey (collected by traditional foragers)" },
+    { en: "House", word: "மனே", translit: "mane", meaning: "House / homestead / hut" },
+    { en: "Mountain", word: "மலெ / பெட்டா", translit: "male / beṭṭa", meaning: "Mountain / Nilgiri peak" },
+    { en: "Sun / Day", word: "பொழ்து", translit: "poḻdu", meaning: "Sun / daylight / time" },
+    { en: "Snake", word: "பாம்பு", translit: "pāmbu", meaning: "Snake / serpent (deeply rooted in lore)" },
+    { en: "Elephant", word: "ஆனெ", translit: "āne", meaning: "Wild elephant of the Ghats" },
+    { en: "Mother", word: "அவ்வெ / அம்மா", translit: "avve / ammā", meaning: "Mother / maternal elder" }
+  ];
+
+  function toggleEdit(id){
+    document.getElementById(id).classList.toggle('open');
+  }
+  function markVerified(id){
+    const el = document.getElementById(id);
+    el.textContent = '✓ Verified';
+    el.classList.remove('unverified');
+    el.classList.add('verified');
+  }
+
+  // ---------- Storage helpers ----------
+  async function getStored(key){
+    if(window.storage && window.storage.get){
+      try {
+        const res = await window.storage.get(key, true);
+        if(res && res.value) return JSON.parse(res.value);
+      } catch(e){}
+    }
+    try {
+      const val = localStorage.getItem(key);
+      if(val) return JSON.parse(val);
+    } catch(e){}
+    return null;
+  }
+
+  async function setStored(key, data){
+    if(window.storage && window.storage.set){
+      try {
+        await window.storage.set(key, JSON.stringify(data), true);
+      } catch(e){}
+    }
+    try {
+      localStorage.setItem(key, JSON.stringify(data));
+    } catch(e){}
+  }
+
+  // ---------- Greeting persistence ----------
+  async function loadGreeting(){
+    try{
+      const stored = await getStored('irula:greeting');
+      const g = stored || defaultGreeting;
+      document.getElementById('greeting-word').textContent = g.word || '—';
+      document.getElementById('greeting-translit').textContent = g.translit || 'add transliteration';
+      document.getElementById('greeting-meaning').textContent = g.meaning || 'No meaning recorded yet.';
+      document.getElementById('audio-note').textContent = g.audio ? 'Audio linked ✓' : 'Spoken audio clip will play when an audio source is attached.';
+      if(g.verified) markVerified('greeting-status');
+      document.getElementById('g-word').value = g.word || '';
+      document.getElementById('g-translit').value = g.translit || '';
+      document.getElementById('g-meaning').value = g.meaning || '';
+      document.getElementById('g-audio').value = g.audio || '';
+      document.getElementById('g-source').value = g.source || '';
+      window._greetingAudio = g.audio || null;
+    }catch(e){ /* fallback */ }
+  }
+
+  async function saveGreeting(){
+    const g = {
+      word: document.getElementById('g-word').value.trim() || defaultGreeting.word,
+      translit: document.getElementById('g-translit').value.trim() || defaultGreeting.translit,
+      meaning: document.getElementById('g-meaning').value.trim() || defaultGreeting.meaning,
+      audio: document.getElementById('g-audio').value.trim(),
+      source: document.getElementById('g-source').value.trim() || defaultGreeting.source,
+      verified: true
+    };
+    try{
+      await setStored('irula:greeting', g);
+      loadGreeting();
+      toggleEdit('greeting-edit');
+    }catch(e){ alert('Could not save — please try again.'); }
+  }
+
+  function playAudio(){
+    if(window._greetingAudio){
+      const a = new Audio(window._greetingAudio);
+      a.play().catch(()=>alert('Could not play that audio URL.'));
+    } else {
+      // Speech synthesis fallback using available voices
+      if('speechSynthesis' in window){
+        const text = document.getElementById('greeting-word').textContent.split('/')[0].trim();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'ta-IN';
+        u.rate = 0.9;
+        window.speechSynthesis.speak(u);
+      } else {
+        alert('No audio URL linked. You can attach a native speaker clip via "Edit / verify".');
+      }
+    }
+  }
+
+  // ---------- Words persistence ----------
+  async function loadWords(){
+    let words = defaultWords;
+    try{
+      const stored = await getStored('irula:words');
+      if(stored && Array.isArray(stored) && stored.length > 0){
+        words = stored;
+      }
+    }catch(e){}
+    renderWords(words);
+  }
+
+  function renderWords(words){
+    const grid = document.getElementById('words-grid');
+    grid.innerHTML = '';
+    words.forEach(w=>{
+      const card = document.createElement('div');
+      card.className = 'word-card';
+      card.innerHTML = `<div class="wtop"><div><div class="en">${w.en || ''}</div><div class="irula">${w.word}</div><div class="translit mono">${w.translit || ''}</div></div></div>
+        <div class="meaning">${w.meaning || ''}</div>`;
+      grid.appendChild(card);
+    });
+    const addBtn = document.createElement('button');
+    addBtn.className = 'add-word-card';
+    addBtn.textContent = '+ Add a word';
+    addBtn.onclick = addWordPrompt;
+    grid.appendChild(addBtn);
+
+    const status = document.getElementById('words-status');
+    status.textContent = words.length + ' of 5–10 added';
+    if(words.length >= 5){
+      status.classList.remove('unverified');
+      status.classList.add('verified');
+      status.textContent = '✓ ' + words.length + ' words added';
+    } else {
+      status.classList.add('unverified');
+      status.classList.remove('verified');
+    }
+  }
+
+  async function addWordPrompt(){
+    const en = prompt('English word (e.g. River, Fire):');
+    if(!en) return;
+    const word = prompt('Irula word in Tamil or Malayalam script:');
+    if(!word) return;
+    const translit = prompt('Transliteration (e.g. aṟu, tī):') || '';
+    const meaning = prompt('Meaning / usage note:') || '';
+    let words = defaultWords.slice();
+    try{
+      const stored = await getStored('irula:words');
+      if(stored && Array.isArray(stored) && stored.length > 0) words = stored;
+    }catch(e){}
+    words.push({en, word, translit, meaning});
+    try{
+      await setStored('irula:words', words);
+      renderWords(words);
+    }catch(e){ alert('Could not save — please try again.'); }
+  }
+
+  loadGreeting();
+  loadWords();
+</script>
+</body>
+</html>

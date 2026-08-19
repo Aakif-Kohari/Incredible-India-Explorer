@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore India's Chess Heritage - Interactive archive of Indian National Chess Championship history, Grandmasters directory, women's championships, iconic games replay, and chess evolution from Chaturanga to the 2024 Olympiad Double Gold.">
+  <title>Explore India's Chess Heritage | Incredible India Explorer</title>
+  
+  <!-- Favicon & Stylesheets -->
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="chess-explorer-page">
+  <script>
+    (function() {
+      let theme = 'dark';
+      try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+      if (theme === 'light') { document.body.classList.add('light-theme'); }
+    })();
+  </script>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../sports/sports.html" class="nav-link active">Sports</a>
+        <a href="#championships" class="nav-link">Championships</a>
+        <a href="#grandmasters" class="nav-link">Grandmasters</a>
+        <a href="#historic-games" class="nav-link">Interactive Games</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="chess-hero" id="hero">
+    <div class="chess-hero-bg-grid"></div>
+    <div class="hero-badge">♟️ National Sports Heritage</div>
+    <h1>Explore India's Chess Heritage</h1>
+    <p class="hero-subtitle">
+      From the ancient origin of <strong>Chaturanga</strong> in the Gupta Empire to the pioneering triumphs of Viswanathan Anand, the historic <strong>2024 Chess Olympiad Double Gold</strong>, and World Championship Challenger D. Gukesh — discover the legendary story of Indian chess.
+    </p>
+
+    <!-- Key Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number" id="gm-count">85+</div>
+        <div class="stat-label">Indian Grandmasters</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">5</div>
+        <div class="stat-label">World Championship Titles (Anand)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">60+</div>
+        <div class="stat-label">National Championship Editions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2024</div>
+        <div class="stat-label">Olympiad Double Gold Champions</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sub-Navigation Sticky Bar -->
+  <nav class="subnav-bar">
+    <div class="subnav-container">
+      <button class="subnav-btn active" data-target="evolution">Evolution</button>
+      <button class="subnav-btn" data-target="championships">National Championships</button>
+      <button class="subnav-btn" data-target="champions">Major Champions</button>
+      <button class="subnav-btn" data-target="womens-chess">Women's Heritage</button>
+      <button class="subnav-btn" data-target="grandmasters">GM Directory</button>
+      <button class="subnav-btn" data-target="historic-games">Historic Games</button>
+      <button class="subnav-btn" data-target="quiz">Chess Quiz</button>
+    </div>
+  </nav>
+
+  <!-- Main Content Body -->
+  <main>
+    <!-- Section 1: Evolution of Chess in India -->
+    <section class="chess-section" id="evolution">
+      <div class="section-header">
+        <span class="section-tag">Timeline & Roots</span>
+        <h2>The Evolution of Indian Chess</h2>
+        <p>Trace the legendary journey from ancient 6th-century Chaturanga to the 2024 Olympiad sweep.</p>
+      </div>
+
+      <div class="timeline-container" id="timeline-wrapper">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </section>
+
+    <!-- Section 2: National Championship Archive -->
+    <section class="chess-section" id="championships">
+      <div class="section-header">
+        <span class="section-tag">Archive & Records</span>
+        <h2>National Chess Championship History</h2>
+        <p>Complete historical records of the National Premier Chess Championships (Men's & Women's) since 1955.</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="tab-btn active" id="tab-mens">Men's Premier Championship (1955 - Present)</button>
+        <button class="tab-btn" id="tab-womens">Women's Premier Championship (1974 - Present)</button>
+      </div>
+
+      <!-- Search & Filters -->
+      <div class="search-filter-box">
+        <input type="text" id="champ-search" class="search-input" placeholder="Search champion, venue, or state...">
+        <select id="champ-state-filter" class="select-filter">
+          <option value="all">All Champion States</option>
+          <option value="Tamil Nadu">Tamil Nadu</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="West Bengal">West Bengal</option>
+          <option value="Andhra Pradesh">Andhra Pradesh / Telangana</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Odisha">Odisha</option>
+          <option value="Goa">Goa</option>
+        </select>
+      </div>
+
+      <!-- Table -->
+      <div class="table-responsive">
+        <table class="data-table" id="championship-table">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Host Venue</th>
+              <th>Champion</th>
+              <th>Runner-Up</th>
+              <th>State</th>
+              <th>Historical Notes</th>
+            </tr>
+          </thead>
+          <tbody id="championship-tbody">
+            <!-- Dynamic rows -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 3: Major Champions & Hall of Legends -->
+    <section class="chess-section" id="champions">
+      <div class="section-header">
+        <span class="section-tag">Hall of Fame</span>
+        <h2>Major Champions & Icons</h2>
+        <p>Meet the trailblazers who forged India's chess legacy on the global stage.</p>
+      </div>
+
+      <div class="champions-grid" id="champions-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Section 4: Women's Championship & Heritage -->
+    <section class="chess-section" id="womens-chess">
+      <div class="section-header">
+        <span class="section-tag">Women's Empowerment</span>
+        <h2>Women's Chess Heritage</h2>
+        <p>Celebrating the remarkable women who conquered national titles and shattered world records.</p>
+      </div>
+
+      <div class="champions-grid" id="womens-champions-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Section 5: Grandmasters Directory -->
+    <section class="chess-section" id="grandmasters">
+      <div class="section-header">
+        <span class="section-tag">Directory of Masters</span>
+        <h2>Indian Grandmasters Directory</h2>
+        <p>Search and filter all 85+ Grandmasters of India by name, state, FIDE rating, and year awarded.</p>
+      </div>
+
+      <div class="search-filter-box">
+        <input type="text" id="gm-search" class="search-input" placeholder="Search Grandmaster by name or state...">
+        <select id="gm-state-select" class="select-filter">
+          <option value="all">All States</option>
+          <option value="Tamil Nadu">Tamil Nadu (35+ GMs)</option>
+          <option value="Maharashtra">Maharashtra (12+ GMs)</option>
+          <option value="West Bengal">West Bengal (10+ GMs)</option>
+          <option value="Andhra Pradesh">Andhra Pradesh (5+ GMs)</option>
+          <option value="Telangana">Telangana (4+ GMs)</option>
+          <option value="Delhi">Delhi (4+ GMs)</option>
+          <option value="Kerala">Kerala (3+ GMs)</option>
+        </select>
+        <select id="gm-sort-select" class="select-filter">
+          <option value="year-asc">Sort by Title Year (Ascending)</option>
+          <option value="year-desc">Sort by Title Year (Descending)</option>
+          <option value="rating-desc">Sort by Peak Rating (Highest First)</option>
+          <option value="name-asc">Sort Alphabetically (A-Z)</option>
+        </select>
+      </div>
+
+      <div class="table-responsive">
+        <table class="data-table" id="gm-table">
+          <thead>
+            <tr>
+              <th># GM Title</th>
+              <th>Name</th>
+              <th>State / Region</th>
+              <th>Year Title Awarded</th>
+              <th>Peak FIDE Rating</th>
+              <th>Career Achievements & Notes</th>
+            </tr>
+          </thead>
+          <tbody id="gm-tbody">
+            <!-- Rendered dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 6: Interactive Historic Game Replay -->
+    <section class="chess-section" id="historic-games">
+      <div class="section-header">
+        <span class="section-tag">Interactive Replay</span>
+        <h2>Historic Masterworks</h2>
+        <p>Interactive turn-by-turn PGN replay of legendary games in Indian chess history.</p>
+      </div>
+
+      <div class="chessboard-layout">
+        <!-- Left: Interactive Board -->
+        <div class="chessboard-container">
+          <div class="chessboard-wrapper">
+            <div class="board-grid" id="chessboard">
+              <!-- 64 Squares rendered by script.js -->
+            </div>
+          </div>
+          <!-- Control Buttons -->
+          <div class="board-controls">
+            <button class="board-ctrl-btn" id="btn-first" title="First Move">⏮️</button>
+            <button class="board-ctrl-btn" id="btn-prev" title="Previous Move">◀️</button>
+            <button class="board-ctrl-btn" id="btn-play" title="Play / Pause">▶️ Play</button>
+            <button class="board-ctrl-btn" id="btn-next" title="Next Move">▶️</button>
+            <button class="board-ctrl-btn" id="btn-last" title="Last Move">⏭️</button>
+            <button class="board-ctrl-btn" id="btn-flip" title="Flip Board">🔄 Flip</button>
+          </div>
+        </div>
+
+        <!-- Right: Game Details & Moves List -->
+        <div class="game-info-panel">
+          <label for="game-select" style="font-weight:700; color:var(--primary-gold); margin-bottom:8px; display:block;">Select Historic Game:</label>
+          <select id="game-select" class="select-filter game-selector-select">
+            <!-- Options added by script.js -->
+          </select>
+
+          <div id="game-meta-box">
+            <h3 id="game-title" style="margin-bottom:4px; color:#fff;">Anand vs Kasparov</h3>
+            <p id="game-event" style="color:var(--primary-saffron); font-size:0.9rem; margin-bottom:12px;">PCM World Championship 1995</p>
+            <p id="game-desc" style="font-size:0.88rem; color:var(--text-muted); line-height:1.5; margin-bottom:16px;">Description here</p>
+          </div>
+
+          <div style="font-weight:600; font-size:0.85rem; text-transform:uppercase; color:var(--primary-gold); margin-bottom:8px;">Move Notation List:</div>
+          <div class="moves-list-box" id="moves-list">
+            <!-- Dynamic SAN moves -->
+          </div>
+
+          <div class="move-commentary" id="move-annotation">
+            Select or step through moves to view annotations.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Indian Chess Quiz -->
+    <section class="chess-section" id="quiz">
+      <div class="section-header" style="text-align: center;">
+        <span class="section-tag">Interactive Challenge</span>
+        <h2>Test Your Chess Heritage Knowledge</h2>
+        <p>Answer 5 questions to test your mastery of Indian chess history.</p>
+      </div>
+
+      <div class="quiz-card" id="quiz-box">
+        <div id="quiz-content">
+          <!-- Dynamically loaded quiz question -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Champion Detail Modal Overlay -->
+  <div class="modal-overlay" id="champion-modal">
+    <div class="modal-content">
+      <button class="close-modal-btn" id="modal-close-btn">&times;</button>
+      <div id="modal-body-content">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align:center; padding:40px 20px; background:#070a10; border-top:1px solid rgba(255,255,255,0.08); font-size:0.9rem; color:var(--text-muted);">
+    <p>© 2026 Incredible India Explorer. Celebrating India's Chess Heritage.</p>
+  </footer>
+
+  <!-- Script Imports -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
