@@ -5841,5 +5841,14 @@ window.indiaSearchIndex = [
         description:
             "Decode the symbols and meaning behind India's sporting trophies — shapes and forms, materials, national symbols, sport-specific elements, names and inscriptions, and a clickable trophy diagram of design evolution from the Durand Cup to the Khel Ratna.",
         url: 'frontend/indian-sports-trophy-design-explorer/index.html'
+    },
+
+    // --- Havells Explorer ---
+    {
+        title: "Havells: Explore India's Electrical Consumer Brand",
+        category: 'Business & Industry',
+        description:
+            "Explore Havells' origin, product categories, major milestones, brand evolution and Indian manufacturing story through an interactive product-category explorer.",
+        url: 'frontend/havells-explorer/index.html'
     }
 ];

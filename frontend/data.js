@@ -404,6 +404,17 @@ const mapData = {
                 'Sikkim is a clean, organic Himalayan state surrounding Mt. Kanchenjunga. It is famous for alpine meadows, glaciers, and Buddhist monasteries.',
             story: 'Sikkim is a clean, organic Himalayan state surrounding Mt. Kanchenjunga. It is famous for alpine meadows, glaciers, and Buddhist monasteries.\n\nThe vibrant region of Sikkim is governed from its beautiful capital, Gangtok. The land is deeply connected to its roots, celebrating grand occasions like Saga Dawa & Losar with unmatched energy and devotion.\n\nVisitors from around the world are mesmerized by the local culinary delights, particularly the iconic Momo, Thukpa & Gundruk, which represents centuries of refined regional cooking techniques and traditional spices. A journey to Sikkim is a journey through time, culture, and nature.'
         },
+        // Havells Brand Explorer Card
+        {
+            id: 'havells-explorer',
+            name: "Havells: Explore India's Electrical Consumer Brand",
+            category: 'Business & Industry',
+            location: 'India',
+            image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Havells-Range-Banner_4.webp',
+            description:
+                'Trace Havells from its 1958 Delhi trading roots through product expansion, brand evolution and Indian manufacturing.',
+            link: 'frontend/havells-explorer/index.html'
+        },
         // Lakkam Waterfalls Card
         {
             id: 'lakkam-waterfalls',
