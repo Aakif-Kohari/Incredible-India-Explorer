@@ -1,0 +1,695 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cellular Jail | Port Blair</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #020617;
+      color: #f1f5f9;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 48px));
+      margin: auto;
+    }
+
+    .content {
+      width: min(1024px, calc(100% - 48px));
+      margin: auto;
+    }
+
+    /* Navigation */
+    .navigation {
+      padding-top: 24px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #fb7185;
+      font-size: 13px;
+      font-weight: 700;
+      transition: opacity 0.2s ease;
+    }
+
+    .back-link:hover {
+      opacity: 0.75;
+      text-decoration: underline;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 64px 0;
+      text-align: center;
+    }
+
+    .location-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      border-radius: 999px;
+      background: rgba(244, 63, 94, 0.1);
+      color: #fb7185;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .hero h1 {
+      margin-top: 24px;
+      color: #ffffff;
+      font-size: clamp(40px, 6vw, 64px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      font-weight: 900;
+    }
+
+    .hero h1 span {
+      color: #f43f5e;
+    }
+
+    .hero-description {
+      max-width: 760px;
+      margin: 24px auto 0;
+      color: #cbd5e1;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    /* Main */
+    main {
+      padding-bottom: 80px;
+    }
+
+    section {
+      margin-bottom: 64px;
+    }
+
+    /* History */
+    .history-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+      padding: 32px;
+      border: 1px solid #1e293b;
+      border-radius: 24px;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(16px);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #fb7185;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-top: 12px;
+      color: #ffffff;
+      font-size: 28px;
+      line-height: 1.25;
+    }
+
+    .text {
+      margin-top: 16px;
+      color: #cbd5e1;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .isolation-box {
+      padding: 24px;
+      border: 1px solid #1e293b;
+      border-radius: 18px;
+      background: #020617;
+    }
+
+    .isolation-box h3 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #fb7185;
+      font-size: 14px;
+    }
+
+    .isolation-box p {
+      margin-top: 12px;
+      color: #94a3b8;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* Feature Cards */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .card {
+      padding: 24px;
+      border: 1px solid #1e293b;
+      border-radius: 24px;
+      background: #0f172a;
+    }
+
+    .card-label {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .rose-label {
+      color: #f43f5e;
+      background: rgba(244, 63, 94, 0.1);
+      border: 1px solid rgba(244, 63, 94, 0.2);
+    }
+
+    .amber-label {
+      color: #fbbf24;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
+    .card h3 {
+      margin-top: 16px;
+      color: #ffffff;
+      font-size: 21px;
+    }
+
+    .card p {
+      margin-top: 12px;
+      color: #cbd5e1;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* Information Grid */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .info-card {
+      padding: 24px;
+      border: 1px solid #1e293b;
+      border-radius: 24px;
+      background: #0f172a;
+    }
+
+    .info-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #ffffff;
+      font-size: 18px;
+    }
+
+    .info-icon {
+      color: #fb7185;
+      font-size: 20px;
+    }
+
+    .info-card p {
+      margin-top: 16px;
+      color: #cbd5e1;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* Timeline */
+    .timeline {
+      margin-top: 20px;
+    }
+
+    .timeline-item {
+      padding-left: 14px;
+      margin-bottom: 18px;
+      border-left: 2px solid #f43f5e;
+    }
+
+    .timeline-year {
+      color: #fb7185;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .timeline-title {
+      margin-top: 3px;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .timeline-description {
+      margin-top: 4px;
+      color: #94a3b8;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      border: 1px solid #1e293b;
+      border-radius: 18px;
+      background: #0f172a;
+    }
+
+    .image-wrapper {
+      height: 220px;
+      overflow: hidden;
+      background: #020617;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-content {
+      padding: 16px;
+    }
+
+    .gallery-content h4 {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .gallery-content p {
+      margin-top: 6px;
+      color: #94a3b8;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container,
+      .content {
+        width: calc(100% - 32px);
+      }
+
+      .hero {
+        padding: 48px 0;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .history-grid,
+      .feature-grid,
+      .info-grid,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .history-grid {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      .history-grid,
+      .card,
+      .info-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <div class="container navigation">
+    <a href="monuments.html" class="back-link">
+      ← Back to Monuments
+    </a>
+  </div>
+
+  <!-- Hero -->
+  <header class="container hero">
+
+    <div class="location-badge">
+      📍 Port Blair, Andaman and Nicobar Islands, India
+    </div>
+
+    <h1>
+      Cellular <span>Jail</span>
+    </h1>
+
+    <p class="hero-description">
+      Explore the poignant history of 'Kala Pani'—a colonial prison
+      witness to extraordinary courage, brutal isolation, and the
+      unyielding spirit of India's freedom fighters.
+    </p>
+
+  </header>
+
+  <main class="content">
+
+    <!-- Historical Background -->
+    <section class="history-grid">
+
+      <div>
+
+        <div class="eyebrow">
+          📜 Colonial History
+        </div>
+
+        <h2>
+          Historical Background
+        </h2>
+
+        <p class="text">
+          Following the Revolt of 1857, the British colonial administration
+          needed a remote and inescapable location to exile political
+          dissidents and freedom fighters far away from the Indian
+          mainland. The dense jungles and treacherous seas of the Andaman
+          Islands made escape virtually impossible.
+        </p>
+
+      </div>
+
+      <div class="isolation-box">
+
+        <h3>
+          🛡️ Exile &amp; Isolation
+        </h3>
+
+        <p>
+          Infamously referred to as <em>Kala Pani</em> (Black Waters),
+          prisoners suffered severe psychological and physical trauma
+          intended to break their resolve and disconnect them completely
+          from the freedom movement back home.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- Architecture and Cells -->
+    <section class="feature-grid">
+
+      <div class="card">
+
+        <span class="card-label rose-label">
+          Unique Design
+        </span>
+
+        <h3>
+          Cellular Architecture
+        </h3>
+
+        <p>
+          Designed on a radial layout, the original building featured
+          seven wings radiating outward from a central watchtower. This
+          panoptic structure allowed a single guard in the tower to
+          monitor all corridors simultaneously.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <span class="card-label amber-label">
+          Solitary Confinement
+        </span>
+
+        <h3>
+          Why Individual Cells?
+        </h3>
+
+        <p>
+          Every cell was built strictly for a single occupant
+          (measuring 4.5 by 2.7 meters with a high ventilator). The doors
+          faced the back of the neighboring wing, ensuring prisoners
+          could never see or communicate with one another, enforcing
+          total solitary confinement.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- Freedom Movement -->
+    <section class="info-grid">
+
+      <div class="info-card">
+
+        <h3>
+          <span class="info-icon">👥</span>
+          Freedom Movement Connection
+        </h3>
+
+        <p>
+          Cellular Jail held legendary freedom fighters and revolutionaries
+          including Vinayak Damodar Savarkar, Batukeshwar Dutt, Diwan Singh
+          Kalepani, and Yogendra Shukla, who turned the prison into a
+          crucible of patriotic resistance.
+        </p>
+
+      </div>
+
+      <div class="info-card">
+
+        <h3>
+          <span class="info-icon">🏛️</span>
+          Life in the Jail
+        </h3>
+
+        <p>
+          Inmates endured brutal daily quotas of manual labor, including
+          extracting coconut oil using heavy hand-mills under scorching
+          heat, alongside meager rations and corporal punishment.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- National Memorial + Timeline -->
+    <section class="info-grid">
+
+      <div class="info-card">
+
+        <h3>
+          <span class="info-icon">🏆</span>
+          National Memorial
+        </h3>
+
+        <p>
+          Today, the surviving wings stand as a solemn national memorial.
+          The Light and Sound Show held every evening recounts the
+          courageous sacrifices of the freedom fighters who suffered
+          behind its thick brick walls.
+        </p>
+
+      </div>
+
+      <div class="info-card">
+
+        <h3>
+          <span class="info-icon">📅</span>
+          Historical Timeline
+        </h3>
+
+        <div class="timeline" id="timeline"></div>
+
+      </div>
+
+    </section>
+
+    <!-- Gallery -->
+    <section>
+
+      <h2>
+        Image Gallery
+      </h2>
+
+      <div class="gallery" id="gallery"></div>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    /*
+     * Timeline Data
+     */
+
+    const timelineEvents = [
+      {
+        year: "1896 - 1906",
+        title: "Construction Period",
+        description:
+          "Built by the British colonial government in the remote Andaman Islands to isolate political prisoners from the Indian mainland."
+      },
+      {
+        year: "1930s",
+        title: "Major Hunger Strikes",
+        description:
+          "Political prisoners stage historic hunger strikes demanding humane treatment and prisoner-of-war status."
+      },
+      {
+        year: "1942 - 1945",
+        title: "Japanese Occupation",
+        description:
+          "Andaman and Nicobar Islands are occupied by Japanese forces during WWII; Netaji Subhas Chandra Bose visits the islands."
+      },
+      {
+        year: "1969",
+        title: "Declared National Memorial",
+        description:
+          "The surviving wings and central tower are formally converted into a national memorial dedicated to freedom fighters."
+      }
+    ];
+
+    const timeline = document.getElementById("timeline");
+
+    timelineEvents.forEach(function(event) {
+
+      const item = document.createElement("div");
+
+      item.className = "timeline-item";
+
+      item.innerHTML = `
+        <div class="timeline-year">
+          ${event.year}
+        </div>
+
+        <div class="timeline-title">
+          ${event.title}
+        </div>
+
+        <div class="timeline-description">
+          ${event.description}
+        </div>
+      `;
+
+      timeline.appendChild(item);
+
+    });
+
+
+    /*
+     * Gallery Data
+     */
+
+    const galleryImages = [
+      {
+        title: "Central Watchtower & Wings",
+        url: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=800",
+        alt:
+          "Panoramic view of the multi-winged radial architecture of Cellular Jail from the central watchtower"
+      },
+      {
+        title: "Solitary Confinement Cells",
+        url: "https://images.unsplash.com/photo-1621351183012-e2f997fb8dd9?auto=format&fit=crop&q=80&w=800",
+        alt:
+          "Narrow individual cells highlighting the oppressive isolation imposed on freedom fighters"
+      },
+      {
+        title: "The Memorial Flame",
+        url: "https://images.unsplash.com/photo-1609137144813-7e94c924147d?auto=format&fit=crop&q=80&w=800",
+        alt:
+          "Eternal flame and remembrance plaques honoring martyrs of the Indian independence movement"
+      }
+    ];
+
+    const gallery = document.getElementById("gallery");
+
+    galleryImages.forEach(function(image) {
+
+      const card = document.createElement("div");
+
+      card.className = "gallery-card";
+
+      card.innerHTML = `
+        <div class="image-wrapper">
+          <img
+            src="${image.url}"
+            alt="${image.alt}"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="gallery-content">
+          <h4>${image.title}</h4>
+          <p>${image.alt}</p>
+        </div>
+      `;
+
+      gallery.appendChild(card);
+
+    });
+
+  </script>
+
+</body>
+</html>
