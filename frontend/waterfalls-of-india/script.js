@@ -50,7 +50,8 @@
             flow: "Consistent throughout the year, but strongest during the heavy monsoons of Meghalaya.",
             attractions: "Mawsmai Cave, Seven Sisters Falls, Double Decker Living Root Bridge.",
             image: "https://images.unsplash.com/photo-1592683935213-90d16edb5709?auto=format&fit=crop&q=80&w=600",
-            thumb: "https://images.unsplash.com/photo-1592683935213-90d16edb5709?auto=format&fit=crop&q=40&w=400"
+            thumb: "https://images.unsplash.com/photo-1592683935213-90d16edb5709?auto=format&fit=crop&q=40&w=400",
+            url: "../nohkalikai-falls-explorer/index.html"
         },
         {
             id: "athirappilly",
