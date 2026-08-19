@@ -5711,6 +5711,13 @@ window.indiaSearchIndex = [
             "Explore Havells' origin, product categories, major milestones, brand evolution and Indian manufacturing story through an interactive product-category explorer.",
         url: 'frontend/havells-explorer/index.html'
     },
+    // --- Mahabodhi Temple Explorer ---
+    {
+        title: 'Mahabodhi Temple: Discover the Sacred Site of Enlightenment',
+        category: 'Monuments & Architecture',
+        description:
+            "Discover the Mahabodhi Temple Complex in Bodh Gaya, Bihar — the sacred site of Gautama Buddha's Enlightenment, the 55m brick shikhara, the sacred Bodhi Tree, Ashokan Vajrasana, and the Seven Sacred Weeks.",
+        url: 'frontend/mahabodhi-temple-explorer/index.html'},
     // --- Gwalior Fort Explorer ---
     {
         title: "Gwalior Fort: Discover Madhya Pradesh's Historic Hill Fortress",
