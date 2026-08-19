@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the Kui language and indigenous culture of Odisha's Eastern Ghats highlands. Interactive dictionary, Dravidian linguistics, verified audio pronunciations, regional maps, and Kondha heritage.">
+    <meta name="keywords" content="Kui language, Kondha tribe, Odisha highlands, Kandhamal, Dongria Kondha, Dravidian languages, Odia script, Kui pronunciation, Dhokra art, Kapdaganda">
+    <title>Kui Language & Culture Explorer | Odisha Highlands Heritage</title>
+    <link rel="icon" href="data:,">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Sans+Oriya:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="kui-language-explorer.css">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Kui Language & Culture Explorer | Odisha Highlands">
+    <meta property="og:description" content="Explore the indigenous Kui language of the Kondha people in Odisha's highlands. Interactive audio, Dravidian cognates, regional map, and tribal heritage.">
+    <meta property="og:type" content="website">
+</head>
+
+<body class="kui-explorer-body">
+    <script>
+        (function() {
+            let theme = 'dark'; 
+            try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+
+    <!-- Global Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle active" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                        <a href="../../frontend/languages-of-india/index.html" class="dropdown-item">Languages of India</a>
+                        <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">Handicrafts Showcase</a>
+                        <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                        <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    </div>
+                </div>
+
+                <a href="../../frontend/about/about.html" class="nav-link">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="kui-app" id="kui-app-root">
+        <!-- Hero Section -->
+        <section class="kui-hero" id="kui-hero">
+            <div class="hero-bg-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">⛰️</span>
+                    <span>Highlands of Eastern Ghats, Odisha</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Discover <span class="highlight-text">Kui</span> (କୁ‍ଇ / Kũi)
+                </h1>
+                
+                <p class="hero-native-subtitle">
+                    Native designation: <strong class="kui-native-name">𑂩𑂶 / କୁ‍ଇ / Kũi</strong> &bull; Language of the Kondha Indigenous People
+                </p>
+
+                <p class="hero-description">
+                    Immerse yourself in the South-Central Dravidian language spoken by over 1.2 million indigenous Kondha inhabitants across the misty blue hills of Kandhamal, Niyamgiri, Rayagada, Kalahandi, and Koraput.
+                </p>
+
+                <!-- Audio Hero Player -->
+                <div class="hero-audio-card">
+                    <div class="audio-card-header">
+                        <span class="speaker-icon">🔊</span>
+                        <div>
+                            <span class="audio-label">Listen to Native Name Pronunciation:</span>
+                            <span class="audio-phonetic">/kui̯/ &bull; [Kũi]</span>
+                        </div>
+                    </div>
+                    <div class="audio-controls-row">
+                        <button class="btn-play-audio hero-play-btn" id="btn-hero-audio" data-word="Kui" data-ipa="kui" data-text="Kũi" aria-label="Play Kui Pronunciation">
+                            <span class="play-icon">▶</span>
+                            <span class="play-text">Play Audio</span>
+                        </button>
+                        <div class="speed-toggle-group">
+                            <button class="speed-btn active" data-speed="1.0">1.0x</button>
+                            <button class="speed-btn" data-speed="0.75">0.75x Slow</button>
+                        </div>
+                    </div>
+                    <!-- Audio Wave Canvas Visualizer -->
+                    <div class="visualizer-container">
+                        <canvas class="audio-wave-canvas" id="hero-wave-canvas" width="300" height="30"></canvas>
+                    </div>
+                </div>
+
+                <!-- Fast Jump Navigation Grid -->
+                <div class="quick-nav-grid">
+                    <a href="#section-greetings" class="quick-nav-pill">👋 Common Greetings</a>
+                    <a href="#section-vocabulary" class="quick-nav-pill">💬 Kui Word Bank</a>
+                    <a href="#section-transcription" class="quick-nav-pill">✍️ Writing & Script</a>
+                    <a href="#section-dravidian" class="quick-nav-pill">🌳 Dravidian Tree</a>
+                    <a href="#section-regions" class="quick-nav-pill">🗺️ Odisha Highlands</a>
+                    <a href="#section-culture" class="quick-nav-pill">🎨 Kondha Culture</a>
+                    <a href="#section-quiz" class="quick-nav-pill">🎯 Interactive Quiz</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Counter Ribbon -->
+        <section class="kui-stats-ribbon">
+            <div class="stat-card">
+                <span class="stat-value">1.2M+</span>
+                <span class="stat-label">Native Speakers</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">Dravidian</span>
+                <span class="stat-label">South-Central Branch</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">Kondha</span>
+                <span class="stat-label">Heritage Community</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">Odisha</span>
+                <span class="stat-label">Highland Eastern Ghats</span>
+            </div>
+        </section>
+
+        <!-- Section 1: Common Kui Greetings -->
+        <section class="kui-section" id="section-greetings">
+            <div class="section-header">
+                <div class="section-tag">👋 Essential Communication</div>
+                <h2 class="section-title">Common Kui Greetings & Everyday Phrases</h2>
+                <p class="section-subtitle">Experience warm hill hospitality. Listen to authentic pronunciations with phonetic transcriptions.</p>
+            </div>
+
+            <div class="greetings-grid" id="greetings-container">
+                <!-- Greeting Card 1 -->
+                <div class="greeting-card featured">
+                    <div class="greeting-badge">Primary Greeting</div>
+                    <div class="greeting-main">
+                        <div class="kui-script-lg">ଆଜୁ / ଯୋହାର</div>
+                        <div class="kui-latin-lg">Aaju / Johara</div>
+                        <div class="kui-ipa">[aːɟu] &bull; [ɟoːhaːra]</div>
+                    </div>
+                    <div class="greeting-meaning">
+                        <span class="meaning-icon">✨</span>
+                        <span class="meaning-text">"Hello / Warm Greetings / Reverence to You"</span>
+                    </div>
+                    <p class="greeting-note">Used as an respectful salutation when encountering community members in the highland hamlets.</p>
+                    <div class="card-audio-footer">
+                        <button class="btn-play-audio card-play-btn" data-word="Aaju Johara" data-ipa="aaju johara" data-text="Aaju Johara">
+                            <span class="play-icon">🔊</span>
+                            <span>Play Pronunciation</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Greeting Card 2 -->
+                <div class="greeting-card">
+                    <div class="greeting-main">
+                        <div class="kui-script-lg">ଇନା କି କାଡ଼ି?</div>
+                        <div class="kui-latin-lg">Ina-ki kadi?</div>
+                        <div class="kui-ipa">[ina ki kaɖi]</div>
+                    </div>
+                    <div class="greeting-meaning">
+                        <span class="meaning-icon">❓</span>
+                        <span class="meaning-text">"How are you? / How are things?"</span>
+                    </div>
+                    <p class="greeting-note">Inquiry about well-being, health, and family in traditional Kondha conversation.</p>
+                    <div class="card-audio-footer">
+                        <button class="btn-play-audio card-play-btn" data-word="Ina ki kadi" data-ipa="ina ki kadi" data-text="Ina-ki kadi">
+                            <span class="play-icon">🔊</span>
+                            <span>Play Pronunciation</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Greeting Card 3 -->
+                <div class="greeting-card">
+                    <div class="greeting-main">
+                        <div class="kui-script-lg">ମାନେନା</div>
+                        <div class="kui-latin-lg">Mane-na</div>
+                        <div class="kui-ipa">[manena]</div>
+                    </div>
+                    <div class="greeting-meaning">
+                        <span class="meaning-icon">😊</span>
+                        <span class="meaning-text">"I am fine / All is well"</span>
+                    </div>
+                    <p class="greeting-note">The standard positive response confirming peaceful well-being.</p>
+                    <div class="card-audio-footer">
+                        <button class="btn-play-audio card-play-btn" data-word="Manena" data-ipa="manena" data-text="Mane-na">
+                            <span class="play-icon">🔊</span>
+                            <span>Play Pronunciation</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Greeting Card 4 -->
+                <div class="greeting-card">
+                    <div class="greeting-main">
+                        <div class="kui-script-lg">ନିଙ୍ଗେ ସାଧିନା</div>
+                        <div class="kui-latin-lg">Ninge sadhi-na</div>
+                        <div class="kui-ipa">[niŋɡe saːdʱina]</div>
+                    </div>
+                    <div class="greeting-meaning">
+                        <span class="meaning-icon">🌿</span>
+                        <span class="meaning-text">"Welcome to our home / village"</span>
+                    </div>
+                    <p class="greeting-note">Warm invitation offered to guests visiting Kondha homes.</p>
+                    <div class="card-audio-footer">
+                        <button class="btn-play-audio card-play-btn" data-word="Ninge sadhina" data-ipa="ninge sadhina" data-text="Ninge sadhi-na">
+                            <span class="play-icon">🔊</span>
+                            <span>Play Pronunciation</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Kui Common Vocabulary (5-10+ Words Explorer) -->
+        <section class="kui-section" id="section-vocabulary">
+            <div class="section-header">
+                <div class="section-tag">💬 Interactive Word Bank</div>
+                <h2 class="section-title">Common Kui Vocabulary & Meanings</h2>
+                <p class="section-subtitle">Search, filter, and hear verified pronunciations of fundamental Kui words with Dravidian root cognates.</p>
+            </div>
+
+            <!-- Controls: Search & Category Filter -->
+            <div class="vocab-controls">
+                <div class="search-box-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="vocab-search-input" class="vocab-search-input" placeholder="Search by Kui word, English meaning, or Odia script..." aria-label="Search vocabulary">
+                    <button id="vocab-search-clear" class="btn-search-clear" aria-label="Clear search">✕</button>
+                </div>
+
+                <div class="filter-tabs" id="vocab-filter-tabs">
+                    <button class="filter-tab active" data-category="all">All Words (12)</button>
+                    <button class="filter-tab" data-category="nature">🌿 Nature & Elements</button>
+                    <button class="filter-tab" data-category="life">🏡 House & Kinship</button>
+                    <button class="filter-tab" data-category="body">👁️ Body & Living</button>
+                    <button class="filter-tab" data-category="culture">⛰️ Culture & Deities</button>
+                </div>
+            </div>
+
+            <!-- Vocabulary Cards Grid -->
+            <div class="vocab-grid" id="vocab-grid">
+                <!-- Word Cards will be rendered dynamically by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Section 3: Writing & Transcription Information -->
+        <section class="kui-section" id="section-transcription">
+            <div class="section-header">
+                <div class="section-tag">✍️ Script & Phonetics</div>
+                <h2 class="section-title">Writing System & Transcription</h2>
+                <p class="section-subtitle">Understanding how the oral Kui language is transcribed and spoken.</p>
+            </div>
+
+            <div class="info-two-column">
+                <div class="info-card">
+                    <div class="info-card-icon">📜</div>
+                    <h3>Oral Tradition & Odia Script Adaptation</h3>
+                    <p>
+                        Traditionally, Kui was exclusively an <strong>oral unwritten language</strong> rich in spoken poetry, folk legends, and ritual chants passed down through generations of Kondha singers (called <em>Gurumai</em>).
+                    </p>
+                    <p>
+                        In modern times, Kui is primarily transcribed using the <strong>Odia script (ଓଡ଼ିଆ ଲିପି)</strong> in educational initiatives and literature by Odisha's Tribal Language Academy, as well as the standard <strong>Latin transcription alphabet</strong> with IPA phonetic diacritics.
+                    </p>
+                    <div class="script-comparison-box">
+                        <div class="script-item">
+                            <span class="script-name">Odia Script Rendering:</span>
+                            <span class="script-value odia-font">କୁ‍ଇ ଭାଷା</span>
+                        </div>
+                        <div class="script-item">
+                            <span class="script-name">Latin Phonetic Notation:</span>
+                            <span class="script-value">Kũi Bāsa</span>
+                        </div>
+                        <div class="script-item">
+                            <span class="script-name">IPA International Phonetic:</span>
+                            <span class="script-value">[kui̯ baːsa]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">🎙️</div>
+                    <h3>Unique Phonetic Features</h3>
+                    <ul class="phonetics-list">
+                        <li>
+                            <strong>Nasalization (˜):</strong> Vowels frequently feature distinctive nasal resonance (e.g. <em>Kũi</em>), produced by lowering the velum during vocalization.
+                        </li>
+                        <li>
+                            <strong>Retroflex Consonants (ɖ, ʈ, ɭ):</strong> Pronounced with the tip of the tongue curled upward toward the roof of the mouth (e.g., <em>Kādu</em> /kaɖu/ - foot).
+                        </li>
+                        <li>
+                            <strong>Glottal Stops (ʔ):</strong> Abrupt closure of the vocal folds between vowels, giving spoken Kui its rhythm.
+                        </li>
+                        <li>
+                            <strong>Voiceless Liquids & Trills:</strong> Unique consonant sounds in the South-Central Dravidian phonetic inventory.
+                        </li>
+                    </ul>
+                    
+                    <div class="interactive-sound-test">
+                        <span class="sound-test-title">Interactive Sound Explorer:</span>
+                        <div class="sound-chip-group">
+                            <button class="sound-chip btn-play-audio" data-word="Kadu" data-ipa="kaɖu" data-text="Kādu (Retroflex)">🔊 Kādu [kaɖu]</button>
+                            <button class="sound-chip btn-play-audio" data-word="Eyu" data-ipa="eju" data-text="Eyu (Vowel)">🔊 Eyu [eju]</button>
+                            <button class="sound-chip btn-play-audio" data-word="Penu" data-ipa="penu" data-text="Penu (Nasal)">🔊 Penu [penu]</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Dravidian Language Family Context -->
+        <section class="kui-section" id="section-dravidian">
+            <div class="section-header">
+                <div class="section-tag">🌳 Linguistic Family Lineage</div>
+                <h2 class="section-title">Dravidian Language Family Context</h2>
+                <p class="section-subtitle">Kui belongs to the South-Central subgroup of Dravidian languages, retaining ancient roots.</p>
+            </div>
+
+            <div class="family-tree-card">
+                <h3 class="tree-heading">Dravidian Language Tree Classification</h3>
+                <div class="tree-diagram">
+                    <div class="tree-node root">Proto-Dravidian</div>
+                    <div class="tree-branches">
+                        <div class="branch">
+                            <span class="branch-label">North Dravidian</span>
+                            <span class="branch-examples">Kurukh, Malto, Brahui</span>
+                        </div>
+                        <div class="branch">
+                            <span class="branch-label">Central Dravidian</span>
+                            <span class="branch-examples">Kolami, Naiki, Parji</span>
+                        </div>
+                        <div class="branch active-branch">
+                            <span class="branch-label highlight">South-Central Dravidian ⭐</span>
+                            <span class="branch-examples active-text"><strong>Kui</strong>, Kuvi, Gondi, Konda, Pengo, Manda, Telugu</span>
+                        </div>
+                        <div class="branch">
+                            <span class="branch-label">South Dravidian</span>
+                            <span class="branch-examples">Tamil, Malayalam, Kannada, Tulu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cognate Matrix Table -->
+            <div class="cognate-matrix-wrapper">
+                <h3 class="matrix-heading">Comparative Dravidian Cognate Matrix</h3>
+                <p class="matrix-desc">Notice how Kui vocabulary directly shares ancient etymological roots with major sister Dravidian languages across India:</p>
+
+                <div class="table-responsive">
+                    <table class="cognate-table">
+                        <thead>
+                            <tr>
+                                <th>Meaning</th>
+                                <th>Kui (କୁ‍ଇ)</th>
+                                <th>Telugu</th>
+                                <th>Tamil</th>
+                                <th>Kannada</th>
+                                <th>Proto-Dravidian Root</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Water</strong></td>
+                                <td class="kui-cell"><button class="btn-inline-audio btn-play-audio" data-word="Eyu" data-text="Eyu">🔊 <strong>Eyu / Eju</strong></button></td>
+                                <td>Ēru (ఏరు)</td>
+                                <td>Nīr (நீரும்)</td>
+                                <td>Nīru (நீರು)</td>
+                                <td>*nīr / *yāṟu</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tree</strong></td>
+                                <td class="kui-cell"><button class="btn-inline-audio btn-play-audio" data-word="Mara" data-text="Mara">🔊 <strong>Mara</strong></button></td>
+                                <td>Mānu (మాను)</td>
+                                <td>Maram (மரம்)</td>
+                                <td>Mara (ಮರ)</td>
+                                <td>*mar-am</td>
+                            </tr>
+                            <tr>
+                                <td><strong>House</strong></td>
+                                <td class="kui-cell"><button class="btn-inline-audio btn-play-audio" data-word="Illu" data-text="Illu">🔊 <strong>Illu / Idu</strong></button></td>
+                                <td>Illu (ఇల్లు)</td>
+                                <td>Illam (இல்லம்)</td>
+                                <td>Illu (ಇಲ್ಲು)</td>
+                                <td>*il-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Milk</strong></td>
+                                <td class="kui-cell"><button class="btn-inline-audio btn-play-audio" data-word="Palu" data-text="Pālu">🔊 <strong>Pālu</strong></button></td>
+                                <td>Pālu (పాలు)</td>
+                                <td>Pāl (பால்)</td>
+                                <td>Hālu (ಹಾಲು)</td>
+                                <td>*pāl</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fish</strong></td>
+                                <td class="kui-cell"><button class="btn-inline-audio btn-play-audio" data-word="Meenu" data-text="Meenu">🔊 <strong>Meenu</strong></button></td>
+                                <td>Mīnu (మీను)</td>
+                                <td>Mīn (மீன்)</td>
+                                <td>Mīnu (ಮೀನು)</td>
+                                <td>*mīn</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Eye</strong></td>
+                                <td class="kui-cell"><button class="btn-inline-audio btn-play-audio" data-word="Kanu" data-text="Kānu">🔊 <strong>Kānu</strong></button></td>
+                                <td>Kallu (కన్ను)</td>
+                                <td>Kaṇ (கண்)</td>
+                                <td>Kaṇṇu (ಕಣ್ಣು)</td>
+                                <td>*kaṇ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Odisha & Surrounding Highlands Region -->
+        <section class="kui-section" id="section-regions">
+            <div class="section-header">
+                <div class="section-tag">🗺️ Highland Geography</div>
+                <h2 class="section-title">Odisha Highlands & Surrounding Regions</h2>
+                <p class="section-subtitle">Explore the mountain heartland where Kui culture thrives amid mist-covered Eastern Ghats peaks.</p>
+            </div>
+
+            <div class="region-explorer-layout">
+                <!-- Region Info Panel -->
+                <div class="region-info-panel" id="region-info-panel">
+                    <div class="region-card active" id="region-card-kandhamal">
+                        <span class="region-badge">Heartland District</span>
+                        <h3>Kandhamal (Phulbani & Daringbadi)</h3>
+                        <p class="region-elevation">⛰️ Elevation: 900m – 1,100m above sea level</p>
+                        <p class="region-desc">
+                            Known as the epicentre of Kui speakers. Home to pine-scented Daringbadi ("The Kashmir of Odisha"), lush valleys, organic turmeric fields, and traditional Kutia & Maliah Kondha settlements.
+                        </p>
+                        <div class="region-tags">
+                            <span class="tag">Kutia Kondha</span>
+                            <span class="tag">Daringbadi Pine Forests</span>
+                            <span class="tag">Kandhamal Haldi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Region Selector List -->
+                <div class="region-selector-list">
+                    <button class="region-item active" data-region="kandhamal">
+                        <div class="region-item-header">
+                            <span class="region-icon">📍</span>
+                            <span class="region-name">Kandhamal District</span>
+                        </div>
+                        <span class="region-sub">Phulbani, Daringbadi & Balliguda</span>
+                    </button>
+
+                    <button class="region-item" data-region="rayagada">
+                        <div class="region-item-header">
+                            <span class="region-icon">📍</span>
+                            <span class="region-name">Rayagada & Niyamgiri</span>
+                        </div>
+                        <span class="region-sub">Dongria Kondha Sacred Mountain</span>
+                    </button>
+
+                    <button class="region-item" data-region="kalahandi">
+                        <div class="region-item-header">
+                            <span class="region-icon">📍</span>
+                            <span class="region-name">Kalahandi Plateaus</span>
+                        </div>
+                        <span class="region-sub">Thuamul Rampur & Lanjigarh</span>
+                    </button>
+
+                    <button class="region-item" data-region="koraput">
+                        <div class="region-item-header">
+                            <span class="region-icon">📍</span>
+                            <span class="region-name">Koraput & Nabarangpur</span>
+                        </div>
+                        <span class="region-sub">Southern Eastern Ghats Valleys</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Short Cultural Section -->
+        <section class="kui-section" id="section-culture">
+            <div class="section-header">
+                <div class="section-tag">🎨 Indigenous Heritage</div>
+                <h2 class="section-title">Kondha Culture, Art & Traditions</h2>
+                <p class="section-subtitle">Discover the sacred bond with nature, vibrant embroidery, lost-wax bronze crafts, and seasonal festivals.</p>
+            </div>
+
+            <div class="culture-cards-grid">
+                <!-- Culture Card 1 -->
+                <div class="culture-card">
+                    <div class="culture-card-img-placeholder eco-bg">
+                        <span class="culture-card-emoji">🌿</span>
+                    </div>
+                    <div class="culture-card-body">
+                        <h3>Dharani Penu & Eco-Spirituality</h3>
+                        <p>
+                            The Kondha worldview centers around deep reverence for <strong>Dharani Penu (Earth Goddess)</strong> and <em>Niyam Raja</em> (Lord of the Sacred Niyamgiri Mountains). Every mountain stream, old-growth sal tree, and sacred grove (<em>Jaani</em>) is protected as a living deity.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Culture Card 2 -->
+                <div class="culture-card">
+                    <div class="culture-card-img-placeholder shawl-bg">
+                        <span class="culture-card-emoji">🧶</span>
+                    </div>
+                    <div class="culture-card-body">
+                        <h3>Kapdaganda Embroidered Shawls</h3>
+                        <p>
+                            Handwoven with distinctive red, yellow, and green geometric triangular motifs by Dongria Kondha women. The <strong>Kapdaganda shawl</strong> is a prized cultural symbol of identity, courtship, and artisanal mastery awarded GI tag status.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Culture Card 3 -->
+                <div class="culture-card">
+                    <div class="culture-card-img-placeholder dhokra-bg">
+                        <span class="culture-card-emoji">🏺</span>
+                    </div>
+                    <div class="culture-card-body">
+                        <h3>Dhokra Metal Craft & Ittalan Murals</h3>
+                        <p>
+                            Highland Kondha artisans practice 4,000-year-old lost-wax <strong>Dhokra bronze casting</strong>, shaping tribal figurines, animals, and sacred bells. Homes feature sacred <em>Ittalan</em> wall murals painted with rice paste and mineral colors.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Culture Card 4 -->
+                <div class="culture-card">
+                    <div class="culture-card-img-placeholder fest-bg">
+                        <span class="culture-card-emoji">🪘</span>
+                    </div>
+                    <div class="culture-card-body">
+                        <h3>Chaitra Parba & Kedu Yatra</h3>
+                        <p>
+                            Spring brings the vibrant <strong>Chaitra Parba</strong> festival and <em>Kedu Yatra</em> harvest thanksgiving. Villagers dance in traditional attire accompanied by rhythmic <em>Dhap</em> drums, <em>Tasha</em> gongs, and flute melodies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Interactive Quiz Challenge -->
+        <section class="kui-section" id="section-quiz">
+            <div class="section-header">
+                <div class="section-tag">🎯 Test Your Knowledge</div>
+                <h2 class="section-title">Interactive Kui Explorer Quiz</h2>
+                <p class="section-subtitle">Put your Kui language and culture learning to the test!</p>
+            </div>
+
+            <div class="quiz-container" id="quiz-container">
+                <div class="quiz-card" id="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+                    </div>
+                    
+                    <div class="quiz-question-header">
+                        <span class="quiz-q-num" id="quiz-q-num">Question 1 of 5</span>
+                        <span class="quiz-score" id="quiz-score">Score: 0</span>
+                    </div>
+
+                    <h3 class="quiz-question-text" id="quiz-question-text">
+                        What is the common Kui greeting for "Hello / Reverence"?
+                    </h3>
+
+                    <div class="quiz-options-grid" id="quiz-options-grid">
+                        <!-- Quiz options dynamically generated -->
+                    </div>
+
+                    <div class="quiz-feedback hidden" id="quiz-feedback">
+                        <span class="feedback-icon" id="feedback-icon">✅</span>
+                        <span class="feedback-text" id="feedback-text">Correct answer!</span>
+                    </div>
+
+                    <div class="quiz-footer">
+                        <button class="btn-quiz-next" id="btn-quiz-next" disabled>Next Question ➔</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-logo">Incredible India Explorer</h3>
+                    <p class="footer-desc">An interactive digital exploration of India's vast cultural heritage, indigenous languages, and natural wonders.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Language Modules</h4>
+                    <ul>
+                        <li><a href="#kui-hero">Kui Language Explorer</a></li>
+                        <li><a href="../../frontend/languages-of-india/index.html">Languages of India</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore Odisha</h4>
+                    <ul>
+                        <li><a href="../../frontend/ansupa-lake-explorer/index.html">Ansupa Lake</a></li>
+                        <li><a href="../../frontend/bhitarkanika-wetlands-explorer/index.html">Bhitarkanika</a></li>
+                        <li><a href="../../frontend/chilika-lake/chilika-lake.html">Chilika Lake</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Incredible India Explorer. Dedicated to indigenous linguistic heritage preservation.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Synth & Explorer Script -->
+    <script src="kui-language-explorer.js"></script>
+</body>
+</html>
