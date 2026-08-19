@@ -16,8 +16,9 @@ window.indiaSearchIndex = [
         title: "Arunachal Pradesh's Tani Languages Explorer",
         category: "Culture & Languages",
         description: "Explore the diverse Tani language family of Arunachal Pradesh (Nyishi, Adi, Apatani, Galo, Tagin, Mising): regional map, verified audio greetings, comparative vocabulary matrix, and cultural heritage.",
-        url: "frontend/arunachal-tani-languages/index.html"},
-  {
+        url: "frontend/arunachal-tani-languages/index.html"
+    },
+    {
         title: "Balti Language Explorer (Himalayan Heritage)",
         category: "Culture & Languages",
         description: "Explore the ancient Balti language of Ladakh (Kargil, Turtuk, Nubra Valley, Leh): 3 writing scripts, Old Tibetan consonant preservation, verified audio greetings, and cultural heritage.",
@@ -3821,20 +3822,22 @@ window.indiaSearchIndex = [
     {
         title: 'Bandarpoonch Mountain Explorer',
         category: 'Mountains & Geography',
-        description:'Dedicated explorer for Bandarpoonch, a 6,316 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, trekking details, and FAQs.',
+        description: 'Dedicated explorer for Bandarpoonch, a 6,316 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, trekking details, and FAQs.',
         url: 'frontend/bandarpoonch/bandarpoonch.html'
     },
     {
-    title: "Indian Kushti Competitions: The Akhara Tradition",
-    category: "Sports & Culture",
-    description: "Explore Kushti wrestling and the Akhara tradition — training equipment like the gada and mugdar, techniques, regional wrestling traditions, historic wrestlers, and cultural significance.",
-    url: "frontend/kushti-akhara-explorer/index.html"},
-  {
-    title: "Zoho: India's Software Product Journey",
-    category: "Technology & Business",
-    description: "Explore Zoho's journey from a bootstrapped 1996 Chennai startup to a 55-product SaaS ecosystem — origin story, founder Sridhar Vembu, an interactive product ecosystem map, milestones, global presence, and company philosophy.",
-    url: "frontend/zoho-explorer/index.html"},
-  {
+        title: "Indian Kushti Competitions: The Akhara Tradition",
+        category: "Sports & Culture",
+        description: "Explore Kushti wrestling and the Akhara tradition — training equipment like the gada and mugdar, techniques, regional wrestling traditions, historic wrestlers, and cultural significance.",
+        url: "frontend/kushti-akhara-explorer/index.html"
+    },
+    {
+        title: "Zoho: India's Software Product Journey",
+        category: "Technology & Business",
+        description: "Explore Zoho's journey from a bootstrapped 1996 Chennai startup to a 55-product SaaS ecosystem — origin story, founder Sridhar Vembu, an interactive product ecosystem map, milestones, global presence, and company philosophy.",
+        url: "frontend/zoho-explorer/index.html"
+    },
+    {
         title: "Infosys: India's Technology Success Story",
         category: "Featured Explorers",
         description: "Interactive archive of Infosys's growth from $250 in founding capital (1981) to a nearly $19 billion global IT services leader — founders, 1999 NASDAQ listing, milestones, and global presence, with sources.",
@@ -3863,14 +3866,14 @@ window.indiaSearchIndex = [
     {
         title: 'India Historical Firsts Timeline & Knowledge Quiz',
         category: 'Interactive Learning',
-        description:'Chronological milestone timeline from 1853 to 1984, category filters, and multiple-choice knowledge quiz testing famous Indian firsts.',
+        description: 'Chronological milestone timeline from 1853 to 1984, category filters, and multiple-choice knowledge quiz testing famous Indian firsts.',
         url: 'frontend/indias-firsts/indias-firsts.html'
     },
     {
-       title: "Forgotten Indian Sporting Tournaments",
-       category: "Sports & History",
-       description: "A Then vs Now archive of historic Indian tournaments like the Bombay Pentangular, Rovers Cup, and Beighton Cup that shaped Indian sport but are no longer widely remembered.",
-       url: "frontend/forgotten-tournaments-explorer/index.html"
+        title: "Forgotten Indian Sporting Tournaments",
+        category: "Sports & History",
+        description: "A Then vs Now archive of historic Indian tournaments like the Bombay Pentangular, Rovers Cup, and Beighton Cup that shaped Indian sport but are no longer widely remembered.",
+        url: "frontend/forgotten-tournaments-explorer/index.html"
     },
     {
         title: "India's Firsts in Sports",
@@ -3927,7 +3930,8 @@ window.indiaSearchIndex = [
         category: 'Ancient Epigraphy & History',
         description:
             "Discover Harishena's Sanskrit inscription celebrating Samudragupta's northern and southern campaigns, veena gold coins, and Gupta expansion.",
-        url: 'frontend/samudragupta-explorer/index.html'},
+        url: 'frontend/samudragupta-explorer/index.html'
+    },
     // --- Chandragupta II Vikramaditya – Gupta Emperor ---
     {
         title: "Chandragupta II Vikramaditya: Gupta Emperor",
@@ -3941,7 +3945,8 @@ window.indiaSearchIndex = [
         category: 'Ancient Metallurgy & Classical Culture',
         description:
             "Discover the metallurgical marvel of Delhi's 1,600-year rust-resistant Iron Pillar, Ujjain's Navaratnas, and Faxian's 5th-century travelogue.",
-        url: 'frontend/chandragupta-ii-explorer/index.html'},
+        url: 'frontend/chandragupta-ii-explorer/index.html'
+    },
     // --- Ashoka the Great – Mauryan Emperor & Patron of Dhamma ---
     {
         title: "Ashoka the Great: Mauryan Emperor & Patron of Dhamma",
@@ -3955,7 +3960,8 @@ window.indiaSearchIndex = [
         category: 'Ancient Inscriptions & Archaeology',
         description:
             'Interactive guide to Ashokan inscriptions at Sarnath, Girnar, Dhauli, Kalsi, and Kandahar in Brahmi, Kharosthi, Greek, and Aramaic scripts.',
-        url: 'frontend/ashoka-the-great-explorer/index.html'},
+        url: 'frontend/ashoka-the-great-explorer/index.html'
+    },
     // --- Chandragupta Maurya – Founder of the Mauryan Empire ---
     {
         title: "Chandragupta Maurya: Founder of the Mauryan Empire",
@@ -3987,10 +3993,10 @@ window.indiaSearchIndex = [
         url: 'frontend/border-explorer/border-explorer.html'
     },
     {
-    title: "Chhattisgarhi: छत्तीसगढ़ी and Its Folk Heritage",
-    category: "Languages & Culture",
-    description: "Explore Chhattisgarhi — Devanagari script, a verified greeting with pronunciation, common Chhattisgarhi words, its language family, the Chhattisgarh region, and folk heritage including Pandwani storytelling.",
-    url: "frontend/chhattisgarhi-explorer/index.html"
+        title: "Chhattisgarhi: छत्तीसगढ़ी and Its Folk Heritage",
+        category: "Languages & Culture",
+        description: "Explore Chhattisgarhi — Devanagari script, a verified greeting with pronunciation, common Chhattisgarhi words, its language family, the Chhattisgarh region, and folk heritage including Pandwani storytelling.",
+        url: "frontend/chhattisgarhi-explorer/index.html"
     },
     // --- Important Government Institutions Explorer ---
     {
@@ -4033,25 +4039,34 @@ window.indiaSearchIndex = [
         url: 'frontend/indian-cinema-timeline/index.html'
     },
     {
-    title: "Bhojpuri: भोजपुरी and Its Folk Heritage",
-    category: "Languages & Culture",
-    description: "Discover Bhojpuri — Devanagari script, a verified greeting with pronunciation, common Bhojpuri words, its place in the Indo-Aryan family, major regions, and its folk music, cinema, and Bidesia theatre heritage.",
-    url: "frontend/bhojpuri-explorer/index.html"
+        title: "Bhojpuri: भोजपुरी and Its Folk Heritage",
+        category: "Languages & Culture",
+        description: "Discover Bhojpuri — Devanagari script, a verified greeting with pronunciation, common Bhojpuri words, its place in the Indo-Aryan family, major regions, and its folk music, cinema, and Bidesia theatre heritage.",
+        url: "frontend/bhojpuri-explorer/index.html"
     },
-  {
-    title: "Awadhi: अवधी and Its Literary Tradition",
-    category: "Languages & Culture",
-    description: "Explore Awadhi — Devanagari script, a verified greeting with pronunciation, common Awadhi words, its place in the Indo-Aryan family, the Awadh region, and its literary tradition including Tulsidas's Ramcharitmanas.",
-    url: "frontend/awadhi-explorer/index.html"},
-  {title: "Punjabi: ਪੰਜਾਬੀ and Gurmukhi",
-    category: "Languages & Culture",
-    description: "Discover Punjabi — Gurmukhi script, a verified greeting with pronunciation, common Punjabi words, its place in the Indo-Aryan family, major Punjabi-speaking regions, and cultural notes.",
-    url: "frontend/punjabi-explorer/index.html"},
-  {
-    title: "Magahi: मगही and the Magadha Region",
-    category: "Languages & Culture",
-    description: "Discover Magahi — Devanagari script, a verified greeting with pronunciation, common Magahi words, its place in the Indo-Aryan family, and the Bihar/Jharkhand Magadha region.",
-    url: "frontend/magahi-explorer/index.html"
+    {
+        title: "Awadhi: अवधी and Its Literary Tradition",
+        category: "Languages & Culture",
+        description: "Explore Awadhi — Devanagari script, a verified greeting with pronunciation, common Awadhi words, its place in the Indo-Aryan family, the Awadh region, and its literary tradition including Tulsidas's Ramcharitmanas.",
+        url: "frontend/awadhi-explorer/index.html"
+    },
+    {
+        title: "Punjabi: ਪੰਜਾਬੀ and Gurmukhi",
+        category: "Languages & Culture",
+        description: "Discover Punjabi — Gurmukhi script, a verified greeting with pronunciation, common Punjabi words, its place in the Indo-Aryan family, major Punjabi-speaking regions, and cultural notes.",
+        url: "frontend/punjabi-explorer/index.html"
+    },
+    {
+        title: "Magahi: मगही and the Magadha Region",
+        category: "Languages & Culture",
+        description: "Discover Magahi — Devanagari script, a verified greeting with pronunciation, common Magahi words, its place in the Indo-Aryan family, and the Bihar/Jharkhand Magadha region.",
+        url: "frontend/magahi-explorer/index.html"
+    },
+    {
+        title: "Marwari: मारवाड़ी and Rajasthan's Desert Heritage",
+        category: "Languages & Culture",
+        description: "Explore Marwari — Devanagari and Mahajani script heritage, a verified greeting with pronunciation, common Marwari words, its place in the Rajasthani/Indo-Aryan family, Marwar's regions, and folk music, poetry and cultural heritage.",
+        url: "frontend/marwari-explorer/index.html"
     },
     // --- Reo Purgyil Mountain ---
     {
@@ -4189,8 +4204,16 @@ window.indiaSearchIndex = [
         category: "Arts & Culture",
         description: "Explore Gupta-era gold Dinars — from Chandragupta I's marriage type to Skandagupta's Hun-era issues. Filter by ruler, coin type, metal, and script, with an obverse/reverse viewer.",
         url: "frontend/gupta-coinage-gallery/index.html"
+        title: "Gupta Coinage Gallery",
+        category: "Arts & Culture",
+        description: "Explore Gupta-era gold Dinars — from Chandragupta I's marriage type to Skandagupta's Hun-era issues. Filter by ruler, coin type, metal, and script, with an obverse/reverse viewer.",
+        url: "frontend/gupta-coinage-gallery/index.html"
     },
     {
+        title: "Kushan Gold Coinage Explorer",
+        category: "Arts & Culture",
+        description: "Discover Kushan gold coinage from Kujula Kadphises to Vasudeva I — ruler selector, interactive coin viewer with deity hotspots, inscription viewer, historical timeline, and Kushan territory map.",
+        url: "frontend/kushan-gold-coinage/index.html"
         title: "Kushan Gold Coinage Explorer",
         category: "Arts & Culture",
         description: "Discover Kushan gold coinage from Kujula Kadphises to Vasudeva I — ruler selector, interactive coin viewer with deity hotspots, inscription viewer, historical timeline, and Kushan territory map.",
@@ -4214,6 +4237,10 @@ window.indiaSearchIndex = [
         category: "Heritage & History",
         description: "Reconstruct Nalanda — building-by-building campus explorer, scholar network, Xuanzang and Yijing accounts, international student connections, historical timeline, and archaeological evidence.",
         url: "frontend/nalanda-explorer/index.html"
+        title: "Nalanda: The Ancient University City",
+        category: "Heritage & History",
+        description: "Reconstruct Nalanda — building-by-building campus explorer, scholar network, Xuanzang and Yijing accounts, international student connections, historical timeline, and archaeological evidence.",
+        url: "frontend/nalanda-explorer/index.html"
     },
     // --- Terracotta Pottery Explorer ---
     {
@@ -4232,6 +4259,10 @@ window.indiaSearchIndex = [
         url: 'frontend/beddomes-coral-snake-explorer/index.html'
     },
     {
+        title: "Taxila: The Ancient Crossroads of Gandhara",
+        category: "Heritage & History",
+        description: "Recreate Taxila — compare Bhir Mound, Sirkap, and Sirsukh settlements, explore Silk Road trade routes, Buddhist sites, learning traditions, artifacts, and a full archaeological timeline.",
+        url: "frontend/taxila-explorer/index.html"
         title: "Taxila: The Ancient Crossroads of Gandhara",
         category: "Heritage & History",
         description: "Recreate Taxila — compare Bhir Mound, Sirkap, and Sirsukh settlements, explore Silk Road trade routes, Buddhist sites, learning traditions, artifacts, and a full archaeological timeline.",
@@ -5316,7 +5347,7 @@ window.indiaSearchIndex = [
         url: "frontend/nilgiri-tahr-explorer/index.html"
     },
     // --- Palur Port Explorer ---
-{
+    {
         title: "Palur Ancient Port Explorer",
         category: "Heritage & History",
         description: "Explore Palur, an ancient port in Odisha mentioned by Ptolemy and Pliny, serving as a critical gateway for maritime trade between India and Southeast Asia from 3rd century BCE to 8th century CE.",
