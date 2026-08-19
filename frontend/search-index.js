@@ -5850,5 +5850,13 @@ window.indiaSearchIndex = [
         description:
             "Explore Havells' origin, product categories, major milestones, brand evolution and Indian manufacturing story through an interactive product-category explorer.",
         url: 'frontend/havells-explorer/index.html'
+    },
+    // --- Golconda Fort Explorer ---
+    {
+        title: "Golconda Fort: Explore Hyderabad's Historic Fortress",
+        category: 'Monuments & Architecture',
+        description:
+            "Develop a dedicated Golconda Fort explorer covering its Qutb Shahi history, acoustic engineering, 87 bastions, diamond trade vaults, and royal palaces in Hyderabad.",
+        url: 'frontend/golconda-fort-explorer/index.html'
     }
 ];
