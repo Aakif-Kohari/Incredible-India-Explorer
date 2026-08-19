@@ -4068,6 +4068,12 @@ window.indiaSearchIndex = [
         description: "Explore Marwari — Devanagari and Mahajani script heritage, a verified greeting with pronunciation, common Marwari words, its place in the Rajasthani/Indo-Aryan family, Marwar's regions, and folk music, poetry and cultural heritage.",
         url: "frontend/marwari-explorer/index.html"
     },
+    {
+        title: "Mewari: मेवाड़ी and the Mewar Region",
+        category: "Languages & Culture",
+        description: "Discover Mewari — Devanagari script heritage, a verified greeting with pronunciation, common Mewari words, its place in the Rajasthani/Indo-Aryan family, the Mewar region, and folk and cultural heritage.",
+        url: "frontend/mewari-explorer/index.html"
+    },
     // --- Reo Purgyil Mountain ---
     {
         title: 'Reo Purgyil Mountain Explorer',
