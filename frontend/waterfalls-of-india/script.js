@@ -21,7 +21,8 @@
             flow: "Varies greatly with the season; highly spectacular during the monsoon.",
             attractions: "Linganamakki Dam, Honnemaradu, Sigandur.",
             image: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&q=80&w=600",
-            thumb: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&q=40&w=400"
+            thumb: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&q=40&w=400",
+            url: "../jog-falls-explorer/index.html"
         },
         {
             id: "dudhsagar",
