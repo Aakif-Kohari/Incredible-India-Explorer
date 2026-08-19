@@ -35,7 +35,8 @@
             flow: "Heavy during monsoons, creating a milky white appearance as it cascades down.",
             attractions: "Bhagwan Mahavir Wildlife Sanctuary, Tambdi Surla Temple.",
             image: "https://images.unsplash.com/photo-1599394676579-a1b73e35186b?auto=format&fit=crop&q=80&w=600",
-            thumb: "https://images.unsplash.com/photo-1599394676579-a1b73e35186b?auto=format&fit=crop&q=40&w=400"
+            thumb: "https://images.unsplash.com/photo-1599394676579-a1b73e35186b?auto=format&fit=crop&q=40&w=400",
+            url: "../dudhsagar-falls-explorer/index.html"
         },
         {
             id: "nohkalikai",
