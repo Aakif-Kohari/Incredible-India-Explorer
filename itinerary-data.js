@@ -81,6 +81,19 @@
       ]
     },
     {
+      id: "lakshadweep",
+      name: "Lakshadweep",
+      state: "Lakshadweep",
+      tagline: "Pristine coral atolls and turquoise waters",
+      center: { lat: 11.1667, lng: 72.5 },
+      image: "assets/travel_islands.png",
+      attractions: [
+        { id: "bangaram-beach", name: "Bangaram Beach", interests: ["relaxation", "marine-life"], lat: 11.1667, lng: 72.5, visitMinutes: 120, openHour: 6, closeHour: 18, costTier: 1, description: "Pristine uninhabited island with golden sands, clear lagoons, and vibrant coral reefs. Part of the Lakshadweep archipelago, ideal for snorkeling, diving, and serene beach walks." },
+        { id: "kalpenti-island", name: "Kalpetti Island", interests: ["relaxation", "marine-life"], lat: 11.2, lng: 72.6, visitMinutes: 90, openHour: 6, closeHour: 17, costTier: 1, description: "Secluded island with powder-soft sands and excellent opportunities for kayaking and spotting marine life." },
+        { id: "minicoy-island", name: "Minicoy Island", interests: ["culture", "adventure"], lat: 10.245, lng: 73.0157, visitMinutes: 150, openHour: 6, closeHour: 18, costTier: 2, description: "The southernmost island of Lakshadweep featuring traditional Laccadive culture, ancient mosques, and lagoons perfect for water sports." }
+      ]
+    },
+    {
       id: "kerala",
       name: "Kochi & Munnar",
       state: "Kerala",
