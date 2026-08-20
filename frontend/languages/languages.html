@@ -3,7 +3,7 @@
 
 <head>
     <script>
-        (function() {
+        (function () {
             const theme = localStorage.getItem('theme') || 'dark';
             if (theme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'light');
@@ -485,6 +485,7 @@
                 { name: 'Marwari', script: 'खम्मा घणी', region: 'Marwar, Rajasthan (Jodhpur, Bikaner, Jaisalmer)', code: 'hi-IN', description: 'The largest Rajasthani language of the Thar desert, carrying Dingal bardic poetry, Mahajani mercantile script heritage, and Manganiyar/Langa folk music.', exploreUrl: '../marwari-explorer/index.html' },
                 { name: 'Nepali', script: 'नमस्ते', region: 'Sikkim, West Bengal, Assam', code: 'ne-IN', description: 'An Indo-Aryan language in Devanagari script, recognized in the 8th Schedule and official in Sikkim & Darjeeling hills.', exploreUrl: '../nepali-language-explorer/index.html' },
                 { name: 'Mizo', script: 'Chibai', region: 'Mizoram', code: 'en-IN', description: 'A Tibeto-Burman language with a Roman-based orthography, deeply rooted in Mizoram.', exploreUrl: '../mizo-language-explorer/index.html' },
+                { name: 'Garo', script: 'Namengama?', region: 'Meghalaya (Garo Hills), Assam, Bangladesh', code: 'en-IN', description: 'A Bodo-Garo (Tibeto-Burman) language of the A·chik people, written in Roman script and rooted in the Garo Hills of Meghalaya.', exploreUrl: '../garo-language-explorer/index.html' },
                 { name: 'Punjabi', script: 'ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ', region: 'Punjab, Delhi, Haryana', code: 'pa-IN', description: 'Language of Gurmukhi script and rich folklore of the land of five rivers.', exploreUrl: '../punjabi-explorer/index.html' },
                 { name: 'Bundeli', script: 'राम राम', region: 'Bundelkhand, MP & UP', code: 'hi-IN', description: 'A Western Hindi language of Bundelkhand with Devanagari script, Alha-Udal ballads, and Bundela fort heritage.', exploreUrl: '../bundeli-language-explorer/index.html' },
                 { name: 'Ho', script: '𑢺𑣉𑣖𑣜', region: 'Jharkhand (Kolhan), Odisha (Mayurbhanj)', code: 'hi-IN', description: 'An Austroasiatic Munda language with its indigenous Warang Citi alphabet, Mage Porob harvest festivals, and historic Manki-Munda governance.', exploreUrl: '../ho-language-explorer/index.html' },
@@ -493,6 +494,7 @@
                 { name: 'Ladakhi', script: 'ཇུ་ལེགས།', region: 'Ladakh (Leh, Nubra, Changthang, Zanskar, Kargil)', code: 'hi-IN', description: 'A Western Archaic Tibetic language preserving 7th-century Old Tibetan consonant clusters and Tibetan Uchen script.', exploreUrl: '../ladakhi-language-explorer/index.html' },
                 { name: 'Shina', script: 'سلام / جے حال ہن؟', region: 'Ladakh (Drass Valley, Kargil), Gurez Valley', code: 'hi-IN', description: 'A Dardic language spoken in Drass Valley (second coldest inhabited place on Earth) and Gurez, known for pitch-accent tones and mountain polo.', exploreUrl: '../shina-language-explorer/index.html' },
                 { name: 'Mewari', script: 'खम्मा घणी', region: 'Mewar, Rajasthan (Udaipur, Chittorgarh)', code: 'hi-IN', description: 'A Rajasthani language of the historic Mewar region, home to the Sisodia Rajput kingdom, with rich miniature-painting and folk-ballad heritage.', exploreUrl: '../mewari-explorer/index.html' },
+                { name: 'Malvi', script: 'राम राम सा!', region: 'Madhya Pradesh (Malwa), Rajasthan', code: 'hi-IN', description: 'A Western Indo-Aryan language of the fertile Malwa plateau, celebrated for Maach folk theatre, Sanjha art, and Kabir bhajans.', exploreUrl: '../malvi-language-explorer/index.html' }
             ];
 
             const grid = document.getElementById('lang-grid');
@@ -607,15 +609,38 @@
                 const card = document.createElement('article');
                 card.className = 'lang-card';
                 card.innerHTML = `
-                    <div class="lang-script" aria-hidden="true">${lang.script}</div>
-                    <h3 class="lang-name">${lang.name}</h3>
-                    <div class="lang-region">${lang.region}</div>
-                    ${lang.description ?\`<p style="font-size: 0.9rem; margin: 10px 0; color: #ddd;">${lang.description}</p>\` : ''}
-                    <button class="play-btn" data-lang="${lang.code}" data-text="${lang.script}" data-name="${lang.name}" aria-label="Play greeting in ${lang.name}">
-                        ▶ Listen
-                    </button>
-                    ${lang.exploreUrl ?\`<a href="${lang.exploreUrl}" class="play-btn" style="margin-top: 10px; background: transparent; border: 1px solid var(--saffron, #FF9933); color: var(--saffron, #FF9933); text-decoration: none;">Explore ${lang.name}</a>\` : ''}
-                `;
+    <div class="lang-script" aria-hidden="true">${lang.script}</div>
+
+    <h3 class="lang-name">${lang.name}</h3>
+
+    <div class="lang-region">${lang.region}</div>
+
+    ${lang.description
+                        ? `<p style="font-size: 0.9rem; margin: 10px 0; color: #ddd;">${lang.description}</p>`
+                        : ''
+                    }
+
+    <button
+        class="play-btn"
+        data-lang="${lang.code}"
+        data-text="${lang.script}"
+        data-name="${lang.name}"
+        aria-label="Play greeting in ${lang.name}"
+    >
+        ▶ Listen
+    </button>
+
+    ${lang.exploreUrl
+                        ? `<a
+                href="${lang.exploreUrl}"
+                class="play-btn"
+                style="margin-top: 10px; background: transparent; border: 1px solid var(--saffron, #FF9933); color: var(--saffron, #FF9933); text-decoration: none;"
+              >
+                Explore ${lang.name}
+              </a>`
+                        : ''
+                    }
+`;
 
                 const btn = card.querySelector('.play-btn');
                 btn.addEventListener('click', () => {

@@ -70,5 +70,13 @@ const DESTINATIONS = [
     avgCost: 500, openHours: "24 Hours",
     nearBy: ["chapora-fort", "anjuna-beach", "ozran-beach"],
     description: "Iconic North Goa beach featuring dramatic red laterite cliffs, Chapora Fort overlook, Ozran Shiva face rock sculpture, and vibrant sunset culture."
+  },
+  {
+    id: "colva-beach", name: "Colva Beach", city: "Salcete, South Goa",
+    tags: ["beach", "white-sand", "heritage", "water-sports", "coastal", "goa"],
+    indoorOutdoor: "outdoor", bestWeather: ["clear", "clouds"],
+    avgCost: 400, openHours: "24 Hours",
+    nearBy: ["benaulim-beach", "betalbatim-beach", "church-our-lady-of-mercy"],
+    description: "Legendary 24km powdery white sand coastline in South Goa featuring water sports, historic Church of Our Lady of Mercy, and rich Goan shack dining."
   }
 ];
