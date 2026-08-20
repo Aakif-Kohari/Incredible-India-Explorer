@@ -187,6 +187,24 @@ document.addEventListener("DOMContentLoaded", () => {
       tags: []
     },
     {
+      id: "reo-purgyil",
+      name: "Reo Purgyil",
+      height: 6816,
+      heightDisplay: "6,816 m",
+      range: "Himalayas",
+      subrange: "Zanskar Range",
+      state: "Himachal Pradesh",
+      region: "north",
+      difficulty: "Hard",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Peaks_of_Mt_Leo_Purgyil_and_Reo_Purgyil.jpg/960px-Peaks_of_Mt_Leo_Purgyil_and_Reo_Purgyil.jpg",
+      firstAscent: "1971",
+      description: "The highest peak in Himachal Pradesh, a dome-shaped massif at the southern end of the Zanskar Range rising above the Sutlej on the India–Tibet border.",
+      fact: "Reo Purgyil forms a striking twin-peak massif with its neighbour Leo Pargial (6,791 m), and is often shrouded in clouds.",
+      link: "../reo-purgyil/reo-purgyil.html",
+      linkLabel: "Explore Peak",
+      tags: ["state-high-point"]
+    },
+    {
       id: "satopanth",
       name: "Satopanth",
       height: 7075,
@@ -329,6 +347,24 @@ document.addEventListener("DOMContentLoaded", () => {
       link: "../indrasan/indrasan.html",
       linkLabel: "Explore Peak",
       tags: ["mythological"]
+    },
+    {
+      id: "kinnaur-kailash",
+      name: "Kinnaur Kailash",
+      height: 6050,
+      heightDisplay: "6,050 m",
+      range: "Himalayas",
+      subrange: "Kinnaur Kailash Range",
+      state: "Himachal Pradesh",
+      region: "north",
+      difficulty: "Hard",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Kinnaur_kailash%286050m%29_and_Jorkanden_%286473_m%29_from_Kalpa_photographed_By_Sumita_Roy.jpg/960px-Kinnaur_kailash%286050m%29_and_Jorkanden_%286473_m%29_from_Kalpa_photographed_By_Sumita_Roy.jpg",
+      firstAscent: "Unclimbed (Sacred)",
+      description: "One of India's most sacred mountains at 6,050 m in Himachal Pradesh, famous for its natural 79-ft monolithic Shivalinga rock formation that changes color through the day. Revered as an abode of Lord Shiva and part of the Panch Kailash.",
+      fact: "The Shivalinga at the summit appears to change colors — white at dawn, yellow at noon, saffron in afternoon, red at sunset. No summit climbing is allowed due to its sacred status.",
+      link: "../kinnaur-kailash/kinnaur-kailash.html",
+      linkLabel: "Explore Peak",
+      tags: ["sacred-peak", "panch-kailash", "mythological"]
     },
     {
       id: "hanuman-tibba",

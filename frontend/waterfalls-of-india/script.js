@@ -5,7 +5,7 @@
     'use strict';
 
     /* ================================================================
-       1. DATA
+       1. DATA (single source of truth: waterfalls-data.js)
        ================================================================ */
 
     const WATERFALLS_DATA = [
@@ -35,7 +35,8 @@
             flow: "Heavy during monsoons, creating a milky white appearance as it cascades down.",
             attractions: "Bhagwan Mahavir Wildlife Sanctuary, Tambdi Surla Temple.",
             image: "https://images.unsplash.com/photo-1599394676579-a1b73e35186b?auto=format&fit=crop&q=80&w=600",
-            thumb: "https://images.unsplash.com/photo-1599394676579-a1b73e35186b?auto=format&fit=crop&q=40&w=400"
+            thumb: "https://images.unsplash.com/photo-1599394676579-a1b73e35186b?auto=format&fit=crop&q=40&w=400",
+            url: "../dudhsagar-falls-explorer/index.html"
         },
         {
             id: "nohkalikai",
@@ -49,7 +50,8 @@
             flow: "Consistent throughout the year, but strongest during the heavy monsoons of Meghalaya.",
             attractions: "Mawsmai Cave, Seven Sisters Falls, Double Decker Living Root Bridge.",
             image: "https://images.unsplash.com/photo-1592683935213-90d16edb5709?auto=format&fit=crop&q=80&w=600",
-            thumb: "https://images.unsplash.com/photo-1592683935213-90d16edb5709?auto=format&fit=crop&q=40&w=400"
+            thumb: "https://images.unsplash.com/photo-1592683935213-90d16edb5709?auto=format&fit=crop&q=40&w=400",
+            url: "../nohkalikai-falls-explorer/index.html"
         },
         {
             id: "athirappilly",
@@ -63,7 +65,8 @@
             flow: "Powerful and wide during the monsoon, offering a majestic view.",
             attractions: "Vazhachal Waterfalls, Charpa Falls, Sholayar Dam.",
             image: "https://images.unsplash.com/photo-1621614769004-ee9cfa11794b?auto=format&fit=crop&q=80&w=600",
-            thumb: "https://images.unsplash.com/photo-1621614769004-ee9cfa11794b?auto=format&fit=crop&q=40&w=400"
+            thumb: "https://images.unsplash.com/photo-1621614769004-ee9cfa11794b?auto=format&fit=crop&q=40&w=400",
+            url: "../athirappilly-falls-explorer/index.html"
         },
         {
             id: "shivanasamudra",
@@ -133,7 +136,8 @@
             flow: "Good flow year-round, but highly spectacular (and sometimes restricted for boating) during heavy monsoons.",
             attractions: "Coracle Rides, Melagiri Hills.",
             image: "https://images.unsplash.com/photo-1595878715977-2e8f8df18ea8?auto=format&fit=crop&q=80&w=600",
-            thumb: "https://images.unsplash.com/photo-1595878715977-2e8f8df18ea8?auto=format&fit=crop&q=40&w=400"
+            thumb: "https://images.unsplash.com/photo-1595878715977-2e8f8df18ea8?auto=format&fit=crop&q=40&w=400",
+            url: "../hogenakkal-falls-explorer/index.html"
         },
         {
             id: "bhimlat",
@@ -148,6 +152,214 @@
             attractions: "Bundi Fort, Taragarh Fort.",
             image: "https://images.unsplash.com/photo-1620959451996-037340c2be43?auto=format&fit=crop&q=80&w=600",
             thumb: "https://images.unsplash.com/photo-1620959451996-037340c2be43?auto=format&fit=crop&q=40&w=400"
+        },
+        {
+            id: "bishop",
+            name: "Bishop Falls",
+            state: "Meghalaya",
+            river: "Umiam River",
+            height: "135 meters",
+            season: "Post-Monsoon",
+            tags: ["monsoon"],
+            description: "A spectacular three-tiered cascade plunging down the steep gorges of Shillong, famed for its twin relationship with Beadon Falls.",
+            flow: "Powerful roar during monsoon; clearer three-tiered cascade post-monsoon.",
+            attractions: "Beadon Falls, Umiam Lake.",
+            image: "https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&fit=crop&q=40&w=400",
+            url: "../bishop-falls-explorer/index.html",
+            id: "nohsngithiang",
+            name: "Nohsngithiang Falls",
+            state: "Meghalaya",
+            river: "Monsoon Rainfall",
+            height: "315 meters",
+            season: "Monsoon",
+            tags: ["monsoon"],
+            description: "Also known as the Seven Sisters Falls, this majestic 315m segmented waterfall transforms the Khasi Hills cliffs during the monsoon.",
+            flow: "Thundering seven streams in monsoon; completely dry in winter.",
+            attractions: "Mawsmai Cave, Cherrapunji.",
+            image: "https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=40&w=400",
+            url: "../nohsngithiang-falls-explorer/index.html"
+        },
+        {
+            id: "vantawng",
+            name: "Vantawng Falls",
+            state: "Mizoram",
+            river: "Vanva River",
+            height: "229 meters",
+            season: "Monsoon",
+            tags: ["monsoon", "year-round"],
+            description: "Mizoram's tallest waterfall, cascading 229 metres in a stunning two-tiered drop amid deep bamboo forests.",
+            flow: "Massive roaring curtain in monsoon; clearer two-tiered cascade in winter.",
+            attractions: "Thenzawl, Chhingpuii Thlan.",
+            image: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=40&w=400",
+            url: "../vantawng-falls-explorer/index.html"
+        },
+        {
+            id: "nuranang",
+            name: "Nuranang Falls",
+            state: "Arunachal Pradesh",
+            river: "Nuranang River",
+            height: "100 meters",
+            season: "Monsoon",
+            tags: ["monsoon", "year-round"],
+            description: "Also known as Bong Bong Falls, a spectacular ~100m drop in the Himalayas.",
+            flow: "Powerful in monsoon, serene and crystal clear in winter.",
+            attractions: "Tawang, Sela Pass.",
+            image: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&q=40&w=400",
+            url: "../nuranang-falls-explorer/index.html"
+        },
+        {
+            id: "kempty",
+            name: "Kempty Falls",
+            state: "Uttarakhand",
+            river: "Garhwal hill stream (Yamuna tributary)",
+            height: "40-50 feet",
+            season: "Year-round",
+            tags: ["year-round"],
+            description: "A five-tiered cascade near Mussoorie, developed as a tea-party spot in 1835.",
+            flow: "Powerful and flood-prone in monsoon; clear and gentle March-June and Sept-Nov.",
+            attractions: "Mussoorie Mall Road, Camel's Back Road, Lal Tibba.",
+            image: "https://images.unsplash.com/photo-1467890947394-8171244e5410?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1467890947394-8171244e5410?auto=format&fit=crop&q=40&w=400",
+            url: "../kempty-falls-explorer/index.html"
+        },
+        {
+            id: "chitrakote",
+            name: "Chitrakote Falls",
+            state: "Chhattisgarh",
+            river: "Indravati River",
+            height: "29 meters",
+            season: "Monsoon",
+            tags: ["monsoon", "widest"],
+            description: "India's widest waterfall, spreading nearly 300m across the Indravati in a horseshoe shape.",
+            flow: "Roaring reddish-brown curtain in monsoon; narrower clear streams in the dry season.",
+            attractions: "Tirathgarh Falls, Kanger Valley National Park, Kailash Caves.",
+            image: "https://images.unsplash.com/photo-1620641622310-c1c243e4959c?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1620641622310-c1c243e4959c?auto=format&fit=crop&q=40&w=400",
+            url: "../chitrakote-falls-explorer/index.html"
+        },
+        {
+            id: "tirathgarh",
+            name: "Tirathgarh Falls",
+            state: "Chhattisgarh",
+            river: "Munga Bahar (Kanger River tributary)",
+            height: "91 meters",
+            season: "Year-round",
+            tags: ["year-round", "monsoon"],
+            description: "A multi-tiered, milky-white cascade inside Kanger Valley National Park.",
+            flow: "Full and flooded in monsoon; clear, milky-white and distinctly tiered Oct-Feb.",
+            attractions: "Kanger Valley National Park, Kutumsar Caves, Kailash Caves, Chitrakote Falls.",
+            image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=40&w=400",
+            url: "../tirathgarh-falls-explorer/index.html"
+        },
+        {
+            id: "tiger-falls",
+            name: "Tiger Falls",
+            state: "Uttarakhand",
+            river: "Keraao Stream (Yamuna Basin)",
+            height: "95 meters",
+            season: "Spring / Summer",
+            tags: ["year-round"],
+            description: "A hidden 95-meter direct drop cascade enveloped in ancient deodar and oak woods near Chakrata in Garhwal Himalayas.",
+            flow: "Roaring clear stream in summer and monsoon; crystal wading pool at the base.",
+            attractions: "Chakrata Cantonment, Deoban, Chilmiri Neck, Kanasar Deodars.",
+            image: "https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=40&w=400",
+            url: "../tiger-falls-explorer/index.html"
+        },
+        {
+            id: "joranda",
+            name: "Joranda Falls",
+            state: "Odisha",
+            river: "Budhabalanga Basin Tributary",
+            height: "181 meters",
+            season: "Post-Monsoon",
+            tags: ["tallest", "monsoon"],
+            description: "A breathtaking 181m single uninterrupted plunge off ancient volcanic cliffs within the Similipal Tiger Reserve core zone.",
+            flow: "Spectacular roaring single-stream column post-monsoon; mist-filled forest cauldron.",
+            attractions: "Similipal National Park, Barehipani Falls, Chahala, Meghasani Peak.",
+            image: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=40&w=400",
+            url: "../joranda-falls-explorer/index.html"
+        },
+        {
+            id: "barehipani",
+            name: "Barehipani Falls",
+            state: "Odisha",
+            river: "Budhabalanga River",
+            height: "399 meters",
+            season: "Post-Monsoon",
+            tags: ["tallest", "monsoon"],
+            description: "India's 2nd highest two-tiered waterfall, cascading 399 meters amidst the core tiger habitats of Similipal National Park.",
+            flow: "Roaring two-tiered silver torrent post-monsoon; perennial flow through ancient Meghasani basalt.",
+            attractions: "Similipal Tiger Reserve, Joranda Falls, Meghasani Peak, Chahala.",
+            image: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=40&w=400",
+            url: "../barehipani-falls-explorer/index.html"
+        },
+        {
+            id: "soochipara",
+            name: "Soochipara Falls",
+            state: "Kerala",
+            river: "Chaliyar River",
+            height: "200 meters",
+            season: "Post-Monsoon",
+            tags: ["year-round", "tallest"],
+            description: "A three-tiered cascade nestled in the dense montane evergreen rainforests of Wayanad, surrounded by Sentinel Rock cliffs.",
+            flow: "Spectacular flow post-monsoon; safe natural plunge pool for swimming in winter.",
+            attractions: "Chembra Peak, Meenmutty Falls, Kanthanpara Falls, Vellarimala.",
+            image: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=40&w=400",
+            url: "../soochipara-falls-explorer/index.html"
+        },
+        {
+            id: "agaya-gangai",
+            name: "Agaya Gangai",
+            state: "Tamil Nadu",
+            river: "Aiyaru River",
+            height: "91 meters",
+            season: "Post-Monsoon",
+            tags: ["year-round", "monsoon"],
+            description: "A sheer 300-foot 'Ganges of the Sky' falls in the Kolli Hills, reached by a 1,300-step forest trek.",
+            flow: "Forceful in monsoon; clear and comfortable to trek Nov-Jan.",
+            attractions: "Arapaleeswarar Temple, Siddhar Caves, Kolli Hills ghat road.",
+            image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=40&w=400",
+            url: "../agaya-gangai-explorer/index.html"
+        },
+        {
+            id: "pykara",
+            name: "Pykara Falls",
+            state: "Tamil Nadu",
+            river: "Pykara River",
+            height: "61 meters",
+            season: "Post-Monsoon",
+            tags: ["year-round", "monsoon"],
+            description: "Twin cascades (55m and 61m) where the sacred Pykara river drops off the Nilgiri plateau near Ooty.",
+            flow: "Full and lush Aug-Jan; noticeably reduced in the dry summer months.",
+            attractions: "Pykara Lake, Mukurthi National Park, Doddabetta Peak.",
+            image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=40&w=400",
+            url: "../pykara-falls-explorer/index.html"
+        },
+        {
+            id: "meenmutty",
+            name: "Meenmutty Falls",
+            state: "Kerala",
+            river: "Banasura hill streams (Wayanad)",
+            height: "300 meters",
+            season: "Post-Monsoon",
+            tags: ["year-round"],
+            description: "The largest waterfall in Wayanad, a three-tiered ~300m cascade near Banasura Sagar Dam.",
+            flow: "Dangerous and often closed in monsoon; calm and swimmable Oct-May.",
+            attractions: "Banasura Sagar Dam, Soochipara Falls, Neelimala Viewpoint.",
+            image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=80&w=600",
+            thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&q=40&w=400",
+            url: "../meenmutty-falls-explorer/index.html"
         }
     ];
 
@@ -160,6 +372,7 @@
     const modal = document.getElementById('waterfall-modal');
     const modalBody = document.getElementById('modal-body');
     const modalCloseBtn = document.querySelector('.modal-close');
+    const difficultyChips = document.querySelectorAll('.trek-difficulty-chip');
 
     /* ================================================================
        3. INIT & RENDER
@@ -169,11 +382,13 @@
         renderGrid(WATERFALLS_DATA);
         setupFilters();
         setupModal();
+        setupTrekDifficultySection();
+        openModalFromQueryParam();
     });
 
     function renderGrid(data) {
         gridContainer.innerHTML = '';
-        
+
         if (data.length === 0) {
             gridContainer.innerHTML = '<p style="color:var(--text-muted); text-align:center;">No waterfalls found for this filter.</p>';
             return;
@@ -204,12 +419,19 @@
                 </div>
             `;
 
-            // Event Listeners for Modal
-            card.addEventListener('click', () => openModal(item));
+            // Event Listeners for Modal or External URL
+            const handleAction = () => {
+                if (item.url) {
+                    window.location.href = item.url;
+                } else {
+                    openModal(item);
+                }
+            };
+            card.addEventListener('click', handleAction);
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    openModal(item);
+                    handleAction();
                 }
             });
 
@@ -225,7 +447,7 @@
 
     function setupIntersectionObserver() {
         const cards = document.querySelectorAll('.waterfall-card');
-        
+
         if (!('IntersectionObserver' in window)) {
             // Fallback for older browsers
             cards.forEach(card => card.classList.add('fade-in'));
@@ -281,7 +503,7 @@
         };
 
         modalCloseBtn.addEventListener('click', closeModal);
-        
+
         modal.addEventListener('click', (e) => {
             if (e.target.classList.contains('modal-backdrop')) {
                 closeModal();
@@ -329,6 +551,9 @@
                     
                     <h4>Nearby Attractions</h4>
                     <p>${escapeHTML(data.attractions)}</p>
+
+                    <h4>Trek Difficulty</h4>
+                    <p>${data.trek && data.trek.documented ? escapeHTML(trekLabel(data.trek.difficulty)) + ' — ' + escapeHTML(data.trek.approach) : 'Not yet documented for this waterfall.'}</p>
                 </div>
             </div>
         `;
@@ -338,8 +563,40 @@
         modalCloseBtn.focus();
     }
 
+    // Allows the Trek Difficulty Map's Explore buttons to deep-link back into
+    // this page's existing modal for waterfalls that don't have their own
+    // standalone explorer page (i.e. no "url" field).
+    function openModalFromQueryParam() {
+        const params = new URLSearchParams(window.location.search);
+        const openId = params.get('open');
+        if (!openId) return;
+        const item = WATERFALLS_DATA.find(w => w.id === openId);
+        if (item && !item.url) {
+            openModal(item);
+        }
+    }
+
     /* ================================================================
-       7. UTILS
+       7. EXPLORE BY TREK DIFFICULTY SECTION
+       ================================================================ */
+
+    function setupTrekDifficultySection() {
+        difficultyChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                const difficulty = chip.dataset.difficulty;
+                window.location.href = `../waterfall-trek-difficulty-map/index.html?difficulty=${encodeURIComponent(difficulty)}`;
+            });
+        });
+    }
+
+    function trekLabel(difficulty) {
+        const levels = window.WATERFALL_DIFFICULTY_LEVELS || [];
+        const match = levels.find(l => l.id === difficulty);
+        return match ? `${match.icon} ${match.label}` : 'Not yet documented';
+    }
+
+    /* ================================================================
+       8. UTILS
        ================================================================ */
 
     function escapeHTML(str) {

@@ -2,14 +2,6 @@
 <html lang="en">
 
 <head>
-    <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
-            if (theme === 'light') {
-                document.body.classList.add('light-theme');
-            }
-        })();
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
@@ -28,12 +20,19 @@
     ">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="js-modules/command-palette/command-palette.css">
+    <link rel="icon" type="image/png" href="frontend/assets/hero_banner.png">
+    <link rel="apple-touch-icon" href="frontend/assets/hero_banner.png">
+    <link rel="manifest" href="frontend/manifest.json">
+    <link rel="stylesheet" href="frontend/js-modules/command-palette/command-palette.css">
     <style>
-        .align-center { align-self: center; }
-        .fw-600 { font-weight: 600; }
+        .align-center {
+            align-self: center;
+        }
+
+        .fw-600 {
+            font-weight: 600;
+        }
+
         /* SW Update Banner */
         .sw-update-banner {
             display: none;
@@ -47,25 +46,29 @@
             padding: 12px 20px;
             text-align: center;
             font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             transform: translateY(-100%);
             transition: transform 0.35s ease;
         }
+
         .sw-update-banner.visible {
             display: block;
             transform: translateY(0);
         }
+
         .sw-update-banner p {
             margin: 0 0 8px 0;
             color: #f1f1f1;
             font-size: 0.95rem;
         }
+
         .sw-update-banner .update-actions {
             display: flex;
             gap: 10px;
             justify-content: center;
             flex-wrap: wrap;
         }
+
         .sw-update-banner .btn-update {
             background: linear-gradient(135deg, #ff6f3c, #ff9f43);
             color: #fff;
@@ -77,20 +80,23 @@
             cursor: pointer;
             transition: transform 0.2s;
         }
+
         .sw-update-banner .btn-update:hover {
             transform: translateY(-1px);
         }
+
         .sw-update-banner .btn-dismiss {
             background: transparent;
             color: #a0a0a0;
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 8px 20px;
             border-radius: 6px;
             font-size: 0.85rem;
             cursor: pointer;
         }
+
         .sw-update-banner .btn-dismiss:hover {
-            border-color: rgba(255,255,255,0.35);
+            border-color: rgba(255, 255, 255, 0.35);
             color: #f1f1f1;
         }
     </style>
@@ -98,7 +104,10 @@
         /* Loading overlay for SPA page transitions */
         .app-loading-overlay {
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             z-index: 9999;
             display: flex;
             align-items: center;
@@ -108,6 +117,7 @@
             -webkit-backdrop-filter: blur(4px);
             transition: opacity 0.3s ease;
         }
+
         .loading-spinner {
             position: relative;
             width: 60px;
@@ -116,15 +126,35 @@
             align-items: center;
             justify-content: center;
         }
+
         .spinner-ring {
             position: absolute;
             border: 3px solid transparent;
             border-radius: 50%;
             animation: spinner-rotate 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
         }
-        .spinner-ring-1 { width: 100%; height: 100%; border-top-color: #ff6f00; animation-delay: -0.45s; }
-        .spinner-ring-2 { width: 75%; height: 75%; border-top-color: #ffab00; animation-delay: -0.3s; }
-        .spinner-ring-3 { width: 50%; height: 50%; border-top-color: #ffd54f; animation-delay: -0.15s; }
+
+        .spinner-ring-1 {
+            width: 100%;
+            height: 100%;
+            border-top-color: #ff6f00;
+            animation-delay: -0.45s;
+        }
+
+        .spinner-ring-2 {
+            width: 75%;
+            height: 75%;
+            border-top-color: #ffab00;
+            animation-delay: -0.3s;
+        }
+
+        .spinner-ring-3 {
+            width: 50%;
+            height: 50%;
+            border-top-color: #ffd54f;
+            animation-delay: -0.15s;
+        }
+
         .spinner-text {
             position: absolute;
             font-size: 10px;
@@ -133,10 +163,17 @@
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
+
         @keyframes spinner-rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
+
         /* 404 / Error page styles */
         .not-found-page {
             min-height: 70vh;
@@ -146,9 +183,11 @@
             padding: 3rem 1.5rem;
             text-align: center;
         }
+
         .not-found-container {
             max-width: 560px;
         }
+
         .not-found-code {
             font-size: 6rem;
             font-weight: 800;
@@ -159,21 +198,25 @@
             background-clip: text;
             margin-bottom: 0.5rem;
         }
+
         .not-found-title {
             font-size: 1.75rem;
             font-weight: 700;
             margin: 0 0 0.75rem;
             color: var(--text-primary, #e0e0e0);
         }
+
         .not-found-message {
             font-size: 1rem;
             line-height: 1.6;
             color: var(--text-secondary, #a0a0a0);
             margin-bottom: 1.75rem;
         }
+
         .not-found-message strong {
             word-break: break-all;
         }
+
         .not-found-actions {
             display: flex;
             gap: 0.75rem;
@@ -181,6 +224,7 @@
             flex-wrap: wrap;
             margin-bottom: 2rem;
         }
+
         .not-found-actions .btn {
             padding: 0.65rem 1.5rem;
             border-radius: 8px;
@@ -190,32 +234,38 @@
             border: none;
             transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
+
         .not-found-actions .btn:hover {
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
+
         .not-found-home-btn {
             background: linear-gradient(135deg, #ff6f00, #ffab00);
             color: #fff;
             text-decoration: none;
         }
+
         .not-found-search-btn {
             background: transparent;
             color: var(--text-primary, #e0e0e0);
             border: 1px solid var(--border-color, #444) !important;
         }
+
         .not-found-suggestions h3 {
             font-size: 1rem;
             font-weight: 600;
             margin: 0 0 0.75rem;
             color: var(--text-primary, #e0e0e0);
         }
+
         .not-found-links {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
             justify-content: center;
         }
+
         .not-found-link {
             display: inline-block;
             padding: 0.4rem 0.85rem;
@@ -227,10 +277,12 @@
             font-size: 0.88rem;
             transition: background 0.15s ease, color 0.15s ease;
         }
+
         .not-found-link:hover {
             background: var(--accent, #ffab00);
             color: #fff;
         }
+
         /* Dark mode compatible - uses CSS variables */
         [data-theme="light"] .not-found-page {
             --text-primary: #222;
@@ -239,6 +291,7 @@
             --border-color: #ddd;
             --accent: #e65100;
         }
+
         .not-found-page {
             --text-primary: #e0e0e0;
             --text-secondary: #a0a0a0;
@@ -252,7 +305,8 @@
 
     <!-- Open Graph / Social Meta Tags -->
     <meta property="og:title" content="Incredible India Explorer">
-    <meta property="og:description" content="An interactive, animated digital tour of India's states, cuisines, festivals, dances, and vibrant culture.">
+    <meta property="og:description"
+        content="An interactive, animated digital tour of India's states, cuisines, festivals, dances, and vibrant culture.">
     <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -263,27 +317,40 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Incredible India Explorer">
-    <meta name="twitter:description" content="An interactive, animated digital tour of India's states, cuisines, festivals, dances, and vibrant culture.">
+    <meta name="twitter:description"
+        content="An interactive, animated digital tour of India's states, cuisines, festivals, dances, and vibrant culture.">
     <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
     <!-- Canonical URL -->
     <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/">
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-        rel="stylesheet">
-
-    <!-- Custom Stylesheet -->
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="./assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Custom Stylesheet -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="frontend/navbar-redesign/navbar.css">
+    <link rel="stylesheet" href="frontend/js-modules/language-switcher.css">
     <style>
-        .footer-credits-center { align-self: center; }
-        .font-weight-600 { font-weight: 600; }
+        .footer-credits-center {
+            align-self: center;
+        }
+
+        .font-weight-600 {
+            font-weight: 600;
+        }
     </style>
 </head>
 
 <body>
+    <script>
+        (function () {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
 
     <!-- SW Update Available Banner -->
     <div id="sw-update-banner" class="sw-update-banner" role="alert" aria-live="polite">
@@ -296,134 +363,87 @@
 
     <!-- Sticky Navigation Bar -->
     <header class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo" id="nav-logo">
-                <span class="saffron">Incredible</span>
-                <span class="gold">India</span>
-                <span class="green">Explorer</span>
-            </a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <nav class="nav-menu" id="nav-menu">
-                <a href="index.html#home" class="nav-link active" id="link-home">Home</a>
-                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
-                <a href="frontend/cuisine/cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
-                <a href="culinary-game.html" class="nav-link" id="link-culinary" style="color: #f59e0b">Culinary Challenge</a>
-                <a href="frontend/festivals/festivals.html" class="nav-link" id="link-festivals">Festivals</a>
-                <a href="frontend/culture/culture.html" class="nav-link" id="link-culture">Culture</a>
-                <a href="frontend/passport-quest/passport-quest.html" class="nav-link" id="link-passport" style="color: var(--saffron)">Passport Quest</a>
-                <a href="frontend/monsoon-game/monsoon-game.html" class="nav-link" id="link-monsoon" style="color: var(--green)">Monsoon Game</a>
-                <a href="frontend/wildlife-rescue/wildlife-rescue.html" class="nav-link" id="link-wildlife" style="color: var(--gold)">Wildlife Rescue</a>
-                <a href="frontend/river-game/river-game.html" class="nav-link" id="link-river" style="color: #60a5fa">River Explorer</a>
-                <a href="frontend/geo-guesser-india/index.html" class="nav-link" id="link-geo-guesser" style="color: #ff6f00">🗺️ GeoGuesser</a>
-                <a href="frontend/world-records-india/index.html" class="nav-link" id="link-world-records" style="color: #ffd700">🏆 World Records</a>
-                <a href="frontend/cuisine-discovery-hub/index.html" class="nav-link" id="link-cuisine-hub" style="color: #e0a832">🍛 UP Cuisine</a>
-                <a class="nav-link" href="frontend/route-planner/route-planner.html">🧭 Route Planner</a>
-                <a class="nav-link" href="frontend/contributors/contributors.html" style="color: #facc15">🏆 Contributors</a>
-                 <div class="nav-dropdown">
-                    <button class="nav-link dropdown-toggle" id="link-explore-more">Explore More ▾</button>
-                    <div class="dropdown-menu">
-                        <a href="frontend/handicrafts-showcase/index.html" class="dropdown-item"> UP Handicrafts</a>
-                        <a href="frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
-                        <a href="frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
-                        <a href="frontend/historical-timeline/index.html" class="dropdown-item"> UP Historical Timeline</a>
-                        <a href="frontend/national-days-calendar/index.html" class="dropdown-item"> National Days Calendar</a>
-                        <a href="frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols Gallery</a>
-                        <a href="frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats Experience</a>
-                        <a href="frontend/crowd-density/index.html" class="dropdown-item"> Crowd Density Predictor</a>
-                        <a href="frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
-                        <a href="harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland Explorer</a>
-                        <a href="wular-lake/wular-lake.html" class="dropdown-item"> Wular Lake Explorer</a>
-                        <a href="frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
-                        <a href="frontend/one-day-history/one-day-history.html" class="dropdown-item">One Day in History</a>
-                        <a href="frontend/monuments/monuments.html" class="dropdown-item">Monuments</a>
-                        <a href="frontend/hidden-gems/hidden-gems.html" class="dropdown-item">Hidden Gems</a>
-                        <a href="frontend/railways/railways.html" class="dropdown-item">Railways Explorer</a>
-                        <a href="frontend/adventure/adventure.html" class="dropdown-item">Adventure</a>
-                        <a href="frontend/personalities/personalities.html" class="dropdown-item">Famous Personalities</a>
-                        <a href="frontend/spiritual/spiritual.html" class="dropdown-item">Spiritual India</a>
-                        <a href="frontend/arts-crafts/arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
-                        <a href="frontend/tribes/tribes.html" class="dropdown-item">Tribes</a>
-                        <a href="frontend/river/river.html" class="dropdown-item">Rivers</a>
-                        <a href="frontend/coin/coin.html" class="dropdown-item">Evolution of Currency</a>
-                        <a href="frontend/hill-stations/hill-stations.html" class="dropdown-item">Hill-stations</a>
-                        <a href="frontend/mountains/index.html" class="dropdown-item">Mountains of India</a>
-                        <a href="frontend/rimo-i/rimo-i.html" class="dropdown-item">Rimo I Mountain</a>
-                        <a href="frontend/kanchenjunga/kanchenjunga.html" class="dropdown-item">Kanchenjunga Mountain</a>
-                        <a href="frontend/lighthouses/lighthouses.html" class="dropdown-item">Lighthouses</a>
-                        <a href="frontend/coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
-                        <a href="frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks Explorer</a>
-                        <a href="frontend/national-parks-timeline/national-parks-timeline.html" class="dropdown-item">National Parks Timeline</a>
-                        <a href="frontend/newspaper-archives/index.html" class="dropdown-item">Newspaper Timeline</a>
-                        <a href="frontend/climate-zones/climate-zones.html" class="dropdown-item">Climate Zones</a>
-                        <a href="museums.html" class="dropdown-item">Museum</a>
-                        <a href="frontend/stepwells/stepwells.html" class="dropdown-item">Stepwells</a>
-                        <a href="frontend/music/music.html" class="dropdown-item">Music</a>
-                        <a href="frontend/astronomy/astronomy.html" class="dropdown-item">Astronomy</a>
-                        <a href="frontend/dance/dance.html" class="dropdown-item">Dance</a>
-                        <a href="frontend/handloom/index.html" class="dropdown-item">Handloom</a>
-                        <a href="frontend/postal-stamps/index.html" class="dropdown-item">Postal Stamps</a>
-                        <a href="frontend/freedom-timeline/index.html" class="dropdown-item">Freedom Timeline</a>
-                    </div>
+    <div class="nav-container">
+        <a href="index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports</a>
+                    <a href="frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                    <a href="frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
                 </div>
-                <div class="nav-dropdown">
-                    <button class="nav-link dropdown-toggle" id="link-learn-data">Learn & Data ▾</button>
-                    <div class="dropdown-menu">
- feat/592-rbi-governors-history
-                        <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
-                        <a href="languages.html" class="dropdown-item">Languages of India</a>
-                        <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
-                        <a href="governance/election-commission/index.html" class="dropdown-item">Election Commission History</a>
-                        <a href="economy/rbi-governors/index.html" class="dropdown-item">RBI Governors History</a>
- feat/591-vice-presidents-india-module
-                        <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
-                        <a href="languages.html" class="dropdown-item">Languages of India</a>
-                        <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
-                        <a href="governance/vice-presidents/index.html" class="dropdown-item">Vice Presidents Module</a>
+            </div>
 
-                        <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
-                        <a href="languages.html" class="dropdown-item">Languages of India</a>
-                        <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
-                        <a href="renewable-energy.html" class="dropdown-item">Renewable Energy</a>
-                        <a href="governance/prime-ministers/index.html" class="dropdown-item">Prime Ministers Timeline</a>
-                        <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
-            <a href="frontend/highest-point-challenge/index.html" class="dropdown-item">Highest Point Challenge</a>
-            <a href="frontend/silk-route-scrollytelling/index.html" class="dropdown-item">Silk Route Scrollytelling</a>
-            <a href="frontend/population-growth/index.html" class="dropdown-item">Population Growth Infographic</a>
-            <a href="frontend/zoom-reveal/index.html" class="dropdown-item">Zoom Reveal</a>
-            <a href="frontend/coastline-connect/index.html" class="dropdown-item">Coastline Connect</a>
-            <a href="frontend/folk-dance-match/index.html" class="dropdown-item">Folk Dance Match Challenge</a>
-            <a href="frontend/compass-challenge/index.html" class="dropdown-item">Indian Compass Challenge</a>
-            <a href="state-symbols.html" class="dropdown-item">State Symbols Explorer++</a>
-            <a href="glossary.html" class="dropdown-item">Glossary</a>
-            <a href="dataset-health.html" class="dropdown-item">Dataset Health</a>
-            <a href="image-credits.html" class="dropdown-item">Image Credits</a>
-            <a href="contributor-checklist.html" class="dropdown-item">Contributor Checklist</a>
-
-                        <a href="frontend/smart-cities/smart-cities.html" class="dropdown-item">Smart Cities</a>
-                        <a href="frontend/languages/languages.html" class="dropdown-item">Languages of India</a>
-                        <a href="frontend/data-india/data-india.html" class="dropdown-item">Data & Statistics</a>
-                        <a href="compare.html" class="dropdown-item">Compare States</a>
-                        <a href="frontend/learn/learn.html" class="dropdown-item">Learn & Quiz</a>
-                        <a href="frontend/pincode-hunt/index.html" class="dropdown-item">PIN Code Hunt</a>
-                        <a href="frontend/state-symbols/state-symbols.html" class="dropdown-item">State Symbols Explorer++</a>
-                        <a href="frontend/glossary/glossary.html" class="dropdown-item">Glossary</a>
-                        <a href="frontend/dataset-health/dataset-health.html" class="dropdown-item">Dataset Health</a>
-                        <a href="frontend/image-credits/image-credits.html" class="dropdown-item">Image Credits</a>
-                        <a href="frontend/contributor-checklist/contributor-checklist.html" class="dropdown-item">Contributor Checklist</a>
- main
-                    </div>
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="frontend/awards-of-india-explorer/index.html" class="dropdown-item">Awards of India</a>
+                    <a href="frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
                 </div>
-                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
-                <a href="frontend/premium/premium.html" class="nav-link premium-link">★ Premium</a>
-                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </div>
 
-            </nav>
-        </div>
-    </header>
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+
+            <div class="nav-tools" style="display: flex; align-items: center; gap: 0.5rem; margin-left: 1rem;">
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </div>
+        </nav>
+    </div>
+</header>
 
     <!-- Loading Overlay (shown during SPA page transitions) -->
     <div id="app-loading-overlay" class="app-loading-overlay" style="display:none;" role="status" aria-live="polite">
@@ -440,14 +460,14 @@
 
         <!-- Hero Section -->
         <section id="home" class="hero-section scroll-section">
-            <video autoplay muted loop class="hero-video" poster="assets/hero_banner.png">
-                <source
-                    src="https://assets.mixkit.co/videos/preview/mixkit-landscape-of-mountains-and-a-lake-at-sunset-31514-large.mp4"
-                    type="video/mp4">
+            <video autoplay muted loop class="hero-video" poster="frontend/assets/hero_banner.png">
+
             </video>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <span class="hero-tagline animate-fade-in">Discover the land of diversity, spices & heritage</span>
+            <div class="hero-overlay" style="background: linear-gradient(180deg, rgba(5,10,21,0.1) 0%, rgba(5,10,21,0.6) 100%);"></div>
+
+            <div class="hero-content premium-glass-card animate-premium-slide-up" style="max-width: 800px; text-align: center; margin: 0 20px;">
+                <span class="hero-tagline animate-fade-in" data-i18n="home.heroTagline">Discover the land of diversity,
+                    spices & heritage</span>
                 <h1 class="hero-title animate-slide-up">Namaste, Welcome to <br><span class="highlight">Incredible
                         India</span></h1>
                 <p class="hero-description animate-fade-in-delayed">
@@ -455,24 +475,29 @@
                     monuments, mouth-watering regional cuisines, colorful festivals, and timeless cultural arts.
                 </p>
                 <div class="hero-buttons animate-fade-in-delayed">
-                    <a href="#map" class="btn btn-primary" id="btn-explore-map">Explore Map</a>
-                    <a href="#quiz" class="btn btn-secondary" id="btn-start-quiz-hero">Take a Quiz</a>
+                    <a href="#map" class="btn btn-primary" id="btn-explore-map" data-i18n="home.exploreMap">Explore
+                        Map</a>
+                    <a href="#quiz" class="btn btn-secondary" id="btn-start-quiz-hero" data-i18n="home.takeQuiz">Take a
+                        Quiz</a>
                 </div>
             </div>
             <div class="hero-scroll-indicator">
-                <span>Scroll Down</span>
+                <span data-i18n="home.scrollDown">Scroll Down</span>
                 <div class="mouse-icon">
                     <div class="wheel"></div>
                 </div>
             </div>
         </section>
 
+        <!-- Daily India Trivia Widget -->
+        <div id="daily-trivia-container" aria-label="Daily India Trivia"></div>
+
         <!-- Map Section -->
         <section id="map" class="map-section scroll-section fade-in-section">
             <div class="section-container">
                 <div class="section-header">
                     <span class="section-badge">Geography & Heritage</span>
-                    <h2>Explore the States of India</h2>
+                    <h2 data-i18n="home.exploreStatesTitle">Explore the States of India</h2>
                     <p class="section-subtitle">Hover over the map to view regions. Click a state or union territory to
                         unlock its cultural profile, famous foods, and festivals.</p>
                 </div>
@@ -509,18 +534,21 @@
                                 </p>
                             </div>
                             <div class="map-action-box">
-                                <button class="btn btn-gold ripple" id="btn-random-state">Explore a Random State</button>
-                                <button class="btn btn-gold ripple hidden" id="btn-sidebar-view-more" style="margin-top: 10px; width: 100%;">View Detailed Page</button>
+                                <button class="btn btn-gold ripple" id="btn-random-state">Explore a Random
+                                    State</button>
+                                <button class="btn btn-gold ripple hidden" id="btn-sidebar-view-more"
+                                    style="margin-top: 10px; width: 100%;">View Detailed Page</button>
                             </div>
                         </div>
 
                         <!-- State Comparison Tool Card -->
-                        <div class="info-card comparison-card" id="state-comparison-card" style="margin-top: 20px;">
+                        <div class="info-card comparison-card" id="state-comparison-card">
                             <div class="info-card-header">
                                 <div class="icon-circle">🔄</div>
                                 <h3>Compare States</h3>
                             </div>
-                            <p class="info-card-text" style="font-size: 0.9rem; margin-bottom: 15px;">Select two states to compare their heritage and culture side-by-side.</p>
+                            <p class="info-card-text">Select two states to compare their heritage and culture
+                                side-by-side.</p>
                             <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px;">
                                 <select id="compare-state-a" class="compare-select">
                                     <option value="" disabled selected>Select First State</option>
@@ -529,10 +557,13 @@
                                     <option value="" disabled selected>Select Second State</option>
                                 </select>
                             </div>
-                            <button class="btn btn-gold ripple" id="btn-compare-states" style="width: 100%;">Compare States</button>
+                            <div class="map-action-box">
+                                <button class="btn btn-gold ripple" id="btn-compare-states">Compare States</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
 
         <!-- Cuisine Explorer Section -->
@@ -623,40 +654,33 @@
                     <!-- Quiz Intro Screen -->
                     <div class="quiz-screen" id="quiz-intro-screen">
                         <div class="quiz-icon">🎮</div>
-                        <h3>Are you ready for the Culinary Quest?</h3>
-                        <p>We'll show you 8 popular Indian delicacies. Identify which state they belong to!</p>
+                        <h3>Ready to Test Your Knowledge?</h3>
+                        <p class="quiz-description">Match famous Indian dishes to their home states. Perfect for food
+                            enthusiasts and culture lovers!</p>
                         <button class="btn btn-primary ripple" id="btn-start-quiz">Start Quiz</button>
                     </div>
 
                     <!-- Quiz Question Screen -->
-                    <div class="quiz-screen hidden" id="quiz-question-screen">
-                        <div class="quiz-progress-bar-wrapper">
-                            <div class="quiz-progress-text">Question <span id="current-q-num">1</span> of 8</div>
-                            <div class="quiz-progress-bar">
-                                <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+                    <div class="quiz-screen" id="quiz-question-screen" style="display: none;">
+                        <div class="quiz-progress">
+                            <span id="quiz-progress-text">Question 1 of 8</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="quiz-progress-fill"></div>
                             </div>
                         </div>
-
-                        <h3 class="quiz-question" id="quiz-question-text">Which state is famous for the dish 'Litti
-                            Chokha'?</h3>
-
-                        <div class="quiz-options-grid" id="quiz-options-grid">
-                            <!-- Dynamic options buttons injected here by app.js -->
+                        <div class="quiz-question">
+                            <img id="quiz-dish-image" src="" alt="Dish" class="quiz-dish-image">
+                            <h3 id="quiz-question-text">Which state is this dish from?</h3>
                         </div>
-
-                        <div class="quiz-feedback hidden" id="quiz-feedback">
-                            <div class="feedback-icon" id="feedback-icon"></div>
-                            <div class="feedback-text" id="feedback-text">Correct!</div>
+                        <div class="quiz-options" id="quiz-options">
+                            <!-- Options injected by JS -->
                         </div>
                     </div>
 
                     <!-- Quiz Result Screen -->
-                    <div class="quiz-screen hidden" id="quiz-result-screen">
+                    <div class="quiz-screen" id="quiz-result-screen" style="display: none;">
                         <div class="quiz-icon" id="quiz-result-icon">🏆</div>
-                        <h3>Quiz Completed!</h3>
-                        <div class="quiz-score-display">
-                            Your Score: <span id="quiz-final-score">0</span> / 8
-                        </div>
+                        <h3 id="quiz-result-title">Quiz Complete!</h3>
                         <p id="quiz-result-message">Fantastic work! You are a true Indian Cuisine Connoisseur!</p>
                         <button class="btn btn-primary ripple" id="btn-restart-quiz">Play Again</button>
                     </div>
@@ -664,56 +688,9 @@
             </div>
         </section>
 
-        <section id="awards" class="awards-section scroll-section fade-in-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-badge">Honouring Excellence</span>
-                    <h2>National Awards</h2>
-                    <p class="section-subtitle">Discover the prestigious national awards that recognize outstanding contributions to India's growth and development.</p>
-                </div>
 
-                <div class="awards-grid">
-                    <!-- National Bal Shree Award Card -->
-                    <div class="award-card glass-card" onclick="window.location.href='frontend/national-bal-shree-award-explorer/index.html'">
-                        <div class="award-card-icon">🎨</div>
-                        <h3>National Bal Shree Award</h3>
-                        <p class="award-category">Children's Creative Honour</p>
-                        <p class="award-description">Recognizing exceptional creative talent among children in arts, writing, performance, and scientific innovation.</p>
-                        <div class="award-stats">
-                            <span class="award-stat">📅 Est. 1995</span>
-                            <span class="award-stat">👥 500+ Awardees</span>
-                        </div>
-                        <button class="btn btn-outline award-btn">Explore Award</button>
-                    </div>
 
-                    <!-- Rashtriya Vigyan Puraskar Card -->
-                    <div class="award-card glass-card" onclick="window.location.href='frontend/rashtriya-vigyan-puraskar-explorer/index.html'">
-                        <div class="award-card-icon">🔬</div>
-                        <h3>Rashtriya Vigyan Puraskar</h3>
-                        <p class="award-category">National Science Honour</p>
-                        <p class="award-description">India's prestigious family of national science awards recognizing excellence in scientific achievements and innovation.</p>
-                        <div class="award-stats">
-                            <span class="award-stat">📅 Est. 1958</span>
-                            <span class="award-stat">👥 500+ Scientists</span>
-                        </div>
-                        <button class="btn btn-outline award-btn">Explore Award</button>
-                    </div>
 
-                    <!-- Other Awards Card -->
-                    <div class="award-card glass-card" onclick="window.location.href='frontend/national-awards/national-awards.html'">
-                        <div class="award-card-icon">🏆</div>
-                        <h3>Complete Awards Encyclopedia</h3>
-                        <p class="award-category">All National Honours</p>
-                        <p class="award-description">Explore Bharat Ratna, Padma Awards, Gallantry Awards, Sports Honours, Literary Awards, and Science Awards.</p>
-                        <div class="award-stats">
-                            <span class="award-stat">🎖️ 16+ Awards</span>
-                            <span class="award-stat">📜 Complete Guide</span>
-                        </div>
-                        <button class="btn btn-outline award-btn">View All Awards</button>
-                    </div>
-                </div>
-            </div>
-        </section>
 
     </main>
 
@@ -738,15 +715,15 @@
                     <li><a href="frontend/about/about.html">About</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-links">
                 <h3>Legal & Support</h3>
                 <ul>
-                    <li><a href="support.html">Help & Support</a></li>
-                    <li><a href="changelog.html">What's New</a></li>
-                    <li><a href="newsletter.html">Newsletter</a></li>
-                    <li><a href="terms.html">Terms of Service</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="frontend/support/support.html">Help & Support</a></li>
+                    <li><a href="frontend/changelog/changelog.html">What's New</a></li>
+                    <li><a href="frontend/newsletter/newsletter.html">Newsletter</a></li>
+                    <li><a href="frontend/terms/terms.html">Terms of Service</a></li>
+                    <li><a href="frontend/privacy/privacy.html">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>
@@ -801,15 +778,19 @@
                     </div>
 
                     <!-- State Overlay Tab Switcher -->
-                    <div class="state-overlay-tabs" id="state-overlay-tabs" style="display: flex; gap: 15px; margin: 20px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px;">
-                        <button class="state-tab-btn active" data-tab="overview" style="background: none; border: none; color: var(--primary-gold); font-weight: bold; cursor: pointer; font-family: var(--font-family); font-size: 0.95rem; padding: 5px 10px;">Overview</button>
-                        <button class="state-tab-btn" data-tab="highlights" style="background: none; border: none; color: var(--muted-text); font-weight: normal; cursor: pointer; font-family: var(--font-family); font-size: 0.95rem; padding: 5px 10px;">Culture & Cuisine</button>
+                    <div class="state-overlay-tabs" id="state-overlay-tabs"
+                        style="display: flex; gap: 15px; margin: 20px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px;">
+                        <button class="state-tab-btn active" data-tab="overview"
+                            style="background: none; border: none; color: var(--primary-gold); font-weight: bold; cursor: pointer; font-family: var(--font-family); font-size: 0.95rem; padding: 5px 10px;">Overview</button>
+                        <button class="state-tab-btn" data-tab="highlights"
+                            style="background: none; border: none; color: var(--muted-text); font-weight: normal; cursor: pointer; font-family: var(--font-family); font-size: 0.95rem; padding: 5px 10px;">Culture
+                            & Cuisine</button>
                     </div>
 
                     <!-- Tab Panel: Overview -->
                     <div class="state-tab-panel" id="state-tab-overview">
-                        <div class="story-text-container">
-                            <p class="story-paragraph drop-cap" id="state-story-main-text">
+                        <div class="story-text-container" id="state-story-main-text">
+                            <p class="story-paragraph drop-cap">
                                 Story text will load here.
                             </p>
                         </div>
@@ -836,17 +817,22 @@
             <button class="story-back-btn" id="comparison-back-btn">
                 <span class="arrow">&larr;</span> Return to Map
             </button>
-            <h3 style="margin: 0; color: var(--primary-gold); font-family: var(--font-family); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; font-size: 1.1rem;">State Comparison</h3>
+            <h3
+                style="margin: 0; color: var(--primary-gold); font-family: var(--font-family); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; font-size: 1.1rem;">
+                State Comparison</h3>
         </div>
 
-        <div class="comparison-split-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 40px; box-sizing: border-box; height: calc(100% - 60px); overflow-y: auto;">
+        <div class="comparison-split-grid"
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 40px; box-sizing: border-box; height: calc(100% - 60px); overflow-y: auto;">
             <!-- State A Details -->
-            <div class="comparison-column glass-card" id="comparison-column-a" style="padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px);">
+            <div class="comparison-column glass-card" id="comparison-column-a"
+                style="padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px);">
                 <!-- Populated by JS -->
             </div>
-            
+
             <!-- State B Details -->
-            <div class="comparison-column glass-card" id="comparison-column-b" style="padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px);">
+            <div class="comparison-column glass-card" id="comparison-column-b"
+                style="padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px);">
                 <!-- Populated by JS -->
             </div>
         </div>
@@ -880,7 +866,8 @@
     </div>
 
     <!-- Toast Notification Container -->
-    <div id="app-toast-container" class="app-toast-container" aria-live="polite" aria-relevant="additions removals"></div>
+    <div id="app-toast-container" class="app-toast-container" aria-live="polite" aria-relevant="additions removals">
+    </div>
 
     <!-- Scroll To Top Button -->
     <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
@@ -915,7 +902,8 @@
             </div>
 
             <div class="chat-input-area">
-                <select id="chat-lang-select" class="chat-lang-select" aria-label="Select Language" title="Select Voice/Speech Language">
+                <select id="chat-lang-select" class="chat-lang-select" aria-label="Select Language"
+                    title="Select Voice/Speech Language">
                     <option value="en-IN">🇬🇧 English</option>
                     <option value="hi-IN">🇮🇳 हिन्दी (Hindi)</option>
                     <option value="ta-IN">🇮🇳 தமிழ் (Tamil)</option>
@@ -931,14 +919,18 @@
     </div>
 
     <!-- JavaScript Files -->
-    <script src="dist/map-data.js" defer></script>
-    <script src="chatbot-data.js" defer></script>
-    <script src="sw-register.js" defer></script>
-    <script src="app.js" defer></script>
-    <script type="module" src="firebase-config.js"></script>
-    <script type="module" src="auth.js"></script>
-    <script src="router.js" defer></script>
+    <script src="frontend/dist/map-data.js" defer></script>
+    <script src="frontend/dist/home-data.js" defer></script>
+    <script src="frontend/chatbot-data.js" defer></script>
+    <script src="frontend/sw-register.js" defer></script>
+    <script src="frontend/js-modules/config.js" defer></script>
+    <script src="frontend/js-modules/storage.js" defer></script>
+    <script src="frontend/app.js" defer></script>
+    <script type="module" src="frontend/firebase-config.js"></script>
+    <script type="module" src="frontend/auth.js"></script>
+    <script src="frontend/router.js" defer></script>
     <script src="frontend/navbar-redesign/navbar.js" defer></script>
+    <script src="frontend/js-modules/daily-trivia.js" defer></script>
 
     <!-- SW Update handler – runs after sw-register.js -->
     <script>
@@ -966,11 +958,17 @@
         });
     </script>
 
-    <script type="module" src="js-modules/command-palette.js"></script>
+    <script src="frontend/search-index.js"></script>
+    <script type="module" src="frontend/js-modules/command-palette.js"></script>
+    <script type="module" src="frontend/js-modules/language-switcher.js"></script>
     <button id="install-pwa-btn" class="pwa-install-btn" style="display:none;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
         Install App
     </button>
 </body>
-
 </html>
