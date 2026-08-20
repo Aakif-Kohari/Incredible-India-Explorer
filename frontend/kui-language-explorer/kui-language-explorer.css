@@ -1,4 +1,6 @@
-/* Kui Language & Culture Explorer Stylesheet */
+/* =========================================
+   Kui Language & Culture Explorer Stylesheet
+   ========================================= */
 
 :root {
     --kui-primary: #e67e22;
@@ -32,7 +34,13 @@ body.light-theme {
     --kui-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* Reset & Base */
+/* =========================================
+   Global, Reset & Accessibility
+   ========================================= */
+html {
+    scroll-behavior: smooth;
+}
+
 .kui-explorer-body {
     background-color: var(--kui-deep-bg);
     color: var(--kui-text-main);
@@ -43,13 +51,50 @@ body.light-theme {
     overflow-x: hidden;
 }
 
+/* Skip Link for Keyboard Navigation */
+.skip-link {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    background: var(--kui-primary);
+    color: #ffffff;
+    padding: 12px 24px;
+    z-index: 10000;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 var(--kui-radius-md) 0;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Global Focus Visibility */
+*:focus-visible {
+    outline: 2px solid var(--kui-accent);
+    outline-offset: 3px;
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 .kui-app {
     max-width: 1240px;
     margin: 0 auto;
     padding: 20px 24px 80px;
 }
 
-/* Hero Section */
+/* =========================================
+   Hero Section
+   ========================================= */
 .kui-hero {
     position: relative;
     border-radius: var(--kui-radius-lg);
@@ -100,6 +145,7 @@ body.light-theme .kui-hero {
     background: linear-gradient(90deg, #f39c12, #e67e22, #f1c40f);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .hero-native-subtitle {
@@ -121,7 +167,9 @@ body.light-theme .kui-hero {
     max-width: 720px;
 }
 
-/* Audio Hero Card */
+/* =========================================
+   Audio Hero Card & Visualizer
+   ========================================= */
 .hero-audio-card {
     background: rgba(15, 20, 29, 0.75);
     border: 1px solid var(--kui-card-border);
@@ -225,7 +273,6 @@ body.light-theme .speed-toggle-group {
     color: #ffffff;
 }
 
-/* Audio Wave Canvas Visualizer */
 .visualizer-container {
     width: 100%;
     height: 30px;
@@ -239,7 +286,9 @@ body.light-theme .speed-toggle-group {
     height: 100%;
 }
 
-/* Quick Nav Pills */
+/* =========================================
+   Quick Nav & Stats Ribbon
+   ========================================= */
 .quick-nav-grid {
     display: flex;
     flex-wrap: wrap;
@@ -270,7 +319,6 @@ body.light-theme .quick-nav-pill {
     transform: translateY(-2px);
 }
 
-/* Stats Ribbon */
 .kui-stats-ribbon {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -285,6 +333,11 @@ body.light-theme .quick-nav-pill {
     padding: 20px;
     text-align: center;
     box-shadow: var(--kui-shadow);
+    transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
 }
 
 .stat-value {
@@ -301,7 +354,9 @@ body.light-theme .quick-nav-pill {
     letter-spacing: 0.5px;
 }
 
-/* Kui Sections General */
+/* =========================================
+   Kui Sections General
+   ========================================= */
 .kui-section {
     margin-bottom: 70px;
 }
@@ -333,7 +388,9 @@ body.light-theme .quick-nav-pill {
     margin: 0;
 }
 
-/* Section 1: Greetings Grid */
+/* =========================================
+   Section 1: Greetings Grid
+   ========================================= */
 .greetings-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -350,7 +407,6 @@ body.light-theme .quick-nav-pill {
     justify-content: space-between;
     transition: all 0.25s ease;
     box-shadow: var(--kui-shadow);
-
 }
 
 .greeting-card:hover {
@@ -438,7 +494,9 @@ body.light-theme .greeting-meaning {
     justify-content: center;
 }
 
-/* Section 2: Vocabulary Explorer Controls */
+/* =========================================
+   Section 2: Vocabulary Explorer
+   ========================================= */
 .vocab-controls {
     margin-bottom: 24px;
     display: flex;
@@ -527,11 +585,31 @@ body.light-theme .filter-tab {
     border-color: var(--kui-primary);
 }
 
-/* Vocabulary Cards Grid */
+/* Vocabulary Cards Grid & Skeleton Loader */
 .vocab-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     gap: 20px;
+}
+
+/* Skeleton Loader to prevent CLS */
+.skeleton-loader {
+    height: 220px;
+    background: linear-gradient(90deg, var(--kui-card-bg) 25%, rgba(255,255,255,0.05) 50%, var(--kui-card-bg) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: var(--kui-radius-lg);
+    border: 1px solid var(--kui-card-border);
+}
+
+body.light-theme .skeleton-loader {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
 }
 
 .vocab-card {
@@ -612,7 +690,9 @@ body.light-theme .vocab-cognate-pill {
     font-size: 0.88rem;
 }
 
-/* Section 3: Info Two Column */
+/* =========================================
+   Section 3: Info Two Column
+   ========================================= */
 .info-two-column {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -721,7 +801,9 @@ body.light-theme .script-comparison-box {
     color: #ffffff;
 }
 
-/* Section 4: Dravidian Tree & Matrix */
+/* =========================================
+   Section 4: Dravidian Tree & Matrix
+   ========================================= */
 .family-tree-card {
     background: var(--kui-card-bg);
     border: 1px solid var(--kui-card-border);
@@ -848,6 +930,14 @@ body.light-theme .cognate-table th {
     background: rgba(0, 0, 0, 0.04);
 }
 
+.cognate-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+body.light-theme .cognate-table tbody tr:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
 .kui-cell {
     background: rgba(230, 126, 34, 0.08);
 }
@@ -867,7 +957,9 @@ body.light-theme .cognate-table th {
     background: rgba(230, 126, 34, 0.2);
 }
 
-/* Section 5: Regions Explorer Layout */
+/* =========================================
+   Section 5: Regions Explorer Layout
+   ========================================= */
 .region-explorer-layout {
     display: grid;
     grid-template-columns: 1fr 300px;
@@ -1002,7 +1094,9 @@ body.light-theme .region-tags .tag {
     color: var(--kui-text-muted);
 }
 
-/* Section 6: Culture Grid */
+/* =========================================
+   Section 6: Culture Grid
+   ========================================= */
 .culture-cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1055,7 +1149,9 @@ body.light-theme .region-tags .tag {
     margin: 0;
 }
 
-/* Section 7: Quiz Container */
+/* =========================================
+   Section 7: Quiz Container
+   ========================================= */
 .quiz-container {
     max-width: 680px;
     margin: 0 auto;
@@ -1198,7 +1294,157 @@ body.light-theme .quiz-option-btn {
     cursor: not-allowed;
 }
 
-/* Responsive adjustments */
+/* =========================================
+   Scroll to Top Button
+   ========================================= */
+.btn-scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--kui-primary);
+    color: #ffffff;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.btn-scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn-scroll-top:hover {
+    background: var(--kui-primary-hover);
+    transform: translateY(-3px);
+}
+
+/* =========================================
+   Expanded Footer Styles
+   ========================================= */
+.footer {
+    background: rgba(15, 20, 29, 0.95);
+    border-top: 1px solid var(--kui-card-border);
+    padding: 60px 24px 30px;
+    margin-top: 80px;
+}
+
+body.light-theme .footer {
+    background: #f1f5f9;
+}
+
+.footer-container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3, .footer-col h4 {
+    color: var(--kui-text-main);
+    margin: 0 0 16px;
+    font-family: var(--kui-font-serif);
+}
+
+.footer-col p {
+    color: var(--kui-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col a {
+    color: var(--kui-text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s, padding-left 0.2s;
+}
+
+.footer-col a:hover {
+    color: var(--kui-accent);
+    padding-left: 4px;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newsletter-form input {
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--kui-card-border);
+    background: var(--kui-card-bg);
+    color: var(--kui-text-main);
+    font-family: var(--kui-font-main);
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: var(--kui-accent);
+}
+
+.newsletter-form .btn-primary {
+    background: var(--kui-primary);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.newsletter-form .btn-primary:hover {
+    background: var(--kui-primary-hover);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+    text-align: center;
+    color: var(--kui-text-muted);
+    font-size: 0.9rem;
+}
+
+body.light-theme .footer-bottom {
+    border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+   Responsive Adjustments
+   ========================================= */
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 @media (max-width: 768px) {
     .hero-title {
         font-size: 2.2rem;
@@ -1214,5 +1460,36 @@ body.light-theme .quiz-option-btn {
 
     .info-card {
         padding: 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* =========================================
+   Print Styles
+   ========================================= */
+@media print {
+    .navbar, .btn-play-audio, .btn-scroll-top, .quiz-container, .quick-nav-grid, .footer {
+        display: none !important;
+    }
+    
+    .kui-explorer-body {
+        background: white;
+        color: black;
+    }
+    
+    .kui-app {
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    .kui-card-bg, .info-card, .greeting-card {
+        background: white !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        break-inside: avoid;
     }
 }
