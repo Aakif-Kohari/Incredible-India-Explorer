@@ -132,7 +132,13 @@ const FREEDOM_FIGHTERS_DATA = [
         bio: 'Chandra Shekhar Azad reorganized HSRA after Ram Prasad Bismil\'s execution and swore never to be captured alive by the British.',
         contributions: 'Trained young revolutionaries, mentored Bhagat Singh, fought to his last bullet at Alfred Park Allahabad.',
         quote: 'Dushman ki goliyon ka hum samna karenge, Azad hee rahe hain, Azad hee rahenge!'
-    }
+    },
+    {
+        id: 'bapat', name: 'Senapati Bapat',
+        region: 'Maharashtra', desc: 'Led the Mulshi Satyagraha against dam displacement.',
+        img: 'https://placehold.co/400x300/D84315/fff',
+        link: '../senapati-bapat-explorer/index.html'
+    },
 ];
 
 const TIMELINE_EVENTS = [
@@ -215,14 +221,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const movement = movementFilter ? movementFilter.value : 'all';
 
         const filtered = FREEDOM_FIGHTERS_DATA.filter(hero => {
-            const matchesQuery = !query || 
+            const matchesQuery = !query ||
                 hero.name.toLowerCase().includes(query) ||
                 hero.title.toLowerCase().includes(query) ||
                 hero.state.toLowerCase().includes(query) ||
                 hero.bio.toLowerCase().includes(query);
 
             const matchesRegion = region === 'all' || hero.region === region;
-            
+
             let matchesMovement = movement === 'all';
             if (movement === 'Women Leaders') {
                 matchesMovement = hero.movement === 'Women Leaders' || hero.name.includes('Rani') || hero.name.includes('Sarojini') || hero.name.includes('Matangini') || hero.name.includes('Lakshmi');
@@ -248,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
     }
 
-    window.openHeroModal = function(id) {
+    window.openHeroModal = function (id) {
         const hero = FREEDOM_FIGHTERS_DATA.find(h => h.id === id);
         if (!hero || !modal) return;
         document.getElementById('modal-hero-name').textContent = hero.name;

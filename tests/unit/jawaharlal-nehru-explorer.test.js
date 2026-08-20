@@ -160,7 +160,7 @@ describe('Jawaharlal Nehru Explorer — Styles & Scripts', () => {
         expect(css).toContain('.jn-tabs-bar');
         expect(css).toContain('.timeline-track');
         expect(css).toContain('.speech-card');
-        expect(css).toContain('body.light-theme');
+        expect(css).toContain('[data-theme="light"]');
     });
 
     it('includes script logic for rendering, filtering, timeline, speeches, and lightbox', () => {
