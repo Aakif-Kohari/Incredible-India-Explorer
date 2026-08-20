@@ -392,15 +392,19 @@ function initThemeToggle() {
 
     const currentTheme = window.IIEStorage ? window.IIEStorage.getTheme() : localStorage.getItem(AppConfig.THEME_STORAGE_KEY);
     if (currentTheme === AppConfig.THEME_LIGHT) {
-        document.body.classList.add(AppConfig.THEME_CLASS_LIGHT);
+        document.documentElement.setAttribute('data-theme', 'light');
         setThemeIcon(true);
     } else {
         setThemeIcon(false);
     }
 
     themeBtn.addEventListener('click', () => {
-        document.body.classList.toggle(AppConfig.THEME_CLASS_LIGHT);
-        const isLightTheme = document.body.classList.contains(AppConfig.THEME_CLASS_LIGHT);
+        const isLightTheme = document.documentElement.getAttribute('data-theme') !== 'light';
+        if (isLightTheme) {
+            document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+        }
         setThemeIcon(isLightTheme);
         const theme = isLightTheme ? AppConfig.THEME_LIGHT : AppConfig.THEME_DARK;
         if(window.IIEStorage) window.IIEStorage.setTheme(theme); else localStorage.setItem(AppConfig.THEME_STORAGE_KEY, theme);

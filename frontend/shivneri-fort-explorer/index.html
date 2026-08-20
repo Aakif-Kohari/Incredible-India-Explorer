@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="en">
     <head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
         <script>
             (function () {
                 let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
@@ -40,7 +48,7 @@
                 --shivneri-rust: #b24e30;
             }
 
-            body.light-theme {
+            [data-theme="light"] {
                 --shivneri-bg-dark: #fdf6ec;
                 --shivneri-card-bg-dark: rgba(255, 255, 255, 0.92);
                 --shivneri-text-primary-dark: #452b0f;
