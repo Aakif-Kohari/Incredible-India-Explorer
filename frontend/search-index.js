@@ -5752,6 +5752,21 @@ window.indiaSearchIndex = [
         description:
             "Explore Chittorgarh Fort — UNESCO World Heritage Site in Rajasthan, capital of the Mewar dynasty, Vijay Stambh, Kirti Stambh, Padmini Palace, Gaumukh Reservoir, and historic sieges.",
         url: 'frontend/chittorgarh-fort-explorer/index.html'
-            "Explore IRCTC's 1999 origin and evolution across online railway ticketing, catering, tourism and digital passenger services through an interactive timeline."
+    },
+    // --- Champaner-Pavagadh Explorer ---
+    {
+        title: "Champaner-Pavagadh: Discover Gujarat's Archaeological Heritage",
+        category: 'Monuments & Architecture',
+        description:
+            "Explore Champaner-Pavagadh Archaeological Park — UNESCO World Heritage Site in Gujarat, Jama Masjid, Pavagadh Hill, Kalika Mata temple, and helical stepwells.",
+        url: 'frontend/champaner-pavagadh-explorer/index.html'
+    },
+    // --- Titan Explorer ---
+    {
+        title: "Titan: Explore India's Watchmaking Brand",
+        category: 'Business & Brands',
+        description:
+            "Explore Titan — India's premier watchmaking brand, the quartz revolution, Titan Edge (world's slimmest watch), Raga, Fastrack, and Nebula collections.",
+        url: 'frontend/titan-explorer/index.html'
     }
 ];
