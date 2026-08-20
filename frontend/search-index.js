@@ -3824,6 +3824,12 @@ window.indiaSearchIndex = [
             'Search and filter all 75 UP districts across 18 divisions and 4 geographic regions with SVG map and detail inspector.',
         url: 'frontend/up-district-explorer/up-district-explorer.html'
     },
+    {
+    title: "Howrah Bridge: Kolkata's Engineering Landmark",
+    category: "Infrastructure & Heritage",
+    description: "Discover Howrah Bridge (Rabindra Setu) — history, cantilever design explained simply, its relationship with the Hooghly River, importance to Kolkata, interesting facts, timeline, and photo gallery.",
+    url: "frontend/howrah-bridge-explorer/index.html"
+    },
     // --- Guess the Uttar Pradesh District Game ---
     {
         title: 'Guess the Uttar Pradesh District Game',
