@@ -11,7 +11,15 @@ const gandhianMovementsData = [
     organization: "Indian National Congress",
     image: "satyagraha-hero.jpg", 
     description: "A limited, symbolic protest affirming the right to free speech against India's forced participation in WWII, designed to avoid mass violence.",
-    link: "individual-satyagraha.html"
+    link: "individual-satyagraha.html"},
+  {
+    title: "Quit India Movement",
+    year: "1942",
+    leader: "Mahatma Gandhi, Aruna Asaf Ali, Jayaprakash Narayan",
+    organization: "Indian National Congress",
+    image: "quit-india-hero.jpg", 
+    description: "The definitive 'Do or Die' mass civil disobedience campaign that sparked underground resistance and established parallel governments across India.",
+    link: "quit-india.html"
   }
 ];
 
@@ -47,6 +55,18 @@ function initMap() {
     const marker = L.circleMarker(loc.coords, {
       radius: 8,
       fillColor: '#556b2f', // Olive green theme color
+  // Markers Data (Parallel Governments & Hotspots)
+  const locations = [
+    { name: "Bombay (Gowalia Tank)", coords: [18.9619, 72.8093], desc: "Birthplace of the Quit India resolution. Aruna Asaf Ali hoisted the flag here." },
+    { name: "Ballia (Uttar Pradesh)", coords: [25.7583, 84.1483], desc: "First Parallel Government established by Chittu Pandey." },
+    { name: "Tamluk (Bengal)", coords: [22.2965, 87.9254], desc: "The 'Jatiya Sarkar' formed. 73-year-old Matangini Hazra was martyred here." },
+    { name: "Satara (Maharashtra)", coords: [17.6805, 74.0183], desc: "The 'Prati Sarkar' led by Nana Patil; the longest-lasting parallel government." }
+  ];
+
+  locations.forEach(loc => {
+    const marker = L.circleMarker(loc.coords, {
+      radius: 8,
+      fillColor: '#556b2f', // Khadi Olive Green
       color: '#fff',
       weight: 2,
       opacity: 1,
