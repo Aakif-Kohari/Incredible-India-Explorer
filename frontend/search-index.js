@@ -5784,5 +5784,13 @@ window.indiaSearchIndex = [
         description:
             "Create an interactive archive of India's Commonwealth Games participation — documenting 564 all-time medals, Delhi 2010 glory, and icons (Milkha Singh, Abhinav Bindra, Sharath Kamal).",
         url: 'frontend/cwg-explorer/index.html'
+    },
+    // --- Beighton Cup Explorer ---
+    {
+        title: "Beighton Cup: Explore India's Historic Hockey Tournament",
+        category: 'Sports & Athletics',
+        description:
+            "Explore the Beighton Cup — the world's oldest field hockey tournament founded in 1895 in Kolkata, Mohun Bagan's 14 titles, Dhyan Chand's Jhansi Heroes, and historical timeline.",
+        url: 'frontend/beighton-cup-explorer/index.html'
     }
 ];
