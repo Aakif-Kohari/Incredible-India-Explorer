@@ -1331,4 +1331,11 @@ window.indiaSearchIndex = [
     description: "Dedicated explorer for Indrasan, a 6,221 m high peak in the Pir Panjal range of Himachal Pradesh, featuring facts, map locations, image gallery, trekking details, and FAQs.",
     url: "frontend/indrasan/indrasan.html"
   },
+  // --- Green Lake Trek ---
+  {
+    title: "Green Lake Trek — Sikkim",
+    category: "Mountains & Geography",
+    description: "Dedicated trek profile for the Green Lake Trek in North Sikkim — a remote Himalayan expedition from Lachen to Green Lake below Mount Kangchenjunga via the Zemu Glacier, featuring route stages, difficulty, best season, permits, natural features, and image gallery.",
+    url: "frontend/green-lake-trek/index.html"
+  },
 ];
