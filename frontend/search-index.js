@@ -5781,6 +5781,14 @@ window.indiaSearchIndex = [
             "Explore Haldiram's — origin as a Bikaneri bhujia shop in 1937, founder Ganga Bishan Agarwal, traditional namkeen and sweets, packaged snacks, restaurant business, and its origin-to-expansion timeline.",
         url: 'frontend/haldirams-explorer/index.html'
     },
+    // --- Britannia Explorer ---
+    {
+        title: "Britannia: Explore India's Food Brand Journey",
+        category: 'Business & Brands',
+        description:
+            "Explore Britannia — 1892 origins in colonial Kolkata, biscuit and bakery product categories, packaging evolution, advertising history including 'Britannia Khao, World Cup Jao', and a decade-based timeline.",
+        url: 'frontend/britannia-explorer/index.html'
+    },
     // --- Manyavar Explorer ---
     {
         title: "Manyavar: Explore India's Ethnic Fashion Brand",
