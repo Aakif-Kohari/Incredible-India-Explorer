@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kynshi Falls — The Waterfalls of the Kynshi River, Khasi Hills</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,680;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<style>
+  :root{
+    --moss:#1b3328;
+    --moss-deep:#0f231b;
+    --stone:#ece5d3;
+    --slate:#33505c;
+    --slate-light:#5b7d89;
+    --ochre:#b0532c;
+    --ochre-light:#d98352;
+    --mist:#f7f4ec;
+    --paper:#fffdf8;
+    --ink:#182019;
+    --ink-soft:#4a5650;
+    --line:#d8d0bd;
+    --warn-bg:#f6ead9;
+    --warn-line:#c98a3f;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--mist);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:680;
+    letter-spacing:-0.01em;
+    color:var(--moss-deep);
+    margin:0;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:var(--ochre);}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+
+  /* ---- top nav ---- */
+  .topnav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,244,236,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .topnav-inner{
+    max-width:1080px;margin:0 auto;padding:12px 28px;
+    display:flex;align-items:center;gap:18px;overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .topnav-inner::-webkit-scrollbar{display:none;}
+  .topnav-brand{font-family:'Fraunces',serif;font-weight:680;font-size:15px;color:var(--moss-deep);white-space:nowrap;margin-right:8px;}
+  .topnav a{
+    font-size:12.5px;text-transform:uppercase;letter-spacing:0.06em;
+    color:var(--ink-soft);text-decoration:none;white-space:nowrap;font-weight:600;
+  }
+  .topnav a:hover{color:var(--ochre);}
+
+  /* ---- hero ---- */
+  .hero{position:relative;background:var(--moss-deep);color:var(--paper);overflow:hidden;}
+  .hero-media{position:relative;height:64vh;min-height:420px;max-height:640px;overflow:hidden;}
+  .hero-media img{width:100%;height:100%;object-fit:cover;opacity:0.82;}
+  .hero-media::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(15,35,27,0.15) 0%, rgba(15,35,27,0.75) 78%, rgba(15,35,27,0.97) 100%);
+  }
+  .contour{position:absolute;inset:0;opacity:0.25;pointer-events:none;mix-blend-mode:overlay;}
+  .hero-copy{position:absolute;left:0;right:0;bottom:0;padding:0 28px 40px;max-width:1080px;margin:0 auto;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--ochre-light);margin-bottom:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+  }
+  .eyebrow .sep{opacity:0.5;}
+  .hero h1{font-size:clamp(2.1rem,5.4vw,3.6rem);color:var(--paper);line-height:1.02;max-width:820px;}
+  .hero-sub{font-size:1.05rem;color:#dfe6de;max-width:620px;margin-top:14px;font-weight:400;}
+
+  .factstrip{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    background:var(--moss);border-top:1px solid rgba(255,255,255,0.12);
+  }
+  .fact{padding:18px 20px;border-right:1px solid rgba(255,255,255,0.12);}
+  .fact:last-child{border-right:none;}
+  .fact .k{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9fb8ab;margin-bottom:4px;}
+  .fact .v{font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--paper);font-weight:600;}
+
+  /* ---- callout: naming note ---- */
+  .callout{
+    margin:36px auto 0;max-width:1080px;padding:0 28px;
+  }
+  .callout-box{
+    background:var(--warn-bg);border-left:4px solid var(--warn-line);
+    border-radius:2px;padding:20px 24px;font-size:14.5px;color:#4a3a20;
+  }
+  .callout-box strong{color:#3a2c14;}
+  .callout-box .tag{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.08em;
+    text-transform:uppercase;background:var(--warn-line);color:#fff;padding:2px 8px;border-radius:3px;margin-bottom:10px;
+  }
+
+  /* ---- sections ---- */
+  section{padding:64px 0;}
+  section.alt{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .section-head{max-width:640px;margin-bottom:36px;}
+  .section-num{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ochre);letter-spacing:0.1em;margin-bottom:10px;}
+  .section-head h2{font-size:clamp(1.5rem,3vw,2.1rem);}
+  .section-head p{color:var(--ink-soft);margin-top:10px;font-size:15.5px;}
+
+  .grid-2{display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:start;}
+  @media(max-width:820px){.grid-2{grid-template-columns:1fr;}}
+
+  p{color:var(--ink-soft);font-size:15.5px;}
+  .lede{font-size:17px;color:var(--ink);}
+
+  /* river diagram */
+  .river-diagram{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:20px;}
+  .river-diagram svg{width:100%;height:auto;display:block;}
+  .river-legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:12.5px;color:var(--ink-soft);}
+  .river-legend span{display:inline-flex;align-items:center;gap:6px;}
+  .swatch{width:10px;height:10px;border-radius:50%;display:inline-block;}
+
+  /* map */
+  #map{height:460px;border-radius:10px;border:1px solid var(--line);width:100%;}
+  .map-controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+  .chip{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.03em;
+    padding:7px 14px;border-radius:999px;border:1px solid var(--slate);
+    background:transparent;color:var(--slate);cursor:pointer;transition:all .15s ease;
+  }
+  .chip.active{background:var(--slate);color:#fff;}
+  .chip:hover{border-color:var(--ochre);}
+  .map-note{font-size:12.5px;color:var(--ink-soft);margin-top:10px;}
+
+  /* height viz */
+  .height-panel{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:24px;}
+  .toggle-row{display:flex;align-items:center;gap:12px;margin-bottom:22px;flex-wrap:wrap;}
+  .switch{
+    position:relative;width:46px;height:26px;background:var(--line);border-radius:999px;cursor:pointer;flex-shrink:0;
+    transition:background .2s;
+  }
+  .switch.on{background:var(--ochre);}
+  .switch::after{
+    content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;
+    transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,0.3);
+  }
+  .switch.on::after{left:23px;}
+  .toggle-label{font-size:13.5px;font-weight:600;color:var(--ink);}
+  .toggle-hint{font-size:12.5px;color:var(--ink-soft);}
+
+  .bars{display:flex;flex-direction:column;gap:16px;}
+  .bar-row{display:grid;grid-template-columns:150px 1fr 90px;align-items:center;gap:12px;}
+  .bar-row .name{font-size:13px;font-weight:600;color:var(--ink);}
+  .bar-row .name small{display:block;font-weight:400;color:var(--ink-soft);font-size:11px;}
+  .bar-track{position:relative;height:22px;background:var(--stone);border-radius:5px;overflow:hidden;}
+  .bar-fill{position:absolute;left:0;top:0;bottom:0;border-radius:5px;transition:width .5s cubic-bezier(.4,0,.2,1),background .3s;}
+  .bar-fill.kynshi{background:linear-gradient(90deg,var(--slate),var(--ochre));}
+  .bar-fill.ref{background:var(--line);}
+  .bar-row .val{font-family:'IBM Plex Mono',monospace;font-size:12.5px;text-align:right;color:var(--ink-soft);}
+  .bar-row.disputed .name{color:var(--ochre);}
+  .height-footnote{font-size:12px;color:var(--ink-soft);margin-top:20px;border-top:1px dashed var(--line);padding-top:14px;}
+
+  /* geology grid */
+  .geo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:820px){.geo-grid{grid-template-columns:1fr;}}
+  .geo-card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:20px;}
+  .geo-card .era{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ochre);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;}
+  .geo-card h3{font-size:16px;margin-bottom:8px;}
+  .geo-card p{font-size:13.5px;margin:0;}
+
+  /* seasons */
+  .season-toggle{display:flex;gap:0;border:1px solid var(--slate);border-radius:999px;overflow:hidden;width:fit-content;margin-bottom:24px;}
+  .season-btn{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:9px 20px;background:transparent;
+    border:none;cursor:pointer;color:var(--slate);transition:all .15s;letter-spacing:0.03em;
+  }
+  .season-btn.active{background:var(--slate);color:#fff;}
+  .season-panel{display:none;}
+  .season-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  @media(max-width:820px){.season-panel.active{grid-template-columns:1fr;}}
+  .season-card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:22px;}
+  .season-card h3{font-size:15px;margin-bottom:10px;}
+  .flow-meter{height:10px;background:var(--stone);border-radius:5px;overflow:hidden;margin:10px 0 4px;}
+  .flow-meter i{display:block;height:100%;background:linear-gradient(90deg,var(--slate),var(--ochre));border-radius:5px;transition:width .5s;}
+  .flow-label{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);}
+  .season-list{margin:14px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink-soft);}
+  .season-list li{margin-bottom:6px;}
+
+  /* landscape explorer */
+  .explorer{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line);}
+  .explorer img{width:100%;display:block;}
+  .hotspot{
+    position:absolute;width:26px;height:26px;border-radius:50%;
+    background:var(--ochre);border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.4);
+    cursor:pointer;transform:translate(-50%,-50%);
+    display:flex;align-items:center;justify-content:center;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;
+    transition:transform .15s;
+  }
+  .hotspot:hover{transform:translate(-50%,-50%) scale(1.15);}
+  .hotspot-card{
+    margin-top:16px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 20px;
+    min-height:86px;
+  }
+  .hotspot-card .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ochre);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;}
+  .hotspot-card h4{font-family:'Fraunces',serif;font-size:16px;margin:0 0 6px;color:var(--moss-deep);}
+  .hotspot-card p{margin:0;font-size:13.5px;}
+
+  /* nearby */
+  .attraction-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);}
+  .attraction{
+    display:grid;grid-template-columns:70px 1fr auto;gap:16px;align-items:center;
+    padding:16px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:background .15s;
+  }
+  .attraction:hover{background:rgba(176,83,44,0.05);}
+  .attraction .dist{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ochre);}
+  .attraction .name{font-weight:600;font-size:14.5px;color:var(--ink);}
+  .attraction .desc{font-size:12.5px;color:var(--ink-soft);margin-top:2px;}
+  .attraction .arrow{color:var(--ink-soft);font-size:14px;}
+
+  /* best time */
+  .month-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;margin-top:20px;}
+  .month{
+    text-align:center;padding:14px 4px;border-radius:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;
+    background:var(--stone);color:var(--ink-soft);
+  }
+  .month.good{background:var(--slate);color:#fff;}
+  .month.best{background:var(--ochre);color:#fff;font-weight:700;}
+  @media(max-width:700px){.month-grid{grid-template-columns:repeat(6,1fr);}}
+
+  /* landing card */
+  .landing-preview{background:var(--moss-deep);padding:44px;border-radius:14px;display:flex;justify-content:center;}
+  .wf-card{
+    width:300px;background:var(--paper);border-radius:12px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,0.35);
+    text-decoration:none;display:block;color:var(--ink);
+  }
+  .wf-card .thumb{height:170px;overflow:hidden;}
+  .wf-card .thumb img{width:100%;height:100%;object-fit:cover;}
+  .wf-card .body{padding:16px 18px 20px;}
+  .wf-card .loc{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ochre);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;}
+  .wf-card h3{font-family:'Fraunces',serif;font-size:18px;color:var(--moss-deep);margin:0 0 6px;}
+  .wf-card p{font-size:12.5px;margin:0;color:var(--ink-soft);}
+  .snippet{
+    background:#12211a;color:#cfe3d6;border-radius:10px;padding:20px;font-family:'IBM Plex Mono',monospace;
+    font-size:12px;line-height:1.7;overflow-x:auto;margin-top:24px;white-space:pre;
+  }
+  .snippet .tag-name{color:#e6b88a;}
+  .snippet .attr{color:#8fc9a8;}
+  .snippet .str{color:#f2d49b;}
+  .copy-btn{
+    margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;background:var(--ochre);color:#fff;
+    border:none;padding:9px 16px;border-radius:6px;cursor:pointer;
+  }
+  .copy-btn:hover{background:var(--ochre-light);}
+
+  /* credits */
+  .credit-list{display:flex;flex-direction:column;gap:14px;}
+  .credit-item{display:flex;justify-content:space-between;gap:16px;font-size:13px;border-bottom:1px dashed var(--line);padding-bottom:12px;flex-wrap:wrap;}
+  .credit-item .src{color:var(--ink-soft);}
+  .credit-item a{font-size:12.5px;}
+
+  footer{padding:40px 0 60px;text-align:center;color:var(--ink-soft);font-size:12.5px;}
+  footer a{color:var(--slate);}
+
+  ::selection{background:var(--ochre);color:#fff;}
+  .skip{position:absolute;left:-999px;}
+  a:focus-visible,button:focus-visible,.chip:focus-visible,.hotspot:focus-visible{outline:3px solid var(--ochre);outline-offset:2px;}
+  @media (prefers-reduced-motion: reduce){*{transition:none !important;animation:none !important;}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <span class="topnav-brand">Kynshi Falls ↳</span>
+    <a href="#overview">Overview</a>
+    <a href="#location">Location</a>
+    <a href="#river">River</a>
+    <a href="#height">Height</a>
+    <a href="#geology">Geology</a>
+    <a href="#seasons">Seasons</a>
+    <a href="#landscape">Landscape</a>
+    <a href="#nearby">Nearby</a>
+    <a href="#best-time">Best time</a>
+    <a href="#sources">Sources</a>
+  </div>
+</nav>
+
+<header class="hero" id="overview">
+  <div class="hero-media">
+    <img id="heroImg" src="https://commons.wikimedia.org/wiki/Special:FilePath/LANGSHIANG%20FALLS.jpg" alt="Langshiang Falls, the tallest waterfall fed by the Kynshi River, dropping through a forested gorge in the West Khasi Hills, Meghalaya" loading="eager">
+    <svg class="contour" viewBox="0 0 800 400" preserveAspectRatio="none">
+      <path d="M0,60 Q200,20 400,70 T800,50" stroke="white" stroke-width="1" fill="none"/>
+      <path d="M0,120 Q200,80 400,130 T800,110" stroke="white" stroke-width="1" fill="none"/>
+      <path d="M0,180 Q200,150 400,190 T800,170" stroke="white" stroke-width="1" fill="none"/>
+    </svg>
+  </div>
+  <div class="hero-copy">
+    <div class="eyebrow">
+      <span>Waterfalls of India</span><span class="sep">/</span><span>Meghalaya</span><span class="sep">/</span><span>Khasi Hills</span>
+    </div>
+    <h1>Kynshi Falls: the cascades of the Kynshi River</h1>
+    <p class="hero-sub">An interactive look at Langshiang Falls, Weinia Falls and the braided course of the Kynshi (Wah Kynshi) River as it drops off the West Khasi Hills plateau toward the Bangladesh plains.</p>
+  </div>
+  <div class="factstrip">
+    <div class="fact"><div class="k">District</div><div class="v">West Khasi Hills, ML</div></div>
+    <div class="fact"><div class="k">Watercourse</div><div class="v">Kynshi (Wah Kynshi) River</div></div>
+    <div class="fact"><div class="k">Primary cascade</div><div class="v">Langshiang Falls</div></div>
+    <div class="fact"><div class="k">Coordinates</div><div class="v">25.445°N, 91.229°E</div></div>
+  </div>
+</header>
+
+<div class="callout">
+  <div class="callout-box">
+    <span class="tag">A note on the name</span><br>
+    <strong>"Kynshi Falls" is not a single, individually catalogued waterfall</strong> — Kynshi is the name of the river. On its way through the West Khasi Hills it splits around <strong>Nongkhnum River Island</strong> and forms two named cascades: <strong>Langshiang Falls</strong>, one of India's tallest, and the smaller <strong>Weinia Falls</strong> beside the island's entrance bridge. This page treats "Kynshi Falls" as the river system rather than inventing a single waterfall entry, so it can link out to a dedicated <em>Langshiang Falls</em> page if one already exists in the explorer, instead of duplicating it. Every figure below is flagged with how well it's sourced — several commonly quoted numbers (especially Langshiang's height) are disputed.
+  </div>
+</div>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">01 / Location</div>
+      <h2>Where the falls sit in the Khasi Hills</h2>
+      <p>The Kynshi's falls lie in the western reach of the Khasi Hills, roughly 25 km from Nongstoin, the West Khasi Hills district headquarters. Toggle the map layers below to compare the river system against nearby villages and access points.</p>
+    </div>
+    <div class="map-controls">
+      <button class="chip active" data-layer="river">River &amp; falls</button>
+      <button class="chip" data-layer="access">Access towns</button>
+      <button class="chip" data-layer="all">Show all</button>
+    </div>
+    <div id="map"></div>
+    <p class="map-note">Base map © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors. Marker coordinates sourced from Wikipedia/Wikidata infoboxes where noted; markers labelled "approximate" have no independently surveyed coordinates and are placed relative to sourced landmarks.</p>
+  </div>
+</section>
+
+<!-- RIVER -->
+<section class="alt" id="river">
+  <div class="wrap">
+    <div class="grid-2">
+      <div>
+        <div class="section-head">
+          <div class="section-num">02 / River &amp; water source</div>
+          <h2>A river that splits, then falls twice</h2>
+        </div>
+        <p class="lede">The Kynshi River (locally <em>Wah Kynshi</em>) drains the western Khasi Hills plateau. As it nears Nongkhnum — Meghalaya's largest river island — it braids into two channels around the island's sandy shore before reuniting downstream.</p>
+        <p>One channel drops beside the island's entrance as the roughly 60-metre <strong>Weinia Falls</strong> (also called Kshaid Weinia), crossed by a wooden footbridge that is the usual way onto the island. A second channel forms a similarly sized fall sometimes called <strong>Thum</strong> or <strong>Shadthum Falls</strong>. Downstream of the island, the reunited river cuts into a deep gorge near the village of Sangriang and plunges as <strong>Langshiang Falls</strong>, one of the tallest waterfalls attributed to any river in India — though see the height section for why that figure is disputed.</p>
+        <p style="font-size:13px;color:var(--ink-soft)">Sources differ slightly on what to call the two braided channels (Phanliang/Wah Kynshi vs. Namliang) — they agree only that the river splits around Nongkhnum and rejoins before the Langshiang gorge.</p>
+      </div>
+      <div class="river-diagram">
+        <svg viewBox="0 0 360 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic diagram of the Kynshi River splitting around Nongkhnum River Island and rejoining before Langshiang Falls">
+          <path d="M180,10 C180,60 170,80 170,110" stroke="#5b7d89" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M170,110 C150,140 90,150 80,190 C70,230 90,260 130,270" stroke="#33505c" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M170,110 C190,140 250,150 260,190 C270,230 250,260 210,270" stroke="#33505c" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <ellipse cx="170" cy="190" rx="46" ry="60" fill="#ece5d3" stroke="#d8d0bd"/>
+          <text x="170" y="192" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5650">Nongkhnum</text>
+          <text x="170" y="204" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5650">Island</text>
+          <circle cx="80" cy="190" r="5" fill="#b0532c"/>
+          <text x="60" y="175" font-family="IBM Plex Mono" font-size="10" fill="#182019">Weinia Falls</text>
+          <text x="60" y="187" font-family="IBM Plex Mono" font-size="9" fill="#4a5650">~60 m</text>
+          <circle cx="260" cy="190" r="5" fill="#b0532c"/>
+          <text x="245" y="175" font-family="IBM Plex Mono" font-size="10" fill="#182019">Thum Falls</text>
+          <text x="245" y="187" font-family="IBM Plex Mono" font-size="9" fill="#4a5650">~60 m (approx.)</text>
+          <path d="M130,270 C150,290 190,290 210,270" stroke="#33505c" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M170,285 C170,320 170,340 170,360" stroke="#33505c" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M170,360 L155,400 M170,360 L170,405 M170,360 L185,400" stroke="#5b7d89" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <circle cx="170" cy="360" r="6" fill="#b0532c"/>
+          <text x="185" y="385" font-family="IBM Plex Mono" font-size="10" fill="#182019">Langshiang Falls</text>
+          <text x="185" y="397" font-family="IBM Plex Mono" font-size="9" fill="#4a5650">quoted 337 m / disputed</text>
+          <text x="30" y="30" font-family="IBM Plex Mono" font-size="9" fill="#4a5650">from the plateau</text>
+        </svg>
+        <div class="river-legend">
+          <span><i class="swatch" style="background:#5b7d89"></i>Upper Kynshi</span>
+          <span><i class="swatch" style="background:#33505c"></i>Braided channels</span>
+          <span><i class="swatch" style="background:#b0532c"></i>Named waterfall</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HEIGHT -->
+<section id="height">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">03 / Height, honestly</div>
+      <h2>How tall is Langshiang, really?</h2>
+      <p>Most tourism sources repeat a single figure for Langshiang Falls. Independent waterfall surveys disagree with it. Flip the switch to compare the commonly quoted height against a more conservative field estimate.</p>
+    </div>
+    <div class="height-panel">
+      <div class="toggle-row">
+        <div class="switch" id="heightSwitch" role="switch" aria-checked="false" tabindex="0" aria-label="Toggle between commonly quoted height and field-estimated height"></div>
+        <span class="toggle-label" id="heightSwitchLabel">Showing: commonly quoted figures</span>
+      </div>
+      <div class="bars" id="barsContainer"></div>
+      <div class="height-footnote">
+        Langshiang Falls' height is "generally quoted at around 337 m (1,106 ft)" per Wikipedia, which itself flags the figure as unconfirmed. The World Waterfall Database examined photographs and satellite imagery and concluded the true drop is more likely 76–91 m (250–300 ft) — closer in scale to Weinia and Thum. Weinia and Thum/Shadthum's ~60 m figures come from local tourism and trekking accounts rather than a survey, and should be read as approximate. Nohkalikai and Kynrem (not on the Kynshi River) are shown only as regional scale references.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GEOLOGY -->
+<section class="alt" id="geology">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">04 / Geological setting</div>
+      <h2>Crystalline basement, plateau edge</h2>
+      <p>The West Khasi Hills sit on a different part of the Meghalaya plateau than the limestone country around Sohra (Cherrapunjee) further east — the geology here is older and harder.</p>
+    </div>
+    <div class="geo-grid">
+      <div class="geo-card">
+        <div class="era">Precambrian basement</div>
+        <h3>Gneiss, schist &amp; granite</h3>
+        <p>The Khasi Hills are underlain by ancient Archaean gneisses and the quartzite-rich Shillong Group, intruded by granite plutons such as the Mylliem, Kyrdem and Nongpoh granites. This crystalline basement forms the stable core of the plateau on which West Khasi Hills sits.</p>
+      </div>
+      <div class="geo-card">
+        <div class="era">Plateau edge</div>
+        <h3>Escarpment &amp; gorge-cutting</h3>
+        <p>Rivers draining the plateau, including the Kynshi, cut steep gorges as they meet the plateau's western escarpment on their way down toward the Sylhet basin plains of Bangladesh — the same structural setting that produces the region's tallest falls, though the crystalline rock here differs from the limestone cliffs near Sohra.</p>
+      </div>
+      <div class="geo-card">
+        <div class="era">Present-day process</div>
+        <h3>Monsoon-driven erosion</h3>
+        <p>West Khasi Hills district receives roughly 1,600 mm of rain a year, falling almost daily through the June–September wet season. That seasonal torrent is the main force still actively widening the Langshiang gorge and undercutting the falls today.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEASONS -->
+<section id="seasons">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">05 / Seasonal variation</div>
+      <h2>Monsoon roar vs. winter trickle</h2>
+      <p>Compare how the Kynshi's falls behave across the year. We don't yet have a verified season-tagged photograph for this page — flagged below as an open item rather than guessed at.</p>
+    </div>
+    <div class="season-toggle">
+      <button class="season-btn active" data-season="monsoon">Monsoon (Jun–Sep)</button>
+      <button class="season-btn" data-season="post">Post-monsoon (Oct–Nov)</button>
+      <button class="season-btn" data-season="winter">Winter / dry (Dec–Feb)</button>
+    </div>
+    <div class="season-panel active" id="panel-monsoon">
+      <div class="season-card">
+        <h3>Flow &amp; character</h3>
+        <p class="flow-label">Relative flow intensity</p>
+        <div class="flow-meter"><i style="width:95%"></i></div>
+        <p style="font-size:13.5px;margin-top:10px;">Full volume and at its most dramatic — West Khasi Hills gets rain on most days through this window. Rivers throughout Meghalaya are described as swollen and forceful in this period.</p>
+      </div>
+      <div class="season-card">
+        <h3>What to expect on site</h3>
+        <ul class="season-list">
+          <li>Trails to Weinia and the Nongkhnum footbridge reported slippery; local advice urges caution</li>
+          <li>Best raw spectacle, worst visibility (low cloud is common across the Khasi Hills)</li>
+          <li>Photo status: no verified monsoon-season photograph sourced yet</li>
+        </ul>
+      </div>
+    </div>
+    <div class="season-panel" id="panel-post">
+      <div class="season-card">
+        <h3>Flow &amp; character</h3>
+        <p class="flow-label">Relative flow intensity</p>
+        <div class="flow-meter"><i style="width:70%"></i></div>
+        <p style="font-size:13.5px;margin-top:10px;">Still strong, with clearer skies. Regional travel guides consistently name October–November as the best window for waterfall visibility across Meghalaya generally.</p>
+      </div>
+      <div class="season-card">
+        <h3>What to expect on site</h3>
+        <ul class="season-list">
+          <li>Clearer views of the gorge and surrounding hills</li>
+          <li>Trails drying out but still remote and lightly maintained</li>
+          <li>Photo status: no verified post-monsoon photograph sourced yet</li>
+        </ul>
+      </div>
+    </div>
+    <div class="season-panel" id="panel-winter">
+      <div class="season-card">
+        <h3>Flow &amp; character</h3>
+        <p class="flow-label">Relative flow intensity</p>
+        <div class="flow-meter"><i style="width:35%"></i></div>
+        <p style="font-size:13.5px;margin-top:10px;">Reduced but rarely dry — the Kynshi is perennial. Regional accounts describe this as the quieter, gentler face of the river's falls.</p>
+      </div>
+      <div class="season-card">
+        <h3>What to expect on site</h3>
+        <ul class="season-list">
+          <li>Easiest and safest footing for the Nongkhnum trek and camping</li>
+          <li>Best window generally cited for Meghalaya waterfalls overall (Oct–Feb range)</li>
+          <li>Photo status: no verified winter-season photograph sourced yet</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANDSCAPE -->
+<section class="alt" id="landscape">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">06 / Landscape explorer</div>
+      <h2>Reading the gorge</h2>
+      <p>An annotated schematic of the terrain around Langshiang Falls — drawn from written descriptions in the sources below, since a labelled aerial photograph isn't yet available. Click a marker to read about that feature.</p>
+    </div>
+    <div class="explorer">
+      <svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:linear-gradient(180deg,#cfe3da 0%,#9fbfae 40%,#3f6152 75%,#274236 100%)" role="img" aria-label="Illustrative diagram of the landscape surrounding Langshiang Falls">
+        <path d="M0,120 Q150,60 300,110 T600,90 T800,120 V0 H0 Z" fill="#274236" opacity="0.5"/>
+        <path d="M0,180 Q200,120 400,170 T800,150 V420 H0 Z" fill="#1f3d2c" opacity="0.55"/>
+        <path d="M300,60 C310,140 300,220 330,300 C340,330 345,360 340,400" stroke="#cfe8f0" stroke-width="10" fill="none" opacity="0.85"/>
+        <path d="M300,60 C310,140 300,220 330,300 C340,330 345,360 340,400" stroke="#fff" stroke-width="3" fill="none" opacity="0.6"/>
+        <ellipse cx="345" cy="405" rx="55" ry="14" fill="#5b7d89" opacity="0.5"/>
+      </svg>
+      <div class="hotspot" style="left:38%;top:20%" data-key="plateau" tabindex="0">A</div>
+      <div class="hotspot" style="left:41%;top:55%" data-key="gorge" tabindex="0">B</div>
+      <div class="hotspot" style="left:43%;top:88%" data-key="pool" tabindex="0">C</div>
+      <div class="hotspot" style="left:75%;top:70%" data-key="viewpoint" tabindex="0">D</div>
+      <div class="hotspot" style="left:15%;top:35%" data-key="forest" tabindex="0">E</div>
+    </div>
+    <div class="hotspot-card" id="hotspotCard">
+      <div class="tag">Tap a marker</div>
+      <h4>Explore the terrain</h4>
+      <p>Select a lettered point on the diagram above to read what's there.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEARBY -->
+<section id="nearby">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">07 / Nearby attractions</div>
+      <h2>What else is on this stretch of river</h2>
+      <p>All of these sit on or beside the same Kynshi River system, within a half-day of Langshiang.</p>
+    </div>
+    <div class="attraction-list">
+      <div class="attraction" data-flyto="nongkhnum">
+        <div class="dist">~10 km</div>
+        <div><div class="name">Nongkhnum River Island</div><div class="desc">Meghalaya's largest river island — sandy beach, camping, and the gateway to both Weinia and Langshiang.</div></div>
+        <div class="arrow">↗</div>
+      </div>
+      <div class="attraction" data-flyto="weinia">
+        <div class="dist">~10 km</div>
+        <div><div class="name">Weinia Falls</div><div class="desc">~60 m fall crossed by a footbridge at the island's entrance; short walk from the beach.</div></div>
+        <div class="arrow">↗</div>
+      </div>
+      <div class="attraction" data-flyto="thum">
+        <div class="dist">~10 km</div>
+        <div><div class="name">Thum (Shadthum) Falls</div><div class="desc">The island's second cascade, on the opposite braided channel from Weinia.</div></div>
+        <div class="arrow">↗</div>
+      </div>
+      <div class="attraction" data-flyto="mawpon">
+        <div class="dist">Near Sangriang</div>
+        <div><div class="name">Mawpon village viewpoint</div><div class="desc">The commonly cited vantage point for seeing Langshiang Falls across the gorge.</div></div>
+        <div class="arrow">↗</div>
+      </div>
+      <div class="attraction" data-flyto="nongstoin">
+        <div class="dist">~24–25 km</div>
+        <div><div class="name">Nongstoin</div><div class="desc">West Khasi Hills district headquarters and the usual road gateway to this whole area.</div></div>
+        <div class="arrow">↗</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEST TIME -->
+<section class="alt" id="best-time">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">08 / Best visiting season</div>
+      <h2>When to go</h2>
+      <p>Regional guides most often recommend October–November for Meghalaya's waterfalls generally — strong flow with clearer skies. Winter (Dec–Feb) trades some volume for the easiest, driest access.</p>
+    </div>
+    <div class="month-grid">
+      <div class="month">Jan</div><div class="month">Feb</div><div class="month">Mar</div>
+      <div class="month">Apr</div><div class="month">May</div><div class="month">Jun</div>
+      <div class="month">Jul</div><div class="month">Aug</div><div class="month">Sep</div>
+      <div class="month best">Oct</div><div class="month best">Nov</div><div class="month good">Dec</div>
+    </div>
+    <p style="margin-top:14px;font-size:12.5px;">
+      <span style="color:var(--ochre);font-weight:600;">■</span> Best cited window &nbsp;
+      <span style="color:var(--slate);font-weight:600;">■</span> Good, drier access &nbsp;
+      <span style="color:var(--ink-soft);">■</span> Monsoon-heavy or thin-flow months
+    </p>
+  </div>
+</section>
+
+<!-- LANDING CARD -->
+<section id="landing-card">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">09 / Landing page card</div>
+      <h2>Drop-in card for "Waterfalls of India"</h2>
+      <p>A ready-made card and markup for the landing page listing. Point the href at wherever this page lives in the repo, and keep it as one entry — see the naming note above on avoiding a duplicate Langshiang Falls listing.</p>
+    </div>
+    <div class="landing-preview">
+      <a class="wf-card" href="/waterfalls/kynshi-falls.html">
+        <div class="thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Langshiang%20Falls%20Located%20in%20Sangriang%2C%20Nongstoin.jpg" alt="Langshiang Falls dropping into a forested gorge on the Kynshi River, West Khasi Hills, Meghalaya"></div>
+        <div class="body">
+          <div class="loc">West Khasi Hills, Meghalaya</div>
+          <h3>Kynshi Falls</h3>
+          <p>The Kynshi River's cascades — Langshiang and Weinia Falls — around Nongkhnum River Island.</p>
+        </div>
+      </a>
+    </div>
+    <div class="snippet" id="snippetCode">&lt;a <span class="attr">class</span>=<span class="str">"waterfall-card"</span> <span class="attr">href</span>=<span class="str">"/waterfalls/kynshi-falls.html"</span>&gt;
+  &lt;<span class="tag-name">img</span> <span class="attr">src</span>=<span class="str">"/assets/img/kynshi-langshiang-thumb.jpg"</span>
+       <span class="attr">alt</span>=<span class="str">"Langshiang Falls dropping into a forested gorge on the Kynshi River, West Khasi Hills, Meghalaya"</span>
+       <span class="attr">loading</span>=<span class="str">"lazy"</span>&gt;
+  &lt;<span class="tag-name">h3</span>&gt;Kynshi Falls&lt;/<span class="tag-name">h3</span>&gt;
+  &lt;<span class="tag-name">p</span> <span class="attr">class</span>=<span class="str">"wf-loc"</span>&gt;West Khasi Hills, Meghalaya&lt;/<span class="tag-name">p</span>&gt;
+  &lt;<span class="tag-name">p</span> <span class="attr">class</span>=<span class="str">"wf-desc"</span>&gt;The Kynshi River's cascades — Langshiang and Weinia Falls.&lt;/<span class="tag-name">p</span>&gt;
+&lt;/<span class="tag-name">a</span>&gt;</div>
+    <button class="copy-btn" id="copySnippet">Copy snippet</button>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="alt" id="sources">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">10 / Image credits &amp; sources</div>
+      <h2>Where this page's facts and photos come from</h2>
+    </div>
+    <h3 style="font-size:15px;margin-bottom:14px;">Photographs</h3>
+    <div class="credit-list" style="margin-bottom:32px;">
+      <div class="credit-item"><span class="src">Hero &amp; landing-card thumbnail — "Langshiang Falls" / "Langshiang Falls Located in Sangriang, Nongstoin", Wikimedia Commons, used under their listed Commons license.</span><a href="https://commons.wikimedia.org/wiki/Category:Langshiang_Falls" target="_blank" rel="noopener">Commons category ↗</a></div>
+      <div class="credit-item"><span class="src">Wide landscape view, rock-formation close-up, and season-tagged photographs — not yet sourced to a verified, appropriately-licensed image. Left as an open item rather than filled with an unverified photo.</span></div>
+    </div>
+    <h3 style="font-size:15px;margin-bottom:14px;">Written sources</h3>
+    <div class="credit-list">
+      <div class="credit-item"><span class="src">Langshiang Falls — location, coordinates, disputed height</span><a href="https://en.wikipedia.org/wiki/Langshiang_Falls" target="_blank" rel="noopener">Wikipedia ↗</a></div>
+      <div class="credit-item"><span class="src">Langshiang Falls — independent height assessment from imagery</span><a href="https://www.worldwaterfalldatabase.com/waterfall/Langshiang-Falls-796" target="_blank" rel="noopener">World Waterfall Database ↗</a></div>
+      <div class="credit-item"><span class="src">Nongkhnum River Island — area, coordinates, the two named falls</span><a href="https://en.wikipedia.org/wiki/Nongkhnum_River_Island" target="_blank" rel="noopener">Wikipedia ↗</a></div>
+      <div class="credit-item"><span class="src">Nongkhnum / Weinia / Thum Falls — braided channels, heights, footbridge access</span><a href="http://wikimapia.org/17672959/Nongkhnum-Island" target="_blank" rel="noopener">Wikimapia ↗</a></div>
+      <div class="credit-item"><span class="src">Nongstoin — district HQ, elevation, coordinates</span><a href="https://en.wikipedia.org/wiki/Nongstoin" target="_blank" rel="noopener">Wikipedia ↗</a></div>
+      <div class="credit-item"><span class="src">West Khasi Hills district — rainfall, wet-season pattern</span><a href="https://www.emeghalaya.com/meghalaya/west-khasi-hills" target="_blank" rel="noopener">eMeghalaya ↗</a></div>
+      <div class="credit-item"><span class="src">Khasi Hills geology — Precambrian basement, granite plutons</span><a href="https://en.wikipedia.org/wiki/Khasi_Hills" target="_blank" rel="noopener">Khasi Hills overview ↗</a></div>
+      <div class="credit-item"><span class="src">Shillong Plateau — regional physiography</span><a href="https://en.wikipedia.org/wiki/Shillong_Plateau" target="_blank" rel="noopener">Wikipedia ↗</a></div>
+      <div class="credit-item"><span class="src">Regional best-season guidance for Meghalaya waterfalls</span><a href="https://wanderon.in/blogs/scenic-waterfalls-in-meghalaya" target="_blank" rel="noopener">Meghalaya waterfalls travel guide ↗</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Built for issue "Kynshi Falls: Discover the Khasi Hills Cascade" — treats Kynshi Falls as the river system (Langshiang + Weinia) to avoid duplicating a standalone Langshiang Falls entry. Flag anything above that needs a better source.
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+try {
+/* ---------------- MAP ---------------- */
+const points = {
+  langshiang: {lat:25.44521, lng:91.22866, label:"Langshiang Falls", type:"river", desc:"West Khasi Hills district. Height commonly quoted as 337 m; field estimates suggest less. Coordinates per Wikipedia.", exact:true},
+  nongkhnum:  {lat:25.444,   lng:91.253,   label:"Nongkhnum River Island", type:"river", desc:"Largest river island in Meghalaya, formed by the Kynshi's braided channels. Coordinates per Wikipedia.", exact:true},
+  weinia:     {lat:25.4465,  lng:91.2515,  label:"Weinia Falls", type:"river", desc:"~60 m fall beside the island's entrance footbridge. No independently surveyed coordinates found — placed near Nongkhnum Island.", exact:false},
+  thum:       {lat:25.4415,  lng:91.2545,  label:"Thum (Shadthum) Falls", type:"river", desc:"Second cascade on the opposite braided channel. Approximate placement — precise coordinates not sourced.", exact:false},
+  mawpon:     {lat:25.452,   lng:91.235,   label:"Mawpon village", type:"access", desc:"Cited viewpoint village for Langshiang Falls. Approximate placement relative to Sangriang/Langshiang.", exact:false},
+  nongstoin:  {lat:25.52,    lng:91.27,    label:"Nongstoin", type:"access", desc:"West Khasi Hills district headquarters, elevation 1,409 m. Coordinates per Wikipedia.", exact:true},
+};
+
+const map = L.map('map', {scrollWheelZoom:false}).setView([25.47, 91.25], 11);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 17,
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+function makeIcon(exact, color){
+  return L.divIcon({
+    className:'',
+    html:`<div style="width:16px;height:16px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,0.4);${exact?'':'opacity:0.75;border-style:dashed;'}"></div>`,
+    iconSize:[16,16], iconAnchor:[8,8]
+  });
+}
+
+const markers = {};
+Object.entries(points).forEach(([key,p])=>{
+  const color = p.type === 'river' ? '#b0532c' : '#33505c';
+  const m = L.marker([p.lat,p.lng], {icon: makeIcon(p.exact,color)}).addTo(map);
+  m.bindPopup(`<strong>${p.label}</strong><br>${p.desc}${p.exact?'':'<br><em>Approximate — see note.</em>'}`);
+  markers[key] = {marker:m, type:p.type};
+});
+
+function applyLayer(layer){
+  Object.values(markers).forEach(({marker,type})=>{
+    const show = layer === 'all' || type === layer;
+    if(show){ if(!map.hasLayer(marker)) marker.addTo(map); }
+    else { map.removeLayer(marker); }
+  });
+}
+document.querySelectorAll('.chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');
+    applyLayer(chip.dataset.layer);
+  });
+});
+
+document.querySelectorAll('.attraction').forEach(row=>{
+  row.addEventListener('click', ()=>{
+    const key = row.dataset.flyto;
+    const p = points[key];
+    if(!p) return;
+    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+    document.querySelector('.chip[data-layer="all"]').classList.add('active');
+    applyLayer('all');
+    map.flyTo([p.lat,p.lng], 14, {duration:1});
+    markers[key].marker.openPopup();
+    document.getElementById('map').scrollIntoView({behavior:'smooth', block:'center'});
+  });
+});
+} catch(err) {
+  console.error('Map failed to initialize:', err);
+  const mapEl = document.getElementById('map');
+  if (mapEl) mapEl.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#4a5650;font-family:IBM Plex Mono,monospace;font-size:13px;padding:20px;text-align:center;">Map failed to load (Leaflet CDN issue) — rest of the page still works.</div>';
+}
+
+/* ---------------- HEIGHT VIZ ---------------- */
+const heightData = [
+  {name:"Langshiang Falls", note:"on the Kynshi", quoted:337, field:84, cls:"kynshi disputed"},
+  {name:"Weinia Falls", note:"on the Kynshi", quoted:60, field:60, cls:"kynshi"},
+  {name:"Thum Falls", note:"on the Kynshi, approx.", quoted:60, field:60, cls:"kynshi"},
+  {name:"Nohkalikai Falls", note:"reference, not on the Kynshi", quoted:340, field:340, cls:"ref"},
+  {name:"Kynrem Falls", note:"reference, not on the Kynshi", quoted:305, field:305, cls:"ref"},
+];
+const maxH = 340;
+const barsEl = document.getElementById('barsContainer');
+let showField = false;
+function renderBars(){
+  barsEl.innerHTML = '';
+  heightData.forEach(d=>{
+    const val = showField ? d.field : d.quoted;
+    const row = document.createElement('div');
+    row.className = 'bar-row' + (d.cls.includes('disputed') ? ' disputed' : '');
+    row.innerHTML = `
+      <div class="name">${d.name}<small>${d.note}</small></div>
+      <div class="bar-track"><div class="bar-fill ${d.cls.replace('disputed','')}" style="width:${(val/maxH*100).toFixed(1)}%"></div></div>
+      <div class="val mono">${val} m</div>
+    `;
+    barsEl.appendChild(row);
+  });
+}
+renderBars();
+const sw = document.getElementById('heightSwitch');
+const swLabel = document.getElementById('heightSwitchLabel');
+function toggleSwitch(){
+  showField = !showField;
+  sw.classList.toggle('on', showField);
+  sw.setAttribute('aria-checked', showField);
+  swLabel.textContent = showField ? 'Showing: field-estimated heights (World Waterfall Database)' : 'Showing: commonly quoted figures';
+  renderBars();
+}
+sw.addEventListener('click', toggleSwitch);
+sw.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleSwitch(); }});
+
+/* ---------------- SEASONS ---------------- */
+document.querySelectorAll('.season-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.season-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.season-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-'+btn.dataset.season).classList.add('active');
+  });
+});
+
+/* ---------------- LANDSCAPE HOTSPOTS ---------------- */
+const hotspotData = {
+  plateau: {tag:"A · Above the falls", title:"Plateau surface", desc:"The Kynshi flows across the relatively flat top of the West Khasi Hills plateau before the land drops away toward the gorge."},
+  gorge: {tag:"B · The drop", title:"Langshiang gorge", desc:"A steep gorge cut into crystalline basement rock, where the reunited river channels plunge as Langshiang Falls."},
+  pool: {tag:"C · Base of the falls", title:"Plunge pool", desc:"Described in trekking accounts as a deep pool at the foot of the falls, reached only by a difficult, lightly maintained trail."},
+  viewpoint: {tag:"D · Across the gorge", title:"Mawpon viewpoint", desc:"The village most often cited as the place to view Langshiang Falls from the opposite side of the gorge."},
+  forest: {tag:"E · Surrounding cover", title:"Sangriang forest", desc:"The falls and gorge are set within the forests around Sangriang village, described in travel accounts as lush and largely unmodified."},
+};
+const hcard = document.getElementById('hotspotCard');
+document.querySelectorAll('.hotspot').forEach(h=>{
+  const fire = ()=>{
+    const d = hotspotData[h.dataset.key];
+    hcard.innerHTML = `<div class="tag">${d.tag}</div><h4>${d.title}</h4><p>${d.desc}</p>`;
+  };
+  h.addEventListener('click', fire);
+  h.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); fire(); }});
+});
+
+/* ---------------- COPY SNIPPET ---------------- */
+document.getElementById('copySnippet').addEventListener('click', ()=>{
+  const text = document.getElementById('snippetCode').innerText;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn = document.getElementById('copySnippet');
+    const orig = btn.textContent;
+    btn.textContent = 'Copied ✓';
+    setTimeout(()=>btn.textContent = orig, 1600);
+  });
+});
+</script>
+</body>
+</html>

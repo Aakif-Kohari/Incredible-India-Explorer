@@ -6,7 +6,7 @@
         (function() {
             const theme = localStorage.getItem('theme') || 'dark';
             if (theme === 'light') {
-                document.body.classList.add('light-theme');
+                document.documentElement.setAttribute('data-theme', 'light');
             }
         })();
     </script>
@@ -14,9 +14,10 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Explore popular and lesser-known hill stations across India by region, altitude, season, and attractions." name="description"/>
 <title>Hill Stations Explorer | Incredible India</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
 <link href="../../styles.css" rel="stylesheet"/>
 <style>
     /* Page-scoped styles: Hill Stations Explorer */
@@ -374,7 +375,7 @@
     }
   </style>
 
-  <link rel="stylesheet" href="../../../js-modules/page-progress/page-progress.css">
+  <link rel="stylesheet" href="../js-modules/page-progress/page-progress.css">
 
     <!-- Open Graph / Social Media Tags -->
     <meta property="og:title" content="Hill Stations Explorer | Incredible India Explorer">
@@ -395,54 +396,93 @@
     <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/hill-stations.html">
 </head>
 <body>
-<header class="navbar scrolled" id="navbar">
-<div class="nav-container">
-<a class="nav-logo" href="../../index.html#home" id="nav-logo">
-<span class="saffron">Incredible</span>
-<span class="gold">India</span>
-<span class="green">Explorer</span>
-</a>
-<button aria-expanded="false" aria-label="Toggle Menu" class="menu-toggle" id="menu-toggle">
-<span class="bar"></span>
-<span class="bar"></span>
-<span class="bar"></span>
-</button>
-<nav class="nav-menu" id="nav-menu">
-<a class="nav-link" href="../../index.html#home" id="link-home">Home</a>
-<a class="nav-link" href="../../index.html#map" id="link-map">Interactive Map</a>
-<a class="nav-link" href="../cuisine/cuisine.html" id="link-cuisine">Cuisine</a>
-<a class="nav-link" href="../festivals/festivals.html" id="link-festivals">Festivals</a>
-<a class="nav-link" href="../culture/culture.html" id="link-culture">Culture</a>
-<div class="nav-dropdown">
-<button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
-<div class="dropdown-menu">
-<a class="dropdown-item" href="../travel/travel.html">Travel &amp; Destinations</a>
-<a class="dropdown-item" href="hill-stations.html" style="color: var(--saffron)">Hill Stations</a>
-<a class="dropdown-item" href="../wildlife/wildlife.html">Nature &amp; Wildlife</a>
-<a class="dropdown-item" href="../personalities/personalities.html">Famous Personalities</a>
-<a class="dropdown-item" href="../spiritual/spiritual.html">Spiritual India</a>
-<a class="dropdown-item" href="../arts-crafts/arts-crafts.html">Arts &amp; Crafts</a>
-</div>
-</div>
-<div class="nav-dropdown">
-<button class="nav-link dropdown-toggle" id="link-learn-data">Learn &amp; Data ▾</button>
-<div class="dropdown-menu">
-<a class="dropdown-item" href="../smart-cities/smart-cities.html">Smart Cities</a>
-<a class="dropdown-item" href="../languages/languages.html">Languages of India</a>
-<a class="dropdown-item" href="../data-india/data-india.html">Data &amp; Statistics</a>
-<a class="dropdown-item" href="../learn/learn.html">Learn &amp; Quiz</a>
-</div>
-</div>
-<button aria-label="Toggle Dark/Light Mode" class="btn-theme-toggle" id="theme-toggle" title="Toggle Light Mode">☀️</button>
-<a class="nav-link" href="../premium/premium.html" style="color: var(--gold); font-weight: bold;">★ Premium</a>
-<a class="nav-link" href="../../login.html" id="link-login">Login</a>
-<div class="journey-nav-search">
-                    <input type="search" id="journey-search-input" class="journey-search-input" placeholder="Search all explorers…" aria-label="Search across all explorers" autocomplete="off">
-                    <div id="journey-search-results" class="journey-search-results" hidden></div>
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+<header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
                 </div>
-                <a href="../journey/journey.html" class="nav-link" id="link-journey">🧭 My Journey</a>
-            </nav>
-</div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
 </header>
 <main id="app-root" style="padding-top: 80px;">
 <section class="hill-hero">
@@ -477,7 +517,10 @@
 <div class="hill-grid" id="hill-grid">
 <article class="hill-card" data-id="hill-stations-shimla" data-region="north">
 <div class="hill-card-media">
-<img alt="Mountain scenery representing Shimla" loading="lazy" src="../../assets/travel_mountains.png"/>
+<picture>
+  <source srcset="../assets/travel_mountains.webp" type="image/webp">
+  <img alt="Mountain scenery representing Shimla" loading="lazy" src="../assets/travel_mountains.png"/>
+</picture>
 <span class="region-badge">North</span>
 <button aria-label="Save Shimla to My Journey" aria-pressed="false" class="hill-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="hill-stations-shimla" type="button">♡</button></div>
 <div class="hill-card-body">
@@ -493,7 +536,10 @@
 </article>
 <article class="hill-card" data-id="hill-stations-manali" data-region="north">
 <div class="hill-card-media">
-<img alt="Mountain valley scenery representing Manali" loading="lazy" src="../../assets/travel_hidden.png"/>
+<picture>
+  <source srcset="../assets/travel_hidden.webp" type="image/webp">
+  <img alt="Mountain valley scenery representing Manali" loading="lazy" src="../assets/travel_hidden.png"/>
+</picture>
 <span class="region-badge">North</span>
 <button aria-label="Save Manali to My Journey" aria-pressed="false" class="hill-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="hill-stations-manali" type="button">♡</button></div>
 <div class="hill-card-body">
@@ -509,7 +555,10 @@
 </article>
 <article class="hill-card" data-id="hill-stations-lansdowne" data-region="north">
 <div class="hill-card-media">
-<img alt="Forest and mountain scenery representing Lansdowne" loading="lazy" src="../../assets/travel_forests.png"/>
+<picture>
+  <source srcset="../assets/travel_forests.webp" type="image/webp">
+  <img alt="Forest and mountain scenery representing Lansdowne" loading="lazy" src="../assets/travel_forests.png"/>
+</picture>
 <span class="region-badge">North</span>
 <span class="hidden-gem">Hidden gem</span>
 <button aria-label="Save Lansdowne to My Journey" aria-pressed="false" class="hill-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="hill-stations-lansdowne" type="button">♡</button></div>
@@ -526,7 +575,10 @@
 </article>
 <article class="hill-card" data-id="hill-stations-munnar" data-region="south">
 <div class="hill-card-media">
-<img alt="Lush green hills representing Munnar" loading="lazy" src="../../assets/travel_forests.png"/>
+<picture>
+  <source srcset="../assets/travel_forests.webp" type="image/webp">
+  <img alt="Lush green hills representing Munnar" loading="lazy" src="../assets/travel_forests.png"/>
+</picture>
 <span class="region-badge">South</span>
 <button aria-label="Save Munnar to My Journey" aria-pressed="false" class="hill-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="hill-stations-munnar" type="button">♡</button></div>
 <div class="hill-card-body">
@@ -542,7 +594,10 @@
 </article>
 <article class="hill-card" data-id="hill-stations-ooty" data-region="south">
 <div class="hill-card-media">
-<img alt="Nilgiri mountain scenery representing Ooty" loading="lazy" src="../../assets/travel_mountains.png"/>
+<picture>
+  <source srcset="../assets/travel_mountains.webp" type="image/webp">
+  <img alt="Nilgiri mountain scenery representing Ooty" loading="lazy" src="../assets/travel_mountains.png"/>
+</picture>
 <span class="region-badge">South</span>
 <button aria-label="Save Ooty to My Journey" aria-pressed="false" class="hill-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="hill-stations-ooty" type="button">♡</button></div>
 <div class="hill-card-body">
@@ -558,7 +613,10 @@
 </article>
 <article class="hill-card" data-id="hill-stations-coorg" data-region="south">
 <div class="hill-card-media">
-<img alt="Misty highland scenery representing Coorg" loading="lazy" src="../../assets/travel_hidden.png"/>
+<picture>
+  <source srcset="../assets/travel_hidden.webp" type="image/webp">
+  <img alt="Misty highland scenery representing Coorg" loading="lazy" src="../assets/travel_hidden.png"/>
+</picture>
 <span class="region-badge">South</span>
 <span class="hidden-gem">Coffee country</span>
 <button aria-label="Save Coorg to My Journey" aria-pressed="false" class="hill-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="hill-stations-coorg" type="button">♡</button></div>
@@ -575,7 +633,10 @@
 </article>
 <article class="hill-card" data-id="hill-stations-darjeeling" data-region="east">
 <div class="hill-card-media">
-<img alt="Eastern Himalayan scenery representing Darjeeling" loading="lazy" src="../../assets/travel_mountains.png"/>
+<picture>
+  <source srcset="../assets/travel_mountains.webp" type="image/webp">
+  <img alt="Eastern Himalayan scenery representing Darjeeling" loading="lazy" src="../assets/travel_mountains.png"/>
+</picture>
 <span class="region-badge">East</span>
 <button aria-label="Save Darjeeling to My Journey" aria-pressed="false" class="hill-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="hill-stations-darjeeling" type="button">♡</button></div>
 <div class="hill-card-body">
@@ -591,7 +652,10 @@
 </article>
 <article class="hill-card" data-id="hill-stations-shillong" data-region="east">
 <div class="hill-card-media">
-<img alt="Misty green hills representing Shillong" loading="lazy" src="../../assets/travel_forests.png"/>
+<picture>
+  <source srcset="../assets/travel_forests.webp" type="image/webp">
+  <img alt="Misty green hills representing Shillong" loading="lazy" src="../assets/travel_forests.png"/>
+</picture>
 <span class="region-badge">Northeast</span>
 <button aria-label="Save Shillong to My Journey" aria-pressed="false" class="hill-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="hill-stations-shillong" type="button">♡</button></div>
 <div class="hill-card-body">
@@ -607,7 +671,10 @@
 </article>
 <article class="hill-card" data-id="hill-stations-pelling" data-region="east">
 <div class="hill-card-media">
-<img alt="Mountain town scenery representing Pelling" loading="lazy" src="../../assets/travel_hidden.png"/>
+<picture>
+  <source srcset="../assets/travel_hidden.webp" type="image/webp">
+  <img alt="Mountain town scenery representing Pelling" loading="lazy" src="../assets/travel_hidden.png"/>
+</picture>
 <span class="region-badge">Northeast</span>
 <span class="hidden-gem">Hidden gem</span>
 <button aria-label="Save Pelling to My Journey" aria-pressed="false" class="hill-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="hill-stations-pelling" type="button">♡</button></div>
@@ -624,7 +691,10 @@
 </article>
 <article class="hill-card" data-id="hill-stations-mount-abu" data-region="west">
 <div class="hill-card-media">
-<img alt="Aravalli hill scenery representing Mount Abu" loading="lazy" src="../../assets/travel_mountains.png"/>
+<picture>
+  <source srcset="../assets/travel_mountains.webp" type="image/webp">
+  <img alt="Aravalli hill scenery representing Mount Abu" loading="lazy" src="../assets/travel_mountains.png"/>
+</picture>
 <span class="region-badge">West</span>
 <button aria-label="Save Mount Abu to My Journey" aria-pressed="false" class="hill-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="hill-stations-mount-abu" type="button">♡</button></div>
 <div class="hill-card-body">
@@ -640,7 +710,10 @@
 </article>
 <article class="hill-card" data-id="hill-stations-mahabaleshwar" data-region="west">
 <div class="hill-card-media">
-<img alt="Green Sahyadri scenery representing Mahabaleshwar" loading="lazy" src="../../assets/travel_forests.png"/>
+<picture>
+  <source srcset="../assets/travel_forests.webp" type="image/webp">
+  <img alt="Green Sahyadri scenery representing Mahabaleshwar" loading="lazy" src="../assets/travel_forests.png"/>
+</picture>
 <span class="region-badge">West</span>
 <button aria-label="Save Mahabaleshwar to My Journey" aria-pressed="false" class="hill-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="hill-stations-mahabaleshwar" type="button">♡</button></div>
 <div class="hill-card-body">
@@ -656,7 +729,10 @@
 </article>
 <article class="hill-card" data-id="hill-stations-saputara" data-region="west">
 <div class="hill-card-media">
-<img alt="Green plateau scenery representing Saputara" loading="lazy" src="../../assets/travel_hidden.png"/>
+<picture>
+  <source srcset="../assets/travel_hidden.webp" type="image/webp">
+  <img alt="Green plateau scenery representing Saputara" loading="lazy" src="../assets/travel_hidden.png"/>
+</picture>
 <span class="region-badge">West</span>
 <span class="hidden-gem">Hidden gem</span>
 <button aria-label="Save Saputara to My Journey" aria-pressed="false" class="hill-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="hill-stations-saputara" type="button">♡</button></div>
@@ -673,7 +749,10 @@
 </article>
 <article class="hill-card" data-id="hill-stations-pachmarhi" data-region="central">
 <div class="hill-card-media">
-<img alt="Satpura forest scenery representing Pachmarhi" loading="lazy" src="../../assets/travel_forests.png"/>
+<picture>
+  <source srcset="../assets/travel_forests.webp" type="image/webp">
+  <img alt="Satpura forest scenery representing Pachmarhi" loading="lazy" src="../assets/travel_forests.png"/>
+</picture>
 <span class="region-badge">Central</span>
 <button aria-label="Save Pachmarhi to My Journey" aria-pressed="false" class="hill-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="hill-stations-pachmarhi" type="button">♡</button></div>
 <div class="hill-card-body">
@@ -689,7 +768,10 @@
 </article>
 <article class="hill-card" data-id="hill-stations-mainpat" data-region="central">
 <div class="hill-card-media">
-<img alt="Wooded plateau scenery representing Mainpat" loading="lazy" src="../../assets/travel_hidden.png"/>
+<picture>
+  <source srcset="../assets/travel_hidden.webp" type="image/webp">
+  <img alt="Wooded plateau scenery representing Mainpat" loading="lazy" src="../assets/travel_hidden.png"/>
+</picture>
 <span class="region-badge">Central</span>
 <span class="hidden-gem">Hidden gem</span>
 <button aria-label="Save Mainpat to My Journey" aria-pressed="false" class="hill-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="hill-stations-mainpat" type="button">♡</button></div>
@@ -706,7 +788,10 @@
 </article>
 <article class="hill-card" data-id="hill-stations-amarkantak" data-region="central">
 <div class="hill-card-media">
-<img alt="Forested hill scenery representing Amarkantak" loading="lazy" src="../../assets/travel_forests.png"/>
+<picture>
+  <source srcset="../assets/travel_forests.webp" type="image/webp">
+  <img alt="Forested hill scenery representing Amarkantak" loading="lazy" src="../assets/travel_forests.png"/>
+</picture>
 <span class="region-badge">Central</span>
 <button aria-label="Save Amarkantak to My Journey" aria-pressed="false" class="hill-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="hill-stations-amarkantak" type="button">♡</button></div>
 <div class="hill-card-body">
@@ -733,11 +818,12 @@
 </main>
 <footer class="hill-footer">
 <div class="hill-container">
-<p>Part of <a href="../traditional-games/index.html">Incredible India Explorer</a> · Built with Vanilla HTML, CSS &amp; JavaScript.</p>
+<p>Part of <a href="../../index.html">Incredible India Explorer</a> · Built with Vanilla HTML, CSS &amp; JavaScript.</p>
 </div>
 </footer>
 <button aria-label="Scroll to top" class="btn-scroll-top" id="btn-scroll-top">↑</button>
-<script src="../../app.js" defer></script>
+<script src="../js-modules/storage.js" defer></script>
+    <script src="../app.js" defer></script>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
       const buttons = document.querySelectorAll(".region-filter button");
@@ -789,10 +875,10 @@
       }
     });
   </script>
-<script src="../../firebase-config.js" type="module"></script>
-<script src="../../auth.js" type="module"></script>
-<script src="../../router.js" defer></script>
+<script src="../firebase-config.js" type="module"></script>
+<script src="../auth.js" type="module"></script>
+<script src="../router.js" defer></script>
     <script src="hill-stations-journey.js" defer></script>
-  <script src="../../../js-modules/page-progress/page-progress.js"></script>
+  <script src="../js-modules/page-progress/page-progress.js"></script>
 </body>
 </html>

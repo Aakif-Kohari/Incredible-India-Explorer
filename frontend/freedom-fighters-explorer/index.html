@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Freedom Fighters of India Explorer — Interactive timeline, regional filters, movement-based categorization, and hero profiles showcasing India's freedom struggle.">
+    <title>Freedom Fighters of India Explorer | Incredible India Explorer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="ffe-main">
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../frontend/freedom-fighters-hub/index.html" class="nav-link">Freedom Hub</a>
+                <a href="#hero" class="nav-link active">Hero Section</a>
+                <a href="#featured-heroes" class="nav-link">Featured Heroes</a>
+                <a href="#explorer" class="nav-link">Explorer Cards</a>
+                <a href="#timeline" class="nav-link">Timeline</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="ffe-hero" id="hero">
+            <div class="ffe-hero-overlay"></div>
+            <div class="ffe-hero-container">
+                <div class="ffe-hero-badge">🇮🇳 Freedom Fighters of India</div>
+                <h1 class="ffe-hero-title">Unsung Heroes & Visionaries of India's Freedom Struggle</h1>
+                <p class="ffe-hero-subtitle">
+                    Explore the lives, revolutionary movements, and sacrifices of leaders who shaped India's path to independence (1857–1947) through an interactive timeline, regional filters, and category-based exploration.
+                </p>
+                <div class="ffe-hero-stats">
+                    <div class="ffe-stat-card">
+                        <span class="ffe-stat-number" id="stat-heroes">25+</span>
+                        <span class="ffe-stat-label">Freedom Heroes</span>
+                    </div>
+                    <div class="ffe-stat-card">
+                        <span class="ffe-stat-number">1857–1947</span>
+                        <span class="ffe-stat-label">Historical Era</span>
+                    </div>
+                    <div class="ffe-stat-card">
+                        <span class="ffe-stat-number">6+</span>
+                        <span class="ffe-stat-label">Movement Streams</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Heroes Section -->
+        <section class="ffe-featured-section" id="featured-heroes">
+            <div class="ffe-container">
+                <div class="ffe-section-header">
+                    <span class="ffe-section-tag">Iconic Leaders</span>
+                    <h2>Featured Heroes of the Freedom Movement</h2>
+                    <p>Pivotal leaders whose courage, vision, and sacrifices ignited national consciousness across generations.</p>
+                </div>
+                <div class="ffe-featured-grid" id="featured-heroes-grid">
+                    <!-- Dynamic rendering via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Explorer Section (Search & Filters + Cards) -->
+        <section class="ffe-explorer-section" id="explorer">
+            <div class="ffe-container">
+                <div class="ffe-section-header">
+                    <span class="ffe-section-tag">Interactive Directory</span>
+                    <h2>Explore Freedom Fighters</h2>
+                    <p>Filter by region, state, or movement stream to discover inspiring leaders from across India.</p>
+                </div>
+
+                <!-- Controls Bar -->
+                <div class="ffe-controls-bar">
+                    <div class="ffe-search-box">
+                        <input type="text" id="ffe-search-input" placeholder="Search by freedom fighter name, region, or keyword..." aria-label="Search Freedom Fighters">
+                        <span class="ffe-search-icon">🔍</span>
+                    </div>
+
+                    <div class="ffe-filters-group">
+                        <div class="ffe-filter-item">
+                            <label for="ffe-region-filter">Region / State:</label>
+                            <select id="ffe-region-filter" aria-label="Filter by region or state">
+                                <option value="all">All Regions & States</option>
+                                <option value="North">North India (Punjab, UP, Delhi)</option>
+                                <option value="South">South India (TN, AP, Kerala, KA)</option>
+                                <option value="East">East India (Bengal, Odisha, Bihar)</option>
+                                <option value="West">West India (Gujarat, Maharashtra)</option>
+                                <option value="Central">Central India (MP)</option>
+                                <option value="North East">North-East India (Assam, Manipur, Nagaland)</option>
+                            </select>
+                        </div>
+
+                        <div class="ffe-filter-item">
+                            <label for="ffe-movement-filter">Movement Stream:</label>
+                            <select id="ffe-movement-filter" aria-label="Filter by movement">
+                                <option value="all">All Movements</option>
+                                <option value="1857 Revolt">1857 Uprising</option>
+                                <option value="Revolutionary">Revolutionary Movement</option>
+                                <option value="Non-Violent">Non-Violent & Satyagraha</option>
+                                <option value="INA">INA / Armed Resistance</option>
+                                <option value="Tribal">Tribal & Peasant Resistance</option>
+                                <option value="Women Leaders">Women Leaders</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ffe-active-results-bar">
+                    <span id="ffe-results-count">Showing 0 freedom fighters</span>
+                    <button id="ffe-reset-btn" class="ffe-btn-reset">Reset Filters</button>
+                </div>
+
+                <!-- Freedom Fighter Cards Grid -->
+                <div class="ffe-cards-grid" id="ffe-cards-grid">
+                    <!-- Dynamic rendering -->
+                </div>
+
+                <div class="ffe-no-results" id="ffe-no-results" style="display: none;">
+                    <p>No freedom fighters found matching your search and filter criteria.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Timeline Section (1857-1947) -->
+        <section class="ffe-timeline-section" id="timeline">
+            <div class="ffe-container">
+                <div class="ffe-section-header">
+                    <span class="ffe-section-tag">Chronology of Struggle</span>
+                    <h2>Interactive Freedom Timeline (1857–1947)</h2>
+                    <p>Trace key events and revolutionary milestones across 90 years of resistance leading to Independence.</p>
+                </div>
+
+                <div class="ffe-timeline-controls">
+                    <div class="ffe-timeline-range">
+                        <label for="ffe-timeline-slider">Select Era / Year:</label>
+                        <input type="range" id="ffe-timeline-slider" min="1857" max="1947" step="1" value="1857">
+                        <span id="ffe-timeline-year-val">1857</span>
+                    </div>
+                </div>
+
+                <div class="ffe-timeline-container" id="ffe-timeline-container">
+                    <!-- Timeline items rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Detail Modal -->
+        <div class="ffe-modal" id="ffe-hero-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-hero-name">
+            <div class="ffe-modal-overlay" id="ffe-modal-overlay"></div>
+            <div class="ffe-modal-content">
+                <button class="ffe-modal-close" id="ffe-modal-close" aria-label="Close modal">&times;</button>
+                <div class="ffe-modal-header">
+                    <span class="ffe-modal-badge" id="modal-hero-movement">Movement</span>
+                    <h2 id="modal-hero-name">Hero Name</h2>
+                    <p class="ffe-modal-meta"><span id="modal-hero-title">Title</span> | <span id="modal-hero-lifespan">Lifespan</span></p>
+                </div>
+                <div class="ffe-modal-body">
+                    <p><strong>State / Region:</strong> <span id="modal-hero-state">State</span> (<span id="modal-hero-region">Region</span>)</p>
+                    <div class="ffe-modal-section">
+                        <h3>Biography</h3>
+                        <p id="modal-hero-bio"></p>
+                    </div>
+                    <div class="ffe-modal-section">
+                        <h3>Major Contributions & Impact</h3>
+                        <p id="modal-hero-contributions"></p>
+                    </div>
+                    <div class="ffe-modal-section">
+                        <h3>Famous Slogan / Quote</h3>
+                        <blockquote id="modal-hero-quote"></blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="ffe-footer">
+        <div class="ffe-container">
+            <p>&copy; 2026 Incredible India Explorer. Celebrating the martyrs and visionaries of India's Freedom Movement.</p>
+            <div class="ffe-footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../freedom-fighters-hub/index.html">Freedom Fighters Hub</a>
+                <a href="../freedom-movement-explorer/index.html">Freedom Movement Explorer</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
