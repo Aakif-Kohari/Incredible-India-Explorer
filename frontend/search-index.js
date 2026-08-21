@@ -3825,10 +3825,10 @@ window.indiaSearchIndex = [
         url: 'frontend/up-district-explorer/up-district-explorer.html'
     },
     {
-    title: "Howrah Bridge: Kolkata's Engineering Landmark",
-    category: "Infrastructure & Heritage",
-    description: "Discover Howrah Bridge (Rabindra Setu) — history, cantilever design explained simply, its relationship with the Hooghly River, importance to Kolkata, interesting facts, timeline, and photo gallery.",
-    url: "frontend/howrah-bridge-explorer/index.html"
+        title: "Howrah Bridge: Kolkata's Engineering Landmark",
+        category: "Infrastructure & Heritage",
+        description: "Discover Howrah Bridge (Rabindra Setu) — history, cantilever design explained simply, its relationship with the Hooghly River, importance to Kolkata, interesting facts, timeline, and photo gallery.",
+        url: "frontend/howrah-bridge-explorer/index.html"
     },
     // --- Guess the Uttar Pradesh District Game ---
     {
@@ -5723,28 +5723,32 @@ window.indiaSearchIndex = [
         category: 'Heritage & History',
         description:
             "Explore the ancient Nalanda Mahavihara in Bihar — UNESCO World Heritage Site, ancient world's premier residential university (5th–12th century CE), Dharmaganja library, and famous scholars (Xuanzang, Aryabhata, Nagarjuna).",
-        url: 'frontend/nalanda-mahavihara-explorer/index.html'},
+        url: 'frontend/nalanda-mahavihara-explorer/index.html'
+    },
     // --- Mahabodhi Temple Explorer ---
     {
         title: 'Mahabodhi Temple: Discover the Sacred Site of Enlightenment',
         category: 'Monuments & Architecture',
         description:
             "Discover the Mahabodhi Temple Complex in Bodh Gaya, Bihar — the sacred site of Gautama Buddha's Enlightenment, the 55m brick shikhara, the sacred Bodhi Tree, Ashokan Vajrasana, and the Seven Sacred Weeks.",
-        url: 'frontend/mahabodhi-temple-explorer/index.html'},
+        url: 'frontend/mahabodhi-temple-explorer/index.html'
+    },
     // --- Gwalior Fort Explorer ---
     {
         title: "Gwalior Fort: Discover Madhya Pradesh's Historic Hill Fortress",
         category: 'Monuments & Architecture',
         description:
             "Explore Gwalior Fort — Madhya Pradesh's majestic hill fortress, Man Mandir Palace, Teli Ka Mandir, Sas Bahu Temples, and Gopachal Parvat Jain rock sculptures.",
-        url: 'frontend/gwalior-fort-explorer/index.html'},
+        url: 'frontend/gwalior-fort-explorer/index.html'
+    },
     // --- Golconda Fort Explorer ---
     {
         title: "Golconda Fort: Explore Hyderabad's Historic Fortress",
         category: 'Monuments & Architecture',
         description:
             "Develop a dedicated Golconda Fort explorer covering its Qutb Shahi history, acoustic engineering, 87 bastions, diamond trade vaults, and royal palaces in Hyderabad.",
-        url: 'frontend/golconda-fort-explorer/index.html'},
+        url: 'frontend/golconda-fort-explorer/index.html'
+    },
     // --- Chittorgarh Fort Explorer Q
     {
         title: 'Chittorgarh Fort: Explore the Legacy of Mewar',
@@ -5768,6 +5772,14 @@ window.indiaSearchIndex = [
         description:
             "Explore Titan — India's premier watchmaking brand, the quartz revolution, Titan Edge (world's slimmest watch), Raga, Fastrack, and Nebula collections.",
         url: 'frontend/titan-explorer/index.html'
+    },
+    // --- Haldiram's Explorer ---
+    {
+        title: "Haldiram's: Explore India's Snack and Food Brand",
+        category: 'Business & Brands',
+        description:
+            "Explore Haldiram's — origin as a Bikaneri bhujia shop in 1937, founder Ganga Bishan Agarwal, traditional namkeen and sweets, packaged snacks, restaurant business, and its origin-to-expansion timeline.",
+        url: 'frontend/haldirams-explorer/index.html'
     },
     // --- Manyavar Explorer ---
     {
