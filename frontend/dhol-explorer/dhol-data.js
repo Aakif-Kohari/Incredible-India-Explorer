@@ -104,7 +104,7 @@ const REGIONAL_VARIANTS = [
         region: 'Punjab & North India',
         category: 'Folk & Harvest',
         emoji: '🥁',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bhangra_dance_punjab.jpg?width=700',
+        image: 'assets/punjabi-dhol.svg',
         fallback: 'assets/dhol-anatomy.svg',
         summary: 'The archetypal dhol — worn on a shoulder strap, driving high-energy Bhangra and Baisakhi processions.',
         details:
@@ -119,7 +119,7 @@ const REGIONAL_VARIANTS = [
         region: 'West Bengal, Tripura & Odisha',
         category: 'Devotional & Ceremonial',
         emoji: '🪘',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dhaki_playing_Dhak_during_Durga_Puja.jpg?width=700',
+        image: 'assets/bengali-dhak.svg',
         fallback: 'assets/dhol-ensemble.svg',
         summary: 'A towering barrel drum decorated with white crane feathers, played by Dhakis during Durga Puja.',
         details:
@@ -134,7 +134,7 @@ const REGIONAL_VARIANTS = [
         region: 'Maharashtra & Goa',
         category: 'Street Procession',
         emoji: '🎶',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dhol_tasha_pathak_in_pune.jpg?width=700',
+        image: 'assets/dhol-tasha.svg',
         fallback: 'assets/dhol-ensemble.svg',
         summary: 'Heavy, high-tension dhols played in synchronized squads (pathaks) of hundreds during Ganeshotsav.',
         details:
@@ -149,7 +149,7 @@ const REGIONAL_VARIANTS = [
         region: 'Assam & Northeast India',
         category: 'Folk & Spring Harvest',
         emoji: '🌾',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bihu_dance_performance.jpg?width=700',
+        image: 'assets/bihu-dhol.svg',
         fallback: 'assets/dhol-anatomy.svg',
         summary: 'A slightly conical drum played with bare hand and stick, inspiring the graceful, energetic Bihu dance.',
         details:
@@ -164,7 +164,7 @@ const REGIONAL_VARIANTS = [
         region: 'Rajasthan, UP & Gujarat',
         category: 'Royal & Temple Percussion',
         emoji: '🏺',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chhau_dance_musicians.jpg?width=700',
+        image: 'assets/dhol-sticks.svg',
         fallback: 'assets/dhol-sticks.svg',
         summary: 'Conical and hemispherical copper/wood kettle drums, played with curved sticks in royal darbars and temples.',
         details:
@@ -179,7 +179,7 @@ const REGIONAL_VARIANTS = [
         region: 'Coastal Maharashtra & Konkan',
         category: 'Maritime Folk',
         emoji: '⚓',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Making_of_Dholak_drums_in_India.jpg?width=700',
+        image: 'assets/dhol-construction-shell.svg',
         fallback: 'assets/dhol-construction-shell.svg',
         summary: 'A buoyant, sharp percussion drum driving the coastal fishing songs and Narali Purnima celebrations.',
         details:
@@ -196,7 +196,7 @@ const FESTIVALS = [
         region: 'Punjab & North India',
         icon: '🌾',
         category: 'Harvest',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bhangra_dance_punjab.jpg?width=600',
+        image: 'assets/punjabi-dhol.svg',
         description: 'The golden wheat harvest festival where dhol players lead Bhangra dancers in joyous community thanksgiving across Punjab.'
     },
     {
@@ -204,7 +204,7 @@ const FESTIVALS = [
         region: 'West Bengal & Kolkata',
         icon: '🪔',
         category: 'Religious',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dhaki_playing_Dhak_during_Durga_Puja.jpg?width=600',
+        image: 'assets/bengali-dhak.svg',
         description: 'Dhakis fill the air with pulsating beats during Aarti and the energetic Dhunuchi dance, creating the unmistakable sonic identity of Puja.'
     },
     {
@@ -212,7 +212,7 @@ const FESTIVALS = [
         region: 'Maharashtra',
         icon: '🐘',
         category: 'Religious',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dhol_tasha_pathak_in_pune.jpg?width=600',
+        image: 'assets/dhol-tasha.svg',
         description: 'Hundreds of synchronized drummers in Dhol-Tasha Pathaks lead the Visarjan processions, reverberating through city streets.'
     },
     {
@@ -220,7 +220,7 @@ const FESTIVALS = [
         region: 'Assam',
         icon: '🌱',
         category: 'Harvest',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bihu_dance_performance.jpg?width=600',
+        image: 'assets/bihu-dhol.svg',
         description: 'The Assamese Spring Festival celebrating fertility and new life, driven by the rhythmic dialogue of the Bihu Dhol and pepa horn.'
     },
     {
@@ -228,7 +228,7 @@ const FESTIVALS = [
         region: 'Pan-India & Diaspora',
         icon: '💍',
         category: 'Wedding',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Making_of_Dholak_drums_in_India.jpg?width=600',
+        image: 'assets/dhol-ensemble.svg',
         description: 'No Indian wedding procession is complete without dhol players guiding the groom\'s baraat party with infectious celebratory beats.'
     },
     {
@@ -236,7 +236,7 @@ const FESTIVALS = [
         region: 'North & Central India',
         icon: '🎨',
         category: 'Harvest',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chhau_dance_musicians.jpg?width=600',
+        image: 'assets/dhol-anatomy.svg',
         description: 'Dhol rhythms echo across village squares and city lanes during the Festival of Colors, uniting crowds in spontaneous folk dance.'
     }
 ];
@@ -245,31 +245,31 @@ const DANCE_TRADITIONS = [
     {
         name: 'Bhangra',
         region: 'Punjab',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bhangra_dance_punjab.jpg?width=600',
+        image: 'assets/punjabi-dhol.svg',
         description: 'High-octane athletic folk dance featuring leaps, kicks, and claps structured entirely around the dhol\'s commanding 8-beat chaal rhythm.'
     },
     {
         name: 'Giddha',
         region: 'Punjab',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bhangra_dance_punjab.jpg?width=600',
+        image: 'assets/dhol-sticks.svg',
         description: 'The elegant female counterpart to Bhangra, where dholak and dhol beats interplay with boliyan (couplets) and syncopated hand-claps.'
     },
     {
         name: 'Dhol-Tasha Pathak Performance',
         region: 'Maharashtra',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dhol_tasha_pathak_in_pune.jpg?width=600',
+        image: 'assets/dhol-tasha.svg',
         description: 'Mass performance art where drummers execute synchronized stick movements, rhythmic call-and-response, and dynamic tempo escalations.'
     },
     {
         name: 'Bihu Dance',
         region: 'Assam',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bihu_dance_performance.jpg?width=600',
+        image: 'assets/bihu-dhol.svg',
         description: 'Characterized by brisk steps, rapid hand gestures, and rhythmic swaying of hips, timed to the Dhulia’s intricate dhol changes.'
     },
     {
         name: 'Purulia & Mayurbhanj Chhau',
         region: 'Odisha & West Bengal',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chhau_dance_musicians.jpg?width=600',
+        image: 'assets/bengali-dhak.svg',
         description: 'Martial dance-drama depicting epics like the Ramayana and Mahabharata, where heavy dhol beats simulate clashing armor and thunderous combat.'
     }
 ];
@@ -329,19 +329,19 @@ const GALLERY_ITEMS = [
         image: 'assets/dhol-ensemble.svg'
     },
     {
-        title: 'Live Bhangra Performance',
-        caption: 'A dhol master in traditional Punjabi attire leading Bhangra dancers during a harvest mela.',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bhangra_dance_punjab.jpg?width=700'
+        title: 'Punjabi Bhangra Dhol',
+        caption: 'Traditional Punjabi dhol adorned with bright festive tassels and shoulder strap.',
+        image: 'assets/punjabi-dhol.svg'
     },
     {
-        title: 'Dhakis of Bengal',
-        caption: 'Dhak players in Kolkata executing rhythmic routines during the festive Durga Puja aarti.',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dhaki_playing_Dhak_during_Durga_Puja.jpg?width=700'
+        title: 'Durga Puja Dhak',
+        caption: 'Majestic Bengali dhak decorated with white crane plumage and red gamchha.',
+        image: 'assets/bengali-dhak.svg'
     },
     {
-        title: 'Assamese Bihu Drummers',
-        caption: 'Dhulia drummers accompanying the youth in joyful Rongali Bihu celebrations.',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bihu_dance_performance.jpg?width=700'
+        title: 'Assamese Bihu Dhol & Pepa',
+        caption: 'Assamese folk drum wrapped in red-white Gamosa alongside buffalo horn Pepa.',
+        image: 'assets/bihu-dhol.svg'
     }
 ];
 
@@ -368,11 +368,8 @@ const REFERENCES = [
 ];
 
 const IMAGE_CREDITS = [
-    'Bhangra Performance Photography: Wikimedia Commons contributors (CC BY-SA).',
-    'Durga Puja Dhaki Photography: Wikimedia Commons contributors (CC BY-SA).',
-    'Dhol Tasha Pathak Photography: Wikimedia Commons contributors (CC BY-SA).',
-    'Assam Bihu Performance Photography: Wikimedia Commons contributors (CC BY-SA).',
-    'Custom Vector Illustrations (Anatomy, Sticks, Construction, Ensemble): Original SVG artwork created for Incredible India Explorer.'
+    'Original Vector Artwork & Heritage Illustrations: Custom SVG artwork created for Incredible India Explorer.',
+    'Organological Data & Performance Traditions: Sangeet Natak Akademi & Indian Folk Music Archives.'
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
