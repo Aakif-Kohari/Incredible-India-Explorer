@@ -5,6 +5,13 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Deomali Peak Trek (Highest Peak of Odisha) Profile',
+        category: 'Adventure & Mountains',
+        description:
+            'Explore Deomali Peak Trek (1,672m) in Koraput, Odisha — highest mountain peak in Odisha. Detailed trek route guide, rolling velvet meadows, sea of clouds, Kunduli tribal market, gear checklist, and trek estimator.',
+        url: 'frontend/deomali-trek/index.html'
+    },
+    {
         title: 'Rajgad Fort Trek (Durgaraj) Profile',
         category: 'Adventure & Forts',
         description:
