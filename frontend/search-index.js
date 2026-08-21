@@ -18,6 +18,13 @@ window.indiaSearchIndex = [
             'Explore Beas Kund Trek (3,700m) in Solang Valley, Manali, Himachal Pradesh. Detailed trek route guide, Dhundi base village, Bakarthach shepherd meadows, Hanuman Tibba peak views, gear checklist, and trek estimator.',
         url: 'frontend/beas-kund-trek/index.html'
     },
+  {
+        title: 'Valley of Flowers Trek (UNESCO Alpine Valley) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Valley of Flowers Trek (3,650m) in Chamoli, Uttarakhand. Detailed trek route guide, Ghangaria base camp, Pushpawati River, Himalayan Blue Poppies, gear checklist, and trek estimator.',
+        url: 'frontend/valley-of-flowers-trek/index.html'
+    },
     {
         title: 'Deomali Peak Trek (Highest Peak of Odisha) Profile',
         category: 'Adventure & Mountains',
