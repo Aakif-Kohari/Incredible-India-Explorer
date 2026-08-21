@@ -5843,6 +5843,13 @@ window.indiaSearchIndex = [
             'Explore the Goechala Trek in Sikkim — 4,600m pass offering eye-level views of Mt. Kanchenjunga, Samiti Lake, Dzongri Top, and Khangchendzonga National Park.',
         url: 'frontend/goechala-trek-explorer/index.html'
     },
+    // --- feat/dayara-bugyal-trek-explorer ---
+    {
+        title: "Add Dayara Bugyal Trek \u2014 Uttarakhand",
+        category: "Mountains & Treks",
+        description:
+            "Explore Dayara Bugyal Trek in Uttarakhand \u2014 28 sq km alpine meadows, 3,700m Bakaria Top, Bandarpoonch panoramas, and the traditional Butter Festival (Anduri Utsav).",
+        url: "frontend/dayara-bugyal-trek-explorer/index.html"},
     // --- feat/sandakphu-trek-explorer ---
     {
         title: "Add Sandakphu Trek \u2014 West Bengal",
