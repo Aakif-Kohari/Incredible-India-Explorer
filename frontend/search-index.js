@@ -5,6 +5,13 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Rajgad Fort Trek (Durgaraj) Profile',
+        category: 'Adventure & Forts',
+        description:
+            'Explore Rajgad Fort Trek (Durgaraj) — first capital of Maratha Empire for 26 years under Chhatrapati Shivaji Maharaj. Detailed trek route guide, Padmavati Machi, Sanjeevani Machi, Suvela Machi, Bale Killa, gear checklist, and trek estimator.',
+        url: 'frontend/rajgad-trek/index.html'
+    },
+    {
         title: 'Sinhagad Fort Trek (Kondhana) Profile',
         category: 'Adventure & Forts',
         description:
