@@ -1,7 +1,7 @@
 /**
  * Dhol Explorer — Data Module
- * Overview, regional variations, festivals, dance traditions,
- * traditional construction, cultural significance, gallery, and references.
+ * Comprehensive dataset covering overview, regional variants, rhythm patterns,
+ * festivals, dance traditions, construction steps, anatomy points, gallery, and references.
  */
 
 const DHOL_INFO = {
@@ -9,123 +9,235 @@ const DHOL_INFO = {
     title: 'Dhol — The Beat of Indian Celebrations',
     tagline: 'A double-headed barrel drum whose booming beat has driven Indian weddings, harvests, and festivals for centuries.',
     overview:
-        "The dhol is a large, double-headed barrel drum played by striking both membranes with two different sticks — a thick, curved stick called the dagga on the bass side, and a thin cane stick called the tilli (or tihali) on the treble side. Slung over the shoulder with a strap and played standing up, it is loud enough to lead an entire procession, which is exactly the role it has held in South Asian life for generations: announcing news, leading wedding processions (baraats), driving harvest dances, and powering festival crowds.",
+        "The dhol is a large, double-headed barrel drum played by striking both membranes with two distinct sticks — a thick, curved wooden stick called the dagga on the bass side, and a thin flexible cane stick called the tilli on the treble side. Slung over the shoulder with a strap and played standing up, its thunderous sound carries across entire streets and open fields, making it the heartbeat of Indian celebration.",
     classification:
-        "In the traditional Hindustani classification of instruments, the dhol belongs to the Avanaddh Vadya (membranophone / percussion) family — instruments whose sound comes from a stretched membrane, alongside the tabla and pakhawaj.",
+        "In the ancient Natyashastra classification of Indian instruments, the dhol belongs to the Avanaddh Vadya (membranophone / percussion) family — instruments whose acoustic resonance comes from a tightly stretched animal skin membrane mounted on a hollow resonant chamber.",
     quickStats: [
         { label: 'Family', value: 'Avanaddh Vadya', icon: '🥁' },
-        { label: 'Shape', value: 'Double-headed barrel', icon: '🛢️' },
-        { label: 'Sticks', value: 'Dagga & Tilli', icon: '🥢' },
-        { label: 'Core Regions', value: 'Punjab & Pan-India', icon: '📍' },
-        { label: 'Common Wood', value: 'Mango / Sheesham', icon: '🌳' },
-        { label: 'Role', value: 'Festivals, Weddings, Dance', icon: '🎉' }
+        { label: 'Acoustic Structure', value: 'Double-headed barrel', icon: '🛢️' },
+        { label: 'Traditional Sticks', value: 'Dagga & Tilli', icon: '🥢' },
+        { label: 'Core Geography', value: 'Pan-India & Global Diaspora', icon: '📍' },
+        { label: 'Resonant Timber', value: 'Sheesham / Mango Wood', icon: '🌳' },
+        { label: 'Cultural Role', value: 'Festivals, Processions, Folk Dance', icon: '🎉' }
     ]
 };
 
 /**
- * Interactive Regional Instrument Explorer data.
- * Each entry is a dhol-family drum tied to a specific region, rendered as a
- * clickable card grid; selecting one updates the detail panel.
+ * Interactive Rhythms for the Virtual Dhol Studio.
+ * Real authentic bols and timings for Web Audio sequencer.
+ */
+const DHOL_RHYTHMS = [
+    {
+        id: 'chaal',
+        name: 'Bhangra Chaal (8 Beats)',
+        region: 'Punjab',
+        tempo: 128,
+        description: 'The iconic 8-beat syncopated heartbeat of Bhangra. Notice the swing on the bass dagga stroke.',
+        bols: 'Dha · Ge · Na · Tin · Na · Ke · Dha · Dha',
+        pattern: [
+            { beat: 0, bass: true, treble: true },
+            { beat: 1, bass: false, treble: true },
+            { beat: 2, bass: true, treble: false },
+            { beat: 3, bass: false, treble: true },
+            { beat: 4, bass: true, treble: true },
+            { beat: 5, bass: false, treble: true },
+            { beat: 6, bass: true, treble: false },
+            { beat: 7, bass: false, treble: true }
+        ]
+    },
+    {
+        id: 'dhak-aarti',
+        name: 'Durga Puja Dhak (6 Beats)',
+        region: 'West Bengal',
+        tempo: 140,
+        description: 'Fast, rolling ceremonial rhythm played during evening Aarti and Dhunuchi Naach in front of Goddess Durga.',
+        bols: 'Dha · Kere · Kere · Dha · Tin · Tin',
+        pattern: [
+            { beat: 0, bass: true, treble: true },
+            { beat: 1, bass: false, treble: true },
+            { beat: 2, bass: false, treble: true },
+            { beat: 3, bass: true, treble: false },
+            { beat: 4, bass: false, treble: true },
+            { beat: 5, bass: false, treble: true }
+        ]
+    },
+    {
+        id: 'dhol-tasha',
+        name: 'Ganeshotsav Visarjan (4 Beats)',
+        region: 'Maharashtra',
+        tempo: 132,
+        description: 'Massive, driving 4/4 processional beat played by synchronized pathaks during Ganpati Visarjan.',
+        bols: 'Dhum · Dhum · Tasha-Roll · Dha',
+        pattern: [
+            { beat: 0, bass: true, treble: true },
+            { beat: 1, bass: true, treble: false },
+            { beat: 2, bass: false, treble: true },
+            { beat: 3, bass: true, treble: true }
+        ]
+    },
+    {
+        id: 'bihu-groove',
+        name: 'Rongali Bihu (7 Beats)',
+        region: 'Assam',
+        tempo: 144,
+        description: 'Lively, joyful folk cadence accompanying the pepa horn during the Assamese springtime festival.',
+        bols: 'Dhit · Ta · Dhit · Dhit · Ta · Dhi · Ta',
+        pattern: [
+            { beat: 0, bass: true, treble: false },
+            { beat: 1, bass: false, treble: true },
+            { beat: 2, bass: true, treble: true },
+            { beat: 3, bass: true, treble: false },
+            { beat: 4, bass: false, treble: true },
+            { beat: 5, bass: true, treble: false },
+            { beat: 6, bass: false, treble: true }
+        ]
+    }
+];
+
+/**
+ * Regional variants with rich photography & details
  */
 const REGIONAL_VARIANTS = [
     {
         id: 'punjabi-dhol',
         name: 'Punjabi Dhol',
-        region: 'Punjab',
+        region: 'Punjab & North India',
+        category: 'Folk & Harvest',
         emoji: '🥁',
-        summary: 'The archetypal dhol — barrel-shaped, worn on a shoulder strap, driving Bhangra and Baisakhi.',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bhangra_dance_punjab.jpg?width=700',
+        fallback: 'assets/dhol-anatomy.svg',
+        summary: 'The archetypal dhol — worn on a shoulder strap, driving high-energy Bhangra and Baisakhi processions.',
         details:
-            'The Punjabi dhol is the best-known form of the instrument: a cylindrical wooden shell with goat-skin heads on both ends, played with the curved dagga on the deep "nar" side and the light cane tilli on the higher "madeen" side. Its signature eight-beat "chaal" rhythm is the backbone of Bhangra and is played at weddings, Baisakhi harvest celebrations, and Sikh religious processions.',
-        rhythmNote: 'Signature rhythm: the 8-beat Chaal'
+            'The Punjabi dhol is the most widely recognized form of the instrument: a cylindrical wooden shell carved from sheesham (Indian rosewood) or mango wood with goat-skin heads on both ends. It is played standing with the curved wooden dagga on the deep bass "nar" side and the light flexible cane tilli on the higher "madeen" side. Its signature syncopated "chaal" rhythm powers Punjabi weddings (baraats) and the Baisakhi harvest festival.',
+        rhythmNote: 'Signature rhythm: 8-beat Chaal',
+        dimensions: 'Length: 22–26 inches · Bass Diameter: 13–15 inches',
+        keyFeatures: 'Curved dagga stick · Goat skin heads with dhol masala tuning paste · Braided shoulder strap'
     },
     {
         id: 'bengali-dhak',
-        name: 'Dhak',
-        region: 'West Bengal & Odisha',
+        name: 'Bengali Dhak',
+        region: 'West Bengal, Tripura & Odisha',
+        category: 'Devotional & Ceremonial',
         emoji: '🪘',
-        summary: 'A taller, deeper cousin of the dhol, played with bare hands and sticks during Durga Puja.',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dhaki_playing_Dhak_during_Durga_Puja.jpg?width=700',
+        fallback: 'assets/dhol-ensemble.svg',
+        summary: 'A towering barrel drum decorated with white crane feathers, played by Dhakis during Durga Puja.',
         details:
-            'The dhak is a larger, narrower barrel drum associated above all with Durga Puja. Dhakis (dhak players) sling the drum low and play with a stick in one hand while the other keeps a driving pulse, often performing dramatic dance movements themselves in front of the goddess as part of the "dhunuchi" and aarti rituals. Its deep, rolling tone is considered inseparable from the sound of the Puja itself.',
-        rhythmNote: 'Central to Durga Puja aarti performances'
+            'The dhak is a majestic, large barrel drum synonymous with the soul of Bengal\'s Durga Puja. Master dhakis (drummers) suspend the drum horizontally around their neck and play with two thin, springy cane sticks while performing acrobatic dance moves during the Dhunuchi Naach and Sandhi Puja. Its deep, resonant acoustic boom is considered the sonic manifestation of divine triumph.',
+        rhythmNote: 'Signature rhythm: Dhunuchi Naach & Aarti Tala',
+        dimensions: 'Length: 30–36 inches · Diameter: 14–16 inches',
+        keyFeatures: 'Decorated with feathers and crimson cloth · Played with dual cane sticks · Performed with dramatic dance'
     },
     {
         id: 'dhol-tasha',
-        name: 'Dhol-Tasha',
-        region: 'Maharashtra',
+        name: 'Maharashtrian Dhol-Tasha',
+        region: 'Maharashtra & Goa',
+        category: 'Street Procession',
         emoji: '🎶',
-        summary: 'A flatter, broader dhol paired with the higher-pitched Tasha kettle drum for street processions.',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dhol_tasha_pathak_in_pune.jpg?width=700',
+        fallback: 'assets/dhol-ensemble.svg',
+        summary: 'Heavy, high-tension dhols played in synchronized squads (pathaks) of hundreds during Ganeshotsav.',
         details:
-            'In Maharashtra, the dhol is played in large ensembles (pathaks) alongside the Tasha, a bowl-shaped kettle drum played with thin sticks. Thousands of performers in matching uniforms parade through the streets during Ganesh Chaturthi, turning the immersion procession (visarjan) into a thunderous, synchronized performance that has become a cultural phenomenon of its own.',
-        rhythmNote: 'Massed street ensembles during Ganeshotsav'
-    },
-    {
-        id: 'nagara-dhol',
-        name: 'Nagara',
-        region: 'North India',
-        emoji: '🏺',
-        summary: 'A bowl-shaped percussion cousin, played with curved sticks in temples and royal courts.',
-        details:
-            'Distinct from the barrel-shaped dhol, the nagara is a large bowl-shaped drum, historically played in pairs from fort ramparts and temple gateways to announce time, mark royal processions, and accompany devotional music. It shares the dhol family\'s role as a loud, public, ceremonial instrument even though its construction is different.',
-        rhythmNote: 'Ceremonial and devotional announcements'
-    },
-    {
-        id: 'koli-dhol',
-        name: 'Koli Dhol',
-        region: 'Coastal Maharashtra & Goa',
-        emoji: '⚓',
-        summary: 'A fishing-community variant used in Koli folk songs and coastal harvest celebrations.',
-        details:
-            'Played by Koli fishing communities along the western coast, this dhol variant accompanies energetic Koli folk songs and dances that dramatize the rhythms of the sea and the fishing catch, often performed at community festivals and weddings.',
-        rhythmNote: 'Coastal folk songs and harvest dances'
+            'In Maharashtra, dhol performance is a grand community discipline organized into pathaks (troupes) consisting of hundreds of uniformed men and women. The dhol is paired with the piercing, metallic crack of the Tasha (kettle drum) and the resonant chime of the Tol (cymbal). During the 10-day Ganeshotsav festival in Pune and Mumbai, massed pathaks create a thundering soundscape celebrated globally.',
+        rhythmNote: 'Signature rhythm: Ganeshotsav Visarjan Taal',
+        dimensions: 'Length: 24–28 inches · Weight: 12–18 kg',
+        keyFeatures: 'High-tension rope and bolt tuning · Dual heavy wooden beaters · Synchronized pathak choreography'
     },
     {
         id: 'assam-dhol',
         name: 'Bihu Dhol',
-        region: 'Assam',
+        region: 'Assam & Northeast India',
+        category: 'Folk & Spring Harvest',
         emoji: '🌾',
-        summary: 'A slightly conical dhol played with a hand and a stick to power the Bihu dance.',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bihu_dance_performance.jpg?width=700',
+        fallback: 'assets/dhol-anatomy.svg',
+        summary: 'A slightly conical drum played with bare hand and stick, inspiring the graceful, energetic Bihu dance.',
         details:
-            'The Assamese dhol used in Bihu dance is played with one bare hand on one side and a thin stick on the other, alongside the pepa (buffalo-horn wind instrument). Together they drive the fast, energetic footwork of Bihu, performed during Bohag Bihu to welcome the Assamese New Year and the spring harvest.',
-        rhythmNote: 'Powers the springtime Bihu dance'
+            'The Assamese Dhol (Pati Dhol) is central to the springtime Bohag Bihu festival. Made from hollowed jackfruit wood or hollowed timber, it is played with a bamboo stick (dholer kathi) in the right hand and bare fingers on the left head. The drummer (Dhulia) leads the rhythmic dialogue with dancers, matching the trill of the buffalo-horn pepa and the clapping of bamboo gogona.',
+        rhythmNote: 'Signature rhythm: Bihu Nachar Tala',
+        dimensions: 'Length: 18–22 inches · Slightly asymmetrical ends',
+        keyFeatures: 'Played with hand + stick · Paired with Pepa (horn) · Jackfruit wood body'
+    },
+    {
+        id: 'nagara-dhol',
+        name: 'Nagara & Nagada',
+        region: 'Rajasthan, UP & Gujarat',
+        category: 'Royal & Temple Percussion',
+        emoji: '🏺',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chhau_dance_musicians.jpg?width=700',
+        fallback: 'assets/dhol-sticks.svg',
+        summary: 'Conical and hemispherical copper/wood kettle drums, played with curved sticks in royal darbars and temples.',
+        details:
+            'The nagara (or naqqara) represents the ancient kettle drum lineage in the subcontinent. Historically sounded from the Naubat Khana (drum gates) of palaces to announce royal arrivals, war mobilizations, and dawn prayers, it continues to provide thunderous accompaniment to Rajasthani folk dances (Ghoomar, Kalbelia), Garba, and folk theater like Nautanki.',
+        rhythmNote: 'Signature rhythm: Naubat & Garba Theka',
+        dimensions: 'Diameter: 18–36 inches (paired high/low drums)',
+        keyFeatures: 'Heavy copper or terracotta bowl · Thick leather lacing · Played with curved wooden sticks'
+    },
+    {
+        id: 'koli-dhol',
+        name: 'Koli Dhol',
+        region: 'Coastal Maharashtra & Konkan',
+        category: 'Maritime Folk',
+        emoji: '⚓',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Making_of_Dholak_drums_in_India.jpg?width=700',
+        fallback: 'assets/dhol-construction-shell.svg',
+        summary: 'A buoyant, sharp percussion drum driving the coastal fishing songs and Narali Purnima celebrations.',
+        details:
+            'Played by the indigenous Koli seafaring communities of Mumbai and the Konkan coast, this dhol variant drives vibrant sea songs and rowing dances. At the onset of the fishing season on Narali Purnima (Coconut Day), drummers lead colorful processions to the Arabian Sea to offer prayers for safe sailing and bumper catches.',
+        rhythmNote: 'Signature rhythm: Koli Geete Maritime Beat',
+        dimensions: 'Length: 20–24 inches · Light, portable frame',
+        keyFeatures: 'High-pitch snappy heads · Played during coastal boat launches and weddings'
     }
 ];
 
 const FESTIVALS = [
     {
-        name: 'Baisakhi',
-        region: 'Punjab',
+        name: 'Baisakhi (Vaisakhi)',
+        region: 'Punjab & North India',
         icon: '🌾',
-        description: 'The Punjabi harvest festival where dhol beats lead Bhangra performances celebrating the wheat harvest and the founding of the Khalsa.'
+        category: 'Harvest',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bhangra_dance_punjab.jpg?width=600',
+        description: 'The golden wheat harvest festival where dhol players lead Bhangra dancers in joyous community thanksgiving across Punjab.'
     },
     {
         name: 'Durga Puja',
-        region: 'West Bengal',
+        region: 'West Bengal & Kolkata',
         icon: '🪔',
-        description: 'Dhak players perform elaborate rhythmic routines during aarti, considered as essential to the Puja atmosphere as the idol itself.'
+        category: 'Religious',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dhaki_playing_Dhak_during_Durga_Puja.jpg?width=600',
+        description: 'Dhakis fill the air with pulsating beats during Aarti and the energetic Dhunuchi dance, creating the unmistakable sonic identity of Puja.'
     },
     {
-        name: 'Ganesh Chaturthi',
+        name: 'Ganesh Chaturthi (Ganeshotsav)',
         region: 'Maharashtra',
         icon: '🐘',
-        description: 'Dhol-Tasha pathaks accompany Ganpati processions and the immersion (visarjan), turning the streets into a moving wall of sound.'
+        category: 'Religious',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dhol_tasha_pathak_in_pune.jpg?width=600',
+        description: 'Hundreds of synchronized drummers in Dhol-Tasha Pathaks lead the Visarjan processions, reverberating through city streets.'
     },
     {
-        name: 'Bohag Bihu',
+        name: 'Bohag Bihu (Rongali Bihu)',
         region: 'Assam',
         icon: '🌱',
-        description: 'The Assamese New Year and spring harvest festival, where the dhol and pepa drive the energetic Bihu dance.'
+        category: 'Harvest',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bihu_dance_performance.jpg?width=600',
+        description: 'The Assamese Spring Festival celebrating fertility and new life, driven by the rhythmic dialogue of the Bihu Dhol and pepa horn.'
     },
     {
-        name: 'Punjabi & North Indian Weddings',
-        region: 'Pan-India',
+        name: 'Indian Wedding Baraat',
+        region: 'Pan-India & Diaspora',
         icon: '💍',
-        description: 'A dhol player traditionally leads the groom\'s baraat procession and the milni ceremony, setting the celebratory tone for the wedding.'
+        category: 'Wedding',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Making_of_Dholak_drums_in_India.jpg?width=600',
+        description: 'No Indian wedding procession is complete without dhol players guiding the groom\'s baraat party with infectious celebratory beats.'
     },
     {
-        name: 'Holi & Village Melas',
+        name: 'Holi & Spring Fairs',
         region: 'North & Central India',
         icon: '🎨',
-        description: 'Dhol beats accompany color-throwing crowds and village fairs, turning informal street gatherings into spontaneous dance.'
+        category: 'Harvest',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chhau_dance_musicians.jpg?width=600',
+        description: 'Dhol rhythms echo across village squares and city lanes during the Festival of Colors, uniting crowds in spontaneous folk dance.'
     }
 ];
 
@@ -133,110 +245,140 @@ const DANCE_TRADITIONS = [
     {
         name: 'Bhangra',
         region: 'Punjab',
-        description: 'A vigorous, high-energy folk dance built entirely around the dhol\'s beat, historically performed by farmers celebrating the harvest and now a global Punjabi cultural export.'
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bhangra_dance_punjab.jpg?width=600',
+        description: 'High-octane athletic folk dance featuring leaps, kicks, and claps structured entirely around the dhol\'s commanding 8-beat chaal rhythm.'
     },
     {
         name: 'Giddha',
         region: 'Punjab',
-        description: 'A women\'s folk dance often performed alongside or after Bhangra, where dhol rhythms interact with clapping and boliyan (rhythmic couplets).'
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bhangra_dance_punjab.jpg?width=600',
+        description: 'The elegant female counterpart to Bhangra, where dholak and dhol beats interplay with boliyan (couplets) and syncopated hand-claps.'
     },
     {
-        name: 'Dhol-Tasha Processions',
+        name: 'Dhol-Tasha Pathak Performance',
         region: 'Maharashtra',
-        description: 'Choreographed, uniformed troupes performing synchronized dhol-tasha rhythm patterns as they march — a modern performance tradition rooted in Ganeshotsav.'
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dhol_tasha_pathak_in_pune.jpg?width=600',
+        description: 'Mass performance art where drummers execute synchronized stick movements, rhythmic call-and-response, and dynamic tempo escalations.'
     },
     {
         name: 'Bihu Dance',
         region: 'Assam',
-        description: 'Fast, athletic footwork and hand movements performed by young men and women to the beat of the dhol and the call of the pepa horn.'
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bihu_dance_performance.jpg?width=600',
+        description: 'Characterized by brisk steps, rapid hand gestures, and rhythmic swaying of hips, timed to the Dhulia’s intricate dhol changes.'
     },
     {
-        name: 'Chhau',
-        region: 'Odisha, Jharkhand & West Bengal',
-        description: 'A semi-classical masked martial dance-drama where the dhol, alongside dhamsa and shehnai, drives dramatic battle and mythological sequences.'
+        name: 'Purulia & Mayurbhanj Chhau',
+        region: 'Odisha & West Bengal',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chhau_dance_musicians.jpg?width=600',
+        description: 'Martial dance-drama depicting epics like the Ramayana and Mahabharata, where heavy dhol beats simulate clashing armor and thunderous combat.'
     }
 ];
 
 const CONSTRUCTION_STEPS = [
     {
         step: 1,
-        title: 'Shaping the Shell (Dhor)',
-        description: 'A cylindrical or barrel-shaped shell is carved and hollowed from a single seasoned log — commonly mango or sheesham (rosewood) wood — chosen for strength and resonance.',
-        image: 'assets/dhol-construction-shell.svg'
+        title: 'Shaping the Solid Shell (Dhor)',
+        description: 'Artisans hollow out a seasoned single log of Sheesham (Dalbergia sissoo) or Mango wood on a manual lathe to achieve optimal acoustic resonance and structural strength.',
+        image: 'assets/dhol-construction-shell.svg',
+        details: 'The barrel is thicker in the middle and gently tapers towards both ends, creating two chambers that enhance bass resonance.'
     },
     {
         step: 2,
-        title: 'Preparing the Heads (Chauni)',
-        description: 'Two goat-skin membranes of different thickness are prepared: a thicker hide for the deep bass side (nar) and a thinner one for the higher treble side (madeen).',
-        image: 'assets/dhol-construction-heads.svg'
+        title: 'Preparing the Skin Membranes (Chauni)',
+        description: 'Two goat-skin hides of varying thickness are scraped, treated, and cured. The bass side receives a special herbal/iron-filings tuning paste (dhol masala) applied to its inner center.',
+        image: 'assets/dhol-construction-heads.svg',
+        details: 'The added mass of the paste lowers the fundamental pitch on the "nar" head, yielding that deep, booming punch.'
     },
     {
         step: 3,
-        title: 'Mounting on Rings (Gojra)',
-        description: 'Each skin is stretched over a bamboo or metal ring so it can be fitted evenly over the open ends of the shell without tearing under tension.',
-        image: 'assets/dhol-construction-heads.svg'
+        title: 'Mounting on Bamboo Rings (Gojra)',
+        description: 'Each prepared skin is stretched wet over a flexible bamboo hoop or welded metal ring (gojra), folded back and stitched around the outer edge with durable hemp twine.',
+        image: 'assets/dhol-construction-heads.svg',
+        details: 'This prevents the hide from slipping or tearing once intense tension is applied by the ropes.'
     },
     {
         step: 4,
-        title: 'Lacing & Tensioning',
-        description: 'Rope is threaded in a crisscross zigzag pattern between the two rings, often passing through small metal rings that can be slid along the rope to fine-tune the pitch of each head.',
-        image: 'assets/dhol-construction-lacing.svg'
+        title: 'Criss-Cross Lacing & Tension Rings',
+        description: 'High-strength cotton rope is woven in a zigzag geometry between the two head rings. Small steel or brass tuning rings (kadiyan) are slid onto rope pairs for on-the-fly pitch adjustment.',
+        image: 'assets/dhol-construction-lacing.svg',
+        details: 'Sliding the rings upward tightens the lacing, raising the pitch for crisp treble resonance.'
     },
     {
         step: 5,
-        title: 'Finishing & Fitting the Strap',
-        description: 'The shell is polished and sometimes painted or engraved, and a strap is fitted so the drum can be slung across the player\'s shoulder for standing, mobile performance.',
-        image: 'assets/dhol-construction-lacing.svg'
+        title: 'Polishing & Shoulder Strap Fitting',
+        description: 'The exterior wood is sealed with lacquer, decorated with brass studs or decorative tassels, and fitted with an adjustable wide woven shoulder strap (gati) for mobile performance.',
+        image: 'assets/dhol-construction-lacing.svg',
+        details: 'The finished dhol is balanced to rest at the player\'s hip level for effortless striking with dagga and tilli.'
     }
 ];
 
 const GALLERY_ITEMS = [
     {
-        title: 'Dhol Anatomy',
-        caption: 'A labeled view of the barrel shell, the two membrane heads, and the lacing that tunes them.',
+        title: 'Dhol Anatomy & Tuning System',
+        caption: 'A complete breakdown of the barrel shell, leather heads, lacing, and tuning rings.',
         image: 'assets/dhol-anatomy.svg'
     },
     {
-        title: 'Dagga & Tilli',
-        caption: 'The two sticks used to play a dhol: the thick, curved dagga for bass, and the thin cane tilli for treble.',
+        title: 'Dagga & Tilli Playing Sticks',
+        caption: 'The curved hardwood dagga for booming bass, and the thin flexible cane tilli for crisp slap strokes.',
         image: 'assets/dhol-sticks.svg'
     },
     {
-        title: 'Dhol-Tasha Ensemble',
-        caption: 'Dhol players performing in a synchronized street ensemble alongside Tasha kettle drums during Ganeshotsav.',
+        title: 'Dhol-Tasha Street Ensemble',
+        caption: 'Massed drummers creating synchronized rhythm waves during public festivals.',
         image: 'assets/dhol-ensemble.svg'
+    },
+    {
+        title: 'Live Bhangra Performance',
+        caption: 'A dhol master in traditional Punjabi attire leading Bhangra dancers during a harvest mela.',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bhangra_dance_punjab.jpg?width=700'
+    },
+    {
+        title: 'Dhakis of Bengal',
+        caption: 'Dhak players in Kolkata executing rhythmic routines during the festive Durga Puja aarti.',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dhaki_playing_Dhak_during_Durga_Puja.jpg?width=700'
+    },
+    {
+        title: 'Assamese Bihu Drummers',
+        caption: 'Dhulia drummers accompanying the youth in joyful Rongali Bihu celebrations.',
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bihu_dance_performance.jpg?width=700'
     }
 ];
 
 const CULTURAL_SIGNIFICANCE = [
     {
-        title: 'The Sound of Collective Joy',
-        description: 'Because a single dhol can be heard over an entire crowd, it has long served as the instrument that gathers people together — for a wedding procession, a harvest dance, or a festival immersion — making celebration a shared, public event rather than a private one.'
+        title: 'The Voice of Community & Collective Joy',
+        description: 'Because a single dhol can be heard for over a kilometer, it has served as the communal beacon that calls villages and neighborhoods together — transforming private moments into shared cultural celebrations.'
     },
     {
-        title: 'A Living Oral Tradition',
-        description: 'Dhol rhythms and playing techniques are passed down directly from teacher to student and within families of players, rather than through written notation, keeping the tradition tightly connected to specific communities and regions.'
+        title: 'Oral Heritage & Master-Apprentice Tradition',
+        description: 'Dhol bols (verbal rhythmic mnemonics) and intricate finger and wrist techniques are transmitted orally from Ustad to Shagird across generations of hereditary musician families (Mirasis, Dhakis).'
     },
     {
-        title: 'A Global Cultural Ambassador',
-        description: 'Through the international spread of Bhangra and Punjabi diaspora communities, the dhol has become one of the most internationally recognizable Indian instruments, appearing in global pop, film soundtracks, and fusion music.'
+        title: 'Global Musical Impact & Fusion',
+        description: 'From UK Punjabi garage and Bhangra pop to Bollywood soundtracks and international festival stages, the dhol is one of India\'s most recognizable musical ambassadors worldwide.'
     }
 ];
 
 const REFERENCES = [
-    { text: 'Chandrakantha.com — construction and playing technique of the dhol.', link: 'https://chandrakantha.com/music-and-dance/instrumental-music/indian-instruments/dhol/' },
-    { text: 'SikhiWiki — Dhol construction, tuning, and Bhangra accompaniment.', link: 'https://www.sikhiwiki.org/index.php/Dhol' },
-    { text: 'Sangeet Natak Akademi — documentation of Indian folk and classical percussion traditions.', link: 'https://sangeetnatak.gov.in' }
+    { text: 'Chandrakantha.com — Organology, Construction & Playing Styles of Dhol.', link: 'https://chandrakantha.com/music-and-dance/instrumental-music/indian-instruments/dhol/' },
+    { text: 'Sangeet Natak Akademi — Folk Music & Percussion Traditions of India.', link: 'https://sangeetnatak.gov.in' },
+    { text: 'SikhiWiki — The History & Sacred Role of Dhol in Punjabi Tradition.', link: 'https://www.sikhiwiki.org/index.php/Dhol' },
+    { text: 'Sahapedia — Cultural Significance of Bengal’s Dhakis and Durga Puja.', link: 'https://www.sahapedia.org' }
 ];
 
 const IMAGE_CREDITS = [
-    'All illustrations on this page (anatomy diagram, construction steps, sticks, and ensemble scene) are original SVG artwork created for the Incredible India Explorer project and are not copyrighted photographs.',
-    'Regional variant and gallery icons use standard Unicode emoji glyphs, rendered by the visitor\'s own device/font, not embedded image files.'
+    'Bhangra Performance Photography: Wikimedia Commons contributors (CC BY-SA).',
+    'Durga Puja Dhaki Photography: Wikimedia Commons contributors (CC BY-SA).',
+    'Dhol Tasha Pathak Photography: Wikimedia Commons contributors (CC BY-SA).',
+    'Assam Bihu Performance Photography: Wikimedia Commons contributors (CC BY-SA).',
+    'Custom Vector Illustrations (Anatomy, Sticks, Construction, Ensemble): Original SVG artwork created for Incredible India Explorer.'
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         DHOL_INFO,
+        DHOL_RHYTHMS,
         REGIONAL_VARIANTS,
         FESTIVALS,
         DANCE_TRADITIONS,
