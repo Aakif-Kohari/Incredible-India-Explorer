@@ -5842,5 +5842,13 @@ window.indiaSearchIndex = [
         description:
             'Explore the Goechala Trek in Sikkim — 4,600m pass offering eye-level views of Mt. Kanchenjunga, Samiti Lake, Dzongri Top, and Khangchendzonga National Park.',
         url: 'frontend/goechala-trek-explorer/index.html'
+    },
+    // --- feat/sandakphu-trek-explorer ---
+    {
+        title: "Add Sandakphu Trek \u2014 West Bengal",
+        category: "Mountains & Treks",
+        description:
+            "Explore Sandakphu Trek \u2014 West Bengal's highest peak (3,636m), views of 4 of the world's 5 highest 8000er peaks (Everest, Kanchenjunga), and Singalila National Park.",
+        url: "frontend/sandakphu-trek-explorer/index.html"
     }
 ];
