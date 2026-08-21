@@ -1,0 +1,433 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover Rajgir: the ancient Magadhan capital nestled in five sacred hills — interactive map, historical timeline, Cyclopean Wall, Gridhrakuta, Saptaparni Cave, and Buddhist & Jain heritage explorer.">
+  <title>Rajgir Sacred Landscape Explorer | Incredible India</title>
+  <link rel="icon" href="data:,">
+
+  <!-- Fonts -->
+  <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="rajgir-page">
+  <!-- Instant theme application -->
+  <script>
+    (function(){
+      let t='dark';
+      try{t=JSON.parse(localStorage.getItem('iie_storage')||'{}').theme||'dark';}catch(e){}
+      if(t==='light')document.body.classList.add('light-theme');
+    })();
+  </script>
+
+  <!-- ─── Navbar ─────────────────────────────────────────────────────── -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+          <div class="dropdown-menu">
+            <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+            <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+            <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+            <a href="../../frontend/ancient-cities/ancient-cities.html" class="dropdown-item">Ancient Cities Explorer</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+          <div class="dropdown-menu">
+            <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+            <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+          </div>
+        </div>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ─── Hero ───────────────────────────────────────────────────────── -->
+  <section class="rj-hero" aria-label="Rajgir introduction">
+    <div class="rj-hero-content">
+      <span class="rj-kicker">🏔️ Magadha Capital · Buddhist & Jain Sacred Landscape · Bihar, India</span>
+      <h1>
+        Rajgir
+        <span class="accent">From Fortress Capital to Sacred Landscape</span>
+      </h1>
+      <p>Nestled within five ancient hills, Rajgir — once called Rajagriha ('House of the King') — served as the
+        earliest recorded capital of the Magadha Mahajanapada under King Bimbisara, and later became one of the most
+        revered pilgrimage landscapes in both Buddhism and Jainism.</p>
+      <div class="rj-hero-stats">
+        <div class="rj-stat">
+          <strong>~40 km</strong>
+          <span>Cyclopean Wall Circuit</span>
+        </div>
+        <div class="rj-stat">
+          <strong>5</strong>
+          <span>Sacred Encircling Hills</span>
+        </div>
+        <div class="rj-stat">
+          <strong>483 BCE</strong>
+          <span>First Buddhist Council</span>
+        </div>
+        <div class="rj-stat">
+          <strong>2,500+</strong>
+          <span>Years of Pilgrimage History</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Main ───────────────────────────────────────────────────────── -->
+  <main class="rj-container">
+
+    <!-- Section 1 · Layer Filter Controls -->
+    <section class="rj-section" id="rj-filter-section" aria-label="Layer filter controls">
+      <div class="rj-section-header">
+        <h2>Filter by <span>Tradition & Theme</span></h2>
+        <p>Use the layer controls to highlight Buddhist, Jain, or Political/Historical aspects across all sections.</p>
+      </div>
+      <div class="rj-layer-controls" role="group" aria-label="Layer filter buttons">
+        <button class="rj-layer-btn active" data-layer="all" id="layer-all">🌐 All Layers</button>
+        <button class="rj-layer-btn" data-layer="buddhist" id="layer-buddhist">🟢 Buddhist</button>
+        <button class="rj-layer-btn" data-layer="jain" id="layer-jain">🟣 Jain</button>
+        <button class="rj-layer-btn" data-layer="political" id="layer-political">🟠 Political / Historical</button>
+      </div>
+    </section>
+
+    <!-- Section 2 · Geography Map -->
+    <section class="rj-section" id="rj-map-section" aria-label="Rajgir interactive geography map">
+      <div class="rj-section-header">
+        <h2>Rajgir <span>Geography & Sacred Sites</span></h2>
+        <p>Click on map markers to jump to site details. The five hills encircle the ancient valley capital.</p>
+      </div>
+      <div class="rj-map-card">
+        <div class="rj-map-wrapper">
+          <!-- SVG Map of Rajgir Valley -->
+          <svg id="rj-map-svg" class="rj-map-svg" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustrated map of Rajgir valley and sacred hills">
+            <defs>
+              <radialGradient id="valleyGrad" cx="50%" cy="55%" r="55%">
+                <stop offset="0%" stop-color="#1a3a2a"/>
+                <stop offset="100%" stop-color="#0d1f17"/>
+              </radialGradient>
+              <radialGradient id="hillGrad" cx="50%" cy="40%" r="60%">
+                <stop offset="0%" stop-color="#2d5a1b"/>
+                <stop offset="100%" stop-color="#1a3a10"/>
+              </radialGradient>
+              <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+
+            <!-- Background valley -->
+            <rect width="800" height="420" fill="url(#valleyGrad)" rx="16"/>
+
+            <!-- Surrounding hills (five hills of Rajgir) -->
+            <!-- Vaibhara Hill - West -->
+            <ellipse class="rj-hill" cx="100" cy="200" rx="110" ry="80" fill="url(#hillGrad)" opacity="0.9"/>
+            <text x="100" y="175" text-anchor="middle" fill="#90c070" font-size="11" font-family="Outfit,sans-serif" font-weight="700">Vaibhara</text>
+
+            <!-- Ratnagiri - North-West -->
+            <ellipse class="rj-hill" cx="240" cy="70" rx="100" ry="60" fill="url(#hillGrad)" opacity="0.85"/>
+            <text x="240" y="50" text-anchor="middle" fill="#90c070" font-size="11" font-family="Outfit,sans-serif" font-weight="700">Ratnagiri</text>
+
+            <!-- Udayagiri - North-East -->
+            <ellipse class="rj-hill" cx="560" cy="60" rx="100" ry="60" fill="url(#hillGrad)" opacity="0.85"/>
+            <text x="560" y="40" text-anchor="middle" fill="#90c070" font-size="11" font-family="Outfit,sans-serif" font-weight="700">Udayagiri</text>
+
+            <!-- Sonagiri - South-East -->
+            <ellipse class="rj-hill" cx="660" cy="300" rx="110" ry="70" fill="url(#hillGrad)" opacity="0.85"/>
+            <text x="660" y="282" text-anchor="middle" fill="#90c070" font-size="11" font-family="Outfit,sans-serif" font-weight="700">Sonagiri</text>
+
+            <!-- Vipulgiri - South -->
+            <ellipse class="rj-hill" cx="400" cy="380" rx="130" ry="55" fill="url(#hillGrad)" opacity="0.85"/>
+            <text x="400" y="368" text-anchor="middle" fill="#90c070" font-size="11" font-family="Outfit,sans-serif" font-weight="700">Vipulgiri</text>
+
+            <!-- Cyclopean Wall (dashed outline) -->
+            <ellipse cx="400" cy="210" rx="320" ry="180" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="12 6" opacity="0.6"/>
+            <text x="400" y="30" text-anchor="middle" fill="#f59e0b" font-size="10" font-family="Outfit,sans-serif" opacity="0.8">— Cyclopean Wall circuit (approx.) —</text>
+
+            <!-- Inner valley label -->
+            <text x="400" y="215" text-anchor="middle" fill="#e2c97e" font-size="14" font-family="Playfair Display,serif" opacity="0.75">Rajagriha Valley</text>
+            <text x="400" y="232" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Outfit,sans-serif" opacity="0.65">Ancient Magadha Capital</text>
+
+            <!-- Hot Springs indicator -->
+            <text x="355" y="255" text-anchor="middle" fill="#60a5fa" font-size="10" font-family="Outfit,sans-serif">♨️ Hot Springs</text>
+
+            <!-- Site Markers -->
+            <!-- Gridhrakuta -->
+            <g class="rj-site-marker" data-site="gridhrakuta" data-layer="buddhist" filter="url(#glow)" tabindex="0" role="button" aria-label="Gridhrakuta Vulture Peak">
+              <circle cx="180" cy="155" r="18" fill="hsla(158,58%,30%,0.85)" stroke="#34d399" stroke-width="2.5" class="rj-pulse"/>
+              <text x="180" y="161" text-anchor="middle" font-size="13">🦅</text>
+              <text x="180" y="131" text-anchor="middle" fill="#34d399" font-size="9.5" font-family="Outfit,sans-serif" font-weight="700">Gridhrakuta</text>
+            </g>
+
+            <!-- Son Bhandar -->
+            <g class="rj-site-marker" data-site="son-bhandar" data-layer="jain" filter="url(#glow)" tabindex="0" role="button" aria-label="Son Bhandar Caves">
+              <circle cx="620" cy="180" r="18" fill="hsla(265,60%,30%,0.85)" stroke="#a78bfa" stroke-width="2.5" class="rj-pulse"/>
+              <text x="620" y="186" text-anchor="middle" font-size="13">🪨</text>
+              <text x="620" y="156" text-anchor="middle" fill="#a78bfa" font-size="9.5" font-family="Outfit,sans-serif" font-weight="700">Son Bhandar</text>
+            </g>
+
+            <!-- Bimbisara Jail -->
+            <g class="rj-site-marker" data-site="bimbisara-jail" data-layer="political" filter="url(#glow)" tabindex="0" role="button" aria-label="Bimbisara Prison">
+              <circle cx="150" cy="270" r="18" fill="hsla(16,80%,25%,0.85)" stroke="#fb923c" stroke-width="2.5" class="rj-pulse"/>
+              <text x="150" y="276" text-anchor="middle" font-size="13">⛓️</text>
+              <text x="150" y="246" text-anchor="middle" fill="#fb923c" font-size="9.5" font-family="Outfit,sans-serif" font-weight="700">Bimbisara Jail</text>
+            </g>
+
+            <!-- Saptaparni Cave -->
+            <g class="rj-site-marker" data-site="saptaparni" data-layer="buddhist" filter="url(#glow)" tabindex="0" role="button" aria-label="Saptaparni Cave">
+              <circle cx="100" cy="330" r="18" fill="hsla(158,58%,30%,0.85)" stroke="#34d399" stroke-width="2.5" class="rj-pulse"/>
+              <text x="100" y="336" text-anchor="middle" font-size="13">🪔</text>
+              <text x="100" y="308" text-anchor="middle" fill="#34d399" font-size="9.5" font-family="Outfit,sans-serif" font-weight="700">Saptaparni</text>
+            </g>
+
+            <!-- Maniyar Math -->
+            <g class="rj-site-marker" data-site="maniyar-math" data-layer="political" filter="url(#glow)" tabindex="0" role="button" aria-label="Maniyar Math temple mound">
+              <circle cx="480" cy="225" r="18" fill="hsla(28,100%,25%,0.85)" stroke="#fb923c" stroke-width="2.5" class="rj-pulse"/>
+              <text x="480" y="231" text-anchor="middle" font-size="13">🐍</text>
+              <text x="480" y="203" text-anchor="middle" fill="#fb923c" font-size="9.5" font-family="Outfit,sans-serif" font-weight="700">Maniyar Math</text>
+            </g>
+
+            <!-- Cyclopean Wall marker -->
+            <g class="rj-site-marker" data-site="cyclopean-wall" data-layer="political" filter="url(#glow)" tabindex="0" role="button" aria-label="Cyclopean Wall">
+              <circle cx="680" cy="130" r="18" fill="hsla(36,95%,25%,0.85)" stroke="#fbbf24" stroke-width="2.5" class="rj-pulse"/>
+              <text x="680" y="136" text-anchor="middle" font-size="13">🧱</text>
+              <text x="680" y="108" text-anchor="middle" fill="#fbbf24" font-size="9.5" font-family="Outfit,sans-serif" font-weight="700">Cyclopean Wall</text>
+            </g>
+
+            <!-- Vishwa Shanti Stupa (modern) -->
+            <g tabindex="0" role="img" aria-label="Vishwa Shanti Stupa (modern)">
+              <circle cx="400" cy="340" r="14" fill="hsla(211,86%,30%,0.75)" stroke="#60a5fa" stroke-width="2"/>
+              <text x="400" y="346" text-anchor="middle" font-size="11">☸️</text>
+              <text x="400" y="320" text-anchor="middle" fill="#60a5fa" font-size="9" font-family="Outfit,sans-serif">Vishwa Shanti Stupa</text>
+            </g>
+          </svg>
+        </div>
+        <!-- Legend -->
+        <div class="rj-map-legend" aria-label="Map legend">
+          <div class="rj-legend-item"><div class="rj-legend-dot" style="background:hsl(158,58%,40%)"></div> Buddhist Site</div>
+          <div class="rj-legend-item"><div class="rj-legend-dot" style="background:hsl(265,60%,58%)"></div> Jain Site</div>
+          <div class="rj-legend-item"><div class="rj-legend-dot" style="background:hsl(28,100%,55%)"></div> Political/Historical</div>
+          <div class="rj-legend-item"><div class="rj-legend-dot" style="background:hsl(211,86%,59%)"></div> Modern Site</div>
+          <div class="rj-legend-item"><div style="width:28px;height:4px;border-top:2px dashed hsl(43,96%,56%);margin-right:4px"></div> Cyclopean Wall</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3 · Historical Timeline -->
+    <section class="rj-section" id="rj-timeline-section" aria-label="Historical timeline of Rajgir">
+      <div class="rj-section-header">
+        <h2>Historical <span>Timeline</span></h2>
+        <p>Click any timeline card or dot to expand detailed context. Layer filters apply here too.</p>
+      </div>
+      <div class="rj-timeline" id="rj-timeline-container" role="list" aria-label="Rajgir chronological events"></div>
+    </section>
+
+    <!-- Section 4 · Cyclopean Wall / Fortifications -->
+    <section class="rj-section" id="rj-fortifications-section" aria-label="Cyclopean Wall of Rajgir">
+      <div class="rj-section-header">
+        <h2>The <span>Cyclopean Wall</span></h2>
+        <p>A megalithic dry-stone fortification and one of the oldest surviving defensive structures in the Indian subcontinent.</p>
+      </div>
+      <div class="rj-fort-card">
+        <div class="rj-fort-visual">
+          <div class="rj-fort-stat-row">
+            <div class="rj-fort-stat">
+              <strong>~40 km</strong>
+              <span>Total Circuit Length</span>
+            </div>
+            <div class="rj-fort-stat">
+              <strong>~4–5 m</strong>
+              <span>Maximum Wall Height</span>
+            </div>
+            <div class="rj-fort-stat">
+              <strong>~5 m</strong>
+              <span>Average Width at Base</span>
+            </div>
+            <div class="rj-fort-stat">
+              <strong>6th–5th c. BCE</strong>
+              <span>Estimated Construction Period</span>
+            </div>
+          </div>
+          <div style="padding:18px;background:var(--rj-surface2);border:1px solid var(--rj-border);border-radius:var(--rj-radius-sm);font-size:0.86rem;line-height:1.65;color:var(--rj-muted)">
+            <strong style="color:var(--rj-text);display:block;margin-bottom:6px">⚠️ Accuracy note</strong>
+            The 40 km figure refers to the outer perimeter running across the hilltops. The inner wall circuits are shorter. 
+            Attribution to a specific ruler is debated; Bimbisara's reign is traditional but some scholars suggest a longer construction history.
+          </div>
+        </div>
+        <div class="rj-fort-text">
+          <h3>Magadha's Stone Ramparts</h3>
+          <p>The Cyclopean Wall of Rajgir is constructed from massive undressed stones fitted without mortar — a technique that gives it its name,
+            reminiscent of the mythical one-eyed giants in Greek legend said to have built similar walls in the Mediterranean.</p>
+          <p>Running across the ridgelines of the five surrounding hills and through the valley floors, this fortification enclosed the ancient city
+            of Rajagriha in a defensive circuit that remained formidable for centuries. Chinese pilgrim Xuanzang described the "stone walls many li
+            in circuit" during his 7th-century CE visit.</p>
+          <p>Archaeological surveys by the ASI confirm the walls are built of undressed quartzite blocks, some weighing several tonnes.
+            No binding mortar was used — the interlocking weight of the stones provides structural integrity.</p>
+          <div style="margin-top:18px">
+            <span class="rj-accuracy-badge confirmed">✅ Archaeologically Confirmed</span>
+            <span class="rj-accuracy-badge traditional">📖 Attribution Traditional</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5 · Sites Explorer -->
+    <section class="rj-section" id="rj-sites-section" aria-label="Key archaeological sites of Rajgir">
+      <div class="rj-section-header">
+        <h2>Key <span>Sacred Sites</span></h2>
+        <p>Six major sites — click a map marker or browse cards. Layer filters are applied dynamically.</p>
+      </div>
+      <div class="rj-sites-grid" id="rj-sites-container" role="list" aria-label="Archaeological sites of Rajgir"></div>
+    </section>
+
+    <!-- Section 6 · Historical Context -->
+    <section class="rj-section" id="rj-context-section" aria-label="Historical context of Rajgir">
+      <div class="rj-section-header">
+        <h2>Historical <span>Context</span></h2>
+        <p>Understanding Rajgir within the wider arc of South Asian history.</p>
+      </div>
+      <div class="rj-context-grid">
+        <div class="rj-context-card">
+          <div class="ctx-icon">🏰</div>
+          <h3>Why Five Hills?</h3>
+          <p>The five concentric hills — Vaibhara, Ratnagiri, Udayagiri, Sonagiri, and Vipulgiri — formed a natural defensive perimeter. 
+            The Magadhan rulers augmented this terrain with the monumental stone wall circuit, creating one of the most naturally fortified valley capitals in antiquity.</p>
+        </div>
+        <div class="rj-context-card">
+          <div class="ctx-icon">☸️</div>
+          <h3>Buddha's Connection</h3>
+          <p>The Buddha spent many rainy seasons (vassa) at Rajagriha, often residing in the Bamboo Grove (Venuvana) — the first Buddhist monastery gifted by King Bimbisara. 
+            Gridhrakuta (Vulture Peak) is recorded in Pali Canon as the setting for dozens of major discourses, including the Heart Sutra and Lotus Sutra.</p>
+        </div>
+        <div class="rj-context-card">
+          <div class="ctx-icon">🌊</div>
+          <h3>Hot Springs of Brahma Kund</h3>
+          <p>Rajgir's natural hot springs (Brahma Kund), recorded since antiquity, hold religious significance for both Buddhists and Hindus. 
+            King Bimbisara is said to have bathed here with the Buddha. Today the springs remain active at temperatures of 45°C and are a major pilgrimage attraction.</p>
+        </div>
+        <div class="rj-context-card">
+          <div class="ctx-icon">📿</div>
+          <h3>Mahavira & Jain Heritage</h3>
+          <p>The 24th Tirthankara, Vardhamana Mahavira, visited Rajagriha multiple times and delivered discourses here. The Son Bhandar Caves contain Brahmi inscriptions linking them to Jain traditions, 
+            and several Jain temples on the hills commemorate Tirthankaras who are said to have attained moksha in this region.</p>
+        </div>
+        <div class="rj-context-card">
+          <div class="ctx-icon">🏛️</div>
+          <h3>Transition to Pataliputra</h3>
+          <p>Under the Nanda dynasty (c. 345–322 BCE) and later under Chandragupta Maurya, the Magadhan capital shifted to Pataliputra (modern Patna). 
+            This transition transformed Rajgir from a living city into a pilgrimage destination — preserving its sacred character across the centuries.</p>
+        </div>
+        <div class="rj-context-card">
+          <div class="ctx-icon">🔬</div>
+          <h3>Modern Archaeology</h3>
+          <p>The Archaeological Survey of India has conducted extensive surveys and excavations at Rajgir since the 19th century (Cunningham, 1861–62). 
+            Maniyar Math excavations revealed stratified occupations from Mauryan to Gupta periods. The Cyclopean Wall has been documented through satellite mapping and field surveys.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7 · Sources & References -->
+    <section class="rj-section" id="rj-sources-section" aria-label="Sources and references">
+      <div class="rj-section-header">
+        <h2>Sources & <span>References</span></h2>
+        <p>All content is based on credible archaeological, textual, and historical sources.</p>
+      </div>
+      <div class="rj-sources-list">
+        <div class="rj-source-item">
+          <div class="rj-source-num">1</div>
+          <div class="rj-source-text">
+            <strong>Cunningham, Alexander (1871). Archaeological Survey of India Reports, Vol. I.</strong>
+            Original surveys documenting the Cyclopean Wall circuit and early site identification at Rajgir.
+          </div>
+        </div>
+        <div class="rj-source-item">
+          <div class="rj-source-num">2</div>
+          <div class="rj-source-text">
+            <strong>Xuanzang (629–645 CE). Si-Yu-Ki: Buddhist Records of the Western World. Trans. Samuel Beal (1884).</strong>
+            Primary textual description of Rajgir's sacred sites, monasteries, and ruins during the Tang pilgrimage.
+          </div>
+        </div>
+        <div class="rj-source-item">
+          <div class="rj-source-num">3</div>
+          <div class="rj-source-text">
+            <strong>Archaeological Survey of India. List of Monuments — Bihar & Jharkhand.</strong>
+            Official protected monument records for Rajgir, including Maniyar Math, Son Bhandar Caves, and the Cyclopean Wall.
+          </div>
+        </div>
+        <div class="rj-source-item">
+          <div class="rj-source-num">4</div>
+          <div class="rj-source-text">
+            <strong>Walshe, Maurice (1987). The Long Discourses of the Buddha: A Translation of the Dīgha Nikāya.</strong>
+            Canonical Pali sources documenting the First Buddhist Council at Saptaparni Cave, Rajgir.
+          </div>
+        </div>
+        <div class="rj-source-item">
+          <div class="rj-source-num">5</div>
+          <div class="rj-source-text">
+            <strong>Upinder Singh (2008). A History of Ancient and Early Medieval India. Pearson Education.</strong>
+            Academic synthesis covering Magadha's political development, Rajgir's urban archaeology, and the rise of Pataliputra.
+          </div>
+        </div>
+        <div class="rj-source-item">
+          <div class="rj-source-num">6</div>
+          <div class="rj-source-text">
+            <strong>Jacobi, Hermann (Trans., 1884). Jaina Sutras. Sacred Books of the East, Vol. 22.</strong>
+            Jain canonical texts referencing Mahavira's presence in Rajagriha and the sacred significance of the region.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- /rj-container -->
+
+  <!-- ─── Footer ─────────────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="../../index.html#home" class="nav-logo">
+          <span class="saffron">Incredible</span>
+          <span class="gold">India</span>
+          <span class="green">Explorer</span>
+        </a>
+        <p>Interactive educational platform documenting India's ancient cities, archaeological discoveries, and sacred landscapes.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="../../index.html">Home</a>
+        <a href="../ancient-cities/ancient-cities.html">Ancient Cities Explorer</a>
+        <a href="../nalanda-explorer/index.html">Nalanda Explorer</a>
+        <a href="../pataliputra-explorer/index.html">Pataliputra Explorer</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Incredible India Explorer. Open Source Archaeological Heritage Initiative.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="../pages-common.js"></script>
+</body>
+</html>

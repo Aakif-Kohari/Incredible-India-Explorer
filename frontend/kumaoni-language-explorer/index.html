@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+<meta charset="UTF-8">
+<title>Kumaoni Explorer — Incredible India</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,560;9..144,680&family=Noto+Serif+Devanagari:wght@500;700&family=Noto+Sans+Devanagari:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  :root{
+    --pine:#1f3a2c;
+    --pine-deep:#122419;
+    --stone:#e7e1d3;
+    --stone-dark:#4b544c;
+    --paper:#f8f3e6;
+    --ochre:#a63a2e;
+    --ochre-deep:#7e2a21;
+    --marigold:#d99a34;
+    --ink:#1c231e;
+    --rule: rgba(28,35,30,0.14);
+    --shadow: 0 14px 34px rgba(18,36,25,0.16);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--stone);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .dev{ font-family:'Noto Sans Devanagari','Noto Serif Devanagari',serif; }
+  .dev-display{ font-family:'Noto Serif Devanagari',serif; }
+  h1,h2,h3,.display{ font-family:'Fraunces',serif; font-weight:680; letter-spacing:-0.01em; margin:0;}
+  a{color:inherit;}
+  button{font-family:inherit;}
+  .hidden{ display:none !important; }
+
+  /* ---------- Aipan-motif signature strip (SVG pattern) ---------- */
+  .aipan-strip{
+    height:22px;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='88' height='22' viewBox='0 0 88 22'><rect width='88' height='22' fill='%23a63a2e'/><g fill='none' stroke='%23f8f3e6' stroke-width='1.6' stroke-linecap='round'><path d='M4 17 L11 6 L18 17 Z'/><circle cx='30' cy='11' r='3.2'/><path d='M40 17 L47 6 L54 17 Z'/><circle cx='66' cy='11' r='3.2'/><path d='M76 17 L83 6' /><path d='M76 6 L83 17'/></g></svg>");
+    background-repeat:repeat-x;
+    background-size:88px 22px;
+  }
+  .aipan-strip.thin{ height:10px; background-size:44px 10px; }
+
+  /* ---------- shared containers ---------- */
+  .wrap{ max-width:1040px; margin:0 auto; padding:0 28px; }
+  .chip{
+    display:inline-flex; align-items:center; gap:6px;
+    background:var(--paper); border:1px solid var(--rule);
+    border-radius:999px; padding:7px 14px; font-size:13px; font-weight:600;
+    color:var(--pine-deep);
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    background:var(--ochre); color:var(--paper); border:none;
+    padding:13px 24px; border-radius:10px; font-weight:700; font-size:15px;
+    cursor:pointer; transition:transform .15s ease, background .15s ease;
+    box-shadow:0 8px 18px rgba(166,58,46,0.35);
+  }
+  .btn:hover{ background:var(--ochre-deep); transform:translateY(-1px); }
+  .btn:focus-visible, a:focus-visible, .speak:focus-visible{ outline:3px solid var(--marigold); outline-offset:2px; }
+  .btn.ghost{
+    background:transparent; color:var(--paper); box-shadow:none;
+    border:1.5px solid rgba(248,243,230,0.55);
+  }
+  .btn.ghost:hover{ background:rgba(248,243,230,0.12); }
+  .speak{
+    border:1.5px solid var(--pine); background:var(--paper); color:var(--pine-deep);
+    border-radius:999px; width:38px; height:38px; min-width:38px;
+    display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+    font-size:15px; transition:background .15s ease;
+  }
+  .speak:hover{ background:var(--stone); }
+  .speak.playing{ background:var(--marigold); border-color:var(--marigold); color:var(--pine-deep); }
+
+  /* =====================================================
+     LANDING PAGE (Languages of India)
+     ===================================================== */
+  #landing .hero{
+    background:
+      radial-gradient(ellipse at 20% -10%, rgba(217,154,52,0.18), transparent 55%),
+      linear-gradient(180deg, var(--pine-deep), var(--pine));
+    color:var(--paper);
+    padding:64px 0 46px;
+  }
+  #landing .hero .eyebrow{
+    text-transform:uppercase; letter-spacing:.14em; font-size:12px; font-weight:700;
+    color:var(--marigold);
+  }
+  #landing .hero h1{ font-size:clamp(34px,5vw,52px); margin-top:10px; color:var(--paper); }
+  #landing .hero p.lede{
+    max-width:560px; font-size:16.5px; line-height:1.6; color:rgba(248,243,230,0.82); margin-top:14px;
+  }
+  .lang-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px; padding:38px 0 60px;
+  }
+  .lang-card{
+    background:var(--paper); border-radius:16px; padding:22px 20px 20px;
+    box-shadow:var(--shadow); position:relative; overflow:hidden;
+    display:flex; flex-direction:column; gap:10px; border:1px solid var(--rule);
+  }
+  .lang-card .region-tag{ font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--stone-dark); }
+  .lang-card .native{ font-size:26px; }
+  .lang-card .eng{ font-size:14px; color:var(--stone-dark); font-weight:600; }
+  .lang-card p.blurb{ font-size:13.5px; line-height:1.5; color:#3a4238; margin:0; flex:1; }
+  .lang-card.featured{ outline:2.5px solid var(--ochre); }
+  .lang-card.featured::before{
+    content:"Featured this month"; position:absolute; top:12px; right:-34px;
+    background:var(--ochre); color:var(--paper); font-size:10.5px; font-weight:700;
+    padding:4px 38px; transform:rotate(38deg); letter-spacing:.05em;
+  }
+  .lang-card .card-btn{
+    margin-top:4px; align-self:flex-start; background:var(--pine); color:var(--paper);
+    border:none; padding:9px 16px; border-radius:8px; font-weight:700; font-size:13px;
+    cursor:pointer;
+  }
+  .lang-card.featured .card-btn{ background:var(--ochre); }
+  .lang-card.locked{ opacity:.6; }
+  .lang-card.locked .card-btn{ background:var(--stone-dark); cursor:default; }
+
+  /* =====================================================
+     EXPLORER PAGE
+     ===================================================== */
+  #explorer .topbar{
+    background:var(--pine-deep); color:var(--paper); padding:16px 0;
+  }
+  #explorer .topbar .wrap{ display:flex; align-items:center; justify-content:space-between; }
+  #explorer .back{
+    background:none; border:none; color:var(--paper); font-weight:600; font-size:14px;
+    cursor:pointer; display:flex; align-items:center; gap:6px; padding:6px 4px;
+  }
+  #explorer .back:hover{ color:var(--marigold); }
+
+  #explorer .hero{
+    background:linear-gradient(180deg, var(--pine-deep) 0%, var(--pine) 72%, var(--pine) 100%);
+    color:var(--paper); padding:52px 0 0;
+    position:relative;
+  }
+  .hero-inner{ display:flex; flex-wrap:wrap; gap:36px; align-items:flex-end; padding-bottom:40px; }
+  .hero-text{ flex:1 1 380px; }
+  .hero-text .eyebrow{ text-transform:uppercase; font-size:12px; letter-spacing:.14em; color:var(--marigold); font-weight:700; }
+  .hero-text .title-dev{ font-size:clamp(40px,7vw,64px); margin-top:8px; line-height:1; }
+  .hero-text .title-en{ font-size:clamp(17px,2.4vw,20px); color:rgba(248,243,230,0.85); margin-top:8px; font-weight:500; }
+  .hero-text .ipa{ font-size:14px; color:rgba(248,243,230,0.65); margin-top:4px; font-style:italic; }
+  .hero-text p.tagline{ max-width:480px; font-size:15.5px; line-height:1.65; color:rgba(248,243,230,0.85); margin-top:16px; }
+
+  /* mountain signature illustration */
+  .mtn-illus{ flex:1 1 300px; min-width:260px; }
+  .mtn-illus svg{ width:100%; height:auto; display:block; }
+
+  .fact-strip{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    background:var(--paper); border-radius:16px 16px 0 0;
+    box-shadow:0 -4px 0 var(--ochre) inset;
+    margin-top:-2px;
+  }
+  .fact{
+    padding:20px 18px; border-right:1px solid var(--rule);
+  }
+  .fact:last-child{ border-right:none; }
+  .fact .label{ font-size:11px; text-transform:uppercase; letter-spacing:.08em; font-weight:700; color:var(--ochre-deep); }
+  .fact .value{ font-size:14.5px; font-weight:600; margin-top:5px; line-height:1.4; color:var(--ink); }
+
+  section.block{ padding:56px 0; }
+  section.block.tint{ background:var(--paper); }
+  .section-head{ margin-bottom:26px; }
+  .section-head .kicker{ font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--ochre-deep); }
+  .section-head h2{ font-size:clamp(24px,3.4vw,32px); margin-top:6px; color:var(--pine-deep); }
+  .section-head p{ max-width:600px; color:#4a5248; font-size:15px; line-height:1.6; margin-top:8px; }
+
+  /* greeting spotlight */
+  .greet-card{
+    background:linear-gradient(135deg, var(--ochre), var(--ochre-deep));
+    color:var(--paper); border-radius:20px; padding:32px; display:flex; flex-wrap:wrap;
+    gap:24px; align-items:center; box-shadow:var(--shadow); position:relative; overflow:hidden;
+  }
+  .greet-card::after{
+    content:""; position:absolute; right:-40px; bottom:-40px; width:180px; height:180px;
+    border-radius:50%; background:rgba(248,243,230,0.08);
+  }
+  .greet-main{ flex:1 1 260px; z-index:1; }
+  .greet-main .dev-word{ font-size:44px; line-height:1.1; }
+  .greet-main .translit{ font-size:18px; font-weight:600; margin-top:6px; }
+  .greet-main .meaning{ font-size:14.5px; color:rgba(248,243,230,0.85); margin-top:6px; }
+  .greet-main .ipa-row{ display:flex; align-items:center; gap:10px; margin-top:16px; }
+  .greet-main .ipa{ font-family:monospace; font-size:14px; background:rgba(0,0,0,0.18); padding:5px 10px; border-radius:7px; }
+  .exchange{
+    flex:1 1 260px; background:rgba(248,243,230,0.1); border-radius:14px; padding:18px 20px; z-index:1;
+  }
+  .exchange .line{ display:flex; align-items:center; gap:10px; padding:7px 0; border-bottom:1px dashed rgba(248,243,230,0.25); }
+  .exchange .line:last-child{ border-bottom:none; }
+  .exchange .line .txt{ flex:1; }
+  .exchange .line .dev{ font-size:16px; }
+  .exchange .line .en{ font-size:12.5px; color:rgba(248,243,230,0.72); }
+  .exchange .speak{ background:rgba(248,243,230,0.9); }
+  .verify-note{ font-size:12px; color:rgba(248,243,230,0.68); margin-top:16px; line-height:1.5; z-index:1; position:relative;}
+
+  /* script showcase */
+  .script-panel{
+    background:var(--pine-deep); color:var(--paper); border-radius:18px; padding:30px;
+    display:flex; flex-wrap:wrap; gap:28px; align-items:center;
+  }
+  .script-panel .letters{ display:flex; flex-wrap:wrap; gap:10px; flex:1 1 300px; }
+  .letter-tile{
+    background:rgba(248,243,230,0.08); border:1px solid rgba(248,243,230,0.18);
+    border-radius:10px; width:56px; height:56px; display:flex; align-items:center; justify-content:center;
+    font-size:26px; font-family:'Noto Serif Devanagari',serif;
+  }
+  .script-panel .note{ flex:1 1 260px; font-size:14.5px; line-height:1.7; color:rgba(248,243,230,0.85); }
+
+  /* words grid */
+  .word-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px;
+  }
+  .word-card{
+    background:var(--paper); border:1px solid var(--rule); border-radius:14px; padding:18px 18px 16px;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .word-card .top{ display:flex; align-items:flex-start; justify-content:space-between; gap:8px; }
+  .word-card .dev-word{ font-size:26px; }
+  .word-card .translit{ font-size:13.5px; font-weight:700; color:var(--ochre-deep); text-transform:capitalize; }
+  .word-card .meaning{ font-size:13.5px; color:#4a5248; }
+
+  /* culture section */
+  .culture-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px; }
+  .culture-card{ display:flex; gap:16px; align-items:flex-start; }
+  .culture-card .icon-wrap{
+    width:52px; height:52px; min-width:52px; border-radius:12px; background:var(--pine);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .culture-card .icon-wrap svg{ width:26px; height:26px; }
+  .culture-card h3{ font-size:16.5px; color:var(--pine-deep); }
+  .culture-card p{ font-size:13.8px; line-height:1.6; color:#4a5248; margin:6px 0 0; }
+
+  .status-band{
+    margin-top:36px; background:var(--stone); border:1px dashed var(--stone-dark);
+    border-radius:14px; padding:18px 22px; display:flex; gap:14px; align-items:flex-start;
+  }
+  .status-band svg{ width:26px; height:26px; min-width:26px; margin-top:2px; }
+  .status-band p{ font-size:13.5px; line-height:1.6; color:#3a4238; margin:0; }
+
+  /* sources */
+  .source-list{ display:flex; flex-direction:column; gap:10px; }
+  .source-item{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    background:var(--paper); border:1px solid var(--rule); border-radius:10px;
+    padding:13px 16px; font-size:13.5px; text-decoration:none; color:var(--ink);
+    transition:border-color .15s ease;
+  }
+  .source-item:hover{ border-color:var(--ochre); }
+  .source-item .name{ font-weight:600; }
+  .source-item .arrow{ color:var(--ochre-deep); font-weight:700; }
+
+  footer{ background:var(--pine-deep); color:rgba(248,243,230,0.65); text-align:center; padding:26px 0; font-size:12.5px; }
+
+  @media (max-width:640px){
+    .wrap{ padding:0 18px; }
+    .greet-card{ padding:24px; }
+    .fact{ border-right:none; border-bottom:1px solid var(--rule); }
+  }
+</style>
+</head>
+<body>
+
+<!-- =====================================================
+     LANDING PAGE
+===================================================== -->
+<div id="landing">
+  <div class="aipan-strip"></div>
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Incredible India Explorer</div>
+      <h1>Languages of India</h1>
+      <p class="lede">India speaks in hundreds of tongues carried down mountains, rivers, and coastlines. This month's spotlight climbs into the central Himalaya to meet a language still sung in Kumaon's fields and festivals.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="lang-grid">
+      <div class="lang-card featured">
+        <div class="region-tag">Kumaon · Uttarakhand</div>
+        <div class="native dev-display">कुमाऊँनी</div>
+        <div class="eng">Kumaoni</div>
+        <p class="blurb">A Central Pahari language of the Himalayan foothills, carried in folk songs, Aipan art, and everyday village greetings.</p>
+        <button class="card-btn" onclick="goExplorer()">Explore Kumaoni →</button>
+      </div>
+
+      <div class="lang-card locked">
+        <div class="region-tag">Garhwal · Uttarakhand</div>
+        <div class="native dev-display">गढ़वळी</div>
+        <div class="eng">Garhwali</div>
+        <p class="blurb">Kumaoni's sister language across the Uttarakhand Himalaya.</p>
+        <button class="card-btn">Coming soon</button>
+      </div>
+
+      <div class="lang-card locked">
+        <div class="region-tag">Bihar · Jharkhand · Nepal</div>
+        <div class="native dev-display">भोजपुरी</div>
+        <div class="eng">Bhojpuri</div>
+        <p class="blurb">A widely spoken language of the eastern Gangetic plains.</p>
+        <button class="card-btn">Coming soon</button>
+      </div>
+
+      <div class="lang-card locked">
+        <div class="region-tag">Jharkhand · Odisha · Bengal</div>
+        <div class="native dev-display">ᱥᱟᱱᱛᱟᱲᱤ</div>
+        <div class="eng">Santali</div>
+        <p class="blurb">A tribal Austroasiatic language written in Ol Chiki script.</p>
+        <button class="card-btn">Coming soon</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================
+     EXPLORER PAGE
+===================================================== -->
+<div id="explorer" class="hidden">
+
+  <div class="topbar">
+    <div class="wrap">
+      <button class="back" onclick="goLanding()">← Languages of India</button>
+      <span class="chip" style="background:transparent;border-color:rgba(248,243,230,0.3);color:var(--paper);">🏔️ Kumaon, Uttarakhand</span>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="eyebrow">Language Spotlight</div>
+          <div class="title-dev dev-display">कुमाऊँनी</div>
+          <div class="title-en">Kumaoni</div>
+          <div class="ipa">/kuːmaːʊ̃ːniː/</div>
+          <p class="tagline">Spoken by over two million people across the Kumaon Himalaya of Uttarakhand and the neighbouring Sudurpashchim hills of Nepal — a language of terraced fields, oak forests, and Aipan-painted doorsteps.</p>
+        </div>
+        <div class="mtn-illus" aria-hidden="true">
+          <svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2a4d38"/>
+                <stop offset="1" stop-color="#1f3a2c"/>
+              </linearGradient>
+            </defs>
+            <rect width="420" height="220" fill="url(#sky)"/>
+            <circle cx="330" cy="52" r="26" fill="#f8f3e6" opacity="0.9"/>
+            <polygon points="20,190 110,55 150,110 190,40 260,190" fill="#0f2117"/>
+            <polygon points="150,190 220,75 260,120 300,60 380,190" fill="#16301f"/>
+            <polygon points="90,60 110,55 130,72 110,68" fill="#f8f3e6"/>
+            <polygon points="190,45 220,75 235,68 205,42" fill="#f8f3e6"/>
+            <g stroke="#f8f3e6" stroke-width="2" opacity="0.55">
+              <path d="M0 200 h420" />
+            </g>
+            <g fill="#3c6b48">
+              <polygon points="40,200 52,170 64,200"/>
+              <polygon points="70,200 82,165 94,200"/>
+              <polygon points="320,200 332,172 344,200"/>
+              <polygon points="350,200 362,168 374,200"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="fact-strip">
+        <div class="fact"><div class="label">Classification</div><div class="value">Indo-European → Indo-Aryan → Central Pahari</div></div>
+        <div class="fact"><div class="label">Region</div><div class="value">Kumaon division, Uttarakhand + Doti, Nepal</div></div>
+        <div class="fact"><div class="label">Speakers</div><div class="value">~2.0 million (2011 census)</div></div>
+        <div class="fact"><div class="label">Script</div><div class="value">Devanagari (historic Kumaoni script variant)</div></div>
+        <div class="fact"><div class="label">ISO 639-3</div><div class="value">kfy</div></div>
+        <div class="fact"><div class="label">UNESCO status</div><div class="value">Vulnerable / unsafe</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GREETING -->
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">👋 Say hello</div>
+        <h2>The Kumaoni greeting</h2>
+        <p>Devanagari script with transliteration, IPA pronunciation, and a speaker button. Browsers don't yet offer a native Kumaoni voice, so playback uses the closest available Hindi voice as an approximation — the IPA is the verified pronunciation.</p>
+      </div>
+
+      <div class="greet-card">
+        <div class="greet-main">
+          <div class="dev-word dev-display">जै देव</div>
+          <div class="translit">Jai Dev</div>
+          <div class="meaning">Literally "praise the Lord" — the traditional formal greeting, used like "hello."</div>
+          <div class="ipa-row">
+            <span class="ipa">dʒɛː d̪eːʋ</span>
+            <button class="speak" aria-label="Play pronunciation of Jai Dev" onclick="speakWord('जै देव', this)">🔊</button>
+          </div>
+        </div>
+        <div class="exchange">
+          <div class="line">
+            <div class="txt"><div class="dev dev-display">नमस्कार</div><div class="en">Namaskar — Hi / Hello</div></div>
+            <button class="speak" aria-label="Play Namaskar" onclick="speakWord('नमस्कार', this)">🔊</button>
+          </div>
+          <div class="line">
+            <div class="txt"><div class="dev dev-display">कस हेरे छे?</div><div class="en">Kas hare chhe? — How are you? (informal)</div></div>
+            <button class="speak" aria-label="Play Kas hare chhe" onclick="speakWord('कस हेरे छे', this)">🔊</button>
+          </div>
+          <div class="line">
+            <div class="txt"><div class="dev dev-display">भल हेरो</div><div class="en">Bhal hero — I am fine</div></div>
+            <button class="speak" aria-label="Play Bhal hero" onclick="speakWord('भल हेरो', this)">🔊</button>
+          </div>
+          <div class="line">
+            <div class="txt"><div class="dev dev-display">काँ जाण छा?</div><div class="en">Kaa jaan chha? — Where are you going?</div></div>
+            <button class="speak" aria-label="Play Kaa jaan chha" onclick="speakWord('काँ जाण छा', this)">🔊</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCRIPT -->
+  <section class="block tint">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">✒️ Writing system</div>
+        <h2>Devanagari script</h2>
+        <p>Kumaoni is written in Devanagari, the same script as Hindi and Sanskrit. Older Kumaoni manuscripts and inscriptions also used a distinct regional Kumaoni script, a Devanagari variant now largely out of everyday use.</p>
+      </div>
+      <div class="script-panel">
+        <div class="letters">
+          <div class="letter-tile">क</div>
+          <div class="letter-tile">कु</div>
+          <div class="letter-tile">मा</div>
+          <div class="letter-tile">ऊँ</div>
+          <div class="letter-tile">नी</div>
+          <div class="letter-tile">देव</div>
+          <div class="letter-tile">हिउँ</div>
+          <div class="letter-tile">पा</div>
+        </div>
+        <div class="note">
+          The word <strong class="dev-display" style="font-size:17px;">कुमाऊँनी</strong> (Kumaoni) breaks into <em>कुमाऊँ</em> — the Kumaon region — plus the suffix <em>-नी</em>, meaning "belonging to." The candra-bindu (ँ) nasalises the vowel, a sound common across Pahari languages.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORDS -->
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">📖 Vocabulary</div>
+        <h2>Common Kumaoni words</h2>
+        <p>Everyday words rooted in the region's Sanskrit-derived Central Pahari vocabulary, with a few terms unique to high-altitude life.</p>
+      </div>
+      <div class="word-grid" id="wordGrid"></div>
+    </div>
+  </section>
+
+  <!-- CULTURE -->
+  <section class="block tint">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">🎭 Culture & literature</div>
+        <h2>A language sung as much as spoken</h2>
+      </div>
+      <div class="culture-grid">
+        <div class="culture-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#f8f3e6" stroke-width="1.8"><path d="M3 20h18M5 20l4-9 3 5 2-4 5 8"/></svg></div>
+          <div>
+            <h3>Aipan folk art</h3>
+            <p>White rice-paste patterns painted on a red ochre (geru) ground decorate thresholds and courtyards for festivals and rites of passage — geometric motifs that echo Kumaoni oral tradition's love of pattern and repetition.</p>
+          </div>
+        </div>
+        <div class="culture-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#f8f3e6" stroke-width="1.8"><circle cx="12" cy="8" r="3"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></div>
+          <div>
+            <h3>Jhoda & Chholiya</h3>
+            <p>Circular jhoda folk dances and the sword-dance Chholiya are performed at weddings and harvest festivals, sung in Kumaoni verse passed down through generations.</p>
+          </div>
+        </div>
+        <div class="culture-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#f8f3e6" stroke-width="1.8"><path d="M4 19V5a2 2 0 012-2h9l5 5v11a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><path d="M14 3v5h5"/></svg></div>
+          <div>
+            <h3>Written literature</h3>
+            <p>Gumani Pant is widely regarded as the first Kumaoni poet of note, and later writers built a small but growing body of Kumaoni prose, poetry, and radio drama.</p>
+          </div>
+        </div>
+        <div class="culture-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#f8f3e6" stroke-width="1.8"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></div>
+          <div>
+            <h3>Jagar oral epics</h3>
+            <p>Jagar ballads — sung invocations to local deities and ancestral spirits — preserve Kumaoni history and myth through overnight ritual performance.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="status-band">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#7e2a21" stroke-width="1.8"><path d="M12 9v4M12 17h.01M10.3 3.9L2.7 17a2 2 0 001.7 3h15.2a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>
+        <p>UNESCO's Atlas of the World's Languages in Danger lists Kumaoni as <strong>vulnerable / unsafe</strong> — still spoken by many, but under pressure from Hindi in schools, media, and cities, which makes projects like this one part of active conservation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOURCES -->
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">🔗 Sources</div>
+        <h2>Verified against</h2>
+      </div>
+      <div class="source-list">
+        <a class="source-item" href="https://en.wikipedia.org/wiki/Kumaoni_language" target="_blank" rel="noopener">
+          <span class="name">Wikipedia — Kumaoni language</span><span class="arrow">↗</span>
+        </a>
+        <a class="source-item" href="https://kumaoni599448763.wordpress.com/learn-kumaoni/" target="_blank" rel="noopener">
+          <span class="name">Learn Kumaoni — Kumaon (phrasebook)</span><span class="arrow">↗</span>
+        </a>
+        <a class="source-item" href="https://www.uttarakhandi.com/kumaoni-language/" target="_blank" rel="noopener">
+          <span class="name">Uttarakhandi.com — Kumaoni Language guide</span><span class="arrow">↗</span>
+        </a>
+        <a class="source-item" href="https://worldschoolbooks.com/kumaoni-language-a-comprehensive-guide/" target="_blank" rel="noopener">
+          <span class="name">Kumaoni Language: A Comprehensive Guide</span><span class="arrow">↗</span>
+        </a>
+        <a class="source-item" href="https://bhuwanchand.wordpress.com/the-roots-kumaon-uttarakhand/kumaoni-language-literature/" target="_blank" rel="noopener">
+          <span class="name">Bhuwan Chand — Kumaoni language & literature</span><span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Kumaoni Explorer · Incredible India Explorer — Languages of India series
+  </footer>
+</div>
+
+<script>
+  function goExplorer(){
+    document.getElementById('landing').classList.add('hidden');
+    document.getElementById('explorer').classList.remove('hidden');
+    window.scrollTo({top:0, behavior:'instant'});
+  }
+  function goLanding(){
+    document.getElementById('explorer').classList.add('hidden');
+    document.getElementById('landing').classList.remove('hidden');
+    window.scrollTo({top:0, behavior:'instant'});
+  }
+
+  function speakWord(text, btn){
+    if(!('speechSynthesis' in window)){
+      alert('Speech playback is not supported in this browser.');
+      return;
+    }
+    window.speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    const voices = window.speechSynthesis.getVoices();
+    const hindiVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('hi'));
+    if(hindiVoice) utter.voice = hindiVoice;
+    utter.lang = 'hi-IN';
+    utter.rate = 0.85;
+    btn.classList.add('playing');
+    utter.onend = () => btn.classList.remove('playing');
+    utter.onerror = () => btn.classList.remove('playing');
+    window.speechSynthesis.speak(utter);
+  }
+
+  const WORDS = [
+    {dev:"पानी", tr:"Pani", en:"Water"},
+    {dev:"घर", tr:"Ghar", en:"House / home"},
+    {dev:"हिउँ", tr:"Hyun", en:"Snow"},
+    {dev:"खेत", tr:"Khet", en:"Field / farmland"},
+    {dev:"म्यार", tr:"Myar", en:"My / mine"},
+    {dev:"त्यार", tr:"Tyar", en:"Your / yours"},
+    {dev:"भल", tr:"Bhal", en:"Good / fine"},
+    {dev:"काँ", tr:"Kaa", en:"Where"},
+    {dev:"नौ", tr:"Nau", en:"Name"}
+  ];
+  const grid = document.getElementById('wordGrid');
+  WORDS.forEach(w=>{
+    const card = document.createElement('div');
+    card.className = 'word-card';
+    card.innerHTML = `
+      <div class="top">
+        <div class="dev-word dev-display">${w.dev}</div>
+        <button class="speak" aria-label="Play ${w.tr}" onclick="speakWord('${w.dev}', this)">🔊</button>
+      </div>
+      <div class="translit">${w.tr}</div>
+      <div class="meaning">${w.en}</div>
+    `;
+    grid.appendChild(card);
+  });
+</script>
+</body>
+</html>

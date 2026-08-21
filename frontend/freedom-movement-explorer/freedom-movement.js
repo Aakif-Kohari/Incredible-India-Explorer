@@ -186,7 +186,7 @@ export const freedomTimeline = [
     description: "Court-martial of INA officers representing Hindu, Muslim, and Sikh communities at Red Fort sparked public protests.",
     historicalImpact: "Demonstrated unanimous cross-community unity and shattered military reliance of colonial authorities."
   },
-  {
+{
     id: "evt-1946-rin-mutiny",
     year: 1946,
     date: "February 18, 1946",
@@ -199,9 +199,33 @@ export const freedomTimeline = [
     historicalImpact: "Conclusively proved that colonial armed forces would no longer enforce British rule in India."
   },
   {
-    id: "evt-1947-independence",
+    id: "evt-1946-cabinet-mission",
+    year: 1946,
+    date: "May 16, 1946",
+    title: "Cabinet Mission Plan",
+    movement: "Political Negotiations",
+    phase: "Final Push & Independence (1940–1947)",
+    location: "New Delhi",
+    keyLeaders: ["Lord Pethick-Lawrence", "Sir Stafford Cripps", "A. V. Alexander", "Mahatma Gandhi", "Muhammad Ali Jinnah"],
+    description: "A three-member British Cabinet delegation proposed a three-tier federal structure to keep India united, sparking negotiations that ultimately broke down over compulsory provincial grouping.",
+historicalImpact: "The plan's collapse and the ensuing Direct Action Day violence made Partition all but inevitable within a year.",
+    explorerLink: "../cabinet-mission-plan-explorer/index.html"
+  },
+  {
+    id: "evt-1947-mountbatten-plan",
     year: 1947,
-    date: "August 15, 1947",
+    date: "June 3, 1947",
+    title: "Mountbatten Plan (3 June Plan)",
+    movement: "Political Negotiations",
+    phase: "Final Push & Independence (1940–1947)",
+    location: "New Delhi",
+    keyLeaders: ["Lord Mountbatten", "Jawaharlal Nehru", "Muhammad Ali Jinnah", "Baldev Singh"],
+    description: "Viceroy Lord Mountbatten announced the final plan to partition British India into India and Pakistan, advancing the transfer of power from June 1948 to 15 August 1947.",
+    historicalImpact: "Set the legal and political framework for the Indian Independence Act 1947, the Radcliffe Boundary Commission, and the transfer of power on 15 August 1947.",
+    explorerLink: "../mountbatten-plan-explorer/index.html"
+  },
+  {
+    id: "evt-1947-independence",    year: 1947,    date: "August 15, 1947",
     title: "Indian Independence & 'Tryst with Destiny'",
     movement: "Civil Disobedience",
     phase: "Final Push & Independence (1940–1947)",
@@ -502,7 +526,255 @@ export const historicalDocuments = [
   }
 ];
 
+export const causeEffectChains = [
+  {
+    id: "chain-partition-swadeshi",
+    title: "Bengal Partition to Swadeshi (1905)",
+    cause: {
+      title: "Partition of Bengal",
+      year: "July 1905",
+      description: "Lord Curzon partitioned Bengal on communal lines to weaken the nationalist hub, causing widespread outrage.",
+      eventId: "evt-1905-swadeshi"
+    },
+    active: {
+      title: "Swadeshi & Boycott Movement",
+      year: "Oct 1905",
+      description: "Mass movement promoting indigenous goods (Swadeshi), national education institutions, and boycotting British textiles.",
+      eventId: "evt-1905-swadeshi",
+      location: "Bengal & Nationwide",
+      movement: "Swadeshi Movement",
+      leaders: ["Bal Gangadhar Tilak", "Bipin Chandra Pal", "Lala Lajpat Rai", "Aurobindo Ghosh"]
+    },
+    consequence: {
+      title: "Rise of Lal-Bal-Pal & Revolutionary Activism",
+      year: "1906–1908",
+      description: "Split in Congress (Surat Split) and emergence of early revolutionary secret organizations like Anushilan Samiti.",
+      eventId: "evt-1905-swadeshi"
+    }
+  },
+  {
+    id: "chain-rowlatt-noncooperation",
+    title: "Rowlatt Act to Non-Cooperation (1919–1920)",
+    cause: {
+      title: "Oppressive Rowlatt Act",
+      year: "March 1919",
+      description: "Colonial law allowing indefinite detention of political suspects without trial, sparking nationwide resentment.",
+      eventId: "evt-1919-satyagraha-jallianwala"
+    },
+    active: {
+      title: "Jallianwala Bagh Massacre",
+      year: "April 1919",
+      description: "General Dyer ordered firing on a peaceful gathering in Amritsar, slaughtering hundreds.",
+      eventId: "evt-1919-satyagraha-jallianwala",
+      location: "Amritsar, Punjab",
+      movement: "Non-Cooperation",
+      leaders: ["Mahatma Gandhi", "Dr. Saifuddin Kitchlew"]
+    },
+    consequence: {
+      title: "Non-Cooperation Movement",
+      year: "August 1920",
+      description: "Gandhi renounced British titles and launched the first major national Non-Cooperation Satyagraha.",
+      eventId: "evt-1920-non-cooperation"
+    }
+  },
+  {
+    id: "chain-noncooperation-suspension",
+    title: "Non-Cooperation to Chauri Chaura (1920–1922)",
+    cause: {
+      title: "Non-Cooperation Campaign",
+      year: "1920–1922",
+      description: "Nationwide satyagraha boycott, uniting diverse social communities against colonial rule.",
+      eventId: "evt-1920-non-cooperation"
+    },
+    active: {
+      title: "Chauri Chaura Incident",
+      year: "Feb 1922",
+      description: "Protesters set fire to a police station in Gorakhpur, killing 22 policemen.",
+      eventId: "evt-1922-chauri-chaura",
+      location: "Chauri Chaura, Gorakhpur, UP",
+      movement: "Non-Cooperation",
+      leaders: ["Mahatma Gandhi"]
+    },
+    consequence: {
+      title: "Suspension of Movement & Rise of Revolutionaries",
+      year: "Feb 1922 onwards",
+      description: "Gandhi suspended the movement, causing disappointment that led to the birth of Swaraj Party and revived armed activism.",
+      eventId: "evt-1925-kakori"
+    }
+  },
+  {
+    id: "chain-simon-bhagatsingh",
+    title: "Simon Commission to Bhagat Singh's Martyrdom (1928–1931)",
+    cause: {
+      title: "Simon Commission Boycott",
+      year: "1928",
+      description: "All-white commission arrived in India, prompting protests where Lala Lajpat Rai was fatally lathicharged.",
+      eventId: "evt-1931-shatranj-hsra"
+    },
+    active: {
+      title: "Saunders Assassination & Assembly Bombing",
+      year: "1928–1929",
+      description: "Bhagat Singh and HSRA avenged Lajpat Rai's death by shooting Saunders, and later threw bombs in the Assembly.",
+      eventId: "evt-1931-shatranj-hsra",
+      location: "Lahore & Delhi",
+      movement: "Revolutionary Struggle",
+      leaders: ["Bhagat Singh", "Shivaram Rajguru", "Sukhdev Thapar", "Chandrashekhar Azad"]
+    },
+    consequence: {
+      title: "Execution & Nationwide Awakening",
+      year: "March 1931",
+      description: "Bhagat Singh, Rajguru, and Sukhdev were hanged, elevating them to national symbols of resistance.",
+      eventId: "evt-1931-shatranj-hsra"
+    }
+  },
+  {
+    id: "chain-salt-civildisobedience",
+    title: "Salt Tax to Civil Disobedience (1930)",
+    cause: {
+      title: "Oppressive British Salt Laws",
+      year: "1930",
+      description: "The state monopolized salt production and taxed a vital daily necessity for every Indian.",
+      eventId: "evt-1930-dandi-salt-march"
+    },
+    active: {
+      title: "Salt March to Dandi",
+      year: "March–April 1930",
+      description: "Gandhi led a 240-mile march from Sabarmati to the sea at Dandi to make salt.",
+      eventId: "evt-1930-dandi-salt-march",
+      location: "Sabarmati to Dandi, Gujarat",
+      movement: "Civil Disobedience",
+      leaders: ["Mahatma Gandhi", "Sarojini Naidu", "Kamaladevi Chattopadhyay"]
+    },
+    consequence: {
+      title: "Nationwide Civil Disobedience",
+      year: "1930–1934",
+      description: "Millions violated laws, boycotted goods, and refused land revenues, leading to Gandhi-Irwin Pact.",
+      eventId: "evt-1930-dandi-salt-march"
+    }
+  },
+  {
+    id: "chain-worldwar-quitindia",
+    title: "World War II to Quit India (1939–1942)",
+    cause: {
+      title: "WWII & Cripps Mission Failure",
+      year: "1939–1942",
+      description: "India was dragged into WWII without consent, and Cripps Mission failed to offer full independence.",
+      eventId: "evt-1942-quit-india"
+    },
+    active: {
+      title: "Quit India Movement",
+      year: "August 1942",
+      description: "Gandhi called for immediate British withdrawal with the slogan 'Do or Die'.",
+      eventId: "evt-1942-quit-india",
+      location: "Bombay & Nationwide",
+      movement: "Quit India",
+      leaders: ["Mahatma Gandhi", "Aruna Asaf Ali", "Jayaprakash Narayan"]
+    },
+    consequence: {
+      title: "Mass Arrests & Rise of Underground Resistance",
+      year: "1942–1944",
+      description: "Entire Congress leadership was jailed, prompting nationwide sabotage and parallel local governments.",
+      eventId: "evt-1942-quit-india"
+    }
+  },
+  {
+    id: "chain-ina-independence",
+    title: "INA Trials to RIN Mutiny & Independence (1945–1947)",
+    cause: {
+      title: "Red Fort INA Trials",
+      year: "Late 1945",
+      description: "British tried INA officers at Red Fort, triggering unprecedented public sympathy and anger.",
+      eventId: "evt-1943-ina-singapore"
+    },
+    active: {
+      title: "Royal Indian Navy Mutiny",
+      year: "Feb 1946",
+      description: "Indian sailors mutinied in Bombay, spreading rapidly to other ports and the public.",
+      eventId: "evt-1946-rin-mutiny",
+      location: "Bombay & Karachi",
+      movement: "Revolutionary Struggle",
+      leaders: ["Subhas Chandra Bose"]
+    },
+    consequence: {
+      title: "British Decision to Withdraw & Independence",
+      year: "1946–1947",
+      description: "Realizing the loyalty of armed forces was lost, Britain decided to withdraw, granting Independence.",
+      eventId: "evt-1947-independence"
+    }
+  }
+];
+
+// 5. India Map SVG Paths (state outlines for the interactive dashboard map)
+export const INDIA_STATE_PATHS = {
+  "tn": "M393.5,631.9 L403,639 414.5,635 413.5,628 408,627 405.5,636 405,636 398,631 393.5,635 Z",
+  "karnataka": "M317,540 L328,552 345,560 342,580 320,590 305,587 295,565 300,548 310,543 Z",
+  "kerala": "M305,570 L312,585 315,605 305,608 297,602 295,585 Z",
+  "tamil-nadu": "M395,625 L410,622 415,632 412,642 395,645 385,632 390,628 Z",
+  "andhra-pradesh": "M352,585 L370,580 385,595 390,615 375,620 360,610 355,600 352,588 Z",
+  "telangana": "M308,530 L322,535 340,545 342,560 328,568 315,566 310,555 308,538 Z",
+  "maharashtra": "M268,485 L285,478 300,482 310,506 305,520 290,530 272,525 265,510 270,490 Z",
+  "gujarat": "M244,460 L255,465 268,472 265,488 248,495 238,485 240,465 Z",
+  "madhya-pradesh": "M250,490 L268,488 280,505 278,530 262,540 250,520 245,500 252,490 Z",
+  "chhattisgarh": "M260,520 L278,530 282,550 265,560 252,545 258,525 Z",
+  "jharkhand": "M258,450 L275,440 280,460 268,465 258,455 Z",
+  "odisha": "M268,460 L282,455 292,470 285,480 270,478 265,470 Z",
+  "west-bengal": "M255,408 L270,400 278,412 272,420 260,418 255,412 Z",
+  "bihar": "M250,430 L265,422 272,440 260,445 250,435 Z",
+  "uttar-pradesh": "M210,390 L230,385 250,400 248,420 232,425 215,410 210,395 Z",
+  "delhi": "M195,395 L202,398 206,405 200,410 192,405 Z",
+  "haryana": "M200,410 L215,405 220,425 200,430 Z",
+  "punjab": "M195,420 L210,415 218,432 198,435 Z",
+  "himachal-pradesh": "M205,420 L222,410 225,435 202,440 Z",
+  "uttarakhand": "M208,380 L220,375 228,395 210,400 202,392 Z",
+  "rajasthan": "M175,440 L190,435 200,455 185,460 170,450 160,445 Z",
+  "uttarakhand-himalaya": "M180,340 L210,330 225,370 200,380 175,375 Z",
+  "assam": "M300,300 L320,290 335,305 325,320 305,318 Z",
+  "meghalaya": "M290,300 L305,295 310,315 295,315 Z",
+  "nagaland": "M310,305 L328,298 335,312 315,318 Z",
+  "tripura": "M288,318 L298,315 300,328 290,328 Z",
+  "mizoram": "M290,330 L305,325 308,340 292,340 Z",
+  "manipur": "M295,322 L310,318 312,335 298,332 Z",
+  "arunachal-pradesh": "M320,260 L350,250 355,280 320,290 Z",
+  "sikkim": "M330,295 L340,295 345,308 330,310 Z",
+  "goa-daman": "M310,575 L320,572 322,585 308,588 Z"
+};
+
+// 5b. Freedom Movement Event Locations with geographic coordinates
+// Format: { id, title, lat, lng, state, year, movement, category, leaders, brief }
+export const freedomMapEvents = [
+  { id: "m-1770-sannyasi", title: "Sannyasi Rebellion", lat: 22.5, lng: 88.3, state: "west-bengal", year: 1770, movement: "Early Resistance", category: "Peasant Movement", leaders: "Majnu Shah, Bhawani Pathak", brief: "Peasant and ascetic rebellion against East India Company revenue demands." },
+  { id: "m-1817-paika", title: "Paika Rebellion", lat: 20.5, lng: 85.8, state: "odisha", year: 1817, movement: "Early Resistance", category: "Peasant Movement", leaders: "Bakshi Jagabandhu Bidyadhara", brief: "Armed revolt by Paikas resisting British land takeover and salt monopolies." },
+  { id: "m-1855-santhal", title: "Santhal Hul", lat: 25.5, lng: 85.3, state: "bihar", year: 1855, movement: "Early Resistance", category: "Tribal Resistance", leaders: "Sidho Murmu, Kanho Murmu", brief: "Indigenous uprising against oppressive zamindari revenue extortion." },
+  { id: "m-1857-delhi", title: "Revolt of 1857 (Delhi)", lat: 28.6, lng: 77.2, state: "delhi", year: 1857, movement: "Early Resistance", category: "Revolt", leaders: "Rani Lakshmibai, Mangal Pandey, Bahadur Shah Zafar", brief: "First War of Independence began in Meerut and spread to Delhi." },
+  { id: "m-1857-jhansi", title: "Jhansi Fort", lat: 25.8, lng: 81.0, state: "uttar-pradesh", year: 1857, movement: "Early Resistance", category: "Revolt", leaders: "Rani Lakshmibai", brief: "Jhansi's Rani led the defense against British forces during the 1857 revolt." },
+  { id: "m-1857-kanpur", title: "Kanpur Massacre", lat: 26.3, lng: 80.3, state: "uttar-pradesh", year: 1857, movement: "Early Resistance", category: "Revolt", leaders: "Nana Saheb, Tatya Tope", brief: "Siege of Cawnpore during the 1857 uprising." },
+  { id: "m-1905-calcutta", title: "Swadeshi Movement (Calcutta)", lat: 22.6, lng: 88.4, state: "west-bengal", year: 1905, movement: "Swadeshi Movement", category: "Mass Movement", leaders: "Bal Gangadhar Tilak, Bipin Chandra Pal, Aurobindo Ghosh", brief: "Partition of Bengal sparked nationwide Swadeshi and boycott movement." },
+  { id: "m-1916-pune", title: "Home Rule League (Pune)", lat: 18.5, lng: 73.8, state: "maharashtra", year: 1916, movement: "Home Rule", category: "Mass Movement", leaders: "Bal Gangadhar Tilak, Annie Besant", brief: "Twin leagues established demanding self-government (Home Rule) for India." },
+  { id: "m-1919-amritsar", title: "Jallianwala Bagh Massacre", lat: 30.0, lng: 75.0, state: "punjab", year: 1919, movement: "Non-Cooperation", category: "Mass Movement", leaders: "Mahatma Gandhi, Dr. Saifuddin Kitchlew", brief: "British troops fired on peaceful gathering in Amritsar, radicalizing the freedom struggle." },
+  { id: "m-1920-ahmedabad", title: "Non-Cooperation Movement (Ahmedabad)", lat: 23.0, lng: 72.6, state: "gujarat", year: 1920, movement: "Non-Cooperation", category: "Mass Movement", leaders: "Mahatma Gandhi, Sardar Patel", brief: "Mass non-violent campaign boycotting colonial schools, courts, and foreign cloth." },
+  { id: "m-1922-chauri-chaura", title: "Chauri Chaura Incident", lat: 27.8, lng: 81.9, state: "uttar-pradesh", year: 1922, movement: "Non-Cooperation", category: "Mass Movement", leaders: "Mahatma Gandhi", brief: "Police station arson led Gandhi to suspend Non-Cooperation to uphold non-violence." },
+  { id: "m-1925-kakori", title: "Kakori Train Action", lat: 26.6, lng: 80.5, state: "uttar-pradesh", year: 1925, movement: "Revolutionary Struggle", category: "Revolutionary", leaders: "Ram Prasad Bismil, Ashfaqulla Khan, Chandrashekhar Azad", brief: "HSRA revolutionaries seized British treasury funds from a train to finance liberation." },
+  { id: "m-1928-kolkata", title: "Simon Commission Protest", lat: 22.5, lng: 88.3, state: "west-bengal", year: 1928, movement: "Revolutionary Struggle", category: "Protest", leaders: "Bhagat Singh, Chittaranjan Das", brief: "Anti-Simon Commission protests where Lala Lajpat Rai was fatally lathicharged." },
+  { id: "m-1930-sabarmati", title: "Salt March (Dandi March)", lat: 20.9, lng: 72.9, state: "gujarat", year: 1930, movement: "Civil Disobedience", category: "Protest", leaders: "Mahatma Gandhi, Sarojini Naidu, Kamaladevi Chattopadhyay", brief: "Gandhi marched 240 miles to break the colonial salt monopoly tax." },
+  { id: "m-1930-ahmedabad", title: "Harijan Campaign", lat: 23.0, lng: 72.6, state: "gujarat", year: 1930, movement: "Civil Disobedience", category: "Social Reform", leaders: "Mahatma Gandhi", brief: "Gandhi launched the Harijan campaign for abolition of untouchability." },
+  { id: "m-1931-lahore", title: "Martyrdom of Bhagat Singh", lat: 31.5, lng: 74.3, state: "punjab", year: 1931, movement: "Revolutionary Struggle", category: "Revolutionary", leaders: "Bhagat Singh, Shivaram Rajguru, Sukhdev Thapar", brief: "Execution of HSRA revolutionaries deepened patriotic fervor among youth." },
+  { id: "m-1932-mumbai", title: "Civil Disobedience (Mumbai)", lat: 19.0, lng: 72.8, state: "maharashtra", year: 1932, movement: "Civil Disobedience", category: "Mass Movement", leaders: "Sardar Patel, B.R. Ambedkar", brief: "Nationwide protests against separate electorates led to Gandhi-Irwin Pact." },
+  { id: "m-1935-purna-swaraj", title: "Poorna Swaraj Declaration", lat: 17.3, lng: 78.5, state: "telangana", year: 1935, movement: "Civil Disobedience", category: "Political", leaders: "Jawaharlal Nehru, Sardar Patel", brief: "Congress declared Complete Independence at Lahore session." },
+  { id: "m-1942-mumbai", title: "Quit India Movement (Bombay)", lat: 19.0, lng: 72.8, state: "maharashtra", year: 1942, movement: "Quit India", category: "Mass Movement", leaders: "Mahatma Gandhi, Aruna Asaf Ali, Sardar Patel", brief: "Gandhi's 'Do or Die' call launched nationwide Quit India Movement." },
+  { id: "m-1942-bengal", title: "Quit India Movement (Bengal)", lat: 22.8, lng: 88.3, state: "west-bengal", year: 1942, movement: "Quit India", category: "Mass Movement", leaders: "Subhas Chandra Bose, Sarat Bose", brief: "Mass protests and underground resistance in Bengal during Quit India." },
+  { id: "m-1943-singapore", title: "Azad Hind Government Proclamation", lat: 1.3, lng: 103.8, state: "external", year: 1943, movement: "INA", category: "Military", leaders: "Netaji Subhas Chandra Bose, General Mohan Singh", brief: "Netaji proclaimed Provisional Government of Azad Hind in Singapore." },
+  { id: "m-1945-delhi", title: "Red Fort INA Trials", lat: 28.6, lng: 77.2, state: "delhi", year: 1945, movement: "INA", category: "Protest", leaders: "Shah Nawaz Khan, Prem Sahgal, Gurbaksh Singh Dhillon", brief: "Court-martial of INA officers sparked public outrage across India." },
+  { id: "m-1946-bombay", title: "Royal Indian Navy Mutiny", lat: 19.0, lng: 72.8, state: "maharashtra", year: 1946, movement: "INA", category: "Protest", leaders: "M.S. Khan, Madan Singh", brief: "Naval ratings mutinied, proving colonial armed forces would no longer enforce rule." },
+  { id: "m-1946-telangana", title: "Telangana Armed Struggle", lat: 17.4, lng: 78.5, state: "telangana", year: 1946, movement: "INA", category: "Armed Struggle", leaders: "Srirama Reddy, Baba Amte", brief: "Peasant armed struggle against feudal landlords supported by the Communist Party." },
+  { id: "m-1947-delhi", title: "Indian Independence (Tryst with Destiny)", lat: 28.6, lng: 77.2, state: "delhi", year: 1947, movement: "Civil Disobedience", category: "Political", leaders: "Jawaharlal Nehru, Mahatma Gandhi, Sardar Patel, B.R. Ambedkar", brief: "India attained independence, delivering Tryst with Destiny speech.", explorerLink: "../independence-partition-1947-explorer/index.html" }
+];
+
 /* Helper Query Functions */
+
+export function getChainById(id, list = causeEffectChains) {
+  if (!id || !Array.isArray(list)) return undefined;
+  return list.find(c => c.id === id);
+}
 
 export function getEventById(id, list = freedomTimeline) {
   if (!id || !Array.isArray(list)) return undefined;
@@ -589,6 +861,72 @@ export function filterDocuments(query = "", list = historicalDocuments) {
   ].some(field => field && field.toLowerCase().includes(q)));
 }
 
+export function filterFreedomMapEvents(filters = {}, list = freedomMapEvents) {
+  if (!Array.isArray(list)) return [];
+  let result = list;
+
+  const year = filters.year;
+  if (year && year !== "all") {
+    result = result.filter(e => e.year === year);
+  }
+
+  const region = filters.region;
+  if (region && region !== "all") {
+    result = result.filter(e => e.state === region || e.state === "external");
+  }
+
+  const movement = filters.movement;
+  if (movement && movement !== "all") {
+    result = result.filter(e => e.movement.toLowerCase() === movement.toLowerCase());
+  }
+
+  const category = filters.category;
+  if (category && category !== "all") {
+    result = result.filter(e => e.category.toLowerCase() === category.toLowerCase());
+  }
+
+  const query = filters.query;
+  if (query && query.trim()) {
+    const q = query.trim().toLowerCase();
+    result = result.filter(e => [
+      e.title,
+      e.movement,
+      e.category,
+      e.state,
+      e.leaders,
+      e.brief,
+      String(e.year)
+    ].some(field => field && field.toLowerCase().includes(q)));
+  }
+
+  return result;
+}
+
+export function getMapEventById(id, list = freedomMapEvents) {
+  if (!id || !Array.isArray(list)) return undefined;
+  return list.find(e => e.id === id || e.id.toLowerCase() === id.toLowerCase());
+}
+
+export function getYearRange(list = freedomMapEvents) {
+  if (!Array.isArray(list) || list.length === 0) return { min: 1770, max: 1947 };
+  const years = list.map(e => e.year);
+  return { min: Math.min(...years), max: Math.max(...years) };
+}
+
+export function getUniqueRegions(list = freedomMapEvents) {
+  if (!Array.isArray(list)) return [];
+  const seen = new Set();
+  list.forEach(e => {
+    if (e.state && e.state !== "external") seen.add(e.state);
+  });
+  return Array.from(seen).sort();
+}
+
+export function getUniqueMovements(list = freedomMapEvents) {
+  if (!Array.isArray(list)) return [];
+  return Array.from(new Set(list.map(e => e.movement))).sort();
+}
+
 /* Browser DOM Engine */
 
 if (typeof window !== "undefined" && typeof document !== "undefined") {
@@ -596,6 +934,9 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
   window.revolutionaryOrgsData = revolutionaryOrganizations;
   window.freedomLeadersData = freedomLeaders;
   window.historicalDocumentsData = historicalDocuments;
+  window.causeEffectChainsData = causeEffectChains;
+  window.freedomMapEventsData = freedomMapEvents;
+  window.INDIA_STATE_PATHS = INDIA_STATE_PATHS;
 
   window.filterTimelineEvents = filterTimelineEvents;
   window.getEventById = getEventById;
@@ -603,6 +944,10 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
   window.filterLeaders = filterLeaders;
   window.filterDocuments = filterDocuments;
   window.getDocumentById = getDocumentById;
+  window.getChainById = getChainById;
+  window.filterFreedomMapEvents = filterFreedomMapEvents;
+  window.getMapEventById = getMapEventById;
+  window.getYearRange = getYearRange;
 
   document.addEventListener("DOMContentLoaded", () => {
     // Nav Tab Switching Logic
@@ -665,13 +1010,13 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
               <span class="event-meta">📍 ${item.location} · 📅 ${item.date}</span>
             </div>
           </div>
-          <p class="event-desc">${item.description}</p>
+<p class="event-desc">${item.description}</p>
           <div class="leaders-row">${leadersHtml}</div>
           <div class="impact-box">
             <strong>💡 Historical Impact:</strong> ${item.historicalImpact}
           </div>
-        `;
-        timelineContainer.appendChild(card);
+          ${item.explorerLink ? `<a class="explorer-link" href="${item.explorerLink}">View Full Explorer →</a>` : ''}
+        `;        timelineContainer.appendChild(card);
       });
     }
 
@@ -765,6 +1110,526 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
       });
     }
     renderDocuments();
+
+    // 5. Initialize Cause & Effect Explorer
+    function initCauseEffectExplorer() {
+      const select = document.getElementById("chain-select");
+      if (!select) return;
+
+      // Populate Select/Dropdown Options
+      select.innerHTML = causeEffectChains.map(c => `
+        <option value="${c.id}">${c.title}</option>
+      `).join('');
+
+      let activeChainId = causeEffectChains[0].id;
+
+      function renderChain(chainId) {
+        const chain = getChainById(chainId);
+        if (!chain) return;
+
+        activeChainId = chainId;
+
+        // Render Node Contents
+        document.getElementById("node-cause").querySelector(".node-title").textContent = chain.cause.title;
+        document.getElementById("node-cause").querySelector(".node-meta").textContent = chain.cause.year;
+
+        document.getElementById("node-active").querySelector(".node-title").textContent = chain.active.title;
+        document.getElementById("node-active").querySelector(".node-meta").textContent = chain.active.year;
+
+        document.getElementById("node-consequence").querySelector(".node-title").textContent = chain.consequence.title;
+        document.getElementById("node-consequence").querySelector(".node-meta").textContent = chain.consequence.year;
+
+        // Render Details Card
+        document.getElementById("details-event-title").textContent = chain.active.title;
+        document.getElementById("details-event-desc").innerHTML = `
+          <strong>Root Cause:</strong> ${chain.cause.description}<br><br>
+          <strong>The Event:</strong> ${chain.active.description}<br><br>
+          <strong>Aftermath & Consequence:</strong> ${chain.consequence.description}
+        `;
+        document.getElementById("details-location").textContent = chain.active.location || "N/A";
+        document.getElementById("details-movement").textContent = chain.active.movement || "N/A";
+
+        // Render Key Leaders as Interactive Links/Chips
+        const leadersBox = document.getElementById("details-leaders-links");
+        if (leadersBox) {
+          leadersBox.innerHTML = "";
+          if (Array.isArray(chain.active.leaders) && chain.active.leaders.length > 0) {
+            chain.active.leaders.forEach(name => {
+              const chip = document.createElement("span");
+              chip.className = "leader-chip-link";
+              chip.textContent = name;
+              chip.style.cursor = "pointer";
+              // Clicking a leader chip switches to Leaders tab and highlights or searches the leader
+              chip.addEventListener("click", () => {
+                // Find Tab Button
+                const tabBtn = document.querySelector('.freedom-tab-btn[data-tab="leaders"]');
+                if (tabBtn) {
+                  tabBtn.click();
+                  // Try to search/filter leader in leader search box if exists, or highlight
+                  const lFilter = document.getElementById("leader-category-select");
+                  if (lFilter) {
+                    lFilter.value = "all";
+                    lFilter.dispatchEvent(new Event("change"));
+                  }
+                  // Scroll to leaders section
+                  document.getElementById("tab-leaders")?.scrollIntoView({ behavior: 'smooth' });
+                }
+              });
+              leadersBox.appendChild(chip);
+            });
+          } else {
+            leadersBox.textContent = "N/A";
+          }
+        }
+
+        // Highlight Active/Selected Node
+        const nodes = document.querySelectorAll(".chain-node");
+        nodes.forEach(n => n.classList.remove("selected"));
+        document.getElementById("node-active").classList.add("selected");
+      }
+
+      // Dropdown selection change
+      select.addEventListener("change", (e) => {
+        renderChain(e.target.value);
+      });
+
+      // Clicking Node displays their respective description in details panel
+      document.getElementById("node-cause").addEventListener("click", () => {
+        const chain = getChainById(activeChainId);
+        if (!chain) return;
+        document.querySelectorAll(".chain-node").forEach(n => n.classList.remove("selected"));
+        document.getElementById("node-cause").classList.add("selected");
+        document.getElementById("details-event-title").textContent = chain.cause.title;
+        document.getElementById("details-event-desc").textContent = chain.cause.description;
+        document.getElementById("details-location").textContent = "N/A";
+        document.getElementById("details-movement").textContent = "N/A";
+        document.getElementById("details-leaders-links").textContent = "N/A";
+      });
+
+      document.getElementById("node-active").addEventListener("click", () => {
+        renderChain(activeChainId);
+      });
+
+      document.getElementById("node-consequence").addEventListener("click", () => {
+        const chain = getChainById(activeChainId);
+        if (!chain) return;
+        document.querySelectorAll(".chain-node").forEach(n => n.classList.remove("selected"));
+        document.getElementById("node-consequence").classList.add("selected");
+        document.getElementById("details-event-title").textContent = chain.consequence.title;
+        document.getElementById("details-event-desc").textContent = chain.consequence.description;
+        document.getElementById("details-location").textContent = "N/A";
+        document.getElementById("details-movement").textContent = "N/A";
+        document.getElementById("details-leaders-links").textContent = "N/A";
+      });
+
+      // Navigation: Cause/Reverse button
+      document.getElementById("btn-prev-cause").addEventListener("click", () => {
+        document.getElementById("node-cause").click();
+      });
+
+      // Navigation: Consequence/Forward button
+      document.getElementById("btn-next-consequence").addEventListener("click", () => {
+        document.getElementById("node-consequence").click();
+      });
+
+      // Timeline sync / deep dive
+      document.getElementById("btn-deep-dive").addEventListener("click", () => {
+        const chain = getChainById(activeChainId);
+        if (!chain) return;
+
+        // Try to find the exact timeline event ID
+        let selectedNode = document.querySelector(".chain-node.selected");
+        let eventId = chain.active.eventId;
+        if (selectedNode && selectedNode.id === "node-cause") {
+          eventId = chain.cause.eventId;
+        } else if (selectedNode && selectedNode.id === "node-consequence") {
+          eventId = chain.consequence.eventId;
+        }
+
+        // Switch to timeline tab
+        const timelineTabBtn = document.querySelector('.freedom-tab-btn[data-tab="timeline"]');
+        if (timelineTabBtn) {
+          timelineTabBtn.click();
+
+          // Search or highlight in timeline
+          const searchInput = document.getElementById("freedom-search");
+          const ev = getEventById(eventId);
+          if (searchInput && ev) {
+            searchInput.value = ev.title;
+            searchInput.dispatchEvent(new Event("input"));
+            
+            // Scroll to the timeline container
+            document.getElementById("tab-timeline")?.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+
+      // Initial Render
+      renderChain(activeChainId);
+    }
+    initCauseEffectExplorer();
+
+    // 6. Dashboard Engine — Interactive Map + Master Timeline + Search/Filters
+    function initFreedomDashboard() {
+      const mapSvg = document.getElementById("freedom-map-svg");
+      const markersLayer = document.getElementById("freedom-map-markers");
+      const timelineSlider = document.getElementById("freedom-year-slider");
+      const yearDisplay = document.getElementById("freedom-year-display");
+      const regionFilter = document.getElementById("freedom-region-filter");
+      const movementFilter = document.getElementById("freedom-movement-filter");
+      const categoryFilter = document.getElementById("freedom-category-filter");
+      const eventSearch = document.getElementById("freedom-event-search");
+      const timelineContainer = document.getElementById("freedom-master-timeline");
+      const eventListContainer = document.getElementById("freedom-event-list");
+      const detailModal = document.getElementById("freedom-event-detail-modal");
+      const dashboardTabBtn = document.querySelector('.freedom-tab-btn[data-tab="dashboard"]');
+
+      if (!mapSvg) return;
+
+      const yearRange = getYearRange();
+      let currentFilters = {
+        year: "all",
+        region: "all",
+        movement: "all",
+        category: "all",
+        query: ""
+      };
+
+      // Populate region filter
+      if (regionFilter) {
+        const regions = getUniqueRegions();
+        regionFilter.innerHTML = '<option value="all">All Regions</option>' +
+          regions.map(r => {
+            const label = r.replace(/-/g, " ");
+            const pretty = label.charAt(0).toUpperCase() + label.slice(1).replace(/\b\w/g, l => l.toUpperCase());
+            return `<option value="${r}">${pretty}</option>`;
+          }).join("");
+      }
+
+      // Populate movement filter
+      if (movementFilter) {
+        const movements = getUniqueMovements();
+        movementFilter.innerHTML = '<option value="all">All Movements</option>' +
+          movements.map(m => `<option value="${m}">${m}</option>`).join("");
+      }
+
+      // Populate category filter
+      if (categoryFilter) {
+        const cats = Array.from(new Set(freedomMapEvents.map(e => e.category)));
+        categoryFilter.innerHTML = '<option value="all">All Categories</option>' +
+          cats.map(c => `<option value="${c}">${c}</option>`).join("");
+      }
+
+      // Set year slider range
+      if (timelineSlider) {
+        timelineSlider.min = yearRange.min;
+        timelineSlider.max = yearRange.max;
+        timelineSlider.value = yearRange.max;
+      }
+      if (yearDisplay) {
+        yearDisplay.textContent = timelineSlider ? timelineSlider.value : yearRange.max;
+      }
+
+      function applyFilters() {
+        const filtered = filterFreedomMapEvents(currentFilters);
+        renderIndiaMap(filtered);
+        renderMasterTimeline(filtered);
+        renderEventList(filtered);
+      }
+
+      // Render interactive SVG India map with event markers
+      function renderIndiaMap(events) {
+        if (!markersLayer) return;
+        markersLayer.innerHTML = "";
+
+        events.forEach(evt => {
+          if (evt.state === "external") return;
+
+          const existingPath = mapSvg.querySelector(`path[data-state="${evt.state}"]`);
+          if (existingPath) {
+            existingPath.classList.add("freedom-state--highlighted");
+          }
+
+          const marker = document.createElement("div");
+          marker.className = "freedom-map-marker";
+          marker.style.left = `${evt.lng}%`;
+          marker.style.top = `${evt.lat * 2.2}%`;
+          marker.setAttribute("data-event-id", evt.id);
+          marker.setAttribute("role", "button");
+          marker.setAttribute("tabindex", "0");
+          marker.setAttribute("aria-label", evt.title);
+          marker.innerHTML = `<span class="marker-dot" style="background:${getCategoryColor(evt.category)}"></span>`;
+
+          marker.addEventListener("click", () => selectMapEvent(evt.id));
+          marker.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              selectMapEvent(evt.id);
+            }
+          });
+
+          markersLayer.appendChild(marker);
+        });
+      }
+
+      // Render master timeline with year-based events
+      function renderMasterTimeline(events) {
+        if (!timelineContainer) return;
+        timelineContainer.innerHTML = "";
+
+        const sorted = [...events].sort((a, b) => a.year - b.year);
+
+        sorted.forEach(evt => {
+          const item = document.createElement("div");
+          item.className = "freedom-timeline-item";
+          item.setAttribute("data-event-id", evt.id);
+          item.setAttribute("tabindex", "0");
+          item.setAttribute("role", "button");
+          item.innerHTML = `
+            <div class="timeline-year-badge" style="background:${getCategoryColor(evt.category)}">${evt.year}</div>
+            <div class="timeline-event-card">
+              <div class="timeline-card-header">
+                <h4>${evt.title}</h4>
+                <span class="timeline-card-movement">${evt.movement}</span>
+              </div>
+              <p class="timeline-card-brief">${evt.brief}</p>
+              <div class="timeline-card-meta">
+                <span>📍 ${evt.state.replace(/-/g, " ")}</span>
+                <span>👤 ${evt.leaders}</span>
+              </div>
+            </div>
+          `;
+
+          item.addEventListener("click", () => selectTimelineEvent(evt.id));
+          item.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              selectTimelineEvent(evt.id);
+            }
+          });
+
+          timelineContainer.appendChild(item);
+        });
+      }
+
+      // Render event list with search result highlighting
+      function renderEventList(events) {
+        if (!eventListContainer) return;
+        eventListContainer.innerHTML = "";
+
+        if (events.length === 0) {
+          eventListContainer.innerHTML = `
+            <div class="freedom-empty-state">
+              <h3>No events found</h3>
+              <p>Try adjusting your search or filters.</p>
+            </div>
+          `;
+          return;
+        }
+
+        const sorted = [...events].sort((a, b) => a.year - b.year);
+
+        sorted.forEach(evt => {
+          const item = document.createElement("div");
+          item.className = "freedom-event-list-item";
+          item.setAttribute("data-event-id", evt.id);
+          item.innerHTML = `
+            <div class="event-list-year">${evt.year}</div>
+            <div class="event-list-content">
+              <h4>${evt.title}</h4>
+              <p class="event-list-movement">${evt.movement} · ${evt.category}</p>
+              <p class="event-list-brief">${evt.brief}</p>
+            </div>
+          `;
+          item.addEventListener("click", () => showEventDetail(evt.id));
+          eventListContainer.appendChild(item);
+        });
+      }
+
+      // Handle selecting an event from the map
+      function selectMapEvent(id) {
+        const evt = getMapEventById(id);
+        if (!evt) return;
+
+        // Highlight corresponding timeline item
+        document.querySelectorAll(".freedom-timeline-item").forEach(item => {
+          item.classList.toggle("active", item.dataset.eventId === id);
+        });
+
+        // Scroll timeline to the event
+        const timelineItem = document.querySelector(`.freedom-timeline-item[data-event-id="${id}"]`);
+        if (timelineItem) {
+          timelineItem.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+
+        showEventDetail(id);
+      }
+
+      // Handle selecting an event from the timeline
+      function selectTimelineEvent(id) {
+        const evt = getMapEventById(id);
+        if (!evt) return;
+
+        // Highlight corresponding marker
+        const markers = document.querySelectorAll(".freedom-map-marker");
+        markers.forEach(marker => {
+          marker.classList.toggle("active", marker.dataset.eventId === id);
+        });
+
+        showEventDetail(id);
+      }
+
+      // Show event detail in a modal overlay
+      function showEventDetail(id) {
+        const evt = getMapEventById(id);
+        if (!evt) return;
+
+        // Find full timeline data if available
+        const fullEvent = getEventById(evt.id.replace("m-", "evt-")) || getEventById(evt.id);
+
+        if (detailModal) {
+          const modalTitle = detailModal.querySelector(".modal-event-title");
+          const modalYear = detailModal.querySelector(".modal-event-year");
+          const modalMovement = detailModal.querySelector(".modal-event-movement");
+          const modalCategory = detailModal.querySelector(".modal-event-category");
+          const modalLocation = detailModal.querySelector(".modal-event-location");
+          const modalLeaders = detailModal.querySelector(".modal-event-leaders");
+          const modalBrief = detailModal.querySelector(".modal-event-brief");
+          const modalDesc = detailModal.querySelector(".modal-event-desc");
+          const modalImpact = detailModal.querySelector(".modal-event-impact");
+
+          if (modalTitle) modalTitle.textContent = evt.title;
+          if (modalYear) modalYear.textContent = evt.year;
+          if (modalMovement) modalMovement.textContent = evt.movement;
+          if (modalCategory) modalCategory.textContent = evt.category;
+          if (modalLocation) modalLocation.textContent = evt.state.replace(/-/g, " ");
+          if (modalLeaders) modalLeaders.textContent = evt.leaders;
+          if (modalBrief) modalBrief.textContent = evt.brief;
+          if (modalDesc) {
+            modalDesc.textContent = fullEvent ? fullEvent.description : evt.brief;
+          }
+          if (modalImpact) {
+            modalImpact.textContent = fullEvent ? fullEvent.historicalImpact : "See timeline for historical impact details.";
+          }
+
+          detailModal.classList.add("freedom-modal--visible");
+          detailModal.setAttribute("aria-hidden", "false");
+
+          // Close handlers
+          const closeBtn = detailModal.querySelector(".freedom-modal-close");
+          const closeHandler = () => {
+            detailModal.classList.remove("freedom-modal--visible");
+            detailModal.setAttribute("aria-hidden", "true");
+          };
+          if (closeBtn) {
+            closeBtn.replaceWith(closeBtn.cloneNode(true));
+            closeBtn.addEventListener("click", closeHandler);
+          }
+
+          const bgClickHandler = (e) => {
+            if (e.target === detailModal) {
+              closeHandler();
+              detailModal.removeEventListener("click", bgClickHandler);
+            }
+          };
+          detailModal.addEventListener("click", bgClickHandler);
+
+          const escHandler = (e) => {
+            if (e.key === "Escape") {
+              closeHandler();
+              document.removeEventListener("keydown", escHandler);
+            }
+          };
+          document.addEventListener("keydown", escHandler);
+        }
+      }
+
+      // Jump to map marker from timeline deep-dive
+      function jumpToMarker(id) {
+        const marker = document.querySelector(`.freedom-map-marker[data-event-id="${id}"]`);
+        if (marker) {
+          marker.classList.add("active");
+          marker.scrollIntoView({ behavior: "smooth", block: "center" });
+          setTimeout(() => marker.classList.remove("active"), 2000);
+        }
+      }
+
+      // Category color mapping
+      function getCategoryColor(category) {
+        const colors = {
+          "Revolt": "#f97316",
+          "Peasant Movement": "#10b981",
+          "Tribal Resistance": "#8b5cf6",
+          "Mass Movement": "#3b82f6",
+          "Revolutionary": "#ef4444",
+          "Protest": "#f59e0b",
+          "Social Reform": "#06b6d4",
+          "Political": "#6366f1",
+          "Military": "#ec4899",
+          "Armed Struggle": "#7c3aed"
+        };
+        return colors[category] || "#eab308";
+      }
+
+      // Event listeners for dashboard controls
+      if (eventSearch) {
+        eventSearch.addEventListener("input", (e) => {
+          currentFilters.query = e.target.value;
+          applyFilters();
+        });
+      }
+
+      if (timelineSlider) {
+        timelineSlider.addEventListener("input", (e) => {
+          const val = parseInt(e.target.value);
+          if (yearDisplay) yearDisplay.textContent = val;
+          currentFilters.year = val;
+          applyFilters();
+        });
+      }
+
+      if (regionFilter) {
+        regionFilter.addEventListener("change", (e) => {
+          currentFilters.region = e.target.value;
+          applyFilters();
+        });
+      }
+
+      if (movementFilter) {
+        movementFilter.addEventListener("change", (e) => {
+          currentFilters.movement = e.target.value;
+          applyFilters();
+        });
+      }
+
+      if (categoryFilter) {
+        categoryFilter.addEventListener("change", (e) => {
+          currentFilters.category = e.target.value;
+          applyFilters();
+        });
+      }
+
+      // State path hover interactivity
+      if (mapSvg) {
+        mapSvg.querySelectorAll("path.freedom-state").forEach(path => {
+          path.addEventListener("mouseenter", () => {
+            path.classList.add("hover");
+          });
+          path.addEventListener("mouseleave", () => {
+            path.classList.remove("hover");
+          });
+        });
+      }
+
+      // Deep-dive from cause-effect explorer to map
+      document.addEventListener("freedom:dashboard-jump-to-marker", (e) => {
+        jumpToMarker(e.detail.id);
+      });
+
+      // Initial render
+      applyFilters();
+    }
+    initFreedomDashboard();
 
   });
 }

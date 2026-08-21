@@ -5,7 +5,7 @@
         (function() {
             const theme = localStorage.getItem('theme') || 'dark';
             if (theme === 'light') {
-                document.body.classList.add('light-theme');
+                document.documentElement.setAttribute('data-theme', 'light');
             }
         })();
     </script>
@@ -15,6 +15,14 @@
     <link rel="stylesheet" href="../traditional-games/style.css">
 </head>
 <body>
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
     <div class="container">
         <header>
             <h1>Ancient Indian Mathematics Explorer</h1>

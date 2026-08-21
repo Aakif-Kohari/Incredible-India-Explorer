@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhuandhar Falls Explorer | Narmada Marble Rocks | Madhya Pradesh</title>
+  <meta name="description" content="Explore Dhuandhar Falls at Bhedaghat, Madhya Pradesh — the powerful 30m Narmada waterfall dropping through white Marble Rocks. Interactive river map, geological erosion diagram, seasonal flow comparison, and viewpoint guide.">
+
+  <!-- Preload Critical Fonts -->
+  <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../waterfalls-of-india/index.html" class="nav-link">Waterfalls Collection</a>
+        <a href="#river-map-section" class="nav-link active">Narmada Map</a>
+        <a href="#geology-section" class="nav-link">Marble Geology</a>
+        <a href="#seasonal-section" class="nav-link">Flow Comparison</a>
+        <a href="#viewpoints-section" class="nav-link">Viewpoints</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="dhuandhar-hero">
+      <div class="hero-container">
+        <div class="hero-badge">🌊 Narmada River · Bhedaghat Marble Rocks Gorge</div>
+        <h1>Create <span>Dhuandhar Falls Explorer</span></h1>
+        <p class="hero-subtitle">
+          Experience the roaring "Smoke Cascade" (Dhuan = Smoke, Dhar = Flow) near Jabalpur, MP. Watch the holy Narmada River force its way through towering white marble canyons before plunging 30 meters in a misty spray.
+        </p>
+        <div class="hero-pills">
+          <span class="pill">🏞️ Bhedaghat Marble Rocks</span>
+          <span class="pill">💧 30m Plunge Pool</span>
+          <span class="pill">🚡 Overhead Ropeway</span>
+          <span class="pill">🏛️ Chausath Yogini Temple</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE RIVER MAP SECTION -->
+    <section class="river-map-section" id="river-map-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">River Geography</span>
+          <h2>Interactive Narmada River Map & Gorge Circuit</h2>
+          <p>Click key points along Bhedaghat to explore the river's path, ropeway cables, boat jetties, and waterfall rim.</p>
+        </div>
+
+        <div class="river-map-wrapper">
+          <div class="river-svg-box">
+            <svg viewBox="0 0 800 500" class="river-svg" aria-label="Map of Narmada River at Bhedaghat and Dhuandhar Falls">
+              <rect width="100%" height="100%" fill="rgba(15, 23, 42, 0.4)"/>
+              
+              <!-- Narmada River Path -->
+              <path class="narmada-river" d="M 50,150 Q 200,100 380,200 T 550,260 L 680,260 C 720,260 740,320 680,360 L 500,420 L 100,450" fill="none" stroke="#38bdf8" stroke-width="36" opacity="0.4"/>
+              <path class="narmada-river-core" d="M 50,150 Q 200,100 380,200 T 550,260 L 680,260 C 720,260 740,320 680,360 L 500,420 L 100,450" fill="none" stroke="#0284c7" stroke-width="18"/>
+
+              <!-- Ropeway Line -->
+              <line x1="520" y1="180" x2="520" y2="340" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6,4"/>
+
+              <!-- Map Pins -->
+              <!-- Dhuandhar Falls Rim -->
+              <g class="river-pin" data-spot="falls" tabindex="0" role="button" aria-label="Dhuandhar Falls Plunge Rim">
+                <circle cx="550" cy="260" r="16" fill="rgba(245, 158, 11, 0.4)"/>
+                <circle cx="550" cy="260" r="9" fill="#f59e0b"/>
+                <text x="550" y="235" fill="#ffffff" font-weight="bold" font-size="12" text-anchor="middle">Dhuandhar Falls Plunge (30m)</text>
+              </g>
+
+              <!-- Marble Rocks Canyon -->
+              <g class="river-pin" data-spot="canyon" tabindex="0" role="button" aria-label="Bhedaghat Marble Canyon">
+                <circle cx="320" cy="170" r="14" fill="rgba(255, 255, 255, 0.4)"/>
+                <circle cx="320" cy="170" r="8" fill="#ffffff"/>
+                <text x="320" y="145" fill="#ffffff" font-weight="bold" font-size="11" text-anchor="middle">Marble Rocks Canyon (3 km)</text>
+              </g>
+
+              <!-- Ropeway Viewpoint -->
+              <g class="river-pin" data-spot="ropeway" tabindex="0" role="button" aria-label="Overhead Cable Ropeway">
+                <circle cx="520" cy="180" r="12" fill="rgba(34, 197, 94, 0.4)"/>
+                <circle cx="520" cy="180" r="7" fill="#22c55e"/>
+                <text x="520" y="160" fill="#22c55e" font-weight="bold" font-size="11" text-anchor="middle">Ropeway Cable Station</text>
+              </g>
+
+              <!-- Chausath Yogini Temple -->
+              <g class="river-pin" data-spot="temple" tabindex="0" role="button" aria-label="Chausath Yogini Temple">
+                <circle cx="260" cy="90" r="12" fill="rgba(234, 179, 8, 0.4)"/>
+                <circle cx="260" cy="90" r="7" fill="#eab308"/>
+                <text x="260" y="70" fill="#eab308" font-weight="bold" font-size="11" text-anchor="middle">Chausath Yogini Temple (10th C)</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="river-info-panel" id="river-info-panel">
+            <h3 id="spot-title">Select a River Location</h3>
+            <span class="spot-sub" id="spot-sub">Click markers on the Narmada map to view geological and tourist details.</span>
+            <div class="spot-body" id="spot-body">
+              <p>The Narmada River — one of India's five holy rivers — cuts through magnesium limestone marble rocks at Bhedaghat before narrowing down into a 30m plunge that creates mist clouds visible from afar.</p>
+            </div>
+            <div class="spot-stats-box" id="spot-stats-box">
+              <div class="s-row"><strong>Location:</strong> <span id="spot-loc">Bhedaghat, Jabalpur (35 km)</span></div>
+              <div class="s-row"><strong>River:</strong> <span id="spot-river">Narmada River Basin</span></div>
+              <div class="s-row"><strong>Highlights:</strong> <span id="spot-high">Marble Gorge, Mist Spray, Ropeway</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GEOLOGICAL VISUALIZATION SECTION -->
+    <section class="geology-section" id="geology-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Earth Science & Fluvial Erosion</span>
+          <h2>Marble Rock Geology & Erosion Stages</h2>
+          <p>Understand how Proterozoic limestone transformed into crystalline marble cliffs carved over millennia by the Narmada River.</p>
+        </div>
+
+        <div class="geology-stages-grid">
+          <article class="geo-stage-card" data-stage="1">
+            <div class="stage-num">01</div>
+            <h3>Magnesium Metamorphism</h3>
+            <p>Millions of years ago, sedimentary limestone underwent intense heat and pressure, metamorphosing into pure white, blue, and pink crystalline dolomite marble.</p>
+          </article>
+
+          <article class="geo-stage-card" data-stage="2">
+            <div class="stage-num">02</div>
+            <h3>Fluvial Gorge Carving</h3>
+            <p>The fast-flowing Narmada River exploited tectonic fault lines, carving out a narrow 3 km long, 100-foot deep marble canyon with vertical cliff walls.</p>
+          </article>
+
+          <article class="geo-stage-card" data-stage="3">
+            <div class="stage-num">03</div>
+            <h3>Bandar Kudini Narrowing</h3>
+            <p>At "Bandar Kudini" (Monkey's Leap), the canyon narrows so closely that monkeys historically leaped across the river gorge.</p>
+          </article>
+
+          <article class="geo-stage-card" data-stage="4">
+            <div class="stage-num">04</div>
+            <h3>Dhuandhar Plunge Pool</h3>
+            <p>The river forcefully squeezes into a narrow notch before falling 30m (98 ft), creating continuous vapor clouds (Dhuan) and a deep plunge pool.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEASONAL FLOW COMPARISON SECTION -->
+    <section class="seasonal-section" id="seasonal-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Seasonal Experience</span>
+          <h2>Monsoon Roar vs Winter Serene Boating</h2>
+          <p>Compare the dramatic shift in river flow, water clarity, and tourist activities across seasons.</p>
+        </div>
+
+        <div class="season-tabs" role="tablist">
+          <button class="season-btn active" data-season="monsoon" role="tab">🌧️ Monsoon Spray (July – Oct)</button>
+          <button class="season-btn" data-season="winter" role="tab">🌕 Winter Moonlight Boating (Nov – Mar)</button>
+          <button class="season-btn" data-season="summer" role="tab">☀️ Summer Clarity (April – June)</button>
+        </div>
+
+        <div class="season-display-card" id="season-display-card">
+          <h3 id="s-card-title">Monsoon Roaring Spray</h3>
+          <p id="s-card-desc">During monsoon, the Narmada River swells dramatically. Water gushes over the marble notch with deafening sound, generating dense mist clouds that rise over 50 feet into the air. Boating is suspended for safety, but the ropeway offers breathtaking aerial views.</p>
+          
+          <div class="season-pills-row">
+            <span class="sp-badge" id="sp-flow">Flow: Heavy High-Volume Torrent</span>
+            <span class="sp-badge" id="sp-boat">Boating: Closed due to high currents</span>
+            <span class="sp-badge" id="sp-highlight">Highlight: Aerial Ropeway Cable Ride</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEWPOINTS & TOURISM GUIDE SECTION -->
+    <section class="viewpoints-section" id="viewpoints-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Visitor Information</span>
+          <h2>Best Viewpoints & Travel Logistics</h2>
+          <p>Plan your visit to Dhuandhar Falls with optimal viewing points and travel details.</p>
+        </div>
+
+        <div class="viewpoints-grid">
+          <div class="viewpoint-card">
+            <span class="vp-icon">👁️</span>
+            <h3>East Bank Promenade</h3>
+            <p>Paved walkway providing front-row viewing platform directly overlooking the plunge rim and mist cloud.</p>
+          </div>
+
+          <div class="viewpoint-card">
+            <span class="vp-icon">🚡</span>
+            <h3>Aerial Ropeway Cable Car</h3>
+            <p>Glide in a cable car across the 30m chasm between East and West banks for 360-degree top-down views of the waterfall.</p>
+          </div>
+
+          <div class="viewpoint-card">
+            <span class="vp-icon">🚣</span>
+            <h3>Marble Rocks Boat Ride</h3>
+            <p>Rowboats available at Panchvati Ghat during winter, allowing visitors to float through 100ft marble cliffs, specially under full moonlight (Sharad Purnima).</p>
+          </div>
+
+          <div class="viewpoint-card">
+            <span class="vp-icon">🏛️</span>
+            <h3>Chausath Yogini Temple</h3>
+            <p>10th-century circular shrine atop a nearby hill dedicated to 64 Yoginis, built by Kalachuri rulers offering panoramic river vistas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOURCES & REFERENCES -->
+    <section class="sources-section">
+      <div class="section-container">
+        <h2>Sources & Geological References</h2>
+        <ul class="sources-list">
+          <li>Madhya Pradesh Tourism Board (MPTB) Official Guide.</li>
+          <li>Geological Survey of India (GSI) Central Region – Bhedaghat Dolomite Marble Survey.</li>
+          <li>Narmada Valley Development Authority (NVDA) Basin Reports.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <p>© 2026 Incredible India Explorer. Created under Open Source Contribution Guidelines.</p>
+      <div class="footer-links">
+        <a href="../../index.html#home">Home</a>
+        <a href="../waterfalls-of-india/index.html">Waterfalls Collection</a>
+        <a href="../../frontend/sources/sources.html">Sources</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
