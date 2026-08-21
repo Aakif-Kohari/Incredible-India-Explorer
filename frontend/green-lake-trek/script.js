@@ -186,7 +186,7 @@ export const GREEN_LAKE_TREK_DATA = {
     ]
 };
 
-const FALLBACK_IMAGE = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%231e293b"/><text x="50%" y="55%" fill="%2334d399" font-size="24" text-anchor="middle">🏔️</text></svg>';
+const FALLBACK_IMAGE = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%231e293b"/><text x="50%" y="55%" fill="%2334d399" font-size="24" text-anchor="middle"></text></svg>';
 
 function escapeHtml(value) {
     return String(value ?? '')
