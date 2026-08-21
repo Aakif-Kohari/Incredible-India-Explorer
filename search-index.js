@@ -1331,4 +1331,24 @@ window.indiaSearchIndex = [
     description: "Dedicated explorer for Indrasan, a 6,221 m high peak in the Pir Panjal range of Himachal Pradesh, featuring facts, map locations, image gallery, trekking details, and FAQs.",
     url: "frontend/indrasan/indrasan.html"
   },
+  // --- Green Lake Trek ---
+  {
+    title: "Green Lake Trek — Sikkim",
+    category: "Mountains & Geography",
+    description: "Dedicated trek profile for the Green Lake Trek in North Sikkim — a remote Himalayan expedition from Lachen to Green Lake below Mount Kangchenjunga via the Zemu Glacier, featuring route stages, difficulty, best season, permits, natural features, and image gallery.",
+    url: "frontend/green-lake-trek/index.html"
+  },
+  // --- National Wrestling Championships Archive ---
+  {
+    title: "National Wrestling Championships Archive",
+    category: "Sports & Heritage",
+    description: "Interactive archive of India's wrestling legacy covering freestyle, Greco-Roman, kushti, and malla-yuddha styles, Olympic weight categories, championship history, legendary champions, historic venues, and an interactive wrestler timeline.",
+    url: "frontend/national-wrestling-championships/index.html"
+  },
+  {
+    title: "India's Olympic Wrestling Medals & Champions",
+    category: "Sports & Olympics",
+    description: "Explore India's eight Olympic wrestling medals from K. D. Jadhav at Helsinki 1952 to Aman Sehrawat at Paris 2024, with profiles of Sushil Kumar, Sakshi Malik, Bajrang Punia, Ravi Dahiya and more.",
+    url: "frontend/national-wrestling-championships/index.html"
+  },
 ];
