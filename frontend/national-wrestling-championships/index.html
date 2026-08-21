@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="National Wrestling Championships archive - explore India's wrestling legacy through its styles, weight categories, tournament history, legendary champions, historic venues, Olympic medals, and an interactive wrestler timeline.">
+    <title>National Wrestling Championships | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nwc-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../sports/sports.html" class="nav-link" id="link-sports">Sports</a>
+                <a href="index.html" class="nav-link active" style="color: var(--gold)">Wrestling Archive</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More &#9662;
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../sports/sports.html" class="dropdown-item">Indian Sports Explorer</a>
+                        <a href="../historic-sports-venues/index.html" class="dropdown-item">Historic Sports Venues</a>
+                        <a href="../kushti-akhara-explorer/index.html" class="dropdown-item">Kushti &amp; Akhara Explorer</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    &#9728;&#65039;
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="nwc-page" id="main-content">
+        <!-- Hero Section -->
+        <section class="nwc-hero" aria-labelledby="nwc-hero-title">
+            <div class="nwc-hero-content">
+                <span class="nwc-kicker">&#129339; Styles &middot; Champions &middot; Venues &middot; Interactive Timeline</span>
+                <h1 id="nwc-hero-title">National Wrestling <span>Championships</span></h1>
+                <p>From the mud of ancient akharas to the mats of the Olympic Games, explore India's
+                    wrestling legacy: its styles, weight categories, championship history, legendary
+                    champions, and historic arenas.</p>
+
+                <div class="nwc-hero-stats">
+                    <div class="nwc-stat-box">
+                        <strong data-nwc-counter="8">0</strong>
+                        <span>Olympic Wrestling Medals</span>
+                    </div>
+                    <div class="nwc-stat-box">
+                        <strong data-nwc-counter="4">0</strong>
+                        <span>Wrestling Traditions</span>
+                    </div>
+                    <div class="nwc-stat-box">
+                        <strong data-nwc-counter="12">0</strong>
+                        <span>Legendary Champions</span>
+                    </div>
+                    <div class="nwc-stat-box">
+                        <strong data-nwc-counter="13">0</strong>
+                        <span>Timeline Milestones</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wrestling Styles -->
+        <section class="nwc-section" id="styles" aria-labelledby="styles-title">
+            <div class="nwc-container">
+                <div class="nwc-section-title">
+                    <h2 id="styles-title">&#129548; Wrestling Styles</h2>
+                    <p>India's wrestlers compete in Olympic disciplines on the mat while keeping centuries-old
+                        traditions alive in the akhara.</p>
+                </div>
+                <div class="nwc-styles-grid" id="nwc-styles-grid"></div>
+            </div>
+        </section>
+
+        <!-- Weight Categories -->
+        <section class="nwc-section nwc-section-alt" id="weights" aria-labelledby="weights-title">
+            <div class="nwc-container">
+                <div class="nwc-section-title">
+                    <h2 id="weights-title">&#9876;&#65039; Weight Categories</h2>
+                    <p>Six weight categories are contested in each discipline at the Olympic Games,
+                        as defined by United World Wrestling.</p>
+                </div>
+                <p class="nwc-weights-note" id="nwc-weights-note"></p>
+                <div class="nwc-weights-grid" id="nwc-weights-grid"></div>
+            </div>
+        </section>
+
+        <!-- Tournament History -->
+        <section class="nwc-section" id="history" aria-labelledby="history-title">
+            <div class="nwc-container nwc-history-layout">
+                <div class="nwc-section-title">
+                    <h2 id="history-title">&#128220; Tournament History</h2>
+                </div>
+                <div class="nwc-history-copy">
+                    <p>Wrestling contests in India long predate modern sport organisation. Royal courts and
+                        village akharas staged kushti bouts for centuries, and Rajarshi Shahu Maharaj of
+                        Kolhapur gave the tradition a grand permanent arena in the early 1900s.</p>
+                    <p>The modern era began when the <strong>Wrestling Federation of India (WFI)</strong> was
+                        constituted on 27 January 1967. The WFI now organises the annual Senior, Junior, and
+                        Sub-Junior National Wrestling Championships under United World Wrestling rules, drawing
+                        thousands of wrestlers from state affiliates, the Services, and the Railways.</p>
+                    <p>National champions form the pool from which India's international teams are selected.
+                        That pipeline has produced every one of India's eight Olympic wrestling medals, from
+                        K. D. Jadhav's bronze at Helsinki 1952 to Aman Sehrawat's bronze at Paris 2024.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Major Champions -->
+        <section class="nwc-section nwc-section-alt" id="champions" aria-labelledby="champions-title">
+            <div class="nwc-container">
+                <div class="nwc-section-title">
+                    <h2 id="champions-title">&#127942; Major Champions</h2>
+                    <p>Search the archive or filter by category, then open a card to read each champion's
+                        career achievements.</p>
+                </div>
+
+                <div class="nwc-toolbar">
+                    <div class="nwc-filter-bar" id="nwc-champion-filters" role="group" aria-label="Filter champions by category">
+                        <button type="button" class="nwc-filter-btn" data-tag="all" aria-pressed="true">All</button>
+                        <button type="button" class="nwc-filter-btn" data-tag="olympic-medallists" aria-pressed="false">Olympic Medallists</button>
+                        <button type="button" class="nwc-filter-btn" data-tag="world-champions" aria-pressed="false">World Champions</button>
+                        <button type="button" class="nwc-filter-btn" data-tag="womens-wrestling" aria-pressed="false">Women's Wrestling</button>
+                        <button type="button" class="nwc-filter-btn" data-tag="coaching-legends" aria-pressed="false">Coaching Legends</button>
+                    </div>
+                    <div class="nwc-search-wrap">
+                        <label class="nwc-sr-only" for="nwc-champion-search">Search champions</label>
+                        <input type="search" id="nwc-champion-search" placeholder="Search by name, style, or achievement..." autocomplete="off">
+                    </div>
+                </div>
+
+                <p id="nwc-live-region" class="nwc-sr-only" role="status" aria-live="polite"></p>
+                <div class="nwc-champions-grid" id="nwc-champions-grid"></div>
+                <div class="nwc-empty-msg" id="nwc-champions-empty" hidden>
+                    <h3>No Champions Found</h3>
+                    <p>Try a different search term or filter category.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historic Venues -->
+        <section class="nwc-section" id="venues" aria-labelledby="venues-title">
+            <div class="nwc-container">
+                <div class="nwc-section-title">
+                    <h2 id="venues-title">&#127963;&#65039; Historic Venues</h2>
+                    <p>Arenas and akharas where Indian wrestling history has been made.</p>
+                </div>
+                <div class="nwc-venues-grid" id="nwc-venues-grid"></div>
+            </div>
+        </section>
+
+        <!-- Olympic Connections -->
+        <section class="nwc-section nwc-section-alt" id="olympics" aria-labelledby="olympics-title">
+            <div class="nwc-container">
+                <div class="nwc-section-title">
+                    <h2 id="olympics-title">&#127353; Olympic Connections</h2>
+                    <p>India has won <strong><span id="nwc-medal-total">8</span> Olympic wrestling medals</strong>,
+                        all in freestyle &mdash; a run that stretches from Helsinki 1952 to Paris 2024.</p>
+                </div>
+                <div class="nwc-table-wrap" role="region" aria-label="India's Olympic wrestling medals" tabindex="0">
+                    <table class="nwc-medals-table">
+                        <caption class="nwc-sr-only">India's Olympic wrestling medals by games, wrestler, event, and medal colour</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Wrestler</th>
+                                <th scope="col">Games</th>
+                                <th scope="col">Event</th>
+                                <th scope="col">Medal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="nwc-medals-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Wrestler Timeline -->
+        <section class="nwc-section" id="timeline" aria-labelledby="timeline-title">
+            <div class="nwc-container">
+                <div class="nwc-section-title">
+                    <h2 id="timeline-title">&#9201;&#65039; Wrestler Timeline</h2>
+                    <p>Journey through the milestones of Indian wrestling. Use the arrows, click a year,
+                        or press the left and right arrow keys.</p>
+                </div>
+
+                <div class="nwc-timeline-controls">
+                    <button type="button" class="nwc-btn nwc-btn-outline" id="nwc-timeline-prev" aria-label="Previous milestone">&#8592; Previous</button>
+                    <span class="nwc-timeline-step" id="nwc-timeline-step" aria-live="off"></span>
+                    <button type="button" class="nwc-btn nwc-btn-outline" id="nwc-timeline-next" aria-label="Next milestone">Next &#8594;</button>
+                </div>
+
+                <div class="nwc-timeline-rail-wrap">
+                    <div class="nwc-timeline-rail" id="nwc-timeline-rail" role="group" aria-label="Timeline milestones"></div>
+                </div>
+
+                <article class="nwc-timeline-detail" id="nwc-timeline-detail" aria-live="polite"></article>
+            </div>
+        </section>
+
+        <!-- Sources / References -->
+        <section class="nwc-section nwc-section-alt" id="sources" aria-labelledby="sources-title">
+            <div class="nwc-container">
+                <div class="nwc-section-title">
+                    <h2 id="sources-title">&#128218; Sources &amp; References</h2>
+                    <p>This archive draws on official federations, Olympic resources, and reputable
+                        historical references.</p>
+                </div>
+                <ul class="nwc-sources-list" id="nwc-sources-list"></ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Champion Detail Modal -->
+    <div class="nwc-modal-backdrop" id="nwc-champion-modal" hidden>
+        <div class="nwc-modal-card" role="dialog" aria-modal="true" aria-labelledby="nwc-modal-title">
+            <button type="button" class="nwc-modal-close" id="nwc-modal-close" aria-label="Close champion details">&times;</button>
+            <div id="nwc-modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>An interactive archive celebrating India's National Wrestling Championships and the
+                    champions who carried the sport from the akhara to the Olympic podium.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html">Home</a>
+                <a href="../sports/sports.html">Sports Explorer</a>
+                <a href="#timeline">Wrestler Timeline</a>
+                <a href="#sources">Sources &amp; References</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Educational Initiative.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>
