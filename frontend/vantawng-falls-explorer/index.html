@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vantawng Falls Explorer | Incredible India Explorer</title>
+    <meta name="description" content="Explore Vantawng Falls, Mizoram's tallest waterfall. Discover its two-tiered 229m drop, the Vanva river source, and the surrounding lush bamboo forests.">
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+</head>
+<body>
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                        <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                        <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                        <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                        <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                        <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                        <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                        <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                        <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                        <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                        <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                        <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                        <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                        <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                        <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                        <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                        <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                        <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                        <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                        <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                        <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                        <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                    </div>
+                </div>
+                
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 80px;">
+
+        <section class="vantawng-hero">
+            <div class="vantawng-hero-content">
+                <span class="vantawng-kicker">🌿 Mizoram · Serchhip District</span>
+                <h1>Vantawng Falls <span>Explorer</span></h1>
+                <p>Plunging an impressive 229 metres (751 feet) through dense bamboo forests, Vantawng Khawhthla is the highest, most spectacular waterfall in Mizoram.</p>
+            </div>
+        </section>
+
+        <!-- Facts & Height Visualization -->
+        <section class="vantawng-section">
+            <div class="vantawng-container info-grid">
+                <div class="info-text">
+                    <span class="vantawng-eyebrow">📍 Location & Scale</span>
+                    <h2>A breathtaking two-tiered cascade</h2>
+                    <p class="lede">Hidden in the deep valleys near Thenzawl, the Vanva River creates a spectacular two-tiered waterfall, surrounded by the verdant Mizo Hills.</p>
+                    
+                    <ul class="fact-list">
+                        <li><strong>Height:</strong> 229 meters (751 feet)</li>
+                        <li><strong>Source:</strong> Vanva River</li>
+                        <li><strong>Mountain System:</strong> Mizo Hills / Lushai Hills</li>
+                        <li><strong>Best time to visit:</strong> September to January</li>
+                        <li><strong>Nearest Town:</strong> Thenzawl (5 km) / Aizawl (137 km)</li>
+                    </ul>
+                </div>
+                
+                <!-- Height Visualization component -->
+                <div class="height-visualization glass-card">
+                    <h3 class="height-title">Height Comparison</h3>
+                    <div class="height-chart">
+                        <div class="height-bar-container">
+                            <div class="height-bar" style="height: 12%; background: #aaa;" title="Average Tree (30m)"></div>
+                            <span>Tree (30m)</span>
+                        </div>
+                        <div class="height-bar-container">
+                            <div class="height-bar" style="height: 31%; background: var(--text-secondary);" title="Qutub Minar (73m)"></div>
+                            <span>Qutub Minar (73m)</span>
+                        </div>
+                        <div class="height-bar-container">
+                            <div class="height-bar highlight-bar" style="height: 100%; background: var(--vantawng-primary);" title="Vantawng Falls (229m)"></div>
+                            <span class="highlight-text">Vantawng (229m)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Landscape Explorer: Surrounding Environment -->
+        <section class="vantawng-section alt-bg">
+            <div class="vantawng-container">
+                <span class="vantawng-eyebrow">🏞️ Ecosystem</span>
+                <h2>Explore the Environment</h2>
+                <div class="landscape-explorer">
+                    <div class="landscape-tabs">
+                        <button class="landscape-tab active" data-tab="forest">
+                            <span class="tab-icon">🎋</span> Bamboo Forests
+                        </button>
+                        <button class="landscape-tab" data-tab="river">
+                            <span class="tab-icon">🌊</span> Vanva River
+                        </button>
+                        <button class="landscape-tab" data-tab="hills">
+                            <span class="tab-icon">⛰️</span> Mizo Hills
+                        </button>
+                    </div>
+                    
+                    <div class="landscape-content-area glass-card">
+                        <div class="landscape-panel active" id="tab-forest">
+                            <img src="https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=800" alt="Lush green bamboo forest" class="landscape-img" loading="lazy">
+                            <div class="landscape-desc">
+                                <h3>The Bamboo Grooves</h3>
+                                <p>The hills surrounding Vantawng are deeply forested with vast stretches of bamboo. Due to the dense and rugged terrain, the base of the waterfall is inaccessible, ensuring the surrounding ecosystem remains largely untouched.</p>
+                            </div>
+                        </div>
+                        <div class="landscape-panel hidden" id="tab-river">
+                            <img src="https://images.unsplash.com/photo-1627914095454-e0c25a5d2e05?auto=format&fit=crop&q=80&w=800" alt="River winding through tropical hills" class="landscape-img" loading="lazy">
+                            <div class="landscape-desc">
+                                <h3>The Vanva River</h3>
+                                <p>Flowing through the Serchhip district, the Vanva River gathers strength as it weaves through the hills before plunging 229 metres down a spectacular cliff face, creating the iconic two-tiered drop.</p>
+                            </div>
+                        </div>
+                        <div class="landscape-panel hidden" id="tab-hills">
+                            <img src="https://images.unsplash.com/photo-1596409867990-2ee2aefc8ea9?auto=format&fit=crop&q=80&w=800" alt="Mist covered rolling hills" class="landscape-img" loading="lazy">
+                            <div class="landscape-desc">
+                                <h3>Mizo Hills (Lushai Hills)</h3>
+                                <p>The steep, folding ridges of the Mizo Hills create the perfect geography for dramatic waterfalls. The viewpoint for Vantawng is situated across a deep gorge, offering a panoramic view of the cascading water against the green mountain backdrop.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seasonal Comparison -->
+        <section class="vantawng-section">
+            <div class="vantawng-container">
+                <span class="vantawng-eyebrow">🌦️ Seasons</span>
+                <h2>The Waterfall Across the Year</h2>
+                <p class="lede">Vantawng's character shifts dramatically with Mizoram's intense monsoon.</p>
+                
+                <div class="season-comparison">
+                    <div class="season-card glass-card">
+                        <div class="season-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=80&w=600" alt="Waterfall during monsoon, very full and powerful" loading="lazy">
+                            <span class="season-badge badge-monsoon">Monsoon (Jun-Aug)</span>
+                        </div>
+                        <div class="season-info">
+                            <h4>Thunderous Volume</h4>
+                            <p>During the heavy monsoon rains, the Vanva River swells massively. The falls become a single, roaring curtain of white water that obscures the two tiers, generating a thick mist that engulfs the gorge.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="season-card glass-card">
+                        <div class="season-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&fit=crop&q=80&w=600" alt="Waterfall during post-monsoon, distinct tiers visible" loading="lazy">
+                            <span class="season-badge badge-winter">Post-Monsoon (Sep-Jan)</span>
+                        </div>
+                        <div class="season-info">
+                            <h4>Clear and Distinct</h4>
+                            <p>As the rains subside, the water clears and the distinct two-tiered nature of the falls becomes beautifully visible against the dark rocks. The surrounding forest is at its greenest.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="vantawng-section alt-bg">
+            <div class="vantawng-container map-grid">
+                <div>
+                    <span class="vantawng-eyebrow">🗺️ Map</span>
+                    <h2>Getting There</h2>
+                    <p class="lede">The viewpoint for Vantawng Falls is located about 5 kilometres south of Thenzawl, which is easily accessible from the state capital, Aizawl.</p>
+                    <div class="map-details glass-card">
+                        <h4>Travel Notes</h4>
+                        <ul>
+                            <li><strong>Accessibility:</strong> The actual base is inaccessible due to rugged terrain. A viewpoint constructed by the tourism department provides the best panoramic view.</li>
+                            <li><strong>Permits:</strong> An Inner Line Permit (ILP) is required for tourists to enter Mizoram.</li>
+                            <li><strong>Nearby:</strong> You can also visit Chhingpuii Thlan (a memorial of a tragic love story) and the handloom centres in Thenzawl.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="map-wrapper glass-card">
+                    <!-- Leaflet map container -->
+                    <div id="vantawng-map" class="interactive-map" aria-label="Interactive map showing the location of Vantawng Falls"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="vantawng-footer">
+        <div class="footer-content">
+            <p>Part of the <a href="../../frontend/waterfalls-of-india/index.html">Waterfalls of India Explorer</a> · <a href="../../index.html">Incredible India Explorer</a></p>
+            <p class="footer-credits">Images used for demonstration purposes. Inspired by the beauty of Mizoram.</p>
+        </div>
+    </footer>
+
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <script src="../js-modules/storage.js" defer></script>
+    <script src="../app.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
