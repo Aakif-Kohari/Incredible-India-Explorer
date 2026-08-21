@@ -5843,6 +5843,13 @@ window.indiaSearchIndex = [
             'Explore the Goechala Trek in Sikkim — 4,600m pass offering eye-level views of Mt. Kanchenjunga, Samiti Lake, Dzongri Top, and Khangchendzonga National Park.',
         url: 'frontend/goechala-trek-explorer/index.html'
     },
+    // --- feat/kuari-pass-trek-explorer ---
+    {
+        title: "Add Kuari Pass Trek \u2014 Uttarakhand",
+        category: "Mountains & Treks",
+        description:
+            "Explore Kuari Pass Trek (The Curzon Trail) in Uttarakhand \u2014 3,876m mountain pass, close-up Mt. Nanda Devi and Dronagiri vistas, and ancient oak forests.",
+        url: "frontend/kuari-pass-trek-explorer/index.html"},
     // --- feat/dayara-bugyal-trek-explorer ---
     {
         title: "Add Dayara Bugyal Trek \u2014 Uttarakhand",
