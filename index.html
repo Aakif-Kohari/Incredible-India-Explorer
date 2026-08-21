@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
@@ -385,6 +393,7 @@
                     <a href="frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
                     <a href="frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports</a>
+                    <a href="frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
                     <a href="frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
                 </div>
             </div>
@@ -409,12 +418,6 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="frontend/radhanagar-beach/index.html" class="dropdown-item">Radhanagar Beach</a>
-                    <a href="frontend/corbyns-cove-beach/index.html" class="dropdown-item">Corbyn's Cove Beach</a>
-                    <a href="frontend/kalapathar-beach/index.html" class="dropdown-item">Kalapathar Beach</a>
-                    <a href="frontend/gopalpur-beach/index.html" class="dropdown-item">Gopalpur Beach</a>
-                    <a href="frontend/puri-beach/index.html" class="dropdown-item">Puri Beach</a>
-                    <a href="frontend/rk-beach/index.html" class="dropdown-item">Ramakrishna Beach</a>
                     <a href="frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
                     <a href="frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
                     <a href="frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
@@ -443,7 +446,9 @@
                 </div>
             </div>
 
-            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+            <div class="nav-tools" style="display: flex; align-items: center; gap: 0.5rem; margin-left: 1rem;">
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </div>
         </nav>
     </div>
 </header>
@@ -491,6 +496,9 @@
                 </div>
             </div>
         </section>
+
+        <!-- Daily India Trivia Widget -->
+        <div id="daily-trivia-container" aria-label="Daily India Trivia"></div>
 
         <!-- Map Section -->
         <section id="map" class="map-section scroll-section fade-in-section">
@@ -930,6 +938,7 @@
     <script type="module" src="frontend/auth.js"></script>
     <script src="frontend/router.js" defer></script>
     <script src="frontend/navbar-redesign/navbar.js" defer></script>
+    <script src="frontend/js-modules/daily-trivia.js" defer></script>
 
     <!-- SW Update handler – runs after sw-register.js -->
     <script>
@@ -957,6 +966,7 @@
         });
     </script>
 
+    <script src="frontend/search-index.js"></script>
     <script type="module" src="frontend/js-modules/command-palette.js"></script>
     <script type="module" src="frontend/js-modules/language-switcher.js"></script>
     <button id="install-pwa-btn" class="pwa-install-btn" style="display:none;">
