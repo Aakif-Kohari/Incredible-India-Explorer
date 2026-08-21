@@ -5,41 +5,6 @@
  */
 window.indiaSearchIndex = [
     {
-        title: 'Brahmagiri Peak Trek (Coorg & Wayanad) Profile',
-        category: 'Adventure & Sanctuary Treks',
-        description:
-            'Explore Brahmagiri Peak Trek (1,608m) in Coorg & Wayanad, Western Ghats. UNESCO World Heritage Shola forests, Iruppu Falls, Pakshipathalam Cave, Asian Elephant sanctuary habitat, gear checklist, and trek estimator.',
-        url: 'frontend/brahmagiri-trek/index.html'
-    },
-    {
-        title: 'Deomali Peak Trek (Highest Peak of Odisha) Profile',
-        category: 'Adventure & Mountains',
-        description:
-            'Explore Deomali Peak Trek (1,672m) in Koraput, Odisha — highest mountain peak in Odisha. Detailed trek route guide, rolling velvet meadows, sea of clouds, Kunduli tribal market, gear checklist, and trek estimator.',
-        url: 'frontend/deomali-trek/index.html'
-    },
-    {
-        title: 'Rajgad Fort Trek (Durgaraj) Profile',
-        category: 'Adventure & Forts',
-        description:
-            'Explore Rajgad Fort Trek (Durgaraj) — first capital of Maratha Empire for 26 years under Chhatrapati Shivaji Maharaj. Detailed trek route guide, Padmavati Machi, Sanjeevani Machi, Suvela Machi, Bale Killa, gear checklist, and trek estimator.',
-        url: 'frontend/rajgad-trek/index.html'
-    },
-    {
-        title: 'Sinhagad Fort Trek (Kondhana) Profile',
-        category: 'Adventure & Forts',
-        description:
-            'Explore Sinhagad Fort (Kondhana) Trek — legendary 1670 battle of Tanaji Malusare. Detailed trekking route guide, Tanaji Kada, Kalyan Darwaja, gear checklist, trek estimator, and famous Pithla Bhakri food heritage.',
-        url: 'frontend/sinhagad-trek/index.html'
-    },
-    {
-        title: 'Torna Fort Trek (Prachandagad) Profile',
-        category: 'Adventure & Forts',
-        description:
-            'Explore Torna Fort (Prachandagad) Trek — first fort captured by Chhatrapati Shivaji Maharaj in 1646 CE. Detailed trek route guide, elevation profile, Zunjar Machi, gear checklist, and trek estimator.',
-        url: 'frontend/torna-fort-trek/index.html'
-    },
-    {
         title: 'Transport Route Planner',
         category: 'Travel & Planning',
         description:
@@ -3860,10 +3825,10 @@ window.indiaSearchIndex = [
         url: 'frontend/up-district-explorer/up-district-explorer.html'
     },
     {
-        title: "Howrah Bridge: Kolkata's Engineering Landmark",
-        category: "Infrastructure & Heritage",
-        description: "Discover Howrah Bridge (Rabindra Setu) — history, cantilever design explained simply, its relationship with the Hooghly River, importance to Kolkata, interesting facts, timeline, and photo gallery.",
-        url: "frontend/howrah-bridge-explorer/index.html"
+    title: "Howrah Bridge: Kolkata's Engineering Landmark",
+    category: "Infrastructure & Heritage",
+    description: "Discover Howrah Bridge (Rabindra Setu) — history, cantilever design explained simply, its relationship with the Hooghly River, importance to Kolkata, interesting facts, timeline, and photo gallery.",
+    url: "frontend/howrah-bridge-explorer/index.html"
     },
     // --- Guess the Uttar Pradesh District Game ---
     {
@@ -5758,32 +5723,28 @@ window.indiaSearchIndex = [
         category: 'Heritage & History',
         description:
             "Explore the ancient Nalanda Mahavihara in Bihar — UNESCO World Heritage Site, ancient world's premier residential university (5th–12th century CE), Dharmaganja library, and famous scholars (Xuanzang, Aryabhata, Nagarjuna).",
-        url: 'frontend/nalanda-mahavihara-explorer/index.html'
-    },
+        url: 'frontend/nalanda-mahavihara-explorer/index.html'},
     // --- Mahabodhi Temple Explorer ---
     {
         title: 'Mahabodhi Temple: Discover the Sacred Site of Enlightenment',
         category: 'Monuments & Architecture',
         description:
             "Discover the Mahabodhi Temple Complex in Bodh Gaya, Bihar — the sacred site of Gautama Buddha's Enlightenment, the 55m brick shikhara, the sacred Bodhi Tree, Ashokan Vajrasana, and the Seven Sacred Weeks.",
-        url: 'frontend/mahabodhi-temple-explorer/index.html'
-    },
+        url: 'frontend/mahabodhi-temple-explorer/index.html'},
     // --- Gwalior Fort Explorer ---
     {
         title: "Gwalior Fort: Discover Madhya Pradesh's Historic Hill Fortress",
         category: 'Monuments & Architecture',
         description:
             "Explore Gwalior Fort — Madhya Pradesh's majestic hill fortress, Man Mandir Palace, Teli Ka Mandir, Sas Bahu Temples, and Gopachal Parvat Jain rock sculptures.",
-        url: 'frontend/gwalior-fort-explorer/index.html'
-    },
+        url: 'frontend/gwalior-fort-explorer/index.html'},
     // --- Golconda Fort Explorer ---
     {
         title: "Golconda Fort: Explore Hyderabad's Historic Fortress",
         category: 'Monuments & Architecture',
         description:
             "Develop a dedicated Golconda Fort explorer covering its Qutb Shahi history, acoustic engineering, 87 bastions, diamond trade vaults, and royal palaces in Hyderabad.",
-        url: 'frontend/golconda-fort-explorer/index.html'
-    },
+        url: 'frontend/golconda-fort-explorer/index.html'},
     // --- Chittorgarh Fort Explorer Q
     {
         title: 'Chittorgarh Fort: Explore the Legacy of Mewar',
@@ -5808,22 +5769,6 @@ window.indiaSearchIndex = [
             "Explore Titan — India's premier watchmaking brand, the quartz revolution, Titan Edge (world's slimmest watch), Raga, Fastrack, and Nebula collections.",
         url: 'frontend/titan-explorer/index.html'
     },
-    // --- Haldiram's Explorer ---
-    {
-        title: "Haldiram's: Explore India's Snack and Food Brand",
-        category: 'Business & Brands',
-        description:
-            "Explore Haldiram's — origin as a Bikaneri bhujia shop in 1937, founder Ganga Bishan Agarwal, traditional namkeen and sweets, packaged snacks, restaurant business, and its origin-to-expansion timeline.",
-        url: 'frontend/haldirams-explorer/index.html'
-    },
-    // --- Britannia Explorer ---
-    {
-        title: "Britannia: Explore India's Food Brand Journey",
-        category: 'Business & Brands',
-        description:
-            "Explore Britannia — 1892 origins in colonial Kolkata, biscuit and bakery product categories, packaging evolution, advertising history including 'Britannia Khao, World Cup Jao', and a decade-based timeline.",
-        url: 'frontend/britannia-explorer/index.html'
-    },
     // --- Manyavar Explorer ---
     {
         title: "Manyavar: Explore India's Ethnic Fashion Brand",
@@ -5847,5 +5792,13 @@ window.indiaSearchIndex = [
         description:
             "Explore the Beighton Cup — the world's oldest field hockey tournament founded in 1895 in Kolkata, Mohun Bagan's 14 titles, Dhyan Chand's Jhansi Heroes, and historical timeline.",
         url: 'frontend/beighton-cup-explorer/index.html'
+    },
+    // --- Goechala Trek Explorer ---
+    {
+        title: 'Add Goechala Trek — Sikkim',
+        category: 'Mountains & Treks',
+        description:
+            'Explore the Goechala Trek in Sikkim — 4,600m pass offering eye-level views of Mt. Kanchenjunga, Samiti Lake, Dzongri Top, and Khangchendzonga National Park.',
+        url: 'frontend/goechala-trek-explorer/index.html'
     }
 ];
