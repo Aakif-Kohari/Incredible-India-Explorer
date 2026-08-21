@@ -5849,6 +5849,20 @@ window.indiaSearchIndex = [
         category: "Mountains & Treks",
         description:
             "Explore Dayara Bugyal Trek in Uttarakhand \u2014 28 sq km alpine meadows, 3,700m Bakaria Top, Bandarpoonch panoramas, and the traditional Butter Festival (Anduri Utsav).",
-        url: "frontend/dayara-bugyal-trek-explorer/index.html"
+        url: "frontend/dayara-bugyal-trek-explorer/index.html"},
+    // --- feat/sandakphu-trek-explorer ---
+    {
+        title: "Add Sandakphu Trek \u2014 West Bengal",
+        category: "Mountains & Treks",
+        description:
+            "Explore Sandakphu Trek \u2014 West Bengal's highest peak (3,636m), views of 4 of the world's 5 highest 8000er peaks (Everest, Kanchenjunga), and Singalila National Park.",
+        url: "frontend/sandakphu-trek-explorer/index.html"},
+    // --- feat/dzongri-trek-explorer ---
+    {
+        title: "Add Dzongri Trek \u2014 Sikkim",
+        category: "Mountains & Treks",
+        description:
+            "Explore Dzongri Trek in Sikkim \u2014 4,250m Dzongri Top sunrise viewpoint, 360-degree Kanchenjunga panoramas, alpine meadows, and Khangchendzonga National Park.",
+        url: "frontend/dzongri-trek-explorer/index.html"
     }
 ];
