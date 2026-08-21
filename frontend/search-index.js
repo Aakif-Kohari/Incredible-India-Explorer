@@ -12,6 +12,13 @@ window.indiaSearchIndex = [
         url: 'frontend/brahmagiri-trek/index.html'
     },
     {
+        title: 'Valley of Flowers Trek (UNESCO Alpine Valley) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Valley of Flowers Trek (3,650m) in Chamoli, Uttarakhand. Detailed trek route guide, Ghangaria base camp, Pushpawati River, Himalayan Blue Poppies, gear checklist, and trek estimator.',
+        url: 'frontend/valley-of-flowers-trek/index.html'
+    },
+    {
         title: 'Deomali Peak Trek (Highest Peak of Odisha) Profile',
         category: 'Adventure & Mountains',
         description:
