@@ -1,0 +1,298 @@
+.zinc-hero {
+    padding: 6rem 1.5rem 3rem;
+    text-align: center;
+}
+
+.hero-badges-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+}
+
+.hero-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+}
+
+.zinc-hero h1 span {
+    color: var(--saffron, #ff9933);
+    display: block;
+    font-size: 0.55em;
+    font-weight: 500;
+}
+
+.hero-subtitle {
+    max-width: 640px;
+    margin: 1rem auto 2rem;
+    opacity: 0.85;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.stat-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.stat-icon {
+    display: block;
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+}
+
+.stat-value {
+    display: block;
+    font-weight: 600;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.75rem;
+    opacity: 0.65;
+}
+
+.zinc-info-section {
+    padding: 2rem 1.5rem 3rem;
+}
+
+.sec-title {
+    margin-top: 3rem;
+}
+
+.sec-subtitle {
+    opacity: 0.75;
+    margin-bottom: 1.5rem;
+}
+
+.info-card,
+.principle-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+/* ---- Interactive distillation visualizer ---- */
+.zinc-visualizer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.retort-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 220px;
+}
+
+.retort-vessel {
+    position: relative;
+    width: 160px;
+    height: 90px;
+    border: 3px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px 16px 6px 6px;
+    background: rgba(255, 255, 255, 0.02);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.retort-vessel.is-active {
+    border-color: var(--saffron, #ff9933);
+}
+
+.retort-vessel.is-heating {
+    background: linear-gradient(180deg, rgba(255, 153, 51, 0.12), rgba(255, 153, 51, 0.28));
+    box-shadow: 0 0 24px rgba(255, 153, 51, 0.25);
+}
+
+.retort-label,
+.condenser-label {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.condenser-tube {
+    position: relative;
+    width: 6px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.15);
+    transition: background 0.3s;
+}
+
+.condenser-tube.is-active {
+    background: var(--saffron, #ff9933);
+}
+
+.vapor-dot {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    margin-left: -6px;
+    border-radius: 50%;
+    background: var(--gold, #ffd700);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.vapor-dot.is-visible {
+    opacity: 1;
+}
+
+.vapor-dot.is-descending {
+    animation: vapor-descend 1.4s ease-in forwards;
+}
+
+@keyframes vapor-descend {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: 54px;
+    }
+}
+
+.condenser-vessel {
+    position: relative;
+    width: 160px;
+    height: 70px;
+    border: 3px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px 6px 16px 16px;
+    background: rgba(255, 255, 255, 0.02);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.condenser-vessel.is-active {
+    border-color: var(--saffron, #ff9933);
+}
+
+.condenser-vessel.is-filled {
+    background: linear-gradient(0deg, rgba(148, 163, 184, 0.45), rgba(148, 163, 184, 0.1));
+}
+
+.zinc-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+    max-width: 320px;
+}
+
+.zinc-btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    border: none;
+    background: var(--saffron, #ff9933);
+    color: #1a1a1a;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.zinc-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.zinc-btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: inherit;
+}
+
+.zinc-readout {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.zinc-step-title {
+    font-weight: 700;
+}
+
+.zinc-step-desc {
+    opacity: 0.8;
+}
+
+.references-section {
+    padding: 2rem 1.5rem 4rem;
+}
+
+.references-list {
+    list-style: none;
+    padding: 0;
+}
+
+.references-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.references-list a {
+    color: inherit;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.references-list a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+[data-theme="light"] .info-card,
+[data-theme="light"] .principle-card,
+[data-theme="light"] .retort-vessel,
+[data-theme="light"] .condenser-vessel,
+[data-theme="light"] .zinc-visualizer,
+[data-theme="light"] .stat-pill {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* The global .section-container (frontend/styles/extras.css) adds
+   100px top/bottom padding by default, which stacks with this page's
+   own section padding and creates large empty gaps. Override it here. */
+body.zinc-main .section-container {
+    padding: 0;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+}
