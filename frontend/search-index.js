@@ -12,6 +12,13 @@ window.indiaSearchIndex = [
         url: 'frontend/brahmagiri-trek/index.html'
     },
     {
+        title: 'Kedarkantha Trek (Winter Summit Peak & Meadows) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Kedarkantha Peak Trek (3,800m) in Govind Sanctuary, Uttarkashi, Uttarakhand. Detailed trek route guide, Sankri base village, Juda ka Talab frozen lake, gear checklist, and winter climb duration estimator.',
+        url: 'frontend/kedarkantha-trek/index.html'
+    },
+    {
         title: 'Deomali Peak Trek (Highest Peak of Odisha) Profile',
         category: 'Adventure & Mountains',
         description:
