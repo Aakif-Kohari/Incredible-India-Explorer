@@ -5842,5 +5842,13 @@ window.indiaSearchIndex = [
         description:
             'Explore the Goechala Trek in Sikkim — 4,600m pass offering eye-level views of Mt. Kanchenjunga, Samiti Lake, Dzongri Top, and Khangchendzonga National Park.',
         url: 'frontend/goechala-trek-explorer/index.html'
+    },
+    // --- feat/dzongri-trek-explorer ---
+    {
+        title: "Add Dzongri Trek \u2014 Sikkim",
+        category: "Mountains & Treks",
+        description:
+            "Explore Dzongri Trek in Sikkim \u2014 4,250m Dzongri Top sunrise viewpoint, 360-degree Kanchenjunga panoramas, alpine meadows, and Khangchendzonga National Park.",
+        url: "frontend/dzongri-trek-explorer/index.html"
     }
 ];
