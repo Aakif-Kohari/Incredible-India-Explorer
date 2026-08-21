@@ -175,7 +175,7 @@ describe('Sohrai Painting Explorer — Styles & Scripts', () => {
         expect(css).toContain('.gallery-card');
         expect(css).toContain('.visualizer-container');
         expect(css).toContain('.lightbox-modal');
-        expect(css).toContain('body.light-theme');
+        expect(css).toContain('[data-theme="light"]');
     });
 
     it('includes script logic for rendering, filtering, tabs, bookmark, visualizer, and lightbox', () => {

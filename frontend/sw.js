@@ -31,6 +31,12 @@ const STATIC_ASSETS_TO_PRECACHE = [
   './offline.html',
   './sw-register.js',
   './router.js',
+  // Emergency Assistance
+  './frontend/emergency-assistance/emergency.html',
+  './frontend/emergency-assistance/emergency.css',
+  './frontend/emergency-assistance/emergency.js',
+  './frontend/emergency-assistance/emergency-data.js',
+
   './frontend/assets/hero_banner.png',
   './frontend/data/regions/index.json',
   './birsa-munda-explorer/index.html',

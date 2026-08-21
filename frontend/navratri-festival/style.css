@@ -1,0 +1,842 @@
+/* ==========================================================================
+   Navratri Festival Explorer Styles
+   Theme: Deep Maroon, Royal Gold, Saffron, and Festive Reds
+   ========================================================================== */
+:root {
+    --bg-primary: #2D0A1F;
+    --bg-secondary: #4A1232;
+    --text-primary: #FFF5F5;
+    --text-secondary: #FBB6CE;
+    --accent: #FFD700;
+    --accent-hover: #FFA500;
+    --maroon: #800020;
+    --card-bg: rgba(74, 18, 50, 0.85);
+    --border-color: rgba(255, 215, 0, 0.25);
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.light-theme {
+    --bg-primary: #FFF8F0;
+    --bg-secondary: #FFFFFF;
+    --text-primary: #2D0A1F;
+    --text-secondary: #6B2749;
+    --accent: #C41E3A;
+    --accent-hover: #800020;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --border-color: rgba(196, 30, 58, 0.2);
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    transition: background 0.3s ease;
+}
+
+.navratri-nav {
+    padding: 1rem 2rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.navratri-nav .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navratri-nav .nav-logo {
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.5rem;
+    display: flex;
+    gap: 0.25rem;
+}
+
+.saffron {
+    color: #ff9933;
+}
+
+.gold {
+    color: #ffd700;
+}
+
+.green {
+    color: #138808;
+}
+
+.navratri-nav .nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.navratri-nav .nav-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.navratri-nav .nav-link:hover {
+    color: var(--accent);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.navratri-hero {
+    padding: 6rem 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.accent {
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.btn-bookmark {
+    padding: 0.75rem 1.5rem;
+    background: var(--accent);
+    color: #2D0A1F;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: inherit;
+    transition: background 0.2s;
+}
+
+.btn-bookmark:hover {
+    background: var(--accent-hover);
+    color: #fff;
+}
+
+.explorer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--text-secondary);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    background: var(--accent);
+    color: #2D0A1F;
+    border-color: var(--accent);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.explorer-content h2 {
+    font-size: 1.75rem;
+    color: var(--accent);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.explorer-content h3 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.explorer-content p {
+    line-height: 1.8;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Nine Nights Grid */
+.nine-nights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.night-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.night-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.night-header {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.night-number {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.night-header-text h4 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.night-header-text p {
+    margin: 0.25rem 0 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.night-content {
+    padding: 1.25rem;
+}
+
+.night-content p {
+    margin: 0 0 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.night-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.night-tag {
+    padding: 0.25rem 0.6rem;
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--accent);
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Regional Grid */
+.map-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--card-bg);
+    border-radius: 16px;
+    position: relative;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.map-pin {
+    position: absolute;
+    background: var(--accent);
+    color: #2D0A1F;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s;
+}
+
+.map-pin:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    z-index: 10;
+}
+
+.regional-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.regional-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-top: 4px solid var(--accent);
+    transition: transform 0.3s;
+}
+
+.regional-card:hover {
+    transform: translateY(-5px);
+}
+
+.regional-card h4 {
+    margin: 0 0 0.5rem;
+    color: var(--accent);
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.regional-card p {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.regional-card ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+}
+
+.regional-card li {
+    margin-bottom: 0.25rem;
+}
+
+/* Dance Explorer */
+.dance-explorer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.dance-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.dance-card h3 {
+    margin-top: 0;
+    color: var(--accent);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+}
+
+.dance-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.dance-features {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.dance-features h5 {
+    margin: 0 0 0.5rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.dance-features ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+}
+
+.dance-features li {
+    margin-bottom: 0.25rem;
+    color: var(--text-secondary);
+}
+
+/* Culture Grid */
+.culture-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.culture-section {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.culture-section h3 {
+    margin-top: 0;
+    color: var(--accent);
+    font-family: 'Playfair Display', serif;
+}
+
+.food-item,
+.attire-item {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    border-left: 3px solid var(--accent);
+}
+
+.food-item h5,
+.attire-item h5 {
+    margin: 0 0 0.25rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.food-item p,
+.attire-item p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.footer {
+    padding: 3rem 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    margin-top: 4rem;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.regional-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.regional-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-top: 4px solid var(--accent);
+    transition: transform 0.3s;
+}
+
+.regional-card:hover {
+    transform: translateY(-5px);
+}
+
+.regional-card h4 {
+    margin: 0 0 0.5rem;
+    color: var(--accent);
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.regional-card p {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.regional-card ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+}
+
+.regional-card li {
+    margin-bottom: 0.25rem;
+}
+
+/* Dance Explorer */
+.dance-explorer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.dance-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.dance-card h3 {
+    margin-top: 0;
+    color: var(--accent);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+}
+
+.dance-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.dance-features {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.dance-features h5 {
+    margin: 0 0 0.5rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.dance-features ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+}
+
+.dance-features li {
+    margin-bottom: 0.25rem;
+    color: var(--text-secondary);
+}
+
+/* Culture Grid */
+.culture-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.culture-section {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.culture-section h3 {
+    margin-top: 0;
+    color: var(--accent);
+    font-family: 'Playfair Display', serif;
+}
+
+.food-item,
+.attire-item {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    border-left: 3px solid var(--accent);
+}
+
+.food-item h5,
+.attire-item h5 {
+    margin: 0 0 0.25rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.food-item p,
+.attire-item p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.footer {
+    padding: 3rem 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    margin-top: 4rem;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.regional-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.regional-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-top: 4px solid var(--accent);
+    transition: transform 0.3s;
+}
+
+.regional-card:hover {
+    transform: translateY(-5px);
+}
+
+.regional-card h4 {
+    margin: 0 0 0.5rem;
+    color: var(--accent);
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.regional-card p {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.regional-card ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+}
+
+.regional-card li {
+    margin-bottom: 0.25rem;
+}
+
+/* Dance Explorer */
+.dance-explorer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.dance-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.dance-card h3 {
+    margin-top: 0;
+    color: var(--accent);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+}
+
+.dance-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.dance-features {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.dance-features h5 {
+    margin: 0 0 0.5rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.dance-features ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+}
+
+.dance-features li {
+    margin-bottom: 0.25rem;
+    color: var(--text-secondary);
+}
+
+/* Culture Grid */
+.culture-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.culture-section {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.culture-section h3 {
+    margin-top: 0;
+    color: var(--accent);
+    font-family: 'Playfair Display', serif;
+}
+
+.food-item,
+.attire-item {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    border-left: 3px solid var(--accent);
+}
+
+.food-item h5,
+.attire-item h5 {
+    margin: 0 0 0.25rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.food-item p,
+.attire-item p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.footer {
+    padding: 3rem 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    margin-top: 4rem;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .navratri-nav .nav-menu {
+        display: none;
+    }
+
+    .tabs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tab-btn {
+        width: 100%;
+    }
+
+    .dance-explorer,
+    .culture-grid {
+        grid-template-columns: 1fr;
+    }
+}

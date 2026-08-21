@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            let theme = 'dark';
+            try {
+                theme = localStorage.getItem('theme') || JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark';
+            } catch(e) {}
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                document.documentElement.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sinhagad Fort Trek — Kondhana | Incredible India Explorer</title>
+    <meta name="description" content="Explore Sinhagad Fort (Kondhana) Trek — legendary 1670 CE battle of Subedar Tanaji Malusare. Detailed trekking route guide, Tanaji Kada, Kalyan Darwaja, gear checklist, trek estimator, and famous Pithla Bhakri food heritage." />
+    
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Google Fonts Fallbacks -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="sinhagad-trek.css" />
+</head>
+<body class="sinhagad-body">
+
+    <!-- Header / Navigation -->
+    <header class="sinhagad-header">
+        <div class="sinhagad-container sinhagad-header__nav">
+            <a href="../../index.html" class="sinhagad-back-link">
+                <span aria-hidden="true">←</span> Back to All Destinations
+            </a>
+            <div class="sinhagad-header__actions">
+                <button id="themeToggle" class="sinhagad-theme-btn" type="button" aria-pressed="false" aria-label="Toggle theme mode">
+                    <span>🌗</span>
+                    <span>Theme</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="sinhagad-hero" id="heroSection">
+        <div class="sinhagad-container">
+            <div class="sinhagad-hero__badges">
+                <span class="sinhagad-badge sinhagad-badge--saffron">🦁 "Gad Ala Pan Sinha Gela"</span>
+                <span class="sinhagad-badge sinhagad-badge--emerald">⛰️ 1,312m Elevation (30km Pune)</span>
+                <span class="sinhagad-badge">🥾 Easy to Moderate Trek</span>
+            </div>
+            
+            <h1 class="sinhagad-hero__title">
+                Sinhagad Fort Trek
+                <span class="sinhagad-hero__title-sub">सिंहगड — The Lion's Fort (Kondhana)</span>
+            </h1>
+            
+            <p class="sinhagad-hero__lede">
+                Standing 1,312 meters tall in the Sahyadris, Sinhagad is Pune's most beloved fortress trek. 
+                Immortalized by Subedar Tanaji Malusare's heroic night scaling of Tanaji Kada in 1670 CE, 
+                it blends steep stone steps, ancient gateways, and iconic Maharashtrian mountain gastronomy.
+            </p>
+
+            <!-- Quick Stats Grid -->
+            <div class="sinhagad-stats-grid">
+                <div class="sinhagad-stat-card">
+                    <span class="sinhagad-stat-card__val">1,312 m</span>
+                    <span class="sinhagad-stat-card__label">Summit Elevation (4,304 ft)</span>
+                </div>
+                <div class="sinhagad-stat-card">
+                    <span class="sinhagad-stat-card__val">1670 CE</span>
+                    <span class="sinhagad-stat-card__label">Battle of Sinhagad</span>
+                </div>
+                <div class="sinhagad-stat-card">
+                    <span class="sinhagad-stat-card__val">1.5 - 2 hrs</span>
+                    <span class="sinhagad-stat-card__label">One-Way Ascent Time</span>
+                </div>
+                <div class="sinhagad-stat-card">
+                    <span class="sinhagad-stat-card__val">Atekarwadi</span>
+                    <span class="sinhagad-stat-card__label">Base Village (30 km Pune)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="sinhagad-container">
+        
+        <!-- Tab Navigation Bar -->
+        <nav class="sinhagad-tabs-wrapper" aria-label="Sinhagad profile sections">
+            <div class="sinhagad-tabs" role="tablist">
+                <button class="sinhagad-tab-btn active" role="tab" aria-selected="true" data-tab="overviewTab" id="tabBtnOverview">
+                    🏛️ Overview & Highlights
+                </button>
+                <button class="sinhagad-tab-btn" role="tab" aria-selected="false" data-tab="routeTab" id="tabBtnRoute">
+                    🥾 Trekking Route Guide
+                </button>
+                <button class="sinhagad-tab-btn" role="tab" aria-selected="false" data-tab="historyTab" id="tabBtnHistory">
+                    📜 Historical Battle & Legacy
+                </button>
+                <button class="sinhagad-tab-btn" role="tab" aria-selected="false" data-tab="plannerTab" id="tabBtnPlanner">
+                    ⚙️ Trek Estimator & Food Guide
+                </button>
+                <button class="sinhagad-tab-btn" role="tab" aria-selected="false" data-tab="galleryTab" id="tabBtnGallery">
+                    🖼️ Photo Gallery
+                </button>
+            </div>
+        </nav>
+
+        <!-- TAB 1: OVERVIEW & HIGHLIGHTS -->
+        <section id="overviewTab" class="sinhagad-tab-content active" role="tabpanel" aria-labelledby="tabBtnOverview">
+            <div class="sinhagad-section-heading">
+                <span class="sinhagad-eyebrow">Architectural & Natural Wonders</span>
+                <h2 class="sinhagad-section-title">Key Highlights of Sinhagad Fort</h2>
+                <p class="sinhagad-section-desc">
+                    Discover Tanaji Kada cliff face, Kalyan and Pune Gateways, ancient rock-cut water springs, and sacred memorials set against sweeping views of Khadakwasla backwaters.
+                </p>
+            </div>
+
+            <div class="sinhagad-grid-3" id="highlightsGrid">
+                <!-- Dynamically rendered via sinhagad-trek.js -->
+            </div>
+        </section>
+
+        <!-- TAB 2: TREKKING ROUTE GUIDE -->
+        <section id="routeTab" class="sinhagad-tab-content" role="tabpanel" aria-labelledby="tabBtnRoute">
+            <div class="sinhagad-section-heading">
+                <span class="sinhagad-eyebrow">Trail Breakdown</span>
+                <h2 class="sinhagad-section-title">Atekarwadi Base to Kalyan Darwaja Route</h2>
+                <p class="sinhagad-section-desc">
+                    The popular trekking trail ascends from Atekarwadi base village near Donje, following red soil slopes and breezy ridges before climbing stone steps into Kalyan Darwaja.
+                </p>
+            </div>
+
+            <div id="trekStepsContainer">
+                <!-- Dynamically rendered via sinhagad-trek.js -->
+            </div>
+        </section>
+
+        <!-- TAB 3: HISTORICAL SIGNIFICANCE -->
+        <section id="historyTab" class="sinhagad-tab-content" role="tabpanel" aria-labelledby="tabBtnHistory">
+            <div class="sinhagad-section-heading">
+                <span class="sinhagad-eyebrow">The Valor of Maratha Mavals</span>
+                <h2 class="sinhagad-section-title">Historical Timeline of Sinhagad</h2>
+                <p class="sinhagad-section-desc">
+                    From 14th-century Koli rulers to the legendary 1670 night battle led by Subedar Tanaji Malusare, Sinhagad has stood as a guardian fortress of Maharashtra.
+                </p>
+            </div>
+
+            <div class="sinhagad-timeline" id="timelineContainer">
+                <!-- Dynamically rendered via sinhagad-trek.js -->
+            </div>
+        </section>
+
+        <!-- TAB 4: TREK ESTIMATOR & FOOD GUIDE -->
+        <section id="plannerTab" class="sinhagad-tab-content" role="tabpanel" aria-labelledby="tabBtnPlanner">
+            
+            <!-- Interactive Trek Time Estimator -->
+            <div class="sinhagad-calc-card">
+                <span class="sinhagad-eyebrow">Interactive Calculator</span>
+                <h2 class="sinhagad-section-title">Trek Time & Effort Estimator</h2>
+                <p class="sinhagad-section-desc">
+                    Select your trekking pace to estimate ascent time, descent time, water requirement, and recommended departure time from Atekarwadi.
+                </p>
+
+                <div class="sinhagad-calc-controls">
+                    <button class="sinhagad-calc-btn" type="button" data-pace="fast">⚡ Experienced Trekker</button>
+                    <button class="sinhagad-calc-btn active" type="button" data-pace="moderate">🚶 Regular Trekker (Moderate)</button>
+                    <button class="sinhagad-calc-btn" type="button" data-pace="leisurely">🐢 Family / Leisurely</button>
+                </div>
+
+                <div class="sinhagad-calc-results">
+                    <div class="sinhagad-calc-res-item">
+                        <span class="sinhagad-calc-res-val" id="calcAscent">1.5 – 2.0 hrs</span>
+                        <span class="sinhagad-calc-res-lbl">Estimated Ascent Time</span>
+                    </div>
+                    <div class="sinhagad-calc-res-item">
+                        <span class="sinhagad-calc-res-val" id="calcDescent">1.0 – 1.25 hrs</span>
+                        <span class="sinhagad-calc-res-lbl">Estimated Descent Time</span>
+                    </div>
+                    <div class="sinhagad-calc-res-item">
+                        <span class="sinhagad-calc-res-val" id="calcWater">2.5 Liters</span>
+                        <span class="sinhagad-calc-res-lbl">Recommended Water</span>
+                    </div>
+                    <div class="sinhagad-calc-res-item">
+                        <span class="sinhagad-calc-res-val" id="calcStart">6:30 AM</span>
+                        <span class="sinhagad-calc-res-lbl">Recommended Start Time</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Culinary & Hospitality Section -->
+            <div class="sinhagad-card">
+                <span class="sinhagad-eyebrow">Food Heritage</span>
+                <h2 class="sinhagad-section-title">Famous Summit Culinary Specialties</h2>
+                <p class="sinhagad-section-desc">
+                    No trek to Sinhagad is complete without indulging in the traditional rustic delicacies served fresh by local villagers at the summit.
+                </p>
+
+                <div class="sinhagad-grid-3" style="margin-top: 1.5rem;">
+                    <div style="background: var(--sinhagad-surface); padding: 1.2rem; border-radius: 12px; border: 1px solid var(--sinhagad-border);">
+                        <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">🧅</span>
+                        <h4 style="color: var(--sinhagad-saffron); font-size: 1.1rem; margin-bottom: 0.3rem;">Hot Kanda Bhajji</h4>
+                        <p style="color: var(--sinhagad-text-dim); font-size: 0.92rem;">Crispy onion fritters fried fresh in iron kadhais, best paired with hot tea during foggy mornings.</p>
+                    </div>
+                    <div style="background: var(--sinhagad-surface); padding: 1.2rem; border-radius: 12px; border: 1px solid var(--sinhagad-border);">
+                        <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">🍲</span>
+                        <h4 style="color: var(--sinhagad-saffron); font-size: 1.1rem; margin-bottom: 0.3rem;">Pithla Bhakri</h4>
+                        <p style="color: var(--sinhagad-text-dim); font-size: 0.92rem;">Spiced gram flour curry served with wood-fired Jowar or Bajra flatbread and spicy garlic-chilli Thecha.</p>
+                    </div>
+                    <div style="background: var(--sinhagad-surface); padding: 1.2rem; border-radius: 12px; border: 1px solid var(--sinhagad-border);">
+                        <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">🏺</span>
+                        <h4 style="color: var(--sinhagad-emerald); font-size: 1.1rem; margin-bottom: 0.3rem;">Mattha & Earthen Dahi</h4>
+                        <p style="color: var(--sinhagad-text-dim); font-size: 0.92rem;">Fresh thick curds set in clay pots (Matkas) and digestive spiced buttermilk flavored with cumin and coriander.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Gear Checklist -->
+            <div class="sinhagad-card">
+                <span class="sinhagad-eyebrow">Interactive Packing Checklist</span>
+                <h2 class="sinhagad-section-title">What to Pack for Sinhagad Trek</h2>
+                <div class="sinhagad-checklist-grid" id="checklistGrid">
+                    <!-- Dynamically rendered via sinhagad-trek.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: PHOTO GALLERY -->
+        <section id="galleryTab" class="sinhagad-tab-content" role="tabpanel" aria-labelledby="tabBtnGallery">
+            <div class="sinhagad-section-heading">
+                <span class="sinhagad-eyebrow">Visual Tour</span>
+                <h2 class="sinhagad-section-title">Sinhagad Fort Trek Photo Gallery</h2>
+                <p class="sinhagad-section-desc">
+                    Click any image tile to view full-screen details and captions.
+                </p>
+            </div>
+
+            <div class="sinhagad-gallery-grid" id="galleryGrid">
+                <!-- Dynamically rendered via sinhagad-trek.js -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Accessible Lightbox Modal -->
+    <div id="lightbox" class="sinhagad-lightbox" hidden aria-modal="true" role="dialog" aria-labelledby="lightboxTitle">
+        <div class="sinhagad-lightbox-dialog">
+            <button id="lightboxClose" class="sinhagad-lightbox-close" type="button" aria-label="Close modal lightbox">✕</button>
+            <span id="lightboxEmoji" class="sinhagad-lightbox-emoji">⛰️</span>
+            <h3 id="lightboxTitle" class="sinhagad-lightbox-h">Sinhagad Ramparts</h3>
+            <p id="lightboxCaption" class="sinhagad-lightbox-caption">The commanding summit of Sinhagad Fort.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="sinhagad-footer">
+        <div class="sinhagad-container">
+            <p class="sinhagad-footer-brand">Incredible India Explorer — Heritage & Adventure Series</p>
+            <p>Sinhagad Fort (Kondhana) · Sahyadri Range · Pune District, Maharashtra</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="sinhagad-data.js"></script>
+    <script src="sinhagad-trek.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lepcha Language Explorer | ᰛᰩᰵᰶ &amp; Sikkim's Linguistic Heritage</title>
+    <meta name="description" content="Explore Lepcha (ᰛᰩᰵᰶ / Róng-ríng) — Sikkim's indigenous Tibeto-Burman language. Discover the unique Lepcha script, verified greetings, common vocabulary, Khangchendzonga heritage, and the Dzongu heartland.">
+
+    <!-- Google Fonts — Noto Sans Lepcha for the script rendering -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Lepcha&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+
+    <!-- Global Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link">Home</a>
+                <a href="../languages/languages.html" class="nav-link">Languages of India</a>
+                <a href="#overview-section" class="nav-link">Overview</a>
+                <a href="#scripts-section" class="nav-link">Script</a>
+                <a href="#greetings-section" class="nav-link">Greetings</a>
+                <a href="#vocabulary-section" class="nav-link">Vocabulary</a>
+                <a href="#regions-section" class="nav-link">Regions</a>
+                <a href="#heritage-section" class="nav-link">Heritage</a>
+                <a href="#quiz-section" class="nav-link">Quiz</a>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️ Theme</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero-section">
+            <svg class="hero-mountain-bg" viewBox="0 0 1440 240" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M0,240 L0,140 L180,60 L360,150 L540,40 L720,130 L900,30 L1080,120 L1260,50 L1440,110 L1440,240 Z" fill="rgba(56, 189, 248, 0.12)"/>
+                <path d="M0,240 L0,180 L240,110 L480,190 L720,90 L960,170 L1200,100 L1440,160 L1440,240 Z" fill="rgba(16, 185, 129, 0.10)"/>
+            </svg>
+
+            <div class="container" style="position: relative; z-index: 2;">
+                <div class="hero-badge">🛕 Sikkim's Linguistic Heritage</div>
+                <h1 class="hero-title">
+                    <span class="lepcha-script-hero" lang="lep">ᰛᰩᰵᰶ</span>
+                    <span class="hero-subtitle-en">Lepcha Language Explorer</span>
+                </h1>
+                <p class="hero-tagline">Discover ᰛᰩᰵᰶ — the indigenous tongue of the Sikkim Himalayas, its unique script, and the sacred world of Mount Khangchendzonga.</p>
+
+                <div class="hero-quick-facts">
+                    <div class="fact-chip"><strong>Native Name:</strong> <span class="lepcha-text" lang="lep">ᰛᰩᰵᰶ</span> (Róng-ríng)</div>
+                    <div class="fact-chip"><strong>Script:</strong> Lepcha (ᰛᰩᰵᰶ / Róng)</div>
+                    <div class="fact-chip"><strong>Family:</strong> Sino-Tibetan ➔ Tibeto-Burman</div>
+                    <div class="fact-chip"><strong>ISO:</strong> lep</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="content-section" id="overview-section">
+            <div class="container">
+                <h2 class="section-title">Language Overview</h2>
+                <div class="card overview-card">
+                    <p class="overview-description" id="overview-description"></p>
+                    <div class="meta-grid">
+                        <div class="meta-item"><span class="meta-label">Family</span><span class="meta-value" id="meta-family"></span></div>
+                        <div class="meta-item"><span class="meta-label">Speakers</span><span class="meta-value" id="meta-speakers"></span></div>
+                        <div class="meta-item"><span class="meta-label">ISO Code</span><span class="meta-value" id="meta-iso"></span></div>
+                        <div class="meta-item"><span class="meta-label">Romanization</span><span class="meta-value" id="meta-romanization"></span></div>
+                    </div>
+                </div>
+
+                <!-- Genealogy -->
+                <h3 class="subsection-title">Linguistic Genealogy &amp; Characteristics</h3>
+                <div class="card genealogy-card">
+                    <p class="genealogy-path" id="genealogy-path"></p>
+                    <div class="characteristics-grid" id="characteristics-grid"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scripts Section -->
+        <section class="content-section" id="scripts-section">
+            <div class="container">
+                <h2 class="section-title">The Lepcha Script (ᰛᰩᰵᰶ)</h2>
+                <p class="section-intro">An indigenous Himalayan abugida, developed specifically for the Lepcha language and encoded in Unicode at U+1C00–U+1C4F.</p>
+                <div id="scripts-container" class="scripts-container"></div>
+            </div>
+        </section>
+
+        <!-- Greetings Section -->
+        <section class="content-section" id="greetings-section">
+            <div class="container">
+                <h2 class="section-title">👋 Common Greetings</h2>
+                <p class="section-intro">Click 🔊 to hear the pronunciation using verified speech synthesis.</p>
+                <div id="greetings-container" class="greetings-container"></div>
+            </div>
+        </section>
+
+        <!-- Vocabulary Section -->
+        <section class="content-section" id="vocabulary-section">
+            <div class="container">
+                <h2 class="section-title">📖 Common Lepcha Words</h2>
+                <p class="section-intro">Ten foundational Lepcha words with transliteration, pronunciation, and cultural meaning.</p>
+                <div id="vocabulary-container" class="vocabulary-container"></div>
+            </div>
+        </section>
+
+        <!-- Regions Section -->
+        <section class="content-section" id="regions-section">
+            <div class="container">
+                <h2 class="section-title">🗺️ Sikkim &amp; Himalayan Regions</h2>
+                <p class="section-intro">Where Lepcha is spoken — from the Dzongu Reserve to Darjeeling, Nepal, and Bhutan.</p>
+                <div id="regions-container" class="regions-container"></div>
+            </div>
+        </section>
+
+        <!-- Cultural Heritage Section -->
+        <section class="content-section" id="heritage-section">
+            <div class="container">
+                <h2 class="section-title">🛕 Cultural Heritage</h2>
+                <p class="section-intro">The sacred world of Khangchendzonga, the Mun &amp; Bongthing traditions, and the script revival.</p>
+                <div id="heritage-container" class="heritage-container"></div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="content-section" id="quiz-section">
+            <div class="container">
+                <h2 class="section-title">🧠 Lepcha Knowledge Quiz</h2>
+                <p class="section-intro">Test what you've learned about the Lepcha language and Sikkim's heritage.</p>
+                <div id="quiz-container" class="quiz-container"></div>
+            </div>
+        </section>
+
+        <!-- Sources Section -->
+        <section class="content-section" id="sources-section">
+            <div class="container">
+                <h2 class="section-title">📚 Sources &amp; References</h2>
+                <p class="section-intro">Academic and institutional references for the Lepcha language data on this page.</p>
+                <div id="sources-container" class="sources-container"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Incredible India Explorer — Celebrating the Linguistic Heritage of Sikkim.</p>
+            <p class="footer-note">Lepcha script (ᰛᰩᰵᰶ) rendered via the Noto Sans Lepcha font (Google Fonts) and Unicode U+1C00–U+1C4F.</p>
+        </div>
+    </footer>
+
+    <!-- Data + Script -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
