@@ -1,0 +1,441 @@
+:root {
+    --dhol-bg: #170a08;
+    --dhol-panel: rgba(38, 16, 13, 0.85);
+    --dhol-card: rgba(255, 255, 255, 0.045);
+    --dhol-border: rgba(255, 255, 255, 0.09);
+    --dhol-text: #fbf1e7;
+    --dhol-muted: #d9b8a8;
+    --dhol-accent: #ff9d3d;
+    --dhol-accent-strong: #ff6b35;
+    --dhol-gold: #e0b23d;
+    --dhol-maroon: #7a1f2b;
+    --dhol-shadow: 0 16px 40px rgba(10, 3, 2, 0.4);
+    --dhol-font-heading: 'Playfair Display', Georgia, serif;
+    --dhol-font-body: 'Outfit', sans-serif;
+}
+
+.light-theme {
+    --dhol-bg: #fdf3ea;
+    --dhol-panel: rgba(255, 255, 255, 0.88);
+    --dhol-card: rgba(122, 31, 43, 0.03);
+    --dhol-border: rgba(122, 31, 43, 0.1);
+    --dhol-text: #2a1410;
+    --dhol-muted: #6b4238;
+    --dhol-accent: #d9641f;
+    --dhol-accent-strong: #b8451a;
+    --dhol-gold: #9c6f1a;
+    --dhol-maroon: #7a1f2b;
+    --dhol-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.dhol-main {
+    background: linear-gradient(180deg, var(--dhol-bg), rgba(30, 12, 10, 0.97));
+    color: var(--dhol-text);
+    min-height: 100vh;
+    font-family: var(--dhol-font-body);
+}
+
+.light-theme .dhol-main {
+    background: linear-gradient(180deg, var(--dhol-bg), #fbe8da);
+}
+
+.section-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Header/nav intentionally uses the site-wide .navbar/.nav-container/.nav-link
+   etc. classes from ../../styles.css (same pattern as bamboo-craft-explorer),
+   so no nav-related rules are duplicated here. Only the active-link accent
+   color is set inline in index.html via var(--dhol-accent). */
+
+/* ---------- Hero ---------- */
+.dhol-hero {
+    padding: 90px 0 50px;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 107, 53, 0.16), transparent 55%),
+        radial-gradient(circle at 80% 0%, rgba(224, 178, 61, 0.14), transparent 50%);
+    border-bottom: 1px solid var(--dhol-border);
+}
+
+.hero-badges-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.hero-pill {
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--dhol-card);
+    border: 1px solid var(--dhol-border);
+    font-size: 0.85rem;
+    color: var(--dhol-muted);
+}
+
+.dhol-hero h1 {
+    font-family: var(--dhol-font-heading);
+    font-size: clamp(2.4rem, 5vw, 3.9rem);
+    line-height: 1.12;
+    margin: 12px 0 18px;
+}
+
+.dhol-hero h1 span {
+    display: block;
+    font-size: 0.45em;
+    color: var(--dhol-accent);
+    font-family: var(--dhol-font-body);
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.hero-subtitle {
+    max-width: 720px;
+    color: var(--dhol-muted);
+    font-size: 1.08rem;
+    line-height: 1.6;
+    margin-bottom: 34px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+}
+
+.stat-card {
+    /* explicitly override the global .stat-card (display:flex row) defined in
+       ../../styles.css so this card stacks icon/value/label vertically */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    background: var(--dhol-panel);
+    border: 1px solid var(--dhol-border);
+    border-radius: 14px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: var(--dhol-shadow);
+}
+
+.stat-icon {
+    font-size: 1.5rem;
+    display: block;
+    width: auto;
+    height: auto;
+    background: none;
+    border-radius: 0;
+    margin-bottom: 6px;
+}
+.stat-val { font-weight: 700; font-size: 1.02rem; }
+.stat-lbl { color: var(--dhol-muted); font-size: 0.8rem; margin-top: 2px; }
+
+/* ---------- Generic section styling ---------- */
+.dhol-section {
+    padding: 64px 0;
+}
+
+.dhol-section h2 {
+    font-family: var(--dhol-font-heading);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    margin-bottom: 10px;
+}
+
+.section-lead {
+    color: var(--dhol-muted);
+    max-width: 760px;
+    line-height: 1.65;
+    margin-bottom: 30px;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 18px;
+}
+
+.info-card {
+    background: var(--dhol-panel);
+    border: 1px solid var(--dhol-border);
+    border-radius: 16px;
+    padding: 22px;
+    line-height: 1.65;
+    box-shadow: var(--dhol-shadow);
+}
+
+/* ---------- Interactive Regional Explorer ---------- */
+.regional-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.regional-card {
+    text-align: left;
+    background: var(--dhol-card);
+    border: 1px solid var(--dhol-border);
+    border-radius: 16px;
+    padding: 20px;
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+    transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.regional-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--dhol-accent);
+}
+
+.regional-card.active {
+    background: linear-gradient(160deg, rgba(255, 107, 53, 0.16), rgba(224, 178, 61, 0.08));
+    border-color: var(--dhol-accent-strong);
+}
+
+.regional-emoji {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.regional-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: var(--dhol-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+}
+
+.regional-card h3 {
+    margin: 0 0 6px;
+    font-size: 1.08rem;
+}
+
+.regional-card p {
+    color: var(--dhol-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.regional-detail {
+    background: var(--dhol-panel);
+    border: 1px solid var(--dhol-border);
+    border-radius: 18px;
+    padding: 26px;
+    box-shadow: var(--dhol-shadow);
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.regional-detail.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.detail-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.detail-emoji { font-size: 2.2rem; }
+
+.detail-header h3 {
+    margin: 0;
+    font-family: var(--dhol-font-heading);
+    font-size: 1.3rem;
+}
+
+.detail-region {
+    color: var(--dhol-gold);
+    font-size: 0.85rem;
+}
+
+.regional-detail p {
+    line-height: 1.65;
+    color: var(--dhol-text);
+    margin-bottom: 14px;
+}
+
+.detail-rhythm {
+    display: inline-block;
+    background: var(--dhol-card);
+    border: 1px solid var(--dhol-border);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    color: var(--dhol-accent);
+}
+
+/* ---------- Festivals ---------- */
+.festivals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.festival-card {
+    /* explicitly override global .festival-card (display:flex row) so this
+       card stacks icon/tag/title/text vertically */
+    display: block;
+    background: var(--dhol-card);
+    border: 1px solid var(--dhol-border);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.festival-icon { font-size: 1.6rem; display: block; margin-bottom: 8px; }
+
+.festival-tag {
+    font-size: 0.75rem;
+    color: var(--dhol-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+}
+
+.festival-card h3 { margin: 0 0 8px; font-size: 1.05rem; }
+.festival-card p { color: var(--dhol-muted); font-size: 0.92rem; line-height: 1.55; margin: 0; }
+
+/* ---------- Dance traditions ---------- */
+.dance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+}
+
+.dance-card {
+    background: var(--dhol-panel);
+    border: 1px solid var(--dhol-border);
+    border-left: 3px solid var(--dhol-accent-strong);
+    border-radius: 12px;
+    padding: 18px 20px;
+}
+
+.dance-tag {
+    font-size: 0.75rem;
+    color: var(--dhol-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+}
+
+.dance-card h3 { margin: 0 0 8px; font-size: 1.05rem; }
+.dance-card p { color: var(--dhol-muted); font-size: 0.92rem; line-height: 1.55; margin: 0; }
+
+/* ---------- Construction steps ---------- */
+.construction-steps {
+    display: grid;
+    gap: 18px;
+}
+
+.step-card {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 20px;
+    background: var(--dhol-panel);
+    border: 1px solid var(--dhol-border);
+    border-radius: 16px;
+    padding: 20px;
+    align-items: start;
+}
+
+.step-num {
+    font-family: var(--dhol-font-heading);
+    font-weight: 700;
+    color: var(--dhol-accent);
+    font-size: 0.95rem;
+}
+
+.step-content h3 { margin: 0 0 8px; font-size: 1.08rem; }
+.step-content p { color: var(--dhol-muted); line-height: 1.6; margin-bottom: 12px; }
+
+.step-image {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 12px;
+    border: 1px solid var(--dhol-border);
+    display: block;
+}
+
+/* ---------- Gallery ---------- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.gallery-card {
+    background: var(--dhol-panel);
+    border: 1px solid var(--dhol-border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--dhol-shadow);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-body { padding: 16px 18px; }
+.gallery-body h3 { margin: 0 0 8px; font-size: 1.05rem; }
+.gallery-body p { color: var(--dhol-muted); font-size: 0.9rem; line-height: 1.55; margin: 0; }
+
+/* ---------- Cultural significance ---------- */
+.significance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.significance-card {
+    background: linear-gradient(160deg, rgba(255, 107, 53, 0.08), rgba(224, 178, 61, 0.04));
+    border: 1px solid var(--dhol-border);
+    border-radius: 16px;
+    padding: 22px;
+}
+
+.significance-card h3 { margin: 0 0 10px; font-size: 1.05rem; }
+.significance-card p { color: var(--dhol-muted); line-height: 1.6; margin: 0; }
+
+/* ---------- References & image credits ---------- */
+.references-list,
+.image-credits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.references-list a {
+    color: var(--dhol-accent);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.references-list a:hover { text-decoration: underline; }
+
+.image-credits-list li {
+    color: var(--dhol-muted);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    padding-left: 4px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px) {
+    .step-card { grid-template-columns: 1fr; }
+    .step-image { max-width: 100%; }
+}
