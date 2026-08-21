@@ -150,6 +150,17 @@ const ISLANDS = [
     wildlife: ["Migratory Siberian cranes (winter)", "Darters, cormorants, kingfishers", "Bronze-winged jacanas"],
     culture: "Legends say the island rose from the lake when a diving sage threw a clod of earth that landed and stayed.",
     travel: { how: "Houseboat or motorboat from Kumarakom (15 min)", stay: "Day visit only", tips: "Best at sunrise — birds are most active" }
+  },
+  { id: "st-marys-island", name: "St. Mary's Island Beach", group: "Coastal",
+    location: "Udupi, Karnataka", lat: 13.35, lng: 74.75,
+    area: "0.5 km²", bestTime: "Oct–May",
+    image: "https://images.unsplash.com/photo-1582719428252-bd1a6an446ba?w=900&q=70",
+    tags: ["Geological", "Basalt", "Beach", "Formation"],
+    desc: "A cluster of picturesque islands off the coast of Karnataka, famous for unique basaltic rock formations.",
+    overview: "St. Mary's Island, also known as Coconut Island or Shivalli Island, lies off the coast of Udupi in Karnataka. The island is geologically significant for its pristine hexagonal basaltic rock formations, believed to be formed by sub-surface volcanic activity during the break-up of the Gondwana supercontinent roughly 60 million years ago. The dark basalt columns contrast beautifully with the white sandy beaches and turquoise waters, making it a photographer's and geologist's delight.",
+    wildlife: ["Seabirds nesting on cliffs", "Marine life in surrounding waters", "Crabs and shells along the shore"],
+    culture: "A popular pilgrimage and tourist site — locals visit the St. Mary's Island church, and the island is named after the Virgin Mary. Coconut palms and casuarina trees provide shade along the coastline.",
+    travel: { how: "Drive from Mangalore (60 km) or Udupi (10 km) followed by a short boat ride from Malpe or Udupi harbour", stay: "No overnight accommodation on the island — day visits from Udupi or Malpe; stay in Udupi city ranging from budget to heritage homestays", tips: "Visit during low tide for full beach access; carry drinking water and sun protection; respect the geological formations — do not remove basalt samples" }
   }
 ];
 
