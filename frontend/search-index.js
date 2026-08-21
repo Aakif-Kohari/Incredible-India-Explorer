@@ -5,6 +5,27 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Rajgad Fort Trek (Durgaraj) Profile',
+        category: 'Adventure & Forts',
+        description:
+            'Explore Rajgad Fort Trek (Durgaraj) — first capital of Maratha Empire for 26 years under Chhatrapati Shivaji Maharaj. Detailed trek route guide, Padmavati Machi, Sanjeevani Machi, Suvela Machi, Bale Killa, gear checklist, and trek estimator.',
+        url: 'frontend/rajgad-trek/index.html'
+    },
+    {
+        title: 'Sinhagad Fort Trek (Kondhana) Profile',
+        category: 'Adventure & Forts',
+        description:
+            'Explore Sinhagad Fort (Kondhana) Trek — legendary 1670 battle of Tanaji Malusare. Detailed trekking route guide, Tanaji Kada, Kalyan Darwaja, gear checklist, trek estimator, and famous Pithla Bhakri food heritage.',
+        url: 'frontend/sinhagad-trek/index.html'
+    },
+    {
+        title: 'Torna Fort Trek (Prachandagad) Profile',
+        category: 'Adventure & Forts',
+        description:
+            'Explore Torna Fort (Prachandagad) Trek — first fort captured by Chhatrapati Shivaji Maharaj in 1646 CE. Detailed trek route guide, elevation profile, Zunjar Machi, gear checklist, and trek estimator.',
+        url: 'frontend/torna-fort-trek/index.html'
+    },
+    {
         title: 'Transport Route Planner',
         category: 'Travel & Planning',
         description:
