@@ -12,24 +12,11 @@ window.indiaSearchIndex = [
         url: 'frontend/brahmagiri-trek/index.html'
     },
     {
-        title: 'Kedarkantha Trek (Winter Summit Peak & Meadows) Profile',
+        title: 'Pin Parvati Pass Trek (Kullu to Spiti Traverse) Profile',
         category: 'Adventure & Sanctuary Treks',
         description:
-            'Explore Kedarkantha Peak Trek (3,800m) in Govind Sanctuary, Uttarkashi, Uttarakhand. Detailed trek route guide, Sankri base village, Juda ka Talab frozen lake, gear checklist, and winter climb duration estimator.',
-        url: 'frontend/kedarkantha-trek/index.html'},
-  {
-        title: 'Beas Kund Trek (Glacial Source Tarn & Meadows) Profile',
-        category: 'Adventure & Sanctuary Treks',
-        description:
-            'Explore Beas Kund Trek (3,700m) in Solang Valley, Manali, Himachal Pradesh. Detailed trek route guide, Dhundi base village, Bakarthach shepherd meadows, Hanuman Tibba peak views, gear checklist, and trek estimator.',
-        url: 'frontend/beas-kund-trek/index.html'
-    },
-  {
-        title: 'Valley of Flowers Trek (UNESCO Alpine Valley) Profile',
-        category: 'Adventure & Sanctuary Treks',
-        description:
-            'Explore Valley of Flowers Trek (3,650m) in Chamoli, Uttarakhand. Detailed trek route guide, Ghangaria base camp, Pushpawati River, Himalayan Blue Poppies, gear checklist, and trek estimator.',
-        url: 'frontend/valley-of-flowers-trek/index.html'
+            'Explore Pin Parvati Pass Trek (5,319m) connecting Kullu and Spiti valleys in Himachal Pradesh. Detailed trek route guide, Mantalai Lake, glacial crevasses roping, safety warnings, gear checklist, and trek estimator.',
+        url: 'frontend/pin-parvati-trek/index.html'
     },
     {
         title: 'Deomali Peak Trek (Highest Peak of Odisha) Profile',
