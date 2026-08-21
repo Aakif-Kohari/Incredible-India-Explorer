@@ -12,6 +12,13 @@ window.indiaSearchIndex = [
         url: 'frontend/brahmagiri-trek/index.html'
     },
     {
+        title: 'Pin Parvati Pass Trek (Kullu to Spiti Traverse) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Pin Parvati Pass Trek (5,319m) connecting Kullu and Spiti valleys in Himachal Pradesh. Detailed trek route guide, Mantalai Lake, glacial crevasses roping, safety warnings, gear checklist, and trek estimator.',
+        url: 'frontend/pin-parvati-trek/index.html'
+    },
+    {
         title: 'Deomali Peak Trek (Highest Peak of Odisha) Profile',
         category: 'Adventure & Mountains',
         description:
