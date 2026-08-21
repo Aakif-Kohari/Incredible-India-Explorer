@@ -5,6 +5,13 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Sinhagad Fort Trek (Kondhana) Profile',
+        category: 'Adventure & Forts',
+        description:
+            'Explore Sinhagad Fort (Kondhana) Trek — legendary 1670 battle of Tanaji Malusare. Detailed trekking route guide, Tanaji Kada, Kalyan Darwaja, gear checklist, trek estimator, and famous Pithla Bhakri food heritage.',
+        url: 'frontend/sinhagad-trek/index.html'
+    },
+    {
         title: 'Torna Fort Trek (Prachandagad) Profile',
         category: 'Adventure & Forts',
         description:
