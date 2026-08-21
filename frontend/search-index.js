@@ -5,6 +5,13 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Brahmagiri Peak Trek (Coorg & Wayanad) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Brahmagiri Peak Trek (1,608m) in Coorg & Wayanad, Western Ghats. UNESCO World Heritage Shola forests, Iruppu Falls, Pakshipathalam Cave, Asian Elephant sanctuary habitat, gear checklist, and trek estimator.',
+        url: 'frontend/brahmagiri-trek/index.html'
+    },
+    {
         title: 'Deomali Peak Trek (Highest Peak of Odisha) Profile',
         category: 'Adventure & Mountains',
         description:
