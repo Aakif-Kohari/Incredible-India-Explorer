@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Spiritual Pilgrimage & Sacred Circuit Explorer - Discover India's sacred Yatra routes, Char Dham, Jyotirlingas, Buddhist Circuit, Sufi Shrines, and interactive pilgrimage maps." name="description"/>
+    <meta property="og:title" content="Spiritual Pilgrimage & Sacred Circuit Explorer | Incredible India"/>
+    <meta property="og:description" content="Explore India's sacred pilgrimage circuits, Char Dham Yatra, 12 Jyotirlingas, 51 Shakti Peethas, Buddhist Trail, Sikh Takhts, and Sufi Shrines."/>
+    
+    <title>Spiritual Pilgrimage & Sacred Circuit Explorer | Incredible India</title>
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <link href="../styles.css" rel="stylesheet"/>
+    <link href="../pages-common.css" rel="stylesheet"/>
+    <link href="spiritual-pilgrimage-sacred-circuit-explorer.css" rel="stylesheet"/>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Spiritual Pilgrimage & Sacred Circuit Explorer",
+      "description": "Comprehensive spiritual suite showcasing India's ancient Yatra circuits, Char Dham, 12 Jyotirlingas, Buddhist Trail, and holy pilgrimage destinations.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+                <a href="../festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+                <a href="../culture.html" class="nav-link" id="link-culture">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../spiritual.html" class="dropdown-item" style="color: var(--saffron)">Spiritual India</a>
+                        <a href="../arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" style="padding-top: 80px;">
+        
+        <!-- Hero Section -->
+        <section class="pilgrimage-hero">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge sacred"><i class="fa-solid fa-om"></i> Sacred Yatra Circuits</span>
+                    <span class="badge chardham"><i class="fa-solid fa-mountain"></i> Char Dham & Jyotirlingas</span>
+                    <span class="badge multi-faith"><i class="fa-solid fa-place-of-worship"></i> Multi-Faith Harmony</span>
+                </div>
+                <h1 class="hero-title animate-slide-up">Spiritual Pilgrimage & Sacred Circuit Explorer</h1>
+                <p class="hero-description animate-fade-in-delayed">
+                    Embark on a soul-stirring journey across India's sacred landscapes—from the Himalayan peaks of Kedarnath and Badrinath to Varanasi ghats, Bodh Gaya, Golden Temple, and Ajmer Sharif.
+                </p>
+                <div class="hero-actions">
+                    <a href="#circuits-grid" class="btn btn-primary ripple"><i class="fa-solid fa-hands-praying"></i> Explore Sacred Circuits</a>
+                    <a href="#pilgrimage-map" class="btn btn-secondary ripple"><i class="fa-solid fa-map-location-dot"></i> View Yatra Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Telemetry Metrics Bar -->
+        <section class="metrics-bar-section">
+            <div class="section-container">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon saffron-icon"><i class="fa-solid fa-gopuram"></i></div>
+                        <div class="metric-info">
+                            <span class="metric-value">12</span>
+                            <span class="metric-label">Sacred Jyotirlingas</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon gold-icon"><i class="fa-solid fa-place-of-worship"></i></div>
+                        <div class="metric-info">
+                            <span class="metric-value">51</span>
+                            <span class="metric-label">Shakti Peethas</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon green-icon"><i class="fa-solid fa-dharmachakra"></i></div>
+                        <div class="metric-info">
+                            <span class="metric-value">4 Major</span>
+                            <span class="metric-label">Buddhist Holy Sites</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon blue-icon"><i class="fa-solid fa-route"></i></div>
+                        <div class="metric-info">
+                            <span class="metric-value">10+ Sacred</span>
+                            <span class="metric-label">Pilgrimage Circuits</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Circuit Filter Controls -->
+        <section id="circuits-grid" class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge gold-bg">Sacred Yatra Vault</span>
+                    <h2>Pilgrimage Circuits & Holy Destinations</h2>
+                    <p class="section-subtitle">Filter by tradition, region, or altitude to explore India's revered spiritual corridors.</p>
+                </div>
+
+                <div class="filter-controls">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="pilgrimage-search-input" placeholder="Search sacred site, circuit, tradition, or state (e.g., Kedarnath, Char Dham, Bodh Gaya)..."/>
+                    </div>
+                    <div class="filter-buttons-group">
+                        <button class="filter-btn active" data-tradition="all">All Traditions</button>
+                        <button class="filter-btn" data-tradition="Hinduism">Hinduism (Yatras)</button>
+                        <button class="filter-btn" data-tradition="Buddhism">Buddhist Circuit</button>
+                        <button class="filter-btn" data-tradition="Sikhism">Sikh Takhts</button>
+                        <button class="filter-btn" data-tradition="Sufism">Sufi Shrines</button>
+                        <button class="filter-btn" data-tradition="Jainism">Jain Tirthas</button>
+                    </div>
+                </div>
+
+                <div class="circuits-grid" id="circuits-grid-container">
+                    <!-- Dynamic Circuit Cards Rendered via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Yatra Route Map -->
+        <section id="pilgrimage-map" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Yatra Telemetry</span>
+                    <h2>Interactive Sacred Circuit Map</h2>
+                    <p class="section-subtitle">Locate holy shrines, high-altitude trekking routes, and river confluence sites across India.</p>
+                </div>
+                <div id="pilgrimage-map-container" aria-label="Interactive map of Indian pilgrimage circuits"></div>
+            </div>
+        </section>
+
+        <!-- Spiritual Heritage & Millennia Timeline -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #e91e63; color: white;">Sacred Timeline</span>
+                    <h2>Millennia of Indian Spiritual Philosophy</h2>
+                    <p class="section-subtitle">Tracing Vedic chanting traditions, Enlightenment at Bodh Gaya, Bhakti movement, and modern pilgrimage infrastructure.</p>
+                </div>
+
+                <div class="timeline-container" id="pilgrimage-timeline-container">
+                    <!-- Dynamic Timeline Steps Rendered via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Pilgrimage Detail Modal -->
+        <div class="pilgrimage-modal" id="pilgrimage-modal" aria-hidden="true" role="dialog">
+            <div class="modal-content">
+                <span class="modal-close" id="pilgrimage-modal-close-btn">&times;</span>
+                <div id="pilgrimage-modal-body-container">
+                    <!-- Filled dynamically via JS -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" style="padding: 40px 0; background: #0a0e17; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);">
+        <div class="section-container">
+            <p style="color: #aaa; font-size: 0.9rem;">&copy; 2026 Incredible India Explorer. Spiritual Pilgrimage & Sacred Circuit Suite.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../pages-common.js"></script>
+    <script src="spiritual-pilgrimage-sacred-circuit-explorer.js"></script>
+</body>
+</html>
