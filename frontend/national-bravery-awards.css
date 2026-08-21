@@ -1,0 +1,645 @@
+/* ==========================================================================
+   NATIONAL BRAVERY AWARDS EXPLORER — STYLESHEET
+   Supports dark/light theme, glassmorphism, category badges, purpose cards,
+   stepper workflow, timeline connectors, and image gallery modal.
+   ========================================================================== */
+
+.nba-page-body {
+    background-color: var(--bg-color, #0F172A);
+    color: var(--text-color, #F8FAFC);
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.nba-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Breadcrumbs Navigation */
+.breadcrumb-nav {
+    padding: 1.25rem 0;
+    background: var(--bg-surface, rgba(30, 41, 59, 0.8));
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+    position: sticky;
+    top: 70px;
+    z-index: 90;
+}
+
+.breadcrumb-nav .nba-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.back-btn, .share-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
+    padding: 0.55rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-color, #F8FAFC);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.back-btn:hover, .share-btn:hover {
+    background: linear-gradient(135deg, #DC2626, #B91C1C);
+    color: #FFFFFF;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
+}
+
+.breadcrumbs {
+    font-size: 0.9rem;
+    color: var(--text-muted, #94A3B8);
+}
+
+.breadcrumbs a {
+    color: var(--gold, #D4AF37);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs span {
+    color: var(--text-muted, #94A3B8);
+}
+
+/* Hero Section */
+.nba-hero {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(185, 28, 28, 0.75) 50%, rgba(180, 83, 9, 0.6) 100%),
+                radial-gradient(circle at top right, rgba(220, 38, 38, 0.18), transparent 60%);
+    padding: 4rem 0 3.5rem;
+    border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.nba-kicker {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    background: rgba(220, 38, 38, 0.18);
+    border: 1px solid rgba(220, 38, 38, 0.35);
+    border-radius: 50px;
+    color: #FCA5A5;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.nba-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin: 0.5rem 0 1rem;
+    color: #FFFFFF;
+    line-height: 1.2;
+}
+
+.nba-hero h1 span {
+    background: linear-gradient(135deg, #EF4444, #F59E0B, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nba-hero p {
+    max-width: 760px;
+    margin: 0 auto 2rem;
+    font-size: 1.15rem;
+    color: #CBD5E1;
+}
+
+.nba-hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.nba-hero-stat {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 1.25rem 2rem;
+    border-radius: 12px;
+    min-width: 140px;
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease;
+}
+
+.nba-hero-stat:hover {
+    transform: translateY(-4px);
+    border-color: rgba(220, 38, 38, 0.4);
+}
+
+.nba-hero-stat strong {
+    display: block;
+    font-size: 2rem;
+    color: #EF4444;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.nba-hero-stat span {
+    font-size: 0.85rem;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Category Filter Tabs Bar */
+.nba-category-bar {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 2.5rem 0 1rem;
+    flex-wrap: wrap;
+}
+
+.nba-category-tab {
+    padding: 0.65rem 1.4rem;
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50px;
+    color: #94A3B8;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.nba-category-tab.active, .nba-category-tab:hover {
+    background: linear-gradient(135deg, #DC2626, #B91C1C);
+    color: #FFFFFF;
+    border-color: #FCA5A5;
+    box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
+}
+
+/* Section Content Blocks */
+.nba-section {
+    padding: 3rem 0 5rem;
+}
+
+.nba-content-block {
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2.25rem;
+    margin-bottom: 2.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s ease;
+}
+
+.nba-content-block:hover {
+    border-color: rgba(220, 38, 38, 0.25);
+}
+
+.nba-content-block h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #F8FAFC;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid rgba(220, 38, 38, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+.nba-content-block p {
+    color: #CBD5E1;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+/* Purpose & Category Grid Cards */
+.nba-grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.nba-subcat-card {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.nba-subcat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #EF4444, #F59E0B);
+}
+
+.nba-subcat-card h3 {
+    font-size: 1.2rem;
+    color: #F8FAFC;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Process Stepper */
+.nba-process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.75rem;
+}
+
+.nba-step {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    position: relative;
+    transition: transform 0.25s ease;
+}
+
+.nba-step:hover {
+    transform: translateY(-4px);
+    border-color: #EF4444;
+}
+
+.nba-step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #DC2626, #B91C1C);
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.75rem;
+    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.4);
+}
+
+.nba-step-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #F8FAFC;
+    margin-bottom: 0.35rem;
+}
+
+.nba-step-desc {
+    font-size: 0.8rem;
+    color: #94A3B8;
+    line-height: 1.4;
+}
+
+/* Recipient Cards Grid */
+.nba-recipients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.nba-recipient-card {
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.nba-recipient-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(220, 38, 38, 0.5);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.nba-recipient-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 1rem;
+}
+
+.nba-recipient-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #DC2626, #B91C1C);
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #D4AF37;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+
+.nba-recipient-meta h4 {
+    margin: 0 0 2px;
+    font-size: 1.05rem;
+    color: #F8FAFC;
+}
+
+.nba-recipient-category {
+    font-size: 0.82rem;
+    color: #FCA5A5;
+    font-weight: 600;
+    display: block;
+}
+
+.nba-recipient-year {
+    font-size: 0.78rem;
+    color: #94A3B8;
+}
+
+.nba-recipient-citation {
+    font-size: 0.9rem;
+    color: #CBD5E1;
+    line-height: 1.5;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Timeline */
+.nba-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 2rem auto 0;
+    padding-left: 2rem;
+}
+
+.nba-timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 5px;
+    bottom: 5px;
+    width: 3px;
+    background: linear-gradient(to bottom, #EF4444, #F59E0B, #3B82F6);
+    border-radius: 3px;
+}
+
+.nba-timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.nba-timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 4px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #EF4444;
+    border: 3px solid #0F172A;
+    box-shadow: 0 0 0 2px #EF4444;
+}
+
+.nba-timeline-year {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    border-radius: 4px;
+    color: #FCA5A5;
+    font-weight: 800;
+    font-size: 0.85rem;
+    margin-bottom: 0.35rem;
+}
+
+.nba-timeline-content h4 {
+    margin: 0.25rem 0 0.4rem;
+    font-size: 1.1rem;
+    color: #F8FAFC;
+}
+
+.nba-timeline-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #94A3B8;
+}
+
+/* Image Gallery Grid */
+.nba-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.nba-gallery-item {
+    position: relative;
+    height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.8);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.nba-gallery-item:hover {
+    transform: scale(1.03);
+    border-color: #EF4444;
+}
+
+.nba-gallery-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(185, 28, 28, 0.4), rgba(15, 23, 42, 0.9));
+    color: #FCA5A5;
+    font-weight: 700;
+    text-align: center;
+    padding: 1rem;
+}
+
+.nba-gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+    color: #FFFFFF;
+}
+
+.nba-gallery-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.nba-gallery-sub {
+    font-size: 0.78rem;
+    color: #94A3B8;
+}
+
+/* Modal Lightbox */
+.nba-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.nba-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.nba-modal-content {
+    background: rgba(30, 41, 59, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    max-width: 650px;
+    width: 100%;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.nba-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    background: none;
+    border: none;
+    color: #94A3B8;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.nba-modal-close:hover {
+    color: #FFFFFF;
+}
+
+/* Toast Notifications */
+.nba-toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #EF4444;
+    color: #FFFFFF;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    z-index: 1100;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.nba-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Scroll To Top */
+.btn-scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #DC2626, #B91C1C);
+    color: #FFFFFF;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 800;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+    z-index: 95;
+}
+
+.btn-scroll-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.btn-scroll-top:hover {
+    transform: translateY(-3px);
+}
+
+/* Responsive Queries */
+@media (max-width: 768px) {
+    .nba-hero h1 {
+        font-size: 2rem;
+    }
+    .nba-hero p {
+        font-size: 1rem;
+    }
+    .nba-content-block {
+        padding: 1.5rem;
+    }
+    .nba-process-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .nba-hero h1 {
+        font-size: 1.65rem;
+    }
+    .nba-process-steps {
+        grid-template-columns: 1fr;
+    }
+}

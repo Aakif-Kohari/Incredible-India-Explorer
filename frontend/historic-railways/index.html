@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Railways Historic Routes | Incredible India Explorer</title>
+    <meta name="description" content="Explore India's historic railway routes, including the Darjeeling Himalayan Railway and Palace on Wheels.">
+    
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="../../pages-common.css">
+    
+    <!-- Feature Specific Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="game-header">
+        <div class="header-container">
+            <a href="../../index.html" class="back-link railway-back-link">← Back to Explorer</a>
+            <h1>🚂 Indian Railways Historic Routes</h1>
+            <p class="subtitle">Explore India's railway heritage and history.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="railway-container">
+        
+        <!-- Controls for alternative interaction -->
+        <section class="railway-controls" aria-label="Route Selection">
+            <h2>Select a historic railway route:</h2>
+            <div class="railway-buttons-wrapper" id="railway-buttons-container">
+                <!-- Buttons injected by script.js -->
+            </div>
+        </section>
+
+        <!-- Workspace: SVG Map & Info Panel -->
+        <section class="railway-workspace" aria-label="Interactive Railways Map Workspace">
+            
+            <!-- SVG Map -->
+            <div class="railway-map-wrapper">
+                <svg id="historic-railways-svg" class="railway-map" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic Map of Historic Indian Railways">
+                    
+                    <!-- Base Schematic India Outline -->
+                    <path class="india-base" d="M 220 60 Q 380 40 460 70 Q 550 50 680 140 Q 750 200 700 320 Q 640 450 520 540 Q 420 580 340 500 Q 250 420 180 300 Q 140 200 220 60 Z" />
+
+                    <!-- Route Paths injected by script.js -->
+                    <g id="railway-paths-group"></g>
+
+                    <!-- Station Markers injected by script.js -->
+                    <g id="railway-markers-group"></g>
+                </svg>
+                
+                <div class="map-instruction">
+                    <span class="icon">👆</span> Select a route on the map or click a button above to view details.
+                </div>
+            </div>
+
+            <!-- Route Info Panel -->
+            <div class="railway-info-panel">
+                <div class="info-card default-state" id="railway-info-card" aria-live="polite">
+                    <div class="empty-state-content">
+                        <div class="empty-icon">🛤️</div>
+                        <h3>Select a Route</h3>
+                        <p>Click on a historic railway route to explore its heritage, engineering, and cultural significance.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        
+    </main>
+
+    <!-- Scripts -->
+    <script src="../../pages-common.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
