@@ -5,6 +5,19 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Daraganj Ghat — Prayagraj Historic Riverfront & Sangam Profile',
+        category: 'Heritage & Pilgrimage',
+        description:
+            'Explore Daraganj Ghat in Prayagraj: its historic riverfront culture, connection with the Yamuna and Ganga rivers, Prince Dara Shikoh etymology, sacred Beni Madhav and Nag Vasuki temples, Suryakant Tripathi \'Nirala\' literary legacy, and proximity to Triveni Sangam.',
+        url: 'frontend/daraganj-ghat/index.html'},
+  {
+        title: 'Dandi Ghat — Varanasi Monastic Riverfront Profile',
+        category: 'Heritage & Pilgrimage',
+        description:
+            'Explore Dandi Ghat in Varanasi: dedicated to Dandi Sannyasis of Adi Shankaracharya\'s Advaita Vedanta tradition, sacred wooden danda symbolism, 1911 stone reconstruction by Lalooji Agarwal, Dandi Vinayaka shrine, and riverfront ashram architecture.',
+        url: 'frontend/dandi-ghat/index.html'
+    },
+    {
         title: 'Brahmagiri Peak Trek (Coorg & Wayanad) Profile',
         category: 'Adventure & Sanctuary Treks',
         description:
@@ -5905,6 +5918,13 @@ window.indiaSearchIndex = [
         title: "Mawryngkhang Trek",
         keywords: "mawryngkhang, trek, meghalaya, bamboo trail, wahkhen, scariest trek",
         description: "Explore the Mawryngkhang Trek in Meghalaya. Known as the scariest trek in Meghalaya, it features bamboo bridges, dramatic rock formations, and dense forest ecosystems.",
-        url: "frontend/mawryngkhang-trek/index.html"
+        url: "frontend/mawryngkhang-trek/index.html"},
+  
+    // --- Kumara Parvatha Trek Explorer ---
+    {
+        title: "Kumara Parvatha Trek",
+        keywords: "kumara parvatha, trek, karnataka, pushpagiri, western ghats, kukke subramanya",
+        description: "Explore the Kumara Parvatha Trek (1,712m) in Karnataka's Pushpagiri Wildlife Sanctuary. Detailed route information, safety guidelines, and gear checklist.",
+        url: "frontend/kumara-parvatha-trek/index.html"
     }
 ];
