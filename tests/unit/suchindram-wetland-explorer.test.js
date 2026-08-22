@@ -158,7 +158,7 @@ describe('Suchindram Wetland Explorer — Styles & Scripts', () => {
         expect(css).toContain('.suchindram-tabs-bar');
         expect(css).toContain('.species-card');
         expect(css).toContain('.lightbox-modal');
-        expect(css).toContain('body.light-theme');
+        expect(css).toContain('[data-theme="light"]');
     });
 
     it('includes script logic for rendering, filtering, tabs, map hotspots, and lightbox', () => {

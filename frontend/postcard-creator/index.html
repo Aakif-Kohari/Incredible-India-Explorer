@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Postcard Creator | Incredible India</title>
+    <meta name="description"
+        content="Design personalized digital postcards featuring iconic Indian monuments and download them as keepsakes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar creator-nav" role="banner">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo" aria-label="Return to Home">
+                <span class="saffron">Incredible</span> <span class="gold">India</span> <span
+                    class="green">Explorer</span>
+            </a>
+            <nav class="nav-menu" role="navigation">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="#monuments" class="nav-link">Monuments</a>
+                <a href="#editor" class="nav-link">Editor</a>
+            </nav>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        </div>
+    </header>
+
+    <main role="main">
+        <section class="hero-section creator-hero">
+            <div class="hero-content animate-on-scroll">
+                <h1 class="hero-title">Virtual <span class="accent">Postcard</span> Creator</h1>
+                <p class="hero-subtitle">Design a personalized postcard from India’s most iconic monuments and download
+                    your creation as a beautiful keepsake.</p>
+            </div>
+        </section>
+
+        <div class="creator-workspace" id="editor">
+            <!-- Controls Panel -->
+            <aside class="controls-panel" aria-label="Postcard Customization Controls">
+                <h2 class="panel-title">Customize Postcard</h2>
+
+                <fieldset class="control-group" id="monuments">
+                    <legend>1. Select Monument</legend>
+                    <div class="monument-grid" id="monument-grid">
+                        <!-- Populated by JS -->
+                    </div>
+                </fieldset>
+
+                <fieldset class="control-group">
+                    <legend>2. Your Message</legend>
+                    <label for="postcard-message" class="sr-only">Postcard Message</label>
+                    <textarea id="postcard-message" maxlength="150"
+                        placeholder="Greetings from Rajasthan! The palaces are breathtaking...">Greetings from Incredible India! Wishing you were here to see this marvel.</textarea>
+                    <div class="char-count"><span id="char-count">0</span>/150</div>
+                </fieldset>
+
+                <fieldset class="control-group">
+                    <legend>3. Typography</legend>
+                    <div class="control-row">
+                        <label for="font-family">Font Style</label>
+                        <select id="font-family">
+                            <option value="'Playfair Display', serif">Elegant Serif</option>
+                            <option value="'Caveat', cursive">Handwritten</option>
+                            <option value="'Outfit', sans-serif">Modern Sans</option>
+                        </select>
+                    </div>
+                    <div class="control-row">
+                        <label for="font-size">Font Size</label>
+                        <input type="range" id="font-size" min="24" max="72" value="42">
+                    </div>
+                    <div class="control-row">
+                        <label for="text-color">Text Color</label>
+                        <input type="color" id="text-color" value="#2C1810">
+                    </div>
+                    <div class="control-row toggle-row">
+                        <label>Styles</label>
+                        <div class="toggle-btns">
+                            <button type="button" class="style-btn" id="btn-bold" aria-pressed="false"><b>B</b></button>
+                            <button type="button" class="style-btn" id="btn-italic"
+                                aria-pressed="false"><i>I</i></button>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="control-group">
+                    <legend>4. Decorations</legend>
+                    <div class="control-row toggle-row">
+                        <label>Elements</label>
+                        <div class="toggle-btns">
+                            <button type="button" class="deco-btn active" data-deco="stamp"
+                                aria-pressed="true">Stamp</button>
+                            <button type="button" class="deco-btn" data-deco="border"
+                                aria-pressed="false">Border</button>
+                            <button type="button" class="deco-btn" data-deco="mandala"
+                                aria-pressed="false">Mandala</button>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <button type="button" class="btn-download" id="btn-download">
+                    📥 Download Postcard
+                </button>
+            </aside>
+
+            <!-- Live Preview Panel -->
+            <section class="preview-panel">
+                <div class="canvas-wrapper">
+                    <canvas id="postcard-canvas" width="1400" height="900"
+                        aria-label="Live preview of your postcard"></canvas>
+                    <p class="sr-only" id="canvas-desc">A digital postcard featuring a monument with a custom message.
+                    </p>
+                </div>
+                <div class="template-presets">
+                    <span class="preset-label">Quick Presets:</span>
+                    <button class="preset-btn" data-preset="royal">Royal Rajasthan</button>
+                    <button class="preset-btn" data-preset="mughal">Mughal Heritage</button>
+                    <button class="preset-btn" data-preset="coastal">Coastal India</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Incredible India Explorer. Virtual Postcard Creator.</p>
+    </footer>
+
+    <script src="templates.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>
