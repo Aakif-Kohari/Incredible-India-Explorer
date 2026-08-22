@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Listen to 3-second audio clips and guess which Indian language is being spoken. An accessible, educational audio quiz covering India's linguistic diversity.">
+    <title>Language Guesser | Incredible India</title>
+    <link rel="icon" href="data:,">
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script>
+        (function () {
+            let theme = 'dark';
+            try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch (e) { }
+            if (theme === 'light') document.body.classList.add('light-theme');
+        })();
+    </script>
+
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span><span class="gold">India</span><span
+                    class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link active">Home</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../culture/culture.html" class="dropdown-item">Culture Overview</a>
+                        <a href="../languages/languages.html" class="dropdown-item">Languages of India</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                        <a href="../geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="lg-main" id="app-root">
+        <!-- HERO / SETUP SCREEN -->
+        <section class="lg-hero" id="setup-screen">
+            <div class="lg-hero-backdrop" aria-hidden="true"></div>
+            <div class="lg-hero-content reveal">
+                <span class="hero-kicker">🎧 Audio Quiz · Linguistic Diversity</span>
+                <h1 class="hero-title">Language Guesser</h1>
+                <p class="hero-subtitle">Listen to a 3-second audio clip and guess which Indian language is being
+                    spoken. Can you identify all 22 official languages?</p>
+
+                <div class="lg-setup-panel glass-card">
+                    <h2>Select Difficulty</h2>
+                    <div class="difficulty-options" role="radiogroup" aria-label="Difficulty level">
+                        <button class="diff-btn active" data-diff="easy" tabindex="0" role="radio" aria-checked="true">
+                            <span class="diff-label">Easy</span>
+                            <span class="diff-desc">5 rounds · Common languages</span>
+                        </button>
+                        <button class="diff-btn" data-diff="medium" tabindex="0" role="radio" aria-checked="false">
+                            <span class="diff-label">Medium</span>
+                            <span class="diff-desc">8 rounds · Similar families</span>
+                        </button>
+                        <button class="diff-btn" data-diff="hard" tabindex="0" role="radio" aria-checked="false">
+                            <span class="diff-label">Hard</span>
+                            <span class="diff-desc">10 rounds · All languages</span>
+                        </button>
+                    </div>
+                    <button class="lg-start-btn" id="start-btn" tabindex="0">Start Quiz ▶</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIZ SCREEN -->
+        <section class="lg-quiz-section" id="quiz-screen" hidden>
+            <div class="lg-container">
+                <!-- Progress Bar -->
+                <div class="lg-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    <div class="lg-progress-fill" id="progress-fill"></div>
+                </div>
+                <p class="lg-progress-text" id="progress-text">Question 1 of 5</p>
+
+                <!-- Stats Row -->
+                <div class="lg-stats-row">
+                    <div class="lg-stat"><span class="stat-label">Score</span><span class="stat-value"
+                            id="score-display">0</span></div>
+                    <div class="lg-stat"><span class="stat-label">Streak</span><span class="stat-value"
+                            id="streak-display">0</span></div>
+                    <div class="lg-stat"><span class="stat-label">Accuracy</span><span class="stat-value"
+                            id="accuracy-display">—</span></div>
+                </div>
+
+                <!-- Audio Player -->
+                <div class="lg-audio-player glass-card" id="audio-player">
+                    <button class="play-btn" id="play-btn" tabindex="0" role="button"
+                        aria-label="Play audio clip">▶</button>
+                    <div class="audio-track">
+                        <div class="audio-progress-bar" id="audio-progress-bar">
+                            <div class="audio-progress-fill" id="audio-progress-fill"></div>
+                        </div>
+                        <span class="audio-time" id="audio-time">0:00 / 0:03</span>
+                    </div>
+                    <button class="replay-btn" id="replay-btn" tabindex="0" role="button"
+                        aria-label="Replay audio clip">↻</button>
+                </div>
+                <p class="lg-prompt">Listen carefully. Which language is this?</p>
+
+                <!-- Answer Options -->
+                <div class="lg-options-grid" id="options-grid" role="group" aria-label="Answer options">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Feedback Panel -->
+                <div class="lg-feedback glass-card" id="feedback-panel" hidden aria-live="polite">
+                    <div class="feedback-icon" id="feedback-icon"></div>
+                    <h3 class="feedback-title" id="feedback-title"></h3>
+                    <p class="feedback-language" id="feedback-language"></p>
+                    <div class="feedback-details">
+                        <p><strong>Family:</strong> <span id="feedback-family"></span></p>
+                        <p><strong>Region:</strong> <span id="feedback-region"></span></p>
+                        <p class="feedback-explanation" id="feedback-explanation"></p>
+                    </div>
+                    <button class="lg-next-btn" id="next-btn" tabindex="0">Next Question →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESULTS SCREEN -->
+        <section class="lg-results-section" id="results-screen" hidden>
+            <div class="lg-container">
+                <div class="lg-results-card glass-card">
+                    <div class="results-icon">🏆</div>
+                    <h2 class="results-title" id="results-title">Excellent!</h2>
+                    <p class="results-score" id="results-score">You scored 80/100</p>
+                    <div class="results-stats">
+                        <div class="result-stat"><span class="rs-label">Correct</span><span class="rs-value"
+                                id="rs-correct">8/10</span></div>
+                        <div class="result-stat"><span class="rs-label">Accuracy</span><span class="rs-value"
+                                id="rs-accuracy">80%</span></div>
+                        <div class="result-stat"><span class="rs-label">Best Streak</span><span class="rs-value"
+                                id="rs-streak">5</span></div>
+                        <div class="result-stat"><span class="rs-label">Time</span><span class="rs-value"
+                                id="rs-time">1:42</span></div>
+                    </div>
+                    <p class="results-message" id="results-message"></p>
+                    <button class="lg-restart-btn" id="restart-btn" tabindex="0">Play Again ↻</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo"><span class="saffron">Incredible</span><span
+                        class="gold">India</span><span class="green">Explorer</span></a>
+                <p>An interactive digital guide to the culture and heritage of India.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html">Home</a>
+                <a href="../languages/languages.html">Languages</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer.</p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script src="../app.js" defer></script>
+    <script src="../router.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,311 @@
+/* Folk Dances Styles */
+
+:root {
+    --primary-color: #007b83;
+    --secondary-color: #ff8c42;
+    --bg-main: #fcfbf9;
+    --card-bg: #ffffff;
+    --text-main: #2c2c2c;
+    --text-muted: #666666;
+    --border-color: #e0e0e0;
+    --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body.dark-theme {
+    --bg-main: #121212;
+    --card-bg: #1e1e1e;
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --border-color: #333333;
+    --primary-color: #00a8b5;
+    --shadow-soft: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.folk-dances-module {
+    background-color: var(--bg-main);
+    min-height: calc(100vh - 60px);
+    font-family: 'Inter', sans-serif;
+    padding-bottom: 4rem;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #0b3d41, var(--primary-color));
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    font-family: 'Georgia', serif;
+    color: var(--secondary-color);
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* Main Interactive Container */
+.map-container {
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    display: flex;
+    gap: 3rem;
+    padding: 0 2rem;
+    align-items: flex-start;
+}
+
+/* SVG Map Area */
+.map-area {
+    flex: 1 1 55%;
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-color);
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-area svg {
+    width: 100%;
+    height: auto;
+    max-height: 700px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+/* Dark mode overrides for SVG */
+body.dark-theme .map-area svg .state {
+    fill: #2a2a2a;
+    stroke: #121212;
+}
+body.dark-theme .map-area svg .state.non-interactive {
+    fill: #1a1a1a !important;
+}
+body.dark-theme .map-area svg .state:hover, 
+body.dark-theme .map-area svg .state:focus {
+    fill: var(--secondary-color);
+}
+body.dark-theme .map-area svg .state.active {
+    fill: var(--primary-color);
+}
+body.dark-theme .map-area svg #state-labels text {
+    fill: #aaaaaa !important;
+}
+
+/* Info Panel Area */
+.info-panel {
+    flex: 1 1 45%;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-color);
+    min-height: 500px;
+    position: sticky;
+    top: 80px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Empty State */
+.empty-state {
+    padding: 4rem 2rem;
+    text-align: center;
+    color: var(--text-muted);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 500px;
+}
+
+.empty-state h3 {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+/* Dance Details (Hidden by default) */
+.dance-details {
+    display: block;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.dance-details.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dance-image-container {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    background: #e0e0e0;
+    overflow: hidden;
+}
+
+body.dark-theme .dance-image-container {
+    background: #2a2a2a;
+}
+
+.dance-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+.image-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 1rem;
+    z-index: 1;
+}
+
+.dance-content {
+    padding: 2rem;
+}
+
+.dance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.dance-header h2 {
+    font-family: 'Georgia', serif;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.dance-state-badge {
+    background: var(--secondary-color);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dance-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-main);
+    margin-bottom: 2rem;
+}
+
+.dance-meta-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: var(--bg-main);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.meta-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.meta-value {
+    font-size: 1rem;
+    color: var(--text-main);
+    line-height: 1.4;
+}
+
+/* Map Tooltip */
+.map-tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    pointer-events: none;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    transform: translate(-50%, -100%);
+    margin-top: -10px;
+    white-space: nowrap;
+}
+
+/* Responsive Overrides */
+@media (max-width: 992px) {
+    .map-container {
+        flex-direction: column;
+    }
+    
+    .map-area, .info-panel {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+    
+    .info-panel {
+        position: static;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .dance-header {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .dance-header h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .dance-details {
+        animation: none;
+    }
+    .state {
+        transition: none;
+    }
+}

@@ -1,0 +1,253 @@
+/* thomas-cup-explorer.css
+   Styling for Thomas Cup: India's Badminton Journey. Mirrors the site's design language. */
+
+:root {
+  --tc-saffron: #FF9933;
+  --tc-green: #138808;
+  --tc-navy: #0B1F3A;
+  --tc-gold: #D4AF37;
+  --tc-bg: #FAFAF7;
+  --tc-card-bg: #FFFFFF;
+  --tc-text: #1C1C1C;
+  --tc-muted: #6B7280;
+  --tc-border: #E5E7EB;
+  --tc-radius: 14px;
+  --tc-shadow: 0 4px 14px rgba(11, 31, 58, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, -apple-system, sans-serif;
+  background: var(--tc-bg);
+  color: var(--tc-text);
+}
+
+.hidden { display: none !important; }
+
+/* Hero */
+.tc-hero {
+  background: linear-gradient(135deg, var(--tc-saffron), var(--tc-navy) 70%, var(--tc-green));
+  color: #fff;
+  padding: 3rem 1.5rem 2.5rem;
+  text-align: center;
+}
+.tc-hero h1 { margin: 0 0 0.5rem; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.tc-hero p { margin: 0 auto; max-width: 640px; opacity: 0.92; }
+
+.tc-main-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+/* Overview strip */
+.tc-overview-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+.tc-overview-stat {
+  background: var(--tc-card-bg);
+  border: 1px solid var(--tc-border);
+  border-radius: var(--tc-radius);
+  box-shadow: var(--tc-shadow);
+  padding: 1rem;
+  text-align: center;
+}
+.tc-stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--tc-navy);
+}
+.tc-stat-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--tc-muted);
+  margin-top: 0.2rem;
+}
+
+/* View Tabs */
+.tc-view-tabs-nav {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+.btn-tc-view-tab {
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  border: 2px solid var(--tc-border);
+  background: var(--tc-card-bg);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.btn-tc-view-tab:hover { border-color: var(--tc-saffron); }
+.btn-tc-view-tab.active {
+  background: var(--tc-navy);
+  border-color: var(--tc-navy);
+  color: #fff;
+}
+
+/* Controls */
+.tc-controls-bar { margin-bottom: 1rem; }
+.tc-search-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: var(--tc-radius);
+  border: 2px solid var(--tc-border);
+  font-size: 1rem;
+}
+.tc-search-input:focus { outline: none; border-color: var(--tc-saffron); }
+
+.tc-type-filter-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+.btn-tc-type-filter {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--tc-border);
+  background: #fff;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--tc-muted);
+}
+.btn-tc-type-filter.active {
+  background: var(--tc-saffron);
+  border-color: var(--tc-saffron);
+  color: #fff;
+}
+
+/* Timeline */
+.tc-timeline-container {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 3px solid var(--tc-saffron);
+}
+.tc-timeline-node { position: relative; margin-bottom: 1.75rem; }
+.tc-timeline-node::before {
+  content: "";
+  position: absolute;
+  left: -2.42rem;
+  top: 0.3rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--tc-gold);
+  border: 3px solid var(--tc-card-bg);
+  box-shadow: 0 0 0 2px var(--tc-saffron);
+}
+.tc-year-pill {
+  display: inline-block;
+  background: var(--tc-navy);
+  color: #fff;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.tc-timeline-card {
+  background: var(--tc-card-bg);
+  border: 1px solid var(--tc-border);
+  border-radius: var(--tc-radius);
+  padding: 1rem 1.15rem;
+  box-shadow: var(--tc-shadow);
+}
+.tc-timeline-card h3 { margin: 0.4rem 0; font-size: 1rem; }
+.tc-timeline-card p { margin: 0.4rem 0 0; font-size: 0.9rem; }
+
+.tc-type-tag {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.tc-type-milestone { background: rgba(19,136,8,0.12); color: var(--tc-green); }
+.tc-type-historic-tie { background: rgba(212,175,55,0.18); color: #8a6d1c; }
+.tc-type-final { background: rgba(255,153,51,0.18); color: #b5651d; }
+
+.tc-source { font-style: italic; font-size: 0.75rem; color: var(--tc-muted); }
+
+/* Players */
+.tc-players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+.tc-player-card {
+  background: var(--tc-card-bg);
+  border: 1px solid var(--tc-border);
+  border-radius: var(--tc-radius);
+  box-shadow: var(--tc-shadow);
+  padding: 1.25rem;
+  transition: transform 0.15s ease;
+}
+.tc-player-card:hover { transform: translateY(-3px); }
+.tc-player-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+.tc-player-icon { font-size: 1.8rem; }
+.tc-player-era {
+  background: var(--tc-navy);
+  color: #fff;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.tc-player-card h3 { margin: 0.2rem 0 0.3rem; font-size: 1.05rem; }
+.tc-player-role {
+  font-weight: 600;
+  color: var(--tc-saffron);
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+}
+.tc-player-desc { font-size: 0.9rem; margin: 0 0 0.5rem; }
+
+/* Campaigns */
+.tc-campaigns-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+.tc-campaign-card {
+  background: var(--tc-card-bg);
+  border: 1px solid var(--tc-border);
+  border-radius: var(--tc-radius);
+  box-shadow: var(--tc-shadow);
+  padding: 1.25rem;
+}
+.tc-campaign-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+.tc-campaign-year { font-size: 1.3rem; font-weight: 800; color: var(--tc-navy); }
+.tc-campaign-result {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+.tc-result-champion { background: var(--tc-green); }
+.tc-result-qf { background: #6B7280; }
+.tc-result-top4 { background: var(--tc-gold); color: #3a2f0a; }
+
+.tc-campaign-summary { font-size: 0.9rem; margin: 0.4rem 0; }
+
+.tc-empty-msg { text-align: center; padding: 2.5rem 1rem; color: var(--tc-muted); }
+
+/* Footer */
+.tc-footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--tc-muted);
+  font-size: 0.82rem;
+}

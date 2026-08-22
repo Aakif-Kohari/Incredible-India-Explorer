@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Explore Travancore's Conch Coins — an interactive symbol-evolution timeline, zoomable obverse/reverse coin viewer, ruler selector, regional mint map, and coin comparison for the coinage of the Kingdom of Travancore." />
+    <title>Explore Travancore's Conch Coins | Incredible India</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="travancore.css" />
+</head>
+
+<body class="travancore-main">
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                        <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical
+                            Timeline</a>
+                        <a href="../../frontend/gupta-coinage-gallery/index.html" class="dropdown-item">Gupta Coinage
+                            Gallery</a>
+                        <a href="../../frontend/kushan-gold-coinage/index.html" class="dropdown-item">Kushan Gold
+                            Coinage</a>
+                        <a href="../../frontend/vijayanagara-gold-coinage-explorer/index.html"
+                            class="dropdown-item">Vijayanagara Gold Coinage</a>
+                        <a href="../../frontend/travancore-conch-coins-explorer/index.html"
+                            class="dropdown-item">Travancore Conch Coins</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="travancore-hero">
+            <div class="section-container">
+                <div class="hero-badges-row">
+                    <span class="hero-pill pill-era">👑 1729 – 1949 CE</span>
+                    <span class="hero-pill pill-mints">📍 Thiruvananthapuram & the Malabar Coast</span>
+                    <span class="hero-pill pill-metal">🐚 Gold, Silver & Copper — Marked by the Conch</span>
+                </div>
+                <h1>Explore Travancore's Conch Coins <span>(The Shankha Standard)</span></h1>
+                <p class="hero-subtitle">
+                    In 1750 CE, Maharaja Marthanda Varma dedicated the Kingdom of Travancore to
+                    Sree Padmanabhaswamy, and the deity's conch shell — the Shankha — became the
+                    kingdom's unbroken royal emblem. For two centuries it appeared on every
+                    Travancore Fanam, Chuckram, Cash, and Rupee, from tiny hand-punched gold
+                    fanams to machine-struck rupees bearing English legends, before passing into
+                    the modern emblem of Kerala after 1949.
+                </p>
+                <div id="stats-grid" class="stats-grid"></div>
+            </div>
+        </section>
+
+        <section class="travancore-ruler-section">
+            <div class="section-container">
+                <h2 class="sec-title">Select a Ruler</h2>
+                <div class="ruler-selector" id="ruler-selector"></div>
+                <div class="ruler-blurb" id="ruler-blurb"></div>
+            </div>
+        </section>
+
+        <section class="travancore-coins-section">
+            <div class="section-container">
+                <h2 class="sec-title">Coins of the Selected Ruler</h2>
+                <div class="travancore-coin-grid" id="travancore-coin-grid"></div>
+            </div>
+        </section>
+
+        <section class="travancore-viewer-section">
+            <div class="section-container">
+                <h2 class="sec-title">Interactive Coin Viewer</h2>
+                <p class="viewer-hint">Click the glowing dots to inspect symbols and inscriptions. Use the zoom
+                    controls to magnify the coin.</p>
+                <div class="info-card travancore-viewer-card" id="travancore-viewer-card">
+                    <div class="viewer-header">
+                        <h3 id="viewer-name">Select a Coin Above</h3>
+                        <div class="viewer-header-controls">
+                            <div class="zoom-controls" id="zoom-controls">
+                                <button class="zoom-btn" id="zoom-out-btn" aria-label="Zoom Out">−</button>
+                                <span class="zoom-level" id="zoom-level">100%</span>
+                                <button class="zoom-btn" id="zoom-in-btn" aria-label="Zoom In">+</button>
+                                <button class="zoom-btn zoom-reset-btn" id="zoom-reset-btn"
+                                    aria-label="Reset Zoom">Reset</button>
+                            </div>
+                            <div class="viewer-toggle" id="viewer-toggle">
+                                <button class="viewer-toggle-btn active" data-side="obverse">Obverse</button>
+                                <button class="viewer-toggle-btn" data-side="reverse">Reverse</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="viewer-body">
+                        <div class="viewer-coin-wrap">
+                            <div class="viewer-coin-disc" id="viewer-coin-disc">
+                                <div class="viewer-coin-inner" id="viewer-coin-inner">
+                                    <span class="disc-icon">🐚</span>
+                                    <div class="hotspot-layer" id="hotspot-layer"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="viewer-info">
+                            <p class="viewer-face-text" id="viewer-face-text">
+                                Choose a coin from the collection above to inspect it.
+                            </p>
+                            <div class="inscription-box" id="inscription-box" hidden>
+                                <span class="inscription-label">📜 Inscription / Symbol Note</span>
+                                <p id="inscription-text"></p>
+                            </div>
+                            <div class="viewer-meta">
+                                <p id="viewer-denomination"></p>
+                                <p id="viewer-script"></p>
+                                <p id="viewer-circulation"></p>
+                                <p id="viewer-history"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="travancore-symbol-section">
+            <div class="section-container">
+                <h2 class="sec-title">Symbol Evolution</h2>
+                <p class="section-desc">Trace how a single symbol changed across coin types, dies, and reigns —
+                    Coin → Symbol → Design Variation → Period.</p>
+                <div class="symbol-selector" id="symbol-selector"></div>
+                <div class="symbol-meaning" id="symbol-meaning"></div>
+                <div class="symbol-evolution-track" id="symbol-evolution-track"></div>
+            </div>
+        </section>
+
+        <section class="travancore-compare-section">
+            <div class="section-container">
+                <h2 class="sec-title">Compare Coins Side-by-Side</h2>
+                <p class="section-desc">Select any two coins from across Travancore's reigns to compare their
+                    metal, denomination, script, and iconography.</p>
+                <div class="comparison-selectors">
+                    <div class="selector-group">
+                        <label for="coin-a-select">Coin A</label>
+                        <select id="coin-a-select" class="comparison-select"></select>
+                    </div>
+                    <div class="comparison-vs">VS</div>
+                    <div class="selector-group">
+                        <label for="coin-b-select">Coin B</label>
+                        <select id="coin-b-select" class="comparison-select"></select>
+                    </div>
+                </div>
+                <div class="comparison-results" id="comparison-results"></div>
+            </div>
+        </section>
+
+        <section class="travancore-timeline-section">
+            <div class="section-container">
+                <h2 class="sec-title">Historical Timeline</h2>
+                <div class="travancore-timeline" id="travancore-timeline"></div>
+            </div>
+        </section>
+
+        <section class="travancore-territory-section">
+            <div class="section-container">
+                <h2 class="sec-title">Mints & Trade Centres</h2>
+                <p class="section-desc">Click a marker to learn about that town's role in Travancore's conch
+                    coinage.</p>
+                <div class="map-layout">
+                    <div class="map-container">
+                        <div class="map-wrapper" id="map-wrapper">
+                            <svg class="india-map-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+                                <path class="map-country-outline"
+                                    d="M 200,40 L 250,60 L 280,110 L 300,160 L 310,220 L 290,270 L 300,320 L 280,380 L 250,430 L 210,470 L 170,460 L 140,410 L 120,350 L 100,290 L 90,230 L 100,170 L 120,120 L 150,70 Z" />
+                                <path class="map-peak-extent"
+                                    d="M 190,80 L 230,95 L 255,140 L 265,190 L 255,240 L 265,290 L 245,340 L 215,390 L 185,420 L 160,400 L 140,350 L 130,300 L 125,250 L 135,190 L 155,140 L 175,100 Z" />
+                                <path class="map-river" d="M 110,180 Q 200,200 280,190" />
+                                <g id="map-mint-markers"></g>
+                            </svg>
+                            <div id="map-tooltip" class="map-tooltip"></div>
+                        </div>
+                    </div>
+                    <div class="mint-info-panel" id="mint-info-panel">
+                        <div class="mint-placeholder">
+                            <span class="mint-placeholder-icon">📍</span>
+                            <h3>Select a Marker</h3>
+                            <p>Click any marker on the map to explore that town's role in Travancore's conch
+                                coinage.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="references-section">
+            <div class="section-container">
+                <h2>References & Numismatic Sources</h2>
+                <ul class="references-list" id="references-list"></ul>
+            </div>
+        </section>
+    </main>
+
+    <script src="travancore-data.js"></script>
+    <script src="travancore.js"></script>
+</body>
+
+</html>
