@@ -1,0 +1,298 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const DATA = {
+        kicker: 'Western Ghats · Ocyceros griseus · Endemic Hornbill',
+        hero_text:
+            'Explore a Western Ghats endemic bird through introduction, scientific name, classification, distribution, habitat, physical characteristics, diet, behaviour, breeding, ecological importance, conservation status, threats, references and interactive map.',
+        intro_title: 'A Western Ghats endemic and forest seed-dispersal ally',
+        intro_text:
+            'The Malabar Grey Hornbill is a distinctive endemic bird of the Western Ghats. This explorer combines content depth, responsive UI and interactive learning.',
+        stat1: ['Ghats', 'Endemic'],
+        stat2: ['Fruit', 'Seed disperser'],
+        stat3: ['Cavity', 'Nester'],
+        map_badge: 'Interactive distribution map',
+        map_title: 'Explore hornbill ecology points',
+        map_text:
+            'Tap each point to learn about range, canopy habitat, nesting trees, diet, threats and seed dispersal.',
+        card_img: 'assets/travel_mountains.png',
+        card_text:
+            'Explore scientific name, classification, distribution, habitat, physical characteristics, diet, behaviour, breeding, ecological importance, conservation status, threats, facts and references.',
+        facts: [
+            ['Scientific Name', 'Ocyceros griseus', 'Scientific name of the Malabar Grey Hornbill.'],
+            ['Common Name', 'Malabar Grey Hornbill', 'A Western Ghats endemic hornbill species.'],
+            [
+                'Classification',
+                'Bird · Bucerotiformes · Bucerotidae',
+                'A hornbill species belonging to the family Bucerotidae.'
+            ],
+            [
+                'Distribution',
+                'Western Ghats, India',
+                'Endemic to the Western Ghats and south-west Indian hill forests.'
+            ],
+            ['Habitat', 'Evergreen and moist forests', 'Canopy and forest-fruit habitat relationships are central.'],
+            [
+                'Conservation Status',
+                'Least Concern',
+                'Global status is generally treated as Least Concern, while habitat loss still matters.'
+            ]
+        ],
+        intro: [
+            ['Western Ghats endemic', 'The Malabar Grey Hornbill is a distinctive endemic bird of the Western Ghats.'],
+            [
+                'Canopy fruit specialist',
+                'It is strongly associated with fruiting forest trees and plays a role in seed dispersal.'
+            ],
+            ['Recognisable profile', 'It has a grey-brown body, long tail and a bill without a large casque.'],
+            [
+                'Explorer goal',
+                'This page combines taxonomy, ecology, behaviour, breeding, threats, references, and an interactive distribution map.'
+            ]
+        ],
+        sections: [
+            ['classification', 'Classification', 'Taxonomy snapshot'],
+            ['distribution', 'Distribution', 'Western Ghats endemic range'],
+            ['habitat', 'Habitat', 'Forest canopy and fruiting-tree landscapes'],
+            ['physical', 'Physical Characteristics', 'Grey tones, long tail and hornbill bill'],
+            ['diet', 'Diet', 'Fruit, figs and forest-floor supplements'],
+            ['behaviour', 'Behaviour', 'Canopy movement, calls and family groups'],
+            ['breeding', 'Breeding', 'Cavity nesting and old-tree dependence'],
+            ['ecology', 'Ecological Importance', 'Seed dispersal and forest regeneration'],
+            ['conservation', 'Conservation Status', 'Globally stable but habitat-sensitive'],
+            ['threats', 'Threats', 'Habitat loss, fragmentation and nesting-tree decline']
+        ],
+        classification: [
+            ['Kingdom', 'Animalia'],
+            ['Class', 'Aves'],
+            ['Order', 'Bucerotiformes'],
+            ['Family', 'Bucerotidae'],
+            ['Genus', 'Ocyceros'],
+            ['Species', 'Ocyceros griseus']
+        ],
+        distribution: [
+            ['Western Ghats endemic', 'The species is endemic to India and found in the Western Ghats.'],
+            ['Key states', 'The explorer highlights Kerala, Karnataka, Goa, Maharashtra and Tamil Nadu.'],
+            ['Resident bird', 'It is generally treated as a resident forest and plantation-associated species.'],
+            ['Range conservation', 'Forest continuity and fruiting-tree availability influence long-term survival.']
+        ],
+        habitat: [
+            [
+                'Forest canopy',
+                'The species uses forest canopy and mid-canopy areas where fruiting trees are available.'
+            ],
+            ['Evergreen forests', 'Evergreen and semi-evergreen forest patches are important habitat contexts.'],
+            ['Moist deciduous forest', 'It may also occur in moist deciduous forest and wooded landscapes.'],
+            [
+                'Habitat quality',
+                'Large trees, nesting cavities and fruiting species are important for ecological health.'
+            ]
+        ],
+        physical: [
+            ['Grey-brown plumage', 'Recognised by subdued grey-brown tones rather than bright hornbill colours.'],
+            ['Long tail', 'A long tail contributes to its visible silhouette in the canopy.'],
+            ['Bill structure', 'It has a hornbill-like bill but lacks a huge prominent casque.'],
+            [
+                'Sexual differences',
+                'Male and female appearance can differ subtly around bill colouration and facial features.'
+            ]
+        ],
+        diet: [
+            [
+                'Fruit-focused diet',
+                'Fruits, especially figs and other forest fruits, are central to the hornbill food story.'
+            ],
+            ['Seed dispersal', 'By eating fruits and moving through the canopy, hornbills help disperse seeds.'],
+            ['Occasional animal prey', 'Small animals and invertebrates can supplement the diet.'],
+            ['Fruiting trees matter', 'Protecting fruiting trees supports hornbills and forest regeneration.']
+        ],
+        behaviour: [
+            ['Canopy movement', 'The bird moves through trees, often calling and travelling across forest patches.'],
+            ['Pairs and small groups', 'It may be seen in pairs or family groups around fruiting trees.'],
+            ['Vocal presence', 'Calls are a useful clue for detecting hornbills in forest habitats.'],
+            [
+                'Forest dependency',
+                'Behaviour is tied to canopy continuity, nesting cavities and seasonal fruit availability.'
+            ]
+        ],
+        breeding: [
+            ['Cavity nesting', 'Like other hornbills, nesting depends on suitable tree cavities.'],
+            [
+                'Female sealed inside',
+                'Hornbill breeding often involves the female being sealed inside a nest cavity while the male brings food.'
+            ],
+            ['Large trees needed', 'Old trees with cavities are essential breeding resources.'],
+            ['Breeding risk', 'Loss of cavity-bearing trees can reduce breeding success even where forest remains.']
+        ],
+        ecology: [
+            [
+                'Seed disperser',
+                'The species contributes to forest regeneration through fruit consumption and seed dispersal.'
+            ],
+            ['Fruiting-tree network', 'Hornbill movement links fruiting trees across landscapes.'],
+            [
+                'Indicator species',
+                'Healthy hornbill presence can indicate mature forest structure and food availability.'
+            ],
+            ['Ecosystem connector', 'Its ecological role connects bird conservation with forest restoration.']
+        ],
+        conservation: [
+            ['Global status', 'The species is generally listed as Least Concern globally.'],
+            [
+                'Local concerns',
+                'Habitat degradation, fragmentation and large-tree loss remain important local concerns.'
+            ],
+            ['Western Ghats hotspot', 'Conserving this biodiversity hotspot protects the species.'],
+            ['Monitoring value', 'Long-term surveys and citizen science records help understand distribution trends.']
+        ],
+        threats: [
+            ['Habitat loss', 'Forest conversion and degradation can reduce food, nesting and movement resources.'],
+            ['Fragmentation', 'Broken canopy and isolated patches can limit movement and breeding success.'],
+            ['Loss of nesting trees', 'Removal of old cavity-bearing trees directly affects breeding.'],
+            ['Fruiting-tree decline', 'Reduction in fruiting trees weakens diet and seed-dispersal links.']
+        ],
+        points: [
+            [
+                'range',
+                'Western Ghats range',
+                38,
+                36,
+                'Distribution',
+                'The species is endemic to the Western Ghats and associated south-west Indian forests.'
+            ],
+            [
+                'canopy',
+                'Canopy fruit zone',
+                55,
+                44,
+                'Habitat',
+                'Canopy and fruiting trees are central to hornbill ecology.'
+            ],
+            [
+                'nest',
+                'Cavity nesting tree',
+                64,
+                58,
+                'Breeding',
+                'Large old trees with cavities are essential nesting resources.'
+            ],
+            ['food', 'Fruiting tree patch', 43, 65, 'Diet', 'Fruits support diet and seed dispersal.'],
+            [
+                'threat',
+                'Fragmented forest edge',
+                70,
+                32,
+                'Threats',
+                'Habitat fragmentation and tree loss are important conservation concerns.'
+            ],
+            [
+                'ecology',
+                'Seed dispersal route',
+                50,
+                78,
+                'Ecological Importance',
+                'Hornbills help move seeds through forest landscapes.'
+            ]
+        ],
+        gallery: [
+            [
+                'Western Ghats endemic',
+                '../../assets/travel_mountains.png',
+                'A placeholder visual for the Western Ghats landscape.'
+            ],
+            [
+                'Canopy and fruiting forest',
+                '../../assets/travel_hidden.png',
+                "Forest habitat and fruiting trees shape the species' ecology."
+            ],
+            [
+                'Hornbill conservation',
+                '../../assets/hero_banner.png',
+                'The explorer uses project assets as educational placeholders.'
+            ],
+            [
+                'Forest heritage',
+                '../../assets/heritage_monuments.png',
+                'Biodiversity learning is presented in the Incredible India Explorer style.'
+            ]
+        ],
+        interesting: [
+            ['No huge casque', 'Unlike many hornbills, the Malabar Grey Hornbill lacks a large prominent casque.'],
+            ['Forest gardener', 'By dispersing seeds, it supports forest regeneration.'],
+            [
+                'Endemic responsibility',
+                'Because it is Western Ghats endemic, India has special responsibility for its habitat.'
+            ],
+            [
+                'Tree cavities matter',
+                'A forest can look green but still be poor habitat if old cavity-bearing trees are missing.'
+            ]
+        ],
+        references: [
+            ['IUCN Hornbill Specialist Group', 'Distribution and species profile for Malabar Grey Hornbill.'],
+            ["State of India's Birds", 'Resident status, habitat specialisation and Western Ghats endemicity.'],
+            ['Indian Birds hornbill survey', 'Western Ghats hornbill conservation survey context.'],
+            ['Conservation literature', 'Habitat loss, nesting-tree dependence and seed-dispersal role.']
+        ],
+        faqs: [
+            ['What is the scientific name of the Malabar Grey Hornbill?', 'Ocyceros griseus.'],
+            ['Where is it found?', 'It is endemic to the Western Ghats of south-western India.'],
+            ['What does it eat?', 'It mainly feeds on fruits and may also take small animals or invertebrates.'],
+            ['Why is it ecologically important?', 'It helps disperse seeds and supports forest regeneration.'],
+            [
+                'What does this explorer cover?',
+                'Introduction, scientific name, classification, distribution, habitat, physical characteristics, diet, behaviour, breeding, ecological importance, conservation status, threats, facts, gallery and references.'
+            ]
+        ]
+    };
+    const esc = v =>
+        String(v)
+            .replaceAll('&', '&amp;')
+            .replaceAll('<', '&lt;')
+            .replaceAll('>', '&gt;')
+            .replaceAll('"', '&quot;')
+            .replaceAll("'", '&#039;');
+    const $ = id => document.getElementById(id);
+    function card(item, i) {
+        return `<article class="info-card"><span>0${i + 1}</span><h3>${esc(item[0])}</h3><p>${esc(item[1])}</p></article>`;
+    }
+    $('intro-grid').innerHTML = DATA.intro.map(card).join('');
+    $('facts-grid').innerHTML = DATA.facts
+        .map(
+            f =>
+                `<article class="fact-card"><span>${esc(f[0])}</span><strong>${esc(f[1])}</strong><p>${esc(f[2])}</p></article>`
+        )
+        .join('');
+    DATA.sections.forEach(s => {
+        $(`${s[0]}-grid`).innerHTML = DATA[s[0]].map(card).join('');
+    });
+    $('interesting-grid').innerHTML = DATA.interesting.map(card).join('');
+    $('references-grid').innerHTML = DATA.references.map(card).join('');
+    $('faq-list').innerHTML = DATA.faqs
+        .map(f => `<details class="faq-item"><summary>${esc(f[0])}</summary><p>${esc(f[1])}</p></details>`)
+        .join('');
+    function selectPoint(id) {
+        const p = DATA.points.find(x => x[0] === id) || DATA.points[0];
+        document
+            .querySelectorAll('.map-pin')
+            .forEach(pin => pin.classList.toggle('active', pin.dataset.point === p[0]));
+        $('map-info').innerHTML = `<span>${esc(p[4])}</span><h3>${esc(p[1])}</h3><p>${esc(p[5])}</p>`;
+    }
+    $('map-pins').innerHTML = DATA.points
+        .map(
+            (p, i) =>
+                `<button class="map-pin" type="button" data-point="${esc(p[0])}" style="left:${p[2]}%;top:${p[3]}%" aria-label="${esc(p[1])}">${i + 1}</button>`
+        )
+        .join('');
+    document.querySelectorAll('.map-pin').forEach(p => p.addEventListener('click', () => selectPoint(p.dataset.point)));
+    $('gallery-grid').innerHTML = DATA.gallery
+        .map(
+            g =>
+                `<article class="gallery-card"><img src="${esc(g[1])}" alt="${esc(g[0])}" onerror="this.src='../../assets/hero_banner.png'"><div><h3>${esc(g[0])}</h3><p>${esc(g[2])}</p></div></article>`
+        )
+        .join('');
+    selectPoint(DATA.points[0][0]);
+    window.SpeciesExplorer = {
+        facts: () => [...DATA.facts],
+        points: () => [...DATA.points],
+        references: () => [...DATA.references]
+    };
+});

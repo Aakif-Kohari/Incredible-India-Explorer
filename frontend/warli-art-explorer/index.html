@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warli Art Explorer | Tribal Symbolism</title>
+    <meta name="description"
+        content="Explore Warli Painting from Maharashtra. Discover tribal symbols, pattern visualization, and the history of this ancient art form.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar explorer-nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo"><span class="saffron">Incredible</span> <span
+                    class="gold">India</span> <span class="green">Explorer</span></a>
+            <nav class="nav-menu">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../indian-art-forms-visualizer/index.html" class="nav-link">Art Forms</a>
+                <a href="#visualizer" class="nav-link">Pattern Visualizer</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+            </nav>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        </div>
+    </header>
+    <main>
+        <section class="hero-section warli-hero">
+            <div class="hero-content animate-on-scroll">
+                <h1 class="hero-title">Warli <span class="accent">Art</span></h1>
+                <p class="hero-subtitle">The ancient tribal language of Maharashtra told through circles and triangles.
+                </p>
+                <button class="btn-bookmark" id="bookmark-btn">🔖 Bookmark to My Journey</button>
+            </div>
+        </section>
+
+        <section class="explorer-content">
+            <div class="tabs" role="tablist">
+                <button class="tab-btn active" data-tab="history" role="tab">History & Overview</button>
+                <button class="tab-btn" data-tab="symbols" role="tab">Tribal Symbols</button>
+                <button class="tab-btn" data-tab="materials" role="tab">Materials</button>
+            </div>
+
+            <div class="tab-content active" id="history" role="tabpanel">
+                <h2>Ancient Origins</h2>
+                <p>Warli painting is a style of tribal art practiced by the Warli tribe of Maharashtra. It is believed
+                    to date back to 2500-3000 BCE, making it one of the oldest surviving art forms in India. Unlike many
+                    other Indian folk arts that depict mythological deities, Warli art focuses strictly on the secular,
+                    everyday life of the tribe.</p>
+                <h2>Visual Language</h2>
+                <p>The art is strikingly minimalist. It uses only basic geometric shapes—circles, triangles, and
+                    squares—derived from observing nature. The circle represents the sun and moon, the triangle
+                    represents mountains and conical trees, and the square represents a sacred plot of land.</p>
+            </div>
+
+            <div class="tab-content" id="symbols" role="tabpanel" hidden>
+                <h2>Decoding the Symbols</h2>
+                <div class="symbol-grid">
+                    <div class="symbol-card">
+                        <div class="symbol-icon">⭕</div>
+                        <h4>The Circle</h4>
+                        <p>Represents the celestial bodies (Sun and Moon) and the cycle of life and death. There is no
+                            straight line in nature, hence the prominence of the circle.</p>
+                    </div>
+                    <div class="symbol-card">
+                        <div class="symbol-icon">🔺</div>
+                        <h4>The Triangle</h4>
+                        <p>Derived from the observation of mountains and trees. Two triangles joined at the top
+                            represent a tree, while joined at the bottom, they form the human body.</p>
+                    </div>
+                    <div class="symbol-card">
+                        <div class="symbol-icon">⬛</div>
+                        <h4>The Square (Chauk)</h4>
+                        <p>The most sacred motif. The "Chauk" is drawn during weddings and harvest festivals. It always
+                            contains the goddess Palaghata (the goddess of fertility) in the center.</p>
+                    </div>
+                    <div class="symbol-card">
+                        <div class="symbol-icon">〰️</div>
+                        <h4>The Tarpa Dance</h4>
+                        <p>A common motif showing villagers dancing in a spiral formation around a Tarpa (trumpet-like
+                            instrument) player, symbolizing community and the cycle of life.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="materials" role="tabpanel" hidden>
+                <h2>Traditional Materials</h2>
+                <p>Warli art is traditionally painted on the mud walls of tribal huts. The preparation is deeply
+                    connected to the earth:</p>
+                <ul class="material-list">
+                    <li><strong>Base:</strong> A mixture of cow dung and mud creates the rough, brown canvas.</li>
+                    <li><strong>Pigment:</strong> Rice paste mixed with water and a pinch of gum acts as the white
+                        paint.</li>
+                    <li><strong>Brush:</strong> A simple chewed bamboo stick or a twig from the date palm tree.</li>
+                </ul>
+            </div>
+
+            <h2 id="visualizer">Interactive Pattern Visualizer</h2>
+            <p class="visualizer-desc">Experience the simplicity of Warli geometry. Click the canvas below to generate a
+                unique, randomized Warli pattern using only traditional triangles and circles.</p>
+            <div class="canvas-container">
+                <canvas id="warli-canvas" width="600" height="400"
+                    aria-label="Interactive Warli Pattern Canvas"></canvas>
+                <button id="generate-btn" class="btn-generate">Generate New Pattern</button>
+            </div>
+
+            <h2 id="gallery">Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://placehold.co/300/78350f/fff" alt="Warli wedding chauk"
+                        loading="lazy"></div>
+                <div class="gallery-item"><img src="https://placehold.co/300/78350f/fff" alt="Warli harvest dance"
+                        loading="lazy"></div>
+                <div class="gallery-item"><img src="https://placehold.co/300/78350f/fff" alt="Warli village scene"
+                        loading="lazy"></div>
+            </div>
+
+            <h2>References</h2>
+            <ul class="reference-list">
+                <li>Dhamija, P. (1994). "Painted Myths of India: Art & Craft of Warli."</li>
+            </ul>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 Incredible India Explorer.</p>
+    </footer>
+    <script src="../../journey.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>
