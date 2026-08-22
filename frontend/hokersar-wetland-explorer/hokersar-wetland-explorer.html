@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Hokersar Wetland Explorer - Explore Jammu & Kashmir's only Ramsar wetland, a vital Himalayan sanctuary for thousands of migratory birds on the Central Asian Flyway." name="description"/>
+    <meta property="og:title" content="Hokersar Wetland Explorer | Incredible India"/>
+    <meta property="og:description" content="Discover Hokersar Wetland, a critical Himalayan wintering ground for migratory birds near Srinagar."/>
+    
+    <title>Hokersar Wetland Explorer | Incredible India</title>
+    
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/frontend/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <link href="../../styles.css"stylesheet"/>
+    <link href="../pages-common.css" rel="stylesheet"/>
+    <link href="hokersar-wetland-explorer.css" rel="stylesheet"/>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Hokersar Wetland",
+      "description": "Jammu & Kashmir's Ramsar Wetland and Himalayan Bird Sanctuary.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Srinagar",
+        "addressRegion": "Jammu & Kashmir",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+</head>
+<body>
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+    <main id="app-root" style="padding-top: 80px;">
+        
+        <!-- Hero Section -->
+        <section class="wetland-hero">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge ramsar"><i class="fa-solid fa-water"></i> Ramsar Site</span>
+                    <span class="badge himalayan"><i class="fa-solid fa-mountain-sun"></i> Himalayan Wetland</span>
+                    <span class="badge birds"><i class="fa-solid fa-dove"></i> Migratory Bird Habitat</span>
+                    <span class="badge marsh"><i class="fa-solid fa-leaf"></i> Freshwater Marsh</span>
+                </div>
+                <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Hokersar Wetland</h1>
+                <p class="hero-subtitle animate-fade-in-delayed" style="color: var(--saffron); font-size: 1.5rem; font-family: 'Playfair Display', serif; margin-bottom: 15px;">Jammu & Kashmir's Ramsar Wetland and Himalayan Bird Sanctuary</p>
+                <p class="hero-location" style="color: #eee; font-size: 1.1rem; margin-bottom: 25px;"><i class="fa-solid fa-map-pin"></i> Near Srinagar, Jammu & Kashmir, India</p>
+                <div class="hero-actions">
+                    <a href="#migratory" class="btn btn-primary ripple">View Migratory Birds</a>
+                    <a href="#map" class="btn btn-secondary ripple">Explore Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- History & Ramsar Site -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge gold-bg">Heritage & Status</span>
+                    <h2>A Vital Himalayan Ecosystem</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-landmark"></i> Historical Significance</h3>
+                        <p>Historically acting as a natural flood absorption basin for the Kashmir Valley, Hokersar has been crucial to the local communities for centuries. Over time, it evolved from a traditional wetland into a highly protected wildlife sanctuary, reaching major wetland management milestones in recent decades.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-globe"></i> Ramsar Designation</h3>
+                        <p>Recognized globally under the Ramsar Convention, Hokersar is celebrated for its outstanding conservation importance. This international status underscores the imperative to protect its biodiversity and has catalyzed numerous wetland restoration initiatives.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-mountain"></i> Himalayan Hydrology</h3>
+                        <p>This dynamic freshwater marsh is largely fed by Himalayan snowmelt and seasonal flooding from the Jhelum River basin. Its extensive reed beds and marsh vegetation perform essential ecological services, buffering the region against severe climate influences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Migratory Birds & Flyways -->
+        <section id="migratory" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Avian Paradise</span>
+                    <h2 style="color: var(--text-primary);">Winter Migrants & Flyways</h2>
+                    <p class="section-subtitle">A critical stopover and wintering ground on the Central Asian Flyway.</p>
+                </div>
+                
+                <div style="margin-bottom: 40px; background: rgba(0, 188, 212, 0.1); border-left: 4px solid #00bcd4; padding: 20px; border-radius: 0 12px 12px 0;">
+                    <h3 style="color: #00bcd4; margin-bottom: 10px;"><i class="fa-solid fa-route"></i> Bird Migration Routes</h3>
+                    <p style="color: var(--text-primary);">Hokersar serves as a vital <strong>winter stopover habitat</strong> along the <strong>Central Asian Flyway</strong>. As temperatures drop in Siberia, Central Asia, and Northern Europe, millions of birds use the Himalayan migration corridors to reach the relatively warmer Kashmir Valley, making this wetland an area of immense <strong>global conservation significance</strong>.</p>
+                </div>
+
+                <div class="wildlife-grid">
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Greylag_goose_%28Anser_anser%29_in_flight.jpg/800px-Greylag_goose_%28Anser_anser%29_in_flight.jpg" alt="Greylag Goose" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1574068468668-a05a11f871da?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Greylag Goose</h3>
+                            <span class="wildlife-status status-least-concern">Winter Migrant</span>
+                            <p>Large flocks arrive in early winter, filling the crisp Himalayan air with their distinctive honking calls.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Northern_Pintail.jpg/800px-Northern_Pintail.jpg" alt="Northern Pintail" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1616781297597-402a5a0fb773?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Northern Pintail</h3>
+                            <span class="wildlife-status status-least-concern">Winter Migrant</span>
+                            <p>Elegant dabbling ducks that feed extensively in the shallow, vegetation-rich waters of the marsh.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Purple_Heron_-_Ardea_purpurea_2.jpg/800px-Purple_Heron_-_Ardea_purpurea_2.jpg" alt="Purple Heron" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1555541655-081b22306c59?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Purple Heron</h3>
+                            <span class="wildlife-status status-least-concern">Resident/Migrant</span>
+                            <p>Elusive waders that perfectly camouflage themselves among the dense reed beds of the wetland.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Western_Marsh_Harrier_%28Circus_aeruginosus%29.jpg/800px-Western_Marsh_Harrier_%28Circus_aeruginosus%29.jpg" alt="Marsh Harrier" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1534005085871-3316dbfc2577?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Marsh Harrier</h3>
+                            <span class="wildlife-status status-least-concern">Raptor</span>
+                            <p>These birds of prey can frequently be seen flying low over the reeds hunting for small birds and amphibians.</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <p style="color: var(--text-muted); font-size: 1rem;"><strong>Other prominent species include:</strong> Common Teal, Eurasian Wigeon, Gadwall, Mallard, Eurasian Coot, and Little Egret.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conservation & Interesting Facts -->
+        <section class="content-section fade-in-section">
+            <div class="section-container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+                <div class="activities-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: var(--green); color: white;">Conservation</span>
+                        <h2>Safeguarding Hokersar</h2>
+                    </div>
+                    <ul style="color: var(--text-muted); line-height: 1.8;">
+                        <li><strong>Water Management:</strong> Dredging and scientific water regulation ensure optimal water levels are maintained during critical winter months.</li>
+                        <li><strong>Pollution & Invasive Species:</strong> Rigorous pollution control measures and manual removal of invasive weeds help restore native marsh vegetation.</li>
+                        <li><strong>Community Participation:</strong> Engaging local populations in sustainable eco-tourism and anti-poaching programs, supported by robust government conservation initiatives.</li>
+                    </ul>
+                </div>
+                <div class="facts-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: #e91e63; color: white;">Facts</span>
+                        <h2>Did You Know?</h2>
+                    </div>
+                    <ul style="color: var(--text-muted); line-height: 1.8;">
+                        <li>It is Jammu & Kashmir's only recognized Ramsar wetland.</li>
+                        <li>Dominated almost entirely by natural freshwater marshes and expansive reed beds.</li>
+                        <li>Supports upwards of 500,000 migratory waterfowl during a good winter season.</li>
+                        <li>Located just 14 km from Srinagar, making it highly accessible for bird research.</li>
+                        <li>The wetland is snow-covered during peak winter, creating stunning, stark scenery.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery (Lazy Loaded) -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #ff9800; color: white;">Gallery</span>
+                    <h2 id="gallery-heading">Visuals of the Valley</h2>
+                </div>
+                <div class="gallery-grid" id="gallery-grid" role="region" aria-labelledby="gallery-heading">
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Wetland Landscape">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?auto=format&fit=crop&w=800&q=80" alt="Beautiful wetland landscape in Kashmir">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Snow-covered winter scenery">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1478719059408-592965723cbc?auto=format&fit=crop&w=800&q=80" alt="Snow-covered winter scenery">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Migratory Birds">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1555541655-081b22306c59?auto=format&fit=crop&w=800&q=80" alt="Flock of migratory birds in flight">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Marsh Vegetation">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=800&q=80" alt="Dense marsh vegetation and reeds">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section id="map" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Map</span>
+                    <h2>Explore the Reserve</h2>
+                    <p class="section-subtitle">Find wetland boundaries, observation points, and nearby access routes.</p>
+                </div>
+                <div id="map-container" aria-label="Interactive map of Hokersar Wetland"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/frontend/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../pages-common.js"></script>
+    <script src="hokersar-wetland-explorer.js"></script>
+</body>
+</html>
