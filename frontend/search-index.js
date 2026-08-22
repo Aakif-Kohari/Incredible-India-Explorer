@@ -5992,5 +5992,24 @@ window.indiaSearchIndex = [
         description:
             "Explore Roopkund Trek in Uttarakhand \u2014 5,029m Mystery Skeleton Lake, Ali & Bedni Bugyals, Junargali Ridge, and Mount Trishul panoramas.",
         url: "frontend/roopkund-trek-explorer/index.html"
+<<<<<<< Updated upstream
+=======
+    },
+    // --- feat/kheerganga-trek ---
+    {
+        title: "Kheerganga Trek — Hot Water Sulphur Springs & Parvati Valley",
+        category: "Mountains & Treks",
+        description:
+            "Explore Kheerganga Trek (2,960m) in Himachal Pradesh: detailed route, hot springs of Parvati Kund, Rudranag Temple and Waterfall, local mythology, gear checklist, and duration estimator.",
+        url: "frontend/kheerganga-trek/index.html"
+    },
+    // --- feat/kalsubai-trek ---
+    {
+        title: "Kalsubai Peak Trek — Highest Peak of Maharashtra",
+        category: "Mountains & Treks",
+        description:
+            "Explore Kalsubai Peak Trek (1,646m) in Maharashtra: detailed route, Kalsubai Temple summit details, steel ladders climbing, monsoon waterfalls, gear checklist, and duration estimator.",
+        url: "frontend/kalsubai-trek/index.html"
+>>>>>>> Stashed changes
     }
 ];
