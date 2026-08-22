@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Sandakphu–Phalut Trek HTML profile successfully loaded and initialized.");
+    console.log("Sandakphu–Phalut Trek profile component initialized successfully.");
 
-    // Interactive toggle behavior for cards
+    // Interactive card elevation on hover
     const cards = document.querySelectorAll(".card");
     cards.forEach(card => {
         card.addEventListener("mouseenter", () => {
