@@ -39,6 +39,17 @@ const allGhats = [
     history: "The Sangam has been a centre of pilgrimage for millennia and is the site of the Kumbh Mela, one of the largest peaceful religious gatherings in the world, drawing tens of millions of pilgrims once every twelve years.",
     experience: "Pilgrims take boat rides out to the exact point of confluence to bathe in the mingled waters, believed to cleanse sins and bring spiritual merit, while priests perform rituals along the riverbanks throughout the day.",
     timing: "Open year-round, with the atmosphere most vibrant during the Magh Mela and Kumbh Mela festival periods."
+  },
+  {
+    id: "shivala",
+    name: "Shivala Ghat",
+    icon: "🏰",
+    location: "Varanasi",
+    description: "A historic riverfront dominated by the grand 18th-century Chet Singh Palace and fortress, showcasing Varanasi's royal patronage and temple architecture.",
+    history: "Built and fortified in the 18th century by Raja Chet Singh, the ruler of Benares, this ghat witnessed a historic clash with British forces led by Warren Hastings in 1781.",
+    experience: "Visitors can explore the grand battlements, massive stone bastions, and royal shrines, offering a stark architectural contrast to the city's other ritual-centered ghats.",
+    timing: "Best visited in the afternoon to view the grand sandstone fortress reflecting in the river water.",
+    detailedPage: "../shivala-ghat/index.html"
   }
 ];
 
@@ -105,6 +116,15 @@ function openModal(ghat, triggerEl) {
   modalGhatHistory.textContent = ghat.history;
   modalGhatExperience.textContent = ghat.experience;
   modalGhatTiming.textContent = ghat.timing;
+
+  const linkEl = document.getElementById("modalGhatLink");
+  const actionContainer = document.getElementById("modalGhatActionContainer");
+  if (ghat.detailedPage) {
+    linkEl.href = ghat.detailedPage;
+    actionContainer.style.display = "block";
+  } else {
+    actionContainer.style.display = "none";
+  }
 
   ghatModalOverlay.classList.add("active");
   ghatModalClose.focus();
