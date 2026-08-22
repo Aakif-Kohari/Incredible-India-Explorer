@@ -9,7 +9,25 @@ window.indiaSearchIndex = [
         category: 'Heritage & Pilgrimage',
         description:
             'Explore Causatthi Ghat in Varanasi: its sacred association with the 64 Yoginis, Skanda Purana legend of King Divodasa, cliffside Chausath Yogini Temple, 1670 CE Bengali patronage by Raja Digpatia, and Navratri festival rituals.',
-        url: 'frontend/causatthi-ghat/index.html'
+        url: 'frontend/causatthi-ghat/index.html'},
+  {
+        title: 'Munshi Ghat — Varanasi Palatial Riverfront Architecture Profile',
+        category: 'Heritage & Architecture',
+        description:
+            'Explore Munshi Ghat in Varanasi: its 1912 construction by Sridhara Narayana Munshi (Finance Minister of Nagpur), royal Darbhanga Palace lineage, fusion of Greco-Roman colonnades and Maratha stone masonry, carved jharokhas, and Dev Deepawali illumination.',
+        url: 'frontend/munshi-ghat/index.html'},
+  {
+        title: 'Daraganj Ghat — Prayagraj Historic Riverfront & Sangam Profile',
+        category: 'Heritage & Pilgrimage',
+        description:
+            'Explore Daraganj Ghat in Prayagraj: its historic riverfront culture, connection with the Yamuna and Ganga rivers, Prince Dara Shikoh etymology, sacred Beni Madhav and Nag Vasuki temples, Suryakant Tripathi \'Nirala\' literary legacy, and proximity to Triveni Sangam.',
+        url: 'frontend/daraganj-ghat/index.html'},
+  {
+        title: 'Dandi Ghat — Varanasi Monastic Riverfront Profile',
+        category: 'Heritage & Pilgrimage',
+        description:
+            'Explore Dandi Ghat in Varanasi: dedicated to Dandi Sannyasis of Adi Shankaracharya\'s Advaita Vedanta tradition, sacred wooden danda symbolism, 1911 stone reconstruction by Lalooji Agarwal, Dandi Vinayaka shrine, and riverfront ashram architecture.',
+        url: 'frontend/dandi-ghat/index.html'
     },
     {
         title: 'Brahmagiri Peak Trek (Coorg & Wayanad) Profile',
@@ -5906,5 +5924,19 @@ window.indiaSearchIndex = [
         description:
             "Explore Dzongri Trek in Sikkim \u2014 4,250m Dzongri Top sunrise viewpoint, 360-degree Kanchenjunga panoramas, alpine meadows, and Khangchendzonga National Park.",
         url: "frontend/dzongri-trek-explorer/index.html"
+    },
+    // --- Mawryngkhang Trek Explorer ---
+    {
+        title: "Mawryngkhang Trek",
+        keywords: "mawryngkhang, trek, meghalaya, bamboo trail, wahkhen, scariest trek",
+        description: "Explore the Mawryngkhang Trek in Meghalaya. Known as the scariest trek in Meghalaya, it features bamboo bridges, dramatic rock formations, and dense forest ecosystems.",
+        url: "frontend/mawryngkhang-trek/index.html"},
+  
+    // --- Kumara Parvatha Trek Explorer ---
+    {
+        title: "Kumara Parvatha Trek",
+        keywords: "kumara parvatha, trek, karnataka, pushpagiri, western ghats, kukke subramanya",
+        description: "Explore the Kumara Parvatha Trek (1,712m) in Karnataka's Pushpagiri Wildlife Sanctuary. Detailed route information, safety guidelines, and gear checklist.",
+        url: "frontend/kumara-parvatha-trek/index.html"
     }
 ];
