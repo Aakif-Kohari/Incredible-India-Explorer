@@ -29,7 +29,8 @@ const allGhats = [
     description: "One of the oldest and most sacred cremation grounds in India, where funeral rites have been continuously performed for centuries, symbolising the Hindu belief in liberation from the cycle of rebirth.",
     history: "Manikarnika is regarded in Hindu tradition as a site connected to both Lord Vishnu and Lord Shiva, and cremation here is believed to grant moksha, or spiritual liberation. The sacred fires at this ghat are said to have burned continuously for generations.",
     experience: "Visitors are asked to observe this ghat with quiet respect and discretion — photography is discouraged here. Many choose to view it from a passing boat, taking in its solemn atmosphere as part of a broader journey along the riverfront.",
-    timing: "Active throughout the day and night; visitors are encouraged to observe respectfully from a distance."
+    timing: "Active throughout the day and night; visitors are encouraged to observe respectfully from a distance.",
+    detailedPage: "../manikarnika-ghat/index.html"
   },
   {
     id: "sangam",
