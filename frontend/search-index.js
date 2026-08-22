@@ -5,6 +5,13 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Munshi Ghat — Varanasi Palatial Riverfront Architecture Profile',
+        category: 'Heritage & Architecture',
+        description:
+            'Explore Munshi Ghat in Varanasi: its 1912 construction by Sridhara Narayana Munshi (Finance Minister of Nagpur), royal Darbhanga Palace lineage, fusion of Greco-Roman colonnades and Maratha stone masonry, carved jharokhas, and Dev Deepawali illumination.',
+        url: 'frontend/munshi-ghat/index.html'
+    },
+    {
         title: 'Brahmagiri Peak Trek (Coorg & Wayanad) Profile',
         category: 'Adventure & Sanctuary Treks',
         description:
