@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Bhitarkanika Wetlands Explorer - Explore India's magnificent mangrove paradise, famous for its giant saltwater crocodiles and rich estuarine biodiversity in Odisha." name="description"/>
+    <meta property="og:title" content="Bhitarkanika Wetlands Explorer | Incredible India"/>
+    <meta property="og:description" content="Discover Bhitarkanika National Park, a globally recognized Ramsar Wetland in Odisha."/>
+    
+    <title>Bhitarkanika Wetlands Explorer | Incredible India</title>
+    
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/frontend/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <link href="../../styles.css"stylesheet"/>
+    <link href="../pages-common.css" rel="stylesheet"/>
+    <link href="bhitarkanika-wetlands-explorer.css" rel="stylesheet"/>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Bhitarkanika Wetlands",
+      "description": "India's second-largest mangrove ecosystem and a vital Ramsar Site famous for saltwater crocodiles.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Odisha",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+</head>
+<body>
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+    <main id="app-root" style="padding-top: 80px;">
+        
+        <!-- Hero Section -->
+        <section class="wetland-hero">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge ramsar"><i class="fa-solid fa-water"></i> Ramsar Site</span>
+                    <span class="badge mangrove"><i class="fa-solid fa-tree"></i> Mangrove Ecosystem</span>
+                    <span class="badge croc"><i class="fa-solid fa-dragon"></i> Saltwater Crocodile Habitat</span>
+                    <span class="badge estuarine"><i class="fa-solid fa-fish"></i> Estuarine Wetland</span>
+                </div>
+                <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Bhitarkanika Wetlands</h1>
+                <p class="hero-subtitle animate-fade-in-delayed" style="color: var(--green); font-size: 1.5rem; font-family: 'Playfair Display', serif; margin-bottom: 15px;">India's Mangrove Paradise and Ramsar Wetland</p>
+                <p class="hero-location" style="color: #eee; font-size: 1.1rem; margin-bottom: 25px;"><i class="fa-solid fa-map-pin"></i> Kendrapara District, Odisha, India</p>
+                <div class="hero-actions">
+                    <a href="#wildlife" class="btn btn-primary ripple">Discover Wildlife</a>
+                    <a href="#map" class="btn btn-secondary ripple">View Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ecosystem & Ramsar Site -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge gold-bg">Ecosystem</span>
+                    <h2>A Thriving Estuarine Network</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-tree"></i> Mangrove Ecosystem</h3>
+                        <p>India's second-largest mangrove ecosystem features dense tidal forests that provide vital coastal ecology benefits, act as a massive carbon sink, and serve as an essential natural barrier preventing coastal erosion during cyclones.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-globe"></i> Ramsar Designation</h3>
+                        <p>Recognized globally as a Ramsar Site of International Importance. The wetlands are crucial for biodiversity protection, wetland conservation, and demonstrate sustainable ecosystem management practices.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-water"></i> Estuarine Biodiversity</h3>
+                        <p>A complex network of rivers, estuaries, creeks, and mudflats supports immense fish diversity, crustaceans like crabs, molluscs, and forms a highly productive aquatic ecosystem.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wildlife (Crocodiles and Birds) -->
+        <section id="wildlife" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: var(--green); color: white;">Wildlife Sanctuary</span>
+                    <h2>Apex Predators and Avian Wonders</h2>
+                    <p class="section-subtitle">Home to the world's largest living reptile and vibrant bird colonies.</p>
+                </div>
+                <div class="wildlife-grid">
+                    <!-- Saltwater Crocodile -->
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Saltwater_Crocodile_at_Bhitarkanika.jpg/800px-Saltwater_Crocodile_at_Bhitarkanika.jpg" alt="Saltwater Crocodile" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1548175402-95f2a1b945c7?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Saltwater Crocodile</h3>
+                            <span class="wildlife-status status-vulnerable">Conservation Success</span>
+                            <p>The world's largest living reptile. Bhitarkanika's intensive crocodile conservation programme has led to a remarkable population recovery, making it one of the best breeding and nesting habitats globally.</p>
+                        </div>
+                    </div>
+                    <!-- Asian Openbill -->
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Asian_Openbill_Stork_%28Anastomus_oscitans%29.jpg/800px-Asian_Openbill_Stork_%28Anastomus_oscitans%29.jpg" alt="Asian Openbill" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1596766632420-9426f83ecff9?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Asian Openbill</h3>
+                            <span class="wildlife-status status-least-concern">Least Concern</span>
+                            <p>A prominent resident of the heronries. During monsoon, thousands gather to breed, creating one of the largest nesting colonies in India.</p>
+                        </div>
+                    </div>
+                    <!-- Black-capped Kingfisher -->
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Black-capped_Kingfisher_%28Halcyon_pileata%29_by_Sandeep_Gangadharan.jpg/800px-Black-capped_Kingfisher_%28Halcyon_pileata%29_by_Sandeep_Gangadharan.jpg" alt="Black-capped Kingfisher" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1555541655-081b22306c59?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Black-capped Kingfisher</h3>
+                            <span class="wildlife-status status-least-concern">Least Concern</span>
+                            <p>A stunning coastal kingfisher often spotted diving into the tidal creeks for fish and small crustaceans.</p>
+                        </div>
+                    </div>
+                    <!-- White-bellied Sea Eagle -->
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/White-bellied_Sea_Eagle_-_Sydney_Olympic_Park.jpg/800px-White-bellied_Sea_Eagle_-_Sydney_Olympic_Park.jpg" alt="White-bellied Sea Eagle" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1549471013-3364d732812c?auto=format&fit=crop&w=800&q=80'">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">White-bellied Sea Eagle</h3>
+                            <span class="wildlife-status status-least-concern">Least Concern</span>
+                            <p>This majestic raptor patrols the expansive estuaries, relying on the rich fish diversity of the mangroves.</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 30px;">
+                    <p style="color: var(--text-muted); font-size: 1.05rem;"><strong>Also home to:</strong> Lesser Adjutant Stork, Egrets, Herons, and thousands of Migratory Waterfowl taking advantage of excellent birdwatching opportunities.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conservation and Facts -->
+        <section class="content-section fade-in-section">
+            <div class="section-container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+                <div class="activities-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: #00bcd4; color: white;">Conservation</span>
+                        <h2>Preserving the Wild</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">Designated as a National Park and Wildlife Sanctuary to safeguard its fragile ecosystem.</p>
+                    <ul>
+                        <li><strong>Crocodile Conservation Programme:</strong> A globally lauded initiative that successfully revived the critically endangered saltwater crocodile population.</li>
+                        <li><strong>Mangrove Restoration:</strong> Active community participation in planting and preserving the tidal forests.</li>
+                        <li><strong>Eco-Tourism:</strong> Sustainable boat safaris strictly follow safety guidelines to minimize impact on wildlife while providing economic benefits to locals.</li>
+                    </ul>
+                </div>
+                <div class="facts-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: #e91e63; color: white;">Facts</span>
+                        <h2>Did You Know?</h2>
+                    </div>
+                    <ul>
+                        <li>One of India's largest and most diverse mangrove ecosystems, second only to the Sundarbans.</li>
+                        <li>Famous for its massive population of saltwater crocodiles, including individuals exceeding 20 feet in length.</li>
+                        <li>Recognized as a Ramsar Site of International Importance in 2002.</li>
+                        <li>Its name means 'Inner Beauty' in Odia ('Bhitar' meaning interior, 'Kanika' meaning extraordinarily beautiful).</li>
+                        <li>Supports an incredible density of both resident and migratory bird species.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery (Lazy Loaded) -->
+        <section class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #ff9800; color: white;">Gallery</span>
+                    <h2 id="gallery-heading">Views of the Mangroves</h2>
+                </div>
+                <div class="gallery-grid" id="gallery-grid" role="region" aria-labelledby="gallery-heading">
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Mangrove Forests">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1568283094582-74d3d8a70c52?auto=format&fit=crop&w=800&q=80" alt="Dense mangrove forests and winding creeks">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Saltwater Crocodile">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1548175402-95f2a1b945c7?auto=format&fit=crop&w=800&q=80" alt="Saltwater crocodile basking on a mudbank">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Boat Safaris">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1601620613093-6c8430e70ba9?auto=format&fit=crop&w=800&q=80" alt="Tourists on a boat safari exploring the estuaries">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Wetland Sunset">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=800&q=80" alt="Beautiful sunrise over the estuarine wetland">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section id="map" class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Map</span>
+                    <h2>Interactive Map</h2>
+                    <p class="section-subtitle">Navigate through the National Park, boat safari routes, and observation areas.</p>
+                </div>
+                <div id="map-container" aria-label="Interactive map of Bhitarkanika Wetlands and surrounding region"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/frontend/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../pages-common.js"></script>
+    <script src="bhitarkanika-wetlands-explorer.js"></script>
+</body>
+</html>

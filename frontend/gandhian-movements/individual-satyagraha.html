@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the Individual Satyagraha of 1940-41. Learn why Mahatma Gandhi chose a limited, symbolic protest during WWII, featuring Vinoba Bhave and Jawaharlal Nehru.">
+  <title>Individual Satyagraha (1940) | Gandhian Movements | Incredible India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-link">← Gandhian Movements</a>
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+  </header>
+
+  <main id="app-root" class="movement-profile-page">
+    
+    <!-- Hero Section -->
+    <section class="profile-hero-gradient" style="background-image: linear-gradient(rgba(15,17,21,0.85), rgba(15,17,21,0.95)), url('satyagraha-hero.jpg'); background-size: cover; background-position: center;">
+      <div class="profile-hero-container">
+        <span class="profile-kicker">October 1940 – December 1941</span>
+        <h1>The Individual Satyagraha</h1>
+        <p>A moral protest affirming the right to free speech against India's forced participation in World War II, carefully designed by Mahatma Gandhi to avoid mass violence while maintaining national dignity.</p>
+      </div>
+    </section>
+
+    <!-- Context & WWII Background -->
+    <section class="profile-section">
+      <div class="rulers-container profile-two-col">
+        <div class="profile-text-block">
+          <span class="profile-eyebrow">The Global Crisis</span>
+          <h2>World War II &amp; The Congress Position</h2>
+          <p>In September 1939, the British Viceroy, Lord Linlithgow, declared India a belligerent in World War II without consulting Indian leaders. The Indian National Congress resigned from provincial ministries in protest. While they sympathized with the fight against Fascism, they demanded a promise of complete independence as a condition for active cooperation.</p>
+          <p>When the British responded with the unsatisfactory "August Offer" (1940), Congress turned to Gandhi. Recognizing the volatile situation, Gandhi devised the <strong>Individual Satyagraha</strong>. He wanted to register a strong moral protest without launching a mass movement that might turn violent or completely paralyze the British war effort against Nazi Germany.</p>
+        </div>
+        <div class="profile-highlight-card">
+          <h3>⚖️ Symbolic Resistance vs. Mass Agitation</h3>
+          <p>Unlike the Non-Cooperation (1920) or Civil Disobedience (1930) movements which sought to halt all government machinery through mass participation, this campaign was strictly limited. Only individuals personally chosen by Gandhi were permitted to break the law by giving anti-war speeches.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- The First Satyagrahis (Participant Cards) -->
+    <section class="profile-section profile-accent-bg">
+      <div class="rulers-container">
+        <div class="profile-center-header">
+          <span class="profile-eyebrow">The Chosen Few</span>
+          <h2>The First Individual Satyagrahis</h2>
+          <p>Gandhi personally vetted each participant to ensure absolute commitment to non-violence (Ahimsa) and constructive work.</p>
+        </div>
+        <div class="profile-three-grid">
+          <div class="lit-card">
+            <h4>1st: Acharya Vinoba Bhave</h4>
+            <p>Chosen for his immaculate record of constructive work and spiritual discipline. He inaugurated the movement on October 17, 1940, at Paunar, delivering an anti-war speech before his peaceful arrest.</p>
+          </div>
+          <div class="lit-card">
+            <h4>2nd: Jawaharlal Nehru</h4>
+            <p>Selected as the second Satyagrahi to represent the political and international consciousness of the Congress. He was arrested on October 31, 1940, and sentenced to severe imprisonment.</p>
+          </div>
+          <div class="lit-card">
+            <h4>3rd: Brahma Datt</h4>
+            <p>An inmate of Gandhi's ashram, chosen as the third Satyagrahi. As the movement progressed, over 25,000 local Congress leaders, mayors, and elected officials courted arrest with the slogan <em>"Delhi Chalo!"</em>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Historical Map -->
+    <section class="profile-section">
+      <div class="rulers-container">
+        <div class="profile-center-header">
+          <span class="profile-eyebrow">Delhi Chalo</span>
+          <h2>Mapping the Movement</h2>
+          <p>The campaign began in the villages of central India, with Satyagrahis instructed to march towards Delhi while giving anti-war speeches until they were arrested.</p>
+        </div>
+        
+        <div class="map-wrapper" style="height: 450px; border-radius: 12px; overflow: hidden; border: 1px solid var(--movement-border-dark);">
+          <div id="satyagraha-map" style="width: 100%; height: 100%;" aria-label="Interactive map showing the locations of the Individual Satyagraha."></div>
+        </div>
+        
+        <!-- Text Alternative for Map -->
+        <div class="text-map-box" style="margin-top: 20px;">
+          <h4>📍 Mapped Locations (Text Alternative)</h4>
+          <ul>
+            <li><strong>Paunar Ashram, Wardha:</strong> The starting point where Vinoba Bhave delivered the first anti-war speech.</li>
+            <li><strong>Allahabad / Gorakhpur Region:</strong> Where Jawaharlal Nehru was apprehended while preparing for his Satyagraha.</li>
+            <li><strong>Delhi:</strong> The symbolic destination of the marchers, giving birth to the movement's popular name, the "Delhi Chalo" movement.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline of Events -->
+    <section class="profile-section profile-accent-bg">
+      <div class="rulers-container">
+        <h2 class="section-title">Timeline of the Campaign</h2>
+        <div class="profile-timeline">
+          <div class="p-timeline-item">
+            <span class="p-timeline-year">August 1940</span>
+            <h4>The August Offer</h4>
+            <p>Viceroy Linlithgow makes an offer that falls far short of independence, prompting Congress to reject it and ask Gandhi to lead a protest.</p>
+          </div>
+          <div class="p-timeline-item">
+            <span class="p-timeline-year">17 October 1940</span>
+            <h4>Inauguration at Paunar</h4>
+            <p>Vinoba Bhave initiates the Individual Satyagraha by addressing a village gathering against participating in the war effort.</p>
+          </div>
+          <div class="p-timeline-item">
+            <span class="p-timeline-year">January 1941</span>
+            <h4>Expansion of the Campaign</h4>
+            <p>The campaign expands into its multi-phase format. District and local Congress committees send their members to court arrest. Over 25,000 individuals are imprisoned across India.</p>
+          </div>
+          <div class="p-timeline-item">
+            <span class="p-timeline-year">December 1941</span>
+            <h4>Release of Prisoners</h4>
+            <p>With Japan entering the war (Pearl Harbor) and approaching Indian borders, the British release the Satyagrahis to seek Indian cooperation. Gandhi officially suspends the movement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Legacy -->
+    <section class="profile-section">
+      <div class="rulers-container">
+        <div class="profile-center-header">
+          <span class="profile-eyebrow">The Precursor</span>
+          <h2>Transition to Quit India</h2>
+          <p class="legacy-p">While the Individual Satyagraha did not paralyze the British administration or secure immediate independence, it achieved its primary objectives. It successfully demonstrated India's refusal to be taken for granted, upheld the civil liberty of free speech, and reinvigorated the Congress ranks. Most importantly, it served as a disciplined rehearsal, preparing the political atmosphere for the massive, explosive <strong>Quit India Movement</strong> that would erupt just months later in August 1942.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rulers-footer">
+    <div class="rulers-container">
+      <p>Part of <a href="../../index.html">Incredible India Explorer</a> · Gandhian Movements.</p>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

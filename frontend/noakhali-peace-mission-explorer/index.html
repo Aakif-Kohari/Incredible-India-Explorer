@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Noakhali Peace Mission Explorer — an interactive journey through Mahatma Gandhi's 1946–47 peace mission in Noakhali, following his village-to-village walking tour amid communal violence, and placing it within the wider road to Partition.">
+    <title>Gandhi's Noakhali Peace Mission Explorer | Incredible India Explorer</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+    <meta property="og:title" content="Gandhi's Noakhali Peace Mission Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Follow Mahatma Gandhi's 1946–47 walking peace mission through the villages of Noakhali — his route, village markers, milestones, and the wider road to Partition.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_IN">
+</head>
+
+<body class="np-page-body">
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Road to Partition ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../calcutta-1946-crisis-explorer/index.html" class="dropdown-item">1946 Calcutta Crisis</a>
+                    <a href="index.html" class="dropdown-item">Gandhi's Noakhali Peace Mission</a>
+                    <a href="../cabinet-mission-plan-explorer/index.html" class="dropdown-item">Cabinet Mission Plan (1946)</a>
+                    <a href="../independence-partition-1947-explorer/index.html" class="dropdown-item">Independence &amp; Partition, 1947</a>
+                    <a href="../partition-1947/partition-1947.html" class="dropdown-item">Partition of 1947</a>
+                </div>
+            </div>
+
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+    <main class="np-main">
+        <!-- Hero Banner -->
+        <section class="np-hero">
+            <span class="np-kicker">🇮🇳 Road to Partition · 1946–47</span>
+            <h1>Gandhi's Noakhali Peace Mission</h1>
+            <p class="np-hero-tagline">A Walking Pilgrimage for Peace in a Land Torn by Violence</p>
+            <p>In October 1946, barely two months after the Great Calcutta Killings, communal violence erupted in the remote villages of <strong>Noakhali</strong> in East Bengal. At the age of 77, Mahatma Gandhi decided he would not rely on reports from a distance. He travelled to Noakhali and announced he would <strong>walk from village to village</strong>, living among the survivors, in one of the most remarkable experiments of his life — a peace mission that became a symbol of non-violence confronting the logic of Partition.</p>
+
+            <div class="np-hero-stats">
+                <div class="np-hero-stat">
+                    <strong>6 Nov 1946</strong>
+                    <span>Arrival in Noakhali</span>
+                </div>
+                <div class="np-hero-stat">
+                    <strong>≈ 4 Months</strong>
+                    <span>Walking Mission</span>
+                </div>
+                <div class="np-hero-stat">
+                    <strong>47</strong>
+                    <span>Villages Visited</span>
+                </div>
+                <div class="np-hero-stat">
+                    <strong>1947</strong>
+                    <span>Partition of Bengal</span>
+                </div>
+            </div>
+
+            <button class="np-bookmark-btn journey-bookmark-btn" type="button" data-bookmark-id="noakhali-peace-main" aria-pressed="false" aria-label="Bookmark Gandhi's Noakhali Peace Mission Explorer">♡ Save to Journey</button>
+
+            <p class="np-content-note">⚠️ <strong>A note on sensitivity:</strong> This explorer documents a period of terrible communal violence that caused great suffering in Noakhali. It is presented with respect for all communities, focusing on historical context, Gandhi's efforts for peace and reconciliation, and the human dimensions of the tragedy — never on graphic detail. Please read with care.</p>
+        </section>
+
+        <!-- Navigation Tabs -->
+        <nav class="np-nav-tabs" aria-label="Explorer sections">
+            <button class="np-tab active" data-tab="overview">🌾 Bengal Context</button>
+            <button class="np-tab" data-tab="violence">🔥 Noakhali Violence</button>
+            <button class="np-tab" data-tab="arrival">🕊️ Gandhi's Arrival</button>
+            <button class="np-tab" data-tab="villages">🏘️ Villages Visited</button>
+            <button class="np-tab" data-tab="meetings">🤝 Peace Meetings</button>
+            <button class="np-tab" data-tab="outreach">🤲 Community Outreach</button>
+            <button class="np-tab" data-tab="reactions">🗣️ Local Reactions</button>
+            <button class="np-tab" data-tab="route">🗺️ Route Map</button>
+            <button class="np-tab" data-tab="tensions">🧭 Partition Tensions</button>
+            <button class="np-tab" data-tab="efforts">🌟 Continued Peace Efforts</button>
+            <button class="np-tab" data-tab="significance">📖 Historical Significance</button>
+            <button class="np-tab" data-tab="timeline">🕰️ Timeline &amp; Milestones</button>
+            <button class="np-tab" data-tab="references">📚 References</button>
+        </nav>
+
+        <!-- Bengal Political Context -->
+        <section id="overview" class="np-section active">
+            <div class="np-content-card">
+                <h2>🌾 Bengal Political Context</h2>
+                <div class="np-content">
+                    <p>Noakhali — a largely rural, riverine district in the east of Bengal — became the arena for Gandhi's most personal peace mission because of the political storms of 1946. Several forces converged on the region:</p>
+                    <ul class="np-list">
+                        <li><strong>A Muslim-majority province:</strong> Bengal was governed by a Muslim League ministry under Chief Minister <strong>H. S. Suhrawardy</strong>, and the League championed the demand for Pakistan, of which the eastern wing was to be carved from Bengal.</li>
+                        <li><strong>The shadow of Calcutta:</strong> The Great Calcutta Killings of August 1946, and the wave of fear they generated across East Bengal, had deeply unsettled the minority communities in the countryside.</li>
+                        <li><strong>Marginalised minorities:</strong> Noakhali's large Hindu minority — small traders, sharecroppers, weavers, and day labourers — felt increasingly exposed as political rhetoric about Pakistan hardened communal identities.</li>
+                        <li><strong>Collapse of the Cabinet Mission plan:</strong> The failure of the 1946 Cabinet Mission negotiations left the League with no constitutional path to Pakistan, and it turned to the politics of mass mobilization and confrontation.</li>
+                        <li><strong>Economic strain:</strong> The 1943 Bengal Famine had devastated the countryside, leaving communities poor, hungry, and politically volatile.</li>
+                    </ul>
+                    <p>Into this charged atmosphere, the October 1946 violence in Noakhali exploded — and it would summon the father of the nation to its villages.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Noakhali Violence -->
+        <section id="violence" class="np-section">
+            <div class="np-content-card">
+                <h2>🔥 Noakhali Violence</h2>
+                <div class="np-content">
+                    <p>Between about <strong>10 and 14 October 1946</strong>, a wave of communal violence swept across the villages of Noakhali and the neighbouring Tipperah (Comilla) district. The attacks targeted the Hindu minority — their homes, temples, and livelihoods — and were accompanied by forced conversions, abductions, and mass displacement.</p>
+                    <ul class="np-list">
+                        <li><strong>Rural and dispersed:</strong> Unlike Calcutta's urban mobs, the violence here unfolded village by village across a wide, watery countryside, where help was far away and fear spread fast.</li>
+                        <li><strong>Deliberate targeting:</strong> Survivors' accounts and subsequent inquiries described a pattern of organised attacks — arson, looting, and assaults — designed to drive minorities out of the region.</li>
+                        <li><strong>Mass flight:</strong> Tens of thousands of refugees fled the affected villages toward the railway towns, seeking boats across the rivers and shelter in relief camps.</li>
+                        <li><strong>Provincial disquiet:</strong> The League ministry's response was widely seen as slow and inadequate, deepening the crisis of trust between communities and between the ministry and the minorities.</li>
+                    </ul>
+                    <p>Historians emphasise that the Noakhali violence was not an isolated event but part of the same wave of communal killing that had begun with the Great Calcutta Killings — and that would spread to Bihar within weeks. It was this violence that drew Gandhi to the region.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gandhi's Arrival -->
+        <section id="arrival" class="np-section">
+            <div class="np-content-card">
+                <h2>🕊️ Gandhi's Arrival</h2>
+                <div class="np-content">
+                    <p>When news of the Noakhali violence reached Gandhi in Calcutta, he was deeply shaken. Rather than issue statements from a distance, he resolved to go himself — alone, without his usual entourage — to live among the survivors.</p>
+                    <p>On <strong>6 November 1946</strong>, Gandhi arrived at <strong>Chandpur</strong>, the district's river-port town, and then made his way into Noakhali. He declared that his mission would not be a quick visit: he would <strong>walk from village to village</strong>, staying with the people, sharing their food and shelter, until peace returned. It was a decision that astounded even his close associates.</p>
+                    <p class="np-quote">"I am not going to return to the city until peace is restored... I have only my faith in non-violence to guide me, and the willingness to live or die among the people of Noakhali." — <em>Gandhi, on his arrival in Noakhali, November 1946</em></p>
+                    <p>His choice was deliberate: in a region torn apart by the fear that communities could not coexist, Gandhi meant to demonstrate — by the simple act of living among them — that trust between Hindus and Muslims was possible.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Villages Visited -->
+        <section id="villages" class="np-section">
+            <div class="np-content-card">
+                <h2>🏘️ Villages Visited</h2>
+                <div class="np-content">
+                    <p>Gandhi spent about <strong>four months</strong> in the Noakhali countryside, walking from village to village — a journey of roughly 40 miles on foot through the flooded delta landscape. He is recorded as having visited <strong>dozens of villages</strong>, including:</p>
+                    <ul class="np-list">
+                        <li><strong>Chandpur</strong> — the river-port town where he first arrived, and his base for crossing into the district.</li>
+                        <li><strong>Ramganj</strong> — a major market town and an early focus of his walking tour and prayer meetings.</li>
+                        <li><strong>Dattapara</strong> — one of the villages he walked to and stayed in, in the heart of the affected area.</li>
+                        <li><strong>Haimchar</strong> — a village in the Chandpur region on his route.</li>
+                        <li><strong>Nandigram</strong> — a village where he held meetings and encouraged the return of displaced families.</li>
+                        <li><strong>Srirampur</strong> — a site of some of the most sustained peace work.</li>
+                        <li><strong>Sonapur</strong> — where he continued his daily round of prayer and reconciliation.</li>
+                        <li><strong>Khilgram &amp; surrounding hamlets</strong> — smaller settlements he passed through on foot, meeting villagers wherever he went.</li>
+                    </ul>
+                    <p>Wherever he stopped, he held prayer meetings, listened to survivors, and asked Hindus and Muslims to live together again. Each village he visited became, in his own words, a "field of experiment" in non-violence.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Peace Meetings -->
+        <section id="meetings" class="np-section">
+            <div class="np-content-card">
+                <h2>🤝 Peace Meetings</h2>
+                <div class="np-content">
+                    <p>Gandhi's method was as simple as it was demanding. In every village he established a routine:</p>
+                    <ul class="np-list">
+                        <li><strong>Daily prayer meetings:</strong> He conducted regular inter-faith prayers — drawing on Hindu, Muslim, and Christian traditions — at which he spoke frankly about courage, fear, and the meaning of ahimsa (non-violence).</li>
+                        <li><strong>Listening to survivors:</strong> He sat for hours with those who had lost homes and family, asking them to recount their experiences so that the truth of the tragedy could be acknowledged.</li>
+                        <li><strong>Urging return and reconciliation:</strong> He appealed to those who had fled to return to their villages, and to neighbours who had stayed to protect the vulnerable.</li>
+                        <li><strong>Confronting the perpetrators:</strong> He met those involved in the violence and urged repentance, holding that "an eye for an eye makes the whole world blind."</li>
+                    </ul>
+                    <p class="np-quote">"I am not concerned with developing the power to put down riots... My concern is to create the power that prevents riots." — <em>Gandhi, Noakhali, 1946</em></p>
+                    <p>His meetings were not always safe, and his audiences were not always convinced. Yet he persisted, walking each day to a new village, sleeping in mud huts, and rationing his own food to the barest minimum as an act of solidarity.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Outreach -->
+        <section id="outreach" class="np-section">
+            <div class="np-content-card">
+                <h2>🤲 Community Outreach</h2>
+                <div class="np-content">
+                    <p>Gandhi's outreach went far beyond speeches. He immersed himself in the practical work of rebuilding trust:</p>
+                    <ul class="np-list">
+                        <li><strong>Living as the people lived:</strong> He gave up his usual comforts, reduced his diet, and stayed in simple village huts — sometimes alone, without his closest followers, to prove that his mission was his own act of penance.</li>
+                        <li><strong>Do or Die:</strong> He adopted the slogan <strong>"Do or Die" (Karo ya Maro)</strong> for the mission — a promise that he would give his life to the cause of communal harmony rather than abandon the villages.</li>
+                        <li><strong>Women's teams:</strong> He dispatched women volunteers (including his followers) to organise among village women — listening to their accounts and helping to restore their sense of safety and dignity.</li>
+                        <li><strong>Rehabilitation:</strong> He worked with relief workers to help rebuild homes, secure food, and organise the return of refugees, insisting that peace without justice for the dispossessed would be hollow.</li>
+                        <li><strong>Inter-community cooperation:</strong> He constantly sought out Muslim leaders, elders, and officials, appealing for their joint efforts in restoring peace and the safe return of minorities.</li>
+                    </ul>
+                    <p>It was, as his biographers note, one of the most rigorous personal tests of his life — a barefoot walker in his late seventies, crossing a famine-ravaged delta to prove that reconciliation was possible.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Local Reactions -->
+        <section id="reactions" class="np-section">
+            <div class="np-content-card">
+                <h2>🗣️ Local Reactions</h2>
+                <div class="np-content">
+                    <p>Reactions to Gandhi's presence were as varied as the villages themselves:</p>
+                    <ul class="np-list">
+                        <li><strong>Hope among minorities:</strong> For many Hindus who had survived the violence, Gandhi's arrival was a source of profound reassurance — a symbol that India had not forgotten them.</li>
+                        <li><strong>Scepticism among some Muslims:</strong> Some Muslim residents and League supporters viewed his mission with suspicion, seeing a Congress leader who could not be trusted in a Muslim-majority district. Others were moved by his sincerity.</li>
+                        <li><strong>Surprising warmth:</strong> Accounts record that many ordinary Muslims were deeply impressed by his simple living, his respect for their prayers, and his willingness to walk unprotected among them.</li>
+                        <li><strong>Gratitude from survivors:</strong> Displaced families and widows spoke of him as a father figure who restored their courage to return and rebuild.</li>
+                        <li><strong>Critics in the cities:</strong> In Calcutta and Delhi, some argued that a lone old man walking the villages could do nothing against organised violence — while his colleagues in the Congress felt his absence from the political centre was a costly gamble.</li>
+                    </ul>
+                    <p>Gandhi himself acknowledged the mixed response. He insisted that it was precisely by persisting in the villages — listening, praying, and trusting — that the fear in both communities could be dissolved.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Route Map -->
+        <section id="route" class="np-section">
+            <div class="np-content-card">
+                <h2>🗺️ Gandhi's Route Map</h2>
+                <div class="np-content">
+                    <p>Follow Gandhi's walking tour through the Noakhali countryside. <strong>Click a marker</strong> to read about each stop, or use the list below. The route line traces the general path of his village-to-village peace mission from his arrival at Chandpur.</p>
+                    <div class="np-map-layout">
+                        <div class="np-map-canvas">
+                            <div id="np-route-map" class="np-map" role="application" aria-label="Interactive map of Gandhi's walking route through the villages of Noakhali, 1946-47"></div>
+                        </div>
+                        <aside class="np-map-detail" id="np-map-detail" aria-live="polite">
+                            <span class="np-map-detail-tag" id="np-map-detail-tag">🕊️ Start of the mission</span>
+                            <h3 id="np-map-detail-title">Select a stop</h3>
+                            <p id="np-map-detail-body">Click a marker on the map to read about Gandhi's visit to that village or place on his Noakhali peace mission.</p>
+                        </aside>
+                    </div>
+                    <ul class="np-map-points-list" id="np-map-points-list" aria-label="Route stop shortcuts"></ul>
+                    <p class="np-note">The route is an approximation based on historical accounts of Gandhi's walking tour between November 1946 and March 1947. Exact village positions in the flood-prone delta shifted over time; markers indicate the general locations he visited.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partition Tensions -->
+        <section id="tensions" class="np-section">
+            <div class="np-content-card">
+                <h2>🧭 Relationship with Wider Partition Tensions</h2>
+                <div class="np-content">
+                    <p>The Noakhali violence was inseparable from the larger crisis sweeping the subcontinent in 1946–47. It was both a product of and a contributor to the politics of Partition:</p>
+                    <ul class="np-list">
+                        <li><strong>Part of the communal cycle:</strong> Historians see Noakhali as a link in the chain of violence — Calcutta (Aug 1946) → Noakhali &amp; Tipperah (Oct 1946) → Bihar (Oct–Nov 1946) — each outbreak feeding the next.</li>
+                        <li><strong>A question for the League:</strong> The violence tested the League's claim that Pakistan would protect Muslims, even as its critics pointed to the attacks on minorities in its projected eastern wing as proof that communal nationalism endangered everyone.</li>
+                        <li><strong>A question for Congress:</strong> For the Congress, Noakhali exposed the limits of its secular nationalism and the depth of communal feeling in the countryside, forcing hard questions about whether a united India could hold.</li>
+                        <li><strong>Gandhi's answer:</strong> Gandhi's response was to reject the logic of Partition itself — arguing that if Hindus and Muslims in a village could learn to live together, no political division of the country was necessary or justifiable.</li>
+                        <li><strong>Mountbatten's calculus:</strong> The ongoing cycle of communal violence across Bengal and Bihar convinced the British that partition was the only way to end the killing — a decision Gandhi spent his remaining months opposing.</li>
+                    </ul>
+                    <p>Gandhi's Noakhali mission thus stood as a living counter-example to the argument for partition: if a lone old man could walk the villages of a divided countryside and be trusted by both communities, the politics of permanent division might be wrong.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Continued Peace Efforts -->
+        <section id="efforts" class="np-section">
+            <div class="np-content-card">
+                <h2>🌟 Gandhi's Continued Peace Efforts</h2>
+                <div class="np-content">
+                    <p>Gandhi's peace work did not end when he left Noakhali in <strong>March 1947</strong>. It became the pattern for the rest of his life:</p>
+                    <ul class="np-list">
+                        <li><strong>Bihar, 1947:</strong> He went directly from Noakhali to Bihar, where retaliatory violence against Muslims had broken out, applying the same methods of village walking, prayer, and reconciliation.</li>
+                        <li><strong>Calcutta, August 1947:</strong> On the eve of independence, he came to Calcutta to halt communal killing there — fasting until the city's leaders pledged peace, and walking through its streets to demonstrate that trust could be rebuilt.</li>
+                        <li><strong>Delhi, 1947–48:</strong> After Partition, he worked to protect Delhi's Muslims and refugees, undertaking a fast in January 1948 to stop the violence and press for the protection of minorities in Pakistan too.</li>
+                        <li><strong>The lasting formula:</strong> Everywhere, he repeated the same insistence — that minorities must be protected, that violence only bred violence, and that Indians of all faiths belonged to one family.</li>
+                    </ul>
+                    <p class="np-quote">"Do or Die" had been his vow for Noakhali. He carried that vow to Bihar, to Calcutta, and to Delhi — until his life was taken in January 1948 by an assassin who hated his very message of communal harmony.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historical Significance -->
+        <section id="significance" class="np-section">
+            <div class="np-content-card">
+                <h2>📖 Historical Significance</h2>
+                <div class="np-content">
+                    <p>Historians regard the Noakhali peace mission as one of the most significant episodes in Gandhi's life — and a hinge point in the history of Partition:</p>
+                    <ul class="np-list">
+                        <li><strong>A turning point for Gandhi:</strong> It was the moment Gandhi turned from the politics of negotiation to the politics of direct, personal peacemaking — living his philosophy at its most demanding.</li>
+                        <li><strong>A test of non-violence:</strong> The mission became his most searching experiment in ahimsa — a test conducted in the real conditions of communal war, far from the certainties of political campaigns.</li>
+                        <li><strong>A warning about Partition:</strong> Gandhi's refusal to accept that communities could not live together stood against the very idea of Partition, and his warnings shaped the conscience of the nation as partition approached.</li>
+                        <li><strong>Recovery of the displaced:</strong> The mission facilitated the return and rehabilitation of thousands of refugees, and its relief work saved lives in a region otherwise neglected by official machinery.</li>
+                        <li><strong>An enduring symbol:</strong> The walking mission — the barefoot old man crossing the delta — has become a universal symbol of peacemaking in the face of ethnic conflict, studied by peace researchers worldwide.</li>
+                    </ul>
+                    <p>In the arc of the road to Partition, Noakhali stands as the point where the drive for division met its most powerful human rebuke. It did not stop the partition of Bengal — but it proved that the alternative was at least conceivable, and it left a legacy of reconciliation that outlived the tragedy.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section id="timeline" class="np-section">
+            <div class="np-content-card">
+                <h2>🕰️ Timeline &amp; Milestones</h2>
+                <div class="np-content">
+                    <p>Click any milestone to expand the details. The timeline distinguishes the political developments, the violent events, and the milestones of the peace mission itself.</p>
+                    <div class="np-timeline" id="np-interactive-timeline">
+                        <div class="np-timeline-item" tabindex="0" role="button" aria-expanded="false">
+                            <div class="np-timeline-head">
+                                <span class="np-timeline-date">Mar 1946</span>
+                                <span class="np-timeline-title">Cabinet Mission arrives</span>
+                                <span class="np-timeline-toggle">+</span>
+                            </div>
+                            <div class="np-timeline-detail">
+                                <p>British ministers arrive to negotiate the transfer of power; their proposed federation soon collapses over the question of provincial grouping.</p>
+                            </div>
+                        </div>
+                        <div class="np-timeline-item np-timeline-violent" tabindex="0" role="button" aria-expanded="false">
+                            <div class="np-timeline-head">
+                                <span class="np-timeline-date">16–19 Aug 1946</span>
+                                <span class="np-timeline-title">Great Calcutta Killings</span>
+                                <span class="np-timeline-toggle">+</span>
+                            </div>
+                            <div class="np-timeline-detail">
+                                <p>Communal violence erupts in Calcutta around Direct Action Day, killing thousands and beginning the wave of violence that would reach Noakhali.</p>
+                            </div>
+                        </div>
+                        <div class="np-timeline-item" tabindex="0" role="button" aria-expanded="false">
+                            <div class="np-timeline-head">
+                                <span class="np-timeline-date">2 Sep 1946</span>
+                                <span class="np-timeline-title">Interim Government formed</span>
+                                <span class="np-timeline-toggle">+</span>
+                            </div>
+                            <div class="np-timeline-detail">
+                                <p>A Congress-led Interim Government is sworn in; the League joins in October, but the government is paralysed by mutual distrust.</p>
+                            </div>
+                        </div>
+                        <div class="np-timeline-item np-timeline-violent" tabindex="0" role="button" aria-expanded="false">
+                            <div class="np-timeline-head">
+                                <span class="np-timeline-date">10–14 Oct 1946</span>
+                                <span class="np-timeline-title">Noakhali &amp; Tipperah violence</span>
+                                <span class="np-timeline-toggle">+</span>
+                            </div>
+                            <div class="np-timeline-detail">
+                                <p>Village-by-village attacks on the Hindu minority across Noakhali and Tipperah; mass displacement and a refugee crisis follow.</p>
+                            </div>
+                        </div>
+                        <div class="np-timeline-item" tabindex="0" role="button" aria-expanded="false">
+                            <div class="np-timeline-head">
+                                <span class="np-timeline-date">25 Oct 1946</span>
+                                <span class="np-timeline-title">Gandhi resolves to go</span>
+                                <span class="np-timeline-toggle">+</span>
+                            </div>
+                            <div class="np-timeline-detail">
+                                <p>Gandhi announces that he will travel to Noakhali himself, abandoning his usual companions to walk among the survivors.</p>
+                            </div>
+                        </div>
+                        <div class="np-timeline-item" tabindex="0" role="button" aria-expanded="false">
+                            <div class="np-timeline-head">
+                                <span class="np-timeline-date">6 Nov 1946</span>
+                                <span class="np-timeline-title">Arrival at Chandpur</span>
+                                <span class="np-timeline-toggle">+</span>
+                            </div>
+                            <div class="np-timeline-detail">
+                                <p>Gandhi reaches the river-port town of Chandpur, the gateway to Noakhali, and begins his mission.</p>
+                            </div>
+                        </div>
+                        <div class="np-timeline-item" tabindex="0" role="button" aria-expanded="false">
+                            <div class="np-timeline-head">
+                                <span class="np-timeline-date">Nov 1946 – Mar 1947</span>
+                                <span class="np-timeline-title">The walking mission</span>
+                                <span class="np-timeline-toggle">+</span>
+                            </div>
+                            <div class="np-timeline-detail">
+                                <p>Gandhi walks from village to village — Ramganj, Dattapara, Haimchar, Nandigram, Srirampur, Sonapur and beyond — holding prayers and meeting survivors under his "Do or Die" vow.</p>
+                            </div>
+                        </div>
+                        <div class="np-timeline-item np-timeline-violent" tabindex="0" role="button" aria-expanded="false">
+                            <div class="np-timeline-head">
+                                <span class="np-timeline-date">Oct–Nov 1946</span>
+                                <span class="np-timeline-title">Violence spreads to Bihar</span>
+                                <span class="np-timeline-toggle">+</span>
+                            </div>
+                            <div class="np-timeline-detail">
+                                <p>Retaliatory attacks against Muslims in Bihar's countryside add to the cycle of communal violence, drawing Gandhi next.</p>
+                            </div>
+                        </div>
+                        <div class="np-timeline-item" tabindex="0" role="button" aria-expanded="false">
+                            <div class="np-timeline-head">
+                                <span class="np-timeline-date">Mar 1947</span>
+                                <span class="np-timeline-title">Departure for Bihar</span>
+                                <span class="np-timeline-toggle">+</span>
+                            </div>
+                            <div class="np-timeline-detail">
+                                <p>With peace largely restored in the villages he toured, Gandhi leaves Noakhali and applies the same methods in Bihar.</p>
+                            </div>
+                        </div>
+                        <div class="np-timeline-item" tabindex="0" role="button" aria-expanded="false">
+                            <div class="np-timeline-head">
+                                <span class="np-timeline-date">3 Jun 1947</span>
+                                <span class="np-timeline-title">Mountbatten Plan announces Partition</span>
+                                <span class="np-timeline-toggle">+</span>
+                            </div>
+                            <div class="np-timeline-detail">
+                                <p>Britain announces the transfer of power to two dominions, with Bengal to be divided — over Gandhi's opposition.</p>
+                            </div>
+                        </div>
+                        <div class="np-timeline-item" tabindex="0" role="button" aria-expanded="false">
+                            <div class="np-timeline-head">
+                                <span class="np-timeline-date">Aug 1947</span>
+                                <span class="np-timeline-title">Calcutta fast &amp; independence</span>
+                                <span class="np-timeline-toggle">+</span>
+                            </div>
+                            <div class="np-timeline-detail">
+                                <p>India and Pakistan become independent. Gandhi fasts in Calcutta to stop the killing there and keep the city peaceful.</p>
+                            </div>
+                        </div>
+                        <div class="np-timeline-item" tabindex="0" role="button" aria-expanded="false">
+                            <div class="np-timeline-head">
+                                <span class="np-timeline-date">30 Jan 1948</span>
+                                <span class="np-timeline-title">Gandhi's assassination</span>
+                                <span class="np-timeline-toggle">+</span>
+                            </div>
+                            <div class="np-timeline-detail">
+                                <p>Gandhi is killed in Delhi by an assassin who rejected his message of communal harmony — the final cost of his lifelong peace mission.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- References -->
+        <section id="references" class="np-section">
+            <div class="np-content-card">
+                <h2>📚 References &amp; Further Reading</h2>
+                <div class="np-content">
+                    <ul class="np-list np-references">
+                        <li>Britannica — <em>Noakhali Riots</em> and <em>Gandhi, Mohandas Karamchand</em>. <a href="https://www.britannica.com/topic/Noakhali-riots" target="_blank" rel="noopener noreferrer">britannica.com</a></li>
+                        <li>Wikipedia — <em>Noakhali riots</em> and <em>Noakhali Peace Mission</em>. <a href="https://en.wikipedia.org/wiki/Noakhali_riots" target="_blank" rel="noopener noreferrer">en.wikipedia.org</a></li>
+                        <li>Pyarelal — <em>Mahatma Gandhi: The Last Phase</em>, Vol. II (the definitive account of the Noakhali mission).</li>
+                        <li>Ramachandra Guha — <em>Gandhi: The Years That Changed the World, 1914–1948</em> (Knopf).</li>
+                        <li>Yasmin Khan — <em>The Great Partition: The Making of India and Pakistan</em> (Yale University Press).</li>
+                        <li>Joya Chatterji — <em>Bengal Divided: Hindu Communalism and Partition, 1932–1947</em> (Cambridge University Press).</li>
+                        <li>Stanley Wolpert — <em>Gandhi's Passion: The Life and Legacy of Mahatma Gandhi</em> (Oxford University Press).</li>
+                        <li>The Collected Works of Mahatma Gandhi (CWMG), Volumes covering November 1946 – March 1947, for Gandhi's own letters and speeches from Noakhali.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="np-footer">
+        <p>Part of <a href="../../index.html" style="color: #FF9933;">Incredible India Explorer</a> · <a href="../calcutta-1946-crisis-explorer/index.html" style="color: #138808;">1946 Calcutta Crisis</a> · <a href="../partition-1947/partition-1947.html" style="color: #138808;">Partition of 1947</a></p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../app.js" defer></script>
+    <script src="../../frontend/journey/journey.js" defer></script>
+    <script src="script.js" defer></script>
+    <script type="module" src="../firebase-config.js"></script>
+    <script type="module" src="../auth.js"></script>
+    <script src="../router.js" defer></script>
+</body>
+</html>

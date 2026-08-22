@@ -105,6 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderBoard() {
+    const activeElementId = document.activeElement ? document.activeElement.dataset.card : null;
     board.innerHTML = cards.map((card) => {
       const matched = matchedPairs.includes(card.pairId);
       const isFlipped = flipped.some((item) => item.id === card.id);
@@ -131,6 +132,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     board.querySelectorAll("[data-card]").forEach((button) => {
       button.addEventListener("click", () => flipCard(button.dataset.card));
+      button.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flipCard(button.dataset.card); } });
+      if (activeElementId && button.dataset.card === activeElementId) {
+        button.focus();
+      }
     });
   }
 
