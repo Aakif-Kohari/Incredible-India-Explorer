@@ -41,6 +41,17 @@ const allGhats = [
     history: "The Sangam has been a centre of pilgrimage for millennia and is the site of the Kumbh Mela, one of the largest peaceful religious gatherings in the world, drawing tens of millions of pilgrims once every twelve years.",
     experience: "Pilgrims take boat rides out to the exact point of confluence to bathe in the mingled waters, believed to cleanse sins and bring spiritual merit, while priests perform rituals along the riverbanks throughout the day.",
     timing: "Open year-round, with the atmosphere most vibrant during the Magh Mela and Kumbh Mela festival periods."
+  },
+  {
+    id: "rajendra-prasad",
+    name: "Rajendra Prasad Ghat",
+    icon: "🇮🇳",
+    location: "Varanasi",
+    description: "A prominent ghat serving as a bridge between Varanasi's ancient riverfront traditions and India's modern national history, named after the country's first President.",
+    history: "Originally part of Dashashwamedh Ghat and known as Ghoda Ghat, it was renamed in 1979 in honor of Dr. Rajendra Prasad, India's first President, who used to stay here during his visits.",
+    experience: "Today, it hosts vibrant cultural performances, light programs, and serves as a major boarding point for boating, offering scenic views adjacent to Dashashwamedh Ghat.",
+    timing: "Best visited in the evening between 6:00–8:00 PM to see the cultural activities and neighboring Aarti lights.",
+    detailedPage: "../rajendra-prasad-ghat/index.html"
   }
 ];
 
