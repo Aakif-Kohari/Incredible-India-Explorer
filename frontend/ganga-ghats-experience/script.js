@@ -52,6 +52,28 @@ const allGhats = [
     experience: "Today, it hosts vibrant cultural performances, light programs, and serves as a major boarding point for boating, offering scenic views adjacent to Dashashwamedh Ghat.",
     timing: "Best visited in the evening between 6:00–8:00 PM to see the cultural activities and neighboring Aarti lights.",
     detailedPage: "../rajendra-prasad-ghat/index.html"
+  },
+  {
+    id: "dandi",
+    name: "Dandi Ghat",
+    icon: "🧘‍♂️",
+    location: "Varanasi",
+    description: "A tranquil riverfront dedicated to the Dandi Sannyasis, embodying Advaita Vedanta philosophy, monastic austerity, and timeless stone ashram architecture.",
+    history: "Rebuilt in 1911 by Lalooji Agarwal for the Dandi sannyasi order of Dashanami Sampradaya (founded by Adi Shankaracharya), Dandi Ghat remains a secluded sanctuary for monk meditation, scriptural study, and Dandi Vinayaka worship.",
+    experience: "Witness the quiet dignity of saffron-clad ascetics carrying sacred wooden staves (danda), performing sunrise riverfront meditation, Upanishadic recitations, and peaceful Ganga ablutions.",
+    timing: "Best visited during quiet early morning hours (5:30–8:00 AM) for a serene spiritual atmosphere.",
+    detailedPage: "../dandi-ghat/index.html"
+  },
+  {
+    id: "daraganj",
+    name: "Daraganj Ghat",
+    icon: "🌊",
+    location: "Prayagraj",
+    description: "One of Prayagraj's oldest riverfronts, famous for Prince Dara Shikoh's legacy, the sacred Beni Madhav and Nag Vasuki temples, and modern Hindi literary history.",
+    history: "Named after Prince Dara Shikoh who studied Upanishadic philosophy here, Daraganj is home to Veni Madhava (presiding deity of Prayag) and was the riverside residence of legendary poet Suryakant Tripathi 'Nirala'.",
+    experience: "Explore stone temple spires, historic boatmen cultures, winter Siberian gull feeding, and Kalpwasi tent encampments during Magh Mela near Triveni Sangam.",
+    timing: "Best visited at dawn for morning river views or during Nag Panchami and Magh Mela for vibrant traditions.",
+    detailedPage: "../daraganj-ghat/index.html"
   }
 ];
 

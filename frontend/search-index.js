@@ -5,6 +5,13 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Daraganj Ghat — Prayagraj Historic Riverfront & Sangam Profile',
+        category: 'Heritage & Pilgrimage',
+        description:
+            'Explore Daraganj Ghat in Prayagraj: its historic riverfront culture, connection with the Yamuna and Ganga rivers, Prince Dara Shikoh etymology, sacred Beni Madhav and Nag Vasuki temples, Suryakant Tripathi \'Nirala\' literary legacy, and proximity to Triveni Sangam.',
+        url: 'frontend/daraganj-ghat/index.html'
+    },
+    {
         title: 'Brahmagiri Peak Trek (Coorg & Wayanad) Profile',
         category: 'Adventure & Sanctuary Treks',
         description:
