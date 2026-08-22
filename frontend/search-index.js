@@ -5992,5 +5992,13 @@ window.indiaSearchIndex = [
         description:
             "Explore Roopkund Trek in Uttarakhand \u2014 5,029m Mystery Skeleton Lake, Ali & Bedni Bugyals, Junargali Ridge, and Mount Trishul panoramas.",
         url: "frontend/roopkund-trek-explorer/index.html"
+    },
+    // --- feat/kolli-hills-trek ---
+    {
+        title: "Kolli Hills Trek — Agasagangai Waterfalls",
+        category: "Mountains & Treks",
+        description:
+            "Explore Kolli Hills Trek (1,300m) in Namakkal, Tamil Nadu. Agasagangai Waterfalls, 1,028 stone steps climb, ancient Arapaleeswarar Temple, gear checklist, and duration estimator.",
+        url: "frontend/kolli-hills-trek/index.html"
     }
 ];
