@@ -5,6 +5,13 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Dandi Ghat — Varanasi Monastic Riverfront Profile',
+        category: 'Heritage & Pilgrimage',
+        description:
+            'Explore Dandi Ghat in Varanasi: dedicated to Dandi Sannyasis of Adi Shankaracharya\'s Advaita Vedanta tradition, sacred wooden danda symbolism, 1911 stone reconstruction by Lalooji Agarwal, Dandi Vinayaka shrine, and riverfront ashram architecture.',
+        url: 'frontend/dandi-ghat/index.html'
+    },
+    {
         title: 'Brahmagiri Peak Trek (Coorg & Wayanad) Profile',
         category: 'Adventure & Sanctuary Treks',
         description:
