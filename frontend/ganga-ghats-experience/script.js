@@ -85,6 +85,17 @@ const allGhats = [
     experience: "Admire classical stone colonnades, carved jharokhas, sunrise boating panoramas, and thousands of glowing lamps during Dev Deepawali adjacent to Dashashwamedh Ghat.",
     timing: "Best visited at sunrise for golden palace reflections or at dusk during Ganga Aarti and Dev Deepawali.",
     detailedPage: "../munshi-ghat/index.html"
+  },
+  {
+    id: "causatthi",
+    name: "Causatthi Ghat",
+    icon: "🌺",
+    location: "Varanasi",
+    description: "A sacred Shakta riverfront dedicated to the sixty-four Yoginis, famous for its steep cliffside Chausath Yogini Temple, Puranic legend of King Divodasa, and Navratri festivals.",
+    history: "Associated with the Skanda Purana legend where Shiva sent the 64 Yoginis to Kashi, the ghat was rebuilt in 1670 CE by Raja Digpatia of Bengal, becoming a sanctuary for Bengali pilgrims and saint Swami Bhaskarananda Saraswati.",
+    experience: "Climb the extraordinarily steep sandstone steps to the cliffside Chausath Yogini Temple, witness Navratri Badi Gaura rites, and explore 17th-century Bengali ashram architecture.",
+    timing: "Best visited during Chaitra and Ashwin Navratri for vibrant Shakti rites or early morning for quiet Ganga dips.",
+    detailedPage: "../causatthi-ghat/index.html"
   }
 ];
 
