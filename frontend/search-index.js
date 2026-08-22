@@ -5,6 +5,13 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Causatthi Ghat — Varanasi Sixty-Four Yoginis & Shakta Heritage Profile',
+        category: 'Heritage & Pilgrimage',
+        description:
+            'Explore Causatthi Ghat in Varanasi: its sacred association with the 64 Yoginis, Skanda Purana legend of King Divodasa, cliffside Chausath Yogini Temple, 1670 CE Bengali patronage by Raja Digpatia, and Navratri festival rituals.',
+        url: 'frontend/causatthi-ghat/index.html'
+    },
+    {
         title: 'Brahmagiri Peak Trek (Coorg & Wayanad) Profile',
         category: 'Adventure & Sanctuary Treks',
         description:

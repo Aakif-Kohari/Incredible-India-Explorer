@@ -52,6 +52,50 @@ const allGhats = [
     experience: "Today, it hosts vibrant cultural performances, light programs, and serves as a major boarding point for boating, offering scenic views adjacent to Dashashwamedh Ghat.",
     timing: "Best visited in the evening between 6:00–8:00 PM to see the cultural activities and neighboring Aarti lights.",
     detailedPage: "../rajendra-prasad-ghat/index.html"
+  },
+  {
+    id: "dandi",
+    name: "Dandi Ghat",
+    icon: "🧘‍♂️",
+    location: "Varanasi",
+    description: "A tranquil riverfront dedicated to the Dandi Sannyasis, embodying Advaita Vedanta philosophy, monastic austerity, and timeless stone ashram architecture.",
+    history: "Rebuilt in 1911 by Lalooji Agarwal for the Dandi sannyasi order of Dashanami Sampradaya (founded by Adi Shankaracharya), Dandi Ghat remains a secluded sanctuary for monk meditation, scriptural study, and Dandi Vinayaka worship.",
+    experience: "Witness the quiet dignity of saffron-clad ascetics carrying sacred wooden staves (danda), performing sunrise riverfront meditation, Upanishadic recitations, and peaceful Ganga ablutions.",
+    timing: "Best visited during quiet early morning hours (5:30–8:00 AM) for a serene spiritual atmosphere.",
+    detailedPage: "../dandi-ghat/index.html"
+  },
+  {
+    id: "daraganj",
+    name: "Daraganj Ghat",
+    icon: "🌊",
+    location: "Prayagraj",
+    description: "One of Prayagraj's oldest riverfronts, famous for Prince Dara Shikoh's legacy, the sacred Beni Madhav and Nag Vasuki temples, and modern Hindi literary history.",
+    history: "Named after Prince Dara Shikoh who studied Upanishadic philosophy here, Daraganj is home to Veni Madhava (presiding deity of Prayag) and was the riverside residence of legendary poet Suryakant Tripathi 'Nirala'.",
+    experience: "Explore stone temple spires, historic boatmen cultures, winter Siberian gull feeding, and Kalpwasi tent encampments during Magh Mela near Triveni Sangam.",
+    timing: "Best visited at dawn for morning river views or during Nag Panchami and Magh Mela for vibrant traditions.",
+    detailedPage: "../daraganj-ghat/index.html"
+  },
+  {
+    id: "munshi",
+    name: "Munshi Ghat",
+    icon: "🏛️",
+    location: "Varanasi",
+    description: "A majestic palatial riverfront famous for its 1912 stone architecture, Greco-Roman columns, connection to Darbhanga Palace, and breathtaking Dev Deepawali light displays.",
+    history: "Constructed in 1912 by Sridhara Narayana Munshi (Finance Minister of Nagpur State), the northern portion was acquired in 1915 by the Royal Family of Darbhanga to build their grand riverfront palace.",
+    experience: "Admire classical stone colonnades, carved jharokhas, sunrise boating panoramas, and thousands of glowing lamps during Dev Deepawali adjacent to Dashashwamedh Ghat.",
+    timing: "Best visited at sunrise for golden palace reflections or at dusk during Ganga Aarti and Dev Deepawali.",
+    detailedPage: "../munshi-ghat/index.html"
+  },
+  {
+    id: "causatthi",
+    name: "Causatthi Ghat",
+    icon: "🌺",
+    location: "Varanasi",
+    description: "A sacred Shakta riverfront dedicated to the sixty-four Yoginis, famous for its steep cliffside Chausath Yogini Temple, Puranic legend of King Divodasa, and Navratri festivals.",
+    history: "Associated with the Skanda Purana legend where Shiva sent the 64 Yoginis to Kashi, the ghat was rebuilt in 1670 CE by Raja Digpatia of Bengal, becoming a sanctuary for Bengali pilgrims and saint Swami Bhaskarananda Saraswati.",
+    experience: "Climb the extraordinarily steep sandstone steps to the cliffside Chausath Yogini Temple, witness Navratri Badi Gaura rites, and explore 17th-century Bengali ashram architecture.",
+    timing: "Best visited during Chaitra and Ashwin Navratri for vibrant Shakti rites or early morning for quiet Ganga dips.",
+    detailedPage: "../causatthi-ghat/index.html"
   }
 ];
 
