@@ -5963,6 +5963,34 @@ window.indiaSearchIndex = [
         category: "Languages & Literature",
         description:
             "Explore Urdu (\u0627\u0631\u062f\u0648) \u2014 Perso-Arabic Nastaliq script, greetings, verified audio pronunciations, vocabulary, and classical poetry of Ghalib, Mir, and Faiz.",
-        url: "frontend/urdu-language-explorer/index.html"
+        url: "frontend/urdu-language-explorer/index.html"},
+    // --- feat/bengali-language-explorer ---
+    {
+        title: "Bengali: Discover \u09ac\u09be\u0982\u09b2\u09be and Its Literary Heritage",
+        category: "Languages & Literature",
+        description:
+            "Explore Bengali (\u09ac\u09be\u0982\u09b2\u09be) \u2014 Classical language status, Nomoskar greetings, audio pronunciations, vocabulary, Rabindranath Tagore, and Nazrul Islam.",
+        url: "frontend/bengali-language-explorer/index.html"},
+    // --- feat/marathi-language-explorer ---
+    {
+        title: "Marathi: Explore \u092e\u0930\u093e\u0920\u0940 Through Words and Sound",
+        category: "Languages & Literature",
+        description:
+            "Explore Marathi (\u092e\u0930\u093e\u0920\u0940) \u2014 Classical language status, Namaskar greetings, audio pronunciations, vocabulary, Sant Dnyaneshwar, and Kusumagraj.",
+        url: "frontend/marathi-language-explorer/index.html"},
+    // --- feat/tamil-language-explorer ---
+    {
+        title: "Tamil: Explore \u0ba4\u0bae\u0bbf\u0bb4\u0bcd and Its Literary Heritage",
+        category: "Languages & Literature",
+        description:
+            "Explore Tamil (\u0ba4\u0bae\u0bbf\u0bb4\u0bcd) \u2014 2,500+ years of classical Dravidian heritage, Vanakkam greetings, audio pronunciations, vocabulary, and Thirukkural literature.",
+        url: "frontend/tamil-language-explorer/index.html"},
+    // --- feat/roopkund-trek-explorer ---
+    {
+        title: "Add Roopkund Trek \u2014 Uttarakhand",
+        category: "Mountains & Treks",
+        description:
+            "Explore Roopkund Trek in Uttarakhand \u2014 5,029m Mystery Skeleton Lake, Ali & Bedni Bugyals, Junargali Ridge, and Mount Trishul panoramas.",
+        url: "frontend/roopkund-trek-explorer/index.html"
     }
 ];
