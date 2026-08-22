@@ -5913,6 +5913,13 @@ window.indiaSearchIndex = [
             "Explore Dzongri Trek in Sikkim \u2014 4,250m Dzongri Top sunrise viewpoint, 360-degree Kanchenjunga panoramas, alpine meadows, and Khangchendzonga National Park.",
         url: "frontend/dzongri-trek-explorer/index.html"
     },
+    // --- Mawryngkhang Trek Explorer ---
+    {
+        title: "Mawryngkhang Trek",
+        keywords: "mawryngkhang, trek, meghalaya, bamboo trail, wahkhen, scariest trek",
+        description: "Explore the Mawryngkhang Trek in Meghalaya. Known as the scariest trek in Meghalaya, it features bamboo bridges, dramatic rock formations, and dense forest ecosystems.",
+        url: "frontend/mawryngkhang-trek/index.html"},
+  
     // --- Kumara Parvatha Trek Explorer ---
     {
         title: "Kumara Parvatha Trek",
