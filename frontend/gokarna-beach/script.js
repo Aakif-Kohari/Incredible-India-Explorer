@@ -6,6 +6,12 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Theme Toggle
+    // NOTE: Confirm this key ('theme') matches whatever key your site-wide
+    // bootstrap script (e.g. pages-common.js or an inline <head> script)
+    // reads on page load. If that script reads a different key (e.g.
+    // 'iie_storage' or similar), rename BOTH the .setItem below and that
+    // bootstrap reader to use the exact same key/format so theme state
+    // doesn't go out of sync across pages.
     const themeBtn = document.getElementById('theme-toggle');
     if (themeBtn) {
         themeBtn.dataset.listenerBound = 'true';
@@ -35,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabBtns = document.querySelectorAll('.hub-tab-btn');
     const tabPanels = document.querySelectorAll('.hub-panel');
     let mapInitialized = false;
+    let mapInitPending = false; // guards against double-init when tab is clicked rapidly
 
     tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -57,8 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 targetPanel.hidden = false;
             }
 
-            if (tabKey === 'map' && !mapInitialized) {
-                setTimeout(initMap, 100);
+            if (tabKey === 'map' && !mapInitialized && !mapInitPending) {
+                mapInitPending = true;
+                setTimeout(() => {
+                    initMap();
+                    mapInitialized = true;
+                    mapInitPending = false;
+                }, 100);
             }
         });
     });
@@ -93,8 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 .addTo(map)
                 .bindPopup(`<strong>${p.name}</strong><br>${p.note}`);
         });
-
-        mapInitialized = true;
+        // mapInitialized is now set by the tab-click handler above, right
+        // after this function returns, so it isn't duplicated here.
     }
 
     // 5. Gallery Lightbox Modal
