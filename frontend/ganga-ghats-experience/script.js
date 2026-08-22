@@ -96,6 +96,17 @@ const allGhats = [
     experience: "Climb the extraordinarily steep sandstone steps to the cliffside Chausath Yogini Temple, witness Navratri Badi Gaura rites, and explore 17th-century Bengali ashram architecture.",
     timing: "Best visited during Chaitra and Ashwin Navratri for vibrant Shakti rites or early morning for quiet Ganga dips.",
     detailedPage: "../causatthi-ghat/index.html"
+  },
+  {
+    id: "naya",
+    name: "Naya Ghat",
+    icon: "🧱",
+    location: "Varanasi",
+    description: "A spacious riverfront documenting Varanasi's modern architectural evolution from 18th-century Phota Ghat into a active boat docking and bathing hub.",
+    history: "Recorded in 18th-century surveys as Phota Ghat, it was systematically rebuilt in the 19th century with reinforced sandstone terraces, taking the name Naya Ghat (New Ghat) while preserving traditional bathing and temple rites.",
+    experience: "Walk broad stone platforms, observe morning Surya Arghya rituals, watch traditional boat repair along the lower steps, and take ferry rides near Ram Ghat.",
+    timing: "Best visited at dawn for morning river baths or during Chhath Puja for vibrant festival crowds.",
+    detailedPage: "../naya-ghat/index.html"
   }
 ];
 

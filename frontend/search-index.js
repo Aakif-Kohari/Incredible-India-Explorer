@@ -5,6 +5,12 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Naya Ghat — Varanasi Riverfront Renewal & Living Culture Profile',
+        category: 'Heritage & Development',
+        description:
+            'Explore Naya Ghat in Varanasi: its historical development from 18th-century Phota Ghat, 19th-century sandstone masonry renewal, spacious bathing terraces, boat docking culture, riverfront Shiva and Hanuman shrines, and Dev Deepawali glow.',
+        url: 'frontend/naya-ghat/index.html'},
+  {
         title: 'Causatthi Ghat — Varanasi Sixty-Four Yoginis & Shakta Heritage Profile',
         category: 'Heritage & Pilgrimage',
         description:
