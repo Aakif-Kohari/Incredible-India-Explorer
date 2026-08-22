@@ -18,7 +18,8 @@ const allGhats = [
     description: "The southernmost of Varanasi's major ghats, best known as the finest spot to witness sunrise over the Ganga and the lively morning cultural gathering held here.",
     history: "Assi Ghat sits at the confluence of the Assi stream and the Ganga, a meeting point considered sacred in Hindu tradition. It has long been associated with scholarly and spiritual life, given its proximity to Banaras Hindu University.",
     experience: "At dawn, the ghat comes alive with a morning cultural programme featuring yoga sessions, devotional music, and a smaller sunrise Aarti — a calmer, more reflective counterpart to the famous evening ceremony downstream.",
-    timing: "Best visited around sunrise, typically between 5:00–6:00 AM depending on the season."
+    timing: "Best visited around sunrise, typically between 5:00–6:00 AM depending on the season.",
+    detailedPage: "../assi-ghat/index.html"
   },
   {
     id: "manikarnika",
@@ -105,6 +106,15 @@ function openModal(ghat, triggerEl) {
   modalGhatHistory.textContent = ghat.history;
   modalGhatExperience.textContent = ghat.experience;
   modalGhatTiming.textContent = ghat.timing;
+
+  const linkEl = document.getElementById("modalGhatLink");
+  const actionContainer = document.getElementById("modalGhatActionContainer");
+  if (ghat.detailedPage) {
+    linkEl.href = ghat.detailedPage;
+    actionContainer.style.display = "block";
+  } else {
+    actionContainer.style.display = "none";
+  }
 
   ghatModalOverlay.classList.add("active");
   ghatModalClose.focus();
