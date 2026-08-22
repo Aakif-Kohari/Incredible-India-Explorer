@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Mahatma Gandhi Explorer - Biography, interactive life timeline, major movements, quotes, legacy, gallery and references of the Father of the Nation and pioneer of nonviolent resistance.">
+    <title>Mahatma Gandhi Explorer | Incredible India Explorer</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Mahatma Gandhi Explorer | Incredible India Explorer">
+    <meta property="og:description"
+        content="Explore the life of Mahatma Gandhi — his philosophy of nonviolence (Ahimsa and Satyagraha), major movements, and his central role in India's independence.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_IN">
+</head>
+
+<body class="gandhi-page-body">
+    <!-- Navbar Header -->
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+    <main class="gandhi-main">
+        <!-- Hero Banner -->
+        <section class="gandhi-hero" id="gandhi-hero">
+            <div class="gandhi-hero-bg" aria-hidden="true"></div>
+            <div class="gandhi-hero-overlay" aria-hidden="true"></div>
+            <div class="gandhi-hero-content">
+                <span class="gandhi-kicker">🇮🇳 Father of the Nation · Pioneer of Nonviolent Resistance</span>
+                <h1>Mahatma <span>Gandhi</span></h1>
+                <p class="gandhi-title-line">Bapu — "Father of the Nation"</p>
+                <p class="gandhi-hero-subtitle">
+                    Mohandas Karamchand Gandhi led India's independence movement through Ahimsa (nonviolence) and
+                    Satyagraha (truth-force), a philosophy of civil disobedience that would go on to inspire civil
+                    rights movements across the world.
+                </p>
+
+                <div class="gandhi-hero-stats">
+                    <div class="gandhi-hero-stat">
+                        <strong><span class="gandhi-count" data-target="1869">0</span></strong>
+                        <span>Born</span>
+                    </div>
+                    <div class="gandhi-hero-stat">
+                        <strong><span class="gandhi-count" data-target="1948">0</span></strong>
+                        <span>Died</span>
+                    </div>
+                    <div class="gandhi-hero-stat">
+                        <strong>78</strong>
+                        <span>Years Lived</span>
+                    </div>
+                    <div class="gandhi-hero-stat">
+                        <strong>Bapu</strong>
+                        <span>Title</span>
+                    </div>
+                </div>
+
+                <blockquote class="gandhi-hero-quote">
+                    "Be the change that you wish to see in the world."
+                </blockquote>
+            </div>
+            <a href="#biography" class="gandhi-scroll-hint" aria-label="Scroll to explore"></a>
+        </section>
+
+        <!-- Marquee Strip -->
+        <div class="gandhi-marquee" aria-hidden="true">
+            <div class="gandhi-marquee-track">
+                <span>🕊️ AHIMSA · SATYAGRAHA · NONVIOLENT RESISTANCE</span>
+                <span>|</span>
+                <span>🧵 KHADI &amp; SWADESHI · SELF-RELIANCE</span>
+                <span>|</span>
+                <span>🧂 DANDI MARCH · SALT SATYAGRAHA, 1930</span>
+                <span>|</span>
+                <span>✊ QUIT INDIA MOVEMENT · "DO OR DIE", 1942</span>
+                <span>|</span>
+                <span>🕊️ FATHER OF THE NATION · MARTYRED 1948</span>
+                <span>|</span>
+                <span>🕊️ AHIMSA · SATYAGRAHA · NONVIOLENT RESISTANCE</span>
+                <span>|</span>
+                <span>🧵 KHADI &amp; SWADESHI · SELF-RELIANCE</span>
+                <span>|</span>
+                <span>🧂 DANDI MARCH · SALT SATYAGRAHA, 1930</span>
+                <span>|</span>
+                <span>✊ QUIT INDIA MOVEMENT · "DO OR DIE", 1942</span>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="gandhi-nav-tabs">
+            <button class="gandhi-tab active" data-tab="biography">📜 Biography</button>
+            <button class="gandhi-tab" data-tab="timeline">📅 Timeline</button>
+            <button class="gandhi-tab" data-tab="journeys">🗺️ Journeys</button>
+            <button class="gandhi-tab" data-tab="movements">✊ Movements</button>
+            <button class="gandhi-tab" data-tab="quotes">💬 Quotes</button>
+            <button class="gandhi-tab" data-tab="legacy">🕊️ Legacy</button>
+            <button class="gandhi-tab" data-tab="gallery">🖼️ Gallery</button>
+            <button class="gandhi-tab" data-tab="references">📚 References</button>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="gandhi-section-wrapper">
+            <!-- 1. Biography -->
+            <section id="biography" class="gandhi-section active">
+                <div class="gandhi-content-card">
+                    <h2>📜 Biography</h2>
+                    <div class="gandhi-split">
+                        <div class="gandhi-split-text">
+                            <p><strong>Mohandas Karamchand Gandhi</strong> (2 October 1869 – 30 January 1948) was an
+                                Indian lawyer, anti-colonial nationalist, and political ethicist who led India's
+                                successful campaign for independence from British rule. Revered as
+                                <strong>"Mahatma"</strong> (Great Soul) and affectionately called
+                                <strong>"Bapu"</strong> (Father), he inspired movements for civil rights and freedom
+                                across the world through his philosophy of nonviolence.</p>
+
+                            <p>Born in <strong>Porbandar</strong>, Gujarat, to Karamchand Gandhi and Putlibai, he
+                                trained as a barrister at the Inner Temple in London before moving to South Africa in
+                                1893, where he spent over two decades developing his method of nonviolent civil
+                                resistance, <strong>Satyagraha</strong> (truth-force), while campaigning against
+                                discriminatory laws targeting Indian residents.</p>
+
+                            <p>Returning to India in 1915, Gandhi gradually assumed leadership of the Indian National
+                                Congress, reshaping it into a mass movement. He championed the use of homespun cloth
+                                (<strong>Khadi</strong>) and the boycott of foreign goods (<strong>Swadeshi</strong>) as
+                                tools of economic self-reliance and symbolic defiance of British rule.</p>
+
+                            <p>He led national campaigns for easing poverty, expanding women's rights, building
+                                religious and ethnic amity, ending untouchability, and above all for achieving
+                                <strong>Swaraj</strong> (self-rule). His most celebrated campaigns included the
+                                <strong>Non-Cooperation Movement</strong> (1920–22), the <strong>Salt
+                                    Satyagraha</strong> or Dandi March (1930), and the <strong>Quit India
+                                    Movement</strong> (1942), each escalating pressure on British colonial authority
+                                through disciplined, nonviolent mass action.</p>
+
+                            <p>Gandhi's life was cut short on <strong>30 January 1948</strong>, when he was assassinated
+                                in New Delhi. His philosophy of Ahimsa and Satyagraha would go on to directly influence
+                                later civil rights and freedom movements around the world, including those led by Martin
+                                Luther King Jr. and Nelson Mandela.</p>
+                        </div>
+                        <figure class="gandhi-figure float-slow">
+                            <img src="https://images.unsplash.com/photo-1601000938259-9fc7c5fa1e0d?auto=format&fit=crop&w=800&q=80"
+                                alt="A spinning wheel (charkha) symbolising Gandhi's philosophy of self-reliance"
+                                loading="lazy">
+                            <figcaption>The charkha — symbol of Swadeshi and self-reliance</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Journeys Section -->
+            <section id="journeys" class="gandhi-section">
+                <div class="gandhi-content-card journeys-container">
+                    <h2>🗺️ Major Journeys Across India</h2>
+                    <p class="section-intro">Explore the historic routes and stops that Mahatma Gandhi traversed during the Indian freedom struggle.</p>
+                    
+                    <div class="journeys-layout">
+                        <div class="journeys-sidebar">
+                            <div class="journey-selector-wrapper">
+                                <label for="journey-select">Select a Journey:</label>
+                                <select id="journey-select" class="journey-dropdown"></select>
+                            </div>
+                            
+                            <div id="journey-info-card" class="journey-info-card">
+                                <h3 id="journey-title">Journey Title</h3>
+                                <p id="journey-period" class="journey-meta"><strong>Period:</strong> <span class="meta-value">1915</span></p>
+                                <p id="journey-distance" class="journey-meta"><strong>Est. Distance:</strong> <span class="meta-value">N/A</span></p>
+                                <p id="journey-description">Description of the journey.</p>
+                                
+                                <div class="journey-controls">
+                                    <button id="btn-play-route" class="btn-primary">⚡ Trace Route</button>
+                                </div>
+                            </div>
+
+                            <div class="journey-stops-list-container">
+                                <h4>📍 Major Stops & Events</h4>
+                                <ul id="journey-stops-list" class="journey-stops-list"></ul>
+                            </div>
+                        </div>
+                        
+                        <div class="map-wrapper">
+                            <div id="gandhi-map" class="gandhi-map"></div>
+                            <div id="map-legend" class="map-legend">
+                                <div><span class="legend-dot start"></span> Start Point</div>
+                                <div><span class="legend-dot stop"></span> Major Stop</div>
+                                <div><span class="legend-dot end"></span> End Point</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Interactive Life Timeline -->
+            <section id="timeline" class="gandhi-section">
+                <div class="gandhi-content-card">
+                    <h2>📅 Interactive Life Timeline</h2>
+                    <p class="section-intro">Key milestones from birth in Porbandar to martyrdom in Delhi — click any
+                        entry to expand.</p>
+
+                    <div class="gandhi-timeline" id="gandhi-timeline-list">
+                        <div class="timeline-item" tabindex="0">
+                            <strong class="timeline-year">1869</strong>
+                            <div class="timeline-content">
+                                <h4>Born in Porbandar, Gujarat</h4>
+                                <p>Born on 2 October to Karamchand and Putlibai Gandhi, into a Vaishnava Hindu family in
+                                    the coastal town of Porbandar, then part of a princely state.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" tabindex="0">
+                            <strong class="timeline-year">1888</strong>
+                            <div class="timeline-content">
+                                <h4>Sails to London to study law</h4>
+                                <p>Travelled to England to train as a barrister at the Inner Temple, adapting to a new
+                                    culture while holding firmly to vows made to his mother.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" tabindex="0">
+                            <strong class="timeline-year">1893</strong>
+                            <div class="timeline-content">
+                                <h4>Moves to South Africa</h4>
+                                <p>Took up legal work in South Africa, where firsthand experience of racial
+                                    discrimination shaped his early political consciousness.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" tabindex="0">
+                            <strong class="timeline-year">1906</strong>
+                            <div class="timeline-content">
+                                <h4>Develops Satyagraha</h4>
+                                <p>Formulated and first applied the philosophy of Satyagraha (truth-force) in a campaign
+                                    against discriminatory registration laws in the Transvaal.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" tabindex="0">
+                            <strong class="timeline-year">1915</strong>
+                            <div class="timeline-content">
+                                <h4>Returns to India</h4>
+                                <p>Came back to India after two decades abroad and, under the guidance of Gopal Krishna
+                                    Gokhale, began travelling the country to understand its people.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" tabindex="0">
+                            <strong class="timeline-year">1920</strong>
+                            <div class="timeline-content">
+                                <h4>Launches Non-Cooperation Movement</h4>
+                                <p>Called on Indians to withdraw cooperation from British institutions following the
+                                    Jallianwala Bagh massacre, marking his rise as the movement's principal leader.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" tabindex="0">
+                            <strong class="timeline-year">1930</strong>
+                            <div class="timeline-content">
+                                <h4>Salt Satyagraha (Dandi March)</h4>
+                                <p>Led a 240-mile march to the coastal village of Dandi to defy the British salt tax
+                                    monopoly, drawing global attention to the independence struggle.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" tabindex="0">
+                            <strong class="timeline-year">1942</strong>
+                            <div class="timeline-content">
+                                <h4>Quit India Movement</h4>
+                                <p>Launched the Quit India Movement with the rallying cry "Do or Die," demanding an end
+                                    to British rule and triggering the movement's final phase.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" tabindex="0">
+                            <strong class="timeline-year">1947</strong>
+                            <div class="timeline-content">
+                                <h4>Indian Independence</h4>
+                                <p>Witnessed India's independence on 15 August, while also working to quell communal
+                                    violence surrounding the Partition.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" tabindex="0">
+                            <strong class="timeline-year">1948</strong>
+                            <div class="timeline-content">
+                                <h4>Assassination</h4>
+                                <p>Assassinated on 30 January in New Delhi, bringing his life to an end but cementing
+                                    his legacy as the Father of the Nation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Major Movements -->
+            <section id="movements" class="gandhi-section">
+                <div class="gandhi-content-card">
+                    <h2>✊ Major Movements</h2>
+                    <p class="section-intro">The three defining campaigns of nonviolent resistance that Gandhi led
+                        against British colonial rule.</p>
+
+                    <div class="gandhi-movements-grid">
+                        <div class="movement-card">
+                            <span class="movement-icon">🤝</span>
+                            <h3>Non-Cooperation Movement</h3>
+                            <span class="movement-year">1920 – 1922</span>
+                            <p>Launched in response to the Jallianwala Bagh massacre and the Rowlatt Act, this campaign
+                                called on Indians to withdraw cooperation from British courts, schools, titles, and
+                                goods — turning noncooperation into a mass, nationwide movement for the first time.</p>
+                        </div>
+                        <div class="movement-card">
+                            <span class="movement-icon">🧂</span>
+                            <h3>Salt Satyagraha (Dandi March)</h3>
+                            <span class="movement-year">1930</span>
+                            <p>A 240-mile, 24-day march from Sabarmati Ashram to the coastal village of Dandi,
+                                undertaken to defy the British monopoly on salt production. The act of making salt from
+                                seawater became a powerful symbol of defiance that galvanized civil disobedience across
+                                India.</p>
+                        </div>
+                        <div class="movement-card">
+                            <span class="movement-icon">✊</span>
+                            <h3>Quit India Movement</h3>
+                            <span class="movement-year">1942</span>
+                            <p>Launched at the height of World War II with the call to "Do or Die," this movement
+                                demanded an immediate end to British rule. It led to the mass arrest of Congress
+                                leadership, yet marked the final, decisive phase of the independence struggle.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Quotes -->
+            <section id="quotes" class="gandhi-section">
+                <div class="gandhi-content-card">
+                    <h2>💬 Quotes</h2>
+                    <p class="section-intro">Words that continue to shape movements for justice and nonviolence
+                        worldwide.</p>
+
+                    <div class="gandhi-quotes-grid">
+                        <blockquote class="quote-card">
+                            <p>"Be the change that you wish to see in the world."</p>
+                            <cite>— Mahatma Gandhi</cite>
+                        </blockquote>
+                        <blockquote class="quote-card">
+                            <p>"An eye for an eye only ends up making the whole world blind."</p>
+                            <cite>— Mahatma Gandhi</cite>
+                        </blockquote>
+                        <blockquote class="quote-card">
+                            <p>"In a gentle way, you can shake the world."</p>
+                            <cite>— Mahatma Gandhi</cite>
+                        </blockquote>
+                        <blockquote class="quote-card">
+                            <p>"The weak can never forgive. Forgiveness is the attribute of the strong."</p>
+                            <cite>— Mahatma Gandhi</cite>
+                        </blockquote>
+                        <blockquote class="quote-card">
+                            <p>"You must not lose faith in humanity. Humanity is an ocean; if a few drops of the ocean
+                                are dirty, the ocean does not become dirty."</p>
+                            <cite>— Mahatma Gandhi</cite>
+                        </blockquote>
+                        <blockquote class="quote-card">
+                            <p>"First they ignore you, then they laugh at you, then they fight you, then you win."</p>
+                            <cite>— Attributed to Mahatma Gandhi</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Legacy -->
+            <section id="legacy" class="gandhi-section">
+                <div class="gandhi-content-card">
+                    <h2>🕊️ Legacy &amp; Impact</h2>
+                    <p class="section-intro">The enduring imprint of Bapu's philosophy across India and the world.</p>
+
+                    <div class="gandhi-split">
+                        <div class="gandhi-split-text">
+                            <h3>A Global Philosophy</h3>
+                            <p>Gandhi's philosophy of <strong>Ahimsa</strong> (nonviolence) and
+                                <strong>Satyagraha</strong> (truth-force) went on to directly inspire civil rights and
+                                independence movements far beyond India — most notably Martin Luther King Jr.'s
+                                leadership of the American civil rights movement and Nelson Mandela's early activism in
+                                South Africa.</p>
+
+                            <h3>Self-Reliance &amp; Khadi</h3>
+                            <p>His promotion of Khadi (homespun cloth) and village-level self-reliance shaped India's
+                                economic thinking well beyond independence, and the humble charkha (spinning wheel)
+                                remains a national symbol of self-sufficiency.</p>
+
+                            <h3>Social Reform</h3>
+                            <p>Gandhi campaigned tirelessly against untouchability, for women's participation in public
+                                life, and for religious harmony between India's communities — ideals enshrined in
+                                India's Constitution and continually invoked in its public life.</p>
+
+                            <h3>Remembering Bapu</h3>
+                            <p><strong>Gandhi Jayanti</strong> (2 October) is a national holiday in India and is
+                                observed internationally as the <strong>United Nations International Day of
+                                    Non-Violence</strong>. Statues, memorials, roads, and institutions across the world
+                                bear his name and legacy.</p>
+                        </div>
+                        <figure class="gandhi-figure float-slow">
+                            <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80"
+                                alt="A dove symbolising peace and nonviolence, representing Gandhi's global legacy"
+                                loading="lazy">
+                            <figcaption>Ahimsa — a philosophy that reshaped movements worldwide</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="memorial-box">
+                        <h3 style="margin-top:0">🕊️ Remembering the Father of the Nation</h3>
+                        <p style="margin-bottom:0">From Porbandar to Dandi to Delhi, Mahatma Gandhi's life was a
+                            sustained experiment in truth and nonviolence. Every act of peaceful protest that follows
+                            his example carries forward the conviction that even an empire can be moved without raising
+                            a fist.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Gallery -->
+            <section id="gallery" class="gandhi-section">
+                <div class="gandhi-content-card">
+                    <h2>🖼️ Image Gallery</h2>
+                    <p class="section-intro">A visual journey through the life, movements, and enduring remembrance of
+                        Mahatma Gandhi.</p>
+
+                    <div class="gandhi-gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1601000938259-9fc7c5fa1e0d?auto=format&fit=crop&w=800&q=80"
+                                alt="A traditional charkha spinning wheel representing Gandhi's Swadeshi movement"
+                                loading="lazy">
+                            <div class="gallery-caption">The charkha — icon of Khadi and Swadeshi</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1590649880765-91b1956b8276?auto=format&fit=crop&w=800&q=80"
+                                alt="A coastal shoreline reminiscent of the Dandi March destination" loading="lazy">
+                            <div class="gallery-caption">Dandi — endpoint of the 1930 Salt March</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80"
+                                alt="A dove symbolising peace and Gandhi's philosophy of nonviolence" loading="lazy">
+                            <div class="gallery-caption">Ahimsa — the philosophy of nonviolence</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1580128637411-70c0c0d78b6f?auto=format&fit=crop&w=800&q=80"
+                                alt="The national flag of India, symbolising the independence Gandhi helped achieve"
+                                loading="lazy">
+                            <div class="gallery-caption">15 August 1947 — Independence achieved</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80"
+                                alt="A memorial garden path representing Raj Ghat, Gandhi's memorial in Delhi"
+                                loading="lazy">
+                            <div class="gallery-caption">Raj Ghat — memorial to Mahatma Gandhi, Delhi</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1517816428104-797678c7cf0c?auto=format&fit=crop&w=800&q=80"
+                                alt="Handwoven khadi textile representing self-reliance" loading="lazy">
+                            <div class="gallery-caption">Khadi — homespun cloth of self-reliance</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. References -->
+            <section id="references" class="gandhi-section">
+                <div class="gandhi-content-card">
+                    <h2>📚 References &amp; Further Reading</h2>
+                    <p class="section-intro">Authentic sources consulted for historical accuracy and narrative depth.
+                    </p>
+
+                    <div class="references-list">
+                        <div class="reference-item">
+                            <span class="ref-icon">🌐</span>
+                            <div class="ref-details">
+                                <a href="https://en.wikipedia.org/wiki/Mahatma_Gandhi" target="_blank" rel="noopener"
+                                    class="ref-link">Mahatma Gandhi — Wikipedia</a>
+                                <p class="ref-desc">Comprehensive biography, timeline, and analysis of his philosophy
+                                    and major movements.</p>
+                            </div>
+                        </div>
+                        <div class="reference-item">
+                            <span class="ref-icon">📖</span>
+                            <div class="ref-details">
+                                <a href="https://www.britannica.com/biography/Mahatma-Gandhi" target="_blank"
+                                    rel="noopener" class="ref-link">Mahatma Gandhi — Encyclopædia Britannica</a>
+                                <p class="ref-desc">Scholarly overview of his life, campaigns, and role in the Indian
+                                    independence movement.</p>
+                            </div>
+                        </div>
+                        <div class="reference-item">
+                            <span class="ref-icon">🏛️</span>
+                            <div class="ref-details">
+                                <a href="https://www.mkgandhi.org/" target="_blank" rel="noopener" class="ref-link">MK
+                                    Gandhi — Mani Bhavan Gandhi Sangrahalaya</a>
+                                <p class="ref-desc">Archive of Gandhi's writings, speeches, and biographical material
+                                    maintained by a Gandhian institution.</p>
+                            </div>
+                        </div>
+                        <div class="reference-item">
+                            <span class="ref-icon">📜</span>
+                            <div class="ref-details">
+                                <a href="https://www.gandhiashramsevagram.org/" target="_blank" rel="noopener"
+                                    class="ref-link">Sevagram Ashram — Gandhian Legacy Archive</a>
+                                <p class="ref-desc">Historical records from the ashram Gandhi founded, documenting his
+                                    later years and philosophy in practice.</p>
+                            </div>
+                        </div>
+                        <div class="reference-item">
+                            <span class="ref-icon">📰</span>
+                            <div class="ref-details">
+                                <a href="https://www.un.org/en/observances/nonviolence-day" target="_blank"
+                                    rel="noopener" class="ref-link">International Day of Non-Violence — United
+                                    Nations</a>
+                                <p class="ref-desc">UN recognition of Gandhi Jayanti (2 October) as a global day
+                                    honouring the philosophy of nonviolence.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acknowledgement-box">
+                        <h3>Acknowledgements</h3>
+                        <p>This explorer page was compiled from publicly available historical records, government
+                            archives, and peer-reviewed sources to ensure educational accuracy. Views expressed are
+                            based on documented historical consensus and do not reflect any contemporary political
+                            stance.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gandhi-footer">
+        <div class="gandhi-footer-container">
+            <div class="gandhi-footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Open-source educational portal celebrating the heroes, heritage, and history of India.</p>
+            </div>
+            <div class="gandhi-footer-links">
+                <h4>Freedom Struggle</h4>
+                <a href="../freedom-fighters-hub/index.html">Freedom Fighters Hub</a>
+                <a href="../freedom-movement-explorer/index.html">Freedom Movement Explorer</a>
+                <a href="../freedom-timeline/index.html">Freedom Timeline</a>
+                <a href="../partition-1947/partition-1947.html">Partition of 1947</a>
+            </div>
+        </div>
+        <div class="gandhi-footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Honouring Mahatma Gandhi (1869–1948).</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js"></script>
+    <script src="../pages-common.js"></script>
+</body>
+
+</html>

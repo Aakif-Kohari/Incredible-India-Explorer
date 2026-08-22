@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Itinerary Planner | Incredible India</title>
+
+    <meta name="description"
+        content="Plan your personalized multi-state travel itinerary across India with recommended attractions, foods, and cultural experiences.">
+        
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar planner-nav" role="banner">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo" aria-label="Return to Home">
+                <span class="saffron">Incredible</span> <span class="gold">India</span> <span
+                    class="green">Explorer</span>
+            </a>
+            <nav class="nav-menu" role="navigation">
+                <a href="../../index.html" class="nav-link">Home</a>
+
+                <a href="#selector" class="nav-link">Plan Trip</a>
+                <a href="#foods" class="nav-link">Food Explorer</a>
+
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <main role="main">
+        <section class="hero-section planner-hero">
+            <div class="hero-content animate-on-scroll">
+                <h1 class="hero-title">Travel <span class="accent">Itinerary</span> Planner</h1>
+
+                <p class="hero-subtitle">Choose the Indian states you want to explore, and receive a personalized
+                    itinerary filled with top attractions, local foods, and cultural experiences.</p>
+            </div>
+        </section>
+
+        <div class="planner-layout">
+            <!-- State Selector Panel -->
+            <aside class="selector-panel" id="selector">
+                <h2 class="panel-title">Select Your Destinations</h2>
+
+                <form id="state-form">
+                    <fieldset class="state-fieldset">
+                        <legend class="sr-only">Choose Indian States to Visit</legend>
+                        <div class="state-grid" id="state-grid">
+                            <!-- Populated by JS -->
+                        </div>
+                    </fieldset>
+                    <button type="button" class="btn-generate" id="btn-generate">Generate My Journey ✨</button>
+
+                    <button type="button" class="btn-clear" id="btn-clear">Clear Selection</button>
+                </form>
+            </aside>
+
+            <!-- Itinerary Panel -->
+            <section class="itinerary-panel" id="itinerary-panel">
+                <div class="empty-state" id="empty-state">
+                    <div class="empty-icon">🗺️</div>
+
+                    <h3>Your Journey Awaits</h3>
+                    <p>Select one or more states from the left panel and click "Generate My Journey" to create your
+                        personalized travel itinerary.</p>
+                </div>
+
+
+                <div class="itinerary-content" id="itinerary-content" hidden>
+                    <div class="summary-header">
+                        <h2>Your Personalized Itinerary</h2>
+
+                        <div class="export-controls">
+                            <button class="btn-export" id="btn-print" aria-label="Print Itinerary">🖨️ Print</button>
+                            <button class="btn-export" id="btn-copy" aria-label="Copy Summary">📋 Copy</button>
+                        </div>
+                    </div>
+
+                    <div class="summary-stats" id="summary-stats">
+                        <!-- Populated by JS -->
+                    </div>
+
+
+                    <div class="daily-itinerary" id="daily-itinerary">
+                        <!-- Populated by JS -->
+                    </div>
+
+
+                    <div class="food-explorer" id="foods">
+
+                        <h2 class="section-title">Food Explorer</h2>
+
+                        <div class="food-grid" id="food-grid">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Incredible India Explorer. Travel Itinerary Planner.</p>
+    </footer>
+
+    <script src="data.js" defer></script>
+    <script src="../../journey.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peasant and Agrarian Resistance Explorer | Incredible India</title>
+    <meta name="description" content="Explore major peasant and agrarian movements during colonial rule in India through an interactive map and timeline.">
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+</head>
+<body>
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                        <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                        <a href="../../frontend/making-of-modern-india/index.html" class="dropdown-item">Making of Modern India</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    </div>
+                </div>
+                
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 80px;">
+
+        <!-- Hero Section -->
+        <section class="resistance-hero">
+            <div class="resistance-hero-content">
+                <span class="resistance-kicker">🌾 Historical Explorer</span>
+                <h1>Peasant & Agrarian <span>Resistance</span></h1>
+                <p>Explore the major agrarian movements against colonial and feudal exploitation in India, mapping the struggles for land, fair rent, and dignity.</p>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <div class="resistance-container">
+                <div class="filters-wrapper glass-card">
+                    <div class="filter-group">
+                        <label for="cause-filter">Filter by Economic Cause:</label>
+                        <select id="cause-filter" class="resistance-select">
+                            <option value="all">All Causes</option>
+                            <option value="Exploitative Cultivation">Exploitative Cultivation (e.g. Indigo)</option>
+                            <option value="Land Revenue/Rent">Land Revenue & Rent Pressure</option>
+                            <option value="Indebtedness">Indebtedness & Moneylenders</option>
+                            <option value="Tenancy/Eviction">Tenancy Rights & Eviction</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="region-filter">Filter by Region:</label>
+                        <select id="region-filter" class="resistance-select">
+                            <option value="all">All Regions</option>
+                            <option value="Bengal">Bengal</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Kerala">Kerala (Malabar)</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map & Details Layout -->
+        <section class="resistance-section alt-bg">
+            <div class="resistance-container map-layout">
+                <!-- Map Area -->
+                <div class="map-column">
+                    <div class="map-wrapper glass-card">
+                        <div id="resistance-map" class="interactive-map" aria-label="Interactive map of peasant and agrarian resistance movements in India"></div>
+                        <div class="map-legend">
+                            <p><strong>Click a marker</strong> to view movement details.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Section -->
+                    <div class="timeline-container glass-card">
+                        <h3>Chronological Timeline</h3>
+                        <div class="timeline-scroll-area" id="timeline-track">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Details/Comparison Area -->
+                <div class="details-column">
+                    <div id="movement-details" class="movement-details-card glass-card">
+                        <div class="empty-state">
+                            <span class="empty-icon">📍</span>
+                            <p>Select a movement from the map or timeline to view details.</p>
+                        </div>
+                        
+                        <!-- Content populated dynamically -->
+                        <div class="details-content hidden">
+                            <div class="details-header">
+                                <span id="detail-period" class="detail-badge"></span>
+                                <span id="detail-region" class="detail-badge region-badge"></span>
+                            </div>
+                            <h2 id="detail-title">Movement Title</h2>
+                            
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <h4>Economic Cause</h4>
+                                    <p id="detail-cause">Cause explanation</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Form of Resistance</h4>
+                                    <p id="detail-resistance">Resistance form</p>
+                                </div>
+                                <div class="detail-item full-width">
+                                    <h4>Outcome</h4>
+                                    <p id="detail-outcome">Outcome explanation</p>
+                                </div>
+                            </div>
+                            
+                            <div id="leader-section" class="leader-section hidden">
+                                <h4>Key Leadership</h4>
+                                <div id="leader-cards" class="leader-cards-container">
+                                    <!-- Leader cards generated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sources Section -->
+        <section class="resistance-section sources-section">
+            <div class="resistance-container">
+                <div class="glass-card sources-card">
+                    <span class="resistance-eyebrow">📚 Documentation</span>
+                    <h3>Historical Sources & References</h3>
+                    <ul class="sources-list">
+                        <li>Bipan Chandra, <em>India's Struggle for Independence</em>. (Chapters on Peasant Movements).</li>
+                        <li>Sumit Sarkar, <em>Modern India 1885–1947</em>.</li>
+                        <li>A.R. Desai, <em>Peasant Struggles in India</em>.</li>
+                        <li>NCERT, <em>Themes in Indian History</em> (Part III).</li>
+                        <li>Note: Leadership structures for many agrarian movements were often collective or decentralized. Specific individuals are listed only where widely historically documented.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="resistance-footer">
+        <div class="footer-content">
+            <p>Part of the <a href="../../frontend/making-of-modern-india/index.html">Making of Modern India</a> · <a href="../../index.html">Incredible India Explorer</a></p>
+            <p class="footer-credits">Educational resource built for historical reference.</p>
+        </div>
+    </footer>
+
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <script src="../js-modules/storage.js" defer></script>
+    <script src="../app.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

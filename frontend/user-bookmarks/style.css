@@ -1,0 +1,313 @@
+/* ==========================================================================
+   USER BOOKMARKS / MY JOURNEY STYLES
+   Travel journal aesthetic with soft paper textures, warm cultural palette.
+   Responsive layout for desktop, tablet, and mobile.
+   ========================================================================== */
+
+:root {
+    --saffron: #f47a20;
+    --indigo: #4f46e5;
+    --emerald: #10b981;
+    --ivory: #faf8f1;
+    --terracotta: #d97706;
+    --muted: #6b7280;
+    --dark: #111827;
+    --card-bg: rgba(250, 248, 241, 0.8);
+    --glass-bg: rgba(250, 248, 241, 0.6);
+}
+
+/* Page Background */
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--ivory);
+    color: var(--dark);
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Main Content Container */
+#bookmarks-root {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, var(--ivory), #ffffff);
+    margin: -20px -20px 40px;
+}
+
+.hero-section h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--dark), var(--saffron));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-section .hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Summary Section */
+.summary-section {
+    padding: 40px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.summary-card {
+    background: var(--glass-bg);
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px 20px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.summary-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.summary-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 16px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+}
+
+.summary-label {
+    font-size: 0.875rem;
+    color: var(--muted);
+    margin-bottom: 4px;
+}
+
+.summary-number {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+/* Filters Bar */
+.filters-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid #e5e7eb;
+    color: var(--muted);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover:not(.active) {
+    border-color: var(--saffron);
+    color: var(--saffron);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--saffron), var(--terracotta));
+    color: white;
+    border-color: var(--saffron);
+}
+
+/* Bookmarks Grid */
+.bookmarks-grid {
+    display: grid;
+    gap: 24px;
+}
+
+/* Mobile-first: single column */
+@media (min-width: 640px) {
+    .bookmarks-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 768px) {
+    .bookmarks-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .bookmarks-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .bookmarks-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Bookmark Card */
+.bookmark-card {
+    background: var(--card-bg);
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 20px;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.bookmark-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.bookmark-card.bookmarked {
+    border-color: var(--saffron);
+    box-shadow: 0 0 0 2px rgba(244, 122, 32, 0.15);
+}
+
+.bookmark-card.bookmarked .remove-bookmark {
+    opacity: 1;
+}
+
+.bookmark-card:focus-visible {
+    outline: 2px solid var(--saffron);
+    outline-offset: 2px;
+}
+
+/* Card Image */
+.bookmark-image {
+    width: 100%;
+    height: 180px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 12px;
+    background: #f3f4f6;
+}
+
+/* Card Content */
+.bookmark-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.bookmark-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.bookmark-category {
+    font-size: 0.75rem;
+    color: var(--saffron);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bookmark-region {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin: 0;
+}
+
+.bookmark-description {
+    font-size: 0.8125rem;
+    color: var(--muted);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+/* Remove Bookmark Button */
+.remove-bookmark {
+    align-self: flex-end;
+    opacity: 0;
+    transition: opacity 0.2s;
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.remove-bookmark:hover {
+    color: #ef4444;
+}
+
+.bookmark-card.bookmarked .remove-bookmark {
+    opacity: 1;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--muted);
+}
+
+.empty-state p {
+    font-size: 1.125rem;
+    margin: 16px 0 24px;
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--saffron), var(--terracotta));
+    color: white;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+}
+
+/* Accessibility */
+* [role="button"], button {
+    user-select: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}

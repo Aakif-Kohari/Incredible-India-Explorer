@@ -1,0 +1,136 @@
+/**
+ * Sultanpur National Park & Wetland Explorer — Data Module
+ * Dataset covering Ramsar Site metadata, Central Asian Flyway waterfowl,
+ * Acacia roosting mounds hydrology, map hotspots, and image gallery.
+ */
+
+const SULTANPUR_INFO = {
+    id: "sultanpur-national-park",
+    name: "Sultanpur National Park & Wetland",
+    location: "Sultanpur, Gurugram District, Haryana, India",
+    state: "Haryana",
+    coordinates: { lat: 28.462, lng: 76.892 },
+    area: "1.43 km² (142.5 hectares)",
+    establishedYear: 1991,
+    ramsarYear: 2021,
+    ramsarSiteNo: 2459,
+    wetlandType: "Freshwater Lake & Marshland",
+    climate: "Subtropical Monsoonal",
+    bestTime: "October to March (Peak Winter Migratory Season)",
+    nearestTransport: {
+        town: "Gurugram (15 km) / Farrukhnagar (15 km) / New Delhi (50 km)",
+        airport: "Indira Gandhi International Airport, New Delhi (35 km)",
+        railway: "Gurgaon Railway Station (15 km) / Garhi Harsaru (4 km)"
+    },
+    quickStats: [
+        { label: "Ramsar Site Designated", value: "2021", icon: "💧" },
+        { label: "National Park Status", value: "1991", icon: "🏛️" },
+        { label: "Surface Area", value: "1.43 km²", icon: "🌾" },
+        { label: "Bird Species Recorded", value: "250+", icon: "🦅" },
+        { label: "Flyway Route", value: "Central Asian Flyway", icon: "🌐" },
+        { label: "Observation Towers", value: "4 Towers", icon: "🔭" }
+    ]
+};
+
+const ECOLOGY_HYDROLOGY = {
+    overview: "Sultanpur National Park is a renowned freshwater wetland and bird sanctuary located in Gurugram district, Haryana. Designated as a Ramsar Site of International Importance in 2021, it is a crucial stopover on the Central Asian Flyway.",
+    hydrology: "The shallow natural freshwater lake is replenished by monsoon rainfall and regulated canal inlets. Forest officials constructed earthen bunds and planted Acacia nilotica and Prosopis cineraria mounds that serve as predator-safe roosting islands.",
+    history: "Originally recognized by birdwatcher Peter Jackson in 1969, famous ornithologist Dr. Salim Ali advocated its protection. Declared a sanctuary in 1972 and upgraded to National Park status in 1991.",
+    conservationStatus: "Protected under the Wildlife Protection Act, 1972, with prohibited plastic usage, solar-powered water pumping, and anti-poaching watchtowers."
+};
+
+const BIRD_SPECIES = [
+    {
+        id: "bar-headed-goose",
+        name: "Bar-headed Goose",
+        scientificName: "Anser indicus",
+        category: "migratory-waterfowl",
+        status: "Least Concern",
+        season: "November to March",
+        diet: "Grasses, grains, aquatic plants",
+        wingspan: "140–160 cm",
+        icon: "🪶",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Bar-headed_Goose_%28Anser_indicus%29.jpg/800px-Bar-headed_Goose_%28Anser_indicus%29.jpg",
+        description: "High-altitude migrant famous for flying over the Himalayas to winter at Sultanpur lake."
+    },
+    {
+        id: "black-necked-stork",
+        name: "Black-necked Stork",
+        scientificName: "Ephippiorhynchus asiaticus",
+        category: "wading-birds",
+        status: "Near Threatened",
+        season: "Year-round",
+        diet: "Fish, frogs, water snakes",
+        wingspan: "230 cm",
+        icon: "🦅",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Black-necked_Stork_male.jpg/800px-Black-necked_Stork_male.jpg",
+        description: "Tall striking stork with iridescent black head, massive beak, and bright crimson red legs."
+    },
+    {
+        id: "spot-billed-pelican",
+        name: "Spot-billed Pelican",
+        scientificName: "Pelecanus philippensis",
+        category: "wading-birds",
+        status: "Near Threatened",
+        season: "November to February",
+        diet: "Fish",
+        wingspan: "140–150 cm",
+        icon: "🦩",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Spot-billed_Pelican_Pelecanus_philippensis.jpg/800px-Spot-billed_Pelican_Pelecanus_philippensis.jpg",
+        description: "Large greyish-white waterbird with spotted pouch bill fishing in open shallow waters."
+    },
+    {
+        id: "eurasian-wigeon",
+        name: "Eurasian Wigeon",
+        scientificName: "Mareca penelope",
+        category: "migratory-waterfowl",
+        status: "Least Concern",
+        season: "October to March",
+        diet: "Aquatic vegetation, algae",
+        wingspan: "75–86 cm",
+        icon: "🦆",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Eurasian_Wigeon_male.jpg/800px-Eurasian_Wigeon_male.jpg",
+        description: "Dabbling duck with chestnut head and cream forehead patch grazing on shallow algae beds."
+    }
+];
+
+const MAP_HOTSPOTS = [
+    {
+        id: "salim-ali-interpretation",
+        title: "Dr. Salim Ali Interpretation Centre",
+        lat: 28.464,
+        lng: 76.890,
+        type: "Education & Visitor Hub",
+        description: "Interactive museum displaying bird Taxidermy, audio calls, and migration flyway maps."
+    },
+    {
+        id: "main-watchtower",
+        title: "Central Lake Watchtower",
+        lat: 28.461,
+        lng: 76.894,
+        type: "Observation Tower",
+        description: "Four-story tower offering panoramic views of central Acacia nesting islands."
+    }
+];
+
+const GALLERY_IMAGES = [
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Bar-headed_Goose_%28Anser_indicus%29.jpg/800px-Bar-headed_Goose_%28Anser_indicus%29.jpg",
+        caption: "Bar-headed Goose resting near lake edge",
+        category: "Fauna"
+    },
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Black-necked_Stork_male.jpg/800px-Black-necked_Stork_male.jpg",
+        caption: "Black-necked Stork stalking prey in shallows",
+        category: "Fauna"
+    },
+    {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Spot-billed_Pelican_Pelecanus_philippensis.jpg/800px-Spot-billed_Pelican_Pelecanus_philippensis.jpg",
+        caption: "Spot-billed Pelican swimming near acacia mound",
+        category: "Fauna"
+    }
+];
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { SULTANPUR_INFO, ECOLOGY_HYDROLOGY, BIRD_SPECIES, MAP_HOTSPOTS, GALLERY_IMAGES };
+}

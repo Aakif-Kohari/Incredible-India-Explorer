@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chittara Art Explorer | Geometric Folk Art of Karnataka</title>
+    <meta name="description"
+        content="Explore Chittara Painting, a traditional folk art of Karnataka created using natural pigments and geometric motifs.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar explorer-nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo"><span class="saffron">Incredible</span> <span
+                    class="gold">India</span> <span class="green">Explorer</span></a>
+            <nav class="nav-menu">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../indian-art-forms-visualizer/index.html" class="nav-link">Art Forms</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#patterns" class="nav-link">Patterns</a>
+            </nav>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        </div>
+    </header>
+    <main>
+        <section class="hero-section chittara-hero">
+            <div class="hero-content animate-on-scroll">
+                <h1 class="hero-title">Chittara <span class="accent">Art</span></h1>
+                <p class="hero-subtitle">The sacred geometric folk paintings of Karnataka's Devaragudda village.</p>
+                <button class="btn-bookmark" id="bookmark-btn">🔖 Bookmark to My Journey</button>
+            </div>
+        </section>
+
+        <section class="explorer-content">
+            <div class="tabs" role="tablist">
+                <button class="tab-btn active" data-tab="history" role="tab">History & Region</button>
+                <button class="tab-btn" data-tab="materials" role="tab">Materials & Colors</button>
+                <button class="tab-btn" data-tab="motifs" role="tab">Motifs & Patterns</button>
+            </div>
+
+            <div class="tab-content active" id="history" role="tabpanel">
+                <h2>Historical Overview</h2>
+                <p>Chittara is a traditional folk art form practiced by the Deewaru community in the Shimoga district of
+                    Karnataka, particularly in the village of Devaragudda. The word 'Chittara' translates to 'painting'
+                    or 'picture' in the local language. Historically, these intricate geometric patterns were painted on
+                    the walls of homes during auspicious occasions, weddings, and harvest festivals to invoke divine
+                    blessings.</p>
+                <h2>Region of Origin</h2>
+                <p>Deeply rooted in the Malnad region of Karnataka, the art form relies on the natural surroundings of
+                    the Western Ghats. The women of the community are the primary custodians of this art, passing down
+                    the complex geometric formulas from mother to daughter through oral tradition and hands-on practice.
+                </p>
+            </div>
+
+            <div class="tab-content" id="materials" role="tabpanel" hidden>
+                <h2>Traditional Color Palette</h2>
+                <p>Chittara art strictly uses natural, earth-derived pigments. The base is typically the red mud of the
+                    region, while the patterns are drawn using:</p>
+                <div class="color-palette">
+                    <div class="color-swatch" style="background: #f5f5dc; color: #333;"><span>White (Rice Paste)</span>
+                    </div>
+                    <div class="color-swatch" style="background: #8B4513;"><span>Brown (Red Earth/Mud)</span></div>
+                    <div class="color-swatch" style="background: #2F4F4F;"><span>Black (Roasted Rice Husk)</span></div>
+                    <div class="color-swatch" style="background: #DAA520;"><span>Yellow (Turmeric)</span></div>
+                    <div class="color-swatch" style="background: #B22222;"><span>Red (Kumkum/Stone powder)</span></div>
+                </div>
+                <h2>Materials Used</h2>
+                <p>Artists use simple, locally sourced tools. The 'brushes' are often made from chewed bamboo sticks or
+                    fronds of the areca nut tree. The canvas is the freshly plastered mud wall of the home, prepared
+                    with a smooth layer of cow dung and clay.</p>
+            </div>
+
+            <div class="tab-content" id="motifs" role="tabpanel" hidden>
+                <h2>Geometric Motifs</h2>
+                <p>Unlike narrative art forms, Chittara is purely geometric and symbolic. The patterns are composed of
+                    interconnected lines, triangles, and squares that represent elements of nature and agriculture:</p>
+                <ul class="motif-list">
+                    <li><strong>The Peacock (Savala):</strong> Highly stylized using triangles, symbolizing grace and
+                        the monsoon.</li>
+                    <li><strong>The Paddy Sheaf (Batta):</strong> Represents agricultural prosperity and the harvest.
+                    </li>
+                    <li><strong>The Temple Chariot (Ratha):</strong> Drawn during festivals to signify divine movement.
+                    </li>
+                    <li><strong>The Geometric Grid:</strong> Interlocking squares and diamonds that form the
+                        foundational 'net' of the universe.</li>
+                </ul>
+            </div>
+
+            <h2 id="patterns">Interactive Geometric Pattern Showcase</h2>
+            <p class="visualizer-desc">Experience the mathematical precision of Chittara art. Click the button below to
+                generate a unique, randomized geometric wall pattern using traditional motifs.</p>
+            <div class="canvas-container">
+                <canvas id="chittara-canvas" width="800" height="400"
+                    aria-label="Interactive Chittara Pattern Canvas"></canvas>
+                <button id="generate-btn" class="btn-generate">Generate New Wall Pattern</button>
+            </div>
+
+            <h2 id="gallery">Artwork Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://placehold.co/300/8B4513/fff?text=Chittara+Wall"
+                        alt="Chittara wall painting" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://placehold.co/300/8B4513/fff?text=Geometric+Grid"
+                        alt="Chittara geometric grid" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://placehold.co/300/8B4513/fff?text=Paddy+Sheaf"
+                        alt="Chittara paddy motif" loading="lazy"></div>
+            </div>
+
+            <h2>References</h2>
+            <ul class="reference-list">
+                <li>Shivaram, K. (2010). "Folk Arts of Karnataka: Chittara Traditions."</li>
+                <li>Rangaswamy, H. M. (1998). "Deewaru Community and their Wall Paintings."</li>
+            </ul>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 Incredible India Explorer.</p>
+    </footer>
+    <script src="../../journey.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

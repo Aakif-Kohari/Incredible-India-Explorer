@@ -1,5 +1,5 @@
 (function () {
-    const theme = localStorage.getItem('theme') || 'dark';
+    let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
     if (theme === 'light') {
         document.body.classList.add('light-theme');
     }
