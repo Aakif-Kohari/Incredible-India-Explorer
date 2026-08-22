@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Smart Local Transportation Planner - Discover and compare local transportation options across India.">
+
+    <title>Smart Local Transportation Planner | Incredible India Explorer</title>
+
+    <link rel="stylesheet" href="transportation.css">
+</head>
+
+<body>
+
+<header class="transport-header">
+    <div class="header-container">
+        <a href="../../index.html" class="brand">
+            <span class="brand-saffron">Incredible</span>
+            <span class="brand-gold">India</span>
+            <span class="brand-green">Explorer</span>
+        </a>
+
+        <a href="../../index.html" class="back-link">
+            ← Back to Explorer
+        </a>
+    </div>
+</header>
+
+<main>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="eyebrow">SMART TRAVEL TOOLS</span>
+
+            <h1>Local Transportation Planner</h1>
+
+            <p>
+                Discover, filter and compare transportation options
+                available at popular Indian destinations.
+            </p>
+
+            <div class="hero-stats">
+                <div>
+                    <strong>8+</strong>
+                    <span>Destinations</span>
+                </div>
+
+                <div>
+                    <strong>30+</strong>
+                    <span>Transport Options</span>
+                </div>
+
+                <div>
+                    <strong>4</strong>
+                    <span>Comparison Factors</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planner -->
+    <section class="planner-section">
+
+        <div class="section-heading">
+            <span class="section-label">PLAN YOUR JOURNEY</span>
+            <h2>Find the right way to get around</h2>
+            <p>
+                Select a destination and choose the transportation
+                option that best fits your trip.
+            </p>
+        </div>
+
+        <!-- Destination -->
+        <div class="destination-card">
+
+            <label for="destination-select">
+                Select Destination
+            </label>
+
+            <select id="destination-select">
+                <option value="">Choose a destination...</option>
+            </select>
+
+            <p id="destination-message" class="destination-message">
+                Select a destination to view transportation options.
+            </p>
+
+        </div>
+
+        <!-- Controls -->
+        <div class="controls-card">
+
+            <div class="control-group">
+                <label for="transport-search">
+                    Search
+                </label>
+
+                <input
+                    type="search"
+                    id="transport-search"
+                    placeholder="Search metro, bus, taxi..."
+                >
+            </div>
+
+            <div class="control-group">
+                <label for="mode-filter">
+                    Transport Type
+                </label>
+
+                <select id="mode-filter">
+                    <option value="all">All Modes</option>
+                    <option value="metro">Metro</option>
+                    <option value="bus">Bus</option>
+                    <option value="train">Train</option>
+                    <option value="auto">Auto-rickshaw</option>
+                    <option value="taxi">Taxi</option>
+                    <option value="ferry">Ferry</option>
+                    <option value="bike">Bike / Cycle</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="accessibility-filter">
+                    Accessibility
+                </label>
+
+                <select id="accessibility-filter">
+                    <option value="all">All</option>
+                    <option value="yes">Accessible</option>
+                    <option value="partial">Partially Accessible</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="sort-select">
+                    Sort By
+                </label>
+
+                <select id="sort-select">
+                    <option value="recommended">Recommended</option>
+                    <option value="cost-low">Lowest Cost</option>
+                    <option value="time-low">Fastest</option>
+                    <option value="eco-high">Eco Friendly</option>
+                    <option value="convenience-high">Convenience</option>
+                </select>
+            </div>
+
+        </div>
+
+        <!-- Results -->
+        <div class="results-header">
+            <div>
+                <span class="section-label">AVAILABLE OPTIONS</span>
+                <h2 id="results-title">Transportation</h2>
+            </div>
+
+            <span id="results-count" class="results-count">
+                0 options
+            </span>
+        </div>
+
+        <div id="transport-grid" class="transport-grid">
+            <!-- Cards injected by JS -->
+        </div>
+
+        <div id="empty-state" class="empty-state hidden">
+            <div class="empty-icon">🚍</div>
+            <h3>No transportation options found</h3>
+            <p>
+                Try changing your destination, search term,
+                or filters.
+            </p>
+
+            <button id="reset-filters" class="primary-btn">
+                Reset Filters
+            </button>
+        </div>
+
+    </section>
+
+    <!-- Comparison -->
+    <section class="comparison-section">
+
+        <div class="section-heading">
+            <span class="section-label">COMPARE</span>
+            <h2>Transportation Comparison</h2>
+            <p>
+                Select two transportation modes to compare their
+                cost, speed, accessibility and convenience.
+            </p>
+        </div>
+
+        <div class="comparison-selector">
+
+            <div>
+                <label for="compare-one">
+                    Option 1
+                </label>
+
+                <select id="compare-one">
+                    <option value="">Select option</option>
+                </select>
+            </div>
+
+            <div class="vs">
+                VS
+            </div>
+
+            <div>
+                <label for="compare-two">
+                    Option 2
+                </label>
+
+                <select id="compare-two">
+                    <option value="">Select option</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div id="comparison-result" class="comparison-result hidden">
+            <!-- Comparison injected by JS -->
+        </div>
+
+    </section>
+
+    <!-- Saved preference -->
+    <section class="preference-section">
+
+        <div class="preference-card">
+
+            <div>
+                <span class="section-label">TRAVEL PREFERENCE</span>
+                <h2>Remember my preference</h2>
+
+                <p>
+                    Your preferred transportation mode is saved
+                    locally on this device.
+                </p>
+            </div>
+
+            <div class="preference-control">
+                <select id="preference-select">
+                    <option value="">No preference</option>
+                    <option value="metro">Metro</option>
+                    <option value="bus">Bus</option>
+                    <option value="train">Train</option>
+                    <option value="auto">Auto-rickshaw</option>
+                    <option value="taxi">Taxi</option>
+                    <option value="ferry">Ferry</option>
+                    <option value="bike">Bike / Cycle</option>
+                </select>
+
+                <button id="save-preference" class="primary-btn">
+                    Save Preference
+                </button>
+            </div>
+
+            <p id="preference-status" class="preference-status"></p>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="transport-footer">
+    <p>
+        © 2026 Incredible India Explorer · Smart Local Transportation Planner
+    </p>
+</footer>
+
+<script src="transportation-data.js"></script>
+<script src="transportation.js"></script>
+
+</body>
+</html>
