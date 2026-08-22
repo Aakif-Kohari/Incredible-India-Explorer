@@ -5899,5 +5899,12 @@ window.indiaSearchIndex = [
         description:
             "Explore Dzongri Trek in Sikkim \u2014 4,250m Dzongri Top sunrise viewpoint, 360-degree Kanchenjunga panoramas, alpine meadows, and Khangchendzonga National Park.",
         url: "frontend/dzongri-trek-explorer/index.html"
+    },
+    // --- Kumara Parvatha Trek Explorer ---
+    {
+        title: "Kumara Parvatha Trek",
+        keywords: "kumara parvatha, trek, karnataka, pushpagiri, western ghats, kukke subramanya",
+        description: "Explore the Kumara Parvatha Trek (1,712m) in Karnataka's Pushpagiri Wildlife Sanctuary. Detailed route information, safety guidelines, and gear checklist.",
+        url: "frontend/kumara-parvatha-trek/index.html"
     }
 ];
