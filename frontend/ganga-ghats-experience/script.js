@@ -74,6 +74,17 @@ const allGhats = [
     experience: "Explore stone temple spires, historic boatmen cultures, winter Siberian gull feeding, and Kalpwasi tent encampments during Magh Mela near Triveni Sangam.",
     timing: "Best visited at dawn for morning river views or during Nag Panchami and Magh Mela for vibrant traditions.",
     detailedPage: "../daraganj-ghat/index.html"
+  },
+  {
+    id: "munshi",
+    name: "Munshi Ghat",
+    icon: "🏛️",
+    location: "Varanasi",
+    description: "A majestic palatial riverfront famous for its 1912 stone architecture, Greco-Roman columns, connection to Darbhanga Palace, and breathtaking Dev Deepawali light displays.",
+    history: "Constructed in 1912 by Sridhara Narayana Munshi (Finance Minister of Nagpur State), the northern portion was acquired in 1915 by the Royal Family of Darbhanga to build their grand riverfront palace.",
+    experience: "Admire classical stone colonnades, carved jharokhas, sunrise boating panoramas, and thousands of glowing lamps during Dev Deepawali adjacent to Dashashwamedh Ghat.",
+    timing: "Best visited at sunrise for golden palace reflections or at dusk during Ganga Aarti and Dev Deepawali.",
+    detailedPage: "../munshi-ghat/index.html"
   }
 ];
 
