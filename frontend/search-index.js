@@ -5992,5 +5992,13 @@ window.indiaSearchIndex = [
         description:
             "Explore Roopkund Trek in Uttarakhand \u2014 5,029m Mystery Skeleton Lake, Ali & Bedni Bugyals, Junargali Ridge, and Mount Trishul panoramas.",
         url: "frontend/roopkund-trek-explorer/index.html"
+    },
+    // --- feat/kheerganga-trek ---
+    {
+        title: "Kheerganga Trek — Hot Water Sulphur Springs & Parvati Valley",
+        category: "Mountains & Treks",
+        description:
+            "Explore Kheerganga Trek (2,960m) in Himachal Pradesh: detailed route, hot springs of Parvati Kund, Rudranag Temple and Waterfall, local mythology, gear checklist, and duration estimator.",
+        url: "frontend/kheerganga-trek/index.html"
     }
 ];
