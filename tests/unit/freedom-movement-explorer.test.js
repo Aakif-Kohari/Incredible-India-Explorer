@@ -200,8 +200,8 @@ describe('Freedom Movement Explorer — Stylesheet', () => {
 
     it('includes light theme overrides', () => {
         const css = readExplorerFile('style.css');
-        expect(css).toContain('body.light-theme .freedom-map-wrapper');
-        expect(css).toContain('body.light-theme .freedom-modal');
+        expect(css).toContain('[data-theme="light"] .freedom-map-wrapper');
+        expect(css).toContain('[data-theme="light"] .freedom-modal');
     });
 });
 

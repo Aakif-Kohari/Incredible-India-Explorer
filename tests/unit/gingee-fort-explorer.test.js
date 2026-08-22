@@ -167,7 +167,7 @@ describe('Gingee Fort Explorer — Styles & Scripts', () => {
         expect(css).toContain('.gingee-tabs-wrapper');
         expect(css).toContain('.hill-card');
         expect(css).toContain('.lightbox-modal');
-        expect(css).toContain('body.light-theme');
+        expect(css).toContain('[data-theme="light"]');
     });
 
     it('contains JS logic for rendering components and handling lightbox', () => {
