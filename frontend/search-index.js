@@ -19,6 +19,13 @@ window.indiaSearchIndex = [
         url: 'frontend/pin-parvati-trek/index.html'
     },
     {
+    title: "Potti Sriramulu — Sacrifice for Andhra",
+    category: "Freedom Struggle",
+    description:
+        "Explore Potti Sriramulu's role in the freedom movement and the 1952 fast unto death that led to the creation of Andhra State.",
+    url: "frontend/potti-sriramulu-explorer/index.html"
+    },
+    {
         title: 'Deomali Peak Trek (Highest Peak of Odisha) Profile',
         category: 'Adventure & Mountains',
         description:
