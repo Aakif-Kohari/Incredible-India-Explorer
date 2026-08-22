@@ -5899,5 +5899,12 @@ window.indiaSearchIndex = [
         description:
             "Explore Dzongri Trek in Sikkim \u2014 4,250m Dzongri Top sunrise viewpoint, 360-degree Kanchenjunga panoramas, alpine meadows, and Khangchendzonga National Park.",
         url: "frontend/dzongri-trek-explorer/index.html"
+    },
+    // --- Japfu Peak Trek Explorer ---
+    {
+        title: "Japfu Peak Trek",
+        keywords: "japfu peak, trek, nagaland, dzukou valley, rhododendron, kohima, kigwema",
+        description: "Scale the second highest peak of Nagaland to witness the world's tallest Rhododendron tree and breathtaking views of the Dzukou Valley.",
+        url: "frontend/japfu-peak-trek/index.html"
     }
 ];
