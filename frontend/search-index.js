@@ -5963,6 +5963,13 @@ window.indiaSearchIndex = [
         category: "Languages & Literature",
         description:
             "Explore Tamil (\u0ba4\u0bae\u0bbf\u0bb4\u0bcd) \u2014 2,500+ years of classical Dravidian heritage, Vanakkam greetings, audio pronunciations, vocabulary, and Thirukkural literature.",
-        url: "frontend/tamil-language-explorer/index.html"
+        url: "frontend/tamil-language-explorer/index.html"},
+    // --- feat/roopkund-trek-explorer ---
+    {
+        title: "Add Roopkund Trek \u2014 Uttarakhand",
+        category: "Mountains & Treks",
+        description:
+            "Explore Roopkund Trek in Uttarakhand \u2014 5,029m Mystery Skeleton Lake, Ali & Bedni Bugyals, Junargali Ridge, and Mount Trishul panoramas.",
+        url: "frontend/roopkund-trek-explorer/index.html"
     }
 ];
