@@ -18,7 +18,8 @@ const allGhats = [
     description: "The southernmost of Varanasi's major ghats, best known as the finest spot to witness sunrise over the Ganga and the lively morning cultural gathering held here.",
     history: "Assi Ghat sits at the confluence of the Assi stream and the Ganga, a meeting point considered sacred in Hindu tradition. It has long been associated with scholarly and spiritual life, given its proximity to Banaras Hindu University.",
     experience: "At dawn, the ghat comes alive with a morning cultural programme featuring yoga sessions, devotional music, and a smaller sunrise Aarti — a calmer, more reflective counterpart to the famous evening ceremony downstream.",
-    timing: "Best visited around sunrise, typically between 5:00–6:00 AM depending on the season."
+    timing: "Best visited around sunrise, typically between 5:00–6:00 AM depending on the season.",
+    detailedPage: "../assi-ghat/index.html"
   },
   {
     id: "manikarnika",
@@ -28,7 +29,8 @@ const allGhats = [
     description: "One of the oldest and most sacred cremation grounds in India, where funeral rites have been continuously performed for centuries, symbolising the Hindu belief in liberation from the cycle of rebirth.",
     history: "Manikarnika is regarded in Hindu tradition as a site connected to both Lord Vishnu and Lord Shiva, and cremation here is believed to grant moksha, or spiritual liberation. The sacred fires at this ghat are said to have burned continuously for generations.",
     experience: "Visitors are asked to observe this ghat with quiet respect and discretion — photography is discouraged here. Many choose to view it from a passing boat, taking in its solemn atmosphere as part of a broader journey along the riverfront.",
-    timing: "Active throughout the day and night; visitors are encouraged to observe respectfully from a distance."
+    timing: "Active throughout the day and night; visitors are encouraged to observe respectfully from a distance.",
+    detailedPage: "../manikarnika-ghat/index.html"
   },
   {
     id: "sangam",
@@ -41,15 +43,15 @@ const allGhats = [
     timing: "Open year-round, with the atmosphere most vibrant during the Magh Mela and Kumbh Mela festival periods."
   },
   {
-    id: "shivala",
-    name: "Shivala Ghat",
-    icon: "🏰",
+    id: "rajendra-prasad",
+    name: "Rajendra Prasad Ghat",
+    icon: "🇮🇳",
     location: "Varanasi",
-    description: "A historic riverfront dominated by the grand 18th-century Chet Singh Palace and fortress, showcasing Varanasi's royal patronage and temple architecture.",
-    history: "Built and fortified in the 18th century by Raja Chet Singh, the ruler of Benares, this ghat witnessed a historic clash with British forces led by Warren Hastings in 1781.",
-    experience: "Visitors can explore the grand battlements, massive stone bastions, and royal shrines, offering a stark architectural contrast to the city's other ritual-centered ghats.",
-    timing: "Best visited in the afternoon to view the grand sandstone fortress reflecting in the river water.",
-    detailedPage: "../shivala-ghat/index.html"
+    description: "A prominent ghat serving as a bridge between Varanasi's ancient riverfront traditions and India's modern national history, named after the country's first President.",
+    history: "Originally part of Dashashwamedh Ghat and known as Ghoda Ghat, it was renamed in 1979 in honor of Dr. Rajendra Prasad, India's first President, who used to stay here during his visits.",
+    experience: "Today, it hosts vibrant cultural performances, light programs, and serves as a major boarding point for boating, offering scenic views adjacent to Dashashwamedh Ghat.",
+    timing: "Best visited in the evening between 6:00–8:00 PM to see the cultural activities and neighboring Aarti lights.",
+    detailedPage: "../rajendra-prasad-ghat/index.html"
   }
 ];
 
