@@ -1,0 +1,1023 @@
+/* ════════════════════════════════════════════════════════════════
+   Raymond Brand Explorer — Styles
+   Palette: Navy (#1a2c4e) · Gold (#c9a84c) · Burgundy (#8b1a1a)
+   Follows the MTR brand-explorer CSS architecture.
+   ════════════════════════════════════════════════════════════════ */
+
+:root {
+    --raymond-primary: #1a2c4e;
+    --raymond-primary-light: #2a4080;
+    --raymond-primary-glow: rgba(26, 44, 78, 0.45);
+    --raymond-gold: #c9a84c;
+    --raymond-gold-light: #f0d080;
+    --raymond-gold-glow: rgba(201, 168, 76, 0.3);
+    --raymond-accent: #8b1a1a;
+    --raymond-dark-bg: #0c1220;
+    --raymond-panel: rgba(18, 28, 50, 0.88);
+    --raymond-panel-border: rgba(201, 168, 76, 0.22);
+    --raymond-panel-hover: rgba(26, 44, 78, 0.98);
+    --raymond-text: #eef1f7;
+    --raymond-text-muted: #8fa3c2;
+    --raymond-alt-bg: #111827;
+}
+
+.light-theme {
+    --raymond-dark-bg: #f8f5ef;
+    --raymond-panel: rgba(255, 255, 255, 0.94);
+    --raymond-panel-border: rgba(26, 44, 78, 0.18);
+    --raymond-panel-hover: rgba(255, 255, 255, 1);
+    --raymond-text: #1a202c;
+    --raymond-text-muted: #4a5568;
+    --raymond-alt-bg: #f0ebdf;
+}
+
+/* ── Main wrapper ── */
+.raymond-main {
+    min-height: 100vh;
+    padding-top: 72px;
+    background-color: var(--raymond-dark-bg);
+    color: var(--raymond-text);
+    font-family: 'Outfit', sans-serif;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   HERO
+   ════════════════════════════════════════════════════════════════ */
+.raymond-hero {
+    position: relative;
+    min-height: 66vh;
+    display: flex;
+    align-items: center;
+    padding: 72px 24px;
+    background:
+        radial-gradient(circle at 72% 22%, rgba(201, 168, 76, 0.18) 0%, rgba(26, 44, 78, 0.35) 45%, transparent 70%),
+        linear-gradient(180deg, rgba(12, 18, 32, 0.75) 0%, var(--raymond-dark-bg) 100%);
+    border-bottom: 1px solid var(--raymond-panel-border);
+    overflow: hidden;
+}
+
+/* Subtle fabric-weave background pattern */
+.raymond-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(
+            45deg,
+            rgba(201, 168, 76, 0.04) 0px,
+            rgba(201, 168, 76, 0.04) 1px,
+            transparent 1px,
+            transparent 12px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            rgba(26, 44, 78, 0.08) 0px,
+            rgba(26, 44, 78, 0.08) 1px,
+            transparent 1px,
+            transparent 12px
+        );
+    pointer-events: none;
+}
+
+.raymond-hero-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 52px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.raymond-kicker {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.83rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--raymond-gold);
+    background: rgba(201, 168, 76, 0.12);
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    padding: 6px 16px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.raymond-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 18px;
+    color: var(--raymond-text);
+}
+
+.raymond-title span {
+    display: block;
+    font-size: 1.75rem;
+    background: linear-gradient(135deg, var(--raymond-gold-light), var(--raymond-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.raymond-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.68;
+    color: var(--raymond-text-muted);
+    margin-bottom: 26px;
+    max-width: 580px;
+}
+
+.raymond-hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.raymond-badge {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--raymond-panel-border);
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 0.87rem;
+    color: var(--raymond-text);
+}
+
+.hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.raymond-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 26px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.raymond-btn-primary {
+    background: var(--raymond-primary-light);
+    color: #fff;
+    box-shadow: 0 4px 14px var(--raymond-primary-glow);
+}
+
+.raymond-btn-primary:hover {
+    background: #3a5090;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--raymond-primary-glow);
+}
+
+.raymond-btn-secondary {
+    background: transparent;
+    color: var(--raymond-text);
+    border: 1px solid var(--raymond-gold);
+}
+
+.raymond-btn-secondary:hover {
+    background: rgba(201, 168, 76, 0.1);
+    transform: translateY(-2px);
+}
+
+/* ── Hero Card ── */
+.raymond-hero-card {
+    position: relative;
+    background: var(--raymond-panel);
+    border: 1px solid var(--raymond-panel-border);
+    border-radius: 18px;
+    padding: 30px 24px;
+    text-align: center;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.38);
+}
+
+.raymond-glow-halo {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, rgba(201, 168, 76, 0.22), transparent 68%);
+    filter: blur(22px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.raymond-svg-container {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 18px;
+}
+
+.raymond-logo-svg {
+    width: 200px;
+    height: 200px;
+    filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.5));
+}
+
+.identity-meta-box h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--raymond-gold);
+    margin-bottom: 6px;
+}
+
+.identity-meta-box p {
+    font-size: 0.87rem;
+    color: var(--raymond-text-muted);
+    line-height: 1.48;
+    margin: 0;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   SHARED SECTION LAYOUT
+   ════════════════════════════════════════════════════════════════ */
+.raymond-section {
+    padding: 72px 24px;
+}
+
+.raymond-section-alt {
+    background-color: var(--raymond-alt-bg);
+}
+
+.raymond-container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.raymond-grid-2col {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 44px;
+    align-items: start;
+}
+
+.raymond-eyebrow {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    color: var(--raymond-gold);
+    margin-bottom: 10px;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.3rem;
+    margin-bottom: 14px;
+    color: var(--raymond-text);
+}
+
+.section-desc {
+    font-size: 1.05rem;
+    color: var(--raymond-text-muted);
+    max-width: 680px;
+    margin: 0 auto 38px;
+    line-height: 1.65;
+}
+
+.text-center { text-align: center; }
+
+.raymond-text-col h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.1rem;
+    margin-bottom: 16px;
+    line-height: 1.2;
+    color: var(--raymond-text);
+}
+
+.raymond-text-col p {
+    font-size: 1rem;
+    color: var(--raymond-text-muted);
+    line-height: 1.68;
+    margin-bottom: 16px;
+}
+
+/* ── Quote card ── */
+.quote-card {
+    background: rgba(201, 168, 76, 0.09);
+    border-left: 4px solid var(--raymond-gold);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 24px;
+}
+
+.quote-text {
+    font-style: italic;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: var(--raymond-text);
+    margin-bottom: 6px;
+}
+
+.quote-author {
+    font-size: 0.85rem;
+    color: var(--raymond-gold);
+    font-weight: 600;
+}
+
+/* ── Founding leaders card ── */
+.founding-leaders-card {
+    background: var(--raymond-panel);
+    border: 1px solid var(--raymond-panel-border);
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.founding-leaders-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+    color: var(--raymond-text);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   TEXTILE MANUFACTURING CARDS
+   ════════════════════════════════════════════════════════════════ */
+.coop-model-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 24px;
+}
+
+.coop-step-card {
+    background: var(--raymond-panel);
+    border: 1px solid var(--raymond-panel-border);
+    border-radius: 16px;
+    padding: 30px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    position: relative;
+}
+
+.coop-step-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--raymond-gold);
+    box-shadow: 0 10px 28px rgba(201, 168, 76, 0.12);
+}
+
+.step-num {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    font-weight: 700;
+    background: rgba(201, 168, 76, 0.14);
+    color: var(--raymond-gold);
+    padding: 4px 10px;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+}
+
+.step-icon {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+}
+
+.coop-step-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--raymond-text);
+    font-family: 'Playfair Display', serif;
+}
+
+.coop-step-card p {
+    font-size: 0.92rem;
+    color: var(--raymond-text-muted);
+    line-height: 1.58;
+    margin: 0;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   TIMELINE
+   ════════════════════════════════════════════════════════════════ */
+.timeline-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 34px;
+}
+
+.search-box input {
+    padding: 10px 18px;
+    border-radius: 20px;
+    border: 1px solid var(--raymond-panel-border);
+    background: var(--raymond-panel);
+    color: var(--raymond-text);
+    font-size: 0.95rem;
+    width: 290px;
+    font-family: 'Outfit', sans-serif;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.search-box input:focus {
+    border-color: var(--raymond-gold);
+    box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15);
+}
+
+.filter-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter-chip {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--raymond-panel-border);
+    background: transparent;
+    color: var(--raymond-text-muted);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.22s ease;
+}
+
+.filter-chip:hover,
+.filter-chip.active {
+    background: var(--raymond-primary-light);
+    color: #fff;
+    border-color: var(--raymond-primary-light);
+}
+
+.filter-chip:focus-visible {
+    outline: 2px solid var(--raymond-gold);
+    outline-offset: 2px;
+}
+
+.milestones-timeline-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.milestone-entry {
+    background: var(--raymond-panel);
+    border: 1px solid var(--raymond-panel-border);
+    border-radius: 14px;
+    padding: 22px 26px;
+    display: grid;
+    grid-template-columns: 110px 1.5fr 1fr;
+    gap: 20px;
+    align-items: center;
+    transition: all 0.25s ease;
+}
+
+.milestone-entry:hover {
+    border-color: var(--raymond-gold);
+    background: var(--raymond-panel-hover);
+    transform: translateX(4px);
+}
+
+.milestone-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--raymond-gold);
+}
+
+.milestone-title-group h4 {
+    font-size: 1.1rem;
+    color: var(--raymond-text);
+    margin-bottom: 4px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+}
+
+.milestone-title-group p {
+    font-size: 0.9rem;
+    color: var(--raymond-text-muted);
+    margin: 0;
+    line-height: 1.48;
+}
+
+.milestone-impact {
+    font-size: 0.84rem;
+    color: var(--raymond-gold);
+    text-align: right;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.milestone-cat-badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    margin-top: 4px;
+}
+
+.milestone-cat-badge.founding  { background: rgba(26,44,78,0.4);   color: #8fa3c2; }
+.milestone-cat-badge.textile   { background: rgba(56,100,56,0.3);  color: #7ec87e; }
+.milestone-cat-badge.fashion   { background: rgba(139,26,26,0.3);  color: #e08080; }
+.milestone-cat-badge.advertising { background: rgba(201,168,76,0.2); color: var(--raymond-gold); }
+
+/* ════════════════════════════════════════════════════════════════
+   INTERACTIVE TEXTILE → FASHION JOURNEY
+   ════════════════════════════════════════════════════════════════ */
+.journey-flow-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--raymond-text-muted);
+    margin-bottom: 36px;
+    padding: 14px 20px;
+    background: var(--raymond-panel);
+    border: 1px solid var(--raymond-panel-border);
+    border-radius: 40px;
+}
+
+.flow-arrow {
+    color: var(--raymond-gold);
+    font-size: 1.1rem;
+}
+
+.journey-stages-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Each stage is a button for full keyboard accessibility */
+.journey-stage-btn {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    text-align: left;
+    background: var(--raymond-panel);
+    border: 1px solid var(--raymond-panel-border);
+    border-radius: 14px;
+    padding: 22px 28px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    color: var(--raymond-text);
+    transition: all 0.25s ease;
+    position: relative;
+}
+
+.journey-stage-btn:hover {
+    border-color: var(--raymond-gold);
+    background: var(--raymond-panel-hover);
+}
+
+.journey-stage-btn:focus-visible {
+    outline: 2px solid var(--raymond-gold);
+    outline-offset: 3px;
+}
+
+.journey-stage-btn.active {
+    border-color: var(--raymond-gold);
+    background: linear-gradient(135deg, rgba(26,44,78,0.98) 0%, rgba(26,44,78,0.85) 100%);
+    box-shadow: 0 6px 24px rgba(201, 168, 76, 0.14);
+}
+
+.journey-stage-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--raymond-gold);
+    min-width: 42px;
+}
+
+.journey-stage-icon {
+    font-size: 1.8rem;
+    min-width: 38px;
+}
+
+.journey-stage-header {
+    flex: 1;
+}
+
+.journey-stage-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--raymond-text);
+    margin-bottom: 3px;
+}
+
+.journey-stage-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--raymond-gold);
+    font-weight: 600;
+}
+
+.journey-stage-arrow {
+    font-size: 1.1rem;
+    color: var(--raymond-text-muted);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.journey-stage-btn.active .journey-stage-arrow {
+    transform: rotate(180deg);
+    color: var(--raymond-gold);
+}
+
+/* Expandable detail panel */
+.journey-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s ease, opacity 0.35s ease;
+    opacity: 0;
+}
+
+.journey-detail.open {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.journey-detail-inner {
+    background: rgba(26, 44, 78, 0.55);
+    border: 1px solid var(--raymond-panel-border);
+    border-top: none;
+    border-radius: 0 0 14px 14px;
+    padding: 24px 28px 24px 88px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.journey-detail-block h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--raymond-gold);
+    margin-bottom: 8px;
+}
+
+.journey-detail-block p {
+    font-size: 0.93rem;
+    color: var(--raymond-text-muted);
+    line-height: 1.58;
+    margin: 0;
+}
+
+.journey-products-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.journey-products-list li {
+    background: rgba(201, 168, 76, 0.12);
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    color: var(--raymond-gold);
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 12px;
+}
+
+.journey-significance {
+    grid-column: 1 / -1;
+    background: rgba(201, 168, 76, 0.07);
+    border-left: 3px solid var(--raymond-gold);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+}
+
+.journey-significance p {
+    font-size: 0.92rem;
+    font-style: italic;
+    color: var(--raymond-text);
+    margin: 0;
+    line-height: 1.55;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   FASHION BRANDS GRID
+   ════════════════════════════════════════════════════════════════ */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.product-card {
+    background: var(--raymond-panel);
+    border: 1px solid var(--raymond-panel-border);
+    border-radius: 16px;
+    padding: 26px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--raymond-primary-light), var(--raymond-gold));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--raymond-gold);
+    box-shadow: 0 12px 30px rgba(201, 168, 76, 0.12);
+}
+
+.product-card:hover::before {
+    opacity: 1;
+}
+
+.product-icon {
+    font-size: 2.4rem;
+    margin-bottom: 14px;
+}
+
+.product-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+    color: var(--raymond-text);
+}
+
+.product-cat-badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--raymond-primary-light);
+    background: rgba(42, 64, 128, 0.25);
+    padding: 3px 10px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.light-theme .product-cat-badge {
+    color: var(--raymond-gold);
+    background: rgba(201, 168, 76, 0.15);
+}
+
+.product-desc {
+    font-size: 0.9rem;
+    color: var(--raymond-text-muted);
+    line-height: 1.56;
+    margin-bottom: 14px;
+}
+
+.product-items {
+    font-size: 0.82rem;
+    color: var(--raymond-gold);
+    font-weight: 600;
+    border-top: 1px solid var(--raymond-panel-border);
+    padding-top: 10px;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   ADVERTISING EVOLUTION
+   ════════════════════════════════════════════════════════════════ */
+.ad-tagline-box {
+    background: rgba(201, 168, 76, 0.12);
+    border: 1px solid var(--raymond-gold);
+    padding: 14px 22px;
+    border-radius: 8px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--raymond-gold);
+    font-weight: 700;
+    margin-top: 24px;
+    display: inline-block;
+}
+
+.ad-evolution-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.ad-era-card {
+    background: var(--raymond-panel);
+    border: 1px solid var(--raymond-panel-border);
+    border-radius: 12px;
+    padding: 18px 22px;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.ad-era-card:hover {
+    border-color: var(--raymond-gold);
+    transform: translateX(4px);
+}
+
+.ad-era-decade {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--raymond-gold);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ad-era-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--raymond-text);
+    margin-bottom: 6px;
+}
+
+.ad-era-desc {
+    font-size: 0.88rem;
+    color: var(--raymond-text-muted);
+    line-height: 1.52;
+    margin: 0;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   CURRENT PRESENCE CARD (reused for brand identity)
+   ════════════════════════════════════════════════════════════════ */
+.current-presence-card {
+    background: var(--raymond-panel);
+    border: 1px solid var(--raymond-panel-border);
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.current-presence-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+    color: var(--raymond-gold);
+}
+
+.presence-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.presence-list li {
+    margin-bottom: 13px;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--raymond-text-muted);
+    padding-left: 16px;
+    position: relative;
+}
+
+.presence-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--raymond-gold);
+    font-size: 0.8rem;
+    top: 2px;
+}
+
+.presence-list li strong {
+    color: var(--raymond-text);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   SOURCES
+   ════════════════════════════════════════════════════════════════ */
+.raymond-sources-section {
+    background-color: var(--raymond-alt-bg);
+}
+
+.sources-card {
+    background: var(--raymond-panel);
+    border: 1px solid var(--raymond-panel-border);
+    border-radius: 14px;
+    padding: 28px 32px;
+}
+
+.sources-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+    color: var(--raymond-gold);
+    font-family: 'Playfair Display', serif;
+}
+
+.sources-list {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.sources-list li {
+    font-size: 0.9rem;
+    line-height: 1.62;
+    color: var(--raymond-text-muted);
+    margin-bottom: 10px;
+}
+
+.sources-list li strong {
+    color: var(--raymond-text);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════════ */
+@media (max-width: 960px) {
+    .raymond-hero-container,
+    .raymond-grid-2col {
+        grid-template-columns: 1fr;
+    }
+
+    .raymond-title {
+        font-size: 2.6rem;
+    }
+
+    .milestone-entry {
+        grid-template-columns: 100px 1fr;
+        gap: 14px;
+    }
+
+    .milestone-impact {
+        grid-column: 1 / -1;
+        text-align: left;
+    }
+
+    .journey-detail-inner {
+        grid-template-columns: 1fr;
+        padding-left: 28px;
+    }
+
+    .journey-significance {
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .raymond-title {
+        font-size: 2rem;
+    }
+
+    .raymond-section {
+        padding: 50px 18px;
+    }
+
+    .milestone-entry {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .journey-flow-label {
+        font-size: 0.72rem;
+        gap: 6px;
+        padding: 10px 14px;
+    }
+
+    .journey-stage-btn {
+        padding: 18px 18px;
+        gap: 12px;
+    }
+
+    .journey-detail-inner {
+        padding: 18px;
+    }
+
+    .ad-tagline-box {
+        font-size: 1rem;
+    }
+}

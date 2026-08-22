@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indian Street Food Guide | Incredible India Explorer</title>
+  <meta name="description" content="Explore popular Indian street foods from different regions. Learn about their origins, ingredients, and cultural significance.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../pages-common.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <a href="../../index.html" class="back-link" aria-label="Return to Incredible India Explorer Home">
+      <i class="fas fa-arrow-left"></i> Back to Explorer
+    </a>
+    <h1 class="page-title">Indian Street Food Guide</h1>
+    <div class="header-badge">Interactive Gallery</div>
+  </header>
+
+  <main class="container">
+    <section class="hero-section">
+      <div class="hero-content">
+        <h2>Taste the Streets of India 🥟</h2>
+        <p>A culinary journey across the subcontinent. Explore the rich flavors, diverse ingredients, and fascinating origins of India's most beloved street foods.</p>
+      </div>
+    </section>
+
+    <!-- Search and Filters -->
+    <section class="controls-section">
+      <div class="search-bar">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="food-search" placeholder="Search by name, state, or ingredient..." aria-label="Search street foods">
+      </div>
+      
+      <div class="filters-container">
+        <div class="filter-group">
+          <label for="region-filter">Region:</label>
+          <select id="region-filter" aria-label="Filter by Region">
+            <option value="All">All India</option>
+            <option value="North India">North India</option>
+            <option value="South India">South India</option>
+            <option value="East India">East India</option>
+            <option value="West India">West India</option>
+            <option value="Central India">Central India</option>
+            <option value="Northeast India">Northeast India</option>
+          </select>
+        </div>
+
+        <div class="category-filters" id="category-filters" aria-label="Filter by Category">
+          <button class="cat-btn active" data-category="All">All Categories</button>
+          <button class="cat-btn" data-category="Snacks">🥟 Snacks</button>
+          <button class="cat-btn" data-category="Meals">🍛 Meals</button>
+          <button class="cat-btn" data-category="Spicy">🌶️ Spicy</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Food Gallery -->
+    <section class="gallery-section">
+      <div class="food-grid" id="food-grid" aria-live="polite">
+        <!-- Rendered via JS -->
+      </div>
+      <div id="no-results" class="no-results" style="display: none;">
+        <i class="fas fa-search-minus" style="font-size: 2rem; color: var(--text-muted); margin-bottom: 1rem;"></i>
+        <p>No street foods found matching your criteria. Try adjusting your search or filters.</p>
+      </div>
+    </section>
+
+    <!-- Food Detail Modal -->
+    <div class="modal-overlay" id="food-modal" aria-hidden="true">
+      <div class="modal-content">
+        <button class="close-modal" id="close-modal" aria-label="Close Details">
+          <i class="fas fa-times"></i>
+        </button>
+        <div id="modal-body">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

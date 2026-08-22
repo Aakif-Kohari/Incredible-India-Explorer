@@ -9,7 +9,7 @@ const pages = fs.readdirSync(GENERATED_DIR).filter((f) => f.endsWith('.html'));
 
 describe('page layout template', () => {
   it('applies the theme class to body, matching the CSS selectors', () => {
-    // Every light-mode rule in styles/ is written as `body.light-theme`, so the
+    // Every light-mode rule in styles/ is written as `[data-theme="light"]`, so the
     // bootstrap must class the body. Targeting documentElement silently no-ops.
     expect(LAYOUT).toMatch(/document\.body\.classList\.add\('light-theme'\)/);
     expect(LAYOUT).not.toMatch(/document\.documentElement\.classList\.add\('light-theme'\)/);
