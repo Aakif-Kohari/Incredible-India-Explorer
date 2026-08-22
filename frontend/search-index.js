@@ -5957,6 +5957,13 @@ window.indiaSearchIndex = [
         description: "Explore the Kumara Parvatha Trek (1,712m) in Karnataka's Pushpagiri Wildlife Sanctuary. Detailed route information, safety guidelines, and gear checklist.",
         url: "frontend/kumara-parvatha-trek/index.html"
     },
+    // --- feat/bengali-language-explorer ---
+    {
+        title: "Bengali: Discover \u09ac\u09be\u0982\u09b2\u09be and Its Literary Heritage",
+        category: "Languages & Literature",
+        description:
+            "Explore Bengali (\u09ac\u09be\u0982\u09b2\u09be) \u2014 Classical language status, Nomoskar greetings, audio pronunciations, vocabulary, Rabindranath Tagore, and Nazrul Islam.",
+        url: "frontend/bengali-language-explorer/index.html"},
     // --- feat/marathi-language-explorer ---
     {
         title: "Marathi: Explore \u092e\u0930\u093e\u0920\u0940 Through Words and Sound",
