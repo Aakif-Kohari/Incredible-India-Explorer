@@ -12,6 +12,27 @@ window.indiaSearchIndex = [
         url: 'frontend/brahmagiri-trek/index.html'
     },
     {
+    title: "Alibaug Beach — Maharashtra",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Alibaug Beach in Raigad, Maharashtra — the black-sand shoreline linked at low tide to the historic Kolaba Fort, nearby Murud-Janjira, Kashid, and its Mumbai-weekend-getaway coastal culture.",
+    url: "frontend/alibaug-beach/index.html"
+    },
+    {
+    title: "Chauri Chaura Incident (1922) Explorer",
+    category: "Freedom Struggle",
+    description:
+        "Explore the Chauri Chaura incident of 5 February 1922 in Gorakhpur — its roots in the Non-Cooperation Movement, the confrontation and aftermath, the trials, and Gandhi's decision to suspend the movement.",
+    url: "frontend/chauri-chaura-explorer/index.html"
+    },
+    {
+        title: "Gokarna Beach — Karnataka",
+        category: "Beaches & Coastline",
+        description:
+            "Explore Gokarna Beach in Uttara Kannada, Karnataka — the crescent shoreline beside the sacred Mahabaleshwar Temple, the Atmalinga legend, Om, Kudle, Half Moon and Paradise beaches, and its pilgrim-meets-traveller coastal culture.",
+        url: "frontend/gokarna-beach/index.html"
+    },
+    {
         title: 'Pin Parvati Pass Trek (Kullu to Spiti Traverse) Profile',
         category: 'Adventure & Sanctuary Treks',
         description:
