@@ -5931,6 +5931,12 @@ window.indiaSearchIndex = [
             "Explore Dzongri Trek in Sikkim \u2014 4,250m Dzongri Top sunrise viewpoint, 360-degree Kanchenjunga panoramas, alpine meadows, and Khangchendzonga National Park.",
         url: "frontend/dzongri-trek-explorer/index.html"
     },
+    // --- Dzukou Valley Trek Explorer ---
+    {
+        title: "Dzukou Valley Trek",
+        keywords: "dzukou valley, trek, nagaland, viswema, zakhama, lily, rolling hills",
+        description: "Explore the Dzukou Valley Trek in Nagaland, known for its rolling green hillocks, seasonal flora including the endemic Dzukou Lily, and serene landscapes.",
+        url: "frontend/dzukou-valley-trek/index.html"},
     // --- Japfu Peak Trek Explorer ---
     {
         title: "Japfu Peak Trek",
