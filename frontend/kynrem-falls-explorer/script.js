@@ -1,12 +1,15 @@
 /**
  * script.js
- * Kynrem Falls Explorer Logic (#2168)
+ * Kynrem Falls Explorer Logic (#2168) - Expanded & Enhanced
  */
 
 (function () {
   'use strict';
 
-  // TIER DATASET
+  // ==========================================================================
+  // DATASETS
+  // ==========================================================================
+
   const TIERS_DATA = {
     1: {
       title: "Tier 1: Upper Plunge (110 Meters Drop)",
@@ -37,7 +40,6 @@
     }
   };
 
-  // HEIGHT COMPARISON DATASET
   const HEIGHT_ITEMS = [
     { name: "Kynrem Falls", height: 305, unit: "305m", isKynrem: true },
     { name: "Nohkalikai Falls", height: 340, unit: "340m", isKynrem: false },
@@ -47,7 +49,6 @@
     { name: "Qutub Minar", height: 73, unit: "73m", isKynrem: false }
   ];
 
-  // SEASONAL DATASET
   const SEASON_DATA = {
     monsoon: {
       title: "Peak Monsoon Surge (June – September)",
@@ -72,6 +73,31 @@
     }
   };
 
+  const MAP_DATA = {
+    kynrem: {
+      title: "Kynrem Falls",
+      desc: "The 7th highest waterfall in India, dropping 305 meters in three distinct stages through the lush greenery of Thangkharang Park.",
+      distance: "0 km (Current Location)",
+      type: "Natural Waterfall"
+    },
+    thangkharang: {
+      title: "Thangkharang Park",
+      desc: "A beautifully maintained state park offering the most iconic, unobstructed panoramic views of Kynrem Falls and the Bangladesh plains beyond.",
+      distance: "~0.5 km from Falls",
+      type: "Eco-Park & Viewpoint"
+    },
+    khohramhah: {
+      title: "Khoh Ramhah (Pillar Rock)",
+      desc: "A giant cone-shaped rock monolith resembling an inverted Khasi basket ('Khoh'). Steeped in local Khasi folklore and legend.",
+      distance: "~1.2 km from Falls",
+      type: "Geological Formation"
+    }
+  };
+
+  // ==========================================================================
+  // DOM ELEMENTS
+  // ==========================================================================
+
   document.addEventListener('DOMContentLoaded', function () {
     // Tier Elements
     const tierBlocks = document.querySelectorAll('.tier-block');
@@ -83,7 +109,7 @@
     const metaGeo = document.getElementById('meta-geo');
     const metaEco = document.getElementById('meta-eco');
 
-    // Height Chart Container
+    // Height Chart
     const heightChartGrid = document.getElementById('height-chart-grid');
 
     // Seasonal Elements
@@ -96,89 +122,231 @@
 
     // Theme Toggle
     const themeToggleBtn = document.getElementById('theme-toggle');
-    if (themeToggleBtn) {
-      themeToggleBtn.addEventListener('click', function () {
-        document.body.classList.toggle('light-theme');
-        const isLight = document.body.classList.contains('light-theme');
-        localStorage.setItem('theme', isLight ? 'light' : 'dark');
-      });
-    }
+    const themeIcon = themeToggleBtn?.querySelector('.theme-icon');
 
-    /**
-     * Tier Block Click Handlers
-     */
-    tierBlocks.forEach(function (block, index) {
-      const tierNum = index + 1;
-      block.addEventListener('click', function () {
-        tierBlocks.forEach(b => b.classList.remove('active'));
-        block.classList.add('active');
+    // Map Elements
+    const mapPins = document.querySelectorAll('.map-pin');
+    const mapDetailTitle = document.getElementById('map-detail-title');
+    const mapDetailDesc = document.getElementById('map-detail-desc');
+    const mapDetailMeta = document.getElementById('map-detail-meta');
+    const mapMetaDistance = document.getElementById('map-meta-distance');
+    const mapMetaType = document.getElementById('map-meta-type');
 
-        const data = TIERS_DATA[tierNum];
-        if (data) {
-          if (tierTitle) tierTitle.textContent = data.title;
-          if (tierHeight) tierHeight.textContent = data.height;
-          if (tierDesc) tierDesc.textContent = data.desc;
-          if (metaSpeed) metaSpeed.textContent = data.speed;
-          if (metaVis) metaVis.textContent = data.vis;
-          if (metaGeo) metaGeo.textContent = data.geo;
-          if (metaEco) metaEco.textContent = data.eco;
-        }
-      });
-    });
+    // UI Utilities
+    const backToTopBtn = document.getElementById('back-to-top');
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
 
-    /**
-     * Render Height Comparison Chart
-     */
+    // ==========================================================================
+    // INITIALIZATION & RENDERING
+    // ==========================================================================
+
+    renderHeightChart();
+    setupIntersectionObserver();
+    setupThemeToggle();
+    setupTierInteractions();
+    setupSeasonalTabs();
+    setupMapInteractions();
+    setupScrollUtilities();
+    setupMobileMenu();
+
+    // ==========================================================================
+    // FUNCTIONS
+    // ==========================================================================
+
     function renderHeightChart() {
       if (!heightChartGrid) return;
       heightChartGrid.innerHTML = '';
+      const maxHeight = 350; 
 
-      const maxHeight = 350; // max scale
-
-      HEIGHT_ITEMS.forEach(function (item) {
+      HEIGHT_ITEMS.forEach(function (item, index) {
         const col = document.createElement('div');
         col.className = 'height-bar-col';
-
         const fillHeightPct = Math.round((item.height / maxHeight) * 100);
 
         col.innerHTML = `
           <span class="bar-val">${item.unit}</span>
-          <div class="bar-fill ${item.isKynrem ? 'highlight' : ''}" style="height: ${fillHeightPct}%;"></div>
+          <div class="bar-fill ${item.isKynrem ? 'highlight' : ''}" style="height: 0%;" data-height="${fillHeightPct}%"></div>
           <span class="bar-name"><strong>${item.name}</strong></span>
         `;
-
         heightChartGrid.appendChild(col);
+
+        // Staggered animation for bars
+        setTimeout(() => {
+          const bar = col.querySelector('.bar-fill');
+          if (bar) bar.style.height = bar.getAttribute('data-height');
+        }, 100 + (index * 150));
       });
     }
 
-    /**
-     * Setup Seasonal Explorer Tabs
-     */
-    seasonBtns.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        seasonBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+    function setupTierInteractions() {
+      tierBlocks.forEach(function (block, index) {
+        const tierNum = index + 1;
+        
+        const activateTier = () => {
+          tierBlocks.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-pressed', 'false');
+          });
+          block.classList.add('active');
+          block.setAttribute('aria-pressed', 'true');
 
-        const seasonKey = btn.getAttribute('data-season');
-        const sdata = SEASON_DATA[seasonKey];
-        if (sdata) {
-          if (seasonTitle) seasonTitle.textContent = sdata.title;
-          if (seasonDesc) seasonDesc.textContent = sdata.desc;
-          if (spillFlow) spillFlow.textContent = sdata.flow;
-          if (spillVis) spillVis.textContent = sdata.vis;
-          if (spillTip) spillTip.textContent = sdata.tip;
+          const data = TIERS_DATA[tierNum];
+          if (data) {
+            // Simple fade effect for text change
+            const panel = document.getElementById('tier-details-panel');
+            panel.style.opacity = '0.5';
+            
+            setTimeout(() => {
+              if (tierTitle) tierTitle.textContent = data.title;
+              if (tierHeight) tierHeight.textContent = data.height;
+              if (tierDesc) tierDesc.textContent = data.desc;
+              if (metaSpeed) metaSpeed.textContent = data.speed;
+              if (metaVis) metaVis.textContent = data.vis;
+              if (metaGeo) metaGeo.textContent = data.geo;
+              if (metaEco) metaEco.textContent = data.eco;
+              panel.style.opacity = '1';
+            }, 150);
+          }
+        };
+
+        block.addEventListener('click', activateTier);
+        block.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            activateTier();
+          }
+        });
+      });
+    }
+
+    function setupSeasonalTabs() {
+      seasonBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          seasonBtns.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+
+          const seasonKey = btn.getAttribute('data-season');
+          const sdata = SEASON_DATA[seasonKey];
+          
+          if (sdata) {
+            const box = document.getElementById('season-info-box');
+            box.style.opacity = '0.5';
+            setTimeout(() => {
+              if (seasonTitle) seasonTitle.textContent = sdata.title;
+              if (seasonDesc) seasonDesc.textContent = sdata.desc;
+              if (spillFlow) spillFlow.textContent = sdata.flow;
+              if (spillVis) spillVis.textContent = sdata.vis;
+              if (spillTip) spillTip.textContent = sdata.tip;
+              box.style.opacity = '1';
+            }, 150);
+          }
+        });
+      });
+    }
+
+    function setupMapInteractions() {
+      mapPins.forEach(pin => {
+        const activatePin = () => {
+          const pinId = pin.getAttribute('data-pin');
+          const data = MAP_DATA[pinId];
+          
+          if (data && mapDetailTitle && mapDetailDesc) {
+            mapDetailTitle.textContent = data.title;
+            mapDetailDesc.textContent = data.desc;
+            mapMetaDistance.textContent = data.distance;
+            mapMetaType.textContent = data.type;
+            mapDetailMeta.style.display = 'flex';
+            
+            // Visual feedback on map
+            mapPins.forEach(p => p.style.opacity = '0.5');
+            pin.style.opacity = '1';
+          }
+        };
+
+        pin.addEventListener('click', activatePin);
+        pin.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            activatePin();
+          }
+        });
+      });
+    }
+
+    function setupThemeToggle() {
+      if (!themeToggleBtn) return;
+      
+      const updateIcon = (isLight) => {
+        if (themeIcon) themeIcon.textContent = isLight ? '🌙' : '☀️';
+      };
+
+      updateIcon(document.body.classList.contains('light-theme'));
+
+      themeToggleBtn.addEventListener('click', function () {
+        document.body.classList.toggle('light-theme');
+        const isLight = document.body.classList.contains('light-theme');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        updateIcon(isLight);
+      });
+    }
+
+    function setupScrollUtilities() {
+      // Back to top button visibility
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+          backToTopBtn?.classList.add('visible');
+        } else {
+          backToTopBtn?.classList.remove('visible');
         }
       });
-    });
 
-    // Mobile Menu Toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    if (menuToggle && navMenu) {
-      menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+      backToTopBtn?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     }
 
-    // Initial Execution
-    renderHeightChart();
+    function setupIntersectionObserver() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target); // Only animate once
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-in-section').forEach(section => {
+        observer.observe(section);
+      });
+    }
+
+    function setupMobileMenu() {
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+          const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', !isExpanded);
+          navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        navMenu.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+    }
   });
 })();
