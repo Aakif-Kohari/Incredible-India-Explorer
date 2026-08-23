@@ -5958,6 +5958,13 @@ window.indiaSearchIndex = [
         description: "Explore the Mawryngkhang Trek in Meghalaya. Known as the scariest trek in Meghalaya, it features bamboo bridges, dramatic rock formations, and dense forest ecosystems.",
         url: "frontend/mawryngkhang-trek/index.html"},
   
+    // --- Nongriat Trek Explorer ---
+    {
+        title: "Nongriat Trek",
+        keywords: "nongriat, trek, meghalaya, double decker, living root bridge, jingkieng jri, rainbow falls, tyrna, cherrapunji, sohra",
+        description: "Explore the Nongriat Trek in Meghalaya — descend 3,500 steps from Tyrna to the Double-Decker Living Root Bridge, turquoise natural pools and Rainbow Falls in the East Khasi Hills.",
+        url: "frontend/nongriat-trek/index.html"},
+
     // --- Kumara Parvatha Trek Explorer ---
     {
         title: "Kumara Parvatha Trek",
