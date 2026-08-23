@@ -1004,6 +1004,36 @@ const WOMEN_PROFILES = [
         mapCoords: { lat: 29.6, lng: 76.9 }
     },
     {
+        id: "janaki-ammal",
+        url: "../janaki-ammal-explorer/",
+        name: "Dr. E. K. Janaki Ammal",
+        era: "post-independence",
+        eraLabel: "1897 – 1984 CE",
+        region: "Thalassery (Kerala) & Coimbatore / London",
+        category: "scientists",
+        contribution: "Pioneering cytogeneticist who developed high-sucrose hybrid sugarcane, co-authored the Chromosome Atlas, and saved Silent Valley.",
+        bio: "First Indian woman to earn a D.Sc. in Botany (Univ. of Michigan 1931). Master of polyploid plant genetics, Director-General of BSI, and defender of India's biodiversity.",
+        dynasty: "Sugarcane Genetics & BSI",
+        featured: true,
+        icon: "🔬",
+        mapCoords: { lat: 11.75, lng: 75.49 }
+    },
+    {
+        id: "cornelia-sorabji",
+        url: "../cornelia-sorabji-explorer/",
+        name: "Cornelia Sorabji",
+        era: "colonial",
+        eraLabel: "1866 – 1954 CE",
+        region: "Nashik / Pune & London / Calcutta",
+        category: "social-reformers",
+        contribution: "First female advocate of India, first woman to read law at Oxford (BCL 1892), and protector of Purdahnashin women's rights.",
+        bio: "Pioneering legal reformer who broke gender barriers at Oxford and in the Indian courts, representing over 600 secluded purdahnashin women and minor orphans.",
+        dynasty: "Indian Legal Heritage",
+        featured: true,
+        icon: "⚖️",
+        mapCoords: { lat: 19.99, lng: 73.79 }
+    },
+    {
         id: "mary-kom",
         name: "M. C. Mary Kom",
         era: "post-independence",
