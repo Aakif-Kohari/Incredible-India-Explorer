@@ -6067,5 +6067,14 @@ window.indiaSearchIndex = [
         description:
             "Explore the historical profile of Chand Bibi (1550–1599 CE) — Defender of Ahmadnagar, Regent of Bijapur & Ahmadnagar, Mughal siege resistance, and Deccan politics.",
         url: "frontend/chand-bibi-explorer/index.html"
+    },
+
+    // --- Traditional Indian Utensils Explorer (#2936) ---
+    {
+        title: "Traditional Indian Utensils — Everyday Cultural Heritage",
+        category: "Culture & Heritage",
+        description:
+            "Explore India's traditional cooking utensils — the iron kadhai, bronze uruli, clay handi, copper lota, wooden bel-chakla and more. Discover their materials, regional origins, cultural significance, and centuries-old cooking practices through an interactive gallery with Material and Region filters.",
+        url: "frontend/indian-utensils-explorer/index.html"
     }
 ];
