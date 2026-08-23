@@ -1314,7 +1314,6 @@ select,
 /* ==========================================================================
    SCROLL TO TOP & SCROLL ANIMATIONS
    ========================================================================== */
-
 .btn-scroll-top {
     position: fixed;
     bottom: 110px;
@@ -1339,17 +1338,12 @@ select,
     z-index: 90;
 }
 
-.btn-scroll-top.visible {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-}
-
-.btn-scroll-top:hover {
-    background: var(--primary-gold);
-    color: #000;
-    border-color: transparent;
-    box-shadow: var(--shadow-glow-active);
+/* Back to Top - final positioning */
+#btn-scroll-top {
+    position: fixed !important;
+    right: 24px !important;
+    bottom: 110px !important;
+    z-index: 9999 !important;
 }
 
 .btn-scroll-top.visible {
@@ -1364,6 +1358,20 @@ select,
     border-color: transparent;
     box-shadow: var(--shadow-glow-active);
 }
+
+.btn-scroll-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.btn-scroll-top:hover {
+    background: var(--primary-gold);
+    color: #000;
+    border-color: transparent;
+    box-shadow: var(--shadow-glow-active);
+}
+
 
 /* Scroll-triggered Fade in anims */
 .fade-in-section {
@@ -18955,55 +18963,21 @@ path[tabindex="0"]:focus-visible {
     }
 }
 
-.festival-calendar-cta {
+/* ==========================================================================
+   STICKY FOOTER LAYOUT
+   ========================================================================== */
+html, body {
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
-    margin-top: 40px;
+    flex-direction: column;
+    margin: 0;
 }
 
-.calendar-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    padding: 16px 38px;
-    min-width: 220px;
-
-    border: none;
-    border-radius: 999px;
-
-    background: linear-gradient(135deg, #ff9d2e, #f7c32e);
-    color: #111827;
-
-    font-size: 1rem;
-    font-weight: 700;
-    text-decoration: none;
-
-    cursor: pointer;
-
-    box-shadow: 0 8px 20px rgba(255, 166, 45, 0.25);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        filter 0.3s ease;
+#app-root, main {
+    flex: 1 0 auto;
 }
 
-.calendar-btn:hover {
-    transform: translateY(-4px) scale(1.02);
-
-    box-shadow:
-        0 12px 28px rgba(255, 166, 45, 0.4);
-
-    filter: brightness(1.08);
-}
-
-.calendar-btn:active {
-    transform: translateY(-1px) scale(0.98);
-}
-
-.calendar-btn:focus-visible {
-    outline: 3px solid rgba(255, 193, 7, 0.5);
-    outline-offset: 4px;
+.footer, .site-footer {
+    flex-shrink: 0;
+    margin-top: auto;
 }

@@ -42,6 +42,14 @@ window.indiaSearchIndex = [
             'Explore Brahmagiri Peak Trek (1,608m) in Coorg & Wayanad, Western Ghats. UNESCO World Heritage Shola forests, Iruppu Falls, Pakshipathalam Cave, Asian Elephant sanctuary habitat, gear checklist, and trek estimator.',
         url: 'frontend/brahmagiri-trek/index.html'
     },
+    // --- Harishchandragad Trek ---
+    {
+        title: 'Harishchandragad Trek (Maharashtra) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Harishchandragad Trek (1,424m) in the Sahyadri range of Maharashtra. Ancient hill fort with the iconic Konkan Kada cliff overhang, 6th-century Harishchandreshwar temple, Kedareshwar Cave, monsoon waterfalls, Pachnai route details, and image gallery.',
+        url: 'frontend/harishchandragad-trek/index.html'
+    },
     {
     title: "Alibaug Beach — Maharashtra",
     category: "Beaches & Coastline",
@@ -476,7 +484,7 @@ window.indiaSearchIndex = [
         category: 'Cuisine',
         description:
             'The iconic street food of Mumbai, Maharashtra — a spicy deep-fried potato dumpling inside a soft bread bun.',
-        url: 'frontend//cuisine.html'
+        url: 'frontend/vada-pav-explorer/index.html'
     },
     {
         title: 'Bisi Bele Bath',
@@ -5950,6 +5958,13 @@ window.indiaSearchIndex = [
         description: "Explore the Mawryngkhang Trek in Meghalaya. Known as the scariest trek in Meghalaya, it features bamboo bridges, dramatic rock formations, and dense forest ecosystems.",
         url: "frontend/mawryngkhang-trek/index.html"},
   
+    // --- Nongriat Trek Explorer ---
+    {
+        title: "Nongriat Trek",
+        keywords: "nongriat, trek, meghalaya, double decker, living root bridge, jingkieng jri, rainbow falls, tyrna, cherrapunji, sohra",
+        description: "Explore the Nongriat Trek in Meghalaya — descend 3,500 steps from Tyrna to the Double-Decker Living Root Bridge, turquoise natural pools and Rainbow Falls in the East Khasi Hills.",
+        url: "frontend/nongriat-trek/index.html"},
+
     // --- Kumara Parvatha Trek Explorer ---
     {
         title: "Kumara Parvatha Trek",
@@ -6067,5 +6082,32 @@ window.indiaSearchIndex = [
         description:
             "Explore the historical profile of Chand Bibi (1550–1599 CE) — Defender of Ahmadnagar, Regent of Bijapur & Ahmadnagar, Mughal siege resistance, and Deccan politics.",
         url: "frontend/chand-bibi-explorer/index.html"
+    },
+
+    // --- Traditional Indian Utensils Explorer (#2936) ---
+    {
+        title: "Traditional Indian Utensils — Everyday Cultural Heritage",
+        category: "Culture & Heritage",
+        description:
+            "Explore India's traditional cooking utensils — the iron kadhai, bronze uruli, clay handi, copper lota, wooden bel-chakla and more. Discover their materials, regional origins, cultural significance, and centuries-old cooking practices through an interactive gallery with Material and Region filters.",
+        url: "frontend/indian-utensils-explorer/index.html"
+    },
+
+    // --- Xylophone & Indian Percussion Traditions Explorer (#2938) ---
+    {
+        title: "Xylophone & Indian Percussion Traditions",
+        category: "Music & Performing Arts",
+        description:
+            "Explore Xylophone & Indian Percussion Traditions — an interactive organological gallery of tuned idiophones (Kashta Tarang, Jal Tarang, Naga Bamboo Xylophone) and classical/regional membranophones (Mridangam, Tabla, Pung, Chenda) with Web Audio sound simulation and filter controls.",
+        url: "frontend/xylophone-percussion-explorer/index.html"
+    },
+
+    // --- Yoga — India's Global Cultural Heritage Explorer (#2939) ---
+    {
+        title: "Yoga — India's Global Cultural Heritage",
+        category: "Culture & Heritage",
+        description:
+            "Explore Yoga — India's Global Cultural Heritage: an interactive historical, philosophical, and textual explorer tracing Yoga from Vedic and Upanishadic roots to Patanjali's Yoga Sutras, Hatha Yoga, UN International Day of Yoga, and UNESCO Intangible Cultural Heritage inscription.",
+        url: "frontend/yoga-explorer/index.html"
     }
 ];

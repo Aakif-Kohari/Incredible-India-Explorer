@@ -1,0 +1,752 @@
+/* ==========================================================================
+   Ellora Caves Advanced Styling Architecture
+   Heavily focuses on Basalt and Sandstone palettes, structural UI abstractions,
+   and fluid grid layouts mapping rock excavation workflows.
+   ========================================================================== */
+
+:root {
+    --el-basalt: #2f3640;
+    --el-basalt-light: #353b48;
+    --el-stone: #718093;
+    --el-sandstone: #f5f6fa;
+    --el-sandstone-dark: #dcdde1;
+    --el-accent: #e1b12c;
+    --el-white: #ffffff;
+    --el-dark: #1e272e;
+    --el-text: #2f3640;
+    --el-font: 'Inter', 'Roboto', sans-serif;
+    --el-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    --el-transition: all 0.35s ease;
+}
+
+/* Global Reset */
+body.el-body {
+    margin: 0;
+    font-family: var(--el-font);
+    background: var(--el-sandstone);
+    color: var(--el-text);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-padding {
+    padding: 6rem 0;
+}
+
+.bg-dark {
+    background-color: var(--el-dark);
+}
+
+.bg-basalt {
+    background-color: var(--el-basalt);
+}
+
+.bg-sandstone {
+    background-color: var(--el-sandstone);
+}
+
+.text-white {
+    color: var(--el-white);
+}
+
+.text-basalt {
+    color: var(--el-basalt);
+}
+
+.text-basalt-light {
+    color: var(--el-basalt-light);
+}
+
+.text-sandstone {
+    color: var(--el-sandstone);
+}
+
+.text-dark {
+    color: var(--el-dark);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-3 {
+    margin-bottom: 1.5rem;
+}
+
+.mb-4 {
+    margin-bottom: 2rem;
+}
+
+.mb-5 {
+    margin-bottom: 3.5rem;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.mt-3 {
+    margin-top: 1.5rem;
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+.max-800 {
+    max-width: 800px;
+}
+
+.center-block {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.opacity-80 {
+    opacity: 0.8;
+    line-height: 1.8;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v-align-center {
+    align-items: center;
+}
+
+.radius-8 {
+    border-radius: 8px;
+}
+
+.shadow-sm {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Grid Scaffolding */
+.grid-2-asym {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.gap-2 {
+    gap: 1.5rem;
+}
+
+.gap-3 {
+    gap: 2rem;
+}
+
+.gap-4 {
+    gap: 4rem;
+}
+
+/* Typography */
+.hero-title {
+    font-size: 5rem;
+    font-weight: 900;
+    margin: 0.5rem 0;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    color: var(--el-sandstone);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title-dark {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--el-dark);
+    margin: 0;
+}
+
+.title-light {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--el-white);
+    margin: 0;
+}
+
+.kicker {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+}
+
+.divider {
+    height: 4px;
+    width: 60px;
+    border-radius: 2px;
+}
+
+.line-basalt {
+    background: var(--el-basalt);
+}
+
+.line-sandstone {
+    background: var(--el-sandstone-dark);
+}
+
+/* Components */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: var(--el-transition);
+}
+
+.btn-basalt {
+    background: var(--el-basalt);
+    color: #fff;
+    padding: 12px 24px;
+    border: 2px solid transparent;
+}
+
+.btn-basalt:hover {
+    background: var(--el-basalt-light);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(47, 54, 64, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-large {
+    font-size: 1.15rem;
+    padding: 16px 32px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: #fff;
+    backdrop-filter: blur(5px);
+}
+
+/* Navigation */
+.el-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(245, 246, 250, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 1.2rem 0;
+    border-bottom: 2px solid var(--el-basalt);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.el-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--el-basalt);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2.5rem;
+}
+
+.nav-links auto {
+    color: var(--el-stone);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--el-transition);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--el-basalt-light);
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: var(--el-basalt);
+}
+
+/* Hero */
+.el-hero {
+    height: 100vh;
+    position: relative;
+    background: #2f3640;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Simulated Texture utilizing heavy gradients */
+.stone-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 2px, transparent 2px, transparent 4px);
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+.scroll-down-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.6);
+    animation: float 3s ease-in-out infinite;
+    text-align: center;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, -10px);
+    }
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(30px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+.animate-rise {
+    animation: rise 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* History Section */
+.text-block p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--el-text);
+    opacity: 0.85;
+    margin-bottom: 1.2rem;
+}
+
+.quote-box {
+    padding-left: 1.5rem;
+    border-left: 4px solid var(--el-basalt-light);
+}
+
+.quote-box p {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--el-basalt);
+    opacity: 1;
+    margin: 0;
+    font-weight: 600;
+}
+
+.basalt-abstract-art {
+    width: 100%;
+    height: 450px;
+    background: var(--el-sandstone-dark);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--el-shadow);
+    border: 2px solid #ccc;
+}
+
+/* Simulating top-down excavation CSS art */
+.ba-layer {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: rgba(47, 54, 64, 0.1);
+}
+
+.layer-1 {
+    top: 0;
+    border-bottom: 2px dashed rgba(47, 54, 64, 0.3);
+}
+
+.layer-2 {
+    top: 20%;
+    border-bottom: 2px dashed rgba(47, 54, 64, 0.3);
+}
+
+.layer-3 {
+    top: 40%;
+    border-bottom: 2px dashed rgba(47, 54, 64, 0.3);
+}
+
+.ba-temple-core {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 180px;
+    background: var(--el-basalt);
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding-bottom: 20px;
+}
+
+.ba-roof {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-bottom: 60px solid var(--el-basalt);
+}
+
+.ba-pillar {
+    width: 30px;
+    height: 100px;
+    background: var(--el-sandstone);
+    border-radius: 2px;
+}
+
+/* Architecture Cards (Kailasa) */
+.arch-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: var(--el-transition);
+}
+
+.arch-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.ac-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--el-sandstone);
+    border-radius: 50%;
+    font-size: 1.8rem;
+    margin: 0 auto 1.5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arch-card h3 {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-top: 0;
+}
+
+.arch-card p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Scale Data Boxes */
+.scale-box {
+    padding: 2rem 1rem;
+    background: var(--el-white);
+    border: 1px solid #dfe4ea;
+    transition: transform 0.3s;
+}
+
+.scale-box:hover {
+    transform: scale(1.05);
+}
+
+.s-num {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+}
+
+.s-desc {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--el-stone);
+    letter-spacing: 1px;
+}
+
+/* Cave Explorer Frame */
+.cave-explorer {
+    background: var(--el-dark);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2.5rem;
+}
+
+.ce-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.ce-btn {
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+
+.ce-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.ce-btn.active {
+    background: var(--el-sandstone);
+    color: var(--el-basalt);
+    border-color: var(--el-sandstone);
+}
+
+.ce-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.cv-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.cv-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.cv-card h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
+}
+
+.cv-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+}
+
+.cv-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.cv-badge.buddha {
+    color: #f1c40f;
+}
+
+.cv-badge.hindu {
+    color: #e74c3c;
+}
+
+.cv-badge.jain {
+    color: #1abc9c;
+}
+
+/* Masonry Gallery Custom Structure */
+.masonry-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    grid-auto-rows: 200px;
+    grid-auto-flow: dense;
+}
+
+.m-gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.m-gallery-item:hover {
+    transform: scale(1.02);
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.m-gallery-item.wide {
+    grid-column: span 2;
+}
+
+.m-gallery-item.tall {
+    grid-row: span 2;
+}
+
+.placeholder-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.m-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), transparent);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: 0.3s;
+    box-sizing: border-box;
+    transform: translateY(10px);
+}
+
+.m-gallery-item:hover .m-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Utilities */
+.scroll-fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.scroll-fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 {
+    transition-delay: 0.15s;
+}
+
+.delay-2 {
+    transition-delay: 0.3s;
+}
+
+.delay-3 {
+    transition-delay: 0.45s;
+}
+
+/* Footer */
+.el-footer {
+    padding: 3rem 0;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive Overrides */
+@media(max-width: 900px) {
+
+    .grid-2-asym,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .gap-4 {
+        gap: 2.5rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .masonry-gallery {
+        grid-auto-rows: 250px;
+    }
+
+    .m-gallery-item.wide,
+    .m-gallery-item.tall {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}

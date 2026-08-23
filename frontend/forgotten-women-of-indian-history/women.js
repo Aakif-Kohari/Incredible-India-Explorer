@@ -128,15 +128,16 @@ function createProfileCardHTML(w, isFeatured = false) {
                 <div class="profile-contribution">🌟 ${w.contribution}</div>
                 <div class="profile-bio">${w.bio}</div>
             </div>
-            <button type="button" class="explore-story-btn" data-id="${w.id}">
-                Explore Story &rarr;
-            </button>
+            ${w.url 
+                ? `<a href="${w.url}" class="explore-story-btn" style="text-decoration: none; display: inline-block; text-align: center;" data-no-route="true">Explore App &rarr;</a>`
+                : `<button type="button" class="explore-story-btn" data-id="${w.id}">Explore Story &rarr;</button>`
+            }
         </div>
     `;
 }
 
 function attachCardEvents(container) {
-    container.querySelectorAll('.explore-story-btn').forEach(btn => {
+    container.querySelectorAll('button.explore-story-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const woman = WOMEN_PROFILES.find(w => w.id === btn.dataset.id);
             if (woman) openProfileModal(woman);
@@ -165,7 +166,13 @@ function renderMapSites() {
     grid.querySelectorAll('.map-site-item').forEach(item => {
         item.addEventListener('click', () => {
             const woman = WOMEN_PROFILES.find(w => w.id === item.dataset.id);
-            if (woman) openProfileModal(woman);
+            if (woman) {
+                if (woman.url) {
+                    window.location.href = woman.url;
+                } else {
+                    openProfileModal(woman);
+                }
+            }
         });
     });
 }
