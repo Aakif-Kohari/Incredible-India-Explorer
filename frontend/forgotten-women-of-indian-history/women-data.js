@@ -581,6 +581,7 @@ const WOMEN_PROFILES = [
     },
     {
         id: "usha-mehta",
+        url: "../usha-mehta-explorer/",
         name: "Dr. Usha Mehta",
         era: "freedom-struggle",
         eraLabel: "1920 – 2000 CE",

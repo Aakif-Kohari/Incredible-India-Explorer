@@ -6109,5 +6109,14 @@ window.indiaSearchIndex = [
         description:
             "Explore Yoga — India's Global Cultural Heritage: an interactive historical, philosophical, and textual explorer tracing Yoga from Vedic and Upanishadic roots to Patanjali's Yoga Sutras, Hatha Yoga, UN International Day of Yoga, and UNESCO Intangible Cultural Heritage inscription.",
         url: "frontend/yoga-explorer/index.html"
+    },
+
+    // --- Usha Mehta Explorer ---
+    {
+        title: "Usha Mehta — Voice of the Underground Congress Radio",
+        category: "Freedom Movement",
+        description:
+            "Explore Usha Mehta's heroic historical profile — the 22-year-old freedom fighter who operated the secret underground Congress Radio during the Quit India Movement in 1942, featuring an interactive 42.34m radio tuner simulator, biography, Yerwada trial, and Padma Vibhushan legacy.",
+        url: "frontend/usha-mehta-explorer/index.html"
     }
 ];
