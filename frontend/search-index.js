@@ -6031,6 +6031,14 @@ window.indiaSearchIndex = [
             "Explore Tarsar Marsar Trek (4,100m) in Kashmir: detailed route steps, Aru Valley base, Lidderwat meadows, Sundersar, and the twin almond-shaped glacial lakes of Tarsar and Marsar.",
         url: "frontend/tarsar-marsar-trek/index.html"
     },
+    // --- Ahilyabai Holkar Explorer ---
+    {
+        title: "Ahilyabai Holkar — The Queen Who Transformed Malwa Explorer",
+        category: "History & Royalty",
+        description:
+            "Explore Ahilyabai Holkar (1725–1795 CE) — Punyashlok Rajmata of Malwa: governance, pan-Indian temple restorations (Kashi Vishwanath, Somnath, Gaya), Maheshwar handloom heritage, and timeline.",
+        url: "frontend/ahilyabai-holkar-explorer/index.html"},
+          
     // --- Chand Bibi Explorer ---
     {
         title: "Chand Bibi — The Defender of Ahmadnagar Explorer",
