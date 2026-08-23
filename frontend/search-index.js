@@ -6022,8 +6022,7 @@ window.indiaSearchIndex = [
         description:
             "Explore Kalsubai Peak Trek (1,646m) in Maharashtra: detailed route, Kalsubai Temple summit details, steel ladders climbing, monsoon waterfalls, gear checklist, and duration estimator.",
         url: "frontend/kalsubai-trek/index.html"
->>>>>>
-        url: "frontend/kheerganga-trek/index.html"},
+    },
     // --- feat/tarsar-marsar-trek ---
     {
         title: "Tarsar Marsar Trek — Twin Alpine Lakes of Kashmir",
@@ -6031,5 +6030,13 @@ window.indiaSearchIndex = [
         description:
             "Explore Tarsar Marsar Trek (4,100m) in Kashmir: detailed route steps, Aru Valley base, Lidderwat meadows, Sundersar, and the twin almond-shaped glacial lakes of Tarsar and Marsar.",
         url: "frontend/tarsar-marsar-trek/index.html"
+    },
+    // --- Forgotten Women of Indian History Explorer ---
+    {
+        title: "Forgotten Women of Indian History — Interactive Heritage Explorer",
+        category: "History & Royalty",
+        description:
+            "Explore Forgotten Women of Indian History — central digital archive of 50 pioneering women across Vedic philosophy, medieval statecraft, freedom struggles, medicine, and science.",
+        url: "frontend/forgotten-women-of-indian-history/index.html"
     }
 ];
