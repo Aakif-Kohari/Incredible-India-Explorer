@@ -3,6 +3,19 @@
 
 <head>
     <script>
+        // Force clear Service Worker caches for the redesign
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                for(let registration of registrations) {
+                    registration.unregister();
+                }
+            });
+            caches.keys().then(function(names) {
+                for (let name of names) caches.delete(name);
+            });
+        }
+    </script>
+    <script>
         (function () {
             const theme = localStorage.getItem('theme') || 'dark';
             if (theme === 'light') {
@@ -410,6 +423,7 @@
                         <a href="frontend/national-symbols-gallery/national-symbols-gallery.html"
                             class="dropdown-item">National Symbols</a>
                         <a href="frontend/awards-of-india-explorer/index.html" class="dropdown-item">Awards of India</a>
+                        <a href="frontend/forgotten-women-of-indian-history/" class="dropdown-item" style="color: var(--primary-gold);" data-no-route="true">Forgotten Women</a>
                         <a href="frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
                         <a href="frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
                         <a href="frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
@@ -492,10 +506,9 @@
                     monuments, mouth-watering regional cuisines, colorful festivals, and timeless cultural arts.
                 </p>
                 <div class="hero-buttons animate-fade-in-delayed">
-                    <a href="#map" class="btn btn-primary" id="btn-explore-map" data-i18n="home.exploreMap">Explore
-                        Map</a>
-                    <a href="#quiz" class="btn btn-secondary" id="btn-start-quiz-hero" data-i18n="home.takeQuiz">Take a
-                        Quiz</a>
+                    <a href="#map" class="btn btn-primary" id="btn-explore-map" data-i18n="home.exploreMap">Explore Map</a>
+                    <a href="frontend/forgotten-women-of-indian-history/" class="btn btn-secondary" style="border-color: var(--primary-gold); color: var(--primary-gold);" data-no-route="true">Forgotten Women</a>
+                    <a href="#quiz" class="btn btn-secondary" id="btn-start-quiz-hero" data-i18n="home.takeQuiz">Take a Quiz</a>
                 </div>
             </div>
             <div class="hero-scroll-indicator">
@@ -705,25 +718,9 @@
             </div>
         </section>
 
-        <!-- Linguistic & Heritage Module: Santali -->
-        <section id="santali" class="santali-section scroll-section fade-in-section"
-            style="padding: 4rem 1.5rem; background: linear-gradient(135deg, #2b1d16, #422d21); text-align: center; border-bottom: 3px solid #ffb01f;">
-            <div class="section-container"
-                style="max-width: 900px; margin: 0 auto; background: rgba(255,255,255,0.05); padding: 3rem; border-radius: 12px; border: 1px solid rgba(255,176,31,0.2);">
-                <span class="section-badge"
-                    style="background:#ffb01f; color:#000; padding:6px 16px; border-radius:20px; font-weight:700; font-size:0.85rem; letter-spacing:1px; text-transform:uppercase; margin-bottom:15px; display:inline-block;">Austroasiatic
-                    Heritage</span>
-                <h2 style="color: #fff; font-size: 3rem; margin: 10px 0 20px 0; font-family: 'Outfit', sans-serif;">
-                    Explore ᱥᱟᱱᱛᱟᱲᱤ and Ol Chiki</h2>
-                <p style="color: #dcdde1; font-size: 1.2rem; line-height: 1.7; margin-bottom: 2rem;">Dive into one of
-                    India's most vibrant tribal languages, boasting constitutional recognition and an exclusive script
-                    developed in the 1920s. Test your vocabulary with interactive flashcards!</p>
-                <a href="pages/santali.html" class="btn btn-primary ripple"
-                    style="font-size: 1.15rem; padding: 15px 35px; background: linear-gradient(135deg, #e67e22, #d35400); border: none; box-shadow: 0 5px 20px rgba(230, 126, 34, 0.4);">
-                    <i class="fas fa-language"></i> Launch Santali Explorer
-                </a>
-            </div>
-        </section>
+
+
+
 
     </main>
 
@@ -902,8 +899,8 @@
     <div id="app-toast-container" class="app-toast-container" aria-live="polite" aria-relevant="additions removals">
     </div>
 
-    <!-- Scroll To Top Button -->
-    <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
+    <!-- Scroll To Top Button-->
+    <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">↑</button>
 
     <!-- Bharat Guide AI FAB & Chat Window -->
     <div class="bharat-guide-container">
@@ -953,7 +950,7 @@
 
     <!-- JavaScript Files -->
     <script src="frontend/dist/map-data.js" defer></script>
-    <script src="frontend/dist/home-data.js" defer></script>
+    <script src="frontend/dist/home-data.js?v=2" defer></script>
     <script src="frontend/chatbot-data.js" defer></script>
     <script src="frontend/sw-register.js" defer></script>
     <script src="frontend/js-modules/config.js" defer></script>
@@ -1003,6 +1000,7 @@
         </svg>
         Install App
     </button>
+
 </body>
 
 </html>
