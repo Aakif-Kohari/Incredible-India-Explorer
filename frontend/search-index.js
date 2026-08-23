@@ -6031,6 +6031,13 @@ window.indiaSearchIndex = [
             "Explore Tarsar Marsar Trek (4,100m) in Kashmir: detailed route steps, Aru Valley base, Lidderwat meadows, Sundersar, and the twin almond-shaped glacial lakes of Tarsar and Marsar.",
         url: "frontend/tarsar-marsar-trek/index.html"
     },
+    // --- Keladi Chennamma Explorer ---
+    {
+        title: "Keladi Chennamma — The Queen Who Defended the Keladi Kingdom Explorer",
+        category: "History & Royalty",
+        description:
+            "Explore Keladi Chennamma (reign 1671–1696 CE) — Queen of Bednore: shelter to Chhatrapati Rajaram, defiance of Aurangzeb's Mughal army, and coastal Karnataka heritage.",
+        url: "frontend/keladi-chennamma-explorer/index.html"},
     // --- Ahilyabai Holkar Explorer ---
     {
         title: "Ahilyabai Holkar — The Queen Who Transformed Malwa Explorer",
