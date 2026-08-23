@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script>
-        (function() {
+        (function () {
             const theme = localStorage.getItem('theme') || 'dark';
             if (theme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'light');
@@ -12,9 +13,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regional Thali Guide | Incredible India Explorer</title>
-    <!-- Use relative paths to access global styles if available, or just self-contained styles as requested -->
+    <meta name="description"
+        content="An interactive map of India's regional thalis — click a state to explore its traditional dishes, serving customs, festival connections, and cultural significance.">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="light-theme">
     <!-- Header -->
     <header class="module-header">
@@ -29,21 +32,62 @@
         <section class="hero-section">
             <h1 class="hero-title">Regional Thali Guide</h1>
             <p class="hero-subtitle">
-                Explore the traditional meal combinations of different Indian states. Hover or click on the dishes to reveal their names and ingredients.
+                Click a state on the map to explore its traditional thali — the dishes, how it's served, its festival
+                connections, and what it says about the region's culture.
             </p>
-            
-            <!-- Region Selector -->
-            <div class="region-selector" role="group" aria-label="Select a regional thali">
-                <button class="region-btn active" data-region="gujarati" aria-pressed="true">Gujarati</button>
-                <button class="region-btn" data-region="bengali" aria-pressed="false">Bengali</button>
-                <button class="region-btn" data-region="rajasthani" aria-pressed="false">Rajasthani</button>
-                <button class="region-btn" data-region="south-indian" aria-pressed="false">South Indian</button>
-            </div>
+            <div class="results-count" id="results-count" aria-live="polite">Showing 8 regional thalis</div>
         </section>
 
-        <!-- Two Column Layout -->
-        <section class="thali-layout">
-            
+        <!-- Map + Region Info Layout -->
+        <section class="map-layout">
+
+            <!-- Interactive Map Container -->
+            <div class="map-container" id="map-container">
+                <object data="assets/india-map.svg" type="image/svg+xml" class="map-background" aria-hidden="true"
+                    tabindex="-1"></object>
+
+                <div id="markers-layer" class="markers-layer" role="application"
+                    aria-label="Interactive map of Indian states with regional thalis">
+                    <!-- Markers injected via JS -->
+                </div>
+            </div>
+
+            <!-- Region Info Panel -->
+            <div class="region-panel">
+                <div class="region-card" id="region-card" aria-live="polite">
+                    <div class="empty-state" id="region-empty-state">
+                        <span class="empty-icon">🗺️</span>
+                        <p>Click a state marker on the map to see its regional thali.</p>
+                    </div>
+
+                    <div class="region-details hidden" id="region-details">
+                        <h2 class="region-title" id="region-title">Thali Name</h2>
+                        <p class="region-state" id="region-state">📍 State</p>
+                        <p class="region-description" id="region-description">Description goes here.</p>
+
+                        <div class="region-facts">
+                            <div class="fact-block">
+                                <h3>🍽️ Serving Tradition</h3>
+                                <p id="region-serving">…</p>
+                            </div>
+                            <div class="fact-block">
+                                <h3>🎉 Festival Connection</h3>
+                                <p id="region-festival">…</p>
+                            </div>
+                            <div class="fact-block">
+                                <h3>🕉️ Cultural Significance</h3>
+                                <p id="region-culture">…</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Thali Plate + Dish Layout (shown once a region is selected) -->
+        <section class="thali-layout hidden" id="thali-layout">
+
             <!-- SVG Thali Container -->
             <div class="svg-container" id="svg-container" aria-live="polite">
                 <!-- SVG injected via JavaScript -->
@@ -54,12 +98,12 @@
                 <div class="info-card" id="info-card" aria-live="polite">
                     <div class="empty-state" id="empty-state">
                         <span class="empty-icon">🍽️</span>
-                        <p>Hover over or click a dish to view its details.</p>
+                        <p>Hover over or click a dish on the plate to view its details.</p>
                     </div>
                     <div class="dish-details hidden" id="dish-details">
                         <h2 class="dish-name" id="dish-name">Dish Name</h2>
                         <p class="dish-description" id="dish-description">Description goes here.</p>
-                        
+
                         <div class="ingredients-section">
                             <h3 class="ingredients-title">Key Ingredients</h3>
                             <ul class="ingredients-list" id="ingredients-list">
@@ -71,10 +115,18 @@
             </div>
 
         </section>
+
+        <!-- Credits -->
+        <section class="credits-section">
+            <p>All plate illustrations on this page are original SVG artwork created for the Incredible India Explorer.
+                Dish and cultural information is compiled from widely published Indian food-heritage sources; state
+                boundaries on the map are stylised, not geographically precise.</p>
+        </section>
     </main>
 
     <!-- Scripts -->
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
