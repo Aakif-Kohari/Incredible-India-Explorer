@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,909 +11,773 @@
     </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore traditional Ladakhi houses and high-altitude Himalayan architecture.">
+  <meta name="description" content="Explore traditional Ladakhi houses and high-altitude Himalayan architecture. Discover climate-responsive design, local materials, and cultural heritage.">
+  <meta name="keywords" content="Ladakhi architecture, Himalayan houses, sustainable architecture, Leh, Zanskar, traditional homes India">
+  <meta name="author" content="Incredible India Explorer">
+  <meta name="theme-color" content="#68472d">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Ladakhi Houses | High-Altitude Himalayan Architecture">
+  <meta property="og:description" content="Explore how traditional Ladakhi homes respond to extreme altitude, cold, and sunlight through brilliant climate-responsive design.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://example.com/assets/ladakhi-house-og.jpg">
+
   <title>Ladakhi Houses | Incredible India Explorer</title>
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* ==========================================================================
+       CSS VARIABLES & THEME SETUP
+       ========================================================================== */
+    :root {
+      --bg-primary: #f5f0e6;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #eee2cc;
+      --text-primary: #33291f;
+      --text-secondary: #5c4d3c;
+      --accent: #9a6b3d;
+      --accent-hover: #68472d;
+      --accent-light: #d6b27c;
+      --shadow-sm: 0 2px 8px rgba(51, 41, 31, 0.08);
+      --shadow-md: 0 5px 20px rgba(51, 41, 31, 0.12);
+      --shadow-lg: 0 10px 30px rgba(51, 41, 31, 0.15);
+      --radius: 16px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    html {
-      scroll-behavior: smooth;
+    .dark-theme {
+      --bg-primary: #1a1510;
+      --bg-secondary: #251e17;
+      --bg-tertiary: #33291f;
+      --text-primary: #f5f0e6;
+      --text-secondary: #c4b8a5;
+      --accent: #d6b27c;
+      --accent-hover: #e8cda0;
+      --accent-light: #5c4d3c;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
+    /* ==========================================================================
+       BASE STYLES & TYPOGRAPHY
+       ========================================================================== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f0e6;
-      color: #33291f;
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      transition: background 0.3s, color 0.3s;
     }
 
+    h1, h2, h3, h4 {
+      font-family: 'Merriweather', serif;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: var(--transition); }
+    a:hover { color: var(--accent-hover); }
+
+    .skip-link {
+      position: absolute; top: -40px; left: 0; background: var(--accent); color: white;
+      padding: 8px 16px; z-index: 2000; transition: top 0.3s;
+    }
+    .skip-link:focus { top: 0; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== */
     header {
-      min-height: 450px;
-      padding: 80px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      min-height: 500px;
+      padding: 100px 24px;
+      display: flex; align-items: center; justify-content: center; text-align: center;
       color: white;
-      background:
-        linear-gradient(rgba(65, 48, 32, 0.76), rgba(93, 66, 42, 0.78)),
-        linear-gradient(135deg, #a57a4e, #d6b27c);
+      background: linear-gradient(rgba(51, 41, 31, 0.7), rgba(51, 41, 31, 0.85)),
+                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23a57a4e" width="100" height="100"/><path fill="none" stroke="%23d6b27c" stroke-width="2" d="M0 50 Q25 30 50 50 T100 50"/></svg>');
+      background-size: cover, 200px;
     }
 
-    .hero-content {
-      max-width: 850px;
-    }
-
-    header h1 {
-      font-size: clamp(2.3rem, 6vw, 4.5rem);
-      margin-bottom: 18px;
-    }
-
-    header p {
-      max-width: 760px;
-      margin: auto;
-      font-size: 1.15rem;
-    }
+    .hero-content { max-width: 850px; animation: fadeInUp 0.8s ease-out; }
+    header h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    header p { font-size: 1.2rem; opacity: 0.95; max-width: 700px; margin: 0 auto; }
 
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: #3d3024;
-      padding: 13px 15px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(61, 48, 36, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 16px 24px;
+      box-shadow: var(--shadow-md);
+      display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: wrap;
     }
 
     nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 12px;
-      font-weight: bold;
+      color: white; font-weight: 500; padding: 8px 16px; border-radius: 8px; font-size: 0.95rem;
+    }
+    nav a:hover, nav a:focus { background: rgba(255,255,255,0.1); text-decoration: none; }
+
+    .theme-toggle {
+      background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white;
+      width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem;
+      display: flex; align-items: center; justify-content: center; margin-left: 16px;
+      transition: var(--transition);
+    }
+    .theme-toggle:hover { background: rgba(255,255,255,0.1); border-color: white; }
+
+    /* ==========================================================================
+       SECTIONS & CARDS
+       ========================================================================== */
+    main { padding: 60px 0; }
+    section { margin-bottom: 80px; }
+    
+    .section-header { text-align: center; max-width: 700px; margin: 0 auto 40px; }
+    .section-header h2 { font-size: 2.2rem; color: var(--accent-hover); margin-bottom: 12px; }
+    .section-header p { color: var(--text-secondary); font-size: 1.1rem; }
+
+    .intro-card {
+      background: var(--bg-secondary); padding: 40px; border-radius: var(--radius);
+      box-shadow: var(--shadow-md); border-left: 6px solid var(--accent);
     }
 
-    nav a:hover,
-    nav a:focus {
-      text-decoration: underline;
+    .highlight-box {
+      margin-top: 30px; padding: 24px; background: var(--bg-tertiary);
+      border-radius: 12px; display: flex; gap: 16px; align-items: flex-start;
     }
+    .highlight-box .icon { font-size: 1.8rem; flex-shrink: 0; }
 
-    main {
-      max-width: 1200px;
-      margin: auto;
-      padding: 45px 20px;
-    }
-
-    section {
-      margin-bottom: 60px;
-    }
-
-    section > h2 {
-      text-align: center;
-      color: #68472d;
-      font-size: 2rem;
-      margin-bottom: 25px;
-    }
-
-    .intro {
-      background: white;
-      padding: 32px;
-      border-radius: 18px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    }
-
-    .intro h2 {
-      color: #68472d;
-      margin-bottom: 15px;
-    }
-
-    .intro p {
-      margin-bottom: 15px;
-    }
-
-    .highlight {
-      margin-top: 25px;
-      padding: 20px;
-      background: #eee2cc;
-      border-left: 5px solid #9a6b3d;
-      border-radius: 10px;
-    }
-
-    .controls {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 28px;
-    }
-
+    /* Filter & Grid */
+    .controls { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
     .filter-btn {
-      border: 2px solid #8a6039;
-      background: white;
-      color: #68472d;
-      padding: 10px 18px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: bold;
+      border: 2px solid var(--accent); background: transparent; color: var(--text-primary);
+      padding: 10px 20px; border-radius: 99px; cursor: pointer; font-weight: 600;
+      transition: var(--transition);
     }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: #8a6039;
-      color: white;
-    }
+    .filter-btn:hover, .filter-btn.active { background: var(--accent); color: white; }
 
     .houses-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px;
     }
 
     .house-card {
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.09);
-      transition: transform 0.25s ease;
+      background: var(--bg-secondary); border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow-sm); transition: var(--transition);
+      opacity: 1; transform: translateY(0);
     }
-
-    .house-card:hover {
-      transform: translateY(-6px);
-    }
+    .house-card.hidden { display: none; }
+    .house-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
 
     .house-visual {
-      height: 190px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      background: linear-gradient(135deg, #a77b4e, #ddc293);
+      height: 200px; display: flex; align-items: center; justify-content: center;
+      font-size: 4.5rem; background: linear-gradient(135deg, var(--accent-light), var(--accent));
     }
 
-    .house-content {
-      padding: 22px;
-    }
-
-    .house-content h3 {
-      color: #68472d;
-      margin-bottom: 8px;
-    }
-
+    .house-content { padding: 24px; }
+    .house-content h3 { margin-bottom: 10px; font-size: 1.3rem; }
     .tag {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 4px 10px;
-      border-radius: 15px;
-      background: #eee2cc;
-      color: #68472d;
-      font-size: 0.8rem;
-      font-weight: bold;
+      display: inline-block; margin-bottom: 12px; padding: 4px 12px; border-radius: 99px;
+      background: var(--bg-tertiary); color: var(--accent-hover); font-size: 0.8rem; font-weight: 700;
     }
 
     .learn-btn {
-      margin-top: 12px;
-      border: none;
-      border-radius: 8px;
-      background: #68472d;
-      color: white;
-      padding: 10px 16px;
-      cursor: pointer;
-      font-weight: bold;
+      margin-top: 16px; width: 100%; border: none; border-radius: 8px;
+      background: var(--accent-hover); color: white; padding: 12px; cursor: pointer;
+      font-weight: 600; transition: var(--transition);
+    }
+    .learn-btn:hover { background: var(--accent); }
+
+    /* Anatomy Section (New) */
+    .anatomy-wrapper {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+      background: var(--bg-secondary); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow-md);
+    }
+    @media (max-width: 768px) { .anatomy-wrapper { grid-template-columns: 1fr; } }
+
+    .anatomy-list { list-style: none; }
+    .anatomy-item {
+      padding: 16px; border-bottom: 1px solid var(--bg-tertiary); cursor: pointer;
+      transition: var(--transition); border-left: 3px solid transparent;
+    }
+    .anatomy-item:hover, .anatomy-item.active {
+      background: var(--bg-tertiary); border-left-color: var(--accent);
+    }
+    .anatomy-item h4 { margin-bottom: 4px; color: var(--accent-hover); }
+    .anatomy-item p { font-size: 0.95rem; color: var(--text-secondary); margin: 0; }
+
+    .anatomy-visual {
+      background: var(--bg-tertiary); border-radius: 12px; height: 350px;
+      display: flex; align-items: center; justify-content: center; font-size: 8rem;
+      position: relative; overflow: hidden;
     }
 
-    .learn-btn:hover,
-    .learn-btn:focus {
-      background: #402b1c;
+    /* Seasonal Visualizer (New) */
+    .season-toggle {
+      display: flex; justify-content: center; gap: 16px; margin-bottom: 30px;
+    }
+    .season-btn {
+      padding: 12px 24px; border: 2px solid var(--accent); background: transparent;
+      color: var(--text-primary); border-radius: 8px; cursor: pointer; font-weight: 600;
+      transition: var(--transition);
+    }
+    .season-btn.active { background: var(--accent); color: white; }
+    
+    .season-panel { display: none; animation: fadeIn 0.4s ease; }
+    .season-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    @media (max-width: 768px) { .season-panel.active { grid-template-columns: 1fr; } }
+
+    .season-card {
+      background: var(--bg-secondary); padding: 30px; border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
     }
 
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+    /* Quiz Section (Upgraded) */
+    .quiz-container {
+      background: var(--bg-secondary); padding: 40px; border-radius: var(--radius);
+      box-shadow: var(--shadow-md); max-width: 800px; margin: 0 auto; text-align: center;
+    }
+    .quiz-question { font-size: 1.3rem; font-family: 'Merriweather', serif; margin-bottom: 24px; }
+    .quiz-options { display: flex; flex-direction: column; gap: 12px; max-width: 500px; margin: 0 auto; }
+    .quiz-option {
+      padding: 16px; border: 2px solid var(--bg-tertiary); background: transparent;
+      border-radius: 8px; cursor: pointer; font-size: 1rem; text-align: left;
+      transition: var(--transition); color: var(--text-primary);
+    }
+    .quiz-option:hover { border-color: var(--accent); background: var(--bg-tertiary); }
+    .quiz-option.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+    .quiz-option.incorrect { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+    
+    .quiz-progress { margin-bottom: 20px; color: var(--text-secondary); font-weight: 600; }
+    .quiz-score { font-size: 2rem; color: var(--accent); font-family: 'Merriweather', serif; margin: 20px 0; }
+    .quiz-btn {
+      margin-top: 20px; padding: 12px 32px; background: var(--accent-hover); color: white;
+      border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 1rem;
     }
 
-    .feature {
-      background: white;
-      padding: 25px;
-      border-radius: 14px;
-      border-top: 5px solid #9a6b3d;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
-    }
-
-    .feature-icon {
-      font-size: 2rem;
-      margin-bottom: 8px;
-    }
-
-    .feature h3 {
-      color: #68472d;
-      margin-bottom: 8px;
-    }
-
-    .regions {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-
-    .region {
-      background: white;
-      padding: 24px;
-      border-radius: 14px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
-    }
-
-    .region h3 {
-      color: #68472d;
-      margin-bottom: 8px;
-    }
-
-    .quiz {
-      background: #eee2cc;
-      padding: 35px;
-      border-radius: 18px;
-      text-align: center;
-    }
-
-    .quiz h2 {
-      color: #68472d;
-      margin-bottom: 12px;
-    }
-
-    .quiz-options {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .quiz-options button {
-      border: none;
-      background: #68472d;
-      color: white;
-      padding: 11px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .quiz-options button:hover,
-    .quiz-options button:focus {
-      background: #402b1c;
-    }
-
-    #quiz-result {
-      margin-top: 18px;
-      min-height: 25px;
-      font-weight: bold;
-    }
-
+    /* Modal */
     .modal {
-      position: fixed;
-      inset: 0;
-      z-index: 2000;
-      background: rgba(0, 0, 0, 0.65);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+      position: fixed; inset: 0; z-index: 2000; background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center;
+      padding: 20px; opacity: 0; transition: opacity 0.3s;
     }
-
-    .modal.show {
-      display: flex;
-    }
-
+    .modal.show { display: flex; opacity: 1; }
     .modal-content {
-      position: relative;
-      width: 100%;
-      max-width: 620px;
-      background: white;
-      padding: 32px;
-      border-radius: 16px;
+      position: relative; width: 100%; max-width: 600px; background: var(--bg-secondary);
+      padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow-lg);
+      transform: scale(0.95); transition: transform 0.3s;
     }
-
-    .modal-content h2 {
-      color: #68472d;
-      margin-bottom: 15px;
-    }
-
+    .modal.show .modal-content { transform: scale(1); }
     .close-modal {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      border: none;
-      background: transparent;
-      font-size: 30px;
-      cursor: pointer;
+      position: absolute; top: 16px; right: 16px; border: none; background: transparent;
+      font-size: 2rem; cursor: pointer; color: var(--text-secondary); line-height: 1;
     }
+    .close-modal:hover { color: var(--accent-hover); }
 
+    /* Footer & Utilities */
     .back-top {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      width: 46px;
-      height: 46px;
-      border: none;
-      border-radius: 50%;
-      background: #68472d;
-      color: white;
-      font-size: 20px;
-      cursor: pointer;
-      display: none;
-      z-index: 1500;
+      position: fixed; right: 24px; bottom: 24px; width: 48px; height: 48px;
+      border: none; border-radius: 50%; background: var(--accent-hover); color: white;
+      font-size: 1.5rem; cursor: pointer; display: none; z-index: 1500;
+      box-shadow: var(--shadow-md); transition: var(--transition);
     }
-
-    .back-top.show {
-      display: block;
-    }
+    .back-top.show { display: flex; align-items: center; justify-content: center; }
+    .back-top:hover { background: var(--accent); transform: translateY(-4px); }
 
     footer {
-      background: #3d3024;
-      color: white;
-      text-align: center;
-      padding: 28px 15px;
+      background: var(--accent-hover); color: white; text-align: center; padding: 40px 24px;
     }
+    footer p { opacity: 0.8; margin: 8px 0; }
 
-    footer p {
-      margin: 5px;
-    }
-
-    @media (max-width: 650px) {
-      header {
-        min-height: 360px;
-        padding: 60px 15px;
-      }
-
-      nav a {
-        display: inline-block;
-        margin: 5px 7px;
-        font-size: 14px;
-      }
-
-      .intro,
-      .quiz {
-        padding: 22px;
-      }
-    }
+    /* Animations */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    
+    .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header id="top">
     <div class="hero-content">
       <h1>🏔️ Ladakhi Houses</h1>
-      <p>
-        Explore the distinctive homes of Ladakh and discover how
-        traditional Himalayan architecture responds to extreme
-        altitude, cold, sunlight, and limited natural resources.
-      </p>
+      <p>Discover how traditional Himalayan architecture brilliantly responds to extreme altitude, freezing cold, intense sunlight, and scarce resources.</p>
     </div>
   </header>
 
   <nav aria-label="Main navigation">
     <a href="#about">About</a>
     <a href="#houses">House Types</a>
-    <a href="#features">Architecture</a>
+    <a href="#anatomy">Anatomy</a>
+    <a href="#seasons">Seasons</a>
     <a href="#regions">Regions</a>
     <a href="#quiz">Quiz</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
   </nav>
 
-  <main>
+  <main id="main-content" class="container">
 
-    <section id="about">
-      <div class="intro">
+    <!-- ABOUT SECTION -->
+    <section id="about" class="fade-in-section">
+      <div class="section-header">
         <h2>Architecture at High Altitude</h2>
-
-        <p>
-          Ladakh's traditional architecture developed in one of the
-          world's highest inhabited regions. The cold, dry climate,
-          intense sunlight, limited rainfall, and mountainous terrain
-          have strongly influenced the form of traditional homes.
-        </p>
-
-        <p>
-          Traditional Ladakhi houses commonly use materials such as
-          stone, mud, timber, and clay. Thick walls and compact building
-          forms help provide protection from the severe climate, while
-          windows and openings are positioned to make use of available
-          sunlight.
-        </p>
-
-        <div class="highlight">
-          <strong>☀️ Climate-Responsive Design:</strong>
-          Traditional Ladakhi homes combine thick earthen walls,
-          locally available materials, compact forms, and carefully
-          positioned openings to respond to the high-altitude climate.
+        <p>Surviving and thriving in one of the world's highest inhabited regions.</p>
+      </div>
+      <div class="intro-card">
+        <p>Ladakh's traditional architecture is a masterclass in climate-responsive design. Developed in a cold, dry, high-altitude desert, these homes utilize thick walls, compact forms, and strategic orientations to survive harsh winters and leverage intense summer sunlight.</p>
+        <p>Unlike modern concrete structures, traditional <em>Khang</em> (houses) are built using a deep understanding of local microclimates, utilizing stone, rammed earth, mud bricks, and sparingly used timber.</p>
+        <div class="highlight-box">
+          <span class="icon">☀️</span>
+          <div>
+            <strong>Climate-Responsive Genius:</strong> South-facing facades maximize winter solar gain, while thick earthen walls provide thermal mass, absorbing heat during the day and releasing it slowly at night, keeping interiors stable despite extreme outdoor temperature swings.
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="houses">
-      <h2>Explore Ladakhi House Features</h2>
+    <!-- HOUSE TYPES SECTION -->
+    <section id="houses" class="fade-in-section">
+      <div class="section-header">
+        <h2>Explore Building Elements</h2>
+        <p>Filter to learn about the core materials and design strategies of Ladakhi homes.</p>
+      </div>
 
       <div class="controls" role="group" aria-label="House feature filters">
-
-        <button class="filter-btn active" data-filter="all">
-          All
-        </button>
-
-        <button class="filter-btn" data-filter="mud">
-          Mud & Earth
-        </button>
-
-        <button class="filter-btn" data-filter="stone">
-          Stone
-        </button>
-
-        <button class="filter-btn" data-filter="timber">
-          Timber
-        </button>
-
-        <button class="filter-btn" data-filter="solar">
-          Solar Design
-        </button>
-
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="mud">Mud & Earth</button>
+        <button class="filter-btn" data-filter="stone">Stone</button>
+        <button class="filter-btn" data-filter="timber">Timber</button>
+        <button class="filter-btn" data-filter="solar">Solar Design</button>
       </div>
 
       <div class="houses-grid">
-
         <article class="house-card" data-type="mud">
-          <div class="house-visual" aria-hidden="true">
-            🧱
-          </div>
-
+          <div class="house-visual" aria-hidden="true">🧱</div>
           <div class="house-content">
             <span class="tag">Mud & Earth</span>
-
-            <h3>Earthen Houses</h3>
-
-            <p>
-              Mud and earth have traditionally been important building
-              materials in Ladakh, particularly for walls.
-            </p>
-
-            <button
-              class="learn-btn"
-              data-title="Earthen Houses"
-              data-info="Earth and mud have long been used in Ladakhi construction. Earthen walls can provide useful thermal mass, helping moderate indoor temperatures in a climate with large temperature differences.">
-              Learn More
-            </button>
+            <h3>Rammed Earth Walls</h3>
+            <p>Mud and earth are the primary insulators, providing crucial thermal mass to regulate indoor temperatures.</p>
+            <button class="learn-btn" data-title="Rammed Earth Walls" data-info="Earth and mud have long been used in Ladakhi construction. Walls can be up to 2 feet thick, providing excellent insulation. The material is locally sourced, zero-carbon, and fully recyclable back into the earth.">Learn More</button>
           </div>
         </article>
 
         <article class="house-card" data-type="stone">
-          <div class="house-visual" aria-hidden="true">
-            🪨
-          </div>
-
+          <div class="house-visual" aria-hidden="true">🪨</div>
           <div class="house-content">
             <span class="tag">Stone</span>
-
-            <h3>Stone Houses</h3>
-
-            <p>
-              Locally available stone can be incorporated into walls
-              and foundations in traditional Himalayan construction.
-            </p>
-
-            <button
-              class="learn-btn"
-              data-title="Stone Houses"
-              data-info="Stone is locally available in many parts of the Himalayan region and can provide durable construction for foundations and walls. Traditional building techniques vary by location.">
-              Learn More
-            </button>
+            <h3>Stone Foundations</h3>
+            <p>Locally sourced stone forms the robust base of the house, protecting the earthen walls from ground moisture.</p>
+            <button class="learn-btn" data-title="Stone Foundations" data-info="Stone is locally available in the Himalayan region. It provides durable, moisture-resistant construction for foundations and lower walls, preventing the earthen upper sections from crumbling due to snowmelt or rain.">Learn More</button>
           </div>
         </article>
 
         <article class="house-card" data-type="timber">
-          <div class="house-visual" aria-hidden="true">
-            🪵
-          </div>
-
+          <div class="house-visual" aria-hidden="true">🪵</div>
           <div class="house-content">
             <span class="tag">Timber</span>
-
-            <h3>Timber Elements</h3>
-
-            <p>
-              Wood is traditionally used for beams, columns, floors,
-              doors, windows, and interior architectural details.
-            </p>
-
-            <button
-              class="learn-btn"
-              data-title="Timber Elements"
-              data-info="Timber is used selectively in traditional Ladakhi houses because suitable wood resources are relatively limited in the high-altitude environment. It is particularly valuable for structural and architectural elements.">
-              Learn More
-            </button>
+            <h3>Timber Framework</h3>
+            <p>Wood is used selectively for beams, columns, and intricate window frames due to its scarcity at high altitudes.</p>
+            <button class="learn-btn" data-title="Timber Framework" data-info="Timber is a precious resource in Ladakh. It is used strategically for structural support (beams and pillars) and for the famous intricately carved wooden windows that characterize traditional homes.">Learn More</button>
           </div>
         </article>
 
         <article class="house-card" data-type="solar">
-          <div class="house-visual" aria-hidden="true">
-            ☀️
-          </div>
-
+          <div class="house-visual" aria-hidden="true">☀️</div>
           <div class="house-content">
             <span class="tag">Solar Design</span>
-
-            <h3>Sun-Facing Architecture</h3>
-
-            <p>
-              Building orientation and window placement can help
-              traditional homes make use of abundant Himalayan sunlight.
-            </p>
-
-            <button
-              class="learn-btn"
-              data-title="Solar Design"
-              data-info="Ladakh receives strong sunlight because of its high altitude and dry atmosphere. Traditional architecture makes practical use of solar exposure through building orientation and openings.">
-              Learn More
-            </button>
+            <h3>South-Facing Orientation</h3>
+            <p>Homes are deliberately oriented to capture maximum sunlight during the long, harsh winters.</p>
+            <button class="learn-btn" data-title="Solar Design" data-info="Ladakh receives over 300 days of sunshine a year. Traditional architecture makes practical use of this by placing large, south-facing windows to create passive solar heating, while keeping north-facing walls mostly solid to block cold winds.">Learn More</button>
           </div>
         </article>
-
       </div>
     </section>
 
-    <section id="features">
-      <h2>Key Architectural Features</h2>
-
-      <div class="features">
-
-        <div class="feature">
-          <div class="feature-icon">🧱</div>
-          <h3>Thick Walls</h3>
-          <p>
-            Thick earthen or stone walls provide thermal mass and help
-            protect interiors from large outdoor temperature changes.
-          </p>
+    <!-- ANATOMY SECTION (NEW) -->
+    <section id="anatomy" class="fade-in-section">
+      <div class="section-header">
+        <h2>Anatomy of a Ladakhi House</h2>
+        <p>Click on the elements to understand the traditional layout of a <em>Khang</em>.</p>
+      </div>
+      <div class="anatomy-wrapper">
+        <ul class="anatomy-list">
+          <li class="anatomy-item active" data-target="ground">
+            <h4>Ground Floor (Animal & Storage)</h4>
+            <p>Traditionally houses livestock for warmth and stores fodder, grain, and firewood.</p>
+          </li>
+          <li class="anatomy-item" data-target="main">
+            <h4>Main Floor (Khang-sar)</h4>
+            <p>The family living area, featuring the central hearth (bukhari) and the best sunlight exposure.</p>
+          </li>
+          <li class="anatomy-item" data-target="roof">
+            <h4>Flat Roof & Courtyard</h4>
+            <p>Used for drying crops (like barley and apricots) and serves as an outdoor living space in summer.</p>
+          </li>
+          <li class="anatomy-item" data-target="shrine">
+            <h4>Prayer Room (Chos-khang)</h4>
+            <p>The highest and most sacred room, housing Buddhist scriptures, statues, and prayer wheels.</p>
+          </li>
+        </ul>
+        <div class="anatomy-visual" id="anatomyVisual">
+          🏠
         </div>
-
-        <div class="feature">
-          <div class="feature-icon">☀️</div>
-          <h3>Sunlight</h3>
-          <p>
-            Traditional buildings can be oriented and designed to
-            benefit from the intense sunlight available at high altitude.
-          </p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">🏔️</div>
-          <h3>Mountain Adaptation</h3>
-          <p>
-            Homes are integrated into steep valleys, rocky terrain, and
-            high-altitude settlements.
-          </p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">🌬️</div>
-          <h3>Compact Forms</h3>
-          <p>
-            Compact building forms can reduce exposed surface area and
-            provide protection against the cold environment.
-          </p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">🌱</div>
-          <h3>Local Materials</h3>
-          <p>
-            Earth, stone, mud, timber, and other locally available
-            resources are incorporated according to regional conditions.
-          </p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">🏘️</div>
-          <h3>Village Clusters</h3>
-          <p>
-            Traditional settlements often create closely connected
-            groups of buildings adapted to the surrounding landscape.
-          </p>
-        </div>
-
       </div>
     </section>
 
-    <section id="regions">
-      <h2>Traditional Architecture Across Ladakh</h2>
+    <!-- SEASONAL VISUALIZER (NEW) -->
+    <section id="seasons" class="fade-in-section">
+      <div class="section-header">
+        <h2>A House of Two Seasons</h2>
+        <p>How the traditional Ladakhi home adapts to extreme seasonal shifts.</p>
+      </div>
+      
+      <div class="season-toggle">
+        <button class="season-btn active" data-season="winter">❄️ Harsh Winter</button>
+        <button class="season-btn" data-season="summer">☀️ Mild Summer</button>
+      </div>
 
-      <div class="regions">
-
-        <div class="region">
-          <h3>🏔️ Leh</h3>
-          <p>
-            The historic settlements around Leh contain traditional
-            earthen and timber architecture influenced by the region's
-            Tibetan-Buddhist cultural heritage.
-          </p>
+      <div class="season-panel active" id="panel-winter">
+        <div class="season-card">
+          <h3>🥶 Winter Adaptation</h3>
+          <p>Temperatures can drop below -20°C. The house becomes a sealed, heat-retaining vessel.</p>
+          <ul style="margin-top: 15px; padding-left: 20px; color: var(--text-secondary);">
+            <li>Heavy wooden shutters close over windows at night.</li>
+            <li>The central <em>bukhari</em> (stove) burns continuously, heating the main room.</li>
+            <li>Family and sometimes livestock share the main floor to conserve body heat.</li>
+            <li>Thick woolen rugs and tapestries cover walls and floors for extra insulation.</li>
+          </ul>
         </div>
+        <div class="season-card" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); color: #0d47a1;">
+          <h3>Visual Focus: Heat Retention</h3>
+          <p style="font-size: 4rem; text-align: center; margin: 20px 0;">🔥🪵</p>
+          <p style="text-align: center;">Thermal mass of walls releases stored daytime solar heat slowly throughout the freezing night.</p>
+        </div>
+      </div>
 
-        <div class="region">
+      <div class="season-panel" id="panel-summer">
+        <div class="season-card">
+          <h3>🌻 Summer Adaptation</h3>
+          <p>Temperatures rise to a pleasant 25°C-30°C. The house opens up to the environment.</p>
+          <ul style="margin-top: 15px; padding-left: 20px; color: var(--text-secondary);">
+            <li>Windows are thrown open to allow cross-ventilation.</li>
+            <li>Living shifts to the flat roof or the shaded courtyard.</li>
+            <li>The roof becomes a workspace for drying apricots, chilies, and grains.</li>
+            <li>Earth plaster on walls is maintained and repaired during this dry period.</li>
+          </ul>
+        </div>
+        <div class="season-card" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); color: #e65100;">
+          <h3>Visual Focus: Outdoor Living</h3>
+          <p style="font-size: 4rem; text-align: center; margin: 20px 0;">🌞🏕️</p>
+          <p style="text-align: center;">The flat roof transforms into the primary living and agricultural workspace.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGIONS SECTION -->
+    <section id="regions" class="fade-in-section">
+      <div class="section-header">
+        <h2>Regional Variations</h2>
+        <p>Architecture shifts subtly across Ladakh's diverse valleys.</p>
+      </div>
+      <div class="houses-grid">
+        <div class="house-card" style="padding: 24px;">
+          <h3>🏔️ Leh Valley</h3>
+          <p style="color: var(--text-secondary); margin-top: 10px;">Influenced by Tibetan trade, featuring multi-story structures with ornate wooden window frames and flat roofs. Often built on hillside terraces.</p>
+        </div>
+        <div class="house-card" style="padding: 24px;">
           <h3>🌄 Nubra Valley</h3>
-          <p>
-            Traditional settlements in Nubra reflect the valley's
-            distinctive landscape and the practical use of locally
-            available construction materials.
-          </p>
+          <p style="color: var(--text-secondary); margin-top: 10px;">Lower altitude allows for slightly more timber usage. Homes are often integrated with extensive poplar tree windbreaks to combat desert winds.</p>
         </div>
-
-        <div class="region">
-          <h3>🏡 Sham Valley</h3>
-          <p>
-            Villages in the Sham region demonstrate the relationship
-            between traditional homes, agriculture, water resources,
-            and the surrounding mountains.
-          </p>
-        </div>
-
-        <div class="region">
+        <div class="house-card" style="padding: 24px;">
           <h3>⛰️ Zanskar</h3>
-          <p>
-            Zanskar's remote high-altitude settlements showcase
-            architecture adapted to an especially rugged Himalayan
-            environment.
-          </p>
+          <p style="color: var(--text-secondary); margin-top: 10px;">Extreme isolation and harsher winters result in more compact, fortress-like structures with fewer windows and thicker stone bases.</p>
         </div>
-
       </div>
     </section>
 
-    <section id="quiz">
-      <div class="quiz">
-
+    <!-- QUIZ SECTION (UPGRADED) -->
+    <section id="quiz" class="fade-in-section">
+      <div class="quiz-container">
         <h2>🏆 Test Your Knowledge</h2>
-
-        <p>
-          Which material has traditionally been especially important
-          for the thick walls of many Ladakhi homes?
-        </p>
-
-        <div class="quiz-options">
-
-          <button onclick="checkAnswer('mud')">
-            Mud / Earth
-          </button>
-
-          <button onclick="checkAnswer('plastic')">
-            Plastic
-          </button>
-
-          <button onclick="checkAnswer('glass')">
-            Glass
-          </button>
-
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">How much do you know about Ladakhi architecture?</p>
+        
+        <div id="quiz-game">
+          <div class="quiz-progress">Question <span id="current-q">1</span> of <span id="total-q">3</span></div>
+          <p class="quiz-question" id="question-text">Loading question...</p>
+          <div class="quiz-options" id="quiz-options"></div>
         </div>
 
-        <p id="quiz-result" aria-live="polite"></p>
-
+        <div id="quiz-result" style="display: none;">
+          <p class="quiz-score">You scored <span id="final-score">0</span> / <span id="total-score">0</span></p>
+          <p id="result-message" style="color: var(--text-secondary); margin-bottom: 20px;"></p>
+          <button class="quiz-btn" onclick="restartQuiz()">Try Again</button>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <button
-    class="back-top"
-    id="backTop"
-    aria-label="Back to top">
-    ↑
-  </button>
-
-  <div
-    class="modal"
-    id="infoModal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="modalTitle">
-
+  <!-- MODAL -->
+  <div class="modal" id="infoModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-content">
-
-      <button
-        class="close-modal"
-        id="closeModal"
-        aria-label="Close dialog">
-        &times;
-      </button>
-
-      <h2 id="modalTitle"></h2>
-
-      <p id="modalInfo"></p>
-
+      <button class="close-modal" id="closeModal" aria-label="Close dialog">&times;</button>
+      <h2 id="modalTitle" style="color: var(--accent-hover); margin-bottom: 16px;"></h2>
+      <p id="modalInfo" style="color: var(--text-secondary); line-height: 1.7;"></p>
     </div>
   </div>
 
+  <!-- BACK TO TOP -->
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
   <footer>
-    <p>© Incredible India Explorer</p>
-    <p>Discover India's diverse architectural heritage.</p>
+    <div class="container">
+      <h3 style="color: white; margin-bottom: 16px;">Incredible India Explorer</h3>
+      <p>Documenting and preserving India's diverse architectural heritage.</p>
+      <p style="font-size: 0.9rem; margin-top: 20px; opacity: 0.6;">© 2024 Incredible India Explorer. Built with respect for Himalayan traditions.</p>
+    </div>
   </footer>
 
   <script>
-    // ==================================
-    // HOUSE FILTER
-    // ==================================
+    // ==========================================================================
+    // THEME TOGGLE
+    // ==========================================================================
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    
+    // Check local storage or system preference
+    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.classList.add('dark-theme');
+      themeToggle.textContent = '☀️';
+    }
 
-    const filterButtons =
-      document.querySelectorAll(".filter-btn");
+    themeToggle.addEventListener('click', () => {
+      html.classList.toggle('dark-theme');
+      const isDark = html.classList.contains('dark-theme');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      themeToggle.textContent = isDark ? '☀️' : '🌙';
+    });
 
-    const houseCards =
-      document.querySelectorAll(".house-card");
+    // ==========================================================================
+    // SCROLL ANIMATIONS (Intersection Observer)
+    // ==========================================================================
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // ==========================================================================
+    // FILTERING SYSTEM
+    // ==========================================================================
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const houseCards = document.querySelectorAll(".house-card");
 
     filterButtons.forEach(button => {
-
       button.addEventListener("click", () => {
-
-        const selectedFilter =
-          button.dataset.filter;
-
-        filterButtons.forEach(btn => {
-          btn.classList.remove("active");
-        });
-
+        const selectedFilter = button.dataset.filter;
+        filterButtons.forEach(btn => btn.classList.remove("active"));
         button.classList.add("active");
 
         houseCards.forEach(card => {
-
-          const cardType =
-            card.dataset.type;
-
-          if (
-            selectedFilter === "all" ||
-            cardType === selectedFilter
-          ) {
-            card.style.display = "";
+          if (selectedFilter === "all" || card.dataset.type === selectedFilter) {
+            card.classList.remove("hidden");
+            card.style.animation = "fadeIn 0.5s ease forwards";
           } else {
-            card.style.display = "none";
+            card.classList.add("hidden");
           }
-
         });
-
       });
-
     });
 
+    // ==========================================================================
+    // ANATOMY INTERACTIVE LIST
+    // ==========================================================================
+    const anatomyItems = document.querySelectorAll('.anatomy-item');
+    const anatomyVisual = document.getElementById('anatomyVisual');
+    const visualMap = {
+      ground: '🐄📦',
+      main: '👨‍👩‍👧‍👦🔥',
+      roof: '🌾☀️',
+      shrine: '📿🕉️'
+    };
 
-    // ==================================
-    // INFORMATION MODAL
-    // ==================================
+    anatomyItems.forEach(item => {
+      item.addEventListener('click', () => {
+        anatomyItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        anatomyVisual.textContent = visualMap[item.dataset.target];
+        anatomyVisual.style.animation = 'none';
+        anatomyVisual.offsetHeight; /* trigger reflow */
+        anatomyVisual.style.animation = 'fadeIn 0.4s ease';
+      });
+    });
 
-    const modal =
-      document.getElementById("infoModal");
+    // ==========================================================================
+    // SEASONAL VISUALIZER
+    // ==========================================================================
+    const seasonBtns = document.querySelectorAll('.season-btn');
+    const seasonPanels = document.querySelectorAll('.season-panel');
 
-    const modalTitle =
-      document.getElementById("modalTitle");
+    seasonBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        seasonBtns.forEach(b => b.classList.remove('active'));
+        seasonPanels.forEach(p => p.classList.remove('active'));
+        
+        btn.classList.add('active');
+        document.getElementById(`panel-${btn.dataset.season}`).classList.add('active');
+      });
+    });
 
-    const modalInfo =
-      document.getElementById("modalInfo");
-
-    const closeModal =
-      document.getElementById("closeModal");
-
-    const learnButtons =
-      document.querySelectorAll(".learn-btn");
-
+    // ==========================================================================
+    // MODAL SYSTEM
+    // ==========================================================================
+    const modal = document.getElementById("infoModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalInfo = document.getElementById("modalInfo");
+    const closeModal = document.getElementById("closeModal");
+    const learnButtons = document.querySelectorAll(".learn-btn");
 
     learnButtons.forEach(button => {
-
       button.addEventListener("click", () => {
-
-        modalTitle.textContent =
-          button.dataset.title;
-
-        modalInfo.textContent =
-          button.dataset.info;
-
+        modalTitle.textContent = button.dataset.title;
+        modalInfo.textContent = button.dataset.info;
         modal.classList.add("show");
-
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
         closeModal.focus();
-
       });
-
     });
-
 
     function hideModal() {
       modal.classList.remove("show");
+      document.body.style.overflow = '';
     }
 
+    closeModal.addEventListener("click", hideModal);
+    modal.addEventListener("click", event => { if (event.target === modal) hideModal(); });
+    document.addEventListener("keydown", event => { if (event.key === "Escape") hideModal(); });
 
-    closeModal.addEventListener(
-      "click",
-      hideModal
-    );
-
-
-    modal.addEventListener(
-      "click",
-      event => {
-
-        if (event.target === modal) {
-          hideModal();
-        }
-
+    // ==========================================================================
+    // MULTI-QUESTION QUIZ ENGINE
+    // ==========================================================================
+    const quizData = [
+      {
+        question: "What is the primary purpose of thick earthen walls in a Ladakhi house?",
+        options: ["To look aesthetically pleasing", "To provide thermal mass and insulation", "To keep wild animals out", "To make the house taller"],
+        correct: 1
+      },
+      {
+        question: "Which direction are the main windows of a traditional Ladakhi house typically facing?",
+        options: ["North", "East", "South", "West"],
+        correct: 2
+      },
+      {
+        question: "What is the traditional central heating source in the main living area?",
+        options: ["Electric heater", "Bukhari (wood/coal stove)", "Central gas heating", "Open fireplace"],
+        correct: 1
       }
-    );
+    ];
 
+    let currentQuestion = 0;
+    let score = 0;
 
-    document.addEventListener(
-      "keydown",
-      event => {
+    function loadQuestion() {
+      const q = quizData[currentQuestion];
+      document.getElementById('current-q').textContent = currentQuestion + 1;
+      document.getElementById('total-q').textContent = quizData.length;
+      document.getElementById('question-text').textContent = q.question;
+      
+      const optionsContainer = document.getElementById('quiz-options');
+      optionsContainer.innerHTML = '';
+      
+      q.options.forEach((opt, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-option';
+        btn.textContent = opt;
+        btn.onclick = () => checkAnswer(index, btn);
+        optionsContainer.appendChild(btn);
+      });
+    }
 
-        if (event.key === "Escape") {
-          hideModal();
-        }
-
-      }
-    );
-
-
-    // ==================================
-    // QUIZ
-    // ==================================
-
-    function checkAnswer(answer) {
-
-      const result =
-        document.getElementById("quiz-result");
-
-      if (answer === "mud") {
-
-        result.textContent =
-          "Correct! 🎉 Mud and earth have traditionally been important materials in Ladakhi wall construction.";
-
+    function checkAnswer(selectedIndex, btnElement) {
+      const correctIndex = quizData[currentQuestion].correct;
+      const options = document.querySelectorAll('.quiz-option');
+      
+      // Disable all buttons
+      options.forEach(opt => opt.disabled = true);
+      
+      if (selectedIndex === correctIndex) {
+        btnElement.classList.add('correct');
+        score++;
       } else {
-
-        result.textContent =
-          "Not quite. Try again!";
-
+        btnElement.classList.add('incorrect');
+        options[correctIndex].classList.add('correct');
       }
 
+      setTimeout(() => {
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+          loadQuestion();
+        } else {
+          showResults();
+        }
+      }, 1500);
     }
 
+    function showResults() {
+      document.getElementById('quiz-game').style.display = 'none';
+      document.getElementById('quiz-result').style.display = 'block';
+      document.getElementById('final-score').textContent = score;
+      document.getElementById('total-score').textContent = quizData.length;
+      
+      const msg = document.getElementById('result-message');
+      if (score === quizData.length) msg.textContent = "Perfect! You are a Ladakhi architecture expert! 🏔️";
+      else if (score > 0) msg.textContent = "Good job! You know the basics of Himalayan design. 🧱";
+      else msg.textContent = "Keep exploring! Read the sections above to learn more. 📖";
+    }
 
-    // ==================================
+    function restartQuiz() {
+      currentQuestion = 0;
+      score = 0;
+      document.getElementById('quiz-game').style.display = 'block';
+      document.getElementById('quiz-result').style.display = 'none';
+      loadQuestion();
+    }
+
+    // Initialize Quiz
+    loadQuestion();
+
+    // ==========================================================================
     // BACK TO TOP
-    // ==================================
-
-    const backTop =
-      document.getElementById("backTop");
-
-
-    window.addEventListener(
-      "scroll",
-      () => {
-
-        if (window.scrollY > 400) {
-          backTop.classList.add("show");
-        } else {
-          backTop.classList.remove("show");
-        }
-
+    // ==========================================================================
+    const backTop = document.getElementById("backTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        backTop.classList.add("show");
+      } else {
+        backTop.classList.remove("show");
       }
-    );
+    });
 
-
-    backTop.addEventListener(
-      "click",
-      () => {
-
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-
-      }
-    );
+    backTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   </script>
-
 </body>
 </html>
-```
