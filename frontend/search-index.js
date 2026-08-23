@@ -5993,6 +5993,13 @@ window.indiaSearchIndex = [
             "Explore Roopkund Trek in Uttarakhand \u2014 5,029m Mystery Skeleton Lake, Ali & Bedni Bugyals, Junargali Ridge, and Mount Trishul panoramas.",
         url: "frontend/roopkund-trek-explorer/index.html"
     },
+    // --- feat/thekkady-forest-trek ---
+    {
+        title: "Kumily–Thekkady Forest Trek — Periyar Tiger Reserve",
+        category: "Mountains & Treks",
+        description:
+            "Explore Kumily–Thekkady Forest Trek in Kerala: detailed route guide, Periyar Reserve biodiversity, responsible trekking codes, gear checklist, and duration calculator.",
+        url: "frontend/thekkady-forest-trek/index.html"},
     // --- feat/kolli-hills-trek ---
     {
         title: "Kolli Hills Trek — Agasagangai Waterfalls",
