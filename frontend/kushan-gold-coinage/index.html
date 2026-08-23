@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Discover Kushan Gold Coinage — interactive ruler selector, obverse/reverse coin viewer with deity hotspots, inscription viewer, territory map, and historical timeline of the Silk Road Empire." />
+    <meta name="keywords" content="Kushan Empire, Gold Dinars, Kanishka, Vima Kadphises, Bactrian, Gandhara, Silk Road, Numismatics, Ancient Indian Coins, Oesho, Mithra" />
+    <meta name="author" content="Incredible India Explorer" />
+    <title>Kushan Gold Coinage Explorer | Incredible India</title>
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/kushan-gold-coinage/index.html" />
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="kushan.css" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Kushan Gold Coinage Explorer | Incredible India" />
+    <meta property="og:description" content="Explore the gold dinars of the Kushan Empire. Interactive obverse/reverse viewer, deity hotspots, and the historical timeline of the Silk Road." />
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/frontend/assets/kushan_coinage_og.jpg" />
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/kushan-gold-coinage/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Incredible India Explorer" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kushan Gold Coinage Explorer | Incredible India" />
+    <meta name="twitter:description" content="Explore the gold dinars of the Kushan Empire. Interactive obverse/reverse viewer, deity hotspots, and historical timeline." />
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/frontend/assets/kushan_coinage_og.jpg" />
+
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Collection",
+      "name": "Kushan Gold Coinage Collection",
+      "description": "An interactive digital exploration of the gold dinars minted by the Kushan Empire, featuring rulers like Kanishka and Vima Kadphises.",
+      "url": "https://incredibleindiaexplorer.gov.in/frontend/kushan-gold-coinage/index.html",
+      "provider": {
+        "@type": "Organization",
+        "name": "Incredible India Explorer"
+      },
+      "hasPart": [
+        { "@type": "CreativeWork", "name": "Interactive Coin Viewer" },
+        { "@type": "CreativeWork", "name": "Historical Timeline" }
+      ]
+    }
+    </script>
+</head>
+<body class="kushan-main">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.classList.add('light-theme');
+            }
+        })();
+    </script>
+
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="culture-dropdown">Culture ▾</button>
+                    <div class="dropdown-menu" id="culture-dropdown">
+                        <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                        <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                        <a href="../../frontend/gupta-coinage-gallery/index.html" class="dropdown-item">Gupta Coinage Gallery</a>
+                        <a href="../../frontend/kushan-gold-coinage/index.html" class="dropdown-item active" aria-current="page">Kushan Gold Coinage</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="kushan-hero">
+            <div class="section-container">
+                <div class="hero-badges-row">
+                    <span class="hero-pill pill-era">👑 c. 30 – 375 CE</span>
+                    <span class="hero-pill pill-mints">📍 Bactria to Gangetic Plain</span>
+                    <span class="hero-pill pill-metal">🪙 Gold Dinars</span>
+                </div>
+                <h1>Kushan Gold Coinage <span>(Silk Road Empire)</span></h1>
+                <p class="hero-subtitle">
+                    The Kushans ruled a vast Silk Road empire stretching from Central Asia to northern India. Their gold coinage recorded a syncretic pantheon like no other — Greek, Iranian, Indian, and Buddhist deities standing side by side, minted in pure gold.
+                </p>
+                <div class="hero-actions">
+                    <a href="#ruler-selector" class="btn-primary">Explore the Rulers ↓</a>
+                    <button class="btn-outline" id="bookmark-kushan" aria-label="Bookmark Kushan Coinage">♡ Save to Journey</button>
+                </div>
+                
+                <!-- Skeleton loaders as fallback while JS populates data -->
+                <div id="stats-grid" class="stats-grid">
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="kushan-ruler-section">
+            <div class="section-container">
+                <div class="section-intro">
+                    <h2 class="sec-title">Select a Ruler</h2>
+                    <p>Choose a Kushan emperor to explore their specific numismatic legacy. Each ruler introduced unique iconography, reflecting their political alliances, religious patronage, and the vast cultural diversity of their empire.</p>
+                </div>
+                <div class="ruler-selector" id="ruler-selector" role="tablist" aria-label="Kushan Rulers">
+                    <!-- Populated dynamically by kushan.js -->
+                </div>
+                <div class="ruler-blurb" id="ruler-blurb" aria-live="polite">
+                    <!-- Populated dynamically by kushan.js -->
+                </div>
+            </div>
+        </section>
+
+        <section class="kushan-coins-section">
+            <div class="section-container">
+                <div class="section-intro">
+                    <h2 class="sec-title">Coins of the Selected Ruler</h2>
+                    <p>Examine the specific gold dinars minted during this ruler's reign. Notice the evolution of portraiture, the shift from Greek to Bactrian script, and the introduction of new deities.</p>
+                </div>
+                <div class="kushan-coin-grid" id="kushan-coin-grid" aria-live="polite">
+                    <!-- Skeleton loaders for CLS prevention -->
+                    <div class="coin-card skeleton-loader"></div>
+                    <div class="coin-card skeleton-loader"></div>
+                    <div class="coin-card skeleton-loader"></div>
+                    <!-- Populated dynamically by kushan.js -->
+                </div>
+            </div>
+        </section>
+
+        <section class="kushan-viewer-section">
+            <div class="section-container">
+                <div class="section-intro">
+                    <h2 class="sec-title">Interactive Coin Viewer</h2>
+                    <p class="viewer-hint">💡 <strong>How to use:</strong> Click the glowing dots on the coin to inspect specific symbols, deities, and inscriptions. Toggle between Obverse (front) and Reverse (back).</p>
+                </div>
+                <div class="info-card kushan-viewer-card" id="kushan-viewer-card">
+                    <div class="viewer-header">
+                        <h3 id="viewer-name">Select a Coin Above</h3>
+                        <div class="viewer-toggle" id="viewer-toggle" role="tablist" aria-label="Coin Side">
+                            <button class="viewer-toggle-btn active" data-side="obverse" role="tab" aria-selected="true">Obverse</button>
+                            <button class="viewer-toggle-btn" data-side="reverse" role="tab" aria-selected="false">Reverse</button>
+                        </div>
+                    </div>
+                    <div class="viewer-body">
+                        <div class="viewer-coin-wrap">
+                            <div class="viewer-coin-disc" id="viewer-coin-disc" aria-label="Interactive coin display">
+                                <span class="disc-icon">🪙</span>
+                                <div class="hotspot-layer" id="hotspot-layer" aria-label="Interactive hotspots">
+                                    <!-- Hotspots injected by JS -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="viewer-info">
+                            <p class="viewer-face-text" id="viewer-face-text">
+                                Choose a coin from the collection above to inspect its details.
+                            </p>
+                            <div class="inscription-box" id="inscription-box" hidden>
+                                <span class="inscription-label">📜 Inscription / Symbol Note</span>
+                                <p id="inscription-text"></p>
+                            </div>
+                            <div class="viewer-meta">
+                                <p id="viewer-denomination"><strong>Denomination:</strong> <span class="meta-value">-</span></p>
+                                <p id="viewer-script"><strong>Script:</strong> <span class="meta-value">-</span></p>
+                                <p id="viewer-circulation"><strong>Circulation:</strong> <span class="meta-value">-</span></p>
+                                <p id="viewer-history"><strong>Historical Context:</strong> <span class="meta-value">-</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="kushan-timeline-section">
+            <div class="section-container">
+                <div class="section-intro">
+                    <h2 class="sec-title">Historical Timeline</h2>
+                    <p>Trace the rise and fall of the Kushan Empire, from the early Yuezhi migrations to the zenith under Kanishka, and the eventual fragmentation into the Kushano-Sasanian and Kidarite kingdoms.</p>
+                </div>
+                <div class="kushan-timeline" id="kushan-timeline">
+                    <!-- Populated dynamically by kushan.js -->
+                </div>
+            </div>
+        </section>
+
+        <section class="kushan-territory-section">
+            <div class="section-container">
+                <div class="section-intro">
+                    <h2 class="sec-title">Kushan Territory & Mints</h2>
+                    <p>The Kushan Empire controlled crucial nodes of the Silk Road. Their mints operated across a vast geography, adapting local artistic styles while maintaining imperial standardization.</p>
+                </div>
+                <div class="territory-list" id="territory-list" aria-live="polite">
+                    <!-- Skeleton loaders for CLS prevention -->
+                    <div class="territory-item skeleton-loader"></div>
+                    <div class="territory-item skeleton-loader"></div>
+                    <div class="territory-item skeleton-loader"></div>
+                    <!-- Populated dynamically by kushan.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW SECTION: Legacy & Impact -->
+        <section class="kushan-legacy-section">
+            <div class="section-container">
+                <div class="section-intro">
+                    <h2 class="sec-title">Legacy & Numismatic Impact</h2>
+                    <p>The Kushan gold dinar set a standard of purity and weight that influenced subsequent Indian empires, most notably the Guptas. Beyond economics, these coins are primary historical documents.</p>
+                </div>
+                <div class="legacy-grid">
+                    <div class="legacy-card">
+                        <span class="legacy-icon">🎨</span>
+                        <h3>Gandharan Art Synthesis</h3>
+                        <p>Kushan coins feature the earliest known representations of the Buddha in human form, blending Hellenistic sculptural traditions with Indian spiritual iconography.</p>
+                    </div>
+                    <div class="legacy-card">
+                        <span class="legacy-icon">🌍</span>
+                        <h3>Silk Road Connectivity</h3>
+                        <p>The widespread circulation of Kushan gold, found as far as Rome and China, proves the empire's central role in ancient globalized trade networks.</p>
+                    </div>
+                    <div class="legacy-card">
+                        <span class="legacy-icon">📜</span>
+                        <h3>Linguistic Evolution</h3>
+                        <p>The transition of coin legends from Greek to the Bactrian language (written in a modified Greek script) provides invaluable data for historical linguists.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="references-section">
+            <div class="section-container">
+                <div class="section-intro">
+                    <h2>References & Numismatic Catalogs</h2>
+                    <p>The data and historical context presented here are sourced from established academic and museum collections.</p>
+                </div>
+                <ul class="references-list" id="references-list">
+                    <!-- Populated dynamically by kushan.js -->
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- EXPANDED FOOTER -->
+    <footer class="site-footer">
+        <div class="section-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Incredible India Explorer</h4>
+                    <p>Uncovering the visionary leaders, rich heritage, and transformative history of India's ancient empires and beyond.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore More Galleries</h4>
+                    <ul>
+                        <li><a href="../../frontend/gupta-coinage-gallery/index.html">Gupta Gold Coinage</a></li>
+                        <li><a href="../../frontend/mauryan-empire/index.html">Mauryan Punch-Marked Coins</a></li>
+                        <li><a href="../../frontend/chozha-navy/index.html">Chola Maritime Heritage</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../../frontend/historical-timeline/index.html">Historical Timeline</a></li>
+                        <li><a href="../../frontend/contributors/contributors.html">Contributors</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Stay Updated</h4>
+                    <p>Join our newsletter for historical deep-dives and heritage travel guides.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                        <input type="email" placeholder="Your email address" required aria-label="Email for newsletter" />
+                        <button type="submit" class="btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Incredible India Explorer. Part of the Digital India Heritage Initiative. All rights reserved.</p>
+            </div>
+        </div>1
+        
+    </footer>
+
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="kushan-data.js" defer></script>
+    <script src="kushan.js" defer></script>
+</body>
+</html>

@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
       : `<strong>${escapeHtml(card.name)}</strong><small>${escapeHtml(card.symbol)}</small>`;
 
     return `
-      <button class="memory-card" type="button" data-card-id="${escapeHtml(card.cardId)}" data-match-id="${escapeHtml(card.id)}">
+      <button class="memory-card" type="button" tabindex="0" aria-label="Card  - Hidden" data-card-id="${escapeHtml(card.cardId)}" data-match-id="${escapeHtml(card.id)}">
         <span class="card-inner">
           <span class="card-face card-front"><span>?</span><strong>Flip</strong></span>
           <span class="card-face card-back">${backContent}</span>
@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     grid.innerHTML = deck.map(cardHtml).join("");
     grid.querySelectorAll(".memory-card").forEach((button) => {
       button.addEventListener("click", () => flip(button));
+      button.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flip(button); } });
     });
 
     movesEl.textContent = moves;
@@ -95,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     startTimer();
     button.classList.add("is-flipped");
+    button.setAttribute("aria-label", button.getAttribute("aria-label").replace("Hidden", "Revealed"));
     flipped.push(button);
 
     if (flipped.length === 2) {
@@ -126,7 +128,9 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       setTimeout(() => {
         first.classList.remove("is-flipped");
+        first.setAttribute("aria-label", first.getAttribute("aria-label").replace("Revealed", "Hidden"));
         second.classList.remove("is-flipped");
+        second.setAttribute("aria-label", second.getAttribute("aria-label").replace("Revealed", "Hidden"));
         flipped = [];
       }, 850);
     }

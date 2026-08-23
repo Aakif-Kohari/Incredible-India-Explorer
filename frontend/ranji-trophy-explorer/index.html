@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ranji Trophy — India's Premier Domestic Championship</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --willow:#1E3B2C;
+    --willow-dark:#122419;
+    --willow-light:#2E5642;
+    --ivory:#ECE1C6;
+    --parchment:#F6F1E4;
+    --oxblood:#8C2F26;
+    --oxblood-light:#B54438;
+    --brass:#B98B33;
+    --brass-light:#D9AE5C;
+    --ink:#211E19;
+    --chalk:#FAF7EF;
+    --line: rgba(33,30,25,0.12);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    margin:0;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:12px;
+    font-weight:600;
+    color:var(--oxblood);
+  }
+  section{padding:88px 0;}
+  @media(max-width:640px){ section{padding:56px 0;} .wrap{padding:0 20px;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(1200px 600px at 85% -10%, rgba(185,139,51,0.18), transparent 60%),
+      linear-gradient(180deg,var(--willow) 0%, var(--willow-dark) 100%);
+    color:var(--chalk);
+    padding:120px 0 0 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:40px;
+    align-items:center;
+    padding-bottom:64px;
+  }
+  @media(max-width:860px){ .hero .wrap{grid-template-columns:1fr;} .hero{padding-top:80px;} }
+  .hero .eyebrow{color:var(--brass-light);}
+  .hero h1{
+    font-size:clamp(48px,8vw,92px);
+    line-height:.94;
+    letter-spacing:-0.01em;
+    margin:14px 0 20px 0;
+  }
+  .hero h1 em{font-style:italic;color:var(--brass-light);}
+  .hero p.lede{
+    font-size:19px;
+    max-width:46ch;
+    color:rgba(250,247,239,0.82);
+  }
+  .hero-trophy{justify-self:center;}
+  .hero-trophy svg{width:min(320px,80vw);height:auto;}
+
+  .ticker{
+    border-top:1px solid rgba(250,247,239,0.18);
+    background:rgba(0,0,0,0.16);
+  }
+  .ticker .wrap{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+  }
+  .ticker-item{
+    padding:22px 18px;
+    border-left:1px solid rgba(250,247,239,0.14);
+    text-align:center;
+  }
+  .ticker-item:first-child{border-left:none;}
+  @media(max-width:640px){
+    .ticker .wrap{grid-template-columns:repeat(2,1fr);}
+    .ticker-item:nth-child(3){border-left:none;}
+  }
+  .ticker-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    font-size:clamp(22px,3vw,30px);
+    color:var(--brass-light);
+  }
+  .ticker-label{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:rgba(250,247,239,0.65);
+    margin-top:4px;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .sec-head{max-width:640px;margin-bottom:44px;}
+  .sec-head h2{font-size:clamp(30px,4vw,42px);margin-top:10px;}
+  .sec-head p{color:#4a463d;font-size:16px;margin-top:12px;}
+
+  /* ---------- HISTORY ---------- */
+  .history{
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:56px;
+    align-items:start;
+  }
+  @media(max-width:860px){ .history{grid-template-columns:1fr;} }
+  .history p{font-size:16.5px;color:#332f27;}
+  .history p + p{margin-top:16px;}
+  .pullquote{
+    background:var(--ivory);
+    border-left:4px solid var(--oxblood);
+    padding:22px 24px;
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:19px;
+    color:var(--willow-dark);
+    margin-top:26px;
+  }
+  .pullquote span{
+    display:block;
+    font-family:'IBM Plex Mono',monospace;
+    font-style:normal;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--oxblood);
+    margin-top:10px;
+  }
+  .pavilion-art{background:var(--willow);border-radius:4px;padding:28px;}
+
+  /* ---------- FORMAT TOGGLE ---------- */
+  .toggle-row{display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap;}
+  .toggle-btn{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.03em;
+    padding:12px 20px;
+    border-radius:999px;
+    border:1.5px solid var(--willow);
+    background:transparent;
+    color:var(--willow);
+    cursor:pointer;
+    transition:all .2s ease;
+  }
+  .toggle-btn.active{background:var(--willow);color:var(--chalk);}
+  .toggle-btn:hover{transform:translateY(-1px);}
+  .format-panel{
+    background:var(--ivory);
+    border-radius:6px;
+    padding:36px;
+    display:none;
+    animation:fadein .3s ease;
+  }
+  .format-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  @media(max-width:760px){ .format-panel.active{grid-template-columns:1fr;} }
+  @keyframes fadein{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+  .format-panel h3{font-size:22px;color:var(--willow-dark);margin-bottom:10px;}
+  .format-panel p{font-size:15.5px;color:#403c33;}
+  .format-rule{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    background:rgba(140,47,38,0.08);
+    color:var(--oxblood);
+    padding:14px 16px;
+    border-radius:4px;
+    margin-top:14px;
+  }
+
+  /* ---------- TEAMS ---------- */
+  .team-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .team-pill{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    padding:9px 16px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:#fff;
+    color:var(--ink);
+  }
+  .team-pill:nth-child(4n+1){border-color:var(--oxblood-light);}
+  .team-pill:nth-child(5n+2){border-color:var(--brass);}
+
+  /* ---------- VENUES ---------- */
+  .venue-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+  @media(max-width:860px){ .venue-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:600px){ .venue-grid{grid-template-columns:1fr;} }
+  .venue-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:24px;
+  }
+  .venue-card svg{width:44px;height:44px;margin-bottom:14px;}
+  .venue-card h3{font-size:18px;color:var(--willow-dark);}
+  .venue-card .city{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--oxblood);
+    margin:4px 0 10px 0;
+  }
+  .venue-card p{font-size:14.5px;color:#4a463d;margin:0;}
+
+  /* ---------- HONOURS BOARD (signature) ---------- */
+  .honours{
+    background:linear-gradient(180deg,var(--willow-dark),var(--willow));
+    border-radius:8px;
+    padding:56px;
+    color:var(--brass-light);
+    position:relative;
+    overflow:hidden;
+  }
+  .honours::before{
+    content:"";
+    position:absolute;inset:14px;
+    border:1px solid rgba(217,174,92,0.35);
+    pointer-events:none;
+  }
+  .honours-head{
+    text-align:center;
+    font-family:'Fraunces',serif;
+    font-size:14px;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--chalk);
+    margin-bottom:36px;
+    opacity:.75;
+  }
+  .honours-list{
+    display:grid;
+    gap:0;
+    max-width:640px;
+    margin:0 auto;
+  }
+  .honours-row{
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    gap:18px;
+    align-items:baseline;
+    padding:14px 0;
+    border-bottom:1px solid rgba(217,174,92,0.22);
+    font-family:'Fraunces',serif;
+  }
+  .honours-row:last-child{border-bottom:none;}
+  .honours-rank{font-family:'IBM Plex Mono',monospace;font-size:13px;color:rgba(250,247,239,0.5);}
+  .honours-name{font-size:22px;color:var(--chalk);}
+  .honours-count{font-family:'IBM Plex Mono',monospace;font-size:20px;color:var(--brass-light);}
+  .honours-note{
+    text-align:center;
+    margin-top:34px;
+    font-size:13.5px;
+    color:rgba(250,247,239,0.68);
+  }
+  .recent-champs{
+    max-width:640px;margin:36px auto 0 auto;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  @media(max-width:640px){.recent-champs{grid-template-columns:1fr;}}
+  .recent-champ{
+    background:rgba(0,0,0,0.18);
+    border-radius:6px;
+    padding:16px;
+    text-align:center;
+  }
+  .recent-champ .yr{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--brass-light);letter-spacing:.06em;}
+  .recent-champ .nm{font-family:'Fraunces',serif;font-size:17px;color:var(--chalk);margin-top:4px;}
+
+  /* ---------- PLAYERS ---------- */
+  .player-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media(max-width:700px){ .player-grid{grid-template-columns:1fr;} }
+  .player-card{
+    background:var(--parchment);
+    padding:26px 28px;
+  }
+  .player-card h3{font-size:19px;color:var(--willow-dark);}
+  .player-card .role{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.07em;
+    color:var(--oxblood);
+    margin:5px 0 10px 0;
+  }
+  .player-card p{font-size:14.5px;color:#4a463d;margin:0;}
+
+  /* ---------- TIMELINE (interactive) ---------- */
+  .timeline-track{
+    position:relative;
+    display:flex;
+    gap:4px;
+    overflow-x:auto;
+    padding:6px 0 26px 0;
+    scrollbar-width:thin;
+  }
+  .timeline-track::-webkit-scrollbar{height:6px;}
+  .timeline-track::-webkit-scrollbar-thumb{background:var(--brass);border-radius:4px;}
+  .tl-dot{
+    flex:0 0 auto;
+    min-width:132px;
+    text-align:left;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:0 18px 0 0;
+    position:relative;
+  }
+  .tl-dot::before{
+    content:"";
+    display:block;
+    height:3px;
+    background:var(--line);
+    margin-bottom:14px;
+  }
+  .tl-dot.active::before{background:var(--oxblood);}
+  .tl-dot .yr{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    font-size:15px;
+    color:#9a8f78;
+  }
+  .tl-dot.active .yr{color:var(--oxblood);}
+  .tl-dot .lbl{
+    font-size:12.5px;
+    color:#6b6558;
+    margin-top:4px;
+    line-height:1.3;
+  }
+  .tl-dot.active .lbl{color:var(--ink);font-weight:600;}
+  .tl-panel{
+    background:var(--ivory);
+    border-radius:8px;
+    padding:36px 40px;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:28px;
+    align-items:start;
+  }
+  @media(max-width:640px){ .tl-panel{grid-template-columns:1fr;padding:26px;} }
+  .tl-year-big{
+    font-family:'Fraunces',serif;
+    font-size:52px;
+    color:var(--oxblood);
+    line-height:1;
+  }
+  .tl-panel h3{font-size:21px;color:var(--willow-dark);margin-bottom:8px;}
+  .tl-panel p{font-size:15.5px;color:#3a362d;margin:0;}
+
+  /* ---------- SOURCES / FOOTER ---------- */
+  footer{
+    background:var(--willow-dark);
+    color:rgba(250,247,239,0.72);
+    padding:52px 0 40px 0;
+  }
+  footer h3{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:16px;
+  }
+  .source-list{display:flex;flex-wrap:wrap;gap:10px 26px;font-size:13.5px;margin-bottom:26px;}
+  .source-list a{text-decoration:none;color:rgba(250,247,239,0.82);border-bottom:1px dotted rgba(250,247,239,0.35);}
+  .source-list a:hover{color:var(--brass-light);}
+  footer .fine{font-size:12.5px;color:rgba(250,247,239,0.45);}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Est. 1934 · BCCI First-Class Championship</div>
+      <h1>The <em>Ranji</em><br>Trophy</h1>
+      <p class="lede">India's oldest and most storied domestic cricket tournament — the four-day proving ground that has fed every generation of the country's Test side for over ninety years.</p>
+    </div>
+    <div class="hero-trophy">
+      <svg viewBox="0 0 220 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="brassGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#E7C87A"/>
+            <stop offset="55%" stop-color="#B98B33"/>
+            <stop offset="100%" stop-color="#8A6522"/>
+          </linearGradient>
+        </defs>
+        <ellipse cx="110" cy="278" rx="58" ry="10" fill="black" opacity="0.25"/>
+        <rect x="70" y="252" width="80" height="18" rx="2" fill="url(#brassGrad)"/>
+        <rect x="86" y="228" width="48" height="26" fill="url(#brassGrad)"/>
+        <path d="M92 228 L92 150 Q92 132 110 132 Q128 132 128 150 L128 228 Z" fill="url(#brassGrad)"/>
+        <path d="M92 158 C 60 158 55 110 78 92 C 66 96 60 80 74 70" stroke="url(#brassGrad)" stroke-width="9" fill="none" stroke-linecap="round"/>
+        <path d="M128 158 C 160 158 165 110 142 92 C 154 96 160 80 146 70" stroke="url(#brassGrad)" stroke-width="9" fill="none" stroke-linecap="round"/>
+        <path d="M84 132 Q110 108 136 132 L128 150 Q110 138 92 150 Z" fill="url(#brassGrad)"/>
+        <circle cx="110" cy="98" r="15" fill="url(#brassGrad)"/>
+        <path d="M110 84 L113 92 L121 92 L114.5 97 L117 105 L110 100 L103 105 L105.5 97 L99 92 L107 92 Z" fill="#3D2E10"/>
+      </svg>
+    </div>
+  </div>
+  <div class="ticker">
+    <div class="wrap">
+      <div class="ticker-item"><div class="ticker-num">1934</div><div class="ticker-label">Founded</div></div>
+      <div class="ticker-item"><div class="ticker-num">91st</div><div class="ticker-label">Edition, 2025–26</div></div>
+      <div class="ticker-item"><div class="ticker-num">38</div><div class="ticker-label">Competing teams</div></div>
+      <div class="ticker-item"><div class="ticker-num">42</div><div class="ticker-label">Mumbai's titles</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- HISTORY -->
+<section id="history">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">📅 Origins</div>
+      <h2>A championship built to grow a Test nation</h2>
+    </div>
+    <div class="history">
+      <div class="reveal">
+        <p>India's first national cricket championship was the idea of A. S. de Mello, a founding administrator of the BCCI, who saw that a country newly arrived in Test cricket had no proper first-class structure underneath it. The board agreed, and in July 1934 the competition launched under the plain name "The Cricket Championship of India."</p>
+        <p>Its opening fixture was played on 4 November 1934 at Chepauk in Madras — today's M. A. Chidambaram Stadium — where the home side beat Mysore by an innings. Fifteen teams, split into four zones, fought through a straight knockout that first season, and Bombay lifted the inaugural trophy the following March.</p>
+        <p>Ahead of the second season the tournament was renamed to honour Kumar Shri Ranjitsinhji — "Ranji" — the Jamnagar-born prince who in 1896 became the first Indian to play Test cricket, turning out for England. The silverware itself was donated in his memory by Bhupinder Singh, the Maharaja of Patiala. Played every year since, with the sole exception of the pandemic-cancelled 2020–21 season, the tournament has grown from those 15 founding sides into today's 38-team championship, and remains the main pipeline into India's Test team.</p>
+      </div>
+      <div>
+        <div class="pavilion-art reveal">
+          <svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="120" width="220" height="60" fill="#3B6B4F"/>
+            <rect x="0" y="0" width="220" height="120" fill="#0F2016"/>
+            <g stroke="#D9AE5C" stroke-width="1.4" opacity="0.55">
+              <line x1="0" y1="130" x2="220" y2="130"/>
+              <line x1="0" y1="140" x2="220" y2="140"/>
+              <line x1="0" y1="150" x2="220" y2="150"/>
+              <line x1="0" y1="160" x2="220" y2="160"/>
+              <line x1="0" y1="170" x2="220" y2="170"/>
+            </g>
+            <rect x="20" y="30" width="180" height="60" rx="3" fill="#173726" stroke="#D9AE5C" stroke-width="2"/>
+            <g fill="#D9AE5C" font-family="Fraunces, serif" font-size="10">
+              <text x="35" y="46">1934–35 · BOMBAY</text>
+              <text x="35" y="60">1935–36 · BOMBAY</text>
+              <text x="35" y="74">1936–37 · NAWANAGAR</text>
+            </g>
+            <rect x="20" y="30" width="180" height="60" rx="3" fill="none" stroke="#D9AE5C" stroke-width="1" opacity="0.4"/>
+            <circle cx="185" cy="18" r="7" fill="#D9AE5C"/>
+          </svg>
+        </div>
+        <div class="pullquote reveal">
+          The trophy carries the name of a prince who never played a single match in it — Ranjitsinhji died in 1933, a year before the first ball was bowled.
+          <span>Named in memoriam, 1935–36</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMAT -->
+<section id="format" style="background:#fff;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">🏏 Tournament Format</div>
+      <h2>From zonal knockouts to promotion and relegation</h2>
+      <p>The way teams qualify has been rebuilt several times. Toggle between the two defining eras below.</p>
+    </div>
+    <div class="reveal">
+      <div class="toggle-row">
+        <button class="toggle-btn active" data-panel="p1934">1934 – 2001 · Zonal Era</button>
+        <button class="toggle-btn" data-panel="p2002">2002 – Present · Elite &amp; Plate</button>
+      </div>
+      <div class="format-panel active" id="p1934">
+        <div>
+          <h3>Zonal knockout</h3>
+          <p>For nearly seven decades, sides were grouped into geographic zones — North, South, East, West, and later Central — and fought knockout rounds within their own zone. Only the zonal winners advanced to a national knockout stage to decide the champion.</p>
+        </div>
+        <div>
+          <h3>How it settled</h3>
+          <p>Matches were played to a finish or a fixed number of days, and a drawn knockout tie was awarded to the side ahead on first-innings runs — a rule the tournament still uses today.</p>
+          <div class="format-rule">Rule carried forward: first-innings lead breaks a drawn knockout match.</div>
+        </div>
+      </div>
+      <div class="format-panel" id="p2002">
+        <div>
+          <h3>Elite &amp; Plate</h3>
+          <p>Ahead of 2002–03 the BCCI replaced the zonal system with a two-tier league: an upper Elite Group and a lower Plate Group, with promotion and relegation between them each season — a structure it has refined many times since in the number of groups and how many teams get a direct shot at the title.</p>
+        </div>
+        <div>
+          <h3>2025–26 shape</h3>
+          <p>38 teams competed: 32 in four eight-team Elite groups, and six in the Plate group chasing promotion. League games run four days; the knockouts — quarter-final through final — run five.</p>
+          <div class="format-rule">138 matches, one 91st-edition champion.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAMS -->
+<section id="teams">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">🗺️ Participating Teams</div>
+      <h2>38 sides, every corner of the country</h2>
+      <p>States, union territories, and two pan-India institutional sides — Railways and Services — all compete for the same trophy.</p>
+    </div>
+    <div class="team-grid reveal">
+      <span class="team-pill">Mumbai</span><span class="team-pill">Delhi</span><span class="team-pill">Karnataka</span>
+      <span class="team-pill">Tamil Nadu</span><span class="team-pill">Kerala</span><span class="team-pill">Andhra</span>
+      <span class="team-pill">Hyderabad</span><span class="team-pill">Punjab</span><span class="team-pill">Himachal Pradesh</span>
+      <span class="team-pill">Jammu &amp; Kashmir</span><span class="team-pill">Haryana</span><span class="team-pill">Uttar Pradesh</span>
+      <span class="team-pill">Madhya Pradesh</span><span class="team-pill">Rajasthan</span><span class="team-pill">Gujarat</span>
+      <span class="team-pill">Baroda</span><span class="team-pill">Saurashtra</span><span class="team-pill">Vidarbha</span>
+      <span class="team-pill">Maharashtra</span><span class="team-pill">Goa</span><span class="team-pill">Bengal</span>
+      <span class="team-pill">Odisha</span><span class="team-pill">Bihar</span><span class="team-pill">Jharkhand</span>
+      <span class="team-pill">Assam</span><span class="team-pill">Tripura</span><span class="team-pill">Chhattisgarh</span>
+      <span class="team-pill">Puducherry</span><span class="team-pill">Chandigarh</span><span class="team-pill">Railways</span>
+      <span class="team-pill">Services</span><span class="team-pill">Uttarakhand</span><span class="team-pill">Meghalaya</span>
+      <span class="team-pill">Manipur</span><span class="team-pill">Mizoram</span><span class="team-pill">Sikkim</span>
+      <span class="team-pill">Nagaland</span><span class="team-pill">Arunachal Pradesh</span>
+    </div>
+  </div>
+</section>
+
+<!-- VENUES -->
+<section id="venues" style="background:#fff;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">🏟️ Important Venues</div>
+      <h2>Grounds that carry the tournament's history</h2>
+    </div>
+    <div class="venue-grid reveal">
+      <div class="venue-card">
+        <svg viewBox="0 0 48 48"><ellipse cx="24" cy="24" rx="22" ry="14" fill="none" stroke="#8C2F26" stroke-width="2.5"/><ellipse cx="24" cy="24" rx="6" ry="14" fill="none" stroke="#B98B33" stroke-width="2"/></svg>
+        <h3>M. A. Chidambaram Stadium</h3>
+        <div class="city">Chennai</div>
+        <p>Known as Chepauk — host of the very first Ranji Trophy match on 4 November 1934.</p>
+      </div>
+      <div class="venue-card">
+        <svg viewBox="0 0 48 48"><ellipse cx="24" cy="24" rx="22" ry="14" fill="none" stroke="#8C2F26" stroke-width="2.5"/><ellipse cx="24" cy="24" rx="6" ry="14" fill="none" stroke="#B98B33" stroke-width="2"/></svg>
+        <h3>Wankhede Stadium</h3>
+        <div class="city">Mumbai</div>
+        <p>Home of the tournament's most successful side, and the venue for Mumbai's 42nd-title win in 2023–24.</p>
+      </div>
+      <div class="venue-card">
+        <svg viewBox="0 0 48 48"><ellipse cx="24" cy="24" rx="22" ry="14" fill="none" stroke="#8C2F26" stroke-width="2.5"/><ellipse cx="24" cy="24" rx="6" ry="14" fill="none" stroke="#B98B33" stroke-width="2"/></svg>
+        <h3>Eden Gardens</h3>
+        <div class="city">Kolkata</div>
+        <p>Bengal's home ground and one of the largest, oldest cricket grounds in the world.</p>
+      </div>
+      <div class="venue-card">
+        <svg viewBox="0 0 48 48"><ellipse cx="24" cy="24" rx="22" ry="14" fill="none" stroke="#8C2F26" stroke-width="2.5"/><ellipse cx="24" cy="24" rx="6" ry="14" fill="none" stroke="#B98B33" stroke-width="2"/></svg>
+        <h3>M. Chinnaswamy Stadium</h3>
+        <div class="city">Bengaluru</div>
+        <p>Karnataka's home base, the state with the second-most Ranji titles.</p>
+      </div>
+      <div class="venue-card">
+        <svg viewBox="0 0 48 48"><ellipse cx="24" cy="24" rx="22" ry="14" fill="none" stroke="#8C2F26" stroke-width="2.5"/><ellipse cx="24" cy="24" rx="6" ry="14" fill="none" stroke="#B98B33" stroke-width="2"/></svg>
+        <h3>Holkar Stadium</h3>
+        <div class="city">Indore</div>
+        <p>Madhya Pradesh's ground, known through the decades for pitches that reward batting.</p>
+      </div>
+      <div class="venue-card">
+        <svg viewBox="0 0 48 48"><ellipse cx="24" cy="24" rx="22" ry="14" fill="none" stroke="#8C2F26" stroke-width="2.5"/><ellipse cx="24" cy="24" rx="6" ry="14" fill="none" stroke="#B98B33" stroke-width="2"/></svg>
+        <h3>VCA Stadium</h3>
+        <div class="city">Nagpur</div>
+        <p>Vidarbha's home, and the base for their 2024–25 title-winning campaign.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAMPIONS / HONOURS BOARD -->
+<section id="champions">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">🥇 Notable Champions</div>
+      <h2>The honours board</h2>
+      <p>Ninety-one seasons in, one team's dominance still defines the tournament's history.</p>
+    </div>
+    <div class="honours reveal">
+      <div class="honours-head">— Most Ranji Trophy Titles —</div>
+      <div class="honours-list">
+        <div class="honours-row"><span class="honours-rank">01</span><span class="honours-name">Mumbai (Bombay)</span><span class="honours-count">42</span></div>
+        <div class="honours-row"><span class="honours-rank">02</span><span class="honours-name">Karnataka</span><span class="honours-count">08</span></div>
+        <div class="honours-row"><span class="honours-rank">03</span><span class="honours-name">Delhi</span><span class="honours-count">07</span></div>
+        <div class="honours-row"><span class="honours-rank">04</span><span class="honours-name">Baroda</span><span class="honours-count">05</span></div>
+      </div>
+      <div class="honours-note">Mumbai's record includes a run of 15 consecutive titles, from 1958–59 to 1972–73 — still the longest streak by any side in a major domestic competition anywhere.</div>
+      <div class="recent-champs">
+        <div class="recent-champ"><div class="yr">2023–24</div><div class="nm">Mumbai</div></div>
+        <div class="recent-champ"><div class="yr">2024–25</div><div class="nm">Vidarbha</div></div>
+        <div class="recent-champ"><div class="yr">2025–26</div><div class="nm">Jammu &amp; Kashmir</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAYERS -->
+<section id="players" style="background:#fff;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">👤 Players Associated</div>
+      <h2>Names the tournament made famous</h2>
+      <p>Nearly every great of Indian Test cricket, from Gavaskar and Tendulkar to Dravid and Kohli, first had to make a name for themselves in the Ranji Trophy.</p>
+    </div>
+    <div class="player-grid reveal">
+      <div class="player-card">
+        <h3>K. S. Ranjitsinhji</h3>
+        <div class="role">The namesake</div>
+        <p>The first Indian-born Test cricketer, honoured by the tournament's name from its second season onward.</p>
+      </div>
+      <div class="player-card">
+        <h3>Vijay Merchant</h3>
+        <div class="role">First-season record scorer</div>
+        <p>Top-scored in the inaugural 1934–35 tournament with 389 runs for Bombay.</p>
+      </div>
+      <div class="player-card">
+        <h3>Rajinder Goel</h3>
+        <div class="role">Most wickets in history</div>
+        <p>A left-arm spinner who took a record 640 Ranji Trophy wickets across a long career — without ever winning a Test cap.</p>
+      </div>
+      <div class="player-card">
+        <h3>Wasim Jaffer</h3>
+        <div class="role">Most runs in history</div>
+        <p>Holds the all-time Ranji Trophy run tally, with 12,038 runs across a two-decade career.</p>
+      </div>
+      <div class="player-card">
+        <h3>Ajinkya Rahane</h3>
+        <div class="role">2023–24 captain</div>
+        <p>Led Mumbai to its record-extending 42nd title, beating Vidarbha at Wankhede Stadium.</p>
+      </div>
+      <div class="player-card">
+        <h3>Generations of India regulars</h3>
+        <div class="role">The pipeline</div>
+        <p>Domestic form in the Ranji Trophy remains one of the clearest routes into national Test selection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE TIMELINE -->
+<section id="timeline">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">📈 Interactive Feature</div>
+      <h2>Milestones, decade by decade</h2>
+      <p>Click any year on the track to open that chapter of the tournament's history.</p>
+    </div>
+    <div class="reveal">
+      <div class="timeline-track" id="tlTrack"></div>
+      <div class="tl-panel" id="tlPanel"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h3>Sources</h3>
+    <div class="source-list">
+      <a href="https://www.britannica.com/sports/Ranji-Trophy" target="_blank" rel="noopener">Britannica — Ranji Trophy</a>
+      <a href="https://en.wikipedia.org/wiki/Ranji_Trophy" target="_blank" rel="noopener">Wikipedia — Ranji Trophy</a>
+      <a href="https://www.crictracker.com/ranji-trophy-winners-and-runners-list/" target="_blank" rel="noopener">CricTracker — Winners List</a>
+      <a href="https://www.mykhel.com/cricket/ranji-trophy-2025-26-teams-groups-format-1st-round-schedule-live-streaming-all-you-need-to-know-390441.html" target="_blank" rel="noopener">myKhel — 2025–26 Format</a>
+      <a href="https://ranjitrophy.com.in/faq/" target="_blank" rel="noopener">Official Ranji Trophy FAQ</a>
+    </div>
+    <div class="fine">Compiled for Incredible India Explorer · Figures current as of the 2025–26 (91st) season.</div>
+  </div>
+</footer>
+
+<script>
+  // Format toggle
+  const toggleBtns = document.querySelectorAll('.toggle-btn');
+  toggleBtns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      toggleBtns.forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.format-panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.panel).classList.add('active');
+    });
+  });
+
+  // Timeline data
+  const milestones = [
+    {yr:"1934", lbl:"Tournament founded", title:"The Cricket Championship of India is launched", body:"Proposed by BCCI founder A. S. de Mello, the board formally launches India's first national first-class competition in July 1934 — a structure the country's fresh Test status badly needed."},
+    {yr:"1934–35", lbl:"First ball bowled", title:"Madras hosts the inaugural match", body:"On 4 November 1934, Madras beat Mysore by an innings at Chepauk. Fifteen zoned teams contested that debut knockout season, and Bombay lifted the first trophy in March 1935."},
+    {yr:"1935–36", lbl:"Renamed Ranji Trophy", title:"A name in memory of a pioneer", body:"Ahead of the second season the competition is renamed for Kumar Shri Ranjitsinhji, the first Indian to play Test cricket. The Maharaja of Patiala donates the trophy itself in his memory."},
+    {yr:"1958–73", lbl:"Bombay's 15-year streak", title:"An unmatched run of dominance", body:"Bombay (now Mumbai) wins 15 consecutive titles from 1958–59 through 1972–73 — a streak of sustained supremacy with few parallels in any major domestic sport."},
+    {yr:"2002–03", lbl:"Elite & Plate introduced", title:"The zonal system is retired", body:"The BCCI replaces decades of geographic zoning with a two-tier Elite and Plate league, adding promotion and relegation between divisions for the first time."},
+    {yr:"2020–21", lbl:"Only cancellation", title:"COVID-19 halts an 86-year run", body:"The pandemic forces the tournament's only cancellation since 1934 — every other year, it has been played without interruption."},
+    {yr:"2023–24", lbl:"Mumbai's 42nd title", title:"A record extended at home", body:"Captained by Ajinkya Rahane, Mumbai beats Vidarbha at Wankhede Stadium to stretch its own all-time record to 42 Ranji Trophy titles."},
+    {yr:"2025–26", lbl:"J&K's maiden title", title:"A first-ever champion, 91st edition", body:"Jammu & Kashmir wins the Ranji Trophy for the first time — 67 years after the side's debut season — in a 38-team, 138-match championship."}
+  ];
+
+  const track = document.getElementById('tlTrack');
+  const panel = document.getElementById('tlPanel');
+
+  function renderPanel(i){
+    const m = milestones[i];
+    panel.innerHTML = `
+      <div class="tl-year-big">${m.yr}</div>
+      <div>
+        <h3>${m.title}</h3>
+        <p>${m.body}</p>
+      </div>
+    `;
+  }
+
+  milestones.forEach((m,i)=>{
+    const btn = document.createElement('button');
+    btn.className = 'tl-dot' + (i===milestones.length-1 ? ' active':'');
+    btn.innerHTML = `<div class="yr">${m.yr}</div><div class="lbl">${m.lbl}</div>`;
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.tl-dot').forEach(d=>d.classList.remove('active'));
+      btn.classList.add('active');
+      renderPanel(i);
+    });
+    track.appendChild(btn);
+  });
+  renderPanel(milestones.length-1);
+  track.scrollLeft = track.scrollWidth;
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>

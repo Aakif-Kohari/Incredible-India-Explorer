@@ -1,0 +1,515 @@
+/* 
+    Indian Railways Network Explorer Styles 
+    Railway Theme: Slate greys, deep blues, brass accents, dark themes 
+*/
+
+:root {
+    --rail-primary: #1e3a8a; /* Deep blue */
+    --rail-secondary: #0f172a; /* Slate */
+    --rail-accent: #d97706; /* Brass/Gold */
+    --rail-accent-light: #fcd34d;
+    --rail-bg: #f8fafc;
+    --rail-card: #ffffff;
+    --rail-text: #334155;
+    --rail-light: #94a3b8;
+    --rail-border: #e2e8f0;
+    --rail-map-bg: #e0f2fe;
+}
+
+[data-theme="dark"] {
+    --rail-primary: #3b82f6;
+    --rail-secondary: #f8fafc;
+    --rail-accent: #fbbf24;
+    --rail-bg: #0f172a;
+    --rail-card: #1e293b;
+    --rail-text: #cbd5e1;
+    --rail-border: #334155;
+    --rail-map-bg: #020617;
+}
+
+/* Base Styles */
+body {
+    background-color: var(--rail-bg);
+    color: var(--rail-text);
+}
+
+.section-padding {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--rail-secondary);
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--rail-accent);
+}
+
+.section-header p {
+    color: var(--rail-light);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 1.5rem auto 0;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 6rem 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, var(--rail-secondary) 0%, var(--rail-primary) 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    color: var(--rail-accent-light);
+    font-weight: 600;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin: 1rem 0;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 4rem auto 0;
+    position: relative;
+    z-index: 2;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--rail-accent-light);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+/* Timeline */
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    height: 100%;
+    width: 4px;
+    background: var(--rail-border);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 3rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--rail-accent);
+    border: 4px solid var(--rail-bg);
+    box-shadow: 0 0 0 4px var(--rail-border);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover::before {
+    background: var(--rail-primary);
+    transform: scale(1.2);
+}
+
+.timeline-year {
+    font-weight: 700;
+    color: var(--rail-accent);
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-content {
+    background: var(--rail-card);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--rail-border);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-title {
+    color: var(--rail-secondary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-loc {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--rail-light);
+    margin-bottom: 1rem;
+}
+
+.timeline-loc svg {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+}
+
+/* Interactive Map Section */
+.map-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.map-container {
+    background: var(--rail-map-bg);
+    border-radius: 16px;
+    border: 1px solid var(--rail-border);
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.india-svg-map {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* SVG Styling */
+.map-state {
+    fill: var(--rail-card);
+    stroke: var(--rail-border);
+    stroke-width: 1;
+    transition: fill 0.3s ease;
+}
+
+.map-route {
+    fill: none;
+    stroke: var(--rail-light);
+    stroke-width: 2.5;
+    stroke-dasharray: 6, 6;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.map-route:hover, .map-route.active {
+    stroke: var(--rail-primary);
+    stroke-width: 4;
+    stroke-dasharray: none;
+    filter: drop-shadow(0 0 4px var(--rail-primary));
+}
+
+.map-station {
+    fill: var(--rail-card);
+    stroke: var(--rail-secondary);
+    stroke-width: 2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.map-station:hover, .map-station.active {
+    fill: var(--rail-accent);
+    transform: scale(1.5);
+    transform-origin: center;
+}
+
+/* Route Info Panel */
+.route-info-panel {
+    background: var(--rail-card);
+    border: 1px solid var(--rail-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    min-height: 400px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.panel-placeholder {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--rail-light);
+    text-align: center;
+}
+
+.panel-placeholder svg {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.info-header {
+    border-bottom: 2px solid var(--rail-bg);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.info-title {
+    font-size: 1.5rem;
+    color: var(--rail-secondary);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.info-region {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--rail-bg);
+    color: var(--rail-primary);
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.info-section-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--rail-light);
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.info-stops {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.stop-badge {
+    background: var(--rail-bg);
+    border: 1px solid var(--rail-border);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--rail-text);
+}
+
+/* Trains Grid */
+.trains-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.train-card {
+    background: var(--rail-card);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--rail-border);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.train-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.train-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 4px solid var(--rail-accent);
+}
+
+.train-content {
+    padding: 1.5rem;
+}
+
+.train-category {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--rail-accent);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.train-name {
+    font-size: 1.25rem;
+    color: var(--rail-secondary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.train-route {
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.9rem;
+    color: var(--rail-text);
+    margin-bottom: 1rem;
+}
+
+.train-route svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    flex-shrink: 0;
+    color: var(--rail-light);
+}
+
+.train-desc {
+    font-size: 0.9rem;
+    color: var(--rail-light);
+    line-height: 1.5;
+}
+
+/* Heritage Gallery */
+.heritage-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.heritage-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    cursor: pointer;
+}
+
+.heritage-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.heritage-card:hover img {
+    transform: scale(1.1);
+}
+
+.heritage-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1rem 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    color: white;
+}
+
+.heritage-type {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--rail-accent-light);
+    margin-bottom: 0.25rem;
+}
+
+.heritage-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .map-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .timeline-container::before {
+        left: 15px;
+    }
+    
+    .timeline-item {
+        padding-left: 45px;
+    }
+    
+    .timeline-item::before {
+        left: 9px;
+    }
+}
