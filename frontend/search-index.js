@@ -6091,5 +6091,14 @@ window.indiaSearchIndex = [
         description:
             "Explore India's traditional cooking utensils — the iron kadhai, bronze uruli, clay handi, copper lota, wooden bel-chakla and more. Discover their materials, regional origins, cultural significance, and centuries-old cooking practices through an interactive gallery with Material and Region filters.",
         url: "frontend/indian-utensils-explorer/index.html"
+    },
+
+    // --- Xylophone & Indian Percussion Traditions Explorer (#2938) ---
+    {
+        title: "Xylophone & Indian Percussion Traditions",
+        category: "Music & Performing Arts",
+        description:
+            "Explore Xylophone & Indian Percussion Traditions — an interactive organological gallery of tuned idiophones (Kashta Tarang, Jal Tarang, Naga Bamboo Xylophone) and classical/regional membranophones (Mridangam, Tabla, Pung, Chenda) with Web Audio sound simulation and filter controls.",
+        url: "frontend/xylophone-percussion-explorer/index.html"
     }
 ];
