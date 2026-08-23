@@ -1004,6 +1004,21 @@ const WOMEN_PROFILES = [
         mapCoords: { lat: 29.6, lng: 76.9 }
     },
     {
+        id: "ramabai-ranade",
+        url: "../ramabai-ranade-explorer/",
+        name: "Ramabai Ranade",
+        era: "colonial",
+        eraLabel: "1862 – 1924 CE",
+        region: "Sangli / Pune & Bombay",
+        category: "social-reformers",
+        contribution: "Pioneer of female vocational training, co-founder of Seva Sadan and Arya Mahila Samaj, and advocate for women's suffrage.",
+        bio: "Leading social reformer who established India's premier female nursing and vocational institution, fought for female voting rights in 1919, and authored celebrated Marathi memoirs.",
+        dynasty: "Seva Sadan & Social Reform",
+        featured: true,
+        icon: "📖",
+        mapCoords: { lat: 18.52, lng: 73.85 }
+    },
+    {
         id: "anandibai-joshi",
         url: "../anandibai-joshi-explorer/",
         name: "Dr. Anandibai Joshi",
