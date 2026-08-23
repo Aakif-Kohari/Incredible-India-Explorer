@@ -6100,5 +6100,14 @@ window.indiaSearchIndex = [
         description:
             "Explore Xylophone & Indian Percussion Traditions — an interactive organological gallery of tuned idiophones (Kashta Tarang, Jal Tarang, Naga Bamboo Xylophone) and classical/regional membranophones (Mridangam, Tabla, Pung, Chenda) with Web Audio sound simulation and filter controls.",
         url: "frontend/xylophone-percussion-explorer/index.html"
+    },
+
+    // --- Yoga — India's Global Cultural Heritage Explorer (#2939) ---
+    {
+        title: "Yoga — India's Global Cultural Heritage",
+        category: "Culture & Heritage",
+        description:
+            "Explore Yoga — India's Global Cultural Heritage: an interactive historical, philosophical, and textual explorer tracing Yoga from Vedic and Upanishadic roots to Patanjali's Yoga Sutras, Hatha Yoga, UN International Day of Yoga, and UNESCO Intangible Cultural Heritage inscription.",
+        url: "frontend/yoga-explorer/index.html"
     }
 ];
