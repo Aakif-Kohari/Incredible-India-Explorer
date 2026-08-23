@@ -15,14 +15,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 function readExplorerFile(file) {
     return readFileSync(
-        resolve(__dirname, '../../frontend/sarojini-naidu-explorer', file),
+        resolve(__dirname, '../../sarojini-naidu-explorer', file),
         'utf-8'
     );
 }
 
 function readLandingPage() {
     return readFileSync(
-        resolve(__dirname, '../../index.html'),
+        resolve(__dirname, '../../../index.html'),
         'utf-8'
     );
 }
