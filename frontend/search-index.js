@@ -5999,6 +5999,13 @@ window.indiaSearchIndex = [
         category: "Mountains & Treks",
         description:
             "Explore Kheerganga Trek (2,960m) in Himachal Pradesh: detailed route, hot springs of Parvati Kund, Rudranag Temple and Waterfall, local mythology, gear checklist, and duration estimator.",
-        url: "frontend/kheerganga-trek/index.html"
+        url: "frontend/kheerganga-trek/index.html"},
+    // --- feat/tarsar-marsar-trek ---
+    {
+        title: "Tarsar Marsar Trek — Twin Alpine Lakes of Kashmir",
+        category: "Mountains & Treks",
+        description:
+            "Explore Tarsar Marsar Trek (4,100m) in Kashmir: detailed route steps, Aru Valley base, Lidderwat meadows, Sundersar, and the twin almond-shaped glacial lakes of Tarsar and Marsar.",
+        url: "frontend/tarsar-marsar-trek/index.html"
     }
 ];
