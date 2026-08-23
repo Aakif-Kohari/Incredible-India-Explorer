@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Handicrafts Artisan Emporium & Studio Hub Explorer - Discover India's master craft clusters, GI-tagged artisan heritage, handloom weaving, pottery, and interactive studio maps." name="description"/>
+    <meta property="og:title" content="Handicrafts Artisan Emporium & Studio Hub Explorer | Incredible India"/>
+    <meta property="og:description" content="Explore India's GI-tagged handicrafts, master weavers, wood carving studios, terracottas, metalware clusters, and interactive artisan maps across 28 states."/>
+    
+    <title>Handicrafts Artisan Emporium & Studio Hub Explorer | Incredible India</title>
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <link href="../styles.css" rel="stylesheet"/>
+    <link href="../pages-common.css" rel="stylesheet"/>
+    <link href="handicrafts-artisan-emporium-studio-hub.css" rel="stylesheet"/>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Handicrafts Artisan Emporium & Studio Hub",
+      "description": "Comprehensive artisan showcase detailing GI-tagged crafts, traditional textile weaving, pottery, metalwork, and master studio clusters across India.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+                <a href="../festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+                <a href="../culture.html" class="nav-link" id="link-culture">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="../arts-crafts.html" class="dropdown-item" style="color: var(--saffron)">Arts & Crafts</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" style="padding-top: 80px;">
+        
+        <!-- Hero Section -->
+        <section class="handicraft-hero">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge gi-tag"><i class="fa-solid fa-certificate"></i> GI Tagged Heritage</span>
+                    <span class="badge artisan"><i class="fa-solid fa-palette"></i> Master Artisan Guilds</span>
+                    <span class="badge studio"><i class="fa-solid fa-hands-holding-circle"></i> Sustainable Crafts</span>
+                </div>
+                <h1 class="hero-title animate-slide-up">Handicrafts Artisan Emporium & Studio Hub</h1>
+                <p class="hero-description animate-fade-in-delayed">
+                    Explore India's timeless craft heritage—from intricate Pashmina shawl looms and Jaipur blue pottery to Madhubani paintings, Tanjore gold foil art, and Dhokra bronze casting.
+                </p>
+                <div class="hero-actions">
+                    <a href="#artisan-grid" class="btn btn-primary ripple"><i class="fa-solid fa-gem"></i> Discover Craft Guilds</a>
+                    <a href="#artisan-map" class="btn btn-secondary ripple"><i class="fa-solid fa-map-location-dot"></i> View Studio Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Telemetry Metrics Bar -->
+        <section class="metrics-bar-section">
+            <div class="section-container">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon saffron-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <div class="metric-info">
+                            <span class="metric-value">220+</span>
+                            <span class="metric-label">GI-Tagged Handicrafts</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon gold-icon"><i class="fa-solid fa-hands-crafting"></i></div>
+                        <div class="metric-info">
+                            <span class="metric-value">7 Million+</span>
+                            <span class="metric-label">Active Master Artisans</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon green-icon"><i class="fa-solid fa-landmark-flag"></i></div>
+                        <div class="metric-info">
+                            <span class="metric-value">28 States</span>
+                            <span class="metric-label">Craft Clusters Covered</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon blue-icon"><i class="fa-solid fa-feather-pointed"></i></div>
+                        <div class="metric-info">
+                            <span class="metric-value">UNESCO</span>
+                            <span class="metric-label">Intangible Heritage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Craft Filter Controls -->
+        <section id="artisan-grid" class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge gold-bg">Artisan Studio Vault</span>
+                    <h2>Master Craft Clusters & Heritage Emporiums</h2>
+                    <p class="section-subtitle">Filter by craft discipline, raw materials, or GI tag certification to explore India's master artisans.</p>
+                </div>
+
+                <div class="filter-controls">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="craft-search-input" placeholder="Search craft, material, artisan cluster, or region (e.g., Pashmina, Banarasi, Blue Pottery)..."/>
+                    </div>
+                    <div class="filter-buttons-group">
+                        <button class="filter-btn active" data-category="all">All Crafts</button>
+                        <button class="filter-btn" data-category="Textiles">Textiles & Weaving</button>
+                        <button class="filter-btn" data-category="Pottery">Pottery & Ceramics</button>
+                        <button class="filter-btn" data-category="Paintings">Folk Paintings</button>
+                        <button class="filter-btn" data-category="Metalware">Metalcraft & Bronze</button>
+                        <button class="filter-btn" data-category="Woodcraft">Wood & Ivory Carving</button>
+                    </div>
+                </div>
+
+                <div class="crafts-grid" id="crafts-grid-container">
+                    <!-- Dynamic Craft Cards Rendered via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Craft Cluster Map -->
+        <section id="artisan-map" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Studio Telemetry</span>
+                    <h2>Interactive Master Studio Map</h2>
+                    <p class="section-subtitle">Locate master artisan villages, handloom cooperatives, and state government emporiums across India.</p>
+                </div>
+                <div id="artisan-map-container" aria-label="Interactive map of Indian handicraft clusters"></div>
+            </div>
+        </section>
+
+        <!-- Craft Heritage & Millennia Timeline -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #e91e63; color: white;">Heritage Evolution</span>
+                    <h2>5,000 Years of Indian Handicraft Mastery</h2>
+                    <p class="section-subtitle">From Harappan terra-cotta Dancing Girls to royal Chola lost-wax bronze casting and contemporary fair-trade studio hubs.</p>
+                </div>
+
+                <div class="timeline-container" id="handicraft-timeline-container">
+                    <!-- Dynamic Timeline Steps Rendered via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Craft Detail Modal -->
+        <div class="craft-modal" id="craft-modal" aria-hidden="true" role="dialog">
+            <div class="modal-content">
+                <span class="modal-close" id="craft-modal-close-btn">&times;</span>
+                <div id="craft-modal-body-container">
+                    <!-- Filled dynamically via JS -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" style="padding: 40px 0; background: #0a0e17; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);">
+        <div class="section-container">
+            <p style="color: #aaa; font-size: 0.9rem;">&copy; 2026 Incredible India Explorer. GI-Tagged Handicrafts & Artisan Studio Hub Suite.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../pages-common.js"></script>
+    <script src="handicrafts-artisan-emporium-studio-hub.js"></script>
+</body>
+</html>

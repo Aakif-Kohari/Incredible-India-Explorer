@@ -52,15 +52,28 @@ function initCuisineExplorer() {
             if (dish.region === 'west') badgeClass = 'saffron-bg';
             if (dish.region === 'northeast') badgeClass = 'gold-bg';
 
+            const firstLetter = dish.name.charAt(0).toUpperCase();
+
+            // Create a dynamic gradient based on the region
+            let gradStart = '#1a1a2e';
+            let gradEnd = '#16213e';
+            if (dish.region === 'north') { gradStart = '#4a154b'; gradEnd = '#1a0b1b'; }
+            if (dish.region === 'south') { gradStart = '#0f3443'; gradEnd = '#34e89e'; }
+            if (dish.region === 'east') { gradStart = '#5a3f37'; gradEnd = '#2c7744'; }
+            if (dish.region === 'west') { gradStart = '#ff6f00'; gradEnd = '#ffab00'; }
+            if (dish.region === 'northeast') { gradStart = '#0f2027'; gradEnd = '#203a43'; }
+
             card.innerHTML = `
-                <div class="cuisine-card-image">
-                    <img src="${pathPrefix}${dish.image}" alt="${dish.name}" loading="lazy">
-                    <span class="cuisine-region-badge ${badgeClass}">${dish.region} India</span>
-                </div>
-                <div class="cuisine-card-body">
-                    <span class="cuisine-origin">${dish.state}</span>
-                    <h3>${dish.name}</h3>
-                    <p>${dish.description}</p>
+                <div style="background: linear-gradient(135deg, ${gradStart}, ${gradEnd}); padding: 30px; height: 100%; display: flex; flex-direction: column; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -20px; right: -20px; font-size: 15rem; font-weight: 900; color: rgba(255,255,255,0.05); line-height: 1; user-select: none;">${firstLetter}</div>
+                    <div style="position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: auto; padding-bottom: 30px;">
+                            <span class="cuisine-origin" style="color: #ffcc00;">${dish.state}</span>
+                            <span class="cuisine-region-badge ${badgeClass}" style="position: static;">${dish.region} India</span>
+                        </div>
+                        <h3 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; background: linear-gradient(135deg, #fff, #ddd); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${dish.name}</h3>
+                        <p style="color: rgba(255,255,255,0.85); line-height: 1.6; font-size: 1.05rem;">${dish.description}</p>
+                    </div>
                 </div>
             `;
 
@@ -82,12 +95,22 @@ function initFestivals() {
     festivalsData.forEach(fest => {
         const card = document.createElement('div');
         card.className = 'festival-card glass-card';
+        let icon = '✨';
+        if (fest.name.includes('Diwali')) icon = '🪔';
+        if (fest.name.includes('Holi')) icon = '🎨';
+        if (fest.name.includes('Eid')) icon = '🌙';
+        if (fest.name.includes('Navratri')) icon = '💃';
+        if (fest.name.includes('Pongal')) icon = '🌾';
+        if (fest.name.includes('Bihu')) icon = '🥁';
+
         card.innerHTML = `
-            <img class="festival-card-img" src="${pathPrefix}${fest.image}" alt="${fest.name}" loading="lazy">
-            <div class="festival-card-content">
-                <span class="subtitle">${fest.subtitle}</span>
-                <h3>${fest.name}</h3>
-                <p>${fest.description}</p>
+            <div style="font-size: 3.5rem; margin-right: 25px; filter: drop-shadow(0 0 15px rgba(255, 176, 31, 0.4)); flex-shrink: 0;">
+                ${icon}
+            </div>
+            <div class="festival-card-content" style="flex-grow: 1;">
+                <span class="subtitle" style="color: #ffab00; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 6px;">${fest.subtitle}</span>
+                <h3 style="font-size: 1.7rem; font-weight: 700; color: #fff; margin: 0 0 10px 0;">${fest.name}</h3>
+                <p style="color: rgba(255,255,255,0.75); line-height: 1.5; font-size: 0.95rem; margin: 0;">${fest.description}</p>
             </div>
         `;
 
@@ -117,12 +140,17 @@ function initCultureSlider() {
     cultureData.forEach((item) => {
         const card = document.createElement('div');
         card.className = 'slider-card';
+        let catIcon = '🌟';
+        if (item.category.toLowerCase().includes('dance')) catIcon = '🎭';
+        if (item.category.toLowerCase().includes('music')) catIcon = '🎼';
+        if (item.category.toLowerCase().includes('clothing')) catIcon = '🥻';
+
         card.innerHTML = `
-            <img class="slider-card-img" src="${pathPrefix}${item.image}" alt="${item.title}" loading="lazy">
-            <div class="slider-card-body">
-                <span class="slider-card-category">${item.category}</span>
-                <h3>${item.title}</h3>
-                <p>${item.description}</p>
+            <div style="height: 100%; display: flex; flex-direction: column; justify-content: center; padding: 40px 25px; text-align: center; background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.2) 100%); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.3s ease;">
+                <div style="font-size: 4rem; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));">${catIcon}</div>
+                <span class="slider-card-category" style="color: #d4af37; font-weight: 700; letter-spacing: 2px; font-size: 0.85rem; text-transform: uppercase;">${item.category}</span>
+                <h3 style="font-size: 2rem; margin: 12px 0; background: linear-gradient(135deg, #ffffff, #d4af37); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${item.title}</h3>
+                <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">${item.description}</p>
             </div>
         `;
         track.appendChild(card);
