@@ -1,10 +1,10 @@
 // Automatically load SEO helper utility
-(function() {
+(function () {
     if (!document.getElementById('seo-helper-script') && typeof window !== 'undefined') {
         const script = document.createElement('script');
         script.id = 'seo-helper-script';
-        var pathPrefix = window.location.pathname.includes('/frontend/') 
-            ? (window.location.pathname.split('/frontend/')[1].includes('/') ? '../' : '') 
+        var pathPrefix = window.location.pathname.includes('/frontend/')
+            ? (window.location.pathname.split('/frontend/')[1].includes('/') ? '../' : '')
             : 'frontend/';
         script.src = pathPrefix + 'js-modules/seo-helper/seo-helper.js';
         script.defer = true;
@@ -54,26 +54,26 @@ if (typeof window.lazyLoadScript !== 'function') {
     };
 }
 
-window.setupFocusTrap = function(modalElement) {
+window.setupFocusTrap = function (modalElement) {
     if (!modalElement) return null;
     const focusableSelector = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
     const focusableElements = Array.from(modalElement.querySelectorAll(focusableSelector));
     const previousActiveElement = document.activeElement;
-    
+
     if (focusableElements.length > 0) {
         setTimeout(() => focusableElements[0].focus(), AppConfig.FOCUS_TRAP_DELAY);
     } else {
         modalElement.setAttribute('tabindex', '-1');
         setTimeout(() => modalElement.focus(), AppConfig.FOCUS_TRAP_DELAY);
     }
-    
-    const keydownHandler = function(e) {
+
+    const keydownHandler = function (e) {
         if (e.key === 'Tab') {
             const elements = Array.from(modalElement.querySelectorAll(focusableSelector));
             if (elements.length === 0) return;
             const first = elements[0];
             const last = elements[elements.length - 1];
-            
+
             if (e.shiftKey) { // Shift + Tab
                 if (document.activeElement === first || document.activeElement === modalElement) {
                     last.focus();
@@ -87,11 +87,11 @@ window.setupFocusTrap = function(modalElement) {
             }
         }
     };
-    
+
     modalElement.addEventListener('keydown', keydownHandler);
-    
+
     return {
-        deactivate: function() {
+        deactivate: function () {
             modalElement.removeEventListener('keydown', keydownHandler);
             if (previousActiveElement && typeof previousActiveElement.focus === 'function') {
                 setTimeout(() => previousActiveElement.focus(), AppConfig.FOCUS_TRAP_DELAY);
@@ -142,7 +142,7 @@ function iiRegisterKeydownHandler(handler) {
  */
 function iiDisconnectKeydownHandlers() {
     if (!window.__iiRouteState || !window.__iiRouteState.keydownHandlers) return;
-    window.__iiRouteState.keydownHandlers.forEach(function(h) {
+    window.__iiRouteState.keydownHandlers.forEach(function (h) {
         try { document.removeEventListener('keydown', h); } catch (e) { /* ignore */ }
     });
     window.__iiRouteState.keydownHandlers = [];
@@ -183,8 +183,8 @@ function handleInitError(pageName, err) {
 
 /* Initialise the unified toast notification system */
 (function initToastSystem() {
-    var pathPrefix = window.location.pathname.includes('/frontend/') 
-        ? (window.location.pathname.split('/frontend/')[1].includes('/') ? '../' : '') 
+    var pathPrefix = window.location.pathname.includes('/frontend/')
+        ? (window.location.pathname.split('/frontend/')[1].includes('/') ? '../' : '')
         : 'frontend/';
     var script = document.createElement('script');
     script.src = pathPrefix + 'js-modules/toast-system.js';
@@ -199,8 +199,8 @@ function handleInitError(pageName, err) {
 
 /* Initialize route management engine */
 (function initRouteEngine() {
-    var pathPrefix = window.location.pathname.includes('/frontend/') 
-        ? (window.location.pathname.split('/frontend/')[1].includes('/') ? '../' : '') 
+    var pathPrefix = window.location.pathname.includes('/frontend/')
+        ? (window.location.pathname.split('/frontend/')[1].includes('/') ? '../' : '')
         : 'frontend/';
     var script = document.createElement('script');
     script.src = pathPrefix + 'js-modules/router-init.js';
@@ -222,23 +222,11 @@ function initNavigation() {
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
-    const btnScrollTop = document.getElementById('btn-scroll-top');
     const exploreDropdown = navMenu?.querySelector('.nav-dropdown .dropdown-menu');
     const currentPath = window.location.pathname;
 
     if (navbar && navbar.dataset.listenerBound) return;
     if (navbar) navbar.dataset.listenerBound = "true";
-
-    // Sticky navbar on scroll
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-            if (btnScrollTop) btnScrollTop.classList.add('visible');
-        } else {
-            navbar.classList.remove('scrolled');
-            if (btnScrollTop) btnScrollTop.classList.remove('visible');
-        }
-    });
 
     var C = AppConfig;
 
@@ -407,7 +395,7 @@ function initThemeToggle() {
         }
         setThemeIcon(isLightTheme);
         const theme = isLightTheme ? AppConfig.THEME_LIGHT : AppConfig.THEME_DARK;
-        if(window.IIEStorage) window.IIEStorage.setTheme(theme); else localStorage.setItem(AppConfig.THEME_STORAGE_KEY, theme);
+        if (window.IIEStorage) window.IIEStorage.setTheme(theme); else localStorage.setItem(AppConfig.THEME_STORAGE_KEY, theme);
     });
 }
 
@@ -859,7 +847,7 @@ function initInteractiveMap() {
     overlayBackBtn.addEventListener('click', closeOverlay);
 
     // ESC key closes overlay
-    var mapEscapeHandler = function(e) {
+    var mapEscapeHandler = function (e) {
         if (e.key === 'Escape') {
             closeOverlay();
             comparisonOverlay.classList.remove('open');
@@ -1216,7 +1204,7 @@ function initCultureSlider() {
 
         track.style.transform =
             `translateX(calc(-${translation}% - ${currentSlide * 30}px))`;
-      // Update active dot
+        // Update active dot
         const dots =
             dotsContainer.querySelectorAll('.dot');
 
@@ -1631,8 +1619,8 @@ function initQuiz() {
    ========================================================================== */
 
 // Stubs for lazy-loaded pages
-function initCuisinePage() {}
-function initFestivalsPage() {}
+function initCuisinePage() { }
+function initFestivalsPage() { }
 
 
 
@@ -2030,7 +2018,7 @@ function initBharatGuide() {
     const btnSendMsg = document.getElementById('btn-send-msg');
     const btnMic = document.getElementById('btn-mic');
     const langSelect = document.getElementById('chat-lang-select');
-    
+
     // Add current path variable for context
     let currentBotPath = window.location.pathname;
 
@@ -2071,7 +2059,7 @@ function initBharatGuide() {
             btnMic.title = 'Voice Input';
         }
         if (recognition) {
-            try { recognition.stop(); } catch (e) {}
+            try { recognition.stop(); } catch (e) { }
             recognition = null;
         }
     }
@@ -2158,13 +2146,13 @@ function initBharatGuide() {
     function renderContextualGreeting(path, append = false) {
         if (typeof getChatbotContext !== 'function') return;
         const context = getChatbotContext(path);
-        
+
         let chipsHtml = context.chips.map(chip => `<span class="chat-chip">${chip}</span>`).join('');
         let html = `
             <div class="chat-message bot">${context.greeting}</div>
             <div class="chat-chips">${chipsHtml}</div>
         `;
-        
+
         if (append) {
             const msgDiv = document.createElement('div');
             msgDiv.className = 'message bot-message context-update';
@@ -2178,7 +2166,7 @@ function initBharatGuide() {
                 initialChatBody.innerHTML = html;
             }
         }
-        
+
         // Add click listeners to new chips
         const newChips = chatMessages.querySelectorAll('.chat-chip');
         newChips.forEach(chip => {
@@ -2208,7 +2196,7 @@ function initBharatGuide() {
             const targetPath = e.target.getAttribute('data-target');
             if (targetPath && window.appRouter) {
                 window.appRouter.handleRoute(targetPath);
-                
+
                 // Optional: apply highlight effect to target hash after navigation
                 const hash = new URL(targetPath, window.location.origin).hash;
                 if (hash) {
@@ -2255,7 +2243,7 @@ function initBharatGuide() {
     });
 
     function escapeHTML(str) {
-        return str.replace(/[&<>'"]/g, 
+        return str.replace(/[&<>'"]/g,
             tag => ({
                 '&': '&amp;',
                 '<': '&lt;',
@@ -2430,7 +2418,7 @@ function initSciencePage() {
         if (event.target === modal) closeModal();
     });
 
-    var scienceKeydownHandler = function(event) {
+    var scienceKeydownHandler = function (event) {
         if (!isModalOpen) return;
 
         if (event.key === 'Escape') {
@@ -3000,7 +2988,7 @@ function initMusicPage() {
         }
     });
 
-    var musicKeydownHandler = function(event) {
+    var musicKeydownHandler = function (event) {
         if (!isModalOpen) return;
 
         if (event.key === 'Escape') {
@@ -3962,7 +3950,7 @@ function initLiteraturePage() {
         }
     });
 
-    var literatureKeydownHandler = function(event) {
+    var literatureKeydownHandler = function (event) {
         if (!isModalOpen) return;
 
         if (event.key === 'Escape') {
@@ -4710,7 +4698,7 @@ function initDancePage() {
         }
     });
 
-    var danceKeydownHandler = function(event) {
+    var danceKeydownHandler = function (event) {
         if (!isModalOpen) return;
 
         if (event.key === 'Escape') {
@@ -5453,9 +5441,9 @@ function initStartupPage() {
             window.Journey?.removeFromJourney(`startup-${startupId}`);
 
             addToOfflineQueue({
-              action: 'remove-favorite',
-              id: startupId
-          });
+                action: 'remove-favorite',
+                id: startupId
+            });
         } else {
             favorites.add(startupId);
             const item = startupData.find((s) => s.id === startupId);
@@ -5468,9 +5456,9 @@ function initStartupPage() {
             });
 
             addToOfflineQueue({
-              action: 'add-favorite',
-              id: startupId
-           });
+                action: 'add-favorite',
+                id: startupId
+            });
         }
 
         renderAll();
@@ -5643,4 +5631,42 @@ function initPersonalitiesPage() {
     filterCards('historical');
 }
 
+document.addEventListener("DOMContentLoaded", function () {
 
+    const scrollTopBtn = document.getElementById("btn-scroll-top");
+    const homeSection = document.getElementById("home");
+
+    if (!scrollTopBtn || !homeSection) {
+        console.error("Back-to-top button or Home section not found.");
+        return;
+    }
+
+    function updateBackToTop() {
+
+        const homeRect = homeSection.getBoundingClientRect();
+
+        // Home section is still visible
+        if (window.scrollY > 300) {
+            scrollTopBtn.classList.add("visible");
+        }
+
+        // Home section has been completely scrolled past
+        else {
+            scrollTopBtn.classList.remove("visible");
+        }
+    }
+
+    window.addEventListener("scroll", updateBackToTop);
+
+    // Check when page loads
+    updateBackToTop();
+
+    // Smoothly scroll to top
+    scrollTopBtn.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+});
