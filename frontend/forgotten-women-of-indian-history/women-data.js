@@ -1004,6 +1004,21 @@ const WOMEN_PROFILES = [
         mapCoords: { lat: 29.6, lng: 76.9 }
     },
     {
+        id: "janaki-ammal",
+        url: "../janaki-ammal-explorer/",
+        name: "Dr. E. K. Janaki Ammal",
+        era: "post-independence",
+        eraLabel: "1897 – 1984 CE",
+        region: "Thalassery (Kerala) & Coimbatore / London",
+        category: "scientists",
+        contribution: "Pioneering cytogeneticist who developed high-sucrose hybrid sugarcane, co-authored the Chromosome Atlas, and saved Silent Valley.",
+        bio: "First Indian woman to earn a D.Sc. in Botany (Univ. of Michigan 1931). Master of polyploid plant genetics, Director-General of BSI, and defender of India's biodiversity.",
+        dynasty: "Sugarcane Genetics & BSI",
+        featured: true,
+        icon: "🔬",
+        mapCoords: { lat: 11.75, lng: 75.49 }
+    },
+    {
         id: "mary-kom",
         name: "M. C. Mary Kom",
         era: "post-independence",
