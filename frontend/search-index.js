@@ -6037,6 +6037,14 @@ window.indiaSearchIndex = [
         category: "History & Royalty",
         description:
             "Explore Ahilyabai Holkar (1725–1795 CE) — Punyashlok Rajmata of Malwa: governance, pan-Indian temple restorations (Kashi Vishwanath, Somnath, Gaya), Maheshwar handloom heritage, and timeline.",
-        url: "frontend/ahilyabai-holkar-explorer/index.html"
+        url: "frontend/ahilyabai-holkar-explorer/index.html"},
+          
+    // --- Chand Bibi Explorer ---
+    {
+        title: "Chand Bibi — The Defender of Ahmadnagar Explorer",
+        category: "History & Royalty",
+        description:
+            "Explore the historical profile of Chand Bibi (1550–1599 CE) — Defender of Ahmadnagar, Regent of Bijapur & Ahmadnagar, Mughal siege resistance, and Deccan politics.",
+        url: "frontend/chand-bibi-explorer/index.html"
     }
 ];
