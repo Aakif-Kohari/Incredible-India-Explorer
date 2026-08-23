@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Smart Indian Travel Budget Estimator - Plan and estimate your India trip expenses."
+    >
+
+    <title>Smart Travel Budget Estimator | Incredible India Explorer</title>
+
+    <link rel="stylesheet" href="budget.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <a href="../../index.html" class="brand">
+        🇮🇳 Incredible India Explorer
+    </a>
+
+    <a href="../../index.html" class="back-link">
+        ← Back to Explorer
+    </a>
+
+</header>
+
+
+<main class="container">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <span class="badge">
+            Smart Travel Tool
+        </span>
+
+        <h1>
+            Travel Budget Estimator
+        </h1>
+
+        <p>
+            Plan your Indian adventure with an estimated
+            trip budget based on your destination,
+            duration and travel style.
+        </p>
+
+    </section>
+
+
+    <!-- CALCULATOR -->
+
+    <section class="calculator">
+
+        <div class="calculator-header">
+
+            <div>
+                <span class="section-label">
+                    Trip Planner
+                </span>
+
+                <h2>
+                    Estimate Your Trip Cost
+                </h2>
+            </div>
+
+            <span class="currency">
+                INR ₹
+            </span>
+
+        </div>
+
+
+        <div class="form-grid">
+
+            <!-- DESTINATION -->
+
+            <div class="form-group">
+
+                <label for="destination">
+                    Destination
+                </label>
+
+                <select id="destination">
+
+                    <option value="">
+                        Select destination
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- TRAVELERS -->
+
+            <div class="form-group">
+
+                <label for="travelers">
+                    Number of Travelers
+                </label>
+
+                <input
+                    type="number"
+                    id="travelers"
+                    min="1"
+                    max="50"
+                    value="2"
+                >
+
+            </div>
+
+
+            <!-- DAYS -->
+
+            <div class="form-group">
+
+                <label for="days">
+                    Trip Duration (Days)
+                </label>
+
+                <input
+                    type="number"
+                    id="days"
+                    min="1"
+                    max="365"
+                    value="4"
+                >
+
+            </div>
+
+
+            <!-- STYLE -->
+
+            <div class="form-group">
+
+                <label for="travelStyle">
+                    Travel Style
+                </label>
+
+                <select id="travelStyle">
+
+                    <option value="budget">
+                        💰 Budget
+                    </option>
+
+                    <option value="standard" selected>
+                        ⭐ Standard
+                    </option>
+
+                    <option value="premium">
+                        👑 Premium
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="action-row">
+
+            <button
+                id="calculateBtn"
+                class="primary-btn"
+            >
+                Calculate Budget
+            </button>
+
+            <button
+                id="resetBtn"
+                class="secondary-btn"
+            >
+                Reset
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ERROR -->
+
+    <div
+        id="errorMessage"
+        class="error-message hidden"
+    ></div>
+
+
+    <!-- RESULT -->
+
+    <section
+        id="resultSection"
+        class="results hidden"
+    >
+
+        <div class="result-header">
+
+            <div>
+
+                <span class="section-label">
+                    Estimated Budget
+                </span>
+
+                <h2 id="resultDestination">
+                    Your Trip
+                </h2>
+
+            </div>
+
+            <div class="style-badge" id="resultStyle">
+                Standard
+            </div>
+
+        </div>
+
+
+        <!-- TOTAL -->
+
+        <div class="total-card">
+
+            <span>
+                Estimated Total Trip Cost
+            </span>
+
+            <strong id="totalCost">
+                ₹0
+            </strong>
+
+            <small id="tripSummary">
+                0 travelers · 0 days
+            </small>
+
+        </div>
+
+
+        <!-- QUICK STATS -->
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <span>
+                    Per Person
+                </span>
+
+                <strong id="perPerson">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    Per Day
+                </span>
+
+                <strong id="perDay">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    Daily / Person
+                </span>
+
+                <strong id="perPersonDay">
+                    ₹0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- EXPENSE BREAKDOWN -->
+
+        <div class="breakdown">
+
+            <div class="breakdown-heading">
+
+                <div>
+                    <span class="section-label">
+                        Expense Breakdown
+                    </span>
+
+                    <h3>
+                        Where Your Money Goes
+                    </h3>
+                </div>
+
+            </div>
+
+
+            <div
+                id="expenseList"
+                class="expense-list"
+            ></div>
+
+        </div>
+
+
+        <!-- TRAVEL TIP -->
+
+        <div class="travel-tip">
+
+            <div class="tip-icon">
+                💡
+            </div>
+
+            <div>
+
+                <h3>
+                    Travel Tip
+                </h3>
+
+                <p id="travelTip">
+                    Plan ahead to get better prices.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- SAVE -->
+
+        <button
+            id="saveBtn"
+            class="save-btn"
+        >
+            ☆ Save Budget
+        </button>
+
+    </section>
+
+
+    <!-- EMPTY -->
+
+    <section
+        id="emptyState"
+        class="empty-state"
+    >
+
+        <div class="empty-icon">
+            🧳
+        </div>
+
+        <h2>
+            Start Planning Your Trip
+        </h2>
+
+        <p>
+            Select a destination and enter your
+            travel details to see an estimated budget.
+        </p>
+
+    </section>
+
+</main>
+
+
+<div
+    id="toast"
+    class="toast"
+>
+</div>
+
+
+<script src="budget-data.js"></script>
+<script src="budget.js"></script>
+
+</body>
+</html>
