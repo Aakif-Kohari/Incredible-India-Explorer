@@ -3,6 +3,19 @@
 
 <head>
     <script>
+        // Force clear Service Worker caches for the redesign
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                for(let registration of registrations) {
+                    registration.unregister();
+                }
+            });
+            caches.keys().then(function(names) {
+                for (let name of names) caches.delete(name);
+            });
+        }
+    </script>
+    <script>
         (function () {
             const theme = localStorage.getItem('theme') || 'dark';
             if (theme === 'light') {
@@ -937,7 +950,7 @@
 
     <!-- JavaScript Files -->
     <script src="frontend/dist/map-data.js" defer></script>
-    <script src="frontend/dist/home-data.js" defer></script>
+    <script src="frontend/dist/home-data.js?v=2" defer></script>
     <script src="frontend/chatbot-data.js" defer></script>
     <script src="frontend/sw-register.js" defer></script>
     <script src="frontend/js-modules/config.js" defer></script>

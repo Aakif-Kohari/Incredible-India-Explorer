@@ -343,6 +343,7 @@ function initNavigation() {
         }
     });
 
+    const btnScrollTop = document.getElementById('btn-scroll-top');
     if (btnScrollTop) {
         btnScrollTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -938,7 +939,7 @@ function initInteractiveMap() {
                     <div class="icon-circle">IN</div>
                     <h3>${loc.name}</h3>
                 </div>
-                <p class="info-card-text">
+                <p class="info-card-text" style="font-size: 0.95rem; margin-bottom: 25px;">
                     <strong>Capital:</strong> ${loc.capital}<br>
                     <strong>Famous Food:</strong> ${loc.food}<br>
                     <strong>Festival:</strong> ${loc.festival}
@@ -1424,30 +1425,17 @@ function initDynastySection() {
         card.className = "dynasty-card";
 
         card.innerHTML = `
-            <div class="dynasty-card-image">
-                <img 
-                    src="${dynasty.image}"
-                    alt="${dynasty.title}"
-                    loading="lazy"
-                >
-            </div>
-
-            <div class="dynasty-card-body">
-
-                <span class="dynasty-card-category">
+            <div class="dynasty-card-body" style="padding: 40px 30px; text-align: center; border-top: 3px solid #d4af37; background: linear-gradient(180deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                <div style="font-size: 3rem; color: #d4af37; margin-bottom: 15px; font-family: serif; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));">🏛️</div>
+                <span class="dynasty-card-category" style="color: #ffab00; letter-spacing: 2px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">
                     ${dynasty.category}
                 </span>
-
-                <h3>
-                    <a href="${dynasty.link}">
+                <h3 style="font-size: 1.8rem; margin: 15px 0 10px;">
+                    <a href="${dynasty.link || '#'}" style="color: #fff; text-decoration: none;">
                         ${dynasty.title}
                     </a>
                 </h3>
-
-                <p>
-                    ${dynasty.description}
-                </p>
-
+                <p style="color: rgba(255,255,255,0.7); line-height: 1.6; font-size: 0.95rem;">${dynasty.description}</p>
             </div>
         `;
 
