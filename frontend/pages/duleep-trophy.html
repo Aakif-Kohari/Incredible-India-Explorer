@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duleep Trophy: India's Inter-Zonal Cricket Championship</title>
+    <style>
+        :root {
+            --cricket-green: #1A3C28;
+            --cricket-gold: #C5A059;
+            --cricket-dark: #222222;
+            --cricket-cream: #F8F6F0;
+            --cricket-accent: #8B263E;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--cricket-cream);
+            color: var(--cricket-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 60, 40, 0.95);
+            backdrop-filter: blur(8px);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--cricket-gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--cricket-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 1.5rem;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            color: var(--cricket-gold);
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 750px;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .btn {
+            background: var(--cricket-gold);
+            color: var(--cricket-dark);
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 5rem 2rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        h2 {
+            font-size: 2.3rem;
+            color: var(--cricket-green);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--cricket-gold);
+            margin: 0.6rem auto 0;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .img-container {
+            width: 100%;
+            height: 380px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .img-container:hover img {
+            transform: scale(1.04);
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--cricket-green);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--cricket-green);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        /* Interactive Timeline */
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            padding: 2rem 0;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--cricket-green);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 15px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            right: -9px;
+            background-color: white;
+            border: 4px solid var(--cricket-gold);
+            top: 22px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-left {
+            left: 0;
+        }
+
+        .timeline-right {
+            left: 50%;
+        }
+
+        .timeline-right::after {
+            left: -9px;
+        }
+
+        .timeline-content {
+            padding: 20px 25px;
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .timeline-content h3 {
+            color: var(--cricket-accent);
+            margin-bottom: 0.4rem;
+        }
+
+        /* Sources Box */
+        .sources-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--cricket-gold);
+        }
+
+        .sources-box ul {
+            padding-left: 1.5rem;
+        }
+
+        .sources-box li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--cricket-green);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-container::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 15px;
+            }
+
+            .timeline-item::after {
+                left: 11px;
+            }
+
+            .timeline-right {
+                left: 0%;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo">Duleep Trophy</div>
+        <nav>
+            <ul>
+                <li><a href="#namesake">Namesake</a></li>
+                <li><a href="#history">History</a></li>
+                <li><a href="#format">Format & Zones</a></li>
+                <li><a href="#players">Famous Players</a></li>
+                <li><a href="#timeline">Evolution Timeline</a></li>
+                <li><a href="#sources">Sources</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Duleep Trophy</h1>
+        <p>Exploring India's premier first-class domestic inter-zonal cricket championship, legendary rivalries, and the path to Test selection.</p>
+        <a href="#history" class="btn">Explore Championship</a>
+    </section>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Namesake Section -->
+        <section id="namesake">
+            <h2>The Namesake: Kumar Shri Duleepsinhji</h2>
+            <div class="grid-2">
+                <div>
+                    <p>The Duleep Trophy is named in honor of <strong>Kumar Shri Duleepsinhji</strong> (often known simply as Duleep), a legendary Indian Test cricketer who played for England and was the nephew of the iconic K.S. Ranjitsinhji (after whom the Ranji Trophy is named).</p>
+                    <p>Duleep was renowned for his exquisite elegance, extraordinary wristwork, and prolific batting performances in English county cricket and Test matches. The tournament was established by the Board of Control for Cricket in India (BCCI) in 1961–62 to perpetuate his legacy and foster elite multi-day competition across different regions of India.</p>
+                </div>
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=800&q=80" alt="Classic Cricket Heritage">
+                </div>
+            </div>
+        </section>
+
+        <!-- History & Origins Section -->
+        <section id="history">
+            <h2>History & Tournament Significance</h2>
+            <div class="grid-2">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1593341646782-e0b495cff86d?auto=format&fit=crop&w=800&q=80" alt="Cricket Stadium Match">
+                </div>
+                <div>
+                    <p>Inaugurated in the 1961–62 season, the Duleep Trophy was conceived to bridge the gap between standard Ranji Trophy matches and international Test cricket. By dividing India into regional zones (North, South, East, West, and Central, alongside occasional guest teams like North-East or India Red/Blue/Green), the tournament brought together the absolute finest domestic talent to compete in intense multi-day matches.</p>
+                    <p>Winning the Duleep Trophy has historically been considered one of the highest domestic honors in Indian cricket, often serving as the definitive selection trial for national team tours abroad.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Format & Historical Zones Section -->
+        <section id="format">
+            <h2>Tournament Format & Historical Zones</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Inter-Zonal Structure</h3>
+                    <p>Traditionally contested on a knockout or league-cum-knockout format between geographical zones: North, South, East, West, and Central Zone.</p>
+                </div>
+                <div class="card">
+                    <h3>Modern Team Experiments</h3>
+                    <p>In recent years, the BCCI has experimented with team names like India Red, India Blue, and India Green, before returning to regional zonal formats to preserve historical rivalries.</p>
+                </div>
+                <div class="card">
+                    <h3>First-Class Status</h3>
+                    <p>All matches hold official first-class status, demanding immense tactical patience, endurance, and skill from batsmen and bowlers alike over four or five days.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Famous Players Section -->
+        <section id="players">
+            <h2>Legendary Performances & Famous Players</h2>
+            <p>Virtually every great Indian cricketer—from Sunil Gavaskar and Sachin Tendulkar to Anil Kumble, Rahul Dravid, MS Dhoni, Virat Kohli, and Rohit Sharma—has tested their mettle in the Duleep Trophy. Historic individual records, such as triple centuries and fiery spells of fast bowling on neutral pitches, have often cemented a player's selection for the Indian Test squad.</p>
+        </section>
+
+        <!-- Interactive Evolution Timeline -->
+        <section id="timeline">
+            <h2>Tournament Evolution Timeline</h2>
+            <div class="timeline-container">
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <h3>1961 - 1962</h3>
+                        <p>Inaugural edition of the Duleep Trophy established by the BCCI, won initially by West Zone.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <h3>Late 20th Century</h3>
+                        <p>Establishment of fierce inter-zonal rivalries, featuring legendary domestic stalwarts and rising Test stars.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <h3>2016 - 2019</h3>
+                        <p>BCCI transitions to day-night pink-ball fixtures and team designations like India Red, Blue, and Green.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <h3>Present Day</h3>
+                        <p>Continuation as India's premier red-ball tournament, identifying and preparing the next generation of Test cricketers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sources Section -->
+        <section id="sources">
+            <h2>Sources & References</h2>
+            <div class="sources-box">
+                <ul>
+                    <li>Board of Control for Cricket in India (BCCI) official archives and domestic records.</li>
+                    <li>Historical statistical chronicles of Indian first-class cricket and historical tournament summaries.</li>
+                    <li>Biographical profiles of K.S. Duleepsinhji and historic Indian cricket milestones.</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Duleep Trophy Heritage Project | Incredible India Explorer.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

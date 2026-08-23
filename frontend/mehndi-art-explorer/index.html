@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mehndi — India's Traditional Henna Art</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=Mukta:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment:#F3E6C8;
+    --parchment-deep:#EAD8AC;
+    --paste:#4E5A28;
+    --paste-light:#7C8C4A;
+    --stain:#7A2A28;
+    --stain-deep:#4E1A19;
+    --marigold:#CC8A2E;
+    --marigold-light:#E3B15C;
+    --ink:#2B1D14;
+    --blush:#F0D9AE;
+    --card:#FBF2DC;
+    --white-ish:#FFFBF2;
+    --font-display:'Yatra One', cursive;
+    --font-accent:'Cormorant Garamond', serif;
+    --font-body:'Mukta', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--marigold-light);color:var(--stain-deep);}
+
+  /* ---------- vine margin (signature decorative device) ---------- */
+  .vine-rail{
+    position:absolute;
+    top:0; bottom:0; left:0;
+    width:46px;
+    background-repeat:repeat-y;
+    background-size:46px 220px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='220' viewBox='0 0 46 220'%3E%3Cpath d='M23 0 C10 20 36 40 23 60 C10 80 36 100 23 120 C10 140 36 160 23 180 C10 195 30 205 23 220' fill='none' stroke='%237A2A28' stroke-width='2' stroke-linecap='round' opacity='0.35'/%3E%3Ccircle cx='14' cy='30' r='2.4' fill='%237A2A28' opacity='0.3'/%3E%3Ccircle cx='33' cy='70' r='2.4' fill='%237A2A28' opacity='0.3'/%3E%3Ccircle cx='14' cy='110' r='2.4' fill='%237A2A28' opacity='0.3'/%3E%3Ccircle cx='33' cy='150' r='2.4' fill='%237A2A28' opacity='0.3'/%3E%3Ccircle cx='16' cy='190' r='2.4' fill='%237A2A28' opacity='0.3'/%3E%3C/svg%3E");
+    z-index:0;
+    pointer-events:none;
+  }
+  @media (max-width:860px){ .vine-rail{ display:none; } }
+
+  .page{ position:relative; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 32px; }
+  @media (max-width:860px){ .wrap{ padding:0 20px; } }
+
+  /* ---------- top nav ---------- */
+  .topnav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(243,230,200,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(122,42,40,0.18);
+  }
+  .topnav-inner{
+    max-width:1080px; margin:0 auto; padding:14px 32px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    flex-wrap:wrap;
+  }
+  .brand{
+    font-family:var(--font-display);
+    font-size:1.35rem;
+    color:var(--stain);
+    letter-spacing:0.5px;
+  }
+  .navlinks{ display:flex; gap:22px; flex-wrap:wrap; }
+  .navlinks a{
+    font-size:0.82rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--ink); text-decoration:none; opacity:0.72;
+    border-bottom:1px solid transparent; padding-bottom:2px;
+    transition:opacity .2s, border-color .2s;
+  }
+  .navlinks a:hover{ opacity:1; border-color:var(--marigold); }
+  @media (max-width:700px){ .navlinks{ display:none; } }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:76px 32px 60px;
+    text-align:center;
+    position:relative;
+  }
+  .eyebrow{
+    font-family:var(--font-accent);
+    font-style:italic; font-size:1.05rem;
+    color:var(--paste); letter-spacing:0.04em;
+    margin-bottom:6px;
+  }
+  .hero h1{
+    font-family:var(--font-display);
+    font-size:clamp(3.2rem, 9vw, 6.4rem);
+    color:var(--stain);
+    margin:0;
+    line-height:1;
+    text-shadow:2px 2px 0 rgba(204,138,46,0.18);
+  }
+  .hero .sub{
+    font-family:var(--font-accent);
+    font-size:clamp(1.1rem,2.4vw,1.5rem);
+    font-style:italic;
+    color:var(--ink);
+    max-width:640px;
+    margin:14px auto 0;
+    opacity:0.85;
+  }
+  .hero-motif{ width:min(260px, 60vw); margin:38px auto 6px; display:block; }
+  .hero-motif path{
+    fill:none; stroke:var(--stain); stroke-width:2.4;
+    stroke-linecap:round; stroke-linejoin:round;
+    stroke-dasharray:900; stroke-dashoffset:900;
+    animation:draw 3.2s ease forwards 0.4s;
+  }
+  .hero-motif .fill-dot{ fill:var(--marigold); opacity:0; animation:fadeindot 0.6s ease forwards 3.4s; }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  @keyframes fadeindot{ to{ opacity:1; } }
+  .scrollcue{
+    font-size:0.75rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--paste); opacity:0.6; margin-top:18px;
+  }
+
+  /* ---------- generic section chrome ---------- */
+  section{ padding:64px 0; position:relative; }
+  .section-head{ max-width:680px; margin:0 0 34px; }
+  .kicker{
+    font-size:0.78rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--marigold); font-weight:600; margin-bottom:8px;
+  }
+  h2{
+    font-family:var(--font-display);
+    font-size:clamp(2rem,4vw,2.9rem);
+    color:var(--stain);
+    margin:0 0 10px;
+    line-height:1.1;
+  }
+  .lede{ font-family:var(--font-accent); font-size:1.15rem; font-style:italic; color:var(--ink); opacity:0.82; margin:0; }
+  p{ margin:0 0 16px; font-size:1.02rem; }
+  .divider{
+    width:100%; height:22px; margin:8px 0 40px;
+    background-repeat:repeat-x; background-size:64px 22px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='22' viewBox='0 0 64 22'%3E%3Cpath d='M0 11 C10 2 22 20 32 11 C42 2 54 20 64 11' fill='none' stroke='%237A2A28' stroke-width='1.6' opacity='0.3'/%3E%3C/svg%3E");
+    opacity:0.8;
+  }
+
+  /* ---------- history ---------- */
+  .history-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:start; }
+  @media (max-width:780px){ .history-grid{ grid-template-columns:1fr; } }
+  .timeline{ display:flex; flex-direction:column; gap:22px; border-left:2px solid rgba(122,42,40,0.3); padding-left:22px; }
+  .timeline-item .era{ font-family:var(--font-display); color:var(--marigold); font-size:0.95rem; display:block; margin-bottom:2px; }
+  .timeline-item p{ margin:0; font-size:0.95rem; opacity:0.9; }
+
+  /* ---------- regional / motif gallery (signature interactive) ---------- */
+  .gallery-shell{
+    background:var(--card);
+    border:1px solid rgba(122,42,40,0.18);
+    border-radius:22px;
+    padding:30px 26px 34px;
+    box-shadow:0 18px 40px -24px rgba(43,29,20,0.35);
+  }
+  .region-tabs{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:26px; }
+  .region-tab{
+    font-family:var(--font-body); font-weight:600; font-size:0.86rem;
+    background:transparent; border:1.5px solid var(--stain);
+    color:var(--stain); padding:9px 18px; border-radius:999px;
+    cursor:pointer; transition:all .25s ease;
+    letter-spacing:0.02em;
+  }
+  .region-tab:hover{ background:rgba(122,42,40,0.08); }
+  .region-tab.active{ background:var(--stain); color:var(--white-ish); box-shadow:0 6px 14px -6px rgba(122,42,40,0.6); }
+
+  .region-panel{ display:none; animation:fadein .45s ease; }
+  .region-panel.active{ display:block; }
+  @keyframes fadein{ from{ opacity:0; transform:translateY(6px);} to{ opacity:1; transform:translateY(0);} }
+
+  .region-intro{ display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start; margin-bottom:24px; }
+  .region-intro .region-name{ font-family:var(--font-display); font-size:1.6rem; color:var(--stain); margin:0 0 6px; }
+  .region-intro .region-desc{ font-size:0.97rem; max-width:560px; margin:0; opacity:0.88; }
+  .region-tag{
+    font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase;
+    background:var(--marigold-light); color:var(--stain-deep);
+    padding:5px 11px; border-radius:999px; font-weight:600; white-space:nowrap;
+  }
+
+  .motif-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:16px; }
+  .motif-card{
+    perspective:1000px; height:190px; cursor:pointer;
+  }
+  .motif-inner{
+    position:relative; width:100%; height:100%;
+    transform-style:preserve-3d; transition:transform .55s cubic-bezier(.4,.2,.2,1);
+    border-radius:16px;
+  }
+  .motif-card.flipped .motif-inner{ transform:rotateY(180deg); }
+  .motif-face{
+    position:absolute; inset:0; backface-visibility:hidden;
+    border-radius:16px; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center; padding:14px;
+  }
+  .motif-front{ background:var(--parchment-deep); border:1px solid rgba(122,42,40,0.2); }
+  .motif-front svg{ width:64px; height:64px; margin-bottom:10px; }
+  .motif-front svg path, .motif-front svg circle, .motif-front svg ellipse{ stroke:var(--stain); fill:none; stroke-width:2; stroke-linecap:round; }
+  .motif-front .m-name{ font-family:var(--font-accent); font-style:italic; font-weight:600; font-size:1rem; color:var(--stain-deep); }
+  .motif-front .m-hint{ font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; opacity:0.5; margin-top:6px; }
+  .motif-back{
+    background:var(--stain); color:var(--white-ish);
+    transform:rotateY(180deg); font-size:0.86rem;
+  }
+  .motif-back .m-title{ font-family:var(--font-display); font-size:1.05rem; margin-bottom:6px; color:var(--marigold-light); }
+
+  /* ---------- wedding + festival cards ---------- */
+  .flow-list{ display:flex; flex-direction:column; gap:0; }
+  .flow-item{ display:flex; gap:18px; padding:18px 0; border-bottom:1px dashed rgba(122,42,40,0.25); }
+  .flow-item:last-child{ border-bottom:none; }
+  .flow-icon{ width:34px; height:34px; flex:none; border-radius:50%; background:var(--marigold); display:flex; align-items:center; justify-content:center; color:var(--white-ish); font-family:var(--font-display); }
+  .flow-item h4{ margin:0 0 4px; font-family:var(--font-accent); font-style:italic; font-size:1.15rem; color:var(--stain-deep); }
+  .flow-item p{ margin:0; font-size:0.95rem; opacity:0.88; }
+
+  .fest-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:18px; }
+  .fest-card{
+    background:var(--card); border-radius:16px; padding:20px;
+    border:1px solid rgba(122,42,40,0.16);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .fest-card:hover{ transform:translateY(-4px); box-shadow:0 16px 30px -18px rgba(43,29,20,0.4); }
+  .fest-card .fest-tag{ font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--marigold); font-weight:700; margin-bottom:8px; display:block; }
+  .fest-card h4{ margin:0 0 8px; font-family:var(--font-display); font-size:1.2rem; color:var(--stain); }
+  .fest-card p{ margin:0; font-size:0.92rem; opacity:0.86; }
+
+  /* ---------- preparation steps ---------- */
+  .steps{ counter-reset:step; display:flex; flex-direction:column; gap:0; position:relative; }
+  .steps::before{
+    content:''; position:absolute; left:23px; top:10px; bottom:10px; width:2px;
+    background:repeating-linear-gradient(to bottom, var(--paste) 0 6px, transparent 6px 12px);
+  }
+  .step{ display:flex; gap:20px; padding:16px 0; position:relative; }
+  .step-num{
+    counter-increment:step; content:counter(step);
+    width:48px; height:48px; border-radius:50%; flex:none;
+    background:var(--paste); color:var(--white-ish);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display); font-size:1.1rem; z-index:1;
+  }
+  .step-num::before{ content:counter(step); }
+  .step-body h4{ margin:0 0 4px; font-family:var(--font-accent); font-style:italic; color:var(--stain-deep); font-size:1.12rem; }
+  .step-body p{ margin:0; font-size:0.95rem; opacity:0.88; }
+  .callout{
+    margin-top:24px; padding:16px 20px; border-radius:14px;
+    background:rgba(122,42,40,0.08); border-left:4px solid var(--stain);
+    font-size:0.9rem;
+  }
+  .callout strong{ color:var(--stain-deep); }
+
+  /* ---------- footer ---------- */
+  footer{
+    padding:48px 0 60px; border-top:1px solid rgba(122,42,40,0.2);
+    font-size:0.85rem; opacity:0.85;
+  }
+  footer h5{ font-family:var(--font-display); color:var(--stain); font-size:1.1rem; margin:0 0 10px; }
+  footer a{ color:var(--stain-deep); }
+  footer .credit-note{ max-width:640px; margin-top:6px; }
+  .reading-links{ display:flex; flex-wrap:wrap; gap:14px 26px; margin-top:12px; }
+  .reading-links a{ font-size:0.82rem; }
+
+  .img-note{ font-family:var(--font-accent); font-style:italic; font-size:0.82rem; opacity:0.6; margin-top:6px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="vine-rail"></div>
+
+  <nav class="topnav">
+    <div class="topnav-inner">
+      <span class="brand">M · मेहंदी</span>
+      <div class="navlinks">
+        <a href="#history">History</a>
+        <a href="#gallery">Regional Gallery</a>
+        <a href="#wedding">Weddings</a>
+        <a href="#festivals">Festivals</a>
+        <a href="#prep">Preparation</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="eyebrow">the M section — इंडिया की परंपरा</div>
+    <h1>Mehndi</h1>
+    <p class="sub">India's traditional henna art — where a paste of crushed leaves becomes a language of celebration, drawn one continuous line at a time.</p>
+
+    <svg class="hero-motif" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M100 30 C140 30 160 60 155 90 C150 120 125 140 105 130 C88 122 90 100 108 98 C122 96 124 78 108 74 C88 69 72 86 78 106 C86 132 120 150 150 138 C182 125 190 78 158 45 C132 19 92 18 70 40 C55 55 55 78 72 90"/>
+      <circle class="fill-dot" cx="100" cy="30" r="4"/>
+      <circle class="fill-dot" cx="72" cy="90" r="3"/>
+      <circle class="fill-dot" cx="150" cy="138" r="3"/>
+    </svg>
+    <div class="scrollcue">↓ trace the story</div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- HISTORY -->
+    <section id="history">
+      <div class="section-head">
+        <div class="kicker">Origins &amp; Journey</div>
+        <h2>A stain older than memory</h2>
+        <p class="lede">From a cooling desert remedy to the centrepiece of a wedding morning.</p>
+      </div>
+      <div class="history-grid">
+        <div>
+          <p>Long before mehndi became a wedding ritual, henna was valued simply for what it did to the body in a hot climate: crushed leaves of <em>Lawsonia inermis</em> were pressed onto palms and soles to cool the skin, and the reddish stain that followed was noticed, and then admired. The plant itself is native to a wide, sun-baked belt stretching from North Africa through the Middle East and into South Asia, so versions of this same idea — paste from a leaf, a stain that lingers — arose in many places that shared little else in common.</p>
+          <p>In India, the practice layered onto existing traditions of adorning the body for auspicious occasions, alongside kumkum, turmeric, and alta. Courtly patronage during the Mughal period is often credited with refining mehndi into the elaborate, trailing floral art recognisable today — Persian garden motifs meeting indigenous Indian forms like the paisley and the lotus, carried by artists who moved between royal households and village courtyards alike.</p>
+          <p>What survived that long journey wasn't a fixed pattern but a method: a paste, a cone, a steady hand, and the understanding that the design is temporary — which is exactly why it belongs to life's temporary, threshold moments. A bride's mehndi. A festival morning. A newborn's naming day. It fades, and that is the point.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="era">Antiquity</span>
+            <p>Henna used across North Africa, the Middle East, and South Asia as a cooling agent and dye for hair, skin, and textiles.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="era">Vedic &amp; early folk practice</span>
+            <p>Body adornment with plant dyes for auspicious occasions becomes woven into South Asian ritual life alongside kumkum and turmeric.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="era">Mughal courts, 16th–18th c.</span>
+            <p>Persian floral aesthetics merge with local motifs; mehndi is refined into an elaborate courtly art form.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="era">19th–20th century</span>
+            <p>Regional schools consolidate — Rajasthani, Mughal, South Indian, Pakistani/Punjabi — each with its own density and vocabulary.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="era">Present day</span>
+            <p>Indo-Arabic fusion styles dominate contemporary bridal trends; mehndi travels with the diaspora and becomes a global art form.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- REGIONAL + MOTIF GALLERY (INTERACTIVE) -->
+    <section id="gallery">
+      <div class="section-head">
+        <div class="kicker">Interactive Feature</div>
+        <h2>Regional styles &amp; their motifs</h2>
+        <p class="lede">Choose a region to see how its hand tells a different story. Tap any motif to learn what it means.</p>
+      </div>
+
+      <div class="gallery-shell">
+        <div class="region-tabs" role="tablist" aria-label="Regional mehndi styles">
+          <button class="region-tab active" data-region="rajasthani">Rajasthani</button>
+          <button class="region-tab" data-region="mughal">Mughal / North Indian</button>
+          <button class="region-tab" data-region="arabic">Indo-Arabic</button>
+          <button class="region-tab" data-region="bengali">Bengali</button>
+          <button class="region-tab" data-region="south">South Indian</button>
+          <button class="region-tab" data-region="punjabi">Punjabi / Pakistani</button>
+        </div>
+
+        <!-- RAJASTHANI -->
+        <div class="region-panel active" data-region="rajasthani">
+          <div class="region-intro">
+            <div>
+              <p class="region-name">Rajasthani (Marwari)</p>
+              <p class="region-desc">The most densely covered of all schools — patterns run from fingertip to elbow with barely a gap of bare skin. Bold paisleys anchor fine, net-like fillings, often centred on a sunburst mandala at the palm.</p>
+            </div>
+            <span class="region-tag">Full-arm coverage</span>
+          </div>
+          <div class="motif-grid">
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M60 20 C90 20 100 50 85 75 C75 92 55 95 45 85 C35 75 40 60 55 60 C65 60 65 50 55 48 C40 45 30 55 35 70 C40 88 65 100 85 90 C105 80 110 45 85 25 C70 12 45 12 35 25"/></svg>
+                <span class="m-name">Kairi (Paisley)</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Paisley</span>Shaped like a mango or a growing shoot, it stands for fertility and new life — the anchor motif of almost every Indian mehndi tradition.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M20 20h20v20h-20zM20 60h20v20h-20zM20 100h20v-20zM60 20h20v20h-20zM60 60h20v20h-20zM60 100h20v-20zM100 20v20h-20zM100 60v20h-20z" stroke-linejoin="round"/></svg>
+                <span class="m-name">Jaali (Net fill)</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Jaali</span>A fine lattice used to fill space between larger motifs — it's what gives Rajasthani mehndi its dense, lace-like texture.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="10"/><circle cx="60" cy="60" r="24"/><circle cx="60" cy="60" r="40"/><path d="M60 20v10M60 90v10M20 60h10M90 60h10M32 32l7 7M81 81l7 7M32 88l7-7M81 39l7-7"/></svg>
+                <span class="m-name">Surya Mandala</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Sun Mandala</span>Placed at the centre of the palm, the radiating sun motif represents life, energy, and the warmth of a happy household.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M60 20 C70 45 95 45 100 65 C104 82 88 92 75 84 C82 78 78 66 66 68 C58 69 56 78 62 84"/><circle cx="60" cy="35" r="4"/></svg>
+                <span class="m-name">Mor Pankh</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Peacock Feather</span>India's national bird, worked in as a small accent — a nod to grace, and to Krishna, who wears one in his crown.</div>
+            </div></div>
+          </div>
+        </div>
+
+        <!-- MUGHAL -->
+        <div class="region-panel" data-region="mughal">
+          <div class="region-intro">
+            <div>
+              <p class="region-name">Mughal / North Indian</p>
+              <p class="region-desc">Descended directly from courtly patronage — trailing floral vines, fine shading, and deliberate negative space that lets each flower breathe instead of crowding the skin.</p>
+            </div>
+            <span class="region-tag">Fine, courtly detail</span>
+          </div>
+          <div class="motif-grid">
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M15 60 C30 40 40 80 55 60 C70 40 80 80 95 60 C100 55 105 55 108 50"/><path d="M25 55 C28 48 34 48 36 54" /><path d="M65 55 C68 48 74 48 76 54"/></svg>
+                <span class="m-name">Bel (Vine)</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Vine Trail</span>A running creeper that borders the design — it symbolises devotion and the winding, growing bond between two families joined by marriage.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M60 60 C60 40 45 30 45 15 C60 20 65 35 60 45 C70 35 85 35 90 20 C95 35 85 50 70 50 C82 55 90 68 82 82 C75 68 65 65 60 55 C58 70 45 78 32 72 C42 65 45 55 55 55 C40 55 30 45 32 30 C48 32 55 45 60 60Z"/></svg>
+                <span class="m-name">Phool Guldasta</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Floral Bouquet</span>Layered blossoms filling the palm — inherited from Persian garden imagery, standing for beauty, abundance, and joy.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M60 20 C90 20 100 50 85 75 C75 92 55 95 45 85 C35 75 40 60 55 60"/></svg>
+                <span class="m-name">Kairi (soft)</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Softened Paisley</span>The same mango motif as Rajasthan, but drawn open and unshaded — a lighter, more airy interpretation.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="8"/><circle cx="60" cy="60" r="22"/><path d="M60 38v-8M60 82v8M38 60h-8M82 60h8"/></svg>
+                <span class="m-name">Chand Tara</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Moon &amp; Star Centrepiece</span>A simplified radiant medallion used as a quiet centrepiece rather than the dense sunburst seen in Rajasthani work.</div>
+            </div></div>
+          </div>
+        </div>
+
+        <!-- ARABIC / INDO-ARABIC -->
+        <div class="region-panel" data-region="arabic">
+          <div class="region-intro">
+            <div>
+              <p class="region-name">Indo-Arabic (Gulf-influenced)</p>
+              <p class="region-desc">Today's most requested bridal style: bold, flowing floral bouquets placed asymmetrically, with large expanses of bare skin left visible on purpose. Fast to apply, dramatic in photographs.</p>
+            </div>
+            <span class="region-tag">Bold &amp; airy</span>
+          </div>
+          <div class="motif-grid">
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M60 60 C60 40 45 30 45 15 C60 20 65 35 60 45 C70 35 85 35 90 20 C95 35 85 50 70 50 C82 55 90 68 82 82 C75 68 65 65 60 55"/></svg>
+                <span class="m-name">Large Bouquet</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Sweeping Bouquet</span>A single oversized flower cluster anchoring the back of the hand — meant to be seen at a glance, not studied up close.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M15 90 C35 70 40 100 55 85 C70 70 80 100 100 85"/></svg>
+                <span class="m-name">Trailing Vine</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Wrist Trail</span>A loose vine running along the wrist to frame the bouquet without filling the whole hand.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M60 20 C90 20 100 50 85 75 C75 92 55 95 45 85"/></svg>
+                <span class="m-name">Open Paisley</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Unfilled Paisley</span>Drawn as an outline only, left unshaded — the negative space is the whole point of this style.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M30 30l6 6M84 30l-6 6M30 90l6-6M84 90l-6-6"/><circle cx="60" cy="60" r="14"/></svg>
+                <span class="m-name">Finger Tips</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Solid Fingertips</span>Fingertips fully coloured in solid henna, a signature finishing touch borrowed from Gulf tradition.</div>
+            </div></div>
+          </div>
+        </div>
+
+        <!-- BENGALI -->
+        <div class="region-panel" data-region="bengali">
+          <div class="region-intro">
+            <div>
+              <p class="region-name">Bengali</p>
+              <p class="region-desc">Often paired with alta (a red dye applied to the feet and hands), Bengali bridal decoration favours round dot motifs and clean geometric borders over dense floral fields.</p>
+            </div>
+            <span class="region-tag">Paired with alta</span>
+          </div>
+          <div class="motif-grid">
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><circle cx="30" cy="30" r="6"/><circle cx="60" cy="30" r="6"/><circle cx="90" cy="30" r="6"/><circle cx="45" cy="55" r="6"/><circle cx="75" cy="55" r="6"/><circle cx="60" cy="80" r="6"/></svg>
+                <span class="m-name">Tikli Dots</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Round Dot Field</span>Rows of round dots (tikli) fill space the way jaali does elsewhere — simple, rhythmic, and quick to apply alongside alta.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M60 20 C70 20 76 30 70 38 C64 44 54 40 56 32 C58 40 48 44 42 38 C36 30 42 20 52 20 C40 30 40 50 60 55 C80 50 80 30 68 20"/></svg>
+                <span class="m-name">Shankha Spiral</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Conch Spiral</span>Echoes the shankha (conch shell) bangle worn by married Bengali women — a symbol of marital status and auspiciousness.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M20 20h20v20h-20zM20 60h20v20h-20zM60 20h20v20h-20zM60 60h20v20h-20zM100 20v20h-20zM100 60v20h-20z" stroke-linejoin="round"/></svg>
+                <span class="m-name">Geometric Border</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Clean Geometric Border</span>Straight-edged bands frame the palm — a restrained counterpoint to the curved motifs used elsewhere in the design.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M15 60 C30 40 40 80 55 60 C70 40 80 80 95 60"/></svg>
+                <span class="m-name">Fine Vine</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Slender Vine</span>A light touch of creeper motif, used sparingly since alta already carries much of the visual weight.</div>
+            </div></div>
+          </div>
+        </div>
+
+        <!-- SOUTH INDIAN -->
+        <div class="region-panel" data-region="south">
+          <div class="region-intro">
+            <div>
+              <p class="region-name">South Indian (Tamil, Kerala, Karnataka)</p>
+              <p class="region-desc">Lighter coverage overall, often combined with turmeric paste. Motifs borrow from temple architecture and kolam floor art rather than Persian florals.</p>
+            </div>
+            <span class="region-tag">Temple &amp; kolam roots</span>
+          </div>
+          <div class="motif-grid">
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M40 100h40v-15h-40zM45 85h30v-13h-30zM50 72h20v-12h-20zM55 60h10v-12h-10zM58 48h4v-10h-4z"/></svg>
+                <span class="m-name">Gopuram</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Temple Gopuram</span>A stepped tower outline borrowed from South Indian temple gateways — grounding the design in sacred architecture.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><circle cx="30" cy="30" r="4"/><circle cx="60" cy="30" r="4"/><circle cx="90" cy="30" r="4"/><circle cx="30" cy="60" r="4"/><circle cx="60" cy="60" r="4"/><circle cx="90" cy="60" r="4"/><circle cx="30" cy="90" r="4"/><circle cx="60" cy="90" r="4"/><circle cx="90" cy="90" r="4"/><path d="M30 30 C50 40 50 50 60 60 C70 70 70 80 90 90 M90 30 C70 40 70 50 60 60 C50 70 50 80 30 90"/></svg>
+                <span class="m-name">Kolam Grid</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Kolam-inspired Grid</span>Dot-and-line patterns echo the kolam drawn on doorsteps each morning — geometry standing in for the free-flowing florals of the north.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M60 25 C50 40 50 55 60 60 C70 55 70 40 60 25Z"/><path d="M60 60v35"/></svg>
+                <span class="m-name">Simple Leaf</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Single Leaf Motif</span>One clean leaf shape rather than a dense vine — coverage here is deliberately light and spaced out.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="10"/><circle cx="60" cy="60" r="24"/><path d="M60 20v10M60 90v10M20 60h10M90 60h10"/></svg>
+                <span class="m-name">Turmeric Sun</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Turmeric-paired Sun</span>A simple sun disc often applied where turmeric paste meets henna — turmeric first for auspiciousness, henna for the stain.</div>
+            </div></div>
+          </div>
+        </div>
+
+        <!-- PUNJABI / PAKISTANI -->
+        <div class="region-panel" data-region="punjabi">
+          <div class="region-intro">
+            <div>
+              <p class="region-name">Punjabi / Pakistani</p>
+              <p class="region-desc">Dense floral-and-paisley coverage close to the Rajasthani school, but with a playful tradition attached: the groom's initials are hidden somewhere inside the pattern for him to find on the wedding night.</p>
+            </div>
+            <span class="region-tag">Hidden initials</span>
+          </div>
+          <div class="motif-grid">
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M60 20 C90 20 100 50 85 75 C75 92 55 95 45 85 C35 75 40 60 55 60 C65 60 65 50 55 48"/></svg>
+                <span class="m-name">Dense Paisley</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Layered Paisley</span>Multiple paisleys nested inside one another, filling the palm the way Rajasthani work does.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M20 20h20v20h-20zM20 60h20v20h-20zM60 20h20v20h-20zM60 60h20v20h-20zM100 20v20h-20zM100 60v20h-20z" stroke-linejoin="round"/></svg>
+                <span class="m-name">Checker Fill</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Checkerboard Net</span>A grid fill nearly identical to Rajasthani jaali, used to keep the whole hand covered without empty gaps.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M60 60 C60 40 45 30 45 15 C60 20 65 35 60 45 C70 35 85 35 90 20 C95 35 85 50 70 50 C82 55 90 68 82 82"/></svg>
+                <span class="m-name">Floral Fill</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">Layered Florals</span>Used between paisleys and jaali to soften the geometry with rounded blossom shapes.</div>
+            </div></div>
+            <div class="motif-card"><div class="motif-inner">
+              <div class="motif-face motif-front">
+                <svg viewBox="0 0 120 120"><path d="M15 60 C30 40 40 80 55 60 C70 40 80 80 95 60"/><circle cx="55" cy="60" r="3"/></svg>
+                <span class="m-name">Hidden Initial</span><span class="m-hint">tap for meaning</span>
+              </div>
+              <div class="motif-face motif-back"><span class="m-title">The Hidden Initial Game</span>Somewhere along a vine like this, the mehndi artist tucks the groom's initial — a small game played out on the wedding night.</div>
+            </div></div>
+          </div>
+        </div>
+
+      </div>
+      <p class="img-note">Motifs above are original line-art drawn for this page in the style of each tradition, not photographic reproductions.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- WEDDING TRADITIONS -->
+    <section id="wedding">
+      <div class="section-head">
+        <div class="kicker">Rite of Passage</div>
+        <h2>The wedding mehndi</h2>
+        <p class="lede">Usually held a day or two before the wedding, the mehndi ceremony is as much a party as it is a ritual.</p>
+      </div>
+      <div class="flow-list">
+        <div class="flow-item">
+          <div class="flow-icon">1</div>
+          <div><h4>The artist arrives</h4><p>The bride's family hosts a mehndiwali (henna artist) — sometimes several — who spends hours covering the bride's hands and feet while songs and dancing fill the room.</p></div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-icon">2</div>
+          <div><h4>The design tells a story</h4><p>Figures of the couple, wedding motifs, and sometimes the date or the groom's name are worked into the pattern, alongside the standard paisleys and vines.</p></div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-icon">3</div>
+          <div><h4>The waiting game</h4><p>Once applied, the paste must dry undisturbed for several hours — the bride is often fed, fanned, and entertained by family so she doesn't have to lift a finger, quite literally.</p></div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-icon">4</div>
+          <div><h4>The folklore of the stain</h4><p>A widely repeated belief holds that the darker the stain, the deeper the love — of the husband, or, depending on who's telling it, the mother-in-law.</p></div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-icon">5</div>
+          <div><h4>The groom's turn</h4><p>Grooms often receive a simpler design too — sometimes with the bride's initial hidden inside it, mirroring the search game played on the wedding night.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- FESTIVAL TRADITIONS -->
+    <section id="festivals">
+      <div class="section-head">
+        <div class="kicker">Beyond the Wedding</div>
+        <h2>Festival traditions</h2>
+        <p class="lede">Mehndi shows up wherever there's a reason to celebrate.</p>
+      </div>
+      <div class="fest-grid">
+        <div class="fest-card">
+          <span class="fest-tag">Monsoon</span>
+          <h4>Teej</h4>
+          <p>Married and unmarried women apply mehndi and dress in green as part of this monsoon festival, praying for marital happiness and a long life for their husbands.</p>
+        </div>
+        <div class="fest-card">
+          <span class="fest-tag">Autumn</span>
+          <h4>Karva Chauth</h4>
+          <p>On the day of the fast, women gather to apply mehndi the evening before, turning a demanding ritual into a shared social occasion.</p>
+        </div>
+        <div class="fest-card">
+          <span class="fest-tag">Chaand Raat</span>
+          <h4>Eid-ul-Fitr</h4>
+          <p>On the night before Eid, markets stay open late as women and girls queue for mehndi, a tradition especially cherished among South Asian Muslim communities.</p>
+        </div>
+        <div class="fest-card">
+          <span class="fest-tag">Festival of Lights</span>
+          <h4>Diwali</h4>
+          <p>Mehndi stalls spring up alongside diyas and rangoli — applying a fresh design is a small, personal way of marking the new year.</p>
+        </div>
+        <div class="fest-card">
+          <span class="fest-tag">Assam</span>
+          <h4>Rongali Bihu</h4>
+          <p>In Assam, unmarried women traditionally wear mehndi during Rongali Bihu celebrations, independent of any wedding connection.</p>
+        </div>
+        <div class="fest-card">
+          <span class="fest-tag">Sibling Bond</span>
+          <h4>Raksha Bandhan</h4>
+          <p>Sisters often apply a simple mehndi design before tying the rakhi, adding a festive touch to the day's rituals.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- NATURAL HENNA PREPARATION -->
+    <section id="prep">
+      <div class="section-head">
+        <div class="kicker">From Leaf to Stain</div>
+        <h2>Natural henna preparation</h2>
+        <p class="lede">The whole art depends on getting this part right, long before the cone ever touches skin.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num"></div><div class="step-body">
+          <h4>Harvest &amp; dry</h4><p>Leaves are picked from the lower part of the henna shrub, <em>Lawsonia inermis</em>, where dye concentration is best — then laid out to dry completely in the shade.</p>
+        </div></div>
+        <div class="step"><div class="step-num"></div><div class="step-body">
+          <h4>Mill &amp; sift</h4><p>Dried leaves are ground into a fine powder and sifted, since coarsely crushed leaf can't hold the intricate detail of a real design.</p>
+        </div></div>
+        <div class="step"><div class="step-num"></div><div class="step-body">
+          <h4>Mix into a paste</h4><p>The powder is combined with a liquid — water, strong tea, or lemon juice — plus a little sugar for stretch and adhesion.</p>
+        </div></div>
+        <div class="step"><div class="step-num"></div><div class="step-body">
+          <h4>Rest for dye release</h4><p>Covered and left to sit for several hours, the paste undergoes the chemical change that makes its colouring compound, lawsone, available to bind with skin.</p>
+        </div></div>
+        <div class="step"><div class="step-num"></div><div class="step-body">
+          <h4>Cone &amp; apply</h4><p>The rested paste is loaded into a fine paper or plastic cone and piped onto the skin in continuous, unbroken lines.</p>
+        </div></div>
+        <div class="step"><div class="step-num"></div><div class="step-body">
+          <h4>Seal, dry, and scrape</h4><p>A lemon-sugar mix keeps the drying paste from flaking off early; once fully dry, it's gently scraped away, leaving a bright orange mark that deepens to a rich maroon-brown over the following day or two.</p>
+        </div></div>
+      </div>
+      <div class="callout"><strong>A note on "black henna":</strong> Genuine henna stains orange-to-maroon, never jet black. Very dark, fast-acting "black henna" usually contains the chemical dye PPD, which can cause serious skin reactions in some people — it isn't part of the traditional craft described here.</div>
+    </section>
+
+  </main>
+
+  <footer class="wrap">
+    <h5>Further reading &amp; image credit</h5>
+    <p class="credit-note">All motif illustrations on this page are original line-art created for this section, drawn in the visual language of each regional style rather than copied from any single artist's work. Historical and cultural details are drawn from general reference sources on Indian wedding traditions and the henna plant.</p>
+    <div class="reading-links">
+      <a href="https://en.wikipedia.org/wiki/Mehndi" target="_blank" rel="noopener">Mehndi — Wikipedia</a>
+      <a href="https://en.wikipedia.org/wiki/Henna" target="_blank" rel="noopener">Henna — Wikipedia</a>
+      <a href="https://commons.wikimedia.org/wiki/Category:Mehndi" target="_blank" rel="noopener">Mehndi photography — Wikimedia Commons</a>
+      <a href="https://www.kew.org/plants/henna-tree" target="_blank" rel="noopener">Lawsonia inermis — Kew Gardens</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.region-tab');
+  const panels = document.querySelectorAll('.region-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const region = tab.getAttribute('data-region');
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector('.region-panel[data-region="' + region + '"]').classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('.motif-card').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+  });
+</script>
+</body>
+</html>

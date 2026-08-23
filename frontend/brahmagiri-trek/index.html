@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            let theme = 'dark';
+            try {
+                theme = localStorage.getItem('theme') || JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark';
+            } catch(e) {}
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                document.documentElement.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brahmagiri Trek — Shola Rainforest & Peak | Incredible India Explorer</title>
+    <meta name="description" content="Explore Brahmagiri Peak Trek (1,608m) in Coorg & Wayanad, Western Ghats. UNESCO World Heritage Shola forests, Iruppu Falls, Pakshipathalam Cave, Asian Elephant sanctuary habitat, gear checklist, and trek time estimator." />
+    
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Google Fonts Fallbacks -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="brahmagiri-trek.css" />
+</head>
+<body class="brahmagiri-body">
+
+    <!-- Header / Navigation -->
+    <header class="brahmagiri-header">
+        <div class="brahmagiri-container brahmagiri-header__nav">
+            <a href="../../index.html" class="brahmagiri-back-link">
+                <span aria-hidden="true">←</span> Back to All Destinations
+            </a>
+            <div class="brahmagiri-header__actions">
+                <button id="themeToggle" class="brahmagiri-theme-btn" type="button" aria-pressed="false" aria-label="Toggle theme mode">
+                    <span>🌗</span>
+                    <span>Theme</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="brahmagiri-hero" id="heroSection">
+        <div class="brahmagiri-container">
+            <div class="brahmagiri-hero__badges">
+                <span class="brahmagiri-badge brahmagiri-badge--emerald">🌳 UNESCO World Heritage Western Ghats</span>
+                <span class="brahmagiri-badge brahmagiri-badge--cyan">🌊 Sacred Iruppu Waterfalls</span>
+                <span class="brahmagiri-badge">🐘 Wildlife Sanctuary Protected Area</span>
+            </div>
+            
+            <h1 class="brahmagiri-hero__title">
+                Brahmagiri Peak Trek
+                <span class="brahmagiri-hero__title-sub">ബ്രഹ്മഗിരി / ବ୍ରହ୍ମଗିରି — Shola Forest & Peak (1,608m)</span>
+            </h1>
+            
+            <p class="brahmagiri-hero__lede">
+                Nestled on the border of Coorg (Karnataka) and Wayanad (Kerala), Brahmagiri towers 1,608 meters 
+                above pristine Shola tropical evergreen forests. Experience sacred waterfalls, subterranean bird caves, 
+                wild elephant corridors, and 360-degree Western Ghats vistas.
+            </p>
+
+            <!-- Quick Stats Grid -->
+            <div class="brahmagiri-stats-grid">
+                <div class="brahmagiri-stat-card">
+                    <span class="brahmagiri-stat-card__val">1,608 m</span>
+                    <span class="brahmagiri-stat-card__label">Summit Elevation (5,276 ft)</span>
+                </div>
+                <div class="brahmagiri-stat-card">
+                    <span class="brahmagiri-stat-card__val">Coorg & Wayanad</span>
+                    <span class="brahmagiri-stat-card__label">Karnataka / Kerala Border</span>
+                </div>
+                <div class="brahmagiri-stat-card">
+                    <span class="brahmagiri-stat-card__val">3.5 - 4 hrs</span>
+                    <span class="brahmagiri-stat-card__label">One-Way Ascent Time</span>
+                </div>
+                <div class="brahmagiri-stat-card">
+                    <span class="brahmagiri-stat-card__val">Iruppu / Kurchi</span>
+                    <span class="brahmagiri-stat-card__label">Base Checkpost Village</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="brahmagiri-container">
+        
+        <!-- Tab Navigation Bar -->
+        <nav class="brahmagiri-tabs-wrapper" aria-label="Brahmagiri profile sections">
+            <div class="brahmagiri-tabs" role="tablist">
+                <button class="brahmagiri-tab-btn active" role="tab" aria-selected="true" data-tab="overviewTab" id="tabBtnOverview">
+                    🌿 Overview & Highlights
+                </button>
+                <button class="brahmagiri-tab-btn" role="tab" aria-selected="false" data-tab="routeTab" id="tabBtnRoute">
+                    🥾 Trekking Route Guide
+                </button>
+                <button class="brahmagiri-tab-btn" role="tab" aria-selected="false" data-tab="historyTab" id="tabBtnHistory">
+                    📜 Conservation & Heritage
+                </button>
+                <button class="brahmagiri-tab-btn" role="tab" aria-selected="false" data-tab="plannerTab" id="tabBtnPlanner">
+                    ⚙️ Trek Estimator & Checklist
+                </button>
+                <button class="brahmagiri-tab-btn" role="tab" aria-selected="false" data-tab="galleryTab" id="tabBtnGallery">
+                    🖼️ Photo Gallery
+                </button>
+            </div>
+        </nav>
+
+        <!-- TAB 1: OVERVIEW & HIGHLIGHTS -->
+        <section id="overviewTab" class="brahmagiri-tab-content active" role="tabpanel" aria-labelledby="tabBtnOverview">
+            <div class="brahmagiri-section-heading">
+                <span class="brahmagiri-eyebrow">Western Ghats Shola Ecosystem</span>
+                <h2 class="brahmagiri-section-title">Key Highlights of Brahmagiri</h2>
+                <p class="brahmagiri-section-desc">
+                    Discover the 1,608m peak viewpoint, Iruppu Falls cascade, Pakshipathalam subterranean cave, endemic Shola-grassland mosaic, and wild elephant habitat.
+                </p>
+            </div>
+
+            <div class="brahmagiri-grid-3" id="highlightsGrid">
+                <!-- Dynamically rendered via brahmagiri-trek.js -->
+            </div>
+        </section>
+
+        <!-- TAB 2: TREKKING ROUTE GUIDE -->
+        <section id="routeTab" class="brahmagiri-tab-content" role="tabpanel" aria-labelledby="tabBtnRoute">
+            <div class="brahmagiri-section-heading">
+                <span class="brahmagiri-eyebrow">Rainforest to Grassland Trail</span>
+                <h2 class="brahmagiri-section-title">Iruppu Base to Brahmagiri Summit Route</h2>
+                <p class="brahmagiri-section-desc">
+                    The controlled eco-trek begins at Iruppu Falls checkpost, traversing shaded tropical rainforest canopy before emerging onto high-altitude montane grasslands.
+                </p>
+            </div>
+
+            <div id="trekStepsContainer">
+                <!-- Dynamically rendered via brahmagiri-trek.js -->
+            </div>
+        </section>
+
+        <!-- TAB 3: CONSERVATION & HERITAGE -->
+        <section id="historyTab" class="brahmagiri-tab-content" role="tabpanel" aria-labelledby="tabBtnHistory">
+            <div class="brahmagiri-section-heading">
+                <span class="brahmagiri-eyebrow">UNESCO World Heritage Protection</span>
+                <h2 class="brahmagiri-section-title">Heritage Timeline of Brahmagiri</h2>
+                <p class="brahmagiri-section-desc">
+                    Explore Brahmagiri's puranic origins, 3,000-year-old Thirunelli Temple shrine, wildlife sanctuary notification, and UNESCO World Heritage status.
+                </p>
+            </div>
+
+            <div class="brahmagiri-timeline" id="timelineContainer">
+                <!-- Dynamically rendered via brahmagiri-trek.js -->
+            </div>
+        </section>
+
+        <!-- TAB 4: TREK ESTIMATOR & CHECKLIST -->
+        <section id="plannerTab" class="brahmagiri-tab-content" role="tabpanel" aria-labelledby="tabBtnPlanner">
+            
+            <!-- Interactive Trek Time Estimator -->
+            <div class="brahmagiri-calc-card">
+                <span class="brahmagiri-eyebrow">Interactive Calculator</span>
+                <h2 class="brahmagiri-section-title">Trek Time & Effort Estimator</h2>
+                <p class="brahmagiri-section-desc">
+                    Select your trekking pace to calculate estimated ascent time, descent time, water requirement, and recommended arrival time at the Forest Checkpost.
+                </p>
+
+                <div class="brahmagiri-calc-controls">
+                    <button class="brahmagiri-calc-btn" type="button" data-pace="fast">⚡ Experienced Trekker</button>
+                    <button class="brahmagiri-calc-btn active" type="button" data-pace="moderate">🚶 Regular Trekker (Moderate)</button>
+                    <button class="brahmagiri-calc-btn" type="button" data-pace="leisurely">🐢 Leisurely / Nature Walker</button>
+                </div>
+
+                <div class="brahmagiri-calc-results">
+                    <div class="brahmagiri-calc-res-item">
+                        <span class="brahmagiri-calc-res-val" id="calcAscent">3.5 – 4.0 hrs</span>
+                        <span class="brahmagiri-calc-res-lbl">Estimated Ascent Time</span>
+                    </div>
+                    <div class="brahmagiri-calc-res-item">
+                        <span class="brahmagiri-calc-res-val" id="calcDescent">2.0 – 2.5 hrs</span>
+                        <span class="brahmagiri-calc-res-lbl">Estimated Descent Time</span>
+                    </div>
+                    <div class="brahmagiri-calc-res-item">
+                        <span class="brahmagiri-calc-res-val" id="calcWater">3.0 Liters</span>
+                        <span class="brahmagiri-calc-res-lbl">Recommended Water</span>
+                    </div>
+                    <div class="brahmagiri-calc-res-item">
+                        <span class="brahmagiri-calc-res-val" id="calcStart">6:30 AM</span>
+                        <span class="brahmagiri-calc-res-lbl">Recommended Checkpost Time</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Packing Checklist -->
+            <div class="brahmagiri-card">
+                <span class="brahmagiri-eyebrow">Interactive Packing Checklist</span>
+                <h2 class="brahmagiri-section-title">What to Pack for Brahmagiri Trek</h2>
+                <div class="brahmagiri-checklist-grid" id="checklistGrid">
+                    <!-- Dynamically rendered via brahmagiri-trek.js -->
+                </div>
+            </div>
+
+            <!-- Travel & Permits -->
+            <div class="brahmagiri-card">
+                <span class="brahmagiri-eyebrow">Forest Permits & Travel</span>
+                <h2 class="brahmagiri-section-title">Permit Rules & How to Reach</h2>
+                <div class="brahmagiri-grid-2" style="margin-top: 1.25rem;">
+                    <div>
+                        <h3 style="font-size: 1.1rem; color: var(--brahmagiri-emerald); margin-bottom: 0.5rem;">📋 Mandatory Forest Department Permits</h3>
+                        <ul style="color: var(--brahmagiri-text-dim); font-size: 0.95rem; line-height: 1.8; margin-left: 1.2rem;">
+                            <li><strong>Entry Permits:</strong> Must be obtained on-site at Iruppu Forest Range Office.</li>
+                            <li><strong>Mandatory Escort:</strong> A Forest Department eco-guard accompanies every trekking group.</li>
+                            <li><strong>Strict Regulations:</strong> No plastic littering, smoking, or loud noise allowed inside wildlife sanctuary.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.1rem; color: var(--brahmagiri-cyan); margin-bottom: 0.5rem;">🚗 How to Reach Base</h3>
+                        <ul style="color: var(--brahmagiri-text-dim); font-size: 0.95rem; line-height: 1.8; margin-left: 1.2rem;">
+                            <li><strong>From Madikeri (Coorg):</strong> 60 km via Gonikoppal & Kutta to Iruppu Falls.</li>
+                            <li><strong>From Mysore:</strong> 110 km via Hunsur & Nagarahole National Park route.</li>
+                            <li><strong>From Wayanad (Kerala):</strong> 35 km from Mananthavady to Thirunelli / Kurchi.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: PHOTO GALLERY -->
+        <section id="galleryTab" class="brahmagiri-tab-content" role="tabpanel" aria-labelledby="tabBtnGallery">
+            <div class="brahmagiri-section-heading">
+                <span class="brahmagiri-eyebrow">Visual Tour</span>
+                <h2 class="brahmagiri-section-title">Brahmagiri Peak Trek Photo Gallery</h2>
+                <p class="brahmagiri-section-desc">
+                    Click any image tile to view full-screen details and captions.
+                </p>
+            </div>
+
+            <div class="brahmagiri-gallery-grid" id="galleryGrid">
+                <!-- Dynamically rendered via brahmagiri-trek.js -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Accessible Lightbox Modal -->
+    <div id="lightbox" class="brahmagiri-lightbox" hidden aria-modal="true" role="dialog" aria-labelledby="lightboxTitle">
+        <div class="brahmagiri-lightbox-dialog">
+            <button id="lightboxClose" class="brahmagiri-lightbox-close" type="button" aria-label="Close modal lightbox">✕</button>
+            <span id="lightboxEmoji" class="brahmagiri-lightbox-emoji">⛰️</span>
+            <h3 id="lightboxTitle" class="brahmagiri-lightbox-h">Brahmagiri Summit</h3>
+            <p id="lightboxCaption" class="brahmagiri-lightbox-caption">The lush green summit ridge of Brahmagiri Peak (1,608m).</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="brahmagiri-footer">
+        <div class="brahmagiri-container">
+            <p class="brahmagiri-footer-brand">Incredible India Explorer — Western Ghats Sanctuary Series</p>
+            <p>Brahmagiri Peak (1,608m) · Coorg (Karnataka) & Wayanad (Kerala) Border</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="brahmagiri-data.js"></script>
+    <script src="brahmagiri-trek.js"></script>
+</body>
+</html>
