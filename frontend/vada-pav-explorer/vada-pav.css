@@ -1,0 +1,540 @@
+/* ==========================================================================
+   Vada Pav Explorer — Scoped Design System & Stylesheet
+   ========================================================================== */
+
+:root {
+    --vp-bg-dark: #0b1120;
+    --vp-bg-card: rgba(30, 41, 59, 0.75);
+    --vp-bg-card-hover: rgba(51, 65, 85, 0.85);
+    --vp-border: rgba(255, 255, 255, 0.12);
+    --vp-border-active: #ff9933;
+    
+    --vp-saffron: #ff9933;
+    --vp-crimson: #e11d48;
+    --vp-gold: #f59e0b;
+    --vp-green: #10b981;
+    --vp-text-primary: #f8fafc;
+    --vp-text-secondary: #cbd5e1;
+    --vp-text-muted: #94a3b8;
+
+    --vp-font-head: 'Playfair Display', Georgia, serif;
+    --vp-font-body: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--vp-bg-dark);
+    color: var(--vp-text-primary);
+    font-family: var(--vp-font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Accessibility Skip Link */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 16px;
+    background: var(--vp-saffron);
+    color: #000;
+    padding: 10px 18px;
+    font-weight: 700;
+    z-index: 1000;
+    border-radius: 6px;
+    transition: top 0.2s ease;
+    text-decoration: none;
+}
+.skip-link:focus {
+    top: 16px;
+}
+
+/* Scoped Container */
+.vp-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Top Navigation Bar */
+.vp-nav {
+    background: rgba(11, 17, 32, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--vp-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 16px 0;
+}
+.vp-nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.vp-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--vp-saffron);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+.vp-back-btn:hover, .vp-back-btn:focus-visible {
+    color: #ffaa44;
+    transform: translateX(-4px);
+}
+.vp-brand-title {
+    font-family: var(--vp-font-head);
+    font-size: 1.2rem;
+    color: var(--vp-text-primary);
+}
+
+/* Hero Section */
+.vp-hero {
+    position: relative;
+    padding: 60px 0 50px;
+    background: linear-gradient(180deg, rgba(225, 29, 72, 0.12) 0%, rgba(11, 17, 32, 0) 100%);
+    border-bottom: 1px solid var(--vp-border);
+}
+.vp-hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+}
+.vp-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(255, 153, 51, 0.15);
+    border: 1px solid var(--vp-saffron);
+    color: var(--vp-saffron);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+}
+.vp-hero h1 {
+    font-family: var(--vp-font-head);
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: #ffffff;
+}
+.vp-hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--vp-text-secondary);
+    margin-bottom: 24px;
+}
+
+/* Quick Facts Card */
+.vp-facts-card {
+    background: var(--vp-bg-card);
+    border: 1px solid var(--vp-border);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.vp-facts-card h2 {
+    font-size: 1.2rem;
+    color: var(--vp-saffron);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--vp-border);
+    padding-bottom: 10px;
+}
+.vp-fact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.vp-fact-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.92rem;
+    border-bottom: 1px dashed rgba(255,255,255,0.08);
+    padding-bottom: 8px;
+}
+.vp-fact-label {
+    color: var(--vp-text-muted);
+    font-weight: 500;
+}
+.vp-fact-val {
+    color: var(--vp-text-primary);
+    font-weight: 600;
+    text-align: right;
+}
+
+/* Main Sections */
+.vp-section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--vp-border);
+}
+.vp-section-header {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 44px;
+}
+.vp-section-header h2 {
+    font-family: var(--vp-font-head);
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+.vp-section-header p {
+    color: var(--vp-text-muted);
+    font-size: 1.05rem;
+}
+
+/* Origins Section */
+.vp-origins-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+.vp-card {
+    background: var(--vp-bg-card);
+    border: 1px solid var(--vp-border);
+    border-radius: 16px;
+    padding: 28px;
+}
+.vp-card h3 {
+    font-size: 1.3rem;
+    color: var(--vp-saffron);
+    margin-bottom: 14px;
+}
+.vp-card p {
+    color: var(--vp-text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+/* Ingredients Grid */
+.vp-ingredients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+.vp-ingredient-card {
+    background: var(--vp-bg-card);
+    border: 1px solid var(--vp-border);
+    border-radius: 14px;
+    padding: 22px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.vp-ingredient-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--vp-saffron);
+}
+.vp-ingredient-icon {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+    display: block;
+}
+.vp-ingredient-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+.vp-ingredient-role {
+    font-size: 0.85rem;
+    color: var(--vp-gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    display: block;
+}
+.vp-ingredient-desc {
+    color: var(--vp-text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Preparation Steps */
+.vp-prep-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.vp-prep-step {
+    display: flex;
+    gap: 20px;
+    background: var(--vp-bg-card);
+    border: 1px solid var(--vp-border);
+    border-radius: 14px;
+    padding: 22px;
+    align-items: flex-start;
+}
+.vp-step-num {
+    background: linear-gradient(135deg, var(--vp-saffron), var(--vp-crimson));
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.2rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.vp-step-content h3 {
+    font-size: 1.15rem;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+.vp-step-content p {
+    color: var(--vp-text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Variations Grid */
+.vp-variations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+.vp-variation-card {
+    background: var(--vp-bg-card);
+    border: 1px solid var(--vp-border);
+    border-radius: 12px;
+    padding: 20px;
+}
+.vp-variation-card h4 {
+    color: var(--vp-saffron);
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+.vp-variation-tag {
+    font-size: 0.78rem;
+    background: rgba(255,255,255,0.08);
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: var(--vp-gold);
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.vp-variation-card p {
+    color: var(--vp-text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Interactive Feature: Mumbai Street-Food Explorer
+   ========================================================================== */
+.vp-explorer-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 30px;
+    align-items: start;
+}
+.vp-explorer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    role: tablist;
+}
+.vp-food-item-btn {
+    background: var(--vp-bg-card);
+    border: 2px solid var(--vp-border);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: left;
+    color: var(--vp-text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: inherit;
+}
+.vp-food-item-btn:hover, .vp-food-item-btn:focus-visible {
+    border-color: var(--vp-saffron);
+    background: var(--vp-bg-card-hover);
+    outline: none;
+}
+.vp-food-item-btn.active-card {
+    border-color: var(--vp-saffron);
+    background: rgba(255, 153, 51, 0.12);
+    box-shadow: 0 0 15px rgba(255, 153, 51, 0.25);
+}
+.vp-food-item-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    display: block;
+}
+.vp-food-item-sub {
+    font-size: 0.82rem;
+    color: var(--vp-text-muted);
+}
+.vp-active-indicator {
+    color: var(--vp-saffron);
+    font-weight: 800;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.vp-food-item-btn.active-card .vp-active-indicator {
+    opacity: 1;
+}
+
+/* Explorer Detail Panel */
+.vp-explorer-detail {
+    background: var(--vp-bg-card);
+    border: 1px solid var(--vp-border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.4);
+}
+.vp-detail-img-wrapper {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+}
+.vp-detail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.vp-detail-region-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(11, 17, 32, 0.85);
+    backdrop-filter: blur(6px);
+    color: var(--vp-saffron);
+    border: 1px solid var(--vp-saffron);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.vp-detail-body {
+    padding: 28px;
+}
+.vp-detail-title {
+    font-family: var(--vp-font-head);
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+.vp-detail-tagline {
+    font-size: 1rem;
+    color: var(--vp-gold);
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+.vp-detail-section-title {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--vp-text-muted);
+    margin-top: 16px;
+    margin-bottom: 6px;
+}
+.vp-detail-text {
+    color: var(--vp-text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+.vp-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+.vp-chip {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--vp-text-primary);
+    font-size: 0.85rem;
+    padding: 4px 12px;
+    border-radius: 16px;
+}
+
+/* Sources & Credits */
+.vp-sources-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+}
+.vp-source-item a {
+    color: var(--vp-saffron);
+    text-decoration: none;
+    font-size: 0.92rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
+}
+.vp-source-item a:hover, .vp-source-item a:focus-visible {
+    color: #ffaa44;
+    text-decoration: underline;
+}
+
+/* Footer */
+.vp-footer {
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid var(--vp-border);
+    color: var(--vp-text-muted);
+    font-size: 0.88rem;
+}
+
+/* Focus States Accessibility */
+a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--vp-saffron);
+    outline-offset: 2px;
+}
+
+/* Media Queries & Responsive Layout */
+@media (max-width: 900px) {
+    .vp-hero-grid {
+        grid-template-columns: 1fr;
+    }
+    .vp-origins-grid {
+        grid-template-columns: 1fr;
+    }
+    .vp-explorer-layout {
+        grid-template-columns: 1fr;
+    }
+    .vp-hero h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .vp-section-header h2 {
+        font-size: 1.7rem;
+    }
+    .vp-detail-img-wrapper {
+        height: 200px;
+    }
+    .vp-detail-body {
+        padding: 20px;
+    }
+    .vp-step-num {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
