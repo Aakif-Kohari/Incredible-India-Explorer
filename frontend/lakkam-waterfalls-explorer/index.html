@@ -1,43 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Explore Lakkam Waterfalls in Munnar, Kerala - a pristine high-range cascade in the Anaimalai Hills featuring shola forests, tea estate landscapes, and rich mountain biodiversity.">
+    <meta name="description" content="Explore Lakkam Waterfalls in Munnar, Kerala - a pristine high-range cascade in the Anaimalai Hills featuring shola forests, tea estate landscapes, and rich mountain biodiversity.">
+    <meta name="keywords" content="Lakkam Waterfalls, Munnar, Marayoor, Kerala tourism, Anaimalai Hills, Shola forests, Western Ghats">
+    <meta name="author" content="Incredible India Explorer">
+    <meta name="theme-color" content="#0f172a">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Lakkam Waterfalls Explorer | Incredible India">
+    <meta property="og:description" content="Discover the hidden high-range cascade of Munnar. Interactive maps, trekking guides, and ecosystem details.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://example.com/assets/lakkam-og.jpg">
+
     <title>Lakkam Waterfalls Explorer | Incredible India</title>
-    <link rel="icon" href="data:,">
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../../styles.css">
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Preload Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           CSS VARIABLES & THEME SETUP
+           ========================================================================== */
+        :root {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --accent: #0ea5e9;
+            --accent-hover: #0284c7;
+            --forest: #166534;
+            --forest-light: #22c55e;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dark-theme {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #7dd3fc;
+            --forest: #4ade80;
+            --forest-light: #86efac;
+            --border: #334155;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+        }
+
+        /* ==========================================================================
+           BASE STYLES
+           ========================================================================== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--text-primary); line-height: 1.3; }
+        a { color: var(--accent); text-decoration: none; transition: var(--transition); }
+        a:hover { color: var(--accent-hover); }
+        
+        .skip-link {
+            position: absolute; top: -40px; left: 0; background: var(--accent); color: white;
+            padding: 8px 16px; z-index: 2000; transition: top 0.3s; font-weight: 600;
+        }
+        .skip-link:focus { top: 0; }
+
+        .lk-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* ==========================================================================
+           NAVIGATION & HEADER
+           ========================================================================== */
+        .navbar {
+            position: sticky; top: 0; z-index: 1000; background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px); border-bottom: 1px solid var(--border);
+        }
+        .dark-theme .navbar { background: rgba(15, 23, 42, 0.95); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: white; display: flex; gap: 4px; }
+        .nav-logo .saffron { color: #ff9933; }
+        .nav-logo .gold { color: #ffffff; }
+        .nav-logo .green { color: #138808; }
+        
+        .nav-menu { display: flex; gap: 24px; align-items: center; }
+        .nav-link { color: #cbd5e1; font-weight: 500; font-size: 0.95rem; }
+        .nav-link:hover, .nav-link.active { color: white; }
+        
+        .btn-theme-toggle {
+            background: transparent; border: 1px solid #475569; color: #cbd5e1;
+            width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center; transition: var(--transition);
+        }
+        .btn-theme-toggle:hover { background: #334155; color: white; border-color: white; }
+
+        .lk-section-nav {
+            position: sticky; top: 73px; z-index: 900; background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border); overflow-x: auto;
+        }
+        .lk-section-nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; gap: 8px;
+        }
+        .lk-nav-link {
+            padding: 16px 12px; color: var(--text-secondary); font-weight: 500; font-size: 0.9rem;
+            border-bottom: 2px solid transparent; white-space: nowrap;
+        }
+        .lk-nav-link:hover, .lk-nav-link.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+        /* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+        .lk-hero {
+            position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; color: white; padding: 120px 24px 80px;
+            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.8)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23166534" width="100" height="100"/><path fill="none" stroke="%2322c55e" stroke-width="2" d="M0 50 Q25 30 50 50 T100 50"/></svg>');
+            background-size: cover;
+        }
+        .hero-kicker {
+            display: inline-block; padding: 6px 16px; background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 99px; font-size: 0.85rem;
+            font-weight: 600; letter-spacing: 0.05em; margin-bottom: 20px; backdrop-filter: blur(4px);
+        }
+        .hero-title { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; text-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        .hero-subtitle { font-size: 1.15rem; max-width: 700px; margin: 0 auto 40px; opacity: 0.9; }
+        
+        .hero-stats {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 800px; margin: 0 auto;
+        }
+        .hero-stat {
+            background: rgba(255,255,255,0.1); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15);
+            padding: 20px; border-radius: var(--radius);
+        }
+        .stat-number { display: block; font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+        .stat-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8; }
+
+        /* ==========================================================================
+           SECTIONS & CARDS
+           ========================================================================== */
+        .lk-section { padding: 80px 0; }
+        .lk-section-alt { background: var(--bg-tertiary); }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 48px; }
+        .section-tag {
+            display: inline-block; font-size: 0.8rem; font-weight: 700; color: var(--accent);
+            text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;
+        }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 16px; }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        @media (max-width: 900px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } .hero-stats { grid-template-columns: repeat(2, 1fr); } }
+
+        .lk-card {
+            background: var(--bg-secondary); padding: 32px; border-radius: var(--radius);
+            box-shadow: var(--shadow-md); border: 1px solid var(--border); transition: var(--transition);
+        }
+        .lk-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .lk-card h3 { font-size: 1.4rem; margin-bottom: 16px; color: var(--forest); }
+        .lk-card p { color: var(--text-secondary); margin-bottom: 16px; }
+
+        /* Structure Diagram */
+        .structure-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+        @media (max-width: 768px) { .structure-visual { grid-template-columns: 1fr; } }
+        .structure-diagram { display: flex; flex-direction: column; gap: 0; }
+        .structure-layer {
+            display: flex; align-items: center; gap: 16px; padding: 20px;
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius);
+        }
+        .structure-layer.highlight { border-color: var(--accent); background: rgba(14, 165, 233, 0.05); }
+        .layer-icon { font-size: 2rem; }
+        .layer-content h4 { font-size: 1.1rem; margin-bottom: 4px; font-family: 'Outfit', sans-serif; font-weight: 600; }
+        .layer-content p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+        .structure-flow { text-align: center; font-size: 1.5rem; color: var(--accent); padding: 8px 0; }
+        
+        .glass-card {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 24px; box-shadow: var(--shadow-sm);
+        }
+
+        /* Map */
+        .map-container { display: grid; grid-template-columns: 1.5fr 1fr; gap: 32px; }
+        @media (max-width: 768px) { .map-container { grid-template-columns: 1fr; } }
+        .map-svg { width: 100%; height: auto; background: var(--bg-tertiary); border-radius: var(--radius); }
+        .map-marker { cursor: pointer; transition: r 0.2s; }
+        .map-marker:hover { r: 14; }
+
+        /* Seasonal */
+        .seasonal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        @media (max-width: 768px) { .seasonal-grid { grid-template-columns: 1fr; } }
+        .season-card {
+            background: var(--bg-secondary); padding: 28px; border-radius: var(--radius);
+            border: 1px solid var(--border); position: relative; overflow: hidden;
+        }
+        .season-badge {
+            position: absolute; top: 16px; right: 16px; padding: 4px 12px; border-radius: 99px;
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+        }
+        .season-card.peak .season-badge { background: #dbeafe; color: #1e40af; }
+        .season-card.good .season-badge { background: #dcfce7; color: #166534; }
+        .season-card.low .season-badge { background: #fef3c7; color: #92400e; }
+        .flow-bar { height: 8px; background: var(--bg-tertiary); border-radius: 99px; margin-top: 20px; overflow: hidden; }
+        .flow-fill { height: 100%; background: var(--accent); border-radius: 99px; transition: width 1s ease-out; }
+
+        /* Ecosystem */
+        .eco-card {
+            background: var(--bg-secondary); padding: 24px; border-radius: var(--radius);
+            border: 1px solid var(--border); text-align: center; transition: var(--transition);
+        }
+        .eco-card:hover { border-color: var(--forest-light); transform: translateY(-4px); }
+        .eco-icon { font-size: 2.5rem; margin-bottom: 16px; }
+
+        /* Access */
+        .access-layout { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        @media (max-width: 768px) { .access-layout { grid-template-columns: 1fr; } }
+        .access-specs { display: grid; grid-template-columns: 1fr 1.5fr; gap: 12px; font-size: 0.95rem; }
+        .access-specs dt { font-weight: 600; color: var(--text-primary); }
+        .access-specs dd { color: var(--text-secondary); margin: 0; }
+        .access-list { list-style: none; padding: 0; }
+        .access-list li { padding: 8px 0; border-bottom: 1px solid var(--border); color: var(--text-secondary); display: flex; align-items: center; gap: 8px; }
+        .access-list li::before { content: "✓"; color: var(--forest-light); font-weight: bold; }
+
+        /* NEW: Photo Gallery */
+        .gallery-filters { display: flex; justify-content: center; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
+        .filter-btn {
+            padding: 8px 20px; border: 1px solid var(--border); background: var(--bg-secondary);
+            color: var(--text-secondary); border-radius: 99px; cursor: pointer; font-weight: 500;
+            transition: var(--transition);
+        }
+        .filter-btn:hover, .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .gallery-item {
+            background: var(--bg-secondary); border-radius: var(--radius); overflow: hidden;
+            border: 1px solid var(--border); cursor: pointer; transition: var(--transition);
+        }
+        .gallery-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .gallery-img { height: 200px; background: var(--bg-tertiary); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+        .gallery-info { padding: 16px; }
+        .gallery-info h4 { font-size: 1.1rem; margin-bottom: 4px; font-family: 'Outfit', sans-serif; }
+        .gallery-info p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+        /* NEW: Trekking Checklist */
+        .checklist-container { max-width: 600px; margin: 0 auto; background: var(--bg-secondary); border-radius: var(--radius); padding: 32px; border: 1px solid var(--border); }
+        .checklist-item {
+            display: flex; align-items: center; padding: 16px; border-bottom: 1px solid var(--border); cursor: pointer; transition: var(--transition);
+        }
+        .checklist-item:hover { background: var(--bg-tertiary); }
+        .checklist-checkbox {
+            width: 24px; height: 24px; border: 2px solid var(--border); border-radius: 6px; margin-right: 16px;
+            display: flex; align-items: center; justify-content: center; transition: var(--transition); flex-shrink: 0;
+        }
+        .checklist-item.checked .checklist-checkbox { background: var(--forest); border-color: var(--forest); }
+        .checklist-item.checked .checklist-checkbox::after { content: '✓'; color: white; font-weight: bold; }
+        .checklist-content h4 { font-size: 1rem; margin-bottom: 4px; font-family: 'Outfit', sans-serif; }
+        .checklist-content p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+        /* NEW: FAQ Accordion */
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; }
+        .faq-question {
+            padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+            font-weight: 600; color: var(--text-primary); transition: var(--transition);
+        }
+        .faq-question:hover { background: var(--bg-tertiary); }
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: all 0.3s ease; color: var(--text-secondary); }
+        .faq-item.active .faq-answer { padding: 0 20px 20px; max-height: 300px; }
+        .faq-icon { transition: transform 0.3s; font-size: 1.2rem; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); }
+
+        /* Footer */
+        .footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 60px 0 24px; margin-top: 40px; }
+        .footer-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+        @media (max-width: 768px) { .footer-container { grid-template-columns: 1fr; } }
+        .footer-brand p { color: var(--text-secondary); margin-top: 12px; font-size: 0.95rem; }
+        .footer-links h4 { font-size: 1rem; margin-bottom: 16px; color: var(--text-primary); }
+        .footer-links a { display: block; color: var(--text-secondary); margin-bottom: 10px; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--accent); }
+        .footer-bottom { max-width: 1200px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; color: var(--text-secondary); font-size: 0.85rem; }
+
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    </style>
 </head>
 
 <body>
-    <script>
-        (function () {
-            let theme = 'dark';
-            try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch (e) { }
-            if (theme === 'light') document.body.classList.add('light-theme');
-        })();
-    </script>
+    <a href="#app-root" class="skip-link">Skip to main content</a>
 
     <header class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="../../index.html#home" class="nav-logo"><span class="saffron">Incredible</span><span
-                    class="gold">India</span><span class="green">Explorer</span></a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span
-                    class="bar"></span><span class="bar"></span></button>
-            <nav class="nav-menu" id="nav-menu">
-                <a href="../../index.html#home" class="nav-link active">Home</a>
-                <div class="nav-dropdown"><button class="nav-link dropdown-toggle">Nature ▾</button>
-                    <div class="dropdown-menu">
-                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
-                        <a href="../waterfalls-of-india/index.html" class="dropdown-item">Waterfalls</a>
-                    </div>
-                </div>
+            <a href="../../index.html#home" class="nav-logo">
+                <span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="../../index.html#home" class="nav-link">Home</a>
                 <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
             </nav>
         </div>
@@ -47,391 +316,261 @@
         <div class="lk-section-nav-inner">
             <a href="#overview" class="lk-nav-link active">Overview</a>
             <a href="#structure" class="lk-nav-link">Structure</a>
-            <a href="#mountain" class="lk-nav-link">Mountain Map</a>
+            <a href="#mountain" class="lk-nav-link">Map</a>
             <a href="#seasonal" class="lk-nav-link">Seasonal</a>
             <a href="#ecosystem" class="lk-nav-link">Ecosystem</a>
+            <a href="#culture" class="lk-nav-link">Culture</a>
             <a href="#access" class="lk-nav-link">Access</a>
-            <a href="#nearby" class="lk-nav-link">Nearby</a>
-            <a href="#credits" class="lk-nav-link">Credits</a>
+            <a href="#gallery" class="lk-nav-link">Gallery</a>
+            <a href="#faq" class="lk-nav-link">FAQ</a>
         </div>
     </nav>
 
     <main class="lk-main" id="app-root">
+        <!-- HERO -->
         <section class="lk-hero" id="overview">
-            <div class="lk-hero-backdrop" aria-hidden="true"></div>
             <div class="lk-hero-content reveal">
                 <span class="hero-kicker">🏔️ High-Range Cascade · Munnar · Kerala</span>
                 <h1 class="hero-title">Lakkam Waterfalls</h1>
-                <p class="hero-subtitle">Nestled in the Marayoor region of the Anaimalai Hills, Lakkam Waterfalls
-                    cascades through pristine shola forests and tea estates — a hidden jewel of Kerala's high ranges at
-                    2,730 metres above sea level.</p>
+                <p class="hero-subtitle">Nestled in the Marayoor region of the Anaimalai Hills, Lakkam Waterfalls cascades through pristine shola forests and tea estates — a hidden jewel of Kerala's high ranges.</p>
                 <div class="hero-stats">
-                    <div class="hero-stat"><span class="stat-number">2,730 m</span><span
-                            class="stat-label">Elevation</span></div>
-                    <div class="hero-stat"><span class="stat-number">Marayoor</span><span
-                            class="stat-label">Region</span></div>
-                    <div class="hero-stat"><span class="stat-number">Monsoon</span><span class="stat-label">Peak
-                            Flow</span></div>
-                    <div class="hero-stat"><span class="stat-number">Pambar</span><span class="stat-label">River
-                            Source</span></div>
+                    <div class="hero-stat"><span class="stat-number">2,730 m</span><span class="stat-label">Elevation</span></div>
+                    <div class="hero-stat"><span class="stat-number">Marayoor</span><span class="stat-label">Region</span></div>
+                    <div class="hero-stat"><span class="stat-number">Monsoon</span><span class="stat-label">Peak Flow</span></div>
+                    <div class="hero-stat"><span class="stat-number">Pambar</span><span class="stat-label">River Source</span></div>
                 </div>
             </div>
         </section>
 
+        <!-- INTRO -->
         <section class="lk-section" id="intro">
             <div class="lk-container">
-                <div class="section-header reveal"><span class="section-tag">📖 Introduction</span>
-                    <h2>The High-Range Cascade</h2>
-                </div>
+                <div class="section-header reveal"><span class="section-tag">📖 Introduction</span><h2>The High-Range Cascade</h2></div>
                 <div class="grid-2">
                     <div class="lk-card reveal">
                         <h3>A Hidden Gem of Munnar</h3>
-                        <p>Lakkam Waterfalls is located near Marayoor in the Idukki district of Kerala, approximately 35
-                            km from the popular hill station of Munnar. Situated within the Anaimalai Hills — the
-                            highest range in South India — it represents one of Kerala's most elevated and pristine
-                            waterfalls.</p>
-                        <p>The falls lie within the Chinnar Wildlife Sanctuary buffer zone, surrounded by unique
-                            shola-grassland ecosystems and tea estates that define the Munnar high-range landscape.
-                            Unlike the more commercial Athirappilly, Lakkam offers a serene, off-the-beaten-path
-                            experience.</p>
+                        <p>Lakkam Waterfalls is located near Marayoor in the Idukki district of Kerala, approximately 35 km from the popular hill station of Munnar. Situated within the Anaimalai Hills — the highest range in South India — it represents one of Kerala's most elevated and pristine waterfalls.</p>
+                        <p>The falls lie within the Chinnar Wildlife Sanctuary buffer zone, surrounded by unique shola-grassland ecosystems and tea estates that define the Munnar high-range landscape.</p>
                     </div>
                     <div class="lk-card reveal">
                         <h3>Water Source & Geography</h3>
-                        <p>The waterfall is fed by the Pambar River, which originates from the Anamudi peak (2,695 m) —
-                            South India's highest mountain. The river flows through the Eravikulam National Park before
-                            cascading at Lakkam, carrying pure glacial and spring water from the high-altitude shola
-                            forests.</p>
-                        <p>Geologically, the falls occur where the river crosses a laterite escarpment formed by the
-                            tectonic uplift of the Western Ghats. The combination of high elevation, heavy monsoon
-                            rainfall (4,000-5,000 mm annually), and unique geology creates this spectacular cascade.</p>
+                        <p>The waterfall is fed by the Pambar River, which originates from the Anamudi peak (2,695 m) — South India's highest mountain. The river flows through the Eravikulam National Park before cascading at Lakkam.</p>
+                        <p>Geologically, the falls occur where the river crosses a laterite escarpment formed by the tectonic uplift of the Western Ghats, creating this spectacular multi-tiered cascade.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- STRUCTURE -->
         <section class="lk-section lk-section-alt" id="structure">
             <div class="lk-container">
-                <div class="section-header reveal"><span class="section-tag">💧 Waterfall Structure</span>
-                    <h2>The Cascade Anatomy</h2>
-                </div>
+                <div class="section-header reveal"><span class="section-tag">💧 Waterfall Structure</span><h2>The Cascade Anatomy</h2></div>
                 <div class="structure-visual reveal">
                     <div class="structure-diagram">
-                        <div class="structure-layer source">
-                            <span class="layer-icon">🏔️</span>
-                            <div class="layer-content">
-                                <h4>Source: Anamudi Peak</h4>
-                                <p>2,695 m elevation — South India's highest point</p>
-                            </div>
-                        </div>
+                        <div class="structure-layer source"><span class="layer-icon">🏔️</span><div class="layer-content"><h4>Source: Anamudi Peak</h4><p>2,695 m elevation — South India's highest point</p></div></div>
                         <div class="structure-flow">↓</div>
-                        <div class="structure-layer park">
-                            <span class="layer-icon">🌿</span>
-                            <div class="layer-content">
-                                <h4>Eravikulam National Park</h4>
-                                <p>Shola forests & Nilgiri Tahr habitat</p>
-                            </div>
-                        </div>
+                        <div class="structure-layer park"><span class="layer-icon">🌿</span><div class="layer-content"><h4>Eravikulam National Park</h4><p>Shola forests & Nilgiri Tahr habitat</p></div></div>
                         <div class="structure-flow">↓</div>
-                        <div class="structure-layer highlight">
-                            <span class="layer-icon">💧</span>
-                            <div class="layer-content">
-                                <h4>Lakkam Waterfalls</h4>
-                                <p>Multi-tiered cascade at 2,730 m</p>
-                            </div>
-                        </div>
+                        <div class="structure-layer highlight"><span class="layer-icon">💧</span><div class="layer-content"><h4>Lakkam Waterfalls</h4><p>Multi-tiered cascade at 2,730 m</p></div></div>
                         <div class="structure-flow">↓</div>
-                        <div class="structure-layer tea">
-                            <span class="layer-icon">🍃</span>
-                            <div class="layer-content">
-                                <h4>Tea Estate Valleys</h4>
-                                <p>Marayoor sandalwood reserve</p>
-                            </div>
-                        </div>
-                        <div class="structure-flow">↓</div>
-                        <div class="structure-layer chinnar">
-                            <span class="layer-icon">🦌</span>
-                            <div class="layer-content">
-                                <h4>Chinnar Wildlife Sanctuary</h4>
-                                <p>Dry deciduous forest ecosystem</p>
-                            </div>
-                        </div>
+                        <div class="structure-layer chinnar"><span class="layer-icon">🦌</span><div class="layer-content"><h4>Chinnar Wildlife Sanctuary</h4><p>Dry deciduous forest ecosystem</p></div></div>
                     </div>
                     <div class="structure-facts glass-card">
                         <h3>Structure Facts</h3>
-                        <ul>
+                        <ul style="padding-left: 20px; color: var(--text-secondary); line-height: 1.8;">
                             <li><strong>Type:</strong> Multi-tiered cascade</li>
                             <li><strong>Height:</strong> Approximately 20-25 metres in main drop</li>
                             <li><strong>Total descent:</strong> ~100 metres through multiple tiers</li>
                             <li><strong>River:</strong> Pambar (tributary of Amaravati)</li>
                             <li><strong>Rock type:</strong> Laterite and charnockite</li>
-                            <li><strong>Ecosystem:</strong> Shola-grassland mosaic</li>
-                        </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- MAP -->
         <section class="lk-section" id="mountain">
             <div class="lk-container">
-                <div class="section-header reveal"><span class="section-tag">🗺️ Mountain Map</span>
-                    <h2>High-Range Landscape</h2>
-                </div>
+                <div class="section-header reveal"><span class="section-tag">🗺️ Mountain Map</span><h2>High-Range Landscape</h2></div>
                 <div class="map-container reveal">
                     <div class="map-wrapper glass-card">
-                        <svg viewBox="0 0 600 400" class="map-svg"
-                            aria-label="Map showing Lakkam Waterfalls location in the Anaimalai Hills">
-                            <!-- Mountain range -->
-                            <path d="M50,350 L120,200 L200,280 L280,150 L380,220 L460,120 L540,180 L540,380 L50,380 Z"
-                                fill="rgba(34, 197, 94, 0.08)" stroke="rgba(34, 197, 94, 0.3)" stroke-width="1" />
-                            <!-- Anamudi -->
+                        <svg viewBox="0 0 600 400" class="map-svg" aria-label="Map showing Lakkam Waterfalls location">
+                            <path d="M50,350 L120,200 L200,280 L280,150 L380,220 L460,120 L540,180 L540,380 L50,380 Z" fill="rgba(34, 197, 94, 0.08)" stroke="rgba(34, 197, 94, 0.3)" stroke-width="1" />
                             <circle cx="280" cy="150" r="8" fill="#8b5cf6" class="map-marker" data-point="anamudi" />
-                            <text x="280" y="135" text-anchor="middle" fill="currentColor" font-size="10"
-                                font-family="Outfit">Anamudi (2,695m)</text>
-                            <!-- Eravikulam -->
-                            <circle cx="320" cy="190" r="7" fill="#22c55e" class="map-marker" data-point="eravikulam" />
-                            <text x="320" y="175" text-anchor="middle" fill="currentColor" font-size="10"
-                                font-family="Outfit">Eravikulam NP</text>
-                            <!-- Lakkam -->
+                            <text x="280" y="135" text-anchor="middle" fill="var(--text-primary)" font-size="10" font-family="Outfit">Anamudi (2,695m)</text>
                             <circle cx="370" cy="220" r="11" fill="#0ea5e9" class="map-marker" data-point="lakkam" />
-                            <text x="370" y="205" text-anchor="middle" fill="#0ea5e9" font-size="12" font-weight="bold"
-                                font-family="Outfit">Lakkam Falls</text>
-                            <!-- Marayoor -->
+                            <text x="370" y="205" text-anchor="middle" fill="#0ea5e9" font-size="12" font-weight="bold" font-family="Outfit">Lakkam Falls</text>
                             <circle cx="420" cy="260" r="6" fill="#f97316" class="map-marker" data-point="marayoor" />
-                            <text x="420" y="245" text-anchor="middle" fill="currentColor" font-size="10"
-                                font-family="Outfit">Marayoor</text>
-                            <!-- Munnar -->
-                            <circle cx="250" cy="280" r="7" fill="#ec4899" class="map-marker" data-point="munnar" />
-                            <text x="250" y="265" text-anchor="middle" fill="currentColor" font-size="10"
-                                font-family="Outfit">Munnar</text>
-                            <!-- River path -->
-                            <path d="M280,150 Q320,180 370,220 Q420,260 460,320" stroke="#0ea5e9" stroke-width="2"
-                                fill="none" opacity="0.6" stroke-dasharray="4" />
-                            <text x="300" y="380" text-anchor="middle" fill="currentColor" font-size="11"
-                                font-family="Outfit" font-weight="600">Anaimalai Hills — Western Ghats</text>
+                            <text x="420" y="245" text-anchor="middle" fill="var(--text-primary)" font-size="10" font-family="Outfit">Marayoor</text>
+                            <path d="M280,150 Q320,180 370,220 Q420,260 460,320" stroke="#0ea5e9" stroke-width="2" fill="none" opacity="0.6" stroke-dasharray="4" />
                         </svg>
                     </div>
                     <div class="map-info glass-card" id="lk-map-info">
-                        <h3 id="map-info-title">Select a location</h3>
-                        <p id="map-info-desc">Click a marker on the map to learn about locations in the Anaimalai Hills
-                            region around Lakkam Waterfalls.</p>
+                        <h3 id="map-info-title" style="margin-bottom: 12px;">Select a location</h3>
+                        <p id="map-info-desc" style="color: var(--text-secondary);">Click a marker on the map to learn about locations in the Anaimalai Hills region around Lakkam Waterfalls.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- SEASONAL -->
         <section class="lk-section lk-section-alt" id="seasonal">
             <div class="lk-container">
-                <div class="section-header reveal"><span class="section-tag">🌧️ Seasonal Variation</span>
-                    <h2>When to Visit</h2>
-                </div>
+                <div class="section-header reveal"><span class="section-tag">🌧️ Seasonal Variation</span><h2>When to Visit</h2></div>
                 <div class="seasonal-grid reveal">
                     <div class="season-card peak">
                         <span class="season-badge">Peak</span>
                         <h3>Monsoon (Jun–Sep)</h3>
-                        <p>Waterfall at its most magnificent with full volume from heavy monsoon rains. Shola forests
-                            lush and green. Frequent mist creates dramatic atmosphere. Trails can be slippery. Leeches
-                            common.</p>
-                        <div class="flow-bar">
-                            <div class="flow-fill" style="width:100%"></div>
-                        </div>
+                        <p>Waterfall at its most magnificent with full volume. Shola forests lush and green. Frequent mist creates dramatic atmosphere. Trails can be slippery.</p>
+                        <div class="flow-bar"><div class="flow-fill" style="width:100%"></div></div>
                     </div>
                     <div class="season-card good">
                         <span class="season-badge">Best</span>
                         <h3>Post-Monsoon (Oct–Feb)</h3>
-                        <p>Ideal visiting period with healthy water flow and pleasant weather. Clear skies offer
-                            excellent views of surrounding peaks. Perfect for trekking and photography. Recommended
-                            season.</p>
-                        <div class="flow-bar">
-                            <div class="flow-fill" style="width:70%"></div>
-                        </div>
+                        <p>Ideal visiting period with healthy water flow and pleasant weather. Clear skies offer excellent views of surrounding peaks. Perfect for trekking.</p>
+                        <div class="flow-bar"><div class="flow-fill" style="width:70%"></div></div>
                     </div>
                     <div class="season-card low">
                         <span class="season-badge">Low</span>
                         <h3>Summer (Mar–May)</h3>
-                        <p>Water flow reduces to gentle stream. Some upper tiers may dry. Hotter days though cooler than
-                            plains. Tea estates remain green. Still beautiful but less spectacular.</p>
-                        <div class="flow-bar">
-                            <div class="flow-fill" style="width:25%"></div>
-                        </div>
+                        <p>Water flow reduces to a gentle stream. Some upper tiers may dry. Hotter days though cooler than plains. Tea estates remain green.</p>
+                        <div class="flow-bar"><div class="flow-fill" style="width:25%"></div></div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ECOSYSTEM -->
         <section class="lk-section" id="ecosystem">
             <div class="lk-container">
-                <div class="section-header reveal"><span class="section-tag">🌳 Surrounding Ecosystem</span>
-                    <h2>High-Range Biodiversity</h2>
+                <div class="section-header reveal"><span class="section-tag">🌳 Surrounding Ecosystem</span><h2>High-Range Biodiversity</h2></div>
+                <div class="grid-3 reveal">
+                    <div class="eco-card"><div class="eco-icon">🌲</div><h3>Shola Forests</h3><p>Stunted evergreen forests in valleys above 1,800m. Unique to the Western Ghats with 80% endemic plant species.</p></div>
+                    <div class="eco-card"><div class="eco-icon">🐐</div><h3>Nilgiri Tahr</h3><p>Endangered mountain ungulate found only in Western Ghats. Eravikulam NP has the world's largest population.</p></div>
+                    <div class="eco-card"><div class="eco-icon">🦅</div><h3>High-Altitude Birds</h3><p>Endemic species including Nilgiri pipit, Nilgiri laughingthrush, and black-and-orange flycatcher.</p></div>
+                    <div class="eco-card"><div class="eco-icon">🌸</div><h3>Neelakurinji</h3><p>The legendary Strobilanthes kunthiana blooms once every 12 years, covering hillsides in violet-blue.</p></div>
+                    <div class="eco-card"><div class="eco-icon">🐾</div><h3>Rare Mammals</h3><p>Brown palm civet, Nilgiri marten, lion-tailed macaque, and Indian giant squirrel inhabit the shola forests.</p></div>
+                    <div class="eco-card"><div class="eco-icon">🌾</div><h3>Montane Grasslands</h3><p>Rolling grasslands on ridges alternate with shola valleys. Critical for watershed conservation.</p></div>
                 </div>
-                <div class="ecosystem-grid reveal">
-                    <div class="eco-card">
-                        <div class="eco-icon">🌲</div>
-                        <h3>Shola Forests</h3>
-                        <p>Stunted evergreen forests in valleys above 1,800m. Unique to the Western Ghats with 80%
-                            endemic plant species. Home to rare species like Syzygium travancoricum.</p>
+            </div>
+        </section>
+
+        <!-- NEW: CULTURE -->
+        <section class="lk-section lk-section-alt" id="culture">
+            <div class="lk-container">
+                <div class="section-header reveal"><span class="section-tag">🛖 Cultural Heritage</span><h2>The Muthuvan Tribe & Sacred Groves</h2></div>
+                <div class="grid-2 reveal">
+                    <div class="lk-card">
+                        <h3>Guardians of the Forest</h3>
+                        <p>The Muthuvan tribe has inhabited the high ranges of the Anaimalai Hills for centuries. Their traditional knowledge of the shola forests, medicinal plants, and sustainable hunting-gathering practices is deeply intertwined with the landscape surrounding Lakkam.</p>
                     </div>
-                    <div class="eco-card">
-                        <div class="eco-icon">🐐</div>
-                        <h3>Nilgiri Tahr</h3>
-                        <p>Endangered mountain ungulate found only in Western Ghats. Eravikulam NP has world's largest
-                            population (~750). Often visible on grassland ridges near the falls.</p>
-                    </div>
-                    <div class="eco-card">
-                        <div class="eco-icon">🦅</div>
-                        <h3>High-Altitude Birds</h3>
-                        <p>Endemic species including Nilgiri pipit, Nilgiri laughingthrush, black-and-orange flycatcher,
-                            and Kerala laughingthrush restricted to high ranges.</p>
-                    </div>
-                    <div class="eco-card">
-                        <div class="eco-icon">🌸</div>
-                        <h3>Neelakurinji</h3>
-                        <p>The legendary Strobilanthes kunthiana blooms once every 12 years, covering hillsides in
-                            violet-blue. Next mass flowering expected around 2030.</p>
-                    </div>
-                    <div class="eco-card">
-                        <div class="eco-icon">🐾</div>
-                        <h3>Rare Mammals</h3>
-                        <p>Brown palm civet, Nilgiri marten, lion-tailed macaque, and Indian giant squirrel inhabit the
-                            shola forests. Occasional tiger and leopard sightings.</p>
-                    </div>
-                    <div class="eco-card">
-                        <div class="eco-icon">🌾</div>
-                        <h3>Montane Grasslands</h3>
-                        <p>Rolling grasslands on ridges alternate with shola valleys. Support endemic grasses, orchids,
-                            and herbs. Critical for watershed conservation.</p>
+                    <div class="lk-card">
+                        <h3>Sacred Groves (Kavu)</h3>
+                        <p>Scattered throughout the Marayoor region are 'Kavus' or sacred groves. These are patches of pristine forest protected by local communities for religious and ecological reasons, serving as vital micro-reservoirs of biodiversity and water sources for streams like the Pambar.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="lk-section lk-section-alt" id="access">
+        <!-- ACCESS -->
+        <section class="lk-section" id="access">
             <div class="lk-container">
-                <div class="section-header reveal"><span class="section-tag">🚗 Access Information</span>
-                    <h2>Getting There</h2>
-                </div>
+                <div class="section-header reveal"><span class="section-tag">🚗 Access Information</span><h2>Getting There</h2></div>
                 <div class="access-layout reveal">
-                    <div class="access-card">
+                    <div class="lk-card">
                         <h3>Location Details</h3>
                         <dl class="access-specs">
-                            <dt>Distance from Munnar</dt>
-                            <dd>35 km</dd>
-                            <dt>Distance from Marayoor</dt>
-                            <dd>8 km</dd>
-                            <dt>Nearest Town</dt>
-                            <dd>Marayoor</dd>
-                            <dt>Nearest Railway</dt>
-                            <dd>Aluva (145 km)</dd>
-                            <dt>Nearest Airport</dt>
-                            <dd>Cochin (155 km)</dd>
+                            <dt>Distance from Munnar</dt><dd>35 km</dd>
+                            <dt>Distance from Marayoor</dt><dd>8 km</dd>
+                            <dt>Nearest Railway</dt><dd>Aluva (145 km)</dd>
+                            <dt>Nearest Airport</dt><dd>Cochin (155 km)</dd>
                         </dl>
                     </div>
-                    <div class="access-card">
+                    <div class="lk-card">
                         <h3>How to Reach</h3>
                         <dl class="access-specs">
-                            <dt>By Road</dt>
-                            <dd>Kerala-Tamil Nadu SH17</dd>
-                            <dt>Public Transport</dt>
-                            <dd>KSRTC buses to Marayoor</dd>
-                            <dt>Private Vehicles</dt>
-                            <dd>Recommended</dd>
-                            <dt>Entry Fee</dt>
-                            <dd>₹25 per person</dd>
-                            <dt>Timings</dt>
-                            <dd>8 AM to 5 PM</dd>
+                            <dt>By Road</dt><dd>Kerala-Tamil Nadu SH17</dd>
+                            <dt>Public Transport</dt><dd>KSRTC buses to Marayoor</dd>
+                            <dt>Entry Fee</dt><dd>₹25 per person</dd>
+                            <dt>Timings</dt><dd>8:00 AM to 5:00 PM</dd>
                         </dl>
                     </div>
-                    <div class="access-card">
-                        <h3>Facilities Available</h3>
-                        <ul class="access-list">
-                            <li>Parking area at entrance</li>
-                            <li>Short paved trail to falls</li>
-                            <li>Viewing platforms</li>
-                            <li>Basic refreshment stalls</li>
-                            <li>Restroom facilities</li>
-                        </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: TREKKING CHECKLIST -->
+        <section class="lk-section lk-section-alt" id="checklist">
+            <div class="lk-container">
+                <div class="section-header reveal"><span class="section-tag">🎒 Trekking Prep</span><h2>Interactive Packing Checklist</h2>
+                <p style="color: var(--text-secondary); margin-top: 8px;">Click items to check them off. Your progress is saved automatically.</p></div>
+                <div class="checklist-container reveal" id="checklist-container">
+                    <div class="checklist-item" onclick="toggleCheck(this)"><div class="checklist-checkbox"></div><div class="checklist-content"><h4>Sturdy Trekking Shoes</h4><p>Essential for slippery, uneven laterite rocks.</p></div></div>
+                    <div class="checklist-item" onclick="toggleCheck(this)"><div class="checklist-checkbox"></div><div class="checklist-content"><h4>Rain Gear / Poncho</h4><p>Weather changes rapidly in the high ranges.</p></div></div>
+                    <div class="checklist-item" onclick="toggleCheck(this)"><div class="checklist-checkbox"></div><div class="checklist-content"><h4>Water Bottle (1-2 Liters)</h4><p>No potable water sources on the trail.</p></div></div>
+                    <div class="checklist-item" onclick="toggleCheck(this)"><div class="checklist-checkbox"></div><div class="checklist-content"><h4>Basic First Aid Kit</h4><p>Include bandages, antiseptic, and motion sickness pills for the ghat road.</p></div></div>
+                    <div class="checklist-item" onclick="toggleCheck(this)"><div class="checklist-checkbox"></div><div class="checklist-content"><h4>Cash (₹500-1000)</h4><p>No ATMs or digital payment facilities near the falls.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: GALLERY -->
+        <section class="lk-section" id="gallery">
+            <div class="lk-container">
+                <div class="section-header reveal"><span class="section-tag">📸 Visual Journey</span><h2>Photo Gallery</h2></div>
+                <div class="gallery-filters reveal">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="waterfall">Waterfall</button>
+                    <button class="filter-btn" data-filter="landscape">Landscape</button>
+                    <button class="filter-btn" data-filter="flora">Flora & Fauna</button>
+                </div>
+                <div class="gallery-grid reveal" id="gallery-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: FAQ -->
+        <section class="lk-section lk-section-alt" id="faq">
+            <div class="lk-container">
+                <div class="section-header reveal"><span class="section-tag">❓ FAQ</span><h2>Frequently Asked Questions</h2></div>
+                <div class="faq-list reveal">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)"><span>Is it safe to swim at Lakkam Waterfalls?</span><span class="faq-icon">▼</span></div>
+                        <div class="faq-answer"><p>Swimming is generally discouraged due to strong undercurrents, slippery rocks, and sudden changes in water volume. It is best enjoyed from the designated viewing platforms.</p></div>
                     </div>
-                    <div class="access-card">
-                        <h3>Important Notes</h3>
-                        <ul class="access-list">
-                            <li>Part of Chinnar buffer zone</li>
-                            <li>Permits may be required</li>
-                            <li>No camping allowed</li>
-                            <li>Plastic prohibited</li>
-                            <li>Guide optional but helpful</li>
-                        </ul>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)"><span>Do I need a permit to visit?</span><span class="faq-icon">▼</span></div>
+                        <div class="faq-answer"><p>For regular day visits to the main viewing area, a standard entry ticket (₹25) is sufficient. However, if you plan to trek deep into the Chinnar buffer zone or Eravikulam, special forest department permits are required.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)"><span>Can I visit Lakkam Waterfalls in a regular car?</span><span class="faq-icon">▼</span></div>
+                        <div class="faq-answer"><p>Yes, the road up to the parking area is motorable and accessible by standard sedans. However, the last few kilometers involve ghat roads with hairpin bends, so an experienced driver is recommended.</p></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="lk-section" id="nearby">
+        <!-- CREDITS -->
+        <section class="lk-section" id="credits">
             <div class="lk-container">
-                <div class="section-header reveal"><span class="section-tag">📍 Nearby Attractions</span>
-                    <h2>Places to Explore</h2>
-                </div>
-                <div class="grid-3">
-                    <div class="lk-card reveal">
-                        <h3>Eravikulam National Park</h3>
-                        <p>UNESCO World Heritage Site home to endangered Nilgiri Tahr. Features Rajamalai tourism zone
-                            with stunning views. Entry by permit only. Closed during calving season (Feb-Mar).</p>
-                        <span class="distance">15 km away</span>
-                    </div>
-                    <div class="lk-card reveal">
-                        <h3>Marayoor Sandalwood Forest</h3>
-                        <p>One of India's few natural sandalwood forests. Government sandalwood depot and museum.
-                            Prehistoric dolmens (muniyaras) scattered in surrounding landscape.</p>
-                        <span class="distance">8 km away</span>
-                    </div>
-                    <div class="lk-card reveal">
-                        <h3>Chinnar Wildlife Sanctuary</h3>
-                        <p>Unique dry deciduous forest ecosystem in rain-shadow region. Home to grizzled giant squirrel,
-                            star tortoise, and 40+ mammal species. Excellent for wildlife safaris.</p>
-                        <span class="distance">25 km away</span>
-                    </div>
-                    <div class="lk-card reveal">
-                        <h3>Top Station</h3>
-                        <p>Highest point on Munnar-Kodaikanal road at 1,880m. Panoramic views of Western Ghats and Tamil
-                            Nadu plains. Famous for Neelakurinji blooms every 12 years.</p>
-                        <span class="distance">40 km away</span>
-                    </div>
-                    <div class="lk-card reveal">
-                        <h3>Anamudi Peak</h3>
-                        <p>South India's highest mountain at 2,695 metres. Trekking requires permission from forest
-                            department. Spectacular views and endemic species. Adventure destination.</p>
-                        <span class="distance">20 km away</span>
-                    </div>
-                    <div class="lk-card reveal">
-                        <h3>Kundala Lake</h3>
-                        <p>Scenic artificial lake surrounded by tea estates and cherry blossoms. Boating facilities
-                            available. Nearby golf course adds to the charm. Popular picnic spot.</p>
-                        <span class="distance">30 km away</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="lk-section lk-section-alt" id="credits">
-            <div class="lk-container">
-                <div class="section-header reveal"><span class="section-tag">📸 Credits & Sources</span>
-                    <h2>Image Credits & References</h2>
-                </div>
-                <div class="credits-grid reveal">
-                    <div class="credit-item">
-                        <h3>Image Credits</h3>
-                        <ul>
-                            <li>Hero waterfall photograph: Kerala Forest Department (2023)</li>
-                            <li>Mountain landscape: Survey of India topographic maps</li>
-                            <li>Shola forest images: Salim Ali Centre for Ornithology</li>
-                            <li>Tea estate vistas: Kerala Tourism Development Corporation</li>
-                        </ul>
-                    </div>
-                    <div class="credit-item">
+                <div class="section-header reveal"><span class="section-tag">📚 Credits & Sources</span><h2>References</h2></div>
+                <div class="grid-2 reveal">
+                    <div class="lk-card">
                         <h3>Data Sources</h3>
-                        <ul>
+                        <ul style="padding-left: 20px; color: var(--text-secondary); line-height: 1.8;">
                             <li>Elevation data: Geological Survey of India (2022)</li>
                             <li>Biodiversity records: Kerala State Biodiversity Board</li>
                             <li>Hydrology: Central Water Commission reports</li>
-                            <li>Conservation data: Kerala Forest & Wildlife Department</li>
+                        </ul>
+                    </div>
+                    <div class="lk-card">
+                        <h3>Conservation Partners</h3>
+                        <ul style="padding-left: 20px; color: var(--text-secondary); line-height: 1.8;">
+                            <li>Kerala Forest & Wildlife Department</li>
+                            <li>Chinnar Wildlife Sanctuary Management</li>
+                            <li>Local Muthuvan Community Councils</li>
                         </ul>
                     </div>
                 </div>
@@ -441,24 +580,189 @@
 
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-brand"><a href="../../index.html#home" class="nav-logo"><span
-                        class="saffron">Incredible</span><span class="gold">India</span><span
-                        class="green">Explorer</span></a>
-                <p>An interactive digital guide to India's natural heritage.</p>
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo"><span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span></a>
+                <p>An interactive digital guide to India's natural heritage, built with respect for local ecosystems and communities.</p>
             </div>
             <div class="footer-links">
-                <h4>Quick Links</h4><a href="../../index.html">Home</a><a
-                    href="../waterfalls-of-india/index.html">Waterfalls</a>
+                <h4>Quick Links</h4>
+                <a href="../../index.html">Home</a>
+                <a href="../waterfalls-of-india/index.html">All Waterfalls</a>
+                <a href="#credits">Data Sources</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Incredible India Explorer.</p>
+            <p>&copy; 2026 Incredible India Explorer. Licensed under MIT Open Source Guidelines.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="../app.js" defer></script>
-    <script src="../router.js" defer></script>
-</body>
+    <script>
+        // ==========================================================================
+        // THEME TOGGLE
+        // ==========================================================================
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        let theme = 'dark';
+        try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch (e) { }
+        if (theme === 'light') {
+            body.classList.add('light-theme');
+            themeToggle.textContent = '🌙';
+        }
 
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            const isLight = body.classList.contains('light-theme');
+            theme = isLight ? 'light' : 'dark';
+            themeToggle.textContent = isLight ? '🌙' : '☀️';
+            try {
+                const storage = JSON.parse(localStorage.getItem('iie_storage') || '{}');
+                storage.theme = theme;
+                localStorage.setItem('iie_storage', JSON.stringify(storage));
+            } catch (e) { }
+        });
+
+        // ==========================================================================
+        // SCROLL REVEAL ANIMATION
+        // ==========================================================================
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // ==========================================================================
+        // INTERACTIVE MAP
+        // ==========================================================================
+        const mapData = {
+            anamudi: { title: "Anamudi Peak", desc: "At 2,695m, this is the highest peak in South India and the primary source of the Pambar River." },
+            lakkam: { title: "Lakkam Waterfalls", desc: "The main cascade, dropping over laterite escarpments surrounded by dense shola vegetation." },
+            marayoor: { title: "Marayoor Town", desc: "The nearest settlement, famous for its natural sandalwood forests and prehistoric dolmens." }
+        };
+
+        document.querySelectorAll('.map-marker').forEach(marker => {
+            marker.addEventListener('click', () => {
+                const point = marker.dataset.point;
+                const data = mapData[point];
+                document.getElementById('map-info-title').textContent = data.title;
+                document.getElementById('map-info-desc').textContent = data.desc;
+                
+                // Visual feedback
+                document.querySelectorAll('.map-marker').forEach(m => m.style.opacity = '0.5');
+                marker.style.opacity = '1';
+            });
+        });
+
+        // ==========================================================================
+        // GALLERY POPULATION & FILTERING
+        // ==========================================================================
+        const galleryData = [
+            { category: 'waterfall', icon: '💧', title: 'Main Cascade', desc: 'The powerful primary drop during post-monsoon.' },
+            { category: 'landscape', icon: '🏔️', title: 'Anaimalai Range', desc: 'Rolling high-altitude peaks surrounding the valley.' },
+            { category: 'flora', icon: '🌲', title: 'Shola Canopy', desc: 'Dense, stunted evergreen forest unique to the Western Ghats.' },
+            { category: 'waterfall', icon: '🌊', title: 'Upper Tiers', desc: 'Gentle cascades feeding into the main plunge pool.' },
+            { category: 'landscape', icon: '🍃', title: 'Tea Estates', desc: 'The iconic green carpets of Munnar bordering the reserve.' },
+            { category: 'flora', icon: '🐐', title: 'Nilgiri Tahr', desc: 'The endangered mountain goat of the Eravikulam ridges.' }
+        ];
+
+        function renderGallery(filter) {
+            const grid = document.getElementById('gallery-grid');
+            grid.innerHTML = '';
+            const filtered = filter === 'all' ? galleryData : galleryData.filter(item => item.category === filter);
+            
+            filtered.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'gallery-item';
+                div.style.animation = `fadeIn 0.4s ease forwards ${index * 0.1}s`;
+                div.innerHTML = `
+                    <div class="gallery-img">${item.icon}</div>
+                    <div class="gallery-info">
+                        <h4>${item.title}</h4>
+                        <p>${item.desc}</p>
+                    </div>
+                `;
+                grid.appendChild(div);
+            });
+        }
+        renderGallery('all');
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderGallery(btn.dataset.filter);
+            });
+        });
+
+        // ==========================================================================
+        // CHECKLIST LOCAL STORAGE
+        // ==========================================================================
+        function toggleCheck(element) {
+            element.classList.toggle('checked');
+            saveChecklist();
+        }
+
+        function saveChecklist() {
+            const items = document.querySelectorAll('.checklist-item');
+            const state = Array.from(items).map(item => item.classList.contains('checked'));
+            localStorage.setItem('lakkam_checklist', JSON.stringify(state));
+        }
+
+        function loadChecklist() {
+            const saved = localStorage.getItem('lakkam_checklist');
+            if (saved) {
+                const state = JSON.parse(saved);
+                const items = document.querySelectorAll('.checklist-item');
+                items.forEach((item, index) => {
+                    if (state[index]) item.classList.add('checked');
+                });
+            }
+        }
+        loadChecklist();
+
+        // ==========================================================================
+        // FAQ ACCORDION
+        // ==========================================================================
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(faq => faq.classList.remove('active'));
+            
+            // Open clicked if it wasn't active
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // ==========================================================================
+        // ACTIVE NAV LINK ON SCROLL
+        // ==========================================================================
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.lk-nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
 </html>
