@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Tharangambadi Beach — Tamil Nadu's historic Danish coastal heritage combining golden sands with well-preserved colonial architecture and Fort Dansborg.">
+    <title>Tharangambadi Beach Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="tharangambadi-beach.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Tharangambadi Beach Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Tamil Nadu's historic Danish coastal heritage combining golden sands with well-preserved colonial architecture and Fort Dansborg.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_beaches.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/tharangambadi-beach/tharangambadi-beach.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tharangambadi Beach Explorer | Incredible India Explorer">
+    <meta name="twitter:description" content="Historic Danish beach at Tharangambadi, colonial ruins, golden sands and coastal heritage of Tamil Nadu.">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_beaches.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/tharangambadi-beach/tharangambadi-beach.html">
+</head>
+
+<body class="tharangambadi-body">
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+<main class="tharangambadi-page">
+    <!-- Hero -->
+    <section class="tharangambadi-hero">
+        <div class="tharangambadi-hero-content">
+            <a href="../islands/islands.html" class="tharangambadi-back-link">← Back to Islands of India</a>
+            <span class="tharangambadi-hero-kicker">🏖️ Coromandel Coast</span>
+            <h1>Tharangambadi <span>Beach</span></h1>
+            <p>A historic Danish coastline in Tharangambadi, Tamil Nadu, where golden sands meet well-preserved colonial architecture — a quiet retreat where the sea whispers stories of 17th-century trading posts and European settlement.</p>
+
+            <div class="tharangambadi-hero-stats">
+                <div class="tharangambadi-stat-box">
+                    <strong>10.95°N</strong>
+                    <span>Latitude</span>
+                </div>
+                <div class="tharangambadi-stat-box">
+                    <strong>79.7°E</strong>
+                    <span>Longitude</span>
+                </div>
+                <div class="tharangambadi-stat-box">
+                    <strong>Danish Heritage</strong>
+                    <span>Colonial Era</span>
+                </div>
+                <div class="tharangambadi-stat-box">
+                    <strong>1620</strong>
+                    <span>Settlement Founded</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabbed info -->
+    <section class="tharangambadi-section" id="tharangambadi-explore">
+        <div class="tharangambadi-container">
+            <div class="tharangambadi-section-heading">
+                <span class="tharangambadi-section-badge">Explore Tharangambadi</span>
+                <h2>Coastal Heritage & Landscape</h2>
+                <p>Select a tab to learn more.</p>
+            </div>
+
+            <div class="tharangambadi-tabs" role="tablist">
+                <button type="button" class="tharangambadi-tab-btn active" data-tab="history">History</button>
+                <button type="button" class="tharangambadi-tab-btn" data-tab="geography">Geography</button>
+                <button type="button" class="tharangambadi-tab-btn" data-tab="marine">Marine Life</button>
+                <button type="button" class="tharangambadi-tab-btn" data-tab="activities">Activities</button>
+                <button type="button" class="tharangambadi-tab-btn" data-tab="heritage">Heritage</button>
+            </div>
+
+            <div class="tharangambadi-tab-panel active" id="tab-history">
+                <h3>📜 Historical Background</h3>
+                <p>Tharangambadi, historically known as Tranquebar, was a Danish colony from 1620 to 1845, making it one of the longest-lasting European settlements on the Coromandel Coast. The name derives from the Tamil 'Tharangambadi,' meaning 'Place of the Singing Waves,' referring to the unique sound of the waves hitting the shore. The Danish East India Company established Fort Dansborg in 1620, which served as the European headquarters for Danish trade in Tamil Nadu. The colony saw the establishment of the Dane Church in the 1740s, along with other colonial administrative buildings. Today, the ruins of the fort and colonial-era structures stand as silent witnesses to this unique heritage, while the beach itself remains a beloved local spot and a testament to the area's international past.</p>
+                <ul>
+                    <li>Danish colony established 1620 — one of Europe's longest-lasting settlements in India</li>
+                    <li>Fort Dansborg built 1620 — Danish trading headquarters</li>
+                    <li>Dane Church built 1740s — one of India's oldest Protestant churches</li>
+                    <li>Colonial structures preserved as heritage sites</li>
+                    <li>Transferred to India in 1845</li>
+                </ul>
+            </div>
+
+            <div class="tharangambadi-tab-panel" id="tab-geography">
+                <h3>🌊 Geographic Overview</h3>
+                <p>Tharangambadi Beach stretches along the eastern coast of Tamil Nadu, facing the Bay of Bengal. The beach is characterized by its soft golden sands, which are composed of crushed shells and sediment, giving it a unique texture under the sun. The coastline here is relatively calm compared to other parts of the Bay, making it suitable for swimming and evening walks. The beach is backed by gentle sand dunes and casuarina pine groves that provide shade and prevent erosion. During the monsoon, the creek that flows into the sea at Tharangambadi swells, creating a picturesque estuary that is popular with local fishermen and birdwatchers. The area's flat terrain and coastal location make it ideal for watching the sunrise over the Bay of Bengal.</p>
+                <ul>
+                    <li>Golden sands composed of crushed shells and sediment</li>
+                    <li>Calm waters ideal for swimming</li>
+                    <li>Part of Chennai coastline region</li>
+                    <li>Sand dunes and casuarina pine groves</li>
+                    <li>Estuary popular with fishermen and birdwatchers</li>
+                </ul>
+            </div>
+
+            <div class="tharangambadi-tab-panel" id="tab-marine">
+                <h3>🐚 Marine Life</h3>
+                <p>The waters off Tharangambadi Beach are home to a variety of marine species common to the Bay of Bengal coastline. The coral reefs and sandy seabeds support fish populations including snapper, pomfret, and ribbonfish. During the winter months, olive ridley sea turtles occasionally nest on the beach, though their numbers have declined due to coastal development. The underwater landscape features sandy bottoms with occasional rock formations, providing habitats for crabs, mollusks, and small reef fish. Local fishermen practice traditional net-weaving techniques that have been passed down through generations, and the seafood from these waters is a staple of the local cuisine.</p>
+                <ul>
+                    <li>Fish: snapper, pomfret, ribbonfish</li>
+                    <li>Olive ridley turtles (occasional nesting)</li>
+                    <li>Crabs and mollusks in sandy seabeds</li>
+                    <li>Traditional fishing methods preserved</li>
+                </ul>
+            </div>
+
+            <div class="tharangambadi-tab-panel" id="tab-activities">
+                <h3>🏖️ Activities</h3>
+                <p>Tharangambadi Beach offers a range of activities for visitors, from relaxing on the shore to exploring the colonial ruins. The calm waters make it ideal for swimming, especially during the post-monsoon season when the seas are clear and gentle. Beach walks at sunrise and sunset are popular, with the golden sand reflecting the warm colors of the sky. The nearby colonial fort ruins are a favorite for history enthusiasts and photographers. For those interested in local culture, the fishing villages near the creek offer a glimpse into traditional Tamil coastal life, with fresh seafood available at local stalls. Water sports such as kayaking are also available during the appropriate season.</p>
+                <ul>
+                    <li>Swimming in calm post-monsoon waters</li>
+                    <li>Sunrise and sunset beach walks</li>
+                    <li>Exploring colonial fort ruins</li>
+                    <li>Visiting local fishing villages</li>
+                    <li>Kayaking in backwaters</li>
+                </ul>
+            </div>
+
+            <div class="tharangambadi-tab-panel" id="tab-heritage">
+                <h3>🏺 Cultural Heritage</h3>
+                <p>The cultural heritage of Tharangambadi is a unique blend of Tamil coastal traditions and Danish influences. The local community preserves many customs from the fishing villages that have inhabited the coast for centuries, including boat-building, net-weaving, and seasonal festivals tied to the monsoon and fishing cycles. The colonial ruins, particularly the remains of Fort Dansborg and the Dane Church, are protected as heritage sites and serve as reminders of the area's international trade history. Local festivals often feature Tharangambadi's coastal culture, with traditional music, dance, and food highlighting the region's unique Danish-Tamil identity. The area's cuisine is renowned for its fresh seafood, particularly prawns, mackerel, and pomfret, prepared with authentic Tamil spices and Danish-inspired preparations.</p>
+                <ul>
+                    <li>Fishing village traditions preserved for centuries</li>
+                    <li>Protected heritage sites: Fort Dansborg, Dane Church</li>
+                    <li>Annual coastal cultural events</li>
+                    <li>Seafood cuisine: prawns, mackerel, pomfret</li>
+                    <li>Traditional boat-building and net-weaving</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map -->
+    <section class="tharangambadi-section" id="tharangambadi-map-section">
+        <div class="tharangambadi-container">
+            <div class="tharangambadi-section-heading">
+                <span class="tharangambadi-section-badge">Interactive Map</span>
+                <h2>Key Locations Around Tharangambadi</h2>
+                <p>Click a marker to learn about that location.</p>
+            </div>
+            <div class="tharangambadi-map-wrap">
+                <div id="tharangambadi-map"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section class="tharangambadi-section" id="tharangambadi-gallery-section">
+        <div class="tharangambadi-container">
+            <div class="tharangambadi-section-heading">
+                <span class="tharangambadi-section-badge">Image Gallery</span>
+                <h2>Glimpses of Tharangambadi Beach</h2>
+                <p>Click an image to view it larger.</p>
+            </div>
+            <div id="tharangambadi-gallery-grid" class="tharangambadi-gallery-grid"></div>
+        </div>
+    </section>
+
+    <!-- Interesting Facts -->
+    <section class="tharangambadi-section">
+        <div class="tharangambadi-container">
+            <div class="tharangambadi-section-heading">
+                <span class="tharangambadi-section-badge">Did You Know?</span>
+                <h2>Interesting Facts</h2>
+            </div>
+            <div class="tharangambadi-fact-panel">
+                <div class="tharangambadi-fact-icon">💡</div>
+                <p id="tharangambadi-fact-text">Loading fact...</p>
+                <div class="tharangambadi-fact-dots" id="tharangambadi-fact-dots"></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <!-- Lightbox -->
+    <div class="tharangambadi-lightbox-overlay" id="tharangambadi-lightbox" hidden>
+        <div class="tharangambadi-lightbox-content">
+            <button class="tharangambadi-lightbox-close" data-close-lightbox="true" aria-label="Close">&times;</button>
+            <button class="tharangambadi-lightbox-nav prev" id="tharangambadi-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="tharangambadi-lightbox-image" src="" alt="">
+            <button class="tharangambadi-lightbox-nav next" id="tharangambadi-lightbox-next" aria-label="Next image">›</button>
+            <p class="tharangambadi-lightbox-caption" id="tharangambadi-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Preserving and celebrating India's rich coastal territories, coastlines and culture.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html#home">Home</a>
+                <a href="../islands/islands.html">Islands of India</a>
+                <a href="tharangambadi-beach.html">Tharangambadi Beach</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Cultural Heritage Initiative.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script type="module" src="tharangambadi-beach.js"></script>
+    <script src="../pages-common.js"></script>
+</body>
+</html>
