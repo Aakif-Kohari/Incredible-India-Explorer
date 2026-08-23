@@ -6031,6 +6031,13 @@ window.indiaSearchIndex = [
             "Explore Tarsar Marsar Trek (4,100m) in Kashmir: detailed route steps, Aru Valley base, Lidderwat meadows, Sundersar, and the twin almond-shaped glacial lakes of Tarsar and Marsar.",
         url: "frontend/tarsar-marsar-trek/index.html"
     },
+    // --- Forgotten Women of Indian History Explorer ---
+    {
+        title: "Forgotten Women of Indian History — Interactive Heritage Explorer",
+        category: "History & Royalty",
+        description:
+            "Explore Forgotten Women of Indian History — central digital archive of 50 pioneering women across Vedic philosophy, medieval statecraft, freedom struggles, medicine, and science.",
+        url: "frontend/forgotten-women-of-indian-history/index.html"},
     // --- Keladi Chennamma Explorer ---
     {
         title: "Keladi Chennamma — The Queen Who Defended the Keladi Kingdom Explorer",
