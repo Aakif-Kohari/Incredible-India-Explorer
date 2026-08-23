@@ -42,6 +42,14 @@ window.indiaSearchIndex = [
             'Explore Brahmagiri Peak Trek (1,608m) in Coorg & Wayanad, Western Ghats. UNESCO World Heritage Shola forests, Iruppu Falls, Pakshipathalam Cave, Asian Elephant sanctuary habitat, gear checklist, and trek estimator.',
         url: 'frontend/brahmagiri-trek/index.html'
     },
+    // --- Harishchandragad Trek ---
+    {
+        title: 'Harishchandragad Trek (Maharashtra) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Harishchandragad Trek (1,424m) in the Sahyadri range of Maharashtra. Ancient hill fort with the iconic Konkan Kada cliff overhang, 6th-century Harishchandreshwar temple, Kedareshwar Cave, monsoon waterfalls, Pachnai route details, and image gallery.',
+        url: 'frontend/harishchandragad-trek/index.html'
+    },
     {
     title: "Alibaug Beach — Maharashtra",
     category: "Beaches & Coastline",
