@@ -484,7 +484,7 @@ window.indiaSearchIndex = [
         category: 'Cuisine',
         description:
             'The iconic street food of Mumbai, Maharashtra — a spicy deep-fried potato dumpling inside a soft bread bun.',
-        url: 'frontend//cuisine.html'
+        url: 'frontend/vada-pav-explorer/index.html'
     },
     {
         title: 'Bisi Bele Bath',
