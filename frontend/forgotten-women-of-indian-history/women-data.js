@@ -1004,6 +1004,21 @@ const WOMEN_PROFILES = [
         mapCoords: { lat: 29.6, lng: 76.9 }
     },
     {
+        id: "anandibai-joshi",
+        url: "../anandibai-joshi-explorer/",
+        name: "Dr. Anandibai Joshi",
+        era: "colonial",
+        eraLabel: "1865 – 1887 CE",
+        region: "Kalyan / Pune & Philadelphia",
+        category: "doctors",
+        contribution: "First Indian woman to earn a Doctor of Medicine (M.D.) degree in the USA (WMCP 1886) and pioneer of maternal health.",
+        bio: "Overcame tremendous personal tragedy and social excommunication to study medicine at WMCP Philadelphia, authoring a landmark thesis on Indian obstetrics.",
+        dynasty: "Pioneering Indian Medicine",
+        featured: true,
+        icon: "🩺",
+        mapCoords: { lat: 19.24, lng: 73.13 }
+    },
+    {
         id: "janaki-ammal",
         url: "../janaki-ammal-explorer/",
         name: "Dr. E. K. Janaki Ammal",
