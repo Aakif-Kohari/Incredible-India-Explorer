@@ -6031,6 +6031,13 @@ window.indiaSearchIndex = [
             "Explore Tarsar Marsar Trek (4,100m) in Kashmir: detailed route steps, Aru Valley base, Lidderwat meadows, Sundersar, and the twin almond-shaped glacial lakes of Tarsar and Marsar.",
         url: "frontend/tarsar-marsar-trek/index.html"
     },
+    // --- Maharani Tarabai Explorer ---
+    {
+        title: "Maharani Tarabai — The Maratha Regent Who Continued the Resistance Explorer",
+        category: "History & Royalty",
+        description:
+            "Explore Maharani Tarabai (1675–1761 CE) — Regent of the Maratha Empire: counter-invasions against Aurangzeb, defense of Swarajya, Kolhapur state foundation, and timeline.",
+        url: "frontend/tarabai-maratha-regent-explorer/index.html"},
     // --- Forgotten Women of Indian History Explorer ---
     {
         title: "Forgotten Women of Indian History — Interactive Heritage Explorer",
