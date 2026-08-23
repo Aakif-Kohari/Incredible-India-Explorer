@@ -6022,8 +6022,7 @@ window.indiaSearchIndex = [
         description:
             "Explore Kalsubai Peak Trek (1,646m) in Maharashtra: detailed route, Kalsubai Temple summit details, steel ladders climbing, monsoon waterfalls, gear checklist, and duration estimator.",
         url: "frontend/kalsubai-trek/index.html"
->>>>>>
-        url: "frontend/kheerganga-trek/index.html"},
+    },
     // --- feat/tarsar-marsar-trek ---
     {
         title: "Tarsar Marsar Trek — Twin Alpine Lakes of Kashmir",
@@ -6031,5 +6030,13 @@ window.indiaSearchIndex = [
         description:
             "Explore Tarsar Marsar Trek (4,100m) in Kashmir: detailed route steps, Aru Valley base, Lidderwat meadows, Sundersar, and the twin almond-shaped glacial lakes of Tarsar and Marsar.",
         url: "frontend/tarsar-marsar-trek/index.html"
+    },
+    // --- Chand Bibi Explorer ---
+    {
+        title: "Chand Bibi — The Defender of Ahmadnagar Explorer",
+        category: "History & Royalty",
+        description:
+            "Explore the historical profile of Chand Bibi (1550–1599 CE) — Defender of Ahmadnagar, Regent of Bijapur & Ahmadnagar, Mughal siege resistance, and Deccan politics.",
+        url: "frontend/chand-bibi-explorer/index.html"
     }
 ];
