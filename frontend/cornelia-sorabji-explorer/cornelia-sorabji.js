@@ -1,0 +1,246 @@
+/**
+ * Cornelia Sorabji Explorer — Frontend Logic & DOM Controller
+ * Handles interactive subnav tabs, case study simulator, legal rights filters,
+ * timeline rendering, quiz evaluation, and theme switching.
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+    renderBiography();
+    initCaseSimulator();
+    renderLegalRights('all');
+    initRightsFilters();
+    renderTimeline();
+    initQuiz();
+    initNavigation();
+});
+
+/* --- Theme Management --- */
+function initTheme() {
+    const savedTheme = localStorage.getItem('cornelia_theme') || 'dark';
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-theme');
+    }
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) {
+        themeBtn.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+        themeBtn.addEventListener('click', toggleTheme);
+    }
+}
+
+function toggleTheme() {
+    document.body.classList.toggle('light-theme');
+    const isLight = document.body.classList.contains('light-theme');
+    localStorage.setItem('cornelia_theme', isLight ? 'light' : 'dark');
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) themeBtn.textContent = isLight ? '🌙' : '☀️';
+}
+
+/* --- Smooth Subnav Scroll & Active State --- */
+function initNavigation() {
+    const navBtns = document.querySelectorAll('.cs-nav-btn');
+    navBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            navBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const targetId = btn.getAttribute('data-target');
+            const section = document.getElementById(targetId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+}
+
+/* --- Biography Cards Rendering --- */
+function renderBiography() {
+    const container = document.getElementById('bio-cards-container');
+    if (!container || typeof CORNELIA_DATA === 'undefined') return;
+
+    container.innerHTML = CORNELIA_DATA.biographySections.map(sec => `
+        <div class="bio-card" id="${sec.id}">
+            <div class="bio-card-icon">${sec.icon}</div>
+            <h3>${sec.title}</h3>
+            <div class="bio-card-subtitle">${sec.subtitle}</div>
+            <p>${sec.content}</p>
+        </div>
+    `).join('');
+}
+
+/* --- Case Study Simulator --- */
+function initCaseSimulator() {
+    const selectorContainer = document.getElementById('case-selector-list');
+    const displayContainer = document.getElementById('case-display-box');
+    if (!selectorContainer || !displayContainer || typeof CORNELIA_DATA === 'undefined') return;
+
+    const cases = CORNELIA_DATA.legalCaseStudies;
+    if (!cases || cases.length === 0) return;
+
+    selectorContainer.innerHTML = cases.map((c, index) => `
+        <button class="case-select-btn ${index === 0 ? 'active' : ''}" data-id="${c.id}">
+            <strong>${c.caseTitle}</strong>
+            <span>Client: ${c.clientType}</span>
+        </button>
+    `).join('');
+
+    const buttons = selectorContainer.querySelectorAll('.case-select-btn');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const selected = cases.find(c => c.id === btn.dataset.id);
+            if (selected) renderCaseDetail(selected);
+        });
+    });
+
+    renderCaseDetail(cases[0]);
+}
+
+function renderCaseDetail(caseObj) {
+    const displayContainer = document.getElementById('case-display-box');
+    if (!displayContainer) return;
+
+    displayContainer.innerHTML = `
+        <h3>${caseObj.caseTitle}</h3>
+        <div style="color: var(--accent-gold); font-style: italic; margin-bottom: 12px;">Client: ${caseObj.clientType}</div>
+        <div class="case-badge-row">
+            <span class="badge-tag">⚖️ Legal Challenge</span>
+        </div>
+        <p style="margin-bottom: 12px;"><strong>Legal Conflict:</strong> ${caseObj.legalIssue}</p>
+        <p style="margin-bottom: 12px;"><strong>Cornelia Sorabji's Intervention:</strong> ${caseObj.sorabjiIntervention}</p>
+        <p><strong>Case Outcome & Impact:</strong> ${caseObj.outcome}</p>
+    `;
+}
+
+/* --- Legal Rights Catalog Filtering --- */
+function initRightsFilters() {
+    const filterBtns = document.querySelectorAll('.rights-filter-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const category = btn.getAttribute('data-cat');
+            renderLegalRights(category);
+        });
+    });
+}
+
+function renderLegalRights(category) {
+    const container = document.getElementById('rights-grid');
+    if (!container || typeof CORNELIA_DATA === 'undefined') return;
+
+    const data = CORNELIA_DATA.legalRightsCatalog;
+    const filtered = category === 'all' ? data : data.filter(item => item.category === category);
+
+    if (filtered.length === 0) {
+        container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">No entries found for this category.</div>`;
+        return;
+    }
+
+    container.innerHTML = filtered.map(item => `
+        <div class="rights-card">
+            <div class="rights-topic">${item.topic}</div>
+            <div class="rights-status">${item.status}</div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);"><strong>Historical Significance:</strong> ${item.significance}</p>
+        </div>
+    `).join('');
+}
+
+/* --- Timeline Rendering --- */
+function renderTimeline() {
+    const container = document.getElementById('timeline-track');
+    if (!container || typeof CORNELIA_DATA === 'undefined') return;
+
+    container.innerHTML = CORNELIA_DATA.timelineEvents.map(event => `
+        <div class="timeline-node">
+            <div class="timeline-year">${event.year}</div>
+            <div class="timeline-content">
+                <h4>${event.title}</h4>
+                <p>${event.description}</p>
+            </div>
+        </div>
+    `).join('');
+}
+
+/* --- Interactive Quiz Controller --- */
+let currentQuestionIndex = 0;
+let quizScore = 0;
+
+function initQuiz() {
+    const container = document.getElementById('quiz-body');
+    if (!container || typeof CORNELIA_DATA === 'undefined') return;
+    currentQuestionIndex = 0;
+    quizScore = 0;
+    renderQuizQuestion();
+}
+
+function renderQuizQuestion() {
+    const container = document.getElementById('quiz-body');
+    if (!container) return;
+
+    const questions = CORNELIA_DATA.quizQuestions;
+    if (currentQuestionIndex >= questions.length) {
+        container.innerHTML = `
+            <div style="text-align: center; padding: 20px;">
+                <h3 style="color: var(--accent-amber); font-size: 1.8rem; margin-bottom: 12px;">Quiz Completed! 🎉</h3>
+                <p style="font-size: 1.2rem; color: var(--text-primary); margin-bottom: 20px;">You scored <strong>${quizScore}</strong> out of <strong>${questions.length}</strong>.</p>
+                <button class="cs-nav-btn active" id="restart-quiz-btn">Restart Quiz</button>
+            </div>
+        `;
+        document.getElementById('restart-quiz-btn').addEventListener('click', initQuiz);
+        return;
+    }
+
+    const q = questions[currentQuestionIndex];
+    container.innerHTML = `
+        <div style="margin-bottom: 16px; font-weight: 600; color: var(--accent-gold);">Question ${currentQuestionIndex + 1} of ${questions.length}</div>
+        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 20px;">${q.question}</h3>
+        <div class="quiz-options-list">
+            ${q.options.map((opt, i) => `
+                <button class="quiz-option-btn" data-index="${i}">${opt}</button>
+            `).join('')}
+        </div>
+        <div id="quiz-feedback-box"></div>
+    `;
+
+    const optionBtns = container.querySelectorAll('.quiz-option-btn');
+    optionBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const selectedIndex = parseInt(btn.dataset.index);
+            evaluateAnswer(selectedIndex, q, optionBtns);
+        });
+    });
+}
+
+function evaluateAnswer(selectedIndex, question, optionBtns) {
+    optionBtns.forEach(b => b.disabled = true);
+    const feedbackBox = document.getElementById('quiz-feedback-box');
+
+    if (selectedIndex === question.correctIndex) {
+        quizScore++;
+        optionBtns[selectedIndex].classList.add('correct');
+        if (feedbackBox) {
+            feedbackBox.className = 'quiz-feedback correct-feedback';
+            feedbackBox.innerHTML = `<strong>Correct!</strong> ${question.explanation}`;
+        }
+    } else {
+        optionBtns[selectedIndex].classList.add('incorrect');
+        optionBtns[question.correctIndex].classList.add('correct');
+        if (feedbackBox) {
+            feedbackBox.className = 'quiz-feedback incorrect-feedback';
+            feedbackBox.innerHTML = `<strong>Incorrect.</strong> ${question.explanation}`;
+        }
+    }
+
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'cs-nav-btn active';
+    nextBtn.style.marginTop = '16px';
+    nextBtn.textContent = currentQuestionIndex === CORNELIA_DATA.quizQuestions.length - 1 ? 'See Results' : 'Next Question';
+    nextBtn.addEventListener('click', () => {
+        currentQuestionIndex++;
+        renderQuizQuestion();
+    });
+
+    feedbackBox.appendChild(document.createElement('br'));
+    feedbackBox.appendChild(nextBtn);
+}

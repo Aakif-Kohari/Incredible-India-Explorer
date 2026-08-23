@@ -1019,6 +1019,21 @@ const WOMEN_PROFILES = [
         mapCoords: { lat: 11.75, lng: 75.49 }
     },
     {
+        id: "cornelia-sorabji",
+        url: "../cornelia-sorabji-explorer/",
+        name: "Cornelia Sorabji",
+        era: "colonial",
+        eraLabel: "1866 – 1954 CE",
+        region: "Nashik / Pune & London / Calcutta",
+        category: "social-reformers",
+        contribution: "First female advocate of India, first woman to read law at Oxford (BCL 1892), and protector of Purdahnashin women's rights.",
+        bio: "Pioneering legal reformer who broke gender barriers at Oxford and in the Indian courts, representing over 600 secluded purdahnashin women and minor orphans.",
+        dynasty: "Indian Legal Heritage",
+        featured: true,
+        icon: "⚖️",
+        mapCoords: { lat: 19.99, lng: 73.79 }
+    },
+    {
         id: "mary-kom",
         name: "M. C. Mary Kom",
         era: "post-independence",
