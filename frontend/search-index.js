@@ -5992,8 +5992,6 @@ window.indiaSearchIndex = [
         description:
             "Explore Roopkund Trek in Uttarakhand \u2014 5,029m Mystery Skeleton Lake, Ali & Bedni Bugyals, Junargali Ridge, and Mount Trishul panoramas.",
         url: "frontend/roopkund-trek-explorer/index.html"
-<<<<<<< Updated upstream
-=======
     },
     // --- feat/kheerganga-trek ---
     {
@@ -6010,6 +6008,14 @@ window.indiaSearchIndex = [
         description:
             "Explore Kalsubai Peak Trek (1,646m) in Maharashtra: detailed route, Kalsubai Temple summit details, steel ladders climbing, monsoon waterfalls, gear checklist, and duration estimator.",
         url: "frontend/kalsubai-trek/index.html"
->>>>>>> Stashed changes
+>>>>>>
+        url: "frontend/kheerganga-trek/index.html"},
+    // --- feat/tarsar-marsar-trek ---
+    {
+        title: "Tarsar Marsar Trek — Twin Alpine Lakes of Kashmir",
+        category: "Mountains & Treks",
+        description:
+            "Explore Tarsar Marsar Trek (4,100m) in Kashmir: detailed route steps, Aru Valley base, Lidderwat meadows, Sundersar, and the twin almond-shaped glacial lakes of Tarsar and Marsar.",
+        url: "frontend/tarsar-marsar-trek/index.html"
     }
 ];
