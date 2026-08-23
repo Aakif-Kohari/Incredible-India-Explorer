@@ -217,7 +217,7 @@ const WOMEN_PROFILES = [
     },
     {
         id: "chand-bibi",
-        url: "../chand-bibi-explorer/index.html",
+        url: "../chand-bibi-explorer/",
         name: "Chand Bibi",
         era: "medieval",
         eraLabel: "1550 – 1599 CE",
@@ -246,7 +246,7 @@ const WOMEN_PROFILES = [
     },
     {
         id: "tarabai-bhonsle",
-        url: "../tarabai-maratha-regent-explorer/index.html",
+        url: "../tarabai-maratha-regent-explorer/",
         name: "Maharani Tarabai",
         era: "medieval",
         eraLabel: "1675 – 1761 CE",
@@ -261,7 +261,7 @@ const WOMEN_PROFILES = [
     },
     {
         id: "ahilyabai-holkar",
-        url: "../ahilyabai-holkar-explorer/index.html",
+        url: "../ahilyabai-holkar-explorer/",
         name: "Ahilyabai Holkar",
         era: "medieval",
         eraLabel: "1725 – 1795 CE",
@@ -320,7 +320,7 @@ const WOMEN_PROFILES = [
     // --- Colonial Era ---
     {
         id: "velu-nachiyar",
-        url: "../velu-nachiyar-explorer/index.html",
+        url: "../velu-nachiyar-explorer/",
         name: "Rani Velu Nachiyar",
         era: "colonial",
         eraLabel: "1730 – 1796 CE",
@@ -363,7 +363,7 @@ const WOMEN_PROFILES = [
     },
     {
         id: "rani-lakshmibai",
-        url: "../rani-lakshmibai-explorer/index.html",
+        url: "../rani-lakshmibai-explorer/",
         name: "Rani Lakshmibai",
         era: "colonial",
         eraLabel: "1828 – 1858 CE",
@@ -378,7 +378,7 @@ const WOMEN_PROFILES = [
     },
     {
         id: "begum-hazrat-mahal",
-        url: "../begum-hazrat-mahal-explorer/index.html",
+        url: "../begum-hazrat-mahal-explorer/",
         name: "Begum Hazrat Mahal",
         era: "colonial",
         eraLabel: "1820 – 1879 CE",
@@ -491,7 +491,7 @@ const WOMEN_PROFILES = [
     },
     {
         id: "dr-rukhmabai-raut",
-        url: "../rukhmabai-raut-profile/index.html",
+        url: "../rukhmabai-raut-profile/",
         name: "Dr. Rukhmabai Raut",
         era: "colonial",
         eraLabel: "1864 – 1955 CE",
@@ -522,7 +522,7 @@ const WOMEN_PROFILES = [
     // --- Freedom Struggle Era ---
     {
         id: "bhikaiji-cama",
-        url: "../bhikaji-cama/index.html",
+        url: "../bhikaji-cama/",
         name: "Madam Bhikaiji Cama",
         era: "freedom-struggle",
         eraLabel: "1861 – 1936 CE",
@@ -537,7 +537,7 @@ const WOMEN_PROFILES = [
     },
     {
         id: "sarojini-naidu",
-        url: "../sarojini-naidu-explorer/index.html",
+        url: "../sarojini-naidu-explorer/",
         name: "Sarojini Naidu",
         era: "freedom-struggle",
         eraLabel: "1879 – 1949 CE",
@@ -566,7 +566,7 @@ const WOMEN_PROFILES = [
     },
     {
         id: "aruna-asaf-ali",
-        url: "../aruna-asaf-ali-explorer/index.html",
+        url: "../aruna-asaf-ali-explorer/",
         name: "Aruna Asaf Ali",
         era: "freedom-struggle",
         eraLabel: "1909 – 1996 CE",
@@ -595,7 +595,7 @@ const WOMEN_PROFILES = [
     },
     {
         id: "matangini-hazra",
-        url: "../matangini-hazra-explorer/index.html",
+        url: "../matangini-hazra-explorer/",
         name: "Matangini Hazra",
         era: "freedom-struggle",
         eraLabel: "1869 – 1942 CE",
@@ -680,7 +680,7 @@ const WOMEN_PROFILES = [
     },
     {
         id: "rani-gaidinliu",
-        url: "../rani-gaidinliu/index.html",
+        url: "../rani-gaidinliu/",
         name: "Rani Gaidinliu",
         era: "freedom-struggle",
         eraLabel: "1915 – 1993 CE",
