@@ -3,6 +3,19 @@
 
 <head>
     <script>
+        // Force clear Service Worker caches for the redesign
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                for(let registration of registrations) {
+                    registration.unregister();
+                }
+            });
+            caches.keys().then(function(names) {
+                for (let name of names) caches.delete(name);
+            });
+        }
+    </script>
+    <script>
         (function () {
             const theme = localStorage.getItem('theme') || 'dark';
             if (theme === 'light') {
@@ -410,6 +423,7 @@
                         <a href="frontend/national-symbols-gallery/national-symbols-gallery.html"
                             class="dropdown-item">National Symbols</a>
                         <a href="frontend/awards-of-india-explorer/index.html" class="dropdown-item">Awards of India</a>
+                        <a href="frontend/forgotten-women-of-indian-history/" class="dropdown-item" style="color: var(--primary-gold);" data-no-route="true">Forgotten Women</a>
                         <a href="frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
                         <a href="frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
                         <a href="frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
@@ -492,10 +506,9 @@
                     monuments, mouth-watering regional cuisines, colorful festivals, and timeless cultural arts.
                 </p>
                 <div class="hero-buttons animate-fade-in-delayed">
-                    <a href="#map" class="btn btn-primary" id="btn-explore-map" data-i18n="home.exploreMap">Explore
-                        Map</a>
-                    <a href="#quiz" class="btn btn-secondary" id="btn-start-quiz-hero" data-i18n="home.takeQuiz">Take a
-                        Quiz</a>
+                    <a href="#map" class="btn btn-primary" id="btn-explore-map" data-i18n="home.exploreMap">Explore Map</a>
+                    <a href="frontend/forgotten-women-of-indian-history/" class="btn btn-secondary" style="border-color: var(--primary-gold); color: var(--primary-gold);" data-no-route="true">Forgotten Women</a>
+                    <a href="#quiz" class="btn btn-secondary" id="btn-start-quiz-hero" data-i18n="home.takeQuiz">Take a Quiz</a>
                 </div>
             </div>
             <div class="hero-scroll-indicator">
@@ -623,13 +636,6 @@
                 <!-- Festivals Scrollable Timeline / Cards -->
                 <div class="festival-timeline" id="festival-timeline">
                     <!-- Dynamic festival cards injected here by app.js -->
-                </div>
-
-                <!-- Festival Calendar CTA -->
-                <div class="festival-calendar-cta">
-                    <a href="festival-calendar.html" class="calendar-btn">
-                        🗓️ Explore Festival Calendar
-                    </a>
                 </div>
             </div>
         </section>
@@ -893,8 +899,8 @@
     <div id="app-toast-container" class="app-toast-container" aria-live="polite" aria-relevant="additions removals">
     </div>
 
-    <!-- Scroll To Top Button -->
-    <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
+    <!-- Scroll To Top Button-->
+    <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">↑</button>
 
     <!-- Bharat Guide AI FAB & Chat Window -->
     <div class="bharat-guide-container">
@@ -944,7 +950,7 @@
 
     <!-- JavaScript Files -->
     <script src="frontend/dist/map-data.js" defer></script>
-    <script src="frontend/dist/home-data.js" defer></script>
+    <script src="frontend/dist/home-data.js?v=2" defer></script>
     <script src="frontend/chatbot-data.js" defer></script>
     <script src="frontend/sw-register.js" defer></script>
     <script src="frontend/js-modules/config.js" defer></script>
@@ -994,6 +1000,7 @@
         </svg>
         Install App
     </button>
+
 </body>
 
 </html>
