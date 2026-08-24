@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ==========================================================================
+     INDIAN SPICES & CULINARY HERITAGE EXPLORER — DASHBOARD
+     Enterprise-grade interactive suite for exploring India's spice traditions,
+     regional cuisines, and culinary techniques.
+     ========================================================================== -->
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') { document.body.classList.add('light-theme'); }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore India's rich spice heritage and culinary traditions in this interactive dashboard.">
+    <title>Indian Spices &amp; Culinary Heritage Explorer | Incredible India</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/design-tokens.css">
+    <link rel="stylesheet" href="style.css">
+    <meta property="og:title" content="Indian Spices & Culinary Heritage Explorer | Incredible India">
+    <meta property="og:description" content="Interactive dashboard for Indian spices, regional cuisines, and culinary techniques.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta property="og:locale" content="en_IN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Indian Spices & Culinary Heritage Explorer | Incredible India">
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/spices-culinary-heritage.html">
+</head>
+<body class="spices-page-body">
+
+    <!-- NAVBAR -->
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu" role="navigation" aria-label="Main navigation">
+                <a href="#spices" class="nav-link">Spices</a>
+                <a href="#cuisines" class="nav-link">Cuisines</a>
+                <a href="#techniques" class="nav-link">Techniques</a>
+                <a href="#analytics" class="nav-link">Analytics</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="spices-hero" id="hero" aria-label="Hero banner">
+        <div class="hero-spice-dust" aria-hidden="true"></div>
+        <div class="hero-content">
+            <span class="hero-kicker">Flavors of India</span>
+            <h1>Indian Spices &amp; <span>Culinary</span> Heritage</h1>
+            <p>From the saffron fields of Kashmir to the cardamom hills of Kerala, India's culinary heritage spans
+               thousands of spices, regional cuisines, and time-honored cooking techniques.</p>
+            <div class="hero-stats">
+                <div class="stat-card"><span class="stat-number" id="stat-spices">0</span><span class="stat-label">Spices</span></div>
+                <div class="stat-card"><span class="stat-number" id="stat-cuisines">0</span><span class="stat-label">Cuisines</span></div>
+                <div class="stat-card"><span class="stat-number" id="stat-techniques">0</span><span class="stat-label">Techniques</span></div>
+                <div class="stat-card"><span class="stat-number" id="stat-regions">0</span><span class="stat-label">Regions</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEARCH -->
+    <section class="search-section" id="search" aria-label="Search and filter">
+        <div class="search-container">
+            <div class="search-box">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <input type="text" id="global-search" class="search-input" placeholder="Search spices, cuisines, techniques…" aria-label="Search">
+            </div>
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                <button class="filter-btn" data-filter="spice" aria-pressed="false">Spices</button>
+                <button class="filter-btn" data-filter="cuisine" aria-pressed="false">Cuisines</button>
+                <button class="filter-btn" data-filter="technique" aria-pressed="false">Techniques</button>
+            </div>
+            <div class="sort-group">
+                <label for="sort-select" class="sr-only">Sort results</label>
+                <select id="sort-select" class="sort-select" aria-label="Sort">
+                    <option value="name-asc">Name A→Z</option>
+                    <option value="name-desc">Name Z→A</option>
+                    <option value="origin">By Origin</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: SPICES -->
+    <section class="explorer-section" id="spices" aria-label="Spices Explorer">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">🌶️ Spice <span>Explorer</span></h2>
+                <p class="section-subtitle">Explore India's aromatic treasures — each spice carries centuries of culinary tradition, medicinal wisdom, and cultural significance.</p>
+            </div>
+            <div class="sub-filter-bar">
+                <button class="sub-filter active" data-flavor="all" aria-pressed="true">All Flavors</button>
+                <button class="sub-filter" data-flavor="warm" aria-pressed="false">🔥 Warm</button>
+                <button class="sub-filter" data-flavor="sweet" aria-pressed="false">🍯 Sweet</button>
+                <button class="sub-filter" data-flavor="earthy" aria-pressed="false">🌍 Earthy</button>
+                <button class="sub-filter" data-flavor="citrus" aria-pressed="false">🍋 Citrus</button>
+                <button class="sub-filter" data-flavor="pungent" aria-pressed="false">💥 Pungent</button>
+            </div>
+            <div class="card-grid" id="spice-grid" role="list"></div>
+            <div class="empty-state" id="spice-empty" hidden><p>No spices match your filters.</p></div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: REGIONAL CUISINES -->
+    <section class="explorer-section" id="cuisines" aria-label="Regional Cuisines">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">🍛 Regional <span>Cuisines</span></h2>
+                <p class="section-subtitle">From the creamy curries of Punjab to the coconut-laden dishes of Kerala, India's regional cuisines are as diverse as its people.</p>
+            </div>
+            <div class="sub-filter-bar">
+                <button class="sub-filter active" data-vegtype="all" aria-pressed="true">All</button>
+                <button class="sub-filter" data-vegtype="veg" aria-pressed="false">🥬 Vegetarian</button>
+                <button class="sub-filter" data-vegtype="non-veg" aria-pressed="false">🍖 Non-Veg</button>
+                <button class="sub-filter" data-vegtype="mixed" aria-pressed="false">🍽️ Mixed</button>
+            </div>
+            <div class="card-grid" id="cuisine-grid" role="list"></div>
+            <div class="empty-state" id="cuisine-empty" hidden><p>No cuisines match your filters.</p></div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: CULINARY TECHNIQUES -->
+    <section class="explorer-section" id="techniques" aria-label="Culinary Techniques">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">👨‍🍳 Culinary <span>Techniques</span></h2>
+                <p class="section-subtitle">Master the art of Indian cooking with time-honored techniques passed down through generations.</p>
+            </div>
+            <div class="sub-filter-bar">
+                <button class="sub-filter active" data-method="all" aria-pressed="true">All Methods</button>
+                <button class="sub-filter" data-method="cooking" aria-pressed="false">Cooking</button>
+                <button class="sub-filter" data-method="preservation" aria-pressed="false">Preservation</button>
+                <button class="sub-filter" data-method="preparation" aria-pressed="false">Preparation</button>
+            </div>
+            <div class="technique-grid" id="technique-grid" role="list"></div>
+            <div class="empty-state" id="technique-empty" hidden><p>No techniques match your filters.</p></div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: ANALYTICS -->
+    <section class="explorer-section analytics-section" id="analytics" aria-label="Analytics">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">📊 Analytics <span>Dashboard</span></h2>
+                <p class="section-subtitle">Geographic and categorical breakdown of India's culinary heritage.</p>
+            </div>
+            <div class="analytics-grid">
+                <div class="analytics-card"><h3>Flavor Distribution</h3><div class="flavor-distribution" id="flavor-chart" role="img" aria-label="Flavor distribution"></div></div>
+                <div class="analytics-card"><h3>Regional Spread</h3><div class="chart-bar-container" id="region-chart" role="img" aria-label="Regional spread"></div></div>
+                <div class="analytics-card"><h3>Technique Categories</h3><div class="method-breakdown" id="method-chart" role="img" aria-label="Technique categories"></div></div>
+                <div class="analytics-card"><h3>Culinary Timeline</h3><div class="timeline-chart" id="timeline-chart" role="img" aria-label="Timeline"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="spices-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p class="footer-brand">🇮🇳 Incredible India Explorer — Spices &amp; Culinary Heritage Suite</p>
+                <p class="footer-credits">Built with ❤️ for celebrating India's culinary heritage.<br>Data sourced from Spices Board of India, FSSAI, and Ministry of Food Processing.</p>
+                <div class="footer-links">
+                    <a href="../../index.html">Home</a>
+                    <a href="../cuisine/">Cuisine</a>
+                    <a href="../street-food-map/">Street Food</a>
+                    <a href="#hero">Back to Top</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="spice-engine.js"></script>
+</body>
+</html>
