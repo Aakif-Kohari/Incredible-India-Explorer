@@ -6148,5 +6148,13 @@ window.indiaSearchIndex = [
         description:
             "Explore why Assam floods every year — Brahmaputra basin geography, seasonal flood cycles, contributing factors, vulnerable regions, community and ecosystem impacts, flood-management measures and disaster preparedness guidance.",
         url: "frontend/brahmaputra-flood-hazards/index.html"
+    },
+    // --- Add Anis Kidwai historical profile ---
+    {
+        title: "Anis Kidwai — Partition Memoirist & Refugee Rehabilitation Leader",
+        category: "History & Royalty",
+        description:
+            "Explore Anis Kidwai's historical profile: writer, social worker, and Rajya Sabha Member of Parliament who documented Partition in 'Azadi Ki Chhaon Mein' and led refugee rehabilitation.",
+        url: "frontend/anis-kidwai-explorer/index.html"
     }
 ];
