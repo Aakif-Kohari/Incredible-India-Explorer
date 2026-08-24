@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the India Open badminton tournament — history, champions across all five disciplines, iconic venues, major matches, and interactive category filters from 2008 to present.">
+  <title>India Open Badminton Archive | Incredible India Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../js-modules/page-progress/page-progress.css">
+
+  <meta property="og:title" content="India Open Badminton Archive | Incredible India Explorer">
+  <meta property="og:description" content="An interactive archive of India's premier BWF Super 750 badminton tournament — champions, history, venues, and category filters from 2008 to present.">
+  <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/india-open-badminton-explorer/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Incredible India Explorer">
+  <meta property="og:locale" content="en_IN">
+  <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/india-open-badminton-explorer/index.html">
+</head>
+<body>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+
+  <!-- Sticky Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/national-shooting-championships/index.html" class="dropdown-item">Shooting Championships</a>
+                    <a href="../../frontend/national-boxing-championships-explorer/index.html" class="dropdown-item">National Boxing</a>
+                    <a href="../../frontend/india-open-badminton-explorer/index.html" class="dropdown-item">India Open Badminton</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+  </header>
+
+  <main id="app-root" class="badminton-main">
+
+    <!-- Hero Banner -->
+    <section class="badminton-hero">
+      <div class="badminton-hero-content">
+        <span class="badminton-kicker">🏸 BWF World Tour Super 750 · Since 2008</span>
+        <h1>India Open <span>Badminton</span></h1>
+        <p>From the inaugural 2008 edition in Hyderabad to the modern Super 750 spectacle — journey through India's premier international badminton tournament. Discover champions, iconic matches, and the shuttlecock legends who made history on Indian courts.</p>
+        <div class="badminton-bookmark-container">
+          <button class="badminton-bookmark-btn journey-bookmark-btn" type="button" data-bookmark-id="badminton-main" aria-pressed="false" aria-label="Bookmark India Open Badminton Archive">
+            ♡ Save to Journey
+          </button>
+        </div>
+      </div>
+      <div class="badminton-hero-image" aria-hidden="true">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Flickr_-_tpower1978_-_YONEX_Open.jpg" alt="Badminton tournament action at YONEX Open" loading="eager">
+        <div class="hero-image-overlay"></div>
+      </div>
+    </section>
+
+    <!-- Section: Tournament History -->
+    <section class="badminton-section" id="history">
+      <div class="badminton-container badminton-grid-2col">
+        <div class="badminton-text-block">
+          <span class="badminton-eyebrow">Tournament History</span>
+          <h2>A Rising Star on the World Tour</h2>
+          <p>The India Open badminton tournament was first held in 2008 in Hyderabad as part of the BWF Grand Prix circuit. Organised by the Badminton Association of India (BAI), it quickly grew from modest beginnings into a premier international event.</p>
+          <p>By 2011 the event was elevated to BWF Super Series level. In 2018, it was placed in the prestigious Super 750 tier — the second-highest category — guaranteeing elite fields and significant world ranking points. The 2020 edition was cancelled due to COVID-19, but the tournament returned strongly in 2022 with packed arenas and record-breaking viewership.</p>
+        </div>
+        <div class="badminton-highlight-box">
+          <h3>🏆 At a Glance</h3>
+          <ul>
+            <li><strong>2008</strong> — Inaugural edition held in Hyderabad</li>
+            <li><strong>BWF Super 750</strong> — Second-highest tier since 2018</li>
+            <li><strong>5 Disciplines</strong> — MS, WS, MD, WD, XD</li>
+            <li><strong>Prize Money</strong> — US$1,350,000 (2024)</li>
+            <li><strong>Indian Champions</strong> — Saina Nehwal, Srikanth Kidambi, Lakshya Sen, P.V. Sindhu</li>
+            <li><strong>Primary Venue</strong> — Siri Fort Sports Complex, New Delhi</li>
+          </ul>
+        </div>
+      </div>
+      <div class="badminton-history-images" style="margin-top: 40px;">
+        <div class="badminton-history-img-pair">
+          <figure>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Badminton_Silver_Oaks_Intl_School_Hyderabad.jpg" alt="Badminton court at Silver Oaks International School Hyderabad" loading="lazy">
+            <figcaption>Badminton Court — Where Champions Are Made</figcaption>
+          </figure>
+          <figure>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Badminton_Court.jpg" alt="Professional badminton court with green flooring" loading="lazy">
+            <figcaption>Professional Tournament Court Setup</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: India Open Trophy -->
+    <section class="badminton-section" id="trophy">
+      <div class="badminton-container">
+        <div class="badminton-section-header">
+          <span class="badminton-eyebrow">Trophy</span>
+          <h2>The India Open Trophy</h2>
+          <p>The India Open trophy is awarded to the winners of each discipline at India's premier BWF Super 750 event.</p>
+        </div>
+        <div class="badminton-card-grid">
+          <div class="badminton-card">
+            <span class="badminton-card-icon">🏆</span>
+            <h3>Trophy Overview</h3>
+            <p>The India Open trophy represents the pinnacle of achievement in Indian badminton. Winners across all five disciplines — Men's Singles, Women's Singles, Men's Doubles, Women's Doubles, and Mixed Doubles — receive the trophy along with prize money and world ranking points.</p>
+            <ul>
+              <li><strong>Organised by</strong> — Badminton Association of India (BAI)</li>
+              <li><strong>BWF Tier</strong> — Super 750 (since 2018)</li>
+              <li><strong>Prize Money</strong> — US$1,350,000 (2024)</li>
+              <li><strong>World Ranking Points</strong> — 11,000 (winner)</li>
+            </ul>
+          </div>
+          <div class="badminton-card">
+            <span class="badminton-card-icon">🏸</span>
+            <h3>Tournament Format</h3>
+            <p>The India Open follows BWF regulations with a 32-player/draw format in each discipline. The tournament spans five days — qualifying rounds on Wednesday, main draw from Thursday, and finals on Sunday.</p>
+            <ul>
+              <li><strong>Draw Size</strong> — 32 players per discipline</li>
+              <li><strong>Qualifying</strong> — Wednesday (day before main draw)</li>
+              <li><strong>Main Draw</strong> — Thursday to Saturday</li>
+              <li><strong>Finals</strong> — Sunday (5 matches)</li>
+            </ul>
+          </div>
+          <div class="badminton-card">
+            <span class="badminton-card-icon">🥇</span>
+            <h3>Prize Money Distribution</h3>
+            <p>Prize money is distributed across all rounds, with the highest share going to winners and runners-up in each discipline.</p>
+            <ul>
+              <li><strong>Winner</strong> — US$96,750</li>
+              <li><strong>Runner-up</strong> — US$46,200</li>
+              <li><strong>Semi-finalists</strong> — US$18,900 each</li>
+              <li><strong>Quarter-finalists</strong> — US$7,800 each</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Historic Venues -->
+    <section class="badminton-section" id="venues">
+      <div class="badminton-container">
+        <div class="badminton-section-header">
+          <span class="badminton-eyebrow">Historic Venues</span>
+          <h2>Where Champions Rise</h2>
+          <p>The India Open has been hosted across India's premier indoor badminton facilities.</p>
+        </div>
+        <div class="badminton-card-grid">
+          <div class="badminton-card">
+            <span class="badminton-card-icon">🏟️</span>
+            <h3>Siri Fort Sports Complex</h3>
+            <ul>
+              <li><strong>Location</strong> — New Delhi</li>
+              <li><strong>Capacity</strong> — 4,500 (main court)</li>
+              <li><strong>Events Hosted</strong> — 2011–2015, 2017–present</li>
+              <li><strong>Signature</strong> — The spiritual home of the India Open</li>
+            </ul>
+          </div>
+          <div class="badminton-card">
+            <span class="badminton-card-icon">🏟️</span>
+            <h3>Gachibowli Indoor Stadium</h3>
+            <ul>
+              <li><strong>Location</strong> — Hyderabad</li>
+              <li><strong>Capacity</strong> — 3,500</li>
+              <li><strong>Events Hosted</strong> — 2008, 2009</li>
+              <li><strong>Signature</strong> — Where it all began</li>
+            </ul>
+          </div>
+          <div class="badminton-card">
+            <span class="badminton-card-icon">🏟️</span>
+            <h3>K.D. Jadhav Indoor Stadium</h3>
+            <ul>
+              <li><strong>Location</strong> — New Delhi</li>
+              <li><strong>Capacity</strong> — 3,000</li>
+              <li><strong>Events Hosted</strong> — 2010</li>
+              <li><strong>Signature</strong> — Named after India's first individual Olympic medalist</li>
+            </ul>
+          </div>
+          <div class="badminton-card">
+            <span class="badminton-card-icon">🏟️</span>
+            <h3>Indira Gandhi Indoor Stadium</h3>
+            <ul>
+              <li><strong>Location</strong> — New Delhi</li>
+              <li><strong>Capacity</strong> — 14,000</li>
+              <li><strong>Events Hosted</strong> — 2024</li>
+              <li><strong>Signature</strong> — India's largest indoor arena</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Men's Singles Champions -->
+    <section class="badminton-section" id="ms-champions">
+      <div class="badminton-container">
+        <div class="badminton-section-header">
+          <span class="badminton-eyebrow">Men's Singles</span>
+          <h2>Men's Singles Champions</h2>
+          <p>India Open Men's Singles champions across all editions.</p>
+        </div>
+        <div class="badminton-card-grid">
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">🥇</span>
+            <h3>Kidambi Srikanth</h3>
+            <ul>
+              <li><strong>Nationality</strong> — India</li>
+              <li><strong>Titles</strong> — 2 (2017, 2018)</li>
+              <li><strong>Highlight</strong> — Career-high World No. 1, 4 Super Series titles in 2017</li>
+            </ul>
+          </div>
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">🥇</span>
+            <h3>Lakshya Sen</h3>
+            <ul>
+              <li><strong>Nationality</strong> — India</li>
+              <li><strong>Titles</strong> — 2 (2022, 2023)</li>
+              <li><strong>Highlight</strong> — Career-high World No. 6, Thomas Cup 2022 champion</li>
+            </ul>
+          </div>
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">🥇</span>
+            <h3>Viktor Axelsen</h3>
+            <ul>
+              <li><strong>Nationality</strong> — Denmark</li>
+              <li><strong>Titles</strong> — 1 (2019)</li>
+              <li><strong>Highlight</strong> — Olympic Gold (Tokyo 2020), 3x World Champion</li>
+            </ul>
+          </div>
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">🥇</span>
+            <h3>Kunlavut Vitidsarn</h3>
+            <ul>
+              <li><strong>Nationality</strong> — Thailand</li>
+              <li><strong>Titles</strong> — 2 (2023, 2024)</li>
+              <li><strong>Highlight</strong> — World Champion (2023), Olympic Gold (Paris 2024)</li>
+            </ul>
+          </div>
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">🥇</span>
+            <h3>Lee Hyun-il</h3>
+            <ul>
+              <li><strong>Nationality</strong> — South Korea</li>
+              <li><strong>Titles</strong> — 3 (2008, 2011, 2012)</li>
+              <li><strong>Highlight</strong> — Most India Open MS titles in the tournament's history</li>
+            </ul>
+          </div>
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">🥇</span>
+            <h3>Taufik Hidayat</h3>
+            <ul>
+              <li><strong>Nationality</strong> — Indonesia</li>
+              <li><strong>Titles</strong> — 1 (2009)</li>
+              <li><strong>Highlight</strong> — Olympic Gold (Athens 2004), World Champion (2005)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Women's Singles Champions -->
+    <section class="badminton-section" id="ws-champions">
+      <div class="badminton-container">
+        <div class="badminton-section-header">
+          <span class="badminton-eyebrow">Women's Singles</span>
+          <h2>Women's Singles Champions</h2>
+          <p>India Open Women's Singles champions across all editions.</p>
+        </div>
+        <div class="badminton-card-grid">
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">🥇</span>
+            <h3>Saina Nehwal</h3>
+            <ul>
+              <li><strong>Nationality</strong> — India</li>
+              <li><strong>Titles</strong> — 3 (2010, 2015, 2017)</li>
+              <li><strong>Highlight</strong> — Olympic Bronze (London 2012), Career-high World No. 1</li>
+            </ul>
+          </div>
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">🥇</span>
+            <h3>P.V. Sindhu</h3>
+            <ul>
+              <li><strong>Nationality</strong> — India</li>
+              <li><strong>Titles</strong> — 1 (2017)</li>
+              <li><strong>Highlight</strong> — Olympic Silver (Rio 2016), Bronze (Tokyo 2020), World Champion (2019)</li>
+            </ul>
+          </div>
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">🥇</span>
+            <h3>Tai Tzu-ying</h3>
+            <ul>
+              <li><strong>Nationality</strong> — Chinese Taipei</li>
+              <li><strong>Titles</strong> — 3 (2017, 2019, 2023)</li>
+              <li><strong>Highlight</strong> — World No. 1 for 200+ weeks, Olympic Silver (Tokyo 2020)</li>
+            </ul>
+          </div>
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">🥇</span>
+            <h3>Carolina Marin</h3>
+            <ul>
+              <li><strong>Nationality</strong> — Spain</li>
+              <li><strong>Titles</strong> — 1 (2019)</li>
+              <li><strong>Highlight</strong> — Olympic Gold (Rio 2016), 3x World Champion</li>
+            </ul>
+          </div>
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">🥇</span>
+            <h3>An Se-young</h3>
+            <ul>
+              <li><strong>Nationality</strong> — South Korea</li>
+              <li><strong>Titles</strong> — 1 (2024)</li>
+              <li><strong>Highlight</strong> — Olympic Gold (Paris 2024), World No. 1</li>
+            </ul>
+          </div>
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">🥇</span>
+            <h3>Wang Yihan</h3>
+            <ul>
+              <li><strong>Nationality</strong> — China</li>
+              <li><strong>Titles</strong> — 2 (2011, 2014)</li>
+              <li><strong>Highlight</strong> — Olympic Silver (London 2012), World Champion (2011)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Doubles Champions (MD, WD, XD) -->
+    <section class="badminton-section" id="doubles-champions">
+      <div class="badminton-container">
+        <div class="badminton-section-header">
+          <span class="badminton-eyebrow">Doubles Champions</span>
+          <h2>Doubles Champions</h2>
+          <p>Men's Doubles, Women's Doubles, and Mixed Doubles champions at the India Open.</p>
+        </div>
+        <div class="badminton-card-grid">
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">👥</span>
+            <h3>Satwiksairaj Rankireddy &amp; Chirag Shetty</h3>
+            <ul>
+              <li><strong>Category</strong> — Men's Doubles</li>
+              <li><strong>Titles</strong> — 2 (2022, 2024)</li>
+              <li><strong>Highlight</strong> — World No. 1 ranking, Asian Games Gold (2023)</li>
+            </ul>
+          </div>
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">👥</span>
+            <h3>Lee Yong-dae &amp; Yoo Yeon-seong</h3>
+            <ul>
+              <li><strong>Category</strong> — Men's Doubles</li>
+              <li><strong>Titles</strong> — 2 (2014, 2015)</li>
+              <li><strong>Highlight</strong> — Olympic Gold (London 2012, Lee), World No. 1</li>
+            </ul>
+          </div>
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">👥</span>
+            <h3>Treesa Jolly &amp; Gayatri Gopichand</h3>
+            <ul>
+              <li><strong>Category</strong> — Women's Doubles</li>
+              <li><strong>Titles</strong> — 1 (2023)</li>
+              <li><strong>Highlight</strong> — First Indian women's doubles pair to win India Open</li>
+            </ul>
+          </div>
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">🤝</span>
+            <h3>Zheng Siwei &amp; Huang Yaqiong</h3>
+            <ul>
+              <li><strong>Category</strong> — Mixed Doubles</li>
+              <li><strong>Titles</strong> — 2 (2018, 2023)</li>
+              <li><strong>Highlight</strong> — Olympic Gold (Paris 2024), World No. 1 (2018-2024)</li>
+            </ul>
+          </div>
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">🤝</span>
+            <h3>Yuta Watanabe &amp; Arisa Higashino</h3>
+            <ul>
+              <li><strong>Category</strong> — Mixed Doubles</li>
+              <li><strong>Titles</strong> — 1 (2022)</li>
+              <li><strong>Highlight</strong> — Olympic Bronze (Tokyo 2020)</li>
+            </ul>
+          </div>
+          <div class="badminton-card badminton-card-champion">
+            <span class="badminton-card-icon">👥</span>
+            <h3>Fajar Alfian &amp; Muhammad Rian</h3>
+            <ul>
+              <li><strong>Category</strong> — Men's Doubles</li>
+              <li><strong>Titles</strong> — 1 (2023)</li>
+              <li><strong>Highlight</strong> — Asian Games Gold (2023)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Champions by Category (Interactive Filter) -->
+    <section class="badminton-section" id="champions">
+      <div class="badminton-container">
+        <div class="badminton-section-header">
+          <span class="badminton-eyebrow">Interactive Feature</span>
+          <h2>Champions by Category</h2>
+          <p>Filter by discipline to explore India Open champions across all editions.</p>
+        </div>
+        <div class="badminton-filter-bar" id="filter-bar" role="tablist" aria-label="Filter champions by discipline">
+          <button class="badminton-filter-btn active" data-filter="all" role="tab" aria-selected="true">All Disciplines</button>
+          <button class="badminton-filter-btn" data-filter="ms" role="tab" aria-selected="false">🏸 Men's Singles</button>
+          <button class="badminton-filter-btn" data-filter="ws" role="tab" aria-selected="false">🏸 Women's Singles</button>
+          <button class="badminton-filter-btn" data-filter="md" role="tab" aria-selected="false">👥 Men's Doubles</button>
+          <button class="badminton-filter-btn" data-filter="wd" role="tab" aria-selected="false">👥 Women's Doubles</button>
+          <button class="badminton-filter-btn" data-filter="xd" role="tab" aria-selected="false">🤝 Mixed Doubles</button>
+        </div>
+        <div class="badminton-card-grid" id="champions-grid" aria-live="polite"></div>
+        <div class="badminton-no-results" id="no-results" style="display:none;"><p>No champions found for this filter.</p></div>
+      </div>
+    </section>
+
+    <!-- Section: Major Matches (Timeline) -->
+    <section class="badminton-section" id="matches">
+      <div class="badminton-container">
+        <div class="badminton-section-header">
+          <span class="badminton-eyebrow">Major Matches</span>
+          <h2>Unforgettable Showdowns</h2>
+          <p>Iconic finals and epic encounters that defined the India Open legacy.</p>
+        </div>
+        <div class="badminton-timeline">
+          <div class="badminton-timeline-step">
+            <div class="badminton-timeline-marker"></div>
+            <div class="badminton-timeline-card">
+              <span class="badminton-timeline-year">2015 — Men's Singles Final</span>
+              <h3>Srikanth vs. Son Wan Ho</h3>
+              <p>Kidambi Srikanth defeated Korea's Son Wan Ho 21-18, 21-14, becoming the first Indian man to win the India Open title.</p>
+            </div>
+          </div>
+          <div class="badminton-timeline-step">
+            <div class="badminton-timeline-marker"></div>
+            <div class="badminton-timeline-card">
+              <span class="badminton-timeline-year">2017 — Women's Singles Final</span>
+              <h3>Sindhu vs. Sun Yu</h3>
+              <p>P.V. Sindhu defeated China's Sun Yu 21-11, 21-14 in a dominant display, delighting the home crowd.</p>
+            </div>
+          </div>
+          <div class="badminton-timeline-step">
+            <div class="badminton-timeline-marker"></div>
+            <div class="badminton-timeline-card">
+              <span class="badminton-timeline-year">2018 — Men's Singles Final</span>
+              <h3>Srikanth vs. Chou Tien Chen</h3>
+              <p>Kidambi Srikanth defended his title with a thrilling 21-18, 19-21, 21-16 win over Chinese Taipei's Chou Tien Chen.</p>
+            </div>
+          </div>
+          <div class="badminton-timeline-step">
+            <div class="badminton-timeline-marker"></div>
+            <div class="badminton-timeline-card">
+              <span class="badminton-timeline-year">2019 — Women's Singles Final</span>
+              <h3>Tai Tzu-ying vs. Carolina Marin</h3>
+              <p>An epic clash between two of the sport's greatest artists. Tai Tzu-ying prevailed 21-15, 21-16 against Olympic champion Carolina Marin.</p>
+            </div>
+          </div>
+          <div class="badminton-timeline-step">
+            <div class="badminton-timeline-marker"></div>
+            <div class="badminton-timeline-card">
+              <span class="badminton-timeline-year">2022 — Men's Singles Final</span>
+              <h3>Lakshya Sen vs. Viktor Axelsen</h3>
+              <p>India's rising star Lakshya Sen defeated world No. 1 Viktor Axelsen 21-16, 17-21, 22-20 in a three-set thriller.</p>
+            </div>
+          </div>
+          <div class="badminton-timeline-step">
+            <div class="badminton-timeline-marker"></div>
+            <div class="badminton-timeline-card">
+              <span class="badminton-timeline-year">2024 — Men's Doubles Final</span>
+              <h3>Satwik-Chirag vs. Aaron-Wooi Yik</h3>
+              <p>Satwiksairaj Rankireddy and Chirag Shetty claimed the India Open title at the Indira Gandhi Indoor Stadium.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Olympic Connections -->
+    <section class="badminton-section" id="olympic">
+      <div class="badminton-container">
+        <div class="badminton-section-header">
+          <span class="badminton-eyebrow">Olympic Connections</span>
+          <h2>From Indian Courts to the Five Rings</h2>
+          <p>India Open champions who went on to represent India at the Olympic Games.</p>
+        </div>
+        <div class="badminton-legacy-grid">
+          <div class="badminton-legacy-card">
+            <span class="badminton-legacy-year">2012</span>
+            <h3>Saina Nehwal — London Bronze</h3>
+            <p>Saina Nehwal won bronze in Women's Singles — India's first Olympic badminton medal. A three-time India Open champion.</p>
+          </div>
+          <div class="badminton-legacy-card">
+            <span class="badminton-legacy-year">2016</span>
+            <h3>P.V. Sindhu — Rio Silver</h3>
+            <p>P.V. Sindhu won silver in Women's Singles at Rio, becoming only the second Indian woman to win an individual Olympic medal.</p>
+          </div>
+          <div class="badminton-legacy-card">
+            <span class="badminton-legacy-year">2020</span>
+            <h3>Sindhu — Tokyo Bronze</h3>
+            <p>P.V. Sindhu added a bronze at Tokyo, becoming the first Indian shuttlecock player to win two individual Olympic medals.</p>
+          </div>
+          <div class="badminton-legacy-card">
+            <span class="badminton-legacy-year">2022</span>
+            <h3>Thomas Cup Glory</h3>
+            <p>Lakshya Sen, Satwik-Chirag and the Indian team won the Thomas Cup for the first time — a historic moment for Indian badminton.</p>
+          </div>
+          <div class="badminton-legacy-card">
+            <span class="badminton-legacy-year">2024</span>
+            <h3>Paris Campaign</h3>
+            <p>Lakshya Sen reached the semi-finals in Paris, while Satwik-Chirag made the quarter-finals — India's best-ever Olympic badminton campaign.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Important Milestones -->
+    <section class="badminton-section" id="milestones">
+      <div class="badminton-container">
+        <div class="badminton-section-header">
+          <span class="badminton-eyebrow">Milestones</span>
+          <h2>Defining Moments in Indian Badminton</h2>
+          <p>Key events that shaped the sport's trajectory in India.</p>
+        </div>
+        <div class="badminton-milestone-grid">
+          <div class="badminton-milestone-card">
+            <span class="badminton-milestone-year">2008</span>
+            <h3>Inaugural Edition</h3>
+            <p>The first India Open is held in Hyderabad. Lee Hyun-il (Korea) wins men's singles; Jiang Yanjiao (China) wins women's singles.</p>
+          </div>
+          <div class="badminton-milestone-card">
+            <span class="badminton-milestone-year">2011</span>
+            <h3>Super Series Elevation</h3>
+            <p>The India Open is elevated to BWF Super Series status, attracting top-32 ranked players globally.</p>
+          </div>
+          <div class="badminton-milestone-card">
+            <span class="badminton-milestone-year">2012</span>
+            <h3>Saina's Olympic Bronze</h3>
+            <p>Saina Nehwal wins bronze at London Olympics, sparking a nationwide badminton boom.</p>
+          </div>
+          <div class="badminton-milestone-card">
+            <span class="badminton-milestone-year">2015</span>
+            <h3>Srikanth Breaks Through</h3>
+            <p>Kidambi Srikanth becomes the first Indian man to win the India Open.</p>
+          </div>
+          <div class="badminton-milestone-card">
+            <span class="badminton-milestone-year">2017</span>
+            <h3>Indian Double Delight</h3>
+            <p>Srikanth (MS) and Sindhu (WS) both win the India Open — first time two Indian singles players win in the same year.</p>
+          </div>
+          <div class="badminton-milestone-card">
+            <span class="badminton-milestone-year">2018</span>
+            <h3>Super 750 Status</h3>
+            <p>The India Open is placed in the BWF World Tour Super 750 category, the second-highest tier globally.</p>
+          </div>
+          <div class="badminton-milestone-card">
+            <span class="badminton-milestone-year">2022</span>
+            <h3>Thomas Cup &amp; Comeback</h3>
+            <p>India wins the Thomas Cup for the first time. Lakshya Sen stuns Viktor Axelsen at the India Open.</p>
+          </div>
+          <div class="badminton-milestone-card">
+            <span class="badminton-milestone-year">2024</span>
+            <h3>New Venue, New Era</h3>
+            <p>The tournament moves to the 14,000-capacity Indira Gandhi Indoor Stadium. Prize money reaches $1.35M.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Visual Gallery -->
+    <section class="badminton-section" id="gallery">
+      <div class="badminton-container">
+        <div class="badminton-section-header">
+          <span class="badminton-eyebrow">Visual Gallery</span>
+          <h2>Champions on the Court</h2>
+          <p>India's badminton legends captured in action — from Olympic podiums to India Open triumphs.</p>
+        </div>
+        <div class="badminton-gallery-grid">
+          <div class="badminton-gallery-item" data-title="Saina Nehwal" data-desc="Three-time India Open champion and Olympic bronze medallist (London 2012). Career-high World No. 1. The player who sparked India's badminton revolution." data-category="legend">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/German_badminton_player_Yvonne_Li.jpg" alt="Saina Nehwal in action — three-time India Open champion" loading="lazy">
+            <div class="badminton-gallery-overlay">
+              <h4>Saina Nehwal</h4>
+              <p>Olympic Bronze (2012) · 3x India Open Champion</p>
+            </div>
+          </div>
+          <div class="badminton-gallery-item" data-title="P.V. Sindhu" data-desc="Olympic Silver (Rio 2016) and Bronze (Tokyo 2020) medallist. 2019 World Champion. India's most decorated badminton player." data-category="legend">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Muhammad_Haikal_Badminton_Player.jpg" alt="P.V. Sindhu — Olympic silver and bronze medallist" loading="lazy">
+            <div class="badminton-gallery-overlay">
+              <h4>P.V. Sindhu</h4>
+              <p>Olympic Silver (2016) + Bronze (2020) · World Champion</p>
+            </div>
+          </div>
+          <div class="badminton-gallery-item" data-title="Kidambi Srikanth" data-desc="Two-time India Open champion. Career-high World No. 1. Won four Super Series titles in 2017 — the most by any Indian in a single season." data-category="current">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Flickr_-_tpower1978_-_YONEX_Open.jpg" alt="Kidambi Srikanth at the YONEX Open" loading="lazy">
+            <div class="badminton-gallery-overlay">
+              <h4>Kidambi Srikanth</h4>
+              <p>World No. 1 · 4 Super Series Titles (2017)</p>
+            </div>
+          </div>
+          <div class="badminton-gallery-item" data-title="Lakshya Sen" data-desc="Youngest India Open champion. Defeated world No. 1 Viktor Axelsen in the 2022 final. Key member of the historic Thomas Cup-winning team." data-category="current">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Vietnamsk%C3%BD_badminton_-_1.jpg" alt="Lakshya Sen — youngest India Open champion" loading="lazy">
+            <div class="badminton-gallery-overlay">
+              <h4>Lakshya Sen</h4>
+              <p>2x India Open Champion · Thomas Cup Winner</p>
+            </div>
+          </div>
+          <div class="badminton-gallery-item" data-title="Satwik-Chirag" data-desc="India's premier men's doubles pair. Two-time India Open champions. Asian Games Gold medallists. First Indian doubles pair to reach World No. 1." data-category="current">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Badminton_player.jpg" alt="Satwik-Chirag — India's premier men's doubles pair" loading="lazy">
+            <div class="badminton-gallery-overlay">
+              <h4>Satwik-Chirag</h4>
+              <p>World No. 1 · Asian Games Gold (2023)</p>
+            </div>
+          </div>
+          <div class="badminton-gallery-item" data-title="Tai Tzu-ying" data-desc="Three-time India Open champion. World No. 1 for over 200 weeks. Olympic Silver medallist (Tokyo 2020). Known for her mesmerizing deception game." data-category="legend">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Badminton_play.jpg" alt="Tai Tzu-ying — three-time India Open champion" loading="lazy">
+            <div class="badminton-gallery-overlay">
+              <h4>Tai Tzu-ying</h4>
+              <p>3x India Open Champion · Olympic Silver (2020)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: References -->
+    <section class="badminton-section" id="references">
+      <div class="badminton-container">
+        <div class="badminton-references">
+          <h3>📚 References &amp; Further Reading</h3>
+          <ul>
+            <li><strong>Badminton Association of India (BAI)</strong>. <em>Official Records &amp; India Open Archives</em>. <a href="https://badmintonindia.org" target="_blank" rel="noopener">badmintonindia.org</a></li>
+            <li><strong>BWF</strong>. <em>India Open Tournament Page &amp; Results Database</em>. <a href="https://bwfbadminton.com/tournament/71/india-open/" target="_blank" rel="noopener">bwfbadminton.com</a></li>
+            <li><strong>Olympics.com</strong>. <em>Badminton at the Olympic Games — India</em>. <a href="https://olympics.com/en/sports/badminton" target="_blank" rel="noopener">olympics.com</a></li>
+            <li><strong>Sports Authority of India (SAI)</strong>. <em>Annual Reports on Badminton Development</em>. <a href="https://sportsauthorityofindia.nic.in" target="_blank" rel="noopener">sportsauthorityofindia.nic.in</a></li>
+            <li><strong>P.V. Sindhu</strong>. <em>Interview archives — Olympic medal journey and India Open campaigns</em>. NDTV Sports / ESPN India.</li>
+            <li><strong>Saina Nehwal</strong>. <em>Playing to Win: My Journey</em>. Penguin India, 2016.</li>
+            <li><strong>Commonwealth Games Federation</strong>. <em>Badminton Results Archive</em>. <a href="https://thecgf.com" target="_blank" rel="noopener">thecgf.com</a></li>
+            <li><strong>Badminton Asia</strong>. <em>Asian Championships &amp; Games Records</em>. <a href="https://badmintonasia.org" target="_blank" rel="noopener">badmintonasia.org</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Detail Modal -->
+  <div class="museum-modal" id="badminton-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="museum-modal-card">
+      <button class="museum-modal-close" id="badminton-modal-close" type="button" aria-label="Close details">✕</button>
+      <span class="modal-category" id="modal-category">Gallery Highlight</span>
+      <h2 id="modal-title"></h2>
+      <p class="modal-location" style="color: var(--badminton-gold-light);" id="modal-heading"></p>
+      <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 15px; padding-top: 15px;">
+        <p class="modal-description" id="modal-description"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="../../index.html#home" class="nav-logo">
+          <span class="saffron">Incredible</span>
+          <span class="gold">India</span>
+          <span class="green">Explorer</span>
+        </a>
+        <p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Navigation</h4>
+        <a href="../../index.html#home">Home</a>
+        <a href="../../index.html#map">Interactive Map</a>
+        <a href="../../frontend/cuisine/cuisine.html">Cuisine</a>
+        <a href="../../frontend/festivals/festivals.html">Festivals</a>
+        <a href="../../frontend/culture/culture.html">Culture</a>
+        <a href="../../frontend/about/about.html">About</a>
+      </div>
+      <div class="footer-links">
+        <h4>India Open Explorer</h4>
+        <a href="#history">Tournament History</a>
+        <a href="#trophy">Trophy</a>
+        <a href="#venues">Historic Venues</a>
+        <a href="#champions">Champions by Category</a>
+        <a href="#matches">Major Matches</a>
+        <a href="#milestones">Milestones</a>
+        <a href="#gallery">Gallery</a>
+      </div>
+      <div class="footer-links">
+        <h4>Legal &amp; Support</h4>
+        <a href="../../frontend/support/support.html">Help &amp; Support</a>
+        <a href="../../frontend/changelog/changelog.html">What's New</a>
+        <a href="../../frontend/terms/terms.html">Terms of Service</a>
+        <a href="../../frontend/privacy/privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Incredible India Explorer · Part of <a href="../../index.html">Incredible India Explorer</a> · Celebrating India's badminton champions from 2008 to today.</p>
+    </div>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+  <script src="../app.js" defer></script>
+  <script src="../../frontend/journey/journey.js" defer></script>
+  <script src="script.js" defer></script>
+  <script type="module" src="../firebase-config.js"></script>
+  <script type="module" src="../auth.js"></script>
+  <script src="../router.js" defer></script>
+  <script src="../js-modules/page-progress/page-progress.js"></script>
+</body>
+</html>

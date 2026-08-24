@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.classList.add('light-theme');
+            }
+        })();
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explore India's culture through an interactive A-to-Z journey of traditions, food, art, history, languages, festivals, and everyday life." />
+    <title>Fun Cultural Facts of India — A to Z | Incredible India</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <meta property="og:title" content="Fun Cultural Facts of India — A to Z" />
+    <meta property="og:description" content="Take an interactive A-to-Z journey through India's culture, traditions, food, art, history, languages, festivals, and everyday life." />
+    <meta property="og:type" content="website" />
+</head>
+
+<body class="culture-main">
+
+    <!-- Site Navbar -->
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
+                <a href="../../index.html#home" class="nav-link">Home</a>
+                <a href="index.html" class="nav-link active">Cultural Facts</a>
+                <button id="theme-toggle" class="btn-theme-toggle" type="button" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="culture-hero" id="home">
+            <div class="section-container">
+                <div class="hero-badges-row">
+                    <span class="hero-pill">🇮🇳 Incredible India</span>
+                    <span class="hero-pill">🔤 A to Z</span>
+                    <span class="hero-pill">🪷 Culture &amp; Traditions</span>
+                </div>
+
+                <h1>
+                    Fun Cultural Facts of India
+                    <span>A to Z</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Take a fun journey across India's traditions, food, art,
+                    history, languages, festivals, and everyday life — one
+                    letter at a time.
+                </p>
+
+                <button type="button" class="random-fact-btn" id="random-fact">
+                    🎲 Discover a Random Fact
+                </button>
+            </div>
+        </section>
+
+        <!-- A-Z Alphabet Navigation -->
+        <section class="alphabet-section" id="alphabet">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">EXPLORE INDIA</span>
+                    <h2>Choose a Letter</h2>
+                    <p>Pick a letter to discover cultural facts from different parts of India.</p>
+                </div>
+
+                <nav class="alphabet-nav" id="alphabet-nav" aria-label="Cultural facts alphabet navigation">
+                    <!-- Alphabet buttons populated dynamically -->
+                </nav>
+            </div>
+        </section>
+
+        <!-- Category Filters Section -->
+        <section class="filters-section" id="filters">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">EXPLORE BY CATEGORY</span>
+                    <h2>Find Cultural Themes</h2>
+                    <p>Filter facts by cultural category to discover related traditions and practices.</p>
+                </div>
+
+                <div class="filters-row">
+                    <div class="filter-group">
+                        <label for="category-filter">Category</label>
+                        <select id="category-filter" aria-label="Filter by cultural category">
+                            <option value="all">All Categories</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="clear-filters-btn" id="clear-filters" aria-label="Clear cultural fact filters">
+                        Clear Filters
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cultural Facts Grid Section -->
+        <section class="facts-section" id="facts">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">INDIA FROM A TO Z</span>
+                    <h2>Cultural Facts</h2>
+                    <p>Explore stories, traditions, places, foods, celebrations, and everyday cultural details.</p>
+                </div>
+
+                <div class="facts-grid" id="facts-grid" aria-live="polite" aria-label="Cultural facts">
+                    <!-- Cultural fact cards populated dynamically -->
+                </div>
+
+                <div class="no-results" id="no-results" aria-live="polite" hidden>
+                    <span class="no-results-icon" aria-hidden="true">🪷</span>
+                    <h3>No Cultural Facts Found</h3>
+                    <p>Try another letter or category.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fact Detail Section -->
+        <section class="fact-detail-section" id="fact-detail-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">EXPLORE IN DETAIL</span>
+                    <h2>Cultural Deep Dive</h2>
+                    <p>Select a fact to explore in depth with descriptions, explanations, and related topics.</p>
+                </div>
+
+                <div class="fact-detail-wrapper" id="fact-detail-wrapper" aria-live="polite">
+                    <div class="fact-detail-empty">
+                        <span class="fact-detail-icon" aria-hidden="true">🔤</span>
+                        <h3>Select a Fact</h3>
+                        <p>Choose a cultural fact above to explore it in detail.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Facts Section -->
+        <section class="featured-section" id="featured-facts">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">INDIA'S CULTURAL HIGHLIGHTS</span>
+                    <h2>Featured Cultural Facts</h2>
+                    <p>A handpicked selection of fascinating facts from across India's cultural landscape.</p>
+                </div>
+
+                <div class="featured-grid" id="featured-grid">
+                    <!-- Featured facts populated dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Grid Section -->
+        <section class="categories-section" id="categories">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">DISCOVER MORE</span>
+                    <h2>India's Cultural Palette</h2>
+                    <p>From food and festivals to languages, art, history, and everyday traditions.</p>
+                </div>
+
+                <div class="categories-grid" id="categories-grid">
+                    <!-- Categories populated dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats-section" id="statistics">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">BY THE NUMBERS</span>
+                    <h2>India's Culture at a Glance</h2>
+                    <p>A snapshot of the diversity behind India's cultural heritage.</p>
+                </div>
+
+                <div class="stats-grid" id="stats-grid">
+                    <!-- Statistics populated dynamically -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Incredible India Explorer</h3>
+                    <p>Celebrating India's scientific, cultural, and strategic heritage.</p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="../../index.html#home">Home</a>
+                    <a href="#facts">Cultural Facts</a>
+                    <a href="#alphabet">A to Z</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Incredible India Explorer. Open Source Educational Platform.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>

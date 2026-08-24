@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganga Mahal Ghat | Palace Architecture Beside the Sacred River</title>
+    <style>
+        :root {
+            --primary-color: #8B263E;
+            --secondary-color: #D4AF37;
+            --accent-color: #F4E8C1;
+            --dark-color: #2C2C2C;
+            --light-color: #FAF9F6;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(44, 44, 44, 0.95);
+            backdrop-filter: blur(5px);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1561359313-0639aad49ff6?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+            margin: 0.5rem auto 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .img-container {
+            width: 100%;
+            height: 250px;
+            background: #ddd;
+            overflow: hidden;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .card:hover .img-container img {
+            transform: scale(1.05);
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Gallery Modal / Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            height: 220px;
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .right {
+                left: 0%;
+            }
+
+            nav ul {
+                display: none; /* Can be expanded with a hamburger menu script if needed */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo">Ganga Mahal Ghat</div>
+        <nav>
+            <ul>
+                <li><a href="#history">History</a></li>
+                <li><a href="#architecture">Architecture</a></li>
+                <li><a href="#patronage">Royal Patronage</a></li>
+                <li><a href="#riverfront">Riverfront</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Ganga Mahal Ghat</h1>
+        <p>A majestic palace architecture monument integrated seamlessly into the sacred riverfront of Varanasi.</p>
+        <a href="#history" class="btn">Explore Heritage</a>
+    </section>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- History & Location Section -->
+        <section id="history">
+            <h2>History & Location</h2>
+            <div class="grid-2">
+                <div>
+                    <p>Situated just 100 meters north of the bustling Assi Ghat, Ganga Mahal Ghat stands out as a unique architectural milestone in Kashi (Varanasi). Unlike standard stepped terraces built purely for rituals, this ghat is anchored by an imposing royal palace structure constructed directly on its stone steps.</p>
+                    <p>Constructed around 1830 CE, it originally functioned as a grand northern extension of Assi Ghat commissioned during the height of the Benares State's cultural and architectural growth.</p>
+                </div>
+                <div>
+                    <div class="img-container" style="border-radius: 8px;">
+                        <img src="https://images.unsplash.com/photo-1571536802807-30451e3955d8?auto=format&fit=crop&w=800&q=80" alt="Varanasi Riverfront Architecture">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Royal Patronage Section -->
+        <section id="patronage">
+            <h2>Royal Patronage & Evolution</h2>
+            <div class="grid-2">
+                <div>
+                    <div class="img-container" style="border-radius: 8px;">
+                        <img src="https://images.unsplash.com/photo-1590073844006-33379778ae09?auto=format&fit=crop&w=800&q=80" alt="Traditional Indian Palace Details">
+                    </div>
+                </div>
+                <div>
+                    <p>The establishment of Ganga Mahal Ghat is credited to the Narayan dynasty / rulers of the Benares State, specifically under the vision of King Prabhu Narayan Singh. The royal family sought to create an architectural masterpiece that combined administrative, spiritual, and cultural spaces right along the edge of the Ganga.</p>
+                    <p>Later in the 19th century, leaders like Gwalior Maharaj Jayajirao Scindia also contributed toward stabilizing and paving parts of the river banks, ensuring the structural longevity of the palace complex against powerful seasonal floods.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture & Palace Structure -->
+        <section id="architecture">
+            <h2>Palace Architecture & Features</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=600&q=80" alt="Carved Stone Work">
+                    </div>
+                    <div class="card-content">
+                        <h3>Indo-Rajput Style</h3>
+                        <p>The palace structure features magnificent carved stone lintels, balconies, and arches reflecting a blend of Rajput and regional Awadhi aesthetics.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=80" alt="Temple Architecture">
+                    </div>
+                    <div class="card-content">
+                        <h3>Radha-Krishna Shrine</h3>
+                        <p>Housing a traditional Nagar-style temple within its premises, the palace serves as a hub for celebrating major festivals like Janmashtami and Shivratri.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80" alt="Modern Cultural Use">
+                    </div>
+                    <div class="card-content">
+                        <h3>Modern Academic Hub</h3>
+                        <p>Today, the historic palace supports global cultural exchange, housing the Indo-Swedish Study Centre (Karlstad University) and design workspaces.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Riverfront Setting & Nearby Heritage -->
+        <section id="riverfront">
+            <h2>Riverfront Integration & Neighbors</h2>
+            <p>Positioned uniquely between the vibrant Assi Ghat and Bhonsale/Sankata Ghat network, Ganga Mahal Ghat creates a serene transition zone along Varanasi's shoreline. Unlike crowded commercial bathing spots, Ganga Mahal remains peaceful, offering clear lines of sight across the sweeping crescent of the River Ganga.</p>
+            <p>Its steps establish an organic dialogue with the water: during dry months, wide stone platforms emerge for meditation and classical music rippling across the current, while monsoon floods gently lap against the lower palace arched gateways.</p>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline">
+            <h2>Historical Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>1830 CE</h3>
+                        <p>Construction of the Ganga Mahal palace structure commissioned by the Narayan dynasty of Benares State.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Late 19th Century</h3>
+                        <p>Extensive stabilization and stone-paving works carried out to reinforce the river wall foundations.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Late 20th Century</h3>
+                        <p>Integration of international academic presence, establishing the Indo-Swedish Study Centre on upper levels.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Present Day</h3>
+                        <p>Maintained under the Kashi Naresh Maharani Trust as a protected architectural marvel blending heritage conservation with contemporary art studios.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Gallery Section -->
+        <section id="gallery">
+            <h2>Visual Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=600&q=80" alt="Ghat View">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1599813898852-c8004f2d7293?auto=format&fit=crop&w=600&q=80" alt="Palace Facade">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=600&q=80" alt="River Sunrise">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1605648916361-9bc12ad6a566?auto=format&fit=crop&w=600&q=80" alt="Stone Carvings">
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Ganga Mahal Ghat Heritage Project | Designed for Incredible India Explorer.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
