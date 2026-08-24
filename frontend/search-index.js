@@ -6118,5 +6118,14 @@ window.indiaSearchIndex = [
         description:
             "Explore Usha Mehta's heroic historical profile — the 22-year-old freedom fighter who operated the secret underground Congress Radio during the Quit India Movement in 1942, featuring an interactive 42.34m radio tuner simulator, biography, Yerwada trial, and Padma Vibhushan legacy.",
         url: "frontend/usha-mehta-explorer/index.html"
+    },
+
+    // --- 2011 Sikkim Earthquake Explorer (#3552) ---
+    {
+        title: "2011 Sikkim Earthquake — Himalayan Seismic Event Profile",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 18 September 2011 Sikkim earthquake (Mw 6.9): USGS epicentre on the India–Nepal border, Himalayan strike-slip tectonics, landslides, road and settlement damage, NDRF and Army relief, and earthquake preparedness.",
+        url: "frontend/sikkim-earthquake-2011-explorer/index.html"
     }
 ];
