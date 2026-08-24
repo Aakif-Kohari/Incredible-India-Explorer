@@ -50,14 +50,16 @@
     const sourcesData = [
         { name: "India Meteorological Department", url: "https://www.imd.gov.in" },
         { name: "Geological Survey of India", url: "https://gsi.gov.in" },
-        { name: "NDRF Operational Reports", url: "https://ndrf.gov.in" },
-        { name: "Seismological Society of India", url: "https://seismologyindia.org" }
+        { name: "National Disaster Response Force", url: "https://ndrf.gov.in" },
+        { name: "United States Geological Survey", url: "https://earthquake.usgs.gov" },
+        { name: "Indian Institute of Technology Delhi - Himalayan Seismology", url: "https://iitd.ac.in" }
     ];
 
     // Initialize Leaflet map
     document.addEventListener("DOMContentLoaded", () => {
         initMap();
         initTabs();
+        renderSources();
     });
 
     function initMap() {
@@ -116,6 +118,25 @@
                     panel.classList.toggle("active", panel.id === "tab-" + target);
                 });
             });
+        });
+    }
+
+    function renderSources() {
+        const sourcesGrid = document.querySelector(".uttarkashi-sources .three");
+        if (!sourcesGrid) return;
+
+        sourcesGrid.innerHTML = "";
+
+        sourcesData.forEach((source, index) => {
+            const panel = document.createElement("div");
+            panel.className = "panel";
+            panel.innerHTML = `
+                <h3>${source.name}</h3>
+                <ul>
+                    <li><a href="${source.url}" target="_blank" rel="noopener">View full report</a></li>
+                </ul>
+            `;
+            sourcesGrid.appendChild(panel);
         });
     }
 })();
