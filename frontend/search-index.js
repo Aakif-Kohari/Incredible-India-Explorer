@@ -6148,5 +6148,13 @@ window.indiaSearchIndex = [
         description:
             "Explore why Assam floods every year — Brahmaputra basin geography, seasonal flood cycles, contributing factors, vulnerable regions, community and ecosystem impacts, flood-management measures and disaster preparedness guidance.",
         url: "frontend/brahmaputra-flood-hazards/index.html"
+    },
+    // --- Add Pandita Ramabai historical profile ---
+    {
+        title: "Pandita Ramabai — Sanskrit Scholar & Social Reform Pioneer",
+        category: "History & Royalty",
+        description:
+            "Explore Pandita Ramabai's historical profile: first woman to earn titles Pandita and Sarasvati for Sanskrit scholarship, founder of Sharada Sadan and Mukti Mission.",
+        url: "frontend/pandita-ramabai-explorer/index.html"
     }
 ];
