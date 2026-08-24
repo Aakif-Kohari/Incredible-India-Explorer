@@ -6118,5 +6118,14 @@ window.indiaSearchIndex = [
         description:
             "Explore Usha Mehta's heroic historical profile — the 22-year-old freedom fighter who operated the secret underground Congress Radio during the Quit India Movement in 1942, featuring an interactive 42.34m radio tuner simulator, biography, Yerwada trial, and Padma Vibhushan legacy.",
         url: "frontend/usha-mehta-explorer/index.html"
+    },
+
+    // --- 2023 South Lhonak GLOF Explorer (#3568) ---
+    {
+        title: "2023 South Lhonak GLOF — Sikkim Glacial Lake Outburst Flood",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 3–4 October 2023 South Lhonak glacial lake outburst flood: lake geography, Teesta basin, GLOF hazards, Chungthang dam and highway damage, early-warning gaps, and Himalayan risk mitigation.",
+        url: "frontend/south-lhonak-glof-2023-explorer/index.html"
     }
 ];
