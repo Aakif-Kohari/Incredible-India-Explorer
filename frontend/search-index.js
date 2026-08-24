@@ -6187,6 +6187,13 @@ window.indiaSearchIndex = [
             "Explore why Assam floods every year — Brahmaputra basin geography, seasonal flood cycles, contributing factors, vulnerable regions, community and ecosystem impacts, flood-management measures and disaster preparedness guidance.",
         url: "frontend/brahmaputra-flood-hazards/index.html"
     },
+    // --- Add Savitribai Phule historical profile ---
+    {
+        title: "Savitribai Phule — Pioneer of Women's Education in India",
+        category: "History & Royalty",
+        description:
+            "Explore Savitribai Phule's historical profile: India's first female teacher, founder of Bhide Wada girls' school, Satyashodhak Samaj co-founder, and social reformer.",
+        url: "frontend/savitribai-phule-explorer/index.html"},
     // --- Add Begum Rokeya historical profile ---
     {
         title: "Begum Rokeya — Pioneer of Women's Education in Bengal",
