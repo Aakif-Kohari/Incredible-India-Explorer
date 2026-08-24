@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script>
-        (function() {
+        (function () {
             const theme = localStorage.getItem('theme') || 'dark';
             if (theme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'light');
@@ -17,20 +18,22 @@
     <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="../js-modules/command-palette/command-palette.css">
     <link rel="stylesheet" href="../js-modules/page-progress/page-progress.css">
     <style>
         :root {
-            --adv-primary: #14b8a6; /* Teal */
-            --adv-orange: #f97316; /* Adrenaline orange */
+            --adv-primary: #14b8a6;
+            /* Teal */
+            --adv-orange: #f97316;
+            /* Adrenaline orange */
             --adv-glass: rgba(15, 23, 42, 0.6);
             --adv-border: rgba(255, 255, 255, 0.08);
         }
 
         .adventure-hero {
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(4, 15, 20, 0.95)), 
-                        url('../assets/adventure_hero.png') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(4, 15, 20, 0.95)),
+                url('../assets/adventure_hero.png') center/cover no-repeat;
             height: 55vh;
             display: flex;
             align-items: center;
@@ -38,7 +41,7 @@
             position: relative;
             text-align: center;
         }
-        
+
         .adventure-hero::before {
             content: '';
             position: absolute;
@@ -107,7 +110,7 @@
             border: 1px solid var(--adv-border);
             border-radius: 16px;
             backdrop-filter: blur(16px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
         @media (max-width: 768px) {
@@ -117,7 +120,8 @@
             }
         }
 
-        .filter-bar input, .filter-bar select {
+        .filter-bar input,
+        .filter-bar select {
             padding: 12px 16px;
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -133,7 +137,8 @@
             color: #ffffff;
         }
 
-        .filter-bar input:focus, .filter-bar select:focus {
+        .filter-bar input:focus,
+        .filter-bar select:focus {
             border-color: var(--adv-primary);
             background: rgba(255, 255, 255, 0.08);
             box-shadow: 0 0 10px rgba(20, 184, 166, 0.15);
@@ -223,9 +228,23 @@
             letter-spacing: 0.03em;
         }
 
-        .easy { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
-        .medium { background: rgba(249,115,22,0.15); color: #f97316; border: 1px solid rgba(249,115,22,0.3); }
-        .hard { background: rgba(239,68,68,0.15); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
+        .easy {
+            background: rgba(16, 185, 129, 0.15);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .medium {
+            background: rgba(249, 115, 22, 0.15);
+            color: #f97316;
+            border: 1px solid rgba(249, 115, 22, 0.3);
+        }
+
+        .hard {
+            background: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
 
         .activity-card h3 {
             margin: 0 0 8px;
@@ -293,7 +312,7 @@
             max-height: 85vh;
             overflow-y: auto;
             padding: 35px;
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 24px;
             background: #0b1329;
             color: #f1f5f9;
@@ -306,7 +325,7 @@
             right: 16px;
             width: 36px;
             height: 36px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.05);
             color: #cbd5e1;
@@ -343,9 +362,9 @@
             gap: 15px;
             margin: 20px 0;
             padding: 16px;
-            background: rgba(255,255,255,0.02);
+            background: rgba(255, 255, 255, 0.02);
             border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         @media (max-width: 500px) {
@@ -399,95 +418,114 @@
         }
     </style>
 </head>
+
 <body>
     <script>
-        (function() {
-            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+        (function () {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch (e) { }
             if (theme === 'light') {
                 document.body.classList.add('light-theme');
             }
         })();
     </script>
     <header class="navbar" id="navbar">
-    <div class="nav-container">
-        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
-            <span class="saffron">Incredible</span>
-            <span class="gold">India</span>
-            <span class="green">Explorer</span>
-        </a>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-        <nav class="nav-menu" id="nav-menu">
-            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
-                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
-                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
-                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
-                    <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
-                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports
+                            of India</a>
+                        <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                        <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                        <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route
+                            Planner</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
-                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
-                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
-                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
-                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
-                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
-                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
-                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
-                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                        <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                        <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                        <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event
+                            Discovery</a>
+                        <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical
+                            Timeline</a>
+                        <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html"
+                            class="dropdown-item">National Symbols</a>
+                        <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                        <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP
+                            Handicrafts</a>
+                        <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National
+                            Days</a>
+                        <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
-                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
-                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
-                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
-                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National
+                            Parks</a>
+                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife
+                            Rescue</a>
+                        <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic
+                            Flora & Fauna</a>
+                        <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike
+                            Wetland</a>
+                        <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                        <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density
+                            Predictor</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
-                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
-                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
-                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
-                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport
+                            Quest</a>
+                        <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary
+                            Challenge</a>
+                        <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                        <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                        <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
-                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                        <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                    </div>
                 </div>
-            </div>
-            
-            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
-        </nav>
-    </div>
-</header>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
 
     <!-- SPA Root Main -->
     <main id="app-root" class="port-main">
@@ -495,14 +533,16 @@
             <div class="hero-content">
                 <span class="hero-tagline">🌲 Adrenaline &amp; Expeditions</span>
                 <h1 class="hero-title">Adventure Tourism <span>India</span></h1>
-                <p class="hero-description">Explore the heights of the snowy Himalayas, plunge into the turquoise depths of marine reefs, and fly over dense valleys.</p>
+                <p class="hero-description">Explore the heights of the snowy Himalayas, plunge into the turquoise depths
+                    of marine reefs, and fly over dense valleys.</p>
             </div>
         </section>
 
         <!-- Search & Filter bar -->
         <div class="filter-section">
             <div class="filter-bar">
-                <input type="text" id="adventure-search" placeholder="Search activities, states, types..." aria-label="Search adventures">
+                <input type="text" id="adventure-search" placeholder="Search activities, states, types..."
+                    aria-label="Search adventures">
                 <select id="type-filter" aria-label="Filter by type">
                     <option value="">All Categories</option>
                 </select>
@@ -520,9 +560,11 @@
     </main>
 
     <!-- Interactive Detail Modal -->
-    <div class="adventure-modal" id="adventure-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="adventure-modal" id="adventure-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"
+        aria-hidden="true">
         <div class="adventure-modal-card">
-            <button class="adventure-modal-close" id="adventure-modal-close" type="button" aria-label="Close details">✕</button>
+            <button class="adventure-modal-close" id="adventure-modal-close" type="button"
+                aria-label="Close details">✕</button>
             <div class="modal-badge-row">
                 <span class="activity-type" id="modal-type">Trekking</span>
                 <span class="difficulty-badge" id="modal-difficulty">Hard</span>
@@ -546,13 +588,13 @@
                     <span id="modal-altitude"></span>
                 </div>
             </div>
-            
+
             <h3 class="modal-section-title">Overview</h3>
             <p class="modal-description" id="modal-description"></p>
-            
+
             <h3 class="modal-section-title">Itinerary Highlights</h3>
             <p class="modal-description" id="modal-itinerary"></p>
-            
+
             <h3 class="modal-section-title">Required Gear Checklist</h3>
             <ul class="modal-list" id="modal-gear"></ul>
         </div>
@@ -561,8 +603,10 @@
     <!-- Footer -->
     <footer class="port-footer" style="background: rgba(15, 23, 42, 0.95); border-top: 1px solid var(--adv-border);">
         <div class="port-container" style="padding: 20px 0;">
-            <p>Part of <a href="../../index.html">Incredible India Explorer</a> · Built with modern responsive vanilla technologies.</p>
-            <p style="font-size: 0.85rem; margin-top: 8px; color: #64748b;">&copy; 2026 Incredible India Explorer. All rights reserved.</p>
+            <p>Part of <a href="../../index.html">Incredible India Explorer</a> · Built with modern responsive vanilla
+                technologies.</p>
+            <p style="font-size: 0.85rem; margin-top: 8px; color: #64748b;">&copy; 2026 Incredible India Explorer. All
+                rights reserved.</p>
         </div>
     </footer>
 
@@ -687,8 +731,9 @@
                     "Heavy Duty Raincoat (Mandatory)",
                     "Waterproof Trekking Boots",
                     "Fleece or Down Jacket",
-                    "Sleeping Bag & Tent (Peak Season)"]},
-  {
+                    "Sleeping Bag & Tent (Peak Season)"]
+            },
+            {
                 id: 11,
                 name: "Japfu Peak Trek",
                 type: "Trekking",
@@ -705,8 +750,10 @@
                     "Sturdy trekking boots",
                     "Camping equipment",
                     "Rain gear (unpredictable weather)"
-              ]},
-                  { id: 9,
+                ]
+            },
+            {
+                id: 9,
                 name: "Mawryngkhang Trek",
                 type: "Trekking",
                 difficulty: "Moderate (High Thrill)",
@@ -721,8 +768,9 @@
                     "High-grip rubber-soled shoes",
                     "Small daypack (hands must be completely free)",
                     "Rain poncho",
-                    "Water bottle"]},
-          {
+                    "Water bottle"]
+            },
+            {
                 id: 8,
                 name: "Kumara Parvatha Trek",
                 type: "Trekking",
@@ -739,8 +787,9 @@
                     "Camping gear and sleeping bag (if staying at peak)",
                     "Plenty of water (hydration bladders)",
                     "Salt packets and gaiters for leeches (during post-monsoon)",
-                    "Windproof outer shell jacket"]},
-          {
+                    "Windproof outer shell jacket"]
+            },
+            {
                 id: 9,
                 name: "Tadiandamol Trek",
                 type: "Trekking",
@@ -778,8 +827,8 @@
                     "Eco-friendly reusable water bottle (disposable plastic is strictly banned)",
                     "High contrast binoculars for canopy birdwatching",
                     "Insect repellent cream"]
-        },
-          {
+            },
+            {
                 name: "Kolli Hills Trek",
                 type: "Trekking",
                 difficulty: "Easy to Moderate",
@@ -797,8 +846,8 @@
                     "Rain jacket or waterproof poncho for waterfall spray protection",
                     "Telescopic trekking pole or walking stick",
                     "Mosquito repellent cream for evergreen tropical forest canopy"]
-              },
-          {
+            },
+            {
                 name: "Kalsubai Trek",
                 type: "Trekking",
                 difficulty: "Moderate",
@@ -837,9 +886,9 @@
                     "Rain poncho or waterproof cover for forest showers",
                     "Small daypack for 1-night camping essentials",
                     "Biodegradable toiletries to protect the hot spring water source"]
-              },
-          {
-                id:14,
+            },
+            {
+                id: 14,
                 name: "Tarsar Marsar Trek",
                 type: "Trekking",
                 difficulty: "Moderate",
@@ -856,7 +905,7 @@
                     "UV-protection sunglasses (high-altitude glacial glare)",
                     "Warm fleece layers and windproof outer jacket",
                     "Telescopic trekking pole",
-                    "Personal first-aid kit and water purification tablets"
+                    "Personal first-aid kit and water purification tablets"]
             },
             {
                 id: 15,
@@ -875,7 +924,7 @@
                     "Reusable water bottle (2 Liters)",
                     "Leech socks or salt (for monsoon/post-monsoon months)",
                     "Light rain jacket or windcheater",
-                    "Sun hat and UV sunglasses",
+                    "Sun hat and UV sunglasses",]
             },
             {
                 id: 16,
@@ -894,7 +943,7 @@
                     "Mandatory Medical Fitness Certificate & Photo ID",
                     "Light sleeping bag or warm thermal layers for Athirumala camp",
                     "Steel or reusable water canteen (2 Liters)",
-                    "Headlamp or torch with spare batteries",
+                    "Headlamp or torch with spare batteries",]
             },
             {
                 id: 17,
@@ -913,8 +962,27 @@
                     "Windproof outer jacket and warm fleece layers",
                     "Reusable water canteen (2 Liters)",
                     "KFDC Trekking permit receipt & Photo ID",
-                    "Sun hat, UV sunglasses, and sunscreen",
-                    "Light rain poncho or waterproof jacket"
+                    "Sun hat, UV sunglasses, and sunscreen",]
+            },
+            {
+                id: 18,
+                name: "Rajmachi Fort Trek",
+                type: "Trekking",
+                difficulty: "Easy",
+                state: "Lonavala / Karjat, Maharashtra",
+                image: "../assets/rajmachi_fort.png",
+                description: "Trek to the historic Shrivardhan & Manaranjan twin citadels in the Sahyadris, famous for monsoon waterfalls and Kondhane Caves.",
+                season: "June to September (Monsoon) & October to March (Winter)",
+                duration: "1 to 2 Days (3–5 hrs trek)",
+                altitude: "825 meters (2,710 ft)",
+                itinerary: "Lonavala flat trail / Kondhane Karjat jungle climb -> Udhewadi Machi Village -> Shrivardhan Fort citadel -> Manaranjan Fort -> Return.",
+                gear: [
+                    "Trekking shoes with strong anti-slip rubber grip for wet rocks",
+                    "Waterproof rain poncho or jacket & backpack rain cover",
+                    "Reusable water bottle (2 Liters)",
+                    "Headlamp or flashlight for village camping / night walks",
+                    "Personal first aid kit & insect repellent",
+                    "Light warm jacket for cool Sahyadri evenings"
                 ]
             }
         ];
@@ -927,7 +995,7 @@
             // Fill text fields
             document.getElementById("modal-title").textContent = act.name;
             document.getElementById("modal-type").textContent = act.type;
-            
+
             const diffEl = document.getElementById("modal-difficulty");
             diffEl.textContent = act.difficulty;
             diffEl.className = `difficulty-badge ${act.difficulty.toLowerCase()}`;
@@ -988,7 +1056,7 @@
                         <button class="btn-view-details" type="button">Explore Details &amp; Gear</button>
                     </div>
                 `;
-                
+
                 // Clicking triggers details modal
                 card.addEventListener('click', () => openModal(act, card));
                 card.addEventListener('keydown', (e) => {
@@ -997,7 +1065,7 @@
                         openModal(act, card);
                     }
                 });
-                
+
                 grid.appendChild(card);
             });
         }
@@ -1007,7 +1075,7 @@
             const type = document.getElementById('type-filter').value;
             const difficulty = document.getElementById('difficulty-filter').value;
 
-            const filtered = adventureData.filter(a => 
+            const filtered = adventureData.filter(a =>
                 (!search || a.name.toLowerCase().includes(search) || a.description.toLowerCase().includes(search) || a.state.toLowerCase().includes(search)) &&
                 (!type || a.type === type) &&
                 (!difficulty || a.difficulty === difficulty)
@@ -1076,4 +1144,5 @@
     <script type="module" src="../auth.js"></script>
     <script src="../js-modules/page-progress/page-progress.js"></script>
 </body>
+
 </html>

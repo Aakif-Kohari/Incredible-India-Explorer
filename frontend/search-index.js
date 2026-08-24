@@ -72,6 +72,13 @@ window.indiaSearchIndex = [
         url: 'frontend/meesapulimala-trek/index.html'
     },
     {
+        title: 'Rajmachi Fort Trek & Sahyadri Twin Citadels (Lonavala / Karjat, Maharashtra) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Rajmachi Fort Trek (825m) in Sahyadri, Maharashtra. Shrivardhan & Manaranjan twin citadels, Maratha history under Shivaji Maharaj, Lonavala vs Kondhane routes, monsoon waterfalls, interactive route map, and image gallery.',
+        url: 'frontend/rajmachi-fort-trek/index.html'
+    },
+    {
     title: "Dashashwamedh Ghat: The Grand Evening Ganga Aarti",
     category: "Varanasi Ghats",
     description:

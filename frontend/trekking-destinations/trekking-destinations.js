@@ -91,13 +91,13 @@ const treks = [
         url: 'https://www.incredibleindia.gov.in/en/sikkim'
     },
     {
-        name: 'Rajmachi',
+        name: 'Rajmachi Fort Trek',
         state: 'Maharashtra',
         difficulty: 'Easy',
         days: 2,
         season: ['Monsoon', 'Winter'],
-        description: 'A Sahyadri trail to the historic Rajmachi fort, especially atmospheric during the monsoon.',
-        url: 'https://www.incredibleindia.gov.in/en/maharashtra'
+        description: 'A Sahyadri trail to the historic Rajmachi fort, featuring twin citadels and monsoon waterfalls.',
+        url: '../rajmachi-fort-trek/index.html'
     },
     {
         name: 'Kaas Plateau Trail',
