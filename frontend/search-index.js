@@ -10,6 +10,13 @@ window.indiaSearchIndex = [
         description:
             'Explore Naya Ghat in Varanasi: its historical development from 18th-century Phota Ghat, 19th-century sandstone masonry renewal, spacious bathing terraces, boat docking culture, riverfront Shiva and Hanuman shrines, and Dev Deepawali glow.',
         url: 'frontend/naya-ghat/index.html'},
+    {
+        title: 'Rewa Ghat — Varanasi Royal Riverfront Legacy Profile',
+        category: 'Heritage & Architecture',
+        description:
+            'Explore Rewa Ghat in Varanasi: its origin as Lala Mishir Ghat, 1879 purchase and renaming by the Baghela Maharaja of Rewa, the sandstone Rewa Kothi palace and its ardhstambh retaining wall, neighbouring Tulsi and Kedar Ghat temples, and its present life as a Banaras Hindu University arts hostel.',
+        url: 'frontend/rewa-ghat/index.html'
+    },
   {
         title: 'Causatthi Ghat — Varanasi Sixty-Four Yoginis & Shakta Heritage Profile',
         category: 'Heritage & Pilgrimage',
@@ -22,6 +29,7 @@ window.indiaSearchIndex = [
         description:
             'Explore Munshi Ghat in Varanasi: its 1912 construction by Sridhara Narayana Munshi (Finance Minister of Nagpur), royal Darbhanga Palace lineage, fusion of Greco-Roman colonnades and Maratha stone masonry, carved jharokhas, and Dev Deepawali illumination.',
         url: 'frontend/munshi-ghat/index.html'},
+
   {
         title: 'Daraganj Ghat — Prayagraj Historic Riverfront & Sangam Profile',
         category: 'Heritage & Pilgrimage',
@@ -42,6 +50,61 @@ window.indiaSearchIndex = [
             'Explore Brahmagiri Peak Trek (1,608m) in Coorg & Wayanad, Western Ghats. UNESCO World Heritage Shola forests, Iruppu Falls, Pakshipathalam Cave, Asian Elephant sanctuary habitat, gear checklist, and trek estimator.',
         url: 'frontend/brahmagiri-trek/index.html'
     },
+    {
+        title: 'Chembra Peak Trek & Heart-Shaped Lake (Wayanad, Kerala) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Chembra Peak Trek (2,100m) in Wayanad, Kerala. Famous perennial heart-shaped lake (Hridayathadam), tea plantations, Shola grassland ecosystem, forest permits, route details, and image gallery.',
+        url: 'frontend/chembra-peak-trek/index.html'
+    },
+    {
+        title: 'Agasthyarkoodam Trek & UNESCO Biosphere Reserve (Thiruvananthapuram, Kerala) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Agasthyarkoodam Trek (1,868m) in Thiruvananthapuram, Kerala. UNESCO Agasthyamala Biosphere Reserve, over 2,000 medicinal plant species (Arogyapacha), Athirumala base camp, forest permits, 2-day route guide, and image gallery.',
+        url: 'frontend/agasthyarkoodam-trek/index.html'
+    },
+    {
+        title: 'Meesapulimala Trek & High Montane Grasslands (Munnar, Kerala) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Meesapulimala Trek (2,640m) in Munnar, Kerala. South India’s 2nd highest peak, Rhodo Valley Rhododendron blooms, high montane Shola grasslands, interactive route map, route guide, and image gallery.',
+        url: 'frontend/meesapulimala-trek/index.html'
+    },
+    {
+        title: 'Rajmachi Fort Trek & Sahyadri Twin Citadels (Lonavala / Karjat, Maharashtra) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Rajmachi Fort Trek (825m) in Sahyadri, Maharashtra. Shrivardhan & Manaranjan twin citadels, Maratha history under Shivaji Maharaj, Lonavala vs Kondhane routes, monsoon waterfalls, interactive route map, and image gallery.',
+        url: 'frontend/rajmachi-fort-trek/index.html'
+    },
+    {
+        title: 'Queen Didda of Kashmir (c. 924–1003 CE) — Powerful Sovereign & Lohara Dynasty Architect Profile',
+        category: 'Historical Rulers & Dynasties',
+        description:
+            'Explore Queen Didda of Kashmir (c. 924–1003 CE). Sovereign Queen and Regent, Lohara lineage, Shahi bloodline, 45-year political dominance, historical evidence vs literary portrayals, Kashmir map, timeline, and academic sources.',
+        url: 'frontend/queen-didda-kashmir/index.html'
+    },
+    {
+        title: 'Queen Naiki Devi & The Battle of Kasahrada (1178 CE) — Chaulukya Resistance Profile',
+        category: 'Historical Rulers & Dynasties',
+        description:
+            'Explore Queen Naiki Devi & Battle of Kasahrada (1178 CE). Chaulukya Queen Regent, defeat of Muhammad Ghori at Mount Abu, regency for Mularaja II, historical evidence vs retellings, battle map, timeline, and academic sources.',
+        url: 'frontend/naiki-devi-kasahrada/index.html'
+    },
+    {
+    title: "Dashashwamedh Ghat: The Grand Evening Ganga Aarti",
+    category: "Varanasi Ghats",
+    description:
+        "Explore Dashashwamedh Ghat — its mythological origin, proximity to Kashi Vishwanath Temple, and the iconic nightly Ganga Aarti ceremony.",
+    url: "frontend/dashashwamedh-ghat/index.html"},
+  {
+    title: "Scindia Ghat: The Partially Submerged Shiva Temple",
+    category: "Varanasi Ghats",
+    description:
+        "Explore Scindia Ghat — its Maratha royal heritage and the famously leaning Ratneshwar Mahadev Temple, partially submerged in the Ganges for over 150 years.",
+    url: "frontend/scindia-ghat/index.html"
+    },
     // --- Harishchandragad Trek ---
     {
         title: 'Harishchandragad Trek (Maharashtra) Profile',
@@ -56,6 +119,37 @@ window.indiaSearchIndex = [
     description:
         "Explore Alibaug Beach in Raigad, Maharashtra — the black-sand shoreline linked at low tide to the historic Kolaba Fort, nearby Murud-Janjira, Kashid, and its Mumbai-weekend-getaway coastal culture.",
     url: "frontend/alibaug-beach/index.html"
+    },
+    {
+    title: "Mandarmani Beach — West Bengal",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Mandarmani Beach in Purba Medinipur, West Bengal — 13 km of hard flat drivable sand, red ghost crabs, water sports, and tranquil Bay of Bengal sunrises.",
+    url: "frontend/mandarmani-beach/index.html"},
+  {
+    title: "Chandrabhaga Beach — Odisha",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Chandrabhaga Beach in Puri, Odisha — India's first Blue Flag beach, 3 km from the UNESCO World Heritage Konark Sun Temple, known for dawn sunrises, coral reefs, and the historic Chandrabhaga river mouth.",
+    url: "frontend/chandrabhaga-beach/index.html"},
+  {
+    title: "Elephant Beach — Andaman & Nicobar Islands",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Elephant Beach on Havelock Island (Swaraj Dweep), Andaman & Nicobar Islands — shallow coral reefs, snorkeling, sea walking, scuba diving, and tropical rainforest trails.",
+    url: "frontend/elephant-beach/index.html"},
+  {
+    title: "Rameswaram Beach — Tamil Nadu",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Rameswaram Beach (Agni Theertham) on Pamban Island, Tamil Nadu — the sacred confluence of the Bay of Bengal and Gulf of Mannar, 22 temple theerthams, Pamban Bridge, and Dhanushkodi.",
+    url: "frontend/rameswaram-beach/index.html"},
+  {
+    title: "Digha Beach — West Bengal",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Digha Beach in Purba Medinipur, West Bengal — the Bay of Bengal's wide, shallow 'Brighton of the East' famous for dual sunrise-and-sunset vistas, casuarina groves, low-tide sand flats, and the Marine Aquarium.",
+    url: "frontend/digha-beach/index.html"
     },
     {
     title: "Chauri Chaura Incident (1922) Explorer",
@@ -6126,6 +6220,57 @@ window.indiaSearchIndex = [
         category: "Geology & Disasters",
         description:
             "Explore the 18 September 2011 Sikkim earthquake (Mw 6.9): USGS epicentre on the India–Nepal border, Himalayan strike-slip tectonics, landslides, road and settlement damage, NDRF and Army relief, and earthquake preparedness.",
-        url: "frontend/sikkim-earthquake-2011-explorer/index.html"
+        url: "frontend/sikkim-earthquake-2011-explorer/index.html"},
+    // --- Brahmaputra Flood Hazards Explorer ---
+    {
+        title: "Brahmaputra Flood Hazards — Assam",
+        category: "Nature & Wildlife",
+        description:
+            "Explore why Assam floods every year — Brahmaputra basin geography, seasonal flood cycles, contributing factors, vulnerable regions, community and ecosystem impacts, flood-management measures and disaster preparedness guidance.",
+        url: "frontend/brahmaputra-flood-hazards/index.html"
+    },
+    // --- Add Pandita Ramabai historical profile ---
+    {
+        title: "Pandita Ramabai — Sanskrit Scholar & Social Reform Pioneer",
+        category: "History & Royalty",
+        description:
+            "Explore Pandita Ramabai's historical profile: first woman to earn titles Pandita and Sarasvati for Sanskrit scholarship, founder of Sharada Sadan and Mukti Mission.",
+        url: "frontend/pandita-ramabai-explorer/index.html"},
+    // --- Add Fatima Sheikh historical profile ---
+    {
+        title: "Fatima Sheikh — The Forgotten Pioneer of Girls' Education",
+        category: "History & Royalty",
+        description:
+            "Explore Fatima Sheikh's historical profile: Pune's first Muslim female teacher, co-founder of girls' schools, and close educational associate of Savitribai Phule.",
+        url: "frontend/fatima-sheikh-explorer/index.html"},
+    // --- Add Savitribai Phule historical profile ---
+    {
+        title: "Savitribai Phule — Pioneer of Women's Education in India",
+        category: "History & Royalty",
+        description:
+            "Explore Savitribai Phule's historical profile: India's first female teacher, founder of Bhide Wada girls' school, Satyashodhak Samaj co-founder, and social reformer.",
+        url: "frontend/savitribai-phule-explorer/index.html"},
+    // --- Add Begum Rokeya historical profile ---
+    {
+        title: "Begum Rokeya — Pioneer of Women's Education in Bengal",
+        category: "History & Royalty",
+        description:
+            "Explore Begum Rokeya's historical profile: writer, educator, and social reformer who established Sakhawat Memorial Girls' School and wrote Sultana's Dream.",
+        url: "frontend/begum-rokeya-explorer/index.html"},
+    // --- Add Anis Kidwai historical profile ---
+    {
+        title: "Anis Kidwai — Partition Memoirist & Refugee Rehabilitation Leader",
+        category: "History & Royalty",
+        description:
+            "Explore Anis Kidwai's historical profile: writer, social worker, and Rajya Sabha Member of Parliament who documented Partition in 'Azadi Ki Chhaon Mein' and led refugee rehabilitation.",
+        url: "frontend/anis-kidwai-explorer/index.html"
+    },
+    // --- Add Kadambini Ganguly historical profile ---
+    {
+        title: "Kadambini Ganguly — The Woman Who Broke Barriers in Indian Medicine",
+        category: "History & Royalty",
+        description:
+            "Explore Kadambini Ganguly's historical profile: one of the first two female graduates of the British Empire, the first woman admitted to Calcutta Medical College, and India's first practising woman physician of Western medicine.",
+        url: "frontend/kadambini-ganguly-explorer/index.html"
     }
 ];

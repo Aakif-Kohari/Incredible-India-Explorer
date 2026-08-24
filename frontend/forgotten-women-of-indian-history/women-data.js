@@ -823,6 +823,21 @@ const WOMEN_PROFILES = [
         mapCoords: { lat: 11.7, lng: 75.4 }
     },
     {
+        id: "bibha-chowdhuri",
+        url: "../bibha-chowdhuri-explorer/",
+        name: "Dr. Bibha Chowdhuri",
+        era: "freedom-struggle",
+        eraLabel: "1913 – 1991 CE",
+        region: "Kolkata (West Bengal) & Bombay (Maharashtra)",
+        category: "scientists",
+        contribution: "Pioneering Indian woman physicist who studied cosmic rays and elementary particles; first woman scientist at TIFR and co-author of landmark Nature papers in the 1940s.",
+        bio: "Discovered new cosmic-ray particles using nuclear emulsion technique at IACS alongside D.M. Bose, and later joined Homi Bhabha at TIFR as its first woman scientist — helping build India's particle-physics program.",
+        dynasty: "Cosmic Ray & Particle Physics",
+        featured: true,
+        icon: "✨",
+        mapCoords: { lat: 22.57, lng: 88.36 }
+    },
+    {
         id: "asima-chatterjee",
         name: "Dr. Asima Chatterjee",
         era: "post-independence",
@@ -1077,6 +1092,66 @@ const WOMEN_PROFILES = [
         featured: false,
         icon: "🥊",
         mapCoords: { lat: 24.3, lng: 93.6 }
+    },
+    {
+        id: "fatima-sheikh",
+        url: "../fatima-sheikh-explorer/",
+        name: "Fatima Sheikh",
+        era: "colonial",
+        eraLabel: "19th Century",
+        region: "Pune (Maharashtra)",
+        category: "social-reformers",
+        contribution: "Co-founded early girls' schools and acted as Pune's first Muslim female teacher alongside Savitribai Phule.",
+        bio: "Pioneering educator and social reformer who offered refuge to Savitribai and Jyotirao Phule, opening India's early girls' schools inside her home and campaigning door-to-door for female literacy.",
+        dynasty: "Early Women's Education Movement",
+        featured: true,
+        icon: "🎓",
+        mapCoords: { lat: 18.51, lng: 73.87 }
+  },
+  {
+        id: "savitribai-phule",
+        url: "../savitribai-phule-explorer/",
+        name: "Savitribai Phule",
+        era: "colonial",
+        eraLabel: "1831 – 1897 CE",
+        region: "Satara / Pune (Maharashtra)",
+        category: "social-reformers",
+        contribution: "India's first female teacher, founder of Bhide Wada girls' school, and pioneer of anti-caste social welfare.",
+        bio: "Pioneering educator and social reformer who co-founded Bhide Wada girls' school, established the Balhatya Pratibandhak Griha for widows, and led Satyashodhak Samaj campaigns for marginalized equality in Maharashtra.",
+        dynasty: "Satyashodhak Samaj & Social Reform",
+        featured: true,
+        icon: "🎓",
+        mapCoords: { lat: 18.52, lng: 73.85 }
+  },
+  {
+        id: "begum-rokeya",
+        url: "../begum-rokeya-explorer/",
+        name: "Begum Rokeya",
+        era: "post-independence",
+        eraLabel: "1880 – 1932 CE",
+        region: "Pairaband (Rangpur, Bengal Presidency)",
+        category: "writers",
+        contribution: "Founded the Sakhawat Memorial Girls' School and authored the landmark feminist science fiction work 'Sultana's Dream'.",
+        bio: "Pioneering writer, educator, and social reformer who championed women's education, challenged gender restrictions, and established South Asia's first wave of feminist institutions in Bengal.",
+        dynasty: "Bengal Renaissance & Education Reform",
+        featured: true,
+        icon: "🎓",
+        mapCoords: { lat: 25.59, lng: 89.28 }
+  },
+  {
+        id: "anis-kidwai",
+        url: "../anis-kidwai-explorer/",
+        name: "Anis Kidwai",
+        era: "post-independence",
+        eraLabel: "1906 – 1982 CE",
+        region: "Masauli (Uttar Pradesh) & Delhi",
+        category: "writers",
+        contribution: "Documented the human cost of Partition in her memoir 'Azadi Ki Chhaon Mein' and actively rehabilitated refugees in Delhi.",
+        bio: "Prominent writer, social worker, and parliamentarian who worked alongside Subhadra Joshi to aid Partition refugees, advocate for communal harmony, and document the trauma of displaced lives.",
+        dynasty: "Partition Literature & Reform",
+        featured: true,
+        icon: "✍️",
+        mapCoords: { lat: 26.92, lng: 81.20 }
     }
 ];
 
