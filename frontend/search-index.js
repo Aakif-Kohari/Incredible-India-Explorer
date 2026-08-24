@@ -42,6 +42,13 @@ window.indiaSearchIndex = [
             'Explore Brahmagiri Peak Trek (1,608m) in Coorg & Wayanad, Western Ghats. UNESCO World Heritage Shola forests, Iruppu Falls, Pakshipathalam Cave, Asian Elephant sanctuary habitat, gear checklist, and trek estimator.',
         url: 'frontend/brahmagiri-trek/index.html'
     },
+    {
+    title: "Dashashwamedh Ghat: The Grand Evening Ganga Aarti",
+    category: "Varanasi Ghats",
+    description:
+        "Explore Dashashwamedh Ghat — its mythological origin, proximity to Kashi Vishwanath Temple, and the iconic nightly Ganga Aarti ceremony.",
+    url: "frontend/dashashwamedh-ghat/index.html"
+    },
     // --- Harishchandragad Trek ---
     {
         title: 'Harishchandragad Trek (Maharashtra) Profile',
