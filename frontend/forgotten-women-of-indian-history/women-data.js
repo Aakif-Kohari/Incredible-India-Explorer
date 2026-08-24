@@ -1094,6 +1094,21 @@ const WOMEN_PROFILES = [
         mapCoords: { lat: 24.3, lng: 93.6 }
     },
     {
+        id: "fatima-sheikh",
+        url: "../fatima-sheikh-explorer/",
+        name: "Fatima Sheikh",
+        era: "colonial",
+        eraLabel: "19th Century",
+        region: "Pune (Maharashtra)",
+        category: "social-reformers",
+        contribution: "Co-founded early girls' schools and acted as Pune's first Muslim female teacher alongside Savitribai Phule.",
+        bio: "Pioneering educator and social reformer who offered refuge to Savitribai and Jyotirao Phule, opening India's early girls' schools inside her home and campaigning door-to-door for female literacy.",
+        dynasty: "Early Women's Education Movement",
+        featured: true,
+        icon: "🎓",
+        mapCoords: { lat: 18.51, lng: 73.87 }
+  },
+  {
         id: "savitribai-phule",
         url: "../savitribai-phule-explorer/",
         name: "Savitribai Phule",
