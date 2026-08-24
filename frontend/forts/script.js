@@ -1239,4 +1239,8 @@ function setupEventListeners() {
 }
 
 // Initialize on DOM content loaded
-document.addEventListener('DOMContentLoaded', init);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}

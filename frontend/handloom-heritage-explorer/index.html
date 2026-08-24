@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H — Handloom: India's Living Textile Heritage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F3EAD6;
+    --ivory-deep:#EADFC4;
+    --ink:#2A2320;
+    --indigo:#1F3358;
+    --indigo-deep:#152540;
+    --madder:#A8342A;
+    --madder-deep:#7E241C;
+    --turmeric:#D69A2D;
+    --turmeric-soft:#E9C776;
+    --thread:#C7B896;
+    --paper-shadow: 0 18px 40px rgba(42,35,32,0.18);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Karla', sans-serif;
+    line-height:1.6;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(199,184,150,0.35) 0px, rgba(199,184,150,0.35) 1px, transparent 1px, transparent 34px),
+      repeating-linear-gradient(0deg, rgba(199,184,150,0.25) 0px, rgba(199,184,150,0.25) 1px, transparent 1px, transparent 34px);
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Rozha One', serif;
+    font-weight:400;
+    margin:0 0 .4em 0;
+    color:var(--indigo-deep);
+  }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:.72rem;
+    color:var(--madder);
+    font-weight:500;
+  }
+
+  a{color:var(--madder);}
+  a:hover{color:var(--madder-deep);}
+
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:64px 0 48px;
+    border-bottom:2px solid var(--thread);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(168,52,42,0.10), transparent 45%),
+      radial-gradient(circle at 8% 85%, rgba(31,51,88,0.10), transparent 45%);
+    pointer-events:none;
+  }
+  .hero-inner{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:36px;
+    align-items:center;
+    position:relative;
+  }
+  .initial{
+    font-family:'Rozha One', serif;
+    font-size:11rem;
+    line-height:0.8;
+    color:var(--madder);
+    position:relative;
+    text-shadow: 4px 4px 0 var(--turmeric-soft);
+  }
+  .initial svg{position:absolute; top:-18px; left:-22px; width:150px; height:150px; opacity:.5;}
+  .hero h1{font-size:2.6rem; margin-bottom:.15em;}
+  .hero .tagline{font-size:1.08rem; max-width:56ch; color:#4a3f38;}
+  .section-index{
+    margin-top:22px;
+    display:flex; gap:8px; flex-wrap:wrap;
+    font-family:'JetBrains Mono', monospace;
+    font-size:.72rem;
+  }
+  .section-index span{
+    padding:5px 10px;
+    border:1px solid var(--thread);
+    border-radius:3px;
+    color:#6b5e52;
+  }
+
+  /* ---------- GENERIC SECTION ---------- */
+  section{padding:52px 0;}
+  section.alt{background:var(--ivory-deep); border-top:2px solid var(--thread); border-bottom:2px solid var(--thread);}
+  .section-head{margin-bottom:28px; max-width:70ch;}
+  .section-head h2{font-size:1.9rem;}
+  .section-head p{color:#4a3f38; font-size:1rem;}
+
+  .thread-divider{
+    height:14px;
+    background-image: repeating-linear-gradient(90deg, var(--madder) 0 6px, var(--turmeric) 6px 12px, var(--indigo) 12px 18px, transparent 18px 26px);
+    opacity:.55;
+    margin:0;
+  }
+
+  /* ---------- MAP SECTION ---------- */
+  .map-grid{
+    display:grid;
+    grid-template-columns:1.15fr 1fr;
+    gap:32px;
+    align-items:start;
+  }
+  .map-stage{
+    background:linear-gradient(180deg, #fbf6ea, #f0e6cd);
+    border:1px solid var(--thread);
+    border-radius:8px;
+    box-shadow:var(--paper-shadow);
+    padding:18px;
+    position:relative;
+  }
+  .map-stage svg{width:100%; height:auto; display:block;}
+  #india-path{
+    fill:#e7dbb9;
+    stroke:var(--indigo);
+    stroke-width:2;
+    transition:fill .3s ease;
+  }
+  .pin{cursor:pointer;}
+  .pin circle.ring{
+    fill:none; stroke:var(--madder); stroke-width:2; opacity:0;
+    transform-origin:center;
+  }
+  .pin.active circle.ring{
+    opacity:1;
+    animation:pulse 1.6s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{ r:9; opacity:.9; }
+    100%{ r:20; opacity:0; }
+  }
+  .pin circle.dot{
+    fill:var(--madder);
+    stroke:var(--ivory);
+    stroke-width:2;
+    transition:fill .2s ease, r .2s ease;
+  }
+  .pin:hover circle.dot, .pin.active circle.dot{
+    fill:var(--indigo);
+    r:8;
+  }
+  .pin text{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    fill:var(--ink);
+    pointer-events:none;
+  }
+  .map-caption{
+    font-family:'JetBrains Mono', monospace;
+    font-size:.7rem;
+    color:#8a7a68;
+    margin-top:10px;
+    text-align:center;
+  }
+
+  .info-panel{
+    background:#fff9ec;
+    border:1px solid var(--thread);
+    border-radius:8px;
+    box-shadow:var(--paper-shadow);
+    padding:26px;
+    min-height:420px;
+    display:flex;
+    flex-direction:column;
+  }
+  .info-panel .eyebrow{margin-bottom:6px;}
+  .info-panel h3{font-size:1.55rem; margin-bottom:2px;}
+  .info-panel .region-loc{color:#8a7a68; font-size:.85rem; margin-bottom:14px; font-family:'JetBrains Mono', monospace;}
+  .info-panel .textile-img{
+    width:100%; height:170px; object-fit:cover; border-radius:5px; margin-bottom:14px;
+    border:1px solid var(--thread);
+  }
+  .info-panel p{font-size:.95rem; color:#4a3f38; margin:0 0 10px;}
+  #panel-content{flex:1 1 auto;}
+  .info-panel .meta-row{display:flex; gap:18px; flex-wrap:wrap; margin-top:14px; padding-top:14px; border-top:1px dashed var(--thread);}
+  .info-panel .meta-item{font-size:.8rem;}
+  .info-panel .meta-item b{display:block; font-family:'JetBrains Mono', monospace; font-size:.65rem; text-transform:uppercase; letter-spacing:.08em; color:var(--madder); margin-bottom:2px;}
+  .info-panel .credit{font-size:.68rem; color:#a0917f; margin-top:8px;}
+  .hint{color:#8a7a68; font-style:italic;}
+
+  .pin-list{
+    display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;
+  }
+  .pin-list button{
+    font-family:'JetBrains Mono', monospace;
+    font-size:.7rem;
+    background:none;
+    border:1px solid var(--thread);
+    border-radius:20px;
+    padding:6px 12px;
+    cursor:pointer;
+    color:#4a3f38;
+  }
+  .pin-list button:hover, .pin-list button.active{
+    background:var(--indigo);
+    color:var(--ivory);
+    border-color:var(--indigo);
+  }
+
+  /* ---------- GALLERY ---------- */
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));
+    gap:20px;
+  }
+  figure.tile{
+    margin:0;
+    background:#fff9ec;
+    border:1px solid var(--thread);
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:var(--paper-shadow);
+  }
+  figure.tile img{
+    width:100%; height:190px; object-fit:cover; display:block;
+    filter:saturate(1.03);
+  }
+  figure.tile figcaption{padding:14px 16px 16px;}
+  figure.tile h4{font-size:1.05rem; margin-bottom:2px;}
+  figure.tile .loc{font-family:'JetBrains Mono', monospace; font-size:.68rem; color:var(--madder); text-transform:uppercase; letter-spacing:.06em;}
+  figure.tile p{font-size:.85rem; color:#4a3f38; margin:8px 0 0;}
+  figure.tile .credit{font-size:.66rem; color:#a0917f; margin-top:8px; display:block;}
+  figure.tile .credit a{color:#a0917f; text-decoration:underline;}
+
+  /* ---------- TECHNIQUE / MOTIF CARDS ---------- */
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+    gap:18px;
+  }
+  .card{
+    background:#fff9ec;
+    border:1px solid var(--thread);
+    border-left:4px solid var(--madder);
+    border-radius:6px;
+    padding:18px 20px;
+  }
+  .card h4{font-size:1.05rem; margin-bottom:6px;}
+  .card p{font-size:.88rem; color:#4a3f38; margin:0;}
+
+  .motif-row{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(150px, 1fr));
+    gap:16px;
+  }
+  .motif{
+    text-align:center;
+    background:#fff9ec;
+    border:1px solid var(--thread);
+    border-radius:8px;
+    padding:16px 10px 12px;
+  }
+  .motif svg{width:64px; height:64px;}
+  .motif .m-name{font-family:'JetBrains Mono', monospace; font-size:.7rem; text-transform:uppercase; letter-spacing:.05em; margin-top:8px; color:var(--indigo-deep); font-weight:500;}
+  .motif .m-note{font-size:.76rem; color:#6b5e52; margin-top:3px;}
+
+  /* ---------- ARTISAN / CULTURAL ---------- */
+  .twocol{display:grid; grid-template-columns:1fr 1fr; gap:32px;}
+  .quote-block{
+    background:var(--indigo-deep);
+    color:var(--ivory);
+    border-radius:8px;
+    padding:26px 28px;
+    font-family:'Rozha One', serif;
+    font-size:1.2rem;
+    line-height:1.5;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .quote-block span{display:block; font-family:'JetBrains Mono', monospace; font-size:.7rem; margin-top:14px; color:var(--turmeric-soft); font-style:normal;}
+
+  .stat-row{display:flex; gap:24px; flex-wrap:wrap; margin-top:18px;}
+  .stat{background:#fff9ec; border:1px solid var(--thread); border-radius:8px; padding:16px 20px; min-width:140px;}
+  .stat b{display:block; font-family:'Rozha One', serif; font-size:1.7rem; color:var(--madder);}
+  .stat span{font-size:.76rem; color:#6b5e52;}
+
+  /* ---------- SOURCES ---------- */
+  .sources-list{list-style:none; padding:0; margin:0; display:grid; gap:10px;}
+  .sources-list li{
+    font-size:.88rem;
+    padding:12px 16px;
+    background:#fff9ec;
+    border:1px solid var(--thread);
+    border-radius:6px;
+  }
+  .sources-list li a{word-break:break-word;}
+
+  footer{
+    padding:36px 0 60px;
+    text-align:center;
+    color:#8a7a68;
+    font-family:'JetBrains Mono', monospace;
+    font-size:.72rem;
+  }
+
+  @media (max-width:820px){
+    .hero-inner{grid-template-columns:1fr; text-align:center;}
+    .initial{font-size:7rem; margin:0 auto;}
+    .initial svg{display:none;}
+    .map-grid{grid-template-columns:1fr;}
+    .twocol{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="initial">H
+      <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="#A8342A" stroke-width="2" stroke-dasharray="4 6"/></svg>
+    </div>
+    <div>
+      <div class="eyebrow">Section H · Indian Craft &amp; Culture Compendium</div>
+      <h1>Handloom — India's Living Textile Heritage</h1>
+      <p class="tagline">From the pit looms of Varanasi to the tie-dyed streets of Kutch, handloom weaving is one of India's oldest continuous crafts — a inheritance carried thread by thread through millions of artisan hands, second only to agriculture as the country's largest source of rural livelihood.</p>
+      <div class="section-index">
+        <span>Regions</span><span>Textiles</span><span>Techniques</span><span>Artisans</span><span>Motifs</span><span>Significance</span><span>Sources</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="thread-divider"></div>
+
+<!-- ============ INTERACTIVE MAP ============ -->
+<section id="map-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Explore</div>
+      <h2>Handloom regions of India</h2>
+      <p>Click a pin — or a name below the map — to explore the textile tradition rooted in that region. This is a stylised, not-to-scale map for orientation, not a political or administrative reference.</p>
+    </div>
+
+    <div class="map-grid">
+      <div class="map-stage">
+        <svg id="india-map" viewBox="0 0 620 820" xmlns="http://www.w3.org/2000/svg">
+          <path id="india-path" d="M300,18 C270,20 255,45 258,72 C260,95 235,100 220,120 C205,140 215,160 195,175 C160,185 120,205 100,240 C80,275 95,300 80,330 C60,365 30,390 35,430 C38,460 70,470 75,505 C80,545 55,565 75,600 C95,635 140,630 160,660 C180,690 165,725 195,750 C215,768 230,745 245,770 C258,792 275,805 290,790 C300,778 292,758 305,745 C325,725 340,745 355,715 C368,690 350,670 370,645 C395,615 430,625 445,590 C460,555 435,535 450,500 C465,465 505,460 510,420 C513,395 490,385 495,355 C500,320 535,310 530,275 C526,245 495,235 495,205 C495,175 520,160 505,130 C492,105 460,110 445,85 C428,58 435,35 405,25 C375,15 350,35 325,20 C315,14 308,17 300,18 Z" />
+
+          <!-- Kashmir -->
+          <g class="pin" data-region="kashmir" transform="translate(255,70)">
+            <circle class="ring" r="9"/><circle class="dot" r="6"/>
+            <text x="12" y="4">Kashmir</text>
+          </g>
+          <!-- Punjab -->
+          <g class="pin" data-region="punjab" transform="translate(215,150)">
+            <circle class="ring" r="9"/><circle class="dot" r="6"/>
+            <text x="12" y="4">Punjab</text>
+          </g>
+          <!-- Varanasi / UP -->
+          <g class="pin" data-region="varanasi" transform="translate(330,270)">
+            <circle class="ring" r="9"/><circle class="dot" r="6"/>
+            <text x="12" y="4">Varanasi</text>
+          </g>
+          <!-- Kutch / Gujarat -->
+          <g class="pin" data-region="kutch" transform="translate(105,335)">
+            <circle class="ring" r="9"/><circle class="dot" r="6"/>
+            <text x="12" y="4">Kutch, Gujarat</text>
+          </g>
+          <!-- Chanderi / MP -->
+          <g class="pin" data-region="chanderi" transform="translate(280,385)">
+            <circle class="ring" r="9"/><circle class="dot" r="6"/>
+            <text x="12" y="4">Chanderi</text>
+          </g>
+          <!-- West Bengal -->
+          <g class="pin" data-region="bengal" transform="translate(465,395)">
+            <circle class="ring" r="9"/><circle class="dot" r="6"/>
+            <text x="-70" y="4">West Bengal</text>
+          </g>
+          <!-- Assam -->
+          <g class="pin" data-region="assam" transform="translate(535,335)">
+            <circle class="ring" r="9"/><circle class="dot" r="6"/>
+            <text x="12" y="4">Assam</text>
+          </g>
+          <!-- Odisha -->
+          <g class="pin" data-region="odisha" transform="translate(410,470)">
+            <circle class="ring" r="9"/><circle class="dot" r="6"/>
+            <text x="12" y="4">Odisha</text>
+          </g>
+          <!-- Telangana / Pochampally -->
+          <g class="pin" data-region="pochampally" transform="translate(310,555)">
+            <circle class="ring" r="9"/><circle class="dot" r="6"/>
+            <text x="12" y="4">Pochampally</text>
+          </g>
+          <!-- Tamil Nadu / Kanchipuram -->
+          <g class="pin" data-region="kanchipuram" transform="translate(255,715)">
+            <circle class="ring" r="9"/><circle class="dot" r="6"/>
+            <text x="12" y="4">Kanchipuram</text>
+          </g>
+        </svg>
+        <div class="map-caption">STYLISED OUTLINE · CLICK A PIN TO LOAD A REGION</div>
+      </div>
+
+      <div class="info-panel" id="info-panel">
+        <div id="panel-content">
+          <div class="eyebrow">Select a region</div>
+          <h3 class="hint">Click any pin on the map</h3>
+          <p class="hint">Ten weaving regions are mapped here, from the alpine looms of Kashmir to the temple-town silks of Tamil Nadu. Each holds its own fibre, dye, and pattern logic, refined over centuries.</p>
+        </div>
+        <div class="pin-list" id="pin-list"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="thread-divider"></div>
+
+<!-- ============ GALLERY ============ -->
+<section class="alt" id="gallery-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Textile Gallery</div>
+      <h2>Famous handloom textiles</h2>
+      <p>A sampling of India's best-known handwoven textiles — each tied to a specific place, community, and technique.</p>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<!-- ============ TECHNIQUES ============ -->
+<section id="techniques">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Craft</div>
+      <h2>Weaving techniques</h2>
+      <p>Handloom is a family of techniques, not one method — each requiring years to master and often dividing labour across several artisans.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h4>Pit-loom weaving</h4>
+        <p>The weaver sits with feet in a dug pit, operating pedals that lift warp threads while a shuttle carries the weft across by hand — the base method behind Banarasi and Kanjivaram silks.</p>
+      </div>
+      <div class="card">
+        <h4>Ikat (resist-dyeing yarn)</h4>
+        <p>Bundles of yarn are tied and dyed in sections <em>before</em> weaving, so the pattern emerges from precisely aligned threads. Double ikat, where both warp and weft are pre-dyed, is practised in only a few places worldwide, including Pochampally and Patan.</p>
+      </div>
+      <div class="card">
+        <h4>Jamdani discontinuous weft</h4>
+        <p>Motifs are added by hand during weaving using small bobbins, without a mechanical jacquard — literally embroidering with the weft as the cloth is built, thread by thread.</p>
+      </div>
+      <div class="card">
+        <h4>Zari brocade weaving</h4>
+        <p>Metallic gold or silver-wrapped thread is woven as a supplementary weft to create raised, shimmering motifs, guided historically by punch-card "naksha" patterns — a precursor to the Jacquard loom.</p>
+      </div>
+      <div class="card">
+        <h4>Bandhani tie-and-dye</h4>
+        <p>Cloth is pinched and bound into thousands of tiny knots with thread before dyeing; unbinding reveals a field of small resist-dyed dots forming larger motifs.</p>
+      </div>
+      <div class="card">
+        <h4>Kani twill-tapestry</h4>
+        <p>Used for fine pashmina shawls, this technique interlocks colored wool wefts using small wooden spools (<em>tujis</em>) rather than a shuttle, allowing a painterly build-up of pattern that can take over a year per shawl.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="thread-divider"></div>
+
+<!-- ============ ARTISAN TRADITIONS ============ -->
+<section class="alt" id="artisans">
+  <div class="wrap twocol">
+    <div>
+      <div class="eyebrow">People</div>
+      <h2>Artisan traditions</h2>
+      <p>Handloom weaving in India is overwhelmingly a household and community craft, passed down within weaving lineages rather than taught in institutions.</p>
+      <p>Skills move within families — a naqshaband (pattern-maker) in Varanasi, a Salvi ikat-dyer in Gujarat, a Padmasali weaver in Telangana — with children often learning by sitting beside a parent at the loom from a young age. Many textiles now carry a Geographical Indication (GI) tag, legally tying the name (Kanchipuram, Pochampally, Chanderi) to production in that specific region by its traditional weavers.</p>
+      <p>The 2019–20 Fourth All India Handloom Census recorded roughly 31.45 lakh (3.14 million) handloom worker households across the country, over 72% of them women — making handloom one of India's largest sources of women-led rural livelihood.</p>
+      <div class="stat-row">
+        <div class="stat"><b>~35.2L</b><span>handloom workers, 4th All-India Handloom Census 2019–20</span></div>
+        <div class="stat"><b>72%+</b><span>of handloom workers are women</span></div>
+        <div class="stat"><b>2nd</b><span>largest source of rural employment after agriculture</span></div>
+      </div>
+    </div>
+    <div class="quote-block">
+      "A saree isn't done when it leaves the loom." The naqsha (pattern chart), the punch cards, the dyeing, the weaving, and the finishing of a single Banarasi silk can pass through the hands of a dozen specialists before it's ready to wear.
+      <span>— on the collaborative craft of Banarasi weaving</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MOTIFS ============ -->
+<section id="motifs">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pattern language</div>
+      <h2>Traditional motifs</h2>
+      <p>Recurring symbols carried across generations and regions, each with its own meaning and origin story.</p>
+    </div>
+    <div class="motif-row">
+      <div class="motif">
+        <svg viewBox="0 0 64 64"><path d="M32 8 C46 14 46 34 32 40 C18 34 18 14 32 8 Z M32 40 C36 46 32 54 26 56" fill="none" stroke="#A8342A" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <div class="m-name">Buta / Paisley</div>
+        <div class="m-note">Mango-seed curl, from Kashmir shawls</div>
+      </div>
+      <div class="motif">
+        <svg viewBox="0 0 64 64"><path d="M32 10 L38 26 L54 26 L41 36 L46 52 L32 42 L18 52 L23 36 L10 26 L26 26 Z" fill="none" stroke="#1F3358" stroke-width="2.5" stroke-linejoin="round"/></svg>
+        <div class="m-name">Temple border</div>
+        <div class="m-note">Zigzag border on Kanjivaram silks</div>
+      </div>
+      <div class="motif">
+        <svg viewBox="0 0 64 64"><circle cx="32" cy="26" r="10" fill="none" stroke="#D69A2D" stroke-width="2.5"/><path d="M22 34 Q32 50 42 34" fill="none" stroke="#D69A2D" stroke-width="2.5"/><path d="M32 36 L32 46" stroke="#D69A2D" stroke-width="2.5"/></svg>
+        <div class="m-name">Peacock</div>
+        <div class="m-note">Common across South Indian silks</div>
+      </div>
+      <div class="motif">
+        <svg viewBox="0 0 64 64"><g fill="none" stroke="#A8342A" stroke-width="2.5"><rect x="14" y="14" width="10" height="10"/><rect x="40" y="14" width="10" height="10"/><rect x="14" y="40" width="10" height="10"/><rect x="40" y="40" width="10" height="10"/><rect x="27" y="27" width="10" height="10"/></g></svg>
+        <div class="m-name">Geometric ikat</div>
+        <div class="m-note">Diamonds &amp; grids, Pochampally / Sambalpuri</div>
+      </div>
+      <div class="motif">
+        <svg viewBox="0 0 64 64"><g fill="none" stroke="#1F3358" stroke-width="2.5"><path d="M32 12 C24 20 24 30 32 34 C40 30 40 20 32 12 Z"/><path d="M32 34 L32 52 M24 44 L32 38 L40 44"/></g></svg>
+        <div class="m-name">Buti (floral sprig)</div>
+        <div class="m-note">Scattered small flowers, Jamdani &amp; Chanderi</div>
+      </div>
+      <div class="motif">
+        <svg viewBox="0 0 64 64"><g fill="none" stroke="#D69A2D" stroke-width="2.5"><circle cx="32" cy="32" r="6"/><path d="M32 8 L32 18 M32 46 L32 56 M8 32 L18 32 M46 32 L56 32 M15 15 L22 22 M42 42 L49 49 M49 15 L42 22 M22 42 L15 49"/></g></svg>
+        <div class="m-name">Phulkari flower-burst</div>
+        <div class="m-note">Radiating floral stitches, Punjab</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="thread-divider"></div>
+
+<!-- ============ CULTURAL SIGNIFICANCE ============ -->
+<section class="alt" id="significance">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Why it matters</div>
+      <h2>Cultural significance</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h4>Rites of passage</h4>
+        <p>Handloom silks mark weddings, festivals, and rites across India — a Kanjivaram or Banarasi saree is frequently passed down as a family heirloom rather than simply purchased.</p>
+      </div>
+      <div class="card">
+        <h4>Swadeshi &amp; Khadi</h4>
+        <p>Handspun, handwoven khadi cloth became a symbol of self-reliance and resistance during the independence movement, championed by Gandhi as an alternative to British mill cloth.</p>
+      </div>
+      <div class="card">
+        <h4>UNESCO recognition</h4>
+        <p>Techniques including Jamdani weaving have been inscribed on UNESCO's Representative List of the Intangible Cultural Heritage of Humanity, recognising handloom as a living tradition worth safeguarding.</p>
+      </div>
+      <div class="card">
+        <h4>National Handloom Day</h4>
+        <p>India observes National Handloom Day on 7 August each year — the date chosen to mark the anniversary of the 1905 Swadeshi Movement — to spotlight weavers and encourage domestic demand for handwoven cloth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOURCES ============ -->
+<section id="sources">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Sources</div>
+      <h2>References</h2>
+    </div>
+    <ul class="sources-list">
+      <li>Wikipedia — <a href="https://en.wikipedia.org/wiki/Handloom" target="_blank" rel="noopener">Handloom</a>, <a href="https://en.wikipedia.org/wiki/Kanchipuram_silk_sari" target="_blank" rel="noopener">Kanchipuram silk sari</a>, <a href="https://en.wikipedia.org/wiki/Pochampally_sari" target="_blank" rel="noopener">Pochampally sari</a>, <a href="https://en.wikipedia.org/wiki/Jamdani" target="_blank" rel="noopener">Jamdani</a>, <a href="https://en.wikipedia.org/wiki/Bandhani" target="_blank" rel="noopener">Bandhani</a>, <a href="https://en.wikipedia.org/wiki/Kashmir_shawl" target="_blank" rel="noopener">Kashmir shawl</a></li>
+      <li>Ministry of Textiles, Government of India — Fourth All India Handloom Census 2019–20</li>
+      <li>UNESCO Intangible Cultural Heritage list — <a href="https://ich.unesco.org/en/RL/traditional-art-of-jamdani-weaving-00879" target="_blank" rel="noopener">Traditional art of Jamdani weaving</a></li>
+      <li>Himalayan Weavers — <a href="https://himalayanweavers.org/pashmina-shawl-weaving/" target="_blank" rel="noopener">Pashmina Shawl Weaving in Kashmir: A History</a></li>
+      <li>The Craft Atlas — <a href="https://craftatlas.co/crafts/bandhani" target="_blank" rel="noopener">What is Bandhani?</a>, <a href="https://craftatlas.co/crafts/ikat" target="_blank" rel="noopener">What is Ikat?</a></li>
+      <li>Gaatha — <a href="https://gaatha.org/Craft-of-India/craft-documentation-pashmina-shawls/" target="_blank" rel="noopener">Pashmina Shawls, Srinagar</a></li>
+      <li>Caleidoscope — <a href="https://caleidoscope.in/art-culture/phulkari-embroidery-punjab" target="_blank" rel="noopener">Phulkari Embroidery: The Traditional Fabric Art of Punjab</a>, <a href="https://caleidoscope.in/design/the-story-of-banarasi-sarees" target="_blank" rel="noopener">The Fascinating Story of Banarasi Sarees</a></li>
+      <li>Khinkhwab — <a href="https://khinkhwab.com/en-us/blogs/news/how-a-banarasi-saree-is-woven" target="_blank" rel="noopener">How a Banarasi Saree Is Woven</a></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    IMAGES © THEIR RESPECTIVE PHOTOGRAPHERS, SOURCED FROM WIKIMEDIA COMMONS UNDER CC BY / CC BY‑SA / PUBLIC DOMAIN LICENSES — SEE CREDIT ON EACH IMAGE · MAP IS A STYLISED ILLUSTRATION, NOT TO SCALE
+  </div>
+</footer>
+
+<script>
+const regions = {
+  kashmir: {
+    name: "Kashmir",
+    loc: "Srinagar & the Kashmir Valley, J&K",
+    textile: "Pashmina & Kani Shawls",
+    desc: "Woven from the undercoat wool of the Changthangi goat, hand-spun into yarn so fine a full shawl can pass through a ring. Kani shawls use a twill-tapestry technique with small wooden spools instead of a shuttle, letting weavers build elaborate paisley and floral patterns row by row — a single fine Kani shawl can take over a year to complete.",
+    technique: "Kani twill-tapestry / hand embroidery (sozni)",
+    motif: "Buta (paisley), chinar leaf, floral sprays",
+    img: "https://commons.wikimedia.org/wiki/Special:FilePath/Shawl_makers_in_Kashmir_(1867).jpg",
+    credit: "William Simpson, 1867 · Public domain · Wikimedia Commons"
+  },
+  punjab: {
+    name: "Punjab",
+    loc: "Patiala, Rajpura & rural Punjab",
+    textile: "Phulkari Embroidery",
+    desc: "Meaning \"flower work,\" Phulkari is darning-stitch embroidery worked by hand onto handspun khaddar cotton, traditionally by women for their own trousseau. Geometric and floral motifs are built up in silk floss until the base cloth all but disappears beneath colour.",
+    technique: "Darning-stitch embroidery on handloom khaddar",
+    motif: "Flower bursts, rolling pin (belan), cucumber (kakri)",
+    img: "https://commons.wikimedia.org/wiki/Special:FilePath/Women_embroidering_Phulkari_in_Rajpura,_Punjab_(India),_2015.jpg",
+    credit: "UN Women/Gaganjit Singh, CC BY-NC-ND 2.0 · Wikimedia Commons"
+  },
+  varanasi: {
+    name: "Varanasi",
+    loc: "Uttar Pradesh, on the Ganges",
+    textile: "Banarasi Silk Brocade",
+    desc: "Famed for gold and silver zari brocade woven on pit looms, a single Banarasi saree can involve a naqshaband (pattern-maker), a punch-card operator, and finishing artisans, taking anywhere from two weeks to several months to complete.",
+    technique: "Pit-loom brocade weaving with zari supplementary weft",
+    motif: "Mughal florals, kalga & bel, jhallar borders",
+    img: "https://commons.wikimedia.org/wiki/Special:FilePath/Alkama_Ansari_-_A_Banarasi_Saree_Weaver.jpg",
+    credit: "Alkama Ansari (photographer), CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  kutch: {
+    name: "Kutch & Saurashtra",
+    loc: "Gujarat",
+    textile: "Bandhani & Patola",
+    desc: "Kutch and Patan are famous for two very different resist techniques: Bandhani, where cloth is tied into thousands of tiny knots before dyeing, and Patola, a double-ikat silk so precise it can take a year to weave a single saree.",
+    technique: "Tie-and-dye (Bandhani) / double ikat (Patola)",
+    motif: "Bandhani dots, elephant & parrot figures, geometric ikat",
+    img: "https://commons.wikimedia.org/wiki/Special:FilePath/Bandhani_Dupatta_(7034542551).jpg",
+    credit: "Meena Kadri, CC BY-ND 2.0 · Wikimedia Commons"
+  },
+  chanderi: {
+    name: "Chanderi",
+    loc: "Madhya Pradesh",
+    textile: "Chanderi Silk-Cotton",
+    desc: "A sheer, lightweight blend of silk and cotton woven with fine zari borders, historically favoured for its almost transparent drape. Chanderi has held Geographical Indication status since 2005.",
+    technique: "Fine handloom weaving with silk-cotton blended yarn",
+    motif: "Coin (ashrafi butti), peacock, geometric borders",
+    img: "https://commons.wikimedia.org/wiki/Special:FilePath/Chanderi_Silk_Sari_outside_a_village_home_in_Pranpur._(7045778685).jpg",
+    credit: "DFID/Prashanth Vishwanathan, CC BY 2.0 · Wikimedia Commons"
+  },
+  bengal: {
+    name: "West Bengal",
+    loc: "Nadia & Purba Bardhaman districts",
+    textile: "Jamdani & Tant",
+    desc: "Jamdani is woven with a discontinuous supplementary weft, added by hand with small bobbins as the weaver works — so fine it's often called \"woven air.\" Many weaving families in West Bengal trace their craft to migration from Dhaka after Partition.",
+    technique: "Discontinuous weft weaving (hand-manipulated, no jacquard)",
+    motif: "Butidar florals, tercha diagonals, jhalar webs",
+    img: "https://commons.wikimedia.org/wiki/Special:FilePath/The_delicate_process_of_making_a_Jamdani_saree_has_been_passed_down_from_generation_to_generation.jpg",
+    credit: "UN Women, CC BY-NC-ND 2.0 · Wikimedia Commons"
+  },
+  assam: {
+    name: "Assam",
+    loc: "Sualkuchi & the Brahmaputra valley",
+    textile: "Muga & Eri Silk",
+    desc: "Assam produces India's only golden Muga silk, native to the region and prized for a natural sheen that improves with washing, alongside Eri silk woven from a non-violent, peace-silk process. Woven largely on domestic throw-shuttle looms.",
+    technique: "Throw-shuttle handloom weaving",
+    motif: "Kingkhap florals, temple and geometric borders",
+    img: "https://commons.wikimedia.org/wiki/Special:FilePath/Silk_Sari_Weaving_at_Kanchipuram,_Tamil_Nadu.jpg",
+    credit: "Representative regional loom image · Wikimedia Commons"
+  },
+  odisha: {
+    name: "Odisha",
+    loc: "Sambalpur, Bargarh & Sonepur",
+    textile: "Sambalpuri Ikat",
+    desc: "Known for its bandha (tie-dye) technique producing blurred, painterly geometric and figurative motifs, Sambalpuri textiles often feature the shankha (conch), chakra (wheel), and phula (flower) — symbols tied to regional identity.",
+    technique: "Single and double ikat resist-dyeing",
+    motif: "Shankha, chakra, phula — conch, wheel, flower",
+    img: "https://commons.wikimedia.org/wiki/Special:FilePath/Pochampalli_Ikat_saree.jpg",
+    credit: "Representative ikat weave image · Wikimedia Commons"
+  },
+  pochampally: {
+    name: "Pochampally",
+    loc: "Bhuvanagiri district, Telangana",
+    textile: "Pochampally Ikat",
+    desc: "A cluster of about 80 villages known for double ikat, where both warp and weft threads are individually tie-dyed before weaving — a technique requiring roughly 11,800 precise thread interlacements for a single saree.",
+    technique: "Double ikat resist-dyeing on handloom",
+    motif: "Bold geometric diamonds, temple and rudraksha patterns",
+    img: "https://commons.wikimedia.org/wiki/Special:FilePath/Pochampalli_Ikat_saree.jpg",
+    credit: "Wikimedia Commons contributor · CC license"
+  },
+  kanchipuram: {
+    name: "Kanchipuram",
+    loc: "Tamil Nadu",
+    textile: "Kanjivaram Silk",
+    desc: "Woven on a pit or frame loom, often by two artisans working together, Kanjivaram sarees interlock a contrast border and body using the korvai technique — a join so strong the border will not detach even if the silk tears.",
+    technique: "Pit-loom weaving with korvai border interlocking",
+    motif: "Temple towers, sun & moon, peacocks, checks (kattam)",
+    img: "https://commons.wikimedia.org/wiki/Special:FilePath/Silk_Sari_Weaving_at_Kanchipuram,_Tamil_Nadu.jpg",
+    credit: "Wikimedia Commons contributor · CC license"
+  }
+};
+
+const gallery = ["varanasi","kanchipuram","pochampally","bengal","punjab","kashmir","kutch","chanderi"];
+
+const panel = document.getElementById('panel-content');
+const pinList = document.getElementById('pin-list');
+const galleryEl = document.getElementById('gallery');
+
+function renderPanel(key){
+  const r = regions[key];
+  document.querySelectorAll('.pin').forEach(p => p.classList.toggle('active', p.dataset.region === key));
+  document.querySelectorAll('#pin-list button').forEach(b => b.classList.toggle('active', b.dataset.region === key));
+
+  panel.innerHTML = `
+    <div class="eyebrow">${r.textile}</div>
+    <h3>${r.name}</h3>
+    <div class="region-loc">${r.loc}</div>
+    <img class="textile-img" src="${r.img}" alt="${r.textile}, ${r.name}" loading="lazy">
+    <p>${r.desc}</p>
+    <div class="meta-row">
+      <div class="meta-item"><b>Technique</b>${r.technique}</div>
+      <div class="meta-item"><b>Motifs</b>${r.motif}</div>
+    </div>
+    <div class="credit">Image: ${r.credit}</div>
+  `;
+}
+
+// build pin list buttons
+Object.keys(regions).forEach(key => {
+  const btn = document.createElement('button');
+  btn.textContent = regions[key].name;
+  btn.dataset.region = key;
+  btn.addEventListener('click', () => renderPanel(key));
+  pinList.appendChild(btn);
+});
+
+// wire up map pins
+document.querySelectorAll('.pin').forEach(pin => {
+  pin.addEventListener('click', () => renderPanel(pin.dataset.region));
+});
+
+// build gallery
+gallery.forEach(key => {
+  const r = regions[key];
+  const fig = document.createElement('figure');
+  fig.className = 'tile';
+  fig.innerHTML = `
+    <img src="${r.img}" alt="${r.textile}" loading="lazy">
+    <figcaption>
+      <div class="loc">${r.loc}</div>
+      <h4>${r.textile}</h4>
+      <p>${r.desc.split('.')[0]}.</p>
+      <span class="credit">Image: <a href="${r.img.replace('Special:FilePath/','File:')}" target="_blank" rel="noopener">${r.credit}</a></span>
+    </figcaption>
+  `;
+  galleryEl.appendChild(fig);
+});
+
+// default state
+renderPanel('varanasi');
+</script>
+
+</body>
+</html>
