@@ -51,6 +51,13 @@ window.indiaSearchIndex = [
         url: 'frontend/brahmagiri-trek/index.html'
     },
     {
+        title: 'Chembra Peak Trek & Heart-Shaped Lake (Wayanad, Kerala) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Chembra Peak Trek (2,100m) in Wayanad, Kerala. Famous perennial heart-shaped lake (Hridayathadam), tea plantations, Shola grassland ecosystem, forest permits, route details, and image gallery.',
+        url: 'frontend/chembra-peak-trek/index.html'
+    },
+    {
     title: "Dashashwamedh Ghat: The Grand Evening Ganga Aarti",
     category: "Varanasi Ghats",
     description:
@@ -83,7 +90,25 @@ window.indiaSearchIndex = [
     category: "Beaches & Coastline",
     description:
         "Explore Chandrabhaga Beach in Puri, Odisha — India's first Blue Flag beach, 3 km from the UNESCO World Heritage Konark Sun Temple, known for dawn sunrises, coral reefs, and the historic Chandrabhaga river mouth.",
-    url: "frontend/chandrabhaga-beach/index.html"
+    url: "frontend/chandrabhaga-beach/index.html"},
+  {
+    title: "Elephant Beach — Andaman & Nicobar Islands",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Elephant Beach on Havelock Island (Swaraj Dweep), Andaman & Nicobar Islands — shallow coral reefs, snorkeling, sea walking, scuba diving, and tropical rainforest trails.",
+    url: "frontend/elephant-beach/index.html"},
+  {
+    title: "Rameswaram Beach — Tamil Nadu",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Rameswaram Beach (Agni Theertham) on Pamban Island, Tamil Nadu — the sacred confluence of the Bay of Bengal and Gulf of Mannar, 22 temple theerthams, Pamban Bridge, and Dhanushkodi.",
+    url: "frontend/rameswaram-beach/index.html"},
+  {
+    title: "Digha Beach — West Bengal",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Digha Beach in Purba Medinipur, West Bengal — the Bay of Bengal's wide, shallow 'Brighton of the East' famous for dual sunrise-and-sunset vistas, casuarina groves, low-tide sand flats, and the Marine Aquarium.",
+    url: "frontend/digha-beach/index.html"
     },
     {
     title: "Chauri Chaura Incident (1922) Explorer",

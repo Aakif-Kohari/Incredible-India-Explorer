@@ -125,6 +125,15 @@ const treks = [
         season: ['Winter', 'Spring'],
         description: 'A high Western Ghats route through rolling grasslands near Munnar.',
         url: 'https://www.incredibleindia.gov.in/en/kerala'
+    },
+    {
+        name: 'Chembra Peak',
+        state: 'Kerala',
+        difficulty: 'Moderate',
+        days: 1,
+        season: ['Autumn', 'Winter', 'Spring'],
+        description: 'A trek up Wayanad’s highest peak featuring tea gardens, Shola forests, and a perennial heart-shaped lake.',
+        url: 'https://www.keralatourism.org/destination/chembra-peak-wayanad/185'
     }
 ];
 
