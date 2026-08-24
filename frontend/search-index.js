@@ -79,6 +79,13 @@ window.indiaSearchIndex = [
         url: 'frontend/rajmachi-fort-trek/index.html'
     },
     {
+        title: 'Queen Didda of Kashmir (c. 924–1003 CE) — Powerful Sovereign & Lohara Dynasty Architect Profile',
+        category: 'Historical Rulers & Dynasties',
+        description:
+            'Explore Queen Didda of Kashmir (c. 924–1003 CE). Sovereign Queen and Regent, Lohara lineage, Shahi bloodline, 45-year political dominance, historical evidence vs literary portrayals, Kashmir map, timeline, and academic sources.',
+        url: 'frontend/queen-didda-kashmir/index.html'
+    },
+    {
     title: "Dashashwamedh Ghat: The Grand Evening Ganga Aarti",
     category: "Varanasi Ghats",
     description:
