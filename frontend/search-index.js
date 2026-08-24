@@ -6214,6 +6214,13 @@ window.indiaSearchIndex = [
         url: "frontend/usha-mehta-explorer/index.html"
     },
 
+    // --- 2011 Sikkim Earthquake Explorer (#3552) ---
+    {
+        title: "2011 Sikkim Earthquake — Himalayan Seismic Event Profile",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 18 September 2011 Sikkim earthquake (Mw 6.9): USGS epicentre on the India–Nepal border, Himalayan strike-slip tectonics, landslides, road and settlement damage, NDRF and Army relief, and earthquake preparedness.",
+        url: "frontend/sikkim-earthquake-2011-explorer/index.html"},
     // --- Brahmaputra Flood Hazards Explorer ---
     {
         title: "Brahmaputra Flood Hazards — Assam",
