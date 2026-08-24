@@ -1092,6 +1092,21 @@ const WOMEN_PROFILES = [
         featured: false,
         icon: "🥊",
         mapCoords: { lat: 24.3, lng: 93.6 }
+    },
+    {
+        id: "anis-kidwai",
+        url: "../anis-kidwai-explorer/",
+        name: "Anis Kidwai",
+        era: "post-independence",
+        eraLabel: "1906 – 1982 CE",
+        region: "Masauli (Uttar Pradesh) & Delhi",
+        category: "writers",
+        contribution: "Documented the human cost of Partition in her memoir 'Azadi Ki Chhaon Mein' and actively rehabilitated refugees in Delhi.",
+        bio: "Prominent writer, social worker, and parliamentarian who worked alongside Subhadra Joshi to aid Partition refugees, advocate for communal harmony, and document the trauma of displaced lives.",
+        dynasty: "Partition Literature & Reform",
+        featured: true,
+        icon: "✍️",
+        mapCoords: { lat: 26.92, lng: 81.20 }
     }
 ];
 
