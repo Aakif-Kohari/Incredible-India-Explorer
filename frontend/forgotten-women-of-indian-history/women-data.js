@@ -1077,6 +1077,21 @@ const WOMEN_PROFILES = [
         featured: false,
         icon: "🥊",
         mapCoords: { lat: 24.3, lng: 93.6 }
+    },
+    {
+        id: "savitribai-phule",
+        url: "../savitribai-phule-explorer/",
+        name: "Savitribai Phule",
+        era: "colonial",
+        eraLabel: "1831 – 1897 CE",
+        region: "Satara / Pune (Maharashtra)",
+        category: "social-reformers",
+        contribution: "India's first female teacher, founder of Bhide Wada girls' school, and pioneer of anti-caste social welfare.",
+        bio: "Pioneering educator and social reformer who co-founded Bhide Wada girls' school, established the Balhatya Pratibandhak Griha for widows, and led Satyashodhak Samaj campaigns for marginalized equality in Maharashtra.",
+        dynasty: "Satyashodhak Samaj & Social Reform",
+        featured: true,
+        icon: "🎓",
+        mapCoords: { lat: 18.52, lng: 73.85 }
     }
 ];
 
