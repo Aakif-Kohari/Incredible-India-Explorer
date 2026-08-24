@@ -1,6 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Offline | Incredible India Explorer</title>
@@ -20,7 +28,7 @@
         }
 
         /* Light theme overrides */
-        body.light-theme {
+        [data-theme="light"] {
             --bg-color: #f8f4ef;
             --card-bg: rgba(0, 0, 0, 0.04);
             --text-color: #1a1a2e;
@@ -313,7 +321,7 @@
             transform: translateY(-2px);
         }
 
-        body.light-theme .btn-secondary:hover {
+        [data-theme="light"] .btn-secondary:hover {
             border-color: rgba(0, 0, 0, 0.3);
         }
     </style>
@@ -558,8 +566,10 @@
                     '/frontend/alluri-sitarama-raju-explorer/': 'Alluri Sitarama Raju Explorer',
                     '/frontend/quit-india-movement-explorer/': 'Quit India Movement Explorer',
                     '/frontend/underground-resistance-explorer/': 'Underground Resistance Explorer',
-                    '/frontend/telangana-struggle-explorer/': 'Telangana Struggle Explorer'
-                    '/frontend/tebhaga-movement-explorer/': 'Tebhaga Movement Explorer'
+                    '/frontend/telangana-struggle-explorer/': 'Telangana Struggle Explorer',
+                    '/frontend/tebhaga-movement-explorer/': 'Tebhaga Movement Explorer',
+                    '/frontend/calcutta-1946-crisis-explorer/': '1946 Calcutta Crisis Explorer',
+                    '/frontend/noakhali-peace-mission-explorer/': "Gandhi's Noakhali Peace Mission Explorer"
                 };
 
                 caches.keys().then(function (cacheNames) {

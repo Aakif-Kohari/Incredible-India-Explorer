@@ -1,0 +1,604 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jantar Mantar Jaipur</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #020617;
+      color: #f1f5f9;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 48px));
+      margin: auto;
+    }
+
+    .content {
+      width: min(1024px, calc(100% - 48px));
+      margin: auto;
+    }
+
+    /* Navigation */
+    .nav {
+      padding-top: 24px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #fbbf24;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 64px 0;
+      text-align: center;
+    }
+
+    .location {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      background: rgba(245, 158, 11, 0.1);
+      color: #fbbf24;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .hero h1 {
+      margin-top: 24px;
+      color: white;
+      font-size: clamp(40px, 6vw, 64px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      font-weight: 900;
+    }
+
+    .hero h1 span {
+      color: #f59e0b;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 24px auto 0;
+      color: #cbd5e1;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    /* Sections */
+    main {
+      padding-bottom: 80px;
+    }
+
+    section {
+      margin-bottom: 64px;
+    }
+
+    .history-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+      padding: 32px;
+      border: 1px solid #1e293b;
+      border-radius: 24px;
+      background: rgba(15, 23, 42, 0.6);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #fbbf24;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-top: 12px;
+      color: white;
+      font-size: 28px;
+      line-height: 1.25;
+    }
+
+    .text {
+      margin-top: 16px;
+      color: #cbd5e1;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .purpose-box {
+      padding: 24px;
+      border: 1px solid #1e293b;
+      border-radius: 18px;
+      background: #020617;
+    }
+
+    .purpose-box h3 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #fbbf24;
+      font-size: 14px;
+    }
+
+    .purpose-box p {
+      margin-top: 12px;
+      color: #94a3b8;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* Samrat */
+    .samrat {
+      padding: 32px;
+      border: 1px solid #1e293b;
+      border-radius: 24px;
+      background: #0f172a;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      background: rgba(245, 158, 11, 0.1);
+      color: #f59e0b;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* Instruments */
+    .instruments {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .instrument-card {
+      padding: 24px;
+      border: 1px solid #1e293b;
+      border-radius: 18px;
+      background: #0f172a;
+    }
+
+    .instrument-card h3 {
+      color: #fbbf24;
+      font-size: 16px;
+    }
+
+    .instrument-card p {
+      margin-top: 10px;
+      color: #cbd5e1;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* Science / UNESCO */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .info-card {
+      padding: 24px;
+      border: 1px solid #1e293b;
+      border-radius: 24px;
+      background: #0f172a;
+    }
+
+    .info-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-size: 18px;
+    }
+
+    .icon {
+      color: #fbbf24;
+      font-size: 20px;
+    }
+
+    .info-card p {
+      margin-top: 16px;
+      color: #cbd5e1;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      border: 1px solid #1e293b;
+      border-radius: 18px;
+      background: #0f172a;
+    }
+
+    .image-wrapper {
+      height: 220px;
+      overflow: hidden;
+      background: #020617;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-content {
+      padding: 16px;
+    }
+
+    .gallery-content h4 {
+      color: white;
+      font-size: 14px;
+    }
+
+    .gallery-content p {
+      margin-top: 6px;
+      color: #94a3b8;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container,
+      .content {
+        width: calc(100% - 32px);
+      }
+
+      .hero {
+        padding: 48px 0;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .history-grid,
+      .instruments,
+      .info-grid,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .history-grid,
+      .samrat {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      .history-grid,
+      .samrat,
+      .instrument-card,
+      .info-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <div class="container nav">
+    <a href="heritage.html" class="back-link">
+      ← Back to Heritage Hub
+    </a>
+  </div>
+
+  <!-- Hero -->
+  <header class="container hero">
+
+    <div class="location">
+      📍 Jaipur, Rajasthan, India
+    </div>
+
+    <h1>
+      Jantar Mantar
+      <span>Jaipur</span>
+    </h1>
+
+    <p>
+      Discover India's astronomical heritage through a collection of
+      monumental architectural instruments built to track stars, measure
+      time, and study planetary orbits with astonishing precision.
+    </p>
+
+  </header>
+
+  <main class="content">
+
+    <!-- Founder & History -->
+    <section class="history-grid">
+
+      <div>
+
+        <div class="eyebrow">
+          🔭 Founder &amp; Visionary
+        </div>
+
+        <h2>
+          Maharaja Sawai Jai Singh II
+        </h2>
+
+        <p class="text">
+          Constructed in the early 18th century by the Rajput king
+          Maharaja Sawai Jai Singh II—a passionate scholar of mathematics,
+          astronomy, and architecture—Jantar Mantar in Jaipur is the
+          largest and best-preserved of five observatories he built across
+          northern India.
+        </p>
+
+      </div>
+
+      <div class="purpose-box">
+
+        <h3>
+          ✨ Purpose of Construction
+        </h3>
+
+        <p>
+          The observatories were built to compile astronomical tables and
+          to predict with greater accuracy the times and movements of the
+          sun, moon, and planets against the backdrop of changing
+          political and scientific landscapes.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- Samrat Yantra -->
+    <section class="samrat">
+
+      <span class="badge">
+        Supreme Instrument
+      </span>
+
+      <h2>
+        The Samrat Yantra: The Supreme Sundial
+      </h2>
+
+      <p class="text">
+        Standing nearly 27 meters tall, the Samrat Yantra is a colossal
+        equinoctial sundial. Its triangular hypotenuse is angled precisely
+        at 27 degrees (matching Jaipur's latitude). Shadows cast by the sun
+        along its curved quadrants allow visitors and astronomers to read
+        local solar time accurately down to two seconds.
+      </p>
+
+    </section>
+
+    <!-- Instruments -->
+    <section>
+
+      <h2>
+        Major Astronomical Instruments
+      </h2>
+
+      <div class="instruments" id="instruments"></div>
+
+    </section>
+
+    <!-- Science and UNESCO -->
+    <section class="info-grid">
+
+      <div class="info-card">
+
+        <h3>
+          <span class="icon">🧭</span>
+          Science and Architecture
+        </h3>
+
+        <p>
+          Built primarily out of stone and local marble, each instrument
+          acts as a massive geometric sculpture. Their immovable masonry
+          designs prevent mechanical wear and tear, ensuring long-term
+          precision compared to smaller brass instruments of the era.
+        </p>
+
+      </div>
+
+      <div class="info-card">
+
+        <h3>
+          <span class="icon">🏆</span>
+          UNESCO World Heritage Status
+        </h3>
+
+        <p>
+          Inscribed as a UNESCO World Heritage site in 2010, Jantar Mantar
+          is recognized as an expression of the astronomical skills and
+          cosmological concepts of the court of a scholarly Mughal-era
+          Rajput prince.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- Gallery -->
+    <section>
+
+      <h2>
+        Astronomical Gallery
+      </h2>
+
+      <div class="gallery" id="gallery"></div>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    /*
+     * Astronomical instruments
+     */
+
+    const instruments = [
+      {
+        name: "Samrat Yantra",
+        desc: "The giant sundial standing at 27 meters high, capable of telling local time with an accuracy of two seconds."
+      },
+      {
+        name: "Jai Prakash Yantra",
+        desc: "Consists of two hemispherical bowl-like sundials used to map coordinates of celestial bodies and track the sun."
+      },
+      {
+        name: "Rama Yantra",
+        desc: "Circular structures with a central pillar used to measure altitude and azimuth of celestial objects."
+      },
+      {
+        name: "Disha Yantra",
+        desc: "Determines azimuth and helps locate celestial positions relative to the horizon."
+      }
+    ];
+
+    const instrumentContainer =
+      document.getElementById("instruments");
+
+    instruments.forEach(function (instrument) {
+
+      const card = document.createElement("div");
+
+      card.className = "instrument-card";
+
+      card.innerHTML = `
+        <h3>${instrument.name}</h3>
+        <p>${instrument.desc}</p>
+      `;
+
+      instrumentContainer.appendChild(card);
+
+    });
+
+
+    /*
+     * Gallery
+     */
+
+    const galleryImages = [
+      {
+        title: "The Mighty Samrat Yantra",
+        url: "https://images.unsplash.com/photo-1599661046289-e31898787a56?auto=format&fit=crop&q=80&w=800",
+        caption:
+          "The world's largest stone sundial at Jantar Mantar Jaipur."
+      },
+      {
+        title: "Geometric Precision",
+        url: "https://images.unsplash.com/photo-1621351183012-e2f997fb8dd9?auto=format&fit=crop&q=80&w=800",
+        caption:
+          "Architectural alignment of masonry instruments for precise celestial calculation."
+      },
+      {
+        title: "Astronomical Structures",
+        url: "https://images.unsplash.com/photo-1609137144813-7e94c924147d?auto=format&fit=crop&q=80&w=800",
+        caption:
+          "Intricate stone scales carved into massive geometric observatories."
+      }
+    ];
+
+    const gallery = document.getElementById("gallery");
+
+    galleryImages.forEach(function (image) {
+
+      const card = document.createElement("div");
+
+      card.className = "gallery-card";
+
+      card.innerHTML = `
+        <div class="image-wrapper">
+          <img
+            src="${image.url}"
+            alt="${image.title}"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="gallery-content">
+          <h4>${image.title}</h4>
+          <p>${image.caption}</p>
+        </div>
+      `;
+
+      gallery.appendChild(card);
+
+    });
+
+  </script>
+
+</body>
+</html>

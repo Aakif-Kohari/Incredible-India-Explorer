@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nalukettu Explorer - Incredible India</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="../../index.html" class="logo">
+                    <img src="../../assets/icons/mandala.svg" alt="Incredible India Explorer Logo">
+                    <span>Incredible India</span>
+                </a>
+                <div class="nav-links">
+                    <a href="../../index.html" class="nav-item">Home</a>
+                    <a href="#" class="nav-item">Destinations</a>
+                    <a href="#" class="nav-item active">Culture</a>
+                    <a href="#" class="nav-item">Nature</a>
+                </div>
+                <button class="theme-toggle" aria-label="Toggle dark mode" id="theme-toggle-btn">
+                    <span class="moon-icon">🌙</span>
+                    <span class="sun-icon">☀️</span>
+                </button>
+                <button class="hamburger-menu" aria-label="Open menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" aria-hidden="true">
+                <a href="../../index.html" class="nav-item">Home</a>
+                <a href="#" class="nav-item">Destinations</a>
+                <a href="#" class="nav-item active">Culture</a>
+                <a href="#" class="nav-item">Nature</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="nalukettu-container">
+        <section class="hero-section">
+            <h1>Nalukettu of Kerala</h1>
+            <p>Explore the traditional residential architecture of Kerala, defined by its central courtyard and four surrounding blocks designed to harmonize with the intense monsoons and tropical heat.</p>
+        </section>
+
+        <div class="explorer-layout">
+            <!-- Left Side: Interactive Floor Plan -->
+            <div class="floorplan-container">
+                <h2>Layout Explorer</h2>
+                <p class="instruction">Click on a section of the house to discover its purpose according to traditional Vastu Shastra.</p>
+                
+                <div class="floor-plan-grid" id="floor-plan">
+                    <!-- Surrounding Verandah top -->
+                    <button class="fp-section fp-verandah fp-verandah-top" data-section="verandah"></button>
+                    <button class="fp-section fp-verandah fp-verandah-left" data-section="verandah"></button>
+                    <button class="fp-section fp-verandah fp-verandah-right" data-section="verandah"></button>
+                    <button class="fp-section fp-verandah fp-verandah-bottom" data-section="verandah"></button>
+                    
+                    <!-- Main blocks -->
+                    <button class="fp-section fp-block fp-vadakkini" data-section="vadakkini">Vadakkini (North)</button>
+                    <button class="fp-section fp-block fp-padinjattini" data-section="padinjattini">Padinjattini (West)</button>
+                    <button class="fp-section fp-courtyard" data-section="nadumuttam">Nadumuttam (Courtyard)</button>
+                    <button class="fp-section fp-block fp-kizhakkini" data-section="kizhakkini">Kizhakkini (East)</button>
+                    <button class="fp-section fp-block fp-thekkini" data-section="thekkini">Thekkini (South)</button>
+                    
+                    <!-- Entrance -->
+                    <button class="fp-section fp-entrance" data-section="poomukham">Poomukham (Entrance)</button>
+                </div>
+            </div>
+
+            <!-- Right Side: Details Panel -->
+            <aside class="details-panel" id="details-panel" aria-live="polite">
+                <h2 id="section-title">Select an Element</h2>
+                <div class="details-content">
+                    <p id="section-description">Click on the virtual floor plan to discover the climate-responsive design and rich wooden architecture of Kerala's heritage homes.</p>
+                    
+                    <div id="section-meta" class="section-meta hidden">
+                        <div class="meta-item">
+                            <span class="meta-icon">🪵</span>
+                            <div class="meta-text">
+                                <strong>Materials & Construction:</strong> <span id="meta-materials"></span>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">🌧️</span>
+                            <div class="meta-text">
+                                <strong>Climate Adaptation:</strong> <span id="meta-climate"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        
+        <!-- Image Credits -->
+        <section class="credits-section">
+            <p><strong>Note:</strong> The interactive floor plan is a stylized representation of the standard 'Ettukettu' and 'Nalukettu' layouts found across Kerala.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Incredible India Explorer. Open Source Project.</p>
+        </div>
+    </footer>
+
+    <script src="../../app.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

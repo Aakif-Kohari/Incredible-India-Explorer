@@ -1,0 +1,887 @@
+/* ==========================================================================
+   Torna Fort Trek Profile CSS
+   Theme: Basalt Stone, Saffron Swarajya Spark, Sahyadri Monsoon Emerald
+   ========================================================================== */
+
+:root {
+    --torna-bg: #120f0a;
+    --torna-surface: #1e1912;
+    --torna-surface-alt: #2c241a;
+    --torna-surface-glass: rgba(30, 25, 18, 0.85);
+    --torna-border: rgba(230, 81, 0, 0.22);
+    --torna-border-bright: rgba(255, 112, 67, 0.45);
+    --torna-text: #f5ebe0;
+    --torna-text-dim: #c5b4a0;
+    --torna-text-muted: #8c7a68;
+    
+    --torna-saffron: #ff6f00;
+    --torna-saffron-glow: rgba(255, 111, 0, 0.35);
+    --torna-copper: #c88a4a;
+    --torna-emerald: #10b981;
+    --torna-emerald-glow: rgba(16, 185, 129, 0.3);
+    --torna-rust: #b24e30;
+    --torna-gold: #ffb300;
+
+    --torna-font-heading: 'Playfair Display', Georgia, serif;
+    --torna-font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --torna-font-mono: 'JetBrains Mono', monospace;
+
+    --torna-radius-sm: 8px;
+    --torna-radius-md: 14px;
+    --torna-radius-lg: 22px;
+    --torna-radius-pill: 999px;
+
+    --torna-shadow-card: 0 10px 30px rgba(0, 0, 0, 0.45);
+    --torna-shadow-glow: 0 0 25px rgba(255, 111, 0, 0.2);
+}
+
+[data-theme="light"] {
+    --torna-bg: #faf6f0;
+    --torna-surface: #ffffff;
+    --torna-surface-alt: #f3eae0;
+    --torna-surface-glass: rgba(255, 255, 255, 0.92);
+    --torna-border: rgba(200, 138, 74, 0.25);
+    --torna-border-bright: rgba(230, 81, 0, 0.5);
+    --torna-text: #2c1e10;
+    --torna-text-dim: #5c442c;
+    --torna-text-muted: #8c7156;
+
+    --torna-saffron: #d84315;
+    --torna-saffron-glow: rgba(216, 67, 21, 0.15);
+    --torna-copper: #a05e26;
+    --torna-emerald: #047857;
+    --torna-emerald-glow: rgba(4, 120, 87, 0.15);
+    --torna-shadow-card: 0 10px 30px rgba(70, 40, 10, 0.08);
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.torna-body {
+    background-color: var(--torna-bg);
+    color: var(--torna-text);
+    font-family: var(--torna-font-body);
+    line-height: 1.65;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+:focus-visible {
+    outline: 2px solid var(--torna-saffron);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Container */
+.torna-container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Header */
+.torna-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--torna-surface-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--torna-border);
+    padding: 1rem 0;
+}
+
+.torna-header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.torna-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--torna-text-dim);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.torna-back-link:hover {
+    color: var(--torna-saffron);
+    transform: translateX(-3px);
+}
+
+.torna-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.torna-theme-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--torna-surface-alt);
+    border: 1px solid var(--torna-border);
+    color: var(--torna-text);
+    padding: 0.5rem 1rem;
+    border-radius: var(--torna-radius-pill);
+    font-family: var(--torna-font-body);
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.torna-theme-btn:hover {
+    border-color: var(--torna-saffron);
+    box-shadow: var(--torna-shadow-glow);
+}
+
+/* Hero Section */
+.torna-hero {
+    position: relative;
+    padding: 4.5rem 0 3.5rem;
+    background: radial-gradient(circle at 50% 10%, var(--torna-saffron-glow) 0%, transparent 65%),
+                radial-gradient(circle at 80% 60%, var(--torna-emerald-glow) 0%, transparent 50%);
+    text-align: center;
+    border-bottom: 1px solid var(--torna-border);
+}
+
+.torna-hero__badges {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+}
+
+.torna-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--torna-radius-pill);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--torna-border);
+    color: var(--torna-text-dim);
+}
+
+.torna-badge--saffron {
+    background: var(--torna-saffron-glow);
+    border-color: var(--torna-saffron);
+    color: var(--torna-saffron);
+}
+
+.torna-badge--emerald {
+    background: var(--torna-emerald-glow);
+    border-color: var(--torna-emerald);
+    color: var(--torna-emerald);
+}
+
+.torna-hero__title {
+    font-family: var(--torna-font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    color: var(--torna-text);
+}
+
+.torna-hero__title-sub {
+    display: block;
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    font-weight: 400;
+    color: var(--torna-saffron);
+    margin-top: 0.25rem;
+    font-family: var(--torna-font-body);
+}
+
+.torna-hero__lede {
+    max-width: 780px;
+    margin: 0 auto 2.5rem;
+    font-size: 1.15rem;
+    color: var(--torna-text-dim);
+}
+
+/* Quick Stats Bar */
+.torna-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.torna-stat-card {
+    background: var(--torna-surface-glass);
+    border: 1px solid var(--torna-border);
+    border-radius: var(--torna-radius-md);
+    padding: 1.25rem 1rem;
+    text-align: center;
+    box-shadow: var(--torna-shadow-card);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.torna-stat-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--torna-saffron);
+}
+
+.torna-stat-card__val {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--torna-saffron);
+    display: block;
+    line-height: 1.2;
+}
+
+.torna-stat-card__label {
+    font-size: 0.85rem;
+    color: var(--torna-text-muted);
+    margin-top: 0.3rem;
+    display: block;
+}
+
+/* Tab Navigation */
+.torna-tabs-wrapper {
+    margin: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--torna-border);
+}
+
+.torna-tabs {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: thin;
+}
+
+.torna-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.4rem;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--torna-text-muted);
+    font-family: var(--torna-font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.torna-tab-btn:hover {
+    color: var(--torna-text);
+}
+
+.torna-tab-btn.active {
+    color: var(--torna-saffron);
+    border-bottom-color: var(--torna-saffron);
+}
+
+/* Tab Content Sections */
+.torna-tab-content {
+    display: none;
+    animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.torna-tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Section Headings */
+.torna-section-heading {
+    margin-bottom: 2rem;
+}
+
+.torna-eyebrow {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--torna-saffron);
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.torna-section-title {
+    font-family: var(--torna-font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    color: var(--torna-text);
+    line-height: 1.25;
+}
+
+.torna-section-desc {
+    color: var(--torna-text-dim);
+    font-size: 1.05rem;
+    margin-top: 0.5rem;
+    max-width: 820px;
+}
+
+/* Cards & Glassmorphism */
+.torna-card {
+    background: var(--torna-surface-glass);
+    border: 1px solid var(--torna-border);
+    border-radius: var(--torna-radius-lg);
+    padding: 2rem;
+    box-shadow: var(--torna-shadow-card);
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.torna-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.torna-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Timeline Components */
+.torna-timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin-top: 1.5rem;
+}
+
+.torna-timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 5px;
+    bottom: 5px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--torna-saffron), var(--torna-emerald));
+}
+
+.torna-timeline-item {
+    position: relative;
+    margin-bottom: 2.2rem;
+}
+
+.torna-timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.torna-timeline-node {
+    position: absolute;
+    left: -2rem;
+    top: 0.25rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--torna-saffron);
+    border: 3px solid var(--torna-bg);
+    box-shadow: 0 0 10px var(--torna-saffron);
+}
+
+.torna-timeline-card {
+    background: var(--torna-surface);
+    border: 1px solid var(--torna-border);
+    border-radius: var(--torna-radius-md);
+    padding: 1.4rem;
+    transition: transform 0.2s ease;
+}
+
+.torna-timeline-card:hover {
+    transform: translateX(4px);
+    border-color: var(--torna-saffron);
+}
+
+.torna-timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.torna-timeline-year {
+    font-family: var(--torna-font-mono);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--torna-saffron);
+}
+
+.torna-timeline-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--torna-text);
+    margin-bottom: 0.5rem;
+}
+
+.torna-timeline-desc {
+    color: var(--torna-text-dim);
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+/* Highlights Cards */
+.torna-highlight-card {
+    background: var(--torna-surface);
+    border: 1px solid var(--torna-border);
+    border-radius: var(--torna-radius-md);
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.torna-highlight-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--torna-saffron);
+    box-shadow: var(--torna-shadow-glow);
+}
+
+.torna-highlight-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.torna-highlight-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--torna-text);
+    margin-bottom: 0.2rem;
+}
+
+.torna-highlight-sub {
+    font-size: 0.88rem;
+    color: var(--torna-saffron);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+
+}
+
+.torna-highlight-desc {
+    color: var(--torna-text-dim);
+    font-size: 0.95rem;
+    flex-grow: 1;
+}
+
+/* Trek Steps / Route */
+.torna-step-card {
+    display: flex;
+    gap: 1.5rem;
+    background: var(--torna-surface);
+    border: 1px solid var(--torna-border);
+    border-radius: var(--torna-radius-md);
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.torna-step-num {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background: var(--torna-saffron-glow);
+    border: 2px solid var(--torna-saffron);
+    color: var(--torna-saffron);
+    font-family: var(--torna-font-mono);
+    font-weight: 700;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.torna-step-body {
+    flex-grow: 1;
+}
+
+.torna-step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.torna-step-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--torna-text);
+}
+
+.torna-step-meta {
+    font-size: 0.82rem;
+    font-family: var(--torna-font-mono);
+    color: var(--torna-emerald);
+    background: var(--torna-emerald-glow);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--torna-radius-pill);
+}
+
+.torna-step-desc {
+    color: var(--torna-text-dim);
+    font-size: 0.96rem;
+}
+
+/* Special Banner: Ridge Trek */
+.torna-ridge-banner {
+    background: linear-gradient(135deg, rgba(255, 111, 0, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%);
+    border: 1px solid var(--torna-border-bright);
+    border-radius: var(--torna-radius-lg);
+    padding: 2rem;
+    margin: 2.5rem 0;
+}
+
+.torna-ridge-title {
+    font-family: var(--torna-font-heading);
+    font-size: 1.5rem;
+    color: var(--torna-saffron);
+    margin-bottom: 0.5rem;
+}
+
+/* Trek Calculator Widget */
+.torna-calc-card {
+    background: var(--torna-surface);
+    border: 1px solid var(--torna-border);
+    border-radius: var(--torna-radius-lg);
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.torna-calc-controls {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1.25rem 0 1.75rem;
+}
+
+.torna-calc-btn {
+    flex: 1;
+    min-width: 140px;
+    padding: 0.85rem 1.25rem;
+    background: var(--torna-surface-alt);
+    border: 1px solid var(--torna-border);
+    border-radius: var(--torna-radius-md);
+    color: var(--torna-text-dim);
+    font-family: var(--torna-font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.torna-calc-btn:hover {
+    border-color: var(--torna-saffron);
+    color: var(--torna-text);
+}
+
+.torna-calc-btn.active {
+    background: var(--torna-saffron);
+    border-color: var(--torna-saffron);
+    color: #ffffff;
+    box-shadow: var(--torna-shadow-glow);
+}
+
+.torna-calc-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    background: var(--torna-bg);
+    border: 1px solid var(--torna-border);
+    border-radius: var(--torna-radius-md);
+    padding: 1.5rem;
+}
+
+.torna-calc-res-item {
+    text-align: center;
+}
+
+.torna-calc-res-val {
+    font-family: var(--torna-font-mono);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--torna-emerald);
+    display: block;
+}
+
+.torna-calc-res-lbl {
+    font-size: 0.85rem;
+    color: var(--torna-text-muted);
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Season Toggle Switcher */
+.torna-season-card {
+    background: var(--torna-surface);
+    border: 1px solid var(--torna-border);
+    border-radius: var(--torna-radius-lg);
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.torna-season-toggle {
+    display: flex;
+    justify-content: center;
+    margin: 1.25rem 0 1.75rem;
+}
+
+.torna-season-switch {
+    display: inline-flex;
+    background: var(--torna-bg);
+    border: 1px solid var(--torna-border);
+    border-radius: var(--torna-radius-pill);
+    padding: 0.3rem;
+}
+
+.torna-season-opt {
+    padding: 0.6rem 1.6rem;
+    border-radius: var(--torna-radius-pill);
+    border: none;
+    background: transparent;
+    color: var(--torna-text-muted);
+    font-family: var(--torna-font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.torna-season-opt.active {
+    background: var(--torna-emerald);
+    color: #ffffff;
+}
+
+.torna-season-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.torna-season-box {
+    background: var(--torna-bg);
+    border: 1px solid var(--torna-border);
+    border-radius: var(--torna-radius-md);
+    padding: 1.25rem;
+}
+
+.torna-season-box h4 {
+    font-size: 1.05rem;
+    color: var(--torna-saffron);
+    margin-bottom: 0.5rem;
+}
+
+/* Checklist Widget */
+.torna-checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+
+.torna-chk-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    background: var(--torna-surface);
+    border: 1px solid var(--torna-border);
+    border-radius: var(--torna-radius-md);
+    padding: 1rem;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.torna-chk-item:hover {
+    border-color: var(--torna-saffron);
+}
+
+.torna-chk-item.checked {
+    border-color: var(--torna-emerald);
+    background: var(--torna-emerald-glow);
+}
+
+.torna-chk-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--torna-emerald);
+    cursor: pointer;
+}
+
+.torna-chk-label {
+    font-size: 0.95rem;
+    color: var(--torna-text);
+}
+
+/* Photo Gallery & Lightbox */
+.torna-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.torna-gallery-tile {
+    background: var(--torna-surface);
+    border: 1px solid var(--torna-border);
+    border-radius: var(--torna-radius-md);
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+.torna-gallery-tile:hover {
+    transform: translateY(-4px);
+    border-color: var(--torna-saffron);
+    box-shadow: var(--torna-shadow-glow);
+}
+
+.torna-gallery-emoji {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.torna-gallery-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--torna-text);
+}
+
+/* Lightbox Modal */
+.torna-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.torna-lightbox[hidden] {
+    display: none;
+}
+
+.torna-lightbox-dialog {
+    background: var(--torna-surface);
+    border: 1px solid var(--torna-border-bright);
+    border-radius: var(--torna-radius-lg);
+    max-width: 600px;
+    width: 100%;
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    text-align: center;
+    box-shadow: var(--torna-shadow-card);
+}
+
+.torna-lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--torna-surface-alt);
+    border: 1px solid var(--torna-border);
+    color: var(--torna-text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.torna-lightbox-close:hover {
+    background: var(--torna-saffron);
+    border-color: var(--torna-saffron);
+    color: #fff;
+}
+
+.torna-lightbox-emoji {
+    font-size: 4.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.torna-lightbox-h {
+    font-family: var(--torna-font-heading);
+    font-size: 1.8rem;
+    color: var(--torna-text);
+    margin-bottom: 0.5rem;
+}
+
+.torna-lightbox-caption {
+    color: var(--torna-text-dim);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Footer */
+.torna-footer {
+    border-top: 1px solid var(--torna-border);
+    padding: 3rem 0;
+    margin-top: 4rem;
+    text-align: center;
+    color: var(--torna-text-muted);
+    font-size: 0.9rem;
+}
+
+.torna-footer-brand {
+    font-family: var(--torna-font-heading);
+    color: var(--torna-text);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+    .torna-hero {
+        padding: 3rem 0 2rem;
+    }
+
+    .torna-step-card {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .torna-calc-controls {
+        flex-direction: column;
+    }
+
+    .torna-timeline {
+        padding-left: 1.5rem;
+    }
+}

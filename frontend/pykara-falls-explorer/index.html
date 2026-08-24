@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pykara Falls Explorer | Incredible India Explorer</title>
+    <meta name="description"
+        content="Explore Pykara Falls near Ooty, Tamil Nadu. Discover the Pykara river's journey from Mukurthi peak through the Nilgiri Hills to its twin 55m and 61m cascades, seasonal flow, and nearby attractions.">
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+
+<body>
+    <script>
+        (function () {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch (e) { }
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../waterfalls-of-india/index.html" class="dropdown-item">Waterfalls of India</a>
+                        <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                        <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route
+                            Planner</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                        <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                        <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                        <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                        <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical
+                            Timeline</a>
+                        <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html"
+                            class="dropdown-item">National Symbols</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National
+                            Parks</a>
+                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife
+                            Rescue</a>
+                        <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic
+                            Flora & Fauna</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                        <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 80px;">
+
+        <!-- HERO -->
+        <section class="pykara-hero">
+            <div class="pykara-hero-content">
+                <span class="pykara-kicker">🌲 Tamil Nadu · Nilgiri Hills</span>
+                <h1>Pykara Falls <span>Explorer</span></h1>
+                <p>Sacred to the Toda people, the Pykara river rushes off the Nilgiri plateau's edge near Ooty in two
+                    dramatic cascades — 55 and 61 metres tall — after a journey through pine forest, grassy downs and a
+                    hydroelectric reservoir.</p>
+            </div>
+        </section>
+
+        <!-- LOCATION & RIVER -->
+        <section class="pykara-section alt-bg">
+            <div class="pykara-container info-grid">
+                <div class="info-text">
+                    <span class="pykara-eyebrow">📍 Location & River</span>
+                    <h2>The Pykara River's Journey</h2>
+                    <p class="lede">Pykara Falls lies about 19–21 km from Ooty on the Ooty–Mysore road, in the Nilgiris
+                        district of Tamil Nadu. The Pykara river — the largest river in the Nilgiris and considered
+                        sacred by the indigenous Toda people — rises at Mukurthi Peak, flows north through Mukurthi
+                        National Park, then bends west at the plateau's edge, passing through the Pykara Dam and
+                        reservoir before dropping over the falls in a series of cascades.</p>
+
+                    <ul class="fact-list">
+                        <li><strong>Location:</strong> Pykara, Nilgiris district, Tamil Nadu (~19-21 km from Ooty)</li>
+                        <li><strong>River:</strong> Pykara River, rising at Mukurthi Peak</li>
+                        <li><strong>River system:</strong> Pykara → Moyar → Bhavani → Kaveri</li>
+                        <li><strong>Height:</strong> Two main falls of ~55 m (180 ft) and ~61 m (200 ft)</li>
+                        <li><strong>Structure:</strong> A series of cascades over the plateau edge; the last two are
+                            named Pykara Falls</li>
+                        <li><strong>Best season:</strong> August–January, for full flow and pleasant weather</li>
+                    </ul>
+                </div>
+
+                <!-- Height Visualization component -->
+                <div class="scale-visualization glass-card">
+                    <h3 class="height-title">Height Comparison</h3>
+                    <div class="height-chart" id="height-chart"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WATERFALL STRUCTURE VISUALIZATION -->
+        <section class="geographic-flow-section">
+            <div class="pykara-container">
+                <span class="pykara-eyebrow">🌊 Waterfall Structure</span>
+                <h2>From Reservoir to Twin Falls</h2>
+                <p class="lede">Pykara isn't one drop — it's the final stretch of a river that's already been dammed,
+                    channelled and released before it reaches the edge of the plateau. Step through the stages below.
+                </p>
+                <div class="flow-container">
+                    <div class="flow-stages" id="structure-stages">
+                        <button class="flow-stage active" data-stage="1">
+                            <span class="flow-icon">⛰️</span>
+                            <span class="flow-text">1. Mukurthi Source</span>
+                        </button>
+                        <div class="flow-arrow">→</div>
+                        <button class="flow-stage" data-stage="2">
+                            <span class="flow-icon">💧</span>
+                            <span class="flow-text">2. Pykara Dam & Lake</span>
+                        </button>
+                        <div class="flow-arrow">→</div>
+                        <button class="flow-stage" data-stage="3">
+                            <span class="flow-icon">🌊</span>
+                            <span class="flow-text">3. Upper Falls (55m)</span>
+                        </button>
+                        <div class="flow-arrow">→</div>
+                        <button class="flow-stage" data-stage="4">
+                            <span class="flow-icon">💦</span>
+                            <span class="flow-text">4. Lower Falls (61m)</span>
+                        </button>
+                    </div>
+
+                    <div class="flow-content-area glass-card" id="structure-content-area">
+                        <!-- Panels injected by script.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEASONAL COMPARISON -->
+        <section class="pykara-section">
+            <div class="pykara-container">
+                <span class="pykara-eyebrow">🌦️ Seasons</span>
+                <h2>The Falls Across the Year</h2>
+                <p class="lede">Flow is regulated in part by the Pykara Dam upstream, but the river still responds
+                    strongly to the monsoon, making the falls noticeably fuller from August through January.</p>
+                <div class="season-comparison" id="season-comparison"></div>
+            </div>
+        </section>
+
+        <!-- NILGIRI LANDSCAPE GALLERY -->
+        <section class="pykara-section alt-bg">
+            <div class="pykara-container">
+                <span class="pykara-eyebrow">🏞️ Gallery</span>
+                <h2>Nilgiri Landscape & River</h2>
+                <p class="lede">The Pykara valley is ringed by shola forest, eucalyptus groves and the rolling grassy
+                    downs of Wenlock Downs, with Toda settlements scattered across the plateau.</p>
+                <div class="gallery-grid" id="gallery-grid"></div>
+            </div>
+        </section>
+
+        <!-- NEARBY ATTRACTION EXPLORER -->
+        <section class="pykara-section">
+            <div class="pykara-container">
+                <span class="pykara-eyebrow">🗺️ Nearby Attraction Explorer</span>
+                <h2>Rest of Pykara & Ooty</h2>
+                <div class="attractions-grid" id="attractions-grid"></div>
+                <div class="map-wrapper glass-card" style="margin-top: 30px;">
+                    <div id="attractions-map" class="interactive-map"
+                        aria-label="Interactive map showing Pykara Falls and nearby Nilgiri attractions"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RIVER / LOCATION MAP -->
+        <section class="pykara-section alt-bg">
+            <div class="pykara-container map-grid">
+                <div>
+                    <span class="pykara-eyebrow">🗺️ River Map</span>
+                    <h2>Getting There</h2>
+                    <p class="lede">Pykara is reached by road from Ooty along the Ooty–Mysore highway, with the falls
+                        viewpoint a short, easy walk from the parking area.</p>
+                    <div class="map-details glass-card">
+                        <h4>Travel Notes</h4>
+                        <ul>
+                            <li><strong>Best season:</strong> August–January for full flow and clear weather</li>
+                            <li><strong>Distance:</strong> ~19-21 km from Ooty; falls are ~2 km from Pykara Lake</li>
+                            <li><strong>Access:</strong> Short 5–10 minute walk on a paved path from the parking area to
+                                the viewpoint</li>
+                            <li><strong>Nearest railhead:</strong> Ooty (Udhagamandalam) Railway Station ·
+                                <strong>Nearest airport:</strong> Coimbatore</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="map-wrapper glass-card">
+                    <!-- Leaflet map container -->
+                    <div id="pykara-map" class="interactive-map"
+                        aria-label="Interactive map showing the location of Pykara Falls"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REFERENCES -->
+        <section class="pykara-section references-section">
+            <div class="pykara-container">
+                <span class="pykara-eyebrow">📚 Sources</span>
+                <h2>References & Image Credits</h2>
+                <ul class="references-list" id="references-list"></ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="pykara-footer">
+        <div class="footer-content">
+            <p>Part of the <a href="../waterfalls-of-india/index.html">Waterfalls of India Explorer</a> · <a
+                    href="../../index.html">Incredible India Explorer</a></p>
+            <p class="footer-credits">Images sourced from Unsplash for demonstration purposes; see references section
+                for credits and further reading.</p>
+        </div>
+    </footer>
+
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script src="../js-modules/storage.js" defer></script>
+    <script src="../app.js" defer></script>
+    <script src="pykara-data.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>
