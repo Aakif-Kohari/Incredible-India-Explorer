@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rameswaram Beach — Tamil Nadu | Explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sea-deep:#0E3B47;
+    --sea-mid:#175A67;
+    --sea-foam:#EFF6F4;
+    --sand:#EDE3C8;
+    --sand-dark:#D8C79E;
+    --vermillion:#B23A2E;
+    --vermillion-dark:#7C2620;
+    --gold:#C99A3E;
+    --gold-dark:#8F6B24;
+    --ink:#132A2E;
+    --ink-soft:#3E5A5C;
+    --paper:#FBF8F1;
+    --line: rgba(19,42,46,0.14);
+    --radius-card: 14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Lora', Georgia, serif;
+    line-height:1.65;
+  }
+  h1,h2,h3,.disp{
+    font-family:'Baloo Tamma 2', 'Lora', sans-serif;
+    font-weight:600;
+    color:var(--sea-deep);
+    margin:0;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:var(--sea-mid);}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold-dark);
+  }
+
+  /* ---------- Nav ---------- */
+  .topnav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,248,241,0.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .topnav-inner{
+    max-width:1080px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .brand{font-family:'Baloo Tamma 2';font-weight:700;font-size:18px;color:var(--sea-deep);text-decoration:none;}
+  .brand span{color:var(--vermillion);}
+  .navlinks{display:flex;gap:22px;list-style:none;margin:0;padding:0;flex-wrap:wrap;}
+  .navlinks a{
+    font-family:'IBM Plex Mono';font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;
+    text-decoration:none;color:var(--ink-soft);border-bottom:1px solid transparent;padding-bottom:2px;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .navlinks a:hover{color:var(--vermillion);border-color:var(--vermillion);}
+
+  /* ---------- Gopuram tier divider (signature element) ---------- */
+  .tier-divider{width:100%;height:22px;display:block;}
+  .tier-divider svg{width:100%;height:100%;display:block;}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;color:#fff;}
+  .hero-media{
+    position:relative;height:62vh;min-height:420px;max-height:620px;
+    overflow:hidden;background:var(--sea-deep);
+  }
+  .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 62%;}
+  .hero-scrim{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(14,59,71,0.15) 0%, rgba(14,59,71,0.35) 45%, rgba(13,32,37,0.92) 100%);
+  }
+  .hero-content{
+    position:absolute;left:0;right:0;bottom:0;padding:38px 24px 30px;
+    max-width:1080px;margin:0 auto;
+  }
+  .hero-content .eyebrow{color:var(--gold);}
+  .hero-title{font-size:clamp(34px,6vw,58px);line-height:1.02;margin:10px 0 6px;color:#fff;}
+  .hero-tamil{font-family:'Lora';font-style:italic;font-size:17px;color:var(--sand);opacity:.9;margin-bottom:14px;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:18px;font-family:'IBM Plex Mono';font-size:12.5px;color:var(--sand);}
+  .hero-meta b{color:#fff;font-weight:500;}
+
+  /* ---------- Facts strip ---------- */
+  .facts{
+    background:var(--sea-deep);color:var(--sand);
+  }
+  .facts-inner{
+    max-width:1080px;margin:0 auto;padding:20px 24px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+  }
+  .fact-label{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+  .fact-value{font-family:'Baloo Tamma 2';font-weight:600;font-size:16px;color:#fff;}
+
+  /* ---------- Sections ---------- */
+  section{padding:56px 0;}
+  .section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px;}
+  .section-head h2{font-size:28px;}
+  .section-head .eyebrow{white-space:nowrap;}
+  .rule{flex:1;height:1px;background:var(--line);}
+
+  .lede{font-size:18px;color:var(--ink-soft);max-width:66ch;margin-bottom:6px;}
+
+  .two-col{display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;}
+  .two-col img{border-radius:var(--radius-card);box-shadow:0 8px 20px rgba(19,42,46,0.08);}
+  .two-col.reverse .media{order:2;}
+
+  .figure-credit{
+    font-family:'IBM Plex Mono';font-size:11px;color:var(--ink-soft);opacity:.75;margin-top:8px;
+  }
+  .figure-credit a{color:inherit;}
+
+  /* ---------- Cultural callout ---------- */
+  .callout{
+    background:var(--sand);border-left:3px solid var(--vermillion);
+    border-radius:0 12px 12px 0;padding:20px 24px;margin-top:26px;
+  }
+  .callout .eyebrow{color:var(--vermillion-dark);}
+  .callout p{margin:8px 0 0;color:var(--ink);}
+
+  /* ---------- 22 Theerthams (Wells) Interactive Explorer ---------- */
+  .theertham-box{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius-card);
+    padding:24px;margin-top:24px;box-shadow:0 4px 14px rgba(19,42,46,0.04);
+  }
+  .theertham-search{
+    width:100%;padding:10px 16px;border:1px solid var(--line);border-radius:8px;
+    font-family:'IBM Plex Mono';font-size:13px;background:var(--paper);color:var(--ink);
+    margin-bottom:18px;box-sizing:border-box;
+  }
+  .theertham-search:focus{outline:none;border-color:var(--gold-dark);}
+  .theertham-list{
+    display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;
+    max-height:360px;overflow-y:auto;padding-right:4px;
+  }
+  .theertham-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 14px;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .theertham-card:hover{border-color:var(--gold-dark);transform:translateY(-2px);}
+  .theertham-num{font-family:'IBM Plex Mono';font-size:11px;color:var(--gold-dark);font-weight:600;}
+  .theertham-name{font-family:'Baloo Tamma 2';font-size:14.5px;font-weight:600;color:var(--sea-deep);margin:2px 0 4px;}
+  .theertham-desc{font-size:12.5px;color:var(--ink-soft);line-height:1.45;margin:0;}
+
+  /* ---------- Heritage cards ---------- */
+  .grid-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .site-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius-card);
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .site-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(19,42,46,0.1);}
+  .site-card .thumb{height:150px;overflow:hidden;background:var(--sand);}
+  .site-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease;}
+  .site-card:hover .thumb img{transform:scale(1.04);}
+  .site-card .body{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column;}
+  .site-card h3{font-size:16.5px;margin-bottom:4px;}
+  .site-dist{font-family:'IBM Plex Mono';font-size:11.5px;color:var(--gold-dark);margin-bottom:8px;}
+  .site-card p{font-size:14px;color:var(--ink-soft);margin:0;flex:1;}
+
+  /* ---------- Activities ---------- */
+  .activity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .activity{
+    border:1px solid var(--line);border-radius:12px;padding:18px 18px 16px;background:#fff;
+    cursor:default;transition:border-color .15s ease, transform .15s ease;
+  }
+  .activity:hover{border-color:var(--gold-dark);transform:translateY(-2px);}
+  .activity .num{font-family:'IBM Plex Mono';font-size:11px;color:var(--gold-dark);}
+  .activity h4{font-family:'Baloo Tamma 2';font-weight:600;font-size:16px;color:var(--sea-deep);margin:6px 0 6px;}
+  .activity p{font-size:13.5px;color:var(--ink-soft);margin:0;}
+
+  /* ---------- Itinerary Tabs ---------- */
+  .itinerary-box{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius-card);
+    padding:24px;box-shadow:0 4px 14px rgba(19,42,46,0.04);
+  }
+  .itinerary-tabs{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
+  .itinerary-tab{
+    font-family:'IBM Plex Mono';font-size:12px;text-transform:uppercase;letter-spacing:.05em;
+    background:var(--paper);border:1px solid var(--line);padding:8px 16px;border-radius:20px;
+    cursor:pointer;color:var(--ink-soft);transition:all .15s ease;
+  }
+  .itinerary-tab:hover{border-color:var(--sea-deep);color:var(--sea-deep);}
+  .itinerary-tab.active{background:var(--sea-deep);color:var(--sand);border-color:var(--sea-deep);}
+  .itinerary-panel{display:none;}
+  .itinerary-panel.active{display:block;}
+  .itin-step{border-left:2px solid var(--gold);padding-left:16px;margin-bottom:18px;position:relative;}
+  .itin-step:last-child{margin-bottom:0;}
+  .itin-time{font-family:'IBM Plex Mono';font-size:11.5px;color:var(--gold-dark);font-weight:500;}
+  .itin-title{font-family:'Baloo Tamma 2';font-size:16px;font-weight:600;color:var(--sea-deep);margin:2px 0 4px;}
+  .itin-desc{font-size:14px;color:var(--ink-soft);margin:0;}
+
+  /* ---------- Gallery ---------- */
+  .gallery{
+    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;gap:10px;
+  }
+  .gallery figure{margin:0;position:relative;overflow:hidden;border-radius:10px;cursor:pointer;}
+  .gallery figure:nth-child(1){grid-column:span 2;grid-row:span 2;}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease;}
+  .gallery figure:hover img{transform:scale(1.06);}
+  .gallery figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:8px 10px 6px;
+    background:linear-gradient(0deg, rgba(13,32,37,0.85), rgba(13,32,37,0));
+    color:#fff;font-family:'IBM Plex Mono';font-size:10.5px;opacity:0;transition:opacity .2s ease;
+  }
+  .gallery figure:hover figcaption{opacity:1;}
+
+  /* ---------- Lightbox with Prev / Next ---------- */
+  .lightbox{
+    position:fixed;inset:0;background:rgba(10,24,28,0.94);display:none;
+    align-items:center;justify-content:center;z-index:100;padding:30px;flex-direction:column;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{max-height:78vh;max-width:92vw;border-radius:8px;box-shadow:0 12px 30px rgba(0,0,0,0.5);}
+  .lightbox .lb-cap{color:var(--sand);font-family:'IBM Plex Mono';font-size:12px;margin-top:14px;text-align:center;max-width:640px;}
+  .lightbox .lb-close{
+    position:absolute;top:20px;right:26px;color:#fff;font-family:'IBM Plex Mono';
+    font-size:13px;background:none;border:1px solid rgba(255,255,255,0.4);
+    border-radius:20px;padding:6px 14px;cursor:pointer;transition:border-color .15s;
+  }
+  .lightbox .lb-close:hover{border-color:#fff;background:rgba(255,255,255,0.1);}
+  .lightbox .lb-nav{
+    position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);
+    color:#fff;border:1px solid rgba(255,255,255,0.3);width:40px;height:40px;border-radius:50%;
+    font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:background .15s;
+  }
+  .lightbox .lb-nav:hover{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+  .lightbox .lb-prev{left:20px;}
+  .lightbox .lb-next{right:20px;}
+
+  /* ---------- Map ---------- */
+  .map-wrap{
+    border-radius:var(--radius-card);overflow:hidden;border:1px solid var(--line);
+  }
+  .map-wrap iframe{width:100%;height:380px;border:0;display:block;}
+  .map-meta{display:flex;justify-content:space-between;gap:20px;margin-top:14px;flex-wrap:wrap;}
+  .map-meta .mono{font-size:12.5px;color:var(--ink-soft);}
+  .map-cta{
+    display:inline-block;font-family:'IBM Plex Mono';font-size:12px;text-decoration:none;
+    color:var(--sea-deep);border:1px solid var(--line);padding:8px 14px;border-radius:8px;
+    transition:all .15s ease;
+  }
+  .map-cta:hover{border-color:var(--sea-deep);background:var(--sand);}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--sea-deep);color:var(--sand);padding:34px 0 28px;}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start;}
+  footer .credits{font-family:'IBM Plex Mono';font-size:11.5px;color:rgba(239,246,244,0.7);max-width:640px;line-height:1.9;}
+  footer .credits a{color:var(--gold);}
+  footer .fbrand{font-family:'Baloo Tamma 2';font-weight:700;font-size:16px;color:#fff;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px){
+    .facts-inner{grid-template-columns:repeat(2,1fr);}
+    .two-col{grid-template-columns:1fr;gap:20px;}
+    .two-col.reverse .media{order:0;}
+    .grid-cards{grid-template-columns:repeat(2,1fr);}
+    .activity-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery{grid-template-columns:repeat(3,1fr);grid-auto-rows:110px;}
+    .navlinks{display:none;}
+  }
+  @media (max-width: 560px){
+    .facts-inner{grid-template-columns:repeat(2,1fr);padding:16px 20px;}
+    .grid-cards{grid-template-columns:1fr;}
+    .activity-grid{grid-template-columns:1fr;}
+    .gallery{grid-template-columns:repeat(2,1fr);}
+    .gallery figure:nth-child(1){grid-column:span 2;grid-row:span 1;height:110px;}
+    .hero-media{height:52vh;min-height:340px;}
+    .hero-title{font-size:34px;}
+    section{padding:40px 0;}
+    footer .wrap{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../../index.html" class="brand">Coast<span>&amp;</span>Culture Explorer</a>
+    <ul class="navlinks">
+      <li><a href="#landscape">Landscape</a></li>
+      <li><a href="#culture">Culture</a></li>
+      <li><a href="#theerthams">22 Theerthams</a></li>
+      <li><a href="#heritage">Heritage</a></li>
+      <li><a href="#activities">Activities</a></li>
+      <li><a href="#itinerary">Itinerary</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#map">Map</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-media">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rameswaram%20coral%20beach.jpg" alt="Coral-strewn shoreline at Rameswaram, Tamil Nadu">
+    <div class="hero-scrim"></div>
+  </div>
+  <div class="hero-content">
+    <div class="eyebrow">Tamil Nadu · India · Gulf of Mannar &amp; Bay of Bengal</div>
+    <h1 class="hero-title">Rameswaram Beach</h1>
+    <div class="hero-tamil">இராமேசுவரம் கடற்கரை &mdash; Agni Theertham &amp; Pamban Island</div>
+    <div class="hero-meta">
+      <span class="mono">9.2876° N, 79.3129° E</span>
+      <span><b>Pamban Island</b>, Ramanathapuram district</span>
+      <span><b>Char Dham</b> &amp; <b>Jyotirlinga</b> site</span>
+    </div>
+  </div>
+</header>
+
+<div class="tier-divider" aria-hidden="true">
+  <svg viewBox="0 0 1200 22" preserveAspectRatio="none">
+    <rect x="0" y="0" width="1200" height="22" fill="#0E3B47"></rect>
+    <path d="M0,10 L40,0 L80,10 L120,0 L160,10 L200,0 L240,10 L280,0 L320,10 L360,0 L400,10 L440,0 L480,10 L520,0 L560,10 L600,0 L640,10 L680,0 L720,10 L760,0 L800,10 L840,0 L880,10 L920,0 L960,10 L1000,0 L1040,10 L1080,0 L1120,10 L1160,0 L1200,10 L1200,22 L0,22 Z" fill="#C99A3E"></path>
+    <path d="M0,16 L30,10 L60,16 L90,10 L120,16 L150,10 L180,16 L210,10 L240,16 L270,10 L300,16 L330,10 L360,16 L390,10 L420,16 L450,10 L480,16 L510,10 L540,16 L570,10 L600,16 L630,10 L660,16 L690,10 L720,16 L750,10 L780,16 L810,10 L840,16 L870,10 L900,16 L930,10 L960,16 L990,10 L1020,16 L1050,10 L1080,16 L1110,10 L1140,16 L1170,10 L1200,16 L1200,22 L0,22 Z" fill="#B23A2E"></path>
+  </svg>
+</div>
+
+<div class="facts">
+  <div class="facts-inner">
+    <div>
+      <div class="fact-label">State</div>
+      <div class="fact-value">Tamil Nadu (Pamban)</div>
+    </div>
+    <div>
+      <div class="fact-label">Water bodies</div>
+      <div class="fact-value">Gulf of Mannar &amp; Bay of Bengal</div>
+    </div>
+    <div>
+      <div class="fact-label">Best time to visit</div>
+      <div class="fact-value">Oct – Apr</div>
+    </div>
+    <div>
+      <div class="fact-label">Known for</div>
+      <div class="fact-value">Char Dham &amp; Agni Theertham</div>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section id="landscape">
+    <div class="section-head">
+      <div class="rule"></div>
+      <span class="eyebrow">Coastal landscape</span>
+      <div class="rule"></div>
+    </div>
+    <div class="two-col">
+      <div>
+        <h2>Where two seas meet a temple town</h2>
+        <p class="lede">Rameswaram sits on Pamban Island, a spit of land linked to the Tamil Nadu mainland by the Pamban Bridge. Its shoreline is unlike the open surf beaches further south — the water here is calm, shallow, and often glassy, shaped by the meeting of the Bay of Bengal to the north and the Gulf of Mannar to the south.</p>
+        <p>The sand carries a pale, coral-flecked texture, and low tide reveals wide flats used for ritual bathing rather than swimming. Casuarina groves and fishing hamlets line the coast, and the horizon is punctuated by catamarans and the distant silhouette of the Pamban rail bridge.</p>
+      </div>
+      <div class="media">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rameswaram%20harbour.jpg" alt="Rameswaram harbour with fishing boats along the shallow coastline">
+        <div class="figure-credit">Rameswaram harbour · <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="culture">
+    <div class="section-head">
+      <div class="rule"></div>
+      <span class="eyebrow">Cultural significance</span>
+      <div class="rule"></div>
+    </div>
+    <div class="two-col reverse">
+      <div class="media">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rameshwaram%20temple.png" alt="Ramanathaswamy Temple gopuram at Rameswaram">
+        <div class="figure-credit">Ramanathaswamy Temple · Wikimedia Commons, CC BY-SA 4.0, Wiki Loves Earth 2017</div>
+      </div>
+      <div>
+        <h2>One of Hinduism's holiest shores</h2>
+        <p class="lede">Rameswaram is one of the four Char Dham pilgrimage sites in India and, alongside Varanasi, considered among the holiest places for Hindus. Tradition holds that Lord Rama worshipped Shiva here after his war in Lanka, and that the causeway to Sri Lanka — Ram Setu — began nearby.</p>
+        <div class="callout">
+          <span class="eyebrow">Ritual practice</span>
+          <p>Pilgrims begin their visit with a dip at Agni Theertham, the stretch of Rameswaram Beach facing the Ramanathaswamy Temple, before proceeding to bathe at the temple's 22 sacred wells — a purification sequence unique to this site.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 22 Sacred Wells (Theerthams) Explorer -->
+  <section id="theerthams">
+    <div class="section-head">
+      <div class="rule"></div>
+      <span class="eyebrow">22 Sacred Theerthams</span>
+      <div class="rule"></div>
+    </div>
+    <p class="lede">Inside the Ramanathaswamy Temple lie 22 sacred sweet-water wells, each with a distinct mineral property, temperature, and traditional significance.</p>
+    <div class="theertham-box">
+      <input type="text" id="theerthamSearch" class="theertham-search" placeholder="🔍 Search wells by name or property (e.g. Mahalakshmi, Ganga, Sin expiation)...">
+      <div class="theertham-list" id="theerthamList">
+        <div class="theertham-card"><div class="theertham-num">01</div><div class="theertham-name">Mahalakshmi Theertham</div><div class="theertham-desc">Bestows wealth, prosperity, and spiritual blessings.</div></div>
+        <div class="theertham-card"><div class="theertham-num">02</div><div class="theertham-name">Savitri Theertham</div><div class="theertham-desc">Associated with Gayatri purification and freedom from verbal curses.</div></div>
+        <div class="theertham-card"><div class="theertham-num">03</div><div class="theertham-name">Gayatri Theertham</div><div class="theertham-desc">Bestows clarity of thought and liberation from celestial curses.</div></div>
+        <div class="theertham-card"><div class="theertham-num">04</div><div class="theertham-name">Saraswati Theertham</div><div class="theertham-desc">Fosters intellect, wisdom, arts, and divine knowledge.</div></div>
+        <div class="theertham-card"><div class="theertham-num">05</div><div class="theertham-name">Sethumadhava Theertham</div><div class="theertham-desc">Tank of Lord Vishnu (Sethumadhava); grants forgiveness.</div></div>
+        <div class="theertham-card"><div class="theertham-num">06</div><div class="theertham-name">Gandhamadhana Theertham</div><div class="theertham-desc">Grants inner tranquility and eradication of penury.</div></div>
+        <div class="theertham-card"><div class="theertham-num">07</div><div class="theertham-name">Kavacha Theertham</div><div class="theertham-desc">Provides spiritual shield against misfortunes.</div></div>
+        <div class="theertham-card"><div class="theertham-num">08</div><div class="theertham-name">Gavaya Theertham</div><div class="theertham-desc">Named after the Vanara hero Gavaya; removes delusion.</div></div>
+        <div class="theertham-card"><div class="theertham-num">09</div><div class="theertham-name">Nala Theertham</div><div class="theertham-desc">Named after the architect of Ram Setu; grants success.</div></div>
+        <div class="theertham-card"><div class="theertham-num">10</div><div class="theertham-name">Neela Theertham</div><div class="theertham-desc">Associated with Commander Neela; grants health and vitality.</div></div>
+        <div class="theertham-card"><div class="theertham-num">11</div><div class="theertham-name">Sankha Theertham</div><div class="theertham-desc">Grants auspiciousness and purity of physical body.</div></div>
+        <div class="theertham-card"><div class="theertham-num">12</div><div class="theertham-name">Chakra Theertham</div><div class="theertham-desc">Sudarshana Chakra sanctification; eliminates fear and illness.</div></div>
+        <div class="theertham-card"><div class="theertham-num">13</div><div class="theertham-name">Brahmahatya Vimochana</div><div class="theertham-desc">Waters where Lord Rama expiated the sin of slaying Ravana.</div></div>
+        <div class="theertham-card"><div class="theertham-num">14</div><div class="theertham-name">Surya Theertham</div><div class="theertham-desc">Solar energy well; bestows eyesight health and radiance.</div></div>
+        <div class="theertham-card"><div class="theertham-num">15</div><div class="theertham-name">Chandra Theertham</div><div class="theertham-desc">Lunar energy well; calms the emotional mind and senses.</div></div>
+        <div class="theertham-card"><div class="theertham-num">16</div><div class="theertham-name">Ganga Theertham</div><div class="theertham-desc">Carries the spiritual essence of the sacred river Ganges.</div></div>
+        <div class="theertham-card"><div class="theertham-num">17</div><div class="theertham-name">Yamuna Theertham</div><div class="theertham-desc">Carries the purifying grace of the holy Yamuna.</div></div>
+        <div class="theertham-card"><div class="theertham-num">18</div><div class="theertham-name">Gaya Theertham</div><div class="theertham-desc">Provides ancestor (Pitru) peace and filial fulfillment.</div></div>
+        <div class="theertham-card"><div class="theertham-num">19</div><div class="theertham-name">Shiva Theertham</div><div class="theertham-desc">Grants devotion, detachment, and spiritual awakening.</div></div>
+        <div class="theertham-card"><div class="theertham-num">20</div><div class="theertham-name">Satyamirtha Theertham</div><div class="theertham-desc">Nectar of truth; grants longevity and inner righteousness.</div></div>
+        <div class="theertham-card"><div class="theertham-num">21</div><div class="theertham-name">Sarva Theertham</div><div class="theertham-desc">Combines the virtues of all sacred rivers across Bharat.</div></div>
+        <div class="theertham-card"><div class="theertham-num">22</div><div class="theertham-name">Kodi Theertham</div><div class="theertham-desc">The culminating well; merit equal to 10 million pilgrimages.</div></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="tier-divider" aria-hidden="true">
+  <svg viewBox="0 0 1200 22" preserveAspectRatio="none">
+    <rect x="0" y="0" width="1200" height="22" fill="#0E3B47"></rect>
+    <path d="M0,10 L40,0 L80,10 L120,0 L160,10 L200,0 L240,10 L280,0 L320,10 L360,0 L400,10 L440,0 L480,10 L520,0 L560,10 L600,0 L640,10 L680,0 L720,10 L760,0 L800,10 L840,0 L880,10 L920,0 L960,10 L1000,0 L1040,10 L1080,0 L1120,10 L1160,0 L1200,10 L1200,22 L0,22 Z" fill="#C99A3E"></path>
+  </svg>
+</div>
+
+<main class="wrap">
+
+  <section id="heritage">
+    <div class="section-head">
+      <div class="rule"></div>
+      <span class="eyebrow">Nearby heritage sites</span>
+      <div class="rule"></div>
+    </div>
+    <p class="lede" style="margin-bottom:26px;">The beach is the natural starting point for a cluster of sites within a short drive, spanning temple architecture, colonial-era engineering, and a town frozen since a 1964 cyclone.</p>
+    <div class="grid-cards">
+
+      <div class="site-card">
+        <div class="thumb">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Corridors%20of%20Rameshwaram%20temple.jpg" alt="Long pillared corridor inside Ramanathaswamy Temple">
+        </div>
+        <div class="body">
+          <h3>Ramanathaswamy Temple</h3>
+          <div class="site-dist">~1.5 km · Rameswaram town</div>
+          <p>Home to one of the longest temple corridors in India, lined with carved granite pillars, and one of twelve Jyotirlinga shrines to Shiva.</p>
+        </div>
+      </div>
+
+      <div class="site-card">
+        <div class="thumb">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pamban%20Bridge%20Rameshwaram.jpg" alt="Pamban Bridge connecting Rameswaram to mainland Tamil Nadu">
+        </div>
+        <div class="body">
+          <h3>Pamban Bridge</h3>
+          <div class="site-dist">~2 km · island approach</div>
+          <p>India's first sea bridge, its cantilever span still lifts for ships to pass — a striking view from the causeway road into town.</p>
+        </div>
+      </div>
+
+      <div class="site-card">
+        <div class="thumb">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Coastal%20village%20Dhanushkodi.jpg" alt="Ruined buildings of the abandoned town of Dhanushkodi">
+        </div>
+        <div class="body">
+          <h3>Dhanushkodi</h3>
+          <div class="site-dist">~18 km · island tip</div>
+          <p>A town abandoned after the 1964 cyclone, its skeletal buildings sit where the Bay of Bengal meets the Indian Ocean at Arichal Munai.</p>
+        </div>
+      </div>
+
+      <div class="site-card">
+        <div class="thumb">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20New%20Pamban%20Bridge.jpg" alt="View toward the Ram Setu shoal chain from Dhanushkodi">
+        </div>
+        <div class="body">
+          <h3>Adam's Bridge viewpoint</h3>
+          <div class="site-dist">~20 km · Dhanushkodi tip</div>
+          <p>The closest vantage of Ram Setu, the chain of limestone shoals said in the Ramayana to have carried Rama's army toward Lanka.</p>
+        </div>
+      </div>
+
+      <div class="site-card">
+        <div class="thumb">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Villonditheertham%20rameswaram.jpg" alt="Villoondi Theertham freshwater spring near Rameswaram beach">
+        </div>
+        <div class="body">
+          <h3>Villoondi Theertham</h3>
+          <div class="site-dist">~6 km · coastal road</div>
+          <p>A freshwater spring rising just off a seaside beach, one of the 64 sacred theerthams associated with the Ramayana legend.</p>
+        </div>
+      </div>
+
+      <div class="site-card">
+        <div class="thumb">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Old%20Pamban%20bridge%20remains.jpg" alt="Remains of the old Pamban rail bridge structure">
+        </div>
+        <div class="body">
+          <h3>Dr. APJ Abdul Kalam Memorial</h3>
+          <div class="site-dist">~2.5 km · Peikarumbu</div>
+          <p>Resting place of India's former president and Rameswaram's most famous son, built where he was laid to rest in 2015.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="activities">
+    <div class="section-head">
+      <div class="rule"></div>
+      <span class="eyebrow">Activities</span>
+      <div class="rule"></div>
+    </div>
+    <div class="activity-grid">
+      <div class="activity">
+        <div class="num">01</div>
+        <h4>Ritual bathing at Agni Theertham</h4>
+        <p>Join pilgrims for a purifying dip on the temple-facing shore, traditionally done before entering Ramanathaswamy Temple.</p>
+      </div>
+      <div class="activity">
+        <div class="num">02</div>
+        <h4>Sunrise over the Bay</h4>
+        <p>The calm, shallow water makes early morning the clearest and coolest time to walk the shoreline.</p>
+      </div>
+      <div class="activity">
+        <div class="num">03</div>
+        <h4>Temple &amp; corridor visit</h4>
+        <p>Walk the pillared corridors of Ramanathaswamy Temple and complete the circuit of its 22 sacred wells.</p>
+      </div>
+      <div class="activity">
+        <div class="num">04</div>
+        <h4>Day trip to Dhanushkodi</h4>
+        <p>Hire a shared jeep or auto to the island's tip to see the ghost town and the meeting point of two seas.</p>
+      </div>
+      <div class="activity">
+        <div class="num">05</div>
+        <h4>Fishing-harbour walk</h4>
+        <p>Watch catamarans come in with the morning catch near Rameswaram's working harbour.</p>
+      </div>
+      <div class="activity">
+        <div class="num">06</div>
+        <h4>Coastal photography</h4>
+        <p>The Pamban Bridge, coral-flecked sand, and gopuram skyline offer some of Tamil Nadu's most distinctive coastal frames.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Itinerary -->
+  <section id="itinerary">
+    <div class="section-head">
+      <div class="rule"></div>
+      <span class="eyebrow">Curated Itinerary</span>
+      <div class="rule"></div>
+    </div>
+    <div class="itinerary-box">
+      <div class="itinerary-tabs">
+        <button class="itinerary-tab active" data-tab="itin-1">⚡ 1-Day Pilgrimage</button>
+        <button class="itinerary-tab" data-tab="itin-2">🌟 2-Day Island &amp; Dhanushkodi</button>
+        <button class="itinerary-tab" data-tab="itin-3">🌊 3-Day Gulf of Mannar Circuit</button>
+      </div>
+      <div class="itinerary-panel active" id="itin-1">
+        <div class="itin-step">
+          <div class="itin-time">05:00 AM – 08:30 AM</div>
+          <div class="itin-title">Agni Theertham Dip &amp; 22 Temple Wells</div>
+          <p class="itin-desc">Begin with a sea dip at Agni Theertham, then bathe sequentially in the 22 sacred wells inside Ramanathaswamy Temple followed by Jyotirlinga darshan.</p>
+        </div>
+        <div class="itin-step">
+          <div class="itin-time">10:30 AM – 01:00 PM</div>
+          <div class="itin-title">Kalam Memorial &amp; Villoondi Theertham</div>
+          <p class="itin-desc">Visit Dr. APJ Abdul Kalam Memorial at Peikarumbu and the sweet-water spring of Villoondi on the coral shoreline.</p>
+        </div>
+        <div class="itin-step">
+          <div class="itin-time">03:30 PM – 06:30 PM</div>
+          <div class="itin-title">Dhanushkodi &amp; Arichal Munai Sunset</div>
+          <p class="itin-desc">Explore the cyclone-ruined church and station at Dhanushkodi, then catch sunset at Arichal Munai where two seas meet.</p>
+        </div>
+      </div>
+      <div class="itinerary-panel" id="itin-2">
+        <div class="itin-step">
+          <div class="itin-time">Day 1</div>
+          <div class="itin-title">Temple &amp; Sacred Shores</div>
+          <p class="itin-desc">Full morning temple ritual, long corridor walk, Gandhamadhana Parvatham for island views, and evening coastal walk.</p>
+        </div>
+        <div class="itin-step">
+          <div class="itin-time">Day 2</div>
+          <div class="itin-title">Dhanushkodi &amp; Pamban Sea Bridge</div>
+          <p class="itin-desc">Deep exploration of Dhanushkodi ruins, Ram Setu viewpoint, Kothandaramaswamy Temple, and Pamban rail bridge at dusk.</p>
+        </div>
+      </div>
+      <div class="itinerary-panel" id="itin-3">
+        <div class="itin-step">
+          <div class="itin-time">Day 1 &amp; 2</div>
+          <div class="itin-title">Complete Pamban Island Exploration</div>
+          <p class="itin-desc">Temple theerthams, Kalam House on Mosque Street, coral shoreline walks, and Dhanushkodi.</p>
+        </div>
+        <div class="itin-step">
+          <div class="itin-time">Day 3</div>
+          <div class="itin-title">Gulf of Mannar Marine Biosphere</div>
+          <p class="itin-desc">Mandapam Marine Centre, Kurusadai Island reef study, and Ramanathapuram Sethupathi Palace on the mainland.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="section-head">
+      <div class="rule"></div>
+      <span class="eyebrow">Image gallery</span>
+      <div class="rule"></div>
+    </div>
+    <div class="gallery" id="galleryGrid">
+      <figure data-full="https://commons.wikimedia.org/wiki/Special:FilePath/Rameswaram%20coral%20beach.jpg" data-cap="Coral beach, Rameswaram · Wikimedia Commons">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rameswaram%20coral%20beach.jpg" alt="Coral-strewn beach at Rameswaram">
+        <figcaption>Coral beach, Rameswaram</figcaption>
+      </figure>
+      <figure data-full="https://commons.wikimedia.org/wiki/Special:FilePath/Pamban%20Bridge%20Rameshwaram.jpg" data-cap="Pamban Bridge · CC BY-SA 3.0, Wikimedia Commons">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pamban%20Bridge%20Rameshwaram.jpg" alt="Pamban Bridge over the sea">
+        <figcaption>Pamban Bridge</figcaption>
+      </figure>
+      <figure data-full="https://commons.wikimedia.org/wiki/Special:FilePath/Rameshwaram%20temple.png" data-cap="Ramanathaswamy Temple gopuram · CC BY-SA 4.0, Wikimedia Commons">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rameshwaram%20temple.png" alt="Ramanathaswamy Temple tower">
+        <figcaption>Ramanathaswamy Temple</figcaption>
+      </figure>
+      <figure data-full="https://commons.wikimedia.org/wiki/Special:FilePath/Coastal%20village%20Dhanushkodi.jpg" data-cap="Dhanushkodi ghost town · Wikimedia Commons">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Coastal%20village%20Dhanushkodi.jpg" alt="Abandoned buildings at Dhanushkodi">
+        <figcaption>Dhanushkodi</figcaption>
+      </figure>
+      <figure data-full="https://commons.wikimedia.org/wiki/Special:FilePath/Rameswaram%20harbour.jpg" data-cap="Rameswaram fishing harbour · Wikimedia Commons">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rameswaram%20harbour.jpg" alt="Fishing boats at Rameswaram harbour">
+        <figcaption>Fishing harbour</figcaption>
+      </figure>
+      <figure data-full="https://commons.wikimedia.org/wiki/Special:FilePath/Corridors%20of%20Rameshwaram%20temple.jpg" data-cap="Temple corridor, Ramanathaswamy Temple · Wikimedia Commons">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Corridors%20of%20Rameshwaram%20temple.jpg" alt="Pillared corridor inside the temple">
+        <figcaption>Temple corridor</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="map">
+    <div class="section-head">
+      <div class="rule"></div>
+      <span class="eyebrow">Map integration</span>
+      <div class="rule"></div>
+    </div>
+    <div class="map-wrap">
+      <iframe
+        title="Map of Rameswaram Beach, Tamil Nadu"
+        loading="lazy"
+        src="https://www.google.com/maps?q=Rameswaram+Beach,+Tamil+Nadu&z=13&output=embed">
+      </iframe>
+    </div>
+    <div class="map-meta">
+      <span class="mono">9.2876° N, 79.3129° E · Ramanathapuram district, Tamil Nadu</span>
+      <a class="map-cta" href="https://www.google.com/maps/search/?api=1&query=Rameswaram+Beach" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fbrand">Coast &amp; Culture Explorer</div>
+    <div class="credits">
+      Photographs sourced from Wikimedia Commons and used under their respective Creative Commons and public-domain licences (CC0, CC BY, CC BY-SA, GODL-India). Full attribution and licence terms are available on each image's file page at <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">commons.wikimedia.org</a>. Cultural and geographic details compiled from public tourism and reference sources; verify current visiting hours and access conditions locally before travel.
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose">Close ✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous image">‹</button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next image">›</button>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<script>
+  // 1. Gallery Lightbox with Prev / Next Navigation
+  var grid = document.getElementById('galleryGrid');
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lbImg');
+  var lbCap = document.getElementById('lbCap');
+  var figures = Array.from(grid.querySelectorAll('figure'));
+  var currentIdx = 0;
+
+  function showLightboxIndex(idx) {
+    if(idx < 0) idx = figures.length - 1;
+    if(idx >= figures.length) idx = 0;
+    currentIdx = idx;
+    var fig = figures[currentIdx];
+    lbImg.src = fig.getAttribute('data-full');
+    lbImg.alt = fig.querySelector('img').alt;
+    lbCap.textContent = fig.getAttribute('data-cap');
+    lb.classList.add('open');
+  }
+
+  grid.addEventListener('click', function(e){
+    var fig = e.target.closest('figure');
+    if(!fig) return;
+    showLightboxIndex(figures.indexOf(fig));
+  });
+
+  document.getElementById('lbClose').addEventListener('click', function(){
+    lb.classList.remove('open');
+    lbImg.src = '';
+  });
+
+  document.getElementById('lbPrev').addEventListener('click', function(e){
+    e.stopPropagation();
+    showLightboxIndex(currentIdx - 1);
+  });
+
+  document.getElementById('lbNext').addEventListener('click', function(e){
+    e.stopPropagation();
+    showLightboxIndex(currentIdx + 1);
+  });
+
+  lb.addEventListener('click', function(e){
+    if(e.target === lb){ lb.classList.remove('open'); lbImg.src=''; }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(lb.classList.contains('open')){
+      if(e.key === 'Escape'){ lb.classList.remove('open'); lbImg.src=''; }
+      if(e.key === 'ArrowLeft'){ showLightboxIndex(currentIdx - 1); }
+      if(e.key === 'ArrowRight'){ showLightboxIndex(currentIdx + 1); }
+    }
+  });
+
+  // 2. 22 Theerthams Live Filter
+  var theerthamInput = document.getElementById('theerthamSearch');
+  var theerthamCards = document.querySelectorAll('.theertham-card');
+  if(theerthamInput){
+    theerthamInput.addEventListener('input', function(e){
+      var q = e.target.value.toLowerCase().trim();
+      theerthamCards.forEach(function(card){
+        var name = card.querySelector('.theertham-name').textContent.toLowerCase();
+        var desc = card.querySelector('.theertham-desc').textContent.toLowerCase();
+        if(name.indexOf(q) !== -1 || desc.indexOf(q) !== -1){
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  // 3. Itinerary Tabs
+  var itinTabs = document.querySelectorAll('.itinerary-tab');
+  var itinPanels = document.querySelectorAll('.itinerary-panel');
+  itinTabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      itinTabs.forEach(function(t){ t.classList.remove('active'); });
+      itinPanels.forEach(function(p){ p.classList.remove('active'); });
+      tab.classList.add('active');
+      var target = document.getElementById(tab.getAttribute('data-tab'));
+      if(target) target.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
