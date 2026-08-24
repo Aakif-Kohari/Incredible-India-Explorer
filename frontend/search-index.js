@@ -86,6 +86,13 @@ window.indiaSearchIndex = [
     url: "frontend/alibaug-beach/index.html"
     },
     {
+    title: "Digha Beach — West Bengal",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Digha Beach in Purba Medinipur, West Bengal — the Bay of Bengal's wide, shallow 'Brighton of the East' famous for dual sunrise-and-sunset vistas, casuarina groves, low-tide sand flats, and the Marine Aquarium.",
+    url: "frontend/digha-beach/index.html"
+    },
+    {
     title: "Chauri Chaura Incident (1922) Explorer",
     category: "Freedom Struggle",
     description:
