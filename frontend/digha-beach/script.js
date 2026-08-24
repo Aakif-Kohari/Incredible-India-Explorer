@@ -2,10 +2,23 @@
  * Digha Beach Profile Interactive Features
  * Handles Tab Navigation, Gallery Filtering, Lightbox Modal with Prev/Next,
  * Leaflet Map with Custom Points & Filters, Tidal Estimator, Itinerary Tabs,
- * Ambient Ocean Waves Soundscape (Web Audio API), Share/Toast, and Theme Synchronization.
+ * Ambient Ocean Waves Soundscape (Web Audio API), Mobile Navigation Toggle,
+ * Share/Toast, and Theme Synchronization.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // --- 0. Mobile Hamburger Menu Toggle ---
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            navMenu.classList.toggle('active');
+        });
+    }
 
     // --- 1. Interactive Explorer Hub Tabs ---
     const tabBtns = document.querySelectorAll('.hub-tab-btn');
@@ -193,10 +206,10 @@ document.addEventListener('DOMContentLoaded', () => {
         mapLocations.forEach(place => {
             const marker = L.marker(place.coords).addTo(mapInstance);
             marker.bindPopup(`
-                <div style="font-family: system-ui, sans-serif; font-size: 13px;">
+                <div style="font-family: system-ui, sans-serif; font-size: 13px; padding: 2px;">
                     <strong style="color: #e11d48; font-size: 14px;">${place.name}</strong><br>
-                    <span style="color: #64748b;">${place.desc}</span><br>
-                    <small>📍 ${place.coords[0].toFixed(4)}° N, ${place.coords[1].toFixed(4)}° E</small>
+                    <span style="color: #475569; display: block; margin: 4px 0;">${place.desc}</span>
+                    <small style="color: #94a3b8;">📍 ${place.coords[0].toFixed(4)}° N, ${place.coords[1].toFixed(4)}° E</small>
                 </div>
             `);
             markers.push({ place, marker });

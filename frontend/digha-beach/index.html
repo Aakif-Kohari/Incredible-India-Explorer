@@ -27,7 +27,10 @@
     <!-- Theme Bootstrap (runs before paint to avoid flash) -->
     <script>
         (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
+            let theme = 'dark';
+            try {
+                theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || localStorage.getItem('theme') || 'dark';
+            } catch (e) {}
             if (theme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'light');
                 if (document.body) {
@@ -37,7 +40,7 @@
         })();
     </script>
 
-    <!-- Styles -->
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="../pages-common.css">
     <link rel="stylesheet" href="style.css">
@@ -72,31 +75,30 @@
     </script>
 </head>
 <body class="digha-page">
-    <!-- Shared Navigation -->
-    <nav class="navbar" id="navbar" aria-label="Main navigation">
-        <div class="nav-logo">
-            <a href="../../index.html" aria-label="Incredible India Explorer Home">
-                <span class="explorer">Incredible India</span>
-                <span class="sub">Explorer</span>
+    <!-- Header Navigation -->
+    <header class="navbar" id="navbar" role="banner">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo" aria-label="Return to Home">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
             </a>
-        </div>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-        <ul class="nav-menu" id="nav-menu">
-            <li><a href="../../index.html" class="nav-link" id="link-home">Home</a></li>
-            <li><a href="../coastal-india/index.html" class="nav-link">Coastlines</a></li>
-            <li><a href="../../destinations.html" class="nav-link">Destinations</a></li>
-            <li><a href="../../sports.html" class="nav-link">Sports</a></li>
-            <li>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu" role="navigation">
+                <a href="../../index.html" class="nav-link" id="link-home">Home</a>
+                <a href="../coastal-india/index.html" class="nav-link">Coastlines</a>
+                <a href="../../destinations.html" class="nav-link">Destinations</a>
+                <a href="../../sports.html" class="nav-link">Sports</a>
                 <button class="btn-theme-toggle" id="theme-toggle" aria-label="Toggle dark and light mode">
                     <span class="theme-icon" aria-hidden="true">🌙</span>
                 </button>
-            </li>
-        </ul>
-    </nav>
+            </nav>
+        </div>
+    </header>
 
     <main class="page-container" id="main-content">
         <!-- HERO SECTION -->
@@ -108,7 +110,7 @@
             </div>
             <div class="hero-content">
                 <h1 id="hero-heading">Digha Beach</h1>
-                <p class="subtitle">West Bengal's &ldquo;Brighton of the East&rdquo;</p>
+                <p class="hero-subtitle">West Bengal's &ldquo;Brighton of the East&rdquo;</p>
                 <p class="hero-desc">
                     Digha is West Bengal's best-loved seaside escape &mdash; a wide, flat and
                     remarkably shallow beach on the Bay of Bengal where the tide recedes
@@ -122,7 +124,7 @@
                 <div class="hero-action-bar">
                     <a href="#tide-guide" class="btn-hero-action">🌊 Tide &amp; Sun Guide</a>
                     <a href="#itinerary" class="btn-hero-action secondary">📅 Weekend Itinerary</a>
-                    <a href="#digha-map" class="btn-hero-action secondary">🗺️ Interactive Map</a>
+                    <a href="#digha-map" class="btn-hero-action secondary">🗺️ Live Map</a>
                     <button class="btn-hero-action secondary" id="share-btn" aria-label="Share page link">🔗 Share</button>
                 </div>
             </div>
@@ -148,12 +150,14 @@
 
         <!-- TIDAL DYNAMICS & SUNSET GUIDE -->
         <section class="tide-section" id="tide-guide" aria-labelledby="tide-heading">
-            <h2 id="tide-heading" class="section-title">Tide Dynamics &amp; Sun Watching</h2>
-            <div class="title-underline"></div>
-            <div class="tide-container">
-                <p class="text-center" style="max-width: 800px; margin: 0 auto 1.5rem; color: var(--subtext-color);">
+            <div class="section-header">
+                <h2 id="tide-heading" class="section-title">🌊 Tide Dynamics &amp; Sun Watching</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">
                     Digha possesses a unique coastal geography where the shallow continental shelf produces dramatic tidal shifts. Plan your walks and swims according to the tidal cycles.
                 </p>
+            </div>
+            <div class="tide-container">
                 <div class="tide-grid">
                     <div class="tide-card">
                         <div>
@@ -161,9 +165,9 @@
                                 <span class="tide-title">🚶 Low Tide (Bhati)</span>
                                 <span class="tide-badge low">Safe for Walking</span>
                             </div>
-                            <p>The sea recedes 1 to 1.5 km, leaving hard, compact sand. Ideal for long strolls, horse rides, sports, searching for ghost crabs, and shallow wading.</p>
+                            <p>The sea recedes 1 to 1.5 km, exposing hard, compact sand. Ideal for long strolls, pony rides, searching for ghost crabs, and shallow wading.</p>
                         </div>
-                        <small style="color: var(--subtext-color); font-weight: 600;">✨ Best at: New Digha &amp; Udaipur stretch</small>
+                        <div class="tide-footer">✨ Best at: New Digha &amp; Udaipur stretch</div>
                     </div>
                     <div class="tide-card">
                         <div>
@@ -173,7 +177,7 @@
                             </div>
                             <p>Waves surge up to the concrete sea dyke and boulder embankment at Old Digha. Mesmerizing wave crashes; swimming is restricted for safety.</p>
                         </div>
-                        <small style="color: var(--subtext-color); font-weight: 600;">🛡️ Best view: Old Digha seawall</small>
+                        <div class="tide-footer">🛡️ Best view: Old Digha seawall</div>
                     </div>
                     <div class="tide-card">
                         <div>
@@ -183,7 +187,7 @@
                             </div>
                             <p>Because Digha's coastline forms a gentle south-east crescent curve, you can witness the glorious golden sunrise over the sea and twilight crimson sunset over the same bay.</p>
                         </div>
-                        <small style="color: var(--subtext-color); font-weight: 600;">⏰ Sunrise ~5:30 AM | Sunset ~5:45 PM</small>
+                        <div class="tide-footer">⏰ Sunrise ~5:30 AM | Sunset ~5:45 PM</div>
                     </div>
                 </div>
                 <div class="tide-status-box" id="live-tide-indicator">
@@ -207,18 +211,20 @@
                         and New Digha, two km away, with a longer, better-maintained
                         promenade and wider stretch of sand.
                     </p>
-                    <table class="geo-table">
-                        <tbody>
-                            <tr><th>State</th><td>West Bengal</td></tr>
-                            <tr><th>District</th><td>Purba Medinipur (Contai subdivision)</td></tr>
-                            <tr><th>Coordinates</th><td>21.6384&deg; N, 87.5096&deg; E</td></tr>
-                            <tr><th>Nearest Town</th><td>Digha / Ramnagar</td></tr>
-                            <tr><th>Nearest Airport</th><td>Netaji Subhas Chandra Bose Intl., Kolkata (~185 km)</td></tr>
-                            <tr><th>Nearest Railway Station</th><td>Digha Railway Station (~1.5&ndash;2 km)</td></tr>
-                            <tr><th>Beach Length</th><td>Approx. 7 km of wide, low-gradient sand</td></tr>
-                            <tr><th>Water Body</th><td>Bay of Bengal</td></tr>
-                        </tbody>
-                    </table>
+                    <div class="geo-table-wrapper">
+                        <table class="geo-table">
+                            <tbody>
+                                <tr><th>State</th><td>West Bengal</td></tr>
+                                <tr><th>District</th><td>Purba Medinipur (Contai subdivision)</td></tr>
+                                <tr><th>Coordinates</th><td>21.6384&deg; N, 87.5096&deg; E</td></tr>
+                                <tr><th>Nearest Town</th><td>Digha / Ramnagar</td></tr>
+                                <tr><th>Nearest Airport</th><td>Netaji Subhas Chandra Bose Intl., Kolkata (~185 km)</td></tr>
+                                <tr><th>Nearest Railway Station</th><td>Digha Railway Station (~1.5&ndash;2 km)</td></tr>
+                                <tr><th>Beach Length</th><td>Approx. 7 km of wide, low-gradient sand</td></tr>
+                                <tr><th>Water Body</th><td>Bay of Bengal</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </section>
 
@@ -267,16 +273,16 @@
             </section>
 
             <!-- CULTURAL HIGHLIGHTS -->
-            <section class="info-section full-width" aria-labelledby="culture-heading">
+            <section class="info-section" aria-labelledby="culture-heading">
                 <div class="info-card">
                     <h2 id="culture-heading">🎭 Cultural Highlights</h2>
                     <ul class="feature-list">
-                        <li><strong>Bengal's weekend getaway:</strong> Digha is the quintessential short holiday for Kolkata families &mdash; beach walks, shell handicrafts and sunset adda (chats) on the sand.</li>
-                        <li><strong>Seafood culture:</strong> Roadside stalls and markets serve Bengali-style fried pomfret, prawn and crab, alongside classic ilish (hilsa) preparations.</li>
-                        <li><strong>Colonial-era heritage:</strong> A handful of old churches and bungalows near Old Digha recall its 18th-century discovery and British-era beginnings.</li>
+                        <li><strong>Bengal's weekend getaway:</strong> Digha is the quintessential short holiday for Kolkata families &mdash; beach walks, shell handicrafts and sunset adda on the sand.</li>
+                        <li><strong>Seafood culture:</strong> Roadside stalls serve Bengali-style fried pomfret, prawn and crab, alongside classic ilish (hilsa) preparations.</li>
+                        <li><strong>Colonial-era heritage:</strong> A handful of old bungalows near Old Digha recall its 18th-century discovery and British-era beginnings.</li>
                         <li><strong>Amarabati Park:</strong> Also called the Snake Park, it houses reptiles and a mini zoo, a favourite short outing for visiting families.</li>
-                        <li><strong>Handicraft markets:</strong> Stalls along the promenade sell jewellery and décor crafted from seashells, driftwood and local sea-stones.</li>
-                        <li><strong>Digha Sankarpur Development Authority:</strong> A dedicated civic body maintains the promenade, beautification and beach-front infrastructure year-round.</li>
+                        <li><strong>Handicraft markets:</strong> Stalls along the promenade sell jewellery and décor crafted from seashells, driftwood and sea-stones.</li>
+                        <li><strong>DSDA Civic Infrastructure:</strong> A dedicated civic body maintains the promenade, beautification and beach-front year-round.</li>
                     </ul>
                 </div>
             </section>
@@ -284,8 +290,11 @@
 
         <!-- COASTAL COMPARISON SECTION -->
         <section class="comparison-section" aria-labelledby="comparison-heading">
-            <h2 id="comparison-heading" class="section-title">Coastline Comparison Matrix</h2>
-            <div class="title-underline"></div>
+            <div class="section-header">
+                <h2 id="comparison-heading" class="section-title">⚖️ Coastline Comparison Matrix</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Find the ideal coastal stretch for your travel style along the Purba Medinipur coastline.</p>
+            </div>
             <div class="comparison-wrapper">
                 <table class="comparison-table">
                     <thead>
@@ -340,8 +349,11 @@
 
         <!-- INTERACTIVE WEEKEND ITINERARY PLANNER -->
         <section class="itinerary-section" id="itinerary" aria-labelledby="itinerary-heading">
-            <h2 id="itinerary-heading" class="section-title">Curated Digha Itineraries</h2>
-            <div class="title-underline"></div>
+            <div class="section-header">
+                <h2 id="itinerary-heading" class="section-title">📅 Curated Digha Itineraries</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Hand-picked itineraries designed for short getaways, weekenders, and nature photography.</p>
+            </div>
             <div class="itinerary-container">
                 <div class="itinerary-nav" role="tablist" aria-label="Itinerary length tabs">
                     <button class="itinerary-btn active" data-target="itin-1day" role="tab" aria-selected="true">⚡ 1-Day Express Tour</button>
@@ -408,38 +420,50 @@
 
         <!-- TRANSIT & GETTING THERE -->
         <section class="transit-section" aria-labelledby="transit-heading">
-            <h2 id="transit-heading" class="section-title">How to Reach Digha</h2>
-            <div class="title-underline"></div>
+            <div class="section-header">
+                <h2 id="transit-heading" class="section-title">🚆 How to Reach Digha</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Comfortable connectivity by express train, four-lane highway, and state luxury buses.</p>
+            </div>
             <div class="transit-grid">
                 <div class="transit-card">
-                    <h3>🚆 By Train</h3>
-                    <p>Digha Railway Station (DGHA) is directly connected with Kolkata's Howrah and Santragachi stations via scenic daily express trains.</p>
-                    <div style="margin-top: 1rem;">
-                        <span class="train-tag">12857 Tamralipta Exp</span>
-                        <span class="train-tag">18001 Kandari Exp</span>
-                        <span class="train-tag">22897 Digha AC Exp</span>
+                    <div>
+                        <h3>🚆 By Train</h3>
+                        <p>Digha Railway Station (DGHA) is directly connected with Kolkata's Howrah and Santragachi stations via scenic daily express trains.</p>
+                        <div class="train-tags">
+                            <span class="train-tag">12857 Tamralipta Exp</span>
+                            <span class="train-tag">18001 Kandari Exp</span>
+                            <span class="train-tag">22897 Digha AC Exp</span>
+                        </div>
                     </div>
-                    <p style="margin-top: 0.8rem; font-size: 0.9rem; color: var(--subtext-color);">⏱️ Travel time: ~3 to 3.5 hours from Howrah.</p>
+                    <p style="font-size: 0.9rem; color: var(--text-dim); font-weight: 700;">⏱️ Travel time: ~3 to 3.5 hours from Howrah.</p>
                 </div>
                 <div class="transit-card">
-                    <h3>🚗 By Road</h3>
-                    <p>Connected via NH-116B. The route passes through Kolaghat, Nandakumar, Contai, and Ramnagar along well-paved 4-lane highways.</p>
-                    <p style="margin-top: 0.5rem; font-weight: 600;">Recommended Stop: Kolaghat for roadside hot tea and Bengali snacks.</p>
-                    <p style="margin-top: 0.8rem; font-size: 0.9rem; color: var(--subtext-color);">⏱️ Drive time: ~4 hours (~185 km from Kolkata).</p>
+                    <div>
+                        <h3>🚗 By Road</h3>
+                        <p>Connected via NH-116B. The route passes through Kolaghat, Nandakumar, Contai, and Ramnagar along well-paved 4-lane highways.</p>
+                        <p style="margin-top: 0.75rem; font-weight: 700; color: var(--text-main);">Recommended Stop: Kolaghat for roadside hot tea and Bengali snacks.</p>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-dim); font-weight: 700; margin-top: 1rem;">⏱️ Drive time: ~4 hours (~185 km from Kolkata).</p>
                 </div>
                 <div class="transit-card">
-                    <h3>🚌 By Bus</h3>
-                    <p>Frequent WBTC, SBSTC and private AC/non-AC luxury buses ply round the clock from Kolkata's Esplanade (Dharmatala), Karunamoyee, and Howrah.</p>
-                    <p style="margin-top: 0.5rem; font-weight: 600;">Departs every 15-30 minutes during peak morning and evening hours.</p>
-                    <p style="margin-top: 0.8rem; font-size: 0.9rem; color: var(--subtext-color);">⏱️ Bus journey: ~4.5 to 5 hours.</p>
+                    <div>
+                        <h3>🚌 By Bus</h3>
+                        <p>Frequent WBTC, SBSTC and private AC/non-AC luxury buses ply round the clock from Kolkata's Esplanade (Dharmatala), Karunamoyee, and Howrah.</p>
+                        <p style="margin-top: 0.75rem; font-weight: 700; color: var(--text-main);">Departs every 15-30 minutes during peak morning and evening hours.</p>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-dim); font-weight: 700; margin-top: 1rem;">⏱️ Bus journey: ~4.5 to 5 hours.</p>
                 </div>
             </div>
         </section>
 
         <!-- SEAFOOD & LOCAL CUISINE HIGHLIGHTS -->
         <section class="cuisine-section" aria-labelledby="cuisine-heading">
-            <h2 id="cuisine-heading" class="section-title">Coastal Flavours &amp; Seafood</h2>
-            <div class="title-underline"></div>
+            <div class="section-header">
+                <h2 id="cuisine-heading" class="section-title">🍽️ Coastal Flavours &amp; Seafood</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Savour fresh Bay of Bengal catches and regional culinary traditions.</p>
+            </div>
             <div class="cuisine-grid">
                 <div class="cuisine-card">
                     <span class="cuisine-emoji">🐟</span>
@@ -466,8 +490,11 @@
 
         <!-- INTERACTIVE DIGHA HUB -->
         <section class="hub-section" aria-labelledby="hub-heading">
-            <h2 id="hub-heading" class="section-title">Explore Digha Beach Hub</h2>
-            <div class="title-underline"></div>
+            <div class="section-header">
+                <h2 id="hub-heading" class="section-title">🎯 Explore Digha Beach Hub</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Quick reference guide for activities, nearby gems, and travel tips.</p>
+            </div>
             <div class="hub-container">
                 <div class="hub-tabs" role="tablist" aria-label="Digha Beach information tabs">
                     <button class="hub-tab-btn active" role="tab" aria-selected="true" aria-controls="panel-activities" id="tab-activities">🎯 Activities</button>
@@ -511,9 +538,11 @@
 
         <!-- MAP / LOCATION REFERENCE -->
         <section class="map-section" aria-labelledby="map-heading">
-            <h2 id="map-heading" class="section-title">Find Digha Beach &amp; Coastline</h2>
-            <div class="title-underline"></div>
-            <p class="map-intro">Use the interactive live map with landmark pins to explore Digha Beach, New Digha, Udaipur, Talsari and the Marine Aquarium.</p>
+            <div class="section-header">
+                <h2 id="map-heading" class="section-title">🗺️ Find Digha Beach &amp; Coastline</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Use the interactive live map with landmark pins to explore Digha Beach, New Digha, Udaipur, Talsari and the Marine Aquarium.</p>
+            </div>
             <div class="map-controls">
                 <button class="map-btn active" data-map-filter="all">🌐 All Landmarks</button>
                 <button class="map-btn" data-map-filter="beaches">🏖️ Beaches Only</button>
@@ -525,8 +554,11 @@
 
         <!-- IMAGE GALLERY -->
         <section class="gallery-section" aria-labelledby="gallery-heading">
-            <h2 id="gallery-heading" class="section-title">Digha Beach Visual Gallery</h2>
-            <div class="title-underline"></div>
+            <div class="section-header">
+                <h2 id="gallery-heading" class="section-title">📸 Digha Beach Visual Gallery</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Click on any photo to open full-screen high-resolution view with captions.</p>
+            </div>
             <div class="gallery-filters" role="group" aria-label="Filter gallery by category">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="landscape">Landscape</button>
@@ -584,15 +616,17 @@
 
         <!-- SOURCES -->
         <section class="sources-section" aria-labelledby="sources-heading">
-            <h2 id="sources-heading" class="section-title">Sources &amp; References</h2>
-            <div class="title-underline"></div>
-            <ul class="feature-list sources-list">
-                <li><strong>Purba Medinipur District Administration:</strong> Official tourist information for Digha and the surrounding coast.</li>
-                <li><strong>Digha Sankarpur Development Authority (DSDA):</strong> Civic and infrastructure information for Digha and New Digha.</li>
-                <li><strong>Incredible India:</strong> Government of India tourism resources.</li>
-                <li><strong>OpenStreetMap:</strong> Map data and geographic coordinates.</li>
-                <li><strong>Unsplash:</strong> Free-to-use photography with attribution.</li>
-            </ul>
+            <div class="sources-card">
+                <h2 id="sources-heading" class="section-title">📚 Sources &amp; References</h2>
+                <div class="title-underline" style="margin: 0.6rem 0 1.5rem;"></div>
+                <ul class="feature-list sources-list">
+                    <li><strong>Purba Medinipur District Administration:</strong> Official tourist information for Digha and the surrounding coast.</li>
+                    <li><strong>Digha Sankarpur Development Authority (DSDA):</strong> Civic and infrastructure information for Digha and New Digha.</li>
+                    <li><strong>Incredible India:</strong> Government of India tourism resources.</li>
+                    <li><strong>OpenStreetMap:</strong> Map data and geographic coordinates.</li>
+                    <li><strong>Unsplash:</strong> Free-to-use photography with attribution.</li>
+                </ul>
+            </div>
         </section>
     </main>
 
@@ -601,14 +635,15 @@
         <div class="footer-container">
             <div class="footer-links">
                 <h3>Incredible India Explorer</h3>
-                <p>Discover the beaches, heritage and culture of India.</p>
+                <p>Discover the beaches, heritage, and culture of India across every coastline and state.</p>
             </div>
             <div class="footer-links">
-                <h4>Explore</h4>
+                <h4>Quick Explore</h4>
                 <ul>
                     <li><a href="../../index.html">Home</a></li>
-                    <li><a href="../coastal-india/index.html">Coastlines</a></li>
+                    <li><a href="../coastal-india/index.html">Coastlines of India</a></li>
                     <li><a href="../../destinations.html">Destinations</a></li>
+                    <li><a href="../../sports.html">Sports &amp; Culture</a></li>
                 </ul>
             </div>
         </div>
