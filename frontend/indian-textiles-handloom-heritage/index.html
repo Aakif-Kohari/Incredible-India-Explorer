@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ==========================================================================
+     INDIAN TEXTILES & HANDLOOM HERITAGE EXPLORER — DASHBOARD
+     Enterprise-grade interactive suite for exploring India's textile traditions,
+     weaving techniques, regional fabrics, and master artisans.
+
+     Design Decisions:
+     - Glassmorphic dark-mode aesthetic consistent with Incredible India Explorer
+     - Modular section architecture: Fabrics Gallery, Weaving Techniques, Artisans DB
+     - Client-side filtering, sorting, and search across all textile datasets
+     - WCAG 2.1 AA color-contrast compliance via CSS custom properties
+     - No external JS dependencies; pure vanilla implementation
+
+     Architecture Notes:
+     - TextileEngine class in textile-engine.js handles all data logic
+     - CSS tokens imported from ../../styles/design-tokens.css for theme consistency
+     - Each section is a self-contained <section> with ARIA landmarks
+     - Responsive grid layout using CSS Grid with fallback Flexbox
+     - Fabric weave-pattern cards use CSS-only decorative borders
+     ========================================================================== -->
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore India's rich textile and handloom heritage — regional fabrics, weaving techniques, and master artisans — in this interactive dashboard.">
+    <title>Indian Textiles &amp; Handloom Heritage Explorer | Incredible India</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Design Tokens + Page Styles -->
+    <link rel="stylesheet" href="../../styles/design-tokens.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Indian Textiles & Handloom Heritage Explorer | Incredible India">
+    <meta property="og:description" content="Interactive dashboard for Indian regional fabrics, weaving techniques, and master artisans.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/textiles-heritage.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta property="og:locale" content="en_IN">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Indian Textiles & Handloom Heritage Explorer | Incredible India">
+    <meta name="twitter:description" content="Interactive dashboard for Indian regional fabrics, weaving techniques, and master artisans.">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/textiles-heritage.html">
+</head>
+
+<body class="textiles-page-body">
+
+    <!-- ================================================================
+         NAVIGATION BAR
+         ================================================================ -->
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu" role="navigation" aria-label="Main navigation">
+                <a href="#fabrics" class="nav-link">Fabrics</a>
+                <a href="#techniques" class="nav-link">Techniques</a>
+                <a href="#artisans" class="nav-link">Artisans</a>
+                <a href="#analytics" class="nav-link">Analytics</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ================================================================
+         HERO SECTION
+         Full-viewport glassmorphic hero with animated gradient overlay
+         ================================================================ -->
+    <section class="textiles-hero" id="hero" aria-label="Hero banner">
+        <div class="hero-weave-pattern" aria-hidden="true"></div>
+        <div class="hero-content">
+            <span class="hero-kicker">Weaving Heritage of India</span>
+            <h1>Indian Textiles &amp; <span>Handloom</span> Heritage</h1>
+            <p>Discover the rich tapestry of Indian textiles — from the silk weaves of Varanasi to the ikat
+               traditions of Odisha, each fabric tells a story of centuries-old craftsmanship.</p>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-fabrics">0</span>
+                    <span class="stat-label">Fabrics</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-techniques">0</span>
+                    <span class="stat-label">Techniques</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-artisans">0</span>
+                    <span class="stat-label">Artisans</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-states">0</span>
+                    <span class="stat-label">States</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         GLOBAL SEARCH & FILTER BAR
+         ================================================================ -->
+    <section class="search-section" id="search" aria-label="Search and filter">
+        <div class="search-container">
+            <div class="search-box">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <input type="text" id="global-search" class="search-input"
+                       placeholder="Search fabrics, techniques, artisans…"
+                       aria-label="Search fabrics, techniques, and artisans">
+            </div>
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                <button class="filter-btn" data-filter="fabric" aria-pressed="false">Fabrics</button>
+                <button class="filter-btn" data-filter="technique" aria-pressed="false">Techniques</button>
+                <button class="filter-btn" data-filter="artisan" aria-pressed="false">Artisans</button>
+            </div>
+            <div class="sort-group">
+                <label for="sort-select" class="sr-only">Sort results</label>
+                <select id="sort-select" class="sort-select" aria-label="Sort results">
+                    <option value="name-asc">Name A→Z</option>
+                    <option value="name-desc">Name Z→A</option>
+                    <option value="origin">By Origin</option>
+                    <option value="period">By Period</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 1 — FABRICS GALLERY
+         ================================================================ -->
+    <section class="explorer-section" id="fabrics" aria-label="Fabrics Gallery">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">🧵 Regional <span>Fabrics</span></h2>
+                <p class="section-subtitle">Explore India's stunning regional fabrics — each one reflects the culture,
+                   climate, and artistic vision of its origin region.</p>
+            </div>
+            <div class="sub-filter-bar">
+                <button class="sub-filter active" data-material="all" aria-pressed="true">All Materials</button>
+                <button class="sub-filter" data-material="silk" aria-pressed="false">Silk</button>
+                <button class="sub-filter" data-material="cotton" aria-pressed="false">Cotton</button>
+                <button class="sub-filter" data-material="wool" aria-pressed="false">Wool</button>
+                <button class="sub-filter" data-material="blend" aria-pressed="false">Blend</button>
+            </div>
+            <div class="card-grid" id="fabric-grid" role="list">
+                <!-- Populated dynamically by TextileEngine -->
+            </div>
+            <div class="empty-state" id="fabric-empty" hidden>
+                <p>No fabrics match your current filters. Try broadening your search.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 2 — WEAVING TECHNIQUES
+         ================================================================ -->
+    <section class="explorer-section" id="techniques" aria-label="Weaving Techniques">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">🪡 Weaving <span>Techniques</span></h2>
+                <p class="section-subtitle">From handloom to powerloom, India preserves dozens of distinct weaving
+                   and dyeing techniques passed down through generations.</p>
+            </div>
+            <div class="sub-filter-bar">
+                <button class="sub-filter active" data-category="all" aria-pressed="true">All Categories</button>
+                <button class="sub-filter" data-category="weaving" aria-pressed="false">Weaving</button>
+                <button class="sub-filter" data-category="dyeing" aria-pressed="false">Dyeing</button>
+                <button class="sub-filter" data-category="embroidery" aria-pressed="false">Embroidery</button>
+                <button class="sub-filter" data-category="printing" aria-pressed="false">Printing</button>
+            </div>
+            <div class="card-grid" id="technique-grid" role="list">
+                <!-- Populated dynamically by TextileEngine -->
+            </div>
+            <div class="empty-state" id="technique-empty" hidden>
+                <p>No techniques match your current filters. Try broadening your search.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 3 — MASTER ARTISANS DATABASE
+         ================================================================ -->
+    <section class="explorer-section" id="artisans" aria-label="Master Artisans">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">👨‍🎨 Master <span>Artisans</span></h2>
+                <p class="section-subtitle">Meet the padma awardees, master weavers, and textile legends who preserve
+                   India's living heritage of handloom craftsmanship.</p>
+            </div>
+            <div class="sub-filter-bar">
+                <button class="sub-filter active" data-specialty="all" aria-pressed="true">All Specialties</button>
+                <button class="sub-filter" data-specialty="weaving" aria-pressed="false">Weaving</button>
+                <button class="sub-filter" data-specialty="dyeing" aria-pressed="false">Dyeing</button>
+                <button class="sub-filter" data-specialty="embroidery" aria-pressed="false">Embroidery</button>
+                <button class="sub-filter" data-specialty="design" aria-pressed="false">Design</button>
+            </div>
+            <div class="artisan-grid" id="artisan-grid" role="list">
+                <!-- Populated dynamically by TextileEngine -->
+            </div>
+            <div class="empty-state" id="artisan-empty" hidden>
+                <p>No artisans match your current filters. Try broadening your search.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 4 — ANALYTICS DASHBOARD
+         ================================================================ -->
+    <section class="explorer-section analytics-section" id="analytics" aria-label="Analytics Dashboard">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">📊 Analytics <span>Dashboard</span></h2>
+                <p class="section-subtitle">Geographic and categorical breakdown of India's handloom textile heritage.</p>
+            </div>
+            <div class="analytics-grid">
+                <div class="analytics-card" id="analytics-geography">
+                    <h3>State-wise Distribution</h3>
+                    <div class="chart-bar-container" id="state-chart" role="img"
+                         aria-label="Bar chart of state-wise distribution"></div>
+                </div>
+                <div class="analytics-card" id="analytics-material">
+                    <h3>Material Distribution</h3>
+                    <div class="material-distribution" id="material-chart" role="img"
+                         aria-label="Material distribution"></div>
+                </div>
+                <div class="analytics-card" id="analytics-category">
+                    <h3>Technique Categories</h3>
+                    <div class="category-breakdown" id="category-chart" role="img"
+                         aria-label="Technique category breakdown"></div>
+                </div>
+                <div class="analytics-card" id="analytics-timeline">
+                    <h3>Heritage Timeline</h3>
+                    <div class="timeline-chart" id="timeline-chart" role="img"
+                         aria-label="Historical timeline"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         FOOTER
+         ================================================================ -->
+    <footer class="textiles-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p class="footer-brand">🇮🇳 Incredible India Explorer — Textiles &amp; Handloom Heritage Suite</p>
+                <p class="footer-credits">
+                    Built with ❤️ for preserving India's handloom textile heritage.<br>
+                    Data sourced from Handloom Census, Office of the Textile Commissioner, and Geographical Indications Registry.
+                </p>
+                <div class="footer-links">
+                    <a href="../../index.html">Home</a>
+                    <a href="../arts-crafts/">Arts &amp; Crafts</a>
+                    <a href="../handicrafts-showcase/">Handicrafts</a>
+                    <a href="#hero">Back to Top</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Engine Script -->
+    <script type="module" src="textile-engine.js"></script>
+</body>
+</html>

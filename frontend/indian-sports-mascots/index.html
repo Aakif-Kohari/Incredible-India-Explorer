@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Indian Sports Mascots — Interactive gallery of mascots from major sporting events hosted in India. From Shera (CWG 2010) to Savaj (National Games 2024), explore the design, meaning, and cultural inspiration behind each character.">
+  <title>Indian Sports Mascots | Incredible India Explorer</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="mascots-archive-page">
+
+  <script>
+    (function() {
+      let theme = 'dark';
+      try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+      if (theme === 'light') { document.body.classList.add('light-theme'); }
+    })();
+  </script>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../sports/sports.html" class="nav-link active">Sports</a>
+        <a href="#gallery" class="nav-link">Mascot Gallery</a>
+        <a href="#timeline" class="nav-link">Timeline</a>
+        <a href="#quiz" class="nav-link">Quiz</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="mascot-hero" id="hero">
+    <div class="hero-badge">🎭 Characters Behind Major Events</div>
+    <h1>Indian Sports Mascots</h1>
+    <p class="hero-subtitle">
+      Explore the design, meaning, and cultural inspiration behind the mascots
+      of India's biggest sporting events — from Shera the Bengal Tiger
+      (Commonwealth Games 2010) to Savaj the Himalayan Monal (National Games 2024).
+    </p>
+
+    <!-- Key Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Mascots Documented</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2010</div>
+        <div class="stat-label">Earliest (CWG Delhi)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">7</div>
+        <div class="stat-label">Host Cities</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Sports Covered</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sub-Navigation Sticky Bar -->
+  <nav class="subnav-bar">
+    <div class="subnav-container">
+      <button class="subnav-btn active" data-target="gallery">Mascot Gallery</button>
+      <button class="subnav-btn" data-target="timeline">Timeline</button>
+      <button class="subnav-btn" data-target="quiz">Quiz</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Section 1: Mascot Gallery (with filters) -->
+    <section class="archive-section" id="gallery">
+      <div class="section-header">
+        <span class="section-tag">Interactive Gallery</span>
+        <h2>Mascots of India's Sporting Events</h2>
+        <p>Filter by sport or year. Click any mascot card to read about its design, meaning, and cultural inspiration.</p>
+      </div>
+
+      <!-- Search & Filters -->
+      <div class="search-filter-box">
+        <input
+          type="text"
+          id="mascot-search"
+          class="search-input"
+          placeholder="Search mascot, event, or city..."
+          data-testid="mascot-search"
+        />
+        <select id="sport-filter" class="select-filter" data-testid="sport-filter">
+          <option value="all">All Sports</option>
+          <option value="Multi-Sport">Multi-Sport</option>
+          <option value="Cricket">Cricket</option>
+          <option value="Football (Soccer)">Football</option>
+          <option value="Field Hockey">Field Hockey</option>
+        </select>
+        <select id="decade-filter" class="select-filter" data-testid="decade-filter">
+          <option value="all">All Years</option>
+          <option value="2010s">2010s</option>
+          <option value="2020s">2020s</option>
+        </select>
+      </div>
+
+      <!-- Mascot Cards Grid -->
+      <div class="mascot-grid" id="mascot-cards-container" data-testid="mascot-grid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </section>
+
+    <!-- Section 2: Timeline -->
+    <section class="archive-section" id="timeline">
+      <div class="section-header">
+        <span class="section-tag">Chronological View</span>
+        <h2>Mascots Through the Years</h2>
+        <p>A horizontal timeline of every mascot, oldest to newest.</p>
+      </div>
+      <div class="timeline-track" id="timeline-track" data-testid="timeline-track">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Section 3: Quiz -->
+    <section class="archive-section" id="quiz">
+      <div class="section-header" style="text-align: center;">
+        <span class="section-tag">Interactive Quiz</span>
+        <h2>Test Your Mascot Knowledge</h2>
+        <p>Five questions on the mascots of Indian sporting events.</p>
+      </div>
+      <div class="quiz-card" id="quiz-box">
+        <div id="quiz-content" data-testid="quiz-content">
+          <!-- Dynamically loaded quiz question -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Image Credits -->
+    <section class="archive-section" id="credits">
+      <div class="section-header">
+        <span class="section-tag">Attribution</span>
+        <h2>Image Credits & Sources</h2>
+        <p>Every mascot image on this page is the property of its respective organising committee. Click any card for full attribution.</p>
+      </div>
+      <div class="credits-box" id="credits-container" data-testid="credits-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Mascot Detail Modal -->
+  <div class="modal-overlay" id="mascot-modal" data-testid="mascot-modal">
+    <div class="modal-content">
+      <button class="close-modal-btn" id="modal-close-btn" aria-label="Close">&times;</button>
+      <div id="modal-body-content">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align:center; padding:40px 20px; background:#070a10; border-top:1px solid rgba(255,255,255,0.08); font-size:0.9rem; color:var(--text-muted);">
+    <p>© 2026 Incredible India Explorer. Mascot artwork remains the property of the respective organising committees; used here for educational/archival purposes.</p>
+  </footer>
+
+  <!-- Script Imports -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>

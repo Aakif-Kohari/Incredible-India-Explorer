@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitrangudi Wetland Explorer | Bird Sanctuary Tamil Nadu</title>
+    <meta name="description"
+        content="Explore Chitrangudi Wetland, an ecologically important bird sanctuary supporting numerous resident and migratory species.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar explorer-nav" role="banner">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo" aria-label="Return to Home">
+                <span class="saffron">Incredible</span> <span class="gold">India</span> <span
+                    class="green">Explorer</span>
+            </a>
+            <nav class="nav-menu" role="navigation">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../wetlands-explorer/index.html" class="nav-link">Wetlands</a>
+                <a href="#ecology" class="nav-link">Ecology</a>
+                <a href="#birds" class="nav-link">Birds</a>
+                <a href="#map" class="nav-link">Map</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <main role="main">
+        <section class="hero-section chitrangudi-hero" id="home">
+            <div class="hero-bg-overlay" aria-hidden="true"></div>
+            <div class="hero-content animate-on-scroll">
+                <h1 class="hero-title">Chitrangudi <span class="accent">Wetland</span></h1>
+                <p class="hero-subtitle">Known locally as "Kanamoovadi", this vital bird sanctuary in Tamil Nadu is a
+                    haven for nesting and migratory birds.</p>
+                <button class="btn-bookmark" id="bookmark-btn" aria-label="Add to My Journey">🔖 Bookmark to My
+                    Journey</button>
+            </div>
+        </section>
+
+        <section class="explorer-content">
+            <div class="tabs" role="tablist" aria-label="Wetland Sections">
+                <button class="tab-btn active" data-tab="history" role="tab" aria-selected="true">History &
+                    Ramsar</button>
+                <button class="tab-btn" data-tab="ecology" role="tab" aria-selected="false">Wetland Ecology</button>
+                <button class="tab-btn" data-tab="birds" role="tab" aria-selected="false">Bird Diversity</button>
+                <button class="tab-btn" data-tab="conservation" role="tab" aria-selected="false">Conservation</button>
+            </div>
+
+            <div class="tab-content active" id="history" role="tabpanel">
+                <h2>A Historic Bird Sanctuary</h2>
+                <p>Chitrangudi Bird Sanctuary, locally revered as "Kanamoovadi" (meaning a place where birds nest), is
+                    located in the Ramanathapuram district of Tamil Nadu. Established as a protected area in 1989, it
+                    encompasses a traditional irrigation tank surrounded by lush vegetation.</p>
+                <div class="info-card">
+                    <h3>Ramsar Recognition</h3>
+                    <p>In recent years, Chitrangudi has been recognized under the Ramsar Convention, highlighting its
+                        international importance as a wetland that supports critical biodiversity and local hydrological
+                        cycles.</p>
+                </div>
+            </div>
+
+            <div class="tab-content" id="ecology" role="tabpanel" hidden>
+                <h2>Wetland Ecology & Habitat</h2>
+                <p>The sanctuary is characterized by a large, shallow tank that fills during the Northeast Monsoon. The
+                    surrounding bunds are lined with ancient trees, primarily Tamarind, Fig, and Silk Cotton, which
+                    provide essential nesting sites for colonial waterbirds.</p>
+                <div class="flora-grid">
+                    <div class="flora-card animate-on-scroll">
+                        <h4>Tamarind Groves</h4>
+                        <p>Massive, ancient tamarind trees line the water's edge, offering dense canopy cover and sturdy
+                            branches for large nesting colonies.</p>
+                    </div>
+                    <div class="flora-card animate-on-scroll">
+                        <h4>Silk Cotton Trees</h4>
+                        <p>Bombax ceiba trees bloom in the dry season, providing nectar for birds and insects, and their
+                            tall structure serves as lookout points for raptors.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="birds" role="tabpanel" hidden>
+                <h2>Bird Diversity & Nesting</h2>
+                <p>Chitrangudi is famous for its nesting populations of large waterbirds. The sanctuary comes alive
+                    between October and March when migratory species arrive to breed alongside resident birds.</p>
+
+                <div class="bird-filter-controls">
+                    <button class="bird-filter-btn active" data-type="all">All Birds</button>
+                    <button class="bird-filter-btn" data-type="resident">Resident</button>
+                    <button class="bird-filter-btn" data-type="migratory">Migratory</button>
+                </div>
+
+                <div class="bird-grid" id="bird-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <div class="tab-content" id="conservation" role="tabpanel" hidden>
+                <h2>Conservation & Community</h2>
+                <p>The survival of Chitrangudi is deeply intertwined with the local communities. Traditional water
+                    management practices ensure the tank retains water long enough for the birds to complete their
+                    breeding cycles.</p>
+                <ul class="facts-list">
+                    <li>Local fishers practice sustainable harvesting, avoiding disturbance to nesting zones.</li>
+                    <li>The Forest Department maintains the bunds and prevents invasive species from choking the water
+                        body.</li>
+                    <li>Eco-tourism initiatives provide alternative livelihoods, incentivizing the protection of the
+                        bird colonies.</li>
+                </ul>
+            </div>
+
+            <h2 id="map" class="section-title">Interactive Location Map</h2>
+            <div class="map-container animate-on-scroll" role="img"
+                aria-label="Map showing Chitrangudi Wetland location">
+                <div class="map-placeholder">
+                    <div class="map-pin" title="Chitrangudi Bird Sanctuary">📍</div>
+                    <p>Ramanathapuram District, Tamil Nadu</p>
+                </div>
+            </div>
+
+            <h2 class="section-title">Image Gallery</h2>
+            <div class="gallery-grid" role="list">
+                <div class="gallery-item" tabindex="0"
+                    data-img="https://placehold.co/800x600/0891b2/fff?text=Chitrangudi+Tank"
+                    data-caption="The central irrigation tank"><img src="https://placehold.co/300/0891b2/fff?text=Tank"
+                        alt="Chitrangudi Tank" loading="lazy"></div>
+                <div class="gallery-item" tabindex="0"
+                    data-img="https://placehold.co/800x600/0891b2/fff?text=Nesting+Colony"
+                    data-caption="Painted Storks nesting"><img src="https://placehold.co/300/0891b2/fff?text=Nesting"
+                        alt="Nesting Colony" loading="lazy"></div>
+                <div class="gallery-item" tabindex="0"
+                    data-img="https://placehold.co/800x600/0891b2/fff?text=Tamarind+Trees"
+                    data-caption="Ancient tamarind groves"><img src="https://placehold.co/300/0891b2/fff?text=Trees"
+                        alt="Tamarind Trees" loading="lazy"></div>
+            </div>
+        </section>
+    </main>
+
+    <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">&times;</button>
+        <img src="" alt="" class="lightbox-img" id="lightbox-img">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Incredible India Explorer. Chitrangudi Wetland Profile.</p>
+    </footer>
+
+    <script src="../../journey.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

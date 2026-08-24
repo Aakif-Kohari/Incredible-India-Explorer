@@ -532,7 +532,7 @@ class Router {
         document.body.addEventListener('click', (e) => {
             const link = e.target.closest('a');
 
-            if (link && link.href && link.target !== '_blank') {
+            if (link && link.href && link.target !== '_blank' && link.getAttribute('data-no-route') !== 'true') {
                 const url = new URL(link.href);
                 const currentUrl = new URL(window.location.href);
 
