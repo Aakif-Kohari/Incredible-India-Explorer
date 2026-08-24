@@ -86,6 +86,12 @@ window.indiaSearchIndex = [
     url: "frontend/alibaug-beach/index.html"
     },
     {
+    title: "Chandrabhaga Beach — Odisha",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Chandrabhaga Beach in Puri, Odisha — India's first Blue Flag beach, 3 km from the UNESCO World Heritage Konark Sun Temple, known for dawn sunrises, coral reefs, and the historic Chandrabhaga river mouth.",
+    url: "frontend/chandrabhaga-beach/index.html"},
+  {
     title: "Elephant Beach — Andaman & Nicobar Islands",
     category: "Beaches & Coastline",
     description:
