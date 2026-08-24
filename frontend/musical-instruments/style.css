@@ -1,3 +1,205 @@
+/* Classical Indian Musical Instruments Styles */
+
+:root {
+  --instrument-bg: #fffbf0;
+  --instrument-text: #2c1a16;
+  --instrument-primary: #8b4513;
+  --instrument-card-bg: #ffffff;
+  --instrument-border: #e0d0b8;
+  --instrument-shadow: rgba(0, 0, 0, 0.1);
+  --instrument-filter-bg: #f4e8d3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --instrument-bg: #1a1514;
+    --instrument-text: #f0e6d2;
+    --instrument-primary: #d28c5a;
+    --instrument-card-bg: #2c2421;
+    --instrument-border: #4a3c36;
+    --instrument-shadow: rgba(0, 0, 0, 0.4);
+    --instrument-filter-bg: #3a2f2a;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--instrument-bg);
+  color: var(--instrument-text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  padding: 2rem;
+  text-align: center;
+  background-color: var(--instrument-card-bg);
+  border-bottom: 2px solid var(--instrument-border);
+}
+
+.back-link {
+  color: var(--instrument-primary);
+  text-decoration: none;
+  font-weight: bold;
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.instrument-main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instrument-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.instrument-filter {
+  background-color: var(--instrument-filter-bg);
+  color: var(--instrument-text);
+  border: 2px solid var(--instrument-border);
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.instrument-filter:hover {
+  background-color: var(--instrument-border);
+}
+
+.instrument-filter.active {
+  background-color: var(--instrument-primary);
+  color: #fff;
+  border-color: var(--instrument-primary);
+}
+
+.instrument-filter:focus {
+  outline: 3px solid var(--instrument-primary);
+  outline-offset: 2px;
+}
+
+.instrument-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.instrument-card {
+  background-color: var(--instrument-card-bg);
+  border: 1px solid var(--instrument-border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px var(--instrument-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.instrument-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--instrument-shadow);
+}
+
+.instrument-card.hidden {
+  display: none;
+}
+
+.instrument-image {
+  font-size: 5rem;
+  text-align: center;
+  padding: 3rem 0;
+  background-image: radial-gradient(circle at center, transparent 0%, var(--instrument-shadow) 150%);
+  border-bottom: 1px solid var(--instrument-border);
+}
+
+.instrument-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.instrument-category {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--instrument-primary);
+  font-weight: bold;
+}
+
+.instrument-title {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.instrument-desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  flex: 1;
+}
+
+.instrument-audio {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--instrument-border);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  background: var(--instrument-filter-bg);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.instrument-empty {
+  text-align: center;
+  font-size: 1.2rem;
+  opacity: 0.7;
+  padding: 3rem;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--instrument-card-bg);
+  border-top: 1px solid var(--instrument-border);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.instrument-card {
+  animation: fadeIn 0.4s ease forwards;
 /* Musical Instruments Feature Styles */
 
 .instrument-header {

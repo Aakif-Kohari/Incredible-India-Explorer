@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Languages of India - Explore the linguistic diversity, dialects, and scripts.">
@@ -10,7 +19,7 @@
     <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../styles.css">
     <style>
         .lang-hero {
             background: linear-gradient(135deg, rgba(255, 153, 51, 0.2) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(19, 136, 8, 0.2) 100%);
@@ -37,10 +46,15 @@
         }
 
         @keyframes slideLeft {
-            from { transform: translateX(100%); }
-            to { transform: translateX(-100%); }
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
         }
-        
+
         .section-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -137,13 +151,14 @@
             gap: 8px;
         }
 
-        .play-btn:hover, .play-btn:focus {
+        .play-btn:hover,
+        .play-btn:focus {
             background: var(--saffron, #FF9933);
             color: #111;
             outline: none;
             box-shadow: 0 0 0 3px rgba(255, 153, 51, 0.3);
         }
-        
+
         .play-btn.playing {
             background: var(--saffron, #FF9933);
             color: #111;
@@ -151,9 +166,17 @@
         }
 
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 153, 51, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(255, 153, 51, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 153, 51, 0); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 153, 51, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 153, 51, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 153, 51, 0);
+            }
         }
 
         #toast-container {
@@ -173,7 +196,7 @@
             border-left: 4px solid var(--saffron, #FF9933);
             padding: 12px 24px;
             border-radius: 8px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             font-family: 'Outfit', sans-serif;
             opacity: 0;
             transform: translateY(20px);
@@ -186,11 +209,21 @@
         }
 
         /* Utilities extracted from inline styles */
-        .nav-active-item { color: var(--saffron); }
-        .premium-link { color: var(--gold); font-weight: bold; }
-        .main-pt { padding-top: 70px; }
+        .nav-active-item {
+            color: var(--saffron);
+        }
+
+        .premium-link {
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .main-pt {
+            padding-top: 70px;
+        }
+
         .hero-content-box {
-            background: rgba(0,0,0,0.6);
+            background: rgba(0, 0, 0, 0.6);
             padding: 24px 32px;
             border-radius: 16px;
             -webkit-backdrop-filter: blur(10px);
@@ -198,20 +231,50 @@
             max-width: 550px;
             margin: 0 auto;
         }
-        .text-white { color: white; }
-        .hero-title-text { color: white; font-size: 2.8rem; margin: 10px 0; }
-        .text-gold { color: var(--gold); }
-        .hero-desc-text { color: #eee; font-size: 1rem; }
-        .lang-section-pd { padding: 40px 0 80px; }
-        .text-center-mb20 { text-align: center; margin-bottom: 20px; }
-        .footer-pd { padding: 0px 24px 30px; }
-        .footer-credits-centered { align-self: center; margin-top: 10px; }
+
+        .text-white {
+            color: white;
+        }
+
+        .hero-title-text {
+            color: white;
+            font-size: 2.8rem;
+            margin: 10px 0;
+        }
+
+        .text-gold {
+            color: var(--gold);
+        }
+
+        .hero-desc-text {
+            color: #eee;
+            font-size: 1rem;
+        }
+
+        .lang-section-pd {
+            padding: 40px 0 80px;
+        }
+
+        .text-center-mb20 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-pd {
+            padding: 0px 24px 30px;
+        }
+
+        .footer-credits-centered {
+            align-self: center;
+            margin-top: 10px;
+        }
     </style>
 
-    
+
     <!-- Open Graph / Social Media Tags -->
     <meta property="og:title" content="Languages of India | Incredible India Explorer">
-    <meta property="og:description" content="Languages of India - Explore the linguistic diversity, dialects, and scripts.">
+    <meta property="og:description"
+        content="Languages of India - Explore the linguistic diversity, dialects, and scripts.">
     <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -223,105 +286,128 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Languages of India | Incredible India Explorer">
-    <meta name="twitter:description" content="Languages of India - Explore the linguistic diversity, dialects, and scripts.">
+    <meta name="twitter:description"
+        content="Languages of India - Explore the linguistic diversity, dialects, and scripts.">
     <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/languages.html">
 </head>
+
 <body>
     <script>
-        (function() {
-            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+        (function () {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch (e) { }
             if (theme === 'light') {
                 document.body.classList.add('light-theme');
             }
         })();
     </script>
     <header class="navbar" id="navbar">
-    <div class="nav-container">
-        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
-            <span class="saffron">Incredible</span>
-            <span class="gold">India</span>
-            <span class="green">Explorer</span>
-        </a>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-        <nav class="nav-menu" id="nav-menu">
-            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
-                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
-                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
-                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
-                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports
+                            of India</a>
+                        <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                        <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                        <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route
+                            Planner</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
-                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
-                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
-                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
-                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
-                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
-                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
-                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                        <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                        <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                        <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event
+                            Discovery</a>
+                        <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical
+                            Timeline</a>
+                        <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html"
+                            class="dropdown-item">National Symbols</a>
+                        <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                        <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP
+                            Handicrafts</a>
+                        <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National
+                            Days</a>
+                        <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
-                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
-                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
-                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
-                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National
+                            Parks</a>
+                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife
+                            Rescue</a>
+                        <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic
+                            Flora & Fauna</a>
+                        <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike
+                            Wetland</a>
+                        <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                        <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density
+                            Predictor</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
-                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
-                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
-                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
-                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport
+                            Quest</a>
+                        <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary
+                            Challenge</a>
+                        <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                        <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                        <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
-                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                        <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                    </div>
                 </div>
-            </div>
-            
-            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
-        </nav>
-    </div>
-</header>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
 
     <main id="app-root" class="main-pt">
         <section class="lang-hero scroll-section">
             <div class="hero-content hero-content-box">
                 <span class="hero-tagline animate-fade-in text-white">🗣️ Linguistic Diversity</span>
-                <h1 class="hero-title animate-slide-up hero-title-text">Languages of <span class="text-gold">India</span></h1>
+                <h1 class="hero-title animate-slide-up hero-title-text">Languages of <span
+                        class="text-gold">India</span></h1>
                 <p class="hero-description animate-fade-in-delayed hero-desc-text">
                     With 22 scheduled languages and hundreds of dialects, India's linguistic heritage is unmatched.
                 </p>
@@ -333,7 +419,8 @@
                 <div class="section-header text-center-mb20">
                     <span class="section-badge">Scripts & Sounds</span>
                     <h2>Language Explorer</h2>
-                    <p class="section-subtitle">Click the play button to hear a greeting in different Indian languages.</p>
+                    <p class="section-subtitle">Click the play button to hear a greeting in different Indian languages.
+                    </p>
                 </div>
 
                 <div class="lang-grid" id="lang-grid">
@@ -342,7 +429,7 @@
             </div>
         </section>
     </main>
-    
+
     <div id="toast-container" aria-live="polite"></div>
 
     <!-- Footer -->
@@ -368,7 +455,7 @@
         </div>
         <div class="footer-credits align-center">
             <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS & JavaScript.</p>
-</div>
+        </div>
     </footer>
 
     <!-- Scroll To Top Button -->
@@ -376,15 +463,42 @@
 
     <script>        document.addEventListener('DOMContentLoaded', () => {
             const languages = [
-                { name: 'Hindi', script: 'नमस्ते', region: 'North & Central India', code: 'hi-IN' },
+                { name: 'Hindi', script: 'नमस्ते', region: 'North & Central India', code: 'hi-IN', description: 'Central Indo-Aryan language in Devanagari script, official language of the Union and one of the world\'s most spoken languages.', exploreUrl: '../hindi-language-explorer/index.html' },
                 { name: 'Bengali', script: 'নমস্কার', region: 'West Bengal, Tripura', code: 'bn-IN' },
-                { name: 'Telugu', script: 'నమస్కారం', region: 'Andhra Pradesh, Telangana', code: 'te-IN' },
+                { name: 'Telugu', script: 'నమస్కారం', region: 'Andhra Pradesh, Telangana', code: 'te-IN', description: 'Classical Dravidian language celebrated as Italian of the East for its melodious vowel endings and rich literature.', exploreUrl: '../telugu-language-explorer/index.html' },
                 { name: 'Marathi', script: 'नमस्कार', region: 'Maharashtra', code: 'mr-IN' },
                 { name: 'Tamil', script: 'வணக்கம்', region: 'Tamil Nadu', code: 'ta-IN' },
                 { name: 'Urdu', script: 'السلام علیکم', region: 'Jammu & Kashmir, Telangana, UP, Bihar', code: 'ur-IN' },
-                { name: 'Gujarati', script: 'નમસ્તે', region: 'Gujarat', code: 'gu-IN' },
+                { name: 'Gujarati', script: 'નમસ્તે', region: 'Gujarat', code: 'gu-IN', description: 'Western Indo-Aryan language with distinct top-barless script, mercantile acumen, and Narsinh Mehta literature.', exploreUrl: '../gujarati-language-explorer/index.html' },
                 { name: 'Kannada', script: 'ನಮಸ್ಕಾರ', region: 'Karnataka', code: 'kn-IN' },
-                { name: 'Malayalam', script: 'നമസ്കാരം', region: 'Kerala', code: 'ml-IN' }
+                { name: 'Malayalam', script: 'നമസ്കാരം', region: 'Kerala', code: 'ml-IN' },
+                { name: 'Sindhi', script: 'سنڌي / सिंधी', region: 'Gujarat, Maharashtra, Rajasthan, MP', code: 'sd-IN', description: 'Northwestern Indo-Aryan language with dual Perso-Arabic and Devanagari script traditions and Sufi poetry.', exploreUrl: '../sindhi-language-explorer/index.html' },
+                { name: 'Maithili', script: 'मैथिली / 𑒧𑒻𑒟𑒱𑒪𑒲', region: 'Bihar, Jharkhand, Mithila Region', code: 'hi-IN', description: 'Eastern Indo-Aryan language of Mithila with Tirhuta and Devanagari script traditions, Vidyapati poetry, and 8th Schedule recognition.', exploreUrl: '../maithili-language-explorer/index.html' },
+                { name: 'Sanskrit', script: 'नमस्ते', region: 'Pan-India, Classical Heritage', code: 'sa-IN', description: 'Ancient liturgical and classical language of India, the mother of Indian philosophy and literature.', exploreUrl: '../sanskrit-language-explorer/index.html' },
+                { name: 'Odia', script: 'ନମସ୍କାର', region: 'Odisha, Eastern India', code: 'or-IN', description: 'Classical Indo-Aryan language of Odisha with a distinctive curved palm-leaf script and ancient epics.', exploreUrl: '../odia-language-explorer/index.html' },
+                { name: 'Assamese', script: 'নমস্কাৰ', region: 'Assam, Northeast India', code: 'as-IN', description: 'Eastern Indo-Aryan language with distinctive Eastern Nagari script traditions and Buranji chronicles.', exploreUrl: '../assamese-language-explorer/index.html' },
+                { name: 'Kumaoni', script: 'जै देव', region: 'Kumaon, Uttarakhand', code: 'hi-IN', description: 'A Central Pahari language of the Himalayan foothills, rich with Aipan folk art, Jagar epics, and Devanagari script heritage.', exploreUrl: '../kumaoni-language-explorer/index.html' },
+                { name: 'Tulu', script: 'ತುಳು', region: 'Coastal Karnataka, North Kerala', code: 'kn-IN', description: 'A South Dravidian language of Tulu Nadu with ancient Tigalari script heritage, oral Pardana epics, and rich coastal folklore.', exploreUrl: '../tulu-language-explorer/index.html' },
+                { name: 'Konkani', script: 'नमस्कार', region: 'Goa, Karnataka, Kerala, Maharashtra', code: 'hi-IN', description: 'A coastal Indo-Aryan language written in five scripts, recognized in the Eighth Schedule and official language of Goa.', exploreUrl: '../konkani-language-explorer/index.html' },
+                { name: 'Kodava', script: 'ಕೊಡವ ತಕ್ಕ್', region: 'Kodagu, Karnataka', code: 'kn-IN', description: 'A South Dravidian language of the Kodagu hills with distinctive phonetics, rich folklore, and Kodava Lipi.', exploreUrl: '../kodava-language-explorer/index.html' },
+                { name: 'Rajasthani', script: 'खम्मा घणी', region: 'Rajasthan & Borderlands', code: 'hi-IN', description: 'Western Indo-Aryan language family of the Thar desert with rich bardic Dingal/Pingal traditions and 50M+ speakers.', exploreUrl: '../rajasthani-language-explorer/index.html' },
+                { name: 'Marwari', script: 'खम्मा घणी', region: 'Marwar, Rajasthan (Jodhpur, Bikaner, Jaisalmer)', code: 'hi-IN', description: 'The largest Rajasthani language of the Thar desert, carrying Dingal bardic poetry, Mahajani mercantile script heritage, and Manganiyar/Langa folk music.', exploreUrl: '../marwari-explorer/index.html' },
+                { name: 'Nepali', script: 'नमस्ते', region: 'Sikkim, West Bengal, Assam', code: 'ne-IN', description: 'An Indo-Aryan language in Devanagari script, recognized in the 8th Schedule and official in Sikkim & Darjeeling hills.', exploreUrl: '../nepali-language-explorer/index.html' },
+                { name: 'Mizo', script: 'Chibai', region: 'Mizoram', code: 'en-IN', description: 'A Tibeto-Burman language with a Roman-based orthography, deeply rooted in Mizoram.', exploreUrl: '../mizo-language-explorer/index.html' },
+                { name: 'Garo', script: 'Namengama?', region: 'Meghalaya (Garo Hills), Assam, Bangladesh', code: 'en-IN', description: 'A Bodo-Garo (Tibeto-Burman) language of the A·chik people, written in Roman script and rooted in the Garo Hills of Meghalaya.', exploreUrl: '../garo-language-explorer/index.html' },
+                { name: 'Khasi', script: 'Khublei', region: 'Meghalaya (Khasi & Jaintia Hills), Assam', code: 'en-IN', description: 'An Austroasiatic language spoken by the Khasi people of Meghalaya, known for its Roman-based writing system, verified greeting, and rich oral traditions.', exploreUrl: '../khasi-language-explorer/index.html' },
+                { name: 'Nimadi', script: 'राम राम', region: 'Nimar / Narmada Valley, Madhya Pradesh', code: 'hi-IN', description: 'A Rajasthani-branch Indo-Aryan language of the Nimar region, written in Devanagari and rooted in the Narmada-Tapti valley.', exploreUrl: '../nimadi-language-explorer/index.html' },
+                { name: 'Punjabi', script: 'ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ', region: 'Punjab, Delhi, Haryana', code: 'pa-IN', description: 'Language of Gurmukhi script and rich folklore of the land of five rivers.', exploreUrl: '../punjabi-explorer/index.html' },
+                { name: 'Bundeli', script: 'राम राम', region: 'Bundelkhand, MP & UP', code: 'hi-IN', description: 'A Western Hindi language of Bundelkhand with Devanagari script, Alha-Udal ballads, and Bundela fort heritage.', exploreUrl: '../bundeli-language-explorer/index.html' },
+                { name: 'Ho', script: '𑢺𑣉𑣖𑣜', region: 'Jharkhand (Kolhan), Odisha (Mayurbhanj)', code: 'hi-IN', description: 'An Austroasiatic Munda language with its indigenous Warang Citi alphabet, Mage Porob harvest festivals, and historic Manki-Munda governance.', exploreUrl: '../ho-language-explorer/index.html' },
+                { name: 'Kurukh', script: 'जय धरमे!', region: 'Jharkhand, Chhattisgarh, Odisha, West Bengal', code: 'hi-IN', description: 'A North Dravidian language of the Oraon community with its indigenous Tolong Siki script, Sarhul sal-blossom festival, and Dhumkuria academies.', exploreUrl: '../kurukh-language-explorer/index.html' },
+                { name: 'Toda', script: 'இஸ்க் வா!', region: 'Nilgiri Hills, Tamil Nadu (Ooty, Pykara)', code: 'ta-IN', description: 'A critically endangered South Dravidian language of the pastoral Toda community, noted for 16 vowels, sacred dairy rites, and Puthukuli embroidery.', exploreUrl: '../toda-language-explorer/index.html' },
+                { name: 'Ladakhi', script: 'ཇུ་ལེགས།', region: 'Ladakh (Leh, Nubra, Changthang, Zanskar, Kargil)', code: 'hi-IN', description: 'A Western Archaic Tibetic language preserving 7th-century Old Tibetan consonant clusters and Tibetan Uchen script.', exploreUrl: '../ladakhi-language-explorer/index.html' },
+                { name: 'Lepcha', script: 'ᰛᰩᰵᰶ', region: 'Sikkim, Darjeeling Hills, Nepal, Bhutan', code: 'hi-IN', description: 'The indigenous Tibeto-Burman language of the Sikkim Himalayas with its unique Lepcha script (ᰛᰩᰵᰶ), sacred Khangchendzonga heritage, and Dzongu heartland.', exploreUrl: '../lepcha-language-explorer/index.html' },
+                { name: 'Shina', script: 'سلام / جے حال ہن؟', region: 'Ladakh (Drass Valley, Kargil), Gurez Valley', code: 'hi-IN', description: 'A Dardic language spoken in Drass Valley (second coldest inhabited place on Earth) and Gurez, known for pitch-accent tones and mountain polo.', exploreUrl: '../shina-language-explorer/index.html' },
+                { name: 'Mewari', script: 'खम्मा घणी', region: 'Mewar, Rajasthan (Udaipur, Chittorgarh)', code: 'hi-IN', description: 'A Rajasthani language of the historic Mewar region, home to the Sisodia Rajput kingdom, with rich miniature-painting and folk-ballad heritage.', exploreUrl: '../mewari-explorer/index.html' },
+                { name: 'Malvi', script: 'राम राम सा!', region: 'Madhya Pradesh (Malwa), Rajasthan', code: 'hi-IN', description: 'A Western Indo-Aryan language of the fertile Malwa plateau, celebrated for Maach folk theatre, Sanjha art, and Kabir bhajans.', exploreUrl: '../malvi-language-explorer/index.html' },
+                { name: 'Bagheli', script: 'राम राम', region: 'Baghelkhand, Madhya Pradesh & UP', code: 'hi-IN', description: 'An Eastern Hindi language of the Baghelkhand region, named for the Baghel Rajput dynasty of Rewa, with Devanagari script and rich Pandavani folk-ballad heritage.', exploreUrl: '../bagheli-language-explorer/index.html' }
             ];
 
             const grid = document.getElementById('lang-grid');
@@ -409,9 +523,9 @@
                 toast.className = 'toast';
                 toast.textContent = message;
                 container.appendChild(toast);
-                
+
                 setTimeout(() => toast.classList.add('show'), 10);
-                
+
                 setTimeout(() => {
                     toast.classList.remove('show');
                     setTimeout(() => toast.remove(), 300);
@@ -446,39 +560,39 @@
                 }
 
                 btn.innerHTML = '⏳ Loading...';
-                
+
                 const utterance = new SpeechSynthesisUtterance(text);
                 utterance.lang = langCode;
-                
+
                 // Try to find a specific voice for this language
                 const shortCode = langCode.split('-')[0];
                 const bestVoice = voices.find(v => v.lang.startsWith(langCode) || v.lang.startsWith(shortCode));
                 if (bestVoice) {
                     utterance.voice = bestVoice;
                 }
-                
+
                 // Keep global reference to prevent garbage collection bug in some browsers
                 window.currentUtterance = utterance;
-                
+
                 utterance.onstart = () => {
                     btn.innerHTML = '⏸ Stop';
                     btn.classList.add('playing');
                     btn.setAttribute('aria-label', `Stop greeting in ${langName}`);
                     currentBtn = btn;
-                    
+
                     // Warn user if OS might not have the correct voice
                     if (!bestVoice && voices.length > 0) {
                         showToast(`Note: Your device might not have a native voice installed for ${langName}.`);
                     }
                 };
-                
+
                 utterance.onend = () => {
                     btn.innerHTML = '▶ Listen';
                     btn.classList.remove('playing');
                     btn.setAttribute('aria-label', `Play greeting in ${langName}`);
                     currentBtn = null;
                 };
-                
+
                 utterance.onerror = (e) => {
                     if (e.error === 'canceled' || e.error === 'interrupted') return;
                     console.warn("Speech synthesis error", e);
@@ -499,19 +613,44 @@
                 const card = document.createElement('article');
                 card.className = 'lang-card';
                 card.innerHTML = `
-                    <div class="lang-script" aria-hidden="true">${lang.script}</div>
-                    <h3 class="lang-name">${lang.name}</h3>
-                    <div class="lang-region">${lang.region}</div>
-                    <button class="play-btn" data-lang="${lang.code}" data-text="${lang.script}" data-name="${lang.name}" aria-label="Play greeting in ${lang.name}">
-                        ▶ Listen
-                    </button>
-                `;
-                
+    <div class="lang-script" aria-hidden="true">${lang.script}</div>
+
+    <h3 class="lang-name">${lang.name}</h3>
+
+    <div class="lang-region">${lang.region}</div>
+
+    ${lang.description
+                        ? `<p style="font-size: 0.9rem; margin: 10px 0; color: #ddd;">${lang.description}</p>`
+                        : ''
+                    }
+
+    <button
+        class="play-btn"
+        data-lang="${lang.code}"
+        data-text="${lang.script}"
+        data-name="${lang.name}"
+        aria-label="Play greeting in ${lang.name}"
+    >
+        ▶ Listen
+    </button>
+
+    ${lang.exploreUrl
+                        ? `<a
+                href="${lang.exploreUrl}"
+                class="play-btn"
+                style="margin-top: 10px; background: transparent; border: 1px solid var(--saffron, #FF9933); color: var(--saffron, #FF9933); text-decoration: none;"
+              >
+                Explore ${lang.name}
+              </a>`
+                        : ''
+                    }
+`;
+
                 const btn = card.querySelector('.play-btn');
                 btn.addEventListener('click', () => {
                     handlePlay(btn, lang.code, lang.script, lang.name);
                 });
-                
+
                 grid.appendChild(card);
             });
         });
@@ -523,5 +662,5 @@
     <script type="module" src="../auth.js"></script>
     <script src="../router.js" defer></script>
 </body>
-</html>
 
+</html>
