@@ -51,6 +51,13 @@ window.indiaSearchIndex = [
         url: 'frontend/brahmagiri-trek/index.html'
     },
     {
+        title: 'Chembra Peak Trek & Heart-Shaped Lake (Wayanad, Kerala) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Chembra Peak Trek (2,100m) in Wayanad, Kerala. Famous perennial heart-shaped lake (Hridayathadam), tea plantations, Shola grassland ecosystem, forest permits, route details, and image gallery.',
+        url: 'frontend/chembra-peak-trek/index.html'
+    },
+    {
     title: "Dashashwamedh Ghat: The Grand Evening Ganga Aarti",
     category: "Varanasi Ghats",
     description:
