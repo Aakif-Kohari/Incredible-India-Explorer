@@ -79,6 +79,13 @@ window.indiaSearchIndex = [
     url: "frontend/alibaug-beach/index.html"
     },
     {
+    title: "Rameswaram Beach — Tamil Nadu",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Rameswaram Beach (Agni Theertham) on Pamban Island, Tamil Nadu — the sacred confluence of the Bay of Bengal and Gulf of Mannar, 22 temple theerthams, Pamban Bridge, and Dhanushkodi.",
+    url: "frontend/rameswaram-beach/index.html"
+    },
+    {
     title: "Chauri Chaura Incident (1922) Explorer",
     category: "Freedom Struggle",
     description:
