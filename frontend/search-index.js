@@ -6139,5 +6139,14 @@ window.indiaSearchIndex = [
         description:
             "Explore Usha Mehta's heroic historical profile — the 22-year-old freedom fighter who operated the secret underground Congress Radio during the Quit India Movement in 1942, featuring an interactive 42.34m radio tuner simulator, biography, Yerwada trial, and Padma Vibhushan legacy.",
         url: "frontend/usha-mehta-explorer/index.html"
+    },
+
+    // --- Brahmaputra Flood Hazards Explorer ---
+    {
+        title: "Brahmaputra Flood Hazards — Assam",
+        category: "Nature & Wildlife",
+        description:
+            "Explore why Assam floods every year — Brahmaputra basin geography, seasonal flood cycles, contributing factors, vulnerable regions, community and ecosystem impacts, flood-management measures and disaster preparedness guidance.",
+        url: "frontend/brahmaputra-flood-hazards/index.html"
     }
 ];
