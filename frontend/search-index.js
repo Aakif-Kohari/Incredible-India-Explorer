@@ -6148,5 +6148,13 @@ window.indiaSearchIndex = [
         description:
             "Explore why Assam floods every year — Brahmaputra basin geography, seasonal flood cycles, contributing factors, vulnerable regions, community and ecosystem impacts, flood-management measures and disaster preparedness guidance.",
         url: "frontend/brahmaputra-flood-hazards/index.html"
+    },
+    // --- Add Begum Rokeya historical profile ---
+    {
+        title: "Begum Rokeya — Pioneer of Women's Education in Bengal",
+        category: "History & Royalty",
+        description:
+            "Explore Begum Rokeya's historical profile: writer, educator, and social reformer who established Sakhawat Memorial Girls' School and wrote Sultana's Dream.",
+        url: "frontend/begum-rokeya-explorer/index.html"
     }
 ];
