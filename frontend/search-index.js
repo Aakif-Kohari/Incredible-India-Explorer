@@ -10,6 +10,13 @@ window.indiaSearchIndex = [
         description:
             'Explore Naya Ghat in Varanasi: its historical development from 18th-century Phota Ghat, 19th-century sandstone masonry renewal, spacious bathing terraces, boat docking culture, riverfront Shiva and Hanuman shrines, and Dev Deepawali glow.',
         url: 'frontend/naya-ghat/index.html'},
+    {
+        title: 'Rewa Ghat — Varanasi Royal Riverfront Legacy Profile',
+        category: 'Heritage & Architecture',
+        description:
+            'Explore Rewa Ghat in Varanasi: its origin as Lala Mishir Ghat, 1879 purchase and renaming by the Baghela Maharaja of Rewa, the sandstone Rewa Kothi palace and its ardhstambh retaining wall, neighbouring Tulsi and Kedar Ghat temples, and its present life as a Banaras Hindu University arts hostel.',
+        url: 'frontend/rewa-ghat/index.html'
+    },
   {
         title: 'Causatthi Ghat — Varanasi Sixty-Four Yoginis & Shakta Heritage Profile',
         category: 'Heritage & Pilgrimage',
@@ -22,6 +29,7 @@ window.indiaSearchIndex = [
         description:
             'Explore Munshi Ghat in Varanasi: its 1912 construction by Sridhara Narayana Munshi (Finance Minister of Nagpur), royal Darbhanga Palace lineage, fusion of Greco-Roman colonnades and Maratha stone masonry, carved jharokhas, and Dev Deepawali illumination.',
         url: 'frontend/munshi-ghat/index.html'},
+
   {
         title: 'Daraganj Ghat — Prayagraj Historic Riverfront & Sangam Profile',
         category: 'Heritage & Pilgrimage',
@@ -47,7 +55,13 @@ window.indiaSearchIndex = [
     category: "Varanasi Ghats",
     description:
         "Explore Dashashwamedh Ghat — its mythological origin, proximity to Kashi Vishwanath Temple, and the iconic nightly Ganga Aarti ceremony.",
-    url: "frontend/dashashwamedh-ghat/index.html"
+    url: "frontend/dashashwamedh-ghat/index.html"},
+  {
+    title: "Scindia Ghat: The Partially Submerged Shiva Temple",
+    category: "Varanasi Ghats",
+    description:
+        "Explore Scindia Ghat — its Maratha royal heritage and the famously leaning Ratneshwar Mahadev Temple, partially submerged in the Ganges for over 150 years.",
+    url: "frontend/scindia-ghat/index.html"
     },
     // --- Harishchandragad Trek ---
     {
