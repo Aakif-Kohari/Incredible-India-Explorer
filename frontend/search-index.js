@@ -6148,5 +6148,13 @@ window.indiaSearchIndex = [
         description:
             "Explore why Assam floods every year — Brahmaputra basin geography, seasonal flood cycles, contributing factors, vulnerable regions, community and ecosystem impacts, flood-management measures and disaster preparedness guidance.",
         url: "frontend/brahmaputra-flood-hazards/index.html"
+    },
+    // --- Add Fatima Sheikh historical profile ---
+    {
+        title: "Fatima Sheikh — The Forgotten Pioneer of Girls' Education",
+        category: "History & Royalty",
+        description:
+            "Explore Fatima Sheikh's historical profile: Pune's first Muslim female teacher, co-founder of girls' schools, and close educational associate of Savitribai Phule.",
+        url: "frontend/fatima-sheikh-explorer/index.html"
     }
 ];
