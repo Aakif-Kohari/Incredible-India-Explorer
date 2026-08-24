@@ -6272,5 +6272,14 @@ window.indiaSearchIndex = [
         description:
             "Explore Kadambini Ganguly's historical profile: one of the first two female graduates of the British Empire, the first woman admitted to Calcutta Medical College, and India's first practising woman physician of Western medicine.",
         url: "frontend/kadambini-ganguly-explorer/index.html"
+    },
+
+    // --- Drought Hazards of Rajasthan Explorer (#3570) ---
+    {
+        title: "Drought Hazards of Rajasthan — Arid Zone Water Scarcity",
+        category: "Geology & Disasters",
+        description:
+            "Explore drought in Rajasthan: Thar arid geography, monsoon rainfall gradient, western drought hotspots, agricultural and water-scarcity impacts, johad and tanka traditions, and drought preparedness.",
+        url: "frontend/rajasthan-drought-hazards/index.html"
     }
 ];
