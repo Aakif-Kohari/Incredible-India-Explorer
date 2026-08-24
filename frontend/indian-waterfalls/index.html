@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waterfalls of India | Interactive Explorer</title>
+    <meta name="description"
+        content="Discover the majestic waterfalls of India. Explore interactive maps, filter by height and region, and find the best monsoon cascades.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar waterfalls-nav" role="banner">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo" aria-label="Return to Home">
+                <span class="saffron">Incredible</span> <span class="gold">India</span> <span
+                    class="green">Explorer</span>
+            </a>
+            <nav class="nav-menu" role="navigation">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="#map" class="nav-link">Map</a>
+                <a href="#explore" class="nav-link">Explore</a>
+                <a href="#stats" class="nav-link">Stats</a>
+            </nav>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        </div>
+    </header>
+
+    <main role="main">
+        <section class="hero-section waterfalls-hero" id="home">
+            <div class="hero-overlay" aria-hidden="true"></div>
+            <div class="hero-content animate-on-scroll">
+                <h1 class="hero-title">Waterfalls of <span class="accent">India</span></h1>
+                <p class="hero-subtitle">Journey through the misty cascades, roaring monsoon falls, and hidden forest
+                    streams of the subcontinent.</p>
+                <div class="hero-stats">
+                    <div class="stat-item"><span id="total-falls">0</span><span class="stat-label">Waterfalls</span>
+                    </div>
+                    <div class="stat-item"><span id="total-states">0</span><span class="stat-label">States</span></div>
+                </div>
+                <button class="btn-explore-hero"
+                    onclick="document.getElementById('explore').scrollIntoView({behavior:'smooth'})">Explore Waterfalls
+                    💧</button>
+            </div>
+        </section>
+
+        <section class="map-section" id="map">
+            <h2 class="section-title">Interactive Waterfall Map</h2>
+            <div class="map-container" role="img" aria-label="Map of India showing waterfall locations" id="india-map">
+                <!-- Map pins populated by JS -->
+            </div>
+        </section>
+
+        <section class="explorer-section" id="explore">
+            <h2 class="section-title">Explore Cascades</h2>
+            <div class="filter-bar">
+                <input type="text" id="search-input" placeholder="Search waterfall name..."
+                    aria-label="Search waterfalls">
+                <select id="filter-state" aria-label="Filter by State">
+                    <option value="all">All States</option>
+                </select>
+                <select id="filter-type" aria-label="Filter by Type">
+                    <option value="all">All Types</option>
+                </select>
+                <select id="filter-season" aria-label="Filter by Season">
+                    <option value="all">All Seasons</option>
+                </select>
+            </div>
+            <div class="category-tabs" role="tablist">
+                <button class="cat-btn active" data-cat="all">All</button>
+                <button class="cat-btn" data-cat="highest">Highest</button>
+                <button class="cat-btn" data-cat="monsoon">Monsoon</button>
+                <button class="cat-btn" data-cat="hidden">Hidden</button>
+                <button class="cat-btn" data-cat="multi-tier">Multi-tier</button>
+            </div>
+            <div class="waterfalls-grid" id="waterfalls-grid" role="list">
+                <!-- Populated by components.js -->
+            </div>
+        </section>
+
+        <section class="stats-section" id="stats">
+            <h2 class="section-title">Waterfall Statistics</h2>
+            <div class="stats-grid" id="stats-grid">
+                <!-- Populated by components.js -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Incredible India Explorer. Waterfalls of India.</p>
+    </footer>
+
+    <script src="data.js" defer></script>
+    <script src="components.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

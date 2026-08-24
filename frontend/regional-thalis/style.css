@@ -144,7 +144,7 @@ body {
     background-color: var(--card-bg);
     border-radius: 20px;
     padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     border: 1px solid var(--border-color);
 }
 
@@ -152,7 +152,7 @@ body {
     width: 100%;
     max-width: 500px;
     height: auto;
-    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.15));
 }
 
 /* Interactive SVG Elements */
@@ -162,9 +162,11 @@ body {
     transform-origin: center;
 }
 
-.dish:hover, .dish:focus-visible, .dish.active-dish {
+.dish:hover,
+.dish:focus-visible,
+.dish.active-dish {
     transform: scale(1.1);
-    filter: brightness(1.1) drop-shadow(0 8px 12px rgba(0,0,0,0.3));
+    filter: brightness(1.1) drop-shadow(0 8px 12px rgba(0, 0, 0, 0.3));
     outline: none;
 }
 
@@ -182,7 +184,7 @@ body {
     background-color: var(--card-bg);
     border-radius: 20px;
     padding: 2.5rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     border: 1px solid var(--border-color);
     min-height: 400px;
     display: flex;
@@ -259,14 +261,220 @@ body {
     .info-panel {
         position: static;
     }
-    
+
     .info-card {
         min-height: auto;
     }
 }
 
 @media (max-width: 600px) {
-    .hero-title { font-size: 2rem; }
-    .region-btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
-    .thali-container { padding: 1rem; }
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .region-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .thali-container {
+        padding: 1rem;
+    }
+}
+
+
+/* ================================================================
+   INTERACTIVE MAP (added for state-based thali selection)
+   ================================================================ */
+.map-layout {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2rem;
+    align-items: start;
+    margin-bottom: 3rem;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.map-background {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10%;
+    opacity: 0.9;
+}
+
+.markers-layer {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    pointer-events: none;
+}
+
+.food-marker {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    background-color: var(--card-bg);
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    pointer-events: auto;
+    z-index: 10;
+}
+
+.food-marker:hover,
+.food-marker.active-marker {
+    transform: translate(-50%, -50%) scale(1.4);
+    z-index: 20;
+    box-shadow: 0 6px 12px rgba(230, 81, 0, 0.4);
+    background-color: var(--primary-color);
+}
+
+.food-marker.active-marker {
+    border-color: #fff;
+}
+
+.food-marker:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+}
+
+.marker-tooltip {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s;
+    pointer-events: none;
+}
+
+.food-marker:hover .marker-tooltip,
+.food-marker:focus-visible .marker-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Region info panel */
+.region-panel {
+    position: sticky;
+    top: 2rem;
+}
+
+.region-card {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    min-height: 400px;
+}
+
+.region-title {
+    font-size: 1.7rem;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+}
+
+.region-state {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.region-description {
+    margin-bottom: 1.5rem;
+}
+
+.region-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.fact-block {
+    background-color: var(--bg-color);
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+}
+
+.fact-block h3 {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    color: var(--text-main);
+}
+
+.fact-block p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.region-details.hidden {
+    display: none;
+}
+
+/* Thali layout toggling */
+.thali-layout.hidden {
+    display: none;
+}
+
+/* Credits section */
+.credits-section {
+    max-width: 800px;
+    margin: 2rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.credits-section p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .map-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .map-container {
+        aspect-ratio: 4 / 3;
+    }
+
+    .region-panel {
+        position: static;
+    }
+
+    .region-card {
+        min-height: auto;
+    }
 }

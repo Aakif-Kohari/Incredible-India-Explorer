@@ -156,7 +156,7 @@ if (themeBtn && !themeBtn.dataset.listenerBound) {
     function detectPrefix() {
         const subdirPatterns = ['/frontend/states/', '/frontend/forts/', '/freedom-timeline/', '/handloom/',
             '/kingdoms/', '/postal-stamps/', '/traditional-games/', '/toys/',
-            '/geological-wonders/', '/innovation-timeline/'];
+            '/geological-wonders/', '/innovation-timeline/', '/frontend/islands/'];
         const isSubdir = subdirPatterns.some(p => window.location.pathname.includes(p));
         return isSubdir ? '../' : './';
     }
@@ -265,6 +265,7 @@ const TRIBES_DATA = [
         region: 'south',
         image: 'assets/Todatr.png',
         detailImage: 'assets/Todatr.png',
+        explorerLink: '../toda-language-explorer/index.html',
         cardDesc: 'A pastoral tribe known for unique embroidery, dairy traditions and harmonious living.',
         states: ['Tamil Nadu (Nilgiris)'],
         population: '1,600+',
@@ -549,6 +550,10 @@ function initTribesPage() {
                     <h2>${t.name} Tribe</h2>
                 </div>
                 <p class="tribes-detail-desc">${t.overview}</p>
+                ${t.explorerLink ? `
+                <a href="${t.explorerLink}" class="tribes-detail-explore-btn">
+                    🗣️ Explore ${t.name} Language <span>›</span>
+                </a>` : ''}
                 <div class="tribes-detail-stats">
                     <div class="tribes-detail-stat">
                         <span class="stat-icon"><i class="fa-solid fa-location-dot"></i></span>
