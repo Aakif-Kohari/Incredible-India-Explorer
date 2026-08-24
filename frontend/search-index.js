@@ -6272,5 +6272,13 @@ window.indiaSearchIndex = [
         description:
             "Explore Kadambini Ganguly's historical profile: one of the first two female graduates of the British Empire, the first woman admitted to Calcutta Medical College, and India's first practising woman physician of Western medicine.",
         url: "frontend/kadambini-ganguly-explorer/index.html"
+    },
+    // --- 2023 Himachal Pradesh Floods & Landslides Explorer (#3566) ---
+    {
+        title: "2023 Himachal Pradesh Floods & Landslides — Monsoon Disaster Profile",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 2023 Himachal Pradesh monsoon disaster: extreme July rainfall, Beas and Satluj flooding, deadly landslides at Summer Hill and Jadoon, highway and heritage-railway damage, NDRF–Army–IAF relief, and mountain disaster preparedness lessons.",
+        url: "frontend/himachal-floods-2023-explorer/index.html"
     }
 ];
