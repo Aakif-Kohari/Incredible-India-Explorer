@@ -6222,5 +6222,13 @@ window.indiaSearchIndex = [
         description:
             "Explore Anis Kidwai's historical profile: writer, social worker, and Rajya Sabha Member of Parliament who documented Partition in 'Azadi Ki Chhaon Mein' and led refugee rehabilitation.",
         url: "frontend/anis-kidwai-explorer/index.html"
+    },
+    // --- Add Kadambini Ganguly historical profile ---
+    {
+        title: "Kadambini Ganguly — The Woman Who Broke Barriers in Indian Medicine",
+        category: "History & Royalty",
+        description:
+            "Explore Kadambini Ganguly's historical profile: one of the first two female graduates of the British Empire, the first woman admitted to Calcutta Medical College, and India's first practising woman physician of Western medicine.",
+        url: "frontend/kadambini-ganguly-explorer/index.html"
     }
 ];
