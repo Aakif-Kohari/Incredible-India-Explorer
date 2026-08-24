@@ -58,6 +58,13 @@ window.indiaSearchIndex = [
         url: 'frontend/chembra-peak-trek/index.html'
     },
     {
+        title: 'Agasthyarkoodam Trek & UNESCO Biosphere Reserve (Thiruvananthapuram, Kerala) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Agasthyarkoodam Trek (1,868m) in Thiruvananthapuram, Kerala. UNESCO Agasthyamala Biosphere Reserve, over 2,000 medicinal plant species (Arogyapacha), Athirumala base camp, forest permits, 2-day route guide, and image gallery.',
+        url: 'frontend/agasthyarkoodam-trek/index.html'
+    },
+    {
     title: "Dashashwamedh Ghat: The Grand Evening Ganga Aarti",
     category: "Varanasi Ghats",
     description:

@@ -134,6 +134,15 @@ const treks = [
         season: ['Autumn', 'Winter', 'Spring'],
         description: 'A trek up Wayanad’s highest peak featuring tea gardens, Shola forests, and a perennial heart-shaped lake.',
         url: 'https://www.keralatourism.org/destination/chembra-peak-wayanad/185'
+    },
+    {
+        name: 'Agasthyarkoodam Trek',
+        state: 'Kerala',
+        difficulty: 'Difficult',
+        days: 2,
+        season: ['Winter', 'Spring'],
+        description: 'A 2-day UNESCO Biosphere Reserve trek in Thiruvananthapuram featuring 2,000+ medicinal plants and Athirumala base camp.',
+        url: 'https://www.keralatourism.org/destination/agasthyakoodam-biological-park/449'
     }
 ];
 
