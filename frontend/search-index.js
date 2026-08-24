@@ -86,6 +86,13 @@ window.indiaSearchIndex = [
         url: 'frontend/queen-didda-kashmir/index.html'
     },
     {
+        title: 'Queen Naiki Devi & The Battle of Kasahrada (1178 CE) — Chaulukya Resistance Profile',
+        category: 'Historical Rulers & Dynasties',
+        description:
+            'Explore Queen Naiki Devi & Battle of Kasahrada (1178 CE). Chaulukya Queen Regent, defeat of Muhammad Ghori at Mount Abu, regency for Mularaja II, historical evidence vs retellings, battle map, timeline, and academic sources.',
+        url: 'frontend/naiki-devi-kasahrada/index.html'
+    },
+    {
     title: "Dashashwamedh Ghat: The Grand Evening Ganga Aarti",
     category: "Varanasi Ghats",
     description:
