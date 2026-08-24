@@ -65,6 +65,13 @@ window.indiaSearchIndex = [
         url: 'frontend/agasthyarkoodam-trek/index.html'
     },
     {
+        title: 'Meesapulimala Trek & High Montane Grasslands (Munnar, Kerala) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Meesapulimala Trek (2,640m) in Munnar, Kerala. South India’s 2nd highest peak, Rhodo Valley Rhododendron blooms, high montane Shola grasslands, interactive route map, route guide, and image gallery.',
+        url: 'frontend/meesapulimala-trek/index.html'
+    },
+    {
     title: "Dashashwamedh Ghat: The Grand Evening Ganga Aarti",
     category: "Varanasi Ghats",
     description:
