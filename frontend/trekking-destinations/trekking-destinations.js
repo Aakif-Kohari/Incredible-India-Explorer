@@ -143,6 +143,15 @@ const treks = [
         season: ['Winter', 'Spring'],
         description: 'A 2-day UNESCO Biosphere Reserve trek in Thiruvananthapuram featuring 2,000+ medicinal plants and Athirumala base camp.',
         url: 'https://www.keralatourism.org/destination/agasthyakoodam-biological-park/449'
+    },
+    {
+        name: 'Meesapulimala Trek',
+        state: 'Kerala',
+        difficulty: 'Moderate',
+        days: 1,
+        season: ['Autumn', 'Winter', 'Spring'],
+        description: 'A trek to South India’s 2nd highest peak (2,640m) featuring Rhodo Valley blooms and high montane grasslands.',
+        url: 'https://mookambikaimpex.in/destination/meesapulimala'
     }
 ];
 
