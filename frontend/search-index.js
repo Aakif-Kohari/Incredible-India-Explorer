@@ -86,6 +86,12 @@ window.indiaSearchIndex = [
     url: "frontend/alibaug-beach/index.html"
     },
     {
+    title: "Elephant Beach — Andaman & Nicobar Islands",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Elephant Beach on Havelock Island (Swaraj Dweep), Andaman & Nicobar Islands — shallow coral reefs, snorkeling, sea walking, scuba diving, and tropical rainforest trails.",
+    url: "frontend/elephant-beach/index.html"},
+  {
     title: "Rameswaram Beach — Tamil Nadu",
     category: "Beaches & Coastline",
     description:
