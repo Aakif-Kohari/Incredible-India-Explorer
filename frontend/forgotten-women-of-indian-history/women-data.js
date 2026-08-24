@@ -1094,6 +1094,21 @@ const WOMEN_PROFILES = [
         mapCoords: { lat: 24.3, lng: 93.6 }
     },
     {
+        id: "begum-rokeya",
+        url: "../begum-rokeya-explorer/",
+        name: "Begum Rokeya",
+        era: "post-independence",
+        eraLabel: "1880 – 1932 CE",
+        region: "Pairaband (Rangpur, Bengal Presidency)",
+        category: "writers",
+        contribution: "Founded the Sakhawat Memorial Girls' School and authored the landmark feminist science fiction work 'Sultana's Dream'.",
+        bio: "Pioneering writer, educator, and social reformer who championed women's education, challenged gender restrictions, and established South Asia's first wave of feminist institutions in Bengal.",
+        dynasty: "Bengal Renaissance & Education Reform",
+        featured: true,
+        icon: "🎓",
+        mapCoords: { lat: 25.59, lng: 89.28 }
+  },
+  {
         id: "anis-kidwai",
         url: "../anis-kidwai-explorer/",
         name: "Anis Kidwai",
