@@ -823,6 +823,21 @@ const WOMEN_PROFILES = [
         mapCoords: { lat: 11.7, lng: 75.4 }
     },
     {
+        id: "bibha-chowdhuri",
+        url: "../bibha-chowdhuri-explorer/",
+        name: "Dr. Bibha Chowdhuri",
+        era: "freedom-struggle",
+        eraLabel: "1913 – 1991 CE",
+        region: "Kolkata (West Bengal) & Bombay (Maharashtra)",
+        category: "scientists",
+        contribution: "Pioneering Indian woman physicist who studied cosmic rays and elementary particles; first woman scientist at TIFR and co-author of landmark Nature papers in the 1940s.",
+        bio: "Discovered new cosmic-ray particles using nuclear emulsion technique at IACS alongside D.M. Bose, and later joined Homi Bhabha at TIFR as its first woman scientist — helping build India's particle-physics program.",
+        dynasty: "Cosmic Ray & Particle Physics",
+        featured: true,
+        icon: "✨",
+        mapCoords: { lat: 22.57, lng: 88.36 }
+    },
+    {
         id: "asima-chatterjee",
         name: "Dr. Asima Chatterjee",
         era: "post-independence",
