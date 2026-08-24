@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pro Kabaddi League Trophy — Interactive archive of PKL trophy, teams, seasons, champions, star players, venues, records and a season-by-season champion timeline.">
+  <title>Pro Kabaddi League Trophy | Incredible India Explorer</title>
+
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="pkl-archive-page">
+
+  <script>
+    (function() {
+      let theme = 'dark';
+      try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+      if (theme === 'light') { document.body.classList.add('light-theme'); }
+    })();
+  </script>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../sports/sports.html" class="nav-link active">Sports</a>
+        <a href="#timeline" class="nav-link">Champions Timeline</a>
+        <a href="#teams" class="nav-link">Teams</a>
+        <a href="#stars" class="nav-link">Star Players</a>
+        <a href="#quiz" class="nav-link">Quiz</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pkl-hero" id="hero">
+    <div class="hero-badge">🏆 Modern Indian Kabaddi</div>
+    <h1>Pro Kabaddi League Trophy</h1>
+    <p class="hero-subtitle">
+      The story of how a village pastime became a 200-million-viewer
+      televised league — explore the trophy, the franchises, the
+      dynasties, the raiders, and the defenders who defined a decade
+      of PKL.
+    </p>
+
+    <!-- Key Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">2014</div>
+        <div class="stat-label">Inaugural Season</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">12</div>
+        <div class="stat-label">Active Franchises</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10</div>
+        <div class="stat-label">Completed Seasons</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Patna Pirates Dynasty</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sub-Navigation Sticky Bar -->
+  <nav class="subnav-bar">
+    <div class="subnav-container">
+      <button class="subnav-btn active" data-target="trophy">Trophy</button>
+      <button class="subnav-btn" data-target="timeline">Champions Timeline</button>
+      <button class="subnav-btn" data-target="teams">Teams</button>
+      <button class="subnav-btn" data-target="seasons">Seasons</button>
+      <button class="subnav-btn" data-target="stars">Star Players</button>
+      <button class="subnav-btn" data-target="venues">Venues</button>
+      <button class="subnav-btn" data-target="records">Records</button>
+      <button class="subnav-btn" data-target="quiz">Quiz</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Section 1: Trophy -->
+    <section class="archive-section" id="trophy">
+      <div class="section-header">
+        <span class="section-tag">The Trophy</span>
+        <h2>The Pro Kabaddi League Trophy</h2>
+        <p>Click the trophy card to read about its design and significance.</p>
+      </div>
+      <div class="trophy-display" id="trophy-display">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </section>
+
+    <!-- Section 2: Champions Timeline (Interactive Feature) -->
+    <section class="archive-section" id="timeline">
+      <div class="section-header">
+        <span class="section-tag">Interactive Feature</span>
+        <h2>Season-by-Season Champion Timeline</h2>
+        <p>
+          Drag the slider to walk through every PKL season from 2014 to today.
+          The champion, runner-up, top raider, top defender, and season MVP
+          update in real time.
+        </p>
+      </div>
+
+      <div class="timeline-card">
+        <div class="timeline-slider-row">
+          <label for="season-slider" class="timeline-label">
+            Season <span id="timeline-season-label">1</span> · <span id="timeline-year-label">2014</span>
+          </label>
+          <input
+            type="range"
+            id="season-slider"
+            min="0"
+            max="9"
+            step="1"
+            value="0"
+            aria-label="PKL season selector"
+            data-testid="season-slider"
+          />
+          <div class="timeline-ticks" id="timeline-ticks">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <div class="timeline-detail" id="timeline-detail">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Teams -->
+    <section class="archive-section" id="teams">
+      <div class="section-header">
+        <span class="section-tag">The Franchises</span>
+        <h2>Pro Kabaddi League Teams</h2>
+        <p>Filter by city, search by franchise name, or sort by titles.</p>
+      </div>
+
+      <div class="search-filter-box">
+        <input
+          type="text"
+          id="team-search"
+          class="search-input"
+          placeholder="Search team or city..."
+          data-testid="team-search"
+        />
+        <select id="team-sort" class="select-filter" data-testid="team-sort">
+          <option value="name-asc">Name (A → Z)</option>
+          <option value="name-desc">Name (Z → A)</option>
+          <option value="titles-desc">Most Titles</option>
+          <option value="founded-asc">Oldest First</option>
+        </select>
+      </div>
+
+      <div class="team-grid" id="team-cards-container" data-testid="team-grid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </section>
+
+    <!-- Section 4: Seasons -->
+    <section class="archive-section" id="seasons">
+      <div class="section-header">
+        <span class="section-tag">All Seasons</span>
+        <h2>Complete Season Archive</h2>
+        <p>A table of every PKL season with champion, runner-up, and top performers.</p>
+      </div>
+
+      <div class="season-table-wrap" data-testid="season-table-wrap">
+        <table class="season-table" id="season-table">
+          <thead>
+            <tr>
+              <th>Season</th>
+              <th>Year</th>
+              <th>Champion</th>
+              <th>Runner-up</th>
+              <th>Top Raider</th>
+              <th>Top Defender</th>
+              <th>MVP</th>
+            </tr>
+          </thead>
+          <tbody id="season-table-body">
+            <!-- Rendered dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 5: Star Players -->
+    <section class="archive-section" id="stars">
+      <div class="section-header">
+        <span class="section-tag">Legends of the Mat</span>
+        <h2>Star Players of the Pro Kabaddi League</h2>
+        <p>Click any player card for their full bio and signature moves.</p>
+      </div>
+
+      <div class="star-grid" id="star-cards-container" data-testid="star-grid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </section>
+
+    <!-- Section 6: Venues -->
+    <section class="archive-section" id="venues">
+      <div class="section-header">
+        <span class="section-tag">Where the Action Lives</span>
+        <h2>Major PKL Venues</h2>
+        <p>The arenas that have hosted Grand Finals and league legs.</p>
+      </div>
+
+      <div class="venue-grid" id="venue-cards-container" data-testid="venue-grid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </section>
+
+    <!-- Section 7: Records -->
+    <section class="archive-section" id="records">
+      <div class="section-header">
+        <span class="section-tag">Major Records</span>
+        <h2>Pro Kabaddi League — All-Time Records</h2>
+        <p>The numbers that define a decade of PKL.</p>
+      </div>
+
+      <div class="records-grid" id="records-container" data-testid="records-grid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </section>
+
+    <!-- Section 8: Quiz -->
+    <section class="archive-section" id="quiz">
+      <div class="section-header" style="text-align: center;">
+        <span class="section-tag">Interactive Quiz</span>
+        <h2>Test Your PKL Knowledge</h2>
+        <p>Five questions on champions, players, and records.</p>
+      </div>
+
+      <div class="quiz-card" id="quiz-box">
+        <div id="quiz-content" data-testid="quiz-content">
+          <!-- Dynamically loaded quiz question -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="detail-modal" data-testid="detail-modal">
+    <div class="modal-content">
+      <button class="close-modal-btn" id="modal-close-btn" aria-label="Close">&times;</button>
+      <div id="modal-body-content">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align:center; padding:40px 20px; background:#070a10; border-top:1px solid rgba(255,255,255,0.08); font-size:0.9rem; color:var(--text-muted);">
+    <p>© 2026 Incredible India Explorer. Celebrating a decade of Pro Kabaddi League.</p>
+  </footer>
+
+  <!-- Script Imports -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>

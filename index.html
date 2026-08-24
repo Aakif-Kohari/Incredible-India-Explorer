@@ -2,6 +2,27 @@
 <html lang="en">
 
 <head>
+    <script>
+        // Force clear Service Worker caches for the redesign
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                for(let registration of registrations) {
+                    registration.unregister();
+                }
+            });
+            caches.keys().then(function(names) {
+                for (let name of names) caches.delete(name);
+            });
+        }
+    </script>
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
@@ -327,7 +348,7 @@
     <link rel="preload" href="./assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="./assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="./assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
-<!-- Custom Stylesheet -->
+    <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="frontend/navbar-redesign/navbar.css">
     <link rel="stylesheet" href="frontend/js-modules/language-switcher.css">
@@ -345,7 +366,7 @@
 <body>
     <script>
         (function () {
-            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch (e) { }
             if (theme === 'light') {
                 document.body.classList.add('light-theme');
             }
@@ -363,80 +384,90 @@
 
     <!-- Sticky Navigation Bar -->
     <header class="navbar" id="navbar">
-    <div class="nav-container">
-        <a href="index.html#home" class="nav-logo" id="nav-logo">
-            <span class="saffron">Incredible</span>
-            <span class="gold">India</span>
-            <span class="green">Explorer</span>
-        </a>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-        <nav class="nav-menu" id="nav-menu">
-            <a href="index.html#home" class="nav-link active" id="link-home">Home</a>
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link active" id="link-home">Home</a>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
-                <div class="dropdown-menu">
-                    <a href="index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
-                    <a href="frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
-                    <a href="frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
-                    <a href="frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports</a>
-                    <a href="frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="index.html#map" class="dropdown-item">Interactive Map</a>
+                        <a href="frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                        <a href="frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports</a>
+                        <a href="frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                        <a href="frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
-                <div class="dropdown-menu">
-                    <a href="frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
-                    <a href="frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
-                    <a href="frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
-                    <a href="frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
-                    <a href="frontend/awards-of-india-explorer/index.html" class="dropdown-item">Awards of India</a>
-                    <a href="frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
-                    <a href="frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
-                    <a href="frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
-                    <a href="frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                        <a href="frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                        <a href="frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                        <a href="frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                        <a href="frontend/national-symbols-gallery/national-symbols-gallery.html"
+                            class="dropdown-item">National Symbols</a>
+                        <a href="frontend/awards-of-india-explorer/index.html" class="dropdown-item">Awards of India</a>
+                        <a href="frontend/forgotten-women-of-indian-history/" class="dropdown-item" style="color: var(--primary-gold);" data-no-route="true">Forgotten Women</a>
+                        <a href="frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                        <a href="frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                        <a href="frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                        <a href="frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
-                <div class="dropdown-menu">
-                    <a href="frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
-                    <a href="frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
-                    <a href="frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
-                    <a href="frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
-                    <a href="frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                        <a href="frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife
+                            Rescue</a>
+                        <a href="frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &
+                            Fauna</a>
+                        <a href="frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                        <a href="frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                        <a href="frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
-                <div class="dropdown-menu">
-                    <a href="frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
-                    <a href="frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
-                    <a href="frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
-                    <a href="frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
-                    <a href="frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                        <a href="frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                        <a href="frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                        <a href="frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                        <a href="frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
-                <div class="dropdown-menu">
-                    <a href="frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
-                    <a href="frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                        <a href="frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                    </div>
                 </div>
-            </div>
 
+ feature/add-bina-das-profile
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Heroes ▾</button>
                 <div class="dropdown-menu">
@@ -448,6 +479,14 @@
         </nav>
     </div>
 </header>
+
+                <div class="nav-tools" style="display: flex; align-items: center; gap: 0.5rem; margin-left: 1rem;">
+                    <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+ main
 
     <!-- Loading Overlay (shown during SPA page transitions) -->
     <div id="app-loading-overlay" class="app-loading-overlay" style="display:none;" role="status" aria-live="polite">
@@ -467,9 +506,11 @@
             <video autoplay muted loop class="hero-video" poster="frontend/assets/hero_banner.png">
 
             </video>
-            <div class="hero-overlay" style="background: linear-gradient(180deg, rgba(5,10,21,0.1) 0%, rgba(5,10,21,0.6) 100%);"></div>
+            <div class="hero-overlay"
+                style="background: linear-gradient(180deg, rgba(5,10,21,0.1) 0%, rgba(5,10,21,0.6) 100%);"></div>
 
-            <div class="hero-content premium-glass-card animate-premium-slide-up" style="max-width: 800px; text-align: center; margin: 0 20px;">
+            <div class="hero-content premium-glass-card animate-premium-slide-up"
+                style="max-width: 800px; text-align: center; margin: 0 20px;">
                 <span class="hero-tagline animate-fade-in" data-i18n="home.heroTagline">Discover the land of diversity,
                     spices & heritage</span>
                 <h1 class="hero-title animate-slide-up">Namaste, Welcome to <br><span class="highlight">Incredible
@@ -479,10 +520,9 @@
                     monuments, mouth-watering regional cuisines, colorful festivals, and timeless cultural arts.
                 </p>
                 <div class="hero-buttons animate-fade-in-delayed">
-                    <a href="#map" class="btn btn-primary" id="btn-explore-map" data-i18n="home.exploreMap">Explore
-                        Map</a>
-                    <a href="#quiz" class="btn btn-secondary" id="btn-start-quiz-hero" data-i18n="home.takeQuiz">Take a
-                        Quiz</a>
+                    <a href="#map" class="btn btn-primary" id="btn-explore-map" data-i18n="home.exploreMap">Explore Map</a>
+                    <a href="frontend/forgotten-women-of-indian-history/" class="btn btn-secondary" style="border-color: var(--primary-gold); color: var(--primary-gold);" data-no-route="true">Forgotten Women</a>
+                    <a href="#quiz" class="btn btn-secondary" id="btn-start-quiz-hero" data-i18n="home.takeQuiz">Take a Quiz</a>
                 </div>
             </div>
             <div class="hero-scroll-indicator">
@@ -492,6 +532,9 @@
                 </div>
             </div>
         </section>
+
+        <!-- Daily India Trivia Widget -->
+        <div id="daily-trivia-container" aria-label="Daily India Trivia"></div>
 
         <!-- Map Section -->
         <section id="map" class="map-section scroll-section fade-in-section">
@@ -870,8 +913,8 @@
     <div id="app-toast-container" class="app-toast-container" aria-live="polite" aria-relevant="additions removals">
     </div>
 
-    <!-- Scroll To Top Button -->
-    <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
+    <!-- Scroll To Top Button-->
+    <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">↑</button>
 
     <!-- Bharat Guide AI FAB & Chat Window -->
     <div class="bharat-guide-container">
@@ -921,7 +964,7 @@
 
     <!-- JavaScript Files -->
     <script src="frontend/dist/map-data.js" defer></script>
-    <script src="frontend/dist/home-data.js" defer></script>
+    <script src="frontend/dist/home-data.js?v=2" defer></script>
     <script src="frontend/chatbot-data.js" defer></script>
     <script src="frontend/sw-register.js" defer></script>
     <script src="frontend/js-modules/config.js" defer></script>
@@ -931,6 +974,7 @@
     <script type="module" src="frontend/auth.js"></script>
     <script src="frontend/router.js" defer></script>
     <script src="frontend/navbar-redesign/navbar.js" defer></script>
+    <script src="frontend/js-modules/daily-trivia.js" defer></script>
 
     <!-- SW Update handler – runs after sw-register.js -->
     <script>
@@ -958,6 +1002,7 @@
         });
     </script>
 
+    <script src="frontend/search-index.js"></script>
     <script type="module" src="frontend/js-modules/command-palette.js"></script>
     <script type="module" src="frontend/js-modules/language-switcher.js"></script>
     <button id="install-pwa-btn" class="pwa-install-btn" style="display:none;">
@@ -969,5 +1014,7 @@
         </svg>
         Install App
     </button>
+
 </body>
+
 </html>

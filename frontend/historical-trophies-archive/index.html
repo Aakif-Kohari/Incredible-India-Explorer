@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Indian Sporting Trophies Named After Historical Figures - Interactive digital archive showcasing Ranji Trophy, Durand Cup, Major Dhyan Chand Khel Ratna, Santosh Trophy, Vijay Hazare, Subroto Cup, Nehru Trophy Boat Race, and more.">
+  <title>Sporting Trophies Named After Historical Figures | Incredible India Explorer</title>
+
+  <!-- Favicon & Stylesheets -->
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="trophies-archive-page">
+  <script>
+    (function() {
+      let theme = 'dark';
+      try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+      if (theme === 'light') { document.body.classList.add('light-theme'); }
+    })();
+  </script>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../sports/sports.html" class="nav-link active">Sports</a>
+        <a href="#catalog" class="nav-link">Trophy Catalog</a>
+        <a href="#matching-game" class="nav-link">Matching Game</a>
+        <a href="#quiz" class="nav-link">Trophy Quiz</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="trophy-hero" id="hero">
+    <div class="hero-badge">🏆 Historical Sports Heritage</div>
+    <h1>Indian Sporting Trophies Named After Historical Figures</h1>
+    <p class="hero-subtitle">
+      Explore the fascinating stories behind India's premier sporting awards and cups — named in honor of Maharajas, freedom fighters, military commanders, prime ministers, and legendary sports pioneers.
+    </p>
+
+    <!-- Key Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">16+</div>
+        <div class="stat-label">Historic Trophies & Awards</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1888</div>
+        <div class="stat-label">Oldest Cup (Durand Cup)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Major Sports Covered</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">National Heritage</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sub-Navigation Sticky Bar -->
+  <nav class="subnav-bar">
+    <div class="subnav-container">
+      <button class="subnav-btn active" data-target="catalog">Trophy Catalog</button>
+      <button class="subnav-btn" data-target="matching-game">Namesake Matching Game</button>
+      <button class="subnav-btn" data-target="quiz">Trophy Heritage Quiz</button>
+    </div>
+  </nav>
+
+  <!-- Main Content Body -->
+  <main>
+    <!-- Section 1: Interactive Trophy Catalog -->
+    <section class="archive-section" id="catalog">
+      <div class="section-header">
+        <span class="section-tag">Archive Catalog</span>
+        <h2>Explore Historic Trophies & Their Namesakes</h2>
+        <p>Filter by sport, search by trophy name or historical figure, and click any card for detailed biography & historical significance.</p>
+      </div>
+
+      <!-- Search & Category Filters -->
+      <div class="search-filter-box">
+        <input type="text" id="trophy-search" class="search-input" placeholder="Search trophy, namesake, or sport...">
+        <select id="sport-filter" class="select-filter">
+          <option value="all">All Sports</option>
+          <option value="Cricket">Cricket</option>
+          <option value="Football">Football</option>
+          <option value="Multi-Sport">Multi-Sport Awards</option>
+          <option value="Hockey">Field Hockey</option>
+          <option value="Traditional Sports">Traditional Boat Racing</option>
+        </select>
+        <select id="namesake-filter" class="select-filter">
+          <option value="all">All Namesake Categories</option>
+          <option value="Royalty & Pioneers">Royalty & Royal Patrons</option>
+          <option value="Sports Legends">Sports Legends & Champions</option>
+          <option value="Freedom Fighters">Freedom Fighters & Leaders</option>
+          <option value="Military Pioneers">Military Pioneers</option>
+        </select>
+      </div>
+
+      <!-- Trophy Cards Grid -->
+      <div class="trophy-grid" id="trophy-cards-container">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive Trophy & Namesake Matcher -->
+    <section class="archive-section" id="matching-game">
+      <div class="section-header">
+        <span class="section-tag">Interactive Challenge</span>
+        <h2>Match the Trophy to Its Historical Namesake</h2>
+        <p>Click a trophy on the left, then select its corresponding historical figure on the right!</p>
+      </div>
+
+      <div class="matching-game-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+          <h3 style="color:var(--primary-gold); margin:0;">Namesake Matching Challenge</h3>
+          <span id="match-score-badge" style="font-weight:700; color:#38bdf8; font-size:1.1rem;">Score: 0 / 8</span>
+        </div>
+
+        <div class="matching-grid">
+          <div id="trophy-tiles-column">
+            <h4 style="color:var(--text-muted); font-size:0.9rem; text-transform:uppercase; margin-bottom:12px;">Step 1: Select Trophy</h4>
+            <div id="trophies-tiles-container" style="display:flex; flex-direction:column; gap:10px;">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <div id="namesake-tiles-column">
+            <h4 style="color:var(--text-muted); font-size:0.9rem; text-transform:uppercase; margin-bottom:12px;">Step 2: Match Historical Figure</h4>
+            <div id="namesakes-tiles-container" style="display:flex; flex-direction:column; gap:10px;">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Trophy Heritage Quiz -->
+    <section class="archive-section" id="quiz">
+      <div class="section-header" style="text-align: center;">
+        <span class="section-tag">Interactive Quiz</span>
+        <h2>Test Your Historical Sports Knowledge</h2>
+        <p>Answer 5 questions on the historical figures behind India's famous sporting cups.</p>
+      </div>
+
+      <div class="quiz-card" id="quiz-box">
+        <div id="quiz-content">
+          <!-- Dynamically loaded quiz question -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Trophy Detail Modal Overlay -->
+  <div class="modal-overlay" id="trophy-modal">
+    <div class="modal-content">
+      <button class="close-modal-btn" id="modal-close-btn">&times;</button>
+      <div id="modal-body-content">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align:center; padding:40px 20px; background:#070a10; border-top:1px solid rgba(255,255,255,0.08); font-size:0.9rem; color:var(--text-muted);">
+    <p>© 2026 Incredible India Explorer. Celebrating Indian Sporting Trophies & Historical Legends.</p>
+  </footer>
+
+  <!-- Script Imports -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>

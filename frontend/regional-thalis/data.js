@@ -5,6 +5,11 @@ const THALI_DATA = {
     gujarati: {
         title: "Gujarati Thali",
         description: "A harmonious blend of sweet, spicy, and tangy flavors, typically entirely vegetarian.",
+        state: "Gujarat",
+        mapCoordinates: { x: 18, y: 48 },
+        servingTradition: "Served with unlimited refills at most thali restaurants; small katoris (bowls) of dal, kadhi, and shaak are arranged around a central mound of rice and roti, so every flavor — sweet, salty, spicy, and tangy — is tasted in balance across the meal.",
+        festivalConnection: "Undhiyu, a mixed-vegetable dish slow-cooked in earthen pots, is closely tied to Uttarayan (Makar Sankranti) in January, when it's traditionally prepared with fresh winter vegetables.",
+        culturalSignificance: "The thali's all-vegetarian, sweet-leaning profile reflects the strong Jain and Vaishnav influence across Gujarat, while its generous, ever-refilled servings embody the region's well-known trading-community hospitality.",
         svgId: "gujarati-svg",
         dishes: {
             "kadhi": {
@@ -44,6 +49,11 @@ const THALI_DATA = {
     bengali: {
         title: "Bengali Thali",
         description: "Known for subtle yet fiery flavors, heavy use of mustard oil, and a balance of vegetarian and non-vegetarian dishes.",
+        state: "West Bengal",
+        mapCoordinates: { x: 72, y: 42 },
+        servingTradition: "Traditionally served course by course rather than all at once — a bitter shukto starter, then dal, then vegetable and fish curries, and finally chutney and mishti (sweets) — following a deliberate sequence from bitter to sweet.",
+        festivalConnection: "Elaborate Bengali thalis with multiple fish preparations mark Poila Boishakh (Bengali New Year) and Durga Puja, when families and community feasts (bhog) centre on machh-bhaat (fish and rice).",
+        culturalSignificance: "Fish and rice sit at the heart of Bengali identity, captured in the phrase 'machhe bhate bangali,' and the thali's course-by-course structure reflects a broader Bengali food culture that treats a meal as a considered progression of flavors.",
         svgId: "bengali-svg",
         dishes: {
             "luchi": {
@@ -83,6 +93,11 @@ const THALI_DATA = {
     rajasthani: {
         title: "Rajasthani Thali",
         description: "Rich, vibrant, and incredibly flavorful, heavily reliant on ghee, dairy, and spices suited for arid climates.",
+        state: "Rajasthan",
+        mapCoordinates: { x: 25, y: 32 },
+        servingTradition: "Baati is served hot and cracked open at the table, doused generously in ghee, alongside dal and churma; buttermilk (chaas) is poured throughout the meal to counter the desert heat and the richness of the ghee.",
+        festivalConnection: "Dal Baati Churma is the centrepiece of festive and wedding meals across Rajasthan, and is prepared in large batches during Teej and Gangaur, two major Rajasthani festivals celebrating monsoon and marital harmony.",
+        culturalSignificance: "Born of the Thar Desert's scarce water and fresh produce, the thali's reliance on ghee, dried lentils, and hardy desert vegetables like ker and sangri reflects centuries of adaptation to an arid climate, alongside the region's famed Marwari hospitality.",
         svgId: "rajasthani-svg",
         dishes: {
             "dal": {
@@ -122,6 +137,11 @@ const THALI_DATA = {
     "south-indian": {
         title: "South Indian Thali (Meals)",
         description: "Served traditionally on a banana leaf, featuring a sequence of rice-based courses with diverse gravies.",
+        state: "Tamil Nadu",
+        mapCoordinates: { x: 48, y: 88 },
+        servingTradition: "Dishes follow a set arrangement on the banana leaf — rice in the centre, sambar and rasam poured in turn over successive rice portions, curries and poriyal along the top edge, and a sweet payasam in the top-right corner — eaten seated, traditionally with the right hand.",
+        festivalConnection: "A full banana-leaf 'meals' thali is served at Pongal, Tamil Nadu's harvest festival, where freshly harvested rice and jaggery-based sweet Pongal mark the occasion, and at temple festivals as prasadam.",
+        culturalSignificance: "Serving food on a banana leaf — still common at temples and weddings — reflects an old South Indian practice of eating on biodegradable, easily disposed leaf plates, and the sequential rice-and-gravy structure mirrors a meal built for digestion in a hot, humid climate.",
         svgId: "south-indian-svg",
         dishes: {
             "rice": {
@@ -153,6 +173,182 @@ const THALI_DATA = {
                 name: "Payasam",
                 ingredients: ["Milk", "Jaggery or Sugar", "Vermicelli or Rice", "Cashews"],
                 description: "A rich, sweet pudding served as dessert to conclude the meal."
+            }
+        }
+    },
+
+    // ----------------- PUNJABI THALI -----------------
+    punjabi: {
+        title: "Punjabi Thali",
+        description: "Hearty and generous, built around wheat, dairy, and robust spicing that reflects Punjab's farming heartland.",
+        state: "Punjab",
+        mapCoordinates: { x: 32, y: 18 },
+        servingTradition: "Served with a large dollop of white butter or ghee melting over the dal and roti, and always accompanied by a tall glass of lassi; portions are generous, reflecting Punjab's reputation for open-handed hospitality.",
+        festivalConnection: "Sarson da Saag with Makki di Roti is closely associated with Lohri and Baisakhi, the winter bonfire and harvest festivals that mark the mustard and wheat seasons in Punjab.",
+        culturalSignificance: "The thali's richness in wheat, dairy, and butter mirrors Punjab's identity as India's breadbasket, and its generous, come-again-for-more serving style echoes the community langar tradition of Sikh gurdwaras, where a full free meal is offered to all visitors.",
+        svgId: "punjabi-svg",
+        dishes: {
+            "dal-makhani": {
+                name: "Dal Makhani",
+                ingredients: ["Black lentils", "Kidney beans", "Butter", "Cream", "Tomato"],
+                description: "Slow-simmered black lentils finished with butter and cream for a rich, velvety curry."
+            },
+            "sarson-saag": {
+                name: "Sarson da Saag",
+                ingredients: ["Mustard greens", "Spinach", "Maize flour", "Ginger", "Garlic"],
+                description: "A slow-cooked mustard-greens curry, traditionally paired with maize flatbread."
+            },
+            "makki-roti": {
+                name: "Makki di Roti",
+                ingredients: ["Maize flour", "Water", "Butter"],
+                description: "A rustic, hand-pressed flatbread made from maize flour, eaten with saag and butter."
+            },
+            "paneer": {
+                name: "Paneer Makhani",
+                ingredients: ["Paneer (cottage cheese)", "Tomato", "Cream", "Butter", "Spices"],
+                description: "Cubes of soft cottage cheese in a rich, buttery tomato gravy."
+            },
+            "chole": {
+                name: "Pindi Chole",
+                ingredients: ["Chickpeas", "Tea leaves (for colour)", "Pomegranate seed powder", "Spices"],
+                description: "A dark, tangy chickpea curry from Rawalpindi, distinctively spiced and slow-cooked."
+            },
+            "lassi": {
+                name: "Lassi",
+                ingredients: ["Yogurt", "Water or milk", "Sugar"],
+                description: "A thick, chilled yogurt drink served in a tall glass to round off the meal."
+            }
+        }
+    },
+
+    // ----------------- MAHARASHTRIAN THALI -----------------
+    maharashtrian: {
+        title: "Maharashtrian Thali",
+        description: "A vibrant mix of mild and fiery dishes built around jowar and bajra flatbreads, showcasing the state's signature goda masala spice blend.",
+        state: "Maharashtra",
+        mapCoordinates: { x: 28, y: 58 },
+        servingTradition: "Traditionally plated with condiments and salads on the left, rice in the centre, breads at the bottom, and curries and dals on the right — a deliberate arrangement that balances the plate visually as well as nutritionally.",
+        festivalConnection: "Puran Poli, a sweet lentil-stuffed flatbread, is the signature dish of Gudi Padwa (the Maharashtrian New Year), while modak — a steamed rice-flour dumpling — is offered during Ganesh Chaturthi.",
+        culturalSignificance: "The thali's blend of coastal Konkan influences (coconut, seafood) and inland Deccan flavors (millets, tur dal, goda masala) reflects Maharashtra's geographic diversity, from the Arabian Sea coast to the Deccan plateau.",
+        svgId: "maharashtrian-svg",
+        dishes: {
+            "bhakri": {
+                name: "Jowar Bhakri",
+                ingredients: ["Sorghum (jowar) flour", "Water", "Salt"],
+                description: "A hand-patted, unleavened millet flatbread, a Maharashtrian staple over wheat roti."
+            },
+            "amti": {
+                name: "Varan-Amti",
+                ingredients: ["Toor dal", "Goda masala", "Tamarind", "Jaggery"],
+                description: "A mildly sweet-and-sour lentil curry spiced with Maharashtra's distinctive goda masala blend."
+            },
+            "bharli-vangi": {
+                name: "Bharli Vangi",
+                ingredients: ["Small eggplants", "Peanuts", "Coconut", "Goda masala"],
+                description: "Baby eggplants stuffed with a spiced peanut-coconut filling and slow-cooked."
+            },
+            "pitla": {
+                name: "Pitla",
+                ingredients: ["Gram flour (besan)", "Onion", "Green chili", "Garlic"],
+                description: "A quick, thick gram-flour curry, a humble everyday staple across rural Maharashtra."
+            },
+            "kothimbir-vadi": {
+                name: "Kothimbir Wadi",
+                ingredients: ["Gram flour", "Coriander leaves", "Sesame seeds", "Spices"],
+                description: "Steamed-then-fried coriander and gram-flour cutlets, a popular savory snack."
+            },
+            "puran-poli": {
+                name: "Puran Poli",
+                ingredients: ["Chana dal", "Jaggery", "Whole wheat flour", "Ghee", "Cardamom"],
+                description: "A sweet flatbread stuffed with jaggery-lentil filling, central to festive Maharashtrian meals."
+            }
+        }
+    },
+
+    // ----------------- KERALA SADYA -----------------
+    "kerala-sadya": {
+        title: "Kerala Sadya",
+        description: "A grand, entirely vegetarian banana-leaf feast built on Ayurvedic principles of balancing all six tastes in one meal.",
+        state: "Kerala",
+        mapCoordinates: { x: 38, y: 90 },
+        servingTradition: "Served in a fixed order on a banana leaf placed narrow-end to the diner's left: rice takes the centre, with pickles and chips at the top, curries added in sequence around the rice, and payasam served last in a small bowl or directly onto the leaf.",
+        festivalConnection: "The Sadya is inseparable from Onam, Kerala's harvest festival, when a full ceremonial version can run to 26 or more dishes; a simpler Sadya is also served at Vishu and temple festivals.",
+        culturalSignificance: "Rooted in Ayurvedic food philosophy, the Sadya is designed to balance sweet, sour, salty, bitter, pungent, and astringent tastes within a single meal, and its shared banana-leaf seating is treated as an act of communal hospitality regardless of caste or status.",
+        svgId: "kerala-sadya-svg",
+        dishes: {
+            "rice": {
+                name: "Kerala Matta Rice",
+                ingredients: ["Parboiled red rice"],
+                description: "Nutty, reddish-brown rice that forms the base of the Sadya, served with a dollop of ghee."
+            },
+            "sambar": {
+                name: "Sambar",
+                ingredients: ["Toor dal", "Mixed vegetables", "Tamarind", "Coconut", "Sambar powder"],
+                description: "A coconut-enriched lentil stew tempered with mustard seeds and curry leaves."
+            },
+            "avial": {
+                name: "Avial",
+                ingredients: ["Mixed vegetables", "Coconut", "Yogurt", "Curry leaves", "Coconut oil"],
+                description: "A thick medley of vegetables in a coconut-yogurt gravy, a Sadya centrepiece."
+            },
+            "thoran": {
+                name: "Thoran",
+                ingredients: ["Shredded vegetables (often cabbage or beans)", "Grated coconut", "Mustard seeds"],
+                description: "A dry, coconut-flecked stir-fried vegetable dish."
+            },
+            "pachadi": {
+                name: "Pachadi",
+                ingredients: ["Yogurt", "Coconut", "Cucumber or pineapple", "Mustard seeds"],
+                description: "A sweet-tart yogurt-based side that cools the palate between spicier dishes."
+            },
+            "payasam": {
+                name: "Payasam",
+                ingredients: ["Rice or vermicelli", "Milk or coconut milk", "Jaggery", "Cashews", "Cardamom"],
+                description: "A rich milk-and-jaggery pudding served last, marking the close of the feast."
+            }
+        }
+    },
+
+    // ----------------- ASSAMESE THALI -----------------
+    assamese: {
+        title: "Assamese Thali",
+        description: "A clean, mildly spiced meal centred on fresh, local ingredients, mustard oil, and the distinctive tang of khar and tenga preparations.",
+        state: "Assam",
+        mapCoordinates: { x: 85, y: 38 },
+        servingTradition: "Traditionally served in bell-metal utensils (kahi and bati), the meal follows a set order — khar first to aid digestion, then rice with fish or meat curries, and a sour tenga to close, all eaten with the right hand.",
+        festivalConnection: "Pitha (rice cakes) and laru (coconut or til sweets) are prepared in abundance for Bihu, Assam's major harvest and New Year festival celebrated three times a year.",
+        culturalSignificance: "The thali's emphasis on minimal spicing and fresh, foraged ingredients like banana-skin ash reflects Assam's lush river-valley ecology, and its use of bell-metal serving ware connects to Assam's historic Sarthebari brass and bell-metal craft tradition.",
+        svgId: "assamese-svg",
+        dishes: {
+            "khar": {
+                name: "Khar",
+                ingredients: ["Raw papaya", "Lentils", "Alkaline filtrate of banana-skin ash"],
+                description: "A distinctive alkaline curry that traditionally opens an Assamese meal, believed to aid digestion."
+            },
+            "tenga": {
+                name: "Masor Tenga",
+                ingredients: ["Fish (often rohu)", "Tomato or lemon", "Elephant apple", "Mustard oil"],
+                description: "A light, tangy fish curry that traditionally closes the meal on a sour note."
+            },
+            "poitabhat": {
+                name: "Poita Bhat",
+                ingredients: ["Cooked rice (soaked overnight)", "Mustard oil", "Onion", "Green chili"],
+                description: "Fermented overnight rice, garnished simply and eaten as a refreshing dish, especially in summer."
+            },
+            "pitika": {
+                name: "Aloo Pitika",
+                ingredients: ["Boiled potato", "Mustard oil", "Onion", "Green chili", "Coriander"],
+                description: "A simply mashed potato dish seasoned with raw mustard oil, a comfort-food staple."
+            },
+            "bor": {
+                name: "Bor (Fritters)",
+                ingredients: ["Gram flour or rice flour", "Vegetables", "Oil"],
+                description: "Light, crisp fritters served as a side to add texture to the meal."
+            },
+            "laru": {
+                name: "Narikolor Laru",
+                ingredients: ["Grated coconut", "Jaggery", "Cardamom"],
+                description: "Sweet coconut-jaggery balls, a festive treat especially associated with Bihu."
             }
         }
     }
@@ -334,6 +530,165 @@ const SVG_TEMPLATES = {
             <g id="papadum" class="dish" tabindex="0" role="button" aria-label="Papadum">
                 <circle cx="80" cy="200" r="40" fill="#ffecb3" stroke="#d4bb79" stroke-width="2"/>
                 <text x="80" y="204" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#f57f17">Papad</text>
+            </g>
+        </svg>
+    `,
+
+    "punjabi": `
+        <svg viewBox="0 0 400 400" id="punjabi-svg" class="thali-svg" aria-label="Punjabi Thali Illustration">
+            <circle cx="200" cy="200" r="180" fill="#e0e0e0" stroke="#bdbdbd" stroke-width="8"/>
+            <circle cx="200" cy="200" r="170" fill="#f5f5f5"/>
+
+            <g id="dal-makhani" class="dish" tabindex="0" role="button" aria-label="Dal Makhani">
+                <ellipse cx="200" cy="260" rx="80" ry="50" fill="#4e342e" stroke="#3e2723" stroke-width="4"/>
+                <text x="200" y="265" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif" fill="#fff">Dal Makhani</text>
+            </g>
+
+            <g id="sarson-saag" class="dish" tabindex="0" role="button" aria-label="Sarson da Saag">
+                <circle cx="100" cy="110" r="38" fill="#c8e6c9" stroke="#7cb342" stroke-width="4"/>
+                <circle cx="100" cy="110" r="27" fill="#33691e"/>
+                <text x="100" y="114" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#fff">Saag</text>
+            </g>
+
+            <g id="makki-roti" class="dish" tabindex="0" role="button" aria-label="Makki di Roti">
+                <circle cx="180" cy="85" r="36" fill="#fff9c4" stroke="#c7b971" stroke-width="4"/>
+                <text x="180" y="89" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#f57f17">Roti</text>
+            </g>
+
+            <g id="paneer" class="dish" tabindex="0" role="button" aria-label="Paneer Makhani">
+                <circle cx="270" cy="95" r="36" fill="#ffccbc" stroke="#e64a19" stroke-width="4"/>
+                <circle cx="270" cy="95" r="24" fill="#f4511e"/>
+                <text x="270" y="99" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#fff">Paneer</text>
+            </g>
+
+            <g id="chole" class="dish" tabindex="0" role="button" aria-label="Pindi Chole">
+                <circle cx="320" cy="180" r="34" fill="#d7ccc8" stroke="#8d6e63" stroke-width="4"/>
+                <circle cx="320" cy="180" r="23" fill="#5d4037"/>
+                <text x="320" y="184" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#fff">Chole</text>
+            </g>
+
+            <g id="lassi" class="dish" tabindex="0" role="button" aria-label="Lassi">
+                <rect x="255" y="250" width="34" height="44" rx="6" fill="#fffde7" stroke="#e6d97a" stroke-width="3"/>
+                <text x="272" y="276" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#f57f17">Lassi</text>
+            </g>
+        </svg>
+    `,
+
+    "maharashtrian": `
+        <svg viewBox="0 0 400 400" id="maharashtrian-svg" class="thali-svg" aria-label="Maharashtrian Thali Illustration">
+            <circle cx="200" cy="200" r="180" fill="#e0e0e0" stroke="#bdbdbd" stroke-width="8"/>
+            <circle cx="200" cy="200" r="170" fill="#f5f5f5"/>
+
+            <g id="bhakri" class="dish" tabindex="0" role="button" aria-label="Jowar Bhakri">
+                <circle cx="200" cy="280" r="46" fill="#f5f5dc" stroke="#c7b971" stroke-width="4"/>
+                <text x="200" y="284" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#8d6e63">Bhakri</text>
+            </g>
+
+            <g id="amti" class="dish" tabindex="0" role="button" aria-label="Varan Amti">
+                <circle cx="110" cy="120" r="38" fill="#ffe0b2" stroke="#f57c00" stroke-width="4"/>
+                <circle cx="110" cy="120" r="27" fill="#ef6c00"/>
+                <text x="110" y="124" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#fff">Amti</text>
+            </g>
+
+            <g id="bharli-vangi" class="dish" tabindex="0" role="button" aria-label="Bharli Vangi">
+                <circle cx="190" cy="90" r="35" fill="#d1c4e9" stroke="#5e35b1" stroke-width="4"/>
+                <circle cx="190" cy="90" r="24" fill="#4527a0"/>
+                <text x="190" y="94" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#fff">Vangi</text>
+            </g>
+
+            <g id="pitla" class="dish" tabindex="0" role="button" aria-label="Pitla">
+                <circle cx="270" cy="95" r="35" fill="#fff9c4" stroke="#c7b971" stroke-width="4"/>
+                <circle cx="270" cy="95" r="24" fill="#fbc02d"/>
+                <text x="270" y="99" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#fff">Pitla</text>
+            </g>
+
+            <g id="kothimbir-vadi" class="dish" tabindex="0" role="button" aria-label="Kothimbir Wadi">
+                <circle cx="320" cy="170" r="32" fill="#c8e6c9" stroke="#43a047" stroke-width="4"/>
+                <text x="320" y="174" text-anchor="middle" font-size="8" font-family="sans-serif" fill="#1b5e20">Wadi</text>
+            </g>
+
+            <g id="puran-poli" class="dish" tabindex="0" role="button" aria-label="Puran Poli">
+                <circle cx="270" cy="270" r="34" fill="#ffe082" stroke="#ffa000" stroke-width="4"/>
+                <text x="270" y="274" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#e65100">Poli</text>
+            </g>
+        </svg>
+    `,
+
+    "kerala-sadya": `
+        <svg viewBox="0 0 400 400" id="kerala-sadya-svg" class="thali-svg" aria-label="Kerala Sadya Illustration">
+            <path d="M 20 200 C 50 50, 350 50, 380 200 C 350 350, 50 350, 20 200 Z" fill="#81c784" stroke="#4caf50" stroke-width="4"/>
+            <path d="M 20 200 C 150 200, 250 200, 380 200" fill="none" stroke="#4caf50" stroke-width="2"/>
+
+            <g id="rice" class="dish" tabindex="0" role="button" aria-label="Kerala Matta Rice">
+                <ellipse cx="200" cy="260" rx="80" ry="50" fill="#d7834b" stroke="#a85c2e" stroke-width="4"/>
+                <text x="200" y="265" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif" fill="#fff">Matta Rice</text>
+            </g>
+
+            <g id="sambar" class="dish" tabindex="0" role="button" aria-label="Sambar">
+                <circle cx="100" cy="110" r="35" fill="#ffe0b2" stroke="#cca264" stroke-width="4"/>
+                <circle cx="100" cy="110" r="25" fill="#f57c00"/>
+                <text x="100" y="114" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#fff">Sambar</text>
+            </g>
+
+            <g id="avial" class="dish" tabindex="0" role="button" aria-label="Avial">
+                <circle cx="180" cy="90" r="35" fill="#dcedc8" stroke="#7cb342" stroke-width="4"/>
+                <circle cx="180" cy="90" r="25" fill="#558b2f"/>
+                <text x="180" y="94" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#fff">Avial</text>
+            </g>
+
+            <g id="thoran" class="dish" tabindex="0" role="button" aria-label="Thoran">
+                <circle cx="260" cy="90" r="35" fill="#c8e6c9" stroke="#90af92" stroke-width="4"/>
+                <circle cx="260" cy="90" r="25" fill="#2e7d32"/>
+                <text x="260" y="94" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#fff">Thoran</text>
+            </g>
+
+            <g id="pachadi" class="dish" tabindex="0" role="button" aria-label="Pachadi">
+                <circle cx="320" cy="140" r="30" fill="#fff9c4" stroke="#c7b971" stroke-width="4"/>
+                <text x="320" y="144" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#f57f17">Pachadi</text>
+            </g>
+
+            <g id="payasam" class="dish" tabindex="0" role="button" aria-label="Payasam">
+                <circle cx="80" cy="200" r="38" fill="#fff3e0" stroke="#d4bb79" stroke-width="2"/>
+                <text x="80" y="204" text-anchor="middle" font-size="10" font-weight="bold" font-family="sans-serif" fill="#f57f17">Payasam</text>
+            </g>
+        </svg>
+    `,
+
+    "assamese": `
+        <svg viewBox="0 0 400 400" id="assamese-svg" class="thali-svg" aria-label="Assamese Thali Illustration">
+            <circle cx="200" cy="200" r="180" fill="#d7ccc8" stroke="#a1887f" stroke-width="8"/>
+            <circle cx="200" cy="200" r="170" fill="#f5f5f5"/>
+
+            <g id="poitabhat" class="dish" tabindex="0" role="button" aria-label="Poita Bhat">
+                <ellipse cx="200" cy="260" rx="80" ry="50" fill="#ffffff" stroke="#e0e0e0" stroke-width="4"/>
+                <text x="200" y="265" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#555">Poita Bhat</text>
+            </g>
+
+            <g id="khar" class="dish" tabindex="0" role="button" aria-label="Khar">
+                <circle cx="100" cy="110" r="36" fill="#dcedc8" stroke="#9ccc65" stroke-width="4"/>
+                <circle cx="100" cy="110" r="25" fill="#7cb342"/>
+                <text x="100" y="114" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#fff">Khar</text>
+            </g>
+
+            <g id="tenga" class="dish" tabindex="0" role="button" aria-label="Masor Tenga">
+                <circle cx="180" cy="90" r="35" fill="#fff9c4" stroke="#c7b971" stroke-width="4"/>
+                <circle cx="180" cy="90" r="24" fill="#fbc02d"/>
+                <text x="180" y="94" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#fff">Tenga</text>
+            </g>
+
+            <g id="pitika" class="dish" tabindex="0" role="button" aria-label="Aloo Pitika">
+                <circle cx="260" cy="90" r="35" fill="#fff3e0" stroke="#d4bb79" stroke-width="4"/>
+                <text x="260" y="94" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#a1887f">Pitika</text>
+            </g>
+
+            <g id="bor" class="dish" tabindex="0" role="button" aria-label="Bor">
+                <circle cx="320" cy="150" r="30" fill="#ffe0b2" stroke="#f57c00" stroke-width="4"/>
+                <text x="320" y="154" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#e65100">Bor</text>
+            </g>
+
+            <g id="laru" class="dish" tabindex="0" role="button" aria-label="Narikolor Laru">
+                <circle cx="270" cy="270" r="32" fill="#f5f5dc" stroke="#c7b971" stroke-width="4"/>
+                <text x="270" y="274" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#8d6e63">Laru</text>
             </g>
         </svg>
     `

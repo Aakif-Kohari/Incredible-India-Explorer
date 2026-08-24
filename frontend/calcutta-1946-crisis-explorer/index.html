@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="1946 Calcutta Crisis Explorer — a historically sensitive interactive journey through the Great Calcutta Killings of August 1946, placing the violence within the political crisis surrounding Direct Action Day, the transfer of power, and the road to Partition.">
+    <title>1946 Calcutta Crisis Explorer | Incredible India Explorer</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+    <meta property="og:title" content="1946 Calcutta Crisis Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Explore the Great Calcutta Killings of August 1946 — the political crisis, Direct Action Day, the events of August 1946, the human impact, and the road to Partition.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_IN">
+</head>
+
+<body class="cc-page-body">
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Road to Partition ▾</button>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item">1946 Calcutta Crisis</a>
+                    <a href="../cabinet-mission-plan-explorer/index.html" class="dropdown-item">Cabinet Mission Plan (1946)</a>
+                    <a href="../independence-partition-1947-explorer/index.html" class="dropdown-item">Independence &amp; Partition, 1947</a>
+                    <a href="../partition-1947/partition-1947.html" class="dropdown-item">Partition of 1947</a>
+                    <a href="../freedom-movement-explorer/index.html" class="dropdown-item">Freedom Movement Explorer</a>
+                </div>
+            </div>
+
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+    <main class="cc-main">
+        <!-- Hero Banner -->
+        <section class="cc-hero">
+            <span class="cc-kicker">🇮🇳 Road to Partition · 1946</span>
+            <h1>1946 Calcutta Crisis</h1>
+            <p class="cc-hero-tagline">The Great Calcutta Killings &amp; the Fracturing of a City</p>
+            <p>In August 1946, the political deadlock over India's future descended into three days of catastrophic communal violence in the streets of Calcutta. The <strong>Great Calcutta Killings</strong> — rooted in the crisis around the Muslim League's "Direct Action Day" — killed several thousand people and shattered the belief that a united India could survive. This explorer traces the events with historical care, honouring the human cost while explaining the political crisis from which the violence grew.</p>
+
+            <div class="cc-hero-stats">
+                <div class="cc-hero-stat">
+                    <strong>16 Aug 1946</strong>
+                    <span>Direct Action Day</span>
+                </div>
+                <div class="cc-hero-stat">
+                    <strong>≈ 4,000</strong>
+                    <span>Estimated Deaths</span>
+                </div>
+                <div class="cc-hero-stat">
+                    <strong>3 Days</strong>
+                    <span>Main Violence (16–19 Aug)</span>
+                </div>
+                <div class="cc-hero-stat">
+                    <strong>1947</strong>
+                    <span>Partition of Bengal</span>
+                </div>
+            </div>
+
+            <button class="cc-bookmark-btn journey-bookmark-btn" type="button" data-bookmark-id="calcutta-1946-main" aria-pressed="false" aria-label="Bookmark 1946 Calcutta Crisis Explorer">♡ Save to Journey</button>
+
+            <p class="cc-content-note">⚠️ <strong>A note on sensitivity:</strong> This is a solemn chapter of Indian history involving the loss of thousands of lives from all communities. The events are presented respectfully, with emphasis on historical context, causes, and consequences — never on graphic detail. Please read with care.</p>
+        </section>
+
+        <!-- Navigation Tabs -->
+        <nav class="cc-nav-tabs" aria-label="Explorer sections">
+            <button class="cc-tab active" data-tab="overview">🌍 Political Background</button>
+            <button class="cc-tab" data-tab="calcutta">🏙️ Calcutta Context</button>
+            <button class="cc-tab" data-tab="direct-action">🔥 Direct Action Day</button>
+            <button class="cc-tab" data-tab="events">📅 Events of August 1946</button>
+            <button class="cc-tab" data-tab="map">🗺️ Historical Map</button>
+            <button class="cc-tab" data-tab="spread">🧭 Spread of Violence</button>
+            <button class="cc-tab" data-tab="impact">🕊️ Human Impact</button>
+            <button class="cc-tab" data-tab="response">🏛️ Administrative Response</button>
+            <button class="cc-tab" data-tab="reactions">⚖️ Political Reactions</button>
+            <button class="cc-tab" data-tab="bengal">🌾 Wider Bengal &amp; Aftermath</button>
+            <button class="cc-tab" data-tab="timeline">🕰️ Interactive Timeline</button>
+            <button class="cc-tab" data-tab="references">📚 References</button>
+        </nav>
+
+        <!-- Political Background -->
+        <section id="overview" class="cc-section active">
+            <div class="cc-content-card">
+                <h2>🌍 Political Background</h2>
+                <div class="cc-content">
+                    <p>The violence of August 1946 was not a spontaneous outbreak. It emerged from a <strong>constitutional and political crisis</strong> that had been building for a generation — over how power would be transferred from British rule to Indian hands, and over the demand for a separate Muslim homeland.</p>
+                    <p>By 1946 the key fault-lines were fixed:</p>
+                    <ul class="cc-list">
+                        <li><strong>British withdrawal planned:</strong> The Labour government of Clement Attlee had decided that Britain must leave India, and dispatched the <strong>Cabinet Mission</strong> (March 1946) to negotiate a transfer of power.</li>
+                        <li><strong>The Lahore Resolution (1940):</strong> The Muslim League, under <strong>Muhammad Ali Jinnah</strong>, had demanded independent Muslim-majority states in the north-west and north-east of India — the idea of Pakistan.</li>
+                        <li><strong>Congress versus League:</strong> The Indian National Congress stood for a single, united India; the League insisted that Muslims were a separate nation entitled to self-determination.</li>
+                        <li><strong>Grouping deadlock:</strong> The Cabinet Mission's May 1946 plan proposed a loose federation with provinces grouped into sections. Congress read the grouping as optional; the League read it as compulsory — and the gap proved unbridgeable.</li>
+                    </ul>
+                    <p>When the Cabinet Mission collapsed in July 1946, Jinnah withdrew the League's acceptance of the plan and announced a policy of <strong>"Direct Action"</strong> to achieve Pakistan — beginning with a call for a day of protest and hartal across India.</p>
+                    <p class="cc-quote">"We have tried every method to achieve our freedom... Today we bid goodbye to constitutional methods... Direct action is the last resort." — <em>Muhammad Ali Jinnah, declaring Direct Action Day, July 1946</em></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calcutta Context -->
+        <section id="calcutta" class="cc-section">
+            <div class="cc-content-card">
+                <h2>🏙️ Calcutta Context</h2>
+                <div class="cc-content">
+                    <p>Why did the violence erupt in Calcutta, of all places? Several conditions converged:</p>
+                    <ul class="cc-list">
+                        <li><strong>Nearly equal communities:</strong> Calcutta's population in 1946 was roughly evenly divided between Hindus and Muslims — a delicate demographic balance in a densely packed, fast-growing metropolis.</li>
+                        <li><strong>A Muslim League ministry in Bengal:</strong> Bengal was governed by a League-led coalition under Chief Minister <strong>H. S. Suhrawardy</strong>. The League therefore controlled the province's police and administration.</li>
+                        <li><strong>Economic distress:</strong> The 1943 Bengal Famine had killed millions and left the city swollen with refugees and desperately poor migrants, many living in cramped bustees (slums) and along the streets.</li>
+                        <li><strong>Frayed communal relations:</strong> Years of political polarisation over Pakistan, wartime scarcity, and inflammatory rhetoric had left communities distrustful and fearful.</li>
+                        <li><strong>A political battleground:</strong> For the League, Calcutta — the capital of a Muslim-majority province but a Hindu-majority city — was a symbol of the fight for Pakistan's eastern wing. A great show of Muslim strength here would demonstrate the demand was real.</li>
+                    </ul>
+                    <p>Historian Joya Chatterji notes that in the League's eyes, a successful Direct Action Day in Calcutta would prove that Muslims of the eastern zone were united and would not be ignored. The stage was set for confrontation in the city's crowded centre.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Direct Action Day -->
+        <section id="direct-action" class="cc-section">
+            <div class="cc-content-card">
+                <h2>🔥 Direct Action Day</h2>
+                <div class="cc-content">
+                    <p>On <strong>16 August 1946</strong>, the Muslim League called a "hartal" (general strike) across India — a day of protest demanding Pakistan. The focus was Calcutta.</p>
+                    <p>That morning, large Muslim crowds gathered at the <strong>Ochterlony Monument (now Shaheed Minar)</strong> in the Maidan. A procession through the city's centre — down Dharmatala Street (today's Lenin Sarani), Chowringhee, and into the densely populated lanes of central Calcutta — was marked by speeches, slogans, and the ransacking of some shops. As crowds pressed through mixed neighbourhoods, clashes broke out.</p>
+                    <p>What began as a demonstration of political strength quickly spiralled out of control. Violence escalated through the afternoon and night of 16 August, and continued on a catastrophic scale on <strong>17 and 18 August</strong>, before gradually subsiding on 19–20 August. The scale and ferocity of the killing caught the administration, and the League itself, off guard.</p>
+                    <p class="cc-quote">"The result of Direct Action Day was not the demonstration of Muslim unity but one of the worst communal riots in the history of the subcontinent." — <em>Historian Stanley Wolpert</em></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events of August 1946 -->
+        <section id="events" class="cc-section">
+            <div class="cc-content-card">
+                <h2>📅 Events of August 1946</h2>
+                <div class="cc-content">
+                    <p>The violence unfolded over several days and engulfed much of central and north Calcutta. Scholars describe it as a <strong>pogrom-like communal slaughter</strong> in which both communities were both victims and perpetrators at different times and places, as mobs moved through mixed localities:</p>
+                    <ul class="cc-list">
+                        <li><strong>16 August:</strong> The Direct Action procession itself turned violent; by evening, rioting had broken out in several central districts. The situation worsened dramatically overnight.</li>
+                        <li><strong>17 August:</strong> The worst day of killing. Violence spread from central Calcutta into the city's lanes and bustees, where many poor residents — of every community — were trapped and killed where they lived.</li>
+                        <li><strong>18 August:</strong> Fighting continued in many quarters even as it began to slow in others, with refugees streaming out of the city in fear.</li>
+                        <li><strong>19–20 August:</strong> The violence subsided as military and police units, eventually reinforced, moved in strength through the affected districts.</li>
+                    </ul>
+                    <p>Whole neighbourhoods — including parts of Burrabazar, north-central Calcutta, and the tangled lanes off Harrison Road and College Street — were effectively "cleansed" of minority residents by successive waves of arson and killing. Bodies were removed in carts and burned in mass pyres; refugees fled in tens of thousands to railway stations and relief camps.</p>
+                    <p>Contemporary sources estimated the dead at between <strong>3,000 and 5,000</strong>, with well over 100,000 people displaced. Most historians today place the toll at roughly <strong>4,000 deaths</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historical Map -->
+        <section id="map" class="cc-section">
+            <div class="cc-content-card">
+                <h2>🗺️ Historical Calcutta Map</h2>
+                <div class="cc-content">
+                    <p>Locations associated with Direct Action Day and the August 1946 violence. <strong>Click a marker</strong> to learn more, or use the list below.</p>
+                    <div class="cc-map-layout">
+                        <div class="cc-map-canvas">
+                            <div id="cc-calcutta-map" class="cc-map" role="application" aria-label="Interactive map of Calcutta showing locations tied to the August 1946 violence"></div>
+                        </div>
+                        <aside class="cc-map-detail" id="cc-map-detail" aria-live="polite">
+                            <span class="cc-map-detail-tag" id="cc-map-detail-tag">📍 Central Calcutta</span>
+                            <h3 id="cc-map-detail-title">Select a location</h3>
+                            <p id="cc-map-detail-body">Click a marker on the map to read about its role in the events of August 1946.</p>
+                        </aside>
+                    </div>
+                    <ul class="cc-map-points-list" id="cc-map-points-list" aria-label="Map location shortcuts"></ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spread of Violence -->
+        <section id="spread" class="cc-section">
+            <div class="cc-content-card">
+                <h2>🧭 Spread of Violence</h2>
+                <div class="cc-content">
+                    <p>The Great Calcutta Killings were not an isolated tragedy. The wave of violence that began in Calcutta in August 1946 <strong>radiated outward across Bengal and beyond</strong> in a chain that historians have called the "Great Calcutta Killing — Noakhali — Bihar" cycle:</p>
+                    <div class="cc-spread-chain">
+                        <div class="cc-spread-step">
+                            <span class="cc-spread-icon">🔥</span>
+                            <h3>Calcutta<br>16–20 Aug 1946</h3>
+                            <p>The Great Calcutta Killings — several thousand dead in the city.</p>
+                        </div>
+                        <div class="cc-spread-arrow">→</div>
+                        <div class="cc-spread-step">
+                            <span class="cc-spread-icon">🌾</span>
+                            <h3>Noakhali &amp; Tipperah<br>Oct 1946</h3>
+                            <p>In East Bengal, minorities were attacked and forced to flee their homes, driving thousands into refugee camps.</p>
+                        </div>
+                        <div class="cc-spread-arrow">→</div>
+                        <div class="cc-spread-step">
+                            <span class="cc-spread-icon">⚔️</span>
+                            <h3>Bihar<br>Oct–Nov 1946</h3>
+                            <p>Retaliatory violence in Bihar's countryside, where Muslim communities bore the brunt of attacks by Hindu and tribal mobs.</p>
+                        </div>
+                        <div class="cc-spread-arrow">→</div>
+                        <div class="cc-spread-step">
+                            <span class="cc-spread-icon">🕊️</span>
+                            <h3>Garhmukteshwar<br>Nov 1946</h3>
+                            <p>Further communal violence in western UP, continuing the cycle toward Partition.</p>
+                        </div>
+                    </div>
+                    <p class="cc-note">The cycle demonstrated a grim dynamic: each outbreak of communal violence bred revenge attacks elsewhere, and each convinced both political leaderships that communal coexistence within a single state was unworkable — pushing the subcontinent relentlessly toward Partition.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Human Impact -->
+        <section id="impact" class="cc-section">
+            <div class="cc-content-card">
+                <h2>🕊️ Human Impact</h2>
+                <div class="cc-content">
+                    <p>The human cost of August 1946 is the heart of this history and must be remembered with solemnity:</p>
+                    <div class="cc-impact-grid">
+                        <div class="cc-impact-card">
+                            <strong>≈ 4,000</strong>
+                            <span>Dead</span>
+                        </div>
+                        <div class="cc-impact-card">
+                            <strong>≈ 15,000</strong>
+                            <span>Wounded</span>
+                        </div>
+                        <div class="cc-impact-card">
+                            <strong>&gt; 100,000</strong>
+                            <span>Displaced</span>
+                        </div>
+                        <div class="cc-impact-card">
+                            <strong>Both</strong>
+                            <span>Communities Victimised</span>
+                        </div>
+                    </div>
+                    <p>The victims came overwhelmingly from the city's poor — labourers, porters, hawkers, weavers, and their families — killed in their lanes, bustees, and workplaces. Women and children suffered especially; the official record and later testimony describe rape, abduction, and the targeting of homes and places of worship.</p>
+                    <p class="cc-quote">Gandhi, who reached Calcutta the following year to halt the killing of 1947, described the violence he witnessed as "a mad rush" born of "political frenzy". The memory of August 1946 haunted every attempt to keep India united.</p>
+                    <p>Beyond the statistics, the killings destroyed Calcutta's social fabric. Mixed neighbourhoods were permanently divided; survivors relocated into homogeneous enclaves; and the city that had once symbolised cosmopolitan Indian unity became the proving-ground of communal division.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Administrative Response -->
+        <section id="response" class="cc-section">
+            <div class="cc-content-card">
+                <h2>🏛️ Administrative Response</h2>
+                <div class="cc-content">
+                    <p>The British Indian administration and the League-run Bengal government were severely criticised for their response:</p>
+                    <ul class="cc-list">
+                        <li><strong>Slow deployment:</strong> Police and army reinforcements reached the affected areas only after the first catastrophic night, and the city remained dangerously exposed for days.</li>
+                        <li><strong>Accusations of partisanship:</strong> The League ministry was accused by Congress leaders of being unwilling — or unable — to protect Hindu residents, while Congress ministries in other provinces faced parallel accusations over Muslim minorities. The perception of official bias, whether fair or not, inflamed distrust.</li>
+                        <li><strong>Curfew and troops:</strong> By 18–19 August, military pickets, curfews, and finally the deployment of substantial army forces helped restore a tense calm.</li>
+                        <li><strong>Later inquiries:</strong> The government conducted internal reports, but no full public commission of inquiry was ever established — a failure that left many questions about responsibility unanswered and grievances unaddressed.</li>
+                    </ul>
+                    <p>Viceroy Lord Wavell flew to Calcutta and pressed for firm action. But the deeper problem was political: the administration's authority had been fatally eroded, and neither the League ministry nor the British could command the trust of both communities.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Political Reactions -->
+        <section id="reactions" class="cc-section">
+            <div class="cc-content-card">
+                <h2>⚖️ Political Reactions</h2>
+                <div class="cc-content">
+                    <p>The political response to the killings was as consequential as the events themselves:</p>
+                    <ul class="cc-list">
+                        <li><strong>Mahatma Gandhi</strong> was appalled and warned that the violence threatened the soul of the freedom struggle. He travelled to Noakhali in late 1946 to work personally for peace, walking from village to village.</li>
+                        <li><strong>Jawaharlal Nehru</strong> and the Congress blamed the League's Direct Action call for unleashing the violence and demanded protection for all communities.</li>
+                        <li><strong>Jinnah</strong> insisted the violence was not a League policy and accused the Bengal ministry's opponents of inflaming the situation, while arguing the events proved the impossibility of a united India.</li>
+                        <li><strong>The Interim Government</strong> — formed with Congress at its centre in September 1946, joined by the League in October — was paralysed by the mutual suspicion the killings had hardened.</li>
+                        <li><strong>London</strong> concluded that delay in transferring power was itself dangerous. The British accelerated the timetable, and by early 1947 the government had moved from "keep India united" to "manage a partition."</li>
+                    </ul>
+                    <p class="cc-quote">The August killings convinced the British that "the risk of delay was greater than the risk of partition" — and convinced many Indians that only the division of the country could stop the bloodshed.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wider Bengal & Aftermath -->
+        <section id="bengal" class="cc-section">
+            <div class="cc-content-card">
+                <h2>🌾 Wider Bengal &amp; Aftermath</h2>
+                <div class="cc-content">
+                    <p>The Calcutta killings reshaped Bengal's politics and society in the year before independence:</p>
+                    <ul class="cc-list">
+                        <li><strong>Noakhali &amp; the refugee crisis:</strong> The October 1946 attacks in Noakhali and Tipperah drove a flood of refugees toward Calcutta, compounding the city's strain and deepening communal separation.</li>
+                        <li><strong>Provincial realignment:</strong> The violence destroyed the last prospects of a united Bengal plan. H. S. Suhrawardy's scheme for an independent united Bengal — floated in 1947 with Sarat Chandra Bose — foundered on the mutual distrust August had entrenched.</li>
+                        <li><strong>Partition of Bengal:</strong> In June 1947, Bengal itself was partitioned. Calcutta went to India; East Bengal (later East Pakistan, now Bangladesh) went to Pakistan. The world's largest forced migration followed.</li>
+                        <li><strong>Gandhi's fast in Calcutta:</strong> In August 1947, on the eve of independence, Gandhi came to Calcutta to try to stop fresh rioting — fasting until the city's leaders pledged peace. For a time, Calcutta remained calm.</li>
+                    </ul>
+                    <p>Historians widely regard the Great Calcutta Killings as the <strong>turning point after which a united India became politically unworkable</strong>. Within exactly a year — on 15 August 1947 — India and Pakistan were born as separate nations, with Bengal and Punjab divided.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Timeline -->
+        <section id="timeline" class="cc-section">
+            <div class="cc-content-card">
+                <h2>🕰️ Interactive Timeline</h2>
+                <div class="cc-content">
+                    <p>Click any milestone to expand the details. The timeline distinguishes the key political developments from the violent events of August 1946.</p>
+                    <div class="cc-timeline" id="cc-interactive-timeline">
+                        <div class="cc-timeline-item" tabindex="0" role="button" aria-expanded="false">
+                            <div class="cc-timeline-head">
+                                <span class="cc-timeline-date">Mar 1946</span>
+                                <span class="cc-timeline-title">Cabinet Mission arrives in India</span>
+                                <span class="cc-timeline-toggle">+</span>
+                            </div>
+                            <div class="cc-timeline-detail">
+                                <p>British ministers arrive to negotiate the transfer of power. Their plan proposes a loose federal India with provincial grouping.</p>
+                            </div>
+                        </div>
+                        <div class="cc-timeline-item" tabindex="0" role="button" aria-expanded="false">
+                            <div class="cc-timeline-head">
+                                <span class="cc-timeline-date">16 May 1946</span>
+                                <span class="cc-timeline-title">Cabinet Mission Plan announced</span>
+                                <span class="cc-timeline-toggle">+</span>
+                            </div>
+                            <div class="cc-timeline-detail">
+                                <p>The plan proposes a three-tier federation. Congress accepts the Constituent Assembly but disputes compulsory grouping; the League's acceptance is conditional.</p>
+                            </div>
+                        </div>
+                        <div class="cc-timeline-item" tabindex="0" role="button" aria-expanded="false">
+                            <div class="cc-timeline-head">
+                                <span class="cc-timeline-date">29 Jul 1946</span>
+                                <span class="cc-timeline-title">League rejects plan, calls Direct Action</span>
+                                <span class="cc-timeline-toggle">+</span>
+                            </div>
+                            <div class="cc-timeline-detail">
+                                <p>After Congress's rejection of compulsory grouping, the League Council withdraws acceptance of the plan and authorises "Direct Action" to achieve Pakistan.</p>
+                            </div>
+                        </div>
+                        <div class="cc-timeline-item cc-timeline-violent" tabindex="0" role="button" aria-expanded="false">
+                            <div class="cc-timeline-head">
+                                <span class="cc-timeline-date">16 Aug 1946</span>
+                                <span class="cc-timeline-title">Direct Action Day &amp; the outbreak of violence</span>
+                                <span class="cc-timeline-toggle">+</span>
+                            </div>
+                            <div class="cc-timeline-detail">
+                                <p>The League's hartal in Calcutta turns violent; communal killing erupts in the city's centre on the first day of the Great Calcutta Killings.</p>
+                            </div>
+                        </div>
+                        <div class="cc-timeline-item cc-timeline-violent" tabindex="0" role="button" aria-expanded="false">
+                            <div class="cc-timeline-head">
+                                <span class="cc-timeline-date">17 Aug 1946</span>
+                                <span class="cc-timeline-title">The worst day of killing</span>
+                                <span class="cc-timeline-toggle">+</span>
+                            </div>
+                            <div class="cc-timeline-detail">
+                                <p>Violence peaks across central and north Calcutta; tens of thousands flee, and the dead are estimated in the thousands.</p>
+                            </div>
+                        </div>
+                        <div class="cc-timeline-item cc-timeline-violent" tabindex="0" role="button" aria-expanded="false">
+                            <div class="cc-timeline-head">
+                                <span class="cc-timeline-date">18–20 Aug 1946</span>
+                                <span class="cc-timeline-title">Crisis subsides under military curfew</span>
+                                <span class="cc-timeline-toggle">+</span>
+                            </div>
+                            <div class="cc-timeline-detail">
+                                <p>Army pickets and curfew gradually restore a fragile calm, leaving roughly 4,000 dead and over 100,000 displaced.</p>
+                            </div>
+                        </div>
+                        <div class="cc-timeline-item" tabindex="0" role="button" aria-expanded="false">
+                            <div class="cc-timeline-head">
+                                <span class="cc-timeline-date">2 Sep 1946</span>
+                                <span class="cc-timeline-title">Interim Government formed</span>
+                                <span class="cc-timeline-toggle">+</span>
+                            </div>
+                            <div class="cc-timeline-detail">
+                                <p>A Congress-led Interim Government is sworn in, with Jawaharlal Nehru as Vice-President of the Executive Council.</p>
+                            </div>
+                        </div>
+                        <div class="cc-timeline-item cc-timeline-violent" tabindex="0" role="button" aria-expanded="false">
+                            <div class="cc-timeline-head">
+                                <span class="cc-timeline-date">Oct 1946</span>
+                                <span class="cc-timeline-title">Noakhali &amp; Tipperah attacks</span>
+                                <span class="cc-timeline-toggle">+</span>
+                            </div>
+                            <div class="cc-timeline-detail">
+                                <p>Violence spreads to East Bengal; minorities flee, and Gandhi walks through Noakhali on a peace mission.</p>
+                            </div>
+                        </div>
+                        <div class="cc-timeline-item cc-timeline-violent" tabindex="0" role="button" aria-expanded="false">
+                            <div class="cc-timeline-head">
+                                <span class="cc-timeline-date">Oct–Nov 1946</span>
+                                <span class="cc-timeline-title">Bihar and Garhmukteshwar violence</span>
+                                <span class="cc-timeline-toggle">+</span>
+                            </div>
+                            <div class="cc-timeline-detail">
+                                <p>Retaliatory attacks in Bihar and further violence in the United Provinces continue the cycle of communal bloodshed.</p>
+                            </div>
+                        </div>
+                        <div class="cc-timeline-item" tabindex="0" role="button" aria-expanded="false">
+                            <div class="cc-timeline-head">
+                                <span class="cc-timeline-date">3 Jun 1947</span>
+                                <span class="cc-timeline-title">Mountbatten Plan announces Partition</span>
+                                <span class="cc-timeline-toggle">+</span>
+                            </div>
+                            <div class="cc-timeline-detail">
+                                <p>Britain announces that power will be transferred to two dominions, India and Pakistan, with Bengal and Punjab to be divided.</p>
+                            </div>
+                        </div>
+                        <div class="cc-timeline-item" tabindex="0" role="button" aria-expanded="false">
+                            <div class="cc-timeline-head">
+                                <span class="cc-timeline-date">14–15 Aug 1947</span>
+                                <span class="cc-timeline-title">Independence &amp; Partition</span>
+                                <span class="cc-timeline-toggle">+</span>
+                            </div>
+                            <div class="cc-timeline-detail">
+                                <p>India and Pakistan attain independence. Calcutta stays with India as a partitioned Bengal's western capital.</p>
+                            </div>
+                        </div>
+                        <div class="cc-timeline-item" tabindex="0" role="button" aria-expanded="false">
+                            <div class="cc-timeline-head">
+                                <span class="cc-timeline-date">1947–48</span>
+                                <span class="cc-timeline-title">Legacy &amp; remembrance</span>
+                                <span class="cc-timeline-toggle">+</span>
+                            </div>
+                            <div class="cc-timeline-detail">
+                                <p>Historians identify August 1946 as the pivotal event that made a united India unworkable, and the memory of the killings shapes scholarly and public understanding of Partition.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- References -->
+        <section id="references" class="cc-section">
+            <div class="cc-content-card">
+                <h2>📚 References &amp; Further Reading</h2>
+                <div class="cc-content">
+                    <ul class="cc-list cc-references">
+                        <li>Britannica — <em>Direct Action Day, India (1946)</em>. <a href="https://www.britannica.com/event/Direct-Action-Day-India-1946" target="_blank" rel="noopener noreferrer">britannica.com</a></li>
+                        <li>Wikipedia — <em>Direct Action Day</em> and <em>Noakhali riots</em>. <a href="https://en.wikipedia.org/wiki/Direct_Action_Day" target="_blank" rel="noopener noreferrer">en.wikipedia.org</a></li>
+                        <li>Joya Chatterji — <em>Bengal Divided: Hindu Communalism and Partition, 1932–1947</em> (Cambridge University Press).</li>
+                        <li>Yasmin Khan — <em>The Great Partition: The Making of India and Pakistan</em> (Yale University Press).</li>
+                        <li>Stanley Wolpert — <em>Jinnah of Pakistan</em> (Oxford University Press).</li>
+                        <li>D. A. Low (ed.) — <em>Congress and the Raj</em>, including studies of the 1946 violence.</li>
+                        <li>Azad, Abul Kalam — <em>India Wins Freedom</em>, first-hand account of the political crisis.</li>
+                        <li>Amritsar/Jallianwala-inspired memorial scholarship on communal violence in Bengal, including the records of the Partition of Bengal.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="cc-footer">
+        <p>Part of <a href="../../index.html" style="color: #FF9933;">Incredible India Explorer</a> · <a href="../freedom-movement-explorer/index.html" style="color: #138808;">Road to Independence</a> · <a href="../partition-1947/partition-1947.html" style="color: #138808;">Partition of 1947</a></p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../app.js" defer></script>
+    <script src="../../frontend/journey/journey.js" defer></script>
+    <script src="script.js" defer></script>
+    <script type="module" src="../firebase-config.js"></script>
+    <script type="module" src="../auth.js"></script>
+    <script src="../router.js" defer></script>
+</body>
+</html>
