@@ -79,6 +79,13 @@ window.indiaSearchIndex = [
     url: "frontend/alibaug-beach/index.html"
     },
     {
+    title: "Mandarmani Beach — West Bengal",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Mandarmani Beach in Purba Medinipur, West Bengal — 13 km of hard flat drivable sand, red ghost crabs, water sports, and tranquil Bay of Bengal sunrises.",
+    url: "frontend/mandarmani-beach/index.html"
+    },
+    {
     title: "Chauri Chaura Incident (1922) Explorer",
     category: "Freedom Struggle",
     description:
