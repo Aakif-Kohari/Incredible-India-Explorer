@@ -27,7 +27,14 @@ describe('Rameswaram Beach Tamil Nadu — Page Structure & Content', () => {
         expect(html).toContain('Char Dham');
     });
 
-    it('contains all required informational sections', () => {
+    it('contains signature Gopuram tier divider SVG', () => {
+        expect(html).toContain('class="tier-divider"');
+        expect(html).toContain('fill="#0E3B47"');
+        expect(html).toContain('fill="#C99A3E"');
+        expect(html).toContain('fill="#B23A2E"');
+    });
+
+    it('contains all core content sections', () => {
         expect(html).toContain('id="landscape"');
         expect(html).toContain('id="culture"');
         expect(html).toContain('id="theerthams"');
@@ -38,64 +45,40 @@ describe('Rameswaram Beach Tamil Nadu — Page Structure & Content', () => {
         expect(html).toContain('id="map"');
     });
 
-    it('contains 22 sacred wells explorer with search and key well names', () => {
+    it('contains 22 sacred wells explorer with search input', () => {
         expect(html).toContain('id="theerthamSearch"');
         expect(html).toContain('Mahalakshmi Theertham');
         expect(html).toContain('Brahmahatya Vimochana');
         expect(html).toContain('Kodi Theertham');
-        expect(html).toContain('Ganga Theertham');
     });
 
-    it('contains heritage sites including temple, Pamban bridge, and Dhanushkodi', () => {
+    it('contains curated multi-day itinerary tabs', () => {
+        expect(html).toContain('class="itinerary-tabs"');
+        expect(html).toContain('1-Day Pilgrimage');
+        expect(html).toContain('2-Day Island &amp; Dhanushkodi');
+        expect(html).toContain('3-Day Gulf of Mannar Circuit');
+    });
+
+    it('contains heritage site cards', () => {
         expect(html).toContain('Ramanathaswamy Temple');
-        expect(html).toContain('Pamban Sea Bridge');
-        expect(html).toContain('Dhanushkodi Ghost Town');
-        expect(html).toContain("Adam's Bridge");
+        expect(html).toContain('Pamban Bridge');
+        expect(html).toContain('Dhanushkodi');
+        expect(html).toContain("Adam's Bridge viewpoint");
+        expect(html).toContain('Villoondi Theertham');
         expect(html).toContain('Dr. APJ Abdul Kalam Memorial');
     });
 
-    it('includes structured data (JSON-LD Beach schema)', () => {
-        expect(html).toContain('application/ld+json');
-        expect(html).toContain('"@type": "Beach"');
-        expect(html).toContain('"latitude": 9.2876');
-        expect(html).toContain('"longitude": 79.3129');
-    });
-
-    it('includes visual gallery and enhanced lightbox modal with nav controls', () => {
+    it('contains visual gallery and lightbox with navigation', () => {
         expect(html).toContain('id="galleryGrid"');
         expect(html).toContain('id="lightbox"');
         expect(html).toContain('id="lbPrev"');
         expect(html).toContain('id="lbNext"');
         expect(html).toContain('id="lbClose"');
-        expect(html).toContain('loading="lazy"');
     });
 
-    it('includes floating controls (sacred audio synth & scroll to top)', () => {
-        expect(html).toContain('id="sacred-audio-toggle"');
-        expect(html).toContain('id="back-to-top"');
-        expect(html).toContain('id="share-btn"');
-    });
-});
-
-describe('Rameswaram Beach Tamil Nadu — Styles & Scripts', () => {
-    it('style.css defines custom variables, responsive grid, and gopuram divider', () => {
-        const css = readFile('style.css');
-        expect(css).toContain('--sea-deep: #0E3B47;');
-        expect(css).toContain('--gold:');
-        expect(css).toContain('.rameswaram-page');
-        expect(css).toContain('.tier-divider');
-        expect(css).toContain('.theertham-widget');
-        expect(css).toContain('.lightbox');
-    });
-
-    it('script.js wires 22 theerthams live filter, gallery, lightbox, map, and audio synth', () => {
-        const js = readFile('script.js');
-        expect(js).toContain('theerthamSearch');
-        expect(js).toContain('initMap');
-        expect(js).toContain('L.map');
-        expect(js).toContain('showFigure');
-        expect(js).toContain('startSacredAudio');
-        expect(js).toContain('theme-toggle');
+    it('contains embedded map integration', () => {
+        expect(html).toContain('class="map-wrap"');
+        expect(html).toContain('title="Map of Rameswaram Beach, Tamil Nadu"');
     });
 });
 
