@@ -5,6 +5,12 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Gargi Vachaknavi — The Philosopher Who Challenged the Scholars of Ancient India',
+        category: 'Historical & Cultural Profiles',
+        description:
+            'Explore the philosophical legacy of Gargi Vachaknavi from the Brihadaranyaka Upanishad — the Vedic Brahmavadini who questioned Yajnavalkya on the ultimate fabric of reality.',
+        url: 'frontend/gargi-vachaknavi/index.html'},
+  {
         title: 'Ravidas Ghat — Varanasi Spiritual Legacy & Living Culture Profile',
         category: 'Heritage & Pilgrimage',
         description:
