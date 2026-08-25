@@ -9,7 +9,25 @@ window.indiaSearchIndex = [
         category: 'Historical & Cultural Profiles',
         description:
             'Explore the philosophical legacy of Gargi Vachaknavi from the Brihadaranyaka Upanishad — the Vedic Brahmavadini who questioned Yajnavalkya on the ultimate fabric of reality.',
-        url: 'frontend/gargi-vachaknavi/index.html'
+        url: 'frontend/gargi-vachaknavi/index.html'},
+  {
+        title: 'Ravidas Ghat — Varanasi Spiritual Legacy & Living Culture Profile',
+        category: 'Heritage & Pilgrimage',
+        description:
+            'Explore Ravidas Ghat in Varanasi: the southernmost and largest riverfront ghat on the Ganges, dedicated to Bhakti saint Ravidas with an adjoining 25-acre Smarak Park, Magh Purnima Jayanti celebrations, and sacred Bani.',
+        url: 'frontend/ravidas-ghat/index.html'},
+  {
+        title: 'Kudremukh Trek — Chikkamagaluru, Karnataka',
+        category: 'Trekking & Adventure',
+        description:
+            'Explore the high-altitude Kudremukh Peak Trek (1,894 m) in Karnataka — rolling shola grasslands, UNESCO Western Ghats biodiversity, route waypoints, and seasonal packing guide.',
+        url: 'frontend/kudremukh-trek/index.html'},
+  {
+        title: 'Sulabha — The Philosopher Who Debated King Janaka',
+        category: 'Historical & Cultural Profiles',
+        description:
+            'Explore the philosophical discourse of Sulabha and King Janaka from the Mahabharata\'s Mokshadharma Parva on selfhood, language, non-gendered consciousness, and genuine liberation.',
+        url: 'frontend/sulabha-philosopher-explorer/index.html'
     },
     {
         title: 'Naya Ghat — Varanasi Riverfront Renewal & Living Culture Profile',
