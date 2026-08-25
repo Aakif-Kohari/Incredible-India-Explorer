@@ -2441,6 +2441,13 @@ window.indiaSearchIndex = [
             'Explore Hygam Wetland Conservation Reserve in Baramulla, Kashmir — Ramsar Site, Central Asian Flyway stopover, and flood sponge in the Jhelum basin.',
         url: 'frontend/hygam-wetland-explorer/index.html'
     },
+    // --- 2014 Kashmir Floods Explorer ---
+    {
+        title: "2014 Kashmir Floods Explorer",
+        category: "Disasters & Flood Management",
+        description: "Document the 2014 Jammu & Kashmir floods and the geography of flood risk in the Kashmir Valley. Covers event timeline, rainfall and river conditions, Jhelum River basin geography, affected regions, infrastructure impact, rescue and relief operations, environmental effects, and flood preparedness.",
+        url: "frontend/2014-kashmir-floods-explorer/index.html"
+    },
     // --- Pala Wetland Explorer ---
     {
         title: 'Pala Wetland Explorer',
