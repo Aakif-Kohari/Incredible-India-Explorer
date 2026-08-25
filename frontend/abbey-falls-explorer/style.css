@@ -1,0 +1,468 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+:root {
+    --af-bg: #071a16;
+    --af-surface: rgba(15, 48, 39, 0.72);
+    --af-surface-2: #0c2b23;
+    --af-text: #f1fff8;
+    --af-muted: #b8d3c8;
+    --af-green: #37d39a;
+    --af-gold: #e9bf67;
+    --af-border: rgba(55, 211, 154, 0.18);
+    --af-shadow: 0 22px 55px rgba(0, 0, 0, 0.25);
+}
+.light-theme {
+    --af-bg: #eff9f4;
+    --af-surface: rgba(255, 255, 255, 0.82);
+    --af-surface-2: #dff1e8;
+    --af-text: #0b2c23;
+    --af-muted: #46645a;
+    --af-border: rgba(12, 95, 67, 0.16);
+    --af-shadow: 0 18px 45px rgba(13, 74, 54, 0.12);
+}
+* {
+    box-sizing: border-box;
+}
+.af-main {
+    background: radial-gradient(circle at 15% 10%, rgba(55, 211, 154, 0.08), transparent 35%), var(--af-bg);
+    color: var(--af-text);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    padding-top: 70px;
+    overflow: hidden;
+}
+.af-container {
+    width: min(1120px, calc(100% - 2rem));
+    margin: auto;
+}
+.af-section {
+    padding: 5.5rem 0;
+}
+.af-alt {
+    background: linear-gradient(180deg, rgba(55, 211, 154, 0.04), rgba(55, 211, 154, 0.01));
+}
+.af-section-nav {
+    position: sticky;
+    top: 70px;
+    z-index: 40;
+    background: rgba(7, 26, 22, 0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--af-border);
+    overflow: auto;
+}
+.light-theme .af-section-nav {
+    background: rgba(239, 249, 244, 0.94);
+}
+.af-section-nav-inner {
+    width: min(1120px, 100%);
+    margin: auto;
+    display: flex;
+    gap: 0.25rem;
+    padding: 0.55rem 1rem;
+    white-space: nowrap;
+}
+.af-nav-link {
+    color: var(--af-muted);
+    text-decoration: none;
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+}
+.af-nav-link.active,
+.af-nav-link:hover {
+    background: var(--af-green);
+    color: #062319;
+}
+.af-hero {
+    position: relative;
+    min-height: 88vh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+.af-hero-image {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Abbey%20Falls.jpg');
+    background-size: cover;
+    background-position: center 42%;
+    filter: saturate(1.05);
+}
+.af-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(2, 16, 12, 0.92), rgba(2, 16, 12, 0.58) 48%, rgba(2, 16, 12, 0.2)),
+        linear-gradient(0deg, rgba(2, 16, 12, 0.75), transparent 55%);
+}
+.light-theme .af-hero-overlay {
+    background:
+        linear-gradient(90deg, rgba(239, 249, 244, 0.92), rgba(239, 249, 244, 0.5) 48%, rgba(239, 249, 244, 0.15)),
+        linear-gradient(0deg, rgba(239, 249, 244, 0.7), transparent 55%);
+}
+.af-hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(980px, calc(100% - 2rem));
+    padding: 6rem 0;
+}
+.af-kicker,
+.af-tag {
+    color: var(--af-green);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-size: 0.76rem;
+}
+.af-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.2rem, 8vw, 6.5rem);
+    line-height: 0.96;
+    margin: 0.8rem 0 1.2rem;
+    max-width: 760px;
+}
+.af-hero p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.7;
+    color: #d9efe5;
+    max-width: 720px;
+}
+.light-theme .af-hero p {
+    color: #23483b;
+}
+.af-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
+.af-stats div {
+    min-width: 130px;
+    padding: 1rem 1.15rem;
+    background: rgba(5, 27, 21, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+}
+.light-theme .af-stats div {
+    background: rgba(255, 255, 255, 0.72);
+    border-color: var(--af-border);
+}
+.af-stats strong {
+    display: block;
+    color: var(--af-gold);
+    font-size: 1.35rem;
+}
+.af-stats span {
+    font-size: 0.74rem;
+    color: var(--af-muted);
+    text-transform: uppercase;
+}
+.af-section-head {
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+.af-section-head h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: 0.55rem 0 1rem;
+}
+.af-section-head p {
+    color: var(--af-muted);
+    line-height: 1.75;
+}
+.af-facts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+.af-card {
+    background: var(--af-surface);
+    border: 1px solid var(--af-border);
+    border-radius: 20px;
+    padding: 1.4rem;
+    box-shadow: var(--af-shadow);
+    backdrop-filter: blur(12px);
+}
+.af-card h3 {
+    margin: 0.4rem 0 0.6rem;
+}
+.af-card p {
+    color: var(--af-muted);
+    line-height: 1.7;
+}
+.af-icon {
+    font-size: 1.7rem;
+}
+.landscape-explorer {
+    background: var(--af-surface);
+    border: 1px solid var(--af-border);
+    border-radius: 24px;
+    padding: 1rem;
+    box-shadow: var(--af-shadow);
+}
+.landscape-tabs,
+.season-controls {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+.landscape-tab,
+.season-btn {
+    border: 1px solid var(--af-border);
+    background: transparent;
+    color: var(--af-muted);
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font: inherit;
+}
+.landscape-tab.active,
+.season-btn.active {
+    background: var(--af-green);
+    color: #062319;
+    border-color: var(--af-green);
+}
+.landscape-panel {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 2rem;
+    align-items: center;
+    padding: 1.5rem;
+}
+.landscape-art {
+    min-height: 260px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    font-size: 4rem;
+    background:
+        radial-gradient(circle at 30% 30%, rgba(55, 211, 154, 0.3), transparent 40%),
+        linear-gradient(135deg, #0c4434, #0b201a);
+    position: relative;
+}
+.landscape-art span {
+    position: absolute;
+    font-size: 3rem;
+    right: 25%;
+    bottom: 20%;
+}
+.landscape-eyebrow,
+.season-label {
+    color: var(--af-gold);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+.landscape-panel h3,
+.season-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin: 0.5rem 0;
+}
+.landscape-panel p {
+    color: var(--af-muted);
+    line-height: 1.8;
+}
+.season-controls {
+    justify-content: center;
+}
+.season-card {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+    align-items: center;
+    background: var(--af-surface);
+    border: 1px solid var(--af-border);
+    border-radius: 22px;
+    padding: 2rem;
+    max-width: 850px;
+    margin: auto;
+}
+.flow-meter {
+    height: 170px;
+    width: 34px;
+    border-radius: 20px;
+    background: rgba(55, 211, 154, 0.12);
+    display: flex;
+    align-items: end;
+    overflow: hidden;
+}
+.flow-meter span {
+    display: block;
+    width: 100%;
+    background: linear-gradient(#55e4ae, #168c69);
+    border-radius: 20px;
+    transition: height 0.35s ease;
+}
+.season-card p {
+    color: var(--af-muted);
+    line-height: 1.75;
+}
+.season-chips {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.season-chips span {
+    padding: 0.35rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(55, 211, 154, 0.1);
+    color: var(--af-green);
+    font-size: 0.78rem;
+}
+.af-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+.gallery-card {
+    margin: 0;
+    background: var(--af-surface);
+    border: 1px solid var(--af-border);
+    border-radius: 18px;
+    overflow: hidden;
+}
+.gallery-card img {
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+.gallery-card figcaption {
+    padding: 1rem;
+}
+.gallery-card strong,
+.gallery-card span {
+    display: block;
+}
+.gallery-card span {
+    color: var(--af-muted);
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
+}
+.af-map {
+    height: 480px;
+    border-radius: 22px;
+    border: 1px solid var(--af-border);
+    overflow: hidden;
+    box-shadow: var(--af-shadow);
+}
+.af-map.small {
+    height: 390px;
+}
+.map-note {
+    font-size: 0.75rem;
+    color: var(--af-muted);
+    margin-top: 0.55rem;
+}
+.nearby-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 1rem;
+}
+.nearby-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+.nearby-item {
+    text-align: left;
+    padding: 1rem;
+    border: 1px solid var(--af-border);
+    border-radius: 16px;
+    background: var(--af-surface);
+    color: var(--af-text);
+    cursor: pointer;
+}
+.nearby-item.active {
+    border-color: var(--af-green);
+    box-shadow: inset 4px 0 var(--af-green);
+}
+.nearby-item strong,
+.nearby-item span {
+    display: block;
+}
+.nearby-item span {
+    color: var(--af-muted);
+    font-size: 0.82rem;
+    margin-top: 0.25rem;
+}
+.credits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.credits-grid a {
+    color: var(--af-green);
+}
+.af-footer {
+    padding: 2rem 1rem;
+    text-align: center;
+    color: var(--af-muted);
+    border-top: 1px solid var(--af-border);
+}
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity 0.55s ease,
+        transform 0.55s ease;
+}
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+@media (max-width: 900px) {
+    .af-facts-grid,
+    .af-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .landscape-panel {
+        grid-template-columns: 1fr;
+    }
+    .nearby-layout {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 600px) {
+    .af-section {
+        padding: 4rem 0;
+    }
+    .af-facts-grid,
+    .af-gallery,
+    .credits-grid {
+        grid-template-columns: 1fr;
+    }
+    .af-hero {
+        min-height: 82vh;
+    }
+    .af-stats div {
+        min-width: calc(50% - 0.5rem);
+    }
+    .season-card {
+        grid-template-columns: 45px 1fr;
+        padding: 1.2rem;
+    }
+    .flow-meter {
+        width: 26px;
+        height: 140px;
+    }
+    .gallery-card img {
+        height: 230px;
+    }
+    .af-map {
+        height: 390px;
+    }
+    .af-map.small {
+        height: 330px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Davis Cup: Explore India's Tennis Journey — an interactive archive of India's Davis Cup history since 1921, featuring 3 finals appearances (1966, 1974, 1987), famous players like Leander Paes and the Amritraj brothers, and a searchable chronological timeline.">
+  <title>Davis Cup: India's Tennis Journey | Incredible India Explorer</title>
+  <link rel="stylesheet" href="davis-cup-explorer.min.css">
+</head>
+<body>
+
+  <header class="dc-hero">
+    <h1>🎾 Davis Cup: India's Tennis Journey</h1>
+    <p>From India's 1921 debut to three Davis Cup finals — a chronological archive of India's biggest tennis moments, players, and historic ties.</p>
+  </header>
+
+  <main class="dc-main-container">
+
+    <!-- Trophy / Overview strip -->
+    <section class="dc-overview-strip">
+      <div class="dc-overview-stat">
+        <span class="dc-stat-value">1921</span>
+        <span class="dc-stat-label">First participation</span>
+      </div>
+      <div class="dc-overview-stat">
+        <span class="dc-stat-value">3</span>
+        <span class="dc-stat-label">Finals reached (1966, 1974, 1987)</span>
+      </div>
+      <div class="dc-overview-stat">
+        <span class="dc-stat-value">89</span>
+        <span class="dc-stat-label">Years played</span>
+      </div>
+      <div class="dc-overview-stat">
+        <span class="dc-stat-value">🏆 Never won</span>
+        <span class="dc-stat-label">Trophy still awaited</span>
+      </div>
+    </section>
+
+    <nav class="dc-view-tabs-nav" aria-label="View mode">
+      <button type="button" class="btn-dc-view-tab active" data-view="timeline">📅 Timeline</button>
+      <button type="button" class="btn-dc-view-tab" data-view="players">🎾 Players</button>
+      <button type="button" class="btn-dc-view-tab" data-view="finals">🏆 Finals</button>
+    </nav>
+
+    <div class="dc-controls-bar">
+      <input
+        type="search"
+        id="dc-search"
+        class="dc-search-input"
+        placeholder="Search by player, year, opponent, or event..."
+        aria-label="Search Davis Cup history"
+      >
+    </div>
+
+    <!-- TIMELINE VIEW -->
+    <section id="dc-view-timeline" class="dc-view-panel">
+      <div class="dc-type-filter-row">
+        <button type="button" class="btn-dc-type-filter active" data-type="all">All</button>
+        <button type="button" class="btn-dc-type-filter" data-type="Milestone">Milestones</button>
+        <button type="button" class="btn-dc-type-filter" data-type="Historic Tie">Historic Ties</button>
+        <button type="button" class="btn-dc-type-filter" data-type="Final">Finals</button>
+      </div>
+      <div id="dc-timeline-container" class="dc-timeline-container" aria-live="polite"></div>
+    </section>
+
+    <!-- PLAYERS VIEW -->
+    <section id="dc-view-players" class="dc-view-panel hidden">
+      <div id="dc-players-grid" class="dc-players-grid" aria-live="polite"></div>
+    </section>
+
+    <!-- FINALS VIEW -->
+    <section id="dc-view-finals" class="dc-view-panel hidden">
+      <div id="dc-finals-grid" class="dc-finals-grid"></div>
+    </section>
+
+  </main>
+
+  <footer class="dc-footer">
+    <p>History fact-checked against ITF/Wikipedia Davis Cup records, The Federal, and Tennis Majors. See in-card sources for each entry.</p>
+  </footer>
+
+  <script src="davis-cup-explorer.min.js" type="module"></script>
+</body>
+</html>

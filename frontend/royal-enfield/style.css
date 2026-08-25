@@ -1,0 +1,255 @@
+/* Royal Enfield Specific Styles */
+
+:root {
+  --re-bg: #fdfdfd;
+  --re-text: #222222;
+  --re-primary: #8b0000; /* Royal Enfield Dark Red */
+  --re-secondary: #000000;
+  --re-accent: #c5a059; /* Vintage Gold */
+  --re-card-bg: #ffffff;
+  --re-border: #e0e0e0;
+  --re-shadow: rgba(139, 0, 0, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --re-bg: #111111;
+    --re-text: #f0f0f0;
+    --re-primary: #a31111; 
+    --re-secondary: #ffffff;
+    --re-accent: #d4af37;
+    --re-card-bg: #1a1a1a;
+    --re-border: #333333;
+    --re-shadow: rgba(0, 0, 0, 0.8);
+  }
+}
+
+body {
+  background-color: var(--re-bg);
+  color: var(--re-text);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.re-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.app-header {
+  background: linear-gradient(135deg, var(--re-secondary), #222222);
+  color: var(--re-accent);
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 10px var(--re-shadow);
+  border-bottom: 4px solid var(--re-primary);
+}
+
+.app-header h1 {
+  color: #ffffff;
+}
+
+.back-link {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  color: var(--re-accent);
+  text-decoration: none;
+  font-weight: bold;
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+
+.back-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.app-header h1 {
+  margin: 0 0 1rem 0;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.app-header .subtitle {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  color: #dddddd;
+}
+
+.re-section {
+  margin-bottom: 4rem;
+}
+
+.re-content {
+  background-color: var(--re-card-bg);
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px var(--re-shadow);
+  border: 1px solid var(--re-border);
+  border-top: 4px solid var(--re-primary);
+}
+
+.re-section h2 {
+  color: var(--re-primary);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-family: 'Georgia', serif; /* A bit more classic */
+}
+
+/* Timeline */
+.re-timeline-section {
+  background-color: var(--re-card-bg);
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px var(--re-shadow);
+  border: 1px solid var(--re-border);
+}
+
+.re-timeline-desc {
+  text-align: center;
+  margin-bottom: 3rem;
+  opacity: 0.8;
+}
+
+.re-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.re-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background-color: var(--re-accent);
+  transform: translateX(-50%);
+}
+
+.re-timeline-item {
+  position: relative;
+  width: 50%;
+  padding-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.re-timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Left side */
+.re-timeline-item:nth-child(odd) {
+  left: 0;
+  padding-right: 3rem;
+  text-align: right;
+}
+
+/* Right side */
+.re-timeline-item:nth-child(even) {
+  left: 50%;
+  padding-left: 3rem;
+  text-align: left;
+}
+
+.re-timeline-marker {
+  position: absolute;
+  top: 0;
+  width: 70px;
+  height: 70px;
+  background-color: var(--re-secondary);
+  color: var(--re-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  z-index: 1;
+  border: 3px solid var(--re-accent);
+  box-shadow: 0 0 0 4px var(--re-bg);
+}
+
+.re-timeline-item:nth-child(odd) .re-timeline-marker {
+  right: -35px;
+}
+
+.re-timeline-item:nth-child(even) .re-timeline-marker {
+  left: -35px;
+}
+
+.re-timeline-content {
+  background-color: var(--re-bg);
+  padding: 1.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--re-border);
+  box-shadow: 0 4px 10px var(--re-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+/* Classic pinstripe detail on cards */
+.re-timeline-content::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
+  border: 1px solid var(--re-accent);
+  opacity: 0.3;
+  pointer-events: none;
+  border-radius: 2px;
+}
+
+.re-timeline-item:hover .re-timeline-content {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px var(--re-shadow);
+}
+
+.re-timeline-content h3 {
+  margin-top: 0;
+  color: var(--re-primary);
+  font-size: 1.3rem;
+  font-family: 'Georgia', serif;
+}
+
+.re-timeline-content p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+/* Responsive Timeline */
+@media screen and (max-width: 768px) {
+  .re-timeline::before {
+    left: 40px;
+  }
+  
+  .re-timeline-item {
+    width: 100%;
+    padding-left: 100px !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+  }
+  
+  .re-timeline-item:nth-child(odd),
+  .re-timeline-item:nth-child(even) {
+    left: 0;
+  }
+  
+  .re-timeline-marker {
+    left: 5px !important;
+    right: auto !important;
+  }
+}

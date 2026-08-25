@@ -1,0 +1,177 @@
+const journeyData = {
+    trail: {
+        kicker: 'TRAILHEAD',
+        title: 'Road ends; the walk begins',
+        text: 'From the approach near the Sita River, the route transitions from road travel to a forest trek. Published descriptions place the forest walk at roughly 4 km.',
+        list: [
+            'Use sturdy footwear for uneven ground.',
+            'Carry drinking water and essentials.',
+            'Start early enough to return in daylight.'
+        ],
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Koodlu_Theertha_Falls_-_Seetha_Falls_-_Seethanadi_-_Agumbe_%2812%29.jpg'
+    },
+    forest: {
+        kicker: 'FOREST',
+        title: 'Dense Western Ghats terrain',
+        text: 'The trail passes through lush forest and stream crossings before the falls reveal themselves. The surrounding Someshwara landscape is known for evergreen and semi-evergreen forest.',
+        list: [
+            'Expect shade, roots and rocky sections.',
+            'Heavy rain can raise stream levels quickly.',
+            'Forest access is best approached with local guidance.'
+        ],
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Koodlu_Theertha_Falls_-_Seetha_Falls_-_Seethanadi_-_Agumbe_%2819%29.jpg'
+    },
+    waterfall: {
+        kicker: 'WATERFALL',
+        title: 'The Sita River drops into the pool',
+        text: 'Kudlu Theertha is documented at about 150 feet by Udupi Tourism. The cascade is also called Sita Falls or Koodlu Theertha and is the reward at the end of the forest approach.',
+        list: [
+            'Allow time to enjoy the falls without rushing.',
+            'Avoid swimming during strong or rapidly changing flow.',
+            'Leave no waste in the forest.'
+        ],
+        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kudlu_theertha_falls.jpg'
+    }
+};
+const seasonData = {
+    monsoon: {
+        percent: 100,
+        label: 'JUN–SEP',
+        title: 'Rain-fed drama',
+        text: 'The Western Ghats are at their greenest and the Sita River can run strongly. Heavy rain can also make streams and rocky crossings hazardous.'
+    },
+    post: {
+        percent: 90,
+        label: 'OCT–NOV',
+        title: 'Full falls, greener footing',
+        text: 'Post-monsoon conditions can retain strong flow while the landscape begins to settle. This is a popular window for waterfall-focused visits.'
+    },
+    winter: {
+        percent: 72,
+        label: 'DEC–FEB',
+        title: 'Quieter forest',
+        text: 'Water generally moderates compared with the rains, while the forest remains a compelling setting for a planned daytime trek.'
+    },
+    summer: {
+        percent: 38,
+        label: 'MAR–MAY',
+        title: 'Lower seasonal flow',
+        text: 'Hotter and drier conditions can reduce the waterfall’s volume. The forest is less rain-soaked, but shade and water supplies remain important.'
+    }
+};
+const nearbyData = {
+    sanctuary: {
+        title: 'Someshwara Wildlife Sanctuary',
+        text: 'Kudlu Theertha is one of several waterfall destinations within the sanctuary landscape. Karnataka Tourism describes evergreen and semi-evergreen forest, high rainfall and guided nature activities.'
+    },
+    agumbe: {
+        title: 'Agumbe Sunset Viewpoint',
+        text: 'Agumbe is a nearby Western Ghats landscape known for heavy rainfall and broad sunset views. Udupi Tourism places the viewpoint about 40 km from Kudlu Theertha.'
+    },
+    onake: {
+        title: 'Onake Abbi Falls',
+        text: 'Onake Abbi is another forest waterfall destination in the Agumbe–Someshwara landscape. Karnataka Tourism lists it alongside Kudlu Theertha among waterfall sites reached by trekking.'
+    },
+    jomlu: {
+        title: 'Jomlu Theertha',
+        text: 'Jomlu Theertha is a smaller Sita River cascade in the same broader sanctuary landscape, making it a natural companion for a waterfall-focused day.'
+    }
+};
+function setupNavigation() {
+    const menu = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-menu');
+    if (menu && nav) menu.addEventListener('click', () => nav.classList.toggle('active'));
+    const theme = document.getElementById('theme-toggle');
+    if (theme)
+        theme.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            const value = document.body.classList.contains('light-theme') ? 'light' : 'dark';
+            try {
+                const s = JSON.parse(localStorage.getItem('iie_storage') || '{}');
+                s.theme = value;
+                localStorage.setItem('iie_storage', JSON.stringify(s));
+            } catch (e) {}
+        });
+}
+function setupJourney() {
+    document.querySelectorAll('.journey-btn').forEach(btn =>
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.journey-btn').forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+            const d = journeyData[btn.dataset.stage];
+            document.getElementById('journey-kicker').textContent = d.kicker;
+            document.getElementById('journey-title').textContent = d.title;
+            document.getElementById('journey-text').textContent = d.text;
+            document.getElementById('journey-list').innerHTML = d.list.map(x => `<li>${x}</li>`).join('');
+            document.getElementById('journey-visual').style.backgroundImage = `url('${d.image}')`;
+        })
+    );
+}
+function setupSeasonal() {
+    document.querySelectorAll('.season-btn').forEach(btn =>
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.season-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const d = seasonData[btn.dataset.season];
+            document.getElementById('season-percent').textContent = `${d.percent}%`;
+            document.getElementById('season-meter').style.width = `${d.percent}%`;
+            document.getElementById('season-label').textContent = d.label;
+            document.getElementById('season-title').textContent = d.title;
+            document.getElementById('season-text').textContent = d.text;
+        })
+    );
+}
+function setupNearby() {
+    document.querySelectorAll('.nearby-card').forEach(btn =>
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.nearby-card').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const d = nearbyData[btn.dataset.nearby];
+            document.getElementById('nearby-detail').innerHTML = `<h3>${d.title}</h3><p>${d.text}</p>`;
+        })
+    );
+}
+function setupMap() {
+    if (typeof L === 'undefined') return;
+    const map = L.map('kudlu-map').setView([13.484727, 74.976562], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+    const places = [
+        { name: 'Kudlu Theertha Falls', lat: 13.484727, lng: 74.976562, primary: true },
+        { name: 'Someshwara Wildlife Sanctuary', lat: 13.45, lng: 74.95 },
+        { name: 'Agumbe Sunset Viewpoint', lat: 13.5087, lng: 75.0968 },
+        { name: 'Jomlu Theertha', lat: 13.47, lng: 74.94 }
+    ];
+    places.forEach(p => L.marker([p.lat, p.lng]).addTo(map).bindPopup(`<strong>${p.name}</strong>`));
+}
+function setupReveal() {
+    const items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+        items.forEach(i => i.classList.add('visible'));
+        return;
+    }
+    const io = new IntersectionObserver(
+        entries =>
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    io.unobserve(e.target);
+                }
+            }),
+        { threshold: 0.08 }
+    );
+    items.forEach(i => io.observe(i));
+}
+document.addEventListener('DOMContentLoaded', () => {
+    setupNavigation();
+    setupJourney();
+    setupSeasonal();
+    setupNearby();
+    setupMap();
+    setupReveal();
+});

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kynrem Falls Explorer | 305m Three-Tier Waterfall | Meghalaya</title>
+  <meta name="description" content="Explore Kynrem Falls in Meghalaya (305m / 1,001 ft) — 7th highest waterfall in India. Interactive 3-tier cascade visualizer, seasonal monsoon flow, height comparison, and Thangkharang Park map.">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="Kynrem Falls Explorer | Meghalaya">
+  <meta property="og:description" content="Discover the 7th highest waterfall in India. Interactive 3-tier visualizer, seasonal data, and travel guide.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://incredibleindiaexplorer.com/waterfalls/kynrem-falls">
+  <meta property="og:image" content="../../assets/images/kynrem-falls-og.jpg">
+
+  <!-- Preload Critical Fonts -->
+  <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <script>
+    (function() {
+      // Check local storage or system preference
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../waterfalls-of-india/index.html" class="nav-link">Waterfalls Collection</a>
+        <a href="#tier-visualization" class="nav-link active">3-Tier Structure</a>
+        <a href="#height-comparison" class="nav-link">Height Chart</a>
+        <a href="#seasonal-section" class="nav-link">Seasonal Flow</a>
+        <a href="#map-section" class="nav-link">Location Map</a>
+        <a href="#visitor-info" class="nav-link">Visitor Info</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">
+          <span class="theme-icon">☀️</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- HERO SECTION -->
+    <section class="kynrem-hero fade-in-section">
+      <div class="hero-container">
+        <div class="hero-badge">🌊 305 Meters (1,001 ft) · 7th Highest Waterfall in India</div>
+        <h1>Explore <span>Kynrem Falls</span></h1>
+        <p class="hero-subtitle">
+          Nestled inside Thangkharang Park near Sohra (Cherrapunji), Meghalaya. Kynrem Falls cascades in three spectacular tiers down the East Khasi Hills into the plains of Bangladesh.
+        </p>
+        <div class="hero-pills">
+          <span class="pill">⛰️ East Khasi Hills</span>
+          <span class="pill">🏞️ Thangkharang Park</span>
+          <span class="pill">🌊 Three-Tier Cascade</span>
+          <span class="pill">🪨 Khoh Ramhah View</span>
+        </div>
+        <div class="hero-cta-group">
+          <a href="#tier-visualization" class="btn btn-primary">Explore Tiers</a>
+          <a href="#visitor-info" class="btn btn-secondary">Plan Your Visit</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- THREE-TIER VISUALIZATION SECTION -->
+    <section class="tier-section fade-in-section" id="tier-visualization">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Cascade Architecture</span>
+          <h2>Three-Tier Interactive Waterfall Structure</h2>
+          <p>Click on any tier of Kynrem Falls to inspect its drop height, water dynamics, and surrounding flora.</p>
+        </div>
+
+        <div class="tier-interactive-wrapper">
+          <div class="tier-visual-stage">
+            <div class="tier-block tier-1 active" id="tier-block-1" tabindex="0" role="button" aria-label="Tier 1 Upper Plunge" aria-pressed="true">
+              <span class="tier-badge">Tier 1: Upper Plunge (110m)</span>
+              <div class="water-cascade cascade-1"></div>
+            </div>
+            <div class="tier-block tier-2" id="tier-block-2" tabindex="0" role="button" aria-label="Tier 2 Middle Step" aria-pressed="false">
+              <span class="tier-badge">Tier 2: Middle Step (105m)</span>
+              <div class="water-cascade cascade-2"></div>
+            </div>
+            <div class="tier-block tier-3" id="tier-block-3" tabindex="0" role="button" aria-label="Tier 3 Base Surge" aria-pressed="false">
+              <span class="tier-badge">Tier 3: Base Surge & Pool (90m)</span>
+              <div class="water-cascade cascade-3"></div>
+            </div>
+          </div>
+
+          <div class="tier-details-panel" id="tier-details-panel" aria-live="polite">
+            <h3 id="tier-title">Tier 1: Upper Plunge</h3>
+            <span class="tier-height-tag" id="tier-height">Height Drop: ~110 Meters</span>
+            <p id="tier-desc">The water originates from rain-fed headwater streams on Sohra plateau, leaping dramatically off steep sandstone cliffs into a mist-shrouded gorge.</p>
+            
+            <div class="tier-meta-grid">
+              <div class="meta-box">
+                <span class="meta-lbl">Flow Speed:</span>
+                <span class="meta-val" id="meta-speed">High Velocity Plunge</span>
+              </div>
+              <div class="meta-box">
+                <span class="meta-lbl">Visibility:</span>
+                <span class="meta-val" id="meta-vis">Visible from Thangkharang Viewpoint</span>
+              </div>
+              <div class="meta-box">
+                <span class="meta-lbl">Geology:</span>
+                <span class="meta-val" id="meta-geo">Khasi Group Sandstone & Limestone</span>
+              </div>
+              <div class="meta-box">
+                <span class="meta-lbl">Ecology:</span>
+                <span class="meta-val" id="meta-eco">Subtropical Rain-Forest Canopy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HEIGHT COMPARISON SECTION -->
+    <section class="height-section fade-in-section" id="height-comparison">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Relative Scale</span>
+          <h2>Indian Waterfall & Monument Height Comparison</h2>
+          <p>See how Kynrem Falls (305m) compares in scale with famous waterfalls and landmarks across India.</p>
+        </div>
+
+        <div class="height-chart-grid" id="height-chart-grid">
+          <!-- Dynamically populated height comparison bars -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SEASONAL VARIATION EXPLORER -->
+    <section class="seasonal-section fade-in-section" id="seasonal-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Hydrological Cycle</span>
+          <h2>Seasonal Flow Variation</h2>
+          <p>Toggle seasons to observe how monsoon rainfall alters the volume, misty spray, and road accessibility of Kynrem Falls.</p>
+        </div>
+
+        <div class="season-tabs" role="tablist" aria-label="Seasonal Flow Variations">
+          <button class="season-tab-btn active" data-season="monsoon" role="tab" aria-selected="true">🌧️ Peak Monsoon (Jun – Sep)</button>
+          <button class="season-tab-btn" data-season="post" role="tab" aria-selected="false">🌤️ Post-Monsoon (Oct – Dec)</button>
+          <button class="season-tab-btn" data-season="dry" role="tab" aria-selected="false">☀️ Dry Season (Jan – May)</button>
+        </div>
+
+        <div class="season-info-box" id="season-info-box" aria-live="polite">
+          <h3 id="season-title">Peak Monsoon Surge</h3>
+          <p id="season-desc">During peak monsoon in Cherrapunji (one of the wettest places on Earth), Kynrem Falls transforms into a roaring, thunderous torrent visible miles away, filling the entire gorge with dense mist and rainbows.</p>
+          <div class="season-stats-row">
+            <span class="s-pill" id="spill-flow">Flow Volume: 100% Maximum</span>
+            <span class="s-pill" id="spill-vis">Best Viewpoint: Thangkharang Park Gate</span>
+            <span class="s-pill" id="spill-tip">Travel Tip: Carry heavy rain gear</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTO GALLERY SECTION (NEW) -->
+    <section class="gallery-section fade-in-section" id="gallery-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Visual Journey</span>
+          <h2>Kynrem Falls Photo Gallery</h2>
+          <p>Glimpses of the majestic cascade across different seasons and viewpoints.</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item"><div class="gallery-placeholder" style="background: linear-gradient(135deg, #0284c7, #38bdf8);">📸 Upper Plunge View</div></div>
+          <div class="gallery-item"><div class="gallery-placeholder" style="background: linear-gradient(135deg, #166534, #22c55e);">🌿 Thangkharang Park Trail</div></div>
+          <div class="gallery-item"><div class="gallery-placeholder" style="background: linear-gradient(135deg, #d97706, #fbbf24);">🌅 Sunset over Bangladesh Plains</div></div>
+          <div class="gallery-item"><div class="gallery-placeholder" style="background: linear-gradient(135deg, #475569, #94a3b8);">🌧️ Monsoon Mist & Rainbows</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION MAP & SURROUNDING ATTRACTIONS -->
+    <section class="map-section fade-in-section" id="map-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Geographic Surroundings</span>
+          <h2>Location & Nearby Attractions Map</h2>
+          <p>Explore Kynrem Falls' placement in East Khasi Hills and nearby wonders in the Sohra circuit.</p>
+        </div>
+
+        <div class="map-attractions-wrapper">
+          <div class="kynrem-map-box">
+            <svg viewBox="0 0 700 450" class="kynrem-svg" role="img" aria-label="Map of Kynrem Falls and surrounding attractions">
+              <rect width="100%" height="100%" fill="rgba(15, 23, 42, 0.4)"/>
+              <!-- Bangladesh Plains border -->
+              <path d="M 50,380 L 650,380" stroke="#fbbf24" stroke-width="2" stroke-dasharray="8,4"/>
+              <text x="350" y="415" fill="#fbbf24" font-size="12" font-weight="bold" text-anchor="middle">Plain of Sylhet (Bangladesh Border)</text>
+
+              <!-- Khasi Hills Plateau -->
+              <path d="M 80,100 L 620,100 L 580,360 L 120,360 Z" fill="rgba(34, 197, 94, 0.1)" stroke="rgba(34, 197, 94, 0.3)" stroke-width="2"/>
+
+              <!-- Markers -->
+              <g class="map-pin" data-pin="kynrem" tabindex="0" role="button" aria-label="Kynrem Falls Location">
+                <circle cx="350" cy="300" r="14" fill="rgba(56, 189, 248, 0.4)"/>
+                <circle cx="350" cy="300" r="8" fill="#38bdf8"/>
+                <text x="350" y="280" fill="#ffffff" font-weight="bold" font-size="12" text-anchor="middle">Kynrem Falls (305m)</text>
+              </g>
+
+              <g class="map-pin" data-pin="thangkharang" tabindex="0" role="button" aria-label="Thangkharang Park Viewpoint">
+                <circle cx="320" cy="240" r="10" fill="#4ade80"/>
+                <text x="320" y="225" fill="#4ade80" font-weight="bold" font-size="11" text-anchor="middle">Thangkharang Park</text>
+              </g>
+
+              <g class="map-pin" data-pin="khohramhah" tabindex="0" role="button" aria-label="Khoh Ramhah Rock">
+                <circle cx="420" cy="250" r="10" fill="#fbbf24"/>
+                <text x="420" y="235" fill="#fbbf24" font-weight="bold" font-size="11" text-anchor="middle">Khoh Ramhah (Pillar Rock)</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="map-details-box" id="map-details-box">
+            <h3 id="map-detail-title">Select a location on the map</h3>
+            <p id="map-detail-desc">Click on any of the highlighted pins (Kynrem Falls, Thangkharang Park, or Khoh Ramhah) to view detailed information about that specific attraction.</p>
+            <div class="map-meta" id="map-detail-meta" style="display: none;">
+              <span class="map-meta-pill" id="map-meta-distance"></span>
+              <span class="map-meta-pill" id="map-meta-type"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISITOR INFORMATION SECTION (NEW) -->
+    <section class="visitor-section fade-in-section" id="visitor-info">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Plan Your Trip</span>
+          <h2>Visitor Information & Guidelines</h2>
+          <p>Everything you need to know before visiting Kynrem Falls.</p>
+        </div>
+        <div class="visitor-grid">
+          <div class="visitor-card">
+            <h4>🕒 Timings & Entry</h4>
+            <p><strong>Open:</strong> 6:00 AM to 5:00 PM (Daily)<br><strong>Entry Fee:</strong> ₹30 per person (Thangkharang Park)<br><strong>Camera Fee:</strong> ₹50 for DSLR/Professional gear</p>
+          </div>
+          <div class="visitor-card">
+            <h4>🚗 How to Reach</h4>
+            <p><strong>By Air:</strong> Shillong Airport (Umroi) is ~65 km away.<br><strong>By Train:</strong> Guwahati Railway Station (~160 km).<br><strong>By Road:</strong> Well-connected from Shillong via NH6 (approx. 60 km, 2 hours).</p>
+          </div>
+          <div class="visitor-card">
+            <h4>⚠️ Safety & Guidelines</h4>
+            <p>Stay behind designated safety barriers. Do not attempt to climb the slippery rocks near the plunge pool. Carry leech socks during the monsoon season.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOURCES & REFERENCES -->
+    <section class="sources-section fade-in-section">
+      <div class="section-container">
+        <h2>Sources & Hydrological References</h2>
+        <ul class="sources-list">
+          <li>Meghalaya Tourism Development Corporation (MTDC) Official Records & Park Guidelines.</li>
+          <li>Geological Survey of India (GSI) Meghalaya Circle Reports on Khasi Group Formations.</li>
+          <li>World Waterfall Database – Kynrem Falls Entry (305m height verification).</li>
+          <li>India Meteorological Department (IMD) Historical Rainfall Data for Sohra (Cherrapunji).</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>Incredible India Explorer</h3>
+        <p>Documenting the natural wonders of India, one waterfall at a time.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="../../index.html#home">Home</a>
+        <a href="../waterfalls-of-india/index.html">Waterfalls Collection</a>
+        <a href="../../frontend/sources/sources.html">Sources & Credits</a>
+        <a href="../../contact.html">Contact Us</a>
+      </div>
+      <div class="footer-legal">
+        <h4>Legal</h4>
+        <a href="../../privacy.html">Privacy Policy</a>
+        <a href="../../terms.html">Terms of Use</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Incredible India Explorer. Created under Open Source Contribution Guidelines. Licensed under MIT.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
