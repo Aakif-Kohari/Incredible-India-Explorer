@@ -5,6 +5,13 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Ravidas Ghat — Varanasi Spiritual Legacy & Living Culture Profile',
+        category: 'Heritage & Pilgrimage',
+        description:
+            'Explore Ravidas Ghat in Varanasi: the southernmost and largest riverfront ghat on the Ganges, dedicated to Bhakti saint Ravidas with an adjoining 25-acre Smarak Park, Magh Purnima Jayanti celebrations, and sacred Bani.',
+        url: 'frontend/ravidas-ghat/index.html'
+    },
+    {
         title: 'Naya Ghat — Varanasi Riverfront Renewal & Living Culture Profile',
         category: 'Heritage & Development',
         description:
