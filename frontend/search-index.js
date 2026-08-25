@@ -1426,6 +1426,13 @@ window.indiaSearchIndex = [
             "Explore Barren Island volcano, Lonar crater, Deccan Traps, and India's most dramatic geological formations.",
         url: 'frontend//volcanoes-geology.html'
     },
+    {
+        title: 'Barren Island Volcano Explorer — Active Volcano | Andaman Sea Profile',
+        category: 'Nature & Geography',
+        description:
+            "Explore Barren Island, South Asia's only confirmed active volcano. Discover its location, volcanic history, geological subduction zone setting, structure, marine ecosystem, remote monitoring, and permit access regulations.",
+        url: 'frontend/barren-island/barren-island.html'
+    },
     // --- Photography Locations Explorer ---
     {
         title: 'Photography Locations Explorer',
@@ -3923,6 +3930,13 @@ window.indiaSearchIndex = [
         description:
             "Explore Barren Island volcano, Lonar crater, Deccan Traps, and India's most dramatic geological formations.",
         url: 'frontend//volcanoes-geology.html'
+    },
+    {
+        title: 'Barren Island Volcano Explorer — Active Volcano | Andaman Sea Profile',
+        category: 'Nature & Geography',
+        description:
+            "Explore Barren Island, South Asia's only confirmed active volcano. Discover its location, volcanic history, geological subduction zone setting, structure, marine ecosystem, remote monitoring, and permit access regulations.",
+        url: 'frontend/barren-island/barren-island.html'
     },
     // --- Photography Locations Explorer ---
     {
