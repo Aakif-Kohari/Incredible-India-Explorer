@@ -6440,5 +6440,14 @@ window.indiaSearchIndex = [
         description:
             "Explore the story of Lava and Kusha \u2014 the young twin princes of Ayodhya, their upbringing in Valmiki ashram, singing the Ramayana, and Ashwamedha valor.",
         url: "frontend/lava-kusha-story/index.html"
+    },
+
+    // --- Vamana and King Bali Story (#3695) ---
+    {
+        title: "Vamana and King Bali — The Three Steps",
+        category: "Culture & Literature",
+        description:
+            "Explore the traditional Vamana and Mahabali story: the three cosmic steps, Onam in Kerala, regional interpretations, and a Did You Know section.",
+        url: "frontend/vamana-bali-story/index.html"
     }
 ];
