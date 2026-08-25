@@ -6440,5 +6440,14 @@ window.indiaSearchIndex = [
         description:
             "Explore the story of Lava and Kusha \u2014 the young twin princes of Ayodhya, their upbringing in Valmiki ashram, singing the Ramayana, and Ashwamedha valor.",
         url: "frontend/lava-kusha-story/index.html"
+    },
+
+    // --- Dhruva Story (#3693) ---
+    {
+        title: "Dhruva — The Child Who Reached the Stars",
+        category: "Culture & Literature",
+        description:
+            "Explore the Puranic story of Dhruva: family, the throne-room slight, forest penance, themes of perseverance and devotion, and the traditional belief linking him with Dhruva Tara, the Pole Star.",
+        url: "frontend/dhruva-story/index.html"
     }
 ];
