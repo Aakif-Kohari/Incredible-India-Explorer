@@ -126,6 +126,13 @@ window.indiaSearchIndex = [
         url: 'frontend/naiki-devi-kasahrada/index.html'
     },
     {
+        title: 'Rani Abbakka Chowta & Portuguese Resistance (c. 1525–1570s CE) — Ullal Queen Profile',
+        category: 'Historical Rulers & Dynasties',
+        description:
+            'Explore Rani Abbakka Chowta I (c. 1525–1570s CE), the fearless queen of Ullal who resisted Portuguese naval dominance. Discover her rule, Portuguese campaigns, coastal maritime trade, timeline, map, and academic references.',
+        url: 'frontend/abbakka-chowta-ullal/index.html'
+    },
+    {
         title: 'Rani Durgavati & Gond Kingdom of Garha-Katanga (r. 1548–1564 CE) — Gondwana Queen Profile',
         category: 'Historical Rulers & Dynasties',
         description:
