@@ -284,6 +284,13 @@ window.openDishModal = function(id) {
             <h4 style="color: #34d399; font-size: 1.05rem; margin-bottom: 8px;"><i class="fa-solid fa-book-open"></i> Heritage & Story</h4>
             <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6;">${dish.history}</p>
         </div>
+        ${dish.id === 'vada-pav' ? `
+            <div style="margin-top: 16px; text-align: center;">
+                <a href="../vada-pav-explorer/index.html" style="display: inline-block; padding: 10px 20px; background: #ff9933; color: #0b1120; font-weight: 700; text-decoration: none; border-radius: 8px; font-size: 0.9rem;">
+                    Open Full Vada Pav Explorer Page <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        ` : ''}
     `;
 
     modal.classList.add('active');

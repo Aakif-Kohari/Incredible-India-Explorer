@@ -1,5 +1,5 @@
 /* ==========================================================================
-   KYNREM FALLS EXPLORER STYLES
+   KYNREM FALLS EXPLORER STYLES (Expanded)
    ========================================================================== */
 
 :root {
@@ -12,8 +12,10 @@
   --text-secondary: #94a3b8;
   --border-dark: rgba(255, 255, 255, 0.1);
   --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
   --radius-lg: 16px;
   --radius-md: 10px;
+  --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-theme="light"] {
@@ -22,71 +24,90 @@
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --border-dark: rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Accessibility Skip Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--water-blue);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  transition: top 0.3s;
+  font-weight: bold;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Scroll Animation Classes */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Section Enhancements */
 .kynrem-hero {
-  padding: 120px 24px 60px;
+  padding: 140px 24px 80px;
   background: radial-gradient(circle at 50% 30%, rgba(56, 189, 248, 0.18) 0%, transparent 60%),
               radial-gradient(circle at 80% 70%, rgba(34, 197, 94, 0.12) 0%, transparent 60%),
               var(--bg-dark);
   text-align: center;
 }
 
-.hero-container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.hero-badge {
-  display: inline-block;
-  padding: 6px 16px;
-  border-radius: 9999px;
-  background: rgba(56, 189, 248, 0.15);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  color: var(--water-blue);
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin-bottom: 20px;
-}
-
-.kynrem-hero h1 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 3.2rem;
-  color: var(--text-primary);
-  margin-bottom: 20px;
-}
-
-.kynrem-hero h1 span {
-  background: linear-gradient(135deg, #38bdf8, #22c55e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero-subtitle {
-  font-size: 1.15rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 30px;
-}
-
-.hero-pills {
+.hero-cta-group {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 16px;
+  margin-top: 32px;
   flex-wrap: wrap;
 }
 
-.hero-pills .pill {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-dark);
-  padding: 6px 14px;
+.btn {
+  padding: 12px 28px;
   border-radius: 8px;
-  font-size: 0.85rem;
-  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition-base);
+  border: 2px solid transparent;
 }
 
-/* Sections */
-.tier-section, .height-section, .seasonal-section, .map-section, .sources-section {
+.btn-primary {
+  background: var(--water-blue);
+  color: #0f172a;
+}
+.btn-primary:hover {
+  background: var(--water-deep);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--border-dark);
+  color: var(--text-primary);
+}
+.btn-secondary:hover {
+  border-color: var(--water-blue);
+  color: var(--water-blue);
+}
+
+/* Sections Base */
+.tier-section, .height-section, .seasonal-section, .map-section, .gallery-section, .visitor-section, .sources-section {
   padding: 80px 24px;
 }
 
@@ -118,9 +139,11 @@
 .section-header p {
   color: var(--text-secondary);
   font-size: 1.05rem;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-/* Three Tier Interactive */
+/* Tier Interactive */
 .tier-interactive-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -129,6 +152,7 @@
   border: 1px solid var(--border-dark);
   border-radius: var(--radius-lg);
   padding: 36px;
+  box-shadow: var(--shadow-lg);
 }
 
 .tier-visual-stage {
@@ -143,7 +167,7 @@
   border-radius: var(--radius-md);
   padding: 24px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--transition-base);
   position: relative;
   overflow: hidden;
 }
@@ -151,6 +175,12 @@
 .tier-block:hover, .tier-block.active {
   border-color: var(--water-blue);
   background: rgba(56, 189, 248, 0.1);
+  transform: translateX(8px);
+}
+
+.tier-block:focus-visible {
+  outline: 2px solid var(--water-blue);
+  outline-offset: 2px;
 }
 
 .tier-badge {
@@ -165,6 +195,7 @@
 .water-cascade {
   height: 6px;
   background: linear-gradient(90deg, #38bdf8, #60a5fa, #38bdf8);
+  background-size: 200% 100%;
   border-radius: 999px;
   margin-top: 12px;
   animation: flow 2s linear infinite;
@@ -173,10 +204,6 @@
 @keyframes flow {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
-}
-
-.tier-details-panel {
-  padding: 20px;
 }
 
 .tier-details-panel h3 {
@@ -193,12 +220,6 @@
   margin-bottom: 16px;
 }
 
-.tier-details-panel p {
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 24px;
-}
-
 .tier-meta-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -210,6 +231,10 @@
   border: 1px solid var(--border-dark);
   padding: 12px;
   border-radius: 8px;
+  transition: var(--transition-base);
+}
+.meta-box:hover {
+  border-color: var(--forest-green);
 }
 
 .meta-lbl {
@@ -217,6 +242,7 @@
   font-size: 0.75rem;
   color: var(--text-secondary);
   text-transform: uppercase;
+  margin-bottom: 4px;
 }
 
 .meta-val {
@@ -225,7 +251,7 @@
   color: var(--text-primary);
 }
 
-/* Height Comparison Bars */
+/* Height Comparison */
 .height-chart-grid {
   display: flex;
   align-items: flex-end;
@@ -236,6 +262,7 @@
   border: 1px solid var(--border-dark);
   border-radius: var(--radius-lg);
   padding: 40px 32px 24px;
+  box-shadow: var(--shadow-md);
 }
 
 .height-bar-col {
@@ -259,19 +286,20 @@
   max-width: 48px;
   border-radius: 8px 8px 0 0;
   background: linear-gradient(180deg, #38bdf8, #0284c7);
-  transition: height 0.6s ease;
+  transition: height 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .bar-fill.highlight {
   background: linear-gradient(180deg, #fbbf24, #d97706);
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
 }
 
 .bar-name {
   font-size: 0.8rem;
   color: var(--text-primary);
   margin-top: 10px;
-  text-anchor: middle;
   text-align: center;
+  line-height: 1.3;
 }
 
 /* Seasonal Explorer */
@@ -291,12 +319,18 @@
   color: var(--text-primary);
   font-weight: 600;
   cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.season-tab-btn:hover {
+  border-color: var(--water-blue);
 }
 
 .season-tab-btn.active {
   border-color: var(--water-blue);
   background: rgba(56, 189, 248, 0.15);
   color: var(--water-blue);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
 }
 
 .season-info-box {
@@ -305,19 +339,7 @@
   border-radius: var(--radius-lg);
   padding: 32px;
   text-align: center;
-}
-
-.season-info-box h3 {
-  font-size: 1.6rem;
-  color: var(--text-primary);
-  margin-bottom: 12px;
-}
-
-.season-info-box p {
-  color: var(--text-secondary);
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 0 auto 24px;
+  transition: var(--transition-base);
 }
 
 .season-stats-row {
@@ -336,7 +358,37 @@
   color: var(--text-primary);
 }
 
-/* Map Section */
+/* Gallery Section (NEW) */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-dark);
+  transition: var(--transition-base);
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.gallery-placeholder {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Map Section Enhancements */
 .map-attractions-wrapper {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -345,6 +397,7 @@
   border: 1px solid var(--border-dark);
   border-radius: var(--radius-lg);
   padding: 28px;
+  box-shadow: var(--shadow-md);
 }
 
 .kynrem-map-box {
@@ -352,6 +405,7 @@
   background: rgba(0, 0, 0, 0.25);
   border-radius: var(--radius-md);
   overflow: hidden;
+  border: 1px solid var(--border-dark);
 }
 
 .kynrem-svg {
@@ -361,34 +415,94 @@
 
 .map-pin {
   cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.map-pin:hover, .map-pin:focus {
+  transform: scale(1.2);
+  outline: none;
+}
+.map-pin circle:first-child {
+  animation: pulse 2s infinite;
 }
 
-.attractions-list-box h3 {
+@keyframes pulse {
+  0% { r: 14; opacity: 0.4; }
+  50% { r: 20; opacity: 0.1; }
+  100% { r: 14; opacity: 0.4; }
+}
+
+.map-details-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.map-details-box h3 {
   font-size: 1.4rem;
   color: var(--text-primary);
-  margin-bottom: 16px;
-}
-
-.attraction-card {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid var(--border-dark);
-  border-radius: var(--radius-md);
-  padding: 16px;
   margin-bottom: 12px;
 }
 
-.attraction-card h4 {
-  font-size: 1.1rem;
-  color: var(--text-primary);
-  margin-bottom: 6px;
-}
-
-.attraction-card p {
-  font-size: 0.85rem;
+.map-details-box p {
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
+.map-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.map-meta-pill {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--water-blue);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* Visitor Info Section (NEW) */
+.visitor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.visitor-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  transition: var(--transition-base);
+}
+
+.visitor-card:hover {
+  border-color: var(--forest-green);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.visitor-card h4 {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.visitor-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Sources Section */
 .sources-list {
   background: var(--bg-card);
   border: 1px solid var(--border-dark);
@@ -398,8 +512,122 @@
   line-height: 1.8;
 }
 
-@media (max-width: 900px) {
+.sources-list li {
+  margin-bottom: 8px;
+}
+
+/* Footer Enhancements */
+.footer {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-dark);
+  padding: 60px 24px 20px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand h3 {
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.footer-brand p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.footer-links h4, .footer-legal h4 {
+  color: var(--text-primary);
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.footer-links a, .footer-legal a {
+  display: block;
+  color: var(--text-secondary);
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover, .footer-legal a:hover {
+  color: var(--water-blue);
+}
+
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-dark);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--water-blue);
+  color: #0f172a;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-base);
+  z-index: 999;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background: var(--water-deep);
+  color: #fff;
+  transform: translateY(-4px);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
   .tier-interactive-wrapper, .map-attractions-wrapper {
     grid-template-columns: 1fr;
   }
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .kynrem-hero h1 { font-size: 2.4rem; }
+  .section-header h2 { font-size: 2rem; }
+  .height-chart-grid { height: 300px; padding: 24px 16px; }
+  .bar-name { font-size: 0.7rem; }
+  .footer-container { grid-template-columns: 1fr; text-align: center; }
+  .tier-meta-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .hero-cta-group { flex-direction: column; align-items: center; }
+  .btn { width: 100%; text-align: center; }
+  .season-tabs { flex-direction: column; }
+  .season-tab-btn { width: 100%; }
 }
