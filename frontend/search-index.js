@@ -143,6 +143,12 @@ window.indiaSearchIndex = [
         url: 'frontend/naiki-devi-kasahrada/index.html'
     },
     {
+        title: 'Rani Durgavati & Gond Kingdom of Garha-Katanga (r. 1548–1564 CE) — Gondwana Queen Profile',
+        category: 'Historical Rulers & Dynasties',
+        description:
+            'Explore Rani Durgavati (1524–1564 CE), the legendary Gond queen who ruled Garha-Katanga. Discover her administration, defense against Mughal expansion, the Battle of Narrai, timeline, central India map, and sources.',
+        url: 'frontend/rani-durgavati-gond/index.html'},
+    {
         title: 'Queen Rudrama Devi & The Kakatiya Golden Era (c. 1262–1289 CE) — Deccan Sovereign Profile',
         category: 'Historical Rulers & Dynasties',
         description:

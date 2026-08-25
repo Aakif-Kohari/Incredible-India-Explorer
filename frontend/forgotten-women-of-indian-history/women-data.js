@@ -189,6 +189,7 @@ const WOMEN_PROFILES = [
     // --- Medieval Era ---
     {
         id: "rani-durgavati",
+        url: "../rani-durgavati-gond/",
         name: "Rani Durgavati",
         era: "medieval",
         eraLabel: "1524 – 1564 CE",
