@@ -5,6 +5,13 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Maitreyi — The Philosopher Who Chose Knowledge Over Material Wealth',
+        category: 'Historical & Cultural Profiles',
+        description:
+            'Explore the philosophical dialogue of Maitreyi from the Brihadaranyaka Upanishad — the Vedic Brahmavadini who asked what to do with wealth that cannot grant immortality.',
+        url: 'frontend/maitreyi-philosopher/index.html'
+    },
+    {
         title: 'Naya Ghat — Varanasi Riverfront Renewal & Living Culture Profile',
         category: 'Heritage & Development',
         description:
