@@ -1,21 +1,52 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
-            if (theme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        })();
-    </script>
+  <!-- Theme Initialization to Prevent Flash -->
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Upload a photo of a monument, temple, or historical site and identify famous Indian landmarks with AI-powered confidence scores, detailed history, and nearby attractions.">
+  <meta name="keywords" content="landmark identifier, monument recognition, Indian heritage, AI photo recognition, Incredible India, historical sites, temple identifier, fort identifier">
+  <meta name="author" content="Incredible India Explorer">
+  <meta name="theme-color" content="#FF9933">
+
+  <!-- Open Graph / Social Media Tags -->
+  <meta property="og:title" content="Landmark Identifier | Incredible India Explorer">
+  <meta property="og:description" content="Upload a photo of any Indian monument and instantly identify it with AI-powered recognition, historical context, and travel information.">
+  <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/frontend/assets/landmark-identifier-og.png">
+  <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/landmark-identifier/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Incredible India Explorer">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Landmark Identifier | Incredible India Explorer">
+  <meta name="twitter:description" content="Identify Indian monuments instantly with AI-powered photo recognition.">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/landmark-identifier/index.html">
+
   <title>Landmark Identifier | Incredible India Explorer</title>
-  <meta name="description" content="Upload a photo of a monument, temple, or historical site and identify famous Indian landmarks with confidence scores, history, and nearby attractions.">
-  <link rel="stylesheet" href="../../styles.css"stylesheet" href="style.css">
+
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="landmark-page">
+  <!-- Sticky Navigation Bar -->
   <header class="navbar" id="navbar">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
@@ -23,210 +54,378 @@
             <span class="gold">India</span>
             <span class="green">Explorer</span>
         </a>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
         <nav class="nav-menu" id="nav-menu">
-            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
-
+            <a href="../../index.html#home" class="nav-link">Home</a>
             <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Tools ▾</button>
                 <div class="dropdown-menu">
-                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
-                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
-                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
-                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
-                    <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
-                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                    <a href="../route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                    <a href="../crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                    <a href="index.html" class="dropdown-item active">Landmark Identifier</a>
                 </div>
             </div>
-
             <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Heritage </button>
                 <div class="dropdown-menu">
-                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
-                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
-                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
-                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
-                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
-                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
-                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
-                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
-                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                    <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../forts/forts.html" class="dropdown-item">Forts of India</a>
+                    <a href="../ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports</a>
                 </div>
             </div>
-
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
-                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
-                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
-                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
-                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
-                </div>
-            </div>
-
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
-                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
-                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
-                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
-                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
-                </div>
-            </div>
-
-            <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
-                <div class="dropdown-menu">
-                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
-                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
-                </div>
-            </div>
-            
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+  </header>
 
-  <main class="landmark-page">
+  <main class="landmark-main">
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav section-container" style="padding-top: 100px;">
+        <ol class="breadcrumb-list">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../index.html#tools">Tools</a></li>
+            <li aria-current="page">Landmark Identifier</li>
+        </ol>
+    </nav>
+
+    <!-- Hero Section -->
     <section class="landmark-hero">
-      <div class="hero-content">
-        <span class="hero-kicker">AI-assisted photo recognition · confidence scored</span>
-        <h1>Landmark <span>Identifier</span></h1>
-        <p>
+      <div class="hero-overlay"></div>
+      <div class="section-container hero-content">
+        <span class="hero-kicker animate-fade-in"> AI-assisted photo recognition · Privacy-first · Instant results</span>
+        <h1 class="animate-slide-up">Landmark <span>Identifier</span></h1>
+        <p class="animate-fade-in-delayed">
           Upload a photo of a monument, temple, fort, or historical site and we'll match it against
-          a curated database of famous Indian landmarks &mdash; with history, significance, and
-          nearby places to explore.
+          a curated database of famous Indian landmarks — with detailed history, cultural significance, 
+          and nearby places to explore. <strong>All processing happens in your browser — your photos never leave your device.</strong>
         </p>
+        <div class="hero-actions animate-fade-in-delayed">
+          <a href="#identify" class="btn-primary">Start Identifying ↓</a>
+          <a href="#library" class="btn-secondary">Browse Landmark Library</a>
+        </div>
       </div>
     </section>
 
+    <!-- How It Works Section -->
+    <section class="how-it-works-section" id="how-it-works">
+      <div class="section-container">
+        <div class="section-heading">
+          <span class="section-badge">How It Works</span>
+          <h2>Three Simple Steps</h2>
+          <p>Our privacy-first AI technology identifies landmarks instantly without uploading your photos to any server.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-number">1</div>
+            <div class="step-icon">📸</div>
+            <h3>Upload Photo</h3>
+            <p>Take or upload a clear photo of the monument's main facade. Supports JPG, PNG, and WEBP up to 8MB.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-icon"></div>
+            <h3>AI Analysis</h3>
+            <p>Our browser-based AI extracts visual features and matches them against our curated landmark database.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-number">3</div>
+            <div class="step-icon"></div>
+            <h3>Get Results</h3>
+            <p>Receive instant identification with confidence score, historical context, and nearby attractions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upload & Identify Section -->
     <section class="identify-section" id="identify">
-      <div class="identify-container">
+      <div class="section-container">
         <div class="section-heading">
           <span class="section-badge">Step 1</span>
-          <h2>Upload a landmark photo</h2>
-          <p>Supports JPG, PNG, and WEBP images up to 8&nbsp;MB. Your photo is analyzed entirely in your browser.</p>
+          <h2>Upload a Landmark Photo</h2>
+          <p>For best results, use a clear, well-lit photo showing the main facade or distinctive architectural features.</p>
         </div>
 
-        <form id="upload-form" class="upload-card">
+        <form id="upload-form" class="upload-card" enctype="multipart/form-data">
           <label for="landmark-file" class="drop-zone" id="drop-zone">
-            <input type="file" id="landmark-file" name="landmark-file" accept="image/jpeg,image/png,image/webp" hidden>
+            <input type="file" id="landmark-file" name="landmark-file" accept="image/jpeg,image/png,image/webp" hidden required aria-describedby="file-instructions">
             <div class="drop-zone-inner" id="drop-zone-inner">
               <span class="drop-icon" aria-hidden="true">📷</span>
               <strong>Click to choose a photo</strong>
               <span>or drag and drop it here</span>
+              <small id="file-instructions">Supports: JPG, PNG, WEBP (Max 8 MB)</small>
             </div>
-            <img id="preview-image" class="preview-image" alt="" hidden>
+            <img id="preview-image" class="preview-image" alt="Preview of uploaded landmark photo" hidden>
+            <button type="button" class="remove-image-btn" id="remove-image-btn" aria-label="Remove uploaded image" hidden>✕</button>
           </label>
 
           <div class="upload-actions">
-            <button type="submit" id="identify-btn" class="btn-primary" disabled>Identify landmark</button>
-            <button type="button" id="clear-btn" class="btn-secondary" hidden>Choose a different photo</button>
+            <button type="submit" id="identify-btn" class="btn-primary" disabled>
+              <span class="btn-text">Identify Landmark</span>
+              <span class="btn-loader" hidden>
+                <span class="spinner"></span>
+                Analyzing...
+              </span>
+            </button>
+            <button type="button" id="clear-btn" class="btn-secondary" hidden>Choose Different Photo</button>
+          </div>
+
+          <div class="upload-tips">
+            <h4>💡 Tips for Best Results:</h4>
+            <ul>
+              <li>Use a clear, well-lit photo</li>
+              <li>Show the main facade or entrance</li>
+              <li>Avoid extreme angles or heavy cropping</li>
+              <li>Include distinctive architectural features</li>
+            </ul>
           </div>
 
           <p class="upload-status" id="upload-status" role="status" aria-live="polite"></p>
+          <div class="error-message" id="error-message" role="alert" hidden></div>
         </form>
       </div>
     </section>
 
+    <!-- Loading State -->
+    <section class="loading-section" id="loading-section" hidden>
+      <div class="section-container">
+        <div class="loading-content">
+          <div class="loading-spinner" aria-hidden="true"></div>
+          <h3>Analyzing your photo...</h3>
+          <p>Our AI is extracting visual features and matching against our landmark database.</p>
+          <div class="loading-progress">
+            <div class="progress-bar"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
     <section class="results-section" id="results-section" hidden>
-      <div class="results-container">
+      <div class="section-container">
         <div class="section-heading">
           <span class="section-badge">Step 2</span>
-          <h2>Results</h2>
+          <h2>Identification Results</h2>
         </div>
 
+        <!-- Best Match Card -->
         <article class="result-card" id="best-match-card" hidden>
+          <div class="result-header">
+            <div class="confidence-badge" id="confidence-badge">
+              <span class="confidence-value">--%</span>
+              <span class="confidence-label">match confidence</span>
+            </div>
+            <span class="result-category" id="result-category"></span>
+          </div>
+          
           <div class="result-media">
             <img id="result-image" src="" alt="">
+            <div class="result-image-caption" id="result-image-caption"></div>
           </div>
+          
           <div class="result-body">
-            <div class="confidence-row">
-              <span class="confidence-badge" id="confidence-badge">--% match</span>
-              <span class="result-category" id="result-category"></span>
-            </div>
             <h3 id="result-name">--</h3>
-            <p class="result-location" id="result-location"></p>
+            <p class="result-location" id="result-location">
+              <span class="location-icon">📍</span>
+              <span></span>
+            </p>
             <p id="result-description"></p>
 
             <div class="info-grid">
-              <div>
-                <span>Built</span>
+              <div class="info-item">
+                <span class="info-label">Built / Established</span>
                 <strong id="result-built">--</strong>
               </div>
-              <div>
-                <span>Best time to visit</span>
+              <div class="info-item">
+                <span class="info-label">Best Time to Visit</span>
                 <strong id="result-best-time">--</strong>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Entry Fee</span>
+                <strong id="result-entry-fee">--</strong>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Visiting Hours</span>
+                <strong id="result-visiting-hours">--</strong>
               </div>
             </div>
 
             <div class="significance-box">
-              <h4>Why it matters</h4>
+              <h4>🏛️ Historical & Cultural Significance</h4>
               <p id="result-significance"></p>
             </div>
 
+            <div class="architecture-box">
+              <h4>️ Architectural Style</h4>
+              <p id="result-architecture"></p>
+            </div>
+
             <div class="nearby-box">
-              <h4>Nearby attractions</h4>
+              <h4>🗺️ Nearby Attractions</h4>
               <ul id="nearby-list"></ul>
+            </div>
+
+            <div class="result-actions">
+              <button type="button" class="btn-secondary" id="save-to-journey-btn">
+                 Save to My Journey
+              </button>
+              <a href="#" class="btn-outline" id="view-on-map-btn" target="_blank">
+                View on Map →
+              </a>
             </div>
           </div>
         </article>
 
+        <!-- Low Confidence Notice -->
         <div class="low-confidence-notice" id="low-confidence-notice" role="status" hidden>
-          <strong>No confident match found.</strong>
-          <p>The closest matches are shown below, but none met our confidence threshold. Try a clearer, closer-up photo of the landmark's main facade.</p>
+          <div class="notice-icon">⚠️</div>
+          <div class="notice-content">
+            <strong>No Confident Match Found</strong>
+            <p>The closest matches are shown below, but none met our confidence threshold (70%). Try uploading a clearer, closer-up photo of the landmark's main facade, or browse our library to see if it's included.</p>
+          </div>
         </div>
 
+        <!-- Alternative Matches -->
         <div class="alt-matches" id="alt-matches" hidden>
-          <h4>Other possible matches</h4>
+          <h4>Other Possible Matches</h4>
+          <p class="alt-matches-hint">These landmarks share similar visual features. Click to view details.</p>
           <div class="alt-match-grid" id="alt-match-grid"></div>
         </div>
+
+        <!-- No Results State -->
+        <div class="no-results" id="no-results" hidden>
+          <div class="no-results-icon">🔍</div>
+          <h3>No Matches Found</h3>
+          <p>We couldn't find any matching landmarks in our database. This could mean:</p>
+          <ul>
+            <li>The photo quality needs improvement</li>
+            <li>The landmark is not yet in our database</li>
+            <li>The angle or lighting obscures key features</li>
+          </ul>
+          <div class="no-results-actions">
+            <button type="button" class="btn-primary" onclick="document.getElementById('identify').scrollIntoView({behavior: 'smooth'})">Try Another Photo</button>
+            <a href="#library" class="btn-secondary">Browse Our Library</a>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- Search History Section -->
     <section class="history-section" id="history-section">
-      <div class="history-container">
-        <div class="history-heading">
-          <h3>Recent searches</h3>
-          <button id="clear-history-btn" type="button">Clear history</button>
+      <div class="section-container">
+        <div class="section-heading">
+          <span class="section-badge">Your Activity</span>
+          <h2>Recent Searches</h2>
         </div>
-        <p class="history-empty" id="history-empty">No searches yet &mdash; identify a landmark to see it here.</p>
-        <ul class="history-list" id="history-list"></ul>
+        <div class="history-container">
+          <div class="history-heading">
+            <h3>Previously Identified Landmarks</h3>
+            <button id="clear-history-btn" type="button" class="btn-text">Clear History</button>
+          </div>
+          <p class="history-empty" id="history-empty">
+            No searches yet — identify a landmark to see it here. Your search history is stored locally in your browser.
+          </p>
+          <ul class="history-list" id="history-list" role="list"></ul>
+        </div>
       </div>
     </section>
 
+    <!-- Landmark Library Section -->
     <section class="landmark-library" id="library">
-      <div class="library-container">
+      <div class="section-container">
         <div class="section-heading">
-          <span class="section-badge">Reference database</span>
-          <h2>Landmarks we can currently recognize</h2>
-          <p>This curated set will keep growing &mdash; more monuments, temples, and natural sites are added over time.</p>
+          <span class="section-badge">Reference Database</span>
+          <h2>Landmarks We Can Currently Recognize</h2>
+          <p>This curated collection spans monuments, temples, forts, and heritage sites across India. Our database is constantly growing — check back often for new additions!</p>
         </div>
-        <div class="library-grid" id="library-grid"></div>
+        
+        <div class="library-filters">
+          <button class="filter-btn active" data-filter="all">All Landmarks</button>
+          <button class="filter-btn" data-filter="temple">Temples</button>
+          <button class="filter-btn" data-filter="fort">Forts</button>
+          <button class="filter-btn" data-filter="monument">Monuments</button>
+          <button class="filter-btn" data-filter="unesco">UNESCO Sites</button>
+        </div>
+
+        <div class="library-grid" id="library-grid" role="list">
+          <!-- Populated dynamically by JS -->
+          <div class="loading-skeleton">
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+          </div>
+        </div>
+
+        <div class="library-stats">
+          <p><strong id="total-landmarks">0</strong> landmarks currently in database</p>
+          <p class="library-note">📍 Covering <span id="total-states">0</span> states and union territories</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy & Technical Info -->
+    <section class="privacy-section" id="privacy">
+      <div class="section-container">
+        <div class="section-heading">
+          <span class="section-badge">Privacy & Technology</span>
+          <h2>How We Protect Your Privacy</h2>
+        </div>
+        <div class="privacy-grid">
+          <article class="privacy-card">
+            <h3>🔒 Browser-Based Processing</h3>
+            <p>Your photos are analyzed entirely in your browser using client-side AI. They are never uploaded to our servers or shared with third parties.</p>
+          </article>
+          <article class="privacy-card">
+            <h3>💾 Local Storage Only</h3>
+            <p>Search history and preferences are stored in your browser's localStorage. You can clear them anytime using the "Clear History" button.</p>
+          </article>
+          <article class="privacy-card">
+            <h3> TensorFlow.js Powered</h3>
+            <p>We use TensorFlow.js for on-device image recognition, ensuring fast, private, and offline-capable landmark identification.</p>
+          </article>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- Comprehensive Footer -->
   <footer class="landmark-footer">
-    <p>
-      Part of <a href="../../index.html">Incredible India Explorer</a> · Landmark photos are matched locally in your browser against a curated reference set.
-    </p>
+    <div class="section-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Incredible India Explorer</h3>
+          <p>Discover India's rich heritage through AI-powered tools and immersive digital experiences.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="../../index.html">Home</a>
+          <a href="../route-planner/route-planner.html">Route Planner</a>
+          <a href="../heritage/heritage.html">Heritage Sites</a>
+        </div>
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <a href="../../privacy.html">Privacy Policy</a>
+          <a href="../../terms.html">Terms of Use</a>
+          <a href="../../contact.html">Contact Us</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Incredible India Explorer. Landmark Identifier · All photos processed locally in your browser.</p>
+      </div>
+    </div>
   </footer>
 
-  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
-  <script src="../app.js</script>
-  <script src="../trip-data.js</script>
-  <script src="../../frontend/js-modules/landmark-data.js"></script>
-  <script type="module" src="script.js"></script>
+  <!-- Scroll to Top Button -->
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top of page">↑</button>
+
+  <!-- Scripts -->
+  <script src="../app.js" defer></script>
+  <script src="../trip-data.js" defer></script>
+  <script src="../../frontend/js-modules/landmark-data.js" defer></script>
+  <script type="module" src="script.js" defer></script>
 </body>
 </html>
