@@ -44,6 +44,13 @@ window.indiaSearchIndex = [
         url: 'frontend/dandi-ghat/index.html'
     },
     {
+    title: "The 2010 Ahmedabad Heatwave",
+    category: "Natural Hazards",
+    description:
+        "Explore the severe May 2010 Ahmedabad heatwave and how it led to South Asia's first Heat Action Plan and early-warning system.",
+    url: "frontend/ahmedabad-heatwave-2010/index.html"
+    },
+    {
         title: 'Brahmagiri Peak Trek (Coorg & Wayanad) Profile',
         category: 'Adventure & Sanctuary Treks',
         description:
