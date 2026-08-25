@@ -44,6 +44,13 @@ window.indiaSearchIndex = [
         url: 'frontend/dandi-ghat/index.html'
     },
     {
+        title: "Forest Fire Hazards of Himachal Pradesh — Chir Pine Wildfire Risk",
+        category: "Geology & Disasters",
+        description:
+            "Explore wildfire risk in Himachal Pradesh: chir pine forest regions, the April-June fire season, contributing factors, ecological and wildlife impacts, satellite-based fire detection and response, and prevention measures.",
+        url: "frontend/himachal-forest-fire-hazards/index.html"
+    },
+    {
         title: 'Brahmagiri Peak Trek (Coorg & Wayanad) Profile',
         category: 'Adventure & Sanctuary Treks',
         description:
