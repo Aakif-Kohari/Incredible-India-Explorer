@@ -81,6 +81,13 @@ window.indiaSearchIndex = [
         url: "frontend/ahmedabad-heatwave-2010/index.html"
     },
     {
+        title: "Heatwave Hazards Across Northern India",
+        category: "Natural Hazards",
+        description:
+                "Explore the climatic causes, geographical exposure patterns, urban heat island effects, agriculture/water stress, warning protocols, and preparedness actions for heatwaves in Northern India.",
+        url: "frontend/heatwave-hazards-northern-india/index.html"
+    },
+    {
         title: "Forest Fire Hazards of Uttarakhand",
         category: "Natural Hazards",
         description:
