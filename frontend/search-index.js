@@ -5,6 +5,13 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Kudremukh Trek — Chikkamagaluru, Karnataka',
+        category: 'Trekking & Adventure',
+        description:
+            'Explore the high-altitude Kudremukh Peak Trek (1,894 m) in Karnataka — rolling shola grasslands, UNESCO Western Ghats biodiversity, route waypoints, and seasonal packing guide.',
+        url: 'frontend/kudremukh-trek/index.html'
+    },
+    {
         title: 'Naya Ghat — Varanasi Riverfront Renewal & Living Culture Profile',
         category: 'Heritage & Development',
         description:
