@@ -5,6 +5,23 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Maitreyi — The Philosopher Who Chose Knowledge Over Material Wealth',
+        category: 'Historical & Cultural Profiles',
+        description:
+            'Explore the philosophical dialogue of Maitreyi from the Brihadaranyaka Upanishad — the Vedic Brahmavadini who asked what to do with wealth that cannot grant immortality.',
+        url: 'frontend/maitreyi-philosopher/index.html'},
+        title: 'Gargi Vachaknavi — The Philosopher Who Challenged the Scholars of Ancient India',
+        category: 'Historical & Cultural Profiles',
+        description:
+            'Explore the philosophical legacy of Gargi Vachaknavi from the Brihadaranyaka Upanishad — the Vedic Brahmavadini who questioned Yajnavalkya on the ultimate fabric of reality.',
+        url: 'frontend/gargi-vachaknavi/index.html'},
+  {
+        title: 'Ravidas Ghat — Varanasi Spiritual Legacy & Living Culture Profile',
+        category: 'Heritage & Pilgrimage',
+        description:
+            'Explore Ravidas Ghat in Varanasi: the southernmost and largest riverfront ghat on the Ganges, dedicated to Bhakti saint Ravidas with an adjoining 25-acre Smarak Park, Magh Purnima Jayanti celebrations, and sacred Bani.',
+        url: 'frontend/ravidas-ghat/index.html'},
+  {
         title: 'Kudremukh Trek — Chikkamagaluru, Karnataka',
         category: 'Trekking & Adventure',
         description:
@@ -124,6 +141,13 @@ window.indiaSearchIndex = [
         description:
             'Explore Queen Naiki Devi & Battle of Kasahrada (1178 CE). Chaulukya Queen Regent, defeat of Muhammad Ghori at Mount Abu, regency for Mularaja II, historical evidence vs retellings, battle map, timeline, and academic sources.',
         url: 'frontend/naiki-devi-kasahrada/index.html'
+    },
+    {
+        title: 'Queen Rudrama Devi & The Kakatiya Golden Era (c. 1262–1289 CE) — Deccan Sovereign Profile',
+        category: 'Historical Rulers & Dynasties',
+        description:
+            'Explore Queen Rudrama Devi of the Kakatiya Dynasty (c. 1262–1289 CE). Sovereign ruler, male title Rudradeva Maharaja, defensive wars against Yadavas, Nayanakara administrative reforms, Warangal Fort capital, timeline, map, and references.',
+        url: 'frontend/rudrama-devi-kakatiya/index.html'
     },
     {
     title: "Dashashwamedh Ghat: The Grand Evening Ganga Aarti",
@@ -6346,6 +6370,20 @@ window.indiaSearchIndex = [
         category: "Culture & Literature",
         description:
             "Explore the story of Bharata and Rama's Sandals \u2014 a profound symbol of selfless duty, fraternal love, moral trusteeship, and 14 years of rule from Nandigram.",
-        url: "frontend/bharata-paduka-story/index.html"
+        url: "frontend/bharata-paduka-story/index.html"},
+    // --- feat/ahalyas-redemption-story ---
+    {
+        title: "Add Ahalya's Redemption \u2014 A Story of Transformation",
+        category: "Culture & Literature",
+        description:
+            "Explore the story of Ahalya's Redemption \u2014 a timeless narrative of penance, divine grace, compassion, and transformation in the Ramayana tradition.",
+        url: "frontend/ahalyas-redemption-story/index.html"},
+    // --- feat/lava-kusha-story ---
+    {
+        title: "Add Lava and Kusha \u2014 The Young Princes of Ayodhya",
+        category: "Culture & Literature",
+        description:
+            "Explore the story of Lava and Kusha \u2014 the young twin princes of Ayodhya, their upbringing in Valmiki ashram, singing the Ramayana, and Ashwamedha valor.",
+        url: "frontend/lava-kusha-story/index.html"
     }
 ];
