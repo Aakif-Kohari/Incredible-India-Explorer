@@ -44,6 +44,26 @@ window.indiaSearchIndex = [
         url: 'frontend/dandi-ghat/index.html'
     },
     {
+        title: "The 2010 Ahmedabad Heatwave",
+        category: "Natural Hazards",
+        description:
+                "Explore the severe May 2010 Ahmedabad heatwave and how it led to South Asia's first Heat Action Plan and early-warning system.",
+        url: "frontend/ahmedabad-heatwave-2010/index.html"
+    },
+    {
+        title: "Forest Fire Hazards of Uttarakhand",
+        category: "Natural Hazards",
+        description:
+           "Explore forest-fire risk in Uttarakhand's chir pine belt — causes, ecological impact, air quality effects, monitoring, and community-led prevention through Van Panchayats.",
+        url: "frontend/uttarakhand-forest-fire-hazards/index.html"},
+    {  
+        title: "Forest Fire Hazards of Himachal Pradesh — Chir Pine Wildfire Risk",
+        category: "Geology & Disasters",
+        description:
+            "Explore wildfire risk in Himachal Pradesh: chir pine forest regions, the April-June fire season, contributing factors, ecological and wildlife impacts, satellite-based fire detection and response, and prevention measures.",
+        url: "frontend/himachal-forest-fire-hazards/index.html"
+    },
+    {
         title: 'Brahmagiri Peak Trek (Coorg & Wayanad) Profile',
         category: 'Adventure & Sanctuary Treks',
         description:
@@ -56,6 +76,41 @@ window.indiaSearchIndex = [
         description:
             'Explore Chembra Peak Trek (2,100m) in Wayanad, Kerala. Famous perennial heart-shaped lake (Hridayathadam), tea plantations, Shola grassland ecosystem, forest permits, route details, and image gallery.',
         url: 'frontend/chembra-peak-trek/index.html'
+    },
+    {
+        title: 'Agasthyarkoodam Trek & UNESCO Biosphere Reserve (Thiruvananthapuram, Kerala) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Agasthyarkoodam Trek (1,868m) in Thiruvananthapuram, Kerala. UNESCO Agasthyamala Biosphere Reserve, over 2,000 medicinal plant species (Arogyapacha), Athirumala base camp, forest permits, 2-day route guide, and image gallery.',
+        url: 'frontend/agasthyarkoodam-trek/index.html'
+    },
+    {
+        title: 'Meesapulimala Trek & High Montane Grasslands (Munnar, Kerala) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Meesapulimala Trek (2,640m) in Munnar, Kerala. South India’s 2nd highest peak, Rhodo Valley Rhododendron blooms, high montane Shola grasslands, interactive route map, route guide, and image gallery.',
+        url: 'frontend/meesapulimala-trek/index.html'
+    },
+    {
+        title: 'Rajmachi Fort Trek & Sahyadri Twin Citadels (Lonavala / Karjat, Maharashtra) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Rajmachi Fort Trek (825m) in Sahyadri, Maharashtra. Shrivardhan & Manaranjan twin citadels, Maratha history under Shivaji Maharaj, Lonavala vs Kondhane routes, monsoon waterfalls, interactive route map, and image gallery.',
+        url: 'frontend/rajmachi-fort-trek/index.html'
+    },
+    {
+        title: 'Queen Didda of Kashmir (c. 924–1003 CE) — Powerful Sovereign & Lohara Dynasty Architect Profile',
+        category: 'Historical Rulers & Dynasties',
+        description:
+            'Explore Queen Didda of Kashmir (c. 924–1003 CE). Sovereign Queen and Regent, Lohara lineage, Shahi bloodline, 45-year political dominance, historical evidence vs literary portrayals, Kashmir map, timeline, and academic sources.',
+        url: 'frontend/queen-didda-kashmir/index.html'
+    },
+    {
+        title: 'Queen Naiki Devi & The Battle of Kasahrada (1178 CE) — Chaulukya Resistance Profile',
+        category: 'Historical Rulers & Dynasties',
+        description:
+            'Explore Queen Naiki Devi & Battle of Kasahrada (1178 CE). Chaulukya Queen Regent, defeat of Muhammad Ghori at Mount Abu, regency for Mularaja II, historical evidence vs retellings, battle map, timeline, and academic sources.',
+        url: 'frontend/naiki-devi-kasahrada/index.html'
     },
     {
     title: "Dashashwamedh Ghat: The Grand Evening Ganga Aarti",
@@ -6179,6 +6234,20 @@ window.indiaSearchIndex = [
         url: "frontend/usha-mehta-explorer/index.html"
     },
 
+    // --- 2011 Sikkim Earthquake Explorer (#3552) ---
+    {
+        title: "2011 Sikkim Earthquake — Himalayan Seismic Event Profile",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 18 September 2011 Sikkim earthquake (Mw 6.9): USGS epicentre on the India–Nepal border, Himalayan strike-slip tectonics, landslides, road and settlement damage, NDRF and Army relief, and earthquake preparedness.",
+        url: "frontend/sikkim-earthquake-2011-explorer/index.html"},
+    // --- 2004 Indian Ocean Tsunami Explorer (#3536) ---
+    {
+        title: "2004 Indian Ocean Tsunami - India Impact Profile",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 26 December 2004 Indian Ocean tsunami: the Sumatra-Andaman megathrust cause, Tamil Nadu, Kerala and Andaman & Nicobar impact, timeline, relief operations, lessons learned, and India's INCOIS tsunami warning system.",
+        url: "frontend/indian-ocean-tsunami-2004-explorer/index.html"},
     // --- Brahmaputra Flood Hazards Explorer ---
     {
         title: "Brahmaputra Flood Hazards — Assam",
@@ -6193,28 +6262,32 @@ window.indiaSearchIndex = [
         category: "History & Royalty",
         description:
             "Explore Pandita Ramabai's historical profile: first woman to earn titles Pandita and Sarasvati for Sanskrit scholarship, founder of Sharada Sadan and Mukti Mission.",
-        url: "frontend/pandita-ramabai-explorer/index.html"},
+        url: "frontend/pandita-ramabai-explorer/index.html"
+    },
     // --- Add Fatima Sheikh historical profile ---
     {
         title: "Fatima Sheikh — The Forgotten Pioneer of Girls' Education",
         category: "History & Royalty",
         description:
             "Explore Fatima Sheikh's historical profile: Pune's first Muslim female teacher, co-founder of girls' schools, and close educational associate of Savitribai Phule.",
-        url: "frontend/fatima-sheikh-explorer/index.html"},
+        url: "frontend/fatima-sheikh-explorer/index.html"
+    },
     // --- Add Savitribai Phule historical profile ---
     {
         title: "Savitribai Phule — Pioneer of Women's Education in India",
         category: "History & Royalty",
         description:
             "Explore Savitribai Phule's historical profile: India's first female teacher, founder of Bhide Wada girls' school, Satyashodhak Samaj co-founder, and social reformer.",
-        url: "frontend/savitribai-phule-explorer/index.html"},
+        url: "frontend/savitribai-phule-explorer/index.html"
+    },
     // --- Add Begum Rokeya historical profile ---
     {
         title: "Begum Rokeya — Pioneer of Women's Education in Bengal",
         category: "History & Royalty",
         description:
             "Explore Begum Rokeya's historical profile: writer, educator, and social reformer who established Sakhawat Memorial Girls' School and wrote Sultana's Dream.",
-        url: "frontend/begum-rokeya-explorer/index.html"},
+        url: "frontend/begum-rokeya-explorer/index.html"
+    },
     // --- Add Anis Kidwai historical profile ---
     {
         title: "Anis Kidwai — Partition Memoirist & Refugee Rehabilitation Leader",
@@ -6222,5 +6295,36 @@ window.indiaSearchIndex = [
         description:
             "Explore Anis Kidwai's historical profile: writer, social worker, and Rajya Sabha Member of Parliament who documented Partition in 'Azadi Ki Chhaon Mein' and led refugee rehabilitation.",
         url: "frontend/anis-kidwai-explorer/index.html"
+    },
+    // --- Add Kadambini Ganguly historical profile ---
+    {
+        title: "Kadambini Ganguly — The Woman Who Broke Barriers in Indian Medicine",
+        category: "History & Royalty",
+        description:
+            "Explore Kadambini Ganguly's historical profile: one of the first two female graduates of the British Empire, the first woman admitted to Calcutta Medical College, and India's first practising woman physician of Western medicine.",
+        url: "frontend/kadambini-ganguly-explorer/index.html"
+    },
+    // --- 2023 Himachal Pradesh Floods & Landslides Explorer (#3566) ---
+    {
+        title: "2023 Himachal Pradesh Floods & Landslides — Monsoon Disaster Profile",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 2023 Himachal Pradesh monsoon disaster: extreme July rainfall, Beas and Satluj flooding, deadly landslides at Summer Hill and Jadoon, highway and heritage-railway damage, NDRF–Army–IAF relief, and mountain disaster preparedness lessons.",
+        url: "frontend/himachal-floods-2023-explorer/index.html"},
+
+    // --- Drought Hazards of Rajasthan Explorer (#3570) ---
+    {
+        title: "Drought Hazards of Rajasthan — Arid Zone Water Scarcity",
+        category: "Geology & Disasters",
+        description:
+            "Explore drought in Rajasthan: Thar arid geography, monsoon rainfall gradient, western drought hotspots, agricultural and water-scarcity impacts, johad and tanka traditions, and drought preparedness.",
+        url: "frontend/rajasthan-drought-hazards/index.html"},
+    // --- 2023 South Lhonak GLOF Explorer (#3568) ---
+    {
+        title: "2023 South Lhonak GLOF — Sikkim Glacial Lake Outburst Flood",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 3–4 October 2023 South Lhonak glacial lake outburst flood: lake geography, Teesta basin, GLOF hazards, Chungthang dam and highway damage, early-warning gaps, and Himalayan risk mitigation.",
+        url: "frontend/south-lhonak-glof-2023-explorer/index.html"
     }
 ];

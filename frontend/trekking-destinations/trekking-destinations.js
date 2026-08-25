@@ -91,13 +91,13 @@ const treks = [
         url: 'https://www.incredibleindia.gov.in/en/sikkim'
     },
     {
-        name: 'Rajmachi',
+        name: 'Rajmachi Fort Trek',
         state: 'Maharashtra',
         difficulty: 'Easy',
         days: 2,
         season: ['Monsoon', 'Winter'],
-        description: 'A Sahyadri trail to the historic Rajmachi fort, especially atmospheric during the monsoon.',
-        url: 'https://www.incredibleindia.gov.in/en/maharashtra'
+        description: 'A Sahyadri trail to the historic Rajmachi fort, featuring twin citadels and monsoon waterfalls.',
+        url: '../rajmachi-fort-trek/index.html'
     },
     {
         name: 'Kaas Plateau Trail',
@@ -134,6 +134,24 @@ const treks = [
         season: ['Autumn', 'Winter', 'Spring'],
         description: 'A trek up Wayanad’s highest peak featuring tea gardens, Shola forests, and a perennial heart-shaped lake.',
         url: 'https://www.keralatourism.org/destination/chembra-peak-wayanad/185'
+    },
+    {
+        name: 'Agasthyarkoodam Trek',
+        state: 'Kerala',
+        difficulty: 'Difficult',
+        days: 2,
+        season: ['Winter', 'Spring'],
+        description: 'A 2-day UNESCO Biosphere Reserve trek in Thiruvananthapuram featuring 2,000+ medicinal plants and Athirumala base camp.',
+        url: 'https://www.keralatourism.org/destination/agasthyakoodam-biological-park/449'
+    },
+    {
+        name: 'Meesapulimala Trek',
+        state: 'Kerala',
+        difficulty: 'Moderate',
+        days: 1,
+        season: ['Autumn', 'Winter', 'Spring'],
+        description: 'A trek to South India’s 2nd highest peak (2,640m) featuring Rhodo Valley blooms and high montane grasslands.',
+        url: 'https://mookambikaimpex.in/destination/meesapulimala'
     }
 ];
 
