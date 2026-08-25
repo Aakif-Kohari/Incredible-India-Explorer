@@ -6364,6 +6364,13 @@ window.indiaSearchIndex = [
             "Explore the 3–4 October 2023 South Lhonak glacial lake outburst flood: lake geography, Teesta basin, GLOF hazards, Chungthang dam and highway damage, early-warning gaps, and Himalayan risk mitigation.",
         url: "frontend/south-lhonak-glof-2023-explorer/index.html"
     },
+    // --- feat/jatayu-story ---
+    {
+        title: "Add Jatayu \u2014 The Bird Who Stood Against Ravana",
+        category: "Culture & Literature",
+        description:
+            "Explore the story of Jatayu \u2014 the noble vulture king who heroically fought Ravana to protect Sita in the sky, and attained Moksha at the hands of Lord Rama.",
+        url: "frontend/jatayu-story/index.html"},
     // --- feat/bharata-paduka-story ---
     {
         title: "Add Bharata and Rama's Sandals \u2014 A Symbol of Duty",
