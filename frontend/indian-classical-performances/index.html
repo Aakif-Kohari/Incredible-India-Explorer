@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ==========================================================================
+     INDIAN CLASSICAL PERFORMANCES EXPLORER - DASHBOARD
+     Enterprise-grade interactive suite for exploring Indian classical dance,
+     music (ragas), and performer heritage. Built with vanilla HTML5, CSS3, JS.
+
+     Design Decisions:
+     - Glassmorphic dark-mode aesthetic consistent with Incredible India Explorer
+     - Modular section architecture: Raga Analyzer, Dance Form Explorer, Performers DB
+     - Client-side filtering, sorting, and search across all datasets
+     - WCAG 2.1 AA color-contrast compliance via CSS custom properties
+     - No external JS dependencies; pure vanilla implementation
+
+     Architecture Notes:
+     - PerformanceEngine class in performance-engine.js handles all data logic
+     - CSS tokens imported from ../../styles/design-tokens.css for theme consistency
+     - Each section is a self-contained <section> with ARIA landmarks
+     - Responsive grid layout using CSS Grid with fallback Flexbox
+     ========================================================================== -->
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore Indian classical performances — ragas, dance forms, and legendary performers — in this interactive dashboard from Incredible India Explorer.">
+    <title>Indian Classical Performances Explorer | Incredible India</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Design Tokens + Page Styles -->
+    <link rel="stylesheet" href="../../styles/design-tokens.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Indian Classical Performances Explorer | Incredible India">
+    <meta property="og:description" content="Interactive dashboard for ragas, classical dance forms, and legendary performers of India.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/indian-classical-performances.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta property="og:locale" content="en_IN">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Indian Classical Performances Explorer | Incredible India">
+    <meta name="twitter:description" content="Interactive dashboard for ragas, dance forms, and legendary performers of India.">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/indian-classical-performances.html">
+</head>
+
+<body class="classical-perf-page-body">
+
+    <!-- ================================================================
+         NAVIGATION BAR
+         Reuses the project-wide navbar pattern (logo + hamburger + links)
+         ================================================================ -->
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu" role="navigation" aria-label="Main navigation">
+                <a href="#ragas" class="nav-link">Ragas</a>
+                <a href="#dance" class="nav-link">Dance Forms</a>
+                <a href="#performers" class="nav-link">Performers</a>
+                <a href="#analytics" class="nav-link">Analytics</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ================================================================
+         HERO SECTION
+         Full-viewport glassmorphic hero with animated gradient overlay
+         ================================================================ -->
+    <section class="classical-hero" id="hero" aria-label="Hero banner">
+        <div class="hero-particles" aria-hidden="true"></div>
+        <div class="hero-content">
+            <span class="hero-kicker">Performing Arts of India</span>
+            <h1>Indian <span>Classical</span> Performances</h1>
+            <p>Discover the timeless heritage of Indian ragas, classical dance forms, and legendary performers
+               who shaped centuries of artistic expression.</p>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-ragas">0</span>
+                    <span class="stat-label">Ragas</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-dance">0</span>
+                    <span class="stat-label">Dance Forms</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-performers">0</span>
+                    <span class="stat-label">Performers</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-states">0</span>
+                    <span class="stat-label">States</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         GLOBAL SEARCH & FILTER BAR
+         Sits above all sections; filters across ragas, dances, and performers
+         ================================================================ -->
+    <section class="search-section" id="search" aria-label="Search and filter">
+        <div class="search-container">
+            <div class="search-box">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <input type="text" id="global-search" class="search-input"
+                       placeholder="Search ragas, dance forms, performers…"
+                       aria-label="Search ragas, dance forms, and performers">
+            </div>
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                <button class="filter-btn" data-filter="raga" aria-pressed="false">Ragas</button>
+                <button class="filter-btn" data-filter="dance" aria-pressed="false">Dance</button>
+                <button class="filter-btn" data-filter="performer" aria-pressed="false">Performers</button>
+            </div>
+            <div class="sort-group">
+                <label for="sort-select" class="sr-only">Sort results</label>
+                <select id="sort-select" class="sort-select" aria-label="Sort results">
+                    <option value="name-asc">Name A→Z</option>
+                    <option value="name-desc">Name Z→A</option>
+                    <option value="origin">By Origin</option>
+                    <option value="period">By Period</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 1 — RAGA EXPLORER
+         Interactive cards for classical ragas with mood, time, and instrument tags
+         ================================================================ -->
+    <section class="explorer-section" id="ragas" aria-label="Raga Explorer">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">🎵 Raga <span>Explorer</span></h2>
+                <p class="section-subtitle">Explore the melodic frameworks of Indian classical music — each raga carries
+                   a unique mood, time-of-day association, and set of characteristic phrases.</p>
+            </div>
+            <div class="sub-filter-bar">
+                <button class="sub-filter active" data-mood="all" aria-pressed="true">All Moods</button>
+                <button class="sub-filter" data-mood="devotional" aria-pressed="false">Devotional</button>
+                <button class="sub-filter" data-mood="romantic" aria-pressed="false">Romantic</button>
+                <button class="sub-filter" data-mood="energetic" aria-pressed="false">Energetic</button>
+                <button class="sub-filter" data-mood="peaceful" aria-pressed="false">Peaceful</button>
+                <button class="sub-filter" data-mood="melancholic" aria-pressed="false">Melancholic</button>
+            </div>
+            <div class="card-grid" id="raga-grid" role="list">
+                <!-- Populated dynamically by PerformanceEngine -->
+            </div>
+            <div class="empty-state" id="raga-empty" hidden>
+                <p>No ragas match your current filters. Try broadening your search.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 2 — DANCE FORM EXPLORER
+         Grid of Indian classical & folk dance cards with tradition type badges
+         ================================================================ -->
+    <section class="explorer-section" id="dance" aria-label="Dance Form Explorer">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">💃 Dance Form <span>Explorer</span></h2>
+                <p class="section-subtitle">From the graceful Bharatanatyam to the vibrant Bhangra, India's dance
+                   heritage spans eight classical forms and hundreds of folk traditions.</p>
+            </div>
+            <div class="sub-filter-bar">
+                <button class="sub-filter active" data-tradition="all" aria-pressed="true">All Traditions</button>
+                <button class="sub-filter" data-tradition="classical" aria-pressed="false">Classical</button>
+                <button class="sub-filter" data-tradition="folk" aria-pressed="false">Folk</button>
+                <button class="sub-filter" data-tradition="tribal" aria-pressed="false">Tribal</button>
+            </div>
+            <div class="card-grid" id="dance-grid" role="list">
+                <!-- Populated dynamically by PerformanceEngine -->
+            </div>
+            <div class="empty-state" id="dance-empty" hidden>
+                <p>No dance forms match your current filters. Try broadening your search.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 3 — PERFORMERS DATABASE
+         Table-style cards for legendary Indian classical performers
+         ================================================================ -->
+    <section class="explorer-section" id="performers" aria-label="Performers Database">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">🎼 Legendary <span>Performers</span></h2>
+                <p class="section-subtitle">Meet the maestros who dedicated their lives to preserving and advancing
+                   India's classical performance traditions.</p>
+            </div>
+            <div class="sub-filter-bar">
+                <button class="sub-filter active" data-discipline="all" aria-pressed="true">All Disciplines</button>
+                <button class="sub-filter" data-discipline="vocal" aria-pressed="false">Vocal</button>
+                <button class="sub-filter" data-discipline="instrumental" aria-pressed="false">Instrumental</button>
+                <button class="sub-filter" data-discipline="dance" aria-pressed="false">Dance</button>
+            </div>
+            <div class="performer-grid" id="performer-grid" role="list">
+                <!-- Populated dynamically by PerformanceEngine -->
+            </div>
+            <div class="empty-state" id="performer-empty" hidden>
+                <p>No performers match your current filters. Try broadening your search.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 4 — ANALYTICS DASHBOARD
+         Summary charts and geographic distribution of classical arts
+         ================================================================ -->
+    <section class="explorer-section analytics-section" id="analytics" aria-label="Analytics Dashboard">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">📊 Analytics <span>Dashboard</span></h2>
+                <p class="section-subtitle">Geographic and categorical breakdown of India's classical performance heritage.</p>
+            </div>
+            <div class="analytics-grid">
+                <div class="analytics-card" id="analytics-geography">
+                    <h3>State-wise Distribution</h3>
+                    <div class="chart-bar-container" id="state-chart" role="img" aria-label="Bar chart of state-wise distribution">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+                <div class="analytics-card" id="analytics-mood">
+                    <h3>Raga Mood Distribution</h3>
+                    <div class="mood-distribution" id="mood-chart" role="img" aria-label="Raga mood distribution">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+                <div class="analytics-card" id="analytics-tradition">
+                    <h3>Dance Tradition Breakdown</h3>
+                    <div class="tradition-breakdown" id="tradition-chart" role="img" aria-label="Dance tradition breakdown">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+                <div class="analytics-card" id="analytics-timeline">
+                    <h3>Performance Timeline</h3>
+                    <div class="timeline-chart" id="timeline-chart" role="img" aria-label="Historical timeline">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         FOOTER
+         Standard project footer with credits and links
+         ================================================================ -->
+    <footer class="classical-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p class="footer-brand">🇮🇳 Incredible India Explorer — Indian Classical Performances Suite</p>
+                <p class="footer-credits">
+                    Built with ❤️ for preserving India's performing arts heritage.<br>
+                    Data sourced from Sahitya Akademi, Sangeet Natak Akademi, and Cultural Ministry archives.
+                </p>
+                <div class="footer-links">
+                    <a href="../../index.html">Home</a>
+                    <a href="../music/music.html">Music</a>
+                    <a href="../dance/dance.html">Dance</a>
+                    <a href="#hero">Back to Top</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Engine Script -->
+    <script type="module" src="performance-engine.js"></script>
+</body>
+</html>

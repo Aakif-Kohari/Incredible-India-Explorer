@@ -5,6 +5,45 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Naya Ghat — Varanasi Riverfront Renewal & Living Culture Profile',
+        category: 'Heritage & Development',
+        description:
+            'Explore Naya Ghat in Varanasi: its historical development from 18th-century Phota Ghat, 19th-century sandstone masonry renewal, spacious bathing terraces, boat docking culture, riverfront Shiva and Hanuman shrines, and Dev Deepawali glow.',
+        url: 'frontend/naya-ghat/index.html'},
+    {
+        title: 'Rewa Ghat — Varanasi Royal Riverfront Legacy Profile',
+        category: 'Heritage & Architecture',
+        description:
+            'Explore Rewa Ghat in Varanasi: its origin as Lala Mishir Ghat, 1879 purchase and renaming by the Baghela Maharaja of Rewa, the sandstone Rewa Kothi palace and its ardhstambh retaining wall, neighbouring Tulsi and Kedar Ghat temples, and its present life as a Banaras Hindu University arts hostel.',
+        url: 'frontend/rewa-ghat/index.html'
+    },
+  {
+        title: 'Causatthi Ghat — Varanasi Sixty-Four Yoginis & Shakta Heritage Profile',
+        category: 'Heritage & Pilgrimage',
+        description:
+            'Explore Causatthi Ghat in Varanasi: its sacred association with the 64 Yoginis, Skanda Purana legend of King Divodasa, cliffside Chausath Yogini Temple, 1670 CE Bengali patronage by Raja Digpatia, and Navratri festival rituals.',
+        url: 'frontend/causatthi-ghat/index.html'},
+  {
+        title: 'Munshi Ghat — Varanasi Palatial Riverfront Architecture Profile',
+        category: 'Heritage & Architecture',
+        description:
+            'Explore Munshi Ghat in Varanasi: its 1912 construction by Sridhara Narayana Munshi (Finance Minister of Nagpur), royal Darbhanga Palace lineage, fusion of Greco-Roman colonnades and Maratha stone masonry, carved jharokhas, and Dev Deepawali illumination.',
+        url: 'frontend/munshi-ghat/index.html'},
+
+  {
+        title: 'Daraganj Ghat — Prayagraj Historic Riverfront & Sangam Profile',
+        category: 'Heritage & Pilgrimage',
+        description:
+            'Explore Daraganj Ghat in Prayagraj: its historic riverfront culture, connection with the Yamuna and Ganga rivers, Prince Dara Shikoh etymology, sacred Beni Madhav and Nag Vasuki temples, Suryakant Tripathi \'Nirala\' literary legacy, and proximity to Triveni Sangam.',
+        url: 'frontend/daraganj-ghat/index.html'},
+  {
+        title: 'Dandi Ghat — Varanasi Monastic Riverfront Profile',
+        category: 'Heritage & Pilgrimage',
+        description:
+            'Explore Dandi Ghat in Varanasi: dedicated to Dandi Sannyasis of Adi Shankaracharya\'s Advaita Vedanta tradition, sacred wooden danda symbolism, 1911 stone reconstruction by Lalooji Agarwal, Dandi Vinayaka shrine, and riverfront ashram architecture.',
+        url: 'frontend/dandi-ghat/index.html'
+    },
+    {
         title: 'Brahmagiri Peak Trek (Coorg & Wayanad) Profile',
         category: 'Adventure & Sanctuary Treks',
         description:
@@ -12,11 +51,133 @@ window.indiaSearchIndex = [
         url: 'frontend/brahmagiri-trek/index.html'
     },
     {
+        title: 'Chembra Peak Trek & Heart-Shaped Lake (Wayanad, Kerala) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Chembra Peak Trek (2,100m) in Wayanad, Kerala. Famous perennial heart-shaped lake (Hridayathadam), tea plantations, Shola grassland ecosystem, forest permits, route details, and image gallery.',
+        url: 'frontend/chembra-peak-trek/index.html'
+    },
+    {
+        title: 'Agasthyarkoodam Trek & UNESCO Biosphere Reserve (Thiruvananthapuram, Kerala) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Agasthyarkoodam Trek (1,868m) in Thiruvananthapuram, Kerala. UNESCO Agasthyamala Biosphere Reserve, over 2,000 medicinal plant species (Arogyapacha), Athirumala base camp, forest permits, 2-day route guide, and image gallery.',
+        url: 'frontend/agasthyarkoodam-trek/index.html'
+    },
+    {
+        title: 'Meesapulimala Trek & High Montane Grasslands (Munnar, Kerala) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Meesapulimala Trek (2,640m) in Munnar, Kerala. South India’s 2nd highest peak, Rhodo Valley Rhododendron blooms, high montane Shola grasslands, interactive route map, route guide, and image gallery.',
+        url: 'frontend/meesapulimala-trek/index.html'
+    },
+    {
+        title: 'Rajmachi Fort Trek & Sahyadri Twin Citadels (Lonavala / Karjat, Maharashtra) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Rajmachi Fort Trek (825m) in Sahyadri, Maharashtra. Shrivardhan & Manaranjan twin citadels, Maratha history under Shivaji Maharaj, Lonavala vs Kondhane routes, monsoon waterfalls, interactive route map, and image gallery.',
+        url: 'frontend/rajmachi-fort-trek/index.html'
+    },
+    {
+        title: 'Queen Didda of Kashmir (c. 924–1003 CE) — Powerful Sovereign & Lohara Dynasty Architect Profile',
+        category: 'Historical Rulers & Dynasties',
+        description:
+            'Explore Queen Didda of Kashmir (c. 924–1003 CE). Sovereign Queen and Regent, Lohara lineage, Shahi bloodline, 45-year political dominance, historical evidence vs literary portrayals, Kashmir map, timeline, and academic sources.',
+        url: 'frontend/queen-didda-kashmir/index.html'
+    },
+    {
+        title: 'Queen Naiki Devi & The Battle of Kasahrada (1178 CE) — Chaulukya Resistance Profile',
+        category: 'Historical Rulers & Dynasties',
+        description:
+            'Explore Queen Naiki Devi & Battle of Kasahrada (1178 CE). Chaulukya Queen Regent, defeat of Muhammad Ghori at Mount Abu, regency for Mularaja II, historical evidence vs retellings, battle map, timeline, and academic sources.',
+        url: 'frontend/naiki-devi-kasahrada/index.html'
+    },
+    {
+    title: "Dashashwamedh Ghat: The Grand Evening Ganga Aarti",
+    category: "Varanasi Ghats",
+    description:
+        "Explore Dashashwamedh Ghat — its mythological origin, proximity to Kashi Vishwanath Temple, and the iconic nightly Ganga Aarti ceremony.",
+    url: "frontend/dashashwamedh-ghat/index.html"},
+  {
+    title: "Scindia Ghat: The Partially Submerged Shiva Temple",
+    category: "Varanasi Ghats",
+    description:
+        "Explore Scindia Ghat — its Maratha royal heritage and the famously leaning Ratneshwar Mahadev Temple, partially submerged in the Ganges for over 150 years.",
+    url: "frontend/scindia-ghat/index.html"
+    },
+    // --- Harishchandragad Trek ---
+    {
+        title: 'Harishchandragad Trek (Maharashtra) Profile',
+        category: 'Adventure & Sanctuary Treks',
+        description:
+            'Explore Harishchandragad Trek (1,424m) in the Sahyadri range of Maharashtra. Ancient hill fort with the iconic Konkan Kada cliff overhang, 6th-century Harishchandreshwar temple, Kedareshwar Cave, monsoon waterfalls, Pachnai route details, and image gallery.',
+        url: 'frontend/harishchandragad-trek/index.html'
+    },
+    {
+    title: "Alibaug Beach — Maharashtra",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Alibaug Beach in Raigad, Maharashtra — the black-sand shoreline linked at low tide to the historic Kolaba Fort, nearby Murud-Janjira, Kashid, and its Mumbai-weekend-getaway coastal culture.",
+    url: "frontend/alibaug-beach/index.html"
+    },
+    {
+    title: "Mandarmani Beach — West Bengal",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Mandarmani Beach in Purba Medinipur, West Bengal — 13 km of hard flat drivable sand, red ghost crabs, water sports, and tranquil Bay of Bengal sunrises.",
+    url: "frontend/mandarmani-beach/index.html"},
+  {
+    title: "Chandrabhaga Beach — Odisha",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Chandrabhaga Beach in Puri, Odisha — India's first Blue Flag beach, 3 km from the UNESCO World Heritage Konark Sun Temple, known for dawn sunrises, coral reefs, and the historic Chandrabhaga river mouth.",
+    url: "frontend/chandrabhaga-beach/index.html"},
+  {
+    title: "Elephant Beach — Andaman & Nicobar Islands",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Elephant Beach on Havelock Island (Swaraj Dweep), Andaman & Nicobar Islands — shallow coral reefs, snorkeling, sea walking, scuba diving, and tropical rainforest trails.",
+    url: "frontend/elephant-beach/index.html"},
+  {
+    title: "Rameswaram Beach — Tamil Nadu",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Rameswaram Beach (Agni Theertham) on Pamban Island, Tamil Nadu — the sacred confluence of the Bay of Bengal and Gulf of Mannar, 22 temple theerthams, Pamban Bridge, and Dhanushkodi.",
+    url: "frontend/rameswaram-beach/index.html"},
+  {
+    title: "Digha Beach — West Bengal",
+    category: "Beaches & Coastline",
+    description:
+        "Explore Digha Beach in Purba Medinipur, West Bengal — the Bay of Bengal's wide, shallow 'Brighton of the East' famous for dual sunrise-and-sunset vistas, casuarina groves, low-tide sand flats, and the Marine Aquarium.",
+    url: "frontend/digha-beach/index.html"
+    },
+    {
+    title: "Chauri Chaura Incident (1922) Explorer",
+    category: "Freedom Struggle",
+    description:
+        "Explore the Chauri Chaura incident of 5 February 1922 in Gorakhpur — its roots in the Non-Cooperation Movement, the confrontation and aftermath, the trials, and Gandhi's decision to suspend the movement.",
+    url: "frontend/chauri-chaura-explorer/index.html"
+    },
+    {
+        title: "Gokarna Beach — Karnataka",
+        category: "Beaches & Coastline",
+        description:
+            "Explore Gokarna Beach in Uttara Kannada, Karnataka — the crescent shoreline beside the sacred Mahabaleshwar Temple, the Atmalinga legend, Om, Kudle, Half Moon and Paradise beaches, and its pilgrim-meets-traveller coastal culture.",
+        url: "frontend/gokarna-beach/index.html"
+    },
+    {
         title: 'Pin Parvati Pass Trek (Kullu to Spiti Traverse) Profile',
         category: 'Adventure & Sanctuary Treks',
         description:
             'Explore Pin Parvati Pass Trek (5,319m) connecting Kullu and Spiti valleys in Himachal Pradesh. Detailed trek route guide, Mantalai Lake, glacial crevasses roping, safety warnings, gear checklist, and trek estimator.',
         url: 'frontend/pin-parvati-trek/index.html'
+    },
+    {
+    title: "Potti Sriramulu — Sacrifice for Andhra",
+    category: "Freedom Struggle",
+    description:
+        "Explore Potti Sriramulu's role in the freedom movement and the 1952 fast unto death that led to the creation of Andhra State.",
+    url: "frontend/potti-sriramulu-explorer/index.html"
     },
     {
         title: 'Deomali Peak Trek (Highest Peak of Odisha) Profile',
@@ -417,7 +578,7 @@ window.indiaSearchIndex = [
         category: 'Cuisine',
         description:
             'The iconic street food of Mumbai, Maharashtra — a spicy deep-fried potato dumpling inside a soft bread bun.',
-        url: 'frontend//cuisine.html'
+        url: 'frontend/vada-pav-explorer/index.html'
     },
     {
         title: 'Bisi Bele Bath',
@@ -5871,5 +6032,279 @@ window.indiaSearchIndex = [
         description:
             "Explore Dzongri Trek in Sikkim \u2014 4,250m Dzongri Top sunrise viewpoint, 360-degree Kanchenjunga panoramas, alpine meadows, and Khangchendzonga National Park.",
         url: "frontend/dzongri-trek-explorer/index.html"
+    },
+    // --- Dzukou Valley Trek Explorer ---
+    {
+        title: "Dzukou Valley Trek",
+        keywords: "dzukou valley, trek, nagaland, viswema, zakhama, lily, rolling hills",
+        description: "Explore the Dzukou Valley Trek in Nagaland, known for its rolling green hillocks, seasonal flora including the endemic Dzukou Lily, and serene landscapes.",
+        url: "frontend/dzukou-valley-trek/index.html"},
+    // --- Japfu Peak Trek Explorer ---
+    {
+        title: "Japfu Peak Trek",
+        keywords: "japfu peak, trek, nagaland, dzukou valley, rhododendron, kohima, kigwema",
+        description: "Scale the second highest peak of Nagaland to witness the world's tallest Rhododendron tree and breathtaking views of the Dzukou Valley.",
+        url: "frontend/japfu-peak-trek/index.html"},
+    // --- Mawryngkhang Trek Explorer ---
+    {
+        title: "Mawryngkhang Trek",
+        keywords: "mawryngkhang, trek, meghalaya, bamboo trail, wahkhen, scariest trek",
+        description: "Explore the Mawryngkhang Trek in Meghalaya. Known as the scariest trek in Meghalaya, it features bamboo bridges, dramatic rock formations, and dense forest ecosystems.",
+        url: "frontend/mawryngkhang-trek/index.html"},
+  
+    // --- Nongriat Trek Explorer ---
+    {
+        title: "Nongriat Trek",
+        keywords: "nongriat, trek, meghalaya, double decker, living root bridge, jingkieng jri, rainbow falls, tyrna, cherrapunji, sohra",
+        description: "Explore the Nongriat Trek in Meghalaya — descend 3,500 steps from Tyrna to the Double-Decker Living Root Bridge, turquoise natural pools and Rainbow Falls in the East Khasi Hills.",
+        url: "frontend/nongriat-trek/index.html"},
+
+    // --- Kumara Parvatha Trek Explorer ---
+    {
+        title: "Kumara Parvatha Trek",
+        keywords: "kumara parvatha, trek, karnataka, pushpagiri, western ghats, kukke subramanya",
+        description: "Explore the Kumara Parvatha Trek (1,712m) in Karnataka's Pushpagiri Wildlife Sanctuary. Detailed route information, safety guidelines, and gear checklist.",
+        url: "frontend/kumara-parvatha-trek/index.html"
+    },
+    // --- feat/urdu-language-explorer ---
+    {
+        title: "Urdu: Explore \u0627\u0631\u062f\u0648 Through Script and Poetry",
+        category: "Languages & Literature",
+        description:
+            "Explore Urdu (\u0627\u0631\u062f\u0648) \u2014 Perso-Arabic Nastaliq script, greetings, verified audio pronunciations, vocabulary, and classical poetry of Ghalib, Mir, and Faiz.",
+        url: "frontend/urdu-language-explorer/index.html"},
+    // --- feat/bengali-language-explorer ---
+    {
+        title: "Bengali: Discover \u09ac\u09be\u0982\u09b2\u09be and Its Literary Heritage",
+        category: "Languages & Literature",
+        description:
+            "Explore Bengali (\u09ac\u09be\u0982\u09b2\u09be) \u2014 Classical language status, Nomoskar greetings, audio pronunciations, vocabulary, Rabindranath Tagore, and Nazrul Islam.",
+        url: "frontend/bengali-language-explorer/index.html"},
+    // --- feat/marathi-language-explorer ---
+    {
+        title: "Marathi: Explore \u092e\u0930\u093e\u0920\u0940 Through Words and Sound",
+        category: "Languages & Literature",
+        description:
+            "Explore Marathi (\u092e\u0930\u093e\u0920\u0940) \u2014 Classical language status, Namaskar greetings, audio pronunciations, vocabulary, Sant Dnyaneshwar, and Kusumagraj.",
+        url: "frontend/marathi-language-explorer/index.html"},
+    // --- feat/tamil-language-explorer ---
+    {
+        title: "Tamil: Explore \u0ba4\u0bae\u0bbf\u0bb4\u0bcd and Its Literary Heritage",
+        category: "Languages & Literature",
+        description:
+            "Explore Tamil (\u0ba4\u0bae\u0bbf\u0bb4\u0bcd) \u2014 2,500+ years of classical Dravidian heritage, Vanakkam greetings, audio pronunciations, vocabulary, and Thirukkural literature.",
+        url: "frontend/tamil-language-explorer/index.html"},
+    // --- feat/roopkund-trek-explorer ---
+    {
+        title: "Add Roopkund Trek \u2014 Uttarakhand",
+        category: "Mountains & Treks",
+        description:
+            "Explore Roopkund Trek in Uttarakhand \u2014 5,029m Mystery Skeleton Lake, Ali & Bedni Bugyals, Junargali Ridge, and Mount Trishul panoramas.",
+        url: "frontend/roopkund-trek-explorer/index.html"
+    },
+    // --- feat/thekkady-forest-trek ---
+    {
+        title: "Kumily–Thekkady Forest Trek — Periyar Tiger Reserve",
+        category: "Mountains & Treks",
+        description:
+            "Explore Kumily–Thekkady Forest Trek in Kerala: detailed route guide, Periyar Reserve biodiversity, responsible trekking codes, gear checklist, and duration calculator.",
+        url: "frontend/thekkady-forest-trek/index.html"},
+    // --- feat/kolli-hills-trek ---
+    {
+        title: "Kolli Hills Trek — Agasagangai Waterfalls",
+        category: "Mountains & Treks",
+        description:
+            "Explore Kolli Hills Trek (1,300m) in Namakkal, Tamil Nadu. Agasagangai Waterfalls, 1,028 stone steps climb, ancient Arapaleeswarar Temple, gear checklist, and duration estimator.",
+        url: "frontend/kolli-hills-trek/index.html"},
+    // --- feat/kheerganga-trek ---
+    {
+        title: "Kheerganga Trek — Hot Water Sulphur Springs & Parvati Valley",
+        category: "Mountains & Treks",
+        description:
+            "Explore Kheerganga Trek (2,960m) in Himachal Pradesh: detailed route, hot springs of Parvati Kund, Rudranag Temple and Waterfall, local mythology, gear checklist, and duration estimator.",
+        url: "frontend/kheerganga-trek/index.html"
+    },
+    // --- feat/kalsubai-trek ---
+    {
+        title: "Kalsubai Peak Trek — Highest Peak of Maharashtra",
+        category: "Mountains & Treks",
+        description:
+            "Explore Kalsubai Peak Trek (1,646m) in Maharashtra: detailed route, Kalsubai Temple summit details, steel ladders climbing, monsoon waterfalls, gear checklist, and duration estimator.",
+        url: "frontend/kalsubai-trek/index.html"
+    },
+    // --- feat/tarsar-marsar-trek ---
+    {
+        title: "Tarsar Marsar Trek — Twin Alpine Lakes of Kashmir",
+        category: "Mountains & Treks",
+        description:
+            "Explore Tarsar Marsar Trek (4,100m) in Kashmir: detailed route steps, Aru Valley base, Lidderwat meadows, Sundersar, and the twin almond-shaped glacial lakes of Tarsar and Marsar.",
+        url: "frontend/tarsar-marsar-trek/index.html"
+    },
+    // --- Maharani Tarabai Explorer ---
+    {
+        title: "Maharani Tarabai — The Maratha Regent Who Continued the Resistance Explorer",
+        category: "History & Royalty",
+        description:
+            "Explore Maharani Tarabai (1675–1761 CE) — Regent of the Maratha Empire: counter-invasions against Aurangzeb, defense of Swarajya, Kolhapur state foundation, and timeline.",
+        url: "frontend/tarabai-maratha-regent-explorer/index.html"},
+    // --- Forgotten Women of Indian History Explorer ---
+    {
+        title: "Forgotten Women of Indian History — Interactive Heritage Explorer",
+        category: "History & Royalty",
+        description:
+            "Explore Forgotten Women of Indian History — central digital archive of 50 pioneering women across Vedic philosophy, medieval statecraft, freedom struggles, medicine, and science.",
+        url: "frontend/forgotten-women-of-indian-history/index.html"},
+    // --- Keladi Chennamma Explorer ---
+    {
+        title: "Keladi Chennamma — The Queen Who Defended the Keladi Kingdom Explorer",
+        category: "History & Royalty",
+        description:
+            "Explore Keladi Chennamma (reign 1671–1696 CE) — Queen of Bednore: shelter to Chhatrapati Rajaram, defiance of Aurangzeb's Mughal army, and coastal Karnataka heritage.",
+        url: "frontend/keladi-chennamma-explorer/index.html"},
+    // --- Ahilyabai Holkar Explorer ---
+    {
+        title: "Ahilyabai Holkar — The Queen Who Transformed Malwa Explorer",
+        category: "History & Royalty",
+        description:
+            "Explore Ahilyabai Holkar (1725–1795 CE) — Punyashlok Rajmata of Malwa: governance, pan-Indian temple restorations (Kashi Vishwanath, Somnath, Gaya), Maheshwar handloom heritage, and timeline.",
+        url: "frontend/ahilyabai-holkar-explorer/index.html"},
+          
+    // --- Chand Bibi Explorer ---
+    {
+        title: "Chand Bibi — The Defender of Ahmadnagar Explorer",
+        category: "History & Royalty",
+        description:
+            "Explore the historical profile of Chand Bibi (1550–1599 CE) — Defender of Ahmadnagar, Regent of Bijapur & Ahmadnagar, Mughal siege resistance, and Deccan politics.",
+        url: "frontend/chand-bibi-explorer/index.html"
+    },
+
+    // --- Traditional Indian Utensils Explorer (#2936) ---
+    {
+        title: "Traditional Indian Utensils — Everyday Cultural Heritage",
+        category: "Culture & Heritage",
+        description:
+            "Explore India's traditional cooking utensils — the iron kadhai, bronze uruli, clay handi, copper lota, wooden bel-chakla and more. Discover their materials, regional origins, cultural significance, and centuries-old cooking practices through an interactive gallery with Material and Region filters.",
+        url: "frontend/indian-utensils-explorer/index.html"
+    },
+
+    // --- Xylophone & Indian Percussion Traditions Explorer (#2938) ---
+    {
+        title: "Xylophone & Indian Percussion Traditions",
+        category: "Music & Performing Arts",
+        description:
+            "Explore Xylophone & Indian Percussion Traditions — an interactive organological gallery of tuned idiophones (Kashta Tarang, Jal Tarang, Naga Bamboo Xylophone) and classical/regional membranophones (Mridangam, Tabla, Pung, Chenda) with Web Audio sound simulation and filter controls.",
+        url: "frontend/xylophone-percussion-explorer/index.html"
+    },
+
+    // --- Yoga — India's Global Cultural Heritage Explorer (#2939) ---
+    {
+        title: "Yoga — India's Global Cultural Heritage",
+        category: "Culture & Heritage",
+        description:
+            "Explore Yoga — India's Global Cultural Heritage: an interactive historical, philosophical, and textual explorer tracing Yoga from Vedic and Upanishadic roots to Patanjali's Yoga Sutras, Hatha Yoga, UN International Day of Yoga, and UNESCO Intangible Cultural Heritage inscription.",
+        url: "frontend/yoga-explorer/index.html"
+    },
+
+    // --- Usha Mehta Explorer ---
+    {
+        title: "Usha Mehta — Voice of the Underground Congress Radio",
+        category: "Freedom Movement",
+        description:
+            "Explore Usha Mehta's heroic historical profile — the 22-year-old freedom fighter who operated the secret underground Congress Radio during the Quit India Movement in 1942, featuring an interactive 42.34m radio tuner simulator, biography, Yerwada trial, and Padma Vibhushan legacy.",
+        url: "frontend/usha-mehta-explorer/index.html"
+    },
+
+    // --- 2011 Sikkim Earthquake Explorer (#3552) ---
+    {
+        title: "2011 Sikkim Earthquake — Himalayan Seismic Event Profile",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 18 September 2011 Sikkim earthquake (Mw 6.9): USGS epicentre on the India–Nepal border, Himalayan strike-slip tectonics, landslides, road and settlement damage, NDRF and Army relief, and earthquake preparedness.",
+        url: "frontend/sikkim-earthquake-2011-explorer/index.html"},
+    // --- 2004 Indian Ocean Tsunami Explorer (#3536) ---
+    {
+        title: "2004 Indian Ocean Tsunami - India Impact Profile",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 26 December 2004 Indian Ocean tsunami: the Sumatra-Andaman megathrust cause, Tamil Nadu, Kerala and Andaman & Nicobar impact, timeline, relief operations, lessons learned, and India's INCOIS tsunami warning system.",
+        url: "frontend/indian-ocean-tsunami-2004-explorer/index.html"},
+    // --- Brahmaputra Flood Hazards Explorer ---
+    {
+        title: "Brahmaputra Flood Hazards — Assam",
+        category: "Nature & Wildlife",
+        description:
+            "Explore why Assam floods every year — Brahmaputra basin geography, seasonal flood cycles, contributing factors, vulnerable regions, community and ecosystem impacts, flood-management measures and disaster preparedness guidance.",
+        url: "frontend/brahmaputra-flood-hazards/index.html"
+    },
+    // --- Add Pandita Ramabai historical profile ---
+    {
+        title: "Pandita Ramabai — Sanskrit Scholar & Social Reform Pioneer",
+        category: "History & Royalty",
+        description:
+            "Explore Pandita Ramabai's historical profile: first woman to earn titles Pandita and Sarasvati for Sanskrit scholarship, founder of Sharada Sadan and Mukti Mission.",
+        url: "frontend/pandita-ramabai-explorer/index.html"
+    },
+    // --- Add Fatima Sheikh historical profile ---
+    {
+        title: "Fatima Sheikh — The Forgotten Pioneer of Girls' Education",
+        category: "History & Royalty",
+        description:
+            "Explore Fatima Sheikh's historical profile: Pune's first Muslim female teacher, co-founder of girls' schools, and close educational associate of Savitribai Phule.",
+        url: "frontend/fatima-sheikh-explorer/index.html"
+    },
+    // --- Add Savitribai Phule historical profile ---
+    {
+        title: "Savitribai Phule — Pioneer of Women's Education in India",
+        category: "History & Royalty",
+        description:
+            "Explore Savitribai Phule's historical profile: India's first female teacher, founder of Bhide Wada girls' school, Satyashodhak Samaj co-founder, and social reformer.",
+        url: "frontend/savitribai-phule-explorer/index.html"
+    },
+    // --- Add Begum Rokeya historical profile ---
+    {
+        title: "Begum Rokeya — Pioneer of Women's Education in Bengal",
+        category: "History & Royalty",
+        description:
+            "Explore Begum Rokeya's historical profile: writer, educator, and social reformer who established Sakhawat Memorial Girls' School and wrote Sultana's Dream.",
+        url: "frontend/begum-rokeya-explorer/index.html"
+    },
+    // --- Add Anis Kidwai historical profile ---
+    {
+        title: "Anis Kidwai — Partition Memoirist & Refugee Rehabilitation Leader",
+        category: "History & Royalty",
+        description:
+            "Explore Anis Kidwai's historical profile: writer, social worker, and Rajya Sabha Member of Parliament who documented Partition in 'Azadi Ki Chhaon Mein' and led refugee rehabilitation.",
+        url: "frontend/anis-kidwai-explorer/index.html"
+    },
+    // --- Add Kadambini Ganguly historical profile ---
+    {
+        title: "Kadambini Ganguly — The Woman Who Broke Barriers in Indian Medicine",
+        category: "History & Royalty",
+        description:
+            "Explore Kadambini Ganguly's historical profile: one of the first two female graduates of the British Empire, the first woman admitted to Calcutta Medical College, and India's first practising woman physician of Western medicine.",
+        url: "frontend/kadambini-ganguly-explorer/index.html"
+    },
+    // --- 2023 Himachal Pradesh Floods & Landslides Explorer (#3566) ---
+    {
+        title: "2023 Himachal Pradesh Floods & Landslides — Monsoon Disaster Profile",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 2023 Himachal Pradesh monsoon disaster: extreme July rainfall, Beas and Satluj flooding, deadly landslides at Summer Hill and Jadoon, highway and heritage-railway damage, NDRF–Army–IAF relief, and mountain disaster preparedness lessons.",
+        url: "frontend/himachal-floods-2023-explorer/index.html"},
+
+    // --- Drought Hazards of Rajasthan Explorer (#3570) ---
+    {
+        title: "Drought Hazards of Rajasthan — Arid Zone Water Scarcity",
+        category: "Geology & Disasters",
+        description:
+            "Explore drought in Rajasthan: Thar arid geography, monsoon rainfall gradient, western drought hotspots, agricultural and water-scarcity impacts, johad and tanka traditions, and drought preparedness.",
+        url: "frontend/rajasthan-drought-hazards/index.html"},
+    // --- 2023 South Lhonak GLOF Explorer (#3568) ---
+    {
+        title: "2023 South Lhonak GLOF — Sikkim Glacial Lake Outburst Flood",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 3–4 October 2023 South Lhonak glacial lake outburst flood: lake geography, Teesta basin, GLOF hazards, Chungthang dam and highway damage, early-warning gaps, and Himalayan risk mitigation.",
+        url: "frontend/south-lhonak-glof-2023-explorer/index.html"
     }
 ];
