@@ -6440,5 +6440,14 @@ window.indiaSearchIndex = [
         description:
             "Explore the story of Lava and Kusha \u2014 the young twin princes of Ayodhya, their upbringing in Valmiki ashram, singing the Ramayana, and Ashwamedha valor.",
         url: "frontend/lava-kusha-story/index.html"
+    },
+
+    // --- Kannappa Nayanar Story (#3697) ---
+    {
+        title: "Kannappa Nayanar — Devotion Beyond Ritual",
+        category: "Culture & Literature",
+        description:
+            "Explore the traditional story of Kannappa Nayanar (Thinnan): hunter-devotee of Shiva at Srikalahasti, the 63 Nayanars, and bhakti beyond ritual.",
+        url: "frontend/kannappa-nayanar-story/index.html"
     }
 ];
