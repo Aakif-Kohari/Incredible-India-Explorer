@@ -6364,6 +6364,13 @@ window.indiaSearchIndex = [
             "Explore the 3–4 October 2023 South Lhonak glacial lake outburst flood: lake geography, Teesta basin, GLOF hazards, Chungthang dam and highway damage, early-warning gaps, and Himalayan risk mitigation.",
         url: "frontend/south-lhonak-glof-2023-explorer/index.html"
     },
+    // --- feat/bharata-paduka-story ---
+    {
+        title: "Add Bharata and Rama's Sandals \u2014 A Symbol of Duty",
+        category: "Culture & Literature",
+        description:
+            "Explore the story of Bharata and Rama's Sandals \u2014 a profound symbol of selfless duty, fraternal love, moral trusteeship, and 14 years of rule from Nandigram.",
+        url: "frontend/bharata-paduka-story/index.html"},
     // --- feat/ahalyas-redemption-story ---
     {
         title: "Add Ahalya's Redemption \u2014 A Story of Transformation",
