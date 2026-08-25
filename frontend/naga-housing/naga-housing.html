@@ -1,0 +1,580 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the traditional houses and village architecture of Nagaland, India.">
+  <title>Naga Traditional Houses | Incredible India Explorer</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background: #f7f3eb;
+      color: #2d241d;
+    }
+
+    header {
+      background: linear-gradient(135deg, #3d2418, #70452b);
+      color: white;
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    header h1 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin-bottom: 15px;
+    }
+
+    header p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #241810;
+      padding: 12px 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    section {
+      margin-bottom: 55px;
+    }
+
+    .intro {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .intro h2,
+    section > h2 {
+      color: #61351f;
+      margin-bottom: 15px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 25px 0;
+    }
+
+    .filter-btn {
+      border: 2px solid #70452b;
+      background: white;
+      color: #70452b;
+      padding: 10px 18px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #70452b;
+      color: white;
+    }
+
+    .houses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .house-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .house-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .house-image {
+      height: 180px;
+      background: linear-gradient(135deg, #8c5a38, #d3a46c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3.5rem;
+    }
+
+    .house-content {
+      padding: 22px;
+    }
+
+    .house-content h3 {
+      color: #61351f;
+      margin-bottom: 8px;
+    }
+
+    .house-content p {
+      margin-bottom: 15px;
+    }
+
+    .learn-btn {
+      border: none;
+      background: #61351f;
+      color: white;
+      padding: 9px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .learn-btn:hover,
+    .learn-btn:focus {
+      background: #3d2418;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .feature {
+      background: white;
+      padding: 22px;
+      border-left: 5px solid #70452b;
+      border-radius: 10px;
+    }
+
+    .feature h3 {
+      margin-bottom: 8px;
+      color: #61351f;
+    }
+
+    .quiz {
+      background: #eadbc8;
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .quiz button {
+      margin-top: 15px;
+      background: #61351f;
+      color: white;
+      border: none;
+      padding: 11px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #quiz-result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #241810;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    .back-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 45px;
+      height: 45px;
+      border: none;
+      border-radius: 50%;
+      background: #61351f;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+    }
+
+    .back-top.show {
+      display: block;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 2000;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      max-width: 600px;
+      width: 100%;
+      padding: 30px;
+      border-radius: 15px;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      border: none;
+      background: none;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: inline-block;
+        margin: 5px 7px;
+        font-size: 14px;
+      }
+
+      header {
+        padding: 50px 15px;
+      }
+
+      .intro,
+      .quiz {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="top">
+    <h1>🏡 Naga Traditional Houses</h1>
+    <p>
+      Explore the unique village architecture, traditional homes,
+      materials, and cultural heritage of Nagaland.
+    </p>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <a href="#about">About</a>
+    <a href="#houses">House Types</a>
+    <a href="#features">Architecture</a>
+    <a href="#quiz">Quiz</a>
+  </nav>
+
+  <main>
+
+    <section id="about">
+      <div class="intro">
+        <h2>Village Architecture of Nagaland</h2>
+        <p>
+          Traditional Naga houses reflect the diverse cultures and
+          lifestyles of Nagaland's indigenous communities. Houses were
+          traditionally constructed using locally available materials
+          such as bamboo, timber, thatch, and mud.
+        </p>
+        <br>
+        <p>
+          The design of a house could vary between Naga communities,
+          villages, and geographical regions. Homes were adapted to
+          the hilly terrain and climate while also serving important
+          social and cultural functions.
+        </p>
+      </div>
+    </section>
+
+    <section id="houses">
+      <h2>Traditional House Styles</h2>
+
+      <div class="controls" role="group" aria-label="House filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="bamboo">Bamboo</button>
+        <button class="filter-btn" data-filter="timber">Timber</button>
+        <button class="filter-btn" data-filter="thatch">Thatch</button>
+      </div>
+
+      <div class="houses-grid">
+
+        <article class="house-card" data-type="bamboo">
+          <div class="house-image" aria-hidden="true">🎋</div>
+          <div class="house-content">
+            <h3>Bamboo Houses</h3>
+            <p>
+              Bamboo has traditionally been used for walls, partitions,
+              floors, and other structural elements.
+            </p>
+            <button class="learn-btn"
+              data-title="Bamboo Houses"
+              data-info="Bamboo is lightweight, flexible, and widely available in Northeast India. Traditional construction techniques use bamboo for several parts of the house.">
+              Learn More
+            </button>
+          </div>
+        </article>
+
+        <article class="house-card" data-type="timber">
+          <div class="house-image" aria-hidden="true">🪵</div>
+          <div class="house-content">
+            <h3>Timber Houses</h3>
+            <p>
+              Timber has been an important traditional material for
+              structural supports, beams, doors, and decorative elements.
+            </p>
+            <button class="learn-btn"
+              data-title="Timber Houses"
+              data-info="Wooden construction provides strength and durability while allowing traditional builders to adapt houses to the mountainous landscape.">
+              Learn More
+            </button>
+          </div>
+        </article>
+
+        <article class="house-card" data-type="thatch">
+          <div class="house-image" aria-hidden="true">🌾</div>
+          <div class="house-content">
+            <h3>Thatch-Roof Houses</h3>
+            <p>
+              Thatch has traditionally been used as roofing material,
+              providing insulation and protection from the weather.
+            </p>
+            <button class="learn-btn"
+              data-title="Thatch-Roof Houses"
+              data-info="Traditional thatched roofs were made using locally available vegetation. Their construction reflects local knowledge of climate and natural resources.">
+              Learn More
+            </button>
+          </div>
+        </article>
+
+        <article class="house-card" data-type="bamboo">
+          <div class="house-image" aria-hidden="true">🏠</div>
+          <div class="house-content">
+            <h3>Raised Houses</h3>
+            <p>
+              Some traditional houses are elevated above the ground,
+              helping adapt construction to sloping terrain.
+            </p>
+            <button class="learn-btn"
+              data-title="Raised Houses"
+              data-info="Elevated construction can help deal with uneven terrain, improve ventilation, and provide useful space beneath the structure.">
+              Learn More
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="features">
+      <h2>Key Architectural Features</h2>
+
+      <div class="features">
+
+        <div class="feature">
+          <h3>🌿 Local Materials</h3>
+          <p>
+            Bamboo, timber, thatch, and other locally available
+            materials have traditionally played an important role.
+          </p>
+        </div>
+
+        <div class="feature">
+          <h3>⛰️ Mountain Adaptation</h3>
+          <p>
+            Village homes are designed with consideration for the
+            hilly terrain of Nagaland.
+          </p>
+        </div>
+
+        <div class="feature">
+          <h3>🔥 Community Life</h3>
+          <p>
+            Traditional homes and village spaces can reflect the
+            strong communal traditions of Naga societies.
+          </p>
+        </div>
+
+        <div class="feature">
+          <h3>🎨 Cultural Identity</h3>
+          <p>
+            Architectural details, materials, and decorative elements
+            can express the identity of different Naga communities.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="quiz">
+      <div class="quiz">
+        <h2>Quick Heritage Quiz</h2>
+        <p>Which material is traditionally important in Naga house construction?</p>
+
+        <button onclick="checkAnswer('bamboo')">Bamboo</button>
+        <button onclick="checkAnswer('plastic')">Plastic</button>
+        <button onclick="checkAnswer('steel')">Steel</button>
+
+        <p id="quiz-result" aria-live="polite"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    ↑
+  </button>
+
+  <div class="modal" id="infoModal" role="dialog" aria-modal="true"
+       aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModal" aria-label="Close">
+        &times;
+      </button>
+
+      <h2 id="modalTitle"></h2>
+      <p id="modalInfo"></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© Incredible India Explorer | Naga Traditional Houses</p>
+    <p>Discover India's diverse architectural heritage.</p>
+  </footer>
+
+  <script>
+    // House filtering
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const houseCards = document.querySelectorAll(".house-card");
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        houseCards.forEach(card => {
+          const type = card.dataset.type;
+
+          if (filter === "all" || type === filter) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+
+    // Modal
+    const modal = document.getElementById("infoModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalInfo = document.getElementById("modalInfo");
+    const closeModal = document.getElementById("closeModal");
+
+    document.querySelectorAll(".learn-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        modalTitle.textContent = button.dataset.title;
+        modalInfo.textContent = button.dataset.info;
+        modal.classList.add("show");
+        closeModal.focus();
+      });
+    });
+
+    function hideModal() {
+      modal.classList.remove("show");
+    }
+
+    closeModal.addEventListener("click", hideModal);
+
+    modal.addEventListener("click", event => {
+      if (event.target === modal) {
+        hideModal();
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        hideModal();
+      }
+    });
+
+    // Quiz
+    function checkAnswer(answer) {
+      const result = document.getElementById("quiz-result");
+
+      if (answer === "bamboo") {
+        result.textContent = "Correct! 🎉 Bamboo is an important traditional building material.";
+      } else {
+        result.textContent = "Not quite. Try again!";
+      }
+    }
+
+    // Back to top
+    const backTop = document.getElementById("backTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        backTop.classList.add("show");
+      } else {
+        backTop.classList.remove("show");
+      }
+    });
+
+    backTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
+
+</body>
+</html>
+```

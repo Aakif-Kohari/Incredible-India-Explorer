@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bagheli Explorer — Incredible India</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Explore बघेली (Bagheli), the language of Baghelkhand — its Devanagari script, greeting, common words, and folk and literary heritage.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,560;9..144,680&family=Noto+Serif+Devanagari:wght@500;700&family=Noto+Sans+Devanagari:wght@400;600&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        :root {
+            --rust: #a3441f;
+            --rust-deep: #6e2c12;
+            --wheat: #eee3c8;
+            --wheat-dark: #5c5340;
+            --paper: #f9f4e6;
+            --amber: #c98a1f;
+            --amber-deep: #966410;
+            --marigold: #e3ac3a;
+            --ink: #241d18;
+            --rule: rgba(36, 29, 24, 0.14);
+            --shadow: 0 14px 34px rgba(36, 20, 10, 0.16);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--wheat);
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .dev {
+            font-family: 'Noto Sans Devanagari', 'Noto Serif Devanagari', serif;
+        }
+
+        .dev-display {
+            font-family: 'Noto Serif Devanagari', serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        .display {
+            font-family: 'Fraunces', serif;
+            font-weight: 680;
+            letter-spacing: -0.01em;
+            margin: 0;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* signature tiger-stripe motif strip (Baghel = tiger) */
+        .stripe-strip {
+            height: 20px;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='72' height='20' viewBox='0 0 72 20'><rect width='72' height='20' fill='%23a3441f'/><g fill='%23f9f4e6' opacity='0.85'><path d='M4 0 L14 0 L8 20 L-2 20 Z'/><path d='M24 0 L34 0 L28 20 L18 20 Z'/><path d='M44 0 L54 0 L48 20 L38 20 Z'/><path d='M64 0 L74 0 L68 20 L58 20 Z'/></g></svg>");
+            background-repeat: repeat-x;
+            background-size: 72px 20px;
+        }
+
+        .wrap {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--paper);
+            border: 1px solid var(--rule);
+            border-radius: 999px;
+            padding: 7px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--rust-deep);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: var(--amber);
+            color: var(--paper);
+            border: none;
+            padding: 13px 24px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform .15s ease, background .15s ease;
+            box-shadow: 0 8px 18px rgba(201, 138, 31, 0.35);
+        }
+
+        .btn:hover {
+            background: var(--amber-deep);
+            transform: translateY(-1px);
+        }
+
+        .btn:focus-visible,
+        a:focus-visible,
+        .speak:focus-visible {
+            outline: 3px solid var(--marigold);
+            outline-offset: 2px;
+        }
+
+        .speak {
+            border: 1.5px solid var(--rust);
+            background: var(--paper);
+            color: var(--rust-deep);
+            border-radius: 999px;
+            width: 38px;
+            height: 38px;
+            min-width: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 15px;
+            transition: background .15s ease;
+        }
+
+        .speak:hover {
+            background: var(--wheat);
+        }
+
+        .speak.playing {
+            background: var(--marigold);
+            border-color: var(--marigold);
+            color: var(--rust-deep);
+        }
+
+        /* =====================================================
+     LANDING PAGE
+     ===================================================== */
+        #landing .hero {
+            background:
+                radial-gradient(ellipse at 20% -10%, rgba(227, 172, 58, 0.18), transparent 55%),
+                linear-gradient(180deg, var(--rust-deep), var(--rust));
+            color: var(--paper);
+            padding: 64px 0 46px;
+        }
+
+        #landing .hero .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--marigold);
+        }
+
+        #landing .hero h1 {
+            font-size: clamp(34px, 5vw, 52px);
+            margin-top: 10px;
+            color: var(--paper);
+        }
+
+        #landing .hero p.lede {
+            max-width: 560px;
+            font-size: 16.5px;
+            line-height: 1.6;
+            color: rgba(249, 244, 230, 0.82);
+            margin-top: 14px;
+        }
+
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            padding: 38px 0 60px;
+        }
+
+        .lang-card {
+            background: var(--paper);
+            border-radius: 16px;
+            padding: 22px 20px 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border: 1px solid var(--rule);
+        }
+
+        .lang-card .region-tag {
+            font-size: 11.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--wheat-dark);
+        }
+
+        .lang-card .native {
+            font-size: 26px;
+        }
+
+        .lang-card .eng {
+            font-size: 14px;
+            color: var(--wheat-dark);
+            font-weight: 600;
+        }
+
+        .lang-card p.blurb {
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: #3a352a;
+            margin: 0;
+            flex: 1;
+        }
+
+        .lang-card.featured {
+            outline: 2.5px solid var(--amber);
+        }
+
+        .lang-card.featured::before {
+            content: "Featured this month";
+            position: absolute;
+            top: 12px;
+            right: -34px;
+            background: var(--amber);
+            color: var(--paper);
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 4px 38px;
+            transform: rotate(38deg);
+            letter-spacing: .05em;
+        }
+
+        .lang-card .card-btn {
+            margin-top: 4px;
+            align-self: flex-start;
+            background: var(--rust);
+            color: var(--paper);
+            border: none;
+            padding: 9px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .lang-card.featured .card-btn {
+            background: var(--amber);
+        }
+
+        .lang-card.locked {
+            opacity: .6;
+        }
+
+        .lang-card.locked .card-btn {
+            background: var(--wheat-dark);
+            cursor: default;
+        }
+
+        /* =====================================================
+     EXPLORER PAGE
+     ===================================================== */
+        #explorer .topbar {
+            background: var(--rust-deep);
+            color: var(--paper);
+            padding: 16px 0;
+        }
+
+        #explorer .topbar .wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #explorer .back {
+            background: none;
+            border: none;
+            color: var(--paper);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 4px;
+        }
+
+        #explorer .back:hover {
+            color: var(--marigold);
+        }
+
+        #explorer .hero {
+            background: linear-gradient(180deg, var(--rust-deep) 0%, var(--rust) 72%, var(--rust) 100%);
+            color: var(--paper);
+            padding: 52px 0 0;
+            position: relative;
+        }
+
+        .hero-inner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 36px;
+            align-items: flex-end;
+            padding-bottom: 40px;
+        }
+
+        .hero-text {
+            flex: 1 1 380px;
+        }
+
+        .hero-text .eyebrow {
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: .14em;
+            color: var(--marigold);
+            font-weight: 700;
+        }
+
+        .hero-text .title-dev {
+            font-size: clamp(40px, 7vw, 64px);
+            margin-top: 8px;
+            line-height: 1;
+        }
+
+        .hero-text .title-en {
+            font-size: clamp(17px, 2.4vw, 20px);
+            color: rgba(249, 244, 230, 0.85);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .hero-text .ipa {
+            font-size: 14px;
+            color: rgba(249, 244, 230, 0.65);
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        .hero-text p.tagline {
+            max-width: 480px;
+            font-size: 15.5px;
+            line-height: 1.65;
+            color: rgba(249, 244, 230, 0.85);
+            margin-top: 16px;
+        }
+
+        .tiger-illus {
+            flex: 1 1 300px;
+            min-width: 260px;
+        }
+
+        .tiger-illus svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .fact-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            background: var(--paper);
+            border-radius: 16px 16px 0 0;
+            box-shadow: 0 -4px 0 var(--amber) inset;
+            margin-top: -2px;
+        }
+
+        .fact {
+            padding: 20px 18px;
+            border-right: 1px solid var(--rule);
+        }
+
+        .fact:last-child {
+            border-right: none;
+        }
+
+        .fact .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            font-weight: 700;
+            color: var(--amber-deep);
+        }
+
+        .fact .value {
+            font-size: 14.5px;
+            font-weight: 600;
+            margin-top: 5px;
+            line-height: 1.4;
+            color: var(--ink);
+        }
+
+        section.block {
+            padding: 56px 0;
+        }
+
+        section.block.tint {
+            background: var(--paper);
+        }
+
+        .section-head {
+            margin-bottom: 26px;
+        }
+
+        .section-head .kicker {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--amber-deep);
+        }
+
+        .section-head h2 {
+            font-size: clamp(24px, 3.4vw, 32px);
+            margin-top: 6px;
+            color: var(--rust-deep);
+        }
+
+        .section-head p {
+            max-width: 600px;
+            color: #4a4536;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-top: 8px;
+        }
+
+        /* greeting spotlight */
+        .greet-card {
+            background: linear-gradient(135deg, var(--amber), var(--amber-deep));
+            color: var(--paper);
+            border-radius: 20px;
+            padding: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            align-items: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .greet-card::after {
+            content: "";
+            position: absolute;
+            right: -40px;
+            bottom: -40px;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: rgba(249, 244, 230, 0.08);
+        }
+
+        .greet-main {
+            flex: 1 1 260px;
+            z-index: 1;
+        }
+
+        .greet-main .dev-word {
+            font-size: 44px;
+            line-height: 1.1;
+        }
+
+        .greet-main .translit {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .greet-main .meaning {
+            font-size: 14.5px;
+            color: rgba(249, 244, 230, 0.85);
+            margin-top: 6px;
+        }
+
+        .greet-main .ipa-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .greet-main .ipa {
+            font-family: monospace;
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.18);
+            padding: 5px 10px;
+            border-radius: 7px;
+        }
+
+        .exchange {
+            flex: 1 1 260px;
+            background: rgba(249, 244, 230, 0.1);
+            border-radius: 14px;
+            padding: 18px 20px;
+            z-index: 1;
+        }
+
+        .exchange .line {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 0;
+            border-bottom: 1px dashed rgba(249, 244, 230, 0.25);
+        }
+
+        .exchange .line:last-child {
+            border-bottom: none;
+        }
+
+        .exchange .line .txt {
+            flex: 1;
+        }
+
+        .exchange .line .dev {
+            font-size: 16px;
+        }
+
+        .exchange .line .en {
+            font-size: 12.5px;
+            color: rgba(249, 244, 230, 0.72);
+        }
+
+        .exchange .speak {
+            background: rgba(249, 244, 230, 0.9);
+        }
+
+        .verify-note {
+            font-size: 12px;
+            color: rgba(249, 244, 230, 0.68);
+            margin-top: 16px;
+            line-height: 1.5;
+            z-index: 1;
+            position: relative;
+        }
+
+        /* script showcase */
+        .script-panel {
+            background: var(--rust-deep);
+            color: var(--paper);
+            border-radius: 18px;
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .script-panel .letters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            flex: 1 1 300px;
+        }
+
+        .letter-tile {
+            background: rgba(249, 244, 230, 0.08);
+            border: 1px solid rgba(249, 244, 230, 0.18);
+            border-radius: 10px;
+            padding: 0 16px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-family: 'Noto Serif Devanagari', serif;
+        }
+
+        .script-panel .note {
+            flex: 1 1 260px;
+            font-size: 14.5px;
+            line-height: 1.7;
+            color: rgba(249, 244, 230, 0.85);
+        }
+
+        /* words grid */
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 16px;
+        }
+
+        .word-card {
+            background: var(--paper);
+            border: 1px solid var(--rule);
+            border-radius: 14px;
+            padding: 18px 18px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .word-card .top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .word-card .dev-word {
+            font-size: 24px;
+        }
+
+        .word-card .translit {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--amber-deep);
+            text-transform: capitalize;
+        }
+
+        .word-card .meaning {
+            font-size: 13.5px;
+            color: #4a4536;
+        }
+
+        /* classification / region */
+        .region-panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .region-card {
+            background: var(--paper);
+            border: 1px solid var(--rule);
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        .region-card h3 {
+            font-size: 15.5px;
+            color: var(--rust-deep);
+            margin-bottom: 8px;
+        }
+
+        .region-card p,
+        .region-card ul {
+            font-size: 13.8px;
+            line-height: 1.65;
+            color: #4a4536;
+            margin: 0;
+        }
+
+        .region-card ul {
+            padding-left: 18px;
+            margin-top: 6px;
+        }
+
+        .chain {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: #4a4536;
+            margin-top: 6px;
+        }
+
+        .chain .node {
+            background: var(--wheat);
+            border-radius: 999px;
+            padding: 4px 10px;
+            font-weight: 600;
+        }
+
+        .chain .sep {
+            color: var(--wheat-dark);
+        }
+
+        /* culture section */
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .culture-card {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .culture-card .icon-wrap {
+            width: 52px;
+            height: 52px;
+            min-width: 52px;
+            border-radius: 12px;
+            background: var(--rust);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .culture-card .icon-wrap svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .culture-card h3 {
+            font-size: 16.5px;
+            color: var(--rust-deep);
+        }
+
+        .culture-card p {
+            font-size: 13.8px;
+            line-height: 1.6;
+            color: #4a4536;
+            margin: 6px 0 0;
+        }
+
+        .status-band {
+            margin-top: 36px;
+            background: var(--wheat);
+            border: 1px dashed var(--wheat-dark);
+            border-radius: 14px;
+            padding: 18px 22px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .status-band svg {
+            width: 26px;
+            height: 26px;
+            min-width: 26px;
+            margin-top: 2px;
+        }
+
+        .status-band p {
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: #332e22;
+            margin: 0;
+        }
+
+        /* sources */
+        .source-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .source-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            background: var(--paper);
+            border: 1px solid var(--rule);
+            border-radius: 10px;
+            padding: 13px 16px;
+            font-size: 13.5px;
+            text-decoration: none;
+            color: var(--ink);
+            transition: border-color .15s ease;
+        }
+
+        .source-item:hover {
+            border-color: var(--amber);
+        }
+
+        .source-item .name {
+            font-weight: 600;
+        }
+
+        .source-item .arrow {
+            color: var(--amber-deep);
+            font-weight: 700;
+        }
+
+        footer {
+            background: var(--rust-deep);
+            color: rgba(249, 244, 230, 0.65);
+            text-align: center;
+            padding: 26px 0;
+            font-size: 12.5px;
+        }
+
+        @media (max-width:640px) {
+            .wrap {
+                padding: 0 18px;
+            }
+
+            .greet-card {
+                padding: 24px;
+            }
+
+            .fact {
+                border-right: none;
+                border-bottom: 1px solid var(--rule);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+     LANDING PAGE
+===================================================== -->
+    <div id="landing">
+        <div class="stripe-strip"></div>
+        <div class="hero">
+            <div class="wrap">
+                <div class="eyebrow">Incredible India Explorer</div>
+                <h1>Languages of India</h1>
+                <p class="lede">India speaks in hundreds of tongues carried across deserts, hills, and river valleys.
+                    This month's spotlight travels to the Vindhya plateau of central India, once ruled by the Baghel
+                    Rajputs of Rewa, to meet the language of Baghelkhand's fields and folk ballads.</p>
+            </div>
+        </div>
+
+        <div class="wrap">
+            <div class="lang-grid">
+                <div class="lang-card featured">
+                    <div class="region-tag">Baghelkhand · MP &amp; UP</div>
+                    <div class="native dev-display">बघेली</div>
+                    <div class="eng">Bagheli</div>
+                    <p class="blurb">The Eastern Hindi language of Baghelkhand, named for the Baghel dynasty and carried
+                        in Pandavani ballads and village folk song.</p>
+                    <button class="card-btn" onclick="goExplorer()">Explore Bagheli →</button>
+                </div>
+
+                <div class="lang-card locked">
+                    <div class="region-tag">Western MP</div>
+                    <div class="native dev-display">बुंदेली</div>
+                    <div class="eng">Bundeli</div>
+                    <p class="blurb">Bagheli's western neighbour, spoken across the Bundelkhand region.</p>
+                    <button class="card-btn">Coming soon</button>
+                </div>
+
+                <div class="lang-card locked">
+                    <div class="region-tag">UP &amp; Central India</div>
+                    <div class="native dev-display">अवधी</div>
+                    <div class="eng">Awadhi</div>
+                    <p class="blurb">The classical Eastern Hindi language most closely related to Bagheli.</p>
+                    <button class="card-btn">Coming soon</button>
+                </div>
+
+                <div class="lang-card locked">
+                    <div class="region-tag">Chhattisgarh</div>
+                    <div class="native dev-display">छत्तीसगढ़ी</div>
+                    <div class="eng">Chhattisgarhi</div>
+                    <p class="blurb">A neighbouring Eastern Hindi language of the plains beyond Baghelkhand.</p>
+                    <button class="card-btn">Coming soon</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================
+     EXPLORER PAGE
+===================================================== -->
+    <div id="explorer" class="hidden">
+
+        <div class="topbar">
+            <div class="wrap">
+                <button class="back" onclick="goLanding()">← Languages of India</button>
+                <span class="chip"
+                    style="background:transparent;border-color:rgba(249,244,230,0.3);color:var(--paper);">🐅
+                    Baghelkhand, MP &amp; UP</span>
+            </div>
+        </div>
+
+        <div class="hero">
+            <div class="wrap">
+                <div class="hero-inner">
+                    <div class="hero-text">
+                        <div class="eyebrow">Language Spotlight</div>
+                        <div class="title-dev dev-display">बघेली</div>
+                        <div class="title-en">Bagheli</div>
+                        <div class="ipa">/bəɡʱeːliː/</div>
+                        <p class="tagline">Spoken by millions across the Baghelkhand region of Madhya Pradesh and Uttar
+                            Pradesh — an Eastern Hindi language named for the Baghel Rajput dynasty, carried today in
+                            Pandavani ballads, wedding songs, and village oral tradition.</p>
+                    </div>
+                    <div class="tiger-illus" aria-hidden="true">
+                        <svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="rustSky" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0" stop-color="#c25a2a" />
+                                    <stop offset="1" stop-color="#6e2c12" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="420" height="220" fill="url(#rustSky)" />
+                            <circle cx="335" cy="50" r="24" fill="#f9f4e6" opacity="0.85" />
+                            <path d="M0 200 C 80 150, 160 210, 240 165 S 380 150, 420 175 V220 H0 Z" fill="#4a1d0c" />
+                            <g fill="none" stroke="#f9f4e6" stroke-width="4" opacity="0.75" stroke-linecap="round">
+                                <path d="M60 160 L80 130" />
+                                <path d="M90 168 L112 136" />
+                                <path d="M122 172 L146 142" />
+                                <path d="M230 150 L252 118" />
+                                <path d="M262 158 L286 126" />
+                                <path d="M296 162 L320 132" />
+                            </g>
+                            <rect x="0" y="205" width="420" height="15" fill="#3a170a" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="fact-strip">
+                    <div class="fact">
+                        <div class="label">Classification</div>
+                        <div class="value">Indo-European → Indo-Aryan → Eastern Hindi</div>
+                    </div>
+                    <div class="fact">
+                        <div class="label">Region</div>
+                        <div class="value">Baghelkhand: MP &amp; UP border districts</div>
+                    </div>
+                    <div class="fact">
+                        <div class="label">Speakers</div>
+                        <div class="value">~2.7 million+ (2011 census; estimates run higher)</div>
+                    </div>
+                    <div class="fact">
+                        <div class="label">Script</div>
+                        <div class="value">Devanagari</div>
+                    </div>
+                    <div class="fact">
+                        <div class="label">ISO 639-3</div>
+                        <div class="value">bfy</div>
+                    </div>
+                    <div class="fact">
+                        <div class="label">Also called</div>
+                        <div class="value">Baghelkhandi, Rimahi, Riwai</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GREETING -->
+        <section class="block">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="kicker">👋 Say hello</div>
+                    <h2>The Bagheli greeting</h2>
+                    <p>Devanagari script with transliteration, IPA pronunciation, and a speaker button. Browsers don't
+                        yet offer a native Bagheli voice, so playback uses the closest available Hindi voice as an
+                        approximation — the IPA below is the verified pronunciation.</p>
+                </div>
+
+                <div class="greet-card">
+                    <div class="greet-main">
+                        <div class="dev-word dev-display">राम राम</div>
+                        <div class="translit">Ram Ram</div>
+                        <div class="meaning">The everyday greeting across Baghelkhand and the wider Hindi heartland,
+                            invoking Lord Ram — ancient tradition holds that this region was once known as Kaushal or
+                            Mahakaushal, the land of Ram's Ramayana-era kingdom.</div>
+                        <div class="ipa-row">
+                            <span class="ipa">raːm raːm</span>
+                            <button class="speak" aria-label="Play pronunciation of Ram Ram"
+                                onclick="speakWord('राम राम', this)">🔊</button>
+                        </div>
+                    </div>
+                    <div class="exchange">
+                        <div class="line">
+                            <div class="txt">
+                                <div class="dev dev-display">तुम्हार नाम का आय?</div>
+                                <div class="en">Tumhaar naam ka aay? — What is your name?</div>
+                            </div>
+                            <button class="speak" aria-label="Play Tumhaar naam ka aay"
+                                onclick="speakWord('तुम्हार नाम का आय', this)">🔊</button>
+                        </div>
+                        <div class="line">
+                            <div class="txt">
+                                <div class="dev dev-display">हमका जाइका हय</div>
+                                <div class="en">Hamka jaika hai — I have to go</div>
+                            </div>
+                            <button class="speak" aria-label="Play Hamka jaika hai"
+                                onclick="speakWord('हमका जाइका हय', this)">🔊</button>
+                        </div>
+                        <div class="line">
+                            <div class="txt">
+                                <div class="dev dev-display">नीक बा</div>
+                                <div class="en">Neek ba — It's good / I'm fine</div>
+                            </div>
+                            <button class="speak" aria-label="Play Neek ba"
+                                onclick="speakWord('नीक बा', this)">🔊</button>
+                        </div>
+                        <div class="line">
+                            <div class="txt">
+                                <div class="dev dev-display">बड़ी मया</div>
+                                <div class="en">Badi maya — Much affection / thank you (folk usage)</div>
+                            </div>
+                            <button class="speak" aria-label="Play Badi maya"
+                                onclick="speakWord('बड़ी मया', this)">🔊</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCRIPT -->
+        <section class="block tint">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="kicker">✒️ Writing system</div>
+                    <h2>Devanagari script</h2>
+                    <p>Bagheli is written in Devanagari, the same script as Hindi and Sanskrit, though its spoken form
+                        has distinctive sound shifts — 'व' often becomes 'ब', and vowels like 'ए' and 'ओ' commonly
+                        diphthongise toward 'य' and 'व' sounds. Until recently, Bagheli existed almost entirely as folk
+                        and oral literature; systematic written documentation began only in the 20th century.</p>
+                </div>
+                <div class="script-panel">
+                    <div class="letters">
+                        <div class="letter-tile">बघेली</div>
+                        <div class="letter-tile">राम राम</div>
+                        <div class="letter-tile">नीक</div>
+                        <div class="letter-tile">घ्वाड़</div>
+                        <div class="letter-tile">म्वाँ</div>
+                        <div class="letter-tile">का</div>
+                    </div>
+                    <div class="note">
+                        The word <strong class="dev-display" style="font-size:17px;">बघेली</strong> (Bagheli) derives
+                        from <em>Baghelkhand</em>, itself named for the Baghel Rajput dynasty — Sanskrit
+                        <em>vyaghra</em> ("tiger") gave rise to the name of its founder, Vyaghradev, who established the
+                        kingdom of Rewa around the 12th century.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORDS -->
+        <section class="block">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="kicker">📖 Vocabulary</div>
+                    <h2>Common Bagheli words</h2>
+                    <p>Everyday words rooted in Bagheli's Eastern Hindi vocabulary, including pronoun and adjective
+                        forms distinctive to the dialect.</p>
+                </div>
+                <div class="word-grid" id="wordGrid"></div>
+            </div>
+        </section>
+
+        <!-- CLASSIFICATION & REGION -->
+        <section class="block tint">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="kicker">🗺️ Classification &amp; region</div>
+                    <h2>Where Bagheli fits</h2>
+                </div>
+                <div class="region-panel">
+                    <div class="region-card">
+                        <h3>Language family</h3>
+                        <div class="chain">
+                            <span class="node">Indo-European</span><span class="sep">→</span>
+                            <span class="node">Indo-Iranian</span><span class="sep">→</span>
+                            <span class="node">Indo-Aryan</span><span class="sep">→</span>
+                            <span class="node">Eastern Hindi</span><span class="sep">→</span>
+                            <span class="node">Bagheli</span>
+                        </div>
+                        <p style="margin-top:12px;">A descendant of Ardhamagadhi Prakrit, Bagheli was classified under
+                            the Eastern Hindi group by linguist George Abraham Grierson in his <em>Linguistic Survey of
+                                India</em>, a finding later supported by scholar Bhagwati Prasad Shukla's research. It
+                            sits alongside Awadhi and Chhattisgarhi as one of the three main Eastern Hindi languages,
+                            and neighbours Bundeli — a Western Hindi language — just across the Vindhya range.</p>
+                    </div>
+                    <div class="region-card">
+                        <h3>The Baghelkhand region</h3>
+                        <p>Baghelkhand spans northeastern Madhya Pradesh and small parts of southeastern Uttar Pradesh,
+                            roughly bounded by districts including:</p>
+                        <ul>
+                            <li>Rewa, Satna, Sidhi, Shahdol, Umaria, Anuppur, Singrauli, Maihar, Mauganj (MP)</li>
+                            <li>Banda, Chitrakoot, Prayagraj, Mirzapur, Sonbhadra (UP)</li>
+                        </ul>
+                        <p style="margin-top:8px;">Census figures often merge Bagheli speakers with Hindi, so the ~2.7
+                            million counted natively in 2011 is considered an undercount, with independent estimates
+                            ranging from 3 to over 7 million.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CULTURE -->
+        <section class="block">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="kicker">🎭 Folk &amp; literary heritage</div>
+                    <h2>A language of ballads and princely Rewa</h2>
+                </div>
+                <div class="culture-grid">
+                    <div class="culture-card">
+                        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#f9f4e6" stroke-width="1.8">
+                                <path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z" />
+                            </svg></div>
+                        <div>
+                            <h3>Pandavani folk ballads</h3>
+                            <p>Bagheli's oral tradition is rich with Pandavani — folk ballads narrating episodes from
+                                the Mahabharata — alongside wedding songs and agricultural songs sung during planting
+                                and harvest.</p>
+                        </div>
+                    </div>
+                    <div class="culture-card">
+                        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#f9f4e6" stroke-width="1.8">
+                                <path d="M4 19V5a2 2 0 012-2h9l5 5v11a2 2 0 01-2 2H6a2 2 0 01-2-2z" />
+                                <path d="M14 3v5h5" />
+                            </svg></div>
+                        <div>
+                            <h3>Bhagwati Prasad Shukla</h3>
+                            <p>The scholar who first brought Bagheli to wider public attention through broadcasts on All
+                                India Radio, Bhopal, and authored the seminal <em>Bagheli Sahitya Ka Itihas</em>
+                                (History of Bagheli Literature).</p>
+                        </div>
+                    </div>
+                    <div class="culture-card">
+                        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#f9f4e6" stroke-width="1.8">
+                                <path d="M3 20h18M5 20l4-9 3 5 2-4 5 8" />
+                            </svg></div>
+                        <div>
+                            <h3>The kingdom of Rewa</h3>
+                            <p>Founded around 1140 CE by Vyaghradev, Rewa State grew into the wealthiest princely state
+                                of the Central India Agency, ruled by the Baghel dynasty until India's independence in
+                                1947.</p>
+                        </div>
+                    </div>
+                    <div class="culture-card">
+                        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#f9f4e6" stroke-width="1.8">
+                                <circle cx="12" cy="8" r="3" />
+                                <path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" />
+                            </svg></div>
+                        <div>
+                            <h3>Bandhavgarh &amp; Govindgarh</h3>
+                            <p>Bandhavgarh — the Baghel dynasty's earliest capital, now a celebrated tiger reserve — and
+                                the later Govindgarh Palace near Rewa remain enduring symbols of Baghelkhand's royal
+                                heritage.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="status-band">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#966410" stroke-width="1.8">
+                        <path
+                            d="M12 9v4M12 17h.01M10.3 3.9L2.7 17a2 2 0 001.7 3h15.2a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z" />
+                    </svg>
+                    <p>Bagheli is not officially recognised in the Eighth Schedule of the Indian Constitution and is
+                        often classified simply as a dialect of Hindi or Awadhi in census returns — though local
+                        scholars and cultural groups maintain it is a distinct language with its own literary tradition,
+                        grammar, and phonology, and continue working toward its wider recognition.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOURCES -->
+        <section class="block tint">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="kicker">🔗 Sources</div>
+                    <h2>Verified against</h2>
+                </div>
+                <div class="source-list">
+                    <a class="source-item" href="https://en.wikipedia.org/wiki/Bagheli_language" target="_blank"
+                        rel="noopener">
+                        <span class="name">Wikipedia — Bagheli language</span><span class="arrow">↗</span>
+                    </a>
+                    <a class="source-item" href="https://en.wikipedia.org/wiki/Baghelkhand" target="_blank"
+                        rel="noopener">
+                        <span class="name">Wikipedia — Baghelkhand</span><span class="arrow">↗</span>
+                    </a>
+                    <a class="source-item" href="https://www.ethnologue.com/language/bfy/" target="_blank"
+                        rel="noopener">
+                        <span class="name">Ethnologue — Bagheli (bfy)</span><span class="arrow">↗</span>
+                    </a>
+                    <a class="source-item"
+                        href="https://www.drishtiias.com/hindi/mains-practice-question/question-2798/pnt"
+                        target="_blank" rel="noopener">
+                        <span class="name">Drishti IAS — Awadhi, Bagheli, Chhattisgarhi (Eastern Hindi) linguistic
+                            features</span><span class="arrow">↗</span>
+                    </a>
+                    <a class="source-item"
+                        href="https://bharatdiscovery.org/india/%E0%A4%AC%E0%A4%98%E0%A5%87%E0%A4%B2%E0%A5%80_%E0%A4%AC%E0%A5%8B%E0%A4%B2%E0%A5%80"
+                        target="_blank" rel="noopener">
+                        <span class="name">Bharat Discovery — बघेली बोली (grammar &amp; vocabulary)</span><span
+                            class="arrow">↗</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            Bagheli Explorer · Incredible India Explorer — Languages of India series
+        </footer>
+    </div>
+
+    <script>
+        function goExplorer() {
+            document.getElementById('landing').classList.add('hidden');
+            document.getElementById('explorer').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+        function goLanding() {
+            document.getElementById('explorer').classList.add('hidden');
+            document.getElementById('landing').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+
+        function speakWord(text, btn) {
+            if (!('speechSynthesis' in window)) {
+                alert('Speech playback is not supported in this browser.');
+                return;
+            }
+            window.speechSynthesis.cancel();
+            const utter = new SpeechSynthesisUtterance(text);
+            const voices = window.speechSynthesis.getVoices();
+            const hindiVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('hi'));
+            if (hindiVoice) utter.voice = hindiVoice;
+            utter.lang = 'hi-IN';
+            utter.rate = 0.85;
+            btn.classList.add('playing');
+            utter.onend = () => btn.classList.remove('playing');
+            utter.onerror = () => btn.classList.remove('playing');
+            window.speechSynthesis.speak(utter);
+        }
+
+        const WORDS = [
+            { dev: "पानी", tr: "Pani", en: "Water" },
+            { dev: "घर", tr: "Ghar", en: "House / home" },
+            { dev: "का", tr: "Ka", en: "What" },
+            { dev: "नीक", tr: "Neek", en: "Good" },
+            { dev: "नीकहा", tr: "Neekha", en: "Very good" },
+            { dev: "घ्वाड़", tr: "Ghwad", en: "Horse (from ghoda)" },
+            { dev: "म्वाँ / मोही", tr: "Mwan / Mohi", en: "Me / to me (from mujhe)" },
+            { dev: "त्वाँ / तोही", tr: "Twan / Tohi", en: "You / to you (from tujhe)" }
+        ];
+        const grid = document.getElementById('wordGrid');
+        WORDS.forEach(w => {
+            const card = document.createElement('div');
+            card.className = 'word-card';
+            card.innerHTML = `
+      <div class="top">
+        <div class="dev-word dev-display">${w.dev}</div>
+        <button class="speak" aria-label="Play ${w.tr}" onclick="speakWord('${w.dev.split(' / ')[0]}', this)">🔊</button>
+      </div>
+      <div class="translit">${w.tr}</div>
+      <div class="meaning">${w.en}</div>
+    `;
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+
+</html>

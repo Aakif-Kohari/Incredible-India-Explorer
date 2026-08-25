@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satavahana Coins Across the Deccan | Interactive Explorer</title>
+  <meta name="description" content="Explore Satavahana Dynasty coinage across the Deccan plateau (c. 1st BCE - 2nd CE) — ship coins, Ujjain symbols, potin & lead mints, and archaeological hoard discoveries.">
+
+  <!-- Preload Critical Fonts -->
+  <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../indias-coins-through-time/index.html" class="nav-link">Coins Landing</a>
+        <a href="#deccan-map-section" class="nav-link active">Deccan Map</a>
+        <a href="#symbols-section" class="nav-link">Symbol Hotspots</a>
+        <a href="#compare-section" class="nav-link">Coin Compare</a>
+        <a href="#timeline-section" class="nav-link">Timeline</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="satavahana-hero">
+      <div class="hero-container">
+        <div class="hero-badge">⛵ Deccan Maritime & Inland Numismatics</div>
+        <h1>Map Satavahana Coins <span>Across the Deccan</span></h1>
+        <p class="hero-subtitle">
+          Trace the geographical circulation of Satavahana currency (c. 1st Century BCE – 2nd Century CE) across Maharashtra, Andhra Pradesh, Telangana, and Malwa. Inspect lead, potin, copper, and silver ship coins.
+        </p>
+        <div class="hero-stats-row">
+          <div class="stat-pill"><strong>7+</strong> Key Hoard Sites</div>
+          <div class="stat-pill"><strong>6</strong> Sacred Symbols</div>
+          <div class="stat-pill"><strong>4</strong> Coin Metals (Potin/Lead)</div>
+          <div class="stat-pill"><strong>Brahmi</strong> Bilingual Legends</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE DECCAN MAP SECTION -->
+    <section class="deccan-map-section" id="deccan-map-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Geographical Circulation</span>
+          <h2>Interactive Deccan Coin Discoveries Map</h2>
+          <p>Select a Deccan region or hoard site to view coin discoveries, ruling monarchs, and historical context.</p>
+        </div>
+
+        <div class="deccan-map-wrapper">
+          <div class="deccan-svg-box">
+            <svg viewBox="0 0 800 600" class="deccan-svg" aria-label="Map of Satavahana Coin Discovery Sites in the Deccan">
+              <!-- Deccan Plateau Background -->
+              <path class="deccan-land" d="M 120,80 L 350,60 L 680,100 L 720,250 L 650,480 L 400,550 L 200,480 L 100,320 Z" />
+              <!-- Rivers: Godavari & Krishna -->
+              <path d="M 160,200 Q 300,240 500,280 T 700,350" fill="none" stroke="#38bdf8" stroke-width="4" stroke-dasharray="6,4" />
+              <text x="520" y="270" fill="#38bdf8" font-size="11" font-weight="bold">Godavari River</text>
+
+              <path d="M 180,380 Q 350,390 520,420 T 660,450" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="6,4" />
+              <text x="540" y="440" fill="#38bdf8" font-size="11" font-weight="bold">Krishna River</text>
+
+              <!-- Hoard Hotspots -->
+              <!-- Pratishthana / Paithan (Capital) -->
+              <g class="deccan-hotspot" data-site="paithan" tabindex="0" role="button" aria-label="Paithan Pratishthana">
+                <circle cx="280" cy="220" r="16" class="pulse-ring"/>
+                <circle cx="280" cy="220" r="9" class="core-dot"/>
+                <text x="280" y="195" class="site-label">Paithan (Pratishthana Capital)</text>
+              </g>
+
+              <!-- Amaravati / Dharanikota (Eastern Capital) -->
+              <g class="deccan-hotspot" data-site="amaravati" tabindex="0" role="button" aria-label="Amaravati Stupa Site">
+                <circle cx="620" cy="380" r="16" class="pulse-ring"/>
+                <circle cx="620" cy="380" r="9" class="core-dot"/>
+                <text x="620" y="355" class="site-label">Amaravati (Maritime Hub)</text>
+              </g>
+
+              <!-- Nevasa (Potin Hoard) -->
+              <g class="deccan-hotspot" data-site="nevasa" tabindex="0" role="button" aria-label="Nevasa Excavations">
+                <circle cx="250" cy="260" r="16" class="pulse-ring"/>
+                <circle cx="250" cy="260" r="9" class="core-dot"/>
+                <text x="250" y="285" class="site-label">Nevasa (Lead/Potin Hoard)</text>
+              </g>
+
+              <!-- Kotalingala (Telangana Early Site) -->
+              <g class="deccan-hotspot" data-site="kotalingala" tabindex="0" role="button" aria-label="Kotalingala Simuka Mints">
+                <circle cx="450" cy="200" r="16" class="pulse-ring"/>
+                <circle cx="450" cy="200" r="9" class="core-dot"/>
+                <text x="450" y="175" class="site-label">Kotalingala (Simuka Coins)</text>
+              </g>
+
+              <!-- Junnar (Rock Caves & Mints) -->
+              <g class="deccan-hotspot" data-site="junnar" tabindex="0" role="button" aria-label="Junnar Trade Passes">
+                <circle cx="200" cy="300" r="16" class="pulse-ring"/>
+                <circle cx="200" cy="300" r="9" class="core-dot"/>
+                <text x="200" y="325" class="site-label">Junnar (Lion & Bull Coins)</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="deccan-info-card" id="deccan-info-card">
+            <h3 id="site-title">Select a Deccan Location</h3>
+            <span class="site-sub" id="site-sub">Click a marker on the map to explore regional discoveries.</span>
+            
+            <div class="site-body" id="site-body">
+              <p>The Satavahana Empire controlled crucial trans-continental trade routes across the Western Ghats passes (Naneghat, Thalghat) linking inland capitals like Pratishthana to ports like Sopara, Kalyan, and Motupalli.</p>
+            </div>
+
+            <div class="discovery-details-box" id="discovery-details-box">
+              <div class="detail-row"><strong>Ruler Associated:</strong> <span id="detail-ruler">Gautamiputra Satakarni / Pulumavi</span></div>
+              <div class="detail-row"><strong>Key Coin Types:</strong> <span id="detail-types">Maritime Ship Coins, Ujjain Cross</span></div>
+              <div class="detail-row"><strong>Primary Metals:</strong> <span id="detail-metals">Lead, Potin, Silver, Copper</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYMBOL HOTSPOTS SECTION -->
+    <section class="symbols-section" id="symbols-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Iconography & Emblems</span>
+          <h2>Satavahana Symbol Hotspots</h2>
+          <p>Click on sacred motifs to inspect their royal, religious, and commercial significance.</p>
+        </div>
+
+        <div class="symbols-grid">
+          <article class="symbol-card" data-symbol="ship">
+            <div class="symbol-icon">⛵</div>
+            <h3>Twin-Masted Ship</h3>
+            <p>Emblem of Indian Ocean trade power under Yajna Sri Satakarni, signifying maritime prowess and Roman trade connections.</p>
+          </article>
+
+          <article class="symbol-card" data-symbol="ujjain">
+            <div class="symbol-icon">🛑</div>
+            <h3>Ujjain Symbol</h3>
+            <p>Cross with four orb circles (sometimes containing swastikas), symbolizing universal sovereignty over the four quarters of the earth.</p>
+          </article>
+
+          <article class="symbol-card" data-symbol="stupa">
+            <div class="symbol-icon">🏔️</div>
+            <h3>Three-Arched Hill & Crescent</h3>
+            <p>Represents Meru or Chaitya stupa surmounted by the lunar crescent, showing Buddhist patrons and royal mountain motifs.</p>
+          </article>
+
+          <article class="symbol-card" data-symbol="elephant">
+            <div class="symbol-icon">🐘</div>
+            <h3>Royal Elephant</h3>
+            <p>Symbol of royal majesty, military strength, and divine patronage associated with Indra's Airavata on Satavahana lead coppers.</p>
+          </article>
+
+          <article class="symbol-card" data-symbol="lion">
+            <div class="symbol-icon">🦁</div>
+            <h3>Solar Lion</h3>
+            <p>Popular on Junnar and Central Deccan coinages representing sovereign power and Sakyamuni Simha (Lion of the Sakya clan).</p>
+          </article>
+
+          <article class="symbol-card" data-symbol="nandi">
+            <div class="symbol-icon">🐂</div>
+            <h3>Humped Bull (Nandi)</h3>
+            <p>Associated with Shaivite worship and agrarian prosperity across Maharashtra and Telangana mints.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COIN COMPARISON TOOL SECTION -->
+    <section class="compare-section" id="compare-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Comparative Numismatics</span>
+          <h2>Compare Satavahana Coin Types</h2>
+          <p>Examine differences between lead, potin, silver, and copper issues across rulers.</p>
+        </div>
+
+        <div class="compare-selectors">
+          <select id="sat-coin-1" class="filter-select"></select>
+          <span class="vs-text">VS</span>
+          <select id="sat-coin-2" class="filter-select"></select>
+        </div>
+
+        <div class="compare-display-grid" id="sat-compare-grid">
+          <!-- Dynamically populated comparison cards -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE SECTION -->
+    <section class="timeline-section" id="timeline-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Historical Progression</span>
+          <h2>Satavahana Dynastic Timeline</h2>
+          <p>Follow the chronology of Satavahana rulers from founder Simuka to Yajna Sri Satakarni.</p>
+        </div>
+
+        <div class="timeline-container" id="sat-timeline">
+          <!-- Dynamically populated timeline items -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SOURCES & REFERENCES -->
+    <section class="sources-section">
+      <div class="section-container">
+        <h2>Sources & Numismatic References</h2>
+        <ul class="sources-list">
+          <li>I.K. Sarma, <em>Coinage of the Satavahana Empire</em>, Agam Kala Prakashan, New Delhi, 1980.</li>
+          <li>P.L. Gupta, <em>Coins: India – The Land and the People</em>, National Book Trust, 1969.</li>
+          <li>Ajay Mitra Shastri, <em>The Age of the Satavahanas</em>, Aryan Books International, 1999.</li>
+          <li>Archaeological Survey of India (ASI) Excavation Reports of Paithan, Amaravati, and Nevasa.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <p>© 2026 Incredible India Explorer. Created under Open Source Contribution Guidelines.</p>
+      <div class="footer-links">
+        <a href="../../index.html#home">Home</a>
+        <a href="../indias-coins-through-time/index.html">Coins Landing</a>
+        <a href="../../frontend/sources/sources.html">Sources</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

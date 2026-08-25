@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the incredible railway network of India. Interactive map featuring luxury trains, mountain railways, and premium express routes across the subcontinent.">
+  <title>Interactive Trains of India Map | Incredible India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet CSS for Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+
+  <!-- Sticky Navigation Bar (Simplified for snippet brevity, retain your standard nav here) -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <nav class="nav-menu">
+            <a href="../../index.html#home" class="nav-link">Home</a>
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+  </header>
+
+  <main id="app-root" class="trains-map-main">
+    
+    <section class="trains-hero">
+      <div class="trains-hero-content">
+        <h1>Trains of India <span>Map</span></h1>
+        <p>Explore the arteries of the nation. Discover legendary luxury journeys, engineering marvels of mountain railways, and premium express routes that connect the diverse landscapes of India.</p>
+      </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="map-controls-section">
+      <div class="controls-container">
+        <div class="filter-group">
+          <label for="category-filter">Category:</label>
+          <select id="category-filter" aria-label="Filter trains by category">
+            <option value="all">All Trains</option>
+            <option value="luxury">Luxury Trains</option>
+            <option value="heritage">Heritage/Mountain</option>
+            <option value="premium">Premium Express</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="region-filter">Region:</label>
+          <select id="region-filter" aria-label="Filter trains by region">
+            <option value="all">All India</option>
+            <option value="north">North India</option>
+            <option value="south">South India</option>
+            <option value="west">West India</option>
+            <option value="east">East/Northeast India</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Application Layout -->
+    <section class="map-application-area">
+      <div class="app-grid">
+        
+        <!-- Interactive Map Container -->
+        <div class="map-wrapper">
+          <div id="india-train-map" class="interactive-map" aria-label="Interactive map showing Indian railway routes. A text-based alternative is available below."></div>
+          
+          <!-- Map Legend -->
+          <div class="map-legend" aria-hidden="true">
+            <h4>Legend</h4>
+            <ul>
+              <li><span class="legend-color" style="background: #d4af37;"></span> Luxury</li>
+              <li><span class="legend-color" style="background: #2e8b57;"></span> Heritage</li>
+              <li><span class="legend-color" style="background: #c41e3a;"></span> Premium</li>
+              <li><span class="legend-marker">●</span> Station</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Information Panel -->
+        <div class="info-panel" id="route-info-panel" aria-live="polite">
+          <div class="info-placeholder" id="info-placeholder">
+            <h3>Select a route</h3>
+            <p>Click on a train route line or station marker on the map to view journey details.</p>
+          </div>
+          
+          <div class="info-content hidden" id="info-content">
+            <span class="train-category-tag" id="panel-category"></span>
+            <h2 id="panel-title">Train Name</h2>
+            <div class="route-summary">
+              <span id="panel-origin" class="station-tag">Origin</span>
+              <span class="arrow">➔</span>
+              <span id="panel-destination" class="station-tag">Destination</span>
+            </div>
+            <div class="panel-description">
+              <p id="panel-desc">Route description goes here.</p>
+            </div>
+            <div class="stations-list">
+              <h4>Major Stations:</h4>
+              <ul id="panel-stations"></ul>
+            </div>
+            <a href="#" id="panel-link" class="btn-explore-train">View Train Details</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Accessible Text Alternative (Also serves as Mobile List fallback) -->
+    <section class="accessible-route-list">
+      <h2>All Available Routes</h2>
+      <p class="sr-only">Text-based list of all train routes shown on the map.</p>
+      <div class="route-list-grid" id="accessible-list-container">
+        <!-- Populated via JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <!-- App Script -->
+  <script src="script.js" defer></script>
+</body>
+</html>

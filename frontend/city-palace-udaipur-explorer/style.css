@@ -1,0 +1,1208 @@
+/* ==========================================================================
+   City Palace Udaipur Explorer - Stylesheet
+   Royal palace palette (lake blue, sandstone, royal gold, marble white).
+   Premium immersive design: architectural hero, glassmorphism cards, 
+   scroll-reveal, animated timeline, gallery lightbox.
+   ========================================================================== */
+
+:root {
+  --udaipur-night: #0f1419;           /* Deep historic black */
+  --udaipur-night-light: #1a2332;
+  --udaipur-marble: #f5f5f0;          /* Heritage marble white */
+  --udaipur-saffron: #ff9933;         /* Indian saffron */
+  --udaipur-saffron-light: #ffb366;
+  --udaipur-gold: #d4a84b;            /* Royal gold */
+  --udaipur-green: #138808;           /* Indian green */
+  --udaipur-sandstone: #c17f59;       /* Historic sandstone */
+  --udaipur-lake-blue: #4a90a4;       /* Lake Pichola blue */
+  --udaipur-lake-light: #7ec8e3;
+  --udaipur-sand: #e8e4d9;
+  --udaipur-glass: rgba(26, 35, 50, 0.55);
+  --udaipur-glass-strong: rgba(15, 20, 25, 0.82);
+  --udaipur-border: rgba(74, 144, 164, 0.2);
+  --udaipur-navbar-height: 70px;
+}
+
+/* Page Main Container */
+.udaipur-main {
+  background-color: var(--udaipur-night);
+  color: #f1f5f9;
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ==========================================================================
+   Floating decoration orbs behind the page
+   ========================================================================== */
+.udaipur-main::before,
+.udaipur-main::after {
+  content: '';
+  position: absolute;
+  left: -180px;
+  top: 20%;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74, 144, 164, 0.08), transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.udaipur-main::after {
+  left: auto;
+  right: -200px;
+  top: 60%;
+  background: radial-gradient(circle, rgba(212, 168, 75, 0.06), transparent 65%);
+}
+
+/* ==========================================================================
+   Hero Banner
+   ========================================================================== */
+.udaipur-hero {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: calc(var(--udaipur-navbar-height) + 48px) 0 72px;
+  background-color: var(--udaipur-night);
+  text-align: center;
+}
+
+.udaipur-hero-backdrop {
+  position: absolute;
+  inset: -5%;
+  background:
+    linear-gradient(180deg, rgba(15, 20, 25, 0.5) 0%, rgba(15, 20, 25, 0.65) 45%, rgba(15, 20, 25, 0.97) 100%),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/City_Palace%2C_Udaipur.jpg/1200px-City_Palace%2C_Udaipur.jpg') center 25%/cover no-repeat;
+  transform: scale(1.12);
+  will-change: transform;
+  z-index: 0;
+}
+
+.udaipur-hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(920px, 92%);
+  animation: udaipur-rise 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.udaipur-hero-orbs {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.udaipur-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74, 144, 164, 0.15), transparent 70%);
+  animation: udaipur-float 8s ease-in-out infinite;
+}
+
+.udaipur-orb-one {
+  width: 280px;
+  height: 280px;
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.udaipur-orb-two {
+  width: 200px;
+  height: 200px;
+  bottom: 20%;
+  right: 15%;
+  animation-delay: 4s;
+}
+
+.udaipur-kicker {
+  display: inline-block;
+  background: rgba(74, 144, 164, 0.2);
+  color: var(--udaipur-lake-blue);
+  padding: 8px 20px;
+  border-radius: 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border: 1px solid rgba(74, 144, 164, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.udaipur-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--udaipur-marble);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.udaipur-hero h1 span {
+  color: var(--udaipur-sandstone);
+  display: block;
+  font-size: 0.7em;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.udaipur-hero-subtitle {
+  font-size: 1.3rem;
+  color: var(--udaipur-gold);
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.udaipur-hero > p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+  margin-bottom: 32px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.udaipur-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  list-style: none;
+  padding: 0;
+}
+
+.udaipur-hero-badges li {
+  background: rgba(74, 144, 164, 0.15);
+  color: var(--udaipur-lake-blue);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(74, 144, 164, 0.25);
+}
+
+.udaipur-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.udaipur-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--udaipur-lake-blue), var(--udaipur-sandstone));
+  color: var(--udaipur-night);
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(74, 144, 164, 0.3);
+}
+
+.udaipur-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 144, 164, 0.4);
+}
+
+.udaipur-bookmark-container {
+  display: flex;
+  align-items: center;
+}
+
+.udaipur-bookmark-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--udaipur-marble);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.udaipur-bookmark-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.udaipur-bookmark-btn[aria-pressed="true"] {
+  background: rgba(255, 153, 51, 0.2);
+  border-color: var(--udaipur-saffron);
+  color: var(--udaipur-saffron);
+}
+
+.udaipur-scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--udaipur-sandstone);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.udaipur-scroll-hint:hover {
+  opacity: 1;
+}
+
+.udaipur-scroll-line {
+  display: block;
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--udaipur-sandstone), transparent);
+  margin: 8px auto 0;
+  animation: udaipur-scroll 2s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Section Navigation
+   ========================================================================== */
+.udaipur-section-nav {
+  position: sticky;
+  top: var(--udaipur-navbar-height);
+  background: var(--udaipur-glass-strong);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--udaipur-border);
+  z-index: 100;
+  padding: 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.udaipur-section-nav::-webkit-scrollbar {
+  height: 4px;
+}
+
+.udaipur-section-nav::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.udaipur-section-nav::-webkit-scrollbar-thumb {
+  background: var(--udaipur-lake-blue);
+  border-radius: 2px;
+}
+
+.udaipur-section-nav-inner {
+  display: flex;
+  padding: 12px 24px;
+  gap: 8px;
+  min-width: max-content;
+}
+
+.udaipur-section-nav-link {
+  color: #94a3b8;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.udaipur-section-nav-link:hover {
+  color: var(--udaipur-marble);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.udaipur-section-nav-link.active {
+  color: var(--udaipur-lake-blue);
+  background: rgba(74, 144, 164, 0.15);
+  border-color: rgba(74, 144, 164, 0.3);
+}
+
+/* ==========================================================================
+   Section Styling
+   ========================================================================== */
+.udaipur-section {
+  padding: 80px 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.udaipur-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.udaipur-section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.udaipur-eyebrow {
+  display: inline-block;
+  background: rgba(74, 144, 164, 0.2);
+  color: var(--udaipur-lake-blue);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.udaipur-section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--udaipur-marble);
+  margin-bottom: 12px;
+}
+
+.udaipur-section-header > p {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Bio Grid (History Section)
+   ========================================================================== */
+.udaipur-bio-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .udaipur-bio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.udaipur-bio-text {
+  background: var(--udaipur-glass);
+  border: 1px solid var(--udaipur-border);
+  border-radius: 16px;
+  padding: 32px;
+  backdrop-filter: blur(8px);
+}
+
+.udaipur-bio-text p {
+  line-height: 1.8;
+  color: #cbd5e1;
+  margin-bottom: 16px;
+}
+
+.udaipur-bio-text strong {
+  color: var(--udaipur-lake-blue);
+}
+
+.udaipur-bio-profile {
+  background: linear-gradient(135deg, rgba(74, 144, 164, 0.1), rgba(212, 168, 75, 0.05));
+  border: 1px solid var(--udaipur-border);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+}
+
+.udaipur-bio-portrait {
+  font-size: 4rem;
+  margin-bottom: 16px;
+}
+
+.udaipur-bio-profile h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--udaipur-marble);
+  margin-bottom: 8px;
+}
+
+.udaipur-bio-title {
+  display: block;
+  color: var(--udaipur-lake-blue);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.udaipur-bio-profile ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.udaipur-bio-profile li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.udaipur-bio-profile li:last-child {
+  border-bottom: none;
+}
+
+.udaipur-bio-profile blockquote {
+  font-style: italic;
+  color: var(--udaipur-gold);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding: 16px;
+  background: rgba(212, 168, 75, 0.1);
+  border-radius: 8px;
+  border-left: 3px solid var(--udaipur-gold);
+}
+
+/* ==========================================================================
+   Mewar Content
+   ========================================================================== */
+.udaipur-mewar-content {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .udaipur-mewar-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.udaipur-mewar-text {
+  background: var(--udaipur-glass);
+  border: 1px solid var(--udaipur-border);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.udaipur-mewar-text p {
+  line-height: 1.8;
+  color: #cbd5e1;
+  margin-bottom: 16px;
+}
+
+.udaipur-mewar-text strong {
+  color: var(--udaipur-lake-blue);
+}
+
+.udaipur-mewar-aside {
+  background: linear-gradient(135deg, rgba(74, 144, 164, 0.1), rgba(212, 168, 75, 0.05));
+  border: 1px solid var(--udaipur-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.udaipur-mewar-aside h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--udaipur-marble);
+  margin-bottom: 16px;
+}
+
+.udaipur-mewar-aside ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.udaipur-mewar-aside li {
+  padding: 8px 0;
+  color: #cbd5e1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.udaipur-mewar-aside li:last-child {
+  border-bottom: none;
+}
+
+.udaipur-mewar-aside strong {
+  color: var(--udaipur-lake-blue);
+}
+
+.udaipur-stat-box {
+  background: rgba(74, 144, 164, 0.15);
+  border: 1px solid rgba(74, 144, 164, 0.3);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.udaipur-stat-number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--udaipur-lake-blue);
+  margin-bottom: 4px;
+}
+
+.udaipur-stat-label {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   Udai Singh Grid
+   ========================================================================== */
+.udaipur-udai-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.udaipur-udai-card {
+  background: var(--udaipur-glass);
+  border: 1px solid var(--udaipur-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.udaipur-udai-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--udaipur-marble);
+  margin-bottom: 16px;
+}
+
+.udaipur-udai-card p {
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.udaipur-udai-card strong {
+  color: var(--udaipur-lake-blue);
+}
+
+.udaipur-quote-box {
+  background: rgba(212, 168, 75, 0.1);
+  border-left: 3px solid var(--udaipur-gold);
+  padding: 16px;
+  border-radius: 0 8px 8px 0;
+  margin-top: 16px;
+}
+
+.udaipur-quote-box blockquote {
+  font-style: italic;
+  color: var(--udaipur-gold);
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.udaipur-quote-box cite {
+  display: block;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-style: normal;
+}
+
+/* ==========================================================================
+   Architecture Grid
+   ========================================================================== */
+.udaipur-architecture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.udaipur-arch-card {
+  background: var(--udaipur-glass);
+  border: 1px solid var(--udaipur-border);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.udaipur-arch-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--udaipur-lake-blue);
+  box-shadow: 0 8px 24px rgba(74, 144, 164, 0.15);
+}
+
+.udaipur-arch-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.udaipur-arch-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--udaipur-marble);
+  margin-bottom: 12px;
+}
+
+.udaipur-arch-card p {
+  color: #94a3b8;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.udaipur-arch-detail {
+  background: rgba(74, 144, 164, 0.1);
+  border: 1px solid var(--udaipur-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.udaipur-arch-detail h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--udaipur-marble);
+  margin-bottom: 16px;
+}
+
+.udaipur-arch-detail ul {
+  list-style: none;
+  padding: 0;
+}
+
+.udaipur-arch-detail li {
+  padding: 10px 0;
+  color: #cbd5e1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.udaipur-arch-detail li:last-child {
+  border-bottom: none;
+}
+
+.udaipur-arch-detail strong {
+  color: var(--udaipur-lake-blue);
+}
+
+/* ==========================================================================
+   Features Grid
+   ========================================================================== */
+.udaipur-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.udaipur-feature-card {
+  background: var(--udaipur-glass);
+  border: 1px solid var(--udaipur-border);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.udaipur-feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--udaipur-lake-blue);
+  box-shadow: 0 8px 24px rgba(74, 144, 164, 0.15);
+}
+
+.udaipur-feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.udaipur-feature-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--udaipur-marble);
+  margin-bottom: 12px;
+}
+
+.udaipur-feature-card p {
+  color: #94a3b8;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Museums Content
+   ========================================================================== */
+.udaipur-museums-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.udaipur-museum-card {
+  background: var(--udaipur-glass);
+  border: 1px solid var(--udaipur-border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.udaipur-museum-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--udaipur-lake-blue);
+}
+
+.udaipur-museum-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--udaipur-marble);
+  margin-bottom: 12px;
+}
+
+.udaipur-museum-card p {
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.udaipur-museum-specs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.udaipur-museum-icon {
+  font-size: 1.5rem;
+}
+
+.udaipur-museum-specs strong {
+  display: block;
+  color: var(--udaipur-lake-blue);
+}
+
+.udaipur-museum-specs small {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Lake Pichola Content
+   ========================================================================== */
+.udaipur-lake-content {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .udaipur-lake-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.udaipur-lake-text {
+  background: var(--udaipur-glass);
+  border: 1px solid var(--udaipur-border);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.udaipur-lake-text p {
+  line-height: 1.8;
+  color: #cbd5e1;
+  margin-bottom: 16px;
+}
+
+.udaipur-lake-text strong {
+  color: var(--udaipur-lake-blue);
+}
+
+.udaipur-lake-aside {
+  background: linear-gradient(135deg, rgba(74, 144, 164, 0.1), rgba(212, 168, 75, 0.05));
+  border: 1px solid var(--udaipur-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.udaipur-lake-aside h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--udaipur-marble);
+  margin-bottom: 16px;
+}
+
+.udaipur-lake-aside ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.udaipur-lake-aside li {
+  padding: 8px 0;
+  color: #cbd5e1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.udaipur-lake-aside li:last-child {
+  border-bottom: none;
+}
+
+.udaipur-lake-aside strong {
+  color: var(--udaipur-lake-blue);
+}
+
+/* ==========================================================================
+   Timeline
+   ========================================================================== */
+.udaipur-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.udaipur-timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--udaipur-lake-blue), var(--udaipur-gold));
+}
+
+@media (min-width: 768px) {
+  .udaipur-timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.udaipur-timeline-step {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 60px;
+}
+
+@media (min-width: 768px) {
+  .udaipur-timeline-step {
+    padding-left: 0;
+    width: 50%;
+  }
+
+  .udaipur-timeline-step:nth-child(odd) {
+    left: 0;
+    padding-right: 40px;
+    text-align: right;
+  }
+
+  .udaipur-timeline-step:nth-child(even) {
+    left: 50%;
+    padding-left: 40px;
+  }
+}
+
+.udaipur-timeline-marker {
+  position: absolute;
+  left: 12px;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  background: var(--udaipur-lake-blue);
+  border-radius: 50%;
+  border: 3px solid var(--udaipur-night);
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .udaipur-timeline-marker {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.udaipur-timeline-card {
+  background: var(--udaipur-glass);
+  border: 1px solid var(--udaipur-border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.udaipur-timeline-card:hover {
+  border-color: var(--udaipur-lake-blue);
+  transform: translateY(-2px);
+}
+
+.udaipur-timeline-year {
+  display: inline-block;
+  background: rgba(74, 144, 164, 0.2);
+  color: var(--udaipur-lake-blue);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.udaipur-timeline-icon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.udaipur-timeline-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--udaipur-marble);
+  margin-bottom: 8px;
+}
+
+.udaipur-timeline-card p {
+  color: #94a3b8;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Facts Grid
+   ========================================================================== */
+.udaipur-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.udaipur-fact-card {
+  background: var(--udaipur-glass);
+  border: 1px solid var(--udaipur-border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.udaipur-fact-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--udaipur-lake-blue);
+  box-shadow: 0 8px 24px rgba(74, 144, 164, 0.15);
+}
+
+.udaipur-fact-number {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--udaipur-lake-blue), var(--udaipur-sandstone));
+  color: var(--udaipur-night);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.udaipur-fact-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--udaipur-marble);
+  margin-bottom: 12px;
+}
+
+.udaipur-fact-card p {
+  color: #94a3b8;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Gallery Grid
+   ========================================================================== */
+.udaipur-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.udaipur-gallery-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.udaipur-gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(74, 144, 164, 0.2);
+}
+
+.udaipur-gallery-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.udaipur-gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(15, 20, 25, 0.95), transparent);
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.udaipur-gallery-item:hover .udaipur-gallery-caption {
+  transform: translateY(0);
+}
+
+.udaipur-gallery-caption h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--udaipur-marble);
+  margin-bottom: 8px;
+}
+
+.udaipur-gallery-caption p {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.udaipur-gallery-caption small {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   References List
+   ========================================================================== */
+.udaipur-references-list {
+  background: var(--udaipur-glass);
+  border: 1px solid var(--udaipur-border);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.udaipur-references-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.udaipur-references-list li {
+  padding: 12px 0;
+  color: #cbd5e1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  line-height: 1.6;
+}
+
+.udaipur-references-list li:last-child {
+  border-bottom: none;
+}
+
+.udaipur-references-list strong {
+  color: var(--udaipur-lake-blue);
+}
+
+/* ==========================================================================
+   Scroll Reveal Animation
+   ========================================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes udaipur-rise {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes udaipur-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes udaipur-scroll {
+  0%, 100% {
+    transform: scaleY(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scaleY(0.5);
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   Light Theme Support
+   ========================================================================== */
+.light-theme .udaipur-main {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+.light-theme .udaipur-hero-backdrop {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0.95) 100%),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/City_Palace%2C_Udaipur.jpg/1200px-City_Palace%2C_Udaipur.jpg') center 25%/cover no-repeat;
+}
+
+.light-theme .udaipur-hero h1 {
+  color: #1e293b;
+}
+
+.light-theme .udaipur-hero h1 span {
+  color: var(--udaipur-sandstone);
+}
+
+.light-theme .udaipur-hero > p {
+  color: #475569;
+}
+
+.light-theme .udaipur-bio-text,
+.light-theme .udaipur-mewar-text,
+.light-theme .udaipur-lake-text,
+.light-theme .udaipur-arch-card,
+.light-theme .udaipur-feature-card,
+.light-theme .udaipur-museum-card,
+.light-theme .udaipur-fact-card,
+.light-theme .udaipur-timeline-card,
+.light-theme .udaipur-references-list {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(74, 144, 164, 0.2);
+}
+
+.light-theme .udaipur-bio-text p,
+.light-theme .udaipur-mewar-text p,
+.light-theme .udaipur-lake-text p,
+.light-theme .udaipur-arch-card p,
+.light-theme .udaipur-feature-card p,
+.light-theme .udaipur-museum-card p,
+.light-theme .udaipur-fact-card p,
+.light-theme .udaipur-timeline-card p,
+.light-theme .udaipur-references-list li {
+  color: #475569;
+}
+
+.light-theme .udaipur-section-header h2 {
+  color: #1e293b;
+}
+
+.light-theme .udaipur-section-header > p {
+  color: #64748b;
+}

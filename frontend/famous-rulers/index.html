@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover the Famous Rulers of India. Explore the lives, kingdoms, military campaigns, and architectural legacies of ancient, medieval, and early modern Indian kings and emperors.">
+  <title>Famous Rulers of India | Incredible India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+
+  <!-- Sticky Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <nav class="nav-menu">
+            <a href="../../index.html#home" class="nav-link">Home</a>
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+  </header>
+
+  <main id="app-root" class="rulers-main">
+
+   <!-- 1. Hero Section -->
+    <section class="rulers-hero" style="background-image: linear-gradient(rgba(15,17,21,0.7), rgba(15,17,21,0.9)), url('rulers-hero.jpg');">
+      <div class="rulers-hero-content">
+        <span class="rulers-kicker">👑 Sovereigns, Emperors &amp; Kings</span>
+        <h1>Famous Rulers <span>of India</span></h1>
+        <p>Step into the courts of India's greatest monarchs. From ancient empire builders to medieval tacticians and early modern visionaries, discover the rulers who shaped the subcontinent's history, architecture, and cultural identity.</p>
+        <a href="#explore-rulers" class="btn-primary">Explore Rulers</a>
+      </div>
+    </section>
+
+    <!-- 2. Introduction -->
+    <section class="rulers-intro">
+      <div class="rulers-container">
+        <h2>The Architects of Indian History</h2>
+        <p>The vast tapestry of Indian history has been woven by dynamic leaders spanning thousands of years. These rulers were not merely conquerors; they were patrons of the arts, pioneers of administration, builders of monumental architecture, and defenders of diverse cultural identities. From the Mauryan edicts advocating non-violence to the martial brilliance of the Marathas, their legacies continue to define the regions of modern India.</p>
+      </div>
+    </section>
+
+    <!-- 3. Explore by Era -->
+    <section class="rulers-eras">
+      <div class="rulers-container">
+        <h2 class="section-title">Explore by Era</h2>
+        <div class="era-grid">
+          <!-- UPDATED BACKGROUND IMAGES HERE -->
+          <button class="era-card" data-era="Ancient" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('era-ancient..png');">
+            <h3>Ancient India</h3>
+            <p>Maurya, Gupta &amp; Early Kingdoms</p>
+          </button>
+          <button class="era-card" data-era="Early Medieval" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('era-early-medieval..png');">
+            <h3>Early Medieval</h3>
+            <p>Chola, Rashtrakuta &amp; Rajput</p>
+          </button>
+          <button class="era-card" data-era="Medieval" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('medieval..jpeg');">
+            <h3>Medieval</h3>
+            <p>Vijayanagara &amp; Delhi Sultanate</p>
+          </button>
+          <button class="era-card" data-era="Early Modern" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('era-early-modern..jpg');">
+            <h3>Early Modern</h3>
+            <p>Mughal, Maratha &amp; Sikh Empires</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4, 5, 6, 7. Filters & Featured Rulers Grid -->
+    <section class="rulers-explore-section" id="explore-rulers">
+      <div class="rulers-container">
+        <h2 class="section-title">Discover Rulers</h2>
+        
+        <!-- Search & Filters -->
+        <div class="rulers-filters">
+          <div class="filter-group search-group">
+            <input type="text" id="search-ruler" placeholder="Search by ruler name..." aria-label="Search rulers">
+          </div>
+          <div class="filter-group">
+            <select id="filter-dynasty" aria-label="Filter by Dynasty">
+              <option value="all">All Dynasties</option>
+              <option value="Maurya">Maurya</option>
+              <option value="Gupta">Gupta</option>
+              <option value="Chola">Chola</option>
+              <option value="Vijayanagara">Vijayanagara</option>
+              <option value="Mughal">Mughal</option>
+              <option value="Maratha">Maratha</option>
+              <option value="Chalukya">Chalukya</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <select id="filter-region" aria-label="Filter by Region">
+              <option value="all">All Regions</option>
+              <option value="North India">North India</option>
+              <option value="South India">South India</option>
+              <option value="West India">West India</option>
+              <option value="Pan-Indian">Pan-Indian</option>
+            </select>
+          </div>
+          <button id="reset-filters" class="btn-secondary">Reset</button>
+        </div>
+
+        <!-- Rulers Grid -->
+        <div class="rulers-grid" id="rulers-grid" aria-live="polite">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Historical Timeline -->
+    <section class="rulers-timeline-section">
+      <div class="rulers-container">
+        <h2 class="section-title">Chronology of Empires</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">322 BCE – 185 BCE</span>
+              <h3>Mauryan Empire</h3>
+              <p>Chandragupta Maurya unifies much of the subcontinent. Ashoka later adopts Buddhism and spreads messages of peace via pillar edicts.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">320 CE – 550 CE</span>
+              <h3>Gupta Empire</h3>
+              <p>Considered a classical golden age of Indian art, science, and literature under rulers like Samudragupta and Chandragupta II.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">9th – 13th Century CE</span>
+              <h3>Chola Empire</h3>
+              <p>A dominant maritime power in South India under Rajaraja I and Rajendra I, known for grand temples and naval expeditions.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">1336 CE – 1646 CE</span>
+              <h3>Vijayanagara Empire</h3>
+              <p>A bulwark of South Indian culture and architecture, reaching its zenith under the scholar-warrior King Krishnadevaraya.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">1526 CE – 1857 CE</span>
+              <h3>Mughal Empire</h3>
+              <p>Established by Babur, peaking in administrative and architectural brilliance under Akbar, Jahangir, and Shah Jahan.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">1674 CE – 1818 CE</span>
+              <h3>Maratha Empire</h3>
+              <p>Founded by Chhatrapati Shivaji Maharaj, known for innovative naval forces, guerrilla warfare, and eventual pan-Indian influence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Legacy Section -->
+    <section class="rulers-legacy">
+      <div class="rulers-container legacy-flex">
+        <div class="legacy-text">
+          <span class="rulers-eyebrow">Enduring Impact</span>
+          <h2>The Legacy Left Behind</h2>
+          <p>The impact of India's rulers extends far beyond battlefield victories. Their patronage birthed architectural wonders like the Taj Mahal, the Brihadisvara Temple, and the forts of Rajasthan. They established administrative systems (like the Mansabdari system or Chola local self-government) that influenced governance for centuries. Culturally, their courts were centers of literature, poetry, and philosophy, fostering a rich, synthesized heritage that defines modern India.</p>
+        </div>
+        <div class="legacy-image">
+          <!-- UPDATED SRC HERE -->
+          <img src="legacy-architecture..jpg" alt="A grand historical monument representing the architectural legacy of Indian rulers" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Did You Know? -->
+    <section class="rulers-facts">
+      <div class="rulers-container">
+        <h2 class="section-title" style="color: #000;">Did You Know?</h2>
+        <div class="facts-grid">
+          <div class="fact-card">
+            <h3>Naval Pioneers</h3>
+            <p>Rajendra Chola I launched successful naval campaigns across the Indian Ocean, expanding Chola influence into Southeast Asia (modern-day Indonesia and Malaysia).</p>
+          </div>
+          <div class="fact-card">
+            <h3>The Veena Player</h3>
+            <p>Samudragupta of the Gupta dynasty was not just a military genius but also a skilled musician, famously depicted playing the Veena on his gold coins.</p>
+          </div>
+          <div class="fact-card">
+            <h3>Father of the Indian Navy</h3>
+            <p>Chhatrapati Shivaji Maharaj recognized the strategic importance of the coastline, building a formidable naval fleet and coastal forts to secure the Konkan region.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rulers-footer">
+    <div class="rulers-container">
+      <p>Part of <a href="../../index.html">Incredible India Explorer</a> · Explore the rich tapestry of Indian history.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

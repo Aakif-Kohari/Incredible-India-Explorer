@@ -1,0 +1,1521 @@
+<!-- =========================================
+     JUGAADLANG FESTIVAL CALENDAR
+========================================= -->
+
+<section class="jugaad-calendar-section">
+
+    <!-- Decorative elements -->
+    <span class="calendar-float float-1">🪔</span>
+    <span class="calendar-float float-2">✨</span>
+    <span class="calendar-float float-3">🎉</span>
+
+    <div class="calendar-wrapper">
+
+        <!-- LEFT INTRO -->
+        <div class="calendar-intro">
+
+            <h1>
+                Festival<br>
+                <span>Calendar.</span>
+            </h1>
+
+            <p class="calendar-hindi">
+                त्योहारों का अपना कैलेंडर 🪔
+            </p>
+
+            <p class="calendar-description">
+                Keep track of India's festivals, celebrations,
+                and special days — all in one desi calendar.
+            </p>
+
+            <div class="calendar-tags">
+                <span>🪔 Festivals</span>
+                <span>🇮🇳 Bharat</span>
+                <span>🎉 Celebrations</span>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT CALENDAR -->
+        <div class="calendar-card">
+
+            <!-- Calendar Top -->
+            <div class="calendar-top">
+
+                <div>
+                    <span class="calendar-small-title">
+                        JUGAAD CALENDAR
+                    </span>
+
+                    <h2 id="calendarMonth">
+                        January 2026
+                    </h2>
+                </div>
+
+                <div class="calendar-controls">
+
+                    <button onclick="previousMonth()">
+                        ←
+                    </button>
+
+                    <button class="today-btn" onclick="goToday()">
+                        Today
+                    </button>
+
+                    <button onclick="nextMonth()">
+                        →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Weekdays -->
+            <div class="calendar-weekdays">
+
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+
+            </div>
+
+
+            <!-- Calendar Days -->
+            <div id="calendarDays" class="calendar-days">
+            </div>
+
+
+            <!-- Legend -->
+            <div class="calendar-legend">
+
+                <div>
+                    <span class="legend-dot festival-dot"></span>
+                    Festival
+                </div>
+
+                <div>
+                    <span class="legend-dot today-dot"></span>
+                    Today
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         UPCOMING FESTIVALS
+    ====================================== -->
+
+    <div class="upcoming-section">
+
+        <div class="upcoming-heading">
+
+            <span>DESI DAYS ✨</span>
+
+            <h2>
+                Upcoming <strong>Festivals</strong>
+            </h2>
+
+        </div>
+
+
+        <div id="upcomingFestivals" class="festival-grid">
+        </div>
+
+    </div>
+
+</section>
+
+
+<style>
+    /* =========================================
+   BASE
+========================================= */
+
+    .jugaad-calendar-section {
+
+        position: relative;
+
+        width: 100%;
+
+        padding: 100px 7% 110px;
+
+        overflow: hidden;
+
+        background:
+            radial-gradient(circle at 15% 20%,
+                rgba(255, 190, 70, 0.13),
+                transparent 28%),
+            radial-gradient(circle at 90% 30%,
+                rgba(0, 190, 150, 0.08),
+                transparent 30%),
+            #f8f8fc;
+
+        color: #292946;
+
+    }
+
+
+    /* =========================================
+   DECORATIVE FLOATING ELEMENTS
+========================================= */
+
+    .calendar-float {
+
+        position: absolute;
+
+        font-size: 30px;
+
+        opacity: 0.7;
+
+        pointer-events: none;
+
+        animation: calendarFloat 4s ease-in-out infinite;
+
+    }
+
+    .float-1 {
+
+        top: 100px;
+
+        left: 8%;
+
+    }
+
+    .float-2 {
+
+        top: 180px;
+
+        right: 8%;
+
+        animation-delay: 1s;
+
+    }
+
+    .float-3 {
+
+        bottom: 100px;
+
+        left: 12%;
+
+        animation-delay: 2s;
+
+    }
+
+
+    @keyframes calendarFloat {
+
+        0%,
+        100% {
+
+            transform: translateY(0) rotate(-3deg);
+
+        }
+
+        50% {
+
+            transform: translateY(-12px) rotate(4deg);
+
+        }
+
+    }
+
+
+    /* =========================================
+   MAIN WRAPPER
+========================================= */
+
+    .calendar-wrapper {
+
+        max-width: 1200px;
+
+        margin: auto;
+
+        display: grid;
+
+        grid-template-columns:
+            0.85fr 1.15fr;
+
+        gap: 70px;
+
+        align-items: center;
+
+    }
+
+
+    /* =========================================
+   LEFT CONTENT
+========================================= */
+
+    .calendar-intro {
+
+        max-width: 500px;
+
+    }
+
+
+    .calendar-badge {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 8px;
+
+        padding: 11px 18px;
+
+        border: 1px solid #ffad4a;
+
+        border-radius: 30px;
+
+        background: rgba(255, 174, 74, 0.08);
+
+        color: #ff8517;
+
+        font-size: 13px;
+
+        font-weight: 800;
+
+        letter-spacing: 0.5px;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .calendar-intro h1 {
+
+        font-size: clamp(55px, 6vw, 88px);
+
+        line-height: 0.92;
+
+        letter-spacing: -4px;
+
+        margin: 0;
+
+        font-weight: 900;
+
+        background:
+            linear-gradient(100deg,
+                #ffbf00,
+                #ff8a00,
+                #ff5b00);
+
+        -webkit-background-clip: text;
+
+        -webkit-text-fill-color: transparent;
+
+    }
+
+
+    .calendar-intro h1 span {
+
+        background:
+            linear-gradient(100deg,
+                #ff9e00,
+                #ff5b00);
+
+        -webkit-background-clip: text;
+
+        -webkit-text-fill-color: transparent;
+
+    }
+
+
+    .calendar-hindi {
+
+        font-size: 27px;
+
+        font-weight: 600;
+
+        margin: 20px 0 12px;
+
+        color: #555572;
+
+    }
+
+
+    .calendar-description {
+
+        max-width: 470px;
+
+        font-size: 17px;
+
+        line-height: 1.8;
+
+        color: #666681;
+
+    }
+
+
+    .calendar-tags {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 10px;
+
+        margin-top: 25px;
+
+    }
+
+
+    .calendar-tags span {
+
+        padding: 9px 14px;
+
+        border-radius: 20px;
+
+        border: 1px solid #e8a14a;
+
+        background: #fffaf2;
+
+        color: #4d4d68;
+
+        font-size: 13px;
+
+        font-weight: 700;
+
+    }
+
+
+    /* =========================================
+   CALENDAR CARD
+========================================= */
+
+    .calendar-card {
+
+        position: relative;
+
+        background: rgba(255, 255, 255, 0.92);
+
+        border: 1px solid #ead8c5;
+
+        border-radius: 28px;
+
+        padding: 28px;
+
+        box-shadow:
+
+            0 25px 60px rgba(58, 50, 80, 0.10),
+
+            0 5px 15px rgba(255, 145, 30, 0.06);
+
+        backdrop-filter: blur(10px);
+
+    }
+
+
+    /* =========================================
+   CALENDAR HEADER
+========================================= */
+
+    .calendar-top {
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        gap: 20px;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .calendar-small-title {
+
+        display: block;
+
+        font-size: 11px;
+
+        letter-spacing: 1.5px;
+
+        color: #ff8a18;
+
+        font-weight: 800;
+
+        margin-bottom: 5px;
+
+    }
+
+
+    .calendar-top h2 {
+
+        margin: 0;
+
+        font-size: 27px;
+
+        color: #2d2d4b;
+
+    }
+
+
+    .calendar-controls {
+
+        display: flex;
+
+        gap: 7px;
+
+    }
+
+
+    .calendar-controls button {
+
+        border: 1px solid #e7c18f;
+
+        background: white;
+
+        color: #393951;
+
+        height: 38px;
+
+        min-width: 38px;
+
+        padding: 0 12px;
+
+        border-radius: 10px;
+
+        cursor: pointer;
+
+        font-weight: 700;
+
+        transition: all 0.25s ease;
+
+    }
+
+
+    .calendar-controls button:hover {
+
+        background: #ff901f;
+
+        color: white;
+
+        border-color: #ff901f;
+
+        transform: translateY(-2px);
+
+    }
+
+
+    .calendar-controls .today-btn {
+
+        color: #ff7d0a;
+
+    }
+
+
+    /* =========================================
+   WEEKDAYS
+========================================= */
+
+    .calendar-weekdays {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(7, 1fr);
+
+        gap: 7px;
+
+        margin-bottom: 7px;
+
+    }
+
+
+    .calendar-weekdays div {
+
+        text-align: center;
+
+        font-size: 12px;
+
+        font-weight: 800;
+
+        color: #8888a1;
+
+        padding: 8px 0;
+
+    }
+
+
+    /* =========================================
+   DAYS
+========================================= */
+
+    .calendar-days {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(7, 1fr);
+
+        gap: 7px;
+
+    }
+
+
+    .calendar-day {
+
+        min-height: 78px;
+
+        padding: 9px;
+
+        border-radius: 13px;
+
+        border: 1px solid #eeeeF4;
+
+        background: #fcfcfe;
+
+        position: relative;
+
+        transition: all 0.25s ease;
+
+    }
+
+
+    .calendar-day:hover {
+
+        transform: translateY(-3px);
+
+        border-color: #ffb15c;
+
+        box-shadow:
+            0 8px 18px rgba(255, 140, 30, 0.10);
+
+    }
+
+
+    .calendar-day.empty {
+
+        background: transparent;
+
+        border-color: transparent;
+
+        box-shadow: none;
+
+    }
+
+
+    .day-number {
+
+        font-size: 13px;
+
+        font-weight: 800;
+
+        color: #484860;
+
+    }
+
+
+    /* =========================================
+   TODAY
+========================================= */
+
+    .calendar-day.today {
+
+        border: 2px solid #088178;
+
+        background: #effaf7;
+
+    }
+
+
+    .calendar-day.today .day-number {
+
+        color: #08786f;
+
+    }
+
+
+    /* =========================================
+   FESTIVAL DAY
+========================================= */
+
+    .calendar-day.has-festival {
+
+        background:
+
+            linear-gradient(145deg,
+                #fff8eb,
+                #fff1d9);
+
+        border-color: #ffbd66;
+
+    }
+
+
+    .calendar-day.has-festival .day-number {
+
+        color: #e87500;
+
+    }
+
+
+    .festival-label {
+
+        display: block;
+
+        margin-top: 7px;
+
+        font-size: 10px;
+
+        line-height: 1.25;
+
+        color: #d56b00;
+
+        font-weight: 800;
+
+    }
+
+
+    .festival-icon {
+
+        position: absolute;
+
+        top: 7px;
+
+        right: 7px;
+
+        font-size: 12px;
+
+    }
+
+
+    /* =========================================
+   LEGEND
+========================================= */
+
+    .calendar-legend {
+
+        display: flex;
+
+        justify-content: flex-end;
+
+        gap: 20px;
+
+        margin-top: 18px;
+
+        font-size: 11px;
+
+        color: #77778f;
+
+    }
+
+
+    .calendar-legend div {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 6px;
+
+    }
+
+
+    .legend-dot {
+
+        width: 8px;
+
+        height: 8px;
+
+        border-radius: 50%;
+
+    }
+
+
+    .festival-dot {
+
+        background: #ff9a22;
+
+    }
+
+
+    .today-dot {
+
+        background: #088178;
+
+    }
+
+
+    /* =========================================
+   UPCOMING FESTIVALS
+========================================= */
+
+    .upcoming-section {
+
+        max-width: 1200px;
+
+        margin: 100px auto 0;
+
+    }
+
+
+    .upcoming-heading {
+
+        margin-bottom: 30px;
+
+    }
+
+
+    .upcoming-heading>span {
+
+        font-size: 12px;
+
+        font-weight: 800;
+
+        letter-spacing: 1.5px;
+
+        color: #ff8b16;
+
+    }
+
+
+    .upcoming-heading h2 {
+
+        font-size: 38px;
+
+        margin: 8px 0 0;
+
+        color: #30304c;
+
+    }
+
+
+    .upcoming-heading strong {
+
+        background:
+            linear-gradient(90deg,
+                #ffae00,
+                #ff6a00);
+
+        -webkit-background-clip: text;
+
+        -webkit-text-fill-color: transparent;
+
+    }
+
+
+    /* =========================================
+   FESTIVAL CARDS
+========================================= */
+
+    .festival-grid {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(4, 1fr);
+
+        gap: 18px;
+
+    }
+
+
+    .festival-card {
+
+        position: relative;
+
+        background: white;
+
+        border: 1px solid #eadfd2;
+
+        border-radius: 20px;
+
+        padding: 22px;
+
+        transition: all 0.25s ease;
+
+    }
+
+
+    .festival-card:hover {
+
+        transform: translateY(-6px);
+
+        border-color: #ffad4e;
+
+        box-shadow:
+            0 15px 35px rgba(255, 130, 20, 0.10);
+
+    }
+
+
+    .festival-card-icon {
+
+        width: 45px;
+
+        height: 45px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        background: #fff4df;
+
+        border-radius: 13px;
+
+        font-size: 22px;
+
+        margin-bottom: 15px;
+
+    }
+
+
+    .festival-card h3 {
+
+        margin: 0 0 6px;
+
+        font-size: 17px;
+
+        color: #33334d;
+
+    }
+
+
+    .festival-card-date {
+
+        font-size: 12px;
+
+        color: #ff8315;
+
+        font-weight: 800;
+
+    }
+
+
+    .festival-card p {
+
+        font-size: 12px;
+
+        line-height: 1.5;
+
+        color: #85859a;
+
+        margin-top: 10px;
+
+    }
+
+
+    /* =========================================
+   RESPONSIVE
+========================================= */
+
+    @media (max-width: 1000px) {
+
+        .calendar-wrapper {
+
+            grid-template-columns: 1fr;
+
+            gap: 45px;
+
+        }
+
+        .calendar-intro {
+
+            max-width: 700px;
+
+        }
+
+        .festival-grid {
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+        }
+
+    }
+
+
+    @media (max-width: 650px) {
+
+        .jugaad-calendar-section {
+
+            padding: 70px 18px;
+
+        }
+
+        .calendar-intro h1 {
+
+            font-size: 58px;
+
+            letter-spacing: -3px;
+
+        }
+
+        .calendar-card {
+
+            padding: 15px;
+
+            border-radius: 20px;
+
+        }
+
+        .calendar-top {
+
+            flex-direction: column;
+
+            align-items: flex-start;
+
+        }
+
+        .calendar-top h2 {
+
+            font-size: 22px;
+
+        }
+
+        .calendar-day {
+
+            min-height: 58px;
+
+            padding: 6px;
+
+        }
+
+        .day-number {
+
+            font-size: 11px;
+
+        }
+
+        .festival-label {
+
+            font-size: 8px;
+
+        }
+
+        .calendar-weekdays div {
+
+            font-size: 10px;
+
+        }
+
+        .festival-grid {
+
+            grid-template-columns: 1fr;
+
+        }
+
+        .upcoming-heading h2 {
+
+            font-size: 30px;
+
+        }
+
+    }
+</style>
+
+
+<script>
+
+    /* =========================================
+       FESTIVAL DATA
+    ========================================= */
+
+    const indianFestivals = {
+
+        "2026-01-13": {
+            name: "Lohri",
+            icon: "🔥"
+        },
+
+        "2026-01-14": {
+            name: "Makar Sankranti / Pongal",
+            icon: "🪁"
+        },
+
+        "2026-01-23": {
+            name: "Vasant Panchami",
+            icon: "🌼"
+        },
+
+        "2026-02-15": {
+            name: "Maha Shivratri",
+            icon: "🔱"
+        },
+
+        "2026-03-04": {
+            name: "Holi",
+            icon: "🎨"
+        },
+
+        "2026-04-02": {
+            name: "Hanuman Jayanti",
+            icon: "🚩"
+        },
+
+        "2026-04-19": {
+            name: "Akshaya Tritiya",
+            icon: "✨"
+        },
+
+        "2026-05-16": {
+            name: "Vat Savitri Vrat",
+            icon: "🌿"
+        },
+
+        "2026-07-16": {
+            name: "Jagannath Rath Yatra",
+            icon: "🛕"
+        },
+
+        "2026-07-29": {
+            name: "Guru Purnima",
+            icon: "🙏"
+        },
+
+        "2026-08-15": {
+            name: "Hariyali Teej",
+            icon: "🌿"
+        },
+
+        "2026-08-17": {
+            name: "Nag Panchami",
+            icon: "🐍"
+        },
+
+        "2026-08-28": {
+            name: "Raksha Bandhan",
+            icon: "🪢"
+        },
+
+        "2026-08-31": {
+            name: "Kajari Teej",
+            icon: "🌸"
+        },
+
+        "2026-09-04": {
+            name: "Krishna Janmashtami",
+            icon: "🦚"
+        },
+
+        "2026-09-14": {
+            name: "Hartalika Teej",
+            icon: "🌺"
+        },
+
+        "2026-09-26": {
+            name: "Pitru Paksha Begins",
+            icon: "🪔"
+        },
+
+        "2026-10-11": {
+            name: "Navratri Begins",
+            icon: "🙏"
+        },
+
+        "2026-10-20": {
+            name: "Dussehra",
+            icon: "🏹"
+        },
+
+        "2026-10-29": {
+            name: "Karwa Chauth",
+            icon: "🌙"
+        },
+
+        "2026-11-06": {
+            name: "Dhanteras",
+            icon: "✨"
+        },
+
+        "2026-11-08": {
+            name: "Diwali",
+            icon: "🪔"
+        },
+
+        "2026-11-10": {
+            name: "Govardhan Puja",
+            icon: "🌿"
+        },
+
+        "2026-11-15": {
+            name: "Bhai Dooj",
+            icon: "🎁"
+        },
+
+        "2026-12-25": {
+            name: "Christmas",
+            icon: "🎄"
+        }
+
+    };
+
+
+    /* =========================================
+       VARIABLES
+    ========================================= */
+
+    let calendarDate = new Date();
+
+
+    const calendarDays =
+        document.getElementById(
+            "calendarDays"
+        );
+
+    const calendarMonth =
+        document.getElementById(
+            "calendarMonth"
+        );
+
+
+    /* =========================================
+       FORMAT DATE
+    ========================================= */
+
+    function getDateKey(
+        year,
+        month,
+        day
+    ) {
+
+        return `${year}-${String(month + 1).padStart(2, "0")
+            }-${String(day).padStart(2, "0")
+            }`;
+
+    }
+
+
+    /* =========================================
+       RENDER CALENDAR
+    ========================================= */
+
+    function renderCalendar() {
+
+        calendarDays.innerHTML = "";
+
+        const year =
+            calendarDate.getFullYear();
+
+        const month =
+            calendarDate.getMonth();
+
+
+        calendarMonth.textContent =
+            new Date(
+                year,
+                month
+            ).toLocaleDateString(
+                "en-IN",
+                {
+                    month: "long",
+                    year: "numeric"
+                }
+            );
+
+
+        const firstDay =
+            new Date(
+                year,
+                month,
+                1
+            ).getDay();
+
+
+        const totalDays =
+            new Date(
+                year,
+                month + 1,
+                0
+            ).getDate();
+
+
+        /* Empty cells */
+
+        for (
+            let i = 0;
+            i < firstDay;
+            i++
+        ) {
+
+            const empty =
+                document.createElement(
+                    "div"
+                );
+
+            empty.className =
+                "calendar-day empty";
+
+            calendarDays.appendChild(
+                empty
+            );
+
+        }
+
+
+        /* Days */
+
+        for (
+            let day = 1;
+            day <= totalDays;
+            day++
+        ) {
+
+            const dateKey =
+                getDateKey(
+                    year,
+                    month,
+                    day
+                );
+
+
+            const dayElement =
+                document.createElement(
+                    "div"
+                );
+
+            dayElement.className =
+                "calendar-day";
+
+
+            /* Number */
+
+            const number =
+                document.createElement(
+                    "div"
+                );
+
+            number.className =
+                "day-number";
+
+            number.textContent =
+                day;
+
+
+            dayElement.appendChild(
+                number
+            );
+
+
+            /* Today */
+
+            const today =
+                new Date();
+
+
+            if (
+
+                day === today.getDate() &&
+
+                month === today.getMonth() &&
+
+                year === today.getFullYear()
+
+            ) {
+
+                dayElement.classList.add(
+                    "today"
+                );
+
+            }
+
+
+            /* Festival */
+
+            if (
+                indianFestivals[dateKey]
+            ) {
+
+                const festival =
+                    indianFestivals[
+                    dateKey
+                    ];
+
+
+                dayElement.classList.add(
+                    "has-festival"
+                );
+
+
+                dayElement.innerHTML += `
+
+                <span class="festival-icon">
+                    ${festival.icon}
+                </span>
+
+                <span class="festival-label">
+                    ${festival.name}
+                </span>
+
+            `;
+
+            }
+
+
+            calendarDays.appendChild(
+                dayElement
+            );
+
+        }
+
+    }
+
+
+    /* =========================================
+       PREVIOUS MONTH
+    ========================================= */
+
+    function previousMonth() {
+
+        calendarDate.setMonth(
+            calendarDate.getMonth() - 1
+        );
+
+        renderCalendar();
+
+    }
+
+
+    /* =========================================
+       NEXT MONTH
+    ========================================= */
+
+    function nextMonth() {
+
+        calendarDate.setMonth(
+            calendarDate.getMonth() + 1
+        );
+
+        renderCalendar();
+
+    }
+
+
+    /* =========================================
+       TODAY
+    ========================================= */
+
+    function goToday() {
+
+        calendarDate =
+            new Date();
+
+        renderCalendar();
+
+    }
+
+
+    /* =========================================
+       UPCOMING FESTIVALS
+    ========================================= */
+
+    function renderUpcomingFestivals() {
+
+        const container =
+            document.getElementById(
+                "upcomingFestivals"
+            );
+
+
+        container.innerHTML = "";
+
+
+        const today =
+            new Date();
+
+
+        const upcoming =
+            Object.entries(
+                indianFestivals
+            )
+
+                .filter(
+                    ([date]) =>
+                        new Date(date) >= today
+                )
+
+                .sort(
+                    (a, b) =>
+                        new Date(a[0]) -
+                        new Date(b[0])
+                )
+
+                .slice(0, 4);
+
+
+        upcoming.forEach(
+            ([date, festival]) => {
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                const dateObject =
+                    new Date(
+                        date + "T00:00:00"
+                    );
+
+
+                const formattedDate =
+                    dateObject.toLocaleDateString(
+                        "en-IN",
+                        {
+                            day: "numeric",
+                            month: "long"
+                        }
+                    );
+
+
+                card.className =
+                    "festival-card";
+
+
+                card.innerHTML = `
+
+                <div class="festival-card-icon">
+                    ${festival.icon}
+                </div>
+
+                <h3>
+                    ${festival.name}
+                </h3>
+
+                <div class="festival-card-date">
+                    ${formattedDate}
+                </div>
+
+                <p>
+                    Celebrate the spirit
+                    of Bharat with JugaadLang.
+                </p>
+
+            `;
+
+
+                container.appendChild(
+                    card
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =========================================
+       INITIALIZE
+    ========================================= */
+
+    renderCalendar();
+
+    renderUpcomingFestivals();
+
+</script>

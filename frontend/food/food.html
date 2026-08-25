@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Discover authentic Indian cuisine and get personalized local food recommendations."
+    >
+
+    <title>Local Cuisine Explorer | Incredible India Explorer</title>
+
+    <link rel="stylesheet" href="food.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+    <header class="food-header">
+        <div class="header-inner">
+
+            <a href="index.html" class="brand">
+                <span class="brand-icon">🇮🇳</span>
+                <span>
+                    <strong>Incredible India</strong>
+                    <small>Local Cuisine Explorer</small>
+                </span>
+            </a>
+
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="#discover">Discover Food</a>
+                <a href="#recommendations">Recommendations</a>
+                <a href="#itinerary">My Food Journey</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+    <section class="hero-section">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <div class="ai-badge">
+                <span class="pulse-dot"></span>
+                AI-Powered Food Discovery
+            </div>
+
+            <h1>
+                Taste India,
+                <span>One Region at a Time.</span>
+            </h1>
+
+            <p>
+                Discover authentic local dishes and food experiences
+                personalized to your destination, dietary preferences,
+                budget and interests.
+            </p>
+
+            <a href="#discover" class="hero-button">
+                Discover Local Food
+                <span>↓</span>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         DISCOVERY FORM
+    ========================== -->
+    <main id="discover" class="main-container">
+
+        <section class="section-heading">
+
+            <div>
+                <span class="eyebrow">PERSONALIZED DISCOVERY</span>
+
+                <h2>
+                    Tell us what you want to eat
+                </h2>
+
+                <p>
+                    Our recommendation engine will rank local dishes
+                    according to your preferences.
+                </p>
+            </div>
+
+            <div class="recommendation-status">
+                <span class="status-dot"></span>
+                <span id="statusText">Ready to recommend</span>
+            </div>
+
+        </section>
+
+
+        <section class="preference-card">
+
+            <form id="foodPreferenceForm">
+
+                <!-- Destination -->
+                <div class="form-group full-width">
+
+                    <label for="destination">
+                        📍 Where are you travelling?
+                    </label>
+
+                    <select id="destination" name="destination" required>
+
+                        <option value="">
+                            Select a destination
+                        </option>
+
+                        <optgroup label="North India">
+                            <option value="delhi">Delhi</option>
+                            <option value="punjab">Punjab</option>
+                            <option value="rajasthan">Rajasthan</option>
+                            <option value="uttar-pradesh">Uttar Pradesh</option>
+                            <option value="uttarakhand">Uttarakhand</option>
+                            <option value="himachal-pradesh">
+                                Himachal Pradesh
+                            </option>
+                            <option value="haryana">Haryana</option>
+                            <option value="jammu-kashmir">
+                                Jammu & Kashmir
+                            </option>
+                        </optgroup>
+
+                        <optgroup label="West India">
+                            <option value="gujarat">Gujarat</option>
+                            <option value="maharashtra">Maharashtra</option>
+                            <option value="goa">Goa</option>
+                        </optgroup>
+
+                        <optgroup label="South India">
+                            <option value="kerala">Kerala</option>
+                            <option value="tamil-nadu">Tamil Nadu</option>
+                            <option value="karnataka">Karnataka</option>
+                            <option value="andhra-pradesh">
+                                Andhra Pradesh
+                            </option>
+                            <option value="telangana">Telangana</option>
+                        </optgroup>
+
+                        <optgroup label="East & Northeast India">
+                            <option value="west-bengal">
+                                West Bengal
+                            </option>
+                            <option value="odisha">Odisha</option>
+                            <option value="assam">Assam</option>
+                            <option value="bihar">Bihar</option>
+                            <option value="sikkim">Sikkim</option>
+                        </optgroup>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Dietary Preference -->
+                <div class="form-group">
+
+                    <label for="diet">
+                        🥗 Dietary preference
+                    </label>
+
+                    <select id="diet" name="diet">
+
+                        <option value="any">
+                            No preference
+                        </option>
+
+                        <option value="vegetarian">
+                            Vegetarian
+                        </option>
+
+                        <option value="vegan">
+                            Vegan
+                        </option>
+
+                        <option value="jain">
+                            Jain
+                        </option>
+
+                        <option value="non-vegetarian">
+                            Non-vegetarian
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Budget -->
+                <div class="form-group">
+
+                    <label for="budget">
+                        💰 Budget per meal
+                    </label>
+
+                    <select id="budget" name="budget">
+
+                        <option value="any">
+                            Any budget
+                        </option>
+
+                        <option value="budget">
+                            ₹100 – ₹300
+                        </option>
+
+                        <option value="moderate">
+                            ₹300 – ₹700
+                        </option>
+
+                        <option value="premium">
+                            ₹700+
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Meal -->
+                <div class="form-group">
+
+                    <label for="meal">
+                        🍽️ Meal type
+                    </label>
+
+                    <select id="meal" name="meal">
+
+                        <option value="any">
+                            Any meal
+                        </option>
+
+                        <option value="breakfast">
+                            Breakfast
+                        </option>
+
+                        <option value="lunch">
+                            Lunch
+                        </option>
+
+                        <option value="dinner">
+                            Dinner
+                        </option>
+
+                        <option value="snack">
+                            Snack / Street Food
+                        </option>
+
+                        <option value="dessert">
+                            Dessert
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Allergy -->
+                <div class="form-group">
+
+                    <label for="allergy">
+                        ⚠️ Allergy to avoid
+                    </label>
+
+                    <select id="allergy" name="allergy">
+
+                        <option value="none">
+                            None
+                        </option>
+
+                        <option value="nuts">
+                            Nuts
+                        </option>
+
+                        <option value="dairy">
+                            Dairy
+                        </option>
+
+                        <option value="gluten">
+                            Gluten
+                        </option>
+
+                        <option value="seafood">
+                            Seafood
+                        </option>
+
+                        <option value="eggs">
+                            Eggs
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Interests -->
+                <div class="form-group full-width">
+
+                    <label>
+                        ✨ What are you interested in?
+                    </label>
+
+                    <div class="interest-grid">
+
+                        <label class="interest-option">
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="traditional"
+                            >
+                            <span>🏺 Traditional</span>
+                        </label>
+
+                        <label class="interest-option">
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="street-food"
+                            >
+                            <span>🌮 Street Food</span>
+                        </label>
+
+                        <label class="interest-option">
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="royal"
+                            >
+                            <span>👑 Royal Cuisine</span>
+                        </label>
+
+                        <label class="interest-option">
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="healthy"
+                            >
+                            <span>🌱 Healthy</span>
+                        </label>
+
+                        <label class="interest-option">
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="spicy"
+                            >
+                            <span>🌶️ Spicy</span>
+                        </label>
+
+                        <label class="interest-option">
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="sweet"
+                            >
+                            <span>🍬 Sweet</span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="recommend-button"
+                    >
+                        <span>✨</span>
+                        Find My Food
+                    </button>
+
+                    <button
+                        type="button"
+                        id="resetButton"
+                        class="reset-button"
+                    >
+                        Reset
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- =========================
+             QUICK DISCOVERY
+        ========================== -->
+
+        <section class="quick-section">
+
+            <div class="quick-heading">
+                <h3>Explore Indian Food</h3>
+
+                <p>
+                    Jump directly into popular regional specialties.
+                </p>
+            </div>
+
+            <div class="quick-grid">
+
+                <button
+                    class="quick-card"
+                    data-destination="delhi"
+                >
+                    <span>🥘</span>
+                    <strong>Delhi</strong>
+                    <small>Chaat & Mughlai</small>
+                </button>
+
+                <button
+                    class="quick-card"
+                    data-destination="rajasthan"
+                >
+                    <span>🍛</span>
+                    <strong>Rajasthan</strong>
+                    <small>Royal & traditional</small>
+                </button>
+
+                <button
+                    class="quick-card"
+                    data-destination="west-bengal"
+                >
+                    <span>🐟</span>
+                    <strong>West Bengal</strong>
+                    <small>Bengali cuisine</small>
+                </button>
+
+                <button
+                    class="quick-card"
+                    data-destination="kerala"
+                >
+                    <span>🥥</span>
+                    <strong>Kerala</strong>
+                    <small>Coastal flavours</small>
+                </button>
+
+                <button
+                    class="quick-card"
+                    data-destination="punjab"
+                >
+                    <span>🫓</span>
+                    <strong>Punjab</strong>
+                    <small>Rich & hearty</small>
+                </button>
+
+                <button
+                    class="quick-card"
+                    data-destination="goa"
+                >
+                    <span>🌴</span>
+                    <strong>Goa</strong>
+                    <small>Coastal & Portuguese</small>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RECOMMENDATIONS
+        ========================== -->
+
+        <section
+            id="recommendations"
+            class="recommendations-section"
+        >
+
+            <div class="results-header">
+
+                <div>
+                    <span class="eyebrow">
+                        YOUR PERSONALIZED RESULTS
+                    </span>
+
+                    <h2>
+                        Recommended for you
+                    </h2>
+
+                    <p id="resultSummary">
+                        Select your destination to discover local food.
+                    </p>
+                </div>
+
+                <div class="result-count">
+                    <strong id="resultCount">0</strong>
+                    <span>matches</span>
+                </div>
+
+            </div>
+
+
+            <div
+                id="recommendationGrid"
+                class="recommendation-grid"
+            >
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">🍽️</div>
+
+                    <h3>Your food journey starts here</h3>
+
+                    <p>
+                        Choose a destination and your preferences above.
+                        We'll find dishes that match your taste.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ITINERARY
+        ========================== -->
+
+        <section id="itinerary" class="itinerary-section">
+
+            <div class="itinerary-header">
+
+                <div>
+                    <span class="eyebrow">
+                        YOUR FOOD JOURNEY
+                    </span>
+
+                    <h2>
+                        Saved food experiences
+                    </h2>
+
+                    <p>
+                        Keep your favourite food discoveries for your trip.
+                    </p>
+                </div>
+
+                <button
+                    id="clearJourney"
+                    class="clear-button"
+                >
+                    Clear saved food
+                </button>
+
+            </div>
+
+
+            <div
+                id="journeyList"
+                class="journey-list"
+            >
+                <div class="journey-empty">
+                    <span>🧳</span>
+                    <p>
+                        No food experiences saved yet.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="food-footer">
+
+        <div class="footer-inner">
+
+            <div>
+                <strong>Incredible India Explorer</strong>
+
+                <p>
+                    Discover India through its flavours,
+                    traditions and local experiences.
+                </p>
+            </div>
+
+            <div class="footer-note">
+                <span>🇮🇳</span>
+                <span>Made for curious travellers</span>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Recommendation details modal -->
+    <div
+        id="foodModal"
+        class="modal"
+        aria-hidden="true"
+    >
+
+        <div class="modal-backdrop"></div>
+
+        <div class="modal-content">
+
+            <button
+                id="closeModal"
+                class="modal-close"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+            <div id="modalContent"></div>
+
+        </div>
+
+    </div>
+
+
+    <script src="food.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtual Museum of Indian Sports Trophies</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --ink:#12141b;
+  --wall:#1a1e29;
+  --panel:#1e2330;
+  --velvet:#5c1f2e;
+  --velvet-light:#7a2c3f;
+  --brass:#c9a24b;
+  --brass-light:#e6c876;
+  --ivory:#ece5d5;
+  --muted:#9aa0af;
+  --line:rgba(201,162,75,0.18);
+  --cricket:#c9a24b;
+  --football:#5c8f6b;
+  --hockey:#7a92c9;
+  --serif:'Fraunces', serif;
+  --sans:'Work Sans', sans-serif;
+  --mono:'JetBrains Mono', monospace;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--ink);
+  color:var(--ivory);
+  font-family:var(--sans);
+  line-height:1.55;
+  overflow-x:hidden;
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+}
+a{color:inherit;}
+img,svg{display:block; max-width:100%;}
+
+/* ---------- Texture ---------- */
+.grain{
+  position:fixed; inset:0; pointer-events:none; z-index:1; opacity:0.035; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Top nav ---------- */
+.topnav{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 32px;
+  background:rgba(18,20,27,0.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.brand{
+  font-family:var(--serif); font-weight:700; font-size:1.05rem; letter-spacing:0.02em;
+  display:flex; align-items:center; gap:10px;
+}
+.brand .mark{color:var(--brass);}
+.navlinks{display:flex; gap:26px; font-size:0.82rem; letter-spacing:0.06em; text-transform:uppercase; font-family:var(--mono);}
+.navlinks a{color:var(--muted); text-decoration:none; transition:color 0.2s;}
+.navlinks a:hover, .navlinks a:focus-visible{color:var(--brass-light); outline:none;}
+.navlinks a:focus-visible{text-decoration:underline;}
+@media (max-width:760px){ .navlinks{display:none;} }
+
+/* ---------- Entrance ---------- */
+.entrance{
+  position:relative;
+  min-height:92vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center;
+  padding:80px 24px 60px;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(201,162,75,0.14), transparent 55%),
+    radial-gradient(ellipse at 20% 110%, rgba(92,31,46,0.35), transparent 60%),
+    var(--ink);
+  overflow:hidden;
+}
+.entrance::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image: repeating-linear-gradient(90deg, rgba(201,162,75,0.05) 0 1px, transparent 1px 120px);
+  opacity:0.5; pointer-events:none;
+}
+.ticket{
+  font-family:var(--mono); font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--brass); border:1px solid var(--line); padding:8px 18px; border-radius:100px;
+  margin-bottom:28px; background:rgba(201,162,75,0.06);
+}
+.entrance h1{
+  font-family:var(--serif); font-weight:900; font-size:clamp(2.4rem, 6.5vw, 5.2rem);
+  line-height:1.02; max-width:16ch; letter-spacing:-0.01em;
+}
+.entrance h1 em{
+  font-style:italic; color:var(--brass-light); font-weight:600;
+}
+.entrance p.sub{
+  margin-top:22px; max-width:52ch; color:var(--muted); font-size:1.05rem;
+}
+.entrance .cta-row{ margin-top:42px; display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
+.btn{
+  font-family:var(--sans); font-weight:600; font-size:0.92rem;
+  padding:14px 30px; border-radius:3px; cursor:pointer; border:1px solid transparent;
+  transition:transform 0.15s ease, background 0.2s, border-color 0.2s;
+  text-decoration:none; display:inline-block;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn:focus-visible{outline:2px solid var(--brass-light); outline-offset:3px;}
+.btn-primary{ background:var(--brass); color:var(--ink); }
+.btn-primary:hover{ background:var(--brass-light); }
+.btn-ghost{ border-color:var(--line); color:var(--ivory); }
+.btn-ghost:hover{ border-color:var(--brass); }
+
+.wing-strip{
+  margin-top:64px; display:flex; gap:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  width:100%; max-width:920px; font-family:var(--mono); font-size:0.75rem; color:var(--muted);
+}
+.wing-strip div{ flex:1; padding:14px 8px; text-align:center; border-right:1px solid var(--line); }
+.wing-strip div:last-child{ border-right:none; }
+.wing-strip strong{ display:block; color:var(--brass-light); font-family:var(--serif); font-size:1.4rem; font-weight:700; }
+
+/* ---------- Section shell ---------- */
+section{ padding:100px 32px; max-width:1180px; margin:0 auto; }
+.eyebrow{
+  font-family:var(--mono); font-size:0.75rem; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--brass); margin-bottom:14px;
+}
+h2.section-title{
+  font-family:var(--serif); font-weight:700; font-size:clamp(1.8rem,3.4vw,2.7rem);
+  max-width:20ch; margin-bottom:14px;
+}
+.section-desc{ color:var(--muted); max-width:60ch; font-size:1rem; margin-bottom:44px; }
+
+/* ---------- Controls ---------- */
+.controls{
+  display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-bottom:36px;
+}
+.search-wrap{ position:relative; flex:1; min-width:240px; }
+.search-wrap input{
+  width:100%; padding:13px 16px 13px 42px; background:var(--panel); border:1px solid var(--line);
+  border-radius:3px; color:var(--ivory); font-family:var(--sans); font-size:0.95rem;
+}
+.search-wrap input:focus{ outline:none; border-color:var(--brass); }
+.search-wrap input::placeholder{ color:var(--muted); }
+.search-wrap svg{ position:absolute; left:14px; top:50%; transform:translateY(-50%); width:16px; height:16px; stroke:var(--muted); }
+
+.filters{ display:flex; gap:10px; flex-wrap:wrap; }
+.chip{
+  font-family:var(--mono); font-size:0.78rem; letter-spacing:0.04em;
+  padding:10px 16px; border:1px solid var(--line); border-radius:100px; cursor:pointer;
+  background:transparent; color:var(--muted); transition:all 0.2s;
+}
+.chip:hover{ border-color:var(--brass); color:var(--ivory); }
+.chip.active{ background:var(--brass); border-color:var(--brass); color:var(--ink); font-weight:600; }
+.chip:focus-visible{ outline:2px solid var(--brass-light); outline-offset:2px; }
+
+.results-note{ font-family:var(--mono); font-size:0.78rem; color:var(--muted); margin-bottom:20px; }
+
+/* ---------- Gallery grid ---------- */
+.gallery{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(270px,1fr)); gap:22px;
+}
+.card{
+  background:linear-gradient(160deg, var(--panel), var(--wall));
+  border:1px solid var(--line); border-radius:6px; padding:26px 24px 22px;
+  cursor:pointer; position:relative; overflow:hidden;
+  transition:transform 0.25s ease, border-color 0.25s, box-shadow 0.25s;
+}
+.card:hover, .card:focus-visible{
+  transform:translateY(-5px);
+  border-color:var(--brass);
+  box-shadow:0 18px 40px -18px rgba(0,0,0,0.6);
+  outline:none;
+}
+.card .plaque{
+  font-family:var(--mono); font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--brass); margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;
+}
+.card .icon-wrap{
+  width:64px; height:64px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:radial-gradient(circle at 35% 30%, rgba(201,162,75,0.22), rgba(201,162,75,0.02));
+  border:1px solid var(--line); margin-bottom:18px;
+  overflow:hidden;
+}
+.card .icon-wrap svg{ width:34px; height:34px; }
+.card .icon-wrap img{ width:100%; height:100%; object-fit:cover; }
+.card-photo{
+  width:calc(100% + 48px); margin:-26px -24px 18px; height:150px; overflow:hidden; position:relative;
+}
+.card-photo img{ width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(15%) contrast(1.05); }
+.card-photo::after{
+  content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 55%, rgba(20,22,29,0.55));
+}
+.photo-credit{
+  font-family:var(--mono); font-size:0.62rem; color:var(--muted); opacity:0.75;
+  margin-top:-14px; margin-bottom:14px; letter-spacing:0.02em;
+}
+.photo-credit a{ color:var(--muted); text-decoration:underline; }
+.legend-photo{
+  width:56px; height:56px; border-radius:50%; overflow:hidden; margin-bottom:14px;
+  border:1px solid var(--line);
+}
+.legend-photo img{ width:100%; height:100%; object-fit:cover; }
+.modal-photo{
+  width:calc(100% + 80px); margin:-44px -40px 24px; height:240px; overflow:hidden; position:relative;
+}
+.modal-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+.modal-photo::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 60%, rgba(26,30,41,0.85)); }
+@media (max-width:560px){ .modal-photo{ width:calc(100% + 44px); margin:-32px -22px 20px; } }
+.card h3{ font-family:var(--serif); font-size:1.28rem; font-weight:700; margin-bottom:8px; }
+.card .tagline{ color:var(--muted); font-size:0.9rem; margin-bottom:16px; min-height:2.7em; }
+.card .meta-row{
+  display:flex; gap:8px; flex-wrap:wrap; font-family:var(--mono); font-size:0.68rem;
+  text-transform:uppercase; letter-spacing:0.04em; color:var(--muted);
+}
+.tag{ border:1px solid var(--line); padding:4px 9px; border-radius:100px; }
+
+/* ---------- Modal ---------- */
+.modal-backdrop{
+  position:fixed; inset:0; background:rgba(10,11,15,0.78); backdrop-filter:blur(4px);
+  display:none; align-items:flex-start; justify-content:center; z-index:100; padding:48px 20px; overflow-y:auto;
+}
+.modal-backdrop.open{ display:flex; }
+.modal{
+  background:var(--wall); border:1px solid var(--line); border-radius:10px; max-width:720px; width:100%;
+  padding:44px 40px 40px; position:relative; margin-bottom:40px;
+  animation:rise 0.35s ease;
+}
+@keyframes rise{ from{opacity:0; transform:translateY(18px);} to{opacity:1; transform:translateY(0);} }
+.modal-close{
+  position:absolute; top:20px; right:20px; background:none; border:1px solid var(--line);
+  color:var(--muted); width:34px; height:34px; border-radius:50%; cursor:pointer; font-size:1.1rem;
+}
+.modal-close:hover{ color:var(--ivory); border-color:var(--brass); }
+.modal .eyebrow{ margin-bottom:10px; }
+.modal-icon{
+  width:72px; height:72px; border-radius:50%; margin-bottom:20px;
+  display:flex; align-items:center; justify-content:center;
+  background:radial-gradient(circle at 35% 30%, rgba(201,162,75,0.25), rgba(201,162,75,0.03));
+  border:1px solid var(--line);
+}
+.modal-icon svg{ width:38px; height:38px; }
+.modal h3{ font-family:var(--serif); font-size:2rem; font-weight:700; margin-bottom:6px; }
+.modal .modal-sub{ color:var(--brass-light); font-family:var(--mono); font-size:0.85rem; margin-bottom:26px; }
+.modal-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:26px; }
+.modal-field{ border-top:1px solid var(--line); padding-top:10px; }
+.modal-field .label{ font-family:var(--mono); font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:5px; }
+.modal-field .value{ font-size:0.95rem; }
+.modal-story h4{ font-family:var(--serif); font-size:1.1rem; margin-bottom:8px; color:var(--brass-light); }
+.modal-story p{ color:#d7d0c1; font-size:0.95rem; margin-bottom:14px; }
+.modal-source{ font-family:var(--mono); font-size:0.72rem; color:var(--muted); border-top:1px solid var(--line); padding-top:14px; margin-top:8px; }
+@media (max-width:560px){ .modal-grid{grid-template-columns:1fr;} .modal{padding:32px 22px;} }
+
+/* ---------- Timeline ---------- */
+.timeline-wrap{ position:relative; padding-bottom:10px; }
+.timeline-scroll{
+  display:flex; gap:0; overflow-x:auto; padding:20px 4px 30px; scroll-snap-type:x proximity;
+}
+.timeline-scroll::-webkit-scrollbar{ height:6px; }
+.timeline-scroll::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+.t-item{
+  flex:0 0 220px; scroll-snap-align:start; padding:0 20px; position:relative;
+  border-left:1px solid var(--line);
+}
+.t-item:first-child{ border-left:none; }
+.t-item::before{
+  content:""; position:absolute; top:38px; left:-5px; width:9px; height:9px; border-radius:50%;
+  background:var(--brass); box-shadow:0 0 0 4px rgba(201,162,75,0.15);
+}
+.t-year{ font-family:var(--serif); font-weight:900; font-size:2rem; color:var(--brass-light); margin-top:56px; }
+.t-name{ font-weight:600; margin-top:6px; }
+.t-desc{ color:var(--muted); font-size:0.85rem; margin-top:6px; }
+
+/* ---------- Legends ---------- */
+.legends-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; }
+.legend-card{
+  background:linear-gradient(160deg, var(--velvet), var(--wall));
+  border:1px solid var(--line); border-radius:6px; padding:26px;
+}
+.legend-card .role{ font-family:var(--mono); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--brass-light); margin-bottom:8px; }
+.legend-card h4{ font-family:var(--serif); font-size:1.25rem; margin-bottom:10px; }
+.legend-card p{ color:#e3dcce; font-size:0.9rem; }
+
+/* ---------- Quiz ---------- */
+.quiz-box{
+  background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:36px;
+}
+.quiz-progress{ font-family:var(--mono); font-size:0.75rem; color:var(--muted); margin-bottom:18px; }
+.quiz-q{ font-family:var(--serif); font-size:1.4rem; margin-bottom:24px; min-height:2.4em; }
+.quiz-options{ display:grid; gap:12px; }
+.qopt{
+  text-align:left; padding:14px 18px; background:transparent; border:1px solid var(--line); border-radius:5px;
+  color:var(--ivory); cursor:pointer; font-family:var(--sans); font-size:0.95rem; transition:all 0.2s;
+}
+.qopt:hover{ border-color:var(--brass); }
+.qopt.correct{ border-color:var(--football); background:rgba(92,143,107,0.15); }
+.qopt.wrong{ border-color:var(--velvet-light); background:rgba(122,44,63,0.25); }
+.qopt:disabled{ cursor:default; }
+.quiz-footer{ margin-top:26px; display:flex; justify-content:space-between; align-items:center; }
+.quiz-result{ text-align:center; }
+.quiz-result .score{ font-family:var(--serif); font-size:3rem; color:var(--brass-light); font-weight:700; }
+
+/* ---------- Footer ---------- */
+footer{
+  border-top:1px solid var(--line); padding:50px 32px 40px; text-align:center;
+  color:var(--muted); font-size:0.82rem;
+}
+footer a{ color:var(--brass-light); text-decoration:none; }
+footer a:hover{ text-decoration:underline; }
+.credit-list{ max-width:640px; margin:16px auto 0; font-family:var(--mono); font-size:0.72rem; line-height:2; }
+
+.visually-hidden{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="topnav">
+  <div class="brand"><span class="mark">&#9832;</span> Museum of Indian Sports Trophies</div>
+  <div class="navlinks">
+    <a href="#galleries">Galleries</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#legends">Legends</a>
+    <a href="#quiz">Quiz Zone</a>
+    <a href="#credits">Credits</a>
+  </div>
+</nav>
+
+<!-- ENTRANCE -->
+<header class="entrance" id="entrance">
+  <div class="ticket">Admission Free &middot; Est. Visiting Hours: Always Open</div>
+  <h1>Trophies that carry <em>India's</em> sporting memory</h1>
+  <p class="sub">Walk through the cups, shields and trophies that have shaped Indian cricket, football and hockey since the 1880s — who they're named for, who has lifted them, and the stories behind the silver.</p>
+  <div class="cta-row">
+    <a href="#galleries" class="btn btn-primary">Enter the Galleries</a>
+    <a href="#timeline" class="btn btn-ghost">View the Timeline</a>
+  </div>
+  <div class="wing-strip">
+    <div><strong>7</strong>Trophies on display</div>
+    <div><strong>3</strong>Sport wings</div>
+    <div><strong>1888</strong>Oldest exhibit</div>
+    <div><strong>130+</strong>Years of history</div>
+  </div>
+</header>
+
+<!-- GALLERIES -->
+<section id="galleries">
+  <div class="eyebrow">Sport Galleries</div>
+  <h2 class="section-title">Browse the trophy collection</h2>
+  <p class="section-desc">Search by name or story, or step into a gallery wing by sport. Select any exhibit to open its full display case.</p>
+
+  <div class="controls">
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input id="searchInput" type="text" placeholder="Search trophies, namesakes, champions..." aria-label="Search trophies">
+    </div>
+    <div class="filters" id="filterChips" role="group" aria-label="Filter by sport">
+      <button class="chip active" data-sport="all">All Sports</button>
+      <button class="chip" data-sport="Cricket">&#127951; Cricket</button>
+      <button class="chip" data-sport="Football">&#9917; Football</button>
+      <button class="chip" data-sport="Hockey">&#127954; Hockey</button>
+    </div>
+  </div>
+
+  <div class="results-note" id="resultsNote"></div>
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="eyebrow">Historical Timeline</div>
+  <h2 class="section-title">Founding years, in order</h2>
+  <p class="section-desc">From an army amusement in the Shimla hills to the pinnacle of state cricket — scroll through when each trophy entered India's sporting life.</p>
+  <div class="timeline-wrap">
+    <div class="timeline-scroll" id="timelineScroll"></div>
+  </div>
+</section>
+
+<!-- LEGENDS -->
+<section id="legends">
+  <div class="eyebrow">Legends Gallery</div>
+  <h2 class="section-title">The names behind the trophies, and on them</h2>
+  <p class="section-desc">Some trophies are named after their donors and patrons; others were made legendary by the champions who played for them.</p>
+  <div class="legends-grid" id="legendsGrid"></div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="eyebrow">Quiz Zone</div>
+  <h2 class="section-title">Test what you've learned</h2>
+  <p class="section-desc">Seven questions drawn straight from the exhibits above.</p>
+  <div class="quiz-box" id="quizBox"></div>
+</section>
+
+<section id="credits" style="padding-top:60px; padding-bottom:60px;">
+  <div class="eyebrow">Credits</div>
+  <h2 class="section-title" style="font-size:1.6rem;">Images &amp; External Assets</h2>
+  <p class="section-desc" style="margin-bottom:24px;">Photographs used in this museum are hosted on Wikimedia Commons and credited individually below, with a link to each file's page for full licensing details. Trophy icons without a listed photo credit are original SVG illustrations drawn for this museum.</p>
+  <div class="gallery" id="creditsGrid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px;"></div>
+</section>
+
+<footer>
+  <div>A fan-made virtual museum built for the Incredible India Explorer project.</div>
+  <div class="credit-list" id="creditList"></div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="modalContent" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close exhibit">&times;</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+/* ============ ICONS (original vector illustrations, no external images) ============ */
+const icons = {
+  Cricket: `<svg viewBox="0 0 48 48" fill="none" stroke="#c9a24b" stroke-width="2"><circle cx="18" cy="30" r="7" fill="rgba(201,162,75,0.15)"/><path d="M23 25 L38 10" stroke-linecap="round"/><path d="M38 10 L41 7 M38 10 L43 12" stroke-linecap="round"/><path d="M13 33 c-2 3 -2 5 0 7" stroke-linecap="round"/></svg>`,
+  Football: `<svg viewBox="0 0 48 48" fill="none" stroke="#5c8f6b" stroke-width="2"><circle cx="24" cy="24" r="15" fill="rgba(92,143,107,0.12)"/><path d="M24 14 L30 19 L28 26 L20 26 L18 19 Z" fill="rgba(92,143,107,0.35)"/><path d="M24 14 L24 9 M30 19 L35 16 M28 26 L31 31 M20 26 L17 31 M18 19 L13 16" stroke-linecap="round"/></svg>`,
+  Hockey: `<svg viewBox="0 0 48 48" fill="none" stroke="#7a92c9" stroke-width="2"><circle cx="34" cy="34" r="5" fill="rgba(122,146,201,0.25)"/><path d="M20 8 L14 34 c-1 4 2 6 5 4" stroke-linecap="round"/><path d="M20 8 L26 8" stroke-linecap="round"/></svg>`
+};
+const trophyIcon = `<svg viewBox="0 0 48 48" fill="none" stroke="#c9a24b" stroke-width="2"><path d="M14 8 H34 V16 c0 7 -4 11 -10 11 s-10 -4 -10 -11 Z" fill="rgba(201,162,75,0.12)"/><path d="M14 10 H8 c0 6 3 9 7 10 M34 10 h6 c0 6 -3 9 -7 10" stroke-linecap="round"/><path d="M24 27 V33 M18 40 H30 M18 40 c0 -4 2 -6 6 -6 s6 2 6 6" stroke-linecap="round"/></svg>`;
+
+/* ============ DATA ============ */
+const trophies = [
+  {
+    id:"ranji", name:"Ranji Trophy", sport:"Cricket", year:1934, region:"Pan-India (first match: Madras)",
+    image:"https://commons.wikimedia.org/wiki/Special:FilePath/Ranji_trophy.jpg",
+    imageCredit:"Ranji Trophy Championship Trophy — Wikimedia Commons",
+    imageSource:"https://commons.wikimedia.org/wiki/File:Ranji_trophy.jpg",
+    tagline:"India's premier first-class cricket championship, honouring the first Indian to play Test cricket.",
+    namesake:"Kumar Shri Ranjitsinhji Vibhaji ('Ranji'), prince of Nawanagar, who played 15 Tests for England (1896–1902) and was the first person of Indian origin to play international cricket.",
+    champion:"Mumbai (Bombay) — 42 titles, the most of any team.",
+    history:"Conceived at a BCCI meeting in July 1934 and originally called the 'Cricket Championship of India', the tournament was renamed for the 1935–36 season after Maharaja Bhupinder Singh of Patiala donated the trophy and suggested it honour Ranjitsinhji. The first-ever match was played on 4 November 1934 between Madras and Mysore.",
+    story:"Ranji himself never played a competitive match on Indian soil — he made his name entirely in English cricket — yet the tournament bearing his name became the bedrock of Indian domestic cricket, surviving the Second World War when almost no other first-class competition in the world did.",
+    sources:["Britannica","ESPNcricinfo","Wikipedia"]
+  },
+  {
+    id:"durand", name:"Durand Cup", sport:"Football", year:1888, region:"Shimla (founded); now multi-city incl. Kolkata",
+    tagline:"Asia's oldest football tournament and the third oldest in the world, born as an army pastime in the hills.",
+    namesake:"Sir Henry Mortimer Durand, Foreign Secretary of British India from 1884–1894, also the namesake of the Durand Line border.",
+    champion:"Mohammedan Sporting became the first Indian civilian team to win, in 1940.",
+    history:"First played at Annandale, Shimla in 1888 as a competition strictly for British Indian Army regiments. Indian civilian clubs were only admitted after the tournament reopened following the First World War, and the cup itself was famously misplaced after Partition in 1947 before being recovered from the office of Commander-in-Chief Sir Claude Auchinleck.",
+    story:"At 16, Bhaichung Bhutia announced himself with a bicycle-kick goal in the 1993 Durand Cup — the start of an 18-year international career. A young Sunil Chhetri earned his break here too, scoring for City Club, Delhi in 2002.",
+    sources:["Olympics.com","The Bridge","durandcup.in"]
+  },
+  {
+    id:"santosh", name:"Santosh Trophy", sport:"Football", year:1941, region:"Bengal (founded); contested by all Indian states",
+    tagline:"The national inter-state football championship, India's answer to a Ranji Trophy for football.",
+    namesake:"Sir Manmatha Nath Roy Chowdhury, Maharaja of Santosh (now in Bangladesh), a founding figure of East Bengal FC and long-serving president of the Indian Football Association.",
+    champion:"West Bengal (Bengal) — the most successful side, with over 30 titles including six in a row from 1993–1999.",
+    history:"Started in 1941–42 by the Indian Football Association to give India a proper state-level national championship, alongside older club tournaments like the Durand and Rovers Cups. Bengal won the very first edition, defeating Delhi 5–1 in the final.",
+    story:"The runner-up trophy, the Kamala Gupta Trophy, is named after the wife of a former IFA president; the third-place Sampangi Cup honours a footballer from the Mysore region — a reminder that Indian sport often names its silverware after the people who built it, not just those who won it.",
+    sources:["Olympics.com","Wikipedia","Sportskeeda"]
+  },
+  {
+    id:"beighton", name:"Beighton Cup", sport:"Hockey", year:1895, region:"Kolkata",
+    tagline:"The oldest hockey tournament in India, and one of the oldest running hockey competitions on earth.",
+    namesake:"Judge Thomas Durant Beighton, Legal Remembrancer to the Government of Bengal during British rule, who donated the cup.",
+    champion:"Mohun Bagan — 14 titles, the most in the tournament's history.",
+    history:"Instituted in 1895 and organised by the Indian Football Association until the Calcutta Hockey League took over. It has run through both World Wars, pausing only for Partition in 1947, stadium renovation in 2017, and the COVID-19 years.",
+    story:"In his autobiography 'Goal', Major Dhyan Chand called the 1933 Beighton Cup final between Calcutta Customs and Jhansi Heroes the best match he ever played — high praise from the man many consider hockey's greatest ever player.",
+    sources:["Olympics.com","Wikipedia","NE India Broadcast"]
+  },
+  {
+    id:"irani", name:"Irani Cup", sport:"Cricket", year:1959, region:"Rotates with the reigning Ranji champion's home ground",
+    tagline:"A single high-stakes match that opens each domestic cricket season, champion versus the rest of the country.",
+    namesake:"Zal R. Irani, a long-serving BCCI president and treasurer.",
+    champion:"Rest of India — 26 wins, ahead of any individual Ranji Trophy side.",
+    history:"Devised by the BCCI to mark the Ranji Trophy's 25th anniversary in the 1959–60 season, pitting the previous season's Ranji champions against a composite 'Rest of India' XI. It was meant as a one-off but proved popular enough to become an annual fixture.",
+    story:"Because a standout Irani Cup performance was long seen as a near-guarantee of Indian selection, players have treated a single innings here as a career-defining audition in front of the national selectors.",
+    sources:["OneCricket","Wikipedia"]
+  },
+  {
+    id:"duleep", name:"Duleep Trophy", sport:"Cricket", year:1961, region:"Zonal — North, South, East, West, Central India",
+    tagline:"A zonal proving ground that pools the country's best domestic talent into five combined teams.",
+    namesake:"Kumar Shri Duleepsinhji, nephew of Ranjitsinhji, who also played Test cricket for England.",
+    champion:"West Zone — 19 titles, the most of any zone.",
+    history:"Inaugurated in 1961–62 as a knockout competition between India's cricketing zones, giving national selectors a stage where the strongest state players combined into higher-quality representative sides. It moved to a league format from the 1993–94 season.",
+    story:"Because it merges players from several states into one zone, the Duleep Trophy has often been the step just below the India cap — a place where a domestic star had to prove they belonged among peers, not just above weaker opposition.",
+    sources:["Wikipedia","Mystery Cricket"]
+  },
+  {
+    id:"rovers", name:"Rovers Cup", sport:"Football", year:1891, region:"Bombay (Mumbai)",
+    tagline:"The tournament where an all-Indian, barefoot team from Bangalore first beat the British at their own game.",
+    namesake:"Organised by British football enthusiasts in Bombay and run by the Western India Football Association from 1911 onward.",
+    champion:"Mohun Bagan — 14 titles, the most successful club in the competition's history.",
+    history:"Incorporated in 1891 as a pastime for British teams in Bombay, the Rovers Cup opened to Indian civilian clubs in 1923. It ran for 104 editions before folding after the 2000–01 final, won by Mohun Bagan over Churchill Brothers.",
+    story:"In 1937, Bangalore Muslims became the first Indian club to lift the Rovers Cup, beating Mohammedan Sporting in front of 20,000 fans at Bombay's Cooperage ground. Playing barefoot against booted British regiments, the team perfected a tight, dribbling style of short passes — later remembered as the 'Bangalore school of football'.",
+    sources:["The Quint","Wikipedia","Grokipedia"]
+  }
+];
+
+const legends = [
+  {role:"Namesake — Cricket", name:"K. S. Ranjitsinhji", text:"Prince of Nawanagar and the first Indian-origin cricketer to play Test cricket, for England between 1896 and 1902. The Ranji Trophy carries his name into every Indian dressing room.",
+    image:"https://commons.wikimedia.org/wiki/Special:FilePath/Ranjitsinhji_c1908.jpg",
+    imageCredit:"Ranjitsinhji, c. 1908 — Wikimedia Commons",
+    imageSource:"https://commons.wikimedia.org/wiki/File:Ranjitsinhji_c1908.jpg"},
+  {role:"Namesake — Cricket", name:"Kumar Shri Duleepsinhji", text:"Ranjitsinhji's nephew, who also played Test cricket for England. The Duleep Trophy has tested India's best zonal cricketers in his name since 1961."},
+  {role:"Champion — Hockey", name:"Major Dhyan Chand", text:"Widely regarded as hockey's greatest-ever player, he called his 1933 Beighton Cup final for Jhansi Heroes the best match of his career, in his own autobiography.",
+    image:"https://commons.wikimedia.org/wiki/Special:FilePath/Dhyan_Chand_closeup.jpg",
+    imageCredit:"Dhyan Chand — Wikimedia Commons",
+    imageSource:"https://commons.wikimedia.org/wiki/File:Dhyan_Chand_closeup.jpg"},
+  {role:"Breakthrough — Football", name:"Bangalore Muslims FC", text:"In 1937, this barefoot Bangalore club became the first Indian side to win the Rovers Cup, pioneering a close-passing style still remembered as the 'Bangalore school of football'."},
+  {role:"Debut — Football", name:"Bhaichung Bhutia", text:"Announced himself at just 16 with a bicycle-kick goal in the 1993 Durand Cup, launching an 18-year career as one of Indian football's most recognisable faces.",
+    image:"https://commons.wikimedia.org/wiki/Special:FilePath/Bhaichung_Bhutia_72.jpg",
+    imageCredit:"Bhaichung Bhutia — Wikimedia Commons",
+    imageSource:"https://commons.wikimedia.org/wiki/File:Bhaichung_Bhutia_72.jpg"},
+  {role:"Patron — Football", name:"Maharaja Manmatha Nath Roy Chowdhury", text:"A founding figure of East Bengal FC and long-time IFA president, whose name was given to the Santosh Trophy after his death in 1939."},
+  {role:"Namesake — Football", name:"Sir Henry Mortimer Durand", text:"Foreign Secretary of British India from 1884–1894. The Durand Cup he founded in 1888 in the Shimla hills is now Asia's oldest football tournament.",
+    image:"https://commons.wikimedia.org/wiki/Special:FilePath/Henry_Mortimer_Durand,_1903.jpg",
+    imageCredit:"Sir Henry Mortimer Durand, 1903 — Wikimedia Commons (public domain, published in The Tacoma Times)",
+    imageSource:"https://commons.wikimedia.org/wiki/File:Henry_Mortimer_Durand,_1903.jpg"}
+];
+
+const quizQuestions = [
+  {q:"The Ranji Trophy is named after which cricketer?", options:["Kumar Shri Duleepsinhji","K. S. Ranjitsinhji","Zal R. Irani","C. K. Nayudu"], correct:1},
+  {q:"Which is Asia's oldest football tournament, founded in Shimla in 1888?", options:["Santosh Trophy","Rovers Cup","Durand Cup","IFA Shield"], correct:2},
+  {q:"The Beighton Cup, India's oldest hockey tournament, was named after whom?", options:["Dhyan Chand","Judge Thomas Durant Beighton","Aga Khan III","Leslie Claudius"], correct:1},
+  {q:"Which team is the most successful in Ranji Trophy history?", options:["Karnataka","Delhi","Mumbai (Bombay)","Tamil Nadu"], correct:2},
+  {q:"The Irani Cup was created to mark 25 years of which tournament?", options:["Duleep Trophy","Ranji Trophy","Durand Cup","Beighton Cup"], correct:1},
+  {q:"In 1937, which club became the first Indian side to win the Rovers Cup?", options:["Mohun Bagan","Mohammedan Sporting","Bangalore Muslims FC","East Bengal FC"], correct:2},
+  {q:"The Santosh Trophy is named after the Maharaja of which former princely state?", options:["Patiala","Santosh","Nawanagar","Cooch Behar"], correct:1}
+];
+
+/* ============ RENDER GALLERY ============ */
+const galleryEl = document.getElementById('gallery');
+const resultsNote = document.getElementById('resultsNote');
+let activeSport = 'all';
+let searchTerm = '';
+
+function renderGallery(){
+  const filtered = trophies.filter(t=>{
+    const sportMatch = activeSport === 'all' || t.sport === activeSport;
+    const haystack = (t.name+' '+t.namesake+' '+t.tagline+' '+t.champion+' '+t.story).toLowerCase();
+    const searchMatch = haystack.includes(searchTerm.toLowerCase());
+    return sportMatch && searchMatch;
+  });
+  resultsNote.textContent = filtered.length + (filtered.length===1 ? ' exhibit on display' : ' exhibits on display');
+  galleryEl.innerHTML = filtered.map(t=>`
+    <article class="card" tabindex="0" role="button" data-id="${t.id}" aria-label="Open exhibit: ${t.name}">
+      ${t.image ? `<div class="card-photo"><img src="${t.image}" alt="${t.name} on display" loading="lazy"></div>` : ''}
+      <div class="plaque"><span>${t.sport}</span><span>${t.year}</span></div>
+      ${t.image ? '' : `<div class="icon-wrap">${icons[t.sport]}</div>`}
+      <h3>${t.name}</h3>
+      <p class="tagline">${t.tagline}</p>
+      <div class="meta-row">
+        <span class="tag">${t.region.split('(')[0].trim()}</span>
+      </div>
+    </article>
+  `).join('') || `<p style="color:var(--muted)">No exhibits match your search. Try a different term or sport.</p>`;
+
+  galleryEl.querySelectorAll('.card').forEach(card=>{
+    card.addEventListener('click', ()=>openModal(card.dataset.id));
+    card.addEventListener('keydown', e=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); openModal(card.dataset.id);} });
+  });
+}
+
+document.getElementById('searchInput').addEventListener('input', e=>{
+  searchTerm = e.target.value; renderGallery();
+});
+document.getElementById('filterChips').addEventListener('click', e=>{
+  const btn = e.target.closest('.chip');
+  if(!btn) return;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  activeSport = btn.dataset.sport;
+  renderGallery();
+});
+
+/* ============ MODAL ============ */
+const backdrop = document.getElementById('modalBackdrop');
+const modalBody = document.getElementById('modalBody');
+let lastFocused = null;
+
+function openModal(id){
+  const t = trophies.find(x=>x.id===id);
+  if(!t) return;
+  lastFocused = document.activeElement;
+  modalBody.innerHTML = `
+    ${t.image ? `<div class="modal-photo"><img src="${t.image}" alt="${t.name}"></div>` : ''}
+    <div class="eyebrow">${t.sport} Wing &middot; Founded ${t.year}</div>
+    ${t.image ? '' : `<div class="modal-icon">${icons[t.sport]}</div>`}
+    <h3 id="modalTitle">${t.name}</h3>
+    <div class="modal-sub">${t.region}</div>
+    ${t.image ? `<div class="photo-credit">Photo: <a href="${t.imageSource}" target="_blank" rel="noopener">${t.imageCredit}</a></div>` : ''}
+    <div class="modal-grid">
+      <div class="modal-field"><div class="label">Namesake</div><div class="value">${t.namesake}</div></div>
+      <div class="modal-field"><div class="label">Champions</div><div class="value">${t.champion}</div></div>
+    </div>
+    <div class="modal-story">
+      <h4>History</h4>
+      <p>${t.history}</p>
+      <h4>A Story Worth Knowing</h4>
+      <p>${t.story}</p>
+    </div>
+    <div class="modal-source">Sources: ${t.sources.join(', ')} &middot; ${t.image ? 'Exhibit photo credited above' : 'Icon: original museum artwork'}</div>
+  `;
+  backdrop.classList.add('open');
+  document.getElementById('modalClose').focus();
+  document.addEventListener('keydown', escClose);
+}
+function closeModal(){
+  backdrop.classList.remove('open');
+  document.removeEventListener('keydown', escClose);
+  if(lastFocused) lastFocused.focus();
+}
+function escClose(e){ if(e.key==='Escape') closeModal(); }
+document.getElementById('modalClose').addEventListener('click', closeModal);
+backdrop.addEventListener('click', e=>{ if(e.target===backdrop) closeModal(); });
+
+/* ============ TIMELINE ============ */
+const timelineEl = document.getElementById('timelineScroll');
+const sorted = [...trophies].sort((a,b)=>a.year-b.year);
+timelineEl.innerHTML = sorted.map(t=>`
+  <div class="t-item">
+    <div class="t-year">${t.year}</div>
+    <div class="t-name">${t.name}</div>
+    <div class="t-desc">${t.sport} &middot; ${t.tagline.split('.')[0]}.</div>
+  </div>
+`).join('');
+
+/* ============ LEGENDS ============ */
+document.getElementById('legendsGrid').innerHTML = legends.map(l=>`
+  <div class="legend-card">
+    ${l.image ? `<div class="legend-photo"><img src="${l.image}" alt="${l.name}" loading="lazy"></div>` : ''}
+    <div class="role">${l.role}</div>
+    <h4>${l.name}</h4>
+    <p>${l.text}</p>
+    ${l.image ? `<div class="photo-credit">Photo: <a href="${l.imageSource}" target="_blank" rel="noopener">${l.imageCredit}</a></div>` : ''}
+  </div>
+`).join('');
+
+/* ============ QUIZ ============ */
+const quizBox = document.getElementById('quizBox');
+let qIndex = 0, score = 0, answered = false;
+
+function renderQuiz(){
+  if(qIndex >= quizQuestions.length){
+    quizBox.innerHTML = `
+      <div class="quiz-result">
+        <div class="quiz-progress">Quiz complete</div>
+        <div class="score">${score} / ${quizQuestions.length}</div>
+        <p style="color:var(--muted); margin-top:10px;">${score===quizQuestions.length ? 'A perfect visit — you know your trophies.' : 'Revisit the galleries above and try again any time.'}</p>
+        <button class="btn btn-primary" style="margin-top:24px;" id="retryQuiz">Restart Quiz</button>
+      </div>`;
+    document.getElementById('retryQuiz').addEventListener('click', ()=>{ qIndex=0; score=0; renderQuiz(); });
+    return;
+  }
+  const item = quizQuestions[qIndex];
+  answered = false;
+  quizBox.innerHTML = `
+    <div class="quiz-progress">Question ${qIndex+1} of ${quizQuestions.length} &middot; Score: ${score}</div>
+    <div class="quiz-q">${item.q}</div>
+    <div class="quiz-options">
+      ${item.options.map((opt,i)=>`<button class="qopt" data-i="${i}">${opt}</button>`).join('')}
+    </div>
+    <div class="quiz-footer">
+      <span></span>
+      <button class="btn btn-ghost" id="nextQ" style="display:none;">Next Question &rarr;</button>
+    </div>
+  `;
+  quizBox.querySelectorAll('.qopt').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      if(answered) return;
+      answered = true;
+      const i = Number(btn.dataset.i);
+      quizBox.querySelectorAll('.qopt').forEach((b,bi)=>{
+        b.disabled = true;
+        if(bi === item.correct) b.classList.add('correct');
+        else if(bi === i) b.classList.add('wrong');
+      });
+      if(i === item.correct) score++;
+      document.getElementById('nextQ').style.display = 'inline-block';
+    });
+  });
+  document.getElementById('nextQ').addEventListener('click', ()=>{ qIndex++; renderQuiz(); });
+}
+
+/* ============ IMAGE & ASSET CREDITS ============ */
+const allImageCredits = [
+  ...trophies.filter(t=>t.image).map(t=>({title:t.name+' — exhibit photo', credit:t.imageCredit, source:t.imageSource})),
+  ...legends.filter(l=>l.image).map(l=>({title:l.name+' — portrait', credit:l.imageCredit, source:l.imageSource}))
+];
+document.getElementById('creditsGrid').innerHTML = allImageCredits.map(c=>`
+  <div class="card" style="cursor:default;">
+    <div class="plaque"><span>Photograph</span></div>
+    <h3 style="font-size:1rem; margin-bottom:6px;">${c.title}</h3>
+    <p class="tagline" style="min-height:auto; margin-bottom:10px;">${c.credit}</p>
+    <a href="${c.source}" target="_blank" rel="noopener" style="font-family:var(--mono); font-size:0.72rem; color:var(--brass-light);">View source on Wikimedia Commons &rarr;</a>
+  </div>
+`).join('');
+
+/* ============ FOOTER CREDITS ============ */
+document.getElementById('creditList').innerHTML =
+  'Historical facts sourced from Wikipedia, Britannica, ESPNcricinfo, Olympics.com, and cited news archives &middot; ' +
+  'Photographs are hosted on Wikimedia Commons and credited individually above &middot; ' +
+  'Remaining sport icons are original SVG artwork created for this museum, not photographs, and carry no external copyright.';
+
+/* ============ INIT ============ */
+renderGallery();
+renderQuiz();
+</script>
+</body>
+</html>

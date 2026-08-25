@@ -1,0 +1,587 @@
+/* ==========================================================================
+   ANJUNA BEACH PROFILE - STYLESHEET
+   Design System: Goan Hippie & Rocky Coast Theme with Glassmorphism
+   Supports Light & Dark Modes via root variables & data-theme/light-theme
+   ========================================================================== */
+
+:root {
+    --primary-color: #ea580c;        /* Goan Sunset Orange */
+    --primary-dark: #c2410c;
+    --accent-color: #f97316;         /* Bright Saffron */
+    --gold-accent: #f59e0b;          /* Golden Sand */
+    --gold-glow: rgba(245, 158, 11, 0.2);
+    --sea-teal: #0d9488;             /* Arabian Sea Teal */
+    --hero-bg: linear-gradient(135deg, #ffedd5 0%, #fed7aa 50%, #ccfbf1 100%);
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+    --text-color: #334155;
+    --heading-color: #0f172a;
+    --subtext-color: #64748b;
+    --badge-bg: #ffedd5;
+    --badge-text: #9a3412;
+    --badge-goa-bg: #ccfbf1;
+    --badge-goa-text: #0f766e;
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 20px 25px -5px rgba(234, 88, 12, 0.12);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.4);
+}
+
+/* Dark Theme Overrides */
+body:not(.light-theme),
+[data-theme="dark"] body {
+    --primary-color: #fb923c;
+    --primary-dark: #fdba74;
+    --accent-color: #f97316;
+    --gold-accent: #fbbf24;
+    --gold-glow: rgba(251, 191, 36, 0.25);
+    --sea-teal: #2dd4bf;
+    --hero-bg: linear-gradient(135deg, #431407 0%, #7c2d12 60%, #042f2e 100%);
+    --card-bg: #0f172a;
+    --card-border: #1e293b;
+    --text-color: #cbd5e1;
+    --heading-color: #f8fafc;
+    --subtext-color: #94a3b8;
+    --badge-bg: #7c2d12;
+    --badge-text: #fed7aa;
+    --badge-goa-bg: #134e4a;
+    --badge-goa-text: #99f6e4;
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 20px 25px -5px rgba(251, 146, 60, 0.15);
+    --glass-bg: rgba(15, 23, 42, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Page Layout */
+.anjuna-page {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: var(--text-color);
+    background-color: var(--card-bg);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Typography Helpers */
+.text-center { text-align: center; }
+.section-title {
+    color: var(--heading-color);
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.title-underline {
+    height: 4px;
+    width: 80px;
+    background: linear-gradient(90deg, var(--primary-color), var(--gold-accent));
+    margin: 0.5rem auto 2.5rem;
+    border-radius: 2px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: var(--hero-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 3.5rem 2rem;
+    text-align: center;
+    margin-bottom: 3.5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(10px);
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.badge-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: var(--shadow-sm);
+}
+
+.badge-goa { background: var(--badge-goa-bg); color: var(--badge-goa-text); }
+.badge-hippie { background: var(--badge-bg); color: var(--badge-text); }
+.badge-gold { background: #fef3c7; color: #b45309; }
+body:not(.light-theme) .badge-gold { background: #78350f; color: #fde68a; }
+
+.hero-content h1 {
+    font-size: 3.6rem;
+    color: var(--primary-color);
+    margin: 0 0 0.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    color: var(--heading-color);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.hero-desc {
+    max-width: 850px;
+    margin: 0 auto 2rem;
+    font-size: 1.15rem;
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+/* Quick Info Ribbon */
+.hero-stats-ribbon {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 2rem auto 0;
+    padding: 1.2rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--subtext-color);
+    font-weight: 600;
+}
+
+.stat-val {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-top: 0.2rem;
+}
+
+/* Content Grid Layout */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.info-section h2 {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.info-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list li {
+    position: relative;
+    padding-left: 1.8rem;
+    margin-bottom: 1.2rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.feature-list li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--gold-accent);
+    font-size: 1.1rem;
+}
+
+/* Geo Table */
+.geo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.geo-table th, .geo-table td {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.geo-table th {
+    color: var(--heading-color);
+    font-weight: 600;
+    width: 30%;
+    background: var(--badge-bg);
+    border-radius: 6px;
+}
+
+/* Interactive Anjuna Hub */
+.hub-section {
+    margin-bottom: 4rem;
+}
+
+.hub-container {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.hub-tabs {
+    display: flex;
+    background: var(--hero-bg);
+    border-bottom: 1px solid var(--card-border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+.hub-tab-btn {
+    flex: 1;
+    min-width: 150px;
+    padding: 1.2rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--subtext-color);
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.hub-tab-btn:hover, .hub-tab-btn:focus {
+    color: var(--primary-color);
+    background: rgba(234, 88, 12, 0.05);
+    outline: none;
+}
+
+.hub-tab-btn.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+    background: var(--card-bg);
+}
+
+.hub-content {
+    padding: 2.2rem;
+}
+
+.hub-panel {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.hub-panel.active {
+    display: block;
+}
+
+/* Map Section */
+.map-section {
+    margin-bottom: 4rem;
+}
+
+.map-intro {
+    text-align: center;
+    color: var(--subtext-color);
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+}
+
+.anjuna-map {
+    height: 420px;
+    border-radius: 16px;
+    border: 1px solid var(--card-border);
+    box-shadow: var(--shadow-md);
+    z-index: 1;
+}
+
+.map-note {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--subtext-color);
+    margin-top: 0.8rem;
+}
+
+.map-note a {
+    color: var(--primary-color);
+}
+
+/* Interactive Image Gallery */
+.gallery-section {
+    margin-bottom: 4rem;
+}
+
+.gallery-filters {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--subtext-color);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn:focus {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-card-item {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 240px;
+    margin: 0;
+}
+
+.gallery-card-item:hover, .gallery-card-item:focus-within {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+}
+
+.gallery-card-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-card-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-caption-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(15, 23, 42, 0.85));
+    color: #ffffff;
+    padding: 1.2rem 1rem 0.8rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-card-item:hover .gallery-caption-overlay,
+.gallery-card-item:focus-within .gallery-caption-overlay {
+    transform: translateY(0);
+}
+
+.gallery-caption-overlay h4 {
+    margin: 0 0 0.3rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.gallery-caption-overlay p {
+    margin: 0;
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.gallery-attribution {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--subtext-color);
+    margin-top: 1.5rem;
+}
+
+.gallery-attribution a {
+    color: var(--primary-color);
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(8px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.lightbox-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+.lightbox-content {
+    max-width: 900px;
+    width: 100%;
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-content img {
+    width: 100%;
+    max-height: 60vh;
+    object-fit: cover;
+    display: block;
+}
+
+.lightbox-details {
+    padding: 1.5rem;
+}
+
+.lightbox-details h3 {
+    margin: 0 0 0.5rem;
+    color: var(--heading-color);
+    font-size: 1.4rem;
+}
+
+.lightbox-details p {
+    margin: 0;
+    color: var(--text-color);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s;
+    z-index: 10;
+}
+
+.lightbox-close:hover { background: var(--primary-color); }
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.5rem; }
+    .subtitle { font-size: 1.15rem; }
+    .hero-stats-ribbon { grid-template-columns: 1fr 1fr; }
+    .hub-tabs { flex-direction: column; }
+    .hub-tab-btn { min-width: 100%; text-align: left; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .anjuna-map { height: 320px; }
+}

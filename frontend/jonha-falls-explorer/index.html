@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonha Falls — The Gunga River Valley Cascade | Incredible India Explorer</title>
+<meta name="description" content="An interactive guide to Jonha Falls (Gautamdhara Falls), Jharkhand — its hanging-valley geology, the Gunga–Raru river system, the 722-step descent, seasonal moods and nearby attractions of the Ranchi plateau.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,680;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+<style>
+:root{
+  --ink:#0f1e19;
+  --ink-soft:#16281f;
+  --laterite:#b0502e;
+  --laterite-bright:#d1702f;
+  --forest:#3c6a4c;
+  --forest-deep:#264a34;
+  --river:#2c7a78;
+  --river-bright:#3fa19a;
+  --stone:#eee6d3;
+  --stone-dim:#e2d7bd;
+  --mist:#f8f4e9;
+  --ink-70: rgba(15,30,25,.7);
+  --ink-45: rgba(15,30,25,.45);
+  --shadow: 0 20px 50px rgba(15,30,25,.25);
+  --radius: 3px;
+  --disp: "Fraunces", serif;
+  --body: "Work Sans", sans-serif;
+  --mono: "JetBrains Mono", monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family: var(--body);
+  background: var(--mist);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+@media(max-width:640px){.wrap{padding:0 20px;}}
+
+h1,h2,h3,h4{font-family:var(--disp); font-weight:680; margin:0; letter-spacing:-.01em;}
+.eyebrow{
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--laterite-bright); font-weight:600; display:flex; align-items:center; gap:10px;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--laterite-bright);display:inline-block;}
+.lede{font-size:1.08rem; line-height:1.7; color:var(--ink-70); max-width:60ch;}
+
+/* focus visibility */
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{
+  outline:2px solid var(--laterite-bright); outline-offset:3px;
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:.001ms !important; transition-duration:.001ms !important;}
+}
+
+/* ---------- NAV ---------- */
+.site-nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(15,30,25,.92); backdrop-filter: blur(8px);
+  border-bottom:1px solid rgba(238,230,211,.12);
+}
+.site-nav .wrap{display:flex; align-items:center; justify-content:space-between; padding-top:14px; padding-bottom:14px;}
+.brand{color:var(--stone); font-family:var(--disp); font-size:1.05rem; font-weight:680; text-decoration:none;}
+.brand span{color:var(--laterite-bright);}
+.nav-links{display:flex; gap:26px; list-style:none; margin:0; padding:0;}
+.nav-links a{color:var(--stone-dim); text-decoration:none; font-size:.86rem; font-weight:500; letter-spacing:.02em;}
+.nav-links a:hover{color:var(--laterite-bright);}
+.nav-toggle{display:none;}
+@media(max-width:820px){
+  .nav-links{position:absolute; top:100%; left:0; right:0; background:var(--ink); flex-direction:column; padding:14px 20px 22px; gap:14px; display:none; border-bottom:1px solid rgba(238,230,211,.12);}
+  .nav-links.open{display:flex;}
+  .nav-toggle{display:block; background:none; border:1px solid rgba(238,230,211,.3); color:var(--stone); border-radius:var(--radius); padding:6px 10px; font-family:var(--mono); font-size:.75rem;}
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative; min-height:92vh; display:flex; align-items:flex-end;
+  background: linear-gradient(180deg, rgba(10,20,17,.15) 0%, rgba(10,18,15,.35) 45%, rgba(9,16,13,.92) 100%),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Evening%20at%20Jonha%20Falls.jpg?width=1600") center 32%/cover no-repeat;
+  color: var(--mist);
+}
+.hero-inner{width:100%; padding-bottom:64px;}
+.hero .eyebrow{color:var(--laterite-bright);}
+.hero h1{
+  font-size:clamp(2.6rem, 6.4vw, 5.4rem);
+  line-height:.98; margin-top:16px; max-width:14ch;
+  text-wrap:balance;
+}
+.hero h1 em{font-style:italic; font-weight:500; color:var(--river-bright);}
+.hero-sub{margin-top:20px; font-size:1.12rem; max-width:52ch; color:rgba(248,244,233,.86); line-height:1.6;}
+.hero-facts{
+  margin-top:44px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0;
+  border-top:1px solid rgba(248,244,233,.25);
+}
+.hero-fact{padding:18px 22px 0; border-left:1px solid rgba(248,244,233,.25);}
+.hero-fact:first-child{border-left:none; padding-left:0;}
+.hero-fact .num{font-family:var(--mono); font-size:1.5rem; font-weight:600; color:var(--stone);}
+.hero-fact .lbl{font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:rgba(248,244,233,.6); margin-top:4px;}
+@media(max-width:820px){
+  .hero-facts{grid-template-columns:repeat(2,1fr); row-gap:22px;}
+  .hero-fact:nth-child(3){border-left:none;}
+}
+
+/* ---------- SECTION shell ---------- */
+section{padding:96px 0;}
+@media(max-width:640px){section{padding:64px 0;}}
+.section-head{max-width:640px; margin-bottom:48px;}
+.section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem); margin-top:14px;}
+.dark{background:var(--ink); color:var(--stone);}
+.dark .lede{color:rgba(238,230,211,.72);}
+.forest-bg{background:var(--forest-deep); color:var(--stone);}
+.forest-bg .lede{color:rgba(238,230,211,.78);}
+
+/* ---------- LOCATION / GEOLOGY ---------- */
+.split{display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:start;}
+@media(max-width:900px){.split{grid-template-columns:1fr; gap:36px;}}
+.fact-list{list-style:none; margin:32px 0 0; padding:0; display:grid; gap:0;}
+.fact-list li{
+  display:grid; grid-template-columns:150px 1fr; gap:18px; padding:16px 0;
+  border-top:1px solid rgba(15,30,25,.12); font-size:.98rem;
+}
+.fact-list li:last-child{border-bottom:1px solid rgba(15,30,25,.12);}
+.fact-list b{font-family:var(--mono); font-size:.74rem; letter-spacing:.06em; text-transform:uppercase; color:var(--laterite); font-weight:600;}
+.map-figure{border:1px solid rgba(15,30,25,.15); background:var(--stone); padding:10px;}
+.map-figure img{border-radius:1px;}
+.figcap{font-family:var(--mono); font-size:.72rem; color:var(--ink-45); padding-top:10px; line-height:1.5;}
+
+/* geology diagram */
+.geo-diagram{margin-top:36px; background:var(--stone); border:1px solid rgba(15,30,25,.15); padding:22px;}
+.geo-diagram svg{width:100%; height:auto; display:block;}
+
+/* ---------- JOURNEY ---------- */
+.journey-tabs{display:flex; gap:2px; flex-wrap:wrap; margin-bottom:0; border-bottom:1px solid rgba(238,230,211,.2);}
+.journey-tab{
+  flex:1 1 140px; background:none; border:none; cursor:pointer; text-align:left; padding:18px 18px 20px;
+  color:rgba(238,230,211,.5); font-family:var(--body); border-bottom:2px solid transparent; transition:.2s;
+}
+.journey-tab .jt-num{font-family:var(--mono); font-size:.72rem; display:block; margin-bottom:8px; color:var(--river-bright);}
+.journey-tab .jt-name{font-family:var(--disp); font-size:1.15rem; font-weight:560; color:inherit;}
+.journey-tab[aria-selected="true"]{color:var(--stone); border-bottom-color:var(--laterite-bright);}
+.journey-tab:hover{color:var(--stone);}
+.journey-panels{position:relative; margin-top:44px;}
+.journey-panel{display:none; grid-template-columns:1fr 1fr; gap:48px; align-items:center;}
+.journey-panel.active{display:grid;}
+@media(max-width:860px){.journey-panel.active{grid-template-columns:1fr;} }
+.journey-panel figure{margin:0; border:1px solid rgba(238,230,211,.18);}
+.journey-panel .jp-label{font-family:var(--mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--laterite-bright);}
+.journey-panel h3{font-size:1.9rem; margin-top:10px; color:var(--stone);}
+.journey-panel p{color:rgba(238,230,211,.78); line-height:1.7; margin-top:14px; font-size:1rem;}
+.journey-progress{display:flex; gap:6px; margin-top:32px;}
+.journey-progress span{height:3px; flex:1; background:rgba(238,230,211,.18);}
+.journey-progress span.on{background:var(--laterite-bright);}
+
+/* ---------- HEIGHT VIZ ---------- */
+.height-viz{margin-top:40px;}
+.height-bars{display:flex; align-items:flex-end; gap:22px; height:280px; padding:0 4px 0; border-bottom:1px solid rgba(15,30,25,.2);}
+.hbar-col{flex:1; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; height:100%;}
+.hbar{
+  width:100%; max-width:64px; border-radius:2px 2px 0 0; position:relative;
+  transition: height 1s cubic-bezier(.2,.8,.2,1);
+  height:0;
+}
+.hbar.self{background:linear-gradient(180deg,var(--river-bright),var(--river));}
+.hbar.ref{background:var(--ink-45);}
+.hbar-val{font-family:var(--mono); font-size:.76rem; font-weight:600; margin-bottom:8px; color:var(--ink);}
+.hbar-lbl{font-family:var(--body); font-size:.76rem; margin-top:10px; text-align:center; color:var(--ink-70); line-height:1.3;}
+
+/* ---------- SEASONAL ---------- */
+.season-toggle{display:inline-flex; border:1px solid rgba(15,30,25,.2); margin-top:8px;}
+.season-toggle button{
+  padding:10px 22px; background:none; border:none; cursor:pointer; font-family:var(--mono); font-size:.78rem;
+  letter-spacing:.05em; text-transform:uppercase; color:var(--ink-45);
+}
+.season-toggle button.active{background:var(--ink); color:var(--stone);}
+.season-panel{margin-top:34px; display:grid; grid-template-columns:1.1fr .9fr; gap:44px; align-items:center;}
+@media(max-width:860px){.season-panel{grid-template-columns:1fr;}}
+.season-visual{background:var(--stone); border:1px solid rgba(15,30,25,.15); padding:20px;}
+.season-visual svg{width:100%; height:auto; display:block;}
+.season-stats{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:22px;}
+.season-stat{border-top:1px solid rgba(15,30,25,.15); padding-top:10px;}
+.season-stat .v{font-family:var(--mono); font-weight:600; font-size:1.1rem;}
+.season-stat .k{font-size:.76rem; color:var(--ink-45); margin-top:2px;}
+
+/* ---------- ENVIRONMENT / IMAGE grid ---------- */
+.env-grid{display:grid; grid-template-columns:1.3fr .7fr; gap:20px;}
+@media(max-width:860px){.env-grid{grid-template-columns:1fr;}}
+.env-grid figure{margin:0; position:relative; overflow:hidden;}
+.env-grid img{height:100%; object-fit:cover;}
+.env-grid figcaption{
+  position:absolute; left:0; right:0; bottom:0; padding:16px 18px;
+  background:linear-gradient(0deg, rgba(9,16,13,.85), transparent);
+  color:var(--mist); font-size:.82rem; font-family:var(--mono);
+}
+.env-tall{display:grid; grid-template-rows:1fr 1fr; gap:20px;}
+
+/* ---------- ACCESS ---------- */
+.access-list{counter-reset:step; list-style:none; margin:36px 0 0; padding:0; display:grid; gap:0;}
+.access-list li{
+  counter-increment:step; display:grid; grid-template-columns:56px 1fr; gap:20px;
+  padding:22px 0; border-top:1px solid rgba(15,30,25,.14);
+}
+.access-list li:last-child{border-bottom:1px solid rgba(15,30,25,.14);}
+.access-list li::before{
+  content:counter(step,decimal-leading-zero); font-family:var(--mono); font-size:.95rem; color:var(--laterite);
+  font-weight:600;
+}
+.access-list h4{font-size:1.08rem; font-weight:600; font-family:var(--body); color:inherit;}
+.access-list p{margin:6px 0 0; color:var(--ink-70); font-size:.95rem; line-height:1.6;}
+.dark .access-list li{border-top-color:rgba(238,230,211,.16);}
+.dark .access-list li:last-child{border-bottom-color:rgba(238,230,211,.16);}
+.dark .access-list p{color:rgba(238,230,211,.78);}
+
+/* ---------- MAP ---------- */
+#map{height:480px; width:100%; border:1px solid rgba(15,30,25,.15); filter:saturate(.9);}
+.map-legend{display:flex; flex-wrap:wrap; gap:18px; margin-top:18px;}
+.map-legend .dot{width:10px; height:10px; border-radius:50%; display:inline-block; margin-right:8px;}
+.map-legend span{display:inline-flex; align-items:center; font-size:.82rem; color:var(--ink-70);}
+.leaflet-popup-content-wrapper{border-radius:2px; font-family:var(--body);}
+.leaflet-popup-content b{font-family:var(--disp);}
+
+/* ---------- NEARBY CARDS ---------- */
+.attr-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:44px;}
+@media(max-width:900px){.attr-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:620px){.attr-grid{grid-template-columns:1fr;}}
+.attr-card{border:1px solid rgba(15,30,25,.15); background:var(--mist); padding:20px; display:flex; flex-direction:column; gap:8px;}
+.attr-card .ac-dist{font-family:var(--mono); font-size:.72rem; color:var(--laterite); text-transform:uppercase; letter-spacing:.06em;}
+.attr-card h4{font-size:1.12rem; margin-top:2px;}
+.attr-card p{margin:0; font-size:.88rem; color:var(--ink-70); line-height:1.55;}
+
+/* ---------- LANDING CARD DEMO ---------- */
+.landing-demo{background:var(--stone); border:1px dashed rgba(15,30,25,.3); padding:36px;}
+.landing-demo-label{font-family:var(--mono); font-size:.74rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-45); margin-bottom:20px;}
+.dest-card{
+  display:block; text-decoration:none; color:var(--ink); max-width:340px; background:var(--mist);
+  border:1px solid rgba(15,30,25,.15); overflow:hidden; transition:transform .25s ease, box-shadow .25s ease;
+}
+.dest-card:hover{transform:translateY(-4px); box-shadow:var(--shadow);}
+.dest-card .thumb{height:210px; background-size:cover; background-position:center;
+  background-image:linear-gradient(0deg, rgba(9,16,13,.55), transparent 55%), url("https://commons.wikimedia.org/wiki/Special:FilePath/Jonha%20falls%2001.jpg?width=700");}
+.dest-card .thumb-tag{
+  display:inline-block; margin:14px 0 0 14px; font-family:var(--mono); font-size:.68rem; letter-spacing:.08em;
+  text-transform:uppercase; background:rgba(9,16,13,.55); color:var(--mist); padding:4px 9px;
+}
+.dest-card .body{padding:16px 18px 20px;}
+.dest-card h4{font-size:1.2rem;}
+.dest-card p{font-size:.85rem; color:var(--ink-70); margin:8px 0 14px; line-height:1.5;}
+.dest-card .meta{display:flex; justify-content:space-between; font-family:var(--mono); font-size:.72rem; color:var(--ink-45); border-top:1px solid rgba(15,30,25,.12); padding-top:12px;}
+
+/* ---------- SOURCES ---------- */
+.sources{background:var(--ink); color:rgba(238,230,211,.7);}
+.sources h2{color:var(--stone);}
+.src-grid{display:grid; grid-template-columns:1fr 1fr; gap:44px; margin-top:36px;}
+@media(max-width:760px){.src-grid{grid-template-columns:1fr;}}
+.sources ol{margin:0; padding-left:20px; font-size:.88rem; line-height:1.9;}
+.sources a{color:var(--river-bright); text-decoration:none;}
+.sources a:hover{text-decoration:underline;}
+.credits{list-style:none; margin:0; padding:0; font-size:.85rem; line-height:1.9;}
+.credits li{padding:8px 0; border-top:1px solid rgba(238,230,211,.12);}
+.credits b{color:var(--stone); font-weight:600;}
+
+footer{padding:30px 0; text-align:center; font-family:var(--mono); font-size:.75rem; color:var(--ink-45); background:var(--stone);}
+
+.skip-link{position:absolute; left:-9999px; top:0; background:var(--laterite); color:#fff; padding:10px 16px; z-index:100;}
+.skip-link:focus{left:12px; top:12px;}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Incredible India Explorer <span>/ Jonha Falls</span></a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#location">Location</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#height">Height</a></li>
+      <li><a href="#seasons">Seasons</a></li>
+      <li><a href="#environment">Landscape</a></li>
+      <li><a href="#access">Access</a></li>
+      <li><a href="#map-section">Map</a></li>
+      <li><a href="#nearby">Nearby</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Ranchi Plateau · Jharkhand, India</p>
+    <h1>Jonha Falls: the <em>Gunga River</em> Valley Cascade</h1>
+    <p class="hero-sub">Where the Gunga River outruns its bed and drops clean off the Ranchi plateau — a textbook hanging valley, a knickpoint carved by rejuvenation, and 722 stone steps between the forest rim and the gorge floor.</p>
+    <div class="hero-facts">
+      <div class="hero-fact"><div class="num">43 m</div><div class="lbl">Drop height (141 ft)</div></div>
+      <div class="hero-fact"><div class="num">722</div><div class="lbl">Steps to the gorge floor</div></div>
+      <div class="hero-fact"><div class="num">~40 km</div><div class="lbl">From Ranchi city</div></div>
+      <div class="hero-fact"><div class="num">Gunga → Raru</div><div class="lbl">River system</div></div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- LOCATION + GEOLOGY -->
+<section id="location">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Location &amp; Geological Setting</p>
+      <h2 class="section-head" style="margin-bottom:0;">An edge of the Chota Nagpur plateau, caught mid-collapse</h2>
+      <p class="lede" style="margin-top:20px;">Jonha Falls — also called <strong>Gautamdhara Falls</strong> — sits in Ranchi district, Jharkhand, roughly 40–45 km east of Ranchi city near Jonha village in the Bundu subdivision. It marks the point where the Ranchi plateau, the eastern shelf of the Chota Nagpur Plateau, breaks away into the lower Subarnarekha basin.</p>
+      <p class="lede" style="margin-top:16px;">Geologically, the fall is a classroom example of a <strong>hanging valley</strong>: the smaller Gunga River, unable to erode downward as fast as its master stream, is left "hanging" above the Raru River and spills over the escarpment in a single plunge. Geographers also read it as a <strong>knickpoint</strong> — a break in the river's long profile produced by rejuvenation, where a fall in base level lets the upper channel cut backward, leaving a sudden step in the gradient.</p>
+
+      <ul class="fact-list">
+        <li><b>District</b><span>Ranchi district, Jharkhand, India</span></li>
+        <li><b>Coordinates</b><span>23°20′30″N, 85°36′30″E</span></li>
+        <li><b>Nearest town</b><span>Jonha village / Gautamdhara, ~9 km from Rahe</span></li>
+        <li><b>River system</b><span>Gunga River, hanging over its master stream, the Raru River</span></li>
+        <li><b>Height</b><span>43 m (141 ft) by the commonly cited survey figure; some tourism sources round to ~45 m</span></li>
+        <li><b>Landform type</b><span>Hanging-valley waterfall / knickpoint on the Ranchi plateau escarpment</span></li>
+        <li><b>Also known as</b><span>Gautamdhara Falls, after the Buddhist shrine on the adjoining hill</span></li>
+      </ul>
+    </div>
+
+    <div>
+      <figure class="map-figure">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jonha%20falls,%20Jharkhand.jpg?width=700" alt="View across the Jonha Falls gorge on the Ranchi plateau, Jharkhand, showing the escarpment edge and forested valley below.">
+        <p class="figcap">Jonha Falls gorge, Ranchi district — Wikimedia Commons</p>
+      </figure>
+
+      <div class="geo-diagram" aria-label="Diagram of the hanging valley and knickpoint that forms Jonha Falls">
+        <svg viewBox="0 0 520 240" role="img" aria-hidden="false">
+          <title>Hanging valley cross-section</title>
+          <defs>
+            <linearGradient id="plateauGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#b0502e" stop-opacity=".85"/>
+              <stop offset="1" stop-color="#8a3d21" stop-opacity=".85"/>
+            </linearGradient>
+          </defs>
+          <!-- plateau block -->
+          <path d="M0,120 L230,120 L270,60 L520,60 L520,20 L0,20 Z" fill="url(#plateauGrad)"/>
+          <!-- lower valley floor -->
+          <path d="M0,220 L520,220 L520,190 L270,190 L230,120 L0,120 Z" fill="#264a34" opacity=".55"/>
+          <!-- water -->
+          <path d="M255,60 C262,90 250,110 240,120 C230,135 232,160 245,190" stroke="#3fa19a" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M255,60 C262,90 250,110 240,120 C230,135 232,160 245,190" stroke="#eaf6f5" stroke-width="2" fill="none" stroke-linecap="round" opacity=".6"/>
+          <!-- labels -->
+          <text x="70" y="45" font-family="JetBrains Mono, monospace" font-size="11" fill="#0f1e19">GUNGA RIVER (upper)</text>
+          <text x="330" y="45" font-family="JetBrains Mono, monospace" font-size="11" fill="#0f1e19">RANCHI PLATEAU SURFACE</text>
+          <text x="270" y="145" font-family="JetBrains Mono, monospace" font-size="11" fill="#0f1e19">43 m KNICKPOINT</text>
+          <text x="300" y="210" font-family="JetBrains Mono, monospace" font-size="11" fill="#eee6d3">RARU RIVER (master stream)</text>
+        </svg>
+        <p class="figcap">The Gunga River hangs above its master stream, the Raru, and drops over the plateau edge as a single knickpoint — a schematic, not to scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey" class="dark">
+  <div class="wrap">
+    <p class="eyebrow">Interactive</p>
+    <h2 class="section-head">Journey to the Falls</h2>
+    <p class="lede">Four stages carry a visitor from the plateau road down to the gorge floor. Step through them below.</p>
+
+    <div class="journey-tabs" role="tablist" aria-label="Journey to the Falls stages">
+      <button class="journey-tab" role="tab" aria-selected="true" aria-controls="panel-location" id="tab-location" data-panel="panel-location">
+        <span class="jt-num">01</span><span class="jt-name">Location</span>
+      </button>
+      <button class="journey-tab" role="tab" aria-selected="false" aria-controls="panel-route" id="tab-route" data-panel="panel-route">
+        <span class="jt-num">02</span><span class="jt-name">Route</span>
+      </button>
+      <button class="journey-tab" role="tab" aria-selected="false" aria-controls="panel-landscape" id="tab-landscape" data-panel="panel-landscape">
+        <span class="jt-num">03</span><span class="jt-name">Landscape</span>
+      </button>
+      <button class="journey-tab" role="tab" aria-selected="false" aria-controls="panel-waterfall" id="tab-waterfall" data-panel="panel-waterfall">
+        <span class="jt-num">04</span><span class="jt-name">Waterfall</span>
+      </button>
+    </div>
+
+    <div class="journey-panels">
+      <div class="journey-panel active" id="panel-location" role="tabpanel" aria-labelledby="tab-location">
+        <div>
+          <p class="jp-label">Stage 01</p>
+          <h3>Finding the edge</h3>
+          <p>The starting point is the plateau rim itself, about 40–45 km east of Ranchi near Jonha village. There is little warning from the road — the Chota Nagpur tableland runs flat and wooded right up to the point where the Gunga River suddenly disappears over the escarpment.</p>
+        </div>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jonha%20falls,%20Jharkhand.jpg?width=700" alt="The Ranchi plateau edge near Jonha, where the Gunga River reaches the escarpment."></figure>
+      </div>
+
+      <div class="journey-panel" id="panel-route" role="tabpanel" aria-labelledby="tab-route">
+        <div>
+          <p class="jp-label">Stage 02</p>
+          <h3>The road and the rails</h3>
+          <p>Most visitors reach Jonha by road from Ranchi via the Ranchi–Purulia route through Namkum and Tamar, or by a short rail hop to Jonha or Gautamdhara railway stations on the Ranchi–Muri line. A resort near the rim offers a falls-view without the full descent.</p>
+        </div>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Staircase%20to%20Jonha%20Falls,%20Jharkhand,%20India%2002.jpg?width=700" alt="The stone staircase route descending to Jonha Falls, Jharkhand."></figure>
+      </div>
+
+      <div class="journey-panel" id="panel-landscape" role="tabpanel" aria-labelledby="tab-landscape">
+        <div>
+          <p class="jp-label">Stage 03</p>
+          <h3>Down through the sal forest</h3>
+          <p>The 722-step stone stairway cuts through mixed deciduous and sal forest clinging to the escarpment wall. Temperatures drop, the canopy thickens, and the sound of the falls builds gradually before the gorge floor comes into view.</p>
+        </div>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jonha%20falls%2001.jpg?width=700" alt="Forested plateau slope along the descent to Jonha Falls."></figure>
+      </div>
+
+      <div class="journey-panel" id="panel-waterfall" role="tabpanel" aria-labelledby="tab-waterfall">
+        <div>
+          <p class="jp-label">Stage 04</p>
+          <h3>The gorge floor</h3>
+          <p>At the base, the Gunga completes its 43 m fall into the Raru River amid spray and boulders. A Buddhist shrine to Gautama Buddha stands on the adjoining Gautam Pahar, giving the site its second name, Gautamdhara.</p>
+        </div>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jonha%20falls.jpg?width=700" alt="Jonha Falls plunging into the gorge, Jharkhand."></figure>
+      </div>
+    </div>
+
+    <div class="journey-progress" aria-hidden="true">
+      <span class="on" data-step="0"></span><span data-step="1"></span><span data-step="2"></span><span data-step="3"></span>
+    </div>
+  </div>
+</section>
+
+<!-- HEIGHT VIZ -->
+<section id="height">
+  <div class="wrap">
+    <p class="eyebrow">Interactive</p>
+    <h2 class="section-head">How tall is a 43-metre drop?</h2>
+    <p class="lede">Jonha's single plunge measures 43 m (141 ft) — modest next to Jharkhand's tallest cascades, but still a sheer drop of roughly fourteen storeys. Scroll into view to animate.</p>
+
+    <div class="height-viz">
+      <div class="height-bars" id="heightBars">
+        <div class="hbar-col"><div class="hbar-val">14</div><div class="hbar ref" data-h="46" style="--target:34%"></div><div class="hbar-lbl">14-storey building (~46 m)</div></div>
+        <div class="hbar-col"><div class="hbar-val">43</div><div class="hbar self" data-h="43" style="--target:100%"></div><div class="hbar-lbl">Jonha Falls (43 m)</div></div>
+        <div class="hbar-col"><div class="hbar-val">44</div><div class="hbar ref" data-h="44" style="--target:34%"></div><div class="hbar-lbl">Dassam Falls, Ranchi dist. (44 m)</div></div>
+        <div class="hbar-col"><div class="hbar-val">98</div><div class="hbar ref" data-h="98" style="--target:34%"></div><div class="hbar-lbl">Hundru Falls, Ranchi dist. (98 m)</div></div>
+        <div class="hbar-col"><div class="hbar-val">143</div><div class="hbar ref" data-h="143" style="--target:34%"></div><div class="hbar-lbl">Lodh Falls, Jharkhand's tallest (143 m)</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEASONS -->
+<section id="seasons" class="forest-bg">
+  <div class="wrap">
+    <p class="eyebrow">Interactive</p>
+    <h2 class="section-head">Seasonal comparison</h2>
+    <p class="lede">Like most Chota Nagpur plateau waterfalls, Jonha is monsoon-fed: the Gunga swells with the June–October rains and thins through the dry months. Toggle between seasons.</p>
+
+    <div class="season-toggle" role="tablist" aria-label="Seasonal comparison toggle">
+      <button class="active" role="tab" aria-selected="true" data-season="monsoon">Monsoon (Jul–Oct)</button>
+      <button role="tab" aria-selected="false" data-season="dry">Winter–Summer (Nov–Jun)</button>
+    </div>
+
+    <div class="season-panel">
+      <div class="season-visual">
+        <svg viewBox="0 0 400 220" id="seasonSvg" role="img" aria-label="Illustration comparing water flow between monsoon and dry season">
+          <title>Seasonal flow comparison</title>
+          <rect x="0" y="0" width="400" height="220" fill="#eee6d3"/>
+          <path d="M170,10 L230,10 L245,60 L400,60 L400,0 L170,0 Z" fill="#8a3d21" opacity=".8"/>
+          <path id="flowPath" d="M195,10 C205,50 190,80 180,110 C170,140 178,180 200,215" stroke="#2c7a78" stroke-width="30" fill="none" stroke-linecap="round"/>
+          <path d="M195,10 C205,50 190,80 180,110 C170,140 178,180 200,215" stroke="#eaf6f5" stroke-width="6" fill="none" stroke-linecap="round" opacity=".55"/>
+          <ellipse cx="200" cy="205" rx="70" ry="14" fill="#2c7a78" id="poolShape" opacity=".65"/>
+        </svg>
+      </div>
+      <div>
+        <div id="seasonText">
+          <h3 style="color:var(--stone); font-size:1.5rem;">Full monsoon torrent</h3>
+          <p style="color:rgba(238,230,211,.8); line-height:1.7; margin-top:12px;">From July to October the Gunga runs full, the plunge widens into a heavy curtain of whitewater, and spray drifts across the gorge. This is the falls at its most dramatic — and the stone steps are at their most slippery, so care is essential.</p>
+        </div>
+        <div class="season-stats">
+          <div class="season-stat"><div class="v" id="statFlow">Heavy, full-width</div><div class="k">Typical flow</div></div>
+          <div class="season-stat"><div class="v" id="statVisit">High — mist &amp; noise</div><div class="k">Visitor experience</div></div>
+          <div class="season-stat"><div class="v" id="statCare">Slippery steps</div><div class="k">Caution needed</div></div>
+          <div class="season-stat"><div class="v" id="statMonths">Jul – Oct</div><div class="k">Months</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENVIRONMENT -->
+<section id="environment">
+  <div class="wrap">
+    <p class="eyebrow">Forest &amp; Plateau Environment</p>
+    <h2 class="section-head">A sal-forest escarpment on the Chota Nagpur tableland</h2>
+    <p class="lede">The gorge walls carry mixed deciduous and sal (<em>Shorea robusta</em>) forest typical of the Chota Nagpur Plateau, thickening toward the valley floor where moisture and shade persist through the dry months. The rim above stays open plateau scrub and cultivated land.</p>
+
+    <div class="env-grid" style="margin-top:40px;">
+      <figure style="height:460px;">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jonha%20falls,%20Jharkhand.jpg?width=900" alt="Wide view of the forested valley and escarpment surrounding Jonha Falls.">
+        <figcaption>Valley landscape — Ranchi plateau escarpment</figcaption>
+      </figure>
+      <div class="env-tall">
+        <figure style="height:220px;">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jonha%20falls%2001.jpg?width=600" alt="Waterfall viewpoint over Jonha Falls gorge.">
+          <figcaption>Waterfall viewpoint</figcaption>
+        </figure>
+        <figure style="height:220px;">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Staircase%20to%20Jonha%20Falls,%20Jharkhand,%20India%2002.jpg?width=600" alt="Stone staircase trail leading down to Jonha Falls.">
+          <figcaption>722-step access trail</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section id="access" class="dark">
+  <div class="wrap">
+    <p class="eyebrow">Access Information</p>
+    <h2 class="section-head">Getting to Jonha Falls</h2>
+
+    <ol class="access-list">
+      <li>
+        <div>
+          <h4>By road from Ranchi</h4>
+          <p>~40–45 km east via the Ranchi–Purulia road through Namkum and Tamar. Roughly 1–1.5 hours by car; shared taxis and buses also run toward Bundu.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4>By rail</h4>
+          <p>Jonha and Gautamdhara are the nearest railway stations, on the Ranchi–Muri section, a short walk or auto-ride from the falls entrance.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4>Reaching the gorge floor</h4>
+          <p>A stone stairway of 722 steps descends the escarpment to the pool at the base. Sturdy footwear is essential, and the descent is strenuous for those with mobility concerns.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4>Viewing without the stairs</h4>
+          <p>A tourist rest house / resort on the rim, opposite the falls, gives a valley view without the full 722-step descent.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4>Best time to visit</h4>
+          <p>July–October for the fullest flow; November–February for cooler, easier walking with a gentler cascade. Avoid the edge and steps during heavy rain.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- MAP -->
+<section id="map-section">
+  <div class="wrap">
+    <p class="eyebrow">Interactive Map</p>
+    <h2 class="section-head">Jonha Falls and the surrounding plateau</h2>
+    <p class="lede">Pan and zoom to see Jonha Falls in relation to Ranchi city and the plateau's other waterfalls and landmarks. Markers are set from published coordinates.</p>
+    <div id="map" role="application" aria-label="Interactive map of Jonha Falls and nearby attractions" style="margin-top:32px;"></div>
+    <div class="map-legend">
+      <span><i class="dot" style="background:#b0502e;"></i>Jonha Falls</span>
+      <span><i class="dot" style="background:#2c7a78;"></i>Waterfalls</span>
+      <span><i class="dot" style="background:#3c6a4c;"></i>Shrine / cultural site</span>
+      <span><i class="dot" style="background:#0f1e19;"></i>Ranchi city</span>
+    </div>
+  </div>
+</section>
+
+<!-- NEARBY -->
+<section id="nearby" class="forest-bg">
+  <div class="wrap">
+    <p class="eyebrow">Nearby Attractions</p>
+    <h2 class="section-head">Elsewhere on the plateau rim</h2>
+    <p class="lede">Jonha sits within a cluster of Ranchi-district waterfalls, all cut into the same plateau edge by different rivers.</p>
+
+    <div class="attr-grid">
+      <div class="attr-card">
+        <span class="ac-dist">On-site</span>
+        <h4>Gautamdhara Shrine</h4>
+        <p>A Buddhist shrine to Gautama Buddha on Gautam Pahar, next to the falls, built by the sons of Baldeo Das Birla — the source of the name Gautamdhara.</p>
+      </div>
+      <div class="attr-card">
+        <span class="ac-dist">~10 km</span>
+        <h4>Hundru Falls</h4>
+        <p>The Subarnarekha River drops 98 m (322 ft) over the same plateau edge — one of Jharkhand's best-known and tallest falls.</p>
+      </div>
+      <div class="attr-card">
+        <span class="ac-dist">~25 km</span>
+        <h4>Dassam Falls</h4>
+        <p>Also called Dassam Ghagh; the Kanchi River falls 44 m (144 ft) near Taimara village in the Bundu subdivision.</p>
+      </div>
+      <div class="attr-card">
+        <span class="ac-dist">~40 km</span>
+        <h4>Getalsud Dam</h4>
+        <p>A reservoir on the Subarnarekha River supplying Ranchi, popular for its plateau-edge views.</p>
+      </div>
+      <div class="attr-card">
+        <span class="ac-dist">~45 km</span>
+        <h4>Ranchi city</h4>
+        <p>State capital of Jharkhand and the usual base for visiting Jonha, Hundru and Dassam in a single day trip.</p>
+      </div>
+      <div class="attr-card">
+        <span class="ac-dist">Regional</span>
+        <h4>Panchghagh Falls</h4>
+        <p>A five-streamed cascade on the Banai River, further west — part of the wider circuit of Chota Nagpur plateau waterfalls.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANDING CARD DEMO -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Landing Page Integration</p>
+    <h2 class="section-head">Destination card for the site index</h2>
+    <p class="lede">The card below is the component to add to the landing/destinations grid; it links straight to this page.</p>
+
+    <div class="landing-demo" style="margin-top:36px;">
+      <p class="landing-demo-label">Preview — as it appears on the destinations grid</p>
+      <a class="dest-card" href="#top" aria-label="Open the Jonha Falls page">
+        <div class="thumb"><span class="thumb-tag">Waterfall · Jharkhand</span></div>
+        <div class="body">
+          <h4>Jonha Falls</h4>
+          <p>A hanging-valley cascade where the Gunga River drops 43 m off the Ranchi plateau — 722 steps to the gorge floor.</p>
+          <div class="meta"><span>Ranchi district</span><span>43 m / 141 ft</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="sources" id="sources">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--river-bright);">Sources &amp; Credits</p>
+    <h2 class="section-head">References</h2>
+
+    <div class="src-grid">
+      <div>
+        <h3 style="color:var(--stone); font-size:1.05rem; margin-bottom:14px;">Route, location &amp; geological sourcing</h3>
+        <ol>
+          <li><a href="https://en.wikipedia.org/wiki/Jonha_Falls" target="_blank" rel="noopener">Wikipedia — Jonha Falls</a>: coordinates, height, hanging-valley/knickpoint description, 722-step descent.</li>
+          <li><a href="https://en.wikipedia.org/wiki/Hundru_Falls" target="_blank" rel="noopener">Wikipedia — Hundru Falls</a> &amp; <a href="https://en.wikipedia.org/wiki/Dassam_Falls" target="_blank" rel="noopener">Dassam Falls</a>: comparative heights for nearby attractions.</li>
+          <li><a href="https://en.wikipedia.org/wiki/Lodh_Falls" target="_blank" rel="noopener">Wikipedia — Lodh Falls</a>: Jharkhand's tallest waterfall, used in the height comparison.</li>
+          <li><a href="https://www.holidify.com/places/ranchi/jonha-falls-sightseeing-122293.html" target="_blank" rel="noopener">Holidify — Jonha Falls, Ranchi</a>: access notes and Gautamdhara shrine background.</li>
+          <li><a href="https://www.tripoto.com/ranchi/places-to-visit/jonha-falls" target="_blank" rel="noopener">Tripoto — Jonha Falls</a>: nearby attractions and local naming context.</li>
+        </ol>
+      </div>
+      <div>
+        <h3 style="color:var(--stone); font-size:1.05rem; margin-bottom:14px;">Image credits</h3>
+        <ul class="credits">
+          <li><b>Hero — "Evening at Jonha Falls"</b> · Wikimedia Commons, Category:Jonha Falls</li>
+          <li><b>Gorge / valley — "Jonha falls, Jharkhand.jpg"</b> · Wikimedia Commons</li>
+          <li><b>Viewpoint — "Jonha falls 01.jpg"</b> · Wikimedia Commons</li>
+          <li><b>Access stairway — "Staircase to Jonha Falls, Jharkhand, India 02.jpg"</b> · Wikimedia Commons</li>
+          <li><b>Waterfall — "Jonha falls.jpg"</b> · Wikimedia Commons</li>
+        </ul>
+        <p style="font-size:.8rem; margin-top:16px; color:rgba(238,230,211,.55);">All photographs via <a href="https://commons.wikimedia.org/wiki/Category:Jonha_Falls" target="_blank" rel="noopener">Wikimedia Commons, Category:Jonha Falls</a>. Verify each file's individual licence/attribution terms on its Commons file page before redistribution. Map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors, rendered with <a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>Incredible India Explorer — Jonha Falls page · Issue #2201</footer>
+
+<script>
+// nav toggle
+document.getElementById('navToggle').addEventListener('click', function(){
+  var links = document.getElementById('navLinks');
+  var open = links.classList.toggle('open');
+  this.setAttribute('aria-expanded', open);
+});
+
+// Journey tabs
+(function(){
+  var tabs = document.querySelectorAll('.journey-tab');
+  var panels = document.querySelectorAll('.journey-panel');
+  var progress = document.querySelectorAll('.journey-progress span');
+  tabs.forEach(function(tab, i){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.setAttribute('aria-selected','false'); });
+      panels.forEach(function(p){ p.classList.remove('active'); });
+      progress.forEach(function(s){ s.classList.remove('on'); });
+      tab.setAttribute('aria-selected','true');
+      document.getElementById(tab.dataset.panel).classList.add('active');
+      for(var j=0;j<=i;j++){ progress[j].classList.add('on'); }
+    });
+  });
+})();
+
+// Height bars animate on scroll into view
+(function(){
+  var bars = document.querySelectorAll('#heightBars .hbar');
+  var done = false;
+  function animate(){
+    if(done) return;
+    var section = document.getElementById('height');
+    var rect = section.getBoundingClientRect();
+    if(rect.top < window.innerHeight * 0.75){
+      bars.forEach(function(b){
+        var h = parseFloat(b.dataset.h);
+        var pct = Math.min(100, (h/143)*100);
+        b.style.height = pct + '%';
+      });
+      done = true;
+    }
+  }
+  window.addEventListener('scroll', animate);
+  animate();
+})();
+
+// Seasonal toggle
+(function(){
+  var buttons = document.querySelectorAll('.season-toggle button');
+  var flowPath = document.getElementById('flowPath');
+  var pool = document.getElementById('poolShape');
+  var textEl = document.getElementById('seasonText');
+  var data = {
+    monsoon: {
+      title:'Full monsoon torrent',
+      body:'From July to October the Gunga runs full, the plunge widens into a heavy curtain of whitewater, and spray drifts across the gorge. This is the falls at its most dramatic — and the stone steps are at their most slippery, so care is essential.',
+      width:'30', poolRy:'18', flow:'Heavy, full-width', visit:'High — mist & noise', care:'Slippery steps', months:'Jul – Oct'
+    },
+    dry: {
+      title:'Thinned winter–summer flow',
+      body:'Through the cooler and hotter dry months the Gunga narrows to a lighter cascade, sometimes splitting into separate threads over the rock face. The gorge is easier and safer to explore, with clearer pools at the base.',
+      width:'12', poolRy:'9', flow:'Light, thread-like', visit:'Calmer — clear pools', care:'Easier footing', months:'Nov – Jun'
+    }
+  };
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      buttons.forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+      var d = data[btn.dataset.season];
+      flowPath.setAttribute('stroke-width', d.width);
+      pool.setAttribute('ry', d.poolRy);
+      textEl.innerHTML = '<h3 style="color:var(--stone); font-size:1.5rem;">'+d.title+'</h3><p style="color:rgba(238,230,211,.8); line-height:1.7; margin-top:12px;">'+d.body+'</p>';
+      document.getElementById('statFlow').textContent = d.flow;
+      document.getElementById('statVisit').textContent = d.visit;
+      document.getElementById('statCare').textContent = d.care;
+      document.getElementById('statMonths').textContent = d.months;
+    });
+  });
+})();
+
+// Leaflet interactive map
+(function(){
+  if(typeof L === 'undefined') return;
+  var map = L.map('map', {scrollWheelZoom:false}).setView([23.34, 85.55], 10);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  function icon(color){
+    return L.divIcon({
+      className:'',
+      html:'<div style="width:16px;height:16px;border-radius:50%;background:'+color+';border:2px solid #f8f4e9;box-shadow:0 1px 4px rgba(0,0,0,.4);"></div>',
+      iconSize:[16,16], iconAnchor:[8,8]
+    });
+  }
+
+  var points = [
+    {name:'Jonha Falls', lat:23.34167, lng:85.60833, color:'#b0502e', desc:'Hanging-valley falls on the Gunga River, 43 m drop.'},
+    {name:'Ranchi (city)', lat:23.3441, lng:85.3096, color:'#0f1e19', desc:'State capital and usual base for visiting the falls.'},
+    {name:'Hundru Falls', lat:23.4500, lng:85.6500, color:'#2c7a78', desc:'Subarnarekha River, 98 m drop.'},
+    {name:'Dassam Falls', lat:23.143358, lng:85.466441, color:'#2c7a78', desc:'Kanchi River, 44 m drop.'},
+    {name:'Gautamdhara Shrine', lat:23.3420, lng:85.6090, color:'#3c6a4c', desc:'Buddhist shrine beside Jonha Falls, on Gautam Pahar.'},
+    {name:'Getalsud Dam', lat:23.475, lng:85.47, color:'#2c7a78', desc:'Reservoir on the Subarnarekha River.'}
+  ];
+  points.forEach(function(p){
+    L.marker([p.lat,p.lng], {icon: icon(p.color)}).addTo(map)
+      .bindPopup('<b>'+p.name+'</b><br>'+p.desc);
+  });
+})();
+</script>
+
+</body>
+</html>
