@@ -9,7 +9,13 @@ window.indiaSearchIndex = [
         category: 'Trekking & Adventure',
         description:
             'Explore the high-altitude Kudremukh Peak Trek (1,894 m) in Karnataka — rolling shola grasslands, UNESCO Western Ghats biodiversity, route waypoints, and seasonal packing guide.',
-        url: 'frontend/kudremukh-trek/index.html'
+        url: 'frontend/kudremukh-trek/index.html'},
+  {
+        title: 'Sulabha — The Philosopher Who Debated King Janaka',
+        category: 'Historical & Cultural Profiles',
+        description:
+            'Explore the philosophical discourse of Sulabha and King Janaka from the Mahabharata\'s Mokshadharma Parva on selfhood, language, non-gendered consciousness, and genuine liberation.',
+        url: 'frontend/sulabha-philosopher-explorer/index.html'
     },
     {
         title: 'Naya Ghat — Varanasi Riverfront Renewal & Living Culture Profile',
