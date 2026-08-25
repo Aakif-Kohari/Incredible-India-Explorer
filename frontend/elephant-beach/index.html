@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elephant Beach | Andaman & Nicobar Islands</title>
+    <meta name="description" content="Explore Elephant Beach on Havelock Island (Swaraj Dweep), Andaman & Nicobar Islands: shallow coral reefs, snorkeling, sea walking, scuba diving, and tropical forest trails.">
+    <meta name="keywords" content="Elephant Beach, Havelock Island, Swaraj Dweep, Andaman beaches, Andaman and Nicobar Islands, snorkeling, sea walk, scuba diving, Radhanagar Beach, Incredible India">
+    <meta name="author" content="Incredible India Explorer">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Beach",
+        "name": "Elephant Beach",
+        "alternateName": "Elephant Beach Havelock Island (Swaraj Dweep)",
+        "description": "The premier water-sports and shallow-water coral reef hub on Havelock Island, Andaman & Nicobar Islands, renowned for snorkeling, sea walking, and tropical forest approach trails.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Havelock Island (Swaraj Dweep)",
+            "addressRegion": "Andaman and Nicobar Islands",
+            "addressCountry": "IN",
+            "postalCode": "744211"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 12.0006,
+            "longitude": 92.9554
+        },
+        "isAccessibleForFree": true,
+        "publicAccess": true,
+        "touristType": "Snorkelers, scuba divers, adventure travelers, family weekenders, nature lovers",
+        "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Coral%20reef%20Elephant%20Beach%20,Andaman%2003.jpg"
+    }
+    </script>
+
+    <style>
+        /* Variables for Elephant Beach Page */
+        :root {
+            --primary-color: #0d9488; /* Reef Teal */
+            --accent-color: #2dd4bf;
+            --hero-bg: #f0fdfa;
+            --card-bg: #ffffff;
+            --text-color: #334155;
+            --heading-color: #0f172a;
+            --border-color: #e2e8f0;
+            --badge-bg: #99f6e4;
+            --badge-text: #134e4a;
+            --page-bg: #f8fafc;
+        }
+
+        body:not(.light-theme) {
+            --primary-color: #2dd4bf;
+            --accent-color: #5eead4;
+            --hero-bg: #042f2e;
+            --card-bg: #0f172a;
+            --text-color: #cbd5e1;
+            --heading-color: #f8fafc;
+            --border-color: #1e293b;
+            --badge-bg: #134e4a;
+            --badge-text: #99f6e4;
+            --page-bg: #020617;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--page-bg);
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Header */
+        .header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            color: var(--heading-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .logo .mandala {
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s ease;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .theme-toggle {
+            background: var(--hero-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 999px;
+            width: 42px;
+            height: 42px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        body:not(.light-theme) .sun-icon { display: none; }
+        body.light-theme .moon-icon { display: none; }
+
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .text-center { text-align: center; }
+
+        /* Hero Section */
+        .hero-section {
+            background-color: var(--hero-bg);
+            border: 2px solid var(--accent-color);
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .blue-flag-badge, .category-badge {
+            display: inline-block;
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .blue-flag-badge {
+            background: #14b8a6;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin: 0 0 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: var(--heading-color);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-desc {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .full-width { grid-column: 1 / -1; }
+
+        .info-section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            height: 100%;
+            color: var(--text-color);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .flex-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .geo-details ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .geo-details li { margin-bottom: 1rem; }
+
+        .geo-details strong {
+            color: var(--heading-color);
+            display: inline-block;
+            width: 160px;
+        }
+
+        .feature-list {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+        .feature-list li { margin-bottom: 1rem; }
+
+        /* Interactive Activity Guide */
+        .activity-filter-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .activity-btn {
+            background: var(--hero-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.5rem 1.1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .activity-btn:hover, .activity-btn.active {
+            background: var(--primary-color);
+            color: #ffffff;
+            border-color: var(--primary-color);
+        }
+
+        /* Curated Itinerary Planner */
+        .itinerary-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .itinerary-tabs {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .itinerary-tab {
+            background: var(--hero-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.6rem 1.3rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .itinerary-tab.active {
+            background: var(--primary-color);
+            color: #ffffff;
+            border-color: var(--primary-color);
+        }
+
+        .itinerary-panel { display: none; }
+        .itinerary-panel.active { display: block; }
+
+        .timeline-step {
+            border-left: 3px solid var(--accent-color);
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-step:last-child { margin-bottom: 0; }
+
+        .timeline-time {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .timeline-step h4 {
+            margin: 0.2rem 0 0.4rem;
+            color: var(--heading-color);
+            font-size: 1.15rem;
+        }
+
+        .timeline-step p {
+            margin: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Interactive Navigation Matrix */
+        .interactive-section { margin-bottom: 4rem; }
+
+        .interactive-section .section-title {
+            display: block;
+            margin: 0 auto 1rem;
+            width: max-content;
+        }
+
+        .explorer-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .map-controls {
+            display: flex;
+            background: var(--hero-bg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .map-btn {
+            flex: 1;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .map-btn:hover, .map-btn:focus {
+            color: var(--primary-color);
+            background-color: rgba(0,0,0,0.02);
+            outline: none;
+        }
+
+        .map-btn.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+            background-color: var(--card-bg);
+        }
+
+        body:not(.light-theme) .map-btn:hover { background-color: rgba(255,255,255,0.05); }
+
+        .map-content-wrapper { padding: 2rem; }
+
+        .map-panel {
+            display: none;
+            flex-direction: column;
+            gap: 1.5rem;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .map-panel.active { display: flex; }
+
+        .beach-item {
+            background: var(--hero-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .beach-item h4 {
+            color: var(--heading-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .beach-item p {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .status-badge.safe { background: #dcfce7; color: #166534; }
+        .status-badge.caution { background: #fef08a; color: #854d0e; }
+
+        body:not(.light-theme) .status-badge.safe { background: #14532d; color: #bbf7d0; }
+        body:not(.light-theme) .status-badge.caution { background: #713f12; color: #fef08a; }
+
+        /* Gallery Section */
+        .gallery-section h2 { text-align: center; }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-auto-rows: 260px;
+            gap: 1.2rem;
+        }
+
+        .gallery-grid:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 4px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+            cursor: pointer;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img, .gallery-item:focus-within img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item::after {
+            content: "🔍";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(15, 23, 42, 0.55);
+            color: white;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            opacity: 0;
+            transform: translateY(-6px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .gallery-item:hover::after, .gallery-item:focus-within::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 1.4rem 1rem 0.8rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.35) 60%, transparent 100%);
+            color: #fff;
+            transform: translateY(8px);
+            opacity: 0.92;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption, .gallery-item:focus-within .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .gallery-caption strong {
+            display: block;
+            font-size: 1.05rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .gallery-caption span {
+            font-size: 0.78rem;
+            opacity: 0.85;
+        }
+
+        @media (min-width: 768px) {
+            .item-large { grid-column: span 2; grid-row: span 2; }
+        }
+
+        /* Lightbox */
+        .lightbox-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 6, 23, 0.92);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            padding: 2rem;
+            animation: fadeIn 0.25s ease;
+        }
+
+        .lightbox-overlay.open { display: flex; }
+
+        .lightbox-content {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-caption {
+            color: #f8fafc;
+            margin-top: 1.2rem;
+        }
+
+        .lightbox-caption strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .lightbox-caption span {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .lightbox-caption a {
+            color: #5eead4;
+        }
+
+        .lightbox-close, .lightbox-nav {
+            position: fixed;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: #fff;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+        }
+
+        .lightbox-close:hover, .lightbox-nav:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .lightbox-close {
+            top: 1.5rem;
+            right: 1.5rem;
+        }
+
+        .lightbox-nav.prev { left: 1.5rem; top: 50%; transform: translateY(-50%); }
+        .lightbox-nav.next { right: 1.5rem; top: 50%; transform: translateY(-50%); }
+
+        @media (max-width: 640px) {
+            .lightbox-nav { width: 40px; height: 40px; font-size: 1.1rem; }
+            .lightbox-nav.prev { left: 0.5rem; }
+            .lightbox-nav.next { right: 0.5rem; }
+            .lightbox-close { top: 0.75rem; right: 0.75rem; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .content-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .geo-details strong { width: auto; display: block; }
+            .map-controls { flex-direction: column; }
+            .gallery-grid { grid-auto-rows: 200px; }
+            .item-large { grid-column: span 1; grid-row: span 1; }
+            .nav-links { gap: 0.8rem; font-size: 0.9rem; }
+            .nav-container { padding: 1rem; flex-wrap: wrap; gap: 0.8rem; }
+        }
+    </style>
+</head>
+<body class="elephant-page">
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="../../index.html" class="logo">
+                    <span class="mandala">🕉️</span>
+                    <span>Incredible India</span>
+                </a>
+                <div class="nav-links">
+                    <a href="../../index.html" class="nav-item">Home</a>
+                    <a href="../coastal-india/index.html" class="nav-item">Coastlines</a>
+                    <a href="../../destinations.html" class="nav-item active">Destinations</a>
+                    <a href="../../sports.html" class="nav-item">Sports</a>
+                </div>
+                <button class="theme-toggle" aria-label="Toggle dark mode" id="theme-toggle-btn">
+                    <span class="moon-icon">🌙</span>
+                    <span class="sun-icon">☀️</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-container" id="main-view">
+
+        <!-- Hero Section -->
+        <section class="hero-section" aria-labelledby="hero-heading">
+            <div class="hero-content">
+                <div class="badge-container">
+                    <span class="blue-flag-badge">🤿 Snorkeling Hotspot</span>
+                    <span class="category-badge">Adventure &amp; Water Sports</span>
+                    <span class="category-badge">🌴 Swaraj Dweep</span>
+                </div>
+                <h1 id="hero-heading">Elephant Beach</h1>
+                <p class="subtitle">Havelock Island (Swaraj Dweep), Andaman &amp; Nicobar Islands</p>
+                <p class="hero-desc">The most visited water-sports hub on Havelock Island, Elephant Beach is famous for a shallow coral reef that begins just a few meters from the shore, dense tropical forest fringing the sand, and a full lineup of activities from snorkeling to sea walking.</p>
+            </div>
+        </section>
+
+        <div class="content-grid">
+
+            <!-- Location & Accessibility -->
+            <section class="info-section full-width">
+                <h2>🌐 Location &amp; Accessibility</h2>
+                <div class="info-card flex-card">
+                    <div class="geo-details">
+                        <ul>
+                            <li><strong>Location:</strong> Northwestern coast of Havelock Island (Swaraj Dweep), Andaman &amp; Nicobar Islands.</li>
+                            <li><strong>By Boat:</strong> Government-approved speed boats run from Havelock Jetty, taking roughly 20&ndash;30 minutes. The ride often passes flying fish and, occasionally, dolphins.</li>
+                            <li><strong>By Trek:</strong> A scenic ~1.5 km forest trail starting near the Radhanagar Beach road also leads to the beach, best attempted outside monsoon season.</li>
+                            <li><strong>Getting there first:</strong> Havelock Island itself is reached by ferry from Port Blair, so plan the ferry leg before booking the Elephant Beach boat.</li>
+                            <li><strong>Beach Hours:</strong> The beach typically closes by early afternoon (around 2:30&ndash;2:45 PM), so an early start is recommended to make the most of the visit.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Beach Overview -->
+            <section class="info-section">
+                <h2>🏖️ Beach Overview</h2>
+                <div class="info-card">
+                    <p>Elephant Beach pairs a wide stretch of white sand with unusually shallow, calm water &mdash; the coral reef starts at less than a meter deep in places, which is rare almost anywhere else in the world. That makes it one of the most accessible reef-viewing spots in India, welcoming everyone from first-time snorkelers to experienced divers. The 2004 tsunami reshaped parts of the coastline, but the beach has since remained one of the most-visited stops on any Havelock Island itinerary.</p>
+                </div>
+            </section>
+
+            <!-- Marine Activities -->
+            <section class="info-section">
+                <h2>🤿 Marine Activities</h2>
+                <div class="info-card">
+                    <ul class="feature-list">
+                        <li><strong>Snorkeling:</strong> The signature activity here &mdash; shallow reefs just off the shore make it easy and safe for beginners and non-swimmers, with gear and a short briefing available from local vendors.</li>
+                        <li><strong>Scuba Diving:</strong> Gentle currents and shallow reefs make Elephant Beach a popular first-dive location for newcomers to diving.</li>
+                        <li><strong>Sea Walking:</strong> A rare activity in India, letting visitors walk along the seabed in a diving helmet without needing to know how to swim.</li>
+                        <li><strong>Jet Skiing &amp; Parasailing:</strong> Available at an additional cost for those chasing more of an adrenaline rush.</li>
+                        <li><strong>Glass-Bottom Boat Rides &amp; Kayaking:</strong> A calmer way to view the coral and marine life for visitors who'd rather stay above the water.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Natural Attractions -->
+            <section class="info-section">
+                <h2>🌴 Natural Attractions</h2>
+                <div class="info-card">
+                    <ul class="feature-list">
+                        <li><strong>Coral Reef Ecosystem:</strong> Vibrant, colorful reefs sit just meters from the shoreline, home to a wide variety of reef fish.</li>
+                        <li><strong>Tropical Forest Canopy:</strong> Dense greenery lines the beach and shades the walking trail, giving the whole approach a jungle-meets-ocean feel.</li>
+                        <li><strong>Wildlife En Route:</strong> The boat crossing regularly offers glimpses of flying fish, and dolphin sightings are not uncommon.</li>
+                        <li><strong>The Beach's Namesake:</strong> Elephant Beach gets its name from an old elephant logging/training camp that once operated nearby; no elephants remain on the beach today.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Nearby Destinations -->
+            <section class="info-section">
+                <h2>🗺️ Nearby Destinations</h2>
+                <div class="info-card">
+                    <ul class="feature-list">
+                        <li><strong>Radhanagar Beach (Beach No. 7):</strong> Connected by the same forest trail, and famous for being one of Asia's most beautiful beaches and its sunset views.</li>
+                        <li><strong>Kalapathar Beach:</strong> A dramatic coastline of black rocks against aqua-green water, great for early photography.</li>
+                        <li><strong>Govind Nagar Beach:</strong> A quieter stretch of coastline near the Havelock Jetty area.</li>
+                        <li><strong>Havelock Jetty Market:</strong> The starting point for most boats to Elephant Beach, with food stalls and local shops nearby.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- Curated Island Itineraries -->
+        <section class="info-section full-width" aria-labelledby="itinerary-heading">
+            <h2 id="itinerary-heading" class="section-title text-center" style="display:block; margin: 0 auto 2rem; width: max-content;">📅 Curated Havelock Island Itineraries</h2>
+            <div class="itinerary-box">
+                <div class="itinerary-tabs">
+                    <button class="itinerary-tab active" data-tab="itin-1">⚡ 1-Day Havelock Highlights</button>
+                    <button class="itinerary-tab" data-tab="itin-2">🌟 2-Day Adventure &amp; Reef</button>
+                    <button class="itinerary-tab" data-tab="itin-3">🌴 3-Day Island Circuit</button>
+                </div>
+                <div class="itinerary-panel active" id="itin-1">
+                    <div class="timeline-step">
+                        <div class="timeline-time">07:30 AM &ndash; 12:30 PM</div>
+                        <h4>Speedboat to Elephant Beach &amp; Reef Snorkeling</h4>
+                        <p>Depart from Havelock Jetty, enjoy beginner-friendly snorkeling and sea walking among shallow living corals, and take photos along the white sand bar.</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-time">01:00 PM &ndash; 03:00 PM</div>
+                        <h4>Seafood Lunch at Havelock Village Market</h4>
+                        <p>Savour fresh grilled fish, coconut water, and local Andaman thali near Govind Nagar.</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-time">03:30 PM &ndash; 06:30 PM</div>
+                        <h4>Radhanagar Beach (Beach No. 7) Sunset</h4>
+                        <p>Relax under towering mahua trees on Asia's acclaimed beach and watch the radiant tropical sunset over the Bay of Bengal.</p>
+                    </div>
+                </div>
+                <div class="itinerary-panel" id="itin-2">
+                    <div class="timeline-step">
+                        <div class="timeline-time">Day 1: Watersports &amp; Radhanagar Sunset</div>
+                        <h4>Elephant Beach Snorkeling + Radhanagar Leisure</h4>
+                        <p>Complete morning sea walking and glass-bottom boat tour at Elephant Beach, followed by an afternoon swim and sunset at Radhanagar.</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-time">Day 2: Kalapathar Sunrise &amp; Jungle Trek</div>
+                        <h4>Kalapathar Golden Hour + Elephant Beach Rainforest Trek</h4>
+                        <p>Catch early 5:00 AM sunrise over black rocks at Kalapathar Beach, followed by the 1.5 km guided tropical rainforest nature trek to Elephant Beach.</p>
+                    </div>
+                </div>
+                <div class="itinerary-panel" id="itin-3">
+                    <div class="timeline-step">
+                        <div class="timeline-time">Day 1 &ndash; 2: Complete Swaraj Dweep (Havelock)</div>
+                        <h4>Elephant Beach, Kalapathar, Radhanagar &amp; Scuba Diving</h4>
+                        <p>Full-day water sports, introductory shore dive, sunset adda, and kayak through the mangrove creeks.</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-time">Day 3: Shaheed Dweep (Neil Island) Day Trip</div>
+                        <h4>Bharatpur Reef &amp; Laxmanpur Natural Rock Bridge</h4>
+                        <p>Take morning ferry to Neil Island for coral viewing at Bharatpur and the iconic Howrah Bridge natural coral rock formation at Laxmanpur.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Feature: Beaches of India Map Widget -->
+        <section class="interactive-section" aria-labelledby="interactive-heading">
+            <h2 id="interactive-heading" class="section-title">The Beaches of India Navigation Matrix</h2>
+            <p class="text-center" style="margin-bottom: 2rem;">Map out India's premier coastal destinations and review active safety indicators.</p>
+
+            <div class="explorer-container">
+                <div class="map-controls">
+                    <button class="map-btn active" data-region="andaman">Andaman Islands</button>
+                    <button class="map-btn" data-region="goa">Goa</button>
+                    <button class="map-btn" data-region="kerala">Kerala</button>
+                </div>
+
+                <div class="map-content-wrapper">
+                    <div id="andaman" class="map-panel active">
+                        <div class="beach-item">
+                            <h4>Elephant Beach</h4>
+                            <p><strong>Vibe:</strong> Adventure, Corals, Water Sports</p>
+                            <span class="status-badge caution">Supervised Water Sports</span>
+                        </div>
+                        <div class="beach-item">
+                            <h4>Radhanagar Beach</h4>
+                            <p><strong>Vibe:</strong> Pristine, Serene, Eco-friendly</p>
+                            <span class="status-badge safe">Safe for Swimming</span>
+                        </div>
+                        <div class="beach-item">
+                            <h4>Kalapathar Beach</h4>
+                            <p><strong>Vibe:</strong> Black rocks, Aqua waters, Sunrise photography</p>
+                            <span class="status-badge safe">Scenic &amp; Calm</span>
+                        </div>
+                    </div>
+
+                    <div id="goa" class="map-panel">
+                        <div class="beach-item">
+                            <h4>Palolem Beach</h4>
+                            <p><strong>Vibe:</strong> Crescent bay, Kayaking, Lively</p>
+                            <span class="status-badge safe">Safe for Swimming</span>
+                        </div>
+                        <div class="beach-item">
+                            <h4>Anjuna Beach</h4>
+                            <p><strong>Vibe:</strong> Rocky coast, Flea Markets, Nightlife</p>
+                            <span class="status-badge caution">Rocky Terrain</span>
+                        </div>
+                    </div>
+
+                    <div id="kerala" class="map-panel">
+                        <div class="beach-item">
+                            <h4>Varkala Beach</h4>
+                            <p><strong>Vibe:</strong> Cliffs, Surfing, Spiritual</p>
+                            <span class="status-badge caution">Strong Currents</span>
+                        </div>
+                        <div class="beach-item">
+                            <h4>Marari Beach</h4>
+                            <p><strong>Vibe:</strong> Fishermen village, Quiet, Ayurveda</p>
+                            <span class="status-badge safe">Safe for Swimming</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="gallery-section" aria-labelledby="gallery-heading">
+            <h2 id="gallery-heading" class="section-title">Visual Gallery</h2>
+            <div class="gallery-grid" id="gallery-grid" aria-label="Image gallery of Elephant Beach">
+                <!-- populated by JS from the galleryImages array below -->
+            </div>
+            <p class="text-center" style="font-size: 0.85rem; margin-top: 1rem; color: var(--text-color);">Click any photo to view it larger. All images are freely licensed via Wikimedia Commons — full credit and license on each file's page.</p>
+        </section>
+
+        <!-- Lightbox -->
+        <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded photo view">
+            <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+            <button class="lightbox-nav prev" id="lightbox-prev" aria-label="Previous photo">‹</button>
+            <div class="lightbox-content">
+                <img id="lightbox-img" src="" alt="">
+                <div class="lightbox-caption">
+                    <strong id="lightbox-title"></strong>
+                    <span id="lightbox-credit"></span>
+                </div>
+            </div>
+            <button class="lightbox-nav next" id="lightbox-next" aria-label="Next photo">›</button>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Project.</p>
+        </div>
+    </footer>
+
+    <script>
+        // All images are freely licensed via Wikimedia Commons (Category: Beaches of
+        // Havelock Island). Credit + license live on each file's Commons page, linked below.
+        const galleryImages = [
+            {
+                src: "https://commons.wikimedia.org/wiki/Special:FilePath/Coral%20reef%20Elephant%20Beach%20,Andaman%2003.jpg?width=1000",
+                alt: "Coral reef in the shallow water at Elephant Beach, Andaman",
+                title: "Shallow Coral Reef",
+                credit: "Wikimedia Commons",
+                page: "https://commons.wikimedia.org/wiki/File:Coral_reef_Elephant_Beach_,Andaman_03.jpg",
+                large: true
+            },
+            {
+                src: "https://commons.wikimedia.org/wiki/Special:FilePath/Snorkeling%20at%20Elephant%20Beach%20on%20Havelock%20island%20of%20Andaman%20and%20Nicobar%20Archipelago.JPG?width=1000",
+                alt: "Snorkeler exploring the reef at Elephant Beach, Havelock Island",
+                title: "Snorkeling Spot",
+                credit: "Wikimedia Commons · CC BY-SA 4.0",
+                page: "https://commons.wikimedia.org/wiki/File:Snorkeling_at_Elephant_Beach_on_Havelock_island_of_Andaman_and_Nicobar_Archipelago.JPG"
+            },
+            {
+                src: "https://commons.wikimedia.org/wiki/Special:FilePath/Elephant%20beach%20,%20andaman%20and%20nicobar%20island.jpg?width=1000",
+                alt: "Wide view of the sandy shoreline at Elephant Beach, Andaman and Nicobar Islands",
+                title: "Elephant Beach Shoreline",
+                credit: "Wikimedia Commons",
+                page: "https://commons.wikimedia.org/wiki/File:Elephant_beach_,_andaman_and_nicobar_island.jpg"
+            },
+            {
+                src: "https://commons.wikimedia.org/wiki/Special:FilePath/Elephant%20beach,%20Havelock%20Island.jpg?width=1000",
+                alt: "Elephant Beach coastline framed by tropical forest, Havelock Island",
+                title: "Forest-Fringed Coastline",
+                credit: "Wikimedia Commons",
+                page: "https://commons.wikimedia.org/wiki/File:Elephant_beach,_Havelock_Island.jpg"
+            }
+        ];
+
+        function renderGallery() {
+            const grid = document.getElementById('gallery-grid');
+            grid.innerHTML = galleryImages.map((img, i) => `
+                <div class="gallery-item${img.large ? ' item-large' : ''}" tabindex="0" data-index="${i}" role="button" aria-label="View larger photo: ${img.title}">
+                    <img src="${img.src}" alt="${img.alt}" loading="lazy">
+                    <div class="gallery-caption">
+                        <strong>${img.title}</strong>
+                        <span>${img.credit}</span>
+                    </div>
+                </div>
+            `).join('');
+
+            grid.querySelectorAll('.gallery-item').forEach(item => {
+                item.addEventListener('click', () => openLightbox(parseInt(item.dataset.index)));
+                item.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openLightbox(parseInt(item.dataset.index));
+                    }
+                });
+            });
+        }
+
+        let currentImageIndex = 0;
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightbox();
+            document.getElementById('lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightbox() {
+            const img = galleryImages[currentImageIndex];
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox-img').alt = img.alt;
+            document.getElementById('lightbox-title').textContent = img.title;
+            document.getElementById('lightbox-credit').innerHTML =
+                `Photo via <a href="${img.page}" target="_blank" rel="noopener noreferrer">${img.credit}</a>`;
+        }
+
+        function showNext() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            updateLightbox();
+        }
+
+        function showPrev() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateLightbox();
+        }
+
+        // DOM Initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            renderGallery();
+
+            // Lightbox listeners
+            document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+            document.getElementById('lightbox-next').addEventListener('click', showNext);
+            document.getElementById('lightbox-prev').addEventListener('click', showPrev);
+            document.getElementById('lightbox').addEventListener('click', (e) => {
+                if (e.target.id === 'lightbox') closeLightbox();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (!document.getElementById('lightbox').classList.contains('open')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') showNext();
+                if (e.key === 'ArrowLeft') showPrev();
+            });
+
+            // Theme toggle
+            const themeBtn = document.getElementById('theme-toggle-btn');
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+            themeBtn.addEventListener('click', () => {
+                document.body.classList.toggle('light-theme');
+                const isLight = document.body.classList.contains('light-theme');
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            });
+
+            // Navigation Matrix tabs
+            const mapBtns = document.querySelectorAll('.map-btn');
+            const mapPanels = document.querySelectorAll('.map-panel');
+
+            mapBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    mapBtns.forEach(b => b.classList.remove('active'));
+                    mapPanels.forEach(p => p.classList.remove('active'));
+                    btn.classList.add('active');
+                    const targetId = btn.getAttribute('data-region');
+                    const targetPanel = document.getElementById(targetId);
+                    if (targetPanel) targetPanel.classList.add('active');
+                });
+                btn.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        btn.click();
+                    }
+                });
+            });
+
+            // Itinerary Tabs
+            const itinTabs = document.querySelectorAll('.itinerary-tab');
+            const itinPanels = document.querySelectorAll('.itinerary-panel');
+            itinTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    itinTabs.forEach(t => t.classList.remove('active'));
+                    itinPanels.forEach(p => p.classList.remove('active'));
+                    tab.classList.add('active');
+                    const target = document.getElementById(tab.getAttribute('data-tab'));
+                    if (target) target.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

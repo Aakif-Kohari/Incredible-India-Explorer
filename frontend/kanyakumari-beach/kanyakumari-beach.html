@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Kanyakumari Beach — Tamil Nadu's southernmost coastal setting where three seas meet and sunrise/sunset spectacles are legendary">
+    <title>Kanyakumari Beach Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="kanyakumari-beach.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Kanyakumari Beach Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Tamil Nadu's southernmost coastal setting where three seas meet and sunrise/sunset spectacles are legendary">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_beaches.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/kanyakumari-beach/kanyakumari-beach.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kanyakumari Beach Explorer | Incredible India Explorer">
+    <meta name="twitter:description" content="Southernmost tip of India where Arabian Sea, Bay of Bengal and Indian Ocean confluence creates unforgettable sunrise and sunset views">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_beaches.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/kanyakumari-beach/kanyakumari-beach.html">
+</head>
+
+<body class="kanyakumari-body">
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+<main class="kanyakumari-page">
+    <!-- Hero -->
+    <section class="kanyakumari-hero">
+        <div class="kanyakumari-hero-content">
+            <a href="../islands/islands.html" class="kanyakumari-back-link">← Back to Islands of India</a>
+            <span class="kanyakumari-hero-kicker">🏖️ Coastal Tamil Nadu</span>
+            <h1>Kanyakumari <span>Beach</span></h1>
+            <p>The southernmost tip of peninsular India, where the Arabian Sea, Bay of Bengal and Indian Ocean confluence creates legendary sunrise and sunset spectacles. A sacred coastal setting where the sea meets the sky in a daily display of divine colors.</p>
+
+            <div class="kanyakumari-hero-stats">
+                <div class="kanyakumari-stat-box">
+                    <strong>8° 05' N</strong>
+                    <span>Latitude</span>
+                </div>
+                <div class="kanyakumari-stat-box">
+                    <strong>77° 36' E</strong>
+                    <span>Longitude</span>
+                </div>
+                <div class="kanyakumari-stat-box">
+                    <strong>Three Seas</strong>
+                    <span>Confluence Point</span>
+                </div>
+                <div class="kanyakumari-stat-box">
+                    <strong>Sunrise/Sunset</strong>
+                    <span>Daily Spectacle</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabbed info -->
+    <section class="kanyakumari-section" id="kanyakumari-explore">
+        <div class="kanyakumari-container">
+            <div class="kanyakumari-section-heading">
+                <span class="kanyakumari-section-badge">Explore Kanyakumari</span>
+                <h2>Coastal Heritage & Landscape</h2>
+                <p>Select a tab to learn more.</p>
+            </div>
+
+            <div class="kanyakumari-tabs" role="tablist">
+                <button type="button" class="kanyakumari-tab-btn active" data-tab="history">History</button>
+                <button type="button" class="kanyakumari-tab-btn" data-tab="geography">Geography</button>
+                <button type="button" class="kanyakumari-tab-btn" data-tab="marine">Marine Life</button>
+                <button type="button" class="kanyakumari-tab-btn" data-tab="activities">Activities</button>
+                <button type="button" class="kanyakumari-tab-btn" data-tab="heritage">Heritage</button>
+            </div>
+
+            <div class="kanyakumari-tab-panel active" id="tab-history">
+                <h3>📜 Historical Background</h3>
+                <p>Kanyakumari, also known as Cape Comorin, has been a significant maritime trading hub since ancient times. Mentioned in the Periplus of the Erythraean Sea (1st century CE), it was a prominent port for Roman, Chola, Pandya and Chera merchants. The name Kanyakumari derives from the Hindu goddess Devi Kanyaka Parameswari, whose temple overlooks the sea. Throughout centuries, the town witnessed invasions by European powers including the Portuguese, Dutch and British, all vying control of this strategic coastline. The legendary monument Vivekananda Rock Memorial, built in 1970, commemorates Swami Vivekananda's visit and meditation on the rock. Today, Kanyakumari stands as a unique blend of ancient tradition and colonial history at India's geographical extremity.</p>
+                <ul>
+                    <li>Ancient maritime trading hub since 1st century CE</li>
+                    <li>Mentioned in Periplus of the Erythraean Sea</li>
+                    <li>Roman, Chola, Pandya and Chera merchants traded here</li>
+                    <li>European colonial powers: Portuguese, Dutch, British</li>
+                    <li>Vivekananda Rock Memorial built 1970</li>
+                </ul>
+            </div>
+
+            <div class="kanyakumari-tab-panel" id="tab-geography">
+                <h3>🌊 Geographic Overview</h3>
+                <p>Kanyakumari Beach is situated at the southernmost tip of the Indian peninsula where three water bodies converge: the Arabian Sea to the west, the Bay of Bengal to the east, and the Indian Ocean to the south. The unique geography creates remarkable tidal patterns and is believed to be one of the few places in the world where both sunrise and sunset can be seen over the ocean. The beach features dark sand mixed with shell fragments, and the coastline is characterized by gentle slopes and rocky outcrops. The confluence zone supports diverse marine ecosystems and is a designated study area for oceanographers. During full moon and new moon, the merging tides create particularly dramatic visual effects that attract photographers and visitors from around the world.</p>
+                <ul>
+                    <li>Arabian Sea (west), Bay of Bengal (east), Indian Ocean (south)</li>
+                    <li>One of few places with sunrise AND sunset over water</li>
+                    <li>Dark sand mixed with shell fragments</li>
+                    <li>Gentle coastline with rocky outcrops</li>
+                    <li>Tidal convergence zone for oceanographers</li>
+                </ul>
+            </div>
+
+            <div class="kanyakumari-tab-panel" id="tab-marine">
+                <h3>🐚 Marine Life</h3>
+                <p>The waters off Kanyakumari support a rich marine biodiversity due to the mixing of three distinct sea bodies. The confluence zone creates nutrient-rich upwellings that sustain fish populations including mackerel, sardines, and pomfret. During winter months, olive ridley sea turtles nest on the beach, though their numbers are closely monitored by conservation groups. The seabed features sandy bottoms with rocky reefs that provide habitats for crabs, lobsters, and various mollusk species. Local fishing communities practice traditional methods passed down through generations, and the seafood from these waters is integral to Tamil Nadu's coastal cuisine. The area is also known for seasonal plankton blooms that can color the sea surface in vibrant hues.</p>
+                <ul>
+                    <li>Mackerel, sardines, pomfret in confluence waters</li>
+                    <li>Olive ridley turtles (winter nesting)</li>
+                    <li>Crabs, lobsters, mollusks on rocky reefs</li>
+                    <li>Traditional fishing methods preserved</li>
+                    <li>Seasonal plankton blooms color the sea</li>
+                </ul>
+            </div>
+
+            <div class="kanyakumari-tab-panel" id="tab-activities">
+                <h3>🏖️ Activities</h3>
+                <p>Kanyakumari Beach offers a diverse range of activities centered around its unique geographical position. The calm post-monsoon waters are ideal for swimming, while the famous sunrise and sunset viewing points attract crowds daily. Visitors can take boat rides to the Vivekananda Rock Memorial and Thiruvalluvar Statue, or explore the nearby Gandhi Memorial. Beach walks at dawn and dusk are particularly popular, as are photography expeditions capturing the unique triple-sea horizon. The nearby town offers cultural experiences including visiting the Bhagavathy Amman Temple, browsing local handicraft markets, and sampling fresh seafood at shore-side stalls. Water sports such as surfing and windsurfing are gaining popularity with the consistent sea breezes.</p>
+                <ul>
+                    <li>Sunrise and sunset viewing points</li>
+                    <li>Boat rides to Vivekananda Rock Memorial</li>
+                    <li>Explore Gandhi Memorial and Bhagavathy Amman Temple</li>
+                    <li>Beach walks at dawn and dusk</li>
+                    <li>Photography of triple-sea horizon</li>
+                    <li>Surfing and windsurfing (growing popularity)</li>
+                </ul>
+            </div>
+
+            <div class="kanyakumari-tab-panel" id="tab-heritage">
+                <h3>🏺 Cultural Heritage</h3>
+                <p>The cultural heritage of Kanyakumari is deeply intertwined with its coastal geography. The Bhagavathy Amman Temple, dedicated to the goddess Kanyaka Parameswari, has stood overlooking the sea for centuries and is the namesake of the town. The region's festivals, particularly the Chittirai Thiruvizha, celebrate the coastal culture with traditional music, dance, and cuisine highlighting the region's unique maritime identity. Local communities maintain centuries-old fishing traditions, boat-building techniques, and net-weaving methods. The blend of Hindu, Islamic and colonial influences is reflected in the area's architecture, cuisine, and oral histories. Kanyakumari has long been a center for Tamil literature, poetry and philosophical thought, with many works referencing the sacred confluence of the three seas.</p>
+                <ul>
+                    <li>Bhagavathy Amman Temple overlooking the sea</li>
+                    <li>Chittirai Thiruvizha coastal festival celebrations</li>
+                    <li>Centuries-old fishing traditions and boat-building</li>
+                    <li>Hindu-Islamic-colonial cultural blend</li>
+                    <li>Center for Tamil literature and poetry</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map -->
+    <section class="kanyakumari-section" id="kanyakumari-map-section">
+        <div class="kanyakumari-container">
+            <div class="kanyakumari-section-heading">
+                <span class="kanyakumari-section-badge">Interactive Map</span>
+                <h2>Key Locations Around Kanyakumari</h2>
+                <p>Click a marker to learn about that location.</p>
+            </div>
+            <div class="kanyakumari-map-wrap">
+                <div id="kanyakumari-map"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section class="kanyakumari-section" id="kanyakumari-gallery-section">
+        <div class="kanyakumari-container">
+            <div class="kanyakumari-section-heading">
+                <span class="kanyakumari-section-badge">Image Gallery</span>
+                <h2>Glimpses of Kanyakumari Beach</h2>
+                <p>Click an image to view it larger.</p>
+            </div>
+            <div id="kanyakumari-gallery-grid" class="kanyakumari-gallery-grid"></div>
+        </div>
+    </section>
+
+    <!-- Interesting Facts -->
+    <section class="kanyakumari-section">
+        <div class="kanyakumari-container">
+            <div class="kanyakumari-section-heading">
+                <span class="kanyakumari-section-badge">Did You Know?</span>
+                <h2>Interesting Facts</h2>
+            </div>
+            <div class="kanyakumari-fact-panel">
+                <div class="kanyakumari-fact-icon">💡</div>
+                <p id="kanyakumari-fact-text">Loading fact...</p>
+                <div class="kanyakumari-fact-dots" id="kanyakumari-fact-dots"></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <!-- Lightbox -->
+    <div class="kanyakumari-lightbox-overlay" id="kanyakumari-lightbox" hidden>
+        <div class="kanyakumari-lightbox-content">
+            <button class="kanyakumari-lightbox-close" data-close-lightbox="true" aria-label="Close">&times;</button>
+            <button class="kanyakumari-lightbox-nav prev" id="kanyakumari-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="kanyakumari-lightbox-image" src="" alt="">
+            <button class="kanyakumari-lightbox-nav next" id="kanyakumari-lightbox-next" aria-label="Next image">›</button>
+            <p class="kanyakumari-lightbox-caption" id="kanyakumari-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Preserving and celebrating India's rich island territories, coastlines and culture.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html#home">Home</a>
+                <a href="../islands/islands.html">Islands of India</a>
+                <a href="kanyakumari-beach.html">Kanyakumari Beach</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Cultural Heritage Initiative.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script type="module" src="kanyakumari-beach.js"></script>
+    <script src="../pages-common.js"></script>
+</body>
+</html>

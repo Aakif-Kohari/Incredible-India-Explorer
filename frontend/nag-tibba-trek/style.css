@@ -1,0 +1,678 @@
+/* ==========================================================================
+   Nag Tibba Trek Explorer Styles
+   Theme: Alpine Green, Snow White, Mountain Blue, and Earth Brown
+   ========================================================================== */
+:root {
+    --bg-primary: #1A2332;
+    --bg-secondary: #2B3A4E;
+    --text-primary: #F5F5F0;
+    --text-secondary: #A8B0BC;
+    --accent: #52B788;
+    --accent-hover: #40916C;
+    --snow: #E9ECEF;
+    --earth: #8B7355;
+    --sky: #7EC8E3;
+    --card-bg: rgba(43, 58, 78, 0.85);
+    --border-color: rgba(82, 183, 136, 0.2);
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.light-theme {
+    --bg-primary: #F5F5F0;
+    --bg-secondary: #FFFFFF;
+    --text-primary: #1A2332;
+    --text-secondary: #4A5568;
+    --accent: #2D6A4F;
+    --accent-hover: #1B4332;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --border-color: rgba(0, 0, 0, 0.1);
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    transition: background 0.3s ease;
+}
+
+.nagtibba-nav {
+    padding: 1rem 2rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.nagtibba-nav .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nagtibba-nav .nav-logo {
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.5rem;
+    display: flex;
+    gap: 0.25rem;
+}
+
+.saffron {
+    color: #ff9933;
+}
+
+.gold {
+    color: #ffd700;
+}
+
+.green {
+    color: #138808;
+}
+
+.nagtibba-nav .nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nagtibba-nav .nav-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.nagtibba-nav .nav-link:hover {
+    color: var(--accent);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.nagtibba-hero {
+    padding: 6rem 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 20%, rgba(82, 183, 136, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.accent {
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(82, 183, 136, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    font-family: 'Playfair Display', serif;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+}
+
+.btn-bookmark {
+    padding: 0.75rem 1.5rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: inherit;
+    transition: background 0.2s;
+}
+
+.btn-bookmark:hover {
+    background: var(--accent-hover);
+}
+
+.explorer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--text-secondary);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.explorer-content h2 {
+    font-size: 1.75rem;
+    color: var(--accent);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.explorer-content h3 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.explorer-content p {
+    line-height: 1.8;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+    margin: 2rem 0;
+}
+
+.info-card h3 {
+    margin-top: 0;
+    color: var(--text-primary);
+}
+
+/* Elevation Chart */
+.elevation-chart {
+    width: 100%;
+    height: 300px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    position: relative;
+    margin: 2rem 0;
+}
+
+.elevation-bar {
+    position: absolute;
+    bottom: 2rem;
+    background: linear-gradient(to top, var(--accent), var(--sky));
+    border-radius: 4px 4px 0 0;
+    transition: height 1s ease-out;
+}
+
+.elevation-label {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+/* Trail Segments */
+.trail-segments {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.trail-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+    transition: transform 0.3s;
+}
+
+.trail-card:hover {
+    transform: translateX(5px);
+}
+
+.trail-card h4 {
+    margin: 0 0 0.5rem;
+    color: var(--accent);
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.trail-meta {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.trail-meta strong {
+    color: var(--accent);
+}
+
+.trail-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Difficulty Grid */
+.difficulty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.difficulty-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.difficulty-card h4 {
+    margin: 0 0 1rem;
+    color: var(--accent);
+    font-size: 1.1rem;
+}
+
+.difficulty-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.difficulty-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 4px;
+    transition: width 1s ease-out;
+}
+
+.difficulty-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Viewpoints & Peaks */
+.viewpoints-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.viewpoint-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-top: 4px solid var(--sky);
+    transition: transform 0.3s;
+}
+
+.viewpoint-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.viewpoint-card h4 {
+    margin-top: 0;
+    color: var(--sky);
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.viewpoint-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.viewpoint-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.peaks-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.peak-item {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.peak-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.peak-altitude {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* Campsites & Packing */
+.campsites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.campsite-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.campsite-card h4 {
+    margin: 0 0 0.5rem;
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.campsite-meta {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.campsite-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.packing-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.packing-item {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent);
+}
+
+.packing-item strong {
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.packing-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Nearby Grid */
+.nearby-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.nearby-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s;
+}
+
+.nearby-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.nearby-card h4 {
+    margin-top: 0;
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.nearby-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.nearby-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    background: var(--card-bg);
+    cursor: zoom-in;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover,
+.gallery-item:focus-visible {
+    transform: scale(1.03);
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Lightbox */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.lightbox-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+.lightbox-img {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 8px;
+}
+
+.lightbox-caption {
+    color: #fff;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.footer {
+    padding: 3rem 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    margin-top: 4rem;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+    }
+
+    .nagtibba-nav .nav-menu {
+        display: none;
+    }
+
+    .tabs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tab-btn {
+        width: 100%;
+    }
+}
