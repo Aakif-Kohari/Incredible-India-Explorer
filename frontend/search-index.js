@@ -143,6 +143,13 @@ window.indiaSearchIndex = [
         url: 'frontend/naiki-devi-kasahrada/index.html'
     },
     {
+        title: 'Queen Rudrama Devi & The Kakatiya Golden Era (c. 1262–1289 CE) — Deccan Sovereign Profile',
+        category: 'Historical Rulers & Dynasties',
+        description:
+            'Explore Queen Rudrama Devi of the Kakatiya Dynasty (c. 1262–1289 CE). Sovereign ruler, male title Rudradeva Maharaja, defensive wars against Yadavas, Nayanakara administrative reforms, Warangal Fort capital, timeline, map, and references.',
+        url: 'frontend/rudrama-devi-kakatiya/index.html'
+    },
+    {
     title: "Dashashwamedh Ghat: The Grand Evening Ganga Aarti",
     category: "Varanasi Ghats",
     description:
