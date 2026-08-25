@@ -44,12 +44,20 @@ window.indiaSearchIndex = [
         url: 'frontend/dandi-ghat/index.html'
     },
     {
-    title: "Forest Fire Hazards of Uttarakhand",
-    category: "Natural Hazards",
-    description:
-        "Explore forest-fire risk in Uttarakhand's chir pine belt — causes, ecological impact, air quality effects, monitoring, and community-led prevention through Van Panchayats.",
-    url: "frontend/uttarakhand-forest-fire-hazards/index.html"},
-  {  title: "Forest Fire Hazards of Himachal Pradesh — Chir Pine Wildfire Risk",
+        title: "The 2010 Ahmedabad Heatwave",
+        category: "Natural Hazards",
+        description:
+                "Explore the severe May 2010 Ahmedabad heatwave and how it led to South Asia's first Heat Action Plan and early-warning system.",
+        url: "frontend/ahmedabad-heatwave-2010/index.html"
+    },
+    {
+        title: "Forest Fire Hazards of Uttarakhand",
+        category: "Natural Hazards",
+        description:
+           "Explore forest-fire risk in Uttarakhand's chir pine belt — causes, ecological impact, air quality effects, monitoring, and community-led prevention through Van Panchayats.",
+        url: "frontend/uttarakhand-forest-fire-hazards/index.html"},
+    {  
+        title: "Forest Fire Hazards of Himachal Pradesh — Chir Pine Wildfire Risk",
         category: "Geology & Disasters",
         description:
             "Explore wildfire risk in Himachal Pradesh: chir pine forest regions, the April-June fire season, contributing factors, ecological and wildlife impacts, satellite-based fire detection and response, and prevention measures.",
