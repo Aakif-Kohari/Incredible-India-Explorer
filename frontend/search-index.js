@@ -6364,6 +6364,13 @@ window.indiaSearchIndex = [
             "Explore the 3–4 October 2023 South Lhonak glacial lake outburst flood: lake geography, Teesta basin, GLOF hazards, Chungthang dam and highway damage, early-warning gaps, and Himalayan risk mitigation.",
         url: "frontend/south-lhonak-glof-2023-explorer/index.html"
     },
+    // --- feat/ahalyas-redemption-story ---
+    {
+        title: "Add Ahalya's Redemption \u2014 A Story of Transformation",
+        category: "Culture & Literature",
+        description:
+            "Explore the story of Ahalya's Redemption \u2014 a timeless narrative of penance, divine grace, compassion, and transformation in the Ramayana tradition.",
+        url: "frontend/ahalyas-redemption-story/index.html"},
     // --- feat/lava-kusha-story ---
     {
         title: "Add Lava and Kusha \u2014 The Young Princes of Ayodhya",
