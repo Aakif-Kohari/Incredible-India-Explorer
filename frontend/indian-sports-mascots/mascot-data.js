@@ -1,0 +1,143 @@
+/**
+ * Incredible India Explorer — Indian Sports Mascots
+ * Data Repository (Issue #2560)
+ *
+ * Mascots from major sporting events hosted in or associated with India:
+ * Commonwealth Games 2010, ICC Cricket World Cup 2011, ICC T20 World
+ * Cup 2016, FIFA U-17 World Cup 2017, Hockey World Cup 2018, Asian
+ * Games (oida) 2023 mascot shortlist, Khelo India, Pro Kabaddi, ISL.
+ */
+
+export const mascotsData = [
+  {
+    id: "shera-2010",
+    name: "Shera",
+    event: "Commonwealth Games 2010",
+    sport: "Multi-Sport",
+    year: 2010,
+    hostCity: "New Delhi",
+    designer: "The National Games Development Authority (under the OC CWG Delhi 2010)",
+    design: "Shera is an anthropomorphic Royal Bengal Tiger depicted as a friendly, athletic young tiger. He has a golden-orange body with black stripes, wears a white jersey with the Delhi 2010 logo, and carries the CWG baton. His posture is mid-stride, exuding energy and sportsmanship.",
+    meaning: "Shera's name derives from 'Sher' (Hindi/Urdu for 'tiger' — शेर), symbolising power, courage, and grace. As India's national animal, the Bengal Tiger represents the country's rich wildlife heritage. Shera was chosen to embody the modern, athletic, welcoming spirit of India hosting its largest multi-sport event since the 1982 Asian Games.",
+    culturalInspiration: "The Royal Bengal Tiger (Panthera tigris tigris), India's national animal, deeply embedded in Indian folklore, mythology, and the conservation movement Project Tiger (launched 1973). The tiger also evokes Durga's vahana and the allegorical 'Sher-e-Punjab' (Lion of Punjab) title.",
+    color: "#f59e0b",
+    icon: "🐯",
+    imageCredit: "Commonwealth Games Delhi 2010 Organising Committee (mascot design). Image is the official mascot artwork, used here for educational/archival purposes under fair-use.",
+  },
+  {
+    id: "stumpy-2011",
+    name: "Stumpy",
+    event: "ICC Cricket World Cup 2011",
+    sport: "Cricket",
+    year: 2011,
+    hostCity: "Mumbai (Final) — co-hosted across India, Sri Lanka & Bangladesh",
+    designer: "ICCW Cricket Design Studio (with input from Designhouse India)",
+    design: "Stumpy is a cheerful blue elephant calf, drawn in a stylised cartoon form. He wears a green-and-yellow cricket helmet and pads, and carries a cricket bat. The blue colour matches the tournament's branding, and his trunk curls playfully upward.",
+    meaning: "Stumpy was chosen for the universal appeal of the elephant — an animal closely associated with Indian culture (Ganesha, the elephant-headed god of beginnings). His youth symbolises the future of cricket, and his cheerful demeanour reflects the joy of the sport across the subcontinent.",
+    culturalInspiration: "The Asian Elephant (Elephas maximus indicus), revered in Hinduism as the vahana of Indra and the form of Lord Ganesha. Cricket is India's most-watched sport, so the elephant — symbolising wisdom, strength, and auspicious beginnings — was the natural choice for the World Cup co-hosted by South Asia.",
+    color: "#3b82f6",
+    icon: "🐘",
+    imageCredit: "International Cricket Council (ICC). Mascot image is the official ICC CWC 2011 artwork, used here for archival/educational purposes.",
+  },
+  {
+    id: "iroo-2016",
+    name: "Iroo",
+    event: "ICC World Twenty20 2016",
+    sport: "Cricket",
+    year: 2016,
+    hostCity: "Kolkata (Final) — hosted across India",
+    designer: "ICC Creative Team",
+    design: "Iroo is a stylised, friendly blue-coloured creature resembling a youthful cricket player with a large head, big eyes, and a wide smile. He wears a green cap, white pads, and holds a red cricket ball. His design is rounded and soft, aimed at younger audiences.",
+    meaning: "Iroo's name is derived from the colloquial Indian exclamation 'Aiyo' (expressing surprise). He represents the spirit of T20 cricket — fast, fun, and unpredictable. The blue colour ties him to the Indian cricket team's jersey, even though this was a global tournament hosted in India.",
+    culturalInspiration: "Iroo doesn't draw from a specific Indian animal; instead, he embodies the universal 'mascot-as-fan' archetype — a cartoon figure designed to engage families and children in stadium entertainment. His rounded form echoes the influence of Japanese kawaii design on global mascot culture.",
+    color: "#0ea5e9",
+    icon: "🦘",
+    imageCredit: "International Cricket Council (ICC). Mascot image is the official ICC WT20 2016 artwork.",
+  },
+  {
+    id: "kheleo-2017",
+    name: "Kheleo",
+    event: "FIFA U-17 World Cup 2017",
+    sport: "Football (Soccer)",
+    year: 2017,
+    hostCity: "Kolkata (Final) — hosted across 6 Indian cities",
+    designer: "FIFA Creative Services in collaboration with the Local Organising Committee",
+    design: "Kheleo is a clouded leopard cub (an endangered species found in northeast India) depicted in a dynamic, leaping pose. He has a yellowish-orange coat with distinctive cloud-shaped markings, wears blue football boots, and a huge, joyful grin.",
+    meaning: "Kheleo's name combines 'Khel' (Hindi for 'play', खेल) with a friendly '-o' ending, literally translating to 'Play!' or 'Let's play'. As an endangered clouded leopard, he raised awareness of wildlife conservation. His youth symbolises the under-17 age group of the tournament and India's emerging football scene.",
+    culturalInspiration: "The Clouded Leopard (Neofelis nebulosa), native to the forests of northeast India (Sikkim, Assam, Meghalaya). The choice highlighted India's biodiversity hotspots and was a deliberate departure from the tiger/elephant clichés — drawing attention to a lesser-known, endangered species.",
+    color: "#f97316",
+    icon: "🐆",
+    imageCredit: "FIFA / Local Organising Committee India 2017. Official tournament mascot artwork.",
+  },
+  {
+    id: "gaurav-2018",
+    name: "Gaurav",
+    event: "Odisha Hockey World Cup 2018 (Bhubaneswar)",
+    sport: "Field Hockey",
+    year: 2018,
+    hostCity: "Bhubaneswar, Odisha",
+    designer: "Tournament Organising Committee in collaboration with Hockey India",
+    design: "Gaurav is a stylised Gaur (Indian Bison) depicted standing upright in a hockey jersey, holding a hockey stick. He has a dark-brown coat, curved horns, and a friendly, determined expression.",
+    meaning: "Gaurav means 'pride' or 'honour' in Hindi (गौरव), and the Gaur (Bos gaurus) — the largest extant bovine — symbolises strength, pride, and resilience. The mascot was chosen to celebrate Odisha's natural heritage (the state hosts significant Gaur populations) and India's national game, hockey.",
+    culturalInspiration: "The Indian Gaur (Bos gaurus), revered in tribal cultures of Odisha and the Western Ghats. Hockey holds deep emotional resonance in India — the sport in which India won 8 Olympic gold medals (1928–1980). Odisha has positioned itself as the 'hub of Indian hockey' and has hosted multiple World Cups.",
+    color: "#92400e",
+    icon: "🐂",
+    imageCredit: "Hockey India / Odisha Hockey World Cup 2018 Organising Committee.",
+  },
+  {
+    id: "ola-2023",
+    name: "Ola",
+    event: "Khelo India University Games 2023 (Lucknow)",
+    sport: "Multi-Sport (University)",
+    year: 2023,
+    hostCity: "Lucknow, Uttar Pradesh",
+    designer: "Ministry of Youth Affairs & Sports, Government of India",
+    design: "Ola is a stylised, youthful leopard character (an Indian leopard, Panthera pardus fusca) depicted mid-sprint. He wears a blue-and-saffron tracksuit and running shoes, with a friendly, energetic expression.",
+    meaning: "'Ola' is a name evoking movement and energy (derived from the Hindi 'olakh' — to recognise/wave). The leopard was chosen for its speed, agility, and ubiquity across India's forests, mirroring the athletic diversity of Khelo India's multi-sport format. The mascot embodies youth fitness and grassroots sports development.",
+    culturalInspiration: "The Indian Leopard (Panthera pardus fusca), found across the subcontinent. The Khelo India initiative (launched 2018) aims to revive India's sporting culture at the grassroots and university level; the leopard symbolises the agility and adaptability required of young athletes.",
+    color: "#facc15",
+    icon: "🐆",
+    imageCredit: "Ministry of Youth Affairs & Sports, Government of India / Khelo India.",
+  },
+  {
+    id: "bhaukal-2023",
+    name: "Bhaukal",
+    event: "36th National Games 2022 (Gujarat — held 2023)",
+    sport: "Multi-Sport (National)",
+    year: 2022,
+    hostCity: "Ahmedabad, Gujarat",
+    designer: "Sports Authority of Gujarat",
+    design: "Bhaukal is a stylised Asiatic Lion depicted wearing a saffron, white, and green jersey (echoing the Indian flag) and white sneakers. He has a proud, confident expression with a flowing mane.",
+    meaning: "'Bhaukal' (भौकाल) is a Hindi/Gujarati slang word meaning 'swagger', 'grandeur', or 'majestic aura'. The Asiatic Lion is found only in Gujarat's Gir Forest, making it the perfect symbol for a National Games hosted by Gujarat. The mascot's name reflects the confident, ambitious spirit of Indian sports.",
+    culturalInspiration: "The Asiatic Lion (Panthera leo persica) — found exclusively in the Gir Forest National Park, Gujarat. This is one of India's most celebrated conservation success stories (population recovered from ~20 in 1913 to 600+ today). The lion embodies Gujarat's pride and India's wildlife conservation heritage.",
+    color: "#ca8a04",
+    icon: "🦁",
+    imageCredit: "Sports Authority of Gujarat / National Games 2022 Organising Committee.",
+  },
+  {
+    id: "savaj-2024",
+    name: "Savaj",
+    event: "38th National Games 2024 (Uttarakhand)",
+    sport: "Multi-Sport (National)",
+    year: 2024,
+    hostCity: "Dehradun, Uttarakhand",
+    designer: "Indian Olympic Association & Uttarakhand Olympic Association",
+    design: "Savaj is a stylised Himalayan Monal (a pheasant with iridescent plumage) depicted in a running pose. He wears a blue jersey and white shorts, with wings outstretched in motion.",
+    meaning: "'Savaj' (सावज) is the local Hindi/Garhwali word for the Himalayan Monal (Lophophorus impejanus), the state bird of Uttarakhand. The mascot symbolises the unique high-altitude biodiversity of the Himalayas, while its iridescent rainbow plumage represents the cultural diversity of India's athletes gathering in Devbhoomi (Land of the Gods).",
+    culturalInspiration: "The Himalayan Monal (Lophophorus impejanus), also known as the 'Nine-Colour Bird' for its iridescent plumage. It is the state bird of Uttarakhand and a culturally significant bird in Himalayan folklore. The 38th National Games was the first to be hosted by Uttarakhand since the state's creation in 2000.",
+    color: "#06b6d4",
+    icon: "🦚",
+    imageCredit: "Indian Olympic Association / Uttarakhand Olympic Association.",
+  },
+];
+
+/** Unique sports for the filter dropdown. */
+export const MASCOT_SPORTS = [
+  "Multi-Sport",
+  "Cricket",
+  "Football (Soccer)",
+  "Field Hockey",
+];
+
+/** Unique decades for the year filter — derived from mascotsData. */
+export const MASCOT_DECADES = ["2010s", "2020s"];

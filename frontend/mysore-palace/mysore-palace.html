@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore Mysore Palace, the royal residence of the Wadiyar dynasty in Karnataka. Discover its Indo-Saracenic architecture, Durbar Hall, royal interiors, Mysore Dasara celebrations, and cultural heritage.">
+
+    <title>Mysore Palace Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="mysore-palace.css">
+
+    <meta property="og:title" content="Mysore Palace Explorer | Incredible India Explorer">
+    <meta property="og:description"
+        content="Explore Mysore Palace, the royal residence of the Wadiyar dynasty in Karnataka. Discover its Indo-Saracenic architecture, Durbar Hall, and the grandeur of Mysore Dasara.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/Mysore_Palace.png">
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/mysore-palace/mysore-palace.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mysore Palace Explorer | Incredible India Explorer">
+    <meta name="twitter:description"
+        content="Explore Mysore Palace, the crown jewel of Karnataka's royal heritage in Mysuru.">
+    <meta property="og:url"
+        content="https://incredibleindiaexplorer.gov.in/frontend/mysore-palace/mysore-palace.html">
+</head>
+
+<body class="mp-body-wrapper">
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') document.body.classList.add('light-theme');
+        })();
+    </script>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../travel/travel.html" class="nav-link" id="link-travel">Travel</a>
+                <a href="mysore-palace.html" class="nav-link active" style="color: var(--saffron)">
+                    Mysore Palace
+                </a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
+                        <a href="../coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode"
+                    title="Toggle Light Mode">☀️</button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="mp-page" id="app-root">
+        <section class="mp-hero">
+            <div class="mp-hero-content">
+                <a href="../heritage/heritage.html" class="mp-back-link">← Back to Heritage Sites</a>
+                <span class="mp-hero-kicker">👑 Mysuru, Karnataka</span>
+                <h1>Mysore Palace <span>Explorer</span></h1>
+                <p>The official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore, Amba Vilas
+                    Palace — popularly known as Mysore Palace — is one of India's most magnificent royal residences.
+                    Its Indo-Saracenic silhouette, gilded domes, and dazzling Dasara illuminations make it the
+                    cultural heart of Karnataka's royal heritage.</p>
+                <div class="mp-hero-stats">
+                    <div class="mp-stat-box"><strong>1912 CE</strong><span>Current Palace Completed</span></div>
+                    <div class="mp-stat-box"><strong>145.5 m</strong><span>Main Facade Length</span></div>
+                    <div class="mp-stat-box"><strong>145 ft</strong><span>Gilded Central Dome</span></div>
+                    <div class="mp-stat-box"><strong>~97,000</strong><span>Dasara Illumination Bulbs</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mp-section" id="mp-overview">
+            <div class="mp-container">
+                <div class="mp-section-heading">
+                    <span class="mp-section-badge">Palace Profile</span>
+                    <h2>Location, Legacy &amp; Significance</h2>
+                </div>
+                <div class="mp-overview-grid">
+                    <div class="mp-overview-text">
+                        <h3>The Crown Jewel of Mysuru</h3>
+                        <p>Mysore Palace stands at the heart of Mysuru city in Karnataka, facing the Chamundi Hills
+                            to the east. Located at the junction of Sayyaji Rao Road and B.N. Road, it is the
+                            official residence of the Wadiyar family — the erstwhile maharajas of Mysore — and one
+                            of the most visited monuments in India, second only to the Taj Mahal in annual
+                            footfall.</p>
+                        <p>The current structure, known as Amba Vilas Palace, was commissioned after the old wooden
+                            palace was gutted by fire in 1897 during the wedding of Princess Jayalakshmi Ammani.
+                            The 24-year-old Maharaja Krishnaraja Wadiyar IV entrusted its rebuilding to British
+                            architect Henry Irwin, and the new palace was completed in 1912, later expanded in
+                            1940 under Maharaja Jayachamarajendra Wadiyar.</p>
+                        <p>Today the palace remains a living royal residence — the Wadiyar family still occupies a
+                            private wing — while its public halls welcome millions of visitors each year as a
+                            museum of Karnataka's royal past.</p>
+                    </div>
+                    <div class="mp-overview-spec-card">
+                        <h3>Palace Specifications</h3>
+                        <ul class="mp-spec-list">
+                            <li><strong>Official Name:</strong> Amba Vilas Palace</li>
+                            <li><strong>Location:</strong> Mysuru, Karnataka</li>
+                            <li><strong>Coordinates:</strong> 12°18'15"N 76°39'14"E</li>
+                            <li><strong>Architectural Style:</strong> Indo-Saracenic</li>
+                            <li><strong>Built:</strong> 1897–1912</li>
+                            <li><strong>Architect:</strong> Henry Irwin</li>
+                            <li><strong>Royal Family:</strong> Wadiyar Dynasty</li>
+                            <li><strong>Annual Visitors:</strong> 6+ million (approx.)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mp-section" id="mp-history">
+            <div class="mp-container">
+                <div class="mp-section-heading">
+                    <span class="mp-section-badge">Royal Lineage</span>
+                    <h2>History of the Wadiyar Dynasty</h2>
+                </div>
+                <div class="mp-timeline">
+                    <div class="mp-timeline-item">
+                        <span class="mp-timeline-year">1399</span>
+                        <p>Yaduraya Wodeyar establishes the Wadiyar dynasty at Mysore, founding a royal line that
+                            would rule the region for over five centuries — one of India's longest-reigning royal
+                            families.</p>
+                    </div>
+                    <div class="mp-timeline-item">
+                        <span class="mp-timeline-year">1610</span>
+                        <p>Raja Wadiyar I captures Srirangapatna and makes it his capital, adopting the Vijayanagara
+                            regalia and expanding the kingdom's power across southern Karnataka.</p>
+                    </div>
+                    <div class="mp-timeline-item">
+                        <span class="mp-timeline-year">1799</span>
+                        <p>After the fall of Tipu Sultan in the Fourth Anglo-Mysore War, the British restore the
+                            Wadiyars to the throne. Krishnaraja Wadiyar III shifts the capital back from
+                            Srirangapatna to Mysore.</p>
+                    </div>
+                    <div class="mp-timeline-item">
+                        <span class="mp-timeline-year">1897</span>
+                        <p>A devastating fire destroys the old palace during a royal wedding. Queen Regent
+                            Kempananjammanni Vanivilasa Sannidhana commissions its reconstruction on a grander
+                            scale.</p>
+                    </div>
+                    <div class="mp-timeline-item">
+                        <span class="mp-timeline-year">1912</span>
+                        <p>The new Amba Vilas Palace is completed under Maharaja Krishnaraja Wadiyar IV — often
+                            remembered as the "Saint King" whose reign ushered in Mysore's golden era.</p>
+                    </div>
+                    <div class="mp-timeline-item">
+                        <span class="mp-timeline-year">1950</span>
+                        <p>The princely state accedes to the Indian Union. The Wadiyars continue as Rajapramukhs
+                            and later custodians of the palace, preserving its rituals and traditions to this day.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mp-section" id="mp-architecture">
+            <div class="mp-container">
+                <div class="mp-section-heading">
+                    <span class="mp-section-badge">Design &amp; Craftsmanship</span>
+                    <h2>Indo-Saracenic Architecture</h2>
+                </div>
+                <div class="mp-cards-grid">
+                    <article class="mp-card">
+                        <div class="mp-card-icon">🏛️</div>
+                        <h3>A Fusion of Styles</h3>
+                        <p>The palace is a masterwork of Indo-Saracenic design — a harmonious blend of Hindu,
+                            Islamic, Rajput, and Gothic elements. Henry Irwin combined domes, arches, colonnades,
+                            and chhajjas with deep-eaved roofs that echo Assamese and Rajasthani traditions.</p>
+                    </article>
+                    <article class="mp-card">
+                        <div class="mp-card-icon">👑</div>
+                        <h3>The Gilded Central Dome</h3>
+                        <p>Crowning the palace is a magnificent central dome of polished white marble, sheathed in
+                            gold and rising about 145 feet above the courtyard. Flanked by two smaller domes, it
+                            anchors the three-storey grey granite facade that stretches 245 feet along its frontage.
+                        </p>
+                    </article>
+                    <article class="mp-card">
+                        <div class="mp-card-icon">🗼</div>
+                        <h3>Exterior Grandeur</h3>
+                        <p>Five-storey towers capped with pinnacles rise at the cardinal points of the facade.
+                            Ornate scalloped arches, slender minarets, and deep pink marble domes give the exterior
+                            its unmistakable silhouette against the Chamundi Hills skyline.</p>
+                    </article>
+                    <article class="mp-card">
+                        <div class="mp-card-icon">🎨</div>
+                        <h3>Decorative Artwork</h3>
+                        <p>Interiors shimmer with stained-glass ceilings, mirrored mosaic floors, bejewelled ivory
+                            doors, and murals by Raja Ravi Varma depicting Dussehra processions. Intricate
+                            stone-carved screens and gilded pillars showcase the finest craftsmanship of early
+                            20th-century India.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="mp-section" id="mp-interiors">
+            <div class="mp-container">
+                <div class="mp-section-heading">
+                    <span class="mp-section-badge">Inside the Palace</span>
+                    <h2>Royal Interiors</h2>
+                </div>
+                <div class="mp-interior-list">
+                    <div class="mp-interior-item">
+                        <h3>Amba Vilas Durbar Hall</h3>
+                        <p>The private durbar hall where the maharaja held court, adorned with a ceiling of peacock
+                            motifs in stained glass, sculpted pillars of granite and gilded metal, and a majestic
+                            golden throne (Simhasana) displayed during Dasara.</p>
+                    </div>
+                    <div class="mp-interior-item">
+                        <h3>Public Durbar Hall (Sajje Koti)</h3>
+                        <p>An open-air pavilion on the upper floor where the maharaja addressed the public during
+                            ceremonial occasions, framed by cast-iron pillars sourced from Glasgow.</p>
+                    </div>
+                    <div class="mp-interior-item">
+                        <h3>Gombe Thotti (Doll Pavilion)</h3>
+                        <p>An entrance gallery showcasing traditional dolls, European marble sculptures, and a
+                            ceremonial golden howdah once used to carry the maharaja atop an elephant during
+                            Dasara processions.</p>
+                    </div>
+                    <div class="mp-interior-item">
+                        <h3>Kalyana Mantapa</h3>
+                        <p>The marriage hall dazzles with a giant octagonal stained-glass ceiling of peacock
+                            designs, glazed tiled flooring, and a jewelled marriage throne — a favourite stop for
+                            every visitor.</p>
+                    </div>
+                    <div class="mp-interior-item">
+                        <h3>Royal Portrait Gallery</h3>
+                        <p>Halls lined with paintings of the Wadiyar lineage and monumental canvases by Raja Ravi
+                            Varma, alongside historic armaments, royal costumes, and the palace's celebrated
+                            collection of musical instruments.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mp-section" id="mp-dasara">
+            <div class="mp-container">
+                <div class="mp-section-heading">
+                    <span class="mp-section-badge">Festival of Lights</span>
+                    <h2>Mysore Dasara Celebrations</h2>
+                </div>
+                <div class="mp-dasara-panel">
+                    <div class="mp-dasara-text">
+                        <p>For ten days each autumn, Mysore Palace becomes the stage for <strong>Nada Habba</strong>
+                            — the state festival of Karnataka. The tradition began in 1610 when Raja Wadiyar I
+                            instituted grand Vijayadashami celebrations at Srirangapatna, and the Wadiyars have
+                            presided over the festival ever since.</p>
+                        <ul class="mp-dasara-list">
+                            <li><strong>Illuminations:</strong> Nearly 100,000 bulbs trace the palace's outline
+                                every evening of the festival, creating its most iconic spectacle.</li>
+                            <li><strong>Jamboo Savari:</strong> On Vijayadashami, the idol of Goddess Chamundeshwari
+                                is carried through the city in the golden howdah atop a decorated elephant, led
+                                traditionally by the scion of the royal family.</li>
+                            <li><strong>Cultural Programs:</strong> The palace forecourts host classical music and
+                                dance performances, wrestling bouts, and a famous torchlight parade by the police.
+                            </li>
+                            <li><strong>Sunday Evenings:</strong> Even outside Dasara, the palace glows with
+                                illuminations every Sunday evening and on national holidays.</li>
+                        </ul>
+                    </div>
+                    <div class="mp-dasara-fact-box">
+                        <span class="mp-dasara-number">~100,000</span>
+                        <span class="mp-dasara-label">bulbs illuminate the palace during Dasara nights</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mp-section" id="mp-cultural">
+            <div class="mp-container">
+                <div class="mp-section-heading">
+                    <span class="mp-section-badge">Living Heritage</span>
+                    <h2>Cultural Significance</h2>
+                </div>
+                <div class="mp-overview-grid">
+                    <div class="mp-overview-text">
+                        <p>Mysore Palace is far more than a monument — it is the beating heart of Karnataka's
+                            identity. It anchors the city's nickname "City of Palaces," lends its silhouette to
+                            the state's tourism emblem, and continues to shape the rhythm of Mysuru's civic and
+                            religious life.</p>
+                        <p>As the seat of the Wadiyars, who were renowned patrons of art, music, and learning, the
+                            palace nurtured the Mysore school of painting, Carnatic music traditions, and the
+                            craft clusters that made the region famous — from sandalwood carving to Channapatna
+                            toys. Its preservation today supports these living crafts and draws scholars,
+                            photographers, and travellers from around the world.</p>
+                        <p>In recognition of its heritage value, the palace has been adopted under the Government
+                            of India's "Adopt a Heritage" scheme, ensuring its care for generations to come.</p>
+                    </div>
+                    <div class="mp-overview-text">
+                        <h3>Why It Matters</h3>
+                        <ul class="mp-significance-list">
+                            <li>Symbol of over 600 years of continuous royal patronage</li>
+                            <li>Epicentre of Nada Habba — Karnataka's state festival</li>
+                            <li>Patron of Mysore painting, Carnatic music, and traditional crafts</li>
+                            <li>Among the most visited monuments in India after the Taj Mahal</li>
+                            <li>A working museum safeguarding royal artefacts and archives</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mp-section" id="mp-visitor-info">
+            <div class="mp-container">
+                <div class="mp-section-heading">
+                    <span class="mp-section-badge">Plan Your Visit</span>
+                    <h2>Visitor Information</h2>
+                </div>
+                <div class="mp-trek-grid">
+                    <div>
+                        <h3>Location</h3>
+                        <p>Agrahara, Chamrajpura, Mysuru, Karnataka 570004 — about 2 km from Mysuru Junction
+                            railway station.</p>
+                    </div>
+                    <div>
+                        <h3>Best Season</h3>
+                        <p>October to March; visit during Dasara (Sep–Oct) for the full illumination experience.
+                        </p>
+                    </div>
+                    <div>
+                        <h3>Visiting Hours</h3>
+                        <p>10:00 AM – 5:30 PM for interiors (last ticket ~5:15 PM); grounds remain accessible for
+                            evening light shows.</p>
+                    </div>
+                    <div>
+                        <h3>Light &amp; Sound Show</h3>
+                        <p>Evening narration of the palace's history in Kannada and English on select days — check
+                            schedules locally.</p>
+                    </div>
+                    <div>
+                        <h3>Getting There</h3>
+                        <p>Mysuru is well connected by rail and road from Bengaluru (~145 km); the nearest airport
+                            is Mysuru Airport with links to Bengaluru.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mp-section" id="mp-facts-section">
+            <div class="mp-container">
+                <div class="mp-section-heading">
+                    <span class="mp-section-badge">Did You Know?</span>
+                    <h2>Interesting Facts</h2>
+                </div>
+                <div class="mp-fact-panel">
+                    <div class="mp-fact-icon">💡</div>
+                    <p id="mp-fact-text" aria-live="polite">Loading fact...</p>
+                    <div class="mp-fact-dots" id="mp-fact-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mp-section" id="mp-map-section">
+            <div class="mp-container">
+                <div class="mp-section-heading">
+                    <span class="mp-section-badge">Interactive Map</span>
+                    <h2>Key Locations Around Mysore Palace</h2>
+                    <p>Click on any marker to learn about that landmark around Mysuru.</p>
+                </div>
+                <div class="mp-map-wrap">
+                    <div id="mp-map"
+                        aria-label="Interactive Leaflet Map showing Mysore Palace and surrounding landmarks"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mp-section" id="mp-gallery-section">
+            <div class="mp-container">
+                <div class="mp-section-heading">
+                    <span class="mp-section-badge">Image Gallery</span>
+                    <h2>Glimpses of the Royal Residence</h2>
+                    <p>Explore the palace's grand facade, halls, and Dasara splendour. Click an image to view it
+                        larger.</p>
+                </div>
+                <div id="mp-gallery-grid" class="mp-gallery-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <div class="mp-lightbox-overlay" id="mp-lightbox" hidden role="dialog" aria-modal="true"
+        aria-label="Image Lightbox">
+        <div class="mp-lightbox-content">
+            <button class="mp-lightbox-close" data-close-lightbox="true" aria-label="Close Lightbox">&times;</button>
+            <button class="mp-lightbox-nav prev" id="mp-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="mp-lightbox-image" src="" alt="">
+            <button class="mp-lightbox-nav next" id="mp-lightbox-next" aria-label="Next image">›</button>
+            <p class="mp-lightbox-caption" id="mp-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span><span class="gold">India</span><span
+                        class="green">Explorer</span>
+                </a>
+                <p>Highlighting and documenting India's magnificent geography, monuments, and cultural heritage.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html#home">Home</a>
+                <a href="../heritage/heritage.html">Heritage Sites</a>
+                <a href="../travel/travel.html">Travel &amp; Destinations</a>
+                <a href="mysore-palace.html">Mysore Palace Explorer</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Developed with Vanilla Web Tech.</p>
+        </div>
+    </footer>
+
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script type="module" src="mysore-palace.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+
+</html>

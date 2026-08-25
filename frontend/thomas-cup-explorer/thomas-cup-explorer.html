@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thomas Cup: India's Badminton Journey — an interactive archive of India's Thomas Cup history since 1952, including India's historic maiden title in 2022, top-4 finishes in 1952/1955/1979, key players like Prakash Padukone, Lakshya Sen, and Satwiksairaj Rankireddy & Chirag Shetty, and a searchable performance timeline.">
+  <title>Thomas Cup: India's Badminton Journey | Incredible India Explorer</title>
+  <link rel="stylesheet" href="thomas-cup-explorer.min.css">
+</head>
+<body>
+
+  <header class="tc-hero">
+    <h1>🏸 Thomas Cup: India's Badminton Journey</h1>
+    <p>From India's 1952 debut to a historic maiden title in 2022 — the story of India's rise in world men's team badminton.</p>
+  </header>
+
+  <main class="tc-main-container">
+
+    <!-- Trophy / Overview strip -->
+    <section class="tc-overview-strip">
+      <div class="tc-overview-stat">
+        <span class="tc-stat-value">1952</span>
+        <span class="tc-stat-label">India's debut</span>
+      </div>
+      <div class="tc-overview-stat">
+        <span class="tc-stat-value">2022</span>
+        <span class="tc-stat-label">Maiden title 🏆</span>
+      </div>
+      <div class="tc-overview-stat">
+        <span class="tc-stat-value">3</span>
+        <span class="tc-stat-label">Top-4 finishes before 2022 (1952, 1955, 1979)</span>
+      </div>
+      <div class="tc-overview-stat">
+        <span class="tc-stat-value">73</span>
+        <span class="tc-stat-label">Years to first title (est. 1949)</span>
+      </div>
+    </section>
+
+    <nav class="tc-view-tabs-nav" aria-label="View mode">
+      <button type="button" class="btn-tc-view-tab active" data-view="timeline">📅 Timeline</button>
+      <button type="button" class="btn-tc-view-tab" data-view="players">🏸 Players</button>
+      <button type="button" class="btn-tc-view-tab" data-view="campaigns">🏆 Campaigns</button>
+    </nav>
+
+    <div class="tc-controls-bar">
+      <input
+        type="search"
+        id="tc-search"
+        class="tc-search-input"
+        placeholder="Search by player, year, or event..."
+        aria-label="Search Thomas Cup history"
+      >
+    </div>
+
+    <!-- TIMELINE VIEW -->
+    <section id="tc-view-timeline" class="tc-view-panel">
+      <div class="tc-type-filter-row">
+        <button type="button" class="btn-tc-type-filter active" data-type="all">All</button>
+        <button type="button" class="btn-tc-type-filter" data-type="Milestone">Milestones</button>
+        <button type="button" class="btn-tc-type-filter" data-type="Historic Tie">Historic Ties</button>
+        <button type="button" class="btn-tc-type-filter" data-type="Final">Finals</button>
+      </div>
+      <div id="tc-timeline-container" class="tc-timeline-container" aria-live="polite"></div>
+    </section>
+
+    <!-- PLAYERS VIEW -->
+    <section id="tc-view-players" class="tc-view-panel hidden">
+      <div id="tc-players-grid" class="tc-players-grid" aria-live="polite"></div>
+    </section>
+
+    <!-- CAMPAIGNS VIEW -->
+    <section id="tc-view-campaigns" class="tc-view-panel hidden">
+      <div id="tc-campaigns-grid" class="tc-campaigns-grid"></div>
+    </section>
+
+  </main>
+
+  <footer class="tc-footer">
+    <p>History fact-checked against BWF Thomas Cup records, Wikipedia, Olympics.com, and contemporary match reports. See in-card sources for each entry.</p>
+  </footer>
+
+  <script src="thomas-cup-explorer.min.js" type="module"></script>
+</body>
+</html>

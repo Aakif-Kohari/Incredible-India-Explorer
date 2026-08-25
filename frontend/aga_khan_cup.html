@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aga Khan Cup: India's Historic Hockey Competition</title>
+    <style>
+        :root {
+            --hockey-green: #1B4D3E;
+            --hockey-gold: #D4AF37;
+            --hockey-dark: #2C2C2C;
+            --hockey-cream: #F9F6F0;
+            --hockey-accent: #8B263E;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--hockey-cream);
+            color: var(--hockey-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(27, 77, 62, 0.95);
+            backdrop-filter: blur(8px);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--hockey-gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--hockey-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 1.5rem;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            color: var(--hockey-gold);
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 750px;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .btn {
+            background: var(--hockey-gold);
+            color: var(--hockey-dark);
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 5rem 2rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        h2 {
+            font-size: 2.3rem;
+            color: var(--hockey-green);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--hockey-gold);
+            margin: 0.6rem auto 0;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .img-container {
+            width: 100%;
+            height: 380px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .img-container:hover img {
+            transform: scale(1.04);
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--hockey-green);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--hockey-green);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        /* Interactive Timeline */
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            padding: 2rem 0;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--hockey-green);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 15px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            right: -9px;
+            background-color: white;
+            border: 4px solid var(--hockey-gold);
+            top: 22px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-left {
+            left: 0;
+        }
+
+        .timeline-right {
+            left: 50%;
+        }
+
+        .timeline-right::after {
+            left: -9px;
+        }
+
+        .timeline-content {
+            padding: 20px 25px;
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .timeline-content h3 {
+            color: var(--hockey-accent);
+            margin-bottom: 0.4rem;
+        }
+
+        /* Sources Box */
+        .sources-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--hockey-gold);
+        }
+
+        .sources-box ul {
+            padding-left: 1.5rem;
+        }
+
+        .sources-box li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--hockey-green);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-container::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 15px;
+            }
+
+            .timeline-item::after {
+                left: 11px;
+            }
+
+            .timeline-right {
+                left: 0%;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo">Aga Khan Cup</div>
+        <nav>
+            <ul>
+                <li><a href="#trophy">The Trophy</a></li>
+                <li><a href="#history">History</a></li>
+                <li><a href="#significance">Significance</a></li>
+                <li><a href="#champions">Champions</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#sources">Sources</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Aga Khan Hockey Cup</h1>
+        <p>Exploring India's historic field hockey competition, legendary rivalries, and monumental contributions to the golden era of Indian hockey.</p>
+        <a href="#history" class="btn">Explore Heritage</a>
+    </section>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Trophy Section -->
+        <section id="trophy">
+            <h2>The Magnificent Trophy</h2>
+            <div class="grid-2">
+                <div>
+                    <p>The Aga Khan Cup is celebrated not only for its fierce competitive stature but also for its legendary sterling silver trophy. Donated by Sultan Muhammad Shah, Aga Khan III, in the early 20th century, the trophy became one of the most coveted symbols of excellence in Indian sport.</p>
+                    <p>Crafted with exquisite detail reflecting traditional motifs and royal insignia, lifting the Aga Khan Cup was considered a paramount achievement for any club, military squad, or institutional hockey team in British India and post-independence India.</p>
+                </div>
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1517649763962-0c6232660102?auto=format&fit=crop&w=800&q=80" alt="Historic Field Hockey Competition">
+                </div>
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section id="history">
+            <h2>History & Origins</h2>
+            <div class="grid-2">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=800&q=80" alt="Vintage Hockey Match">
+                </div>
+                <div>
+                    <p>Established in 1902 under the auspices of the Bombay Hockey Association (BHA), the tournament was initiated to promote competitive field hockey across the subcontinent. It quickly gained prestige, drawing top-tier teams from military regiments, Princely states, and major metropolitan sports clubs.</p>
+                    <p>Throughout the pre-independence era and well into the decades following 1947, the Aga Khan Cup served as a premier crucible where upcoming talent honed their skills under intense tournament pressure.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tournament Significance & Indian Hockey Connection -->
+        <section id="significance">
+            <h2>Tournament Significance & Indian Connection</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Breeding Ground for Olympians</h3>
+                    <p>Before India dominated international hockey with multiple Olympic gold medals, legendary players like Major Dhyan Chand and other national icons showcased their magical stickwork in historic tournaments like the Aga Khan Cup.</p>
+                </div>
+                <div class="card">
+                    <h3>Institutional Powerhouses</h3>
+                    <p>The tournament became a battleground where formidable institutional teams—such as the Bombay Sappers, Corps of Signals, Railways, and Police squads—demonstrated tactical mastery and physical resilience.</p>
+                </div>
+                <div class="card">
+                    <h3>Cultural Unifier</h3>
+                    <p>Played primarily in Mumbai, the tournament attracted massive, passionate crowds, uniting diverse communities in their shared love for fast-paced, skillful Indian hockey.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notable Champions Section -->
+        <section id="champions">
+            <h2>Notable Champions & Teams</h2>
+            <p>Over nearly a century of competitive play, several legendary teams etched their names permanently onto the base of the silver trophy. Prominent winners included top military units renowned for disciplined defense and elite club sides famous for dazzling forward lines.</p>
+        </section>
+
+        <!-- Interactive Historical Winners Timeline -->
+        <section id="timeline">
+            <h2>Historical Winners Timeline</h2>
+            <div class="timeline-container">
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <h3>Early 1900s</h3>
+                        <p>Inception of the tournament in Bombay; early dominance established by prominent military and British colonial regiments.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <h3>1930s - 1940s</h3>
+                        <p>Golden era of participation featuring legendary Indian club sides, regional sports associations, and pre-Olympic national stars.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <h3>Post-Independence Era</h3>
+                        <p>Transition to robust Indian institutional dominance with teams like Railways, Police, and Services departments lifting the trophy.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <h3>Legacy & Modern Era</h3>
+                        <p>Cemented as a cornerstone of Indian sports heritage, inspiring modern youth tournaments and preserving the glorious traditions of Indian stickwork.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sources Section -->
+        <section id="sources">
+            <h2>Sources & References</h2>
+            <div class="sources-box">
+                <ul>
+                    <li>Archives of the Bombay Hockey Association (BHA) and historical sports chronicles.</li>
+                    <li>Biographical records of Indian Olympic hockey gold medalists (1928–1980).</li>
+                    <li>Official sports heritage documentation on colonial and post-independence Indian tournaments.</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Aga Khan Cup Heritage Project | Incredible India Explorer.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

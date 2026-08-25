@@ -1,4 +1,4 @@
-﻿/**
+/**
  * sw.js
  * Advanced Progressive Web App (PWA) Service Worker
  * Implements Multi-Strategy Caching, Offline Fallback Routing, Expiration Management, and a Client Message Bus.
@@ -8,7 +8,7 @@
 // 1. CONFIGURATION & STATE
 // ==========================================================================
 
-const CACHE_VERSION = 'v2.7';
+const CACHE_VERSION = 'v2.9';
 const CACHE_NAME_STATIC = `india-explorer-static-${CACHE_VERSION}`;
 const CACHE_NAME_PAGES = `india-explorer-pages-${CACHE_VERSION}`;
 const CACHE_NAME_IMAGES = `india-explorer-images-${CACHE_VERSION}`;
@@ -31,6 +31,12 @@ const STATIC_ASSETS_TO_PRECACHE = [
   './offline.html',
   './sw-register.js',
   './router.js',
+  // Emergency Assistance
+  './frontend/emergency-assistance/emergency.html',
+  './frontend/emergency-assistance/emergency.css',
+  './frontend/emergency-assistance/emergency.js',
+  './frontend/emergency-assistance/emergency-data.js',
+
   './frontend/assets/hero_banner.png',
   './frontend/data/regions/index.json',
   './birsa-munda-explorer/index.html',

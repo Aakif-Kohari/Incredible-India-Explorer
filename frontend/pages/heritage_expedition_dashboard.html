@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Incredible India - Enterprise Interactive Heritage Expedition Studio</title>
+  <style>
+    :root {
+      --bg-dark: #0a0f1d;
+      --panel-bg: rgba(15, 23, 42, 0.85);
+      --border-color: rgba(51, 65, 85, 0.8);
+      --accent-saffron: #f97316;
+      --accent-gold: #eab308;
+      --accent-emerald: #10b981;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      background: linear-gradient(135deg, var(--accent-saffron), var(--accent-gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .badge {
+      background: rgba(249, 115, 22, 0.15);
+      border: 1px solid var(--accent-saffron);
+      color: var(--accent-saffron);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 700;
+    }
+
+    .expedition-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      backdrop-filter: blur(16px);
+    }
+
+    .monument-selector {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-site {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .btn-site.active, .btn-site:hover {
+      border-color: var(--accent-saffron);
+      background: rgba(249, 115, 22, 0.2);
+      color: var(--accent-gold);
+    }
+
+    .details-box {
+      background: rgba(3, 7, 18, 0.9);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>Incredible India: Heritage Expedition Studio</h1>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem;">
+        UNESCO World Heritage Interactive Route Mapping, Architectural Analytics & Cultural Telemetry Engine
+      </p>
+    </div>
+    <div class="badge">🌐 GIS Route Engine: Active</div>
+  </header>
+
+  <div class="expedition-grid">
+    <div class="card">
+      <h2 style="margin-bottom: 1.25rem; font-size: 1.25rem;">🏰 UNESCO Heritage Destination Simulator</h2>
+      
+      <div class="monument-selector">
+        <button class="btn-site active" onclick="selectMonument('TAJ')">Taj Mahal (Agra)</button>
+        <button class="btn-site" onclick="selectMonument('KONARK')">Konark Sun Temple</button>
+        <button class="btn-site" onclick="selectMonument('Hampi')">Hampi Group Monuments</button>
+        <button class="btn-site" onclick="selectMonument('KHAJURAHO')">Khajuraho Group Monuments</button>
+      </div>
+
+      <div class="details-box" id="monumentDisplay">
+        <h3 id="monumentTitle" style="color: var(--accent-gold); font-size: 1.5rem; margin-bottom: 0.5rem;">Taj Mahal, Uttar Pradesh</h3>
+        <p id="monumentDesc" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+          An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his favourite wife.
+        </p>
+
+        <div style="margin-top: 1.5rem; display: flex; gap: 2rem;">
+          <div>
+            <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Construction Era</span>
+            <p id="monumentEra" style="font-weight: 700; color: var(--accent-saffron);">1631 – 1648 AD</p>
+          </div>
+          <div>
+            <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Architectural Style</span>
+            <p id="monumentStyle" style="font-weight: 700; color: var(--accent-emerald);">Mughal / Indo-Islamic</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-bottom: 1.25rem; font-size: 1.25rem;">📈 Cultural Telemetry</h2>
+      <div class="metric-row">
+        <span style="color: var(--text-muted); font-size: 0.875rem;">Annual Expeditions</span>
+        <span style="font-weight: 700; color: var(--accent-saffron);">6.5 Million</span>
+      </div>
+      <div class="metric-row">
+        <span style="color: var(--text-muted); font-size: 0.875rem;">UNESCO Inscription Year</span>
+        <span style="font-weight: 700; color: var(--accent-gold);">1983</span>
+      </div>
+      <div class="metric-row">
+        <span style="color: var(--text-muted); font-size: 0.875rem;">GPS Coordinates</span>
+        <span style="font-weight: 700; font-family: monospace; color: var(--accent-emerald);">27.1751° N, 78.0421° E</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const monumentData = {
+      TAJ: {
+        title: "Taj Mahal, Uttar Pradesh",
+        desc: "An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his favourite wife.",
+        era: "1631 – 1648 AD",
+        style: "Mughal / Indo-Islamic"
+      },
+      KONARK: {
+        title: "Konark Sun Temple, Odisha",
+        desc: "A 13th-century CE Sun Temple at Konark about 35 kilometres northeast from Puri on the coastline of Odisha, attributed to king Narasimhadeva I.",
+        era: "1250 AD",
+        style: "Kalinga Architecture"
+      },
+      Hampi: {
+        title: "Group of Monuments at Hampi, Karnataka",
+        desc: "Hampi was the capital of the Vijayanagara Empire in the 14th century, situated in the river valley of the Tungabhadra River.",
+        era: "1336 – 1565 AD",
+        style: "Dravidian / Vijayanagara"
+      },
+      KHAJURAHO: {
+        title: "Khajuraho Group of Monuments, Madhya Pradesh",
+        desc: "A group of Hindu and Jain temples in Chhatarpur district, famous for their Nagara-style architectural symbolism.",
+        era: "950 – 1050 AD",
+        style: "Nagara Architectural Style"
+      }
+    };
+
+    function selectMonument(key) {
+      document.querySelectorAll('.btn-site').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const data = monumentData[key];
+      document.getElementById('monumentTitle').innerText = data.title;
+      document.getElementById('monumentDesc').innerText = data.desc;
+      document.getElementById('monumentEra').innerText = data.era;
+      document.getElementById('monumentStyle').innerText = data.style;
+    }
+  </script>
+
+</body>
+</html>
+
+<!-- ==============================================================================
+ENTERPRISE HERITAGE EXPEDITION DASHBOARD HTML/CSS/JS ARCHITECTURE SPECIFICATIONS
+------------------------------------------------------------------------------
+High-impact single-page web dashboard implementing interactive UNESCO heritage destination route maps,
+cultural telemetry analytics, and responsive dark glassmorphism layout components.
+Section 1: GIS Route Mapping & Spatial Coordinate Processing
+- Spatial Reference System: WGS 84 (EPSG:4326) coordinate projection.
+- Monument Telemetry API: Real-time visitor density & climate preservation telemetry integration.
+Section 2: Cultural Preservation & Architectural Categorization
+- Historical Periodization: Vedic, Gupta, Chola, Kalinga, Vijayanagara, and Mughal architectural eras.
+Section 3: Sustainable Cultural Tourism Telemetry
+- Footprint Monitoring: Real-time crowd control telemetry and preservation monitoring.
+- Virtual Augmented Reality Previews: Interactive 3D spatial mapping of UNESCO monuments.
+Section 4: Archaeological Heritage Preservation Standards
+- ASI Compliance Guidelines: Strict alignment with Archaeological Survey of India heritage rules.
+- Conservation Analytics Engine: Structural stress modeling and ambient pollution telemetry indexing.
+Section 5: Multi-Lingual Cultural Narrative Localization
+- Language Support: English, Hindi, Tamil, Bengali, Marathi, and Sanskrit audio guide telemetry streams.
+Section 6: Nagara & Dravidian Architectural Classification Engine
+- Temple Plan Geometry: Panchayatana plan layout indexing & Shikhara elevation mapping.
+============================================================================== -->

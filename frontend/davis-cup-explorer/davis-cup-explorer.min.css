@@ -1,0 +1,254 @@
+/* davis-cup-explorer.css
+   Styling for Davis Cup: India's Tennis Journey. Mirrors the site's design language. */
+
+:root {
+  --dc-saffron: #FF9933;
+  --dc-green: #138808;
+  --dc-navy: #0B1F3A;
+  --dc-gold: #D4AF37;
+  --dc-bg: #FAFAF7;
+  --dc-card-bg: #FFFFFF;
+  --dc-text: #1C1C1C;
+  --dc-muted: #6B7280;
+  --dc-border: #E5E7EB;
+  --dc-radius: 14px;
+  --dc-shadow: 0 4px 14px rgba(11, 31, 58, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, -apple-system, sans-serif;
+  background: var(--dc-bg);
+  color: var(--dc-text);
+}
+
+.hidden { display: none !important; }
+
+/* Hero */
+.dc-hero {
+  background: linear-gradient(135deg, var(--dc-saffron), var(--dc-navy) 70%, var(--dc-green));
+  color: #fff;
+  padding: 3rem 1.5rem 2.5rem;
+  text-align: center;
+}
+.dc-hero h1 { margin: 0 0 0.5rem; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.dc-hero p { margin: 0 auto; max-width: 640px; opacity: 0.92; }
+
+.dc-main-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+/* Overview strip */
+.dc-overview-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+.dc-overview-stat {
+  background: var(--dc-card-bg);
+  border: 1px solid var(--dc-border);
+  border-radius: var(--dc-radius);
+  box-shadow: var(--dc-shadow);
+  padding: 1rem;
+  text-align: center;
+}
+.dc-stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--dc-navy);
+}
+.dc-stat-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--dc-muted);
+  margin-top: 0.2rem;
+}
+
+/* View Tabs */
+.dc-view-tabs-nav {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+.btn-dc-view-tab {
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  border: 2px solid var(--dc-border);
+  background: var(--dc-card-bg);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.btn-dc-view-tab:hover { border-color: var(--dc-saffron); }
+.btn-dc-view-tab.active {
+  background: var(--dc-navy);
+  border-color: var(--dc-navy);
+  color: #fff;
+}
+
+/* Controls */
+.dc-controls-bar { margin-bottom: 1rem; }
+.dc-search-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: var(--dc-radius);
+  border: 2px solid var(--dc-border);
+  font-size: 1rem;
+}
+.dc-search-input:focus { outline: none; border-color: var(--dc-saffron); }
+
+.dc-type-filter-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+.btn-dc-type-filter {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--dc-border);
+  background: #fff;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--dc-muted);
+}
+.btn-dc-type-filter.active {
+  background: var(--dc-saffron);
+  border-color: var(--dc-saffron);
+  color: #fff;
+}
+
+/* Timeline */
+.dc-timeline-container {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 3px solid var(--dc-saffron);
+}
+.dc-timeline-node { position: relative; margin-bottom: 1.75rem; }
+.dc-timeline-node::before {
+  content: "";
+  position: absolute;
+  left: -2.42rem;
+  top: 0.3rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--dc-gold);
+  border: 3px solid var(--dc-card-bg);
+  box-shadow: 0 0 0 2px var(--dc-saffron);
+}
+.dc-year-pill {
+  display: inline-block;
+  background: var(--dc-navy);
+  color: #fff;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.dc-timeline-card {
+  background: var(--dc-card-bg);
+  border: 1px solid var(--dc-border);
+  border-radius: var(--dc-radius);
+  padding: 1rem 1.15rem;
+  box-shadow: var(--dc-shadow);
+}
+.dc-timeline-card h3 { margin: 0.4rem 0; font-size: 1rem; }
+.dc-timeline-card p { margin: 0.4rem 0 0; font-size: 0.9rem; }
+
+.dc-type-tag {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.dc-type-milestone { background: rgba(19,136,8,0.12); color: var(--dc-green); }
+.dc-type-historic-tie { background: rgba(212,175,55,0.18); color: #8a6d1c; }
+.dc-type-final { background: rgba(255,153,51,0.18); color: #b5651d; }
+
+.dc-source { font-style: italic; font-size: 0.75rem; color: var(--dc-muted); }
+
+/* Players */
+.dc-players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+.dc-player-card {
+  background: var(--dc-card-bg);
+  border: 1px solid var(--dc-border);
+  border-radius: var(--dc-radius);
+  box-shadow: var(--dc-shadow);
+  padding: 1.25rem;
+  transition: transform 0.15s ease;
+}
+.dc-player-card:hover { transform: translateY(-3px); }
+.dc-player-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+.dc-player-icon { font-size: 1.8rem; }
+.dc-player-era {
+  background: var(--dc-navy);
+  color: #fff;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.dc-player-card h3 { margin: 0.2rem 0 0.3rem; font-size: 1.05rem; }
+.dc-player-record {
+  font-weight: 600;
+  color: var(--dc-saffron);
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+}
+.dc-player-desc { font-size: 0.9rem; margin: 0 0 0.5rem; }
+
+/* Finals */
+.dc-finals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+.dc-final-card {
+  background: var(--dc-card-bg);
+  border: 1px solid var(--dc-border);
+  border-radius: var(--dc-radius);
+  box-shadow: var(--dc-shadow);
+  padding: 1.25rem;
+}
+.dc-final-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+.dc-final-year { font-size: 1.3rem; font-weight: 800; color: var(--dc-navy); }
+.dc-final-result {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+.dc-result-lost { background: #B91C1C; }
+.dc-result-forfeited { background: #6B7280; }
+
+.dc-final-card h3 { margin: 0.3rem 0; }
+.dc-final-venue { font-style: italic; color: var(--dc-muted); font-size: 0.88rem; margin: 0.2rem 0; }
+.dc-final-players, .dc-final-summary { font-size: 0.9rem; margin: 0.4rem 0; }
+
+.dc-empty-msg { text-align: center; padding: 2.5rem 1rem; color: var(--dc-muted); }
+
+/* Footer */
+.dc-footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--dc-muted);
+  font-size: 0.82rem;
+}

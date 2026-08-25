@@ -1,0 +1,486 @@
+:root {
+    --maw-primary: #059669;
+    --maw-primary-dark: #047857;
+    --maw-bg: #f8fafc;
+    --maw-surface: #ffffff;
+    --maw-text: #0f172a;
+    --maw-text-muted: #475569;
+    --maw-border: #e2e8f0;
+    --maw-gold: #d97706;
+    --maw-emerald: #059669;
+}
+
+[data-theme="dark"] {
+    --maw-bg: #0f172a;
+    --maw-surface: #1e293b;
+    --maw-text: #f8fafc;
+    --maw-text-muted: #cbd5e1;
+    --maw-border: #334155;
+}
+
+.maw-body {
+    background-color: var(--maw-bg);
+    color: var(--maw-text);
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.maw-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Header */
+.maw-header {
+    background: var(--maw-surface);
+    border-bottom: 1px solid var(--maw-border);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.maw-header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.maw-back-link {
+    color: var(--maw-primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.maw-theme-btn {
+    background: transparent;
+    border: 1px solid var(--maw-border);
+    color: var(--maw-text);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+/* Hero Section */
+.maw-hero {
+    padding: 4rem 0;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(5, 150, 105, 0.05), transparent);
+}
+
+.maw-hero__badges {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.maw-badge {
+    background: var(--maw-surface);
+    border: 1px solid var(--maw-border);
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.maw-badge--gold { color: var(--maw-gold); border-color: rgba(217, 119, 6, 0.3); background: rgba(217, 119, 6, 0.1); }
+.maw-badge--emerald { color: var(--maw-emerald); border-color: rgba(5, 150, 105, 0.3); background: rgba(5, 150, 105, 0.1); }
+
+.maw-hero__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+}
+
+.maw-hero__title-sub {
+    display: block;
+    font-size: 1.25rem;
+    color: var(--maw-text-muted);
+    font-family: 'Outfit', sans-serif;
+    margin-top: 0.5rem;
+}
+
+.maw-hero__lede {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    font-size: 1.15rem;
+    color: var(--maw-text-muted);
+}
+
+/* Stats Grid */
+.maw-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.maw-stat-card {
+    background: var(--maw-surface);
+    border: 1px solid var(--maw-border);
+    padding: 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.maw-stat-card__val {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--maw-primary);
+}
+
+.maw-stat-card__label {
+    font-size: 0.85rem;
+    color: var(--maw-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+}
+
+/* Tabs */
+.maw-tabs-wrapper {
+    border-bottom: 1px solid var(--maw-border);
+    margin: 2rem 0 3rem;
+    overflow-x: auto;
+}
+
+.maw-tabs {
+    display: flex;
+    gap: 2rem;
+    min-width: max-content;
+}
+
+.maw-tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 1rem 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--maw-text-muted);
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.maw-tab-btn:hover {
+    color: var(--maw-text);
+}
+
+.maw-tab-btn.active {
+    color: var(--maw-primary);
+    border-bottom-color: var(--maw-primary);
+}
+
+.maw-tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.maw-tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tab Content Layout */
+.maw-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 3rem;
+}
+
+@media (max-width: 900px) {
+    .maw-content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.maw-text-block h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.maw-text-block p {
+    font-size: 1.1rem;
+    color: var(--maw-text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.maw-side-panel {
+    background: var(--maw-surface);
+    border: 1px solid var(--maw-border);
+    padding: 2rem;
+    border-radius: 16px;
+    align-self: start;
+    position: sticky;
+    top: 100px;
+}
+
+.maw-side-panel h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+/* Highlights Grid */
+.maw-highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.maw-hl-card {
+    background: var(--maw-surface);
+    border: 1px solid var(--maw-border);
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.maw-hl-card h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    color: var(--maw-primary);
+}
+
+.maw-hl-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Steps */
+.maw-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.maw-step-card {
+    background: var(--maw-surface);
+    border: 1px solid var(--maw-border);
+    border-left: 4px solid var(--maw-primary);
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+}
+
+.maw-step-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+}
+
+.maw-step-card p {
+    margin: 0;
+    color: var(--maw-text-muted);
+}
+
+/* Calculator */
+.maw-calc-box {
+    background: var(--maw-surface);
+    border: 1px solid var(--maw-border);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 4rem;
+}
+
+.maw-calc-box h3 { margin-top: 0; }
+
+.maw-calc-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.maw-calc-btn {
+    background: var(--maw-bg);
+    border: 1px solid var(--maw-border);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+    color: var(--maw-text);
+}
+
+.maw-calc-btn.active {
+    background: var(--maw-primary);
+    color: #fff;
+    border-color: var(--maw-primary);
+}
+
+.maw-calc-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    background: var(--maw-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.maw-calc-res-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.maw-calc-res-item strong {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--maw-text-muted);
+    margin-bottom: 0.25rem;
+}
+
+.maw-calc-res-item span {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Checklist Grid */
+.maw-chk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.maw-chk-item {
+    background: var(--maw-surface);
+    border: 1px solid var(--maw-border);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.maw-chk-item:hover {
+    border-color: var(--maw-primary);
+}
+
+.maw-chk-item input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--maw-primary);
+    cursor: pointer;
+}
+
+.maw-chk-item.checked {
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+
+/* Gallery */
+.maw-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.maw-gallery-item {
+    cursor: zoom-in;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--maw-border);
+}
+
+.maw-gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.maw-gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.maw-gallery-item figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: #fff;
+    padding: 1.5rem 1rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* Lightbox */
+.maw-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.maw-lightbox[hidden] {
+    display: none;
+}
+
+.maw-lightbox-card {
+    background: var(--maw-surface);
+    padding: 2.5rem;
+    border-radius: 16px;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.maw-lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--maw-bg);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--maw-text);
+}
+
+.maw-lightbox-emoji {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.maw-lightbox-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+}
+
+.maw-lightbox-caption {
+    margin: 0;
+    color: var(--maw-text-muted);
+}

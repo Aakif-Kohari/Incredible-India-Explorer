@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurukh Language Explorer | Languages of Chota Nagpur (Oraon Heritage)</title>
+    <meta name="description" content="Explore Kurukh (कुड़ुख़ / 𑒏𑒳𑒛𑒳𑒐)—a major North Dravidian tribal language spoken in Jharkhand, Chhattisgarh, Odisha, and West Bengal. Discover the Tolong Siki script, verified greetings, 4-step vocab visualizer, Sarhul festival, and Dhumkuria academy.">
+
+    <script>
+        if (window.location.pathname.endsWith('/kurukh-language-explorer')) {
+            window.location.replace(window.location.pathname + '/' + window.location.search + window.location.hash);
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+
+    <!-- Global Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link">Home</a>
+                <a href="../languages/languages.html" class="nav-link">Languages of India</a>
+                <a href="../tribes/tribes.html" class="nav-link">Tribes of India</a>
+                <a href="#interactive-section" class="nav-link">Vocab Visualizer</a>
+                <a href="#map-section" class="nav-link">Regions</a>
+                <a href="#scripts-section" class="nav-link">Tolong Siki Script</a>
+                <a href="#greetings-section" class="nav-link">Greetings</a>
+                <a href="#vocabulary-section" class="nav-link">Vocabulary</a>
+                <a href="#heritage-section" class="nav-link">Cultural Heritage</a>
+                <a href="#quiz-section" class="nav-link">Quiz</a>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️ Theme</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <!-- Chota Nagpur Plateau Background Silhouette -->
+            <svg class="hero-plateau-bg" viewBox="0 0 1440 240" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,240 L0,160 Q360,90 720,160 T1440,120 L1440,240 Z" fill="rgba(22, 163, 74, 0.18)"/>
+                <path d="M0,240 L0,190 Q480,110 960,190 T1440,150 L1440,240 Z" fill="rgba(234, 88, 12, 0.15)"/>
+            </svg>
+
+            <div class="container" style="position: relative; z-index: 2;">
+                <!-- Sarhul Blossom & Sal Leaf Ribbon -->
+                <div class="sarhul-ribbon" aria-hidden="true">
+                    <div class="sarhul-leaf"></div>
+                    <div class="sarhul-leaf flower"></div>
+                    <div class="sarhul-leaf"></div>
+                    <div class="sarhul-leaf flower"></div>
+                    <div class="sarhul-leaf"></div>
+                    <div class="sarhul-leaf flower"></div>
+                    <div class="sarhul-leaf"></div>
+                </div>
+
+                <div class="hero-badge">
+                    <span>🌳 Chota Nagpur Plateau & Beyond • North Dravidian Tribal Heritage</span>
+                </div>
+                <h1 class="hero-title">Kurukh Language Explorer</h1>
+                <div class="hero-native-sub">कुड़ुख़ • 𑒏𑒳𑒛𑒳𑒐 (Kuṛux / Oraon Katha)</div>
+                <p class="hero-subtitle">
+                    Explore Kurukh—a vibrant North Dravidian language spoken by over 2.5 million Oraon indigenous people across Jharkhand, Chhattisgarh, Odisha, and West Bengal. Celebrated for the indigenous Tolong Siki script, Sarhul sal-blossom reverence, Dhumkuria youth academies, and the resonant beats of the Mandar drum.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-value">2.5M+</div>
+                        <div class="stat-label">Tribal Speakers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">1999</div>
+                        <div class="stat-label">Tolong Siki Script</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">North</div>
+                        <div class="stat-label">Dravidian Branch</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">4+</div>
+                        <div class="stat-label">Central-East States</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive 4-Step Showcase: Native Word → Transliteration → Pronunciation → English Meaning -->
+        <section class="explorer-section" id="interactive-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Core Interactive Feature</span>
+                    <h2 class="section-title">4-Step Vocabulary Flow</h2>
+                    <p class="section-desc">Experience the exact sequence: Native Kurukh (Devanagari/Tolong Siki) ➔ Roman Transliteration ➔ Phonetic Pronunciation ➔ English Meaning & Tribal Context.</p>
+                </div>
+
+                <div class="interactive-showcase-box">
+                    <div class="flow-step-bar">
+                        <div class="flow-step active">
+                            <span class="step-num">Step 1</span>
+                            <span>Native Word</span>
+                        </div>
+                        <div class="flow-step active">
+                            <span class="step-num">Step 2</span>
+                            <span>Transliteration</span>
+                        </div>
+                        <div class="flow-step active">
+                            <span class="step-num">Step 3</span>
+                            <span>Pronunciation (IPA)</span>
+                        </div>
+                        <div class="flow-step active">
+                            <span class="step-num">Step 4</span>
+                            <span>English Meaning</span>
+                        </div>
+                    </div>
+
+                    <div class="vocab-slider-card">
+                        <div class="slider-native" id="slider-native">अम्म (𑒁𑒧𑓂𑒧)</div>
+                        <div class="slider-translit" id="slider-translit">Amm</div>
+                        <div class="slider-pronounce" id="slider-pronounce">IPA: /amː/ • Phonetic: AHM</div>
+                        <div class="slider-meaning" id="slider-meaning">Water: Pure drinking & river water</div>
+                        <div class="slider-notes" id="slider-notes">Direct North Dravidian cognate sharing roots with South Dravidian 'Ambu / Neer'.</div>
+
+                        <div class="slider-controls">
+                            <button class="btn-icon" id="btn-prev-slider" aria-label="Previous Word">◀</button>
+                            <button class="btn-audio" id="btn-play-slider">🔊 Listen Audio</button>
+                            <span id="slider-counter" style="font-family: var(--font-mono); font-weight: 700; color: var(--accent-green-bright);">1 / 12</span>
+                            <button class="btn-icon" id="btn-next-slider" aria-label="Next Word">▶</button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Word Selector Chips -->
+                    <div class="vocab-chips-bar" id="vocab-chips-bar">
+                        <!-- Populated by script.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Geographic Regions Map Section -->
+        <section class="explorer-section" id="map-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Geographic Landscape</span>
+                    <h2 class="section-title">Kurukh Tribal Heartland & Regions</h2>
+                    <p class="section-desc">Click across the states of the Chota Nagpur plateau and eastern belts to discover Oraon settlements and dialects.</p>
+                </div>
+
+                <div class="map-grid">
+                    <div class="map-container">
+                        <svg class="kurukh-map-svg" viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg">
+                            <!-- River Network (Subarnarekha, Koel, Damodar) -->
+                            <path d="M 160 220 Q 380 180 540 240 T 720 280" fill="none" stroke="rgba(56, 189, 248, 0.4)" stroke-width="2.5" stroke-dasharray="4 4"/>
+                            
+                            <!-- Chhattisgarh (Jashpur & Surguja) -->
+                            <path class="region-path" data-id="chhattisgarh" d="M 120 180 L 280 140 L 320 320 L 140 340 Z">
+                                <title>Jashpur & Northern Hills (Chhattisgarh)</title>
+                            </path>
+                            <!-- Jharkhand (Heartland) -->
+                            <path class="region-path active" data-id="jharkhand" d="M 280 120 L 540 100 L 560 290 L 320 320 Z">
+                                <title>Chota Nagpur Heartland (Jharkhand)</title>
+                            </path>
+                            <!-- Odisha (Sundargarh & Sambalpur) -->
+                            <path class="region-path" data-id="odisha" d="M 240 320 L 520 290 L 560 430 L 260 440 Z">
+                                <title>Sundargarh & Western Belt (Odisha)</title>
+                            </path>
+                            <!-- Bengal & Assam Belts -->
+                            <path class="region-path" data-id="bengal-assam" d="M 540 100 L 720 80 L 700 290 L 560 290 Z">
+                                <title>Dooars, Bengal & Assam Diaspora</title>
+                            </path>
+
+                            <!-- Map Labels -->
+                            <text x="170" y="240" fill="#ffffff" font-size="14" font-weight="bold">Chhattisgarh</text>
+                            <text x="380" y="200" fill="#ffffff" font-size="15" font-weight="bold">Jharkhand (Heartland)</text>
+                            <text x="360" y="380" fill="#ffffff" font-size="14" font-weight="bold">Odisha (Sundargarh)</text>
+                            <text x="590" y="180" fill="#ffffff" font-size="14" font-weight="bold">Bengal & Assam</text>
+                        </svg>
+                    </div>
+
+                    <div class="map-info-card">
+                        <div class="region-header">
+                            <h3 class="region-title" id="map-region-title">Chota Nagpur Heartland (Jharkhand)</h3>
+                            <span class="region-badge" id="map-region-badge" style="background-color: var(--accent-green);">approx. 1,400,000</span>
+                        </div>
+                        <div id="map-region-desc">
+                            <p>Select a region on the map to explore settlement details, speaker counts, and tribal institutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tolong Siki & Writing Tradition Section -->
+        <section class="explorer-section" id="scripts-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Writing Tradition</span>
+                    <h2 class="section-title">Kurukh Scripts: Tolong Siki & Devanagari</h2>
+                    <p class="section-desc">Explore the dual writing systems of Kurukh—from the indigenous Tolong Siki alphabet to standardized Devanagari orthography.</p>
+                </div>
+
+                <div class="culture-grid">
+                    <div class="culture-card" style="border-top: 4px solid var(--accent-green-bright);">
+                        <div class="culture-card-body">
+                            <div style="font-size: 2.2rem; margin-bottom: 10px;">🔤</div>
+                            <h3 class="culture-title">Tolong Siki Script (𑒏𑒳𑒛𑒳𑒐)</h3>
+                            <p class="culture-text">Created in 1999 by Dr. Narayan Oraon, Tolong Siki was designed to capture specific Kurukh phonetics, tone contours, and glottal stops. Officially recognized in Jharkhand and West Bengal for school education and literary publications.</p>
+                            <div style="margin-top: 18px; padding: 14px; background: rgba(0,0,0,0.35); border-radius: 10px; font-size: 1.3rem; color: var(--accent-green-bright); border: 1px solid var(--border-color);">
+                                𑒏𑒳𑒛𑒳𑒐 𑒏𑒰𑒟𑒰 𑒢𑒰𑒧𑒹 𑒡𑒩𑒧𑒹
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="culture-card" style="border-top: 4px solid var(--accent-gold);">
+                        <div class="culture-card-body">
+                            <div style="font-size: 2.2rem; margin-bottom: 10px;">📜</div>
+                            <h3 class="culture-title">Devanagari Script (कुड़ुख़)</h3>
+                            <p class="culture-text">Standardized with modified diacritics (such as ़ for retroflex stops and ऽ for glottal sounds), Devanagari is widely used in university curriculums, dictionaries, community periodicals, and digital media.</p>
+                            <div style="margin-top: 18px; padding: 14px; background: rgba(0,0,0,0.35); border-radius: 10px; font-size: 1.3rem; color: var(--accent-gold); border: 1px solid rgba(245, 158, 11, 0.3);">
+                                एड़पा मझी धरमे र'अदस।
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 👋 Verified Greetings Section & Audio Soundboard -->
+        <section class="explorer-section" id="greetings-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Audio Soundboard</span>
+                    <h2 class="section-title">👋 Common Kurukh Greetings</h2>
+                    <p class="section-desc">Listen to verified native pronunciations of signature greetings from the sacred 'Jai Dharme!' to the universal 'Johar!'.</p>
+                </div>
+
+                <div style="max-width: 460px; margin: 0 auto 36px;">
+                    <input type="text" id="greeting-search" placeholder="🔍 Search greetings (e.g. Jai Dharme, Johar, Eka se raada)..." 
+                           style="width: 100%; padding: 14px 20px; border-radius: 100px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); font-size: 0.95rem; outline: none;">
+                </div>
+
+                <div class="greetings-grid" id="greetings-grid">
+                    <!-- Populated dynamically via script.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 5–10 Common Words Vocabulary Matrix Section -->
+        <section class="explorer-section" id="vocabulary-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Everyday Lexicon</span>
+                    <h2 class="section-title">Common Kurukh Words & Meanings</h2>
+                    <p class="section-desc">10+ fundamental vocabulary items spanning nature elements, tribal food, sacred Sal groves, and Mandar drums.</p>
+                </div>
+
+                <div style="max-width: 460px; margin: 0 auto 28px;">
+                    <input type="text" id="vocab-search" placeholder="🔍 Search words (e.g. Water, Rice, Sun, Moon, Sal Tree, Mandar)..." 
+                           style="width: 100%; padding: 12px 18px; border-radius: 100px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); font-size: 0.92rem; outline: none;">
+                </div>
+
+                <div class="matrix-wrapper">
+                    <table class="vocab-table">
+                        <thead>
+                            <tr>
+                                <th>Concept</th>
+                                <th>Native (Devanagari / Tolong Siki)</th>
+                                <th>Transliteration</th>
+                                <th>Pronunciation & IPA</th>
+                                <th>English Meaning</th>
+                                <th>Audio</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vocab-table-body">
+                            <!-- Populated dynamically via script.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cultural & Literary Heritage Section -->
+        <section class="explorer-section" id="heritage-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Living Traditions</span>
+                    <h2 class="section-title">Kurukh Cultural & Tribal Heritage</h2>
+                    <p class="section-desc">From the sacred Sal blossom festival of Sarhul to the Dhumkuria youth academy and Parha panchayats.</p>
+                </div>
+
+                <div class="culture-grid" id="culture-grid">
+                    <!-- Populated dynamically via script.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Quiz Section -->
+        <section class="explorer-section" id="quiz-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Knowledge Check</span>
+                    <h2 class="section-title">Test Your Kurukh Explorer Knowledge</h2>
+                    <p class="section-desc">Challenge yourself on greetings, Tolong Siki script, Sarhul celebrations, and North Dravidian linguistics.</p>
+                </div>
+
+                <div class="quiz-container" id="quiz-card">
+                    <!-- Populated dynamically via script.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Sources & References Section -->
+        <section class="explorer-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Academic Citations</span>
+                    <h2 class="section-title">Sources & References</h2>
+                    <p class="section-desc">Linguistic and anthropological research sourced from recognized publications and tribal university departments.</p>
+                </div>
+
+                <div class="sources-list" id="sources-list">
+                    <!-- Populated dynamically via script.js -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2026 Incredible India Explorer • Kurukh Language Explorer Module</p>
+            <p style="font-size: 0.8rem; margin-top: 6px; color: var(--text-muted);">Celebrating the indigenous heritage of the Oraon community in Jharkhand, Chhattisgarh, Odisha, and West Bengal.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
