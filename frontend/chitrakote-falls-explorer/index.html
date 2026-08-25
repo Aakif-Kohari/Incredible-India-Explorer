@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitrakote Falls Explorer | Incredible India Explorer</title>
+    <meta name="description"
+        content="Explore Chitrakote Falls in Bastar, Chhattisgarh — India's widest waterfall. Discover its horseshoe shape on the Indravati River, monsoon vs dry-season flow, scale, and nearby attractions.">
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+
+<body>
+    <script>
+        (function () {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch (e) { }
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../waterfalls-of-india/index.html" class="dropdown-item">Waterfalls of India</a>
+                        <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                        <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route
+                            Planner</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                        <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                        <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                        <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                        <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical
+                            Timeline</a>
+                        <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html"
+                            class="dropdown-item">National Symbols</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National
+                            Parks</a>
+                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife
+                            Rescue</a>
+                        <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic
+                            Flora & Fauna</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                        <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 80px;">
+
+        <!-- HERO -->
+        <section class="chitra-hero">
+            <div class="chitra-hero-content">
+                <span class="chitra-kicker">🌾 Chhattisgarh · Bastar</span>
+                <h1>Chitrakote Falls <span>Explorer</span></h1>
+                <p>Often called the "Niagara of India," Chitrakote Falls spreads the Indravati River into a nearly
+                    300-metre-wide horseshoe curtain — India's widest waterfall. See how it transforms between monsoon
+                    flood and dry-season calm.</p>
+            </div>
+        </section>
+
+        <!-- LOCATION & RIVER -->
+        <section class="chitra-section alt-bg">
+            <div class="chitra-container info-grid">
+                <div class="info-text">
+                    <span class="chitra-eyebrow">📍 Location & River</span>
+                    <h2>On the Indravati, deep in Bastar</h2>
+                    <p class="lede">Chitrakote Falls sits about 38 km west of Jagdalpur in the Bastar district of
+                        Chhattisgarh, roughly 273 km from the state capital Raipur. The Indravati River — which rises in
+                        Odisha's Kalahandi district and eventually joins the Godavari — plunges over a rock escarpment
+                        here, curving into the wide horseshoe shape that gives the falls their fame.</p>
+
+                    <ul class="fact-list">
+                        <li><strong>Location:</strong> Bastar district, Chhattisgarh (38 km from Jagdalpur)</li>
+                        <li><strong>River:</strong> Indravati River (tributary of the Godavari)</li>
+                        <li><strong>Height:</strong> ~29 m (95 ft)</li>
+                        <li><strong>Width:</strong> Up to ~300 m (980 ft) at monsoon peak — India's widest waterfall
+                        </li>
+                        <li><strong>Shape:</strong> Horseshoe cataract, 3 to 7 streams depending on flow</li>
+                        <li><strong>Best season:</strong> July–October (monsoon), for peak volume and drama</li>
+                    </ul>
+                </div>
+
+                <!-- Width/Height Visualization component -->
+                <div class="scale-visualization glass-card">
+                    <h3 class="height-title">Scale: Height vs Width</h3>
+                    <div class="height-chart" id="height-chart"></div>
+                    <p class="scale-note">Chitrakote is short compared to India's tallest falls, but no other Indian
+                        waterfall spreads this wide.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEASON SWITCHER -->
+        <section class="geographic-flow-section">
+            <div class="chitra-container">
+                <span class="chitra-eyebrow">🔄 Season Switcher</span>
+                <h2>Monsoon vs Lower Flow</h2>
+                <p class="lede">The same horseshoe looks like two different waterfalls depending on the season. Switch
+                    between views to compare.</p>
+                <div class="flow-container">
+                    <div class="flow-stages" id="season-switcher">
+                        <button class="flow-stage active" data-stage="monsoon">
+                            <span class="flow-icon">🌧️</span>
+                            <span class="flow-text">Monsoon → Waterfall View</span>
+                        </button>
+                        <div class="flow-arrow">⇄</div>
+                        <button class="flow-stage" data-stage="dry">
+                            <span class="flow-icon">☀️</span>
+                            <span class="flow-text">Lower Flow → Waterfall View</span>
+                        </button>
+                    </div>
+
+                    <div class="flow-content-area glass-card" id="season-content-area">
+                        <!-- Panels injected by script.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HORSESHOE FORMATION -->
+        <section class="chitra-section">
+            <div class="chitra-container">
+                <span class="chitra-eyebrow">🐴 Horseshoe Formation</span>
+                <h2>Why It Curves Like a Horseshoe</h2>
+                <p class="lede">The Indravati approaches the escarpment across a broad, gently curving rock lip. Instead
+                    of one narrow channel, the river spreads sideways along this curved edge before it drops, so the
+                    entire crest — not just the centre — carries water. Seen from above or from the opposite bank, that
+                    curved crest reads as a horseshoe, widest and most continuous in monsoon when the river has enough
+                    volume to cover its full breadth; in the dry months the flow contracts into a few separate streams
+                    over the same curve.</p>
+            </div>
+        </section>
+
+        <!-- SURROUNDING LANDSCAPE GALLERY -->
+        <section class="chitra-section alt-bg">
+            <div class="chitra-container">
+                <span class="chitra-eyebrow">🏞️ Gallery</span>
+                <h2>River & Surrounding Landscape</h2>
+                <p class="lede">Chitrakote lies amid the dense sal forests of the Bastar plateau, part of the wider
+                    Vindhya-Eastern Ghats forest belt.</p>
+                <div class="gallery-grid" id="gallery-grid"></div>
+            </div>
+        </section>
+
+        <!-- NEARBY ATTRACTIONS -->
+        <section class="chitra-section">
+            <div class="chitra-container">
+                <span class="chitra-eyebrow">🗺️ Nearby Attraction Explorer</span>
+                <h2>Rest of the Bastar Circuit</h2>
+                <div class="attractions-grid" id="attractions-grid"></div>
+                <div class="map-wrapper glass-card" style="margin-top: 30px;">
+                    <div id="attractions-map" class="interactive-map"
+                        aria-label="Interactive map showing Chitrakote Falls and nearby Bastar attractions"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOCATION MAP -->
+        <section class="chitra-section alt-bg">
+            <div class="chitra-container map-grid">
+                <div>
+                    <span class="chitra-eyebrow">🗺️ River Map</span>
+                    <h2>Getting There</h2>
+                    <p class="lede">Chitrakote Falls is reached by road from Jagdalpur, following the Indravati
+                        downstream through Bastar's forests.</p>
+                    <div class="map-details glass-card">
+                        <h4>Travel Notes</h4>
+                        <ul>
+                            <li><strong>Best season:</strong> July–October for full monsoon flow; winter and summer for
+                                calmer, clearer views</li>
+                            <li><strong>Nearest town:</strong> Jagdalpur, ~38 km away</li>
+                            <li><strong>Nearest railhead:</strong> Jagdalpur Railway Station · <strong>Nearest
+                                    airport:</strong> Swami Vivekananda Airport, Raipur (~273 km)</li>
+                            <li><strong>Activities:</strong> Boating below the falls in the dry season, riverside
+                                viewpoints, evening illumination</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="map-wrapper glass-card">
+                    <!-- Leaflet map container -->
+                    <div id="chitra-map" class="interactive-map"
+                        aria-label="Interactive map showing the location of Chitrakote Falls"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REFERENCES -->
+        <section class="chitra-section references-section">
+            <div class="chitra-container">
+                <span class="chitra-eyebrow">📚 Sources</span>
+                <h2>References & Image Credits</h2>
+                <ul class="references-list" id="references-list"></ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="chitra-footer">
+        <div class="footer-content">
+            <p>Part of the <a href="../waterfalls-of-india/index.html">Waterfalls of India Explorer</a> · <a
+                    href="../../index.html">Incredible India Explorer</a></p>
+            <p class="footer-credits">Images sourced from Unsplash for demonstration purposes; see references section
+                for credits and further reading.</p>
+        </div>
+    </footer>
+
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script src="../js-modules/storage.js" defer></script>
+    <script src="../app.js" defer></script>
+    <script src="chitrakote-data.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

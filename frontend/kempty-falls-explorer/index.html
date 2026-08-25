@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kempty Falls Explorer | Incredible India Explorer</title>
+    <meta name="description"
+        content="Explore Kempty Falls near Mussoorie, Uttarakhand. Discover its five cascading tiers, mountain spring source, seasonal flow, viewpoints and nearby attractions in the Garhwal Himalayas.">
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+
+<body>
+    <script>
+        (function () {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch (e) { }
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../waterfalls-of-india/index.html" class="dropdown-item">Waterfalls of India</a>
+                        <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                        <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route
+                            Planner</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                        <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                        <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                        <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                        <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical
+                            Timeline</a>
+                        <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html"
+                            class="dropdown-item">National Symbols</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National
+                            Parks</a>
+                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife
+                            Rescue</a>
+                        <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic
+                            Flora & Fauna</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community
+                        ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                        <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 80px;">
+
+        <!-- HERO -->
+        <section class="kempty-hero">
+            <div class="kempty-hero-content">
+                <span class="kempty-kicker">🏔️ Uttarakhand · Mussoorie</span>
+                <h1>Kempty Falls <span>Explorer</span></h1>
+                <p>A five-tiered cascade tumbling from the Garhwal Himalayas above Mussoorie, Kempty Falls has drawn
+                    travellers to its misty pools since the 1830s. Trace its journey from mountain spring to splash pool
+                    below.</p>
+            </div>
+        </section>
+
+        <!-- LOCATION & WATER SOURCE -->
+        <section class="kempty-section alt-bg">
+            <div class="kempty-container info-grid">
+                <div class="info-text">
+                    <span class="kempty-eyebrow">📍 Location & Water Source</span>
+                    <h2>Where the falls come from</h2>
+                    <p class="lede">Kempty Falls lies in Ram Gaon, in the Tehri Garhwal district of Uttarakhand, on the
+                        Mussoorie–Yamunotri (Chakrata) road about 15 km from Mussoorie's Mall Road and roughly 45 km
+                        from Dehradun. A perennial hill stream gathers near the village of Banglow ki Kandi, southwest
+                        of the falls, then rushes northwest off the ridge, dropping a total of about 40–50 feet through
+                        five cascading steps into a rock pool below.</p>
+
+                    <ul class="fact-list">
+                        <li><strong>Location:</strong> Ram Gaon, Tehri Garhwal, Uttarakhand</li>
+                        <li><strong>Altitude:</strong> ~1,364 m (4,500 ft) above sea level</li>
+                        <li><strong>Water source:</strong> Perennial Garhwal hill stream, tributary of the Yamuna</li>
+                        <li><strong>Drop height:</strong> ~40–50 ft across five cascades</li>
+                        <li><strong>Distance:</strong> 15 km from Mussoorie / 45 km from Dehradun</li>
+                        <li><strong>History:</strong> Developed as a tea-party spot in 1835 by British officer John
+                            Mekinan</li>
+                    </ul>
+                </div>
+
+                <!-- Height Visualization component -->
+                <div class="height-visualization glass-card">
+                    <h3 class="height-title">Height Comparison</h3>
+                    <div class="height-chart" id="height-chart"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WATERFALL STRUCTURE: 5-TIER CASCADE -->
+        <section class="geographic-flow-section">
+            <div class="kempty-container">
+                <span class="kempty-eyebrow">🌊 Waterfall Structure</span>
+                <h2>A Cascade in Five Steps</h2>
+                <p class="lede">Unlike a single sheer drop, Kempty Falls unfolds as a staircase of five smaller cascades
+                    down the hillside. Step through each tier below to see how the stream changes character on its way
+                    down.</p>
+                <div class="flow-container">
+                    <div class="flow-stages" id="tier-stages">
+                        <button class="flow-stage active" data-stage="1">
+                            <span class="flow-icon">⛰️</span>
+                            <span class="flow-text">1. Source Spring</span>
+                        </button>
+                        <div class="flow-arrow">→</div>
+                        <button class="flow-stage" data-stage="2">
+                            <span class="flow-icon">〰️</span>
+                            <span class="flow-text">2. First Tier</span>
+                        </button>
+                        <div class="flow-arrow">→</div>
+                        <button class="flow-stage" data-stage="3">
+                            <span class="flow-icon">💦</span>
+                            <span class="flow-text">3. Middle Cascades</span>
+                        </button>
+                        <div class="flow-arrow">→</div>
+                        <button class="flow-stage" data-stage="4">
+                            <span class="flow-icon">🌊</span>
+                            <span class="flow-text">4. Main Drop</span>
+                        </button>
+                        <div class="flow-arrow">→</div>
+                        <button class="flow-stage" data-stage="5">
+                            <span class="flow-icon">🏊</span>
+                            <span class="flow-text">5. Pool Below</span>
+                        </button>
+                    </div>
+
+                    <div class="flow-content-area glass-card" id="tier-content-area">
+                        <!-- Panels injected by script.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEASONAL COMPARISON -->
+        <section class="kempty-section">
+            <div class="kempty-container">
+                <span class="kempty-eyebrow">🌦️ Seasons</span>
+                <h2>The Falls Across the Year</h2>
+                <p class="lede">Fed by a perennial stream, Kempty Falls flows year-round, but its mood shifts sharply
+                    with the seasons — from a gentle, clear trickle in winter to a churning, flood-prone torrent at the
+                    height of the monsoon.</p>
+                <div class="season-comparison" id="season-comparison"></div>
+            </div>
+        </section>
+
+        <!-- VIEWPOINTS -->
+        <section class="kempty-section alt-bg">
+            <div class="kempty-container">
+                <span class="kempty-eyebrow">👀 Viewpoints</span>
+                <h2>Where to See It Best</h2>
+                <div class="viewpoints-grid" id="viewpoints-grid"></div>
+            </div>
+        </section>
+
+        <!-- SURROUNDING LANDSCAPE GALLERY -->
+        <section class="kempty-section">
+            <div class="kempty-container">
+                <span class="kempty-eyebrow">🏞️ Gallery</span>
+                <h2>Himalayan Landscape & Cascade</h2>
+                <p class="lede">Kempty Falls sits in a bowl of pine and deodar-forested slopes typical of the Mussoorie
+                    ridge of the Garhwal Himalayas.</p>
+                <div class="gallery-grid" id="gallery-grid"></div>
+            </div>
+        </section>
+
+        <!-- NEARBY ATTRACTIONS -->
+        <section class="kempty-section alt-bg">
+            <div class="kempty-container">
+                <span class="kempty-eyebrow">🗺️ Nearby Attractions</span>
+                <h2>Rest of the Mussoorie Circuit</h2>
+                <div class="attractions-grid" id="attractions-grid"></div>
+                <div class="map-wrapper glass-card" style="margin-top: 30px;">
+                    <div id="attractions-map" class="interactive-map"
+                        aria-label="Interactive map showing Kempty Falls and nearby Mussoorie attractions"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOCATION MAP -->
+        <section class="kempty-section">
+            <div class="kempty-container map-grid">
+                <div>
+                    <span class="kempty-eyebrow">🗺️ Map</span>
+                    <h2>Getting There</h2>
+                    <p class="lede">Kempty Falls sits right beside the Mussoorie–Yamunotri road, an easy taxi or bus
+                        ride from Mussoorie's Library bus stand.</p>
+                    <div class="map-details glass-card">
+                        <h4>Travel Notes</h4>
+                        <ul>
+                            <li><strong>Best season:</strong> March–June and September–November</li>
+                            <li><strong>Avoid:</strong> Peak monsoon (July–August), when flow turns dangerously heavy
+                            </li>
+                            <li><strong>Access:</strong> By road, or via a cable-car ropeway down to the falls' base
+                            </li>
+                            <li><strong>Nearest railhead:</strong> Dehradun (~45 km) · <strong>Nearest airport:</strong>
+                                Jolly Grant, Dehradun (~69 km)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="map-wrapper glass-card">
+                    <!-- Leaflet map container -->
+                    <div id="kempty-map" class="interactive-map"
+                        aria-label="Interactive map showing the location of Kempty Falls"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REFERENCES -->
+        <section class="kempty-section alt-bg references-section">
+            <div class="kempty-container">
+                <span class="kempty-eyebrow">📚 Sources</span>
+                <h2>References & Image Credits</h2>
+                <ul class="references-list" id="references-list"></ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="kempty-footer">
+        <div class="footer-content">
+            <p>Part of the <a href="../waterfalls-of-india/index.html">Waterfalls of India Explorer</a> · <a
+                    href="../../index.html">Incredible India Explorer</a></p>
+            <p class="footer-credits">Images sourced from Unsplash for demonstration purposes; see references section
+                for credits and further reading.</p>
+        </div>
+    </footer>
+
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script src="../js-modules/storage.js" defer></script>
+    <script src="../app.js" defer></script>
+    <script src="kempty-data.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

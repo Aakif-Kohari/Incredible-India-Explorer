@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    if (document.body) {
+                        document.body.classList.add('light-theme');
+                    } else {
+                        document.documentElement.classList.add('light-theme');
+                    }
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Forgotten Women of Indian History — Interactive heritage discovery archive bringing together 50 groundbreaking women across ancient, medieval, colonial, freedom struggle, scientific, and cultural traditions."
+        />
+        <title>Forgotten Women of Indian History — Interactive Heritage Explorer</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="women.css" />
+    </head>
+    <body class="women-archive-main">
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link active" style="color: var(--accent-amber)">Women in History</a>
+                    <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="women-hero" id="hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill">🏛️ 50 Historical Profiles</span>
+                        <span class="hero-pill">⏳ Vedic Era to Modern India</span>
+                        <span class="hero-pill">🇮🇳 Pan-Indian Digital Archive</span>
+                    </div>
+                    <h1>Forgotten Women of Indian History <span>Unsung Architects of Thought, Statecraft, Science & Freedom</span></h1>
+                    <p class="hero-subtitle">
+                        Discover the extraordinary queens, Vedic philosophers, warrior commanders, underground revolutionaries, medical pioneers, and scientists who shaped India across three millennia.
+                    </p>
+                    <a href="#explorer" class="hero-cta-btn">Explore Their Stories &darr;</a>
+                </div>
+            </section>
+
+            <!-- Featured Women -->
+            <section class="featured-women-section" id="featured">
+                <div class="section-container">
+                    <h2>Featured Historical Figures</h2>
+                    <p class="sec-intro">Spotlighting celebrated leaders across philosophy, statecraft, science, and the freedom movement.</p>
+                    <div class="featured-grid" id="featured-grid"></div>
+                </div>
+            </section>
+
+            <!-- Interactive Map Discovery -->
+            <section class="map-section" id="map-discovery">
+                <div class="section-container">
+                    <h2>Regional Discovery & Heritage Centers</h2>
+                    <p class="sec-intro">Explore historical women by their native kingdoms, provinces, and regions of impact across the subcontinent.</p>
+                    <div class="map-canvas-container">
+                        <div class="map-sites-grid" id="map-sites-grid"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 50 Women Digital Archive / Search & Filters -->
+            <section class="explorer-section" id="explorer">
+                <div class="section-container">
+                    <h2>50 Women Heritage Explorer</h2>
+                    <p class="sec-intro">Search and filter across eras, dynastic movements, and professional categories.</p>
+
+                    <!-- Filter Controls -->
+                    <div class="controls-card">
+                        <div class="search-row">
+                            <input
+                                type="text"
+                                id="women-search"
+                                class="search-input"
+                                placeholder="🔍 Search by name, region, dynasty, profession, or keywords..."
+                                aria-label="Search historical women"
+                            />
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; margin-bottom: 0.5rem; color: var(--accent-gold);">Filter by Historical Era:</div>
+                            <div class="filter-pills-row" id="era-filter-pills"></div>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <div style="font-weight: 700; margin-bottom: 0.5rem; color: var(--accent-gold);">Filter by Category / Calling:</div>
+                            <div class="filter-pills-row" id="category-filter-pills"></div>
+                        </div>
+                        <div id="results-count" style="margin-top: 1rem; font-weight: 600; color: var(--accent-amber);"></div>
+                    </div>
+
+                    <!-- Profiles Grid -->
+                    <div class="profiles-grid" id="all-profiles-grid"></div>
+                </div>
+            </section>
+
+            <!-- Sources & Historical Accuracy -->
+            <section class="sources-section" id="sources">
+                <div class="section-container">
+                    <h2>Historical Sources & Historiographical Accuracy</h2>
+                    <p class="sec-intro">How this archive evaluates epigraphy, colonial gazetteers, and distinguishes primary accounts from folklore.</p>
+                    <div class="method-grid" id="method-grid"></div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Profile Modal -->
+        <div id="story-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-label="Woman Profile Story">
+            <div class="modal-content">
+                <button type="button" id="modal-close-btn" class="modal-close" aria-label="Close Profile Modal">&times;</button>
+                <div id="modal-body"></div>
+            </div>
+        </div>
+
+        <script src="women-data.js"></script>
+        <script src="women.js"></script>
+    </body>
+</html>

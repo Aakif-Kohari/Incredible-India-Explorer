@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Smart Travel Expense Tracker and Budget Management System for Incredible India Explorer."
+    >
+
+    <title>Travel Expense Tracker | Incredible India Explorer</title>
+
+    <link
+        rel="preload"
+        href="../../assets/fonts/Outfit-400.woff2"
+        as="font"
+        type="font/woff2"
+        crossorigin
+    >
+
+    <link
+        rel="preload"
+        href="../../assets/fonts/Outfit-700.woff2"
+        as="font"
+        type="font/woff2"
+        crossorigin
+    >
+
+    <link href="../../styles.css" rel="stylesheet">
+    <link href="travel-expense-tracker.css" rel="stylesheet">
+</head>
+
+<body>
+
+<script>
+(function () {
+    const theme = localStorage.getItem("theme") || "dark";
+
+    if (theme === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+        document.body.classList.add("light-theme");
+    }
+})();
+</script>
+
+<header class="navbar" id="navbar">
+    <div class="nav-container">
+
+        <a href="../../index.html#home" class="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menu-toggle"
+            aria-label="Toggle Menu"
+        >
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav class="nav-menu" id="nav-menu">
+
+            <a href="../../index.html#home" class="nav-link">
+                Home
+            </a>
+
+            <div class="nav-dropdown">
+                <button
+                    class="nav-link dropdown-toggle"
+                    type="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    Destinations ▾
+                </button>
+
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">
+                        Interactive Map
+                    </a>
+
+                    <a
+                        href="../travel/travel.html"
+                        class="dropdown-item"
+                    >
+                        Travel & Destinations
+                    </a>
+
+                    <a
+                        href="../route-planner/route-planner.html"
+                        class="dropdown-item"
+                    >
+                        Route Planner
+                    </a>
+
+                    <a
+                        href="../trip-planner/trip-planner.html"
+                        class="dropdown-item"
+                    >
+                        Trip Planner
+                    </a>
+
+                    <a
+                        href="../budget-planner/budget-planner.html"
+                        class="dropdown-item"
+                    >
+                        Smart Budget Planner
+                    </a>
+
+                    <a
+                        href="travel-expense-tracker.html"
+                        class="dropdown-item"
+                    >
+                        Expense Tracker
+                    </a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button
+                    class="nav-link dropdown-toggle"
+                    type="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    Culture ▾
+                </button>
+
+                <div class="dropdown-menu">
+                    <a
+                        href="../culture/culture.html"
+                        class="dropdown-item"
+                    >
+                        Culture Overview
+                    </a>
+
+                    <a
+                        href="../cuisine/cuisine.html"
+                        class="dropdown-item"
+                    >
+                        Cuisine
+                    </a>
+
+                    <a
+                        href="../festivals/festivals.html"
+                        class="dropdown-item"
+                    >
+                        Festivals
+                    </a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button
+                    class="nav-link dropdown-toggle"
+                    type="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    Nature ▾
+                </button>
+
+                <div class="dropdown-menu">
+                    <a
+                        href="../wildlife/wildlife.html"
+                        class="dropdown-item"
+                    >
+                        Nature & Wildlife
+                    </a>
+
+                    <a
+                        href="../national-parks-explorer/index.html"
+                        class="dropdown-item"
+                    >
+                        National Parks
+                    </a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button
+                    class="nav-link dropdown-toggle"
+                    type="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    Community ▾
+                </button>
+
+                <div class="dropdown-menu">
+                    <a
+                        href="../contributors/contributors.html"
+                        class="dropdown-item"
+                    >
+                        Contributors
+                    </a>
+                </div>
+            </div>
+
+            <button
+                id="theme-toggle"
+                class="btn-theme-toggle"
+                type="button"
+                aria-label="Toggle Dark/Light Mode"
+            >
+                ☀️
+            </button>
+
+        </nav>
+    </div>
+</header>
+
+
+<main id="app-root" class="expense-app">
+
+    <!-- HERO -->
+
+    <section class="expense-hero">
+
+        <div class="expense-hero-overlay"></div>
+
+        <div class="expense-hero-content">
+
+            <span class="expense-eyebrow">
+                💰 Smart Travel Finance
+            </span>
+
+            <h1>
+                Travel Expense
+                <span>Tracker</span>
+            </h1>
+
+            <p>
+                Plan your trip budget, record every expense,
+                understand your spending and stay financially
+                on track throughout your journey.
+            </p>
+
+            <div class="expense-hero-actions">
+                <button
+                    type="button"
+                    class="expense-btn expense-btn-primary"
+                    id="hero-add-expense"
+                >
+                    + Add Expense
+                </button>
+
+                <button
+                    type="button"
+                    class="expense-btn expense-btn-secondary"
+                    id="hero-create-trip"
+                >
+                    Create Trip
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DASHBOARD -->
+
+    <section class="expense-dashboard-section">
+
+        <div class="expense-container">
+
+            <div class="expense-section-heading">
+
+                <div>
+                    <span class="expense-section-label">
+                        Dashboard
+                    </span>
+
+                    <h2>
+                        Your Travel Finances
+                    </h2>
+                </div>
+
+                <div class="expense-toolbar">
+
+                    <label for="active-trip">
+                        Active Trip
+                    </label>
+
+                    <select id="active-trip">
+                        <option value="">
+                            Select a trip
+                        </option>
+                    </select>
+
+                    <button
+                        type="button"
+                        class="expense-icon-btn"
+                        id="manage-trips-btn"
+                        title="Manage trips"
+                    >
+                        ⚙️
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="expense-empty-state"
+                id="dashboard-empty"
+            >
+                <div class="empty-icon">🧳</div>
+
+                <h3>
+                    No trip selected
+                </h3>
+
+                <p>
+                    Create your first trip budget to start
+                    tracking your travel expenses.
+                </p>
+
+                <button
+                    type="button"
+                    class="expense-btn expense-btn-primary"
+                    id="empty-create-trip"
+                >
+                    Create My Trip
+                </button>
+            </div>
+
+
+            <div
+                id="dashboard-content"
+                class="dashboard-content"
+                hidden
+            >
+
+                <!-- SUMMARY CARDS -->
+
+                <div class="expense-summary-grid">
+
+                    <article class="expense-summary-card budget-card">
+
+                        <div class="summary-icon">
+                            🎯
+                        </div>
+
+                        <div>
+                            <span>
+                                Trip Budget
+                            </span>
+
+                            <strong id="summary-budget">
+                                ₹0
+                            </strong>
+                        </div>
+
+                    </article>
+
+
+                    <article class="expense-summary-card spent-card">
+
+                        <div class="summary-icon">
+                            💳
+                        </div>
+
+                        <div>
+                            <span>
+                                Total Spent
+                            </span>
+
+                            <strong id="summary-spent">
+                                ₹0
+                            </strong>
+                        </div>
+
+                    </article>
+
+
+                    <article class="expense-summary-card remaining-card">
+
+                        <div class="summary-icon">
+                            💰
+                        </div>
+
+                        <div>
+                            <span>
+                                Remaining
+                            </span>
+
+                            <strong id="summary-remaining">
+                                ₹0
+                            </strong>
+                        </div>
+
+                    </article>
+
+
+                    <article class="expense-summary-card utilization-card">
+
+                        <div class="summary-icon">
+                            📊
+                        </div>
+
+                        <div>
+                            <span>
+                                Budget Used
+                            </span>
+
+                            <strong id="summary-utilization">
+                                0%
+                            </strong>
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- ALERT -->
+
+                <div
+                    class="budget-alert"
+                    id="budget-alert"
+                    hidden
+                >
+                    <span class="alert-icon">⚠️</span>
+
+                    <div>
+                        <strong id="budget-alert-title">
+                            Budget Alert
+                        </strong>
+
+                        <p id="budget-alert-message"></p>
+                    </div>
+                </div>
+
+
+                <!-- PROGRESS -->
+
+                <div class="expense-progress-card">
+
+                    <div class="progress-header">
+
+                        <div>
+                            <span>
+                                Budget Utilization
+                            </span>
+
+                            <strong id="progress-text">
+                                ₹0 of ₹0
+                            </strong>
+                        </div>
+
+                        <span id="progress-percent">
+                            0%
+                        </span>
+
+                    </div>
+
+                    <div class="progress-track">
+                        <div
+                            class="progress-fill"
+                            id="budget-progress"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <!-- ANALYTICS -->
+
+                <div class="analytics-grid">
+
+                    <article class="analytics-card">
+
+                        <div class="analytics-card-header">
+                            <div>
+                                <span class="expense-section-label">
+                                    Spending Breakdown
+                                </span>
+
+                                <h3>
+                                    Where Your Money Goes
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div
+                            class="category-chart"
+                            id="category-chart"
+                        ></div>
+
+                    </article>
+
+
+                    <article class="analytics-card">
+
+                        <div class="analytics-card-header">
+                            <div>
+                                <span class="expense-section-label">
+                                    Budget vs Actual
+                                </span>
+
+                                <h3>
+                                    Planned & Actual
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div
+                            id="planned-actual"
+                            class="planned-actual"
+                        ></div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- DAILY SUMMARY -->
+
+                <article class="analytics-card daily-card">
+
+                    <div class="analytics-card-header">
+
+                        <div>
+                            <span class="expense-section-label">
+                                Daily Summary
+                            </span>
+
+                            <h3>
+                                Spending By Date
+                            </h3>
+                        </div>
+
+                    </div>
+
+                    <div
+                        id="daily-summary"
+                        class="daily-summary"
+                    ></div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPENSE HISTORY -->
+
+    <section class="expense-history-section">
+
+        <div class="expense-container">
+
+            <div class="expense-section-heading">
+
+                <div>
+                    <span class="expense-section-label">
+                        Transactions
+                    </span>
+
+                    <h2>
+                        Expense History
+                    </h2>
+                </div>
+
+                <div class="expense-toolbar-actions">
+
+                    <button
+                        type="button"
+                        class="expense-btn expense-btn-outline"
+                        id="export-csv-btn"
+                    >
+                        ⬇️ CSV
+                    </button>
+
+                    <button
+                        type="button"
+                        class="expense-btn expense-btn-outline"
+                        id="print-report-btn"
+                    >
+                        🖨️ Report
+                    </button>
+
+                    <button
+                        type="button"
+                        class="expense-btn expense-btn-primary"
+                        id="add-expense-btn"
+                    >
+                        + Add Expense
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- FILTERS -->
+
+            <div class="expense-filter-card">
+
+                <div class="filter-field">
+
+                    <label for="filter-category">
+                        Category
+                    </label>
+
+                    <select id="filter-category">
+                        <option value="all">
+                            All Categories
+                        </option>
+                    </select>
+
+                </div>
+
+
+                <div class="filter-field">
+
+                    <label for="filter-from">
+                        From
+                    </label>
+
+                    <input
+                        type="date"
+                        id="filter-from"
+                    >
+
+                </div>
+
+
+                <div class="filter-field">
+
+                    <label for="filter-to">
+                        To
+                    </label>
+
+                    <input
+                        type="date"
+                        id="filter-to"
+                    >
+
+                </div>
+
+
+                <div class="filter-field filter-search">
+
+                    <label for="filter-search">
+                        Search
+                    </label>
+
+                    <input
+                        type="search"
+                        id="filter-search"
+                        placeholder="Search expenses..."
+                    >
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="expense-btn expense-btn-outline filter-reset"
+                    id="reset-filters"
+                >
+                    Reset
+                </button>
+
+            </div>
+
+
+            <div
+                class="expense-table-wrapper"
+                id="expense-table-wrapper"
+            >
+
+                <table class="expense-table">
+
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="expense-table-body"></tbody>
+
+                </table>
+
+                <div
+                    class="table-empty"
+                    id="table-empty"
+                    hidden
+                >
+                    <span>🧾</span>
+
+                    <h3>
+                        No expenses found
+                    </h3>
+
+                    <p>
+                        Add your first expense or change the filters.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRIP MANAGEMENT -->
+
+    <section class="trip-management-section">
+
+        <div class="expense-container">
+
+            <div class="expense-section-heading">
+
+                <div>
+                    <span class="expense-section-label">
+                        Trips
+                    </span>
+
+                    <h2>
+                        Manage Your Trips
+                    </h2>
+                </div>
+
+                <button
+                    type="button"
+                    class="expense-btn expense-btn-primary"
+                    id="create-trip-btn"
+                >
+                    + New Trip
+                </button>
+
+            </div>
+
+            <div
+                class="trip-grid"
+                id="trip-grid"
+            ></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- TRIP MODAL -->
+
+<div
+    class="expense-modal"
+    id="trip-modal"
+    hidden
+    aria-hidden="true"
+>
+
+    <div class="modal-backdrop" data-close-modal></div>
+
+    <div
+        class="expense-modal-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="trip-modal-title"
+    >
+
+        <button
+            type="button"
+            class="modal-close"
+            data-close-modal
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+        <span class="expense-section-label">
+            Trip Budget
+        </span>
+
+        <h2 id="trip-modal-title">
+            Create a Trip
+        </h2>
+
+        <form id="trip-form">
+
+            <input
+                type="hidden"
+                id="trip-id"
+            >
+
+            <div class="modal-form-grid">
+
+                <div class="form-field full">
+                    <label for="trip-name">
+                        Trip Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="trip-name"
+                        maxlength="80"
+                        placeholder="e.g. Rajasthan Adventure"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-field">
+                    <label for="trip-destination">
+                        Destination
+                    </label>
+
+                    <input
+                        type="text"
+                        id="trip-destination"
+                        placeholder="e.g. Jaipur, Udaipur"
+                    >
+                </div>
+
+
+                <div class="form-field">
+                    <label for="trip-currency">
+                        Currency
+                    </label>
+
+                    <select id="trip-currency">
+                        <option value="INR">INR — Indian Rupee</option>
+                        <option value="USD">USD — US Dollar</option>
+                        <option value="EUR">EUR — Euro</option>
+                        <option value="GBP">GBP — British Pound</option>
+                        <option value="AED">AED — UAE Dirham</option>
+                        <option value="SGD">SGD — Singapore Dollar</option>
+                    </select>
+                </div>
+
+
+                <div class="form-field">
+                    <label for="trip-budget">
+                        Planned Budget *
+                    </label>
+
+                    <input
+                        type="number"
+                        id="trip-budget"
+                        min="0"
+                        step="0.01"
+                        placeholder="50000"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-field">
+                    <label for="trip-start">
+                        Start Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="trip-start"
+                    >
+                </div>
+
+
+                <div class="form-field">
+                    <label for="trip-end">
+                        End Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="trip-end"
+                    >
+                </div>
+
+
+                <div class="form-field full">
+                    <label for="trip-notes">
+                        Notes
+                    </label>
+
+                    <textarea
+                        id="trip-notes"
+                        rows="3"
+                        maxlength="300"
+                        placeholder="Optional trip notes..."
+                    ></textarea>
+                </div>
+
+            </div>
+
+
+            <p
+                class="form-error"
+                id="trip-form-error"
+                hidden
+            ></p>
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="expense-btn expense-btn-outline"
+                    data-close-modal
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="expense-btn expense-btn-primary"
+                >
+                    Save Trip
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+<!-- EXPENSE MODAL -->
+
+<div
+    class="expense-modal"
+    id="expense-modal"
+    hidden
+    aria-hidden="true"
+>
+
+    <div class="modal-backdrop" data-close-modal></div>
+
+    <div
+        class="expense-modal-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="expense-modal-title"
+    >
+
+        <button
+            type="button"
+            class="modal-close"
+            data-close-modal
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+        <span class="expense-section-label">
+            Transaction
+        </span>
+
+        <h2 id="expense-modal-title">
+            Add Expense
+        </h2>
+
+        <form id="expense-form">
+
+            <input
+                type="hidden"
+                id="expense-id"
+            >
+
+            <div class="modal-form-grid">
+
+                <div class="form-field full">
+
+                    <label for="expense-description">
+                        Description *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="expense-description"
+                        maxlength="100"
+                        placeholder="e.g. Hotel booking"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="expense-amount">
+                        Amount *
+                    </label>
+
+                    <input
+                        type="number"
+                        id="expense-amount"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="2500"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="expense-category">
+                        Category *
+                    </label>
+
+                    <select id="expense-category" required>
+                    </select>
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="expense-date">
+                        Date *
+                    </label>
+
+                    <input
+                        type="date"
+                        id="expense-date"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="expense-planned">
+                        Planned Amount
+                    </label>
+
+                    <input
+                        type="number"
+                        id="expense-planned"
+                        min="0"
+                        step="0.01"
+                        placeholder="Optional"
+                    >
+
+                </div>
+
+
+                <div class="form-field full">
+
+                    <label for="expense-note">
+                        Notes
+                    </label>
+
+                    <textarea
+                        id="expense-note"
+                        rows="3"
+                        maxlength="300"
+                        placeholder="Optional note..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <p
+                class="form-error"
+                id="expense-form-error"
+                hidden
+            ></p>
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="expense-btn expense-btn-outline"
+                    data-close-modal
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="expense-btn expense-btn-primary"
+                >
+                    Save Expense
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+<!-- TOAST -->
+
+<div
+    class="expense-toast"
+    id="expense-toast"
+    role="status"
+    aria-live="polite"
+></div>
+
+
+<script>
+/*
+ * router-init.js loads the page module when this page is opened
+ * through the SPA router.
+ *
+ * This fallback makes the page work directly as well.
+ */
+if (!window.__IIE_EXPENSE_TRACKER_DIRECT_LOAD__) {
+    window.__IIE_EXPENSE_TRACKER_DIRECT_LOAD__ = true;
+
+    const script = document.createElement("script");
+    script.src = "../js-modules/travel-expense-tracker.js";
+    script.defer = true;
+
+    document.body.appendChild(script);
+}
+</script>
+
+</body>
+</html>

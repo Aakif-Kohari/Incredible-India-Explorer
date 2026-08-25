@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Transport Route Planner - Compare bus, metro, walking, cab and train options between Indian cities and get preference-based route recommendations." name="description"/>
+<title>Transport Route Planner | Incredible India</title>
+<!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<link href="../../styles.css" rel="stylesheet"/>
+<link href="transport-route-planner.css" rel="stylesheet"/>
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Transport Route Planner | Incredible India Explorer">
+    <meta property="og:description" content="Compare bus, metro, walking, cab and train options between Indian cities and get preference-based route recommendations.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/transport-route-planner/index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Transport Route Planner | Incredible India Explorer">
+    <meta name="twitter:description" content="Compare bus, metro, walking, cab and train options between Indian cities and get preference-based route recommendations.">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/transport-route-planner/index.html">
+</head>
+<body>
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+<!-- Sticky Navigation Bar -->
+<header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                    <a href="../../frontend/trip-planner/trip-planner.html" class="dropdown-item">Trip Planner</a>
+                    <a href="../../frontend/transport-route-planner/index.html" class="dropdown-item active">Transport Route Planner</a>
+                    <a href="../../frontend/trains-map/index.html" class="dropdown-item">Trains Map</a>
+                </div>
+            </div>
+
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+<main id="app-root" style="padding-top: 80px;">
+<!-- Hero Section -->
+<section class="cuisine-hero scroll-section tp-hero">
+<picture>
+  <source srcset="../assets/travel_hero.webp" type="image/webp">
+  <img class="hero-video" src="../assets/travel_hero.png" alt="A bus and metro line running through an Indian city, symbolizing multi-modal transit" style="width: 100%; height: 100%; object-fit: cover;"/>
+</picture>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<span class="hero-tagline animate-fade-in">🚏 Get Around Smarter</span>
+<h1 class="hero-title animate-slide-up">Transport Route <span class="highlight">Planner</span></h1>
+<p class="hero-description animate-fade-in-delayed">
+    Compare walking, bus, metro, cab and train options between destinations, and rank routes by cost, time, or how much walking you want to do.
+</p>
+</div>
+</section>
+
+<section class="tp-planner-section">
+    <div class="tp-form-card">
+        <form id="tp-form">
+            <div class="tp-form-row">
+                <div class="tp-field">
+                    <label for="tp-origin">From</label>
+                    <select id="tp-origin" required></select>
+                </div>
+                <button type="button" class="tp-swap-btn" id="tp-swap" aria-label="Swap origin and destination">⇄</button>
+                <div class="tp-field">
+                    <label for="tp-destination">To</label>
+                    <select id="tp-destination" required></select>
+                </div>
+            </div>
+
+            <div class="tp-prefs" role="group" aria-label="Rank routes by">
+                <button type="button" class="tp-pref-btn active" data-pref="balanced">Balanced</button>
+                <button type="button" class="tp-pref-btn" data-pref="cost">Lowest Cost</button>
+                <button type="button" class="tp-pref-btn" data-pref="time">Shortest Time</button>
+                <button type="button" class="tp-pref-btn" data-pref="walking">Least Walking</button>
+            </div>
+
+            <button type="submit" class="tp-submit-btn">Find Routes</button>
+        </form>
+    </div>
+
+    <div id="tp-results" class="tp-results" data-has-results="false"></div>
+
+    <div class="tp-saved-section">
+        <h2 class="section-title">My Saved Routes</h2>
+        <p class="section-subtitle">Saved to this browser and to My India Journey — no account needed.</p>
+        <div id="tp-saved-list" class="tp-saved-list"></div>
+    </div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-container">
+<div class="footer-brand">
+<h3>Incredible India Explorer</h3>
+<p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India. Built
+                    with passion and pure vanilla web technologies.</p>
+</div>
+<div class="footer-links">
+<h4>Quick Navigation</h4>
+<ul>
+<li><a href="../../index.html#home">Home</a></li>
+<li><a href="../../index.html#map">Interactive Map</a></li>
+<li><a href="../trip-planner/trip-planner.html">Trip Planner</a></li>
+<li><a href="index.html">Transport Route Planner</a></li>
+<li><a href="../../index.html#quiz">Quiz</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-credits" style="align-self: center;">
+<p>© 2026 Incredible India Explorer. Created with Vanilla HTML, CSS &amp; JavaScript.</p>
+</div>
+</footer>
+<!-- Scroll To Top Button -->
+<button aria-label="Scroll to Top" class="btn-scroll-top" id="btn-scroll-top">↑</button>
+<script src="../js-modules/storage.js" defer></script>
+    <script src="../app.js" defer></script>
+<script src="../firebase-config.js" type="module"></script>
+<script src="../auth.js" type="module"></script>
+<script src="../router.js" defer></script>
+<script src="../journey/journey.js" defer></script>
+
+<!-- Transport Route Planner feature (resolves issue #2697). No backend
+     API — client-side multi-modal route generation + ranking, following
+     the same standalone-page script-include convention as Trip Planner
+     and Route Planner. See transport-route-planner.js header comment
+     for architecture notes. -->
+<script src="transport-route-planner.js" defer></script>
+<script defer>
+    if (window.TransportPlanner && typeof window.TransportPlanner.initTransportPlannerPage === "function") {
+        window.TransportPlanner.initTransportPlannerPage();
+    } else {
+        console.error("[transport-route-planner] TransportPlanner failed to load — the form will not respond.");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive map of tribal resistance movements against colonial policy across India: Santhal Hul, Munda Ulgulan, Rampa Rebellion, Bhil resistance, Koya resistance, Tana Bhagat Movement, Rani Gaidinliu's movement and more, with leaders, causes and a timeline.">
+  <title>Tribal Resistance Movements Explorer | Incredible India Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+  <meta property="og:title" content="Tribal Resistance Movements Explorer | Incredible India Explorer">
+  <meta property="og:description" content="Explore the major adivasi uprisings against colonial land, forest and revenue policy across India, on an interactive region map with leader profiles and a timeline.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Incredible India Explorer">
+  <meta property="og:locale" content="en_IN">
+  <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/tribal-resistance-explorer/index.html">
+</head>
+<body>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../../frontend/historical-timeline/index.html" class="nav-link">Historical Timeline</a>
+        <a href="../../index.html#map" class="nav-link">Interactive Map</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="tr-app">
+
+    <!-- Hero -->
+    <section class="tr-hero" aria-label="Tribal Resistance Movements Explorer introduction">
+      <div class="tr-hero-inner">
+        <span class="tr-kicker">🏹 Adivasi Resistance · 1810s–1932</span>
+        <h1>Tribal Resistance <span>Movements Explorer</span></h1>
+        <p>Long before the mainstream Congress-led movement, adivasi communities across India rose repeatedly against land seizure, forest laws and forced labour. Explore where these movements happened, who led them, and what they were fighting for.</p>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="tr-filters" aria-label="Filter movements">
+      <div class="tr-filter-group">
+        <label for="tr-region-filter">Region</label>
+        <select id="tr-region-filter">
+          <option value="all">All regions</option>
+        </select>
+      </div>
+      <div class="tr-filter-group">
+        <label for="tr-tribe-filter">Tribe / community</label>
+        <select id="tr-tribe-filter">
+          <option value="all">All communities</option>
+        </select>
+      </div>
+      <div class="tr-filter-group">
+        <label for="tr-cause-filter">Cause</label>
+        <select id="tr-cause-filter">
+          <option value="all">All causes</option>
+        </select>
+      </div>
+      <div class="tr-filter-group">
+        <label for="tr-search">Search</label>
+        <input type="search" id="tr-search" placeholder="Search movement, leader…">
+      </div>
+      <button id="tr-reset" class="tr-btn-reset" type="button">Reset filters</button>
+    </section>
+
+    <!-- Map -->
+    <section class="tr-map-section" aria-label="Tribal region map">
+      <div class="tr-section-head">
+        <h2>Tribal-Region Map</h2>
+        <p>Every marker is a region where a resistance movement was centred. Click a marker to jump to its card.</p>
+      </div>
+      <div id="tr-map" role="application" aria-label="Map of tribal resistance movement regions"></div>
+    </section>
+
+    <!-- Cards -->
+    <section class="tr-cards-section" aria-label="Movement cards">
+      <div class="tr-section-head">
+        <h2>Movements & Leaders</h2>
+        <p id="tr-result-count">Showing all movements</p>
+      </div>
+      <div id="tr-cards-grid" class="tr-cards-grid"></div>
+      <p id="tr-no-results" class="tr-no-results" hidden>No movements match these filters.</p>
+    </section>
+
+    <!-- Comparison -->
+    <section class="tr-compare-section" aria-label="Compare movements">
+      <div class="tr-section-head">
+        <h2>Movement Comparison</h2>
+        <p>Select up to three movements to compare their region, leaders, causes and outcomes side by side.</p>
+      </div>
+      <div class="tr-compare-controls">
+        <select id="tr-compare-select">
+          <option value="">Add a movement to compare…</option>
+        </select>
+      </div>
+      <div id="tr-compare-table-wrap"></div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="tr-timeline-section" aria-label="Movement timeline">
+      <div class="tr-section-head">
+        <h2>Timeline</h2>
+        <p>Adivasi resistance movements from the early 19th century through the interwar years.</p>
+      </div>
+      <div id="tr-timeline" class="tr-timeline"></div>
+    </section>
+
+    <!-- Sources -->
+    <section class="tr-sources-section" aria-label="Sources">
+      <div class="tr-section-head">
+        <h2>Sources</h2>
+        <p>Each movement card links to its own source. General references used throughout:</p>
+      </div>
+      <ul class="tr-sources-list">
+        <li><a href="https://nationalarchives.gov.in/" target="_blank" rel="noopener">National Archives of India</a></li>
+        <li><a href="https://tsarchives.telangana.gov.in/" target="_blank" rel="noopener">Andhra Pradesh / Telangana State Archives</a></li>
+        <li><a href="https://archives.rajasthan.gov.in/" target="_blank" rel="noopener">Rajasthan State Archives</a></li>
+        <li><a href="https://www.sahapedia.org/" target="_blank" rel="noopener">Sahapedia</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Leader profile modal -->
+  <div id="tr-modal" class="tr-modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="tr-modal-title">
+    <div class="tr-modal-backdrop" data-tr-close></div>
+    <div class="tr-modal-content">
+      <button class="tr-modal-close" type="button" data-tr-close aria-label="Close">✕</button>
+      <div id="tr-modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="tr-footer">
+    <p>Part of <a href="../../index.html">Incredible India Explorer</a> — an open-source, educational project.</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

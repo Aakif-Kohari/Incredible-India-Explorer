@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Indian Brand | Incredible India</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="quiz-page">
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="../../index.html" class="logo">
+                    <img src="../../assets/icons/mandala.svg" alt="Incredible India Explorer Logo">
+                    <span>Incredible India</span>
+                </a>
+                <div class="nav-links">
+                    <a href="../../index.html" class="nav-item">Home</a>
+                    <a href="#" class="nav-item">Destinations</a>
+                    <a href="#" class="nav-item">Culture</a>
+                    <a href="#" class="nav-item active">Quiz</a>
+                </div>
+                <button class="theme-toggle" aria-label="Toggle dark mode" id="theme-toggle-btn">
+                    <span class="moon-icon">🌙</span>
+                    <span class="sun-icon">☀️</span>
+                </button>
+                <button class="hamburger-menu" aria-label="Open menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="quiz-container">
+        <!-- Header & Scoreboard -->
+        <div class="quiz-header">
+            <div class="quiz-titles">
+                <span class="badge">Interactive Game</span>
+                <h1>Guess the Indian Brand</h1>
+                <p>Test your knowledge of Indian brands by identifying logos, products, and clues.</p>
+            </div>
+            
+            <div class="scoreboard-card">
+                <h3>Score</h3>
+                <p class="score-display"><span id="score-correct">0</span> / <span id="score-total">0</span></p>
+                <button id="reset-score-btn" class="text-btn">Reset Score</button>
+            </div>
+        </div>
+
+        <!-- Settings -->
+        <div class="settings-card">
+            <label for="difficulty-select">Difficulty:</label>
+            <select id="difficulty-select" class="difficulty-select" aria-label="Select difficulty level">
+                <option value="easy">Easy (Full Logo/Image)</option>
+                <option value="medium">Medium (Silhouette/Blurred)</option>
+                <option value="hard">Hard (Silhouette Only)</option>
+            </select>
+        </div>
+
+        <!-- Game Area -->
+        <div class="game-area">
+            <div class="brand-display-card">
+                <div class="brand-image-container" id="brand-image-container" aria-label="Brand image clue">
+                    <!-- SVG Brand Clue injected here -->
+                </div>
+                <div class="result-banner hidden" id="result-banner" aria-live="polite">
+                    <!-- Result feedback -->
+                </div>
+            </div>
+
+            <div class="interaction-area">
+                <div class="options-grid" id="options-grid" role="group" aria-label="Answer options">
+                    <!-- Buttons injected by JS -->
+                </div>
+
+                <!-- Info Card (Hidden until answered) -->
+                <div class="brand-info-card hidden" id="brand-info-card" tabindex="-1">
+                    <h2 id="info-name">Brand Name</h2>
+                    <div class="info-explanation" id="info-explanation"></div>
+                    <div class="info-details">
+                        <p><strong>Industry:</strong> <span id="info-industry"></span></p>
+                        <p><strong>Fact:</strong> <span id="info-fact"></span></p>
+                        <p class="credit-text"><em>Credit: <span id="info-credit"></span></em></p>
+                    </div>
+                    <button id="next-question-btn" class="primary-btn">Next Brand</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Project.</p>
+        </div>
+    </footer>
+
+    <script src="../../app.js"></script>
+    <script src="brand-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
