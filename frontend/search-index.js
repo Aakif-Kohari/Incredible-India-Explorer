@@ -6220,7 +6220,8 @@ window.indiaSearchIndex = [
         category: "Geology & Disasters",
         description:
             "Explore the 18 September 2011 Sikkim earthquake (Mw 6.9): USGS epicentre on the India–Nepal border, Himalayan strike-slip tectonics, landslides, road and settlement damage, NDRF and Army relief, and earthquake preparedness.",
-        url: "frontend/sikkim-earthquake-2011-explorer/index.html"},
+        url: "frontend/sikkim-earthquake-2011-explorer/index.html"
+    },
     // --- Brahmaputra Flood Hazards Explorer ---
     {
         title: "Brahmaputra Flood Hazards — Assam",
@@ -6235,28 +6236,32 @@ window.indiaSearchIndex = [
         category: "History & Royalty",
         description:
             "Explore Pandita Ramabai's historical profile: first woman to earn titles Pandita and Sarasvati for Sanskrit scholarship, founder of Sharada Sadan and Mukti Mission.",
-        url: "frontend/pandita-ramabai-explorer/index.html"},
+        url: "frontend/pandita-ramabai-explorer/index.html"
+    },
     // --- Add Fatima Sheikh historical profile ---
     {
         title: "Fatima Sheikh — The Forgotten Pioneer of Girls' Education",
         category: "History & Royalty",
         description:
             "Explore Fatima Sheikh's historical profile: Pune's first Muslim female teacher, co-founder of girls' schools, and close educational associate of Savitribai Phule.",
-        url: "frontend/fatima-sheikh-explorer/index.html"},
+        url: "frontend/fatima-sheikh-explorer/index.html"
+    },
     // --- Add Savitribai Phule historical profile ---
     {
         title: "Savitribai Phule — Pioneer of Women's Education in India",
         category: "History & Royalty",
         description:
             "Explore Savitribai Phule's historical profile: India's first female teacher, founder of Bhide Wada girls' school, Satyashodhak Samaj co-founder, and social reformer.",
-        url: "frontend/savitribai-phule-explorer/index.html"},
+        url: "frontend/savitribai-phule-explorer/index.html"
+    },
     // --- Add Begum Rokeya historical profile ---
     {
         title: "Begum Rokeya — Pioneer of Women's Education in Bengal",
         category: "History & Royalty",
         description:
             "Explore Begum Rokeya's historical profile: writer, educator, and social reformer who established Sakhawat Memorial Girls' School and wrote Sultana's Dream.",
-        url: "frontend/begum-rokeya-explorer/index.html"},
+        url: "frontend/begum-rokeya-explorer/index.html"
+    },
     // --- Add Anis Kidwai historical profile ---
     {
         title: "Anis Kidwai — Partition Memoirist & Refugee Rehabilitation Leader",
@@ -6280,6 +6285,13 @@ window.indiaSearchIndex = [
         category: "Geology & Disasters",
         description:
             "Explore drought in Rajasthan: Thar arid geography, monsoon rainfall gradient, western drought hotspots, agricultural and water-scarcity impacts, johad and tanka traditions, and drought preparedness.",
-        url: "frontend/rajasthan-drought-hazards/index.html"
+        url: "frontend/rajasthan-drought-hazards/index.html"},
+    // --- 2023 South Lhonak GLOF Explorer (#3568) ---
+    {
+        title: "2023 South Lhonak GLOF — Sikkim Glacial Lake Outburst Flood",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 3–4 October 2023 South Lhonak glacial lake outburst flood: lake geography, Teesta basin, GLOF hazards, Chungthang dam and highway damage, early-warning gaps, and Himalayan risk mitigation.",
+        url: "frontend/south-lhonak-glof-2023-explorer/index.html"
     }
 ];
