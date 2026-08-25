@@ -6440,5 +6440,14 @@ window.indiaSearchIndex = [
         description:
             "Explore the story of Lava and Kusha \u2014 the young twin princes of Ayodhya, their upbringing in Valmiki ashram, singing the Ramayana, and Ashwamedha valor.",
         url: "frontend/lava-kusha-story/index.html"
+    },
+
+    // --- Markandeya Story (#3696) ---
+    {
+        title: "Markandeya — The Sage Who Defied Death",
+        category: "Culture & Literature",
+        description:
+            "Explore the traditional story of Markandeya: the sixteen-year prophecy, devotion to Shiva, the encounter with Yama, Kalantaka, and themes of faith and mortality.",
+        url: "frontend/markandeya-story/index.html"
     }
 ];
