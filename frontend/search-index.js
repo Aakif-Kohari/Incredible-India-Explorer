@@ -6364,6 +6364,13 @@ window.indiaSearchIndex = [
             "Explore the 3–4 October 2023 South Lhonak glacial lake outburst flood: lake geography, Teesta basin, GLOF hazards, Chungthang dam and highway damage, early-warning gaps, and Himalayan risk mitigation.",
         url: "frontend/south-lhonak-glof-2023-explorer/index.html"
     },
+    // --- feat/shabari-rama-story ---
+    {
+        title: "Add Shabari and Rama \u2014 A Story of Devotion",
+        category: "Culture & Literature",
+        description:
+            "Explore the story of Shabari and Rama \u2014 an inspiring narrative of unconditional devotion, egoless hospitality, Navadha Bhakti, and spiritual equality.",
+        url: "frontend/shabari-rama-story/index.html"},
     // --- feat/jatayu-story ---
     {
         title: "Add Jatayu \u2014 The Bird Who Stood Against Ravana",
