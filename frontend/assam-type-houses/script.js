@@ -1,0 +1,61 @@
+const assamData = {
+    roof: {
+        title: "Sloping Roof (GCI Sheets/Thatch)",
+        description: "Assam Type houses feature highly pitched roofs, historically made of thatch but later replaced by Galvanized Corrugated Iron (GCI) sheets introduced by the British.",
+        adaptation: "The steep slope ensures that the heavy monsoon rain runs off quickly, preventing waterlogging and structural damage. The overhanging eaves protect the walls from driving rain.",
+        materials: "GCI sheets, timber trusses, and sometimes traditional thatch in rural adaptations."
+    },
+    timber: {
+        title: "Timber Framework",
+        description: "The structural skeleton of the house is built entirely of timber, creating a lightweight but extremely strong matrix.",
+        adaptation: "This timber frame provides incredible seismic resilience. During an earthquake, the wooden joints flex and sway rather than cracking or collapsing like rigid masonry.",
+        materials: "Local hardwoods such as Sal, Teak, and Bonsum, which are naturally resistant to termites and rot."
+    },
+    ikra: {
+        title: "Ikra Walls (Wattle and Daub)",
+        description: "The walls are non-load-bearing, constructed using 'Ikra' (a local reed) woven into a bamboo matrix and plastered with mud or cement.",
+        adaptation: "Because the walls are incredibly lightweight, they significantly reduce the dead load of the building. If they fall during a massive earthquake, they cause minimal injury compared to brick walls. They also provide excellent thermal insulation.",
+        materials: "Ikra reeds, bamboo lattice, mud plaster mixed with cow dung, or modern cement plaster."
+    },
+    stilt: {
+        title: "Stilts / High Plinth (Chang Ghar)",
+        description: "Traditionally, many houses (especially the 'Chang Ghar' of the Mising tribe) are built on stilts. In urban areas, this evolved into a very high brick or concrete plinth.",
+        adaptation: "Protects the living quarters from the severe annual floods of the Brahmaputra River. It also keeps the floor dry from the damp soil and prevents wild animals and insects from entering.",
+        materials: "Bamboo or timber poles in traditional structures; brick and cement masonry in colonial and modern Assam Type houses."
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.diag-section');
+    const titleEl = document.getElementById('section-title');
+    const descEl = document.getElementById('section-description');
+    const metaContainer = document.getElementById('section-meta');
+    const adaptEl = document.getElementById('meta-adaptation');
+    const materialsEl = document.getElementById('meta-materials');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked (if multiple share the same data-section, activate all)
+            const sectionId = button.getAttribute('data-section');
+            document.querySelectorAll(`[data-section="${sectionId}"]`).forEach(b => b.classList.add('active'));
+
+            // Fetch data
+            const data = assamData[sectionId];
+
+            if (data) {
+                // Update UI
+                titleEl.textContent = data.title;
+                descEl.textContent = data.description;
+                
+                adaptEl.textContent = data.adaptation;
+                materialsEl.textContent = data.materials;
+
+                // Show meta info
+                metaContainer.classList.remove('hidden');
+            }
+        });
+    });
+});

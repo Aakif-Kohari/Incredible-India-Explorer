@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the Quit India Movement of 1942. Discover the 'Do or Die' call by Mahatma Gandhi, the underground resistance, and the parallel governments that shook the British Empire.">
+  <title>Quit India Movement (1942) | Gandhian Movements | Incredible India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet CSS for Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-link">← Gandhian Movements</a>
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+  </header>
+
+  <main id="app-root" class="movement-profile-page">
+    
+    <!-- Hero Section -->
+    <section class="profile-hero-gradient" style="background-image: linear-gradient(rgba(18,20,18,0.85), rgba(18,20,18,0.95)), url('quit-india-hero.jpg'); background-size: cover; background-position: center;">
+      <div class="profile-hero-container">
+        <span class="profile-kicker">August 1942 · Gowalia Tank Maidan</span>
+        <h1>The Quit India Movement</h1>
+        <p>The definitive mass civil disobedience campaign launched by Mahatma Gandhi, demanding an immediate end to British rule and sparking unprecedented nationwide resistance and parallel governments.</p>
+      </div>
+    </section>
+
+    <!-- Context & The Resolution -->
+    <section class="profile-section">
+      <div class="rulers-container profile-two-col">
+        <div class="profile-text-block">
+          <span class="profile-eyebrow">The Turning Point</span>
+          <h2>The Cripps Mission &amp; "Do or Die"</h2>
+          <p>By early 1942, World War II was dangerously close to India, with the Japanese rapidly advancing through Southeast Asia. To secure full Indian cooperation, the British sent the <strong>Cripps Mission</strong> to negotiate. However, the mission failed completely as it only offered dominion status after the war, not immediate independence.</p>
+          <p>Frustrated by British obstinacy, the Congress Working Committee met at the Gowalia Tank Maidan in Bombay on August 8, 1942. Here, the historic <strong>Quit India Resolution</strong> was passed. Mahatma Gandhi delivered a passionate speech, famously commanding the nation to <em>"Do or Die" (Karo ya Maro)</em>—meaning either free India or die in the attempt, abandoning the earlier strategy of limited individual protest.</p>
+        </div>
+        <div class="profile-highlight-card">
+          <h3>🚩 The Leadership Vacuum</h3>
+          <p>In the early hours of August 9, before the movement could be formally launched, the British executed "Operation Zero Hour," arresting Gandhi, Nehru, Patel, and the entire Congress leadership. Rather than crushing the movement, this sparked leaderless, spontaneous, and ferocious mass protests across the country.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Underground Resistance -->
+    <section class="profile-section profile-accent-bg">
+      <div class="rulers-container">
+        <div class="profile-center-header">
+          <span class="profile-eyebrow">The Shadows of Freedom</span>
+          <h2>Underground Networks &amp; Revolutionary Youth</h2>
+          <p>With the senior leaders imprisoned, a new generation of fierce, underground revolutionary leaders took control, keeping the movement alive through sabotage and covert communications.</p>
+        </div>
+        <div class="profile-three-grid">
+          <div class="lit-card">
+            <h4>Aruna Asaf Ali</h4>
+            <p>Dubbed the "Heroine of the 1942 movement," she bravely hoisted the Indian National Congress flag at the Gowalia Tank Maidan on August 9 amidst severe police tear-gassing.</p>
+          </div>
+          <div class="lit-card">
+            <h4>Usha Mehta's Secret Radio</h4>
+            <p>At just 22 years old, she organized the "Secret Congress Radio," broadcasting covert messages, news of protests, and patriotic songs from shifting locations in Bombay to evade British detection.</p>
+          </div>
+          <div class="lit-card">
+            <h4>Jayaprakash Narayan (JP)</h4>
+            <p>Escaped from the Hazaribagh Central Jail and formed the "Azad Dasta" (Free Band) in the Nepal terrains, conducting guerrilla warfare and sabotage against British infrastructure.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Historical Map -->
+    <section class="profile-section">
+      <div class="rulers-container">
+        <div class="profile-center-header">
+          <span class="profile-eyebrow">Parallel Governments</span>
+          <h2>Interactive Map of the Resistance</h2>
+          <p>Explore the regions where British authority completely collapsed and independent, parallel governments (Jatiya/Prati Sarkars) were successfully established by the people.</p>
+        </div>
+        
+        <div class="map-wrapper" style="height: 500px; border-radius: 12px; overflow: hidden; border: 1px solid var(--movement-border-dark);">
+          <div id="quit-india-map" style="width: 100%; height: 100%;" aria-label="Interactive map showing the locations of Parallel Governments during Quit India."></div>
+        </div>
+        
+        <!-- Text Alternative for Map -->
+        <div class="text-map-box" style="margin-top: 20px;">
+          <h4>📍 Mapped Locations (Text Alternative)</h4>
+          <ul>
+            <li><strong>Bombay (Gowalia Tank):</strong> The birthplace of the Quit India resolution and site of the first flag hoisting.</li>
+            <li><strong>Ballia, Uttar Pradesh:</strong> Chittu Pandey established the first parallel government here, famously releasing arrested Congress leaders from jail.</li>
+            <li><strong>Tamluk, Midnapore (Bengal):</strong> The "Jatiya Sarkar" was formed here. 73-year-old Matangini Hazra was martyred here while leading a procession holding the tricolor.</li>
+            <li><strong>Satara, Maharashtra:</strong> The "Prati Sarkar" led by Y.B. Chavan and Nana Patil was the longest-lasting parallel government, running people's courts and organizing guerrilla bands (Toofan Sena).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline of Events -->
+    <section class="profile-section profile-accent-bg">
+      <div class="rulers-container">
+        <h2 class="section-title">Timeline of the August Kranti</h2>
+        <div class="profile-timeline">
+          <div class="p-timeline-item">
+            <span class="p-timeline-year">March 1942</span>
+            <h4>Failure of the Cripps Mission</h4>
+            <p>British proposals for post-war dominion status are rejected. Gandhi famously calls it a "post-dated cheque on a crashing bank."</p>
+          </div>
+          <div class="p-timeline-item">
+            <span class="p-timeline-year">8 August 1942</span>
+            <h4>The Quit India Resolution</h4>
+            <p>Passed at the Gowalia Tank Maidan in Bombay, demanding immediate British withdrawal and initiating the "Do or Die" mandate.</p>
+          </div>
+          <div class="p-timeline-item">
+            <span class="p-timeline-year">9 August 1942</span>
+            <h4>Operation Zero Hour</h4>
+            <p>British authorities preemptively arrest all major national leaders, inciting leaderless mass uprisings, strikes, and the sabotage of railways across India.</p>
+          </div>
+          <div class="p-timeline-item">
+            <span class="p-timeline-year">1942 – 1944</span>
+            <h4>Formation of Parallel Governments</h4>
+            <p>British administration collapses in specific pockets. Independent people's governments run successfully in Ballia, Tamluk, and Satara.</p>
+          </div>
+          <div class="p-timeline-item">
+            <span class="p-timeline-year">May 1944</span>
+            <h4>Gandhi's Release</h4>
+            <p>Gandhi is released from the Aga Khan Palace due to failing health, marking the gradual cooling down of the intense underground resistance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Legacy -->
+    <section class="profile-section">
+      <div class="rulers-container">
+        <div class="profile-center-header">
+          <span class="profile-eyebrow">The Final Nail</span>
+          <h2>Repression &amp; Historical Impact</h2>
+          <p class="legacy-p">The British response to the Quit India Movement was ruthless. Over 100,000 people were arrested, massive fines were levied on entire villages, and police firing resulted in thousands of deaths. Despite this brutal repression, the movement proved to the British Crown that the cost of holding India by force had become insurmountable. The sheer scale of spontaneous mass participation—cutting across students, women, peasants, and workers—made it abundantly clear that complete independence was no longer a negotiation, but an inevitability.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rulers-footer">
+    <div class="rulers-container">
+      <p>Part of <a href="../../index.html">Incredible India Explorer</a> · Gandhian Movements.</p>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

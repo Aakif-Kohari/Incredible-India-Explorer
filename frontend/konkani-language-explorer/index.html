@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Konkani · कोंकणी — Discover Across the Konkan | Incredible India Explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Noto+Serif+Devanagari:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  :root{
+    --sand:#f1e6cd;
+    --sand-deep:#e7d7b3;
+    --card:#fbf6ea;
+    --ink:#1e3d45;
+    --ink-soft:#3d5a61;
+    --sea:#145c64;
+    --sea-deep:#0e454b;
+    --terracotta:#c1502e;
+    --terracotta-deep:#a13f22;
+    --palm:#3f6b4f;
+    --gold:#c9963d;
+    --line: rgba(30,61,69,0.14);
+    --radius: 14px;
+    font-size: 16px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--sand);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .dev{ font-family:'Noto Serif Devanagari', serif; }
+  .display{ font-family:'Fraunces', serif; }
+  .mono{ font-family:'JetBrains Mono', monospace; }
+
+  a{color:var(--terracotta);}
+
+  ::selection{ background: var(--gold); color:#fff; }
+
+  .wrap{ max-width:980px; margin:0 auto; padding:0 24px; }
+
+  /* ---------- background wave texture ---------- */
+  .bg-waves{
+    position:fixed; inset:0; z-index:-1; opacity:0.5; pointer-events:none;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 78px, rgba(20,92,100,0.035) 78px, rgba(20,92,100,0.035) 79px);
+  }
+
+  /* ================= LANDING CARD DEMO ================= */
+  .landing-shell{
+    padding:56px 24px 40px;
+  }
+  .landing-eyebrow{
+    text-align:center;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:18px;
+  }
+  .lang-card{
+    max-width:420px;
+    margin:0 auto;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 18px 40px -22px rgba(20,61,69,0.35);
+  }
+  .lang-card-top{
+    background: linear-gradient(135deg, var(--sea) 0%, var(--sea-deep) 100%);
+    padding:30px 26px 22px;
+    color:#f6ede0;
+    position:relative;
+    overflow:hidden;
+  }
+  .lang-card-top svg{ position:absolute; bottom:-6px; left:0; width:100%; height:46px; opacity:.5; }
+  .lang-card-top .k-title{ font-size:34px; font-weight:600; margin:0 0 2px; }
+  .lang-card-top .k-sub{ font-family:'Inter'; font-size:13px; letter-spacing:.05em; text-transform:uppercase; opacity:.8; margin:0; }
+  .lang-card-body{ padding:20px 26px 26px; }
+  .lang-card-body p{ margin:0 0 16px; font-size:14.5px; color:var(--ink-soft); }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
+  .chip{
+    font-family:'JetBrains Mono'; font-size:11px; letter-spacing:.02em;
+    background:var(--sand-deep); color:var(--ink); padding:5px 10px; border-radius:999px;
+    border:1px solid var(--line);
+  }
+  .explore-btn{
+    width:100%; border:none; cursor:pointer;
+    background:var(--terracotta); color:#fff8ef;
+    font-family:'Inter'; font-weight:600; font-size:15px;
+    padding:13px 18px; border-radius:11px;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    transition: transform .15s ease, background .15s ease;
+  }
+  .explore-btn:hover{ background:var(--terracotta-deep); transform:translateY(-1px); }
+  .explore-btn:focus-visible{ outline:3px solid var(--gold); outline-offset:2px; }
+  .explore-btn svg{ width:16px; height:16px; }
+
+  /* ================= EXPLORER ================= */
+  #explorer{ display:none; }
+  #explorer.open{ display:block; }
+
+  .back-bar{
+    max-width:980px; margin:0 auto; padding:20px 24px 0;
+  }
+  .back-link{
+    background:none; border:none; cursor:pointer; color:var(--ink-soft);
+    font-family:'JetBrains Mono'; font-size:12.5px; letter-spacing:.04em;
+    display:inline-flex; align-items:center; gap:6px; padding:6px 2px;
+  }
+  .back-link:hover{ color:var(--terracotta); }
+
+  /* ---- hero ---- */
+  .hero{
+    position:relative;
+    background: linear-gradient(160deg, var(--sea) 0%, var(--sea-deep) 70%);
+    color:#f6ede0;
+    margin-top:18px;
+    border-radius:22px;
+    overflow:hidden;
+    padding:64px 40px 0;
+  }
+  .hero-inner{ max-width:760px; margin:0 auto; text-align:center; position:relative; z-index:2; }
+  .hero .eyebrow{
+    font-family:'JetBrains Mono'; font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+    opacity:.75; margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(48px,8vw,88px); margin:0; font-weight:600; line-height:1;
+  }
+  .hero .konkani-title{ display:block; font-size:0.62em; margin-top:6px; color:var(--gold); font-weight:500; }
+  .hero p.tagline{
+    max-width:520px; margin:22px auto 0; font-size:16.5px; color:#e3d9c4;
+  }
+  .hero-shore{ width:100%; height:120px; margin-top:36px; display:block; }
+
+  /* ---- quick facts strip ---- */
+  .facts-strip{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:16px; overflow:hidden;
+    margin:-46px auto 0; max-width:840px; position:relative; z-index:3;
+    box-shadow:0 20px 40px -26px rgba(20,61,69,0.5);
+  }
+  .fact{ background:var(--card); padding:18px 16px; text-align:center; }
+  .fact .num{ font-family:'Fraunces'; font-size:22px; font-weight:600; color:var(--terracotta); display:block; }
+  .fact .label{ font-family:'JetBrains Mono'; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft); display:block; margin-top:4px; }
+
+  /* ---- sections ---- */
+  section.block{ padding:70px 24px 10px; }
+  section.block .wrap{ max-width:840px; }
+  .section-head{ margin-bottom:30px; }
+  .section-eyebrow{
+    font-family:'JetBrains Mono'; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--terracotta); margin:0 0 8px;
+  }
+  .section-head h2{ font-family:'Fraunces'; font-size:30px; margin:0; font-weight:600; }
+  .section-head p{ color:var(--ink-soft); max-width:560px; margin:10px 0 0; font-size:14.5px; }
+
+  /* ---- greeting spotlight ---- */
+  .greeting-card{
+    background:var(--card); border:1px solid var(--line); border-radius:20px;
+    padding:34px 36px; display:flex; align-items:center; justify-content:space-between; gap:26px; flex-wrap:wrap;
+  }
+  .greeting-left .dev{ font-size:44px; color:var(--sea-deep); font-weight:700; display:block; }
+  .greeting-left .translit{ font-family:'JetBrains Mono'; font-size:15px; color:var(--terracotta); margin-top:6px; }
+  .greeting-left .meaning{ font-size:13.5px; color:var(--ink-soft); margin-top:10px; }
+  .say-btn{
+    flex-shrink:0;
+    background:var(--sea); color:#fbf6ea; border:none; cursor:pointer;
+    width:64px; height:64px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:24px; transition:transform .15s ease, background .15s ease;
+  }
+  .say-btn:hover{ background:var(--sea-deep); transform:scale(1.06); }
+  .say-btn:focus-visible{ outline:3px solid var(--gold); outline-offset:3px; }
+  .say-note{
+    width:100%; margin-top:6px; font-size:12px; color:var(--ink-soft);
+    border-top:1px dashed var(--line); padding-top:14px;
+  }
+
+  /* ---- script tabs ---- */
+  .script-tabs{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+  .script-tab{
+    font-family:'JetBrains Mono'; font-size:12px; letter-spacing:.02em;
+    background:var(--card); border:1px solid var(--line); color:var(--ink-soft);
+    padding:9px 14px; border-radius:999px; cursor:pointer; transition:all .15s ease;
+  }
+  .script-tab.active{ background:var(--terracotta); border-color:var(--terracotta); color:#fff8ef; }
+  .script-panel{
+    background:var(--card); border:1px solid var(--line); border-radius:18px; padding:30px 32px;
+  }
+  .script-panel .sample{ font-size:38px; margin:0 0 14px; color:var(--sea-deep); }
+  .script-panel .sample.rtl{ direction:rtl; text-align:right; font-family:'Noto Serif Devanagari', serif; }
+  .script-panel .meta-row{ display:flex; gap:22px; flex-wrap:wrap; font-size:13.5px; color:var(--ink-soft); }
+  .script-panel .meta-row b{ color:var(--ink); }
+
+  /* ---- word grid ---- */
+  .word-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; }
+  .word-card{
+    background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 18px 16px;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .word-card .top-row{ display:flex; align-items:flex-start; justify-content:space-between; gap:8px; }
+  .word-card .dev{ font-size:22px; color:var(--sea-deep); font-weight:700; }
+  .word-card .mini-say{
+    background:none; border:1px solid var(--line); color:var(--ink-soft); cursor:pointer;
+    width:30px; height:30px; border-radius:50%; flex-shrink:0; font-size:13px;
+    display:flex; align-items:center; justify-content:center; transition:all .15s ease;
+  }
+  .word-card .mini-say:hover{ background:var(--sea); border-color:var(--sea); color:#fff; }
+  .word-card .translit{ font-family:'JetBrains Mono'; font-size:12.5px; color:var(--terracotta); }
+  .word-card .meaning{ font-size:13px; color:var(--ink-soft); }
+
+  /* ---- family tree ---- */
+  .family-tree{ background:var(--card); border:1px solid var(--line); border-radius:18px; padding:32px; }
+  .tree-row{ display:flex; align-items:center; gap:14px; padding:10px 0; font-size:14.5px; }
+  .tree-row .dot{ width:9px; height:9px; border-radius:50%; background:var(--terracotta); flex-shrink:0; }
+  .tree-row.l0{ font-weight:600; }
+  .tree-row.l1{ padding-left:26px; }
+  .tree-row.l1 .dot{ background:var(--gold); }
+  .tree-row.l2{ padding-left:52px; }
+  .tree-row.l2 .dot{ background:var(--palm); }
+  .tree-row.l3{ padding-left:78px; }
+  .tree-row.l3 .dot{ background:var(--sea); }
+  .tree-row.highlight{ color:var(--terracotta); font-weight:700; }
+  .tree-connector{ border-left:2px dotted var(--line); margin-left:4px; height:6px; }
+
+  /* ---- regions ---- */
+  .regions-shore{ width:100%; height:auto; border-radius:16px; background:var(--card); border:1px solid var(--line); padding:18px 6px 26px; }
+  .region-list{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; margin-top:18px; }
+  .region-card{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; }
+  .region-card h3{ font-family:'Fraunces'; font-size:17px; margin:0 0 6px; color:var(--sea-deep); }
+  .region-card p{ font-size:13px; color:var(--ink-soft); margin:0; }
+
+  /* ---- literary timeline ---- */
+  .timeline{ position:relative; padding-left:26px; }
+  .timeline::before{ content:''; position:absolute; left:6px; top:6px; bottom:6px; width:2px; background:var(--line); }
+  .tl-item{ position:relative; padding-bottom:26px; }
+  .tl-item::before{ content:''; position:absolute; left:-26px; top:4px; width:11px; height:11px; border-radius:50%; background:var(--terracotta); border:2px solid var(--sand); }
+  .tl-item .yr{ font-family:'JetBrains Mono'; font-size:12px; color:var(--terracotta); font-weight:600; }
+  .tl-item h4{ margin:4px 0 4px; font-family:'Fraunces'; font-size:17px; }
+  .tl-item p{ margin:0; font-size:13.5px; color:var(--ink-soft); }
+
+  /* ---- sources ---- */
+  .sources{ background:var(--sea-deep); color:#e3d9c4; border-radius:20px; padding:36px 36px 30px; margin:70px 24px 60px; }
+  .sources .wrap{ max-width:840px; margin:0 auto; padding:0; }
+  .sources h2{ font-family:'Fraunces'; font-size:20px; color:#f6ede0; margin:0 0 14px; }
+  .sources ol{ padding-left:20px; margin:0; font-size:13px; columns:2; column-gap:32px; }
+  .sources li{ margin-bottom:9px; break-inside:avoid; }
+  .sources a{ color:var(--gold); text-decoration:none; }
+  .sources a:hover{ text-decoration:underline; }
+  .sources .note{ font-size:12px; opacity:.7; margin-top:18px; }
+
+  @media (max-width:640px){
+    .facts-strip{ grid-template-columns:repeat(2,1fr); margin-top:20px; }
+    .hero{ padding:48px 22px 0; border-radius:16px; }
+    .greeting-card{ padding:26px; }
+    .sources ol{ columns:1; }
+  }
+</style>
+</head>
+<body>
+<div class="bg-waves"></div>
+
+<!-- ============ LANDING PAGE CARD DEMO ============ -->
+<div id="landing" class="landing-shell">
+  <p class="landing-eyebrow">Incredible India Explorer — Language Cards</p>
+  <div class="lang-card">
+    <div class="lang-card-top">
+      <p class="k-sub">Indo-Aryan · Konkan Coast</p>
+      <p class="k-title dev">कोंकणी</p>
+      <svg viewBox="0 0 400 40" preserveAspectRatio="none"><path d="M0,20 C60,40 140,0 200,20 C260,40 340,0 400,20 L400,40 L0,40 Z" fill="#f1e6cd"></path></svg>
+    </div>
+    <div class="lang-card-body">
+      <p>An Indo-Aryan language of Goa, coastal Karnataka, Kerala and Maharashtra — written in five scripts, spoken by roughly 2.3–2.5 million people.</p>
+      <div class="chip-row">
+        <span class="chip">5 scripts</span>
+        <span class="chip">Goa's official language</span>
+        <span class="chip">8th Schedule</span>
+      </div>
+      <button class="explore-btn" onclick="openExplorer()">
+        Explore Konkani
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ EXPLORER ============ -->
+<div id="explorer">
+  <div class="back-bar">
+    <button class="back-link" onclick="closeExplorer()">&larr; back to language cards</button>
+  </div>
+
+  <div class="wrap">
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Discover · Across the Konkan</p>
+        <h1>Konkani<span class="konkani-title dev">कोंकणी</span></h1>
+        <p class="tagline">A coastal Indo-Aryan tongue carried by fishing villages, spice traders and monsoon winds — written in more scripts than almost any other Indian language.</p>
+      </div>
+      <svg class="hero-shore" viewBox="0 0 900 120" preserveAspectRatio="none">
+        <path d="M0,70 C100,40 200,100 300,65 C400,30 500,95 600,60 C700,25 800,90 900,55 L900,120 L0,120 Z" fill="#f1e6cd" opacity="0.9"/>
+        <path d="M0,90 C120,60 220,110 320,80 C420,50 520,105 620,75 C720,45 820,100 900,75 L900,120 L0,120 Z" fill="#e7d7b3"/>
+      </svg>
+    </div>
+
+    <!-- FACTS STRIP -->
+    <div class="facts-strip">
+      <div class="fact"><span class="num">~2.5M</span><span class="label">Speakers</span></div>
+      <div class="fact"><span class="num">5</span><span class="label">Scripts in use</span></div>
+      <div class="fact"><span class="num">4</span><span class="label">States spoken in</span></div>
+      <div class="fact"><span class="num">1992</span><span class="label">Added to 8th Schedule</span></div>
+    </div>
+
+    <!-- GREETING -->
+    <section class="block" id="greeting">
+      <div class="section-head">
+        <p class="section-eyebrow">👋 Say hello</p>
+        <h2>The everyday greeting</h2>
+        <p>Cross-checked across Konkani phrasebooks and dictionaries — this is the greeting you'll hear most, in Goa and beyond, at any time of day.</p>
+      </div>
+      <div class="greeting-card">
+        <div class="greeting-left">
+          <span class="dev">नमस्कार</span>
+          <div class="translit">Namaskār</div>
+          <div class="meaning">Hello · Greetings · a respectful all-purpose welcome, used with strangers, friends and elders alike.</div>
+        </div>
+        <button class="say-btn" aria-label="Hear Namaskar" onclick="speak('Namaskar','hi-IN')">🔊</button>
+        <div class="say-note">🔊 Plays a synthesized approximation using your browser's Hindi/Marathi voice — the closest phonetic match available, since Konkani isn't yet supported by browser text-to-speech engines. Say it as: <span class="mono">naa-mas-kaar</span>, stress on the middle syllable.</div>
+      </div>
+    </section>
+
+    <!-- SCRIPTS -->
+    <section class="block" id="scripts">
+      <div class="section-head">
+        <p class="section-eyebrow">✍️ Script diversity</p>
+        <h2>One language, five scripts</h2>
+        <p>Konkani has no single traditional script — communities across the Konkan coast write it differently depending on region and religion. Tap a script to see it in use.</p>
+      </div>
+      <div class="script-tabs" id="scriptTabs"></div>
+      <div class="script-panel" id="scriptPanel"></div>
+    </section>
+
+    <!-- WORDS -->
+    <section class="block" id="words">
+      <div class="section-head">
+        <p class="section-eyebrow">🗣️ Everyday vocabulary</p>
+        <h2>Common Konkani words</h2>
+        <p>Ten words you'll actually hear along the Konkan coast — with Devanagari, transliteration, and meaning.</p>
+      </div>
+      <div class="word-grid" id="wordGrid"></div>
+    </section>
+
+    <!-- FAMILY -->
+    <section class="block" id="family">
+      <div class="section-head">
+        <p class="section-eyebrow">🌳 Language family</p>
+        <h2>Where Konkani sits in the Indo-Aryan family</h2>
+        <p>Konkani belongs to the Indo-Aryan branch of the Indo-European family — a close cousin of Marathi, shaped by centuries of contact with Kannada, Malayalam, Portuguese and Arabic.</p>
+      </div>
+      <div class="family-tree">
+        <div class="tree-row l0"><span class="dot"></span> Indo-European</div>
+        <div class="tree-row l1"><span class="dot"></span> Indo-Iranian</div>
+        <div class="tree-row l2"><span class="dot"></span> Indo-Aryan</div>
+        <div class="tree-row l3"><span class="dot"></span> Southern Indo-Aryan zone</div>
+        <div class="tree-row l3 highlight"><span class="dot"></span> Konkani कोंकणी — sister branch to Marathi</div>
+      </div>
+    </section>
+
+    <!-- REGIONS -->
+    <section class="block" id="regions">
+      <div class="section-head">
+        <p class="section-eyebrow">🗺️ Where it's spoken</p>
+        <h2>Along the Konkan coast — and beyond</h2>
+        <p>Konkani speakers stretch in a narrow band down India's western coastline, plus diaspora communities further afield.</p>
+      </div>
+      <div class="region-list">
+        <div class="region-card"><h3>Goa</h3><p>Konkani's official home — the state's official language since 1987, written mainly in Devanagari, with Roman script also in wide everyday use.</p></div>
+        <div class="region-card"><h3>Coastal Karnataka</h3><p>Mangalore, Udupi and Karwar (the Canara coast) — home to large Konkani-speaking communities, often using the Kannada script.</p></div>
+        <div class="region-card"><h3>Kerala</h3><p>Communities around Kasaragod and Kochi, where Konkani is sometimes written in the Malayalam script.</p></div>
+        <div class="region-card"><h3>Maharashtra</h3><p>The Konkan coastal belt (Sindhudurg, Ratnagiri) north of Goa; Konkani Muslim communities here have historically used the Perso-Arabic script.</p></div>
+      </div>
+    </section>
+
+    <!-- LITERARY / CULTURE -->
+    <section class="block" id="culture">
+      <div class="section-head">
+        <p class="section-eyebrow">📖 Literary & cultural heritage</p>
+        <h2>A living, layered literary tradition</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="yr">~2nd century CE</div>
+          <h4>Earliest known inscription</h4>
+          <p>A rock inscription at Aravalem, Goa, in the now-extinct Goykanadi script is among the earliest traces of written Konkani.</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">15th century</div>
+          <h4>Krishnadas Shama</h4>
+          <p>Born in Quelossim, Goa, he is regarded as the first writer in Konkani literary history.</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">16th century onward</div>
+          <h4>Roman Konkani tradition</h4>
+          <p>Romi Konkani becomes the oldest continuously preserved literary tradition in the language, still used by an estimated half a million people today.</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">1987</div>
+          <h4>Official language of Goa</h4>
+          <p>Devanagari is declared Konkani's official script under Goa's Official Language Act.</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">1992</div>
+          <h4>Eighth Schedule recognition</h4>
+          <p>Konkani is added to the Eighth Schedule of the Indian Constitution, becoming one of India's official languages.</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">Today</div>
+          <h4>Tiatr and the Sahitya Akademi</h4>
+          <p>Konkani literature is eligible for the Sahitya Akademi Award, while Tiatr — Goa's lively musical theatre tradition — keeps the spoken language on stage.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <div class="wrap">
+      <h2>Sources</h2>
+      <ol>
+        <li><a href="https://en.wikipedia.org/wiki/Konkani_alphabets" target="_blank" rel="noopener">Wikipedia — Konkani alphabets</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Konkani_in_the_Roman_script" target="_blank" rel="noopener">Wikipedia — Konkani in the Roman script</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Konkani_literature" target="_blank" rel="noopener">Wikipedia — Konkani literature</a></li>
+        <li><a href="https://www.omniglot.com/writing/konkani.htm" target="_blank" rel="noopener">Omniglot — Konkani writing system</a></li>
+        <li><a href="https://en.wikivoyage.org/wiki/Konkani_phrasebook" target="_blank" rel="noopener">Wikivoyage — Konkani phrasebook</a></li>
+        <li><a href="https://gogoanow.com/useful-konkani-phrases/" target="_blank" rel="noopener">GoGoaNow — Useful Konkani phrases</a></li>
+        <li><a href="https://goa-casitas.com/konkani-goa/" target="_blank" rel="noopener">Goa Casitas — Speak in Goa as the Goans do</a></li>
+        <li><a href="https://www.gomantaktimes.com/my-goa/art-culture/roman-or-devanagari-some-insights-on-konkani-scripts-in-goa" target="_blank" rel="noopener">Gomantak Times — Roman or Devanagari script debate</a></li>
+      </ol>
+      <p class="note">Word list and transliterations were cross-checked across the above phrasebooks and dictionaries. Konkani dialects vary regionally, so spellings and pronunciations may differ from what you hear locally.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openExplorer(){
+  document.getElementById('landing').style.display = 'none';
+  document.getElementById('explorer').classList.add('open');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function closeExplorer(){
+  document.getElementById('explorer').classList.remove('open');
+  document.getElementById('landing').style.display = 'block';
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function speak(text, lang){
+  try{
+    if(!('speechSynthesis' in window)){ alert('Speech playback is not supported in this browser.'); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = lang || 'hi-IN';
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }catch(e){ console.error(e); }
+}
+
+// ---------- Script data ----------
+const scripts = [
+  {
+    key:'devanagari', label:'Devanagari · Goa',
+    sample:'नमस्कार', rtl:false,
+    region:'Goa (official)', status:'Official script since 1987', note:'The recognized script when Konkani entered the Constitution\'s Eighth Schedule in 1992.'
+  },
+  {
+    key:'roman', label:'Roman · Romi Konkani',
+    sample:'Namaskar', rtl:false,
+    region:'Goa (widely used)', status:'Oldest literary tradition (16th c.)', note:'Not an official script by law, but permitted for official use in Goa and used by an estimated 500,000 people.'
+  },
+  {
+    key:'kannada', label:'Kannada · Karnataka',
+    sample:'ನಮಸ್ಕಾರ', rtl:false,
+    region:'Coastal Karnataka', status:'Everyday script for many speakers', note:'Used by Konkani communities around Mangalore, Udupi and Karwar.'
+  },
+  {
+    key:'malayalam', label:'Malayalam · Kerala',
+    sample:'നമസ്കാരം', rtl:false,
+    region:'Kerala', status:'Used by Kerala\'s Konkani communities', note:'Common among Konkani speakers around Kasaragod and Kochi.'
+  },
+  {
+    key:'arabic', label:'Perso-Arabic',
+    sample:'نمسکار', rtl:true,
+    region:'Maharashtra', status:'Used historically by Konkani Muslims', note:'Associated with Konkani-speaking Muslim communities of the Konkan coast.'
+  }
+];
+
+const tabsEl = document.getElementById('scriptTabs');
+const panelEl = document.getElementById('scriptPanel');
+
+function renderScript(idx){
+  const s = scripts[idx];
+  [...tabsEl.children].forEach((c,i)=> c.classList.toggle('active', i===idx));
+  panelEl.innerHTML = `
+    <div class="sample ${s.rtl ? 'dev rtl' : 'dev'}">${s.sample}</div>
+    <div class="meta-row">
+      <span><b>Where:</b> ${s.region}</span>
+      <span><b>Status:</b> ${s.status}</span>
+    </div>
+    <div class="meta-row" style="margin-top:10px;"><span>${s.note}</span></div>
+  `;
+}
+
+scripts.forEach((s,i)=>{
+  const b = document.createElement('button');
+  b.className = 'script-tab';
+  b.textContent = s.label;
+  b.onclick = ()=>renderScript(i);
+  tabsEl.appendChild(b);
+});
+renderScript(0);
+
+// ---------- Word grid ----------
+const words = [
+  {dev:'नमस्कार', translit:'Namaskār', meaning:'Hello / greetings'},
+  {dev:'देव बरें करूं', translit:'Dev borem korum', meaning:'Thank you'},
+  {dev:'हय', translit:'Hoi', meaning:'Yes'},
+  {dev:'ना', translit:'Nā', meaning:'No'},
+  {dev:'उदक', translit:'Udok', meaning:'Water'},
+  {dev:'जेवण', translit:'Jevonn', meaning:'Food / meal'},
+  {dev:'घर', translit:'Ghor', meaning:'House / home'},
+  {dev:'बरें', translit:'Borem', meaning:'Good'},
+  {dev:'कितें', translit:'Kitem', meaning:'What'},
+  {dev:'खूंय', translit:'Khuim', meaning:'Where'}
+];
+
+const wordGrid = document.getElementById('wordGrid');
+words.forEach(w=>{
+  const card = document.createElement('div');
+  card.className = 'word-card';
+  card.innerHTML = `
+    <div class="top-row">
+      <span class="dev">${w.dev}</span>
+      <button class="mini-say" aria-label="Hear ${w.translit}">🔊</button>
+    </div>
+    <div class="translit">${w.translit}</div>
+    <div class="meaning">${w.meaning}</div>
+  `;
+  card.querySelector('.mini-say').onclick = ()=>speak(w.translit,'hi-IN');
+  wordGrid.appendChild(card);
+});
+</script>
+</body>
+</html>

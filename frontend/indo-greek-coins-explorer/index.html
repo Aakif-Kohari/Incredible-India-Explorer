@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indo-Greek Coins & Royal Portraits Explorer | Incredible India</title>
+  <meta name="description" content="Explore how Indo-Greek coinage combined Hellenistic ruler portraiture, Greek & Kharosthi bilingual inscriptions, and Greco-Buddhist cultural influences across Taxila and Gandhara.">
+
+  <!-- Preload Critical Fonts -->
+  <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../indias-coins-through-time/index.html" class="nav-link">Coin Landing</a>
+        <a href="#ruler-selector" class="nav-link active">Rulers & Coins</a>
+        <a href="#compare-section" class="nav-link">Coin Compare</a>
+        <a href="#map-timeline-section" class="nav-link">Territory & Timeline</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="indogreek-hero">
+      <div class="hero-container">
+        <div class="hero-badge">🏛️ Greco-Bactrian & Indo-Greek Numismatics</div>
+        <h1>Indo-Greek Coins & <span>Royal Portraits</span></h1>
+        <p class="hero-subtitle">
+          Discover the fusion of Hellenistic Greek art and Indian cultural traditions (c. 180 BCE – 10 CE). Inspect realistic royal diadems, bilingual Kharosthi legends, and Athena Alkidemos imagery.
+        </p>
+        <div class="hero-pills">
+          <span class="pill">📜 Greek & Kharosthi Scripts</span>
+          <span class="pill">👑 Royal Portraiture</span>
+          <span class="pill">🕉️ Greco-Buddhism</span>
+          <span class="pill">🏛️ Taxila & Pushkalavati</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- RULER SELECTOR & COIN INTERACTION SECTION -->
+    <section class="ruler-section" id="ruler-selector">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Interactive Coin Viewer</span>
+          <h2>Select an Indo-Greek Ruler</h2>
+          <p>Choose a monarch to inspect their coinage, portrait features, script translations, and obverse/reverse details.</p>
+        </div>
+
+        <div class="ruler-pills-nav" id="ruler-pills-nav" role="tablist" aria-label="Ruler Selector">
+          <!-- Dynamically generated ruler buttons -->
+        </div>
+
+        <div class="coin-viewer-wrapper">
+          <!-- Interactive 3D/2D Coin Showcase -->
+          <div class="coin-stage-container">
+            <div class="coin-stage-controls">
+              <button id="btn-flip-coin" class="btn btn-secondary btn-sm">🔄 Flip Obverse / Reverse</button>
+              <button id="btn-zoom-coin" class="btn btn-secondary btn-sm">🔍 Toggle High Zoom</button>
+            </div>
+            
+            <div class="coin-3d-wrapper" id="coin-3d-wrapper">
+              <div class="coin-canvas obverse-face" id="coin-face-display">
+                <div class="coin-hotspot portrait-hotspot" tabindex="0" role="button" aria-label="Portrait Details Hotspot" style="top: 35%; left: 45%;">
+                  <span class="hotspot-dot"></span>
+                  <span class="hotspot-tooltip">Royal Diadem & Helmet</span>
+                </div>
+                <div class="coin-hotspot inscription-hotspot" tabindex="0" role="button" aria-label="Greek Inscription Hotspot" style="top: 75%; left: 30%;">
+                  <span class="hotspot-dot"></span>
+                  <span class="hotspot-tooltip">Greek Inscription</span>
+                </div>
+                <div class="coin-inner-render" id="coin-inner-render">
+                  <!-- Coin SVG rendering -->
+                </div>
+              </div>
+            </div>
+            <span class="face-indicator" id="face-indicator">Face: Obverse (Front)</span>
+          </div>
+
+          <!-- Ruler & Coin Details Panel -->
+          <div class="ruler-info-card">
+            <h3 id="ruler-name">Menander I Soter (King Milinda)</h3>
+            <span class="ruler-reign" id="ruler-reign">Reign: c. 165 – 130 BCE · Capital: Sagala (Sialkot)</span>
+            <p class="ruler-bio" id="ruler-bio">
+              The most famous Indo-Greek king, celebrated in the Buddhist text <em>Milindapanha</em> (Questions of King Milinda). His coins circulated across Punjab and Taxila.
+            </p>
+
+            <div class="coin-specs-grid">
+              <div class="spec-box">
+                <span class="spec-label">Denomination:</span>
+                <span class="spec-val" id="spec-denomination">Silver Silver Drachm</span>
+              </div>
+              <div class="spec-box">
+                <span class="spec-label">Metal & Weight:</span>
+                <span class="spec-val" id="spec-metal">Silver (2.45 grams)</span>
+              </div>
+              <div class="spec-box">
+                <span class="spec-label">Minting Region:</span>
+                <span class="spec-val" id="spec-region">Gandhara / Taxila</span>
+              </div>
+              <div class="spec-box">
+                <span class="spec-label">Cultural Connections:</span>
+                <span class="spec-val" id="spec-connection">Greco-Buddhist Patronage</span>
+              </div>
+            </div>
+
+            <!-- Inscription Translation Box -->
+            <div class="inscription-inspection-box">
+              <h4>Bilingual Script Inspection</h4>
+              <div class="script-row">
+                <span class="script-type">Obverse (Greek):</span>
+                <code id="script-greek">ΒΑΣΙΛΕΩΣ ΣΩΤΗΡΟΣ ΜΕΝΑΝΔΡΟΥ</code>
+                <span class="script-trans" id="trans-greek">"Of King Menander, the Saviour"</span>
+              </div>
+              <div class="script-row">
+                <span class="script-type">Reverse (Kharosthi):</span>
+                <code id="script-kharosthi">Maharajasa Tratarasa Menandrasa</code>
+                <span class="script-trans" id="trans-kharosthi">"Great King Menander, the Saviour (Prakrit in Kharosthi Script)"</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COIN COMPARISON TOOL SECTION -->
+    <section class="compare-section" id="compare-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Side-by-Side Analysis</span>
+          <h2>Compare Two Indo-Greek Coins</h2>
+          <p>Analyze differences in metal purity, portrait styles, reverse deity emblems, and scripts between rulers.</p>
+        </div>
+
+        <div class="compare-selectors-row">
+          <div class="compare-select-group">
+            <label for="compare-coin-1">Select Coin 1:</label>
+            <select id="compare-coin-1" class="filter-select"></select>
+          </div>
+          <div class="compare-vs-badge">VS</div>
+          <div class="compare-select-group">
+            <label for="compare-coin-2">Select Coin 2:</label>
+            <select id="compare-coin-2" class="filter-select"></select>
+          </div>
+        </div>
+
+        <div class="compare-results-grid" id="compare-results-grid">
+          <!-- Dynamically populated comparison cards -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TERRITORY MAP & TIMELINE SECTION -->
+    <section class="map-timeline-section" id="map-timeline-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Geographical & Historical Context</span>
+          <h2>Indo-Greek Territory & Ruler Timeline</h2>
+          <p>Navigate through chronological reigns and inspect geopolitical territory shifts across the Hindu Kush and Indus valley.</p>
+        </div>
+
+        <div class="timeline-interactive-bar">
+          <label for="timeline-slider">Chronological Ruler Timeline (180 BCE – 10 CE):</label>
+          <input type="range" id="timeline-slider" min="0" max="5" step="1" value="0">
+          <div class="timeline-ticks" id="timeline-ticks"></div>
+        </div>
+
+        <div class="territory-display-box">
+          <div class="territory-map-view">
+            <svg viewBox="0 0 700 450" class="territory-svg">
+              <rect width="100%" height="100%" fill="rgba(15, 23, 42, 0.4)"/>
+              <!-- Outline of NW Subcontinent / Bactria -->
+              <path d="M 100,50 L 350,30 L 600,100 L 550,350 L 250,420 L 80,250 Z" fill="rgba(245, 158, 11, 0.05)" stroke="rgba(245, 158, 11, 0.2)" stroke-width="2"/>
+              <!-- Dynamic territory polygon -->
+              <polygon id="territory-poly" points="150,80 320,60 480,180 380,300 200,280" fill="rgba(245, 158, 11, 0.25)" stroke="#fbbf24" stroke-width="3"/>
+              <text x="300" y="200" fill="#ffffff" font-weight="bold" font-size="16" text-anchor="middle" id="territory-label">Menander I Realm (Bactria to Punjab)</text>
+            </svg>
+          </div>
+
+          <div class="territory-info">
+            <h4 id="territory-title">Territory of Menander I (c. 165–130 BCE)</h4>
+            <p id="territory-desc">Extended from Bactria across modern-day Afghanistan, Khyber Pakhtunkhwa, Punjab, and reach as far east as Mathura and Pataliputra according to the Yuga Purana.</p>
+            <div class="key-mints-list">
+              <strong>Major Mints:</strong> <span id="territory-mints">Taxila, Pushkalavati (Charsadda), Sagala (Sialkot), Alexandria in the Caucasus (Bagram)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTORICAL SOURCES & REFERENCES -->
+    <section class="sources-section">
+      <div class="section-container">
+        <h2>Sources & Numismatic References</h2>
+        <ul class="sources-list">
+          <li>Osmund Bopearachchi, <em>Monnaies gréco-bactriennes et indo-grecques, catalogue raisonné</em>, Bibliothèque Nationale de France, 1991.</li>
+          <li>R.C. Senior, <em>Indo-Scythian Coins and History</em>, Classical Numismatic Group, 2001.</li>
+          <li>A.K. Narain, <em>The Indo-Greeks</em>, Oxford University Press, 1957.</li>
+          <li><em>Milindapanha</em> (The Questions of King Milinda), Pali Canon Translation.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <p>© 2026 Incredible India Explorer. Created under Open Source Contribution Guidelines.</p>
+      <div class="footer-links">
+        <a href="../../index.html#home">Home</a>
+        <a href="../indias-coins-through-time/index.html">Coins Landing</a>
+        <a href="../../frontend/sources/sources.html">Sources</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

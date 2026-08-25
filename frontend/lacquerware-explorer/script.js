@@ -1,240 +1,315 @@
 /**
- * Indian Lacquerware Explorer JavaScript Logic
+ * script.js
+ * Indian Lacquerware Explorer Logic - Expanded & Enhanced
  */
-(function() {
+
+(function () {
   'use strict';
 
-  // Detailed descriptions for each process step, keyed by data-step
-  const processDetails = {
-    'wood': {
-      title: 'Wood Selection & Seasoning',
-      medium: 'Ivory-wood, rubber wood & local softwoods',
-      description: 'Craftspeople choose soft, fine-grained, easily turned woods ? ivory-wood (hale mara) in Karnataka, and comparable local softwoods elsewhere. Logs are cut to size and seasoned for weeks so the finished piece resists cracking and warping.'
-    },
-    'turning': {
-      title: 'Lathe Turning',
-      medium: 'Hand-driven or power-driven wood lathe',
-      description: 'The seasoned wood block is mounted on a lathe and spun at speed while the artisan uses a variety of chisels to carve it into the desired form ? a doll, spinning top, bangle core, or bowl ? entirely by eye and feel.'
-    },
-    'lac-prep': {
-      title: 'Lac Preparation',
-      medium: 'Raw lac resin, natural & mineral pigments, beroza',
-      description: 'Raw lac harvested from host trees is cleaned of bark and impurities, then melted and kneaded with vegetable or mineral pigments and a binding resin such as beroza, producing rods of vividly coloured lac.'
-    },
-    'application': {
-      title: 'Lac Application',
-      medium: 'Coloured lac sticks pressed on a spinning surface',
-      description: 'While the wood continues spinning on the lathe, the artisan presses a coloured lac stick directly against it. Friction generates enough heat to melt the resin, which spreads into a thin, even, glossy coat across the surface.'
-    },
-    'polish': {
-      title: 'Polishing',
-      medium: 'Dried palm leaf, wood shaving or wax cloth',
-      description: 'A dried palm leaf or soft shaving is held against the still-rotating, lac-coated piece. The friction smooths and buffs the resin into the glassy, jewel-like sheen that lacquerware is prized for.'
-    },
-    'finishing': {
-      title: 'Detailing & Finishing',
-      medium: 'Hand tools, and in some traditions, gold leaf',
-      description: 'Once removed from the lathe, pieces are hand-finished, inspected, and ? in styles such as Nirmal ? further decorated with fine gold-leaf motifs or painted detail before they are ready for use.'
-    }
-  };
+  // ==========================================================================
+  // DATASETS
+  // ==========================================================================
 
-  // Lacquerware Product Gallery Data
-  const lacProducts = [
-    {
-      id: 'channapatna-toys',
-      title: 'Channapatna Wooden Toys',
-      region: 'Channapatna, Karnataka',
-      medium: 'Ivory-wood turned on a lathe, coloured with lac & vegetable dyes',
-      description: 'Rounded, brightly coloured dolls, animals, spinning tops, and stacking toys, valued for their smooth, child-safe, non-toxic finish. GI-tagged since 2005 and rooted in a craft tradition that dates back over two centuries.',
-      image: 'assets/channapatna-toys.jpg',
-      imageAlt: 'Colourful Channapatna lacquered wooden toys'
-    },
-    {
-      id: 'etikoppaka-toys',
-      title: 'Etikoppaka "Tharani" Toys',
-      region: 'Etikoppaka, Andhra Pradesh',
-      medium: 'Softwood, natural vegetable-dye lac colours',
-      description: 'Turned-wood toys, spinning tops, and boxes ("Baranis") known for eco-friendly, entirely natural colouring, revived from near-extinction in the late 1980s and now protected by its own GI tag.'
-    },
-    {
-      id: 'nirmal-toys',
-      title: 'Nirmal Gilded Wooden Figures',
-      region: 'Nirmal, Telangana',
-      medium: 'Poniki softwood, lac finish with gold-leaf detailing',
-      description: 'Wooden toys and decorative figures finished with lac and further embellished with delicate gold-leaf motifs, a technique with roots in Mughal-era craftsmanship in the Deccan.'
-    },
-    {
-      id: 'jaipur-lac-bangles',
-      title: 'Jaipur Lac Bangles',
-      region: 'Maniharon ka Rasta, Jaipur, Rajasthan',
-      medium: 'Molten lac core, embedded mirrors, stones & meenakari enamel',
-      description: 'Bangles shaped from pliable lac and encrusted with mirrors, kundan stones, or enamel work. Worn by brides and considered auspicious for festivals such as Teej, Gangaur, and Karva Chauth.',
-      image: 'assets/channapatna-bangles.jpg',
-      imageAlt: 'Colourful handcrafted lacquer bangles'
-    },
-    {
-      id: 'lac-furniture-inlay',
-      title: 'Lac-Turned Furniture Legs & Fittings',
-      region: 'Punjab & Gujarat traditions',
-      medium: 'Turned wood with coloured lac coating',
-      description: 'Beyond toys and bangles, lac-turnery is used to finish furniture legs, bedposts, and decorative fittings, giving traditional wooden furniture a durable, brightly coloured lustre.'
-    },
-    {
-      id: 'lac-decor-items',
-      title: 'Lacquered Boxes, Bowls & Idols',
-      region: 'Multiple regions',
-      medium: 'Turned wood, coloured lac finish',
-      description: 'Utility and devotional objects ? boxes, bowls, spice jars, and small idols ? have long been produced using the same lac-turnery techniques as toys and jewellery, prized for both use and display.'
-    }
+  const GALLERY_ITEMS = [
+    { id: 1, region: 'channapatna', name: 'Traditional Wooden Elephant', desc: 'Hand-turned and lacquered using natural vegetable dyes.', icon: '🐘' },
+    { id: 2, region: 'channapatna', name: 'Stacking Rings Toy', desc: 'Classic child-safe toy, GI tagged and eco-friendly.', icon: '💍' },
+    { id: 3, region: 'etikoppaka', name: 'Etikoppaka Spinning Top', desc: 'Crafted with 100% natural plant-based dyes from the Varaha river region.', icon: '🌀' },
+    { id: 4, region: 'etikoppaka', name: 'Decorative Lac Box', desc: 'Intricate multi-coloured patterns using traditional Tharani techniques.', icon: '📦' },
+    { id: 5, region: 'nirmal', name: 'Gold-Leaf Decorative Figure', desc: 'Softwood carving finished with lac and delicate gold-leaf detailing.', icon: '👑' },
+    { id: 6, region: 'jaipur', name: 'Meenakari Lac Bangles', desc: 'Encrusted with mirrors and stones, traditionally worn by brides.', icon: '💎' },
+    { id: 7, region: 'jaipur', name: 'Bridal Lac Set', desc: 'Deep red lac bangles symbolizing auspiciousness and marital bliss.', icon: '🔴' },
+    { id: 8, region: 'nirmal', name: 'Poniki Wood Bowl', desc: 'Lacquered bowl showcasing the unique grain of local softwood.', icon: '🥣' }
   ];
 
-  document.addEventListener('DOMContentLoaded', () => {
-    initThemeToggle();
-    initTabs();
-    initProcessModal();
-    initGallery();
-    initBookmark();
-  });
+  // ==========================================================================
+  // DOM ELEMENTS
+  // ==========================================================================
 
-  function initThemeToggle() {
-    const themeBtn = document.getElementById('theme-toggle');
-    if (!themeBtn) return;
-
-    themeBtn.addEventListener('click', () => {
-      const isLight = document.body.classList.toggle('light-theme');
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
-      themeBtn.textContent = isLight ? '??' : '??';
-    });
-  }
-
-  function initTabs() {
-    const tabLinks = document.querySelectorAll('.lac-tab-link');
-    tabLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        tabLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-        const targetId = link.getAttribute('href');
-        const targetSec = document.querySelector(targetId);
-        if (targetSec) {
-          targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  }
-
-  function initProcessModal() {
-    const processCards = document.querySelectorAll('.process-card');
+  document.addEventListener('DOMContentLoaded', function () {
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = themeToggleBtn?.querySelector('.theme-icon');
+    
+    // Navigation
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    // Scroll Utilities
+    const backToTopBtn = document.getElementById('back-to-top');
+    
+    // Gallery
+    const galleryGrid = document.getElementById('lac-gallery');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    
+    // Region Tabs
+    const regionTabs = document.querySelectorAll('.region-tab-btn');
+    const regionPanels = document.querySelectorAll('.region-panel');
+    
+    // Modal
     const modal = document.getElementById('lac-modal');
     const modalClose = document.getElementById('modal-close');
     const modalBody = document.getElementById('modal-body');
+    
+    // Bookmarks
+    const bookmarkBtns = document.querySelectorAll('.journey-bookmark-btn');
 
-    processCards.forEach(card => {
-      card.addEventListener('click', () => {
-        const step = card.getAttribute('data-step');
-        const detail = processDetails[step];
-        if (!detail) return;
+    // ==========================================================================
+    // INITIALIZATION
+    // ==========================================================================
 
-        modalBody.innerHTML = `
-          <span class="lac-badge">Lacquering Process</span>
-          <h2 id="modal-title" style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0.5rem 0;">${detail.title}</h2>
-          <p style="color: var(--lac-gold); font-weight: 600; margin-bottom: 1rem;">Medium: ${detail.medium}</p>
-          <p style="line-height: 1.6; color: var(--lac-text);">${detail.description}</p>
-        `;
-        modal.classList.remove('hidden');
+    renderGallery('all');
+    setupThemeToggle();
+    setupScrollAnimations();
+    setupCounters();
+    setupRegionTabs();
+    setupGalleryFilters();
+    setupModal();
+    setupBookmarks();
+    setupMobileMenu();
+    setupBackToTop();
+    setupProcessCards();
+
+    // ==========================================================================
+    // FUNCTIONS
+    // ==========================================================================
+
+    function setupThemeToggle() {
+      if (!themeToggleBtn) return;
+      
+      const updateIcon = (isLight) => {
+        if (themeIcon) themeIcon.textContent = isLight ? '🌙' : '☀️';
+      };
+
+      const isLight = document.documentElement.classList.contains('light-theme');
+      updateIcon(isLight);
+
+      themeToggleBtn.addEventListener('click', function () {
+        document.documentElement.classList.toggle('light-theme');
+        const newIsLight = document.documentElement.classList.contains('light-theme');
+        localStorage.setItem('theme', newIsLight ? 'light' : 'dark');
+        updateIcon(newIsLight);
       });
-    });
-
-    if (modalClose) {
-      modalClose.addEventListener('click', () => modal.classList.add('hidden'));
     }
 
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) modal.classList.add('hidden');
-    });
+    function setupScrollAnimations() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+      };
 
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !modal.classList.contains('hidden')) modal.classList.add('hidden');
-    });
-  }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
 
-  function initGallery() {
-    const gallery = document.getElementById('lac-gallery');
-    const modal = document.getElementById('lac-modal');
-    const modalBody = document.getElementById('modal-body');
+      document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
+        observer.observe(el);
+      });
+    }
 
-    if (!gallery) return;
+    function setupCounters() {
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const target = entry.target;
+            const countTo = parseInt(target.getAttribute('data-count'), 10);
+            animateCounter(target, countTo);
+            counterObserver.unobserve(target);
+          }
+        });
+      }, { threshold: 0.5 });
 
-    lacProducts.forEach(product => {
-      const card = document.createElement('div');
-      card.className = 'lac-art-card';
-      card.setAttribute('tabindex', '0');
-      card.setAttribute('role', 'button');
-      card.setAttribute('aria-label', `View details for ${product.title}`);
+      document.querySelectorAll('.stat-num').forEach(counter => {
+        counterObserver.observe(counter);
+      });
+    }
 
-      card.innerHTML = `
-        ${product.image ? `<img class="lac-product-image" src="${product.image}" alt="${product.imageAlt}" loading="lazy">` : ''}
-        <span class="lac-badge">${product.region}</span>
-        <h3>${product.title}</h3>
-        <p>${product.description.substring(0, 110)}...</p>
-      `;
+    function animateCounter(element, target) {
+      let current = 0;
+      const increment = target / 50;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          element.textContent = target + (target === 100 ? '%' : '+');
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(current);
+        }
+      }, 30);
+    }
 
-      card.addEventListener('click', () => openModal(product));
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          openModal(product);
+    function setupRegionTabs() {
+      regionTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Remove active state from all
+          regionTabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          regionPanels.forEach(p => p.classList.remove('active'));
+
+          // Add active state to clicked
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+          const targetId = 'panel-' + tab.getAttribute('data-region');
+          document.getElementById(targetId).classList.add('active');
+        });
+      });
+    }
+
+    function renderGallery(filter) {
+      if (!galleryGrid) return;
+      galleryGrid.innerHTML = '';
+
+      const filteredItems = filter === 'all' 
+        ? GALLERY_ITEMS 
+        : GALLERY_ITEMS.filter(item => item.region === filter);
+
+      filteredItems.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'gallery-item fade-in-up';
+        div.style.animationDelay = `${index * 0.1}s`;
+        div.innerHTML = `
+          <div class="gallery-img">${item.icon}</div>
+          <div class="gallery-info">
+            <h4>${item.name}</h4>
+            <p>${item.desc}</p>
+            <span class="gallery-tag">${item.region.charAt(0).toUpperCase() + item.region.slice(1)}</span>
+          </div>
+        `;
+        div.addEventListener('click', () => openModal(item));
+        galleryGrid.appendChild(div);
+        
+        // Trigger animation
+        setTimeout(() => div.classList.add('is-visible'), 50 + (index * 100));
+      });
+    }
+
+    function setupGalleryFilters() {
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderGallery(btn.getAttribute('data-filter'));
+        });
+      });
+    }
+
+    function setupModal() {
+      if (!modal || !modalClose) return;
+
+      window.openModal = function(item) {
+        modalBody.innerHTML = `
+          <div style="text-align:center; font-size:4rem; margin-bottom:20px;">${item.icon}</div>
+          <h2 id="modal-title" style="margin-bottom:8px;">${item.name}</h2>
+          <span class="gallery-tag" style="margin-bottom:20px; display:inline-block;">${item.region.charAt(0).toUpperCase() + item.region.slice(1)}</span>
+          <p style="color:var(--text-muted); line-height:1.7;">${item.desc}</p>
+          <p style="color:var(--text-muted); line-height:1.7; margin-top:16px;">This piece represents the centuries-old tradition of lac-turnery, crafted by skilled artisans using sustainable, natural materials. Each item is unique, bearing the subtle marks of handcraftsmanship.</p>
+        `;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        modalClose.focus();
+      };
+
+      const closeModal = () => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      };
+
+      modalClose.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+          closeModal();
+        }
+      });
+    }
+
+    function setupBookmarks() {
+      bookmarkBtns.forEach(btn => {
+        const id = btn.getAttribute('data-bookmark-id');
+        const isBookmarked = localStorage.getItem(`bookmark_${id}`) === 'true';
+        
+        if (isBookmarked) {
+          btn.classList.add('bookmarked');
+          btn.setAttribute('aria-pressed', 'true');
+          btn.innerHTML = '✅ Saved to Journey';
+        }
+
+        btn.addEventListener('click', () => {
+          const currentState = btn.getAttribute('aria-pressed') === 'true';
+          const newState = !currentState;
+          
+          btn.setAttribute('aria-pressed', newState);
+          localStorage.setItem(`bookmark_${id}`, newState);
+          
+          if (newState) {
+            btn.classList.add('bookmarked');
+            btn.innerHTML = '✅ Saved to Journey';
+          } else {
+            btn.classList.remove('bookmarked');
+            btn.innerHTML = '🔖 Save to Journey';
+          }
+        });
+      });
+    }
+
+    function setupMobileMenu() {
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+          const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', !isExpanded);
+          navMenu.classList.toggle('active');
+        });
+      }
+    }
+
+    function setupBackToTop() {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+          backToTopBtn?.classList.add('visible');
+        } else {
+          backToTopBtn?.classList.remove('visible');
         }
       });
 
-      gallery.appendChild(card);
-    });
-
-    function openModal(product) {
-      modalBody.innerHTML = `
-        ${product.image ? `<img class="lac-modal-image" src="${product.image}" alt="${product.imageAlt}">` : ''}
-        <span class="lac-badge">${product.region}</span>
-        <h2 id="modal-title" style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0.5rem 0;">${product.title}</h2>
-        <p style="color: var(--lac-gold); font-weight: 600; margin-bottom: 1rem;">Medium: ${product.medium}</p>
-        <p style="line-height: 1.6;">${product.description}</p>
-      `;
-      modal.classList.remove('hidden');
+      backToTopBtn?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     }
-  }
 
-  function initBookmark() {
-    const bookmarkBtn = document.querySelector('.lac-bookmark-btn');
-    if (!bookmarkBtn) return;
-
-    const id = bookmarkBtn.getAttribute('data-bookmark-id');
-    let saved = JSON.parse(localStorage.getItem('user_bookmarks') || '[]');
-    let isBookmarked = saved.includes(id);
-
-    updateBtnState();
-
-    bookmarkBtn.addEventListener('click', () => {
-      saved = JSON.parse(localStorage.getItem('user_bookmarks') || '[]');
-      if (saved.includes(id)) {
-        saved = saved.filter(b => b !== id);
-        isBookmarked = false;
-      } else {
-        saved.push(id);
-        isBookmarked = true;
-      }
-      localStorage.setItem('user_bookmarks', JSON.stringify(saved));
-      updateBtnState();
-    });
-
-    function updateBtnState() {
-      if (isBookmarked) {
-        bookmarkBtn.textContent = '? Saved to Journey';
-        bookmarkBtn.style.background = 'var(--lac-gold)';
-        bookmarkBtn.style.color = '#0f172a';
-      } else {
-        bookmarkBtn.textContent = '? Save to Journey';
-        bookmarkBtn.style.background = 'transparent';
-        bookmarkBtn.style.color = 'var(--lac-gold)';
+    function setupProcessCards() {
+      const cards = document.querySelectorAll('.process-card');
+      cards.forEach(card => {
+        const activate = () => {
+          cards.forEach(c => {
+            c.classList.remove('active');
+            c.setAttribute('aria-pressed', 'false');
+          });
+          card.classList.add('active');
+          card.setAttribute('aria-pressed', 'true');
+        };
+        card.addEventListener('click', activate);
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            activate();
+          }
+        });
+      });
+      
+      // Activate first card by default
+      if (cards.length > 0) {
+        cards[0].classList.add('active');
+        cards[0].setAttribute('aria-pressed', 'true');
       }
     }
-  }
+  });
 })();

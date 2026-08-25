@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Bheemili Beach — Andhra Pradesh's historic coastline combining golden sands with Dutch and French colonial heritage at Bheemunipatnam.">
+    <title>Bheemili Beach Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="bheemili-beach.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Bheemili Beach Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Andhra Pradesh's historic coastline combining golden sands with Dutch and French colonial heritage at Bheemunipatnam.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_beaches.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/bheemili-beach/bheemili-beach.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bheemili Beach Explorer | Incredible India Explorer">
+    <meta name="twitter:description" content="Historic beach at Bheemunipatnam, colonial ruins, golden sands and coastal heritage of Andhra Pradesh.">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_beaches.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/bheemili-beach/bheemili-beach.html">
+</head>
+
+<body class="bheemili-body">
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+<main class="bheemili-page">
+    <!-- Hero -->
+    <section class="bheemili-hero">
+        <div class="bheemili-hero-content">
+            <a href="../islands/islands.html" class="bheemili-back-link">← Back to Islands of India</a>
+            <span class="bheemili-hero-kicker">🏖️ Coastal Andhra</span>
+            <h1>Bheemili <span>Beach</span></h1>
+            <p>A historic coastline in Bheemunipatnam, Andhra Pradesh, where golden sands meet Dutch and French colonial heritage — a quiet retreat where the sea whispers stories of 17th-century trading posts.</p>
+
+            <div class="bheemili-hero-stats">
+                <div class="bheemili-stat-box">
+                    <strong>17.89°N</strong>
+                    <span>Latitude</span>
+                </div>
+                <div class="bheemili-stat-box">
+                    <strong>83.34°E</strong>
+                    <span>Longitude</span>
+                </div>
+                <div class="bheemili-stat-box">
+                    <strong>Golden Sands</strong>
+                    <span>Beach Type</span>
+                </div>
+                <div class="bheemili-stat-box">
+                    <strong>17th Century</strong>
+                    <span>Colonial Era</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabbed info -->
+    <section class="bheemili-section" id="bheemili-explore">
+        <div class="bheemili-container">
+            <div class="bheemili-section-heading">
+                <span class="bheemili-section-badge">Explore Bheemili</span>
+                <h2>Coastal Heritage & Landscape</h2>
+                <p>Select a tab to learn more.</p>
+            </div>
+
+            <div class="bheemili-tabs" role="tablist">
+                <button type="button" class="bheemili-tab-btn active" data-tab="history">History</button>
+                <button type="button" class="bheemili-tab-btn" data-tab="geography">Geography</button>
+                <button type="button" class="bheemili-tab-btn" data-tab="marine">Marine Life</button>
+                <button type="button" class="bheemili-tab-btn" data-tab="activities">Activities</button>
+                <button type="button" class="bheemili-tab-btn" data-tab="heritage">Heritage</button>
+            </div>
+
+            <div class="bheemili-tab-panel active" id="tab-history">
+                <h3>📜 Historical Background</h3>
+                <p>Bheemili Beach, historically known as Bheemunipatnam, was a thriving Dutch and French trading post in the 17th century. The name derives from the legend of Bhima, one of the Pandava brothers from the Mahabharata, who is said to have visited the site during his exile. The Dutch East India Company established a factory here in 1659, making it one of the earliest European settlements on the Andhra coastline. The French also had a presence, and the area saw frequent skirmishes between European powers for control of the profitable Coromandel Coast trade. Today, the ruins of the fort and colonial-era structures still stand as silent witnesses to this turbulent past, while the beach itself remains a beloved local spot.</p>
+                <ul>
+                    <li>Dutch factory established 1659 — one of India's earliest European trading posts</li>
+                    <li>French colonial presence alongside Dutch in the 1700s</li>
+                    <li>Fort ruins still overlooking the Bay of Bengal</li>
+                    <li>Strategic importance in Coromandel Coast trade</li>
+                </ul>
+            </div>
+
+            <div class="bheemili-tab-panel" id="tab-geography">
+                <h3>🌊 Geographic Overview</h3>
+                <p>Bheemili Beach stretches along the eastern coast of Andhra Pradesh, facing the Bay of Bengal. The beach is characterized by its soft golden sands, which are composed of crushed shells and coral, giving it a unique sparkling appearance under the sun. The coastline here is relatively calm compared to other parts of the Bay, making it suitable for swimming and water sports. The beach is part of the larger Visakhapatnam coastline and is backed by gentle sand dunes and casuarina pine groves. During the monsoon, the creek that flows into the sea at Bheemili swells, creating a picturesque estuary that is popular with local fishermen and birdwatchers.</p>
+                <ul>
+                    <orientation="portrait">
+                    <li>Golden sands composed of crushed shells and coral</li>
+                    <li>Calm waters ideal for swimming</li>
+                    <li>Part of Visakhapatnam coastline</li>
+                    <li>Sand dunes and casuarina pine groves</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="bheemili-tab-panel" id="tab-marine">
+                <h3>🐚 Marine Life</h3>
+                <p>The waters off Bheemili Beach are home to a variety of marine species common to the Bay of Bengal coastline. The coral reefs and sandy seabeds support fish populations including snapper, pomfret, and ribbonfish. During the winter months, olive ridley sea turtles occasionally nest on the beach, though their numbers have declined due to coastal development. The underwater landscape features sandy bottoms with occasional rock formations, providing habitats for crabs, mollusks, and small reef fish. Local fishermen practice traditional net-weaving techniques that have been passed down through generations, and the seafood from these waters is a staple of the local cuisine.</p>
+                <ul>
+                    <li>Fish: snapper, pomfret, ribbonfish</li>
+                    <li>Olive ridley turtles (occasional nesting)</li>
+                    <li>Crabs and mollusks in sandy seabeds</li>
+                    <li>Traditional fishing methods preserved</li>
+                </ul>
+            </div>
+
+            <div class="bheemili-tab-panel" id="tab-activities">
+                <h3>🏖️ Activities</h3>
+                <p>Bheemili Beach offers a range of activities for visitors, from relaxing on the shore to exploring the colonial ruins. The calm waters make it ideal for swimming, especially during the post-monsoon season when the seas are clear and gentle. Beach walks at sunrise and sunset are popular, with the golden sand reflecting the warm colors of the sky. The nearby colonial fort ruins are a favorite for history enthusiasts and photographers. For those interested in local culture, the fishing villages near the creek offer a glimpse into traditional Andhra coastal life, with fresh seafood available at local stalls. Water sports such as jet skiing and windsurfing are also available during the appropriate season.</p>
+                <ul>
+                    <li>Swimming in calm post-monsoon waters</li>
+                    <li>Sunrise and sunset beach walks</li>
+                    <li>Exploring colonial fort ruins</li>
+                    <li>Visiting local fishing villages</li>
+                    <li>Water sports (jet skiing, windsurfing)</li>
+                </ul>
+            </div>
+
+            <div class="bheemili-tab-panel" id="tab-heritage">
+                <h3>🏺 Cultural Heritage</h3>
+                <p>The cultural heritage of Bheemili is a unique blend of Andhra coastal traditions and colonial influences. The local community preserves many customs from the fishing villages that have inhabited the coast for centuries, including boat-building, net-weaving, and seasonal festivals tied to the monsoon and fishing cycles. The colonial ruins, particularly the remains of the Dutch fort, are protected as heritage sites and serve as reminders of the area's international trade history. Local festivals such as the Visakha Utsav often feature Bheemili's coastal culture, with traditional music, dance, and food highlighting the region's unique identity. The area's cuisine is renowned for its fresh seafood, particularly prawns, mackerel, and pomfret, prepared with authentic Andhra spices.</p>
+                <ul>
+                    <li>Fishing village traditions preserved for centuries</li>
+                    <li>Colonial heritage sites and protected ruins</li>
+                    <li>Annual Visakha Utsav coastal cultural events</li>
+                    <li>Seafood cuisine: prawns, mackerel, pomfret</li>
+                    <li>Traditional boat-building and net-weaving</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map -->
+    <section class="bheemili-section" id="bheemili-map-section">
+        <div class="bheemili-container">
+            <div class="bheemili-section-heading">
+                <span class="bheemili-section-badge">Interactive Map</span>
+                <h2>Key Locations Around Bheemili</h2>
+                <p>Click a marker to learn about that location.</p>
+            </div>
+            <div class="bheemili-map-wrap">
+                <div id="bheemili-map"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section class="bheemili-section" id="bheemili-gallery-section">
+        <div class="bheemili-container">
+            <div class="bheemili-section-heading">
+                <span class="bheemili-section-badge">Image Gallery</span>
+                <h2>Glimpses of Bheemili Beach</h2>
+                <p>Click an image to view it larger.</p>
+            </div>
+            <div id="bheemili-gallery-grid" class="bheemili-gallery-grid"></div>
+        </div>
+    </section>
+
+    <!-- Interesting Facts -->
+    <section class="bheemili-section">
+        <div class="bheemili-container">
+            <div class="bheemili-section-heading">
+                <span class="bheemili-section-badge">Did You Know?</span>
+                <h2>Interesting Facts</h2>
+            </div>
+            <div class="bheemili-fact-panel">
+                <div class="bheemili-fact-icon">💡</div>
+                <p id="bheemili-fact-text">Loading fact...</p>
+                <div class="bheemili-fact-dots" id="bheemili-fact-dots"></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <!-- Lightbox -->
+    <div class="bheemili-lightbox-overlay" id="bheemili-lightbox" hidden>
+        <div class="bheemili-lightbox-content">
+            <button class="bheemili-lightbox-close" data-close-lightbox="true" aria-label="Close">&times;</button>
+            <button class="bheemili-lightbox-nav prev" id="bheemili-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="bheemili-lightbox-image" src="" alt="">
+            <button class="bheemili-lightbox-nav next" id="bheemili-lightbox-next" aria-label="Next image">›</button>
+            <p class="bheemili-lightbox-caption" id="bheemili-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Preserving and celebrating India's rich island territories, coastlines and culture.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html#home">Home</a>
+                <a href="../islands/islands.html">Islands of India</a>
+                <a href="bheemili-beach.html">Bheemili Beach</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Cultural Heritage Initiative.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script type="module" src="bheemili-beach.js"></script>
+    <script src="../pages-common.js"></script>
+</body>
+</html>

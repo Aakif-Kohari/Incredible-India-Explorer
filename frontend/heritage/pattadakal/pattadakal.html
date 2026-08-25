@@ -1,0 +1,719 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Group of Monuments at Pattadakal</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #020617;
+      color: #f1f5f9;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 48px));
+      margin: auto;
+    }
+
+    .content-container {
+      width: min(1024px, calc(100% - 48px));
+      margin: auto;
+    }
+
+    /* Back Navigation */
+    .navigation {
+      padding-top: 24px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #fbbf24;
+      font-size: 13px;
+      font-weight: 700;
+      transition: opacity 0.2s ease;
+    }
+
+    .back-link:hover {
+      opacity: 0.75;
+      text-decoration: underline;
+    }
+
+    .back-icon {
+      font-size: 18px;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 64px 0;
+    }
+
+    .location-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      background: rgba(245, 158, 11, 0.1);
+      color: #fbbf24;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .hero h1 {
+      margin-top: 24px;
+      color: #fff;
+      font-size: clamp(38px, 6vw, 64px);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      color: #f59e0b;
+    }
+
+    .hero-description {
+      max-width: 760px;
+      margin: 24px auto 0;
+      color: #cbd5e1;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    /* Main */
+    main {
+      padding-bottom: 80px;
+    }
+
+    section {
+      margin-bottom: 64px;
+    }
+
+    /* History */
+    .history-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+
+      padding: 32px;
+      border: 1px solid #1e293b;
+      border-radius: 24px;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(16px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #fbbf24;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-top: 12px;
+      color: #fff;
+      font-size: 28px;
+      line-height: 1.25;
+    }
+
+    .section-text {
+      margin-top: 16px;
+      color: #cbd5e1;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .architecture-box {
+      padding: 24px;
+      border: 1px solid #1e293b;
+      border-radius: 18px;
+      background: #020617;
+    }
+
+    .architecture-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #fbbf24;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .architecture-box p {
+      margin-top: 12px;
+      color: #94a3b8;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .architecture-box strong {
+      color: #e2e8f0;
+    }
+
+    /* Temple Cards */
+    .temple-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .card {
+      padding: 24px;
+      border: 1px solid #1e293b;
+      border-radius: 24px;
+      background: #0f172a;
+    }
+
+    .card-label {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .amber-label {
+      color: #f59e0b;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
+    .teal-label {
+      color: #2dd4bf;
+      background: rgba(20, 184, 166, 0.1);
+      border: 1px solid rgba(20, 184, 166, 0.2);
+    }
+
+    .card h3 {
+      margin-top: 16px;
+      color: #fff;
+      font-size: 21px;
+    }
+
+    .card p {
+      margin-top: 12px;
+      color: #cbd5e1;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* Artistry */
+    .artistry {
+      padding: 32px;
+      border: 1px solid #1e293b;
+      border-radius: 24px;
+      background: rgba(15, 23, 42, 0.4);
+    }
+
+    /* UNESCO + Timeline */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .info-card {
+      padding: 24px;
+      border: 1px solid #1e293b;
+      border-radius: 24px;
+      background: #0f172a;
+    }
+
+    .info-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .info-card h3 .icon {
+      color: #fbbf24;
+    }
+
+    .info-card > p {
+      margin-top: 16px;
+      color: #cbd5e1;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* Timeline */
+    .timeline {
+      margin-top: 20px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 18px;
+      border-left: 2px solid #f59e0b;
+    }
+
+    .timeline-year {
+      color: #fbbf24;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .timeline-title {
+      margin-top: 3px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .timeline-description {
+      margin-top: 4px;
+      color: #94a3b8;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    /* Gallery */
+    .gallery-title {
+      margin-bottom: 24px;
+      color: #fff;
+      font-size: 28px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      border: 1px solid #1e293b;
+      border-radius: 18px;
+      background: #0f172a;
+    }
+
+    .gallery-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-card:hover .gallery-image {
+      transform: scale(1.06);
+    }
+
+    .gallery-content {
+      padding: 16px;
+    }
+
+    .gallery-content h4 {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .gallery-content p {
+      margin-top: 6px;
+      color: #94a3b8;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container,
+      .content-container {
+        width: min(100% - 32px, 1024px);
+      }
+
+      .hero {
+        padding: 48px 0;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .history-grid,
+      .temple-grid,
+      .info-grid,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .history-grid {
+        padding: 24px;
+      }
+
+      .gallery-image {
+        height: 240px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      .history-grid,
+      .artistry,
+      .info-card,
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <div class="container navigation">
+    <a href="heritage.html" class="back-link">
+      <span class="back-icon">←</span>
+      Back to Heritage Hub
+    </a>
+  </div>
+
+  <!-- Hero -->
+  <header class="container hero">
+
+    <div class="location-badge">
+      <span>📍</span>
+      Bagalkot District, Karnataka, India
+    </div>
+
+    <h1>
+      Group of Monuments at
+      <span>Pattadakal</span>
+    </h1>
+
+    <p class="hero-description">
+      Explore the architectural legacy of the Early Chalukya dynasty—a
+      breathtaking convergence of Northern Nagara and Southern Dravidian
+      temple styles.
+    </p>
+
+  </header>
+
+  <main class="content-container">
+
+    <!-- Historical Background -->
+    <section class="history-grid">
+
+      <div>
+        <div class="eyebrow">
+          🏛️ Historical Background
+        </div>
+
+        <h2>The Chalukya Dynasty Legacy</h2>
+
+        <p class="section-text">
+          Pattadakal, meaning 'place of coronation', served as the capital
+          and sacred ceremonial center of the Badami Chalukyas during the
+          7th and 8th centuries. Kings were crowned here amidst grand
+          architectural patronage, turning the site into an experimental
+          laboratory for Indian temple design.
+        </p>
+      </div>
+
+      <div class="architecture-box">
+
+        <div class="architecture-title">
+          ✨ Architectural Synthesis
+        </div>
+
+        <p>
+          Unlike single-style temple clusters, Pattadakal uniquely features
+          side-by-side temples built in both the Northern Indian
+          <strong>Nagara</strong> (rekha-prasada) style and the Southern
+          <strong>Dravidian</strong> (vimana) style, showcasing supreme
+          stone craftsmanship.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- Major Temples -->
+    <section class="temple-grid">
+
+      <div class="card">
+
+        <span class="card-label amber-label">
+          Dravidian Masterpiece
+        </span>
+
+        <h3>Virupaksha Temple</h3>
+
+        <p>
+          Commissioned in 740 CE by Queen Lokamahadevi to commemorate her
+          husband Vikramaditya II's victory over the Pallavas. It is the
+          grandest structure at the site, featuring massive pillared halls,
+          intricately carved ceiling panels, and profound Shaivite
+          iconography.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <span class="card-label teal-label">
+          Sister Monument
+        </span>
+
+        <h3>Mallikarjuna Temple</h3>
+
+        <p>
+          Built by Queen Trailokyamahadevi around the same period, this
+          smaller yet equally stunning Dravidian temple mirrors the
+          Virupaksha layout with a circular sanctum wall and breathtaking
+          mythological narrative friezes.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- Artistry -->
+    <section class="artistry">
+
+      <div class="eyebrow">
+        🧭 Artistry
+      </div>
+
+      <h2>Sculptural Traditions &amp; Reliefs</h2>
+
+      <p class="section-text">
+        The walls of Pattadakal monuments are adorned with deep, dynamic
+        relief sculptures depicting episodes from the Ramayana, Mahabharata,
+        Bhagavata Purana, and various forms of Shiva and Vishnu (such as
+        Nataraja, Trivikrama, and Narasimha), representing the peak of Early
+        Western Chalukya sculptural excellence.
+      </p>
+
+    </section>
+
+    <!-- UNESCO + Timeline -->
+    <section class="info-grid">
+
+      <div class="info-card">
+
+        <h3>
+          <span class="icon">🏆</span>
+          UNESCO World Heritage Status
+        </h3>
+
+        <p>
+          Inscribed in 1987, UNESCO designated Pattadakal as a World
+          Heritage site for its sublime representation of eclecticism in
+          architecture and an engineered fusion of northern and southern
+          Indian building traditions.
+        </p>
+
+      </div>
+
+      <div class="info-card">
+
+        <h3>
+          <span class="icon">📅</span>
+          Historical Timeline
+        </h3>
+
+        <div class="timeline" id="timeline"></div>
+
+      </div>
+
+    </section>
+
+    <!-- Gallery -->
+    <section>
+
+      <h2 class="gallery-title">
+        Architectural Gallery
+      </h2>
+
+      <div class="gallery" id="gallery"></div>
+
+    </section>
+
+  </main>
+
+  <script>
+    /*
+     * Pattadakal page data
+     */
+
+    const timelineEvents = [
+      {
+        year: "7th Century",
+        title: "Early Chalukyan Era",
+        description:
+          "Establishment of regional architectural foundations under early Chalukya rulers in Badami and surrounding valleys."
+      },
+      {
+        year: "8th Century",
+        title: "Golden Age of Construction",
+        description:
+          "Queen Lokamahadevi commissions the magnificent Virupaksha Temple to celebrate victory over the Pallavas."
+      },
+      {
+        year: "1987",
+        title: "UNESCO World Heritage Status",
+        description:
+          "Recognized globally as a masterpiece of Chalukyan architecture representing a harmonious blend of architectural forms."
+      }
+    ];
+
+    const galleryImages = [
+      {
+        title: "Virupaksha Temple Facade",
+        url: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=800",
+        caption:
+          "Intricate Dravidian vimana structure of the Virupaksha Temple."
+      },
+      {
+        title: "Mallikarjuna Temple",
+        url: "https://images.unsplash.com/photo-1621351183012-e2f997fb8dd9?auto=format&fit=crop&q=80&w=800",
+        caption:
+          "A stellar example of early southern Indian temple design."
+      },
+      {
+        title: "Sculptural Reliefs",
+        url: "https://images.unsplash.com/photo-1609137144813-7e94c924147d?auto=format&fit=crop&q=80&w=800",
+        caption:
+          "Detailed stone carvings depicting epic Hindu mythologies."
+      }
+    ];
+
+    /*
+     * Generate Timeline
+     */
+
+    const timeline = document.getElementById("timeline");
+
+    timelineEvents.forEach((item) => {
+
+      const timelineItem = document.createElement("div");
+
+      timelineItem.className = "timeline-item";
+
+      timelineItem.innerHTML = `
+        <div class="timeline-year">
+          ${item.year}
+        </div>
+
+        <div class="timeline-title">
+          ${item.title}
+        </div>
+
+        <div class="timeline-description">
+          ${item.description}
+        </div>
+      `;
+
+      timeline.appendChild(timelineItem);
+    });
+
+
+    /*
+     * Generate Gallery
+     */
+
+    const gallery = document.getElementById("gallery");
+
+    galleryImages.forEach((image) => {
+
+      const galleryCard = document.createElement("div");
+
+      galleryCard.className = "gallery-card";
+
+      galleryCard.innerHTML = `
+        <div style="overflow:hidden;">
+          <img
+            src="${image.url}"
+            alt="${image.title}"
+            class="gallery-image"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-content">
+          <h4>${image.title}</h4>
+
+          <p>
+            ${image.caption}
+          </p>
+        </div>
+      `;
+
+      gallery.appendChild(galleryCard);
+    });
+
+
+    /*
+     * Simple image fallback
+     */
+
+    document.addEventListener("error", function (event) {
+
+      if (event.target.tagName === "IMG") {
+
+        event.target.style.display = "none";
+
+      }
+
+    }, true);
+  </script>
+
+</body>
+</html>
+

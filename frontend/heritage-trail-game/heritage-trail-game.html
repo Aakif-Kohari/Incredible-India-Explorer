@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Heritage Trail Itinerary Strategy Game | Incredible India Explorer</title>
   <meta name="description" content="Design optimal travel routes connecting Indian heritage sites while balancing budget, days, distance, energy, and sightseeing score.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css"><link rel="stylesheet" href="heritage-trail-game.css">
 </head>
 <body>
@@ -30,6 +41,7 @@
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a>
                     <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
                 </div>
             </div>
@@ -40,6 +52,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -85,9 +98,161 @@
         </nav>
     </div>
 </header>
+
 <main class="trail-page">
-<section class="trail-hero"><div class="hero-content"><span class="hero-kicker">Route planning · budget · fatigue · score</span><h1>Heritage Trail <span>Itinerary Strategy Game</span></h1><p>Build an optimal route across Indian UNESCO and heritage-style clusters. Score high by balancing budget, travel days, distance, energy, and sightseeing density.</p><div class="hero-stats"><div><strong id="site-count">0</strong><span>Sites</span></div><div><strong id="score-count">0</strong><span>Score</span></div><div><strong id="selected-count">0</strong><span>Selected</span></div></div><a href="#trail-game" class="hero-cta">Plan route ↓</a></div></section>
-<section class="trail-section" id="trail-game"><div class="trail-container"><div class="section-heading"><span class="section-badge">Difficulty level 2</span><h2>Choose the strongest heritage route</h2><p>Select connected sites on the strategy map. Keep your route under budget and day limits while managing energy fatigue.</p></div><div class="strategy-grid"><article class="map-panel"><div class="map-top"><span>India heritage strategy map</span><button id="auto-plan" type="button">Auto-plan starter route</button></div><div class="map-stage" id="map-stage"></div></article><aside class="route-panel"><div class="limits-card"><h3>Mission limits</h3><div class="limit-row"><span>Budget</span><strong>₹18,000</strong></div><div class="limit-row"><span>Days</span><strong>8</strong></div><div class="limit-row"><span>Energy fatigue max</span><strong>95</strong></div></div><div class="metric-grid"><div><span>Budget used</span><strong id="budget-used">₹0</strong></div><div><span>Days used</span><strong id="days-used">0</strong></div><div><span>Energy used</span><strong id="energy-used">0</strong></div><div><span>Distance</span><strong id="distance-used">0 km</strong></div></div><div class="score-card"><span>Strategy score</span><strong id="strategy-score">0</strong><p id="strategy-message">Select at least 3 connected sites to build a trail.</p></div><div class="route-actions"><button id="clear-route" type="button">Clear route</button><button id="save-route" type="button">Save best route</button></div></aside></div><section class="itinerary-panel"><div class="itinerary-heading"><h3>Your Trail Itinerary</h3><span id="route-status">No route selected</span></div><div class="itinerary-list" id="itinerary-list"></div></section><section class="saved-panel"><div class="itinerary-heading"><h3>Saved Best Route</h3><button id="clear-saved" type="button">Clear saved</button></div><div id="saved-route"></div></section></div></section>
+
+  <!-- ============ HERO : MISSION DOSSIER ============ -->
+  <section class="trail-hero">
+    <div class="hero-watermark" aria-hidden="true">यात्रा</div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <span class="hero-stamp">Mission Dossier · Route Strategy · Lv 2</span>
+        <h1>Heritage Trail <em>Itinerary Strategy</em></h1>
+        <p class="hero-lede">Pick heritage stops across India, choose your travel mode, and stitch a route that survives budget, days and fatigue — while maximising sightseeing density. Order matters. Every leg costs something.</p>
+        <div class="hero-stats">
+          <div class="stamp-stat"><strong id="site-count">0</strong><span>Heritage sites</span></div>
+          <div class="stamp-stat"><strong id="score-count">0</strong><span>Live score</span></div>
+          <div class="stamp-stat"><strong id="selected-count">0</strong><span>Stops selected</span></div>
+        </div>
+        <div class="hero-ctas">
+          <a href="#trail-game" class="btn-solid">Plan route ↓</a>
+          <a href="#how-scoring" class="btn-ghost">Scoring rules</a>
+        </div>
+      </div>
+      <aside class="boarding-pass" aria-label="Mission limits pass">
+        <div class="bp-head"><span>Incredible India Air</span><span>MISSION PASS</span></div>
+        <div class="bp-route"><span>IND</span><span class="bp-plane">✈ ─ ─ ─</span><span>TRAIL</span></div>
+        <div class="bp-grid">
+          <div><span>Budget</span><b id="bp-budget">₹18,000</b></div>
+          <div><span>Days</span><b id="bp-days">8</b></div>
+          <div><span>Energy max</span><b id="bp-energy">95</b></div>
+        </div>
+        <div class="bp-diff">Class: <b id="bp-diff">Explorer · Classic</b></div>
+        <div class="bp-barcode" aria-hidden="true"></div>
+      </aside>
+    </div>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Delhi ✦ Agra ✦ Jaipur ✦ Sanchi ✦ Khajuraho ✦ Hampi ✦ Mahabalipuram ✦ Thanjavur ✦ Konark–Puri ✦ Sundarbans ✦ Ajanta–Ellora ✦ Rani ki Vav ✦&nbsp;</span>
+        <span>Delhi ✦ Agra ✦ Jaipur ✦ Sanchi ✦ Khajuraho ✦ Hampi ✦ Mahabalipuram ✦ Thanjavur ✦ Konark–Puri ✦ Sundarbans ✦ Ajanta–Ellora ✦ Rani ki Vav ✦&nbsp;</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GAME ============ -->
+  <section class="trail-section" id="trail-game">
+    <div class="trail-container">
+
+      <div class="controls-bar reveal">
+        <div class="control-group">
+          <span class="control-label">Difficulty</span>
+          <div class="seg" id="diff-seg" role="group" aria-label="Difficulty">
+            <button type="button" data-diff="yatri">🪔 Yatri<small>Easy</small></button>
+            <button type="button" data-diff="explorer" class="active">🧭 Explorer<small>Classic</small></button>
+            <button type="button" data-diff="maharathi">⚔️ Maharathi<small>Hard</small></button>
+          </div>
+        </div>
+        <div class="control-group">
+          <span class="control-label">Travel mode <span class="mode-hint" id="mode-hint">balanced cost &amp; comfort</span></span>
+          <div class="seg" id="mode-seg" role="group" aria-label="Travel mode">
+            <button type="button" data-mode="bus">🚌 Bus</button>
+            <button type="button" data-mode="train" class="active">🚆 Train</button>
+            <button type="button" data-mode="flight">✈️ Flight</button>
+          </div>
+        </div>
+        <div class="control-actions">
+          <button id="auto-plan" type="button">✨ Auto-plan</button>
+          <button id="optimize-order" type="button">🧭 Optimize order</button>
+          <button id="clear-route" type="button">Clear</button>
+          <button id="save-route" type="button" class="primary">🏆 Save best</button>
+        </div>
+      </div>
+
+      <div class="strategy-grid">
+        <article class="map-panel reveal">
+          <div class="map-top">
+            <span>India · Heritage strategy map</span>
+            <span class="map-hint">Click pins in travel order — legs cost ₹ &amp; ⚡</span>
+          </div>
+          <div class="map-stage" id="map-stage">
+            <div class="map-tooltip" id="map-tooltip" hidden></div>
+          </div>
+          <div class="map-legend" id="map-legend"></div>
+        </article>
+
+        <aside class="route-panel reveal">
+          <div class="gauges">
+            <div class="gauge" id="gauge-budget">
+              <div class="gauge-head"><span>Budget</span><strong id="budget-used">₹0 / ₹18,000</strong></div>
+              <div class="gauge-bar"><i class="gauge-fill" id="fill-budget"></i></div>
+            </div>
+            <div class="gauge" id="gauge-days">
+              <div class="gauge-head"><span>Days</span><strong id="days-used">0 / 8 days</strong></div>
+              <div class="gauge-bar"><i class="gauge-fill" id="fill-days"></i></div>
+            </div>
+            <div class="gauge" id="gauge-energy">
+              <div class="gauge-head"><span>Energy / fatigue</span><strong id="energy-used">0 / 95</strong></div>
+              <div class="gauge-bar"><i class="gauge-fill" id="fill-energy"></i></div>
+            </div>
+            <div class="gauge-info"><span>Route distance</span><strong id="distance-used">0 km</strong><small>≤ 2,000 km earns a routing bonus</small></div>
+          </div>
+
+          <div class="score-card">
+            <div class="score-top">
+              <span>Strategy score</span>
+              <span class="rank-chip tier-0" id="rank-chip">🧭 Awaiting route</span>
+            </div>
+            <strong id="strategy-score">0</strong>
+            <p id="strategy-message" aria-live="polite">Click map pins to add heritage stops — order matters.</p>
+            <span id="vs-best" class="vs-best" hidden></span>
+            <ul class="breakdown">
+              <li><span>Base sightseeing (ratings)</span><b id="bd-base">0</b></li>
+              <li><span>Zone bonus · +30 / zone</span><b id="bd-zones">+0</b></li>
+              <li><span>Density bonus · rating ÷ days</span><b id="bd-density">+0</b></li>
+              <li><span>Routing bonus · short haul</span><b id="bd-routing">+0</b></li>
+              <li><span>Difficulty multiplier</span><b id="bd-mult">×1.0</b></li>
+              <li class="pen"><span>Penalties · over limits</span><b id="bd-penalty">−0</b></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <section class="itinerary-panel reveal">
+        <div class="itinerary-heading">
+          <h3>Your Trail Itinerary</h3>
+          <span id="route-status">No route selected</span>
+        </div>
+        <div class="itinerary-list" id="itinerary-list"></div>
+      </section>
+
+      <section class="rules-panel reveal" id="how-scoring">
+        <h3>How scoring works</h3>
+        <div class="rules-chips">
+          <div class="rule-chip"><i>🗺️</i><div><b>+30 per zone</b><span>Mix North, West, South, East, Central</span></div></div>
+          <div class="rule-chip"><i>📈</i><div><b>Density bonus</b><span>Total rating ÷ days used (3+ stops)</span></div></div>
+          <div class="rule-chip"><i>🚆</i><div><b>Routing bonus</b><span>+40 under 2,000 km · +20 under 3,200 km</span></div></div>
+          <div class="rule-chip"><i>⚖️</i><div><b>Difficulty multiplier</b><span>Yatri ×0.9 · Explorer ×1.0 · Maharathi ×1.25</span></div></div>
+          <div class="rule-chip"><i>🚨</i><div><b>Penalties</b><span>Every rupee, day & energy point over limits hurts</span></div></div>
+        </div>
+      </section>
+
+      <section class="saved-panel reveal">
+        <div class="itinerary-heading">
+          <h3>Hall of Trails · Saved Best</h3>
+          <div class="heading-actions">
+            <button id="load-saved" type="button">Load route</button>
+            <button id="clear-saved" type="button">Clear saved</button>
+          </div>
+        </div>
+        <div id="saved-route"></div>
+      </section>
+
+    </div>
+  </section>
 </main>
-<footer class="trail-footer"><p>Part of <a href="../../index.html">Incredible India Explorer</a> · Strategy-game learning for Indian heritage travel planning.</p></footer><button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button><script src="app.js"></script><script src="heritage-trail-game.js"></script>
+
+<footer class="trail-footer"><p>Part of <a href="../../index.html">Incredible India Explorer</a> · Strategy-game learning for Indian heritage travel planning.</p></footer>
+<button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+<div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+<script src="app.js"></script><script src="heritage-trail-game.js"></script>
 </body></html>
