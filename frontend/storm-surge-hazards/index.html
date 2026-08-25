@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storm-Surge Hazards Along India's Coast | Incredible India Explorer</title>
+    <meta name="description" content="Explore storm surge dynamics, bathymetry amplification, coastal risk zones, historical disasters (1970 Bhola, 1999 Odisha, 2020 Amphan), INCOIS forecasting, and mangrove bio-shield mitigation along India's 7,516 km coastline.">
+    <meta name="keywords" content="Storm Surge India, Bay of Bengal Cyclone, Arabian Sea Storm Surge, Coastal Hazards India, Continental Shelf Bathymetry, INCOIS Early Warning, Odisha Super Cyclone, Amphan Surge, Mangrove Bio-shield, Incredible India Explorer">
+    <meta name="author" content="Incredible India Explorer">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Storm-Surge Hazards Along India's Coast">
+    <meta property="og:description" content="Interactive exploration of cyclone storm surge physics, bathymetric funneling, historical disasters, coastal risk zones, and mitigation infrastructure across India's maritime states.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1200&q=80&fm=jpg&fit=crop">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/storm-surge-hazards/index.html">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Storm-Surge Hazards Along India's Coast">
+    <meta name="twitter:description" content="Interactive simulator, risk maps, historical timelines, and coastal safety insights for India's 7,516 km coastline.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1200&q=80&fm=jpg&fit=crop">
+
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/storm-surge-hazards/index.html">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Theme Bootstrap -->
+    <script>
+        (function() {
+            let theme = 'dark';
+            try {
+                theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || localStorage.getItem('theme') || 'dark';
+            } catch (e) {}
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../pages-common.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+
+    <!-- Structured Data Schema JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SpecialAnnouncement",
+        "name": "Storm-Surge Hazards Along India's Coast",
+        "description": "Educational guide and interactive simulator on storm surge mechanics, continental shelf bathymetry, historical tropical cyclone surge landfalls, INCOIS early warning modeling, and coastal bio-shield mitigation in India.",
+        "category": "Disaster Preparedness & Oceanographic Hazard Exploration",
+        "url": "https://incredibleindiaexplorer.gov.in/frontend/storm-surge-hazards/index.html",
+        "spatialCoverage": {
+            "@type": "Place",
+            "name": "Indian Coastline (Bay of Bengal and Arabian Sea)",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "IN"
+            }
+        }
+    }
+    </script>
+</head>
+<body class="surge-page">
+    <script>
+        (function() {
+            let theme = 'dark';
+            try {
+                theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || localStorage.getItem('theme') || 'dark';
+            } catch (e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+
+    <!-- Shared Navigation Bar -->
+    <header class="navbar" id="navbar" role="banner">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo" aria-label="Return to Home">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu" role="navigation">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../coastal-india/index.html" class="nav-link">Coastlines</a>
+                <a href="../climate-zones/index.html" class="nav-link">Climate</a>
+                <a href="#simulator" class="nav-link">Surge Simulator</a>
+                <a href="#risk-map" class="nav-link">Risk Map</a>
+                <a href="#timeline" class="nav-link">Disaster History</a>
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">🌓</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <span class="hero-badge">🌊 Oceanographic Hazard Explorer</span>
+            <h1 class="hero-title">Storm-Surge Hazards Along India's Coast</h1>
+            <p class="hero-subtitle">
+                Understanding Tropical Cyclone Surge Physics, Bathymetric Funneling, Coastal Risk Dynamics, and Life-Saving Protection Infrastructure Across India's 7,516 km Coastline.
+            </p>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">🏖️</div>
+                    <div class="metric-details">
+                        <div class="metric-number">7,516 km</div>
+                        <div class="metric-label">Total Indian Coastline</div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">🌊</div>
+                    <div class="metric-details">
+                        <div class="metric-number">80%+</div>
+                        <div class="metric-label">Surges in Bay of Bengal</div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">⚠️</div>
+                    <div class="metric-details">
+                        <div class="metric-number">10.0 meters</div>
+                        <div class="metric-label">Max Historical Surge Peak</div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">🛡️</div>
+                    <div class="metric-details">
+                        <div class="metric-number">~250M</div>
+                        <div class="metric-label">Coastal Population Protected</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main>
+        <!-- Section 1: Surge Physics & Mechanics -->
+        <section class="section" id="mechanics">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Anatomy of a Storm Surge</h2>
+                    <p class="section-desc">How atmospheric low pressure, cyclonic wind stress, and shallow seabed geometry combine to create massive walls of ocean water.</p>
+                </div>
+
+                <div class="mechanics-grid">
+                    <div class="mechanic-card">
+                        <div class="mechanic-header">
+                            <span class="mechanic-icon">💨</span>
+                            <h3 class="mechanic-title">Wind Stress & Setup</h3>
+                        </div>
+                        <div class="mechanic-summary">High-velocity cyclonic winds drag massive ocean volumes shoreward.</div>
+                        <p class="mechanic-desc">Intense sustained winds transfer mechanical momentum to the sea surface. As the tropical cyclone moves toward land, shallow waters prevent this water mass from flowing downward, forcing it to pile up into a rising surge wall ahead of landfall.</p>
+                    </div>
+
+                    <div class="mechanic-card">
+                        <div class="mechanic-header">
+                            <span class="mechanic-icon">📉</span>
+                            <h3 class="mechanic-title">Inverse Barometric Effect</h3>
+                        </div>
+                        <div class="mechanic-summary">Low central pressure causes sea levels to bulge under the storm core.</div>
+                        <p class="mechanic-desc">For every 1 millibar drop in atmospheric pressure below normal sea-level pressure (1013 hPa), the sea surface rises by ~1 cm. In intense super cyclones with central pressures dropping below 920 hPa, this effect alone raises sea level by nearly 1 meter.</p>
+                    </div>
+
+                    <div class="mechanic-card">
+                        <div class="mechanic-header">
+                            <span class="mechanic-icon">🏖️</span>
+                            <h3 class="mechanic-title">Continental Shelf Bathymetry</h3>
+                        </div>
+                        <div class="mechanic-summary">Shallow gently sloping seabeds dramatically amplify surge heights.</div>
+                        <p class="mechanic-desc">A wide, shallow continental shelf—such as in the Bay of Bengal off West Bengal and Odisha—restricts water from escaping, squeezing sea levels higher onto land. Steeper shelves (like India's West Coast) allow ocean energy to dissipate downward.</p>
+                    </div>
+
+                    <div class="mechanic-card">
+                        <div class="mechanic-header">
+                            <span class="mechanic-icon">🌕</span>
+                            <h3 class="mechanic-title">Astronomical Tide Funneling</h3>
+                        </div>
+                        <div class="mechanic-summary">Coincidence with Spring High Tide produces devastating 'Storm Tides'.</div>
+                        <p class="mechanic-desc">When a cyclone surge coincides with an astronomical Spring High Tide during full or new moon phases, the combined water level (Storm Tide) can reach catastrophic heights of 5 to 10 meters above mean sea level.</p>
+                    </div>
+
+                    <div class="mechanic-card">
+                        <div class="mechanic-header">
+                            <span class="mechanic-icon">🗾</span>
+                            <h3 class="mechanic-title">Estuarine & Bay Funneling</h3>
+                        </div>
+                        <div class="mechanic-summary">V-shaped bays and river mouths compress incoming surge volume.</div>
+                        <p class="mechanic-desc">Concave coastlines and river estuaries (e.g. Hooghly, Mahanadi, Godavari deltas) funnel incoming water, compressing the wave volume and driving peak surge heights dozens of kilometers inland.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Interactive Surge Height & Inundation Simulator -->
+        <section class="section" id="simulator">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Interactive Storm Surge Estimator</h2>
+                    <p class="section-desc">Adjust wind velocity, bathymetric shelf slope, and astronomical tide conditions to simulate peak storm surge height and inland inundation risk.</p>
+                </div>
+
+                <div class="simulator-container">
+                    <div class="simulator-controls">
+                        <div class="control-group">
+                            <div class="control-header">
+                                <label for="sim-wind">Cyclone Sustained Wind Speed:</label>
+                                <span class="control-val" id="val-wind">180 km/h</span>
+                            </div>
+                            <input type="range" id="sim-wind" class="sim-range" min="100" max="280" value="180" step="5">
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-header">
+                                <label for="sim-shelf">Continental Shelf Slope & Bathymetry:</label>
+                                <span class="control-val" id="val-shelf">Shallow (&lt;25m)</span>
+                            </div>
+                            <select id="sim-shelf" class="sim-select">
+                                <option value="shallow">Shallow Shelf (&lt;25m) — e.g. West Bengal, Odisha</option>
+                                <option value="moderate">Moderate Shelf (25–60m) — e.g. Andhra Pradesh, Gujarat</option>
+                                <option value="steep">Steep Shelf (&gt;60m) — e.g. Kerala, Konkan Coast</option>
+                            </select>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-header">
+                                <label for="sim-tide">Astronomical Tide Phase at Landfall:</label>
+                                <span class="control-val" id="val-tide">Spring High (+3.8m)</span>
+                            </div>
+                            <select id="sim-tide" class="sim-select">
+                                <option value="neap">Neap Low Tide (+0.5m)</option>
+                                <option value="mean">Mean Sea Level Tide (+1.8m)</option>
+                                <option value="spring" selected>Spring High Tide (+3.8m)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="simulator-output">
+                        <div class="readout-grid">
+                            <div class="readout-box">
+                                <div class="readout-label">Estimated Total Storm Tide</div>
+                                <div class="readout-value" id="surge-height-result">4.8 m</div>
+                            </div>
+                            <div class="readout-box">
+                                <div class="readout-label">Est. Inland Inundation</div>
+                                <div class="readout-value" id="inundation-result">~12 km</div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: center;">
+                            <span class="risk-pill high" id="surge-risk-badge">HIGH SURGE HAZARD</span>
+                        </div>
+
+                        <div class="advisory-box" id="surge-advisory">
+                            <strong>High Evacuation Level:</strong> Surge water will breach sea embankments, flooding low-lying coastal villages, roads, and port infrastructure up to several kilometers inland.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Interactive Leaflet Coastal Risk Map -->
+        <section class="section" id="risk-map">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Coastal Surge Vulnerability Map</h2>
+                    <p class="section-desc">Click markers along India's maritime states to inspect regional shelf bathymetry, historical surge peaks, and coastal hazard profiles.</p>
+                </div>
+
+                <div class="map-container" id="surge-map"></div>
+            </div>
+        </section>
+
+        <!-- Section 4: Historical Disaster Timeline -->
+        <section class="section" id="timeline">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Major Historical Surge Events</h2>
+                    <p class="section-desc">A chronological record of high-impact tropical cyclone storm surges along the Indian coastline and lessons learned in emergency response.</p>
+                </div>
+
+                <div class="timeline-filters">
+                    <button class="filter-btn active" data-filter="all">All Events</button>
+                    <button class="filter-btn" data-filter="bay">Bay of Bengal</button>
+                    <button class="filter-btn" data-filter="arabian">Arabian Sea</button>
+                    <button class="filter-btn" data-filter="super">Super Cyclones</button>
+                </div>
+
+                <div class="timeline-cards-grid" id="timeline-cards-container"></div>
+            </div>
+        </section>
+
+        <!-- Section 5: Oceanographic Basin Comparison -->
+        <section class="section" id="comparison">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Bay of Bengal vs. Arabian Sea Surge Dynamics</h2>
+                    <p class="section-desc">Comparing oceanographic parameters, bathymetry, cyclone frequency, and coastal vulnerability between India's eastern and western sea basins.</p>
+                </div>
+
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="tab-bay">Bay of Bengal (East Coast)</button>
+                    <button class="tab-btn" data-tab="tab-arabian">Arabian Sea (West Coast)</button>
+                </div>
+
+                <div class="tab-pane active" id="tab-bay">
+                    <div class="comparison-box">
+                        <h3>Bay of Bengal — The Surge Capital of the North Indian Ocean</h3>
+                        <p style="margin-top: 0.5rem; color: var(--text-secondary);">Accounts for over 80% of global cyclone-related surge fatalities due to shallow shelf geometry, low-lying river deltas, and dense coastal populations.</p>
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Parameter</th>
+                                <th>East Coast Profile</th>
+                            </tr>
+                            <tr>
+                                <td>Cyclone Frequency</td>
+                                <td>~4 to 5 Severe Cyclones per year (~80% of North Indian Ocean total)</td>
+                            </tr>
+                            <tr>
+                                <td>Continental Shelf</td>
+                                <td>Extremely shallow and broad (up to 100–150 km wide in Northern Bay)</td>
+                            </tr>
+                            <tr>
+                                <td>Coastline Geometry</td>
+                                <td>V-shaped concave funnel head pushing water into Ganges-Brahmaputra delta</td>
+                            </tr>
+                            <tr>
+                                <td>Maximum Surge Peak</td>
+                                <td>Up to 10.0 meters recorded in extreme super cyclones (1970, 1999)</td>
+                            </tr>
+                            <tr>
+                                <td>Vulnerable States</td>
+                                <td>West Bengal, Odisha, Andhra Pradesh, Tamil Nadu</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="tab-arabian">
+                    <div class="comparison-box">
+                        <h3>Arabian Sea — Rising Intensity and Gulf Amplification</h3>
+                        <p style="margin-top: 0.5rem; color: var(--text-secondary);">Historically fewer cyclones due to cooler SSTs and dry air intrusion, but experiencing rising storm intensity and high tidal amplification in shallow gulfs.</p>
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Parameter</th>
+                                <th>West Coast Profile</th>
+                            </tr>
+                            <tr>
+                                <td>Cyclone Frequency</td>
+                                <td>~1 to 2 Cyclones per year (Increasing in frequency due to sea surface warming)</td>
+                            </tr>
+                            <tr>
+                                <td>Continental Shelf</td>
+                                <td>Steeper and narrower continental slope along Konkan and Malabar coasts</td>
+                            </tr>
+                            <tr>
+                                <td>Coastline Geometry</td>
+                                <td>Linear rocky coastline, except shallow gulfs of Kutch and Khambhat</td>
+                            </tr>
+                            <tr>
+                                <td>Maximum Surge Peak</td>
+                                <td>2.5 to 5.0 meters (Amplified in Gulf of Kutch ports like Kandla)</td>
+                            </tr>
+                            <tr>
+                                <td>Vulnerable States</td>
+                                <td>Gujarat, Maharashtra, Goa, Karnataka, Kerala</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Early Warning & Protection Infrastructure -->
+        <section class="section" id="mitigation">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Disaster Mitigation & Early Warning Infrastructure</h2>
+                    <p class="section-desc">How India leverages advanced oceanographic modeling, mangrove bio-shields, and stilted multipurpose cyclone shelters to save lives.</p>
+                </div>
+
+                <div class="mechanics-grid">
+                    <div class="mechanic-card">
+                        <div class="mechanic-header">
+                            <span class="mechanic-icon">🛰️</span>
+                            <h3 class="mechanic-title">INCOIS ADCIRC Warning Models</h3>
+                        </div>
+                        <div class="mechanic-summary">72-Hour location-specific hydrodynamic ocean surge modeling.</div>
+                        <p class="mechanic-desc">The Indian National Centre for Ocean Information Services (INCOIS) runs advanced 2D/3D numerical models (ADCIRC & SCHISM) coupled with real-time ocean buoys and tide gauges to generate location-specific coastal flood advisories.</p>
+                    </div>
+
+                    <div class="mechanic-card">
+                        <div class="mechanic-header">
+                            <span class="mechanic-icon">🏛️</span>
+                            <h3 class="mechanic-title">Multipurpose Cyclone Shelters</h3>
+                        </div>
+                        <div class="mechanic-summary">Elevated stilted structures providing safe refuge for millions.</div>
+                        <p class="mechanic-desc">Over 1,500 engineered shelters built above 100-year flood levels in Odisha, West Bengal, and Andhra Pradesh offer safe emergency refuge during mass evacuations, equipped with emergency power and rainwater systems.</p>
+                    </div>
+
+                    <div class="mechanic-card">
+                        <div class="mechanic-header">
+                            <span class="mechanic-icon">🌿</span>
+                            <h3 class="mechanic-title">Mangrove Bio-Shields</h3>
+                        </div>
+                        <div class="mechanic-summary">Natural coastal wave attenuation barriers in Sundarbans & Bhitarkanika.</div>
+                        <p class="mechanic-desc">Dense mangrove forests act as natural energy absorbers. A 100-meter wide mangrove belt can attenuate incoming wave and surge momentum by 50% to 66%, shielding inland habitations behind root systems.</p>
+                    </div>
+
+                    <div class="mechanic-card">
+                        <div class="mechanic-header">
+                            <span class="mechanic-icon">🧱</span>
+                            <h3 class="mechanic-title">Geotextile Tubes & Dykes</h3>
+                        </div>
+                        <div class="mechanic-summary">Engineered shoreline defense embankments and geotube seawalls.</div>
+                        <p class="mechanic-desc">Armored rip-rap embankments, geotextile tube seawalls, and raised ring dykes prevent riverbank scour and estuarine saltwater intrusion during intense surge landfalls.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Knowledge Quiz -->
+        <section class="section" id="quiz">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Knowledge Assessment Quiz</h2>
+                    <p class="section-desc">Test your understanding of storm surge dynamics, bathymetric amplification, and coastal defense systems in India.</p>
+                </div>
+
+                <div class="quiz-grid" id="quiz-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Incredible India Explorer. Educational portal on coastal oceanography & hazard science.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="../../index.html">Home Portal</a> | 
+                <a href="../coastal-india/index.html">Coastal Explorer</a> | 
+                <a href="../climate-zones/index.html">Climate Zones</a> | 
+                <a href="../cyclone-amphan-2020/index.html">Cyclone Amphan Profile</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
