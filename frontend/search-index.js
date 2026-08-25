@@ -44,6 +44,13 @@ window.indiaSearchIndex = [
         url: 'frontend/dandi-ghat/index.html'
     },
     {
+    title: "Forest Fire Hazards of Uttarakhand",
+    category: "Natural Hazards",
+    description:
+        "Explore forest-fire risk in Uttarakhand's chir pine belt — causes, ecological impact, air quality effects, monitoring, and community-led prevention through Van Panchayats.",
+    url: "frontend/uttarakhand-forest-fire-hazards/index.html"
+    },
+    {
         title: 'Brahmagiri Peak Trek (Coorg & Wayanad) Profile',
         category: 'Adventure & Sanctuary Treks',
         description:
