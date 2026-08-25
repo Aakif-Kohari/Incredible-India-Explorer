@@ -5,6 +5,13 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Sulabha — The Philosopher Who Debated King Janaka',
+        category: 'Historical & Cultural Profiles',
+        description:
+            'Explore the philosophical discourse of Sulabha and King Janaka from the Mahabharata\'s Mokshadharma Parva on selfhood, language, non-gendered consciousness, and genuine liberation.',
+        url: 'frontend/sulabha-philosopher-explorer/index.html'
+    },
+    {
         title: 'Naya Ghat — Varanasi Riverfront Renewal & Living Culture Profile',
         category: 'Heritage & Development',
         description:
