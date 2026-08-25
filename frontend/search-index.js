@@ -6220,8 +6220,14 @@ window.indiaSearchIndex = [
         category: "Geology & Disasters",
         description:
             "Explore the 18 September 2011 Sikkim earthquake (Mw 6.9): USGS epicentre on the India–Nepal border, Himalayan strike-slip tectonics, landslides, road and settlement damage, NDRF and Army relief, and earthquake preparedness.",
-        url: "frontend/sikkim-earthquake-2011-explorer/index.html"
-    },
+        url: "frontend/sikkim-earthquake-2011-explorer/index.html"},
+    // --- 2004 Indian Ocean Tsunami Explorer (#3536) ---
+    {
+        title: "2004 Indian Ocean Tsunami - India Impact Profile",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 26 December 2004 Indian Ocean tsunami: the Sumatra-Andaman megathrust cause, Tamil Nadu, Kerala and Andaman & Nicobar impact, timeline, relief operations, lessons learned, and India's INCOIS tsunami warning system.",
+        url: "frontend/indian-ocean-tsunami-2004-explorer/index.html"},
     // --- Brahmaputra Flood Hazards Explorer ---
     {
         title: "Brahmaputra Flood Hazards — Assam",
@@ -6278,6 +6284,13 @@ window.indiaSearchIndex = [
             "Explore Kadambini Ganguly's historical profile: one of the first two female graduates of the British Empire, the first woman admitted to Calcutta Medical College, and India's first practising woman physician of Western medicine.",
         url: "frontend/kadambini-ganguly-explorer/index.html"
     },
+    // --- 2023 Himachal Pradesh Floods & Landslides Explorer (#3566) ---
+    {
+        title: "2023 Himachal Pradesh Floods & Landslides — Monsoon Disaster Profile",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 2023 Himachal Pradesh monsoon disaster: extreme July rainfall, Beas and Satluj flooding, deadly landslides at Summer Hill and Jadoon, highway and heritage-railway damage, NDRF–Army–IAF relief, and mountain disaster preparedness lessons.",
+        url: "frontend/himachal-floods-2023-explorer/index.html"},
 
     // --- Drought Hazards of Rajasthan Explorer (#3570) ---
     {
