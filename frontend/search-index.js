@@ -6339,5 +6339,13 @@ window.indiaSearchIndex = [
         description:
             "Explore the 3–4 October 2023 South Lhonak glacial lake outburst flood: lake geography, Teesta basin, GLOF hazards, Chungthang dam and highway damage, early-warning gaps, and Himalayan risk mitigation.",
         url: "frontend/south-lhonak-glof-2023-explorer/index.html"
+    },
+    // --- feat/lava-kusha-story ---
+    {
+        title: "Add Lava and Kusha \u2014 The Young Princes of Ayodhya",
+        category: "Culture & Literature",
+        description:
+            "Explore the story of Lava and Kusha \u2014 the young twin princes of Ayodhya, their upbringing in Valmiki ashram, singing the Ramayana, and Ashwamedha valor.",
+        url: "frontend/lava-kusha-story/index.html"
     }
 ];
