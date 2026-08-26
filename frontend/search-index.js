@@ -6522,5 +6522,13 @@ window.indiaSearchIndex = [
         description:
             "Explore Acheulean stone tool technology across prehistoric India: handaxes, cleavers, major archaeological sites such as Attirampakkam, Hunsgi-Isampur, Bhimbetka, Chirki-Nevasa, Didwana and Paisra, a technology timeline, and an interactive map of key sites.",
         url: "frontend/acheulean-stone-technology/index.html"
+    },
+    // --- Mesolithic Sites Across India (#3792) ---
+    {
+        title: "Mesolithic Sites Across India \u2014 Microliths & Rock Art",
+        category: "Archaeological Excavations",
+        description:
+            "Explore major Mesolithic sites across India including Bhimbetka, Bagor, Sarai Nahar Rai, Langhnaj, Adamgarh and Tilwara: microlithic stone tools, settlement and burial evidence, rock art, chronology, and an interactive map of key sites.",
+        url: "frontend/mesolithic-sites-india/index.html"
     }
 ];
