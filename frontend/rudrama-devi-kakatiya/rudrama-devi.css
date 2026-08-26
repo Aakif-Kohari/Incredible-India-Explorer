@@ -1,0 +1,573 @@
+/* rudrama-devi.css — Custom stylesheet for Queen Rudrama Devi Profile */
+
+:root {
+    --rudrama-gold: #eab308;
+    --rudrama-gold-dark: #ca8a04;
+    --rudrama-amber: #f59e0b;
+    --rudrama-crimson: #dc2626;
+    --rudrama-crimson-glow: rgba(220, 38, 38, 0.2);
+
+    --rudrama-bg: #0c0804;
+    --rudrama-bg-alt: #160f08;
+    --rudrama-card-bg: rgba(30, 20, 10, 0.78);
+    --rudrama-card-border: rgba(234, 179, 8, 0.22);
+
+    --rudrama-text: #fef9c3;
+    --rudrama-text-dim: #fef08a;
+    --rudrama-text-muted: #facc15;
+
+    --rudrama-focus: #facc15;
+    --rudrama-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.65);
+
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-theme="light"], .light-theme {
+    --rudrama-bg: #fefcfa;
+    --rudrama-bg-alt: #f7eed8;
+    --rudrama-card-bg: #ffffff;
+    --rudrama-card-border: rgba(202, 138, 4, 0.3);
+
+    --rudrama-text: #451a03;
+    --rudrama-text-dim: #78350f;
+    --rudrama-text-muted: #b45309;
+
+    --rudrama-shadow: 0 10px 25px -5px rgba(69, 26, 3, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.rudrama-body {
+    background-color: var(--rudrama-bg);
+    color: var(--rudrama-text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.rudrama-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Header & Navigation */
+.rudrama-header {
+    background: rgba(12, 8, 4, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rudrama-card-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s ease;
+}
+
+.light-theme .rudrama-header {
+    background: rgba(254, 252, 250, 0.88);
+}
+
+.rudrama-header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.rudrama-back-link {
+    color: var(--rudrama-gold);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background: rgba(234, 179, 8, 0.12);
+    transition: all 0.2s ease;
+}
+
+.rudrama-back-link:hover,
+.rudrama-back-link:focus-visible {
+    background: var(--rudrama-gold);
+    color: #0c0804;
+    outline: 2px solid var(--rudrama-focus);
+    outline-offset: 2px;
+}
+
+.rudrama-theme-btn {
+    background: rgba(234, 179, 8, 0.08);
+    border: 1px solid var(--rudrama-card-border);
+    color: var(--rudrama-gold);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.rudrama-theme-btn:hover,
+.rudrama-theme-btn:focus-visible {
+    background: rgba(234, 179, 8, 0.15);
+    border-color: var(--rudrama-gold);
+    outline: 2px solid var(--rudrama-focus);
+    outline-offset: 2px;
+}
+
+/* Accessibility Keyboard Focus Link */
+.rudrama-skip-link {
+    position: absolute;
+    top: -100px;
+    left: 20px;
+    background: var(--rudrama-gold);
+    color: #0c0804;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    z-index: 1000;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.rudrama-skip-link:focus {
+    top: 20px;
+    outline: 3px solid var(--rudrama-focus);
+}
+
+/* Hero Section */
+.rudrama-hero {
+    background: linear-gradient(135deg, var(--rudrama-bg) 30%, var(--rudrama-bg-alt) 100%);
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--rudrama-card-border);
+}
+
+.rudrama-hero__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.rudrama-badge {
+    background: rgba(234, 179, 8, 0.15);
+    border: 1px solid rgba(234, 179, 8, 0.3);
+    color: var(--rudrama-gold);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+}
+
+.rudrama-badge--crimson {
+    background: rgba(220, 38, 38, 0.15);
+    border-color: rgba(220, 38, 38, 0.3);
+    color: #fca5a5;
+}
+
+.light-theme .rudrama-badge--crimson {
+    color: var(--rudrama-crimson);
+}
+
+.rudrama-hero__title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.rudrama-hero__title-sub {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--rudrama-text-muted);
+    margin-top: 0.5rem;
+}
+
+.rudrama-hero__lede {
+    font-size: 1.15rem;
+    color: var(--rudrama-text-dim);
+    max-width: 800px;
+    margin-bottom: 2.5rem;
+}
+
+/* Quick Facts Grid */
+.rudrama-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.rudrama-stat-card {
+    background: var(--rudrama-card-bg);
+    border: 1px solid var(--rudrama-card-border);
+    padding: 1.25rem;
+    border-radius: 12px;
+    box-shadow: var(--rudrama-shadow);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.rudrama-stat-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--rudrama-gold);
+}
+
+.rudrama-stat-card__val {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--rudrama-gold);
+    margin-bottom: 0.25rem;
+}
+
+.rudrama-stat-card__label {
+    font-size: 0.85rem;
+    color: var(--rudrama-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Main Layout & Tabs */
+.rudrama-tabs-wrapper {
+    margin: 2.5rem 0 2rem 0;
+    border-bottom: 1px solid var(--rudrama-card-border);
+}
+
+.rudrama-tabs {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+}
+
+.rudrama-tabs::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.rudrama-tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--rudrama-text-muted);
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.rudrama-tab-btn:hover {
+    color: var(--rudrama-gold);
+}
+
+.rudrama-tab-btn.active {
+    color: var(--rudrama-gold);
+    border-bottom-color: var(--rudrama-gold);
+}
+
+.rudrama-tab-btn:focus-visible {
+    outline: 2px solid var(--rudrama-focus);
+    outline-offset: -2px;
+}
+
+/* Tab Panels */
+.rudrama-tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.rudrama-tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sections & Generic Card Styling */
+.rudrama-spotlight-card {
+    background: linear-gradient(135deg, var(--rudrama-bg-alt) 0%, rgba(220, 38, 38, 0.08) 100%);
+    border: 1px solid var(--rudrama-card-border);
+    border-left: 5px solid var(--rudrama-gold);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 3rem;
+    box-shadow: var(--rudrama-shadow);
+}
+
+.rudrama-eyebrow {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--rudrama-gold-dark);
+    margin-bottom: 0.5rem;
+}
+
+.rudrama-section-title {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.rudrama-section-heading {
+    margin-bottom: 2rem;
+}
+
+.rudrama-section-desc {
+    color: var(--rudrama-text-dim);
+    font-size: 1.05rem;
+    max-width: 800px;
+}
+
+/* Card Grids */
+.rudrama-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.rudrama-card {
+    background: var(--rudrama-card-bg);
+    border: 1px solid var(--rudrama-card-border);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--rudrama-shadow);
+    transition: all 0.25s ease;
+}
+
+.rudrama-card:hover {
+    border-color: var(--rudrama-gold);
+    transform: translateY(-2px);
+}
+
+.rudrama-card__icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.rudrama-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.rudrama-card__desc {
+    color: var(--rudrama-text-dim);
+    font-size: 0.95rem;
+}
+
+/* Historiographical Comparison Section */
+.rudrama-comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.rudrama-comp-card {
+    background: var(--rudrama-card-bg);
+    border: 1px solid var(--rudrama-card-border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    box-shadow: var(--rudrama-shadow);
+}
+
+.rudrama-comp-header {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--rudrama-gold);
+    margin-bottom: 1.25rem;
+}
+
+.rudrama-comp-box {
+    padding: 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.rudrama-comp-box:last-child {
+    margin-bottom: 0;
+}
+
+.rudrama-comp-box--evidence {
+    background: rgba(234, 179, 8, 0.05);
+    border-left: 4px solid var(--rudrama-gold);
+}
+
+.rudrama-comp-box--retelling {
+    background: rgba(220, 38, 38, 0.05);
+    border-left: 4px solid var(--rudrama-crimson);
+}
+
+.rudrama-comp-box__title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.rudrama-comp-box--evidence .rudrama-comp-box__title {
+    color: var(--rudrama-gold);
+}
+
+.rudrama-comp-box--retelling .rudrama-comp-box__title {
+    color: #fca5a5;
+}
+
+.light-theme .rudrama-comp-box--retelling .rudrama-comp-box__title {
+    color: var(--rudrama-crimson);
+}
+
+/* Timeline Components */
+.rudrama-timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 2rem 0 3rem 0;
+}
+
+.rudrama-timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--rudrama-card-border);
+}
+
+.rudrama-timeline-step {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.rudrama-timeline-step::before {
+    content: '';
+    position: absolute;
+    left: -29px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--rudrama-bg);
+    border: 3px solid var(--rudrama-gold);
+}
+
+.rudrama-timeline-step__meta {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--rudrama-gold);
+    margin-bottom: 0.5rem;
+}
+
+.rudrama-timeline-step__title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Map Wrapper */
+.rudrama-map-wrapper {
+    background: var(--rudrama-card-bg);
+    border: 1px solid var(--rudrama-card-border);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: var(--rudrama-shadow);
+    margin-bottom: 3rem;
+}
+
+.rudrama-map-wrapper iframe {
+    border-radius: 8px;
+    border: none;
+    display: block;
+}
+
+/* Sources & References */
+.rudrama-sources-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.rudrama-source-item {
+    background: var(--rudrama-card-bg);
+    border: 1px solid var(--rudrama-card-border);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--rudrama-shadow);
+}
+
+.rudrama-source-item__citation {
+    font-weight: 600;
+    color: var(--rudrama-gold);
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+}
+
+.rudrama-source-item__notes {
+    font-size: 0.9rem;
+    color: var(--rudrama-text-dim);
+}
+
+/* Footer Section */
+.rudrama-footer {
+    background: var(--rudrama-bg-alt);
+    border-top: 1px solid var(--rudrama-card-border);
+    padding: 3rem 0;
+    text-align: center;
+    color: var(--rudrama-text-muted);
+}
+
+.rudrama-footer-brand {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--rudrama-gold);
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .rudrama-hero__title {
+        font-size: 2.25rem;
+    }
+    .rudrama-hero__title-sub {
+        font-size: 1.1rem;
+    }
+    .rudrama-hero {
+        padding: 3rem 0;
+    }
+    .rudrama-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .rudrama-grid-2 {
+        grid-template-columns: 1fr;
+    }
+}

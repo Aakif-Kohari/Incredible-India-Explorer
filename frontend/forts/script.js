@@ -523,8 +523,8 @@ const fortsData = [
             "Ancient Badami Talav stone water reservoir",
             "400–500 step climb through Junnar's Sahyadri hills"
         ],
-        
-        explorerUrl: "../rajgad-fort-explorer/index.html"},
+        explorerUrl: "../shivneri-fort-explorer/index.html"
+    },
    
     {
         id: 14,
@@ -563,6 +563,443 @@ const fortsData = [
             "Considered one of India's most impregnable forts"
         ],
         explorerUrl: "../daulatabad-fort-explorer/index.html"
+    },
+    {
+        id: "allahabad-fort",
+        name: "Allahabad Fort",
+        location: "Prayagraj",
+        state: "Uttar Pradesh",
+        built: "1583",
+        builtBy: "Emperor Akbar",
+        era: "Mughal Era",
+        architecture: "Mughal Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "A massive fort built by Emperor Akbar at the confluence of the Ganga and Yamuna rivers. It is the largest fort built by Akbar and features the famous Ashoka Pillar and the Akshaya Vat tree.",
+        highlights: [
+            "Built at the Triveni Sangam",
+            "Contains a 3rd century BC Ashoka Pillar",
+            "Akshaya Vat (immortal banyan tree)",
+            "Currently used by the Indian Army"
+        ],
+        explorerUrl: "../allahabad-fort/index.html"
+    },
+    {
+        id: "asirgarh-fort",
+        name: "Asirgarh Fort",
+        location: "Burhanpur",
+        state: "Madhya Pradesh",
+        built: "15th Century",
+        builtBy: "Asa Ahir",
+        era: "Medieval Era",
+        architecture: "Indo-Islamic Architecture",
+        image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80",
+        history: "Known as the 'Key to the Deccan', Asirgarh Fort is an impenetrable fortress situated in the Satpura Range. It controlled the major trade routes between northern India and the Deccan plateau.",
+        highlights: [
+            "Known as 'Key to the Deccan'",
+            "Three-tiered defensive structure",
+            "Gupteshwar Mahadev Temple",
+            "Jami Masjid with intricate minarets"
+        ],
+        explorerUrl: "../asirgarh-fort-explorer/index.html"
+    },
+    {
+        id: "bahu-fort",
+        name: "Bahu Fort",
+        location: "Jammu",
+        state: "Jammu and Kashmir",
+        built: "3000 years ago (rebuilt 19th C)",
+        builtBy: "Raja Bahulochan",
+        era: "Ancient / Dogra Era",
+        architecture: "Rajput-Dogra Architecture",
+        image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80",
+        history: "An ancient fort situated on the banks of the Tawi River. It houses the revered Bawe Wali Mata temple dedicated to the goddess Kali, making it a major pilgrimage center.",
+        highlights: [
+            "Overlooks the Tawi River",
+            "Famous Bawe Wali Mata Temple",
+            "Terraced Bagh-e-Bahu gardens",
+            "One of the oldest structures in Jammu"
+        ],
+        customUrl: "bahu-fort.html"
+    },
+    {
+        id: "bekal-sea-fort",
+        name: "Bekal Fort",
+        location: "Kasaragod",
+        state: "Kerala",
+        built: "1650",
+        builtBy: "Shivappa Nayaka",
+        era: "Nayaka Era",
+        architecture: "Coastal Military Architecture",
+        image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80",
+        history: "The largest fort in Kerala, built entirely for defense rather than administration. It features a unique keyhole shape and observation towers offering spectacular views of the Arabian Sea.",
+        highlights: [
+            "Largest fort in Kerala",
+            "Unique keyhole shape",
+            "Zigzag entrance and observation towers",
+            "Excellent views of the Arabian Sea"
+        ],
+        customUrl: "bekal-sea-fort.html"
+    },
+    {
+        id: "bhongir-fort",
+        name: "Bhongir Fort",
+        location: "Bhuvanagiri",
+        state: "Telangana",
+        built: "10th Century",
+        builtBy: "Tribhuvanamalla Vikramaditya VI",
+        era: "Chalukya Era",
+        architecture: "Rock-cut Hill Fort Architecture",
+        image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80",
+        history: "An impressive fort built upon a single, massive monolithic rock. The unique egg-shaped monolithic rock provides a natural defense, rising nearly 500 feet above the surrounding terrain.",
+        highlights: [
+            "Built on a monolithic egg-shaped rock",
+            "Secret underground chambers",
+            "Associated with the legend of Rani Rudrama Devi",
+            "Steep and challenging trekking path"
+        ],
+        explorerUrl: "../bhongir-fort/index.html"
+    },
+    {
+        id: "chandragiri-fort",
+        name: "Chandragiri Fort",
+        location: "Tirupati",
+        state: "Andhra Pradesh",
+        built: "11th Century",
+        builtBy: "Yadava Rulers",
+        era: "Vijayanagara Era",
+        architecture: "Indo-Sarcenic Architecture",
+        image: "https://images.unsplash.com/photo-1590716179555-8c8a9dc5c6d9?w=800&q=80",
+        history: "Served as the 4th capital of the Vijayanagara Empire. The Raja Mahal and Rani Mahal within the fort are excellent examples of Indo-Sarcenic architecture devoid of any timber usage.",
+        highlights: [
+            "4th capital of Vijayanagara Empire",
+            "Raja Mahal built entirely of stone and brick",
+            "No wood used in construction",
+            "Sound and light show"
+        ],
+        customUrl: "chandragiri-fort.html"
+    },
+    {
+        id: "devikot-fort",
+        name: "Devikot Fort",
+        location: "Devikot",
+        state: "Rajasthan",
+        built: "15th Century",
+        builtBy: "Rajput Rulers",
+        era: "Rajput Era",
+        architecture: "Desert Fort Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "A historically significant fort located in the Thar desert. While smaller than Jaisalmer, it played a crucial role in guarding trade routes and protecting local settlements.",
+        highlights: [
+            "Strategic desert stronghold",
+            "Guarded ancient trade routes",
+            "Traditional Rajput architecture",
+            "Historical battleground"
+        ],
+        customUrl: "devikot-fort.html"
+    },
+    {
+        id: "diu-fort",
+        name: "Diu Fort",
+        location: "Diu",
+        state: "Daman and Diu",
+        built: "1535",
+        builtBy: "Portuguese Colonists",
+        era: "Colonial Era",
+        architecture: "Portuguese Military Architecture",
+        image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80",
+        history: "A massive sea fort built by the Portuguese during their colonial rule. It features a double moat and cannon placements that guarded the strategic maritime trade route.",
+        highlights: [
+            "Portuguese colonial architecture",
+            "Double moat defense system",
+            "Lighthouse offering panoramic views",
+            "Collection of iron cannons"
+        ],
+        customUrl: "diu-fort.html"
+    },
+    {
+        id: "gingee-fort",
+        name: "Gingee Fort",
+        location: "Villupuram",
+        state: "Tamil Nadu",
+        built: "9th-16th Century",
+        builtBy: "Chola / Vijayanagara Empire",
+        era: "Vijayanagara / Maratha Era",
+        architecture: "Dravidian Military Architecture",
+        image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80",
+        history: "Dubbed the 'Troy of the East' by the British, Gingee Fort spans three hillocks and features an incredibly strong defensive layout that thwarted many sieges.",
+        highlights: [
+            "Called 'Troy of the East'",
+            "Spans three massive hillocks",
+            "Kalyana Mahal (Marriage Hall)",
+            "Extensive defensive walls"
+        ],
+        explorerUrl: "../gingee-fort-explorer/index.html"
+    },
+    {
+        id: "jhansi-fort",
+        name: "Jhansi Fort",
+        location: "Jhansi",
+        state: "Uttar Pradesh",
+        built: "1613",
+        builtBy: "Bir Singh Ju Deo",
+        era: "Bundela / Maratha Era",
+        architecture: "Bundela Architecture",
+        image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80",
+        history: "A symbol of bravery and resistance, Jhansi Fort is inextricably linked to Rani Lakshmibai and her heroic stand against the British during the 1857 Rebellion.",
+        highlights: [
+            "Linked to Rani Lakshmibai",
+            "Karak Bijli Cannon",
+            "Site of the 1857 Rebellion siege",
+            "Rani Mahal nearby"
+        ],
+        explorerUrl: "../jhansi-fort/index.html"
+    },
+    {
+        id: "kalinjar-fort",
+        name: "Kalinjar Fort",
+        location: "Banda",
+        state: "Uttar Pradesh",
+        built: "10th Century",
+        builtBy: "Chandela Dynasty",
+        era: "Chandela Era",
+        architecture: "Hindu Temple & Fort Architecture",
+        image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80",
+        history: "An ancient and strategically vital fort in the Bundelkhand region. It contains numerous ancient temples, including the famous Neelkanth Mahadev Temple, and survived many sieges.",
+        highlights: [
+            "Neelkanth Mahadev Temple",
+            "Numerous rock-cut sculptures",
+            "Guarded the Bundelkhand region",
+            "Never fully conquered in its prime"
+        ],
+        explorerUrl: "../kalinjar-fort/index.html"
+    },
+    {
+        id: "kangla-fort",
+        name: "Kangla Fort",
+        location: "Imphal",
+        state: "Manipur",
+        built: "1632 (Earliest records)",
+        builtBy: "King Khagemba",
+        era: "Meitei Era",
+        architecture: "Meitei Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "The ancient capital of Manipur, Kangla Fort is the most important historical and archaeological site in the state, serving as the seat of Meitei rulers until 1891.",
+        highlights: [
+            "Ancient capital of Manipur",
+            "Sacred site for Meitei people",
+            "Kangla Sha (State emblem dragons)",
+            "Surrounded by a double moat"
+        ],
+        explorerUrl: "../kangla-fort/index.html"
+    },
+    {
+        id: "lohagarh-fort",
+        name: "Lohagarh Fort",
+        location: "Bharatpur",
+        state: "Rajasthan",
+        built: "1732",
+        builtBy: "Maharaja Suraj Mal",
+        era: "Jat Era",
+        architecture: "Jat Military Architecture",
+        image: "https://images.unsplash.com/photo-1590716179555-8c8a9dc5c6d9?w=800&q=80",
+        history: "Known as the 'Iron Fort', it is one of the strongest forts in India. Its unique mud walls absorbed cannonballs, allowing it to withstand repeated attacks by British forces.",
+        highlights: [
+            "Unique mud walls that absorbed cannonballs",
+            "Withstood multiple British sieges",
+            "Ashtadhatu (eight-metal) Gate",
+            "Surrounded by a wide moat"
+        ],
+        explorerUrl: "../lohagarh-fort/index.html"
+    },
+    {
+        id: "mirjan-fort",
+        name: "Mirjan Fort",
+        location: "Kumta",
+        state: "Karnataka",
+        built: "16th Century",
+        builtBy: "Queen Chennabhairadevi",
+        era: "Vijayanagara Era",
+        architecture: "Laterite Stone Architecture",
+        image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80",
+        history: "Built by the 'Pepper Queen' of India, Mirjan Fort is known for its elegant laterite stone architecture, double-walled defense, and picturesque setting amidst lush greenery.",
+        highlights: [
+            "Built by the 'Pepper Queen'",
+            "Beautiful laterite stone walls",
+            "Secret circular stairways",
+            "Lush green surroundings post-monsoon"
+        ],
+        customUrl: "mirjan-fort.html"
+    },
+    {
+        id: "murud-janjira-fort",
+        name: "Murud Janjira Fort",
+        location: "Murud",
+        state: "Maharashtra",
+        built: "15th Century",
+        builtBy: "Siddi Rulers",
+        era: "Siddi / Maratha Era",
+        architecture: "Marine Fort Architecture",
+        image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80",
+        history: "An impregnable island fort situated in the Arabian Sea. It remained unconquered despite numerous attacks by the Marathas, Portuguese, and British forces.",
+        highlights: [
+            "Unconquered island fort",
+            "Giant Kalal Bangadi cannon",
+            "Concealed main gate",
+            "Freshwater lakes within the sea fort"
+        ],
+        customUrl: "murud-janjira-fort.html"
+    },
+    {
+        id: "palakkad-fort",
+        name: "Palakkad Fort",
+        location: "Palakkad",
+        state: "Kerala",
+        built: "1766",
+        builtBy: "Hyder Ali",
+        era: "Mysore Era",
+        architecture: "European Military Architecture",
+        image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80",
+        history: "A well-preserved fort built by Hyder Ali of Mysore. It served as a vital strategic base to control the Palakkad Gap and communications between the eastern and western coasts.",
+        highlights: [
+            "Controls the Palakkad Gap",
+            "Well-preserved square layout",
+            "Anjaneya Temple inside",
+            "Surrounded by a wide moat"
+        ],
+        explorerUrl: "../palakkad-fort/index.html"
+    },
+    {
+        id: "panhala-fort",
+        name: "Panhala Fort",
+        location: "Kolhapur",
+        state: "Maharashtra",
+        built: "12th Century",
+        builtBy: "Shilahara Rulers",
+        era: "Maratha Era",
+        architecture: "Deccan Hill Fort Architecture",
+        image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80",
+        history: "A massive fort overlooking the Sahyadri mountains. It is famous for the Battle of Pavan Khind and served as the capital of the Maratha Empire under Tarabai.",
+        highlights: [
+            "Site of the famous Battle of Pavan Khind",
+            "Capital of Tarabai's Maratha kingdom",
+            "Sajja Kothi where Sambhaji was imprisoned",
+            "Three massive double-walled gates"
+        ],
+        customUrl: "panhala-fort.html"
+    },
+    {
+        id: "rajmachi-fort",
+        name: "Rajmachi Fort",
+        location: "Lonavala",
+        state: "Maharashtra",
+        built: "17th Century",
+        builtBy: "Satavahana / Maratha Rulers",
+        era: "Maratha Era",
+        architecture: "Hill Fort Architecture",
+        image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+        history: "Rajmachi consists of two twin fortresses, Shrivardhan and Manaranjan. It is a highly popular trekking destination known for its rugged beauty and historical significance.",
+        highlights: [
+            "Twin fortresses: Shrivardhan and Manaranjan",
+            "Popular trekking destination",
+            "Stunning views of the Bor Ghat",
+            "Ancient Kal Bhairav temple"
+        ],
+        customUrl: "rajmachi-fort.html"
+    },
+    {
+        id: "sinhagad-fort",
+        name: "Sinhagad Fort",
+        location: "Pune",
+        state: "Maharashtra",
+        built: "Ancient (Rebuilt 17th C)",
+        builtBy: "Maratha Rulers",
+        era: "Maratha Era",
+        architecture: "Maratha Hill Fort Architecture",
+        image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80",
+        history: "Previously known as Kondhana, the fort is famous for the 1670 Battle of Sinhagad, where Tanaji Malusare famously scaled its steep cliffs to recapture it for Shivaji Maharaj.",
+        highlights: [
+            "Site of the famous Battle of Sinhagad",
+            "Tanaji Malusare Memorial",
+            "Kalyan Darwaza and Pune Darwaza",
+            "Popular weekend destination from Pune"
+        ],
+        explorerUrl: "../sinhagad-fort/index.html"
+    },
+    {
+        id: "taragarh-fort",
+        name: "Taragarh Fort",
+        location: "Ajmer",
+        state: "Rajasthan",
+        built: "1354",
+        builtBy: "King Ajaypal Chauhan",
+        era: "Rajput Era",
+        architecture: "Rajput Architecture",
+        image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80",
+        history: "Also known as the 'Star Fort', it was one of the first hill forts in Asia. It offers a commanding view of Ajmer city and played a key role in Rajasthan's military history.",
+        highlights: [
+            "One of the oldest hill forts in Asia",
+            "Massive Bhim Burj cannon bastion",
+            "Miran Saheb ki Dargah",
+            "Commanding view of Ajmer"
+        ],
+        customUrl: "taragarh-fort.html"
+    },
+    {
+        id: "torna-fort",
+        name: "Torna Fort",
+        location: "Pune",
+        state: "Maharashtra",
+        built: "13th Century",
+        builtBy: "Shiva Panth Rulers",
+        era: "Maratha Era",
+        architecture: "Maratha Hill Fort Architecture",
+        image: "https://images.unsplash.com/photo-1590716179555-8c8a9dc5c6d9?w=800&q=80",
+        history: "Known as Prachandagad, it was the first fort captured by Shivaji Maharaj at age 16, marking the beginning of the Maratha Empire. It is the highest fort in the Pune district.",
+        highlights: [
+            "First fort captured by Shivaji Maharaj",
+            "Highest fort in Pune district",
+            "Zunjar Machi and Budhla Machi",
+            "Significant historical importance"
+        ],
+        customUrl: "torna-fort.html"
+    },
+    {
+        id: "warangal-fort",
+        name: "Warangal Fort",
+        location: "Warangal",
+        state: "Telangana",
+        built: "13th Century",
+        builtBy: "Kakatiya Dynasty",
+        era: "Kakatiya Era",
+        architecture: "Kakatiya Architecture",
+        image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80",
+        history: "The remnants of the Kakatiya capital feature four massive, intricately carved stone gateways known as Kakatiya Kala Thoranam, which later became the emblem of Telangana.",
+        highlights: [
+            "Kakatiya Kala Thoranam (stone gateways)",
+            "Emblem of Telangana state",
+            "Exquisite stone carvings",
+            "UNESCO Tentative List"
+        ],
+        explorerUrl: "../warangal-fort/index.html"
+    },
+    {
+        id: "raigad-fort",
+        name: "Raigad Fort",
+        location: "Raigad",
+        state: "Maharashtra",
+        built: "11th Century",
+        builtBy: "Chhatrapati Shivaji Maharaj",
+        era: "Maratha Era",
+        architecture: "Maratha Military Architecture",
+        image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80",
+        history: "The Gibraltar of the East. The magnificent hill fort that served as the illustrious capital of the Maratha Empire under Chhatrapati Shivaji Maharaj.",
+        highlights: [
+            "Served as Maratha Capital",
+            "Coronation of Shivaji Maharaj",
+            "Maha Darwaja",
+            "Takmak Tok"
+        ],
+        customUrl: "raigad-fort.html"
     }
 ];
 
@@ -646,9 +1083,12 @@ function renderForts(forts) {
                 </div>
             </div>
         `;
-        if (fort.customUrl) {
+        
+        const destinationUrl = fort.customUrl || fort.explorerUrl;
+        
+        if (destinationUrl) {
             card.addEventListener('click', () => {
-                window.location.href = fort.customUrl;
+                window.open(destinationUrl, '_blank');
             });
         } else {
             card.addEventListener('click', () => openModal(fort));
@@ -799,4 +1239,8 @@ function setupEventListeners() {
 }
 
 // Initialize on DOM content loaded
-document.addEventListener('app:route-changed', init);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}

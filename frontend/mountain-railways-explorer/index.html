@@ -1,31 +1,30 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="description"
-            content="Explore UNESCO Mountain Railways of India — Darjeeling Himalayan Railway, Nilgiri Mountain Railway, and Kalka-Shimla Railway engineering marvels."
-        />
-        <title>UNESCO Mountain Railways of India Explorer | Incredible India</title>
 
-        <!-- Preload Critical Fonts -->
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Explore UNESCO Mountain Railways of India — Darjeeling Himalayan Railway, Nilgiri Mountain Railway, and Kalka-Shimla Railway engineering marvels." />
+    <title>UNESCO Mountain Railways of India Explorer | Incredible India</title>
+
+    <!-- Preload Critical Fonts -->
     <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../styles.css" />
-        <link rel="stylesheet" href="railways.css" />
-    </head>
-    <body class="railways-main">
-    <script>
-        (function() {
-            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
-            if (theme === 'light') {
-                document.body.classList.add('light-theme');
-            }
-        })();
-    </script>
-        <header class="navbar" id="navbar">
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="railways.css" />
+</head>
+
+<body class="railways-main">
+    
+    <header class="navbar" id="navbar">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -39,6 +38,20 @@
         </button>
         <nav class="nav-menu" id="nav-menu">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+            
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                    Safety ▾
+                </button>
+                <div class="dropdown-menu">
+                    <a
+                        href="../../frontend/emergency-assistance/emergency.html"
+                        class="dropdown-item"
+                    >
+                        🚨 Emergency Assistance
+                    </a>
+                </div>
+            </div>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
@@ -58,6 +71,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -104,49 +118,89 @@
     </div>
 </header>
 
-        <main>
-            <section class="railways-hero">
-                <div class="section-container">
-                    <div class="hero-badges-row">
-                        <span class="hero-pill pill-unesco">🏛️ UNESCO World Heritage Site #944</span>
-                        <span class="hero-pill pill-train">🚂 3 Mountain Railway Lines</span>
-                        <span class="hero-pill pill-highest">🏔️ Ghum Station (2,258 m)</span>
+    <main>
+        <section class="railways-hero">
+            <div class="section-container">
+                <div class="hero-badges-row">
+                    <span class="hero-pill pill-unesco">🏛️ UNESCO World Heritage Site #944</span>
+                    <span class="hero-pill pill-train">🚂 3 Mountain Railway Lines</span>
+                    <span class="hero-pill pill-highest">🏔️ Ghum Station (2,258 m)</span>
+                </div>
+                <h1>UNESCO <span>Mountain Railways</span> Explorer</h1>
+                <p class="hero-subtitle">
+                    Experience the engineering marvels of the Indian subcontinent — Darjeeling Himalayan Railway,
+                    Nilgiri Mountain Railway, and Kalka-Shimla Railway, spanning loops, rack tracks, and stone arch
+                    viaducts.
+                </p>
+                <div id="stats-grid" class="stats-grid"></div>
+            </div>
+        </section>
+
+        <section class="railways-info-section">
+            <div class="section-container">
+                <h2>Engineering Marvels & Railway Innovations</h2>
+                <div class="info-card" id="history-info">
+                    <p id="rail-overview"></p>
+                    <p id="rail-mechanisms"></p>
+                    <p id="rail-status"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lines-section">
+            <div class="section-container">
+                <h2>The Three World Heritage Railways</h2>
+                <form class="railway-filter-bar" id="railway-filter-form" role="search"
+                    aria-label="Filter mountain railways">
+                    <div class="filter-field">
+                        <label for="filter-region">Region</label>
+                        <select id="filter-region" name="region">
+                            <option value="">All Regions</option>
+                        </select>
                     </div>
-                    <h1>UNESCO <span>Mountain Railways</span> Explorer</h1>
-                    <p class="hero-subtitle">
-                        Experience the engineering marvels of the Indian subcontinent — Darjeeling Himalayan Railway, Nilgiri Mountain Railway, and Kalka-Shimla Railway, spanning loops, rack tracks, and stone arch viaducts.
-                    </p>
-                    <div id="stats-grid" class="stats-grid"></div>
-                </div>
-            </section>
-
-            <section class="railways-info-section">
-                <div class="section-container">
-                    <h2>Engineering Marvels & Railway Innovations</h2>
-                    <div class="info-card" id="history-info">
-                        <p id="rail-overview"></p>
-                        <p id="rail-mechanisms"></p>
-                        <p id="rail-status"></p>
+                    <div class="filter-field">
+                        <label for="filter-railway">Railway</label>
+                        <select id="filter-railway" name="railway">
+                            <option value="">All Railways</option>
+                        </select>
                     </div>
-                </div>
-            </section>
+                    <div class="filter-field">
+                        <label for="filter-terrain">Terrain / Type</label>
+                        <select id="filter-terrain" name="terrain">
+                            <option value="">All Types</option>
+                        </select>
+                    </div>
+                    <button type="button" id="clear-railway-filters" class="btn-clear-filters">Clear Filters</button>
+                </form>
+                <p class="filter-status" id="railway-filter-status" role="status" aria-live="polite"></p>
+                <div class="lines-grid" id="lines-grid"></div>
+            </div>
+        </section>
 
-            <section class="lines-section">
-                <div class="section-container">
-                    <h2>The Three World Heritage Railways</h2>
-                    <div class="lines-grid" id="lines-grid"></div>
-                </div>
-            </section>
+        <section class="scenic-section">
+            <div class="section-container">
+                <h2>Scenic Highlights</h2>
+                <div class="scenic-grid" id="scenic-grid"></div>
+            </div>
+        </section>
 
-            <section class="gallery-section">
-                <div class="section-container">
-                    <h2>Image Gallery</h2>
-                    <div class="gallery-grid" id="gallery-grid"></div>
-                </div>
-            </section>
-        </main>
+        <section class="facts-section">
+            <div class="section-container">
+                <h2>Interesting Facts</h2>
+                <div class="facts-list-grid" id="facts-list-grid"></div>
+            </div>
+        </section>
 
-        <script src="railways-data.js"></script>
-        <script src="railways.js"></script>
-    </body>
+        <section class="gallery-section">
+            <div class="section-container">
+                <h2>Image Gallery</h2>
+                <div class="gallery-grid" id="gallery-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="railways-data.js"></script>
+    <script src="railways.js"></script>
+</body>
+
 </html>
