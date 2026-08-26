@@ -6530,5 +6530,13 @@ window.indiaSearchIndex = [
         description:
             "Explore major Mesolithic sites across India including Bhimbetka, Bagor, Sarai Nahar Rai, Langhnaj, Adamgarh and Tilwara: microlithic stone tools, settlement and burial evidence, rock art, chronology, and an interactive map of key sites.",
         url: "frontend/mesolithic-sites-india/index.html"
+    },
+    // --- feat/hanumans-leap-to-lanka ---
+    {
+        title: "Add Hanuman's Leap to Lanka \u2014 The Journey Across the Ocean",
+        category: "Culture & Literature",
+        description:
+            "Explore the story of Hanuman's Leap to Lanka \u2014 the legendary 100-yojana ocean flight, encounters with Mainaka, Surasa, and Simhika, and Sundara Kanda valor.",
+        url: "frontend/hanumans-leap-to-lanka/index.html"
     }
 ];
