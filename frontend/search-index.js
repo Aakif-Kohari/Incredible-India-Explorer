@@ -5,6 +5,13 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'The 1999 Odisha Super Cyclone — The Storm That Rewrote Disaster Management',
+        category: 'Geology & Disasters',
+        description:
+            'Explore the 1999 Odisha Super Cyclone (BOB 06): 912 hPa barometric collapse, 260 km/h winds, 5-8m storm surge, coastal district impact map, and Odisha’s institutional turnaround in disaster resilience.',
+        url: 'frontend/odisha-super-cyclone-1999/index.html'
+    },
+    {
         title: 'Maitreyi — The Philosopher Who Chose Knowledge Over Material Wealth',
         category: 'Historical & Cultural Profiles',
         description:
