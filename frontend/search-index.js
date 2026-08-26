@@ -6562,6 +6562,13 @@ window.indiaSearchIndex = [
             "Explore major Mesolithic sites across India including Bhimbetka, Bagor, Sarai Nahar Rai, Langhnaj, Adamgarh and Tilwara: microlithic stone tools, settlement and burial evidence, rock art, chronology, and an interactive map of key sites.",
         url: "frontend/mesolithic-sites-india/index.html"
     },
+    // --- feat/rama-setu-story ---
+    {
+        title: "Add Rama Setu \u2014 The Legendary Journey to Lanka",
+        category: "Culture & Literature",
+        description:
+            "Explore the story of Rama Setu \u2014 the legendary oceanic bridge constructed to Lanka by Nala, Nila, and the Vanara army with floating stones and squirrel devotion.",
+        url: "frontend/rama-setu-story/index.html"},
     // --- feat/krishna-kaliya-story ---
     {
         title: "Add Krishna and Kaliya \u2014 The Serpent of the Yamuna",
