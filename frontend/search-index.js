@@ -5,7 +5,12 @@
  */
 window.indiaSearchIndex = [
     {
-        title: 'Western Ghats — Landslide Hazard Profile & Geological Analysis',
+        title: 'The Megalithic Heritage of India — Prehistoric Stone Monuments',
+        category: 'Ancient History & Archaeology',
+        description:
+            'Explore India’s prehistoric megalithic monuments: Hirebenkal port-hole dolmens, Vidarbha stone circles, Adichanallur urn burials, Kerala topikal umbrella stones, and the living monolith tradition of Meghalaya.',
+        url: 'frontend/megalithic-heritage-explorer/index.html'},
+  {     title: 'Western Ghats — Landslide Hazard Profile & Geological Analysis',
         category: 'Geology & Disasters',
         description:
             'Explore the landslide hazard of the Western Ghats: 1,600 km escarpment geology, interactive slope failure simulator, orographic monsoon rainfall, 7 chronic hotspots, and GSI early-warning networks.',
