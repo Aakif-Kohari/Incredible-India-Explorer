@@ -5,6 +5,13 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Cyclone Remal 2024 — Field Profile & Meteorological Analysis',
+        category: 'Geology & Disasters',
+        description:
+            'Explore Severe Cyclonic Storm Remal (May 2024): 135 km/h gusts, Sagar Island to Khepupara landfall, Sundarbans mangrove buffer, 207,000+ evacuations in West Bengal, and 5-day lead-time early warning performance.',
+        url: 'frontend/cyclone-remal-2024/index.html'
+    },
+    {
         title: 'Maitreyi — The Philosopher Who Chose Knowledge Over Material Wealth',
         category: 'Historical & Cultural Profiles',
         description:
