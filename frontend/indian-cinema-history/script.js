@@ -1,182 +1,144 @@
-import cinemaData from './data.js';
-
 document.addEventListener('DOMContentLoaded', () => {
-  const { eras, films, regionalIndustries, facts } = cinemaData;
-  
-  // DOM Elements
-  const timelineContainer = document.getElementById('era-timeline');
-  const filmGrid = document.getElementById('film-grid');
-  const regionalGrid = document.getElementById('regional-grid');
-  const industryFilter = document.getElementById('industry-filter');
-  const noResults = document.getElementById('no-results');
-  
-  const modalOverlay = document.getElementById('film-modal');
-  const closeModalBtn = document.getElementById('close-modal');
-  const modalBody = document.getElementById('modal-body');
-  
-  const factText = document.getElementById('fact-text');
-
-  // State
-  let currentEra = 'all';
-
-  // --- Initialize Trivia ---
-  const rotateFact = () => {
-    const randomFact = facts[Math.floor(Math.random() * facts.length)];
-    factText.textContent = randomFact;
-  };
-  rotateFact();
-  setInterval(rotateFact, 8000);
-
-  // --- Render Regional Explorer ---
-  const renderRegionalIndustries = () => {
-    regionalGrid.innerHTML = '';
-    regionalIndustries.forEach(region => {
-      const card = document.createElement('div');
-      card.className = 'regional-card';
-      card.innerHTML = `
-        <h4>${region.name}</h4>
-        <span class="regional-alias">${region.alias}</span>
-        <p>${region.description}</p>
-      `;
-      regionalGrid.appendChild(card);
-    });
-  };
-
-  // --- Render Era Timeline ---
-  const renderTimeline = () => {
-    timelineContainer.innerHTML = '';
-    eras.forEach(era => {
-      const btn = document.createElement('button');
-      btn.className = `timeline-btn ${currentEra === era.id ? 'active' : ''}`;
-      btn.setAttribute('role', 'tab');
-      btn.setAttribute('aria-selected', currentEra === era.id);
-      btn.innerHTML = `<span>${era.icon}</span> ${era.name}`;
-      
-      btn.addEventListener('click', () => {
-        currentEra = era.id;
-        document.querySelectorAll('.timeline-btn').forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-selected', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
-        filterAndRenderFilms();
-      });
-      
-      timelineContainer.appendChild(btn);
-    });
-  };
-
-  // --- Render Films ---
-  const filterAndRenderFilms = () => {
-    const selectedIndustry = industryFilter.value;
-    
-    const filtered = films.filter(film => {
-      const matchEra = currentEra === 'all' || film.era === currentEra;
-      const matchIndustry = selectedIndustry === 'All' || film.industry === selectedIndustry;
-      return matchEra && matchIndustry;
+    // Render Timeline
+    const timelineContainer = document.getElementById('timeline-container');
+    cinemaData.eras.forEach((era, index) => {
+        const alignment = index % 2 === 0 ? 'left' : 'right';
+        const item = document.createElement('div');
+        item.className = `timeline-item ${alignment}`;
+        item.innerHTML = `
+            <div class="timeline-content">
+                <h3>${era.title}</h3>
+                <span class="years">${era.years}</span>
+                <p>${era.description}</p>
+            </div>
+        `;
+        timelineContainer.appendChild(item);
     });
 
-    renderFilmGallery(filtered);
-  };
+    // Populate Era Filter
+    const eraFilter = document.getElementById('era-filter');
+    cinemaData.eras.forEach(era => {
+        const option = document.createElement('option');
+        option.value = era.id;
+        option.textContent = era.title;
+        eraFilter.appendChild(option);
+    });
 
-  const renderFilmGallery = (filteredFilms) => {
-    filmGrid.innerHTML = '';
+    // Render Film Grid
+    const filmGrid = document.getElementById('film-grid');
+    const langFilter = document.getElementById('lang-filter');
     
-    if (filteredFilms.length === 0) {
-      noResults.style.display = 'block';
-      return;
-    }
-    
-    noResults.style.display = 'none';
-
-    filteredFilms.forEach((film) => {
-      const card = document.createElement('article');
-      card.className = 'film-card';
-      card.setAttribute('tabindex', '0');
-      card.setAttribute('aria-label', `View details for ${film.title}`);
-
-      card.innerHTML = `
-        <div class="film-poster-placeholder" aria-hidden="true">
-          ${film.icon}
-          <div class="film-year-badge">${film.year}</div>
-        </div>
-        <div class="film-info">
-          <h4>${film.title}</h4>
-          <div class="film-meta">
-            <span class="film-lang"><i class="fas fa-language"></i> ${film.language}</span>
-            <span class="film-director"><i class="fas fa-video"></i> ${film.director}</span>
-          </div>
-          <p class="film-desc">${film.description}</p>
-        </div>
-      `;
-
-      card.addEventListener('click', () => openModal(film));
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          openModal(film);
+    function renderFilms(filmsToRender) {
+        filmGrid.innerHTML = '';
+        if(filmsToRender.length === 0) {
+            filmGrid.innerHTML = '<p>No films found matching your criteria.</p>';
+            return;
         }
-      });
-
-      filmGrid.appendChild(card);
-    });
-  };
-
-  // --- Modal Logic ---
-  const openModal = (film) => {
-    const eraObj = eras.find(e => e.id === film.era) || { name: 'Unknown Era' };
-    
-    modalBody.innerHTML = `
-      <div class="modal-hero" aria-hidden="true">${film.icon}</div>
-      <div class="modal-details">
-        <h2 class="modal-title">${film.title} (${film.year})</h2>
-        <div class="modal-meta-bar">
-          <span><i class="fas fa-video" style="color: var(--cinema-gold-light);"></i> ${film.director}</span>
-          <span><i class="fas fa-language" style="color: #38bdf8;"></i> ${film.language} (${film.industry})</span>
-          <span><i class="fas fa-tag" style="color: #a78bfa;"></i> ${film.genre}</span>
-          <span><i class="fas fa-clock" style="color: #fca5a5;"></i> ${eraObj.name}</span>
-        </div>
-        
-        <div class="modal-section">
-          <h4><i class="fas fa-info-circle"></i> About the Film</h4>
-          <p>${film.description}</p>
-        </div>
-        
-        <div class="significance-box">
-          <h4><i class="fas fa-star" style="color: var(--cinema-gold);"></i> Historical Significance</h4>
-          <p>${film.significance}</p>
-        </div>
-      </div>
-    `;
-
-    modalOverlay.classList.add('active');
-    modalOverlay.setAttribute('aria-hidden', 'false');
-    closeModalBtn.focus();
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeModal = () => {
-    modalOverlay.classList.remove('active');
-    modalOverlay.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  };
-
-  // Event Listeners
-  industryFilter.addEventListener('change', filterAndRenderFilms);
-  
-  closeModalBtn.addEventListener('click', closeModal);
-  modalOverlay.addEventListener('click', (e) => {
-    if (e.target === modalOverlay) closeModal();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
-      closeModal();
+        filmsToRender.forEach(film => {
+            const card = document.createElement('div');
+            card.className = 'film-card';
+            card.onclick = () => openModal(film);
+            card.innerHTML = `
+                <img src="${film.image}" alt="${film.title} Poster" class="film-img" onerror="this.src='assets/placeholder.jpg';">
+                <div class="film-info">
+                    <h3>${film.title}</h3>
+                    <div class="meta">${film.year} • ${film.language}</div>
+                    <p>${film.director}</p>
+                </div>
+            `;
+            filmGrid.appendChild(card);
+        });
     }
-  });
 
-  // Init
-  renderRegionalIndustries();
-  renderTimeline();
-  filterAndRenderFilms();
+    renderFilms(cinemaData.films);
+
+    // Filter Logic
+    function applyFilters() {
+        const selectedEra = eraFilter.value;
+        const selectedLang = langFilter.value;
+
+        const filtered = cinemaData.films.filter(film => {
+            const eraMatch = selectedEra === 'all' || film.era === selectedEra;
+            // Exact language match or generic "Hindi", "Telugu" logic
+            let langMatch = false;
+            if (selectedLang === 'all') {
+                langMatch = true;
+            } else if (selectedLang === 'Silent') {
+                langMatch = film.language.includes('Silent');
+            } else {
+                langMatch = film.language === selectedLang;
+            }
+            return eraMatch && langMatch;
+        });
+        renderFilms(filtered);
+    }
+
+    eraFilter.addEventListener('change', applyFilters);
+    langFilter.addEventListener('change', applyFilters);
+
+    // Render Regional Cinema
+    const regionalGrid = document.getElementById('regional-grid');
+    cinemaData.regionalIndustries.forEach(industry => {
+        const card = document.createElement('div');
+        card.className = 'regional-card';
+        card.innerHTML = `
+            <h3>${industry.name}</h3>
+            <span class="alias">${industry.alias}</span>
+            <p>${industry.description}</p>
+        `;
+        regionalGrid.appendChild(card);
+    });
+
+    // Render Filmmakers
+    const filmmakerGrid = document.getElementById('filmmaker-grid');
+    cinemaData.filmmakers.forEach(maker => {
+        const card = document.createElement('div');
+        card.className = 'filmmaker-card';
+        card.innerHTML = `
+            <h3>${maker.name}</h3>
+            <p><strong>Industry:</strong> ${maker.industry}</p>
+            <p><strong>Active:</strong> ${maker.active}</p>
+            <p>${maker.contribution}</p>
+            <p><strong>Notable Films:</strong> <i>${maker.notable}</i></p>
+        `;
+        filmmakerGrid.appendChild(card);
+    });
+
+    // Modal Logic
+    const modal = document.getElementById('film-modal');
+    const modalBody = document.getElementById('modal-body');
+    const closeModal = document.querySelector('.close-modal');
+
+    function openModal(film) {
+        modalBody.innerHTML = `
+            <img src="${film.image}" alt="${film.title} Poster" class="modal-img" onerror="this.src='assets/placeholder.jpg';">
+            <div class="modal-info">
+                <h2>${film.title} (${film.year})</h2>
+                <p><strong>Language/Industry:</strong> ${film.language} / ${film.industry}</p>
+                <p><strong>Director:</strong> ${film.director}</p>
+                <p><strong>Genre:</strong> ${film.genre}</p>
+                <br>
+                <p>${film.description}</p>
+                <p><strong>Significance:</strong> ${film.significance}</p>
+            </div>
+        `;
+        modal.style.display = 'block';
+    }
+
+    closeModal.onclick = () => {
+        modal.style.display = 'none';
+    }
+
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    // Fact Rotator
+    window.showRandomFact = () => {
+        const factElement = document.getElementById('random-fact');
+        const randomIndex = Math.floor(Math.random() * cinemaData.facts.length);
+        factElement.textContent = cinemaData.facts[randomIndex];
+    };
 });
