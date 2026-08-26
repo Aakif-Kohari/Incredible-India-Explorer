@@ -6498,5 +6498,13 @@ window.indiaSearchIndex = [
         description:
             "Explore the 2013 Uttarakhand flood disaster: extreme monsoon rainfall, Chorabari Tal glacial lake breach, Kedarnath devastation, Mandakini and Alaknanda valley impacts, Operation Surya Hope rescue, and disaster preparedness lessons.",
         url: "frontend/uttarakhand-floods-2013/index.html"
+    },
+    // --- Stone Age Tool Discoveries of Didwana (#3790) ---
+    {
+        title: "Stone Age Tool Discoveries of Didwana \u2014 Prehistoric Rajasthan",
+        category: "Archaeological Excavations",
+        description:
+            "Explore the Stone Age tool discoveries of Didwana, Rajasthan: Lower, Middle and Upper Palaeolithic tool types, quartzite and sandstone raw materials, dune-section discovery context, and their scientific significance for dating early human occupation in the Thar Desert.",
+        url: "frontend/didwana-stone-age-tools/index.html"
     }
 ];
