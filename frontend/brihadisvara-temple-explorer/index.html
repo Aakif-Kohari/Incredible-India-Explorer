@@ -1,0 +1,510 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brihadisvara Temple — Grandeur of Chola Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cinzel:wght@500;600;700&family=Vollkorn:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#221c16;
+    --ink-soft:#3a3128;
+    --stone:#ede2c8;
+    --stone-dim:#ddcda3;
+    --stone-deep:#c9b482;
+    --bronze:#a9662d;
+    --bronze-deep:#7a4a1e;
+    --kumkum:#9a3a2c;
+    --patina:#5e6f56;
+    --gold:#c79a45;
+    --max:1180px;
+    --serif-display:'Cinzel', 'Marcellus', serif;
+    --serif-title:'Marcellus', serif;
+    --serif-body:'Vollkorn', Georgia, serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--stone);
+    font-family:var(--serif-body);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+
+  /* ---------- stepped-tala divider (signature element) ---------- */
+  .talas{
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    gap:3px;
+    padding:34px 0;
+    background:var(--ink);
+  }
+  .talas span{
+    display:block;
+    background:linear-gradient(180deg,var(--bronze) 0%,var(--bronze-deep) 100%);
+    opacity:.85;
+  }
+  .talas.on-stone span{background:linear-gradient(180deg,var(--kumkum),var(--bronze-deep));}
+  .talas.on-stone{background:var(--stone);}
+  .talas span:nth-child(1){width:64px;height:6px;}
+  .talas span:nth-child(2){width:52px;height:10px;}
+  .talas span:nth-child(3){width:40px;height:14px;}
+  .talas span:nth-child(4){width:28px;height:18px;}
+  .talas span:nth-child(5){width:16px;height:22px;}
+  .talas span:nth-child(6){width:8px;height:26px;background:var(--gold);}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(34,28,22,.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(199,154,69,.25);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;gap:12px;}
+  .brand{font-family:var(--serif-display);letter-spacing:.06em;font-size:1rem;color:var(--gold);white-space:nowrap;}
+  .navlinks{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none;}
+  .navlinks::-webkit-scrollbar{display:none;}
+  .navlinks a{
+    font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;
+    text-decoration:none;color:var(--stone-dim);white-space:nowrap;
+    padding-bottom:3px;border-bottom:1px solid transparent;transition:.2s;
+  }
+  .navlinks a:hover{color:var(--gold);border-color:var(--gold);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;min-height:92vh;display:flex;align-items:flex-end;
+    background:
+      linear-gradient(180deg, rgba(20,16,12,.25) 0%, rgba(18,14,10,.55) 55%, rgba(15,12,9,.95) 100%),
+      url('https://commons.wikimedia.org/wiki/Special:FilePath/Brihadeeswara%20Temple%20-%20Thanjavur.jpg?width=1800') center 30%/cover no-repeat;
+  }
+  .hero-inner{padding:80px 28px 56px;width:100%;}
+  .eyebrow{
+    font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
+    display:flex;align-items:center;gap:10px;margin-bottom:18px;
+  }
+  .eyebrow::before{content:'';width:34px;height:1px;background:var(--gold);display:inline-block;}
+  h1.temple-title{
+    font-family:var(--serif-display);
+    font-size:clamp(2.6rem,7vw,5.2rem);
+    line-height:1.02;margin:0 0 18px;color:var(--stone);
+    text-shadow:0 4px 26px rgba(0,0,0,.5);
+  }
+  .hero-sub{
+    font-family:var(--serif-title);font-style:italic;font-size:clamp(1.05rem,2.4vw,1.4rem);
+    color:var(--stone-dim);max-width:640px;margin:0 0 26px;
+  }
+  .hero-meta{display:flex;flex-wrap:wrap;gap:28px;margin-top:8px;}
+  .hero-meta div{border-left:2px solid var(--bronze);padding-left:12px;}
+  .hero-meta .label{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze);margin-bottom:4px;}
+  .hero-meta .val{font-family:var(--serif-title);font-size:1.02rem;color:var(--stone);}
+
+  /* ---------- sections ---------- */
+  section{padding:88px 0;}
+  .on-stone{background:var(--stone);color:var(--ink);}
+  .on-ink{background:var(--ink);color:var(--stone);}
+  .on-ink-2{background:#2a231b;color:var(--stone);}
+
+  .kicker{
+    font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--bronze);margin:0 0 12px;
+  }
+  .on-stone .kicker{color:var(--kumkum);}
+  h2{
+    font-family:var(--serif-display);font-size:clamp(1.9rem,4vw,2.9rem);
+    margin:0 0 26px;line-height:1.12;
+  }
+  .lede{font-size:1.14rem;max-width:760px;color:inherit;opacity:.92;}
+
+  .two-col{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start;}
+  .figure{border:1px solid rgba(199,154,69,.35);padding:8px;background:rgba(0,0,0,.15);}
+  .on-stone .figure{background:rgba(255,255,255,.35);border-color:rgba(122,74,30,.3);}
+  .figure img{width:100%;height:100%;object-fit:cover;}
+  .figure figcaption{font-size:.78rem;padding:10px 4px 2px;opacity:.7;font-style:italic;}
+
+  /* history timeline */
+  .timeline{list-style:none;margin:36px 0 0;padding:0;border-left:2px solid var(--bronze-deep);}
+  .timeline li{position:relative;padding:0 0 30px 28px;}
+  .timeline li::before{
+    content:'';position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;
+    background:var(--gold);box-shadow:0 0 0 3px var(--ink);
+  }
+  .on-stone .timeline li::before{box-shadow:0 0 0 3px var(--stone);}
+  .timeline .yr{font-family:var(--serif-title);font-size:1.1rem;color:var(--gold);display:block;margin-bottom:4px;}
+  .on-stone .timeline .yr{color:var(--kumkum);}
+
+  /* stat row for vimana */
+  .stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(199,154,69,.3);margin:44px 0;border:1px solid rgba(199,154,69,.3);}
+  .stat{background:var(--ink);padding:26px 20px;}
+  .stat .num{font-family:var(--serif-display);font-size:2.1rem;color:var(--gold);display:block;}
+  .stat .lbl{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.65;margin-top:6px;}
+
+  /* vimana tower visual */
+  .vimana-visual{display:flex;flex-direction:column;align-items:center;gap:3px;padding:30px 0 10px;}
+  .vimana-visual .tier{background:linear-gradient(180deg,var(--gold),var(--bronze-deep));}
+  .vimana-visual .tier:nth-child(1){width:14px;height:22px;border-radius:3px 3px 0 0;}
+  .vimana-caption{text-align:center;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;opacity:.6;margin-top:14px;}
+
+  /* cards grid */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin-top:40px;}
+  .card{
+    background:rgba(199,154,69,.06);border:1px solid rgba(199,154,69,.25);
+    padding:30px 26px;
+  }
+  .on-stone .card{background:rgba(122,74,30,.05);border-color:rgba(122,74,30,.25);}
+  .card h3{font-family:var(--serif-title);font-size:1.25rem;margin:0 0 12px;color:var(--gold);}
+  .on-stone .card h3{color:var(--kumkum);}
+  .card p{margin:0;font-size:.98rem;opacity:.9;}
+
+  /* facts */
+  .facts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;background:rgba(94,111,86,.4);margin-top:40px;border:1px solid rgba(94,111,86,.4);}
+  .fact{background:var(--ink);padding:26px 24px;}
+  .fact .n{font-family:var(--serif-display);color:var(--patina);font-size:1.5rem;margin-bottom:10px;display:block;}
+
+  /* great living chola temples */
+  .triad{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px;}
+  .triad .t-card{text-align:center;}
+  .triad .t-figure{aspect-ratio:4/5;overflow:hidden;border:1px solid rgba(199,154,69,.35);}
+  .triad .t-figure img{width:100%;height:100%;object-fit:cover;}
+  .triad h4{font-family:var(--serif-title);margin:16px 0 4px;font-size:1.1rem;}
+  .triad p{margin:0;font-size:.85rem;opacity:.75;}
+
+  /* gallery */
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:8px;margin-top:40px;
+  }
+  .gallery-grid a{display:block;overflow:hidden;position:relative;}
+  .gallery-grid img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .gallery-grid a:hover img{transform:scale(1.08);}
+  .gallery-grid .g1{grid-column:span 2;grid-row:span 2;}
+  .gallery-grid .g5{grid-column:span 2;}
+
+  footer{background:#171310;padding:50px 0 30px;font-size:.82rem;color:var(--stone-dim);}
+  footer a{color:var(--gold);text-decoration:none;}
+  footer .foot-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;border-top:1px solid rgba(199,154,69,.2);padding-top:24px;margin-top:10px;}
+
+  @media (max-width:900px){
+    .two-col{grid-template-columns:1fr;}
+    .triad{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px;}
+    .gallery-grid .g1{grid-column:span 2;grid-row:span 1;aspect-ratio:16/10;height:auto;}
+  }
+  @media (max-width:560px){
+    section{padding:64px 0;}
+    .hero-inner{padding:60px 20px 40px;}
+    .navlinks{gap:16px;}
+    .gallery-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .gallery-grid img{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">ஸ்ரீ ராஜராஜேஸ்வரம்</span>
+    <div class="navlinks">
+      <a href="#history">History</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#vimana">Vimana</a>
+      <a href="#sculptures">Sculptures</a>
+      <a href="#engineering">Engineering</a>
+      <a href="#chola-temples">Living Temples</a>
+      <a href="#facts">Facts</a>
+      <a href="#gallery">Gallery</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="hero-inner wrap">
+    <p class="eyebrow">Thanjavur · Tamil Nadu · India</p>
+    <h1 class="temple-title">Brihadisvara<br>Temple</h1>
+    <p class="hero-sub">"Rajarajesvaram" — the great temple raised by Rajaraja Chola I, a mountain of granite built to house Lord Shiva and to declare an empire's reach.</p>
+    <div class="hero-meta">
+      <div><span class="label">Built</span><span class="val">1003 – 1010 CE</span></div>
+      <div><span class="label">Patron</span><span class="val">Rajaraja Chola I</span></div>
+      <div><span class="label">Vimana height</span><span class="val">≈ 66 m / 216 ft</span></div>
+      <div><span class="label">Status</span><span class="val">UNESCO World Heritage</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="talas" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<!-- ================= HISTORY ================= -->
+<section class="on-stone" id="history">
+  <div class="wrap">
+    <p class="kicker">Chola History</p>
+    <h2>An Empire Carved in Stone</h2>
+    <div class="two-col">
+      <div>
+        <p class="lede">Thanjavur, seat of the Chola empire in the fertile delta of the Kaveri River, became the stage for one of India's most audacious building projects when Rajaraja I resolved to raise a temple worthy of an empire that stretched from the Deccan to Sri Lanka and the Maldives.</p>
+        <p>Rajaraja I ascended the Chola throne in 985 CE and ruled until 1014 CE, a reign remembered for sweeping naval and military campaigns, a meticulous land-revenue administration, and an unmatched patronage of temple building. He commissioned the temple not merely as an act of personal devotion to Shiva, but as a political and spiritual monument — a Rajarajesvaram, "Temple of Rajaraja," that fused kingship with divinity in a single towering structure. Construction began around 1003 CE and the temple was consecrated in 1010 CE, when the king presented a gold-plated finial for the summit of the tower.</p>
+        <p>After the Chola dynasty's decline in the 13th century, the temple passed through Pandya, Vijayanagara, Nayak, and Maratha hands, each leaving traces — fortified outer walls, additional shrines, restorations — yet the 11th-century core and its inscriptions have endured largely intact for over a thousand years.</p>
+      </div>
+      <figure class="figure">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Brihadeeswarar%20Temple%2C%20Tamil%20Nadu.jpg?width=900" alt="Brihadisvara Temple courtyard and tower, Thanjavur" loading="lazy">
+        <figcaption>The temple complex within its fortified courtyard, Thanjavur.</figcaption>
+      </figure>
+    </div>
+
+    <ul class="timeline">
+      <li><span class="yr">985 CE</span>Rajaraja I ascends the Chola throne and begins consolidating a vast maritime empire.</li>
+      <li><span class="yr">c. 1003 CE</span>Construction of the Rajarajesvaram begins in the new capital, Thanjavur.</li>
+      <li><span class="yr">1010 CE</span>The temple is consecrated; a gold kalasam is installed atop the vimana on the 275th day of the king's 25th regnal year.</li>
+      <li><span class="yr">13th century</span>Chola power fades; the region passes to the Pandyas and later dynasties, who add to and fortify the complex.</li>
+      <li><span class="yr">2010 CE</span>The temple marks its 1,000th anniversary with a thousand-dancer Bharatanatyam tribute.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="talas on-stone" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<!-- ================= ARCHITECTURE ================= -->
+<section class="on-ink" id="architecture">
+  <div class="wrap">
+    <p class="kicker">Temple Architecture</p>
+    <h2>The Dravida Idiom, Taken to Its Limit</h2>
+    <div class="two-col">
+      <figure class="figure">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/A%20view%20of%20Brihadeeswarar%20Temple.jpg?width=900" alt="View of the temple's stepped pyramidal architecture" loading="lazy">
+        <figcaption>The stepped, pyramidal profile characteristic of Dravida architecture.</figcaption>
+      </figure>
+      <div>
+        <p class="lede">Where North India's Nagara temples rise as a single curved spire, the South Indian Dravida tradition answers with a stepped pyramid of diminishing storeys — and Brihadisvara drives that idea further than any temple before it.</p>
+        <p>The complex unfolds along a strict east-facing axis: a fortified outer wall (added after the Chola period) encloses a moated courtyard, a Nandi mandapa, twin entrance gopurams, pillared halls, and finally the sanctum itself, so that a visitor's approach becomes a slow architectural ascent from the everyday world toward the sacred. Every surface along that path — plinths, pilasters, cornices, niches — is treated as a field for relief carving, so that architecture and ornament are conceived as one continuous act rather than a building later dressed with decoration.</p>
+        <p>The temple's Dravida vocabulary, established here at a scale never before attempted, became the template that later Chola monuments — most directly the Gangaikonda Cholapuram temple raised by Rajaraja's son Rajendra I — would inherit and reinterpret.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="talas" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<!-- ================= VIMANA ================= -->
+<section class="on-ink-2" id="vimana">
+  <div class="wrap">
+    <p class="kicker">The Vimana</p>
+    <h2>A Mountain of Granite Over the Sanctum</h2>
+    <div class="two-col">
+      <div>
+        <p class="lede">The sri vimana — the tower rising directly over the sanctum — is the temple's defining achievement: a near-cubic sanctum block giving way to thirteen shrinking storeys of stone, climbing to an octagonal neck and a single monolithic dome.</p>
+        <p>At roughly 66 metres, it was the tallest temple tower built anywhere in the world at the time of its completion, and it represents Mount Meru, the cosmic axis of Hindu cosmology and the abode of Shiva. Crowning the tower is the kalasam, a copper-and-gold finial set upon an octagonal dome, the shikhara, carved from a single block of granite estimated at around 80 tonnes — hauled to a height of over 200 feet by engineers with no cranes, no pulleys of the kind we would recognise, and no mortar.</p>
+        <p>Folk memory holds that the vimana casts no shadow at noon; in truth the tower's proportions and its precise solar alignment simply minimise the shadow at midday, a detail read for centuries as proof of the architects' command of geometry.</p>
+      </div>
+      <div>
+        <div class="vimana-visual" aria-hidden="true">
+          <div class="tier" style="width:14px;height:20px;"></div>
+          <div class="tier" style="width:34px;height:14px;"></div>
+          <div class="tier" style="width:56px;height:14px;"></div>
+          <div class="tier" style="width:78px;height:14px;"></div>
+          <div class="tier" style="width:100px;height:14px;"></div>
+          <div class="tier" style="width:122px;height:14px;"></div>
+          <div class="tier" style="width:144px;height:14px;"></div>
+          <div class="tier" style="width:166px;height:14px;"></div>
+          <div class="tier" style="width:188px;height:16px;"></div>
+          <div class="tier" style="width:210px;height:34px;border-radius:2px;"></div>
+        </div>
+        <p class="vimana-caption">Thirteen tiers, ascending toward Meru</p>
+        <div class="figure" style="margin-top:22px;">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Brihadeeswarar%20Temple%20Vimana.jpg?width=900" alt="Close view of the Brihadisvara vimana tower" loading="lazy">
+          <figcaption>The tiered vimana, crowned by its octagonal shikhara.</figcaption>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat"><span class="num">66 m</span><span class="lbl">Vimana height</span></div>
+      <div class="stat"><span class="num">13</span><span class="lbl">Tiers (talas)</span></div>
+      <div class="stat"><span class="num">80 t</span><span class="lbl">Capstone weight</span></div>
+      <div class="stat"><span class="num">7 yrs</span><span class="lbl">Construction time</span></div>
+      <div class="stat"><span class="num">1010</span><span class="lbl">Year of consecration</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="talas on-stone" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<!-- ================= SCULPTURES & INSCRIPTIONS ================= -->
+<section class="on-stone" id="sculptures">
+  <div class="wrap">
+    <p class="kicker">Sculptures &amp; Inscriptions</p>
+    <h2>A Stone Archive of an Empire</h2>
+    <p class="lede">Brihadisvara's walls do more than depict the Chola world — they record it. Its inscriptions rank among the most detailed epigraphic records in Indian history, and its sculpture translates Chola religious and courtly life into granite and bronze.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>The Great Nandi</h3>
+        <p>A monolithic Nandi, Shiva's bull, carved from a single block of granite and among the largest in India, sits in its own pavilion facing the sanctum — one of the temple's most photographed and revered features.</p>
+      </div>
+      <div class="card">
+        <h3>The Sanctum Lingam</h3>
+        <p>Shiva is enshrined as Brihadisvara, "the Great Lord," in the form of a colossal stone lingam housed within the base of the vimana, at the heart of the temple's spatial and spiritual design.</p>
+      </div>
+      <div class="card">
+        <h3>Tamil Inscriptions</h3>
+        <p>Extensive inscriptions on the temple's plinth and walls record land grants, endowments of gold and cattle, and lists of dancers, musicians, and priests attached to the temple — a bureaucratic and devotional record carved directly into the monument.</p>
+      </div>
+      <div class="card">
+        <h3>Fresco Fragments</h3>
+        <p>Beneath later Nayak-period paintings, conservators uncovered original Chola-era murals along the sanctum's inner passage, offering rare surviving evidence of 11th-century painting technique.</p>
+      </div>
+      <div class="card">
+        <h3>Dvarapalas &amp; Guardians</h3>
+        <p>Monumental guardian figures flank the entrances and the base of the vimana, their scale and precision setting the tone for the sculptural programme that unfolds across the whole complex.</p>
+      </div>
+      <div class="card">
+        <h3>Devaram &amp; Ritual Life</h3>
+        <p>Rajaraja I revived the Devaram hymn tradition here, appointing dedicated singers to the temple — a living liturgical culture that inscriptions show was as carefully endowed as the architecture itself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="talas" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<!-- ================= ENGINEERING ================= -->
+<section class="on-ink" id="engineering">
+  <div class="wrap">
+    <p class="kicker">Engineering Achievements</p>
+    <h2>Raised Without Mortar, Cranes, or Local Stone</h2>
+    <div class="two-col">
+      <div>
+        <p class="lede">Thanjavur sits in a river delta with no significant granite deposits of its own — so before a single tier of the vimana could rise, the Cholas first had to solve a logistics problem on an imperial scale.</p>
+        <p>Every block of the tower was quarried, dressed, and hauled from distant sources, then set in place using dry masonry: stones interlocked by precise cutting alone, without mortar, relying on gravity and friction to hold thirteen storeys of granite together — a technique that has also helped the tower withstand a millennium of monsoons and tremors.</p>
+        <p>The single greatest puzzle is the capstone: an octagonal dome of roughly 80 tonnes, set atop a tower over 200 feet tall. Tradition and architectural analysis point to a long inclined earthen ramp — estimates run to several kilometres — built specifically to haul the stone skyward, then dismantled without a trace once the work was done, leaving later observers to reconstruct the method from inference alone.</p>
+      </div>
+      <div class="cards" style="margin-top:0;grid-template-columns:1fr;">
+        <div class="card">
+          <h3>Dry Interlocking Masonry</h3>
+          <p>Blocks cut and fitted with such precision that the joints admit almost nothing between them, giving the tower both its stability and its resilience.</p>
+        </div>
+        <div class="card">
+          <h3>The Ramp Theory</h3>
+          <p>A kilometres-long earthen incline is the leading explanation for how the 80-tonne capstone reached the summit — built, used, and then fully removed.</p>
+        </div>
+        <div class="card">
+          <h3>Long-Distance Quarrying</h3>
+          <p>With no granite near Thanjavur, every stone in the vimana represents a supply chain of quarrying and transport organised at imperial scale.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="talas on-stone" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<!-- ================= LIVING HERITAGE + GREAT LIVING CHOLA TEMPLES ================= -->
+<section class="on-stone" id="chola-temples">
+  <div class="wrap">
+    <p class="kicker">Living Heritage</p>
+    <h2>A Temple That Never Stopped Being Used</h2>
+    <p class="lede">Unlike many monuments of its age, Brihadisvara is not a ruin under preservation — it remains an active place of worship. Daily puja, seasonal festivals, and the Devaram hymn tradition Rajaraja I revived a thousand years ago continue inside its walls, making it one of the rare 11th-century structures still serving its original purpose without interruption.</p>
+
+    <p class="kicker" style="margin-top:56px;">Great Living Chola Temples</p>
+    <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);">Three Temples, One UNESCO Inscription</h2>
+    <p class="lede">Brihadisvara is inscribed on the UNESCO World Heritage List alongside two temples built by Rajaraja's successors, together recognised as the "Great Living Chola Temples" — a record of how the Dravida style matured across three generations of Chola rule.</p>
+    <div class="triad">
+      <div class="t-card">
+        <div class="t-figure"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Brahadeeswara%20Temple%2CThanjavur.JPG?width=700" alt="Brihadisvara Temple, Thanjavur" loading="lazy"></div>
+        <h4>Brihadisvara, Thanjavur</h4>
+        <p>Built by Rajaraja I, 1010 CE — the founding masterpiece.</p>
+      </div>
+      <div class="t-card">
+        <div class="t-figure"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ancient%20Thanjavur%20Brihadeeswarar%20Temple%20Tower%20photo.jpg?width=700" alt="Detail of Chola-era vimana architecture" loading="lazy"></div>
+        <h4>Gangaikondacholapuram</h4>
+        <p>Built by Rajendra I, reinterpreting his father's vimana with a more fluid profile.</p>
+      </div>
+      <div class="t-card">
+        <div class="t-figure"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Beautiful%20view%20of%20the%20Brihadishvara%20Temple.jpg?width=700" alt="Chola temple architecture detail" loading="lazy"></div>
+        <h4>Airavatesvara, Darasuram</h4>
+        <p>Built by Rajaraja II, marking the late flowering of Chola temple art.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="talas" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<!-- ================= FACTS ================= -->
+<section class="on-ink" id="facts">
+  <div class="wrap">
+    <p class="kicker">Interesting Facts</p>
+    <h2>Nine Things Worth Knowing</h2>
+    <div class="facts-grid">
+      <div class="fact"><span class="n">01</span>The temple's original name, Rajarajesvaram, honours the king who built it rather than the deity alone.</div>
+      <div class="fact"><span class="n">02</span>It was, for its time, the tallest temple tower ever constructed anywhere in the world.</div>
+      <div class="fact"><span class="n">03</span>The capstone weighing roughly 80 tonnes was carved from a single block of granite.</div>
+      <div class="fact"><span class="n">04</span>The entire tower is built without mortar, using precisely interlocked dry-stone masonry.</div>
+      <div class="fact"><span class="n">05</span>Legend holds the vimana casts no shadow at noon — a myth rooted in real solar geometry.</div>
+      <div class="fact"><span class="n">06</span>Rajaraja endowed the temple with dancers, musicians, and priests recorded by name in its inscriptions.</div>
+      <div class="fact"><span class="n">07</span>The temple was completed in roughly seven years — remarkably fast for its scale.</div>
+      <div class="fact"><span class="n">08</span>Thanjavur has no local granite; every stone was quarried and hauled from distant sources.</div>
+      <div class="fact"><span class="n">09</span>The temple turned 1,000 years old in 2010, marked by a thousand-dancer tribute performance.</div>
+    </div>
+  </div>
+</section>
+
+<div class="talas on-stone" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<!-- ================= GALLERY ================= -->
+<section class="on-stone" id="gallery">
+  <div class="wrap">
+    <p class="kicker">Gallery</p>
+    <h2>Brihadisvara in Stone and Light</h2>
+    <div class="gallery-grid">
+      <a class="g1" href="https://commons.wikimedia.org/wiki/Special:FilePath/Brihadeeswara%20Temple%20-%20Thanjavur.jpg" target="_blank" rel="noopener">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Brihadeeswara%20Temple%20-%20Thanjavur.jpg?width=1000" alt="Brihadisvara Temple full view" loading="lazy">
+      </a>
+      <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Brihadeeswarar%20Temple%20Vimana.jpg" target="_blank" rel="noopener">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Brihadeeswarar%20Temple%20Vimana.jpg?width=700" alt="Vimana tower close-up" loading="lazy">
+      </a>
+      <a href="https://commons.wikimedia.org/wiki/Special:FilePath/A%20view%20of%20Brihadeeswarar%20Temple.jpg" target="_blank" rel="noopener">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/A%20view%20of%20Brihadeeswarar%20Temple.jpg?width=700" alt="Temple courtyard view" loading="lazy">
+      </a>
+      <a class="g5" href="https://commons.wikimedia.org/wiki/Special:FilePath/Ancient%20Thanjavur%20Brihadeeswarar%20Temple%20Tower%20photo.jpg" target="_blank" rel="noopener">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ancient%20Thanjavur%20Brihadeeswarar%20Temple%20Tower%20photo.jpg?width=1000" alt="Tower detail" loading="lazy">
+      </a>
+      <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Brihadeeswarar%20Temple%2C%20Tamil%20Nadu.jpg" target="_blank" rel="noopener">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Brihadeeswarar%20Temple%2C%20Tamil%20Nadu.jpg?width=700" alt="Temple wide shot" loading="lazy">
+      </a>
+      <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Beautiful%20view%20of%20the%20Brihadishvara%20Temple.jpg" target="_blank" rel="noopener">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Beautiful%20view%20of%20the%20Brihadishvara%20Temple.jpg?width=700" alt="Temple scenic view" loading="lazy">
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p style="max-width:640px;">Brihadisvara Temple — also known as Brihadeeswarar Temple, Peruvudaiyar Kovil, and Thanjai Periya Kovil — stands in Thanjavur, Tamil Nadu, as one of India's Great Living Chola Temples and a UNESCO World Heritage Site.</p>
+    <div class="foot-grid">
+      <span>Photographs: Wikimedia Commons contributors, licensed CC BY‑SA.</span>
+      <span>Incredible India Explorer — Issue #2726</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('img').forEach(function(img){
+    img.addEventListener('error', function(){
+      this.style.background = 'linear-gradient(135deg,#7a4a1e,#221c16)';
+      this.style.minHeight = '160px';
+      this.alt = this.alt || 'Brihadisvara Temple';
+    });
+  });
+</script>
+</body>
+</html>

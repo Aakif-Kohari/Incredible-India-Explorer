@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Explore India's heritage through an interactive camera-based AR experience."
+    >
+
+    <title>AR Heritage Explorer | Incredible India</title>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+            
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                    Safety ▾
+                </button>
+                <div class="dropdown-menu">
+                    <a
+                        href="../../frontend/emergency-assistance/emergency.html"
+                        class="dropdown-item"
+                    >
+                        🚨 Emergency Assistance
+                    </a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+
+<main>
+
+    <section class="ar-hero">
+
+        <div class="hero-content">
+
+            <span class="hero-kicker">
+                IMMERSIVE HERITAGE
+            </span>
+
+            <h1>
+                AR Heritage
+                <span>Explorer</span>
+            </h1>
+
+            <p>
+                Point your camera toward supported heritage
+                destinations and discover their stories,
+                architecture and history through interactive
+                overlays.
+            </p>
+
+            <button
+                type="button"
+                id="start-ar"
+                class="primary-button"
+            >
+                Start AR Experience
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section
+        class="explorer-section"
+        id="explorer"
+    >
+
+        <div class="section-heading">
+
+            <span class="section-badge">
+                Explore History
+            </span>
+
+            <h2>
+                Choose a heritage experience
+            </h2>
+
+            <p>
+                Select a supported monument or let your location
+                identify the closest experience.
+            </p>
+
+        </div>
+
+
+        <div class="location-toolbar">
+
+            <button
+                type="button"
+                id="detect-location"
+                class="secondary-button"
+            >
+                Detect My Location
+            </button>
+
+            <span
+                id="location-status"
+                class="status-text"
+                aria-live="polite"
+            >
+                Location not detected
+            </span>
+
+        </div>
+
+
+        <div
+            id="heritage-grid"
+            class="heritage-grid"
+        ></div>
+
+    </section>
+
+
+    <section
+        id="ar-view"
+        class="ar-view"
+        hidden
+    >
+
+        <div class="camera-container">
+
+            <video
+                id="camera-feed"
+                class="camera-feed"
+                autoplay
+                muted
+                playsinline
+                aria-label="Live camera feed"
+            ></video>
+
+
+            <div class="camera-overlay">
+
+                <div class="ar-topbar">
+
+                    <button
+                        type="button"
+                        id="close-ar"
+                        class="icon-button"
+                        aria-label="Close AR experience"
+                    >
+                        ×
+                    </button>
+
+                    <div class="ar-location">
+
+                        <span class="live-dot"></span>
+
+                        <span id="active-location">
+                            Heritage Explorer
+                        </span>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        id="toggle-sound"
+                        class="icon-button"
+                        aria-label="Toggle narration"
+                    >
+                        🔊
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="ar-points"
+                    class="ar-points"
+                ></div>
+
+
+                <div class="camera-center">
+
+                    <div class="target-reticle">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="ar-info-card"
+                    class="ar-info-card"
+                    hidden
+                >
+
+                    <button
+                        type="button"
+                        id="close-info"
+                        class="info-close"
+                        aria-label="Close information"
+                    >
+                        ×
+                    </button>
+
+                    <span
+                        id="info-category"
+                        class="info-category"
+                    >
+                        Heritage
+                    </span>
+
+                    <h2 id="info-title">
+                        Monument
+                    </h2>
+
+                    <p id="info-description">
+                        Heritage information will appear here.
+                    </p>
+
+                    <div
+                        id="info-facts"
+                        class="info-facts"
+                    ></div>
+
+                    <button
+                        type="button"
+                        id="open-details"
+                        class="primary-button small-button"
+                    >
+                        Explore History
+                    </button>
+
+                </div>
+
+
+                <div class="ar-bottom-bar">
+
+                    <button
+                        type="button"
+                        id="scan-button"
+                        class="scan-button"
+                    >
+                        <span class="scan-icon">◉</span>
+                        Scan Heritage
+                    </button>
+
+                    <button
+                        type="button"
+                        id="favorite-button"
+                        class="round-action"
+                        aria-label="Save heritage experience"
+                    >
+                        ☆
+                    </button>
+
+                    <button
+                        type="button"
+                        id="narrate-button"
+                        class="round-action"
+                        aria-label="Play narration"
+                    >
+                        🔊
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section
+        id="details-section"
+        class="details-section"
+        hidden
+    >
+
+        <div class="details-header">
+
+            <div>
+
+                <span class="section-badge">
+                    Heritage Story
+                </span>
+
+                <h2 id="details-title">
+                    Heritage Site
+                </h2>
+
+                <p id="details-location"></p>
+
+            </div>
+
+            <button
+                type="button"
+                id="details-favorite"
+                class="secondary-button"
+            >
+                ☆ Save Experience
+            </button>
+
+        </div>
+
+
+        <div class="details-grid">
+
+            <article class="details-card">
+
+                <span class="card-label">
+                    About
+                </span>
+
+                <p id="details-description"></p>
+
+            </article>
+
+
+            <article class="details-card">
+
+                <span class="card-label">
+                    Historical Timeline
+                </span>
+
+                <div
+                    id="timeline"
+                    class="timeline"
+                ></div>
+
+            </article>
+
+
+            <article class="details-card">
+
+                <span class="card-label">
+                    Architecture
+                </span>
+
+                <div
+                    id="architecture-list"
+                    class="architecture-list"
+                ></div>
+
+            </article>
+
+
+            <article class="details-card">
+
+                <span class="card-label">
+                    Heritage Facts
+                </span>
+
+                <ul
+                    id="facts-list"
+                    class="facts-list"
+                ></ul>
+
+            </article>
+
+        </div>
+
+
+        <div class="reconstruction-section">
+
+            <div>
+
+                <span class="card-label">
+                    3D Reconstruction Preview
+                </span>
+
+                <h3>
+                    Visualize the monument
+                </h3>
+
+                <p>
+                    Rotate the simplified reconstruction using
+                    the controls below.
+                </p>
+
+            </div>
+
+
+            <div class="reconstruction-stage">
+
+                <div
+                    id="heritage-model"
+                    class="heritage-model"
+                >
+
+                    <div class="model-dome"></div>
+
+                    <div class="model-body"></div>
+
+                    <div class="model-door"></div>
+
+                    <div class="model-minaret left"></div>
+
+                    <div class="model-minaret right"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="model-controls">
+
+                <button
+                    type="button"
+                    id="rotate-left"
+                    class="secondary-button"
+                >
+                    Rotate Left
+                </button>
+
+                <button
+                    type="button"
+                    id="rotate-right"
+                    class="secondary-button"
+                >
+                    Rotate Right
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="quiz-section">
+
+            <div>
+
+                <span class="card-label">
+                    Test Your Knowledge
+                </span>
+
+                <h3>
+                    Heritage Quiz
+                </h3>
+
+            </div>
+
+            <div
+                id="quiz-container"
+                class="quiz-container"
+            ></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+></div>
+
+
+<script src="../../app.js"></script>
+<script src="../../pages-common.js"></script>
+<script src="../journey/journey.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

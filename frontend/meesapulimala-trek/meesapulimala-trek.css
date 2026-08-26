@@ -1,0 +1,730 @@
+/* meesapulimala-trek.css — Custom stylesheet for Meesapulimala Trek Profile */
+
+:root {
+    --meesa-emerald: #10b981;
+    --meesa-emerald-dark: #059669;
+    --meesa-rhodo-pink: #f43f5e;
+    --meesa-rhodo-glow: rgba(244, 63, 94, 0.2);
+    --meesa-cyan: #06b6d4;
+    --meesa-amber: #f59e0b;
+
+    --meesa-bg: #09130e;
+    --meesa-bg-alt: #0f1f18;
+    --meesa-card-bg: rgba(18, 38, 29, 0.78);
+    --meesa-card-border: rgba(16, 185, 129, 0.22);
+
+    --meesa-text: #f0fdf4;
+    --meesa-text-dim: #a7f3d0;
+    --meesa-text-muted: #6ee7b7;
+
+    --meesa-focus: #34d399;
+    --meesa-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.55);
+
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-theme="light"], .light-theme {
+    --meesa-bg: #f0fdf4;
+    --meesa-bg-alt: #e6f4ea;
+    --meesa-card-bg: #ffffff;
+    --meesa-card-border: rgba(16, 185, 129, 0.3);
+
+    --meesa-text: #064e3b;
+    --meesa-text-dim: #047857;
+    --meesa-text-muted: #059669;
+
+    --meesa-shadow: 0 10px 25px -5px rgba(6, 78, 59, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.meesa-body {
+    background-color: var(--meesa-bg);
+    color: var(--meesa-text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.meesa-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Header & Navigation */
+.meesa-header {
+    background: rgba(9, 19, 14, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--meesa-card-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.meesa-header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.meesa-back-link {
+    color: var(--meesa-emerald);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background: rgba(16, 185, 129, 0.12);
+    transition: all 0.2s ease;
+}
+
+.meesa-back-link:hover,
+.meesa-back-link:focus-visible {
+    background: var(--meesa-emerald);
+    color: #ffffff;
+    outline: 2px solid var(--meesa-focus);
+    outline-offset: 2px;
+}
+
+.meesa-theme-btn {
+    background: var(--meesa-card-bg);
+    border: 1px solid var(--meesa-card-border);
+    color: var(--meesa-text);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.meesa-theme-btn:hover,
+.meesa-theme-btn:focus-visible {
+    border-color: var(--meesa-emerald);
+    outline: 2px solid var(--meesa-focus);
+}
+
+/* Hero Section */
+.meesa-hero {
+    padding: 4rem 0 3rem;
+    background: linear-gradient(180deg, var(--meesa-bg-alt) 0%, var(--meesa-bg) 100%);
+    border-bottom: 1px solid var(--meesa-card-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.meesa-hero__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.meesa-badge {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    color: var(--meesa-emerald);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+}
+
+.meesa-badge--rhodo {
+    background: rgba(244, 63, 94, 0.15);
+    border-color: rgba(244, 63, 94, 0.4);
+    color: #fb7185;
+}
+
+.meesa-badge--cyan {
+    background: rgba(6, 182, 212, 0.15);
+    border-color: rgba(6, 182, 212, 0.4);
+    color: var(--meesa-cyan);
+}
+
+.meesa-hero__title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    color: var(--meesa-text);
+}
+
+.meesa-hero__title-sub {
+    display: block;
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    color: var(--meesa-text-muted);
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+.meesa-hero__lede {
+    font-size: 1.15rem;
+    color: var(--meesa-text-dim);
+    max-width: 840px;
+    margin-bottom: 2.5rem;
+}
+
+/* Quick Stats Grid */
+.meesa-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1rem;
+}
+
+.meesa-stat-card {
+    background: var(--meesa-card-bg);
+    border: 1px solid var(--meesa-card-border);
+    padding: 1.25rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--meesa-shadow);
+}
+
+.meesa-stat-card__val {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--meesa-emerald);
+    font-family: var(--font-mono);
+}
+
+.meesa-stat-card__label {
+    font-size: 0.85rem;
+    color: var(--meesa-text-dim);
+    margin-top: 0.25rem;
+}
+
+/* Tabs */
+.meesa-tabs-wrapper {
+    margin: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--meesa-card-border);
+    overflow-x: auto;
+}
+
+.meesa-tabs {
+    display: flex;
+    gap: 0.5rem;
+    min-width: max-content;
+    padding-bottom: 0.5rem;
+}
+
+.meesa-tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--meesa-text-dim);
+    font-family: inherit;
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 0.75rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.meesa-tab-btn:hover,
+.meesa-tab-btn:focus-visible {
+    color: var(--meesa-text);
+    background: rgba(16, 185, 129, 0.1);
+    outline: 2px solid var(--meesa-focus);
+}
+
+.meesa-tab-btn.active {
+    color: #ffffff;
+    background: var(--meesa-emerald);
+}
+
+.meesa-tab-content {
+    display: none;
+    padding-bottom: 4rem;
+}
+
+.meesa-tab-content.active {
+    display: block;
+}
+
+/* Section Headings */
+.meesa-section-heading {
+    margin-bottom: 2rem;
+}
+
+.meesa-eyebrow {
+    color: var(--meesa-emerald);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.meesa-section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3vw, 2.4rem);
+    color: var(--meesa-text);
+}
+
+.meesa-section-desc {
+    color: var(--meesa-text-dim);
+    font-size: 1.05rem;
+    max-width: 780px;
+    margin-top: 0.5rem;
+}
+
+/* Cards & Grids */
+.meesa-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.meesa-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.meesa-card {
+    background: var(--meesa-card-bg);
+    border: 1px solid var(--meesa-card-border);
+    border-radius: 14px;
+    padding: 1.75rem;
+    box-shadow: var(--meesa-shadow);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.meesa-card:hover {
+    border-color: var(--meesa-emerald);
+    transform: translateY(-2px);
+}
+
+.meesa-card__icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.meesa-card__title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--meesa-text);
+    margin-bottom: 0.5rem;
+}
+
+.meesa-card__desc {
+    color: var(--meesa-text-dim);
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+/* Peak Spotlight Card */
+.meesa-spotlight-card {
+    background: linear-gradient(135deg, rgba(244, 63, 94, 0.12) 0%, rgba(16, 185, 129, 0.12) 100%);
+    border: 2px solid var(--meesa-rhodo-pink);
+    border-radius: 16px;
+    padding: 2.25rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 0 35px var(--meesa-rhodo-glow);
+}
+
+/* Route Timeline Steps */
+.meesa-timeline {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid var(--meesa-emerald);
+    margin-top: 1.5rem;
+}
+
+.meesa-timeline-step {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.meesa-timeline-step::before {
+    content: '';
+    position: absolute;
+    left: calc(-2rem - 6px);
+    top: 0.35rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--meesa-emerald);
+    box-shadow: 0 0 10px var(--meesa-emerald);
+}
+
+.meesa-timeline-step__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--meesa-emerald);
+    font-family: var(--font-mono);
+    margin-bottom: 0.25rem;
+}
+
+.meesa-timeline-step__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--meesa-text);
+    margin-bottom: 0.5rem;
+}
+
+/* Interactive Map Container */
+.meesa-map-wrapper {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--meesa-card-border);
+    margin-bottom: 2.5rem;
+    box-shadow: var(--meesa-shadow);
+}
+
+.meesa-map-wrapper iframe {
+    border: 0;
+    display: block;
+    width: 100%;
+    height: 450px;
+}
+
+/* Interactive Calculator */
+.meesa-calc-card {
+    background: var(--meesa-card-bg);
+    border: 1px solid var(--meesa-card-border);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.meesa-calc-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.25rem 0 1.75rem;
+}
+
+.meesa-calc-btn {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid var(--meesa-card-border);
+    color: var(--meesa-text);
+    padding: 0.65rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.meesa-calc-btn:hover,
+.meesa-calc-btn:focus-visible {
+    border-color: var(--meesa-emerald);
+    outline: 2px solid var(--meesa-focus);
+}
+
+.meesa-calc-btn.active {
+    background: var(--meesa-emerald);
+    color: #ffffff;
+}
+
+.meesa-calc-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    background: rgba(9, 19, 14, 0.6);
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.meesa-calc-res-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.meesa-calc-res-val {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--meesa-emerald);
+    font-family: var(--font-mono);
+}
+
+.meesa-calc-res-lbl {
+    font-size: 0.85rem;
+    color: var(--meesa-text-dim);
+}
+
+/* Packing Checklist */
+.meesa-checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+
+.meesa-check-item {
+    background: rgba(9, 19, 14, 0.5);
+    border: 1px solid var(--meesa-card-border);
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.meesa-check-item:hover,
+.meesa-check-item:focus-within {
+    border-color: var(--meesa-emerald);
+}
+
+.meesa-check-item.checked {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: var(--meesa-emerald);
+}
+
+.meesa-check-item input[type="checkbox"] {
+    accent-color: var(--meesa-emerald);
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: 0.15rem;
+    cursor: pointer;
+}
+
+.meesa-check-item__name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--meesa-text);
+}
+
+.meesa-check-item__reason {
+    font-size: 0.82rem;
+    color: var(--meesa-text-dim);
+    margin-top: 0.2rem;
+}
+
+/* Photo Gallery & Lightbox */
+.meesa-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.meesa-gallery-card {
+    background: var(--meesa-card-bg);
+    border: 1px solid var(--meesa-card-border);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.meesa-gallery-card:hover,
+.meesa-gallery-card:focus-visible {
+    border-color: var(--meesa-emerald);
+    transform: translateY(-4px);
+    outline: 2px solid var(--meesa-focus);
+}
+
+.meesa-gallery-img-wrap {
+    height: 200px;
+    background: rgba(16, 185, 129, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.meesa-gallery-img-wrap svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.meesa-gallery-card__body {
+    padding: 1.25rem;
+}
+
+.meesa-gallery-card__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--meesa-text);
+}
+
+.meesa-gallery-card__sub {
+    font-size: 0.85rem;
+    color: var(--meesa-text-dim);
+    margin-top: 0.25rem;
+}
+
+.meesa-gallery-card__credit {
+    font-size: 0.78rem;
+    color: var(--meesa-emerald);
+    margin-top: 0.75rem;
+    font-style: italic;
+}
+
+/* Lightbox Dialog */
+.meesa-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1.5rem;
+}
+
+.meesa-lightbox[hidden] {
+    display: none;
+}
+
+.meesa-lightbox-dialog {
+    background: var(--meesa-bg-alt);
+    border: 1px solid var(--meesa-emerald);
+    border-radius: 16px;
+    max-width: 600px;
+    width: 100%;
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+.meesa-lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: var(--meesa-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+}
+
+.meesa-lightbox-close:hover,
+.meesa-lightbox-close:focus-visible {
+    background: rgba(16, 185, 129, 0.2);
+    outline: 2px solid var(--meesa-focus);
+}
+
+.meesa-lightbox-emoji {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.meesa-lightbox-h {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--meesa-text);
+}
+
+.meesa-lightbox-caption {
+    color: var(--meesa-text-dim);
+    font-size: 1rem;
+    margin-top: 0.75rem;
+    line-height: 1.5;
+}
+
+.meesa-lightbox-credit {
+    font-size: 0.85rem;
+    color: var(--meesa-emerald);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* Footer */
+.meesa-footer {
+    border-top: 1px solid var(--meesa-card-border);
+    padding: 2.5rem 0;
+    text-align: center;
+    color: var(--meesa-text-dim);
+    font-size: 0.9rem;
+    background: var(--meesa-bg-alt);
+}
+
+.meesa-footer-brand {
+    font-weight: 700;
+    color: var(--meesa-emerald);
+    margin-bottom: 0.25rem;
+}
+
+/* Skip Link */
+.meesa-skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    background: var(--meesa-emerald);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    z-index: 1000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.meesa-skip-link:focus {
+    top: 1rem;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .meesa-hero {
+        padding: 2.5rem 0 2rem;
+    }
+    
+    .meesa-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .meesa-timeline {
+        padding-left: 1.5rem;
+    }
+
+    .meesa-map-wrapper iframe {
+        height: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    .meesa-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .meesa-calc-controls {
+        flex-direction: column;
+    }
+
+    .meesa-calc-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

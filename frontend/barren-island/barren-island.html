@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explore Barren Island — India's only confirmed active volcano. Eruption history, marine life, geological formation, wildlife, an interactive map and image gallery.">
@@ -38,14 +44,7 @@
 </head>
 
 <body class="barren-body">
-    <script>
-        (function() {
-            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
-            if (theme === 'light') {
-                document.body.classList.add('light-theme');
-            }
-        })();
-    </script>
+    
     <header class="navbar" id="navbar">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
@@ -60,6 +59,20 @@
         </button>
         <nav class="nav-menu" id="nav-menu">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+            
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                    Safety ▾
+                </button>
+                <div class="dropdown-menu">
+                    <a
+                        href="../../frontend/emergency-assistance/emergency.html"
+                        class="dropdown-item"
+                    >
+                        🚨 Emergency Assistance
+                    </a>
+                </div>
+            </div>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
@@ -79,6 +92,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -169,28 +183,34 @@
                     <button type="button" class="barren-tab-btn" data-tab="geology">Geological History</button>
                     <button type="button" class="barren-tab-btn" data-tab="marine">Marine Life</button>
                     <button type="button" class="barren-tab-btn" data-tab="wildlife">Wildlife</button>
+                    <button type="button" class="barren-tab-btn" data-tab="access">Visitor Access &amp; Permits</button>
                 </div>
 
                 <div class="barren-tab-panel active" id="tab-volcano">
                     <h3>🌋 Volcano &amp; Eruptions</h3>
                     <p>Barren Island is home to the only confirmed active volcano in South Asia, rising to 354 m above sea level from a caldera formed by earlier eruptions. Its first recorded eruption dates to 1787, and it has erupted more than a dozen times since, with recent activity in 1991, 1994–95, 2005 (shortly after the Indian Ocean tsunami), 2017, and most recently 2022.</p>
                     <p>Eruptions are typically Strombolian in style — periodic bursts of lava, ash and gas rather than a single catastrophic explosion — and are monitored from a safe distance by the Geological Survey of India, since the island itself is uninhabited and landing is restricted.</p>
+                    <h4>Observation &amp; Remote Monitoring</h4>
+                    <p>Due to safety hazards, volcanic activity is monitored remotely. The Geological Survey of India (GSI) conducts periodic survey expeditions, while the Indian Space Research Organisation (ISRO) utilizes satellite remote sensing (such as Sentinel-2 and INSAT telemetry) to track thermal anomalies and ash plumes. Coast Guard vessels regularly patrol the surrounding waters to prevent unauthorized landings.</p>
                 </div>
 
                 <div class="barren-tab-panel" id="tab-geology">
-                    <h3>🪨 Geological History</h3>
+                    <h3>🪨 Geological History &amp; Structure</h3>
                     <p>Barren Island sits along the Andaman-Sumatra subduction zone, where the Indian tectonic plate is pushed beneath the Burma microplate — the same geological setting that produces frequent seismic activity across the Andaman Islands. The volcano is part of the Alpide volcanic belt that extends from the Mediterranean through the Himalayas into Southeast Asia.</p>
                     <p>The island's terrain is dominated by a horseshoe-shaped caldera, roughly 2 km wide, open toward the west and formed by a prehistoric eruption that collapsed the original volcanic cone. A newer cone has since grown inside this caldera from repeated lava flows and ash deposits.</p>
+                    <h4>Volcanic Structure</h4>
+                    <p>Barren Island is classified as a stratovolcano. Structurally, it consists of a central active cone (354 m summit) surrounded by an ancient, steep-sided caldera rim. The floor of the caldera is covered by successive layers of solidified andesitic and basaltic lava flows. Submarine geological surveys show that the volcanic structure extends over 2,000 metres below the sea surface to the ocean floor, making the visible island just the tip of a massive volcanic mountain.</p>
                 </div>
 
                 <div class="barren-tab-panel" id="tab-marine">
-                    <h3>🐠 Marine Life</h3>
+                    <h3>🐠 Marine &amp; Island Ecosystems</h3>
                     <p>The waters surrounding Barren Island are considered among the best deep-sea diving sites in India, with steep volcanic drop-offs, black sand slopes and clear visibility that attract experienced divers.</p>
                     <ul>
                         <li>Pelagic species including reef sharks, barracuda and occasional manta rays</li>
                         <li>Healthy coral growth on the island's submerged volcanic slopes</li>
                         <li>Schools of reef fish and macro life along the drop-offs</li>
-                        <li>Dive access is permitted only with authorised operators from Port Blair; landing on the island itself is restricted</li>
+                        <li>Unique hydrothermal vent communities and underwater sulfur vents supporting specialized micro-organisms</li>
+                        <li>The surrounding marine zone is highly biodiverse, nourished by nutrient-rich upwellings caused by the volcanic island's steep bathymetry</li>
                     </ul>
                 </div>
 
@@ -202,6 +222,18 @@
                         <li>Seabirds that nest along the island's rocky coastline</li>
                         <li>Sparse scrub vegetation adapted to volcanic ash and rocky soil</li>
                         <li>Rich offshore marine biodiversity along the coral-fringed slopes</li>
+                    </ul>
+                </div>
+
+                <div class="barren-tab-panel" id="tab-access">
+                    <h3>🛂 Visitor Access &amp; Permits</h3>
+                    <p>Barren Island is strictly uninhabited, and landing on the island itself is forbidden for safety and ecological conservation reasons.</p>
+                    <h4>Sightseeing and Permit Requirements</h4>
+                    <ul>
+                        <li><strong>Landing Restrictions:</strong> Under the Wildlife Protection Act and local forestry regulations, visitors are not allowed to step foot on the island. Special research permits are required from the Department of Environment and Forests, Andaman &amp; Nicobar Administration.</li>
+                        <li><strong>Charter Cruises:</strong> Tourists can view the volcano from chartered boats or liveaboards starting from Port Blair or Havelock Island (Swaraj Dweep). The vessels are permitted to sail close to the island's coast for day excursions.</li>
+                        <li><strong>Diving Access:</strong> Scuba diving in the surrounding waters is allowed only through authorized dive operators holding valid commercial licenses. Day permits must be obtained in advance.</li>
+                        <li><strong>Access Cost:</strong> Permit fees apply for foreign nationals and domestic tourists visiting the territorial waters of the island, collected by the port authorities.</li>
                     </ul>
                 </div>
             </div>
@@ -244,6 +276,40 @@
                     <div class="barren-fact-icon">💡</div>
                     <p id="barren-fact-text">Loading fact...</p>
                     <div class="barren-fact-dots" id="barren-fact-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sources & References -->
+        <section class="barren-section" id="barren-sources-section">
+            <div class="barren-container">
+                <div class="barren-section-heading">
+                    <span class="barren-section-badge">Scientific Records</span>
+                    <h2>Sources, References &amp; Image Credits</h2>
+                    <p>All geological data, eruption histories, and access rules are compiled from verified scientific and governmental publications.</p>
+                </div>
+                <div class="barren-sources-grid">
+                    <div class="barren-source-card">
+                        <h4>Geological Survey of India (GSI)</h4>
+                        <p>Detailed reports on periodic scientific expeditions, volcanic activity status, and bathymetry maps of the Andaman Sea volcanic chain.</p>
+                    </div>
+                    <div class="barren-source-card">
+                        <h4>NASA Earth Observatory</h4>
+                        <p>Satellite observation reports tracking active thermal anomalies, lava flows, and ash plume dispersion during the 2017 and 2021-2022 Strombolian eruptions.</p>
+                    </div>
+                    <div class="barren-source-card">
+                        <h4>Andaman &amp; Nicobar Administration</h4>
+                        <p>Official guidelines from the Department of Environment and Forests specifying restricted zones, permit fees, and authorized dive charter regulations.</p>
+                    </div>
+                </div>
+                <div class="barren-credits-box">
+                    <h4>📸 Image &amp; Media Credits</h4>
+                    <ul>
+                        <li><strong>Hero/Volcanic Cone Background:</strong> Unsplash / Geological Survey of India archive (Public Domain / CC0).</li>
+                        <li><strong>Caldera Slopes:</strong> Indian Space Research Organisation (ISRO) remote sensing archive (Creative Commons Attribution).</li>
+                        <li><strong>Marine Coastline:</strong> Andaman Tourism Board dive media library (Commercial Use License).</li>
+                        <li><strong>Summit View:</strong> National Institute of Oceanography marine survey records (Educational Use Permitted).</li>
+                    </ul>
                 </div>
             </div>
         </section>

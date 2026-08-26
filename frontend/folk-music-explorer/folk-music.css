@@ -1,0 +1,279 @@
+/* Interactive Indian Folk Music Explorer */
+:root {
+  --fm-saffron: #ff9933;
+  --fm-gold: #f4c95d;
+  --fm-green: #198754;
+  --fm-ink: #16221d;
+  --fm-muted: #6b756f;
+  --fm-surface: rgba(255,255,255,.92);
+  --fm-border: rgba(25,35,30,.12);
+  --fm-shadow: 0 18px 50px rgba(23,34,28,.12);
+}
+
+.music-hero {
+  min-height: 520px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(120deg, rgba(12,26,20,.88), rgba(12,26,20,.48)),
+    url("https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1800&q=85") center/cover;
+}
+.music-hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(920px, 92%);
+  text-align: center;
+  color: #fff;
+  padding: 90px 0 70px;
+}
+.eyebrow {
+  color: var(--fm-saffron);
+  font-size: .76rem;
+  letter-spacing: .18em;
+  font-weight: 800;
+}
+.music-hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.7rem, 7vw, 5.5rem);
+  line-height: 1.02;
+  margin: 16px 0 18px;
+}
+.music-hero p {
+  max-width: 700px;
+  margin: auto;
+  color: rgba(255,255,255,.88);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.fm-shell {
+  width: min(1240px, 92%);
+  margin: 0 auto;
+  padding: 64px 0 90px;
+}
+.fm-heading-row {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+.fm-heading-row h2 {
+  margin: 8px 0 4px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+.fm-heading-row p { margin: 0; color: var(--fm-muted); }
+.fm-clear-btn {
+  border: 1px solid var(--fm-border);
+  background: transparent;
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.fm-controls {
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr);
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid var(--fm-border);
+  border-radius: 22px;
+  background: var(--fm-surface);
+  box-shadow: var(--fm-shadow);
+}
+.fm-controls label { display: grid; gap: 7px; }
+.fm-controls label > span {
+  font-size: .75rem;
+  font-weight: 800;
+  color: var(--fm-muted);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.fm-controls input,
+.fm-controls select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid var(--fm-border);
+  border-radius: 12px;
+  padding: 0 13px;
+  background: rgba(255,255,255,.8);
+  color: inherit;
+  outline: none;
+}
+.fm-controls input:focus,
+.fm-controls select:focus { border-color: var(--fm-saffron); box-shadow: 0 0 0 3px rgba(255,153,51,.15); }
+
+.active-filters {
+  min-height: 42px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 12px 0;
+}
+.filter-chip {
+  border: 0;
+  background: rgba(255,153,51,.12);
+  color: #9a5712;
+  border-radius: 999px;
+  padding: 7px 11px;
+  cursor: pointer;
+}
+
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.music-card {
+  overflow: hidden;
+  border: 1px solid var(--fm-border);
+  border-radius: 22px;
+  background: var(--fm-surface);
+  box-shadow: 0 10px 30px rgba(20,35,25,.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.music-card:hover { transform: translateY(-7px); box-shadow: var(--fm-shadow); }
+.music-card-image {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  background: #dfe8e2;
+}
+.music-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.favorite-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0,0,0,.52);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+.favorite-btn.is-favorite { color: #ffcc5c; }
+.music-card-body { padding: 20px; }
+.music-card-body h3 { margin: 8px 0 5px; font-size: 1.35rem; }
+.music-meta { color: var(--fm-muted); font-size: .9rem; }
+.badges { display: flex; gap: 7px; flex-wrap: wrap; }
+.badge {
+  display: inline-flex;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(25,135,84,.1);
+  color: var(--fm-green);
+  font-size: .72rem;
+  font-weight: 800;
+}
+.music-card-body p {
+  color: var(--fm-muted);
+  line-height: 1.65;
+  margin: 12px 0 18px;
+}
+.card-actions { display: flex; gap: 9px; }
+.fm-btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 11px 15px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.fm-btn-primary { background: var(--fm-saffron); color: #24170d; }
+.fm-btn-ghost { background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.3); }
+.fm-btn-small { background: #17352a; color: #fff; flex: 1; }
+
+.empty-state {
+  text-align: center;
+  padding: 70px 20px;
+  border: 1px dashed var(--fm-border);
+  border-radius: 22px;
+}
+.empty-icon { font-size: 3rem; }
+.empty-state p { color: var(--fm-muted); }
+
+.music-modal[hidden] { display: none; }
+.music-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+.modal-backdrop { position: absolute; inset: 0; background: rgba(3,10,7,.78); backdrop-filter: blur(5px); }
+.music-modal-card {
+  position: relative;
+  z-index: 1;
+  width: min(900px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  border-radius: 26px;
+  background: #fff;
+  color: #16221d;
+  box-shadow: 0 30px 100px rgba(0,0,0,.35);
+}
+.modal-close {
+  position: absolute;
+  top: 13px;
+  right: 15px;
+  z-index: 2;
+  border: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.modal-image { width: 100%; height: 320px; object-fit: cover; display: block; }
+.modal-content { padding: 28px; }
+.modal-content h2 { margin: 5px 0; font-family: "Playfair Display", serif; font-size: 2.3rem; }
+.modal-content h3 { margin-top: 25px; }
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 20px;
+}
+.detail-box {
+  padding: 15px;
+  border-radius: 15px;
+  background: #f5f8f5;
+}
+.detail-box strong { display: block; margin-bottom: 6px; font-size: .78rem; text-transform: uppercase; color: var(--fm-muted); }
+.instrument-list { display: flex; gap: 7px; flex-wrap: wrap; }
+.audio-player { width: 100%; margin-top: 12px; }
+
+@media (max-width: 1050px) {
+  .fm-controls { grid-template-columns: repeat(2, 1fr); }
+  .search-control { grid-column: 1 / -1; }
+  .music-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .music-hero { min-height: 590px; }
+  .fm-heading-row { align-items: start; flex-direction: column; }
+  .fm-controls { grid-template-columns: 1fr; }
+  .search-control { grid-column: auto; }
+  .music-grid { grid-template-columns: 1fr; }
+  .detail-grid { grid-template-columns: 1fr; }
+  .modal-image { height: 220px; }
+}

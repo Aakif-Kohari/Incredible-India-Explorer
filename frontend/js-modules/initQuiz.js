@@ -61,6 +61,11 @@ function initQuiz() {
             [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
         }
 
+        const dishImage = document.getElementById('quiz-dish-image');
+        if (dishImage) {
+            dishImage.style.display = 'none';
+        }
+
         if (progressFill) progressFill.style.width = ((currentQuestionIndex + 1) / quizQuestions.length * 100) + '%';
         if (questionText) questionText.innerText = q.question;
 
