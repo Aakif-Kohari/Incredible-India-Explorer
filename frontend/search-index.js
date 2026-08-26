@@ -122,6 +122,13 @@ window.indiaSearchIndex = [
         url: 'frontend/agasthyarkoodam-trek/index.html'
     },
     {
+    title: "IndiGo: Explore India's Modern Aviation Brand",
+    category: "Indian Brands",
+    description:
+        "Explore IndiGo's journey from a 2006 startup to India's largest airline — fleet evolution, route expansion, and brand identity.",
+    url: "frontend/indigo-aviation-brand/index.html"
+    },
+  {
         title: "Pattachitra — Odisha's Traditional Scroll Painting",
         category: "Art & Craft Traditions",
         description:
