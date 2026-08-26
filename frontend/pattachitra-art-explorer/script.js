@@ -1,8 +1,9 @@
-/* Pattachitra Explorer Logic - Includes Pan & Zoom Viewer */
+/* Pattachitra Explorer Logic - Includes Step-by-Step Process Timeline and Pan & Zoom Viewer */
 function init() {
     setupTabs();
     setupThemeToggle();
     setupBookmark();
+    setupTimeline();
     setupInteractiveViewer();
     setupJourneyIntegration();
 }
@@ -40,9 +41,30 @@ function setupBookmark() {
     updateBtn();
     btn.addEventListener('click', () => {
         if (window.Journey) {
-            window.Journey.toggle({ id, explorerPage: 'frontend/pattachitra-art-explorer/index.html', title: 'Pattachitra Art', thumbnail: 'https://placehold.co/100/d97706/fff', category: 'art' });
+            window.Journey.toggle({ id, explorerPage: 'frontend/pattachitra-art-explorer/index.html', title: 'Pattachitra Art', thumbnail: 'https://placehold.co/100/4338ca/fff', category: 'art' });
             updateBtn();
         }
+    });
+}
+
+/**
+ * Interactive Step-by-Step Timeline for the Pattachitra painting process.
+ * Allows users to click through the stages of creating a Pattachitra scroll.
+ */
+function setupTimeline() {
+    const steps = document.querySelectorAll('.timeline-step');
+
+    steps.forEach((step) => {
+        step.addEventListener('click', () => {
+            const stepIndex = step.dataset.step;
+
+            steps.forEach(s => s.classList.remove('active'));
+            step.classList.add('active');
+
+            document.querySelectorAll('.timeline-detail').forEach(d => d.classList.remove('active'));
+            const targetDetail = document.getElementById(`detail-${stepIndex}`);
+            if (targetDetail) targetDetail.classList.add('active');
+        });
     });
 }
 
