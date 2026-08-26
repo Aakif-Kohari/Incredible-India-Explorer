@@ -6442,6 +6442,13 @@ window.indiaSearchIndex = [
         url: "frontend/lava-kusha-story/index.html"
     },
 
+    // --- Kannappa Nayanar Story (#3697) ---
+    {
+        title: "Kannappa Nayanar — Devotion Beyond Ritual",
+        category: "Culture & Literature",
+        description:
+            "Explore the traditional story of Kannappa Nayanar (Thinnan): hunter-devotee of Shiva at Srikalahasti, the 63 Nayanars, and bhakti beyond ritual.",
+        url: "frontend/kannappa-nayanar-story/index.html"},
     // --- Markandeya Story (#3696) ---
     {
         title: "Markandeya — The Sage Who Defied Death",
