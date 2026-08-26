@@ -9,7 +9,31 @@ window.indiaSearchIndex = [
         category: 'Geology & Disasters',
         description:
             'Explore Severe Cyclonic Storm Remal (May 2024): 135 km/h gusts, Sagar Island to Khepupara landfall, Sundarbans mangrove buffer, 207,000+ evacuations in West Bengal, and 5-day lead-time early warning performance.',
-        url: 'frontend/cyclone-remal-2024/index.html'
+        url: 'frontend/cyclone-remal-2024/index.html'},
+  {
+        title: 'Cyclone Michaung 2023 — Storm Dossier & Urban Flooding Case Study',
+        category: 'Geology & Disasters',
+        description:
+            'Explore Severe Cyclonic Storm Michaung (December 2023): interactive Bay of Bengal track scrubber, Chennai extreme rainfall & urban flooding analysis, Bapatla landfall, and disaster relief response.',
+        url: 'frontend/cyclone-michaung-2023/index.html'},
+  {
+        title: 'Western Ghats — Landslide Hazard Profile & Geological Analysis',
+        title: 'The Megalithic Heritage of India — Prehistoric Stone Monuments',
+        category: 'Ancient History & Archaeology',
+        description:
+            'Explore India’s prehistoric megalithic monuments: Hirebenkal port-hole dolmens, Vidarbha stone circles, Adichanallur urn burials, Kerala topikal umbrella stones, and the living monolith tradition of Meghalaya.',
+        url: 'frontend/megalithic-heritage-explorer/index.html'},
+  {     title: 'Western Ghats — Landslide Hazard Profile & Geological Analysis',
+        category: 'Geology & Disasters',
+        description:
+            'Explore the landslide hazard of the Western Ghats: 1,600 km escarpment geology, interactive slope failure simulator, orographic monsoon rainfall, 7 chronic hotspots, and GSI early-warning networks.',
+        url: 'frontend/western-ghats-landslide-hazard/index.html'},
+  {
+        title: 'The 1999 Odisha Super Cyclone — The Storm That Rewrote Disaster Management',
+        category: 'Geology & Disasters',
+        description:
+            'Explore the 1999 Odisha Super Cyclone (BOB 06): 912 hPa barometric collapse, 260 km/h winds, 5-8m storm surge, coastal district impact map, and Odisha’s institutional turnaround in disaster resilience.',
+        url: 'frontend/odisha-super-cyclone-1999/index.html'
     },
     {
         title: 'Maitreyi — The Philosopher Who Chose Knowledge Over Material Wealth',
