@@ -10,6 +10,7 @@ window.indiaSearchIndex = [
         description:
             'Explore the philosophical dialogue of Maitreyi from the Brihadaranyaka Upanishad — the Vedic Brahmavadini who asked what to do with wealth that cannot grant immortality.',
         url: 'frontend/maitreyi-philosopher/index.html'},
+    {
         title: 'Gargi Vachaknavi — The Philosopher Who Challenged the Scholars of Ancient India',
         category: 'Historical & Cultural Profiles',
         description:
@@ -122,6 +123,13 @@ window.indiaSearchIndex = [
         url: 'frontend/agasthyarkoodam-trek/index.html'
     },
     {
+    title: "Asian Paints: Explore India's Paint and Design Brand",
+    category: "Indian Brands",
+    description:
+        "Explore Asian Paints' journey from a 1942 garage startup to India's largest paint company — product categories, brand milestones, and colour campaigns.",
+    url: "frontend/asian-paints-brand/index.html"
+    },
+  {
     title: "IndiGo: Explore India's Modern Aviation Brand",
     category: "Indian Brands",
     description:
