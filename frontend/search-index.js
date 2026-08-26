@@ -11,6 +11,12 @@ window.indiaSearchIndex = [
             'Explore Severe Cyclonic Storm Michaung (December 2023): interactive Bay of Bengal track scrubber, Chennai extreme rainfall & urban flooding analysis, Bapatla landfall, and disaster relief response.',
         url: 'frontend/cyclone-michaung-2023/index.html'},
   {
+        title: 'Western Ghats — Landslide Hazard Profile & Geological Analysis',
+        category: 'Geology & Disasters',
+        description:
+            'Explore the landslide hazard of the Western Ghats: 1,600 km escarpment geology, interactive slope failure simulator, orographic monsoon rainfall, 7 chronic hotspots, and GSI early-warning networks.',
+        url: 'frontend/western-ghats-landslide-hazard/index.html'},
+  {
         title: 'The 1999 Odisha Super Cyclone — The Storm That Rewrote Disaster Management',
         category: 'Geology & Disasters',
         description:
