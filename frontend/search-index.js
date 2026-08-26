@@ -6440,5 +6440,14 @@ window.indiaSearchIndex = [
         description:
             "Explore the story of Lava and Kusha \u2014 the young twin princes of Ayodhya, their upbringing in Valmiki ashram, singing the Ramayana, and Ashwamedha valor.",
         url: "frontend/lava-kusha-story/index.html"
+    },
+
+    // --- Uttarakhand Floods 2013 (#3540) ---
+    {
+        title: "Uttarakhand Floods 2013 \u2014 Himalayan Catastrophe & Lessons",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 2013 Uttarakhand flood disaster: extreme monsoon rainfall, Chorabari Tal glacial lake breach, Kedarnath devastation, Mandakini and Alaknanda valley impacts, Operation Surya Hope rescue, and disaster preparedness lessons.",
+        url: "frontend/uttarakhand-floods-2013/index.html"
     }
 ];
