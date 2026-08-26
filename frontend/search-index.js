@@ -6442,6 +6442,13 @@ window.indiaSearchIndex = [
         url: "frontend/lava-kusha-story/index.html"
     },
 
+    // --- Dhruva Story (#3693) ---
+    {
+        title: "Dhruva — The Child Who Reached the Stars",
+        category: "Culture & Literature",
+        description:
+            "Explore the Puranic story of Dhruva: family, the throne-room slight, forest penance, themes of perseverance and devotion, and the traditional belief linking him with Dhruva Tara, the Pole Star.",
+        url: "frontend/dhruva-story/index.html"},
     // --- Uttarakhand Floods 2013 (#3540) ---
     {
         title: "Uttarakhand Floods 2013 \u2014 Himalayan Catastrophe & Lessons",
