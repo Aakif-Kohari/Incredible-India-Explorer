@@ -6506,5 +6506,13 @@ window.indiaSearchIndex = [
         description:
             "Explore the Stone Age tool discoveries of Didwana, Rajasthan: Lower, Middle and Upper Palaeolithic tool types, quartzite and sandstone raw materials, dune-section discovery context, and their scientific significance for dating early human occupation in the Thar Desert.",
         url: "frontend/didwana-stone-age-tools/index.html"
+    },
+    // --- Prehistoric Paisra Site (#3789) ---
+    {
+        title: "Prehistoric Paisra Site \u2014 Palaeolithic Bihar",
+        category: "Archaeological Excavations",
+        description:
+            "Explore the prehistoric Paisra site in Munger district, Bihar: its Kharagpur hills location, in-situ Lower Palaeolithic living surface and possible hut feature, handaxe and cleaver stone tools, site chronology, and regional context within eastern Indian Palaeolithic settlement.",
+        url: "frontend/paisra-prehistoric-site/index.html"
     }
 ];
