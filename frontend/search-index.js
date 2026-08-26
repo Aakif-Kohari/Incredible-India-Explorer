@@ -9,7 +9,13 @@ window.indiaSearchIndex = [
         category: 'Ancient History & Archaeology',
         description:
             'Explore India’s prehistoric megalithic monuments: Hirebenkal port-hole dolmens, Vidarbha stone circles, Adichanallur urn burials, Kerala topikal umbrella stones, and the living monolith tradition of Meghalaya.',
-        url: 'frontend/megalithic-heritage-explorer/index.html'
+        url: 'frontend/megalithic-heritage-explorer/index.html'},
+  {
+        title: 'The 1999 Odisha Super Cyclone — The Storm That Rewrote Disaster Management',
+        category: 'Geology & Disasters',
+        description:
+            'Explore the 1999 Odisha Super Cyclone (BOB 06): 912 hPa barometric collapse, 260 km/h winds, 5-8m storm surge, coastal district impact map, and Odisha’s institutional turnaround in disaster resilience.',
+        url: 'frontend/odisha-super-cyclone-1999/index.html'
     },
     {
         title: 'Maitreyi — The Philosopher Who Chose Knowledge Over Material Wealth',
@@ -6505,5 +6511,37 @@ window.indiaSearchIndex = [
         description:
             "Explore the 2013 Uttarakhand flood disaster: extreme monsoon rainfall, Chorabari Tal glacial lake breach, Kedarnath devastation, Mandakini and Alaknanda valley impacts, Operation Surya Hope rescue, and disaster preparedness lessons.",
         url: "frontend/uttarakhand-floods-2013/index.html"
+    },
+    // --- Stone Age Tool Discoveries of Didwana (#3790) ---
+    {
+        title: "Stone Age Tool Discoveries of Didwana \u2014 Prehistoric Rajasthan",
+        category: "Archaeological Excavations",
+        description:
+            "Explore the Stone Age tool discoveries of Didwana, Rajasthan: Lower, Middle and Upper Palaeolithic tool types, quartzite and sandstone raw materials, dune-section discovery context, and their scientific significance for dating early human occupation in the Thar Desert.",
+        url: "frontend/didwana-stone-age-tools/index.html"
+    },
+    // --- Prehistoric Paisra Site (#3789) ---
+    {
+        title: "Prehistoric Paisra Site \u2014 Palaeolithic Bihar",
+        category: "Archaeological Excavations",
+        description:
+            "Explore the prehistoric Paisra site in Munger district, Bihar: its Kharagpur hills location, in-situ Lower Palaeolithic living surface and possible hut feature, handaxe and cleaver stone tools, site chronology, and regional context within eastern Indian Palaeolithic settlement.",
+        url: "frontend/paisra-prehistoric-site/index.html"
+    },
+    // --- Acheulean Stone Technology in India (#3791) ---
+    {
+        title: "Acheulean Stone Technology in India \u2014 Prehistoric Overview",
+        category: "Archaeological Excavations",
+        description:
+            "Explore Acheulean stone tool technology across prehistoric India: handaxes, cleavers, major archaeological sites such as Attirampakkam, Hunsgi-Isampur, Bhimbetka, Chirki-Nevasa, Didwana and Paisra, a technology timeline, and an interactive map of key sites.",
+        url: "frontend/acheulean-stone-technology/index.html"
+    },
+    // --- Mesolithic Sites Across India (#3792) ---
+    {
+        title: "Mesolithic Sites Across India \u2014 Microliths & Rock Art",
+        category: "Archaeological Excavations",
+        description:
+            "Explore major Mesolithic sites across India including Bhimbetka, Bagor, Sarai Nahar Rai, Langhnaj, Adamgarh and Tilwara: microlithic stone tools, settlement and burial evidence, rock art, chronology, and an interactive map of key sites.",
+        url: "frontend/mesolithic-sites-india/index.html"
     }
 ];
