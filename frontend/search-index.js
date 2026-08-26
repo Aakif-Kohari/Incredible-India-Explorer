@@ -6562,6 +6562,13 @@ window.indiaSearchIndex = [
             "Explore major Mesolithic sites across India including Bhimbetka, Bagor, Sarai Nahar Rai, Langhnaj, Adamgarh and Tilwara: microlithic stone tools, settlement and burial evidence, rock art, chronology, and an interactive map of key sites.",
         url: "frontend/mesolithic-sites-india/index.html"
     },
+    // --- feat/krishna-kaliya-story ---
+    {
+        title: "Add Krishna and Kaliya \u2014 The Serpent of the Yamuna",
+        category: "Culture & Literature",
+        description:
+            "Explore the story of Krishna and Kaliya \u2014 the dramatic encounter at Kaliya Ghat on the Yamuna, the cosmic dance upon the serpent hoods, and ecological cleansing.",
+        url: "frontend/krishna-kaliya-story/index.html"},
     // --- feat/hanumans-leap-to-lanka ---
     {
         title: "Add Hanuman's Leap to Lanka \u2014 The Journey Across the Ocean",
