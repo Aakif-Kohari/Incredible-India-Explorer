@@ -6590,5 +6590,14 @@ window.indiaSearchIndex = [
         description:
             "Explore the legendary story of Hanuman and Sanjeevani \u2014 the desperate quest across the Himalayas to retrieve the life-saving herb and revive Lakshmana.",
         url: "frontend/hanuman-sanjeevani-story/index.html"
+    },
+
+    // --- Pundalik and Vithoba Story (#3698) ---
+    {
+        title: "Pundalik and Vithoba — The Story Behind Pandharpur",
+        category: "Culture & Literature",
+        description:
+            "Explore the traditional story of Pundalik and Vithoba: the waiting Lord on the brick, Pandharpur on the Chandrabhaga, and the Warkari pilgrimage.",
+        url: "frontend/pundalik-vithoba-story/index.html"
     }
 ];
