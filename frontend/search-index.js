@@ -9,7 +9,13 @@ window.indiaSearchIndex = [
         category: 'Geology & Disasters',
         description:
             'Explore the landslide hazard of the Western Ghats: 1,600 km escarpment geology, interactive slope failure simulator, orographic monsoon rainfall, 7 chronic hotspots, and GSI early-warning networks.',
-        url: 'frontend/western-ghats-landslide-hazard/index.html'
+        url: 'frontend/western-ghats-landslide-hazard/index.html'},
+  {
+        title: 'The 1999 Odisha Super Cyclone — The Storm That Rewrote Disaster Management',
+        category: 'Geology & Disasters',
+        description:
+            'Explore the 1999 Odisha Super Cyclone (BOB 06): 912 hPa barometric collapse, 260 km/h winds, 5-8m storm surge, coastal district impact map, and Odisha’s institutional turnaround in disaster resilience.',
+        url: 'frontend/odisha-super-cyclone-1999/index.html'
     },
     {
         title: 'Maitreyi — The Philosopher Who Chose Knowledge Over Material Wealth',
