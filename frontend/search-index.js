@@ -6514,5 +6514,13 @@ window.indiaSearchIndex = [
         description:
             "Explore the prehistoric Paisra site in Munger district, Bihar: its Kharagpur hills location, in-situ Lower Palaeolithic living surface and possible hut feature, handaxe and cleaver stone tools, site chronology, and regional context within eastern Indian Palaeolithic settlement.",
         url: "frontend/paisra-prehistoric-site/index.html"
+    },
+    // --- Acheulean Stone Technology in India (#3791) ---
+    {
+        title: "Acheulean Stone Technology in India \u2014 Prehistoric Overview",
+        category: "Archaeological Excavations",
+        description:
+            "Explore Acheulean stone tool technology across prehistoric India: handaxes, cleavers, major archaeological sites such as Attirampakkam, Hunsgi-Isampur, Bhimbetka, Chirki-Nevasa, Didwana and Paisra, a technology timeline, and an interactive map of key sites.",
+        url: "frontend/acheulean-stone-technology/index.html"
     }
 ];
