@@ -1,0 +1,54 @@
+// Indian Mathematics & Scientific Heritage — Data Module
+
+const MATHEMATICAL_CONTRIBUTIONS = [
+  { id: "zero", name: "Zero (Śūnya)", discoverer: "Brahmagupta", period: "628 CE", description: "India gave the world zero — not just as a placeholder, but as a number with its own properties. Brahmagupta's Brahmasphutasiddhanta defined zero's arithmetic operations.", impact: "Foundation of all modern mathematics, computing, and digital technology.", significance: 100, color: "#f59e0b" },
+  { id: "decimal", name: "Decimal System", discoverer: "Ancient Indian mathematicians", period: "500 BCE – 200 CE", description: "The place-value decimal system (base-10) with digits 0-9 originated in India. The system was transmitted to the Arab world and then to Europe.", impact: "Universal number system used by all of humanity today.", significance: 99, color: "#ef4444" },
+  { id: "numerals", name: "Indian Numerals", discoverer: "Brahmi numerals → Indian numerals", period: "300 BCE", description: "Our modern digits 0,1,2,3,4,5,6,7,8,9 evolved from Brahmi numerals. Arabic scholars called them 'Hindu numerals' — Europeans mistakenly called them 'Arabic numerals'.", impact: "Every number written anywhere in the world uses Indian numerals.", significance: 98, color: "#8b5cf6" },
+  { id: "infinity", name: "Concept of Infinity (Ananta)", discoverer: "Ancient Vedic mathematicians", period: "1500 BCE", description: "The Rig Veda's Nasadiya Sukta explores infinite creation. Jaina mathematicians formalized different types of infinity (pūrṇa) centuries before Cantor.", impact: "Foundation of set theory, calculus, and modern mathematical analysis.", significance: 85, color: "#06b6d4" },
+  { id: "pi", name: "Approximation of Pi (π)", discoverer: "Aryabhata", period: "499 CE", description: "Aryabhata calculated π = 3.1416 (accurate to 4 decimal places). Madhava later computed π to 11 decimal places (1400 CE), centuries before European mathematicians.", impact: "Essential for geometry, trigonometry, physics, and engineering.", significance: 88, color: "#22c55e" },
+  { id: "trigonometry", name: "Trigonometry (Jya-ganita)", discoverer: "Aryabhata", period: "499 CE", description: "Aryabhata introduced sine (jya), cosine (kojya), and inverse sine (vikrama-jya). The very word 'sine' derives from Sanskrit 'jya' through Arabic.", impact: "Foundation of navigation, engineering, physics, and music.", significance: 82, color: "#ec4899" },
+  { id: "algebra", name: "Algebra (Bījagaṇita)", discoverer: "Brahmagupta & Bhaskara II", period: "628 CE & 1150 CE", description: "Brahmagupta solved quadratic equations and introduced negative numbers. Bhaskara II's Lilavati and Bījagaṇita laid foundations for modern algebra.", impact: "Every equation solved today uses Indian algebraic methods.", significance: 80, color: "#f97316" },
+  { id: "calculus", name: "Calculus (Kerala School)", discoverer: "Madhava & Kerala School", period: "1350–1600 CE", description: "Madhava of Sangamagrama developed infinite series for π, sin, and cos — 250 years before Newton/Leibniz. The Kerala School produced a complete system of calculus.", impact: "Foundation of physics, engineering, and all modern science.", significance: 95, color: "#3b82f6" },
+  { id: "large_numbers", name: "Large Numbers (Koti)", discoverer: "Pingala & Yajurveda", period: "500 BCE", description: "The Yajurveda names powers of 10 up to 10^12 (trillion). Pingala's Chandaḥśāstra used binary-like systems. India counted to trillions when Europe barely counted to thousands.", impact: "Foundation of combinatorics, information theory, and computing.", significance: 78, color: "#a855f7" },
+  { id: "negative_numbers", name: "Negative Numbers", discoverer: "Brahmagupta", period: "628 CE", description: "Brahmagupta was the first to systematically use negative numbers and define arithmetic operations with them. Europe didn't accept negatives until the 17th century.", impact: "Essential for accounting, temperature, elevation, and all science.", significance: 82, color: "#64748b" },
+];
+
+const ASTRONOMICAL_ACHIEVEMENTS = [
+  { name: "Earth's Rotation", discoverer: "Aryabhata", period: "499 CE", description: "Aryabhata correctly stated that Earth rotates on its axis — 1,000 years before Copernicus. He calculated Earth's circumference as 39,968 km (actual: 40,075 km).", accuracy: 98, color: "#3b82f6" },
+  { name: "Heliocentric Model Hint", discoverer: "Aryabhata", period: "499 CE", description: "While not fully heliocentric, Aryabhata's model implied planetary motion without the Earth being stationary — a revolutionary concept for the 5th century.", accuracy: 70, color: "#f59e0b" },
+  { name: "Eclipse Prediction", discoverer: "Varahamihira", period: "550 CE", description: "Varahamihira accurately predicted solar and lunar eclipses using mathematical models. His Pancha-Siddhantika synthesized five astronomical systems.", accuracy: 85, color: "#22c55e" },
+  { name: "Gravitational Concept", discoverer: "Brahmagupta", period: "628 CE", description: "Brahmagupta described gravity: 'Bodies fall towards the earth as it is in the nature of the earth to attract bodies.' Newton's gravity, 1000 years early.", accuracy: 60, color: "#ef4444" },
+  { name: "Moon's Shadow = Eclipse", discoverer: "Aryabhata", period: "499 CE", description: "Aryabhata correctly explained solar eclipses as the Moon's shadow falling on Earth — rejecting the mythical 'Rahu' swallowing the Sun.", accuracy: 95, color: "#ec4899" },
+  { name: "Precession of Equinoxes", discoverer: "Aryabhata", period: "499 CE", description: "Aryabhata calculated Earth's axial precession (wobble) at 1° per century (actual: 1.4°). This explains the shifting of star positions over millennia.", accuracy: 72, color: "#8b5cf6" },
+];
+
+const SCIENTISTS = [
+  { name: "Aryabhata", era: "476–550 CE", field: "Mathematics & Astronomy", contribution: "Computed π to 4 decimals, Earth rotates on axis, sine tables, algebraic equations, Earth's circumference accurate to 99.3%. Author of Aryabhatiya.", notable: "Father of Indian mathematics", color: "#f59e0b" },
+  { name: "Brahmagupta", era: "598–668 CE", field: "Mathematics & Astronomy", contribution: "Discovered zero as a number, solved quadratic equations, negative numbers, gravitational attraction, planetary periods. Author of Brahmasphutasiddhanta.", notable: "Father of zero", color: "#22c55e" },
+  { name: "Bhaskara II", era: "1114–1185 CE", field: "Mathematics & Astronomy", contribution: "Lilavati (mathematics textbook used for 700 years), Bījagaṇita (algebra), solved Pell's equation, introduced cyclic numbers.", notable: "Greatest medieval Indian mathematician", color: "#06b6d4" },
+  { name: "Madhava of Sangamagrama", era: "1350–1425 CE", field: "Mathematics (Calculus)", contribution: "Discovered infinite series for π, sine, cosine, arctangent — 250 years before Newton/Leibniz. Founded the Kerala School of Mathematics.", notable: "Father of Calculus (pre-Newton)", color: "#a855f7" },
+  { name: "Varahamihira", era: "505–587 CE", field: "Astronomy & Astrology", contribution: "Compiled Pancha-Siddhantika (five astronomical systems), eclipses, precession, 编纂 Brihat Samhita (encyclopedia of natural sciences).", notable: "India's greatest astronomer-encyclopedist", color: "#ef4444" },
+  { name: "Srinivasa Ramanujan", era: "1887–1920 CE", field: "Mathematics (Pure)", contribution: "3,900+ mathematical results, partition function, Ramanujan prime, mock theta functions. Collaborated with Hardy at Cambridge.", notable: "The man who knew infinity", color: "#ec4899" },
+  { name: "C.V. Raman", era: "1888–1970 CE", field: "Physics", contribution: "Raman Effect (light scattering) — Nobel Prize 1930. First Asian Nobel in Science. Pioneered acoustics and spectroscopy research in India.", notable: "India's first Nobel laureate in Science", color: "#eab308" },
+  { name: "Homi Bhabha", era: "1909–1966 CE", field: "Nuclear Physics", contribution: "Father of Indian nuclear program. Founded Tata Institute of Fundamental Research (TIFR) and Atomic Energy Establishment Trombay.", notable: "Father of Indian nuclear physics", color: "#3b82f6" },
+  { name: "S. Chandrasekhar", era: "1910–1995 CE", field: "Astrophysics", contribution: "Chandrasekhar limit — maximum mass of white dwarf stars. Nobel Prize 1983. Revolutionized understanding of stellar evolution.", notable: "Chandrasekhar limit discoverer", color: "#8b5cf6" },
+  { name: "APJ Abdul Kalam", era: "1931–2015 CE", field: "Aerospace Engineering", contribution: "Missile development (SLV-3, Agni, Prithvi). 'Missile Man of India.' President of India. Inspired millions in science and education.", notable: "Missile Man & People's President", color: "#f97316" },
+];
+
+const SANSKRIT_TEXTS = [
+  { title: "Sulba Sutras", author: "Baudhayana, etc.", period: "800–500 BCE", content: "Mathematical rules for altar construction. Contains Pythagorean theorem (1000 years before Pythagoras), methods for √2, and geometric constructions.", significance: "Earliest mathematical text in the world" },
+  { title: "Aryabhatiya", author: "Aryabhata", period: "499 CE", content: "121 verses covering arithmetic, algebra, trigonometry, and astronomy. Earth's rotation, π, sine tables, and planetary motion.", significance: "Most influential Indian mathematical text" },
+  { title: "Brahmasphutasiddhanta", author: "Brahmagupta", period: "628 CE", content: "25 chapters on mathematics and astronomy. Zero, negative numbers, quadratic equations, gravitational attraction, and planetary theory.", significance: "Foundation of modern number system" },
+  { title: "Lilavati", author: "Bhaskara II", period: "1150 CE", content: "13 chapters on arithmetic, geometry, and word problems. Written for his daughter Lilavati. Used as a textbook for 700 years.", significance: "World's first illustrated math textbook" },
+  { title: "Bījagaṇita", author: "Bhaskara II", period: "1150 CE", content: "12 chapters on algebra. Quadratic equations, Pell's equation, negative numbers, and indeterminate equations.", significance: "Advanced algebra centuries ahead of Europe" },
+  { title: "Tantrasaṅgraha", author: "Nilakantha Somayaji", period: "1501 CE", content: "Comprehensive astronomical text with refined planetary models. Contains Madhava series for π, sine, and tangent.", significance: "Kerala School's masterwork" },
+];
+
+const SCIENCE_STATS = [
+  { value: "2,800+", label: "Years of Mathematical Tradition", icon: "📐", color: "#f59e0b" },
+  { value: "12+", label: "World-First Discoveries", icon: "🏆", color: "#ef4444" },
+  { value: "10", label: "Nobel & Major Prize Winners", icon: "🏅", color: "#22c55e" },
+  { value: "250 yrs", label: "Calculus Ahead of Europe", icon: "⏱️", color: "#a855f7" },
+  { value: "4", label: "Ancient Siddhantic Texts", icon: "📜", color: "#06b6d4" },
+  { value: "0", label: "Zero — India's Gift to the World", icon: "0️⃣", color: "#ec4899" },
+];

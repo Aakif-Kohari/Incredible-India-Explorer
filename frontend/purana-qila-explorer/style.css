@@ -1,0 +1,1348 @@
+/* ==========================================================================
+   Purana Qila Explorer - Stylesheet
+   Historic fort palette (sandstone red, marble white, royal gold, deep stone).
+   Premium immersive design: architectural hero, glassmorphism cards, 
+   scroll-reveal, animated timeline, gallery lightbox.
+   ========================================================================== */
+
+:root {
+  --purana-night: #0f1419;           /* Deep historic black */
+  --purana-night-light: #1a2332;
+  --purana-marble: #f5f5f0;          /* Heritage marble white */
+  --purana-saffron: #ff9933;         /* Indian saffron */
+  --purana-saffron-light: #ffb366;
+  --purana-gold: #d4a84b;            /* Royal gold */
+  --purana-green: #138808;           /* Islamic green */
+  --purana-sandstone: #c17f59;       /* Historic sandstone */
+  --purana-sand: #e8e4d9;
+  --purana-glass: rgba(26, 35, 50, 0.55);
+  --purana-glass-strong: rgba(15, 20, 25, 0.82);
+  --purana-border: rgba(255, 153, 51, 0.2);
+  --purana-navbar-height: 70px;
+}
+
+/* Page Main Container */
+.purana-main {
+  background-color: var(--purana-night);
+  color: #f1f5f9;
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ==========================================================================
+   Floating decoration orbs behind the page
+   ========================================================================== */
+.purana-main::before,
+.purana-main::after {
+  content: '';
+  position: absolute;
+  left: -180px;
+  top: 20%;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(193, 127, 89, 0.08), transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.purana-main::after {
+  left: auto;
+  right: -200px;
+  top: 60%;
+  background: radial-gradient(circle, rgba(212, 168, 75, 0.06), transparent 65%);
+}
+
+/* ==========================================================================
+   Hero Banner
+   ========================================================================== */
+.purana-hero {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: calc(var(--purana-navbar-height) + 48px) 0 72px;
+  background-color: var(--purana-night);
+  text-align: center;
+}
+
+.purana-hero-backdrop {
+  position: absolute;
+  inset: -5%;
+  background:
+    linear-gradient(180deg, rgba(15, 20, 25, 0.5) 0%, rgba(15, 20, 25, 0.65) 45%, rgba(15, 20, 25, 0.97) 100%),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Purana_Qila%2C_Delhi.jpg/1200px-Purana_Qila%2C_Delhi.jpg') center 25%/cover no-repeat;
+  transform: scale(1.12);
+  will-change: transform;
+  z-index: 0;
+}
+
+.purana-hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(920px, 92%);
+  animation: purana-rise 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.purana-hero-orbs {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.purana-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(193, 127, 89, 0.15), transparent 70%);
+  animation: purana-float 8s ease-in-out infinite;
+}
+
+.purana-orb-one {
+  width: 280px;
+  height: 280px;
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.purana-orb-two {
+  width: 200px;
+  height: 200px;
+  bottom: 20%;
+  right: 15%;
+  animation-delay: 4s;
+}
+
+.purana-kicker {
+  display: inline-block;
+  background: rgba(193, 127, 89, 0.2);
+  color: var(--purana-sandstone);
+  padding: 8px 20px;
+  border-radius: 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border: 1px solid rgba(193, 127, 89, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.purana-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--purana-marble);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.purana-hero h1 span {
+  color: var(--purana-sandstone);
+  display: block;
+  font-size: 0.7em;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.purana-hero-subtitle {
+  font-size: 1.3rem;
+  color: var(--purana-gold);
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.purana-hero > p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+  margin-bottom: 32px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.purana-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  list-style: none;
+  padding: 0;
+}
+
+.purana-hero-badges li {
+  background: rgba(193, 127, 89, 0.15);
+  color: var(--purana-sandstone);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(193, 127, 89, 0.25);
+}
+
+.purana-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.purana-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--purana-sandstone), var(--purana-gold));
+  color: var(--purana-night);
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(193, 127, 89, 0.3);
+}
+
+.purana-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(193, 127, 89, 0.4);
+}
+
+.purana-bookmark-container {
+  display: flex;
+  align-items: center;
+}
+
+.purana-bookmark-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--purana-marble);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.purana-bookmark-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.purana-bookmark-btn[aria-pressed="true"] {
+  background: rgba(255, 153, 51, 0.2);
+  border-color: var(--purana-saffron);
+  color: var(--purana-saffron);
+}
+
+.purana-scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--purana-sandstone);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.purana-scroll-hint:hover {
+  opacity: 1;
+}
+
+.purana-scroll-line {
+  display: block;
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--purana-sandstone), transparent);
+  margin: 8px auto 0;
+  animation: purana-scroll 2s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Section Navigation
+   ========================================================================== */
+.purana-section-nav {
+  position: sticky;
+  top: var(--purana-navbar-height);
+  background: var(--purana-glass-strong);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--purana-border);
+  z-index: 100;
+  padding: 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.purana-section-nav::-webkit-scrollbar {
+  height: 4px;
+}
+
+.purana-section-nav::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.purana-section-nav::-webkit-scrollbar-thumb {
+  background: var(--purana-sandstone);
+  border-radius: 2px;
+}
+
+.purana-section-nav-inner {
+  display: flex;
+  padding: 12px 24px;
+  gap: 8px;
+  min-width: max-content;
+}
+
+.purana-section-nav-link {
+  color: #94a3b8;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.purana-section-nav-link:hover {
+  color: var(--purana-marble);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.purana-section-nav-link.active {
+  color: var(--purana-sandstone);
+  background: rgba(193, 127, 89, 0.15);
+  border-color: rgba(193, 127, 89, 0.3);
+}
+
+/* ==========================================================================
+   Section Styling
+   ========================================================================== */
+.purana-section {
+  padding: 80px 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.purana-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.purana-section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.purana-eyebrow {
+  display: inline-block;
+  background: rgba(193, 127, 89, 0.2);
+  color: var(--purana-sandstone);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.purana-section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--purana-marble);
+  margin-bottom: 12px;
+}
+
+.purana-section-header > p {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Bio Grid (History Section)
+   ========================================================================== */
+.purana-bio-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .purana-bio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.purana-bio-text {
+  background: var(--purana-glass);
+  border: 1px solid var(--purana-border);
+  border-radius: 16px;
+  padding: 32px;
+  backdrop-filter: blur(8px);
+}
+
+.purana-bio-text p {
+  line-height: 1.8;
+  color: #cbd5e1;
+  margin-bottom: 16px;
+}
+
+.purana-bio-text strong {
+  color: var(--purana-sandstone);
+}
+
+.purana-bio-profile {
+  background: linear-gradient(135deg, rgba(193, 127, 89, 0.1), rgba(212, 168, 75, 0.05));
+  border: 1px solid var(--purana-border);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+}
+
+.purana-bio-portrait {
+  font-size: 4rem;
+  margin-bottom: 16px;
+}
+
+.purana-bio-profile h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--purana-marble);
+  margin-bottom: 8px;
+}
+
+.purana-bio-title {
+  display: block;
+  color: var(--purana-sandstone);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.purana-bio-profile ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.purana-bio-profile li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.purana-bio-profile li:last-child {
+  border-bottom: none;
+}
+
+.purana-bio-profile blockquote {
+  font-style: italic;
+  color: var(--purana-gold);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding: 16px;
+  background: rgba(212, 168, 75, 0.1);
+  border-radius: 8px;
+  border-left: 3px solid var(--purana-gold);
+}
+
+/* ==========================================================================
+   Architecture Grid
+   ========================================================================== */
+.purana-architecture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.purana-arch-card {
+  background: var(--purana-glass);
+  border: 1px solid var(--purana-border);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.purana-arch-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--purana-sandstone);
+  box-shadow: 0 8px 24px rgba(193, 127, 89, 0.15);
+}
+
+.purana-arch-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.purana-arch-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--purana-marble);
+  margin-bottom: 12px;
+}
+
+.purana-arch-card p {
+  color: #94a3b8;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.purana-arch-detail {
+  background: rgba(193, 127, 89, 0.1);
+  border: 1px solid var(--purana-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.purana-arch-detail h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--purana-marble);
+  margin-bottom: 16px;
+}
+
+.purana-arch-detail ul {
+  list-style: none;
+  padding: 0;
+}
+
+.purana-arch-detail li {
+  padding: 10px 0;
+  color: #cbd5e1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.purana-arch-detail li:last-child {
+  border-bottom: none;
+}
+
+.purana-arch-detail strong {
+  color: var(--purana-sandstone);
+}
+
+/* ==========================================================================
+   Gates Content
+   ========================================================================== */
+.purana-gates-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.purana-gate-card {
+  background: var(--purana-glass);
+  border: 1px solid var(--purana-border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.purana-gate-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--purana-sandstone);
+}
+
+.purana-gate-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--purana-marble);
+  margin-bottom: 12px;
+}
+
+.purana-gate-card p {
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.purana-gate-specs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.purana-gate-icon {
+  font-size: 1.5rem;
+}
+
+.purana-gate-specs strong {
+  display: block;
+  color: var(--purana-sandstone);
+}
+
+.purana-gate-specs small {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Mosque Content
+   ========================================================================== */
+.purana-mosque-content {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .purana-mosque-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.purana-mosque-text {
+  background: var(--purana-glass);
+  border: 1px solid var(--purana-border);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.purana-mosque-text p {
+  line-height: 1.8;
+  color: #cbd5e1;
+  margin-bottom: 16px;
+}
+
+.purana-mosque-text strong {
+  color: var(--purana-sandstone);
+}
+
+.purana-mosque-aside {
+  background: linear-gradient(135deg, rgba(193, 127, 89, 0.1), rgba(212, 168, 75, 0.05));
+  border: 1px solid var(--purana-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.purana-mosque-aside h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--purana-marble);
+  margin-bottom: 16px;
+}
+
+.purana-mosque-aside ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.purana-mosque-aside li {
+  padding: 8px 0;
+  color: #cbd5e1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.purana-mosque-aside li:last-child {
+  border-bottom: none;
+}
+
+.purana-mosque-aside strong {
+  color: var(--purana-sandstone);
+}
+
+.purana-stat-box {
+  background: rgba(193, 127, 89, 0.15);
+  border: 1px solid rgba(193, 127, 89, 0.3);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.purana-stat-number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--purana-sandstone);
+  margin-bottom: 4px;
+}
+
+.purana-stat-label {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   Emperor Grid
+   ========================================================================== */
+.purana-humayun-grid,
+.purana-sher-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.purana-humayun-card,
+.purana-sher-text {
+  background: var(--purana-glass);
+  border: 1px solid var(--purana-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.purana-humayun-card h3,
+.purana-sher-text h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--purana-marble);
+  margin-bottom: 16px;
+}
+
+.purana-humayun-card p,
+.purana-sher-text p {
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.purana-humayun-card strong,
+.purana-sher-text strong {
+  color: var(--purana-sandstone);
+}
+
+.purana-quote-box {
+  background: rgba(212, 168, 75, 0.1);
+  border-left: 3px solid var(--purana-gold);
+  padding: 16px;
+  border-radius: 0 8px 8px 0;
+  margin-top: 16px;
+}
+
+.purana-quote-box blockquote {
+  font-style: italic;
+  color: var(--purana-gold);
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.purana-quote-box cite {
+  display: block;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-style: normal;
+}
+
+.purana-sher-aside {
+  background: linear-gradient(135deg, rgba(193, 127, 89, 0.1), rgba(212, 168, 75, 0.05));
+  border: 1px solid var(--purana-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.purana-sher-aside h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--purana-marble);
+  margin-bottom: 16px;
+}
+
+.purana-sher-aside ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.purana-sher-aside li {
+  padding: 8px 0;
+  color: #cbd5e1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.purana-sher-aside li:last-child {
+  border-bottom: none;
+}
+
+/* ==========================================================================
+   Features Grid
+   ========================================================================== */
+.purana-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.purana-feature-card {
+  background: var(--purana-glass);
+  border: 1px solid var(--purana-border);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.purana-feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--purana-sandstone);
+  box-shadow: 0 8px 24px rgba(193, 127, 89, 0.15);
+}
+
+.purana-feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.purana-feature-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--purana-marble);
+  margin-bottom: 12px;
+}
+
+.purana-feature-card p {
+  color: #94a3b8;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Significance Layout
+   ========================================================================== */
+.purana-significance-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 900px) {
+  .purana-significance-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.purana-significance-main,
+.purana-significance-info {
+  background: var(--purana-glass);
+  border: 1px solid var(--purana-border);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.purana-significance-main h3,
+.purana-significance-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--purana-marble);
+  margin-bottom: 16px;
+}
+
+.purana-significance-main p,
+.purana-significance-info p {
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.purana-significance-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.purana-significance-info li {
+  padding: 10px 0;
+  color: #cbd5e1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.purana-significance-info li:last-child {
+  border-bottom: none;
+}
+
+.purana-significance-info strong {
+  color: var(--purana-sandstone);
+}
+
+.purana-significance-note {
+  background: linear-gradient(135deg, rgba(193, 127, 89, 0.1), rgba(212, 168, 75, 0.05));
+  border: 1px solid var(--purana-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.purana-significance-note h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--purana-marble);
+  margin-bottom: 16px;
+}
+
+.purana-significance-note p {
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   Timeline
+   ========================================================================== */
+.purana-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.purana-timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--purana-sandstone), var(--purana-gold));
+}
+
+@media (min-width: 768px) {
+  .purana-timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.purana-timeline-step {
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .purana-timeline-step {
+    padding-left: 0;
+    width: 50%;
+  }
+
+  .purana-timeline-step:nth-child(odd) {
+    margin-left: auto;
+    padding-right: 60px;
+    text-align: right;
+  }
+
+  .purana-timeline-step:nth-child(even) {
+    padding-left: 60px;
+  }
+}
+
+.purana-timeline-marker {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  background: var(--purana-sandstone);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  border: 3px solid var(--purana-night);
+  box-shadow: 0 0 0 3px var(--purana-sandstone);
+}
+
+@media (min-width: 768px) {
+  .purana-timeline-marker {
+    left: 50%;
+  }
+}
+
+.purana-timeline-card {
+  background: var(--purana-glass);
+  border: 1px solid var(--purana-border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.purana-timeline-card:hover {
+  border-color: var(--purana-sandstone);
+  transform: translateY(-2px);
+}
+
+.purana-timeline-year {
+  display: inline-block;
+  background: rgba(193, 127, 89, 0.2);
+  color: var(--purana-sandstone);
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.purana-timeline-icon {
+  font-size: 1.5rem;
+  margin-right: 8px;
+}
+
+.purana-timeline-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--purana-marble);
+  margin-bottom: 8px;
+}
+
+.purana-timeline-card p {
+  color: #94a3b8;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Facts Grid
+   ========================================================================== */
+.purana-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.purana-fact-card {
+  background: var(--purana-glass);
+  border: 1px solid var(--purana-border);
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.purana-fact-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--purana-sandstone);
+  box-shadow: 0 8px 24px rgba(193, 127, 89, 0.15);
+}
+
+.purana-fact-number {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(193, 127, 89, 0.15);
+  line-height: 1;
+}
+
+.purana-fact-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--purana-marble);
+  margin-bottom: 12px;
+  padding-right: 40px;
+}
+
+.purana-fact-card p {
+  color: #94a3b8;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Gallery Grid
+   ========================================================================== */
+.purana-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.purana-gallery-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 16/10;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.purana-gallery-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.purana-gallery-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.purana-gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(15, 20, 25, 0.95), transparent);
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.purana-gallery-item:hover .purana-gallery-caption {
+  transform: translateY(0);
+}
+
+.purana-gallery-caption h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--purana-marble);
+  margin-bottom: 4px;
+}
+
+.purana-gallery-caption p {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.purana-gallery-caption small {
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+/* ==========================================================================
+   References List
+   ========================================================================== */
+.purana-references-list {
+  background: var(--purana-glass);
+  border: 1px solid var(--purana-border);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.purana-references-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.purana-references-list li {
+  padding: 12px 0;
+  color: #cbd5e1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  line-height: 1.6;
+}
+
+.purana-references-list li:last-child {
+  border-bottom: none;
+}
+
+.purana-references-list strong {
+  color: var(--purana-sandstone);
+}
+
+/* ==========================================================================
+   Scroll Reveal Animations
+   ========================================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes purana-rise {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes purana-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+@keyframes purana-scroll {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+  .purana-hero {
+    min-height: 65vh;
+    padding: calc(var(--purana-navbar-height) + 32px) 0 48px;
+  }
+
+  .purana-hero h1 {
+    font-size: 2rem;
+  }
+
+  .purana-hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .purana-hero > p {
+    font-size: 1rem;
+  }
+
+  .purana-hero-badges {
+    gap: 8px;
+  }
+
+  .purana-hero-badges li {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  .purana-section {
+    padding: 56px 16px;
+  }
+
+  .purana-section-nav-inner {
+    padding: 10px 16px;
+  }
+
+  .purana-section-nav-link {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .purana-bio-text,
+  .purana-mosque-text,
+  .purana-humayun-card,
+  .purana-sher-text,
+  .purana-significance-main,
+  .purana-significance-info,
+  .purana-significance-note,
+  .purana-references-list {
+    padding: 20px;
+  }
+
+  .purana-architecture-grid,
+  .purana-features-grid,
+  .purana-facts-grid,
+  .purana-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Light Theme Support
+   ========================================================================== */
+.light-theme .purana-main {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+.light-theme .purana-hero-backdrop {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(248, 250, 252, 0.95) 100%),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Purana_Qila%2C_Delhi.jpg/1200px-Purana_Qila%2C_Delhi.jpg') center 25%/cover no-repeat;
+}
+
+.light-theme .purana-hero h1,
+.light-theme .purana-section-header h2,
+.light-theme .purana-bio-profile h3,
+.light-theme .purana-arch-card h3,
+.light-theme .purana-gate-card h3,
+.light-theme .purana-mosque-aside h3,
+.light-theme .purana-humayun-card h3,
+.light-theme .purana-sher-text h3,
+.light-theme .purana-sher-aside h3,
+.light-theme .purana-feature-card h3,
+.light-theme .purana-significance-main h3,
+.light-theme .purana-significance-info h3,
+.light-theme .purana-significance-note h3,
+.light-theme .purana-timeline-card h3,
+.light-theme .purana-fact-card h3,
+.light-theme .purana-gallery-caption h4 {
+  color: #1e293b;
+}
+
+.light-theme .purana-hero-subtitle,
+.light-theme .purana-kicker,
+.light-theme .purana-hero-badges li,
+.light-theme .purana-eyebrow,
+.light-theme .purana-cta-btn {
+  color: #c17f59;
+}
+
+.light-theme .purana-hero > p,
+.light-theme .purana-section-header > p,
+.light-theme .purana-bio-text p,
+.light-theme .purana-arch-card p,
+.light-theme .purana-gate-card p,
+.light-theme .purana-mosque-text p,
+.light-theme .purana-humayun-card p,
+.light-theme .purana-sher-text p,
+.light-theme .purana-significance-main p,
+.light-theme .purana-significance-info p,
+.light-theme .purana-significance-note p,
+.light-theme .purana-timeline-card p,
+.light-theme .purana-fact-card p,
+.light-theme .purana-gallery-caption p,
+.light-theme .purana-references-list li {
+  color: #475569;
+}
+
+.light-theme .purana-bio-text,
+.light-theme .purana-bio-profile,
+.light-theme .purana-arch-card,
+.light-theme .purana-gate-card,
+.light-theme .purana-mosque-text,
+.light-theme .purana-mosque-aside,
+.light-theme .purana-humayun-card,
+.light-theme .purana-sher-text,
+.light-theme .purana-sher-aside,
+.light-theme .purana-feature-card,
+.light-theme .purana-significance-main,
+.light-theme .purana-significance-info,
+.light-theme .purana-significance-note,
+.light-theme .purana-timeline-card,
+.light-theme .purana-fact-card,
+.light-theme .purana-references-list {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(193, 127, 89, 0.2);
+}
+
+.light-theme .purana-section-nav {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom-color: rgba(193, 127, 89, 0.2);
+}
+
+.light-theme .purana-section-nav-link {
+  color: #64748b;
+}
+
+.light-theme .purana-section-nav-link:hover,
+.light-theme .purana-section-nav-link.active {
+  color: #c17f59;
+  background: rgba(193, 127, 89, 0.1);
+}

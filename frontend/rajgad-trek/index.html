@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            let theme = 'dark';
+            try {
+                theme = localStorage.getItem('theme') || JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark';
+            } catch(e) {}
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                document.documentElement.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rajgad Fort Trek — Durgaraj | Incredible India Explorer</title>
+    <meta name="description" content="Explore Rajgad Fort Trek (Durgaraj) — first capital of Maratha Empire for 26 years under Chhatrapati Shivaji Maharaj. Detailed trek route guide, Padmavati Machi, Sanjeevani Machi, Suvela Machi, Bale Killa, gear checklist, and trek estimator." />
+    
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Google Fonts Fallbacks -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="rajgad-trek.css" />
+</head>
+<body class="rajgad-body">
+
+    <!-- Header / Navigation -->
+    <header class="rajgad-header">
+        <div class="rajgad-container rajgad-header__nav">
+            <a href="../../index.html" class="rajgad-back-link">
+                <span aria-hidden="true">←</span> Back to All Destinations
+            </a>
+            <div class="rajgad-header__actions">
+                <button id="themeToggle" class="rajgad-theme-btn" type="button" aria-pressed="false" aria-label="Toggle theme mode">
+                    <span>🌗</span>
+                    <span>Theme</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="rajgad-hero" id="heroSection">
+        <div class="rajgad-container">
+            <div class="rajgad-hero__badges">
+                <span class="rajgad-badge rajgad-badge--saffron">👑 Durgaraj (King of Forts)</span>
+                <span class="rajgad-badge rajgad-badge--emerald">🏛️ Maratha Capital for 26 Years</span>
+                <span class="rajgad-badge">⛰️ 1,376m Altitude Citadel</span>
+            </div>
+            
+            <h1 class="rajgad-hero__title">
+                Rajgad Fort Trek
+                <span class="rajgad-hero__title-sub">राजगड — King of Forts (Maratha Capital)</span>
+            </h1>
+            
+            <p class="rajgad-hero__lede">
+                Standing 1,376 meters high in the Sahyadri mountains, Rajgad was the beating heart and imperial capital 
+                of Chhatrapati Shivaji Maharaj's empire for 26 years. Explore three sprawling fortified machis, 
+                the ultra-steep Bale Killa citadel, and historic stone gateways.
+            </p>
+
+            <!-- Quick Stats Grid -->
+            <div class="rajgad-stats-grid">
+                <div class="rajgad-stat-card">
+                    <span class="rajgad-stat-card__val">1,376 m</span>
+                    <span class="rajgad-stat-card__label">Summit Elevation (4,514 ft)</span>
+                </div>
+                <div class="rajgad-stat-card">
+                    <span class="rajgad-stat-card__val">26 Years</span>
+                    <span class="rajgad-stat-card__label">Capital of Maratha Empire</span>
+                </div>
+                <div class="rajgad-stat-card">
+                    <span class="rajgad-stat-card__val">3.5 - 4 hrs</span>
+                    <span class="rajgad-stat-card__label">One-Way Ascent Time</span>
+                </div>
+                <div class="rajgad-stat-card">
+                    <span class="rajgad-stat-card__val">Gunjavane / Pali</span>
+                    <span class="rajgad-stat-card__label">Base Villages (60 km Pune)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="rajgad-container">
+        
+        <!-- Tab Navigation Bar -->
+        <nav class="rajgad-tabs-wrapper" aria-label="Rajgad profile sections">
+            <div class="rajgad-tabs" role="tablist">
+                <button class="rajgad-tab-btn active" role="tab" aria-selected="true" data-tab="overviewTab" id="tabBtnOverview">
+                    🏛️ Overview & Machis
+                </button>
+                <button class="rajgad-tab-btn" role="tab" aria-selected="false" data-tab="routeTab" id="tabBtnRoute">
+                    🥾 Trekking Route Guide
+                </button>
+                <button class="rajgad-tab-btn" role="tab" aria-selected="false" data-tab="historyTab" id="tabBtnHistory">
+                    📜 Capital History & Legacy
+                </button>
+                <button class="rajgad-tab-btn" role="tab" aria-selected="false" data-tab="plannerTab" id="tabBtnPlanner">
+                    ⚙️ Trek Estimator & Checklist
+                </button>
+                <button class="rajgad-tab-btn" role="tab" aria-selected="false" data-tab="galleryTab" id="tabBtnGallery">
+                    🖼️ Photo Gallery
+                </button>
+            </div>
+        </nav>
+
+        <!-- TAB 1: OVERVIEW & HIGHLIGHTS -->
+        <section id="overviewTab" class="rajgad-tab-content active" role="tabpanel" aria-labelledby="tabBtnOverview">
+            <div class="rajgad-section-heading">
+                <span class="rajgad-eyebrow">Architectural & Defensive Masterpiece</span>
+                <h2 class="rajgad-section-title">Key Highlights of Rajgad</h2>
+                <p class="rajgad-section-desc">
+                    Discover Padmavati Machi, the 2.5km triple curtain walls of Sanjeevani Machi, Suvela Machi's needle-eye rock hole (Nedhe), and the vertical Bale Killa citadel.
+                </p>
+            </div>
+
+            <div class="rajgad-grid-3" id="highlightsGrid">
+                <!-- Dynamically rendered via rajgad-trek.js -->
+            </div>
+        </section>
+
+        <!-- TAB 2: TREKKING ROUTE GUIDE -->
+        <section id="routeTab" class="rajgad-tab-content" role="tabpanel" aria-labelledby="tabBtnRoute">
+            <div class="rajgad-section-heading">
+                <span class="rajgad-eyebrow">Sahyadri Trail Breakdown</span>
+                <h2 class="rajgad-section-title">Gunjavane & Pali Route Guide</h2>
+                <p class="rajgad-section-desc">
+                    Trekkers can ascend via Gunjavane village (steep rock scramble into Chor Darwaja) or via Pali village (royal stone steps leading through Pali Darwaja).
+                </p>
+            </div>
+
+            <div id="trekStepsContainer">
+                <!-- Dynamically rendered via rajgad-trek.js -->
+            </div>
+
+            <!-- Special Feature Banner: Torna-Rajgad Range Trek -->
+            <div class="rajgad-ridge-banner">
+                <h3 class="rajgad-ridge-title">🏔️ Legendary Range Trek: Torna to Rajgad Trail</h3>
+                <p style="color: var(--rajgad-text-dim); margin-bottom: 0.75rem;">
+                    Connect the first fort of Swarajya (Torna) with the capital (Rajgad) along a high 15 km Sahyadri mountain ridge.
+                </p>
+                <ul style="color: var(--rajgad-text-dim); margin-left: 1.25rem; line-height: 1.8;">
+                    <li><strong>Route:</strong> Torna (Budhla Machi) → Chela Wato → Rajgad (Sanjeevani Machi).</li>
+                    <li><strong>Duration:</strong> 6 to 8 hours of continuous ridge traversal.</li>
+                    <li><strong>Pro Tip:</strong> Overnight stay in Padmavati Temple on Rajgad after completing the ridge trek.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- TAB 3: HISTORICAL SIGNIFICANCE -->
+        <section id="historyTab" class="rajgad-tab-content" role="tabpanel" aria-labelledby="tabBtnHistory">
+            <div class="rajgad-section-heading">
+                <span class="rajgad-eyebrow">26 Years of Sovereign Power</span>
+                <h2 class="rajgad-section-title">Historical Timeline of Rajgad</h2>
+                <p class="rajgad-section-desc">
+                    From 1647 to 1673 CE, Rajgad served as Chhatrapati Shivaji Maharaj's capital city, witnessing historic battles, strategic treaties, and his heroic return from Agra.
+                </p>
+            </div>
+
+            <div class="rajgad-timeline" id="timelineContainer">
+                <!-- Dynamically rendered via rajgad-trek.js -->
+            </div>
+        </section>
+
+        <!-- TAB 4: TREK ESTIMATOR & CHECKLIST -->
+        <section id="plannerTab" class="rajgad-tab-content" role="tabpanel" aria-labelledby="tabBtnPlanner">
+            
+            <!-- Interactive Trek Time Estimator -->
+            <div class="rajgad-calc-card">
+                <span class="rajgad-eyebrow">Interactive Calculator</span>
+                <h2 class="rajgad-section-title">Trek Time & Effort Estimator</h2>
+                <p class="rajgad-section-desc">
+                    Select your trekking pace to calculate estimated ascent time, descent time, water requirement, and recommended departure time from Gunjavane base village.
+                </p>
+
+                <div class="rajgad-calc-controls">
+                    <button class="rajgad-calc-btn" type="button" data-pace="fast">⚡ Experienced Trekker</button>
+                    <button class="rajgad-calc-btn active" type="button" data-pace="moderate">🚶 Regular Trekker (Moderate)</button>
+                    <button class="rajgad-calc-btn" type="button" data-pace="leisurely">🐢 Leisurely / Beginner</button>
+                </div>
+
+                <div class="rajgad-calc-results">
+                    <div class="rajgad-calc-res-item">
+                        <span class="rajgad-calc-res-val" id="calcAscent">3.5 – 4.0 hrs</span>
+                        <span class="rajgad-calc-res-lbl">Estimated Ascent Time</span>
+                    </div>
+                    <div class="rajgad-calc-res-item">
+                        <span class="rajgad-calc-res-val" id="calcDescent">2.0 – 2.5 hrs</span>
+                        <span class="rajgad-calc-res-lbl">Estimated Descent Time</span>
+                    </div>
+                    <div class="rajgad-calc-res-item">
+                        <span class="rajgad-calc-res-val" id="calcWater">4.0 Liters</span>
+                        <span class="rajgad-calc-res-lbl">Recommended Water</span>
+                    </div>
+                    <div class="rajgad-calc-res-item">
+                        <span class="rajgad-calc-res-val" id="calcStart">6:00 AM</span>
+                        <span class="rajgad-calc-res-lbl">Recommended Start Time</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Packing Checklist -->
+            <div class="rajgad-card">
+                <span class="rajgad-eyebrow">Interactive Packing Checklist</span>
+                <h2 class="rajgad-section-title">What to Pack for Rajgad Fort Trek</h2>
+                <div class="rajgad-checklist-grid" id="checklistGrid">
+                    <!-- Dynamically rendered via rajgad-trek.js -->
+                </div>
+            </div>
+
+            <!-- Logistics & Night Stay -->
+            <div class="rajgad-card">
+                <span class="rajgad-eyebrow">Logistics & Overnight Shelter</span>
+                <h2 class="rajgad-section-title">How to Reach & Night Stay Details</h2>
+                <div class="rajgad-grid-2" style="margin-top: 1.25rem;">
+                    <div>
+                        <h3 style="font-size: 1.1rem; color: var(--rajgad-saffron); margin-bottom: 0.5rem;">🚌 Transportation Options</h3>
+                        <ul style="color: var(--rajgad-text-dim); font-size: 0.95rem; line-height: 1.8; margin-left: 1.2rem;">
+                            <li><strong>From Pune:</strong> MSRTC buses operate from Swargate to Gunjavane or Margasani (~2 hours).</li>
+                            <li><strong>By Car / Bike:</strong> Swargate → Nasrapur phata → Margasani → Gunjavane or Pali (approx 60 km).</li>
+                            <li><strong>Parking:</strong> Vehicle parking available at both Gunjavane and Pali base villages.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.1rem; color: var(--rajgad-emerald); margin-bottom: 0.5rem;">🛏️ Overnight Shelter & Meals</h3>
+                        <ul style="color: var(--rajgad-text-dim); font-size: 0.95rem; line-height: 1.8; margin-left: 1.2rem;">
+                            <li><strong>Padmavati Temple Shelter:</strong> Accommodates 50+ trekkers for night stays inside temple halls.</li>
+                            <li><strong>Local Village Food:</strong> Villagers provide hot Pithla Bhakri, Thecha, and tea on Padmavati Machi.</li>
+                            <li><strong>Drinking Water:</strong> Fresh potable water available at Padmavati Lake cisterns.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: PHOTO GALLERY -->
+        <section id="galleryTab" class="rajgad-tab-content" role="tabpanel" aria-labelledby="tabBtnGallery">
+            <div class="rajgad-section-heading">
+                <span class="rajgad-eyebrow">Visual Tour</span>
+                <h2 class="rajgad-section-title">Rajgad Fort Trek Photo Gallery</h2>
+                <p class="rajgad-section-desc">
+                    Click any image tile to view full-screen details and captions.
+                </p>
+            </div>
+
+            <div class="rajgad-gallery-grid" id="galleryGrid">
+                <!-- Dynamically rendered via rajgad-trek.js -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Accessible Lightbox Modal -->
+    <div id="lightbox" class="rajgad-lightbox" hidden aria-modal="true" role="dialog" aria-labelledby="lightboxTitle">
+        <div class="rajgad-lightbox-dialog">
+            <button id="lightboxClose" class="rajgad-lightbox-close" type="button" aria-label="Close modal lightbox">✕</button>
+            <span id="lightboxEmoji" class="rajgad-lightbox-emoji">🏔️</span>
+            <h3 id="lightboxTitle" class="rajgad-lightbox-h">Rajgad Citadel</h3>
+            <p id="lightboxCaption" class="rajgad-lightbox-caption">The commanding summit profile of Rajgad Fort.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="rajgad-footer">
+        <div class="rajgad-container">
+            <p class="rajgad-footer-brand">Incredible India Explorer — Heritage & Adventure Series</p>
+            <p>Rajgad Fort (Durgaraj) · Sahyadri Range · Pune District, Maharashtra</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="rajgad-data.js"></script>
+    <script src="rajgad-trek.js"></script>
+</body>
+</html>
