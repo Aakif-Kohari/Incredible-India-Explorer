@@ -5,6 +5,13 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Cyclone Michaung 2023 — Storm Dossier & Urban Flooding Case Study',
+        category: 'Geology & Disasters',
+        description:
+            'Explore Severe Cyclonic Storm Michaung (December 2023): interactive Bay of Bengal track scrubber, Chennai extreme rainfall & urban flooding analysis, Bapatla landfall, and disaster relief response.',
+        url: 'frontend/cyclone-michaung-2023/index.html'},
+  {
+        title: 'Western Ghats — Landslide Hazard Profile & Geological Analysis',
         title: 'The Megalithic Heritage of India — Prehistoric Stone Monuments',
         category: 'Ancient History & Archaeology',
         description:
