@@ -5,6 +5,13 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Western Ghats — Landslide Hazard Profile & Geological Analysis',
+        category: 'Geology & Disasters',
+        description:
+            'Explore the landslide hazard of the Western Ghats: 1,600 km escarpment geology, interactive slope failure simulator, orographic monsoon rainfall, 7 chronic hotspots, and GSI early-warning networks.',
+        url: 'frontend/western-ghats-landslide-hazard/index.html'
+    },
+    {
         title: 'Maitreyi — The Philosopher Who Chose Knowledge Over Material Wealth',
         category: 'Historical & Cultural Profiles',
         description:
