@@ -6590,5 +6590,14 @@ window.indiaSearchIndex = [
         description:
             "Explore the legendary story of Hanuman and Sanjeevani \u2014 the desperate quest across the Himalayas to retrieve the life-saving herb and revive Lakshmana.",
         url: "frontend/hanuman-sanjeevani-story/index.html"
+    },
+
+    // --- Fossil Forests of India (#3814) ---
+    {
+        title: "Fossil Forests of India \u2014 Petrified Wood & Ancient Plants",
+        category: "Geology & Disasters",
+        description:
+            "Explore India's fossil forests and plant remains: Akal, Tiruvakkarai, Sathanur, Ghughua, Rajmahal, and Gondwana Glossopteris floras, with ages, ancient environments, and a site map.",
+        url: "frontend/fossil-forests-india/index.html"
     }
 ];
