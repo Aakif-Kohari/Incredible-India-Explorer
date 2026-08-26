@@ -6530,5 +6530,13 @@ window.indiaSearchIndex = [
         description:
             "Explore major Mesolithic sites across India including Bhimbetka, Bagor, Sarai Nahar Rai, Langhnaj, Adamgarh and Tilwara: microlithic stone tools, settlement and burial evidence, rock art, chronology, and an interactive map of key sites.",
         url: "frontend/mesolithic-sites-india/index.html"
+    },
+    // --- feat/hanuman-sanjeevani-story ---
+    {
+        title: "Add Hanuman and Sanjeevani \u2014 The Search for the Life-Saving Herb",
+        category: "Culture & Literature",
+        description:
+            "Explore the legendary story of Hanuman and Sanjeevani \u2014 the desperate quest across the Himalayas to retrieve the life-saving herb and revive Lakshmana.",
+        url: "frontend/hanuman-sanjeevani-story/index.html"
     }
 ];
