@@ -6442,6 +6442,13 @@ window.indiaSearchIndex = [
         url: "frontend/lava-kusha-story/index.html"
     },
 
+    // --- Vamana and King Bali Story (#3695) ---
+    {
+        title: "Vamana and King Bali — The Three Steps",
+        category: "Culture & Literature",
+        description:
+            "Explore the traditional Vamana and Mahabali story: the three cosmic steps, Onam in Kerala, regional interpretations, and a Did You Know section.",
+        url: "frontend/vamana-bali-story/index.html"},
     // --- Dhruva Story (#3693) ---
     {
         title: "Dhruva — The Child Who Reached the Stars",
