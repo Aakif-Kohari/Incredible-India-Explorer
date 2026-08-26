@@ -122,6 +122,12 @@ window.indiaSearchIndex = [
         url: 'frontend/agasthyarkoodam-trek/index.html'
     },
     {
+        title: "Pattachitra — Odisha's Traditional Scroll Painting",
+        category: "Art & Craft Traditions",
+        description:
+            "Explore Pattachitra, Odisha's cloth-scroll painting tradition: its origin in Jagannath Temple ritual, mythological themes, natural mineral and plant pigments, step-by-step painting process, storytelling traditions, and regional variations from Raghurajpur to Bengal.",
+        url: "frontend/pattachitra-art-explorer/index.html"},
+    {
         title: 'Meesapulimala Trek & High Montane Grasslands (Munnar, Kerala) Profile',
         category: 'Adventure & Sanctuary Treks',
         description:
