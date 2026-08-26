@@ -1,10 +1,10 @@
 // Automatically load SEO helper utility
-(function() {
+(function () {
     if (!document.getElementById('seo-helper-script') && typeof window !== 'undefined') {
         const script = document.createElement('script');
         script.id = 'seo-helper-script';
-        var pathPrefix = window.location.pathname.includes('/frontend/') 
-            ? (window.location.pathname.split('/frontend/')[1].includes('/') ? '../' : '') 
+        var pathPrefix = window.location.pathname.includes('/frontend/')
+            ? (window.location.pathname.split('/frontend/')[1].includes('/') ? '../' : '')
             : 'frontend/';
         script.src = pathPrefix + 'js-modules/seo-helper/seo-helper.js';
         script.defer = true;
@@ -54,26 +54,26 @@ if (typeof window.lazyLoadScript !== 'function') {
     };
 }
 
-window.setupFocusTrap = function(modalElement) {
+window.setupFocusTrap = function (modalElement) {
     if (!modalElement) return null;
     const focusableSelector = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
     const focusableElements = Array.from(modalElement.querySelectorAll(focusableSelector));
     const previousActiveElement = document.activeElement;
-    
+
     if (focusableElements.length > 0) {
         setTimeout(() => focusableElements[0].focus(), AppConfig.FOCUS_TRAP_DELAY);
     } else {
         modalElement.setAttribute('tabindex', '-1');
         setTimeout(() => modalElement.focus(), AppConfig.FOCUS_TRAP_DELAY);
     }
-    
-    const keydownHandler = function(e) {
+
+    const keydownHandler = function (e) {
         if (e.key === 'Tab') {
             const elements = Array.from(modalElement.querySelectorAll(focusableSelector));
             if (elements.length === 0) return;
             const first = elements[0];
             const last = elements[elements.length - 1];
-            
+
             if (e.shiftKey) { // Shift + Tab
                 if (document.activeElement === first || document.activeElement === modalElement) {
                     last.focus();
@@ -87,11 +87,11 @@ window.setupFocusTrap = function(modalElement) {
             }
         }
     };
-    
+
     modalElement.addEventListener('keydown', keydownHandler);
-    
+
     return {
-        deactivate: function() {
+        deactivate: function () {
             modalElement.removeEventListener('keydown', keydownHandler);
             if (previousActiveElement && typeof previousActiveElement.focus === 'function') {
                 setTimeout(() => previousActiveElement.focus(), AppConfig.FOCUS_TRAP_DELAY);
@@ -142,7 +142,7 @@ function iiRegisterKeydownHandler(handler) {
  */
 function iiDisconnectKeydownHandlers() {
     if (!window.__iiRouteState || !window.__iiRouteState.keydownHandlers) return;
-    window.__iiRouteState.keydownHandlers.forEach(function(h) {
+    window.__iiRouteState.keydownHandlers.forEach(function (h) {
         try { document.removeEventListener('keydown', h); } catch (e) { /* ignore */ }
     });
     window.__iiRouteState.keydownHandlers = [];
@@ -183,8 +183,8 @@ function handleInitError(pageName, err) {
 
 /* Initialise the unified toast notification system */
 (function initToastSystem() {
-    var pathPrefix = window.location.pathname.includes('/frontend/') 
-        ? (window.location.pathname.split('/frontend/')[1].includes('/') ? '../' : '') 
+    var pathPrefix = window.location.pathname.includes('/frontend/')
+        ? (window.location.pathname.split('/frontend/')[1].includes('/') ? '../' : '')
         : 'frontend/';
     var script = document.createElement('script');
     script.src = pathPrefix + 'js-modules/toast-system.js';
@@ -199,8 +199,8 @@ function handleInitError(pageName, err) {
 
 /* Initialize route management engine */
 (function initRouteEngine() {
-    var pathPrefix = window.location.pathname.includes('/frontend/') 
-        ? (window.location.pathname.split('/frontend/')[1].includes('/') ? '../' : '') 
+    var pathPrefix = window.location.pathname.includes('/frontend/')
+        ? (window.location.pathname.split('/frontend/')[1].includes('/') ? '../' : '')
         : 'frontend/';
     var script = document.createElement('script');
     script.src = pathPrefix + 'js-modules/router-init.js';
@@ -222,23 +222,11 @@ function initNavigation() {
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
-    const btnScrollTop = document.getElementById('btn-scroll-top');
     const exploreDropdown = navMenu?.querySelector('.nav-dropdown .dropdown-menu');
     const currentPath = window.location.pathname;
 
     if (navbar && navbar.dataset.listenerBound) return;
     if (navbar) navbar.dataset.listenerBound = "true";
-
-    // Sticky navbar on scroll
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-            if (btnScrollTop) btnScrollTop.classList.add('visible');
-        } else {
-            navbar.classList.remove('scrolled');
-            if (btnScrollTop) btnScrollTop.classList.remove('visible');
-        }
-    });
 
     var C = AppConfig;
 
@@ -355,6 +343,7 @@ function initNavigation() {
         }
     });
 
+    const btnScrollTop = document.getElementById('btn-scroll-top');
     if (btnScrollTop) {
         btnScrollTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -392,18 +381,22 @@ function initThemeToggle() {
 
     const currentTheme = window.IIEStorage ? window.IIEStorage.getTheme() : localStorage.getItem(AppConfig.THEME_STORAGE_KEY);
     if (currentTheme === AppConfig.THEME_LIGHT) {
-        document.body.classList.add(AppConfig.THEME_CLASS_LIGHT);
+        document.documentElement.setAttribute('data-theme', 'light');
         setThemeIcon(true);
     } else {
         setThemeIcon(false);
     }
 
     themeBtn.addEventListener('click', () => {
-        document.body.classList.toggle(AppConfig.THEME_CLASS_LIGHT);
-        const isLightTheme = document.body.classList.contains(AppConfig.THEME_CLASS_LIGHT);
+        const isLightTheme = document.documentElement.getAttribute('data-theme') !== 'light';
+        if (isLightTheme) {
+            document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+        }
         setThemeIcon(isLightTheme);
         const theme = isLightTheme ? AppConfig.THEME_LIGHT : AppConfig.THEME_DARK;
-        if(window.IIEStorage) window.IIEStorage.setTheme(theme); else localStorage.setItem(AppConfig.THEME_STORAGE_KEY, theme);
+        if (window.IIEStorage) window.IIEStorage.setTheme(theme); else localStorage.setItem(AppConfig.THEME_STORAGE_KEY, theme);
     });
 }
 
@@ -855,7 +848,7 @@ function initInteractiveMap() {
     overlayBackBtn.addEventListener('click', closeOverlay);
 
     // ESC key closes overlay
-    var mapEscapeHandler = function(e) {
+    var mapEscapeHandler = function (e) {
         if (e.key === 'Escape') {
             closeOverlay();
             comparisonOverlay.classList.remove('open');
@@ -946,7 +939,7 @@ function initInteractiveMap() {
                     <div class="icon-circle">IN</div>
                     <h3>${loc.name}</h3>
                 </div>
-                <p class="info-card-text">
+                <p class="info-card-text" style="font-size: 0.95rem; margin-bottom: 25px;">
                     <strong>Capital:</strong> ${loc.capital}<br>
                     <strong>Famous Food:</strong> ${loc.food}<br>
                     <strong>Festival:</strong> ${loc.festival}
@@ -1064,109 +1057,6 @@ function initInteractiveMap() {
         showStateDetails(randomLoc);
     });
 }
-
-/* ==========================================================================
-   3. CUISINE EXPLORER
-   ========================================================================== */
-
-function initCuisineExplorer() {
-    const cuisineGrid = document.getElementById('cuisine-grid');
-    const tabBtns = document.querySelectorAll('.tab-btn');
-
-    // Initial render
-    if (!cuisineGrid) return;
-    renderCuisines('all');
-
-    // Filter Trigger click
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active status
-            tabBtns.forEach(b => b.classList.remove('active'));
-            // Set current active
-            btn.classList.add('active');
-
-            const region = btn.getAttribute('data-region');
-
-            // Fading grid animation
-            cuisineGrid.style.opacity = '0';
-            cuisineGrid.style.transform = 'translateY(15px)';
-            cuisineGrid.style.transition = 'opacity 0.25s, transform 0.25s';
-
-            setTimeout(() => {
-                renderCuisines(region);
-                cuisineGrid.style.opacity = '1';
-                cuisineGrid.style.transform = 'translateY(0)';
-            }, 250);
-        });
-    });
-
-    function renderCuisines(regionFilter) {
-        cuisineGrid.innerHTML = '';
-
-        const filteredList = regionFilter === 'all'
-            ? cuisinesData
-            : cuisinesData.filter(item => item.region === regionFilter);
-
-        filteredList.forEach(dish => {
-            const card = document.createElement('div');
-            card.className = 'cuisine-card glass-card';
-
-            // Determine region badge color
-            let badgeClass = 'saffron-bg';
-            if (dish.region === 'south') badgeClass = 'gold-bg';
-            if (dish.region === 'east') badgeClass = 'green-bg';
-            if (dish.region === 'west') badgeClass = 'saffron-bg';
-            if (dish.region === 'northeast') badgeClass = 'gold-bg';
-
-            card.innerHTML = `
-                <div class="cuisine-card-image">
-                    <img src="${dish.image}" alt="${dish.name}" loading="lazy">
-                    <span class="cuisine-region-badge ${badgeClass}">${dish.region} India</span>
-                </div>
-                <div class="cuisine-card-body">
-                    <span class="cuisine-origin">${dish.state}</span>
-                    <h3>${dish.name}</h3>
-                    <p>${dish.description}</p>
-                </div>
-            `;
-
-            cuisineGrid.appendChild(card);
-        });
-    }
-}
-
-/* ==========================================================================
-   4. FESTIVALS TIMELINE
-   ========================================================================== */
-
-function initFestivals() {
-    const festivalTimeline = document.getElementById('festival-timeline');
-    const stateModal = document.getElementById('state-modal');
-
-    if (!festivalTimeline) return;
-    festivalTimeline.innerHTML = '';
-
-    festivalsData.forEach(fest => {
-        const card = document.createElement('div');
-        card.className = 'festival-card glass-card';
-        card.innerHTML = `
-            <img class="festival-card-img" src="${fest.image}" alt="${fest.name}" loading="lazy">
-            <div class="festival-card-content">
-                <span class="subtitle">${fest.subtitle}</span>
-                <h3>${fest.name}</h3>
-                <p>${fest.description}</p>
-            </div>
-        `;
-
-        // Click festival to navigate to the detailed festivals page
-        card.addEventListener('click', () => {
-            window.location.href = 'frontend/festivals/festivals.html';
-        });
-
-        festivalTimeline.appendChild(card);
-    });
-}
-
 /* ==========================================================================
    5. CULTURE SLIDER (CAROUSEL)
    ========================================================================== */
@@ -1176,163 +1066,389 @@ function initCultureSlider() {
     const prevBtn = document.getElementById('slider-prev');
     const nextBtn = document.getElementById('slider-next');
     const dotsContainer = document.getElementById('slider-dots');
+    const sliderContainer = document.getElementById('slider-container');
+
+    // Required elements are not available
+    if (!track || !prevBtn || !nextBtn || !dotsContainer) {
+        return;
+    }
 
     let currentSlide = 0;
 
-    // Render Culture Items
-    if (!track) return;
+    /* ------------------------------------------------------------------
+       RENDER CULTURE CARDS
+       ------------------------------------------------------------------ */
+
     track.innerHTML = '';
-    cultureData.forEach((item, index) => {
+
+    cultureData.forEach((item) => {
         const card = document.createElement('div');
+
         card.className = 'slider-card';
+
         card.innerHTML = `
-            <img class="slider-card-img" src="${item.image}" alt="${item.title}" loading="lazy">
+            <img
+                class="slider-card-img"
+                src="${item.image}"
+                alt="${item.title}"
+                loading="lazy"
+            >
+
             <div class="slider-card-body">
-                <span class="slider-card-category">${item.category}</span>
+
+                <span class="slider-card-category">
+                    ${item.category}
+                </span>
+
                 <h3>${item.title}</h3>
+
                 <p>${item.description}</p>
+
             </div>
         `;
+
         track.appendChild(card);
     });
 
-    // Render Navigation Dots
-    dotsContainer.innerHTML = '';
-    const totalCards = cultureData.length;
 
-    // Determine responsive slide count limits
+    /* ------------------------------------------------------------------
+       RESPONSIVE VISIBLE CARD COUNT
+       ------------------------------------------------------------------ */
+
     function getVisibleSlidesCount() {
-        if (window.innerWidth <= 768) return 1;
-        if (window.innerWidth <= 1024) return 2;
+
+        if (window.innerWidth <= 768) {
+            return 1;
+        }
+
+        if (window.innerWidth <= 1024) {
+            return 2;
+        }
+
         return 3;
     }
 
+
+    /* ------------------------------------------------------------------
+       MAXIMUM SLIDE
+       ------------------------------------------------------------------ */
+
     function getMaxSlides() {
-        return Math.max(0, totalCards - getVisibleSlidesCount());
+
+        return Math.max(
+            0,
+            cultureData.length - getVisibleSlidesCount()
+        );
     }
 
+
+    /* ------------------------------------------------------------------
+       RENDER NAVIGATION DOTS
+       ------------------------------------------------------------------ */
+
     function updateDots() {
+
         dotsContainer.innerHTML = '';
+
         const dotsCount = getMaxSlides() + 1;
 
         for (let i = 0; i < dotsCount; i++) {
+
             const dot = document.createElement('span');
-            dot.className = `dot ${i === currentSlide ? 'active' : ''}`;
+
+            dot.className = 'dot';
+
+            if (i === currentSlide) {
+                dot.classList.add('active');
+            }
+
             dot.addEventListener('click', () => {
+
                 currentSlide = i;
+
                 moveSlider();
+
             });
+
             dotsContainer.appendChild(dot);
         }
     }
 
+
+    /* ------------------------------------------------------------------
+       MOVE SLIDER
+       ------------------------------------------------------------------ */
+
     function moveSlider() {
-        // Limit slide bounds
+
         const maxSlides = getMaxSlides();
-        if (currentSlide < 0) currentSlide = 0;
-        if (currentSlide > maxSlides) currentSlide = maxSlides;
 
-        const cardWidthPercent = 100 / getVisibleSlidesCount();
-        const gapOffset = 30 * currentSlide / getVisibleSlidesCount(); // 30px is gap in CSS
+        // Keep slide inside valid range
+        if (currentSlide < 0) {
+            currentSlide = 0;
+        }
 
-        // Dynamic track translation calculation
-        const percentTranslation = currentSlide * cardWidthPercent;
+        if (currentSlide > maxSlides) {
+            currentSlide = maxSlides;
+        }
 
-        // Apply styling transform
-        track.style.transform = `translateX(calc(-${percentTranslation}% - ${currentSlide * 20}px))`;
+        const visibleSlides = getVisibleSlidesCount();
 
-        // Update dot highlights
-        const dots = dotsContainer.querySelectorAll('.dot');
+        const cardWidthPercent = 100 / visibleSlides;
+
+        /*
+         * CSS gap is approximately 30px.
+         * The percentage handles responsive card width.
+         */
+        const translation =
+            currentSlide * cardWidthPercent;
+
+        track.style.transform =
+            `translateX(calc(-${translation}% - ${currentSlide * 30}px))`;
+        // Update active dot
+        const dots =
+            dotsContainer.querySelectorAll('.dot');
+
         dots.forEach((dot, index) => {
+
             if (index === currentSlide) {
                 dot.classList.add('active');
             } else {
                 dot.classList.remove('active');
             }
+
         });
     }
 
-    // Button controls click listeners
+
+    /* ------------------------------------------------------------------
+       NEXT BUTTON
+       ------------------------------------------------------------------ */
+
     nextBtn.addEventListener('click', () => {
+
         currentSlide++;
+
         moveSlider();
+
     });
+
+
+    /* ------------------------------------------------------------------
+       PREVIOUS BUTTON
+       ------------------------------------------------------------------ */
 
     prevBtn.addEventListener('click', () => {
+
         currentSlide--;
+
         moveSlider();
+
     });
 
-    // ------------------------------------------------------------------
-    // TOUCH SWIPE SUPPORT (mobile)
-    // Uses touchstart / touchmove / touchend â€” no external libraries.
-    // Minimum threshold of 50px filters out accidental micro-drags.
-    // The vertical guard prevents stealing vertical page-scroll gestures.
-    // { passive: false } on touchmove lets us call preventDefault() to
-    // stop page judder when a horizontal swipe is confirmed.
-    // ------------------------------------------------------------------
-    const sliderContainer = document.getElementById('slider-container');
-    if (!sliderContainer) return;
 
-    let touchStartX = 0;
-    let touchStartY = 0;
-    let isSwiping = false; // true once we've committed to a horizontal drag
+    /* ------------------------------------------------------------------
+       TOUCH SWIPE SUPPORT
+       ------------------------------------------------------------------ */
 
-    sliderContainer.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-        touchStartY = e.changedTouches[0].screenY;
-        isSwiping = false;
-    }, { passive: true });
+    if (sliderContainer) {
 
-    sliderContainer.addEventListener('touchmove', (e) => {
-        const deltaX = e.changedTouches[0].screenX - touchStartX;
-        const deltaY = e.changedTouches[0].screenY - touchStartY;
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let isSwiping = false;
 
-        // Commit to horizontal swipe only when horizontal movement is dominant
-        if (!isSwiping && Math.abs(deltaX) > Math.abs(deltaY)) {
-            isSwiping = true;
-        }
 
-        // Once committed to horizontal swipe, block vertical page scroll
-        if (isSwiping) {
-            e.preventDefault();
-        }
-    }, { passive: false });
+        // Touch started
+        sliderContainer.addEventListener(
+            'touchstart',
+            (e) => {
 
-    sliderContainer.addEventListener('touchend', (e) => {
-        if (!isSwiping) return; // was a vertical scroll â€” do nothing
+                touchStartX =
+                    e.changedTouches[0].screenX;
 
-        const deltaX = e.changedTouches[0].screenX - touchStartX;
-        const SWIPE_THRESHOLD = 50; // px â€” ignore accidental micro-drags
+                touchStartY =
+                    e.changedTouches[0].screenY;
 
-        if (Math.abs(deltaX) >= SWIPE_THRESHOLD) {
-            if (deltaX < 0) {
-                // Swiped left â†’ advance to next slide
-                currentSlide++;
-            } else {
-                // Swiped right â†’ go back to previous slide
-                currentSlide--;
-            }
-            moveSlider();
-        }
+                isSwiping = false;
 
-        isSwiping = false;
-    }, { passive: true });
-    // ------------------------------------------------------------------
+            },
+            { passive: true }
+        );
 
-    // Initialize layout dots
+
+        // Touch moving
+        sliderContainer.addEventListener(
+            'touchmove',
+            (e) => {
+
+                const deltaX =
+                    e.changedTouches[0].screenX -
+                    touchStartX;
+
+                const deltaY =
+                    e.changedTouches[0].screenY -
+                    touchStartY;
+
+
+                /*
+                 * Only treat the gesture as a swipe when
+                 * horizontal movement is greater than vertical.
+                 */
+                if (
+                    !isSwiping &&
+                    Math.abs(deltaX) > Math.abs(deltaY)
+                ) {
+
+                    isSwiping = true;
+
+                }
+
+
+                /*
+                 * Prevent the page from moving horizontally
+                 * once a horizontal swipe has been detected.
+                 */
+                if (isSwiping) {
+
+                    e.preventDefault();
+
+                }
+
+            },
+            { passive: false }
+        );
+
+
+        // Touch ended
+        sliderContainer.addEventListener(
+            'touchend',
+            (e) => {
+
+                if (!isSwiping) {
+                    return;
+                }
+
+
+                const deltaX =
+                    e.changedTouches[0].screenX -
+                    touchStartX;
+
+                const swipeThreshold = 50;
+
+
+                /*
+                 * Swipe left → next slide
+                 */
+                if (Math.abs(deltaX) >= swipeThreshold) {
+
+                    if (deltaX < 0) {
+
+                        currentSlide++;
+
+                    }
+
+                    /*
+                     * Swipe right → previous slide
+                     */
+                    else {
+
+                        currentSlide--;
+
+                    }
+
+                    moveSlider();
+
+                }
+
+
+                isSwiping = false;
+
+            },
+            { passive: true }
+        );
+
+    }
+
+
+    /* ------------------------------------------------------------------
+       INITIAL SETUP
+       ------------------------------------------------------------------ */
+
     updateDots();
 
-    // Re-adjust slider items on resize
+    moveSlider();
+
+
+    /* ------------------------------------------------------------------
+       UPDATE SLIDER WHEN WINDOW SIZE CHANGES
+       ------------------------------------------------------------------ */
+
     window.addEventListener('resize', () => {
-        const max = getMaxSlides();
-        if (currentSlide > max) {
-            currentSlide = max;
-        }
+
+        // Recreate dots because visible card count may change
         updateDots();
+
         moveSlider();
+
+    });
+
+}
+
+
+/* ==========================================================================
+   INITIALIZE CULTURE SLIDER
+   ========================================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    initCultureSlider();
+
+});
+
+/* =========================================================
+   HISTORICAL DYNASTIES
+   6 cards - 3 columns × 2 rows
+========================================================= */
+
+function initDynastySection() {
+
+    const dynastyGrid = document.getElementById("dynasty-grid");
+
+    if (!dynastyGrid) return;
+
+    dynastyGrid.innerHTML = "";
+
+    dynastyData.forEach((dynasty) => {
+
+        const card = document.createElement("article");
+
+        card.className = "dynasty-card";
+
+        card.innerHTML = `
+            <div class="dynasty-card-body" style="padding: 40px 30px; text-align: center; border-top: 3px solid #d4af37; background: linear-gradient(180deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                <div style="font-size: 3rem; color: #d4af37; margin-bottom: 15px; font-family: serif; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));">🏛️</div>
+                <span class="dynasty-card-category" style="color: #ffab00; letter-spacing: 2px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">
+                    ${dynasty.category}
+                </span>
+                <h3 style="font-size: 1.8rem; margin: 15px 0 10px;">
+                    <a href="${dynasty.link || '#'}" style="color: #fff; text-decoration: none;">
+                        ${dynasty.title}
+                    </a>
+                </h3>
+                <p style="color: rgba(255,255,255,0.7); line-height: 1.6; font-size: 0.95rem;">${dynasty.description}</p>
+            </div>
+        `;
+
+        dynastyGrid.appendChild(card);
     });
 }
+
+
+/* Initialize after HTML is loaded */
+
+document.addEventListener("DOMContentLoaded", () => {
+    initDynastySection();
+});
 
 /* ==========================================================================
    6. FOOD QUIZ GAME
@@ -1491,8 +1607,8 @@ function initQuiz() {
    ========================================================================== */
 
 // Stubs for lazy-loaded pages
-function initCuisinePage() {}
-function initFestivalsPage() {}
+function initCuisinePage() { }
+function initFestivalsPage() { }
 
 
 
@@ -1890,7 +2006,7 @@ function initBharatGuide() {
     const btnSendMsg = document.getElementById('btn-send-msg');
     const btnMic = document.getElementById('btn-mic');
     const langSelect = document.getElementById('chat-lang-select');
-    
+
     // Add current path variable for context
     let currentBotPath = window.location.pathname;
 
@@ -1931,7 +2047,7 @@ function initBharatGuide() {
             btnMic.title = 'Voice Input';
         }
         if (recognition) {
-            try { recognition.stop(); } catch (e) {}
+            try { recognition.stop(); } catch (e) { }
             recognition = null;
         }
     }
@@ -2018,13 +2134,13 @@ function initBharatGuide() {
     function renderContextualGreeting(path, append = false) {
         if (typeof getChatbotContext !== 'function') return;
         const context = getChatbotContext(path);
-        
+
         let chipsHtml = context.chips.map(chip => `<span class="chat-chip">${chip}</span>`).join('');
         let html = `
             <div class="chat-message bot">${context.greeting}</div>
             <div class="chat-chips">${chipsHtml}</div>
         `;
-        
+
         if (append) {
             const msgDiv = document.createElement('div');
             msgDiv.className = 'message bot-message context-update';
@@ -2038,7 +2154,7 @@ function initBharatGuide() {
                 initialChatBody.innerHTML = html;
             }
         }
-        
+
         // Add click listeners to new chips
         const newChips = chatMessages.querySelectorAll('.chat-chip');
         newChips.forEach(chip => {
@@ -2068,7 +2184,7 @@ function initBharatGuide() {
             const targetPath = e.target.getAttribute('data-target');
             if (targetPath && window.appRouter) {
                 window.appRouter.handleRoute(targetPath);
-                
+
                 // Optional: apply highlight effect to target hash after navigation
                 const hash = new URL(targetPath, window.location.origin).hash;
                 if (hash) {
@@ -2115,7 +2231,7 @@ function initBharatGuide() {
     });
 
     function escapeHTML(str) {
-        return str.replace(/[&<>'"]/g, 
+        return str.replace(/[&<>'"]/g,
             tag => ({
                 '&': '&amp;',
                 '<': '&lt;',
@@ -2290,7 +2406,7 @@ function initSciencePage() {
         if (event.target === modal) closeModal();
     });
 
-    var scienceKeydownHandler = function(event) {
+    var scienceKeydownHandler = function (event) {
         if (!isModalOpen) return;
 
         if (event.key === 'Escape') {
@@ -2860,7 +2976,7 @@ function initMusicPage() {
         }
     });
 
-    var musicKeydownHandler = function(event) {
+    var musicKeydownHandler = function (event) {
         if (!isModalOpen) return;
 
         if (event.key === 'Escape') {
@@ -3822,7 +3938,7 @@ function initLiteraturePage() {
         }
     });
 
-    var literatureKeydownHandler = function(event) {
+    var literatureKeydownHandler = function (event) {
         if (!isModalOpen) return;
 
         if (event.key === 'Escape') {
@@ -4570,7 +4686,7 @@ function initDancePage() {
         }
     });
 
-    var danceKeydownHandler = function(event) {
+    var danceKeydownHandler = function (event) {
         if (!isModalOpen) return;
 
         if (event.key === 'Escape') {
@@ -5313,9 +5429,9 @@ function initStartupPage() {
             window.Journey?.removeFromJourney(`startup-${startupId}`);
 
             addToOfflineQueue({
-              action: 'remove-favorite',
-              id: startupId
-          });
+                action: 'remove-favorite',
+                id: startupId
+            });
         } else {
             favorites.add(startupId);
             const item = startupData.find((s) => s.id === startupId);
@@ -5328,9 +5444,9 @@ function initStartupPage() {
             });
 
             addToOfflineQueue({
-              action: 'add-favorite',
-              id: startupId
-           });
+                action: 'add-favorite',
+                id: startupId
+            });
         }
 
         renderAll();
@@ -5503,4 +5619,42 @@ function initPersonalitiesPage() {
     filterCards('historical');
 }
 
+document.addEventListener("DOMContentLoaded", function () {
 
+    const scrollTopBtn = document.getElementById("btn-scroll-top");
+    const homeSection = document.getElementById("home");
+
+    if (!scrollTopBtn || !homeSection) {
+        console.error("Back-to-top button or Home section not found.");
+        return;
+    }
+
+    function updateBackToTop() {
+
+        const homeRect = homeSection.getBoundingClientRect();
+
+        // Home section is still visible
+        if (window.scrollY > 300) {
+            scrollTopBtn.classList.add("visible");
+        }
+
+        // Home section has been completely scrolled past
+        else {
+            scrollTopBtn.classList.remove("visible");
+        }
+    }
+
+    window.addEventListener("scroll", updateBackToTop);
+
+    // Check when page loads
+    updateBackToTop();
+
+    // Smoothly scroll to top
+    scrollTopBtn.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+});

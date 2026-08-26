@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Odissi — India's Classical Dance Heritage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Marcellus&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --stone:#F1E7D6;
+    --stone-deep:#E6D6BC;
+    --ink:#2A2118;
+    --indigo:#1E2A42;
+    --indigo-deep:#141C2E;
+    --gold:#B8891E;
+    --gold-bright:#D9A83B;
+    --sindoor:#8E2E28;
+    --sindoor-bright:#A83A2F;
+    --line: rgba(42,33,24,0.16);
+    --radius: 2px;
+    --maxw: 1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--stone);
+    color:var(--ink);
+    font-family:'Karla', sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  h1,h2,h3,h4{font-family:'Marcellus', serif; font-weight:400; letter-spacing:0.01em;}
+  .serif-italic{font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:600;}
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:'Karla',sans-serif; text-transform:uppercase; letter-spacing:0.22em;
+    font-size:0.72rem; color:var(--gold); font-weight:700;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(30,42,66,0.96);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(217,168,59,0.3);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:58px; gap:20px;}
+  .brand{font-family:'Marcellus',serif; color:var(--stone); font-size:1.15rem; letter-spacing:0.03em;}
+  .brand span{color:var(--gold-bright);}
+  .navlinks{display:flex; gap:22px; flex-wrap:wrap; overflow-x:auto;}
+  .navlinks a{
+    color:rgba(241,231,214,0.75); font-size:0.78rem; text-decoration:none;
+    text-transform:uppercase; letter-spacing:0.09em; white-space:nowrap;
+    padding:4px 2px; border-bottom:1px solid transparent; transition:.2s;
+  }
+  .navlinks a:hover{color:var(--gold-bright); border-color:var(--gold-bright);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; min-height:88vh; display:flex; align-items:flex-end;
+    background:var(--indigo-deep);
+    overflow:hidden;
+  }
+  .hero-img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    object-position:center 18%;
+    opacity:0.62; filter:saturate(1.05) contrast(1.02);
+  }
+  .hero::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(20,28,46,0.15) 0%, rgba(20,28,46,0.35) 45%, rgba(20,28,46,0.97) 96%);
+  }
+  .hero-content{position:relative; z-index:2; padding:80px 0 56px; width:100%;}
+  .hero-content .eyebrow{color:var(--gold-bright);}
+  .hero h1{
+    color:var(--stone); font-size:clamp(2.6rem, 6.5vw, 5.2rem); line-height:1.02;
+    margin:14px 0 18px; max-width:14ch;
+  }
+  .hero-sub{
+    color:rgba(241,231,214,0.85); max-width:52ch; font-size:1.08rem; margin-bottom:22px;
+  }
+  .hero-meta{display:flex; gap:28px; flex-wrap:wrap; margin-top:26px;}
+  .hero-meta div{border-left:2px solid var(--gold); padding-left:12px;}
+  .hero-meta .num{font-family:'Marcellus',serif; color:var(--gold-bright); font-size:1.3rem; display:block;}
+  .hero-meta .lab{font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(241,231,214,0.65);}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:86px 0;}
+  section.alt{background:var(--stone-deep);}
+  .section-head{max-width:640px; margin-bottom:44px;}
+  .section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem); margin-top:10px;}
+  .section-head p{margin-top:14px; color:rgba(42,33,24,0.78);}
+  .divider{
+    width:64px; height:3px; background:var(--sindoor); margin:6px 0 0;
+    position:relative;
+  }
+  .divider::after{
+    content:""; position:absolute; left:70px; top:-2px; width:7px; height:7px;
+    background:var(--gold); border-radius:50%;
+  }
+
+  /* ---------- HISTORY ---------- */
+  .history-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:start;}
+  .history-grid figure{margin:0;}
+  .history-grid figcaption{font-size:0.78rem; color:rgba(42,33,24,0.6); margin-top:8px; font-style:italic; font-family:'Cormorant Garamond',serif;}
+  .history-text p{margin-bottom:16px;}
+  .history-text strong{color:var(--sindoor);}
+  .img-pair{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .img-frame{border:1px solid var(--line); padding:6px; background:#fff;}
+  .img-frame img{aspect-ratio:4/5; object-fit:cover; width:100%;}
+
+  /* ---------- CHARACTERISTICS ---------- */
+  .char-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .char-card{background:var(--stone); padding:28px 22px;}
+  .char-card .glyph{font-family:'Marcellus',serif; font-size:2.2rem; color:var(--gold); margin-bottom:10px;}
+  .char-card h4{font-size:1.05rem; margin-bottom:8px;}
+  .char-card p{font-size:0.88rem; color:rgba(42,33,24,0.75);}
+
+  .repertoire{margin-top:56px;}
+  .repertoire h3{font-size:1.3rem; margin-bottom:22px;}
+  .rep-track{display:flex; overflow-x:auto; gap:0; padding-bottom:14px;}
+  .rep-step{
+    min-width:190px; flex:1; padding:18px 18px 18px 0; position:relative;
+  }
+  .rep-step:not(:last-child)::after{
+    content:"→"; position:absolute; right:-2px; top:18px; color:var(--gold); font-size:1.1rem;
+  }
+  .rep-step .idx{font-family:'Marcellus',serif; color:var(--sindoor); font-size:0.85rem;}
+  .rep-step h5{font-size:1.05rem; margin:6px 0 6px;}
+  .rep-step p{font-size:0.82rem; color:rgba(42,33,24,0.72);}
+
+  /* ---------- COSTUME EXPLORER ---------- */
+  .costume-wrap{display:grid; grid-template-columns:0.85fr 1.15fr; gap:44px; align-items:start;}
+  .costume-img-box{position:relative; border:1px solid var(--line); background:#fff; padding:8px;}
+  .costume-img-box img{width:100%;}
+  .hotspot{
+    position:absolute; width:26px; height:26px; border-radius:50%;
+    background:var(--sindoor); color:#fff; font-family:'Marcellus',serif; font-size:0.85rem;
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+    border:2px solid var(--stone); box-shadow:0 0 0 2px var(--sindoor);
+    transition:.2s;
+  }
+  .hotspot.active{background:var(--gold); box-shadow:0 0 0 2px var(--gold);}
+  .hotspot:hover{transform:scale(1.15);}
+  .costume-detail{border-left:3px solid var(--gold); padding-left:22px; min-height:260px;}
+  .costume-detail .eyebrow{margin-bottom:8px; display:block;}
+  .costume-detail h3{font-size:1.5rem; margin-bottom:12px;}
+  .costume-list{display:flex; flex-wrap:wrap; gap:8px; margin-top:26px;}
+  .costume-pill{
+    font-size:0.76rem; padding:6px 12px; border:1px solid var(--line);
+    background:#fff; cursor:pointer; text-transform:uppercase; letter-spacing:0.06em;
+  }
+  .costume-pill.active{background:var(--sindoor); color:#fff; border-color:var(--sindoor);}
+
+  /* ---------- INSTRUMENTS ---------- */
+  .instr-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:16px;}
+  .instr-card{text-align:center; background:#fff; border:1px solid var(--line); padding:20px 12px;}
+  .instr-card .glyph{font-size:1.8rem; margin-bottom:8px;}
+  .instr-card h5{font-size:0.92rem; margin-bottom:6px;}
+  .instr-card p{font-size:0.76rem; color:rgba(42,33,24,0.68);}
+
+  /* ---------- POSE GALLERY ---------- */
+  .pose-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  .pose-card{
+    position:relative; aspect-ratio:3/4; overflow:hidden; cursor:pointer;
+    border:1px solid var(--line);
+  }
+  .pose-card img{width:100%; height:100%; object-fit:cover; transition:transform .5s;}
+  .pose-card:hover img{transform:scale(1.06);}
+  .pose-label{
+    position:absolute; left:0; right:0; bottom:0; padding:14px;
+    background:linear-gradient(0deg, rgba(20,28,46,0.92), rgba(20,28,46,0));
+    color:var(--stone);
+  }
+  .pose-label .num{font-family:'Marcellus',serif; color:var(--gold-bright); font-size:0.78rem; display:block;}
+  .pose-label h5{font-size:1.05rem;}
+  .pose-modal{
+    position:fixed; inset:0; background:rgba(20,28,46,0.88); z-index:100;
+    display:none; align-items:center; justify-content:center; padding:24px;
+  }
+  .pose-modal.open{display:flex;}
+  .pose-modal-inner{
+    background:var(--stone); max-width:760px; width:100%; display:grid;
+    grid-template-columns:1fr 1fr; max-height:85vh; overflow:auto;
+  }
+  .pose-modal-inner img{width:100%; height:100%; object-fit:cover; min-height:260px;}
+  .pose-modal-text{padding:32px;}
+  .pose-modal-text h3{font-size:1.7rem; margin-bottom:6px;}
+  .pose-modal-text .sanskrit{color:var(--sindoor); font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.05rem; margin-bottom:16px; display:block;}
+  .close-modal{
+    position:absolute; top:16px; right:20px; background:none; border:none;
+    color:var(--stone); font-size:1.6rem; cursor:pointer; z-index:101;
+  }
+
+  /* ---------- MAP ---------- */
+  .map-wrap{display:grid; grid-template-columns:1.1fr 0.9fr; gap:44px; align-items:center;}
+  .map-svg-box{background:var(--indigo-deep); padding:20px; border:1px solid var(--line);}
+  .map-pin{cursor:pointer;}
+  .map-pin circle{transition:.2s;}
+  .map-pin:hover circle, .map-pin.active circle{r:9; fill:var(--gold-bright);}
+  .map-pin text{font-family:'Karla',sans-serif; font-size:11px; fill:var(--stone); pointer-events:none;}
+  .map-info{border-left:3px solid var(--gold); padding-left:22px; min-height:180px;}
+  .map-info h3{font-size:1.4rem; margin-bottom:10px;}
+  .map-info .eyebrow{display:block; margin-bottom:6px;}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{position:relative; margin-top:20px;}
+  .timeline-track{
+    display:flex; gap:0; overflow-x:auto; padding:10px 0 30px;
+    scroll-snap-type:x proximity;
+  }
+  .tl-item{
+    min-width:260px; scroll-snap-align:start; padding:0 26px 0 0; position:relative;
+  }
+  .tl-item .dot{
+    width:12px; height:12px; border-radius:50%; background:var(--sindoor); margin-bottom:14px;
+    position:relative;
+  }
+  .tl-item:not(:last-child) .dot::after{
+    content:""; position:absolute; left:12px; top:5px; width:248px; height:2px; background:var(--line);
+  }
+  .tl-item .yr{font-family:'Marcellus',serif; color:var(--gold); font-size:1.1rem;}
+  .tl-item h5{margin:8px 0 6px; font-size:1.02rem;}
+  .tl-item p{font-size:0.85rem; color:rgba(42,33,24,0.75);}
+
+  /* ---------- PERFORMANCE TRADITIONS ---------- */
+  .trad-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px;}
+  .trad-card{background:#fff; border:1px solid var(--line); padding:26px;}
+  .trad-card img{width:100%; aspect-ratio:16/10; object-fit:cover; margin-bottom:16px;}
+  .trad-card h4{font-size:1.2rem; margin-bottom:8px;}
+  .trad-card p{font-size:0.9rem; color:rgba(42,33,24,0.75);}
+
+  /* ---------- SOURCES ---------- */
+  .sources{background:var(--indigo-deep); color:var(--stone);}
+  .sources h2{color:var(--stone);}
+  .sources .section-head p{color:rgba(241,231,214,0.7);}
+  .src-list{columns:2; gap:40px; font-size:0.85rem;}
+  .src-list li{margin-bottom:10px; color:rgba(241,231,214,0.75); break-inside:avoid;}
+  .credit-note{margin-top:30px; font-size:0.78rem; color:rgba(241,231,214,0.55); border-top:1px solid rgba(217,168,59,0.25); padding-top:18px;}
+
+  footer{padding:34px 0; text-align:center; font-size:0.78rem; color:rgba(42,33,24,0.55);}
+
+  .audio-btn{
+    background:rgba(217,168,59,0.15); border:1px solid rgba(217,168,59,0.4);
+    color:var(--gold-bright); font-size:0.75rem; padding:4px 10px; border-radius:20px;
+    cursor:pointer; display:inline-flex; align-items:center; gap:5px; transition:.2s;
+  }
+  .audio-btn:hover{background:var(--gold); color:var(--indigo-deep);}
+
+  /* ---------- TALA RHYTHM STUDIO ---------- */
+  .tala-box{
+    background:#fff; border:1px solid var(--line); padding:32px;
+    margin-top:20px; box-shadow:0 12px 30px rgba(0,0,0,0.06);
+  }
+  .tala-tabs{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:24px;}
+  .tala-tab{
+    padding:8px 16px; border:1px solid var(--line); background:var(--stone);
+    cursor:pointer; font-family:'Marcellus',serif; font-size:0.9rem; transition:.2s;
+  }
+  .tala-tab.active{background:var(--indigo); color:var(--stone); border-color:var(--indigo);}
+  .beat-row{display:flex; gap:10px; flex-wrap:wrap; margin:22px 0; justify-content:flex-start;}
+  .beat-cell{
+    width:56px; height:68px; border:1px solid var(--line); border-radius:4px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    background:var(--stone); transition:all .15s; font-family:'Karla',sans-serif;
+  }
+  .beat-cell .num{font-size:0.72rem; color:rgba(42,33,24,0.5);}
+  .beat-cell .bol{font-weight:700; font-size:0.92rem; color:var(--indigo);}
+  .beat-cell.active{
+    background:var(--gold-bright); color:var(--indigo-deep); transform:scale(1.1);
+    box-shadow:0 0 12px var(--gold); border-color:var(--gold);
+  }
+  .tala-controls{display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:20px;}
+  .btn-tala{
+    background:var(--sindoor); color:#fff; border:none; padding:10px 22px;
+    font-family:'Marcellus',serif; font-size:0.92rem; cursor:pointer; transition:.2s;
+  }
+  .btn-tala:hover{background:var(--sindoor-bright);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    .history-grid, .costume-wrap, .map-wrap{grid-template-columns:1fr;}
+    .char-grid{grid-template-columns:repeat(2,1fr);}
+    .instr-grid{grid-template-columns:repeat(3,1fr);}
+    .pose-grid{grid-template-columns:repeat(3,1fr);}
+    .trad-grid{grid-template-columns:1fr;}
+    .pose-modal-inner{grid-template-columns:1fr;}
+    .src-list{columns:1;}
+  }
+  @media (max-width:640px){
+    .navlinks{display:none;}
+    .char-grid{grid-template-columns:1fr 1fr;}
+    .instr-grid{grid-template-columns:repeat(2,1fr);}
+    .pose-grid{grid-template-columns:repeat(2,1fr);}
+    .img-pair{grid-template-columns:1fr;}
+    section{padding:56px 0;}
+    .hero{min-height:78vh;}
+    .hero-meta{gap:18px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Odissi <span>&middot;</span> ओड़िशी</div>
+    <div class="navlinks">
+      <a href="#history">History</a>
+      <a href="#characteristics">Characteristics</a>
+      <a href="#costume">Costume</a>
+      <a href="#instruments">Music</a>
+      <a href="#tala">Tala Studio</a>
+      <a href="#poses">Poses</a>
+      <a href="#map">Odisha</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#traditions">Traditions</a>
+      <a href="#sources">Sources</a>
+      <button class="audio-btn" id="soundToggle">🔔 Sound: Off</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <img class="hero-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Odisha%20Classical%20dance%2001.jpg?width=1600" alt="Odissi dancer performing a classical pose">
+  <div class="hero-content wrap">
+    <span class="eyebrow">Classical Dance of Odisha</span>
+    <h1>Odissi — the temple sculpture set in motion</h1>
+    <p class="hero-sub">One of India's oldest surviving classical dance forms, born in the shrines of Odisha and carved into the stone of Konark and Bhubaneswar long before it ever found a stage.</p>
+    <div class="hero-meta">
+      <div><span class="num">2nd c. BCE</span><span class="lab">Earliest traces</span></div>
+      <div><span class="num">8</span><span class="lab">Classical dances of India</span></div>
+      <div><span class="num">Tribhangi</span><span class="lab">Signature stance</span></div>
+      <div><span class="num">Jagannath</span><span class="lab">Presiding deity</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- HISTORY -->
+<section id="history">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">01 — Origin &amp; History</span>
+      <h2>From royal court to temple sanctum</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="history-grid">
+      <div class="history-text">
+        <p>Odissi's story is usually traced to the <strong>Udayagiri and Khandagiri caves</strong> near Bhubaneswar. A carved panel in the Ranigumpha (Queen's Cave) shows dancers and musicians performing before a royal audience, and a nearby inscription in the Hathigumpha cave records a dance performance staged for King Kharavela — evidence that dance had a place in Odisha's court culture as early as the 2nd century BCE, long before it became a temple ritual.</p>
+        <p>The dance's deeper attachment to religion grew from the 6th century onward, as rulers built major temples across Bhubaneswar, and reached its height with the 12th-century <strong>Jagannath Temple</strong> at Puri and the 13th-century <strong>Konark Sun Temple</strong>. Inside the Jagannath Temple, a class of temple dancers called <strong>Maharis</strong> (also known as devadasis) performed daily as a form of worship — dancing during the morning food offering and singing before the deity was put to rest at night. A parallel, more acrobatic tradition called <strong>Gotipua</strong> emerged, in which young boys dressed as girls trained to perform both inside temples and at festivals and fairs, sustaining the technique when the mahari system eventually declined.</p>
+        <p>Colonial-era social reform campaigns against temple dancing pushed Odissi to the margins by the early 20th century. Its revival after Indian independence was a reconstruction project as much as a performance one: gurus studied the dance poses frozen in temple sculpture and cross-referenced them with treatises like the <em class="serif-italic">Natya Shastra</em>, <em class="serif-italic">Abhinaya Chandrika</em> and <em class="serif-italic">Abhinaya Darpana</em> to rebuild a coherent classical technique, which was formally recognised as one of India's classical dance forms in the 1950s–60s.</p>
+      </div>
+      <figure>
+        <div class="img-pair">
+          <div class="img-frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/A%20chariot%20wheel%20of%20the%20sun%20god%2C%20Sun%20temple%2C%20Konark.jpg?width=500" alt="Carved stone wheel of the Konark Sun Temple, Odisha"></div>
+          <div class="img-frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Shri%20Jagannath%20Temple%2CPuri.jpg?width=500" alt="Jagannath Temple, Puri, spiritual home of Odissi"></div>
+        </div>
+        <figcaption>Left: a chariot wheel of the 13th-century Konark Sun Temple. Right: the Jagannath Temple at Puri, where the mahari dance tradition was formalised.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- CHARACTERISTICS -->
+<section id="characteristics" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">02 — Dance Characteristics</span>
+      <h2>Sculpture, in motion</h2>
+      <div class="divider"></div>
+      <p>Odissi is often called a "mobile sculpture" because its stances echo the carved figures on Odisha's temples. It balances two opposite energies — vigorous <em class="serif-italic">tandava</em> and graceful <em class="serif-italic">lasya</em> — through independent, layered movement of the head, chest and hips, a torso technique that sets it apart from other Indian classical styles.</p>
+    </div>
+    <div class="char-grid">
+      <div class="char-card">
+        <div class="glyph">卐</div>
+        <h4>Tandava &amp; Lasya</h4>
+        <p>The dance fuses Shiva's forceful, masculine tandava with Krishna's soft, lyrical lasya — strength and grace held in the same body.</p>
+      </div>
+      <div class="char-card">
+        <div class="glyph">◧</div>
+        <h4>Chowka</h4>
+        <p>A square, grounded stance with bent knees and outstretched arms, said to symbolise Lord Jagannath and representing stability and strength.</p>
+      </div>
+      <div class="char-card">
+        <div class="glyph">S</div>
+        <h4>Tribhangi</h4>
+        <p>The "three-bend" S-curve of head, torso and knee, associated with Krishna — Odissi's most recognisable and graceful posture.</p>
+      </div>
+      <div class="char-card">
+        <div class="glyph">✋</div>
+        <h4>Hasta Mudras</h4>
+        <p>Codified hand gestures drawn from the Natya Shastra narrate stories from the Ramayana, Mahabharata and Jayadeva's Gita Govinda.</p>
+      </div>
+    </div>
+
+    <div class="repertoire">
+      <h3>A traditional recital, in five movements</h3>
+      <div class="rep-track">
+        <div class="rep-step"><span class="idx">I</span><h5>Mangalacharan</h5><p>An invocation to Jagannath and Ganesh, plus apologies to the earth and audience for the dance about to follow.</p></div>
+        <div class="rep-step"><span class="idx">II</span><h5>Batu / Sthai</h5><p>Pure, abstract dance (nritta) built on Chowka and Tribhangi, with no narrative content — technique for its own sake.</p></div>
+        <div class="rep-step"><span class="idx">III</span><h5>Pallavi</h5><p>A melodic expansion of pure dance, elaborating a raga through increasingly intricate rhythm and movement.</p></div>
+        <div class="rep-step"><span class="idx">IV</span><h5>Abhinaya</h5><p>Expressive storytelling (nritya), often set to verses from Jayadeva's Gita Govinda, using facial expression and mudra.</p></div>
+        <div class="rep-step"><span class="idx">V</span><h5>Moksha</h5><p>A closing pure-dance sequence symbolising spiritual liberation, ending the recital on a note of release.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COSTUME EXPLORER -->
+<section id="costume">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">03 — Costume Explorer</span>
+      <h2>Reading the costume</h2>
+      <div class="divider"></div>
+      <p>Click a marker to learn what each piece is called and what it does.</p>
+    </div>
+    <div class="costume-wrap">
+      <div class="costume-img-box">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Odisha%20Classical%20dance%2002.jpg?width=700" alt="Odissi dancer in full traditional costume">
+        <div class="hotspot" style="top:12%; left:52%;" data-key="tikka">1</div>
+        <div class="hotspot" style="top:24%; left:70%;" data-key="allaka">2</div>
+        <div class="hotspot" style="top:40%; left:30%;" data-key="kanchula">3</div>
+        <div class="hotspot" style="top:55%; left:60%;" data-key="sari">4</div>
+        <div class="hotspot" style="top:68%; left:42%;" data-key="kamarbandh">5</div>
+        <div class="hotspot" style="top:90%; left:55%;" data-key="ghungroo">6</div>
+      </div>
+      <div>
+        <div class="costume-detail" id="costumeDetail">
+          <span class="eyebrow">01 · Tikka</span>
+          <h3>Tikka (forehead ornament)</h3>
+          <p>A silver filigree piece worn at the centre of the forehead, part of the traditional Odisha craft of tarakasi — fine silver-wire work made by artisans on the state's eastern coast, distinct from the gold temple jewellery seen in South Indian dance forms.</p>
+        </div>
+        <div class="costume-list">
+          <div class="costume-pill active" data-key="tikka">1 · Tikka</div>
+          <div class="costume-pill" data-key="allaka">2 · Allaka</div>
+          <div class="costume-pill" data-key="kanchula">3 · Kanchula</div>
+          <div class="costume-pill" data-key="sari">4 · Patta Sari</div>
+          <div class="costume-pill" data-key="kamarbandh">5 · Kamarbandh</div>
+          <div class="costume-pill" data-key="ghungroo">6 · Ghungroo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUMENTS -->
+<section id="instruments" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">04 — Musical Instruments</span>
+      <h2>The Odissi orchestra</h2>
+      <div class="divider"></div>
+      <p>Odissi music blends northern and southern Indian traditions of raga and tala, giving the dance its distinctive melodic and rhythmic base.</p>
+    </div>
+    <div class="instr-grid">
+      <div class="instr-card"><div class="glyph">🥁</div><h5>Mardala</h5><p>A barrel-shaped drum and the dance's principal rhythmic voice, closely tied to its footwork.</p></div>
+      <div class="instr-card"><div class="glyph">🎼</div><h5>Bansuri (Flute)</h5><p>Carries the melodic line, evoking Krishna, who is traditionally depicted playing the flute.</p></div>
+      <div class="instr-card"><div class="glyph">🎻</div><h5>Violin</h5><p>Adopted into the ensemble to double or ornament the vocal and melodic line.</p></div>
+      <div class="instr-card"><div class="glyph">🔔</div><h5>Manjira</h5><p>Small hand cymbals that mark the tala, the rhythmic cycle underlying each piece.</p></div>
+      <div class="instr-card"><div class="glyph">🎹</div><h5>Harmonium</h5><p>Provides melodic and drone support for the vocal compositions sung during abhinaya.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TALA RHYTHM STUDIO (INTERACTIVE ADDITION) -->
+<section id="tala">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">05 — Tala &amp; Mardala Rhythm Studio</span>
+      <h2>The pulse of Odissi</h2>
+      <div class="divider"></div>
+      <p>Odissi's intricate footwork is governed by rhythmic cycles (*talas*) played on the traditional Mardala drum. Select a classical tala below and press play to experience the Bols and synchronized beats in real time.</p>
+    </div>
+    <div class="tala-box">
+      <div class="tala-tabs" id="talaTabs">
+        <button class="tala-tab active" data-tala="ektali">Ektali (4 Matras)</button>
+        <button class="tala-tab" data-tala="khemta">Khemta (6 Matras)</button>
+        <button class="tala-tab" data-tala="triputa">Triputa (7 Matras)</button>
+        <button class="tala-tab" data-tala="jhampa">Jhampa (5 Matras)</button>
+        <button class="tala-tab" data-tala="jati">Jati Tala (14 Matras)</button>
+      </div>
+      <div id="talaDesc" style="font-size:0.92rem; color:var(--indigo); margin-bottom:14px; font-weight:500;"></div>
+      <div class="beat-row" id="beatRow"></div>
+      <div class="tala-controls">
+        <button class="btn-tala" id="playTalaBtn">▶ Play Rhythm</button>
+        <label style="font-size:0.85rem; display:flex; align-items:center; gap:8px;">
+          Tempo: <input type="range" id="tempoSlider" min="60" max="160" value="95" style="accent-color:var(--sindoor);">
+          <span id="tempoLabel" style="font-family:'IBM Plex Mono',monospace; font-weight:700;">95 BPM</span>
+        </label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POSE GALLERY -->
+<section id="poses" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">05 — Pose Gallery</span>
+      <h2>Postures that carry meaning</h2>
+      <div class="divider"></div>
+      <p>Tap any pose to see its Odia/Sanskrit name and what it represents.</p>
+    </div>
+    <div class="pose-grid" id="poseGrid"></div>
+  </div>
+</section>
+
+<div class="pose-modal" id="poseModal">
+  <button class="close-modal" id="closeModal">&times;</button>
+  <div class="pose-modal-inner" id="poseModalInner"></div>
+</div>
+
+<!-- MAP -->
+<section id="map" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">06 — Odisha Cultural Map</span>
+      <h2>Where the tradition lives</h2>
+      <div class="divider"></div>
+      <p>Odissi's history is written into a handful of places along Odisha's coast. Click a point on the map.</p>
+    </div>
+    <div class="map-wrap">
+      <div class="map-svg-box">
+        <svg viewBox="0 0 400 420" width="100%" xmlns="http://www.w3.org/2000/svg">
+          <path d="M120 30 C60 70 40 140 55 210 C40 260 60 320 110 360 C160 400 260 400 300 350 C340 300 330 220 300 170 C320 120 290 60 230 40 C190 20 150 10 120 30 Z"
+                fill="none" stroke="rgba(217,168,59,0.35)" stroke-width="1.5"/>
+          <g class="map-pin" data-key="puri">
+            <circle cx="190" cy="300" r="7" fill="#8E2E28"/>
+            <text x="202" y="304">Puri</text>
+          </g>
+          <g class="map-pin" data-key="konark">
+            <circle cx="235" cy="270" r="7" fill="#8E2E28"/>
+            <text x="247" y="274">Konark</text>
+          </g>
+          <g class="map-pin" data-key="bhubaneswar">
+            <circle cx="200" cy="220" r="7" fill="#8E2E28"/>
+            <text x="212" y="224">Bhubaneswar</text>
+          </g>
+          <g class="map-pin" data-key="udayagiri">
+            <circle cx="185" cy="195" r="7" fill="#8E2E28"/>
+            <text x="80" y="188">Udayagiri &amp; Khandagiri</text>
+          </g>
+          <g class="map-pin" data-key="raghurajpur">
+            <circle cx="175" cy="285" r="7" fill="#8E2E28"/>
+            <text x="70" y="298">Raghurajpur</text>
+          </g>
+        </svg>
+      </div>
+      <div class="map-info" id="mapInfo">
+        <span class="eyebrow">Puri</span>
+        <h3>Jagannath Temple</h3>
+        <p>Spiritual home of Odissi. The 12th-century temple formalised the mahari tradition of ritual temple dance, and the Ratha Yatra chariot festival held here remains central to Odia religious life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">07 — Dance Timeline</span>
+      <h2>Two thousand years, condensed</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-track">
+        <div class="tl-item"><div class="dot"></div><span class="yr">2nd c. BCE</span><h5>Court dance at Udayagiri</h5><p>Cave carvings and King Kharavela's Hathigumpha inscription record dance performed at the royal court.</p></div>
+        <div class="tl-item"><div class="dot"></div><span class="yr">6th–13th c. CE</span><h5>Temple-building era</h5><p>Bhubaneswar, Puri and Konark temples are built; their sculpture panels become a visual record of dance postures.</p></div>
+        <div class="tl-item"><div class="dot"></div><span class="yr">12th c.</span><h5>Mahari tradition formalised</h5><p>The Jagannath Temple institutionalises daily ritual dance by temple dancers known as maharis.</p></div>
+        <div class="tl-item"><div class="dot"></div><span class="yr">Medieval era</span><h5>Gotipua tradition</h5><p>Boys trained as girl-dancers perform outside temple sanctums, keeping technique alive as mahari numbers decline.</p></div>
+        <div class="tl-item"><div class="dot"></div><span class="yr">Colonial period</span><h5>Suppression</h5><p>Anti-nautch reform movements curb temple dancing; the tradition survives on the margins.</p></div>
+        <div class="tl-item"><div class="dot"></div><span class="yr">1950s–60s</span><h5>Revival &amp; codification</h5><p>Gurus reconstruct technique from temple sculpture and dance treatises; Odissi is recognised as a classical form.</p></div>
+        <div class="tl-item"><div class="dot"></div><span class="yr">Today</span><h5>A global classical art</h5><p>Odissi is taught and performed worldwide, one of eight forms recognised by India's Sangeet Natak Akademi.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERFORMANCE TRADITIONS -->
+<section id="traditions" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">08 — Major Performance Traditions</span>
+      <h2>Who carried the dance forward</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="trad-grid">
+      <div class="trad-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Guru%20Rupashree%20Mohapatra%20Mahari%20Dancer.jpg?width=600" alt="Mahari dance performer">
+        <h4>Mahari tradition</h4>
+        <p>Temple dancers dedicated to Jagannath's service, performing inside the sanctum as a daily act of worship rather than public entertainment — Odissi's original, sacred context.</p>
+      </div>
+      <div class="trad-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Odissi%20Dance%20Form.jpg?width=600" alt="Gotipua-style young performer in Odissi costume">
+        <h4>Gotipua tradition</h4>
+        <p>Young boys, dressed and trained as girls, performed acrobatic, athletic Odissi at temples and festivals — still practised today in villages such as Raghurajpur.</p>
+      </div>
+      <div class="trad-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Odissi%20group%20performance.jpg?width=600" alt="Modern Odissi group performance on stage">
+        <h4>Post-independence revival</h4>
+        <p>20th-century gurus rebuilt Odissi as a codified classical form for the concert stage, drawing directly on temple sculpture to recover lost technique.</p>
+      </div>
+      <div class="trad-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sitara%20Thobani%20Odissi%20classical%20dance%20mudra%20India%20(17).jpg?width=600" alt="Contemporary Odissi dancer performing on the global stage">
+        <h4>Odissi today</h4>
+        <p>Now performed and taught internationally, Odissi continues to draw on Jayadeva's Gita Govinda and Odia literature while reaching new audiences worldwide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section id="sources" class="sources">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Sources</span>
+      <h2>Further reading</h2>
+      <div class="divider"></div>
+    </div>
+    <ul class="src-list">
+      <li>Sahapedia — "A Brief History of Odissi Dance"</li>
+      <li>Wikipedia — "Odissi"</li>
+      <li>ipassio wiki — "Odissi Dance: Origin, History &amp; Famous Dancers"</li>
+      <li>ipassio blog — "8 Odissi Dance Poses To Follow"</li>
+      <li>Sujata Mohapatra — "About Odissi"</li>
+      <li>Bunkar Valley — "Elements of Odissi Dance" &amp; "The Grace and Beauty of Odissi Dance"</li>
+      <li>Indianetzone — "Costumes in Odissi Dance" &amp; "Tribhanga"</li>
+      <li>Deepam Odissi Academy — "The Glorious Odissi Sari"</li>
+      <li>Vajiram &amp; Ravi — "Odissi Dance, History, Traditions, Features, Recognitions"</li>
+      <li>Odisha Government Orissa Review, May 2008 — "The Story and History of Odissi Dance"</li>
+    </ul>
+    <p class="credit-note">Photographs sourced from Wikimedia Commons, credited to their respective photographers under Creative Commons licences (CC BY-SA). Full attribution and license terms are available on each image's Commons file page.</p>
+  </div>
+</section>
+
+<footer>Built as an educational overview of Odissi — India's classical dance heritage.</footer>
+
+<script>
+  // ---------- COSTUME EXPLORER ----------
+  const costumeData = {
+    tikka: { eyebrow:"01 · Tikka", title:"Tikka (forehead ornament)", text:"A silver filigree piece worn at the centre of the forehead, part of Odisha's tarakasi silver-wire craft — distinct from the gold temple jewellery of South Indian dance forms." },
+    allaka: { eyebrow:"02 · Allaka", title:"Allaka (headpiece)", text:"An ornamental silver headpiece framing the hairline, often paired with a flower garland (gajra) woven into the dancer's bun." },
+    kanchula: { eyebrow:"03 · Kanchula", title:"Kanchula (blouse)", text:"A fitted blouse embellished with stones and gold or silver thread, worn close to the torso so the dancer's chest and shoulder movements stay visible." },
+    sari: { eyebrow:"04 · Patta Sari", title:"Patta Sari", text:"A brightly coloured silk sari — traditionally Sambalpuri or Bomkai weave — draped and pleated so the front fans open dramatically in the Chowka stance." },
+    kamarbandh: { eyebrow:"05 · Kamarbandh", title:"Kamarbandh (waist belt)", text:"A wide belt cinched at the waist that anchors the sari's pleats and accentuates the hip movements central to Odissi's torso technique." },
+    ghungroo: { eyebrow:"06 · Ghungroo", title:"Ghungroo (ankle bells)", text:"Rows of small metal bells strapped to the ankles, sounding out the dancer's footwork and marking the rhythmic cycle in real time." }
+  };
+  const detailBox = document.getElementById('costumeDetail');
+  function setCostume(key){
+    const d = costumeData[key];
+    detailBox.innerHTML = `<span class="eyebrow">${d.eyebrow}</span><h3>${d.title}</h3><p>${d.text}</p>`;
+    document.querySelectorAll('.hotspot').forEach(h => h.classList.toggle('active', h.dataset.key===key));
+    document.querySelectorAll('.costume-pill').forEach(p => p.classList.toggle('active', p.dataset.key===key));
+  }
+  document.querySelectorAll('.hotspot, .costume-pill').forEach(el=>{
+    el.addEventListener('click', ()=> setCostume(el.dataset.key));
+  });
+
+  // ---------- POSE GALLERY ----------
+  const poses = [
+    { name:"Tribhangi", sanskrit:"त्रिभंगी — the three-bend", img:"https://commons.wikimedia.org/wiki/Special:FilePath/Sitara%20Thobani%20Odissi%20classical%20dance%20mudra%20India%20(3).jpg?width=600",
+      text:"The body bends gently at neck, torso and knee, forming an S-curve. Associated with Krishna, it is Odissi's most iconic and graceful stance, representing lasya — feminine grace." },
+    { name:"Chowka", sanskrit:"चौक — the square stance", img:"https://commons.wikimedia.org/wiki/Special:FilePath/Odissi%20dance%20pose.jpg?width=600",
+      text:"A grounded, symmetrical stance with bent knees held wide, said to symbolise Lord Jagannath. It represents tandava — masculine strength and stability." },
+    { name:"Mangalacharan pose", sanskrit:"invocatory offering", img:"https://commons.wikimedia.org/wiki/Special:FilePath/Sitara%20Thobani%20Odissi%20classical%20dance%20mudra%20India%20(12).jpg?width=600",
+      text:"The opening stance of a recital, hands folded in offering as the dancer salutes the earth, the deity, her guru and the audience before dancing begins." },
+    { name:"Bhramari", sanskrit:"भ्रामरी — the spin", img:"https://commons.wikimedia.org/wiki/Special:FilePath/Odisha%20Classical%20dance%2003.jpg?width=600",
+      text:"A controlled spinning movement used within pure-dance sequences, demanding precise footwork and balance while the torso stays fluid." },
+    { name:"Abhinaya expression", sanskrit:"अभिनय — expressive dance", img:"https://commons.wikimedia.org/wiki/Special:FilePath/Sitara%20Thobani%20Odissi%20classical%20dance%20mudra%20India%20(17).jpg?width=600",
+      text:"Facial expression combined with hand gesture (mudra) to narrate a story or emotion, most often verses from Jayadeva's Gita Govinda." },
+    { name:"Hasta Mudra", sanskrit:"हस्त मुद्रा — hand gesture", img:"https://commons.wikimedia.org/wiki/Special:FilePath/Odissi%20Dance%20Form.jpg?width=600",
+      text:"Codified hand positions drawn from the Natya Shastra, each carrying specific symbolic meanings used throughout nritya storytelling." },
+    { name:"Mahari stance", sanskrit:"temple ritual dance", img:"https://commons.wikimedia.org/wiki/Special:FilePath/Mahari%20Dance%20festival%2C%202012.jpg?width=600",
+      text:"A pose from the original temple-ritual style of Odissi, performed by maharis inside the Jagannath Temple sanctum as a daily offering." },
+    { name:"Ensemble formation", sanskrit:"group choreography", img:"https://commons.wikimedia.org/wiki/Special:FilePath/Odissi%20group%20performance.jpg?width=600",
+      text:"Modern Odissi is often staged as ensemble choreography, with dancers mirroring and layering the same core Chowka and Tribhangi vocabulary." }
+  ];
+  const grid = document.getElementById('poseGrid');
+  poses.forEach((p, i)=>{
+    const card = document.createElement('div');
+    card.className='pose-card';
+    card.innerHTML = `<img src="${p.img}" alt="${p.name} pose in Odissi dance" loading="lazy">
+      <div class="pose-label"><span class="num">0${i+1}</span><h5>${p.name}</h5></div>`;
+    card.addEventListener('click', ()=> openPose(p));
+    grid.appendChild(card);
+  });
+  const modal = document.getElementById('poseModal');
+  const modalInner = document.getElementById('poseModalInner');
+  function openPose(p){
+    modalInner.innerHTML = `<img src="${p.img}" alt="${p.name}">
+      <div class="pose-modal-text">
+        <span class="sanskrit">${p.sanskrit}</span>
+        <h3>${p.name}</h3>
+        <p>${p.text}</p>
+      </div>`;
+    modal.classList.add('open');
+  }
+  document.getElementById('closeModal').addEventListener('click', ()=> modal.classList.remove('open'));
+  modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.classList.remove('open'); });
+
+  // ---------- CULTURAL MAP ----------
+  const mapData = {
+    puri: { eyebrow:"Puri", title:"Jagannath Temple", text:"Spiritual home of Odissi. The 12th-century temple formalised the mahari tradition of ritual temple dance, and the Ratha Yatra chariot festival held here remains central to Odia religious life." },
+    konark: { eyebrow:"Konark", title:"Sun Temple", text:"Built in the 13th century, its stone panels — including the famous chariot wheels — provide some of the richest sculptural documentation of period dance postures." },
+    bhubaneswar: { eyebrow:"Bhubaneswar", title:"Temple city", text:"Home to dozens of temples built between the 6th and 13th centuries, whose sculpture galleries were essential references when gurus reconstructed Odissi technique in the 20th century." },
+    udayagiri: { eyebrow:"Udayagiri & Khandagiri", title:"The earliest evidence", text:"Rock-cut caves near Bhubaneswar containing the Ranigumpha dance panel and the Hathigumpha inscription describing a royal-court dance performance — Odissi's earliest known trace, from the 2nd century BCE." },
+    raghurajpur: { eyebrow:"Raghurajpur", title:"Gotipua village", text:"A craftsmen's village near Puri still known for training young Gotipua dancers — boys who perform Odissi's acrobatic pre-mahari style, keeping a centuries-old lineage alive." }
+  };
+  const mapInfo = document.getElementById('mapInfo');
+  document.querySelectorAll('.map-pin').forEach(pin=>{
+    pin.addEventListener('click', ()=>{
+      const d = mapData[pin.dataset.key];
+      mapInfo.innerHTML = `<span class="eyebrow">${d.eyebrow}</span><h3>${d.title}</h3><p>${d.text}</p>`;
+      document.querySelectorAll('.map-pin').forEach(p=>p.classList.toggle('active', p===pin));
+    });
+  });
+  // ---------- TALA RHYTHM STUDIO ENGINE ----------
+  const talas = {
+    ektali: {
+      name: "Ektali (4 Matras)",
+      desc: "4-beat fundamental cycle widely used in pure dance (Batu Nritya) and foundational footwork drills.",
+      bols: ["DHA", "DHI", "NA", "TA"]
+    },
+    khemta: {
+      name: "Khemta (6 Matras)",
+      desc: "6-beat fast and graceful syncopated rhythm common in lyrical Pallavis and abhinaya verses.",
+      bols: ["DHI", "NA", "NA", "TI", "NA", "NA"]
+    },
+    triputa: {
+      name: "Triputa (7 Matras)",
+      desc: "7-beat asymmetric cycle divided 3 + 2 + 2, demanding complex footwork and cross-rhythmic balance.",
+      bols: ["TA", "KITA", "THIN", "TA", "KITA", "DHA", "GE"]
+    },
+    jhampa: {
+      name: "Jhampa (5 Matras)",
+      desc: "5-beat rhythmic structure (Khanda Jati) celebrating energetic tandem leaps and spins.",
+      bols: ["DHI", "KITA", "TAK", "THIN", "NA"]
+    },
+    jati: {
+      name: "Jati Tala (14 Matras)",
+      desc: "14-beat grand classical cycle reserved for elaborate Pallavi and Moksha finales.",
+      bols: ["DHA", "GE", "NA", "TI", "NA", "KA", "TA", "DHA", "GE", "NA", "TI", "NA", "DHI", "NA"]
+    }
+  };
+
+  let currentTalaKey = "ektali";
+  let isPlayingTala = false;
+  let talaInterval = null;
+  let currentBeatIndex = 0;
+  let tempoBpm = 95;
+
+  const beatRow = document.getElementById('beatRow');
+  const talaDesc = document.getElementById('talaDesc');
+  const playTalaBtn = document.getElementById('playTalaBtn');
+  const tempoSlider = document.getElementById('tempoSlider');
+  const tempoLabel = document.getElementById('tempoLabel');
+
+  function renderTala(key){
+    currentTalaKey = key;
+    const t = talas[key];
+    talaDesc.textContent = t.desc;
+    beatRow.innerHTML = "";
+    t.bols.forEach((bol, idx)=>{
+      const cell = document.createElement('div');
+      cell.className = 'beat-cell';
+      cell.innerHTML = `<span class="num">${idx+1}</span><span class="bol">${bol}</span>`;
+      beatRow.appendChild(cell);
+    });
+    if(isPlayingTala) stopTala();
+  }
+
+  function playDrumBeat(freq, decay){
+    if(!audioCtx) return;
+    const now = audioCtx.currentTime;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.frequency.setValueAtTime(freq, now);
+    osc.frequency.exponentialRampToValueAtTime(freq * 0.4, now + decay);
+    gain.gain.setValueAtTime(0.2, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + decay);
+    osc.connect(gain); gain.connect(audioCtx.destination);
+    osc.start(now); osc.stop(now + decay);
+  }
+
+  function tickBeat(){
+    const cells = beatRow.querySelectorAll('.beat-cell');
+    cells.forEach((c, i)=> c.classList.toggle('active', i === currentBeatIndex));
+    
+    // play synthesized Mardala sound
+    if(currentBeatIndex === 0){
+      playDrumBeat(130, 0.28); // resonant Sam (first beat)
+    } else {
+      playDrumBeat(180, 0.16); // regular beat
+    }
+
+    currentBeatIndex = (currentBeatIndex + 1) % cells.length;
+  }
+
+  function startTala(){
+    if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if(audioCtx.state === 'suspended') audioCtx.resume();
+    isPlayingTala = true;
+    currentBeatIndex = 0;
+    playTalaBtn.textContent = "⏹ Stop Rhythm";
+    playTalaBtn.style.background = "var(--indigo)";
+    const intervalMs = (60 / tempoBpm) * 1000;
+    tickBeat();
+    talaInterval = setInterval(tickBeat, intervalMs);
+  }
+
+  function stopTala(){
+    isPlayingTala = false;
+    if(talaInterval) clearInterval(talaInterval);
+    playTalaBtn.textContent = "▶ Play Rhythm";
+    playTalaBtn.style.background = "";
+    document.querySelectorAll('.beat-cell').forEach(c=>c.classList.remove('active'));
+  }
+
+  playTalaBtn.addEventListener('click', ()=>{
+    if(isPlayingTala) stopTala();
+    else startTala();
+  });
+
+  tempoSlider.addEventListener('input', (e)=>{
+    tempoBpm = parseInt(e.target.value, 10);
+    tempoLabel.textContent = `${tempoBpm} BPM`;
+    if(isPlayingTala){
+      clearInterval(talaInterval);
+      talaInterval = setInterval(tickBeat, (60 / tempoBpm) * 1000);
+    }
+  });
+
+  document.querySelectorAll('.tala-tab').forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      document.querySelectorAll('.tala-tab').forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      renderTala(tab.dataset.tala);
+    });
+  });
+  renderTala('ektali');
+
+  // ---------- AMBIENT SOUNDSCAPE ----------
+  let audioCtx = null, ambientPlaying = false, chimeTimer = null;
+  const soundToggle = document.getElementById('soundToggle');
+  function playTempleChime(){
+    if(!ambientPlaying || !audioCtx) return;
+    const now = audioCtx.currentTime;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    const freqs = [659.25, 783.99, 987.77, 1318.51];
+    osc.frequency.setValueAtTime(freqs[Math.floor(Math.random()*freqs.length)], now);
+    osc.type = 'triangle';
+    gain.gain.setValueAtTime(0.001, now);
+    gain.gain.exponentialRampToValueAtTime(0.04, now + 0.04);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 2.2);
+    osc.connect(gain); gain.connect(audioCtx.destination);
+    osc.start(now); osc.stop(now + 2.3);
+    chimeTimer = setTimeout(playTempleChime, 3000 + Math.random()*3000);
+  }
+
+  soundToggle.addEventListener('click', ()=>{
+    if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    ambientPlaying = !ambientPlaying;
+    if(ambientPlaying){
+      if(audioCtx.state === 'suspended') audioCtx.resume();
+      soundToggle.textContent = '🔔 Sound: On';
+      soundToggle.style.background = 'var(--gold-bright)';
+      soundToggle.style.color = 'var(--indigo-deep)';
+      playTempleChime();
+    } else {
+      soundToggle.textContent = '🔔 Sound: Off';
+      soundToggle.style.background = '';
+      soundToggle.style.color = '';
+      if(chimeTimer) clearTimeout(chimeTimer);
+    }
+  });
+</script>
+</body>
+</html>
