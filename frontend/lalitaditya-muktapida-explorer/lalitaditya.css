@@ -1,0 +1,657 @@
+/* ==========================================================================
+   Lalitaditya Muktapida Explorer - Main Styles
+   ========================================================================== */
+
+/* 1. CSS Variables & Theming */
+:root {
+  /* Colors - Dark Theme (Default) */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: rgba(30, 58, 138, 0.3);
+  --bg-card-hover: rgba(30, 58, 138, 0.5);
+  --text-primary: #f8fafc;
+  --text-secondary: #bfdbfe;
+  --text-muted: #94a3b8;
+  --accent-primary: #60a5fa; /* Light Blue */
+  --accent-secondary: #f59e0b; /* Amber/Gold for royal feel */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 20px rgba(96, 165, 250, 0.15);
+  
+  /* Spacing & Layout */
+  --container-max: 1200px;
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light Theme Overrides */
+body.light-theme {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(241, 245, 249, 0.8);
+  --bg-card-hover: rgba(226, 232, 240, 0.9);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --accent-primary: #2563eb; /* Darker Blue for contrast */
+  --accent-secondary: #d97706;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.1);
+}
+
+/* 2. Global & Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+.lalitaditya-main {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+.section-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.bg-alternate {
+  background-color: var(--bg-secondary);
+}
+
+/* 3. Typography & Headings */
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.section-badge {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  background: rgba(96, 165, 250, 0.15);
+  color: var(--accent-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+.section-container h2 {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  margin-bottom: 1rem;
+}
+
+.section-intro {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* 4. Hero Section */
+.lalitaditya-hero {
+  position: relative;
+  padding: 8rem 1.5rem 4rem;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 58, 138, 0.85)), 
+              url('../../assets/lalitaditya-hero-bg.jpg') center/cover no-repeat;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, var(--bg-primary) 100%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badges-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.hero-pill {
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+  transition: var(--transition-smooth);
+}
+
+.hero-pill:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.lalitaditya-hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.lalitaditya-hero h1 span {
+  color: var(--accent-primary);
+  display: block;
+  font-size: 0.6em;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 1px;
+}
+
+.hero-subtitle {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* 5. Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  transition: var(--transition-smooth);
+  backdrop-filter: blur(4px);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  background: var(--bg-card-hover);
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-glow);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.stat-val {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--accent-primary);
+  margin-bottom: 0.25rem;
+}
+
+.stat-lbl {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 6. Martand Card & Campaigns */
+.martand-card {
+  background: var(--bg-card);
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem;
+  border: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+  transition: var(--transition-smooth);
+}
+
+.martand-card:hover {
+  border-color: rgba(96, 165, 250, 0.3);
+  box-shadow: var(--shadow-md);
+}
+
+.martand-card h3 {
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+.highlights-list {
+  margin-top: 1.5rem;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.highlights-list li {
+  position: relative;
+  padding-left: 1.75rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.highlights-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--accent-secondary);
+  font-size: 1.2rem;
+}
+
+.campaigns-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.campaign-card {
+  background: var(--bg-card);
+  border-radius: var(--border-radius);
+  padding: 1.75rem;
+  border: 1px solid var(--border-color);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.campaign-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-secondary);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.campaign-card:hover {
+  transform: translateY(-5px);
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.campaign-card:hover::before {
+  transform: scaleY(1);
+}
+
+.category-tag {
+  display: inline-block;
+  color: var(--accent-secondary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+}
+
+.campaign-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.campaign-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* 7. Overview Grid (for Cultural Patronage) */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.overview-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.overview-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-primary);
+}
+
+.overview-card .card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.overview-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--accent-primary);
+}
+
+.overview-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* 8. Timeline */
+.timeline-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 2rem;
+}
+
+/* Vertical line for timeline */
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary));
+  border-radius: 3px;
+}
+
+.timeline-card {
+  position: relative;
+  display: flex;
+  gap: 2rem;
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+  transition: var(--transition-smooth);
+}
+
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  left: -2.65rem; /* Aligns with the vertical line */
+  top: 1.75rem;
+  width: 16px;
+  height: 16px;
+  background: var(--bg-primary);
+  border: 3px solid var(--accent-primary);
+  border-radius: 50%;
+  z-index: 2;
+  transition: var(--transition-smooth);
+}
+
+.timeline-card:hover {
+  background: var(--bg-card-hover);
+  transform: translateX(5px);
+}
+
+.timeline-card:hover::before {
+  background: var(--accent-primary);
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.3);
+}
+
+.timeline-year {
+  font-weight: 800;
+  color: var(--accent-primary);
+  min-width: 120px;
+  font-size: 1.1rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.timeline-content h3 {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-size: 1.15rem;
+}
+
+.timeline-content p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* 9. References & Footer */
+.references-list {
+  list-style: none;
+  padding: 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.references-list li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.references-list li::before {
+  content: '📜';
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+
+.references-list a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--accent-primary);
+  transition: var(--transition-smooth);
+}
+
+.references-list a:hover {
+  color: var(--accent-secondary);
+  border-bottom-style: solid;
+}
+
+.site-footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 4rem 1.5rem 2rem;
+  margin-top: 4rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  max-width: var(--container-max);
+  margin: 0 auto 3rem;
+}
+
+.footer-brand h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.footer-brand p {
+  color: var(--text-muted);
+  max-width: 300px;
+}
+
+.footer-links h4 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.25rem;
+  color: var(--accent-primary);
+}
+
+.footer-links a {
+  display: block;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  transition: var(--transition-smooth);
+}
+
+.footer-links a:hover {
+  color: var(--text-primary);
+  transform: translateX(4px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* 10. Utilities & Animations */
+.loading-text {
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 2rem;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.btn-scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-smooth);
+  z-index: 999;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-scroll-top:hover {
+  background: var(--accent-secondary);
+  transform: translateY(-3px);
+}
+
+/* Scroll Animations */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-delayed {
+  animation: fadeIn 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 11. Responsive Design */
+@media (max-width: 768px) {
+  .section-container {
+    padding: 3rem 1.25rem;
+  }
+
+  .lalitaditya-hero {
+    padding: 6rem 1.25rem 3rem;
+  }
+
+  .timeline-container {
+    padding-left: 1.5rem;
+  }
+
+  .timeline-card {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .timeline-card::before {
+    left: -2.15rem;
+    width: 12px;
+    height: 12px;
+  }
+
+  .timeline-year {
+    min-width: auto;
+    font-size: 1rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .footer-brand p {
+    margin: 0 auto;
+  }
+
+  .footer-links a:hover {
+    transform: none;
+  }
+}
+
+/* Accessibility: Focus States */
+*:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}

@@ -1,0 +1,579 @@
+/* durgavati.css — Custom stylesheet for Rani Durgavati Profile */
+
+:root {
+    --durgavati-emerald: #10b981;
+    --durgavati-emerald-dark: #059669;
+    --durgavati-amber: #f59e0b;
+    --durgavati-crimson: #e11d48;
+    --durgavati-crimson-glow: rgba(225, 29, 72, 0.2);
+
+    --durgavati-bg: #050d08;
+    --durgavati-bg-alt: #0b1a11;
+    --durgavati-card-bg: rgba(13, 31, 21, 0.78);
+    --durgavati-card-border: rgba(16, 185, 129, 0.22);
+
+    --durgavati-text: #ecfdf5;
+    --durgavati-text-dim: #a7f3d0;
+    --durgavati-text-muted: #34d399;
+
+    --durgavati-focus: #34d399;
+    --durgavati-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.65);
+
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-theme="light"], .light-theme {
+    --durgavati-bg: #f0fdf4;
+    --durgavati-bg-alt: #e6f4ea;
+    --durgavati-card-bg: #ffffff;
+    --durgavati-card-border: rgba(16, 185, 129, 0.3);
+
+    --durgavati-text: #064e3b;
+    --durgavati-text-dim: #047857;
+    --durgavati-text-muted: #059669;
+
+    --durgavati-shadow: 0 10px 25px -5px rgba(6, 78, 59, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.durgavati-body {
+    background-color: var(--durgavati-bg);
+    color: var(--durgavati-text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.durgavati-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Header & Navigation */
+.durgavati-header {
+    background: rgba(5, 13, 8, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--durgavati-card-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s ease;
+}
+
+.light-theme .durgavati-header {
+    background: rgba(240, 253, 244, 0.88);
+}
+
+.durgavati-header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.durgavati-back-link {
+    color: var(--durgavati-emerald);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background: rgba(16, 185, 129, 0.12);
+    transition: all 0.2s ease;
+}
+
+.durgavati-back-link:hover,
+.durgavati-back-link:focus-visible {
+    background: var(--durgavati-emerald);
+    color: #ffffff;
+    outline: 2px solid var(--durgavati-focus);
+    outline-offset: 2px;
+}
+
+.durgavati-theme-btn {
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid var(--durgavati-card-border);
+    color: var(--durgavati-emerald);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.durgavati-theme-btn:hover,
+.durgavati-theme-btn:focus-visible {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: var(--durgavati-emerald);
+    outline: 2px solid var(--durgavati-focus);
+    outline-offset: 2px;
+}
+
+/* Accessibility Keyboard Focus Link */
+.durgavati-skip-link {
+    position: absolute;
+    top: -100px;
+    left: 20px;
+    background: var(--durgavati-emerald);
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    z-index: 1000;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.durgavati-skip-link:focus {
+    top: 20px;
+    outline: 3px solid var(--durgavati-focus);
+}
+
+/* Hero Section */
+.durgavati-hero {
+    background: linear-gradient(135deg, var(--durgavati-bg) 30%, var(--durgavati-bg-alt) 100%);
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--durgavati-card-border);
+}
+
+.durgavati-hero__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.durgavati-badge {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: var(--durgavati-emerald);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+}
+
+.durgavati-badge--crimson {
+    background: rgba(225, 29, 72, 0.15);
+    border-color: rgba(225, 29, 72, 0.3);
+    color: #fda4af;
+}
+
+.light-theme .durgavati-badge--crimson {
+    color: var(--durgavati-crimson);
+}
+
+.durgavati-badge--amber {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.3);
+    color: var(--durgavati-amber);
+}
+
+.durgavati-hero__title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.durgavati-hero__title-sub {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--durgavati-text-muted);
+    margin-top: 0.5rem;
+}
+
+.durgavati-hero__lede {
+    font-size: 1.15rem;
+    color: var(--durgavati-text-dim);
+    max-width: 800px;
+    margin-bottom: 2.5rem;
+}
+
+/* Quick Facts Grid */
+.durgavati-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.durgavati-stat-card {
+    background: var(--durgavati-card-bg);
+    border: 1px solid var(--durgavati-card-border);
+    padding: 1.25rem;
+    border-radius: 12px;
+    box-shadow: var(--durgavati-shadow);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.durgavati-stat-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--durgavati-emerald);
+}
+
+.durgavati-stat-card__val {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--durgavati-emerald);
+    margin-bottom: 0.25rem;
+}
+
+.durgavati-stat-card__label {
+    font-size: 0.85rem;
+    color: var(--durgavati-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Main Layout & Tabs */
+.durgavati-tabs-wrapper {
+    margin: 2.5rem 0 2rem 0;
+    border-bottom: 1px solid var(--durgavati-card-border);
+}
+
+.durgavati-tabs {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.durgavati-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.durgavati-tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--durgavati-text-muted);
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.durgavati-tab-btn:hover {
+    color: var(--durgavati-emerald);
+}
+
+.durgavati-tab-btn.active {
+    color: var(--durgavati-emerald);
+    border-bottom-color: var(--durgavati-emerald);
+}
+
+.durgavati-tab-btn:focus-visible {
+    outline: 2px solid var(--durgavati-focus);
+    outline-offset: -2px;
+}
+
+/* Tab Panels */
+.durgavati-tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.durgavati-tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Spotlight Card Styling */
+.durgavati-spotlight-card {
+    background: linear-gradient(135deg, var(--durgavati-bg-alt) 0%, rgba(16, 185, 129, 0.08) 100%);
+    border: 1px solid var(--durgavati-card-border);
+    border-left: 5px solid var(--durgavati-emerald);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 3rem;
+    box-shadow: var(--durgavati-shadow);
+}
+
+.durgavati-eyebrow {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--durgavati-emerald-dark);
+    margin-bottom: 0.5rem;
+}
+
+.durgavati-section-title {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.durgavati-section-heading {
+    margin-bottom: 2rem;
+}
+
+.durgavati-section-desc {
+    color: var(--durgavati-text-dim);
+    font-size: 1.05rem;
+    max-width: 800px;
+}
+
+/* Grid & Cards */
+.durgavati-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.durgavati-card {
+    background: var(--durgavati-card-bg);
+    border: 1px solid var(--durgavati-card-border);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--durgavati-shadow);
+    transition: all 0.25s ease;
+}
+
+.durgavati-card:hover {
+    border-color: var(--durgavati-emerald);
+    transform: translateY(-2px);
+}
+
+.durgavati-card__icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.durgavati-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.durgavati-card__desc {
+    color: var(--durgavati-text-dim);
+    font-size: 0.95rem;
+}
+
+/* Historiographical Comparison Section */
+.durgavati-comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.durgavati-comp-card {
+    background: var(--durgavati-card-bg);
+    border: 1px solid var(--durgavati-card-border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    box-shadow: var(--durgavati-shadow);
+}
+
+.durgavati-comp-header {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--durgavati-emerald);
+    margin-bottom: 1.25rem;
+}
+
+.durgavati-comp-box {
+    padding: 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.durgavati-comp-box:last-child {
+    margin-bottom: 0;
+}
+
+.durgavati-comp-box--evidence {
+    background: rgba(16, 185, 129, 0.05);
+    border-left: 4px solid var(--durgavati-emerald);
+}
+
+.durgavati-comp-box--retelling {
+    background: rgba(225, 29, 72, 0.05);
+    border-left: 4px solid var(--durgavati-crimson);
+}
+
+.durgavati-comp-box__title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.durgavati-comp-box--evidence .durgavati-comp-box__title {
+    color: var(--durgavati-emerald);
+}
+
+.durgavati-comp-box--retelling .durgavati-comp-box__title {
+    color: #fda4af;
+}
+
+.light-theme .durgavati-comp-box--retelling .durgavati-comp-box__title {
+    color: var(--durgavati-crimson);
+}
+
+/* Timeline Components */
+.durgavati-timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 2rem 0 3rem 0;
+}
+
+.durgavati-timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--durgavati-card-border);
+}
+
+.durgavati-timeline-step {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.durgavati-timeline-step::before {
+    content: '';
+    position: absolute;
+    left: -29px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--durgavati-bg);
+    border: 3px solid var(--durgavati-emerald);
+}
+
+.durgavati-timeline-step__meta {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--durgavati-emerald);
+    margin-bottom: 0.5rem;
+}
+
+.durgavati-timeline-step__title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Map Wrapper */
+.durgavati-map-wrapper {
+    background: var(--durgavati-card-bg);
+    border: 1px solid var(--durgavati-card-border);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: var(--durgavati-shadow);
+    margin-bottom: 3rem;
+}
+
+.durgavati-map-wrapper iframe {
+    border-radius: 8px;
+    border: none;
+    display: block;
+}
+
+/* Sources & References */
+.durgavati-sources-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.durgavati-source-item {
+    background: var(--durgavati-card-bg);
+    border: 1px solid var(--durgavati-card-border);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--durgavati-shadow);
+}
+
+.durgavati-source-item__citation {
+    font-weight: 600;
+    color: var(--durgavati-emerald);
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+}
+
+.durgavati-source-item__notes {
+    font-size: 0.9rem;
+    color: var(--durgavati-text-dim);
+}
+
+/* Footer Section */
+.durgavati-footer {
+    background: var(--durgavati-bg-alt);
+    border-top: 1px solid var(--durgavati-card-border);
+    padding: 3rem 0;
+    text-align: center;
+    color: var(--durgavati-text-muted);
+}
+
+.durgavati-footer-brand {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--durgavati-emerald);
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .durgavati-hero__title {
+        font-size: 2.25rem;
+    }
+    .durgavati-hero__title-sub {
+        font-size: 1.1rem;
+    }
+    .durgavati-hero {
+        padding: 3rem 0;
+    }
+    .durgavati-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .durgavati-grid-2 {
+        grid-template-columns: 1fr;
+    }
+}

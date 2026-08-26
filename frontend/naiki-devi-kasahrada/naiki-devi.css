@@ -1,0 +1,534 @@
+/* naiki-devi.css — Custom stylesheet for Queen Naiki Devi Profile */
+
+:root {
+    --naiki-emerald: #10b981;
+    --naiki-emerald-dark: #059669;
+    --naiki-amber: #f59e0b;
+    --naiki-crimson: #e11d48;
+    --naiki-crimson-glow: rgba(225, 29, 72, 0.2);
+
+    --naiki-bg: #09130e;
+    --naiki-bg-alt: #0f1f18;
+    --naiki-card-bg: rgba(18, 38, 29, 0.78);
+    --naiki-card-border: rgba(16, 185, 129, 0.22);
+
+    --naiki-text: #f0fdf4;
+    --naiki-text-dim: #a7f3d0;
+    --naiki-text-muted: #6ee7b7;
+
+    --naiki-focus: #34d399;
+    --naiki-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.55);
+
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-theme="light"], .light-theme {
+    --naiki-bg: #f0fdf4;
+    --naiki-bg-alt: #e6f4ea;
+    --naiki-card-bg: #ffffff;
+    --naiki-card-border: rgba(16, 185, 129, 0.3);
+
+    --naiki-text: #064e3b;
+    --naiki-text-dim: #047857;
+    --naiki-text-muted: #059669;
+
+    --naiki-shadow: 0 10px 25px -5px rgba(6, 78, 59, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.naiki-body {
+    background-color: var(--naiki-bg);
+    color: var(--naiki-text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.naiki-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Header & Navigation */
+.naiki-header {
+    background: rgba(9, 19, 14, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--naiki-card-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.naiki-header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.naiki-back-link {
+    color: var(--naiki-emerald);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background: rgba(16, 185, 129, 0.12);
+    transition: all 0.2s ease;
+}
+
+.naiki-back-link:hover,
+.naiki-back-link:focus-visible {
+    background: var(--naiki-emerald);
+    color: #ffffff;
+    outline: 2px solid var(--naiki-focus);
+    outline-offset: 2px;
+}
+
+.naiki-theme-btn {
+    background: var(--naiki-card-bg);
+    border: 1px solid var(--naiki-card-border);
+    color: var(--naiki-text);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.naiki-theme-btn:hover,
+.naiki-theme-btn:focus-visible {
+    border-color: var(--naiki-emerald);
+    outline: 2px solid var(--naiki-focus);
+}
+
+/* Hero Section */
+.naiki-hero {
+    padding: 4rem 0 3rem;
+    background: linear-gradient(180deg, var(--naiki-bg-alt) 0%, var(--naiki-bg) 100%);
+    border-bottom: 1px solid var(--naiki-card-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.naiki-hero__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.naiki-badge {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    color: var(--naiki-emerald);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+}
+
+.naiki-badge--crimson {
+    background: rgba(225, 29, 72, 0.15);
+    border-color: rgba(225, 29, 72, 0.4);
+    color: #fb7185;
+}
+
+.naiki-badge--amber {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.4);
+    color: #fbbf24;
+}
+
+.naiki-hero__title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    color: var(--naiki-text);
+}
+
+.naiki-hero__title-sub {
+    display: block;
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    color: var(--naiki-text-muted);
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+.naiki-hero__lede {
+    font-size: 1.15rem;
+    color: var(--naiki-text-dim);
+    max-width: 840px;
+    margin-bottom: 2.5rem;
+}
+
+/* Quick Stats Grid */
+.naiki-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1rem;
+}
+
+.naiki-stat-card {
+    background: var(--naiki-card-bg);
+    border: 1px solid var(--naiki-card-border);
+    padding: 1.25rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--naiki-shadow);
+}
+
+.naiki-stat-card__val {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--naiki-emerald);
+    font-family: var(--font-mono);
+}
+
+.naiki-stat-card__label {
+    font-size: 0.85rem;
+    color: var(--naiki-text-dim);
+    margin-top: 0.25rem;
+}
+
+/* Tabs */
+.naiki-tabs-wrapper {
+    margin: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--naiki-card-border);
+    overflow-x: auto;
+}
+
+.naiki-tabs {
+    display: flex;
+    gap: 0.5rem;
+    min-width: max-content;
+    padding-bottom: 0.5rem;
+}
+
+.naiki-tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--naiki-text-dim);
+    font-family: inherit;
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 0.75rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.naiki-tab-btn:hover,
+.naiki-tab-btn:focus-visible {
+    color: var(--naiki-text);
+    background: rgba(16, 185, 129, 0.1);
+    outline: 2px solid var(--naiki-focus);
+}
+
+.naiki-tab-btn.active {
+    color: #ffffff;
+    background: var(--naiki-emerald);
+}
+
+.naiki-tab-content {
+    display: none;
+    padding-bottom: 4rem;
+}
+
+.naiki-tab-content.active {
+    display: block;
+}
+
+/* Section Headings */
+.naiki-section-heading {
+    margin-bottom: 2rem;
+}
+
+.naiki-eyebrow {
+    color: var(--naiki-emerald);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.naiki-section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3vw, 2.4rem);
+    color: var(--naiki-text);
+}
+
+.naiki-section-desc {
+    color: var(--naiki-text-dim);
+    font-size: 1.05rem;
+    max-width: 780px;
+    margin-top: 0.5rem;
+}
+
+/* Cards & Grids */
+.naiki-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.naiki-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.naiki-card {
+    background: var(--naiki-card-bg);
+    border: 1px solid var(--naiki-card-border);
+    border-radius: 14px;
+    padding: 1.75rem;
+    box-shadow: var(--naiki-shadow);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.naiki-card:hover {
+    border-color: var(--naiki-emerald);
+    transform: translateY(-2px);
+}
+
+.naiki-card__icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.naiki-card__title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--naiki-text);
+    margin-bottom: 0.5rem;
+}
+
+.naiki-card__desc {
+    color: var(--naiki-text-dim);
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+/* Battle Spotlight Card */
+.naiki-spotlight-card {
+    background: linear-gradient(135deg, rgba(225, 29, 72, 0.12) 0%, rgba(16, 185, 129, 0.12) 100%);
+    border: 2px solid var(--naiki-crimson);
+    border-radius: 16px;
+    padding: 2.25rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 0 35px var(--naiki-crimson-glow);
+}
+
+/* Evidence vs Retelling Comparative Grid */
+.naiki-comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.naiki-comp-card {
+    background: var(--naiki-card-bg);
+    border: 1px solid var(--naiki-card-border);
+    border-radius: 14px;
+    padding: 1.75rem;
+    box-shadow: var(--naiki-shadow);
+}
+
+.naiki-comp-header {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--naiki-amber);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--naiki-card-border);
+}
+
+.naiki-comp-box {
+    margin-bottom: 1rem;
+}
+
+.naiki-comp-box__title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.35rem;
+}
+
+.naiki-comp-box--evidence .naiki-comp-box__title {
+    color: var(--naiki-emerald);
+}
+
+.naiki-comp-box--retelling .naiki-comp-box__title {
+    color: #fb7185;
+}
+
+/* Timeline Steps */
+.naiki-timeline {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid var(--naiki-emerald);
+    margin-top: 1.5rem;
+}
+
+.naiki-timeline-step {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.naiki-timeline-step::before {
+    content: '';
+    position: absolute;
+    left: calc(-2rem - 6px);
+    top: 0.35rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--naiki-emerald);
+    box-shadow: 0 0 10px var(--naiki-emerald);
+}
+
+.naiki-timeline-step__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--naiki-emerald);
+    font-family: var(--font-mono);
+    margin-bottom: 0.25rem;
+}
+
+.naiki-timeline-step__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--naiki-text);
+    margin-bottom: 0.5rem;
+}
+
+/* Interactive Map Container */
+.naiki-map-wrapper {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--naiki-card-border);
+    margin-bottom: 2.5rem;
+    box-shadow: var(--naiki-shadow);
+}
+
+.naiki-map-wrapper iframe {
+    border: 0;
+    display: block;
+    width: 100%;
+    height: 450px;
+}
+
+/* Sources & Bibliography */
+.naiki-sources-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.naiki-source-item {
+    background: var(--naiki-card-bg);
+    border: 1px solid var(--naiki-card-border);
+    padding: 1.25rem;
+    border-radius: 10px;
+}
+
+.naiki-source-item__citation {
+    font-weight: 600;
+    color: var(--naiki-text);
+    font-size: 0.98rem;
+    margin-bottom: 0.35rem;
+}
+
+.naiki-source-item__notes {
+    color: var(--naiki-text-dim);
+    font-size: 0.88rem;
+}
+
+/* Footer */
+.naiki-footer {
+    border-top: 1px solid var(--naiki-card-border);
+    padding: 2.5rem 0;
+    text-align: center;
+    color: var(--naiki-text-dim);
+    font-size: 0.9rem;
+    background: var(--naiki-bg-alt);
+}
+
+.naiki-footer-brand {
+    font-weight: 700;
+    color: var(--naiki-emerald);
+    margin-bottom: 0.25rem;
+}
+
+/* Skip Link */
+.naiki-skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    background: var(--naiki-emerald);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    z-index: 1000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.naiki-skip-link:focus {
+    top: 1rem;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .naiki-hero {
+        padding: 2.5rem 0 2rem;
+    }
+    
+    .naiki-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .naiki-timeline {
+        padding-left: 1.5rem;
+    }
+
+    .naiki-map-wrapper iframe {
+        height: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    .naiki-stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

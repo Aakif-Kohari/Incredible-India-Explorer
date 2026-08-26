@@ -1,223 +1,719 @@
 /**
  * js-modules/crowd-density-service.js
  *
- * DOM/network-facing wrapper around CrowdDensityEngine (crowd-density-engine.js)
- * and the curated dataset (crowd-density-data.js). Mirrors the split already
- * used for weather (weather-core.js = pure rules, weather-service.js =
- * fetch + cache) and trip planning (trip-planner.js pure logic vs. the UI
- * layer owning persistence): keeps the scoring engine unit-testable while
- * this file owns everything that touches the network, localStorage, or
- * timers.
+ * Service layer for the Crowd Density Prediction feature.
  *
  * Responsibilities:
- *  - builds a CrowdDensityEngine seeded with crowd-density-data.js
- *  - enriches predictions with live weather via window.WeatherService
- *    (Open-Meteo) when available, mapping its weathercode to the engine's
- *    simplified clear/rain/extreme condition
- *  - caches predictions in localStorage with a short TTL so repeated
- *    destination-page renders don't recompute needlessly
- *  - persists user feedback (predicted vs. actual crowd level) so the
- *    engine's learned per-destination adjustment survives reloads
- *  - exposes startAutoRefresh()/stopAutoRefresh() so a page can keep
- *    predictions current ("dynamic prediction updates" from the feature
- *    request) without the caller managing its own timer
- *
- * Loaded after crowd-density-data.js and crowd-density-engine.js. Since
- * crowd-density-engine.js is an ES module (for direct unit-test imports),
- * this file also loads as a module (see the "module" script tag in the
- * demo page) and re-exposes its API on window.CrowdDensityService for any
- * non-module script on the page that wants to call it (e.g. inline
- * onclick handlers).
+ *  - Creates CrowdDensityEngine with the curated crowd dataset
+ *  - Fetches live crowd observations through CrowdDataProvider
+ *  - Enriches predictions with live weather
+ *  - Caches predictions in localStorage
+ *  - Persists user feedback
+ *  - Provides forecast, alternatives and itinerary helpers
+ *  - Supports automatic prediction refresh
  */
+
 import { CrowdDensityEngine } from "./crowd-density-engine.js";
+import { CrowdDataProvider } from "./crowd-data-provider.js";
 
 const PREDICTION_CACHE_PREFIX = "crowdPredictionCache:";
-const PREDICTION_CACHE_TTL_MS = 30 * 60 * 1000; // 30 min — crowd levels don't need weather-service's shorter/longer TTL, just "reasonably fresh"
+const PREDICTION_CACHE_TTL_MS = 30 * 60 * 1000;
 const FEEDBACK_STORAGE_KEY = "crowdDensityFeedback";
-const DEFAULT_REFRESH_INTERVAL_MS = 15 * 60 * 1000; // 15 min "dynamic update" cadence
+const DEFAULT_REFRESH_INTERVAL_MS = 15 * 60 * 1000;
 
-/** Open-Meteo WMO weather codes -> engine's simplified condition buckets. */
+/**
+ * Open-Meteo WMO weather codes -> simplified weather categories.
+ */
 function classifyWeatherCode(code) {
   if (code == null) return null;
-  if ([0, 1].includes(code)) return "clear";
-  if ([2, 3, 45, 48].includes(code)) return "cloudy";
-  if ([51, 53, 55, 61, 63, 65, 66, 67, 80, 81, 82, 95, 96, 99].includes(code)) return "rain";
-  if ([71, 73, 75, 77, 85, 86].includes(code)) return "extreme";
+
+  if ([0, 1].includes(code)) {
+    return "clear";
+  }
+
+  if ([2, 3, 45, 48].includes(code)) {
+    return "cloudy";
+  }
+
+  if (
+    [
+      51,
+      53,
+      55,
+      61,
+      63,
+      65,
+      66,
+      67,
+      80,
+      81,
+      82,
+      95,
+      96,
+      99
+    ].includes(code)
+  ) {
+    return "rain";
+  }
+
+  if ([71, 73, 75, 77, 85, 86].includes(code)) {
+    return "extreme";
+  }
+
   return "cloudy";
 }
 
+/**
+ * Safely read JSON from localStorage.
+ */
 function readJSON(key) {
   try {
     const raw = localStorage.getItem(key);
     return raw ? JSON.parse(raw) : null;
-  } catch (e) {
+  } catch (error) {
     return null;
   }
 }
 
+/**
+ * Safely write JSON to localStorage.
+ */
 function writeJSON(key, value) {
   try {
     localStorage.setItem(key, JSON.stringify(value));
-  } catch (e) {
-    // Storage full/unavailable — feature still works, just without persistence this session.
+  } catch (error) {
+    // Persistence is optional.
+    // The feature continues to work for the current session.
   }
 }
 
 export class CrowdDensityService {
   /**
    * @param {Object} [options]
-   * @param {Array} [options.destinations] Defaults to window.crowdDestinations (crowd-density-data.js).
-   * @param {Array} [options.holidays] Defaults to window.crowdHolidays2026.
-   * @param {Object} [options.nearbyAlternatives] Defaults to window.crowdNearbyAlternatives.
-   * @param {Object} [options.weatherService] Defaults to window.WeatherService.
+   * @param {Array} [options.destinations]
+   * @param {Array} [options.holidays]
+   * @param {Object} [options.nearbyAlternatives]
+   * @param {Object} [options.weatherService]
+   * @param {Object} [options.crowdDataProvider]
+   * @param {string} [options.crowdDataEndpoint]
    */
   constructor(options = {}) {
-    const root = typeof window !== "undefined" ? window : {};
-    this.destinations = options.destinations || root.crowdDestinations || [];
-    this.weatherService = options.weatherService || root.WeatherService || null;
+    const root =
+      typeof window !== "undefined"
+        ? window
+        : {};
+
+    // ------------------------------------------------------------
+    // Destination dataset
+    // ------------------------------------------------------------
+
+    this.destinations =
+      options.destinations ||
+      root.crowdDestinations ||
+      [];
+
+    // ------------------------------------------------------------
+    // Weather service
+    // ------------------------------------------------------------
+
+    this.weatherService =
+      options.weatherService ||
+      root.WeatherService ||
+      null;
+
+    // ------------------------------------------------------------
+    // Prediction engine
+    // ------------------------------------------------------------
+
     this.engine = new CrowdDensityEngine({
       destinations: this.destinations,
-      holidays: options.holidays || root.crowdHolidays2026 || [],
-      nearbyAlternatives: options.nearbyAlternatives || root.crowdNearbyAlternatives || {}
+
+      holidays:
+        options.holidays ||
+        root.crowdHolidays2026 ||
+        [],
+
+      nearbyAlternatives:
+        options.nearbyAlternatives ||
+        root.crowdNearbyAlternatives ||
+        {}
     });
-    this.destinationsById = new Map(this.destinations.map((d) => [d.id, d]));
+
+    // ------------------------------------------------------------
+    // Live crowd data provider
+    // ------------------------------------------------------------
+
+    this.crowdDataProvider =
+      options.crowdDataProvider ||
+      new CrowdDataProvider({
+        endpoint:
+          options.crowdDataEndpoint ||
+          root.CROWD_DATA_ENDPOINT ||
+          ""
+      });
+
+    // ------------------------------------------------------------
+    // Destination lookup
+    // ------------------------------------------------------------
+
+    this.destinationsById = new Map(
+      this.destinations.map((destination) => [
+        destination.id,
+        destination
+      ])
+    );
+
+    // ------------------------------------------------------------
+    // Auto-refresh timer
+    // ------------------------------------------------------------
+
     this._refreshTimer = null;
+
+    // ------------------------------------------------------------
+    // Restore persisted feedback adjustments
+    // ------------------------------------------------------------
+
     this._loadPersistedFeedback();
   }
 
-  // --------------------------------------------------------------------
-  // Weather enrichment
-  // --------------------------------------------------------------------
+  // ============================================================
+  // WEATHER
+  // ============================================================
 
-  /** Best-effort live weather for a destination's date; returns null on any failure so predictions still degrade gracefully to weather-neutral. */
+  /**
+   * Gets weather information for a destination/date.
+   *
+   * Weather is best-effort. If WeatherService is unavailable
+   * or the request fails, null is returned and the prediction
+   * engine continues without a weather adjustment.
+   */
   async getWeatherForDate(destinationId, date) {
-    const destination = this.destinationsById.get(destinationId);
-    if (!destination || !this.weatherService || destination.lat == null || destination.lng == null) return null;
+    const destination =
+      this.destinationsById.get(destinationId);
+
+    if (
+      !destination ||
+      !this.weatherService ||
+      destination.lat == null ||
+      destination.lng == null
+    ) {
+      return null;
+    }
+
     try {
-      const forecast = await this.weatherService.fetchForecast(destination.lat, destination.lng);
-      const iso = (date instanceof Date ? date : new Date(date)).toISOString().slice(0, 10);
-      const day = forecast.find((f) => f.date === iso);
-      if (!day) return null;
-      return { condition: classifyWeatherCode(day.weatherCode), tempC: day.tempMaxC };
-    } catch (e) {
+      const forecast =
+        await this.weatherService.fetchForecast(
+          destination.lat,
+          destination.lng
+        );
+
+      const isoDate =
+        (
+          date instanceof Date
+            ? date
+            : new Date(date)
+        )
+          .toISOString()
+          .slice(0, 10);
+
+      const day =
+        forecast.find(
+          (item) => item.date === isoDate
+        );
+
+      if (!day) {
+        return null;
+      }
+
+      return {
+        condition: classifyWeatherCode(
+          day.weatherCode
+        ),
+        tempC: day.tempMaxC
+      };
+    } catch (error) {
       return null;
     }
   }
 
-  // --------------------------------------------------------------------
-  // Cached predictions
-  // --------------------------------------------------------------------
+  // ============================================================
+  // CACHE
+  // ============================================================
 
   _cacheKey(destinationId, date) {
     return `${PREDICTION_CACHE_PREFIX}${destinationId}:${date}`;
   }
 
   _readCache(destinationId, date) {
-    const entry = readJSON(this._cacheKey(destinationId, date));
-    if (!entry || Date.now() - entry.fetchedAt > PREDICTION_CACHE_TTL_MS) return null;
-    return entry.prediction;
+    const entry = readJSON(
+      this._cacheKey(destinationId, date)
+    );
+
+    if (!entry) {
+      return null;
+    }
+
+    if (
+      !entry.fetchedAt ||
+      Date.now() - entry.fetchedAt >
+        PREDICTION_CACHE_TTL_MS
+    ) {
+      return null;
+    }
+
+    return entry.prediction || null;
   }
 
   _writeCache(destinationId, date, prediction) {
-    writeJSON(this._cacheKey(destinationId, date), { fetchedAt: Date.now(), prediction });
+    writeJSON(
+      this._cacheKey(destinationId, date),
+      {
+        fetchedAt: Date.now(),
+        prediction
+      }
+    );
   }
 
+  // ============================================================
+  // CROWD PREDICTION
+  // ============================================================
+
   /**
-   * Predicts crowd density for a destination/date, using live weather and a
-   * short localStorage cache. Set `options.forceRefresh` to bypass the cache
-   * (used by startAutoRefresh()).
+   * Predict crowd density for a destination/date.
+   *
+   * Priority:
+   *
+   * 1. Cached prediction
+   * 2. Live crowd observation, if available
+   * 3. Engine-based estimated prediction
+   *
+   * Live data overrides only the score and related live metadata.
+   * The engine remains responsible for the prediction structure
+   * and factor calculations.
    */
-  async predict(destinationId, date, options = {}) {
-    const isoDateStr = (date instanceof Date ? date : new Date(date)).toISOString().slice(0, 10);
-    if (!options.forceRefresh) {
-      const cached = this._readCache(destinationId, isoDateStr);
-      if (cached) return cached;
+  async predict(
+    destinationId,
+    date,
+    options = {}
+  ) {
+    if (!destinationId || !date) {
+      return null;
     }
-    const weather = await this.getWeatherForDate(destinationId, isoDateStr);
-    const prediction = this.engine.predictCrowdLevel(destinationId, isoDateStr, { weather });
-    if (prediction) this._writeCache(destinationId, isoDateStr, prediction);
+
+    const parsedDate =
+      date instanceof Date
+        ? date
+        : new Date(date);
+
+    if (Number.isNaN(parsedDate.getTime())) {
+      return null;
+    }
+
+    const isoDateStr =
+      parsedDate
+        .toISOString()
+        .slice(0, 10);
+
+    // ----------------------------------------------------------
+    // Cache
+    // ----------------------------------------------------------
+
+    if (!options.forceRefresh) {
+      const cached =
+        this._readCache(
+          destinationId,
+          isoDateStr
+        );
+
+      if (cached) {
+        return cached;
+      }
+    }
+
+    // ----------------------------------------------------------
+    // Live crowd observation
+    // ----------------------------------------------------------
+
+    let liveCrowd = null;
+
+    if (
+      options.useLiveData !== false &&
+      this.crowdDataProvider
+    ) {
+      try {
+        liveCrowd =
+          await this.crowdDataProvider.fetchDestinationCrowd(
+            destinationId
+          );
+      } catch (error) {
+        // Live data is optional.
+        // Continue with the rule-based prediction.
+        liveCrowd = null;
+      }
+    }
+
+    // ----------------------------------------------------------
+    // Weather
+    // ----------------------------------------------------------
+
+    const weather =
+      await this.getWeatherForDate(
+        destinationId,
+        isoDateStr
+      );
+
+    // ----------------------------------------------------------
+    // Engine prediction
+    // ----------------------------------------------------------
+
+    const prediction =
+      this.engine.predictCrowdLevel(
+        destinationId,
+        isoDateStr,
+        {
+          weather
+        }
+      );
+
+    if (!prediction) {
+      return null;
+    }
+
+    // ----------------------------------------------------------
+    // Apply live crowd observation
+    // ----------------------------------------------------------
+
+    if (liveCrowd) {
+      const liveScore = Math.max(
+        0,
+        Math.min(
+          100,
+          Number(liveCrowd.score)
+        )
+      );
+
+      prediction.score =
+        Math.round(liveScore);
+
+      prediction.source =
+        liveCrowd.source ||
+        "live-crowd-data";
+
+      prediction.observedAt =
+        liveCrowd.observedAt ||
+        new Date().toISOString();
+
+      prediction.confidence =
+        liveCrowd.confidence != null
+          ? liveCrowd.confidence
+          : 0.8;
+
+      if (liveCrowd.visitors != null) {
+        prediction.visitors =
+          liveCrowd.visitors;
+      }
+
+      prediction.isLive = true;
+
+      /*
+       * IMPORTANT:
+       *
+       * CrowdDensityEngine exposes:
+       *
+       * CrowdDensityEngine.levelForScore()
+       *
+       * It does NOT expose getCrowdLevel().
+       */
+      prediction.level =
+        CrowdDensityEngine.levelForScore(
+          prediction.score
+        );
+    } else {
+      // --------------------------------------------------------
+      // Estimated prediction
+      // --------------------------------------------------------
+
+      prediction.source = "estimated";
+
+      prediction.isLive = false;
+
+      prediction.observedAt =
+        new Date().toISOString();
+
+      prediction.confidence =
+        prediction.confidence != null
+          ? prediction.confidence
+          : 0.5;
+    }
+
+    // ----------------------------------------------------------
+    // Save prediction
+    // ----------------------------------------------------------
+
+    this._writeCache(
+      destinationId,
+      isoDateStr,
+      prediction
+    );
+
     return prediction;
   }
 
-  getBestVisitingHours(destinationId, date, options) {
-    return this.engine.getBestVisitingHours(destinationId, date, options);
+  // ============================================================
+  // BEST VISITING HOURS
+  // ============================================================
+
+  getBestVisitingHours(
+    destinationId,
+    date,
+    options
+  ) {
+    return this.engine.getBestVisitingHours(
+      destinationId,
+      date,
+      options
+    );
   }
 
-  async getForecast(destinationId, startDate, days = 7) {
+  // ============================================================
+  // FORECAST
+  // ============================================================
+
+  async getForecast(
+    destinationId,
+    startDate,
+    days = 7
+  ) {
     const weatherByDate = {};
+
     if (this.weatherService) {
-      const destination = this.destinationsById.get(destinationId);
-      if (destination && destination.lat != null) {
+      const destination =
+        this.destinationsById.get(
+          destinationId
+        );
+
+      if (
+        destination &&
+        destination.lat != null &&
+        destination.lng != null
+      ) {
         try {
-          const forecast = await this.weatherService.fetchForecast(destination.lat, destination.lng);
+          const forecast =
+            await this.weatherService.fetchForecast(
+              destination.lat,
+              destination.lng
+            );
+
           for (const day of forecast) {
-            weatherByDate[day.date] = { condition: classifyWeatherCode(day.weatherCode), tempC: day.tempMaxC };
+            weatherByDate[day.date] = {
+              condition:
+                classifyWeatherCode(
+                  day.weatherCode
+                ),
+              tempC: day.tempMaxC
+            };
           }
-        } catch (e) {
-          // Fall back to weather-neutral forecast below.
+        } catch (error) {
+          // Weather is optional.
+          // Continue with weather-neutral forecast.
         }
       }
     }
-    return this.engine.getForecast(destinationId, startDate, days, weatherByDate);
+
+    return this.engine.getForecast(
+      destinationId,
+      startDate,
+      days,
+      weatherByDate
+    );
   }
 
-  suggestAlternatives(destinationId, date, options) {
-    return this.engine.suggestAlternatives(destinationId, date, options);
+  // ============================================================
+  // ALTERNATIVE DESTINATIONS
+  // ============================================================
+
+  suggestAlternatives(
+    destinationId,
+    date,
+    options
+  ) {
+    return this.engine.suggestAlternatives(
+      destinationId,
+      date,
+      options
+    );
   }
 
-  optimizeItinerary(stops, options) {
-    return this.engine.optimizeItinerary(stops, options);
+  // ============================================================
+  // ITINERARY OPTIMIZATION
+  // ============================================================
+
+  optimizeItinerary(
+    stops,
+    options
+  ) {
+    return this.engine.optimizeItinerary(
+      stops,
+      options
+    );
   }
 
-  // --------------------------------------------------------------------
-  // Feedback persistence
-  // --------------------------------------------------------------------
+  // ============================================================
+  // FEEDBACK
+  // ============================================================
 
   _loadPersistedFeedback() {
-    const stored = readJSON(FEEDBACK_STORAGE_KEY);
-    if (stored) this.engine.loadFeedbackAdjustments(stored);
-  }
+    const stored =
+      readJSON(
+        FEEDBACK_STORAGE_KEY
+      );
 
-  /** Records feedback on the engine and persists the resulting adjustments to localStorage. */
-  submitFeedback(destinationId, predictedScore, actualScore) {
-    this.engine.recordFeedback(destinationId, predictedScore, actualScore);
-    const snapshot = {};
-    for (const destination of this.destinations) {
-      const adjustment = this.engine.getFeedbackAdjustment(destination.id);
-      if (adjustment) snapshot[destination.id] = adjustment;
+    if (stored) {
+      this.engine.loadFeedbackAdjustments(
+        stored
+      );
     }
-    writeJSON(FEEDBACK_STORAGE_KEY, snapshot);
   }
-
-  // --------------------------------------------------------------------
-  // Dynamic prediction updates
-  // --------------------------------------------------------------------
 
   /**
-   * Polls `predict(destinationId, date, {forceRefresh:true})` on an
-   * interval and hands fresh predictions to `onUpdate`. Returns a stop
-   * function (also stored so stopAutoRefresh() works without it).
+   * Save user feedback about predicted vs
+   * actual crowd level.
    */
-  startAutoRefresh(destinationId, date, onUpdate, intervalMs = DEFAULT_REFRESH_INTERVAL_MS) {
-    this.stopAutoRefresh();
-    const tick = () => {
-      this.predict(destinationId, date, { forceRefresh: true }).then((prediction) => {
-        if (prediction) onUpdate(prediction);
+  submitFeedback(
+    destinationId,
+    predictedScore,
+    actualScore
+  ) {
+    const adjustment =
+      this.engine.recordFeedback(
+        destinationId,
+        predictedScore,
+        actualScore
+      );
+
+    const snapshot = {};
+
+    for (
+      const destination of this.destinations
+    ) {
+      const value =
+        this.engine.getFeedbackAdjustment(
+          destination.id
+        );
+
+      if (value) {
+        snapshot[destination.id] = value;
+      }
+    }
+
+    writeJSON(
+      FEEDBACK_STORAGE_KEY,
+      snapshot
+    );
+
+    /*
+     * Feedback changes the prediction.
+     * Remove the old cached prediction so
+     * the next request uses the updated score.
+     */
+    try {
+      const keys = [];
+
+      for (let i = 0; i < localStorage.length; i++) {
+        const key =
+          localStorage.key(i);
+
+        if (
+          key &&
+          key.startsWith(
+            `${PREDICTION_CACHE_PREFIX}${destinationId}:`
+          )
+        ) {
+          keys.push(key);
+        }
+      }
+
+      keys.forEach((key) => {
+        localStorage.removeItem(key);
       });
+    } catch (error) {
+      // Cache invalidation is best effort.
+    }
+
+    return adjustment;
+  }
+
+  // ============================================================
+  // DYNAMIC REFRESH
+  // ============================================================
+
+  /**
+   * Automatically refreshes a prediction.
+   *
+   * The first prediction is fetched immediately.
+   * Further predictions are fetched every interval.
+   */
+  startAutoRefresh(
+    destinationId,
+    date,
+    onUpdate,
+    intervalMs = DEFAULT_REFRESH_INTERVAL_MS
+  ) {
+    this.stopAutoRefresh();
+
+    const tick = async () => {
+      try {
+        const prediction =
+          await this.predict(
+            destinationId,
+            date,
+            {
+              forceRefresh: true,
+              useLiveData: true
+            }
+          );
+
+        if (
+          prediction &&
+          typeof onUpdate === "function"
+        ) {
+          onUpdate(prediction);
+        }
+      } catch (error) {
+        // Keep auto-refresh alive even if one
+        // network request fails.
+      }
     };
+
+    // Initial update immediately.
     tick();
-    this._refreshTimer = setInterval(tick, intervalMs);
-    return () => this.stopAutoRefresh();
+
+    this._refreshTimer =
+      setInterval(
+        tick,
+        intervalMs
+      );
+
+    return () =>
+      this.stopAutoRefresh();
   }
 
   stopAutoRefresh() {
     if (this._refreshTimer) {
-      clearInterval(this._refreshTimer);
+      clearInterval(
+        this._refreshTimer
+      );
+
       this._refreshTimer = null;
     }
   }
 }
 
+// ================================================================
+// GLOBAL API
+// ================================================================
+
 if (typeof window !== "undefined") {
-  window.CrowdDensityService = CrowdDensityService;
+  window.CrowdDensityService =
+    CrowdDensityService;
 }

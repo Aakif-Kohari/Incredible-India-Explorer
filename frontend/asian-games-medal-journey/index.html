@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India at the Asian Games — Medal Journey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0F1C;
+    --panel:#121A2C;
+    --panel-alt:#182238;
+    --line:#232E47;
+    --text:#EDEFF4;
+    --muted:#8A93A8;
+    --gold:#E3A83B;
+    --gold-dim:#8A6A2C;
+    --silver:#B7C0CC;
+    --bronze:#C97C4A;
+    --teal:#3E8E7E;
+    --teal-dim:#1F4A42;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:56px 24px 96px;}
+
+  header{margin-bottom:36px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--teal);margin:0 0 14px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(32px,5vw,52px);
+    line-height:1.05;
+    margin:0 0 14px;
+    letter-spacing:-0.01em;
+  }
+  header p{
+    font-size:16px;color:var(--muted);max-width:560px;line-height:1.6;margin:0;
+  }
+
+  .stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);
+    border-radius:12px;overflow:hidden;margin:32px 0 40px;
+  }
+  .stat{background:var(--panel);padding:18px 20px;}
+  .stat .n{
+    font-family:'Fraunces',serif;font-size:28px;font-weight:600;
+    display:block;line-height:1;
+  }
+  .stat .l{font-size:12px;color:var(--muted);margin-top:8px;display:block;}
+  .stat.g .n{color:var(--gold);}
+  .stat.s .n{color:var(--silver);}
+  .stat.b .n{color:var(--bronze);}
+
+  .mode-toggle{
+    display:inline-flex;gap:2px;background:var(--panel-alt);border:1px solid var(--line);
+    border-radius:10px;padding:3px;margin-bottom:28px;
+  }
+  .mode-btn{
+    font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:var(--muted);
+    background:none;border:none;padding:9px 18px;border-radius:8px;cursor:pointer;
+    transition:background .15s ease,color .15s ease;
+  }
+  .mode-btn[aria-pressed="true"]{background:var(--teal-dim);color:var(--text);}
+
+  .track-label{
+    font-size:12px;color:var(--muted);margin:0 0 12px;
+    font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;
+  }
+  .track{
+    display:flex;align-items:flex-end;gap:6px;
+    height:170px;padding:0 2px 10px;
+    overflow-x:auto;scrollbar-width:thin;
+    border-bottom:1px solid var(--line);margin-bottom:4px;
+  }
+  .track::-webkit-scrollbar{height:6px;}
+  .track::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px;}
+  .bar-col{
+    flex:0 0 auto;width:46px;display:flex;flex-direction:column;
+    align-items:center;justify-content:flex-end;height:100%;cursor:pointer;
+    background:none;border:none;padding:0;font-family:inherit;color:inherit;
+  }
+  .bar-stack{
+    width:100%;max-width:26px;display:flex;flex-direction:column-reverse;
+    border-radius:3px 3px 0 0;overflow:hidden;
+    transition:transform .18s cubic-bezier(.34,1.56,.64,1);
+  }
+  .bar-col:hover .bar-stack{transform:scaleX(1.2) scaleY(1.02);}
+  .bar-col[aria-pressed="true"] .bar-stack{transform:scaleX(1.3);box-shadow:0 0 0 1px var(--gold);}
+  .seg{width:100%;transition:height .3s ease;}
+  .seg.g{background:var(--gold);}
+  .seg.s{background:var(--silver);}
+  .seg.b{background:var(--bronze);}
+  .bar-year{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);
+    margin-top:8px;white-space:nowrap;transition:color .15s ease;
+  }
+  .bar-col[aria-pressed="true"] .bar-year{color:var(--gold);font-weight:500;}
+  .bar-flag{font-size:12px;margin-top:5px;line-height:1;}
+
+  .legend{
+    display:flex;gap:18px;margin:14px 0 40px;font-size:12px;color:var(--muted);flex-wrap:wrap;
+  }
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
+  .legend i{width:8px;height:8px;border-radius:2px;display:inline-block;}
+  .legend .g{background:var(--gold);}
+  .legend .s{background:var(--silver);}
+  .legend .b{background:var(--bronze);}
+
+  .crumb{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);
+    margin-bottom:16px;min-height:16px;
+  }
+  .crumb b{color:var(--text);font-weight:500;}
+  .crumb .sep{color:var(--line);margin:0 6px;}
+  .crumb .back{color:var(--teal);cursor:pointer;text-decoration:underline;text-underline-offset:2px;}
+
+  .panel{
+    background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:28px 30px;animation:fadein .25s ease;
+  }
+  @keyframes fadein{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+  .panel-head{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    flex-wrap:wrap;gap:16px;margin-bottom:20px;
+  }
+  .panel-head h2{
+    font-family:'Fraunces',serif;font-weight:600;font-size:26px;margin:0 0 6px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .panel-head .flag{font-size:24px;}
+  .panel-head .sub{font-size:13px;color:var(--muted);}
+  .panel-head .sub b{color:var(--teal);font-weight:600;}
+  .rank-pill{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold);
+    border:1px solid var(--gold-dim);border-radius:20px;padding:6px 14px;
+    white-space:nowrap;
+  }
+
+  .medal-row{display:flex;gap:10px;margin-bottom:22px;}
+  .medal-chip{
+    flex:1;border-radius:10px;padding:12px 14px;background:var(--panel-alt);
+    border:1px solid var(--line);
+  }
+  .medal-chip .n{font-family:'Fraunces',serif;font-size:22px;font-weight:600;display:block;}
+  .medal-chip .l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+  .medal-chip.g .n{color:var(--gold);}
+  .medal-chip.s .n{color:var(--silver);}
+  .medal-chip.b .n{color:var(--bronze);}
+  .medal-chip.t .n{color:var(--text);}
+
+  .milestone{
+    font-size:14px;line-height:1.65;color:var(--text);
+    border-left:2px solid var(--teal);padding:4px 0 4px 16px;margin-bottom:24px;
+  }
+  .milestone b{color:var(--teal);font-weight:600;}
+
+  .section-label{
+    font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;
+    margin:0 0 10px;
+  }
+  .sport-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+  .sport-chip{
+    font-family:'Inter',sans-serif;font-size:13px;color:var(--text);
+    background:var(--panel-alt);border:1px solid var(--line);border-radius:20px;
+    padding:8px 14px 8px 10px;cursor:pointer;display:flex;align-items:center;gap:8px;
+    transition:border-color .15s ease,background .15s ease;
+  }
+  .sport-chip:hover{border-color:var(--teal);}
+  .sport-chip[aria-pressed="true"]{background:var(--teal-dim);border-color:var(--teal);}
+  .sport-chip svg{width:16px;height:16px;flex:0 0 auto;color:var(--teal);}
+  .sport-chip .tally{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);
+  }
+
+  .sport-detail{
+    background:var(--panel-alt);border:1px solid var(--line);border-radius:12px;
+    padding:20px 22px;animation:fadein .2s ease;
+  }
+  .sport-detail h3{
+    font-family:'Fraunces',serif;font-size:19px;font-weight:600;margin:0 0 4px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .sport-detail h3 svg{width:20px;height:20px;color:var(--teal);}
+  .sport-detail .tally-line{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:16px;
+  }
+  .sport-detail .tally-line .g{color:var(--gold);}
+  .sport-detail .tally-line .s{color:var(--silver);}
+  .sport-detail .tally-line .b{color:var(--bronze);}
+  .athlete{
+    display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line);
+  }
+  .athlete:first-of-type{border-top:none;padding-top:4px;}
+  .athlete .medal-dot{
+    flex:0 0 auto;width:30px;height:30px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;
+    margin-top:2px;
+  }
+  .medal-dot.G{background:var(--gold);color:#3A2A05;}
+  .medal-dot.S{background:var(--silver);color:#2A2E36;}
+  .medal-dot.B{background:var(--bronze);color:#341C0C;}
+  .athlete .name{font-size:14px;font-weight:500;margin:0 0 2px;}
+  .athlete .event{font-size:13px;color:var(--muted);margin:0;line-height:1.5;}
+  .athlete .year-tag{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--teal);
+    background:var(--teal-dim);padding:2px 7px;border-radius:10px;margin-left:6px;
+  }
+  .no-athlete{font-size:13px;color:var(--muted);font-style:italic;}
+
+  .sport-index{display:flex;flex-wrap:wrap;gap:10px;}
+  .sport-index-card{
+    flex:1 1 140px;min-width:140px;background:var(--panel);border:1px solid var(--line);
+    border-radius:12px;padding:16px;cursor:pointer;transition:border-color .15s ease,transform .15s ease;
+  }
+  .sport-index-card:hover{border-color:var(--teal);transform:translateY(-2px);}
+  .sport-index-card svg{width:22px;height:22px;color:var(--teal);margin-bottom:10px;}
+  .sport-index-card .sname{font-size:14px;font-weight:500;margin:0 0 4px;}
+  .sport-index-card .stally{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);}
+  .sport-index-card .stally .g{color:var(--gold);}
+  .sport-index-card .stally .s{color:var(--silver);}
+  .sport-index-card .stally .b{color:var(--bronze);}
+
+  .hint{
+    text-align:center;color:var(--muted);font-size:13px;padding:40px 0;
+  }
+  .sources{
+    margin-top:40px;border-top:1px solid var(--line);padding-top:22px;
+  }
+  .sources h4{
+    font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;
+    margin:0 0 12px;font-weight:500;
+  }
+  .sources ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;}
+  .sources a{
+    color:var(--teal);font-size:13px;text-decoration:none;border-bottom:1px solid transparent;
+  }
+  .sources a:hover{border-bottom-color:var(--teal);}
+  .sources .note{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6;max-width:640px;}
+
+  @media(max-width:600px){
+    .wrap{padding:36px 16px 64px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .panel{padding:20px 18px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">Incredible India Explorer — sports history</p>
+    <h1>India's Asian&nbsp;Games medal journey</h1>
+    <p>Every edition since the 1951 New Delhi Games, told through host cities, medal counts, sports and the athletes who defined each one.</p>
+  </header>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="mode-toggle" id="modeToggle">
+    <button class="mode-btn" data-mode="year" aria-pressed="true">Browse by year</button>
+    <button class="mode-btn" data-mode="sport" aria-pressed="false">Browse by sport</button>
+  </div>
+
+  <div id="yearMode">
+    <p class="track-label">1951 → 2023 · bar height = total medals</p>
+    <div class="track" id="track"></div>
+    <div class="legend">
+      <span><i class="g"></i>Gold</span>
+      <span><i class="s"></i>Silver</span>
+      <span><i class="b"></i>Bronze</span>
+      <span>🏠 Hosted by India</span>
+    </div>
+  </div>
+
+  <div class="crumb" id="crumb"></div>
+  <div id="panel"></div>
+
+  <div class="sources">
+    <h4>Sources</h4>
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/India_at_the_Asian_Games" target="_blank" rel="noopener">Wikipedia — India at the Asian Games (edition-by-edition medal tables)</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Asian_Games" target="_blank" rel="noopener">Wikipedia — Asian Games (host cities and editions)</a></li>
+      <li><a href="https://ocasia.org/" target="_blank" rel="noopener">Olympic Council of Asia — official results archive</a></li>
+      <li><a href="https://www.olympics.com/en/news/india-asian-games-2023-record-medal-haul" target="_blank" rel="noopener">Olympics.com — India's record 2023 Asian Games medal haul</a></li>
+    </ul>
+    <p class="note">Edition-level data (host, rank, gold/silver/bronze) is drawn directly from the sources above. Sport-level breakdowns cover the largest medal-contributing disciplines per edition rather than every discipline, and athlete credit is only given where a specific medalist could be verified — entries marked "no individually documented medalist yet" are an invitation for further contributions rather than missing data.</p>
+  </div>
+
+</div>
+
+<script>
+const ICONS = {
+  default:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M8 12l-2 8 6-3 6 3-2-8"/></svg>',
+  Athletics:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="15" cy="5" r="2"/><path d="M12 21l2-6 4 1-3-6-4-1-3 3v5"/><path d="M8 10L4 14l1 6"/></svg>',
+  Swimming:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0 3-1.2 4.5 0"/><circle cx="16" cy="6" r="2"/><path d="M14 10l-6 3 2 3"/></svg>',
+  Football:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8l3 2-1 3h-4l-1-3z"/></svg>',
+  Diving:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="17" cy="5" r="2"/><path d="M15 7l-9 4 3 2"/><path d="M4 19c2-4 6-6 6-6"/></svg>',
+  Cycling:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l4-9h4l4 9M10 8h4M9 17h9"/></svg>',
+  Wrestling:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7" cy="6" r="2"/><circle cx="17" cy="6" r="2"/><path d="M5 20c0-4 2-6 2-6l3-3 3 3s2 2 2 6"/><path d="M9 11l6-4"/></svg>',
+  Badminton:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="5"/><path d="M11.5 11.5L20 20M20 20l-2-5M20 20l-5-2"/></svg>',
+  Boxing:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h4l2-3h4l3 3v3l-3 3h-4l-2-3H4z"/></svg>',
+  "Field hockey":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3l7 15c1 2 3 2 4 1"/><circle cx="6" cy="20" r="1.5"/></svg>',
+  Kabaddi:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="6" r="2"/><path d="M9 8v6l-3 6M9 14l4 2 2 4M13 14l4-2"/></svg>',
+  Shooting:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.5" fill="currentColor"/></svg>',
+  Archery:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="16" cy="12" r="6"/><circle cx="16" cy="12" r="2.5"/><path d="M2 12h6M2 12l3-2M2 12l3 2"/></svg>',
+  Tennis:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="9" r="6"/><path d="M6 6c2 2 2 5 0 7M12 6c-2 2-2 5 0 7"/><path d="M13.5 13.5L20 20"/></svg>',
+  Squash:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="9" cy="8" rx="5" ry="6"/><path d="M12 12L20 20M20 20l-1-4M20 20l-4-1"/></svg>',
+  Equestrian:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l2-6 3-3 2-5 4 1 2 4-2 2 1 7"/><circle cx="16" cy="6" r="1.5"/></svg>',
+  Golf:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 21V4l9 3-9 4"/><path d="M4 21h10"/></svg>',
+  "Cue sports":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="3"/><path d="M11 11l9 9"/><circle cx="17" cy="14" r="1" fill="currentColor"/></svg>',
+  "Board games":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 10h16M4 16h16M10 4v16M16 4v16"/></svg>',
+  Weightlifting:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10v4M7 8v8M17 8v8M20 10v4M7 12h10"/></svg>',
+  Judo:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="5" r="2"/><path d="M9 7v5l-4 3v5M9 12l6 2 3 6"/></svg>',
+  Rowing:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 15c4 3 14 3 18 0"/><path d="M12 4v9M6 8l12-2M6 12l12 2"/></svg>'
+};
+function icon(name){ return ICONS[name] || ICONS.default; }
+
+const FLAGS = {
+  India:'🇮🇳', Philippines:'🇵🇭', Japan:'🇯🇵', Indonesia:'🇮🇩', Thailand:'🇹🇭',
+  Iran:'🇮🇷', "South Korea":'🇰🇷', China:'🇨🇳', Qatar:'🇶🇦'
+};
+
+const DATA = [
+{ year:1951, host:"New Delhi", country:"India", hosted:true, rank:2, g:15, s:16, b:20,
+  milestone:"India hosted the inaugural Asian Games and finished 2nd overall, its best-ever rank. Sachin Nag won India's first Asian Games gold, and the men's football team took gold too.",
+  sports:[
+    { name:"Athletics", g:10, s:12, b:12, athletes:[
+      { medal:"G", name:"Lavy Pinto", event:"Men's 100m and 200m — double gold" }
+    ]},
+    { name:"Swimming", g:1, s:2, b:6, athletes:[
+      { medal:"G", name:"Sachin Nag", event:"Men's 100m freestyle — India's first-ever Asian Games gold" }
+    ]},
+    { name:"Football", g:1, s:0, b:0, athletes:[
+      { medal:"G", name:"India men's football team", event:"Only Asian Games gold India has won in football" }
+    ]},
+    { name:"Diving", g:2, s:1, b:1, athletes:[] },
+    { name:"Cycling", g:0, s:1, b:2, athletes:[] }
+  ]},
+{ year:1954, host:"Manila", country:"Philippines", hosted:false, rank:5, g:5, s:4, b:8,
+  milestone:"India's second Games away from home; a modest but consistent tally set the pattern for the next decade.",
+  sports:[
+    { name:"Athletics", g:5, s:3, b:6, athletes:[
+      { medal:"G", name:"Parduman Singh Brar", event:"Two individual golds in track events" }
+    ]},
+    { name:"Wrestling", g:0, s:1, b:1, athletes:[] },
+    { name:"Diving", g:0, s:0, b:1, athletes:[] }
+  ]},
+{ year:1958, host:"Tokyo", country:"Japan", hosted:false, rank:7, g:5, s:4, b:4,
+  milestone:"Milkha Singh, the 'Flying Sikh', announced himself on the continental stage with double gold — the start of India's most celebrated sprint legacy.",
+  sports:[
+    { name:"Athletics", g:5, s:2, b:2, athletes:[
+      { medal:"G", name:"Milkha Singh", event:"Men's 200m and 400m — double gold" }
+    ]},
+    { name:"Badminton", g:0, s:1, b:1, athletes:[] },
+    { name:"Boxing", g:0, s:1, b:1, athletes:[] }
+  ]},
+{ year:1962, host:"Jakarta", country:"Indonesia", hosted:false, rank:3, g:10, s:13, b:10,
+  milestone:"India's best rank finish since hosting in 1951. Milkha Singh added two more golds, closing his Asian Games career with four in total.",
+  sports:[
+    { name:"Athletics", g:5, s:5, b:4, athletes:[
+      { medal:"G", name:"Milkha Singh", event:"Men's 400m and 4x400m relay — his final two Asian Games golds" }
+    ]},
+    { name:"Wrestling", g:3, s:6, b:3, athletes:[] },
+    { name:"Football", g:1, s:0, b:0, athletes:[] },
+    { name:"Boxing", g:1, s:0, b:2, athletes:[] }
+  ]},
+{ year:1966, host:"Bangkok", country:"Thailand", hosted:false, rank:5, g:7, s:3, b:11,
+  milestone:"A steady mid-table finish, with athletics and boxing carrying most of the medal weight.",
+  sports:[
+    { name:"Athletics", g:5, s:1, b:5, athletes:[] },
+    { name:"Boxing", g:1, s:1, b:0, athletes:[] },
+    { name:"Field hockey", g:1, s:0, b:0, athletes:[] }
+  ]},
+{ year:1970, host:"Bangkok", country:"Thailand", hosted:false, rank:5, g:6, s:9, b:10,
+  milestone:"Consistent top-5 finish; wrestling and boxing supplemented a solid athletics showing.",
+  sports:[
+    { name:"Athletics", g:4, s:5, b:5, athletes:[] },
+    { name:"Wrestling", g:1, s:1, b:3, athletes:[] },
+    { name:"Boxing", g:1, s:1, b:0, athletes:[] }
+  ]},
+{ year:1974, host:"Tehran", country:"Iran", hosted:false, rank:7, g:4, s:12, b:12,
+  milestone:"A silver-heavy Games — 12 silvers against just 4 golds, the widest gold-to-silver gap in India's Asian Games history to that point.",
+  sports:[
+    { name:"Athletics", g:4, s:7, b:4, athletes:[] },
+    { name:"Boxing", g:0, s:3, b:2, athletes:[] },
+    { name:"Wrestling", g:0, s:0, b:4, athletes:[] }
+  ]},
+{ year:1978, host:"Bangkok", country:"Thailand", hosted:false, rank:6, g:11, s:11, b:6,
+  milestone:"India's best gold count since the inaugural 1951 Games, powered by a strong athletics campaign.",
+  sports:[
+    { name:"Athletics", g:8, s:7, b:3, athletes:[] },
+    { name:"Wrestling", g:2, s:1, b:0, athletes:[] },
+    { name:"Shooting", g:1, s:0, b:0, athletes:[] }
+  ]},
+{ year:1982, host:"New Delhi", country:"India", hosted:true, rank:5, g:13, s:19, b:25,
+  milestone:"India hosted the Games for a second time. The 57-medal haul was, at the time, the best tally outside the 1951 edition.",
+  sports:[
+    { name:"Athletics", g:4, s:9, b:8, athletes:[] },
+    { name:"Equestrian", g:3, s:1, b:1, athletes:[] },
+    { name:"Golf", g:2, s:1, b:0, athletes:[] },
+    { name:"Wrestling", g:1, s:1, b:2, athletes:[] },
+    { name:"Rowing", g:1, s:1, b:1, athletes:[] }
+  ]},
+{ year:1986, host:"Seoul", country:"South Korea", hosted:false, rank:5, g:5, s:9, b:23,
+  milestone:"P.T. Usha, the 'Payyoli Express', won four of India's five golds this edition and set four Asian Games records along the way — becoming the country's most decorated Asian Games athlete.",
+  sports:[
+    { name:"Athletics", g:4, s:2, b:3, athletes:[
+      { medal:"G", name:"P.T. Usha", event:"Women's 200m, 400m, 400m hurdles and 4x400m relay — four golds in one Games" }
+    ]},
+    { name:"Wrestling", g:1, s:0, b:2, athletes:[] },
+    { name:"Boxing", g:0, s:4, b:5, athletes:[] },
+    { name:"Judo", g:0, s:0, b:4, athletes:[] }
+  ]},
+{ year:1990, host:"Beijing", country:"China", hosted:false, rank:11, g:1, s:8, b:14,
+  milestone:"India's worst-ever rank finish, outside the top 10 for the only time. The lone gold came from kabaddi's Asian Games debut — the start of a dominance that would see India win 8 of the next 9 editions.",
+  sports:[
+    { name:"Kabaddi", g:1, s:0, b:0, athletes:[
+      { medal:"G", name:"India men's kabaddi team", event:"Gold on kabaddi's Asian Games debut" }
+    ]},
+    { name:"Wrestling", g:0, s:1, b:1, athletes:[] },
+    { name:"Weightlifting", g:0, s:2, b:2, athletes:[] }
+  ]},
+{ year:1994, host:"Hiroshima", country:"Japan", hosted:false, rank:8, g:4, s:3, b:16,
+  milestone:"Kabaddi delivered India's gold again, while tennis had its best individual showing yet.",
+  sports:[
+    { name:"Kabaddi", g:1, s:0, b:0, athletes:[
+      { medal:"G", name:"India men's kabaddi team", event:"Second consecutive kabaddi gold" }
+    ]},
+    { name:"Tennis", g:2, s:0, b:1, athletes:[] },
+    { name:"Shooting", g:1, s:0, b:1, athletes:[] }
+  ]},
+{ year:1998, host:"Bangkok", country:"Thailand", hosted:false, rank:9, g:7, s:11, b:17,
+  milestone:"Kabaddi's gold streak continued; cue sports emerged as a reliable medal source.",
+  sports:[
+    { name:"Kabaddi", g:1, s:0, b:0, athletes:[
+      { medal:"G", name:"India men's kabaddi team", event:"Third consecutive kabaddi gold" }
+    ]},
+    { name:"Cue sports", g:2, s:1, b:1, athletes:[] },
+    { name:"Athletics", g:2, s:6, b:7, athletes:[] }
+  ]},
+{ year:2002, host:"Busan", country:"South Korea", hosted:false, rank:7, g:11, s:12, b:13,
+  milestone:"A breakout Games for Indian women's athletics — six of the seven athletics golds came from women's events.",
+  sports:[
+    { name:"Athletics", g:7, s:6, b:4, athletes:[] },
+    { name:"Kabaddi", g:1, s:0, b:0, athletes:[
+      { medal:"G", name:"India men's kabaddi team", event:"Fourth consecutive kabaddi gold" }
+    ]},
+    { name:"Tennis", g:1, s:1, b:2, athletes:[] }
+  ]},
+{ year:2006, host:"Doha", country:"Qatar", hosted:false, rank:8, g:10, s:17, b:26,
+  milestone:"Chess made its Asian Games debut and India topped it with two golds. Shooting emerged as a serious medal sport, and the women's 4x400m relay team took India's only athletics gold.",
+  sports:[
+    { name:"Shooting", g:3, s:5, b:6, athletes:[] },
+    { name:"Board games", g:2, s:0, b:0, athletes:[
+      { medal:"G", name:"India chess team", event:"Two golds on chess's Asian Games debut" }
+    ]},
+    { name:"Athletics", g:1, s:4, b:4, athletes:[
+      { medal:"G", name:"India women's 4x400m relay team", event:"India's only athletics gold this edition" }
+    ]},
+    { name:"Kabaddi", g:1, s:0, b:0, athletes:[] },
+    { name:"Tennis", g:2, s:2, b:0, athletes:[] }
+  ]},
+{ year:2010, host:"Guangzhou", country:"China", hosted:false, rank:6, g:14, s:17, b:34,
+  milestone:"A then-record 65 medals, the first time India crossed 60 medals outside home soil. Both men's and women's kabaddi teams won gold.",
+  sports:[
+    { name:"Wrestling", g:0, s:0, b:3, athletes:[] },
+    { name:"Shooting", g:1, s:3, b:4, athletes:[] },
+    { name:"Kabaddi", g:2, s:0, b:0, athletes:[
+      { medal:"G", name:"India men's and women's kabaddi teams", event:"Gold in both events" }
+    ]},
+    { name:"Tennis", g:2, s:1, b:2, athletes:[] },
+    { name:"Archery", g:0, s:1, b:2, athletes:[] }
+  ]},
+{ year:2014, host:"Incheon", country:"South Korea", hosted:false, rank:8, g:11, s:9, b:37,
+  milestone:"A bronze-heavy Games — a record 37 bronze medals. Squash won its first-ever Asian Games gold for India.",
+  sports:[
+    { name:"Kabaddi", g:2, s:0, b:0, athletes:[
+      { medal:"G", name:"India men's and women's kabaddi teams", event:"Gold in both events" }
+    ]},
+    { name:"Squash", g:1, s:2, b:1, athletes:[] },
+    { name:"Shooting", g:1, s:1, b:7, athletes:[] },
+    { name:"Wrestling", g:1, s:1, b:3, athletes:[] }
+  ]},
+{ year:2018, host:"Jakarta & Palembang", country:"Indonesia", hosted:false, rank:8, g:16, s:23, b:31,
+  milestone:"India's best-ever medal tally at the time (70), later surpassed in 2023. Women's kabaddi won gold while the men's team lost a final for the first time — a symbolic shift in the sport's balance of power. Bridge debuted as a medal event.",
+  sports:[
+    { name:"Shooting", g:2, s:4, b:3, athletes:[] },
+    { name:"Athletics", g:8, s:9, b:3, athletes:[] },
+    { name:"Kabaddi", g:0, s:1, b:1, athletes:[
+      { medal:"G", name:"India women's kabaddi team", event:"Gold, while the men's team took silver" }
+    ]},
+    { name:"Wrestling", g:2, s:0, b:1, athletes:[] },
+    { name:"Board games", g:1, s:0, b:2, athletes:[
+      { medal:"G", name:"India bridge team", event:"Gold on bridge's Asian Games debut" }
+    ]}
+  ]},
+{ year:2022, host:"Hangzhou", country:"China", hosted:false, rank:4, g:28, s:38, b:41,
+  milestone:"Postponed a year by COVID-19 and held in 2023, this was India's best-ever Asian Games performance: a record 107 medals and 4th place, its highest-ever rank. Neeraj Chopra won javelin gold, the men's hockey team topped the podium, and archery and squash delivered breakthrough golds.",
+  sports:[
+    { name:"Shooting", g:7, s:9, b:6, athletes:[] },
+    { name:"Athletics", g:6, s:14, b:9, athletes:[
+      { medal:"G", name:"Neeraj Chopra", event:"Men's javelin throw" }
+    ]},
+    { name:"Archery", g:5, s:2, b:2, athletes:[
+      { medal:"G", name:"India men's and women's compound archery teams", event:"Team golds in compound archery" }
+    ]},
+    { name:"Field hockey", g:1, s:0, b:1, athletes:[
+      { medal:"G", name:"India men's hockey team", event:"Gold medal match win" }
+    ]},
+    { name:"Squash", g:2, s:1, b:2, athletes:[
+      { medal:"G", name:"Dipika Pallikal & Harinder Pal Singh Sandhu", event:"Mixed doubles gold" }
+    ]},
+    { name:"Kabaddi", g:2, s:0, b:0, athletes:[
+      { medal:"G", name:"India men's and women's kabaddi teams", event:"Gold in both events" }
+    ]},
+    { name:"Wrestling", g:0, s:1, b:5, athletes:[] }
+  ]}
+];
+
+const track = document.getElementById('track');
+const statsEl = document.getElementById('stats');
+const panel = document.getElementById('panel');
+const crumb = document.getElementById('crumb');
+const yearModeEl = document.getElementById('yearMode');
+const modeToggle = document.getElementById('modeToggle');
+
+const totals = DATA.reduce((a,d)=>({g:a.g+d.g,s:a.s+d.s,b:a.b+d.b}),{g:0,s:0,b:0});
+statsEl.innerHTML = `
+  <div class="stat"><span class="n">${DATA.length}</span><span class="l">Editions contested</span></div>
+  <div class="stat g"><span class="n">${totals.g}</span><span class="l">Gold medals</span></div>
+  <div class="stat s"><span class="n">${totals.s}</span><span class="l">Silver medals</span></div>
+  <div class="stat b"><span class="n">${totals.b}</span><span class="l">Bronze medals</span></div>
+`;
+
+const maxTotal = Math.max(...DATA.map(d=>d.g+d.s+d.b));
+let mode = 'year';
+let activeYear = null;
+let activeSport = null;
+let activeIndexSport = null;
+
+function buildTrack(){
+  track.innerHTML = '';
+  DATA.forEach(d=>{
+    const total = d.g+d.s+d.b;
+    const h = Math.max(18, (total/maxTotal)*140);
+    const btn = document.createElement('button');
+    btn.className = 'bar-col';
+    btn.setAttribute('aria-pressed', String(d.year===activeYear));
+    btn.innerHTML = `
+      <div class="bar-stack" style="height:${h}px">
+        <div class="seg b" style="height:${(d.b/total)*100}%"></div>
+        <div class="seg s" style="height:${(d.s/total)*100}%"></div>
+        <div class="seg g" style="height:${(d.g/total)*100}%"></div>
+      </div>
+      <span class="bar-year">${d.year}</span>
+      <span class="bar-flag">${d.hosted ? '🏠' : ''}</span>
+    `;
+    btn.addEventListener('click', ()=>selectYear(d.year));
+    track.appendChild(btn);
+  });
+}
+
+function selectYear(year){
+  mode = 'year';
+  activeYear = year;
+  activeSport = null;
+  syncModeUI();
+  buildTrack();
+  renderPanel();
+  const idx = DATA.findIndex(d=>d.year===year);
+  const el = track.children[idx];
+  if (el) el.scrollIntoView({block:'nearest', inline:'center', behavior:'smooth'});
+}
+
+function selectSport(name){
+  activeSport = (activeSport===name) ? null : name;
+  renderPanel();
+}
+
+function allSportsIndex(){
+  const map = {};
+  DATA.forEach(d=>{
+    d.sports.forEach(sp=>{
+      if(!map[sp.name]) map[sp.name] = { name:sp.name, g:0, s:0, b:0, years:[] };
+      map[sp.name].g += sp.g; map[sp.name].s += sp.s; map[sp.name].b += sp.b;
+      map[sp.name].years.push({ year:d.year, host:d.host, g:sp.g, s:sp.s, b:sp.b, athletes:sp.athletes });
+    });
+  });
+  return Object.values(map).sort((a,b)=> (b.g+b.s+b.b)-(a.g+a.s+a.b));
+}
+
+function syncModeUI(){
+  modeToggle.querySelectorAll('.mode-btn').forEach(btn=>{
+    btn.setAttribute('aria-pressed', String(btn.dataset.mode===mode));
+  });
+  yearModeEl.style.display = mode==='year' ? 'block' : 'none';
+}
+
+modeToggle.addEventListener('click', e=>{
+  const btn = e.target.closest('.mode-btn');
+  if(!btn) return;
+  mode = btn.dataset.mode;
+  activeYear = null; activeSport = null; activeIndexSport = null;
+  syncModeUI();
+  renderPanel();
+});
+
+function renderPanel(){
+  if (mode==='sport'){
+    renderSportMode();
+    return;
+  }
+  if (activeYear===null){
+    crumb.innerHTML = `Timeline`;
+    panel.innerHTML = `<p class="hint">Select a year on the timeline above to explore host city, medal tally, sports and gold medalists.</p>`;
+    return;
+  }
+  const d = DATA.find(x=>x.year===activeYear);
+  const total = d.g+d.s+d.b;
+
+  crumb.innerHTML = `<span class="back" id="crumbBack">Timeline</span> <span class="sep">/</span> <b>${d.year} ${d.host}</b>` +
+    (activeSport ? ` <span class="sep">/</span> <b>${activeSport}</b>` : '');
+
+  let sportsHtml = d.sports.map(sp=>{
+    const pressed = sp.name===activeSport;
+    return `<button class="sport-chip" aria-pressed="${pressed}" data-sport="${sp.name}">
+      ${icon(sp.name)} ${sp.name} <span class="tally">${sp.g}G ${sp.s}S ${sp.b}B</span>
+    </button>`;
+  }).join('');
+
+  let detailHtml = '';
+  if (activeSport){
+    const sp = d.sports.find(s=>s.name===activeSport);
+    const athletesHtml = sp.athletes.length
+      ? sp.athletes.map(a=>`
+        <div class="athlete">
+          <div class="medal-dot ${a.medal}">${a.medal}</div>
+          <div>
+            <p class="name">${a.name}</p>
+            <p class="event">${a.event}</p>
+          </div>
+        </div>`).join('')
+      : `<p class="no-athlete">No individually documented medalist for this sport in this edition yet — contributions welcome.</p>`;
+    detailHtml = `
+      <div class="sport-detail">
+        <h3>${icon(sp.name)} ${sp.name} — ${d.year}</h3>
+        <p class="tally-line"><span class="g">${sp.g} gold</span> · <span class="s">${sp.s} silver</span> · <span class="b">${sp.b} bronze</span></p>
+        ${athletesHtml}
+      </div>`;
+  }
+
+  panel.innerHTML = `
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h2><span class="flag">${FLAGS[d.country]||''}</span>${d.year} · ${d.host}</h2>
+          <p class="sub">${d.country}${d.hosted ? ' <b>🏠 Hosted by India</b>' : ''}</p>
+        </div>
+        <span class="rank-pill">Rank #${d.rank} overall</span>
+      </div>
+
+      <div class="medal-row">
+        <div class="medal-chip g"><span class="n">${d.g}</span><span class="l">Gold</span></div>
+        <div class="medal-chip s"><span class="n">${d.s}</span><span class="l">Silver</span></div>
+        <div class="medal-chip b"><span class="n">${d.b}</span><span class="l">Bronze</span></div>
+        <div class="medal-chip t"><span class="n">${total}</span><span class="l">Total</span></div>
+      </div>
+
+      <p class="milestone">${d.milestone}</p>
+
+      <p class="section-label">Sports · tap to see medalists</p>
+      <div class="sport-chips">${sportsHtml}</div>
+
+      ${detailHtml}
+    </div>
+  `;
+
+  panel.querySelectorAll('.sport-chip').forEach(chip=>{
+    chip.addEventListener('click', ()=> selectSport(chip.dataset.sport));
+  });
+  const back = document.getElementById('crumbBack');
+  if (back) back.addEventListener('click', ()=>{ activeYear=null; activeSport=null; buildTrack(); renderPanel(); });
+}
+
+function renderSportMode(){
+  const idx = allSportsIndex();
+  if (!activeIndexSport){
+    crumb.innerHTML = `Sports index`;
+    const cards = idx.map(sp=>`
+      <div class="sport-index-card" data-sport="${sp.name}">
+        ${icon(sp.name)}
+        <p class="sname">${sp.name}</p>
+        <p class="stally"><span class="g">${sp.g}G</span> <span class="s">${sp.s}S</span> <span class="b">${sp.b}B</span> · ${sp.years.length} editions</p>
+      </div>`).join('');
+    panel.innerHTML = `<div class="panel"><p class="section-label">All-time medals by sport · tap a sport to see every edition it scored in</p><div class="sport-index">${cards}</div></div>`;
+    panel.querySelectorAll('.sport-index-card').forEach(card=>{
+      card.addEventListener('click', ()=>{ activeIndexSport = card.dataset.sport; renderSportMode(); });
+    });
+    return;
+  }
+
+  const sp = idx.find(s=>s.name===activeIndexSport);
+  crumb.innerHTML = `<span class="back" id="crumbBackSport">Sports index</span> <span class="sep">/</span> <b>${sp.name}</b>`;
+
+  const rows = sp.years.slice().sort((a,b)=>a.year-b.year).map(y=>{
+    const athletesHtml = y.athletes.length
+      ? y.athletes.map(a=>`
+        <div class="athlete">
+          <div class="medal-dot ${a.medal}">${a.medal}</div>
+          <div>
+            <p class="name">${a.name} <span class="year-tag">${y.year}</span></p>
+            <p class="event">${a.event} — ${y.host}</p>
+          </div>
+        </div>`).join('')
+      : `<div class="athlete"><div class="medal-dot G" style="background:var(--panel-alt);color:var(--muted)">—</div><div><p class="name">${y.year} <span class="year-tag">${y.host}</span></p><p class="event">${y.g}G ${y.s}S ${y.b}B — no individually documented medalist yet</p></div></div>`;
+    return athletesHtml;
+  }).join('');
+
+  panel.innerHTML = `
+    <div class="panel">
+      <div class="panel-head">
+        <h2>${icon(sp.name)} ${sp.name}</h2>
+        <span class="rank-pill">${sp.g}G · ${sp.s}S · ${sp.b}B all-time</span>
+      </div>
+      <p class="section-label">Every edition India medaled in this sport</p>
+      <div class="sport-detail">${rows}</div>
+    </div>
+  `;
+  const back = document.getElementById('crumbBackSport');
+  if (back) back.addEventListener('click', ()=>{ activeIndexSport=null; renderSportMode(); });
+}
+
+buildTrack();
+syncModeUI();
+renderPanel();
+</script>
+</body>
+</html>

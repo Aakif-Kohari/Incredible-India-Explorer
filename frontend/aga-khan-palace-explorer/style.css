@@ -1,0 +1,1294 @@
+/* ==========================================================================
+   Aga Khan Palace Explorer - Stylesheet
+   Heritage monument palette (marble white, freedom saffron, memorial gold, historic brown).
+   Premium immersive design: architectural hero, glassmorphism cards, 
+   scroll-reveal, animated timeline, gallery lightbox.
+   ========================================================================== */
+
+:root {
+  --aga-night: #0f1419;           /* Deep historic black */
+  --aga-night-light: #1a2332;
+  --aga-marble: #f5f5f0;          /* Heritage marble white */
+  --aga-saffron: #ff9933;         /* Freedom movement saffron */
+  --aga-saffron-light: #ffb366;
+  --aga-gold: #d4a84b;            /* Memorial gold */
+  --aga-green: #138808;           /* Indian green */
+  --aga-brown: #8b7355;           /* Historic brown */
+  --aga-sand: #e8e4d9;
+  --aga-glass: rgba(26, 35, 50, 0.55);
+  --aga-glass-strong: rgba(15, 20, 25, 0.82);
+  --aga-border: rgba(255, 153, 51, 0.2);
+  --aga-navbar-height: 70px;
+}
+
+/* Page Main Container */
+.aga-main {
+  background-color: var(--aga-night);
+  color: #f1f5f9;
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ==========================================================================
+   Floating decoration orbs behind the page
+   ========================================================================== */
+.aga-main::before,
+.aga-main::after {
+  content: '';
+  position: absolute;
+  left: -180px;
+  top: 20%;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 153, 51, 0.08), transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.aga-main::after {
+  left: auto;
+  right: -200px;
+  top: 60%;
+  background: radial-gradient(circle, rgba(212, 168, 75, 0.06), transparent 65%);
+}
+
+/* ==========================================================================
+   Hero Banner
+   ========================================================================== */
+.aga-hero {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: calc(var(--aga-navbar-height) + 48px) 0 72px;
+  background-color: var(--aga-night);
+  text-align: center;
+}
+
+.aga-hero-backdrop {
+  position: absolute;
+  inset: -5%;
+  background:
+    linear-gradient(180deg, rgba(15, 20, 25, 0.5) 0%, rgba(15, 20, 25, 0.65) 45%, rgba(15, 20, 25, 0.97) 100%),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Aga_Khan_Palace%2C_Pune.jpg/1200px-Aga_Khan_Palace%2C_Pune.jpg') center 25%/cover no-repeat;
+  transform: scale(1.12);
+  will-change: transform;
+  z-index: 0;
+}
+
+.aga-hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(920px, 92%);
+  animation: aga-rise 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.aga-hero-orbs {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.aga-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 153, 51, 0.15), transparent 70%);
+  animation: aga-float 8s ease-in-out infinite;
+}
+
+.aga-orb-one {
+  width: 280px;
+  height: 280px;
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.aga-orb-two {
+  width: 200px;
+  height: 200px;
+  bottom: 20%;
+  right: 15%;
+  animation-delay: -4s;
+}
+
+@keyframes aga-float {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+  50% { transform: translateY(-20px) scale(1.05); opacity: 0.8; }
+}
+
+@keyframes aga-rise {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.aga-kicker {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(255, 153, 51, 0.15);
+  border: 1px solid var(--aga-border);
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--aga-saffron);
+  margin-bottom: 24px;
+}
+
+.aga-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.aga-hero h1 span {
+  background: linear-gradient(135deg, var(--aga-saffron), var(--aga-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.aga-hero-subtitle {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: rgba(241, 245, 249, 0.9);
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+.aga-hero > p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(241, 245, 249, 0.8);
+  max-width: 700px;
+  margin: 0 auto 32px;
+}
+
+.aga-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  list-style: none;
+  padding: 0;
+}
+
+.aga-hero-badges li {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: rgba(241, 245, 249, 0.9);
+}
+
+.aga-hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.aga-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--aga-saffron), var(--aga-gold));
+  color: #0f1419;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(255, 153, 51, 0.3);
+}
+
+.aga-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(255, 153, 51, 0.4);
+}
+
+.aga-bookmark-container {
+  display: flex;
+  align-items: center;
+}
+
+.aga-bookmark-btn {
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  color: rgba(241, 245, 249, 0.9);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.aga-bookmark-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--aga-saffron);
+}
+
+.aga-bookmark-btn[aria-pressed="true"] {
+  background: rgba(255, 153, 51, 0.2);
+  border-color: var(--aga-saffron);
+  color: var(--aga-saffron);
+}
+
+.aga-scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: aga-bounce 2s ease-in-out infinite;
+  z-index: 2;
+  color: rgba(241, 245, 249, 0.7);
+  text-decoration: none;
+}
+
+.aga-scroll-line {
+  width: 2px;
+  height: 12px;
+  background: rgba(241, 245, 249, 0.7);
+  border-radius: 2px;
+}
+
+@keyframes aga-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ==========================================================================
+   Sticky Section Navigator
+   ========================================================================== */
+.aga-section-nav {
+  position: sticky;
+  top: var(--aga-navbar-height);
+  z-index: 50;
+  background: rgba(15, 20, 25, 0.95);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.aga-section-nav::-webkit-scrollbar {
+  height: 4px;
+}
+
+.aga-section-nav::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.aga-section-nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 153, 51, 0.3);
+  border-radius: 2px;
+}
+
+.aga-section-nav-inner {
+  display: flex;
+  gap: 8px;
+  padding: 0 20px;
+  min-width: max-content;
+}
+
+.aga-section-nav-link {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  color: rgba(241, 245, 249, 0.8);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.aga-section-nav-link:hover,
+.aga-section-nav-link.active {
+  background: rgba(255, 153, 51, 0.15);
+  border-color: var(--aga-saffron);
+  color: var(--aga-saffron);
+}
+
+/* ==========================================================================
+   Section Layout
+   ========================================================================== */
+.aga-section {
+  position: relative;
+  padding: 80px 20px;
+  z-index: 1;
+}
+
+.aga-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.aga-section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.aga-eyebrow {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(255, 153, 51, 0.1);
+  border: 1px solid var(--aga-border);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--aga-saffron);
+  margin-bottom: 16px;
+}
+
+.aga-section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.aga-section-header > p {
+  font-size: 1.1rem;
+  color: rgba(241, 245, 249, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Animation Reveal
+   ========================================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Bio Grid
+   ========================================================================== */
+.aga-bio-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .aga-bio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.aga-bio-text {
+  color: rgba(241, 245, 249, 0.85);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.aga-bio-text p {
+  margin-bottom: 20px;
+}
+
+.aga-bio-text strong {
+  color: var(--aga-saffron);
+  font-weight: 600;
+}
+
+.aga-bio-profile {
+  background: var(--aga-glass);
+  border: 1px solid var(--aga-border);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  backdrop-filter: blur(12px);
+}
+
+.aga-bio-portrait {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, var(--aga-saffron), var(--aga-gold));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.aga-bio-profile h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.aga-bio-title {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--aga-saffron);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.aga-bio-profile ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  text-align: left;
+}
+
+.aga-bio-profile li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  color: rgba(241, 245, 249, 0.8);
+}
+
+.aga-bio-profile li:last-child {
+  border-bottom: none;
+}
+
+.aga-bio-profile blockquote {
+  font-style: italic;
+  color: rgba(241, 245, 249, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding: 16px;
+  background: rgba(255, 153, 51, 0.1);
+  border-left: 3px solid var(--aga-saffron);
+  border-radius: 0 8px 8px 0;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Architecture Grid
+   ========================================================================== */
+.aga-architecture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.aga-arch-card {
+  background: var(--aga-glass);
+  border: 1px solid var(--aga-border);
+  border-radius: 12px;
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.aga-arch-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--aga-saffron);
+  box-shadow: 0 8px 25px rgba(255, 153, 51, 0.15);
+}
+
+.aga-arch-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 16px;
+  background: rgba(255, 153, 51, 0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.aga-arch-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.aga-arch-card p {
+  color: rgba(241, 245, 249, 0.8);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.aga-arch-detail {
+  background: var(--aga-glass);
+  border: 1px solid var(--aga-border);
+  border-radius: 12px;
+  padding: 28px;
+  backdrop-filter: blur(12px);
+}
+
+.aga-arch-detail h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.aga-arch-detail ul {
+  list-style: none;
+  padding: 0;
+}
+
+.aga-arch-detail li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(241, 245, 249, 0.85);
+  line-height: 1.6;
+}
+
+.aga-arch-detail li:last-child {
+  border-bottom: none;
+}
+
+.aga-arch-detail strong {
+  color: var(--aga-saffron);
+}
+
+/* ==========================================================================
+   Freedom Movement Content
+   ========================================================================== */
+.aga-freedom-content {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .aga-freedom-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.aga-freedom-text {
+  color: rgba(241, 245, 249, 0.85);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.aga-freedom-text p {
+  margin-bottom: 20px;
+}
+
+.aga-freedom-text strong {
+  color: var(--aga-saffron);
+  font-weight: 600;
+}
+
+.aga-freedom-text ul {
+  list-style: none;
+  padding: 16px 0;
+  margin: 16px 0;
+  background: rgba(255, 153, 51, 0.08);
+  border-left: 3px solid var(--aga-saffron);
+  border-radius: 0 8px 8px 0;
+}
+
+.aga-freedom-text li {
+  padding: 8px 16px;
+  color: rgba(241, 245, 249, 0.9);
+}
+
+.aga-freedom-aside {
+  background: var(--aga-glass);
+  border: 1px solid var(--aga-border);
+  border-radius: 12px;
+  padding: 24px;
+  backdrop-filter: blur(12px);
+}
+
+.aga-freedom-aside h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.aga-freedom-aside p {
+  color: rgba(241, 245, 249, 0.8);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.aga-stat-box {
+  background: rgba(255, 153, 51, 0.1);
+  border: 1px solid var(--aga-border);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.aga-stat-number {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--aga-saffron);
+  font-family: 'Playfair Display', serif;
+}
+
+.aga-stat-label {
+  font-size: 0.85rem;
+  color: rgba(241, 245, 249, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   Gandhi Grid
+   ========================================================================== */
+.aga-gandhi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.aga-gandhi-card {
+  background: var(--aga-glass);
+  border: 1px solid var(--aga-border);
+  border-radius: 12px;
+  padding: 28px;
+  backdrop-filter: blur(12px);
+}
+
+.aga-gandhi-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.aga-gandhi-card p {
+  color: rgba(241, 245, 249, 0.85);
+  line-height: 1.7;
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.aga-gandhi-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.aga-gandhi-card li {
+  padding: 8px 0;
+  padding-left: 20px;
+  position: relative;
+  color: rgba(241, 245, 249, 0.85);
+  font-size: 0.95rem;
+}
+
+.aga-gandhi-card li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--aga-saffron);
+  font-weight: bold;
+}
+
+.aga-quote-box {
+  background: rgba(255, 153, 51, 0.1);
+  border-left: 3px solid var(--aga-saffron);
+  border-radius: 0 8px 8px 0;
+  padding: 20px;
+  margin-top: 16px;
+}
+
+.aga-quote-box blockquote {
+  font-style: italic;
+  color: rgba(241, 245, 249, 0.95);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+
+.aga-quote-box cite {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--aga-saffron);
+  font-style: normal;
+}
+
+/* ==========================================================================
+   Associated Figures
+   ========================================================================== */
+.aga-associated-figures {
+  background: var(--aga-glass);
+  border: 1px solid var(--aga-border);
+  border-radius: 12px;
+  padding: 28px;
+  backdrop-filter: blur(12px);
+}
+
+.aga-associated-figures h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin-bottom: 24px;
+  color: #ffffff;
+}
+
+.aga-figures-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.aga-figure-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.aga-figure-item strong {
+  display: block;
+  color: var(--aga-saffron);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', serif;
+}
+
+.aga-figure-item p {
+  color: rgba(241, 245, 249, 0.8);
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Memorial Layout
+   ========================================================================== */
+.aga-memorial-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 768px) {
+  .aga-memorial-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.aga-memorial-main,
+.aga-memorial-info {
+  background: var(--aga-glass);
+  border: 1px solid var(--aga-border);
+  border-radius: 12px;
+  padding: 28px;
+  backdrop-filter: blur(12px);
+}
+
+.aga-memorial-main h3,
+.aga-memorial-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.aga-memorial-main p,
+.aga-memorial-info p {
+  color: rgba(241, 245, 249, 0.85);
+  line-height: 1.7;
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.aga-samadhi {
+  background: rgba(255, 153, 51, 0.08);
+  border: 1px solid var(--aga-border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.aga-samadhi h4 {
+  color: var(--aga-saffron);
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  font-family: 'Playfair Display', serif;
+}
+
+.aga-samadhi p {
+  color: rgba(241, 245, 249, 0.85);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.aga-memorial-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.aga-memorial-info li {
+  padding: 10px 0;
+  padding-left: 20px;
+  position: relative;
+  color: rgba(241, 245, 249, 0.85);
+  font-size: 0.95rem;
+}
+
+.aga-memorial-info li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--aga-saffron);
+  font-weight: bold;
+}
+
+.aga-memorial-significance {
+  background: var(--aga-glass);
+  border: 1px solid var(--aga-border);
+  border-radius: 12px;
+  padding: 28px;
+  backdrop-filter: blur(12px);
+}
+
+.aga-memorial-significance h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.aga-memorial-significance p {
+  color: rgba(241, 245, 249, 0.85);
+  line-height: 1.7;
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.aga-memorial-significance ul {
+  list-style: none;
+  padding: 0;
+}
+
+.aga-memorial-significance li {
+  padding: 10px 0;
+  padding-left: 20px;
+  position: relative;
+  color: rgba(241, 245, 249, 0.85);
+  font-size: 0.95rem;
+}
+
+.aga-memorial-significance li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--aga-saffron);
+  font-weight: bold;
+}
+
+.aga-memorial-significance strong {
+  color: var(--aga-saffron);
+}
+
+/* ==========================================================================
+   Timeline
+   ========================================================================== */
+.aga-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.aga-timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--aga-saffron), var(--aga-gold), transparent);
+}
+
+@media (min-width: 768px) {
+  .aga-timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.aga-timeline-step {
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .aga-timeline-step {
+    padding-left: 0;
+    width: 50%;
+  }
+
+  .aga-timeline-step:nth-child(odd) {
+    margin-left: auto;
+    padding-right: 60px;
+    text-align: right;
+  }
+
+  .aga-timeline-step:nth-child(even) {
+    padding-left: 60px;
+  }
+}
+
+.aga-timeline-marker {
+  position: absolute;
+  left: 12px;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  background: var(--aga-saffron);
+  border: 3px solid var(--aga-night);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .aga-timeline-marker {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.aga-timeline-card {
+  background: var(--aga-glass);
+  border: 1px solid var(--aga-border);
+  border-radius: 12px;
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.aga-timeline-card:hover {
+  border-color: var(--aga-saffron);
+  transform: translateY(-2px);
+}
+
+.aga-timeline-year {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(255, 153, 51, 0.2);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--aga-saffron);
+  margin-bottom: 12px;
+}
+
+.aga-timeline-icon {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.aga-timeline-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.aga-timeline-card p {
+  color: rgba(241, 245, 249, 0.8);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Facts Grid
+   ========================================================================== */
+.aga-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.aga-fact-card {
+  background: var(--aga-glass);
+  border: 1px solid var(--aga-border);
+  border-radius: 12px;
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.aga-fact-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--aga-saffron);
+  box-shadow: 0 8px 25px rgba(255, 153, 51, 0.15);
+}
+
+.aga-fact-number {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--aga-saffron), var(--aga-gold));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--aga-night);
+  margin-bottom: 16px;
+}
+
+.aga-fact-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.aga-fact-card p {
+  color: rgba(241, 245, 249, 0.8);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Gallery Grid
+   ========================================================================== */
+.aga-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.aga-gallery-item {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--aga-glass);
+  border: 1px solid var(--aga-border);
+  transition: all 0.3s ease;
+}
+
+.aga-gallery-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--aga-saffron);
+}
+
+.aga-gallery-image {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.aga-gallery-image:hover {
+  transform: scale(1.05);
+}
+
+.aga-gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(15, 20, 25, 0.95));
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.aga-gallery-image:hover .aga-gallery-caption {
+  opacity: 1;
+}
+
+.aga-gallery-caption h4 {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  font-family: 'Playfair Display', serif;
+}
+
+.aga-gallery-caption p {
+  color: rgba(241, 245, 249, 0.8);
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.aga-gallery-caption small {
+  color: var(--aga-saffron);
+  font-size: 0.75rem;
+}
+
+/* ==========================================================================
+   References List
+   ========================================================================== */
+.aga-references-list {
+  background: var(--aga-glass);
+  border: 1px solid var(--aga-border);
+  border-radius: 12px;
+  padding: 28px;
+  backdrop-filter: blur(12px);
+}
+
+.aga-references-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.aga-references-list li {
+  padding: 12px 0;
+  padding-left: 20px;
+  position: relative;
+  color: rgba(241, 245, 249, 0.85);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.aga-references-list li:last-child {
+  border-bottom: none;
+}
+
+.aga-references-list li::before {
+  content: '📚';
+  position: absolute;
+  left: 0;
+  font-size: 0.9rem;
+}
+
+.aga-references-list strong {
+  color: var(--aga-saffron);
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+  .aga-hero {
+    min-height: 65vh;
+    padding: calc(var(--aga-navbar-height) + 32px) 0 48px;
+  }
+
+  .aga-hero h1 {
+    font-size: 2rem;
+  }
+
+  .aga-hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .aga-hero > p {
+    font-size: 1rem;
+  }
+
+  .aga-section {
+    padding: 60px 20px;
+  }
+
+  .aga-section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .aga-architecture-grid,
+  .aga-gandhi-grid,
+  .aga-facts-grid,
+  .aga-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aga-freedom-content,
+  .aga-memorial-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .aga-timeline::before {
+    left: 20px;
+  }
+
+  .aga-timeline-step {
+    padding-left: 60px;
+    width: 100%;
+  }
+
+  .aga-timeline-step:nth-child(odd),
+  .aga-timeline-step:nth-child(even) {
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 60px;
+    text-align: left;
+  }
+
+  .aga-timeline-marker {
+    left: 12px;
+  }
+}
+
+/* ==========================================================================
+   Accessibility Enhancements
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .aga-orb,
+  .aga-scroll-hint,
+  .reveal {
+    animation: none;
+    transition: none;
+  }
+
+  .aga-hero-content {
+    animation: none;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.aga-cta-btn:focus,
+.aga-bookmark-btn:focus,
+.aga-section-nav-link:focus {
+  outline: 2px solid var(--aga-saffron);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .aga-glass,
+  .aga-glass-strong {
+    background: rgba(15, 20, 25, 0.95);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+}
