@@ -6448,6 +6448,13 @@ window.indiaSearchIndex = [
         category: "Culture & Literature",
         description:
             "Explore the Puranic story of Dhruva: family, the throne-room slight, forest penance, themes of perseverance and devotion, and the traditional belief linking him with Dhruva Tara, the Pole Star.",
-        url: "frontend/dhruva-story/index.html"
+        url: "frontend/dhruva-story/index.html"},
+    // --- Uttarakhand Floods 2013 (#3540) ---
+    {
+        title: "Uttarakhand Floods 2013 \u2014 Himalayan Catastrophe & Lessons",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 2013 Uttarakhand flood disaster: extreme monsoon rainfall, Chorabari Tal glacial lake breach, Kedarnath devastation, Mandakini and Alaknanda valley impacts, Operation Surya Hope rescue, and disaster preparedness lessons.",
+        url: "frontend/uttarakhand-floods-2013/index.html"
     }
 ];
