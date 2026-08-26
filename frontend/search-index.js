@@ -6569,6 +6569,13 @@ window.indiaSearchIndex = [
         description:
             "Explore the story of Krishna and Kaliya \u2014 the dramatic encounter at Kaliya Ghat on the Yamuna, the cosmic dance upon the serpent hoods, and ecological cleansing.",
         url: "frontend/krishna-kaliya-story/index.html"},
+    // --- feat/hanumans-leap-to-lanka ---
+    {
+        title: "Add Hanuman's Leap to Lanka \u2014 The Journey Across the Ocean",
+        category: "Culture & Literature",
+        description:
+            "Explore the story of Hanuman's Leap to Lanka \u2014 the legendary 100-yojana ocean flight, encounters with Mainaka, Surasa, and Simhika, and Sundara Kanda valor.",
+        url: "frontend/hanumans-leap-to-lanka/index.html"},
     // --- feat/hanuman-sanjeevani-story ---
     {
         title: "Add Hanuman and Sanjeevani \u2014 The Search for the Life-Saving Herb",
