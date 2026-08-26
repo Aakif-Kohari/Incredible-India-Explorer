@@ -6448,6 +6448,34 @@ window.indiaSearchIndex = [
         category: "Culture & Literature",
         description:
             "Explore the traditional story of Kannappa Nayanar (Thinnan): hunter-devotee of Shiva at Srikalahasti, the 63 Nayanars, and bhakti beyond ritual.",
-        url: "frontend/kannappa-nayanar-story/index.html"
+        url: "frontend/kannappa-nayanar-story/index.html"},
+    // --- Markandeya Story (#3696) ---
+    {
+        title: "Markandeya — The Sage Who Defied Death",
+        category: "Culture & Literature",
+        description:
+            "Explore the traditional story of Markandeya: the sixteen-year prophecy, devotion to Shiva, the encounter with Yama, Kalantaka, and themes of faith and mortality.",
+        url: "frontend/markandeya-story/index.html"},
+    // --- Vamana and King Bali Story (#3695) ---
+    {
+        title: "Vamana and King Bali — The Three Steps",
+        category: "Culture & Literature",
+        description:
+            "Explore the traditional Vamana and Mahabali story: the three cosmic steps, Onam in Kerala, regional interpretations, and a Did You Know section.",
+        url: "frontend/vamana-bali-story/index.html"},
+    // --- Dhruva Story (#3693) ---
+    {
+        title: "Dhruva — The Child Who Reached the Stars",
+        category: "Culture & Literature",
+        description:
+            "Explore the Puranic story of Dhruva: family, the throne-room slight, forest penance, themes of perseverance and devotion, and the traditional belief linking him with Dhruva Tara, the Pole Star.",
+        url: "frontend/dhruva-story/index.html"},
+    // --- Uttarakhand Floods 2013 (#3540) ---
+    {
+        title: "Uttarakhand Floods 2013 \u2014 Himalayan Catastrophe & Lessons",
+        category: "Geology & Disasters",
+        description:
+            "Explore the 2013 Uttarakhand flood disaster: extreme monsoon rainfall, Chorabari Tal glacial lake breach, Kedarnath devastation, Mandakini and Alaknanda valley impacts, Operation Surya Hope rescue, and disaster preparedness lessons.",
+        url: "frontend/uttarakhand-floods-2013/index.html"
     }
 ];
