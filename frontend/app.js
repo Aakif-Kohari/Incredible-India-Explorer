@@ -5658,3 +5658,80 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+/* ==========================================================================
+   GLOBAL SITE SEARCH
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("global-search-input");
+    const searchDropdown = document.getElementById("global-search-dropdown");
+
+    if (!searchInput || !searchDropdown) return;
+
+    // Array of module titles and URLs
+    const globalModules = [
+        { title: "River Explorer", url: "frontend/river-game/river-game.html" },
+        { title: "Passport Quest", url: "frontend/passport-quest/passport-quest.html" },
+        { title: "Culinary Challenge", url: "frontend/culinary-game/culinary-game.html" },
+        { title: "Monsoon Game", url: "frontend/monsoon-game/monsoon-game.html" },
+        { title: "GeoGuesser", url: "frontend/geo-guesser-india/index.html" },
+        { title: "Contributors", url: "frontend/contributors/contributors.html" },
+        { title: "World Records", url: "frontend/world-records-india/index.html" },
+        { title: "Dance", url: "frontend/folk-dances-map/index.html" },
+        { title: "Sports", url: "frontend/sports-history/index.html" },
+        { title: "Science", url: "frontend/science/science.html" },
+        { title: "Music", url: "frontend/music/music.html" },
+        { title: "Literature", url: "frontend/literature/index.html" },
+        { title: "Indian Cinema", url: "frontend/indian-cinema-history/index.html" },
+        { title: "States of India", url: "#map" },
+        { title: "Forgotten Women", url: "frontend/forgotten-women-of-indian-history/" },
+        { title: "Freedom Fighters", url: "frontend/freedom-fighters-timeline/freedom-fighters.html" },
+        { title: "Indian Railways", url: "frontend/railway-timeline/railways.html" },
+        { title: "Mahatma Gandhi", url: "frontend/mahatma-gandhi-timeline/mahatma-gandhi.html" }
+    ];
+
+    searchInput.addEventListener("input", function (e) {
+        const query = e.target.value.toLowerCase().trim();
+        searchDropdown.innerHTML = '';
+
+        if (!query) {
+            searchDropdown.style.display = "none";
+            return;
+        }
+
+        const matches = globalModules.filter(mod => mod.title.toLowerCase().includes(query));
+
+        if (matches.length > 0) {
+            matches.forEach(match => {
+                const link = document.createElement("a");
+                link.href = match.url;
+                link.textContent = match.title;
+                link.style.display = "block";
+                link.style.padding = "12px 20px";
+                link.style.color = "#fff";
+                link.style.textDecoration = "none";
+                link.style.borderBottom = "1px solid rgba(255,255,255,0.1)";
+                link.style.transition = "background 0.3s";
+                link.addEventListener("mouseover", () => link.style.background = "rgba(255,255,255,0.1)");
+                link.addEventListener("mouseout", () => link.style.background = "transparent");
+                
+                searchDropdown.appendChild(link);
+            });
+            searchDropdown.style.display = "block";
+        } else {
+            const noMatch = document.createElement("div");
+            noMatch.textContent = "No modules found";
+            noMatch.style.padding = "12px 20px";
+            noMatch.style.color = "rgba(255,255,255,0.6)";
+            searchDropdown.appendChild(noMatch);
+            searchDropdown.style.display = "block";
+        }
+    });
+
+    // Hide dropdown when clicking outside
+    document.addEventListener("click", function (e) {
+        if (!searchInput.contains(e.target) && !searchDropdown.contains(e.target)) {
+            searchDropdown.style.display = "none";
+        }
+    });
+});
