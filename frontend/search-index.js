@@ -10,6 +10,7 @@ window.indiaSearchIndex = [
         description:
             'Explore the philosophical dialogue of Maitreyi from the Brihadaranyaka Upanishad — the Vedic Brahmavadini who asked what to do with wealth that cannot grant immortality.',
         url: 'frontend/maitreyi-philosopher/index.html'},
+    {
         title: 'Gargi Vachaknavi — The Philosopher Who Challenged the Scholars of Ancient India',
         category: 'Historical & Cultural Profiles',
         description:
@@ -120,6 +121,13 @@ window.indiaSearchIndex = [
         description:
             'Explore Agasthyarkoodam Trek (1,868m) in Thiruvananthapuram, Kerala. UNESCO Agasthyamala Biosphere Reserve, over 2,000 medicinal plant species (Arogyapacha), Athirumala base camp, forest permits, 2-day route guide, and image gallery.',
         url: 'frontend/agasthyarkoodam-trek/index.html'
+    },
+    {
+    title: "Asian Paints: Explore India's Paint and Design Brand",
+    category: "Indian Brands",
+    description:
+        "Explore Asian Paints' journey from a 1942 garage startup to India's largest paint company — product categories, brand milestones, and colour campaigns.",
+    url: "frontend/asian-paints-brand/index.html"
     },
     {
         title: 'Meesapulimala Trek & High Montane Grasslands (Munnar, Kerala) Profile',
