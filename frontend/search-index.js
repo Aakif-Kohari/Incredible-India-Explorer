@@ -5,6 +5,13 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Cyclone Michaung 2023 — Storm Dossier & Urban Flooding Case Study',
+        category: 'Geology & Disasters',
+        description:
+            'Explore Severe Cyclonic Storm Michaung (December 2023): interactive Bay of Bengal track scrubber, Chennai extreme rainfall & urban flooding analysis, Bapatla landfall, and disaster relief response.',
+        url: 'frontend/cyclone-michaung-2023/index.html'
+    },
+    {
         title: 'Maitreyi — The Philosopher Who Chose Knowledge Over Material Wealth',
         category: 'Historical & Cultural Profiles',
         description:
