@@ -102,6 +102,13 @@ window.indiaSearchIndex = [
         url: "frontend/himachal-forest-fire-hazards/index.html"
     },
     {
+        title: "Natural Disasters & Hazards of India Explorer",
+        category: "Natural Hazards",
+        description:
+            "An interactive explorer of India's natural hazards — an interactive hazard map, 11 hazard categories (floods, cyclones, earthquakes, landslides, forest fires, droughts, heatwaves, lightning, avalanches, tsunamis, volcanic activity), state-wise risk profiles, a historical disaster timeline, preparedness & safety guides, and linked detailed hazard/dissaster profiles.",
+        url: "frontend/disasters-explorer/index.html"
+    },
+    {
         title: 'Brahmagiri Peak Trek (Coorg & Wayanad) Profile',
         category: 'Adventure & Sanctuary Treks',
         description:
