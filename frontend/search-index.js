@@ -6622,6 +6622,13 @@ window.indiaSearchIndex = [
         url: "frontend/pundalik-vithoba-story/index.html"
     },
 
+    // --- India Before the Himalayas (#3817) ---
+    {
+        title: "India Before the Himalayas Formed \u2014 Plate Timeline",
+        category: "Geology & Disasters",
+        description:
+            "Visual geological timeline of the Indian plate: Gondwana geography, northward drift, Tethys closure, collision with Eurasia, Himalayan formation, and maps.",
+        url: "frontend/india-before-himalayas/index.html"},
     // --- Deccan Volcanic Landscape (#3816) ---
     {
         title: "Deccan Volcanic Landscape \u2014 Flood Basalts & Prehistoric India",
