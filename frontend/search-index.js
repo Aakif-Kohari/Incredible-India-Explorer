@@ -101,6 +101,13 @@ window.indiaSearchIndex = [
         url: "frontend/himachal-forest-fire-hazards/index.html"
     },
     {
+    title: "Burzahom: The Neolithic Settlement of Kashmir",
+    category: "Prehistoric India",
+    description:
+        "Explore Burzahom's Neolithic pit dwellings, tools, pottery, burial customs, and 5,000-year chronology in the Kashmir Valley.",
+    url: "frontend/burzahom-neolithic-settlement/index.html"
+    },
+    {
         title: 'Brahmagiri Peak Trek (Coorg & Wayanad) Profile',
         category: 'Adventure & Sanctuary Treks',
         description:
