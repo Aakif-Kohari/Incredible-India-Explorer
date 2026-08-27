@@ -7,8 +7,15 @@
  * frontend/route-planner/route-planner-ui.js.
  */
 import { CrowdDensityService } from "../../js-modules/crowd-density-service.js";
+import { CrowdMonitor } from "../../js-modules/crowd-monitor.js";
 
 const service = new CrowdDensityService();
+
+const crowdMonitor = new CrowdMonitor({
+  engine: service.engine,
+  endpoint: window.CROWD_DATA_ENDPOINT || "",
+  refreshInterval: 15 * 60 * 1000
+});
 
 const destinationSelect = document.getElementById("crowd-destination-select");
 const dateInput = document.getElementById("crowd-date-input");
@@ -23,6 +30,8 @@ const forecastRow = document.getElementById("crowd-forecast-row");
 const alternativesList = document.getElementById("crowd-alternatives-list");
 const feedbackButtons = document.querySelectorAll("[data-feedback]");
 const feedbackThanks = document.getElementById("crowd-feedback-thanks");
+const liveCrowdStatus = document.getElementById("crowd-live-status");
+const crowdUpdated = document.getElementById("crowd-updated");
 
 const itineraryDestinationSelect = document.getElementById("itinerary-destination-select");
 const itineraryDateInput = document.getElementById("itinerary-date-input");
@@ -63,7 +72,15 @@ function renderPrediction(prediction) {
     return;
   }
   latestPrediction = prediction;
-  statusEl.textContent = `Updated ${new Date().toLocaleTimeString()}`;
+  const updatedTime = new Date().toLocaleTimeString();
+
+statusEl.textContent = `Updated ${updatedTime}`;
+
+if (crowdUpdated) {
+  crowdUpdated.textContent = prediction.isLive
+    ? `Live data • ${updatedTime}`
+    : `Estimated • ${updatedTime}`;
+}
 
   indicatorEmoji.textContent = prediction.level.emoji;
   indicatorLevel.textContent = prediction.level.label;
@@ -162,6 +179,19 @@ function onSelectionChange() {
   refreshAll();
   setupAutoRefresh();
 }
+// --------------------------------------------------------------------
+// Real-time crowd monitoring
+// --------------------------------------------------------------------
+
+crowdMonitor.subscribe((prediction) => {
+  if (!prediction) return;
+
+  renderPrediction(prediction);
+
+  if (liveCrowdStatus) {
+    liveCrowdStatus.dataset.live = prediction.isLive ? "true" : "false";
+  }
+});
 
 // --------------------------------------------------------------------
 // Feedback

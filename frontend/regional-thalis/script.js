@@ -2,30 +2,48 @@
  * Regional Thali Guide Interactions
  * IIFE to avoid polluting global namespace.
  */
-(function() {
+(function () {
     'use strict';
 
-    // State
-    let currentRegion = 'gujarati';
-    
-    // DOM Elements
-    const regionButtons = document.querySelectorAll('.region-btn');
+    // DOM Elements — Map
+    const markersLayer = document.getElementById('markers-layer');
+    const resultsCount = document.getElementById('results-count');
+
+    // DOM Elements — Region info panel
+    const regionEmptyState = document.getElementById('region-empty-state');
+    const regionDetails = document.getElementById('region-details');
+    const regionTitleEl = document.getElementById('region-title');
+    const regionStateEl = document.getElementById('region-state');
+    const regionDescriptionEl = document.getElementById('region-description');
+    const regionServingEl = document.getElementById('region-serving');
+    const regionFestivalEl = document.getElementById('region-festival');
+    const regionCultureEl = document.getElementById('region-culture');
+
+    // DOM Elements — Thali plate + dish panel
+    const thaliLayout = document.getElementById('thali-layout');
     const svgContainer = document.getElementById('svg-container');
     const emptyState = document.getElementById('empty-state');
     const dishDetails = document.getElementById('dish-details');
     const dishNameEl = document.getElementById('dish-name');
     const dishDescEl = document.getElementById('dish-description');
     const ingredientsListEl = document.getElementById('ingredients-list');
+
     const themeToggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
+
+    // Data
+    const thaliData = window.THALI_DATA || {};
+    const svgTemplates = window.SVG_TEMPLATES || {};
+
+    let currentRegion = null;
 
     /**
      * Initialize the application
      */
     function init() {
         setupTheme();
-        bindRegionSelectors();
-        loadRegion(currentRegion);
+        renderMarkers();
+        updateResultsCount();
     }
 
     /**
@@ -39,7 +57,7 @@
         themeToggleBtn.addEventListener('click', () => {
             const isDark = body.classList.contains('dark-theme');
             const newTheme = isDark ? 'light-theme' : 'dark-theme';
-            
+
             body.className = newTheme;
             localStorage.setItem('iie-theme', newTheme);
             updateThemeIcon(newTheme);
@@ -50,46 +68,91 @@
         themeToggleBtn.textContent = theme === 'dark-theme' ? '☀️' : '🌙';
     }
 
-    /**
-     * Bind click events to region selection buttons
-     */
-    function bindRegionSelectors() {
-        regionButtons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                // Update active state
-                regionButtons.forEach(b => {
-                    b.classList.remove('active');
-                    b.setAttribute('aria-pressed', 'false');
-                });
-                
-                const targetBtn = e.currentTarget;
-                targetBtn.classList.add('active');
-                targetBtn.setAttribute('aria-pressed', 'true');
+    function updateResultsCount() {
+        const count = Object.keys(thaliData).length;
+        resultsCount.textContent = `Showing ${count} regional thali${count !== 1 ? 's' : ''}`;
+    }
 
-                const newRegion = targetBtn.getAttribute('data-region');
-                if (newRegion !== currentRegion) {
-                    currentRegion = newRegion;
-                    loadRegion(currentRegion);
+    /**
+     * Render one map marker per regional thali, positioned by mapCoordinates
+     */
+    function renderMarkers() {
+        markersLayer.innerHTML = '';
+
+        Object.keys(thaliData).forEach(key => {
+            const region = thaliData[key];
+            if (!region.mapCoordinates) return;
+
+            const marker = document.createElement('div');
+            marker.className = 'food-marker';
+            marker.id = `marker-${key}`;
+            marker.setAttribute('tabindex', '0');
+            marker.setAttribute('role', 'button');
+            marker.setAttribute('aria-label', `${region.title}, ${region.state}`);
+
+            marker.style.left = `${region.mapCoordinates.x}%`;
+            marker.style.top = `${region.mapCoordinates.y}%`;
+
+            marker.textContent = '🍽️';
+
+            const tooltip = document.createElement('span');
+            tooltip.className = 'marker-tooltip';
+            tooltip.textContent = `${region.state}: ${region.title}`;
+            marker.appendChild(tooltip);
+
+            marker.addEventListener('click', () => selectRegion(key, marker));
+            marker.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    selectRegion(key, marker);
                 }
             });
+
+            markersLayer.appendChild(marker);
         });
     }
 
     /**
-     * Load SVG and bind dish interactions for a given region
-     * @param {string} regionKey - The key corresponding to THALI_DATA
+     * Handle marker selection: populate region info panel and load the thali plate
      */
-    function loadRegion(regionKey) {
-        // Reset info panel
-        resetInfoPanel();
+    function selectRegion(regionKey, markerElement) {
+        currentRegion = regionKey;
+        const region = thaliData[regionKey];
+        if (!region) return;
 
-        // Inject SVG template
-        const svgHTML = window.SVG_TEMPLATES[regionKey];
+        // Update marker active state
+        document.querySelectorAll('.food-marker').forEach(m => m.classList.remove('active-marker'));
+        if (markerElement) markerElement.classList.add('active-marker');
+
+        // Populate region info panel
+        regionTitleEl.textContent = region.title;
+        regionStateEl.textContent = `📍 ${region.state}`;
+        regionDescriptionEl.textContent = region.description;
+        regionServingEl.textContent = region.servingTradition || 'Not documented.';
+        regionFestivalEl.textContent = region.festivalConnection || 'Not documented.';
+        regionCultureEl.textContent = region.culturalSignificance || 'Not documented.';
+
+        regionEmptyState.classList.add('hidden');
+        regionDetails.classList.remove('hidden');
+
+        // Load the thali plate + reset dish panel
+        loadThaliPlate(regionKey);
+        thaliLayout.classList.remove('hidden');
+        thaliLayout.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    /**
+     * Load SVG and bind dish interactions for a given region
+     */
+    function loadThaliPlate(regionKey) {
+        resetDishPanel();
+
+        const svgHTML = svgTemplates[regionKey];
         if (svgHTML) {
             svgContainer.innerHTML = svgHTML;
             bindDishInteractions(regionKey);
         } else {
-            svgContainer.innerHTML = '<p>Error loading SVG.</p>';
+            svgContainer.innerHTML = '<p>Error loading thali illustration.</p>';
         }
     }
 
@@ -98,55 +161,43 @@
      */
     function bindDishInteractions(regionKey) {
         const dishes = svgContainer.querySelectorAll('.dish');
-        const regionData = window.THALI_DATA[regionKey].dishes;
+        const regionDishes = thaliData[regionKey].dishes;
 
         dishes.forEach(dish => {
             const dishId = dish.getAttribute('id');
-            const data = regionData[dishId];
+            const data = regionDishes[dishId];
 
             if (!data) return;
 
-            // Mouse Events
-            dish.addEventListener('mouseenter', () => updateInfoPanel(data, dish));
-            // Optional: clear on leave, but keeping it visible is often better UX for reading
-            // dish.addEventListener('mouseleave', resetInfoPanel); 
-            
-            // Touch/Click Events (for mobile)
-            dish.addEventListener('click', () => updateInfoPanel(data, dish));
-
-            // Keyboard Accessibility (Enter or Space)
+            dish.addEventListener('mouseenter', () => updateDishPanel(data, dish));
+            dish.addEventListener('click', () => updateDishPanel(data, dish));
             dish.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    updateInfoPanel(data, dish);
+                    updateDishPanel(data, dish);
                 }
             });
         });
     }
 
     /**
-     * Update the info panel with dish details
+     * Update the dish info panel with dish details
      */
-    function updateInfoPanel(dishData, dishElement) {
-        // Remove active class from all dishes
+    function updateDishPanel(dishData, dishElement) {
         const allDishes = svgContainer.querySelectorAll('.dish');
         allDishes.forEach(d => d.classList.remove('active-dish'));
 
-        // Add active class to current dish
         if (dishElement) {
             dishElement.classList.add('active-dish');
-            
-            // SVG transform origin trick: dynamically set transform-origin to the center of the bounding box
             const bbox = dishElement.getBBox();
             const cx = bbox.x + bbox.width / 2;
             const cy = bbox.y + bbox.height / 2;
             dishElement.style.transformOrigin = `${cx}px ${cy}px`;
         }
 
-        // Update DOM
         dishNameEl.textContent = dishData.name;
         dishDescEl.textContent = dishData.description;
-        
+
         ingredientsListEl.innerHTML = '';
         dishData.ingredients.forEach(ing => {
             const li = document.createElement('li');
@@ -154,15 +205,14 @@
             ingredientsListEl.appendChild(li);
         });
 
-        // Toggle visibility
         emptyState.classList.add('hidden');
         dishDetails.classList.remove('hidden');
     }
 
     /**
-     * Reset the info panel to its empty state
+     * Reset the dish info panel to its empty state
      */
-    function resetInfoPanel() {
+    function resetDishPanel() {
         emptyState.classList.remove('hidden');
         dishDetails.classList.add('hidden');
     }

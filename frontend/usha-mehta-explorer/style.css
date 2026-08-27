@@ -1,0 +1,476 @@
+/* style.css — Usha Mehta Explorer */
+
+:root {
+    --um-bg: #0d1117;
+    --um-card-bg: rgba(22, 27, 34, 0.8);
+    --um-card-border: rgba(255, 255, 255, 0.1);
+    --um-primary: #ff9f43;
+    --um-primary-hover: #ffb01f;
+    --um-saffron: #ff6f3c;
+    --um-accent: #00d2d3;
+    --um-text: #f0f6fc;
+    --um-text-muted: #8b949e;
+    --um-font-heading: 'Playfair Display', Georgia, serif;
+    --um-font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --um-radius: 12px;
+    --um-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] {
+    --um-bg: #f8f9fa;
+    --um-card-bg: #ffffff;
+    --um-card-border: rgba(0, 0, 0, 0.1);
+    --um-text: #1a1a2e;
+    --um-text-muted: #57606a;
+    --um-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.um-body {
+    background-color: var(--um-bg);
+    color: var(--um-text);
+    font-family: var(--um-font-body);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--um-primary);
+    color: #000;
+    padding: 8px;
+    z-index: 10000;
+    transition: top 0.2s ease;
+}
+.skip-link:focus {
+    top: 0;
+}
+
+/* Header */
+.um-header {
+    background: rgba(13, 17, 23, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--um-card-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 14px 24px;
+}
+[data-theme="light"] .um-header {
+    background: rgba(255, 255, 255, 0.95);
+}
+.um-header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.um-brand {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    gap: 4px;
+}
+.um-crumb {
+    font-size: 0.9rem;
+    color: var(--um-text-muted);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.um-crumb a {
+    color: var(--um-primary);
+    text-decoration: none;
+}
+.um-crumb a:hover {
+    text-decoration: underline;
+}
+.um-btn-theme {
+    background: transparent;
+    border: 1px solid var(--um-card-border);
+    color: var(--um-text);
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Hero Section */
+.um-hero {
+    position: relative;
+    padding: 64px 24px 48px;
+    background: linear-gradient(135deg, rgba(255, 111, 60, 0.15), rgba(0, 210, 211, 0.1));
+    border-bottom: 1px solid var(--um-card-border);
+}
+.um-hero-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+.um-hero-badge {
+    display: inline-block;
+    background: rgba(255, 159, 67, 0.2);
+    border: 1px solid var(--um-primary);
+    color: var(--um-primary);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+.um-hero-title {
+    font-family: var(--um-font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+.um-hero-sub {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--um-primary);
+    margin-top: 6px;
+}
+.um-hero-meta {
+    margin: 16px 0;
+    color: var(--um-text-muted);
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.um-hero-lead {
+    font-size: 1.1rem;
+    max-width: 820px;
+    margin: 0 auto 24px;
+    color: var(--um-text);
+}
+.um-hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.um-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+}
+.um-btn-primary {
+    background: linear-gradient(135deg, var(--um-saffron), var(--um-primary));
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(255, 111, 60, 0.3);
+}
+.um-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 111, 60, 0.4);
+}
+.um-btn-ghost {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--um-card-border);
+    color: var(--um-text);
+}
+.um-btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Tabs Navigation */
+.um-tabs-wrapper {
+    background: var(--um-bg);
+    border-bottom: 1px solid var(--um-card-border);
+    position: sticky;
+    top: 60px;
+    z-index: 990;
+    padding: 8px 0;
+}
+.um-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.um-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+}
+.um-tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--um-text-muted);
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+.um-tab-btn:hover {
+    color: var(--um-text);
+    background: rgba(255, 255, 255, 0.05);
+}
+.um-tab-btn.active {
+    color: #000;
+    background: var(--um-primary);
+}
+
+/* Sections & Content */
+.um-section {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--um-card-border);
+}
+.um-tab-content {
+    display: none;
+}
+.um-tab-content.active {
+    display: block;
+}
+.um-section-header {
+    text-align: center;
+    margin-bottom: 36px;
+}
+.um-section-tag {
+    color: var(--um-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.um-section-header h2 {
+    font-family: var(--um-font-heading);
+    font-size: 2.2rem;
+    margin-top: 6px;
+}
+
+.um-grid {
+    display: grid;
+    gap: 24px;
+}
+.um-grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+.um-card {
+    background: var(--um-card-bg);
+    border: 1px solid var(--um-card-border);
+    border-radius: var(--um-radius);
+    padding: 24px;
+    box-shadow: var(--um-shadow);
+}
+.um-card h3 {
+    font-family: var(--um-font-heading);
+    font-size: 1.4rem;
+    color: var(--um-primary);
+    margin-bottom: 12px;
+}
+.um-card p {
+    margin-bottom: 12px;
+}
+.um-highlight-text {
+    color: var(--um-saffron);
+    font-size: 1.05rem;
+}
+
+.um-quote-box {
+    margin-top: 16px;
+    padding: 16px;
+    background: rgba(255, 159, 67, 0.08);
+    border-left: 4px solid var(--um-primary);
+    border-radius: 4px;
+}
+.um-quote-box blockquote {
+    font-style: italic;
+}
+.um-quote-box cite {
+    display: block;
+    margin-top: 8px;
+    font-weight: 600;
+    font-style: normal;
+    color: var(--um-primary);
+}
+
+.um-list {
+    list-style-type: square;
+    padding-left: 20px;
+}
+.um-list li {
+    margin-bottom: 6px;
+}
+
+/* Timeline */
+.um-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 20px;
+    border-left: 2px solid var(--um-primary);
+}
+.um-timeline-item {
+    position: relative;
+    margin-bottom: 28px;
+    padding-left: 24px;
+}
+.um-timeline-badge {
+    position: absolute;
+    left: -32px;
+    top: 0;
+    background: var(--um-primary);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 12px;
+}
+.um-timeline-content {
+    background: var(--um-card-bg);
+    border: 1px solid var(--um-card-border);
+    padding: 16px 20px;
+    border-radius: var(--um-radius);
+}
+.um-timeline-content h3 {
+    font-size: 1.1rem;
+    color: var(--um-primary);
+    margin-bottom: 6px;
+}
+
+/* Radio Simulator Widget */
+.um-radio-sim-container {
+    margin-top: 40px;
+    background: rgba(13, 17, 23, 0.95);
+    border: 2px solid var(--um-primary);
+    border-radius: var(--um-radius);
+    padding: 24px;
+    box-shadow: 0 0 24px rgba(255, 159, 67, 0.2);
+}
+.um-radio-sim-header h3 {
+    color: var(--um-primary);
+    margin-bottom: 4px;
+}
+.um-tuner-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+.um-freq-label {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.um-tuner-slider {
+    flex: 1;
+    min-width: 200px;
+    height: 8px;
+    accent-color: var(--um-primary);
+    cursor: pointer;
+}
+.um-radio-screen {
+    background: #000;
+    border: 1px solid #00d2d3;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: monospace;
+    color: #00d2d3;
+    min-height: 120px;
+}
+.um-screen-status {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--um-saffron);
+}
+
+/* Quiz Card Widget */
+.um-quiz-card {
+    margin-top: 36px;
+    background: var(--um-card-bg);
+    border: 1px solid var(--um-card-border);
+    border-radius: var(--um-radius);
+    padding: 24px;
+}
+.um-quiz-card h3 {
+    color: var(--um-primary);
+    margin-bottom: 12px;
+}
+.um-quiz-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+}
+.um-quiz-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--um-card-border);
+    color: var(--um-text);
+    padding: 12px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    text-align: left;
+    transition: background 0.2s ease;
+}
+.um-quiz-btn:hover {
+    background: rgba(255, 159, 67, 0.15);
+}
+.um-quiz-feedback {
+    margin-top: 14px;
+    font-weight: 600;
+}
+
+/* Reference Links */
+.um-ref-list, .um-ref-links {
+    list-style-type: none;
+}
+.um-ref-list li, .um-ref-links li {
+    margin-bottom: 10px;
+}
+.um-ref-links a {
+    color: var(--um-accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+.um-ref-links a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.um-footer {
+    padding: 32px 0;
+    text-align: center;
+    color: var(--um-text-muted);
+    font-size: 0.9rem;
+    background: var(--um-bg);
+}
+
+@media (max-width: 768px) {
+    .um-hero-title {
+        font-size: 2.2rem;
+    }
+    .um-hero-sub {
+        font-size: 1.1rem;
+    }
+    .um-tabs-wrapper {
+        top: 50px;
+    }
+}

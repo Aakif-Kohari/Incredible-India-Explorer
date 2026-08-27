@@ -1,0 +1,336 @@
+/* Brands of India Styles */
+
+:root {
+  --brand-bg: #fdfaf6;
+  --brand-text: #2c1a16;
+  --brand-primary: #e65100;
+  --brand-card-bg: #ffffff;
+  --brand-border: #e0d0b8;
+  --brand-shadow: rgba(0, 0, 0, 0.08);
+  --brand-map-default: #d1c4b2;
+  --brand-map-hover: #f57c00;
+  --brand-map-active: #e65100;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand-bg: #1a1514;
+    --brand-text: #f0e6d2;
+    --brand-primary: #ff9800;
+    --brand-card-bg: #2c2421;
+    --brand-border: #4a3c36;
+    --brand-shadow: rgba(0, 0, 0, 0.3);
+    --brand-map-default: #4a3c36;
+    --brand-map-hover: #ffb74d;
+    --brand-map-active: #ff9800;
+  }
+}
+
+body {
+  background-color: var(--brand-bg);
+  color: var(--brand-text);
+}
+
+.brands-main {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Controls */
+.brands-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--brand-card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--brand-border);
+  box-shadow: 0 4px 12px var(--brand-shadow);
+}
+
+.search-container {
+  flex: 1;
+  min-width: 250px;
+}
+
+#brand-search {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--brand-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--brand-bg);
+  color: var(--brand-text);
+}
+
+#brand-search:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(230, 81, 0, 0.2);
+}
+
+.filter-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-container select {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--brand-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--brand-bg);
+  color: var(--brand-text);
+  cursor: pointer;
+}
+
+.filter-container select:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+}
+
+/* Layout */
+.brands-layout {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .brands-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* Map Container */
+.brands-map-container {
+  background-color: var(--brand-card-bg);
+  border: 1px solid var(--brand-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  flex: 1;
+  min-width: 300px;
+  position: sticky;
+  top: 2rem;
+}
+
+.brands-map-container h2 {
+  margin-top: 0;
+  color: var(--brand-primary);
+}
+
+.map-hint {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+#india-map-wrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#india-map-wrapper svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 4px 6px var(--brand-shadow));
+}
+
+#india-map-wrapper path {
+  fill: var(--brand-map-default);
+  stroke: var(--brand-bg);
+  stroke-width: 1;
+  transition: fill 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+#india-map-wrapper path:hover {
+  fill: var(--brand-map-hover);
+}
+
+#india-map-wrapper path.active {
+  fill: var(--brand-map-active);
+  transform: translateY(-2px);
+}
+
+.brands-btn {
+  background-color: var(--brand-primary);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+.brands-btn:hover {
+  opacity: 0.9;
+}
+
+/* Grid */
+.brands-grid-container {
+  flex: 3;
+}
+
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  background-color: var(--brand-card-bg);
+  border-radius: 12px;
+  border: 1px dashed var(--brand-border);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Brand Card */
+.brand-card {
+  background-color: var(--brand-card-bg);
+  border: 1px solid var(--brand-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-card:hover, .brand-card:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--brand-shadow);
+  border-color: var(--brand-primary);
+}
+
+.brand-logo-container {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--brand-bg);
+  border-bottom: 1px solid var(--brand-border);
+  padding: 1rem;
+  font-size: 3rem;
+}
+
+.brand-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.brand-name {
+  margin: 0 0 0.5rem 0;
+  color: var(--brand-primary);
+  font-size: 1.4rem;
+}
+
+.brand-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.brand-meta span {
+  background-color: var(--brand-bg);
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  border: 1px solid var(--brand-border);
+}
+
+.brand-desc {
+  margin: 0 0 1.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  flex: 1;
+}
+
+.brand-explore {
+  text-align: center;
+  text-decoration: none;
+  background-color: var(--brand-primary);
+  color: white;
+  padding: 0.6rem;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+.brand-explore:hover, .brand-explore:focus {
+  opacity: 0.9;
+  outline: none;
+}
+
+/* Timeline */
+.brands-timeline-section {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--brand-border);
+}
+
+.brands-timeline-section h2 {
+  text-align: center;
+  color: var(--brand-primary);
+  margin-bottom: 2rem;
+}
+
+.brands-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  display: flex;
+  background-color: var(--brand-card-bg);
+  border: 1px solid var(--brand-border);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  align-items: center;
+  gap: 1.5rem;
+  transition: transform 0.2s;
+}
+
+.timeline-item:hover {
+  transform: translateX(10px);
+  border-color: var(--brand-primary);
+}
+
+.timeline-year {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--brand-primary);
+  min-width: 60px;
+}
+
+.timeline-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+
+.timeline-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}

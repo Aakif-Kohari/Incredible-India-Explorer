@@ -1,0 +1,241 @@
+/* ==========================================================================
+   MULTI-HAZARD MAP STYLESHEET
+   Supports dark (default) and light themes via .light-theme on body
+   ========================================================================== */
+
+:root {
+    --hazard-bg: #0f172a;
+    --hazard-card-bg: rgba(30, 41, 59, 0.85);
+    --hazard-text: #f1f5f9;
+    --hazard-text-muted: #94a3b8;
+    --hazard-border: rgba(148, 163, 184, 0.2);
+    --hazard-accent: #f59e0b;
+    --hazard-accent-hover: #d97706;
+    --map-height: 600px;
+}
+
+body.light-theme {
+    --hazard-bg: #f8fafc;
+    --hazard-card-bg: rgba(255, 255, 255, 0.95);
+    --hazard-text: #0f172a;
+    --hazard-text-muted: #475569;
+    --hazard-border: rgba(15, 23, 42, 0.15);
+    --hazard-accent: #d97706;
+    --hazard-accent-hover: #b45309;
+}
+
+body.hazard-map-page {
+    background-color: var(--hazard-bg);
+    color: var(--hazard-text);
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+.hazard-hero {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(15, 23, 42, 0.4));
+    border: 1px solid var(--hazard-border);
+    border-radius: 1.25rem;
+    padding: 3rem 2rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.hazard-hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 0.75rem;
+    color: var(--hazard-text);
+}
+
+.hazard-hero .subtitle {
+    font-size: 1.2rem;
+    color: var(--hazard-accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.hazard-hero .hero-desc {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--hazard-text-muted);
+    line-height: 1.6;
+}
+
+.map-controls-section {
+    background: var(--hazard-card-bg);
+    border: 1px solid var(--hazard-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.controls-container h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--hazard-text);
+}
+
+.filter-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--hazard-border);
+    border-radius: 2rem;
+    background: transparent;
+    color: var(--hazard-text-muted);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-btn:hover {
+    border-color: var(--hazard-accent);
+    color: var(--hazard-accent);
+}
+
+.filter-btn.active {
+    background: var(--hazard-accent);
+    color: #ffffff;
+    border-color: var(--hazard-accent);
+}
+
+.state-selector {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.state-selector label {
+    font-weight: 600;
+    color: var(--hazard-text);
+}
+
+.state-selector select {
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--hazard-border);
+    background: var(--hazard-bg);
+    color: var(--hazard-text);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.map-display-section {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 1024px) {
+    .map-display-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+.map-container {
+    height: var(--map-height);
+    border-radius: 1rem;
+    border: 1px solid var(--hazard-border);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.map-sidebar {
+    background: var(--hazard-card-bg);
+    border: 1px solid var(--hazard-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    height: fit-content;
+    backdrop-filter: blur(10px);
+}
+
+.map-sidebar h3 {
+    margin-top: 0;
+    color: var(--hazard-accent);
+    border-bottom: 2px solid var(--hazard-border);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.map-sidebar p {
+    color: var(--hazard-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.resources-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.resources-list li {
+    padding: 0.75rem;
+    background: rgba(245, 158, 11, 0.1);
+    border-left: 3px solid var(--hazard-accent);
+    border-radius: 0 0.5rem 0.5rem 0;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--hazard-text);
+}
+
+.data-sources-section {
+    background: var(--hazard-card-bg);
+    border: 1px solid var(--hazard-border);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.data-sources-section h3 {
+    margin-top: 0;
+    color: var(--hazard-text);
+    margin-bottom: 1rem;
+}
+
+.sources-list {
+    color: var(--hazard-text-muted);
+    line-height: 1.8;
+    padding-left: 1.5rem;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--hazard-text-muted);
+    border-top: 1px solid var(--hazard-border);
+    margin-top: 2rem;
+}
+
+/* Leaflet popup customization */
+.leaflet-popup-content-wrapper {
+    background: var(--hazard-card-bg);
+    color: var(--hazard-text);
+    border: 1px solid var(--hazard-border);
+    border-radius: 0.75rem;
+}
+
+.leaflet-popup-tip {
+    background: var(--hazard-card-bg);
+}
+
+.leaflet-popup-content {
+    margin: 1rem;
+    font-family: 'Outfit', sans-serif;
+}

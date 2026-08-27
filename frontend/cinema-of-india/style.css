@@ -1,0 +1,1827 @@
+/* =========================================================
+   Cinema of India Explorer
+   Feature Stylesheet
+   ========================================================= */
+
+:root {
+    --cinema-primary: #e11d48;
+    --cinema-primary-dark: #9f1239;
+
+    --cinema-gold: #fbbf24;
+    --cinema-gold-soft: rgba(251, 191, 36, 0.14);
+
+    --cinema-orange: #f97316;
+
+    --cinema-dark-bg: #120b0d;
+    --cinema-section-bg: #170d10;
+
+    --cinema-card-bg: rgba(31, 18, 21, 0.9);
+    --cinema-card-bg-solid: #211316;
+
+    --cinema-border: rgba(251, 191, 36, 0.2);
+    --cinema-border-hover: rgba(251, 191, 36, 0.55);
+
+    --cinema-text-main: #fff7ed;
+    --cinema-text-sub: #c9b2a4;
+    --cinema-text-muted: #92796e;
+
+    --cinema-map-bg: #1b1114;
+    --cinema-map-fill: #392127;
+    --cinema-map-stroke: #fbbf24;
+
+    --cinema-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.25);
+
+    --cinema-radius-sm: 0.65rem;
+    --cinema-radius-md: 1rem;
+    --cinema-radius-lg: 1.4rem;
+}
+
+
+/* =========================================================
+   Light Theme
+   ========================================================= */
+
+html.light-theme,
+[data-theme="light"] {
+    --cinema-dark-bg: #fffaf2;
+    --cinema-section-bg: #fffdf8;
+
+    --cinema-card-bg: rgba(255, 255, 255, 0.94);
+    --cinema-card-bg-solid: #ffffff;
+
+    --cinema-border: rgba(159, 18, 57, 0.16);
+    --cinema-border-hover: rgba(159, 18, 57, 0.42);
+
+    --cinema-text-main: #241015;
+    --cinema-text-sub: #6b5147;
+    --cinema-text-muted: #8d7064;
+
+    --cinema-map-bg: #fff8ed;
+    --cinema-map-fill: #f4e4d7;
+    --cinema-map-stroke: #9f1239;
+}
+
+
+/* =========================================================
+   Base
+   ========================================================= */
+
+body.cinema-main {
+    margin: 0;
+    padding: 0;
+
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(225, 29, 72, 0.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(251, 191, 36, 0.07),
+            transparent 30%
+        ),
+        var(--cinema-dark-bg);
+
+    color: var(--cinema-text-main);
+
+    font-family: 'Outfit', sans-serif;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.cinema-main *,
+.cinema-main *::before,
+.cinema-main *::after {
+    box-sizing: border-box;
+}
+
+.cinema-main .section-container {
+    width: min(1240px, calc(100% - 3rem));
+    margin: 0 auto;
+}
+
+.cinema-main button,
+.cinema-main input,
+.cinema-main select {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   Accessibility
+   ========================================================= */
+
+.visually-hidden {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+
+    border: 0;
+}
+
+.cinema-main button:focus-visible,
+.cinema-main a:focus-visible,
+.cinema-main input:focus-visible,
+.cinema-main select:focus-visible {
+    outline: 3px solid rgba(251, 191, 36, 0.45);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   Navbar
+   ========================================================= */
+
+.cinema-main .navbar {
+    position: relative;
+    z-index: 100;
+
+    background: rgba(18, 11, 13, 0.9);
+
+    border-bottom: 1px solid var(--cinema-border);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+[data-theme="light"] .cinema-main .navbar {
+    background: rgba(255, 250, 242, 0.92);
+}
+
+
+/* =========================================================
+   Hero
+   ========================================================= */
+
+.cinema-hero {
+    position: relative;
+
+    padding: 9rem 0 5rem;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            ellipse at center top,
+            rgba(251, 191, 36, 0.14),
+            transparent 55%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(225, 29, 72, 0.08),
+            transparent
+        );
+}
+
+.cinema-hero::after {
+    content: '';
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    width: min(800px, 80%);
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(251, 191, 36, 0.4),
+        transparent
+    );
+}
+
+.hero-badges-row {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 0.7rem;
+
+    margin-bottom: 1.5rem;
+}
+
+.hero-pill {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.45rem 1rem;
+
+    border: 1px solid var(--cinema-border);
+    border-radius: 999px;
+
+    background: var(--cinema-gold-soft);
+
+    color: var(--cinema-gold);
+
+    font-size: 0.82rem;
+    font-weight: 600;
+
+    backdrop-filter: blur(8px);
+}
+
+.cinema-hero h1 {
+    margin: 0 0 1rem;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(2.7rem, 6vw, 5rem);
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    letter-spacing: -0.03em;
+}
+
+.cinema-hero h1 span {
+    display: inline-block;
+
+    background: linear-gradient(
+        135deg,
+        var(--cinema-gold),
+        var(--cinema-orange),
+        var(--cinema-primary)
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    width: min(800px, 100%);
+
+    margin: 0 auto 2.5rem;
+
+    color: var(--cinema-text-sub);
+
+    font-size: 1.1rem;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   Search
+   ========================================================= */
+
+.cinema-search-wrap {
+    width: min(700px, 100%);
+
+    margin: 0 auto;
+}
+
+.cinema-search-box {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+}
+
+.search-icon {
+    position: absolute;
+
+    left: 1.1rem;
+
+    z-index: 2;
+
+    font-size: 1.05rem;
+
+    pointer-events: none;
+}
+
+.cinema-search {
+    width: 100%;
+
+    padding: 1rem 3.2rem 1rem 3rem;
+
+    border: 1px solid var(--cinema-border);
+    border-radius: 999px;
+
+    outline: none;
+
+    background: var(--cinema-card-bg);
+
+    color: var(--cinema-text-main);
+
+    font-size: 0.98rem;
+
+    box-shadow: var(--cinema-shadow);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.cinema-search::placeholder {
+    color: var(--cinema-text-muted);
+}
+
+.cinema-search:focus {
+    border-color: var(--cinema-gold);
+
+    box-shadow:
+        0 0 0 4px rgba(251, 191, 36, 0.1),
+        var(--cinema-shadow);
+}
+
+.clear-search {
+    position: absolute;
+
+    right: 0.75rem;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: var(--cinema-text-sub);
+
+    font-size: 1.4rem;
+
+    cursor: pointer;
+}
+
+.clear-search:hover {
+    background: var(--cinema-gold-soft);
+
+    color: var(--cinema-gold);
+}
+
+
+/* =========================================================
+   Generic Sections
+   ========================================================= */
+
+.filters-section,
+.map-section,
+.industries-section,
+.featured-section,
+.stats-section {
+    padding: 5rem 0;
+}
+
+.filters-section,
+.stats-section {
+    background: var(--cinema-section-bg);
+}
+
+.section-header {
+    margin-bottom: 2.5rem;
+
+    text-align: center;
+}
+
+.section-tag {
+    display: block;
+
+    margin-bottom: 0.5rem;
+
+    color: var(--cinema-primary);
+
+    font-size: 0.78rem;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+}
+
+[data-theme="light"] .section-tag {
+    color: var(--cinema-primary-dark);
+}
+
+.section-header h2 {
+    margin: 0 0 0.7rem;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(2rem, 4vw, 2.7rem);
+
+    line-height: 1.15;
+}
+
+.section-header p {
+    width: min(720px, 100%);
+
+    margin: 0 auto;
+
+    color: var(--cinema-text-sub);
+
+    font-size: 1rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   Filters
+   ========================================================= */
+
+.filters-row {
+    display: grid;
+
+    grid-template-columns:
+        minmax(200px, 1fr)
+        minmax(200px, 1fr)
+        auto;
+
+    align-items: end;
+
+    gap: 1rem;
+
+    width: min(900px, 100%);
+
+    margin: 0 auto;
+}
+
+.filter-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    color: var(--cinema-text-main);
+
+    font-size: 0.88rem;
+
+    font-weight: 600;
+}
+
+.filter-group select {
+    width: 100%;
+
+    padding: 0.85rem 1rem;
+
+    border: 1px solid var(--cinema-border);
+    border-radius: 0.75rem;
+
+    outline: none;
+
+    background: var(--cinema-card-bg-solid);
+
+    color: var(--cinema-text-main);
+
+    font-size: 0.92rem;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.filter-group select:hover,
+.filter-group select:focus {
+    border-color: var(--cinema-gold);
+
+    box-shadow:
+        0 0 0 3px rgba(251, 191, 36, 0.08);
+}
+
+.clear-filters-btn {
+    min-height: 44px;
+
+    padding: 0.8rem 1.25rem;
+
+    border: 1px solid var(--cinema-border);
+    border-radius: 0.75rem;
+
+    background: transparent;
+
+    color: var(--cinema-text-sub);
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.clear-filters-btn:hover {
+    border-color: var(--cinema-primary);
+
+    background: rgba(225, 29, 72, 0.08);
+
+    color: var(--cinema-primary);
+}
+
+.filter-status {
+    min-height: 1.5rem;
+
+    margin-top: 1rem;
+
+    color: var(--cinema-text-sub);
+
+    text-align: center;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   Interactive India Map
+   ========================================================= */
+
+.map-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.5fr)
+        minmax(300px, 0.7fr);
+
+    gap: 2rem;
+
+    align-items: stretch;
+}
+
+.cinema-map {
+    position: relative;
+
+    min-height: 650px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--cinema-border);
+    border-radius: 1.5rem;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(251, 191, 36, 0.08),
+            transparent 55%
+        ),
+        var(--cinema-map-bg);
+
+    box-shadow: var(--cinema-shadow);
+}
+
+.india-map-background {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+.india-map-outline {
+    position: relative;
+
+    width: 58%;
+    height: 78%;
+
+    opacity: 0.45;
+
+    background:
+        linear-gradient(
+            145deg,
+            transparent 0 12%,
+            var(--cinema-map-fill) 12% 88%,
+            transparent 88%
+        );
+
+    clip-path: polygon(
+        39% 0%,
+        52% 4%,
+        58% 12%,
+        69% 18%,
+        76% 28%,
+        87% 35%,
+        92% 48%,
+        84% 58%,
+        78% 67%,
+        71% 75%,
+        66% 84%,
+        59% 100%,
+        52% 90%,
+        47% 79%,
+        40% 72%,
+        31% 66%,
+        26% 56%,
+        18% 49%,
+        21% 38%,
+        28% 30%,
+        31% 19%,
+        35% 10%
+    );
+
+    border: 2px solid var(--cinema-map-stroke);
+
+    box-shadow:
+        0 0 30px rgba(251, 191, 36, 0.08);
+}
+
+[data-theme="light"] .india-map-outline {
+    opacity: 0.55;
+}
+
+.cinema-map::before {
+    content: 'INDIA';
+
+    position: absolute;
+
+    top: 1.2rem;
+    left: 1.5rem;
+
+    z-index: 6;
+
+    color: var(--cinema-gold);
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    letter-spacing: 0.2em;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================================
+   Map Markers
+   ========================================================= */
+
+.map-markers {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+}
+
+.cinema-map-marker {
+    position: absolute;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+
+    border: 2px solid #fff;
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--cinema-primary),
+            var(--cinema-orange)
+        );
+
+    color: #fff;
+
+    cursor: pointer;
+
+    transform: translate(-50%, -50%);
+
+    box-shadow:
+        0 0 0 5px rgba(225, 29, 72, 0.16),
+        0 8px 20px rgba(0, 0, 0, 0.3);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.marker-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.marker-label {
+    position: absolute;
+
+    left: 50%;
+    bottom: calc(100% + 8px);
+
+    width: max-content;
+    max-width: 160px;
+
+    padding: 0.4rem 0.65rem;
+
+    border: 1px solid var(--cinema-border);
+    border-radius: 0.5rem;
+
+    background: var(--cinema-card-bg-solid);
+
+    color: var(--cinema-text-main);
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+        translateX(-50%)
+        translateY(5px);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.cinema-map-marker:hover,
+.cinema-map-marker:focus-visible,
+.cinema-map-marker.active {
+    z-index: 10;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.25);
+
+    box-shadow:
+        0 0 0 7px rgba(251, 191, 36, 0.2),
+        0 10px 25px rgba(0, 0, 0, 0.35);
+
+    outline: none;
+}
+
+.cinema-map-marker:hover .marker-label,
+.cinema-map-marker:focus-visible .marker-label,
+.cinema-map-marker.active .marker-label {
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+.cinema-map-marker.filtered-out {
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.5);
+}
+
+.map-label {
+    position: absolute;
+
+    right: 1.5rem;
+    bottom: 1.2rem;
+
+    z-index: 6;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.45rem;
+
+    padding: 0.5rem 0.8rem;
+
+    border: 1px solid var(--cinema-border);
+    border-radius: 999px;
+
+    background: var(--cinema-card-bg);
+
+    color: var(--cinema-text-sub);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    backdrop-filter: blur(8px);
+}
+
+.map-hint {
+    margin: 0.8rem 0 0;
+
+    color: var(--cinema-text-muted);
+
+    text-align: center;
+
+    font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   Map Detail
+   ========================================================= */
+
+.map-detail {
+    min-height: 300px;
+
+    padding: 2rem;
+
+    border: 1px solid var(--cinema-border);
+    border-radius: 1.5rem;
+
+    background: var(--cinema-card-bg);
+
+    box-shadow: var(--cinema-shadow);
+
+    display: flex;
+
+    align-items: flex-start;
+}
+
+.map-detail-empty {
+    width: 100%;
+
+    text-align: center;
+}
+
+.map-detail-icon {
+    display: block;
+
+    margin-bottom: 1rem;
+
+    font-size: 3rem;
+}
+
+.map-detail-content {
+    width: 100%;
+}
+
+.map-detail-image {
+    display: block;
+
+    width: 100%;
+    height: 210px;
+
+    margin-bottom: 1.25rem;
+
+    border-radius: 0.9rem;
+
+    object-fit: cover;
+
+    background: var(--cinema-card-bg-solid);
+}
+
+.map-detail-content h3 {
+    margin: 0 0 0.4rem;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 1.55rem;
+}
+
+.map-detail-content p {
+    margin: 0;
+
+    color: var(--cinema-text-sub);
+
+    line-height: 1.7;
+}
+
+.map-detail-content .industry-location {
+    margin-bottom: 0.7rem;
+
+    color: var(--cinema-primary);
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+}
+
+.map-detail-nickname {
+    margin-bottom: 1rem !important;
+
+    color: var(--cinema-gold) !important;
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+}
+
+.map-detail-content .industry-description {
+    margin-bottom: 1.2rem;
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   Detail Film
+   ========================================================= */
+
+.map-detail-film {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.3rem;
+
+    margin-bottom: 1.15rem;
+
+    padding: 0.9rem 1rem;
+
+    border: 1px solid var(--cinema-border);
+    border-radius: 0.8rem;
+
+    background: var(--cinema-gold-soft);
+}
+
+.map-detail-film strong {
+    color: var(--cinema-gold);
+
+    font-size: 0.78rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.05em;
+}
+
+.map-detail-film span {
+    color: var(--cinema-text-main);
+
+    font-size: 0.92rem;
+
+    font-weight: 700;
+}
+
+.map-detail-film small {
+    color: var(--cinema-text-sub);
+
+    font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   Detail Tags
+   ========================================================= */
+
+.map-detail-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 0.45rem;
+}
+
+.map-detail-tags .industry-language {
+    display: inline-flex;
+
+    padding: 0.35rem 0.7rem;
+
+    border-radius: 999px;
+
+    background: var(--cinema-gold-soft);
+
+    color: var(--cinema-gold);
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   Industry Cards
+   ========================================================= */
+
+.industries-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 1.4rem;
+}
+
+.industry-card {
+    position: relative;
+
+    overflow: hidden;
+
+    border: 1px solid var(--cinema-border);
+    border-radius: 1.25rem;
+
+    background: var(--cinema-card-bg);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.12);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.industry-card:hover,
+.industry-card:focus-within {
+    transform: translateY(-6px);
+
+    border-color: var(--cinema-border-hover);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.2);
+}
+
+.industry-card.active {
+    border-color: var(--cinema-gold);
+
+    box-shadow:
+        0 0 0 2px rgba(251, 191, 36, 0.12),
+        0 20px 45px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================================================
+   Industry Card Image
+   ========================================================= */
+
+.industry-card-image-wrap {
+    position: relative;
+
+    height: 220px;
+
+    overflow: hidden;
+}
+
+.industry-card-image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.industry-card:hover .industry-card-image {
+    transform: scale(1.06);
+
+    filter: saturate(1.08);
+}
+
+.industry-card-image-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 30%,
+            rgba(0, 0, 0, 0.78)
+        );
+}
+
+
+/* =========================================================
+   Featured Badge
+   ========================================================= */
+
+.industry-card-featured {
+    position: absolute;
+
+    top: 0.9rem;
+    right: 0.9rem;
+
+    padding: 0.35rem 0.65rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    color: var(--cinema-gold);
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    backdrop-filter: blur(7px);
+}
+
+
+/* =========================================================
+   Industry Card Content
+   ========================================================= */
+
+.industry-card-content {
+    padding: 1.35rem;
+}
+
+.industry-card-content h3 {
+    margin: 0 0 0.3rem;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 1.35rem;
+}
+
+.industry-card-location {
+    margin-bottom: 0.65rem;
+
+    color: var(--cinema-primary);
+
+    font-size: 0.82rem;
+
+    font-weight: 700;
+}
+
+.industry-card-nickname {
+    margin: 0 0 0.8rem;
+
+    color: var(--cinema-gold);
+
+    font-size: 0.8rem;
+
+    font-weight: 700;
+}
+
+.industry-card-description {
+    margin: 0 0 1rem;
+
+    color: var(--cinema-text-sub);
+
+    font-size: 0.88rem;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   Featured Film
+   ========================================================= */
+
+.industry-card-film {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.2rem;
+
+    margin-bottom: 1rem;
+
+    padding: 0.75rem 0.85rem;
+
+    border-left: 3px solid var(--cinema-gold);
+    border-radius: 0 0.6rem 0.6rem 0;
+
+    background: var(--cinema-gold-soft);
+}
+
+.industry-card-film strong {
+    color: var(--cinema-text-main);
+
+    font-size: 0.82rem;
+}
+
+.industry-card-film span {
+    color: var(--cinema-text-muted);
+
+    font-size: 0.72rem;
+}
+
+.industry-card-film small {
+    color: var(--cinema-text-sub);
+
+    font-size: 0.72rem;
+}
+
+
+/* =========================================================
+   Card Tags
+   ========================================================= */
+
+.industry-card-meta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 0.45rem;
+
+    margin-bottom: 1.1rem;
+}
+
+.industry-card-tag {
+    display: inline-flex;
+
+    padding: 0.35rem 0.6rem;
+
+    border-radius: 999px;
+
+    background: var(--cinema-gold-soft);
+
+    color: var(--cinema-text-sub);
+
+    font-size: 0.72rem;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   Explore Button
+   ========================================================= */
+
+.industry-explore-btn {
+    width: 100%;
+
+    padding: 0.75rem 1rem;
+
+    border: 1px solid var(--cinema-border);
+    border-radius: 0.7rem;
+
+    background: transparent;
+
+    color: var(--cinema-text-main);
+
+    font-size: 0.82rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.industry-explore-btn:hover {
+    border-color: var(--cinema-primary);
+
+    background: var(--cinema-primary);
+
+    color: #fff;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   No Results
+   ========================================================= */
+
+.no-results {
+    padding: 4rem 1.5rem;
+
+    border: 1px dashed var(--cinema-border);
+    border-radius: 1.25rem;
+
+    text-align: center;
+}
+
+.no-results-icon {
+    display: block;
+
+    margin-bottom: 0.8rem;
+
+    font-size: 2.5rem;
+}
+
+.no-results h3 {
+    margin: 0 0 0.5rem;
+
+    font-family: 'Playfair Display', serif;
+}
+
+.no-results p {
+    margin: 0;
+
+    color: var(--cinema-text-sub);
+}
+
+
+/* =========================================================
+   Featured Industries
+   ========================================================= */
+
+.featured-section {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(225, 29, 72, 0.07),
+            rgba(251, 191, 36, 0.05)
+        );
+}
+
+.featured-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: 1.5rem;
+}
+
+.featured-card {
+    position: relative;
+
+    min-height: 360px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--cinema-border);
+    border-radius: 1.4rem;
+
+    background: var(--cinema-card-bg-solid);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.featured-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--cinema-border-hover);
+
+    box-shadow: var(--cinema-shadow);
+}
+
+.featured-card img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.featured-card:hover img {
+    transform: scale(1.06);
+
+    filter: saturate(1.08);
+}
+
+.featured-card-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    padding: 1.6rem;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 15%,
+            rgba(0, 0, 0, 0.92)
+        );
+
+    color: #fff;
+}
+
+.featured-card-tag {
+    align-self: flex-start;
+
+    margin-bottom: 0.65rem;
+
+    padding: 0.3rem 0.6rem;
+
+    border-radius: 999px;
+
+    background: rgba(251, 191, 36, 0.9);
+
+    color: #241016;
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+}
+
+.featured-card h3 {
+    margin: 0 0 0.4rem;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 1.7rem;
+}
+
+.featured-card p {
+    margin: 0 0 0.4rem;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    font-size: 0.85rem;
+
+    line-height: 1.55;
+}
+
+.featured-explore-btn {
+    align-self: flex-start;
+
+    margin-top: 0.8rem;
+
+    padding: 0.65rem 0.9rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.65rem;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    color: #fff;
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(6px);
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.featured-explore-btn:hover {
+    background: var(--cinema-primary);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   Statistics
+   ========================================================= */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(210px, 1fr));
+
+    gap: 1.25rem;
+}
+
+.stat-card {
+    padding: 1.7rem;
+
+    border: 1px solid var(--cinema-border);
+    border-radius: 1.15rem;
+
+    background: var(--cinema-card-bg);
+
+    text-align: center;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--cinema-gold);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.stat-icon {
+    display: block;
+
+    margin-bottom: 0.7rem;
+
+    font-size: 2rem;
+}
+
+.stat-value {
+    display: block;
+
+    margin-bottom: 0.25rem;
+
+    color: var(--cinema-gold);
+
+    font-size: 1.6rem;
+
+    font-weight: 800;
+}
+
+.stat-label {
+    color: var(--cinema-text-sub);
+
+    font-size: 0.85rem;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   Reduced Motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .cinema-main *,
+    .cinema-main *::before,
+    .cinema-main *::after {
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+    }
+}
+
+
+/* =========================================================
+   Tablet
+   ========================================================= */
+
+@media (max-width: 1024px) {
+    .cinema-main .section-container {
+        width: min(
+            calc(100% - 2.5rem),
+            1100px
+        );
+    }
+
+    .map-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .cinema-map {
+        min-height: 600px;
+    }
+
+    .map-detail {
+        min-height: 250px;
+    }
+
+    .filters-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .clear-filters-btn {
+        grid-column: 1 / -1;
+
+        justify-self: center;
+    }
+}
+
+
+/* =========================================================
+   Mobile
+   ========================================================= */
+
+@media (max-width: 768px) {
+    .cinema-main .section-container {
+        width: min(
+            calc(100% - 2rem),
+            700px
+        );
+    }
+
+    .cinema-hero {
+        padding: 7.5rem 0 4rem;
+    }
+
+    .cinema-hero h1 {
+        font-size: clamp(
+            2.4rem,
+            11vw,
+            3.6rem
+        );
+    }
+
+    .hero-subtitle {
+        font-size: 0.98rem;
+    }
+
+    .filters-section,
+    .map-section,
+    .industries-section,
+    .featured-section,
+    .stats-section {
+        padding: 4rem 0;
+    }
+
+    .filters-row {
+        grid-template-columns: 1fr;
+    }
+
+    .clear-filters-btn {
+        grid-column: auto;
+
+        width: 100%;
+    }
+
+    .cinema-map {
+        min-height: 500px;
+
+        border-radius: 1.15rem;
+    }
+
+    .india-map-outline {
+        width: 70%;
+        height: 82%;
+    }
+
+    .cinema-map-marker {
+        width: 32px;
+        height: 32px;
+    }
+
+    .map-label {
+        right: 1rem;
+        bottom: 1rem;
+    }
+
+    .map-detail {
+        padding: 1.5rem;
+    }
+
+    .industries-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-card {
+        min-height: 320px;
+    }
+}
+
+
+/* =========================================================
+   Small Mobile
+   ========================================================= */
+
+@media (max-width: 640px) {
+    .cinema-main .section-container {
+        width: min(
+            calc(100% - 1.5rem),
+            600px
+        );
+    }
+
+    .cinema-hero {
+        padding: 7rem 0 3.5rem;
+    }
+
+    .hero-badges-row {
+        gap: 0.5rem;
+    }
+
+    .hero-pill {
+        padding: 0.35rem 0.7rem;
+
+        font-size: 0.72rem;
+    }
+
+    .cinema-search {
+        padding-top: 0.9rem;
+        padding-bottom: 0.9rem;
+    }
+
+    .cinema-map {
+        min-height: 430px;
+    }
+
+    .india-map-outline {
+        width: 82%;
+        height: 78%;
+    }
+
+    .cinema-map-marker {
+        width: 28px;
+        height: 28px;
+    }
+
+    .marker-dot {
+        width: 7px;
+        height: 7px;
+    }
+
+    .marker-label {
+        display: none;
+    }
+
+    .industry-card-image-wrap {
+        height: 200px;
+    }
+
+    .section-header {
+        margin-bottom: 2rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+}
+
+
+/* =========================================================
+   Very Small Screens
+   ========================================================= */
+
+@media (max-width: 420px) {
+    .cinema-hero h1 {
+        font-size: 2.35rem;
+    }
+
+    .cinema-map {
+        min-height: 370px;
+    }
+
+    .india-map-outline {
+        width: 90%;
+        height: 76%;
+    }
+
+    .cinema-map-marker {
+        width: 24px;
+        height: 24px;
+
+        border-width: 1px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .map-detail-image {
+        height: 180px;
+    }
+}
