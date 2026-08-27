@@ -113,6 +113,13 @@ window.indiaSearchIndex = [
         url: "frontend/ahmedabad-heatwave-2010/index.html"
     },
     {
+    title: "Belum Caves: Geological History",
+    category: "Geology & Natural Heritage",
+    description:
+        "Explore how Belum Caves formed through karst limestone dissolution — underground chambers, speleothems, and geological timeline.",
+    url: "frontend/belum-caves-geology/index.html"
+    },
+    {
         title: "Heatwave Hazards Across Northern India",
         category: "Natural Hazards",
         description:
