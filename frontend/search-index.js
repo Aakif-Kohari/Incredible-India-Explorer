@@ -6606,5 +6606,14 @@ window.indiaSearchIndex = [
         description:
             "Explore the traditional story of Pundalik and Vithoba: the waiting Lord on the brick, Pandharpur on the Chandrabhaga, and the Warkari pilgrimage.",
         url: "frontend/pundalik-vithoba-story/index.html"
+    },
+
+    // --- Deccan Volcanic Landscape (#3816) ---
+    {
+        title: "Deccan Volcanic Landscape \u2014 Flood Basalts & Prehistoric India",
+        category: "Geology & Disasters",
+        description:
+            "Explore the Deccan Traps: flood-basalt history, Western Ghats stratigraphy, a ~66 Ma timeline, intertrappean fossils, trap landscape, and an interactive site map.",
+        url: "frontend/deccan-volcanic-landscape/index.html"
     }
 ];
