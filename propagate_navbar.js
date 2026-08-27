@@ -67,7 +67,6 @@ const NAVBAR_TEMPLATE = `<header class="navbar" id="navbar">
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
                 <div class="dropdown-menu">
-                    <a href="{{PREFIX}}frontend/indian-cinema-history/index.html" class="dropdown-item">Indian Cinema</a>
                     <a href="{{PREFIX}}frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="{{PREFIX}}frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="{{PREFIX}}frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
