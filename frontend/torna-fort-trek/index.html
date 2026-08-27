@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            let theme = 'dark';
+            try {
+                theme = localStorage.getItem('theme') || JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark';
+            } catch(e) {}
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                document.documentElement.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Torna Fort Trek — Prachandagad | Incredible India Explorer</title>
+    <meta name="description" content="Explore Torna Fort (Prachandagad) Trek — the first fort captured by Chhatrapati Shivaji Maharaj in 1646 CE. Detailed trek route guide, elevation profile, history, Zunjar Machi, gear checklist, and trek time estimator." />
+    
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Google Fonts Fallbacks -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="torna-trek.css" />
+</head>
+<body class="torna-body">
+
+    <!-- Header / Navigation -->
+    <header class="torna-header">
+        <div class="torna-container torna-header__nav">
+            <a href="../../index.html" class="torna-back-link">
+                <span aria-hidden="true">←</span> Back to All Destinations
+            </a>
+            <div class="torna-header__actions">
+                <button id="themeToggle" class="torna-theme-btn" type="button" aria-pressed="false" aria-label="Toggle theme mode">
+                    <span>🌗</span>
+                    <span>Theme</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="torna-hero" id="heroSection">
+        <div class="torna-container">
+            <div class="torna-hero__badges">
+                <span class="torna-badge torna-badge--saffron">🚩 First Fort of Hindavi Swarajya</span>
+                <span class="torna-badge torna-badge--emerald">⛰️ 1,403m Elevation (Highest in Pune)</span>
+                <span class="torna-badge">⚔️ Moderate to Challenging Trek</span>
+            </div>
+            
+            <h1 class="torna-hero__title">
+                Torna Fort Trek
+                <span class="torna-hero__title-sub">प्रचंडगड — Prachandagad (The Massive Fort)</span>
+            </h1>
+            
+            <p class="torna-hero__lede">
+                Rising 1,403 meters above sea level in the Sahyadri mountains, Torna Fort is where 16-year-old 
+                Chhatrapati Shivaji Maharaj struck the founding spark of Maratha independence in 1646 CE. 
+                Experience razor-sharp ridges, basalt gateways, and panoramic Sahyadri views.
+            </p>
+
+            <!-- Quick Stats Grid -->
+            <div class="torna-stats-grid">
+                <div class="torna-stat-card">
+                    <span class="torna-stat-card__val">1,403 m</span>
+                    <span class="torna-stat-card__label">Summit Elevation (4,603 ft)</span>
+                </div>
+                <div class="torna-stat-card">
+                    <span class="torna-stat-card__val">1646 CE</span>
+                    <span class="torna-stat-card__label">Captured by Shivaji Maharaj</span>
+                </div>
+                <div class="torna-stat-card">
+                    <span class="torna-stat-card__val">3.5 - 4 hrs</span>
+                    <span class="torna-stat-card__label">One-Way Ascent Time</span>
+                </div>
+                <div class="torna-stat-card">
+                    <span class="torna-stat-card__val">Velhe</span>
+                    <span class="torna-stat-card__label">Base Village (60 km Pune)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="torna-container">
+        
+        <!-- Tab Navigation Bar -->
+        <nav class="torna-tabs-wrapper" aria-label="Torna profile sections">
+            <div class="torna-tabs" role="tablist">
+                <button class="torna-tab-btn active" role="tab" aria-selected="true" data-tab="overviewTab" id="tabBtnOverview">
+                    🏛️ Overview & Highlights
+                </button>
+                <button class="torna-tab-btn" role="tab" aria-selected="false" data-tab="routeTab" id="tabBtnRoute">
+                    🥾 Trekking Route Guide
+                </button>
+                <button class="torna-tab-btn" role="tab" aria-selected="false" data-tab="historyTab" id="tabBtnHistory">
+                    📜 Historical Significance
+                </button>
+                <button class="torna-tab-btn" role="tab" aria-selected="false" data-tab="plannerTab" id="tabBtnPlanner">
+                    ⚙️ Trek Estimator & Checklist
+                </button>
+                <button class="torna-tab-btn" role="tab" aria-selected="false" data-tab="galleryTab" id="tabBtnGallery">
+                    🖼️ Photo Gallery
+                </button>
+            </div>
+        </nav>
+
+        <!-- TAB 1: OVERVIEW & HIGHLIGHTS -->
+        <section id="overviewTab" class="torna-tab-content active" role="tabpanel" aria-labelledby="tabBtnOverview">
+            <div class="torna-section-heading">
+                <span class="torna-eyebrow">Architectural & Natural Wonders</span>
+                <h2 class="torna-section-title">Key Highlights of Prachandagad</h2>
+                <p class="torna-section-desc">
+                    Torna Fort derives its name Prachandagad from the Marathi word 'Prachanda' meaning massive. 
+                    Explore its two world-famous Machis (fortified ridges), ancient temples, and rock-cut gateways.
+                </p>
+            </div>
+
+            <div class="torna-grid-3" id="highlightsGrid">
+                <!-- Dynamically rendered via torna-trek.js -->
+            </div>
+        </section>
+
+        <!-- TAB 2: TREKKING ROUTE GUIDE -->
+        <section id="routeTab" class="torna-tab-content" role="tabpanel" aria-labelledby="tabBtnRoute">
+            <div class="torna-section-heading">
+                <span class="torna-eyebrow">Sahyadri Trail Breakdown</span>
+                <h2 class="torna-section-title">Velhe Base to Torna Summit Route</h2>
+                <p class="torna-section-desc">
+                    The classic trekking trail begins at Velhe village and ascends through grassy plateaus, rocky scrambles with safety railings, and historic stone gateways to reach the Menghai Devi plateau.
+                </p>
+            </div>
+
+            <div id="trekStepsContainer">
+                <!-- Dynamically rendered via torna-trek.js -->
+            </div>
+
+            <!-- Special Feature Banner: Torna to Rajgad Range Trek -->
+            <div class="torna-ridge-banner">
+                <h3 class="torna-ridge-title">🏔️ Epic Range Trek: Torna to Rajgad Trail</h3>
+                <p style="color: var(--torna-text-dim); margin-bottom: 0.75rem;">
+                    For experienced endurance trekkers, the <strong>Torna-Rajgad Range Trek</strong> is one of Maharashtra's most celebrated 15 km Sahyadri ridge traverses.
+                </p>
+                <ul style="color: var(--torna-text-dim); margin-left: 1.25rem; line-height: 1.8;">
+                    <li><strong>Total Trail Distance:</strong> ~15 km along high mountain crests.</li>
+                    <li><strong>Duration:</strong> 6 to 8 hours of continuous ridge walking.</li>
+                    <li><strong>Route Highlights:</strong> Budhla Machi → Chela Wato → Sanjeevani Machi (Rajgad Fort).</li>
+                    <li><strong>Advisory:</strong> High endurance required; carry adequate water and hire a local guide as fog can reduce visibility on cliff edges.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- TAB 3: HISTORICAL SIGNIFICANCE -->
+        <section id="historyTab" class="torna-tab-content" role="tabpanel" aria-labelledby="tabBtnHistory">
+            <div class="torna-section-heading">
+                <span class="torna-eyebrow">The Cradle of Maratha Power</span>
+                <h2 class="torna-section-title">Historical Timeline of Torna Fort</h2>
+                <p class="torna-section-desc">
+                    Captured in 1646 CE by a 16-year-old Chhatrapati Shivaji Maharaj, Torna Fort ignited the founding of Hindavi Swarajya. The hidden treasure found here funded the construction of Rajgad Fort.
+                </p>
+            </div>
+
+            <div class="torna-timeline" id="timelineContainer">
+                <!-- Dynamically rendered via torna-trek.js -->
+            </div>
+        </section>
+
+        <!-- TAB 4: TREK ESTIMATOR & PACKING CHECKLIST -->
+        <section id="plannerTab" class="torna-tab-content" role="tabpanel" aria-labelledby="tabBtnPlanner">
+            
+            <!-- Interactive Trek Time Estimator -->
+            <div class="torna-calc-card">
+                <span class="torna-eyebrow">Interactive Calculator</span>
+                <h2 class="torna-section-title">Trek Time & Effort Estimator</h2>
+                <p class="torna-section-desc">
+                    Select your preferred trekking pace to calculate your estimated ascent time, descent time, water requirement, and recommended departure time from Velhe village.
+                </p>
+
+                <div class="torna-calc-controls">
+                    <button class="torna-calc-btn" type="button" data-pace="fast">⚡ Experienced (Fast)</button>
+                    <button class="torna-calc-btn active" type="button" data-pace="moderate">🚶 Regular Trekker (Moderate)</button>
+                    <button class="torna-calc-btn" type="button" data-pace="leisurely">🐢 Leisurely / Beginner</button>
+                </div>
+
+                <div class="torna-calc-results">
+                    <div class="torna-calc-res-item">
+                        <span class="torna-calc-res-val" id="calcAscent">3.5 – 4.0 hrs</span>
+                        <span class="torna-calc-res-lbl">Estimated Ascent Time</span>
+                    </div>
+                    <div class="torna-calc-res-item">
+                        <span class="torna-calc-res-val" id="calcDescent">2.0 – 2.5 hrs</span>
+                        <span class="torna-calc-res-lbl">Estimated Descent Time</span>
+                    </div>
+                    <div class="torna-calc-res-item">
+                        <span class="torna-calc-res-val" id="calcWater">3.5 Liters</span>
+                        <span class="torna-calc-res-lbl">Recommended Water Intake</span>
+                    </div>
+                    <div class="torna-calc-res-item">
+                        <span class="torna-calc-res-val" id="calcStart">6:00 AM</span>
+                        <span class="torna-calc-res-lbl">Recommended Start from Velhe</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Season Switcher -->
+            <div class="torna-season-card">
+                <span class="torna-eyebrow">Weather & Seasonal Advisory</span>
+                <h2 class="torna-section-title">Monsoon vs Winter Conditions</h2>
+                
+                <div class="torna-season-toggle">
+                    <div class="torna-season-switch">
+                        <button class="torna-season-opt active" type="button" data-season="monsoon">🌧️ Monsoon (July–Sept)</button>
+                        <button class="torna-season-opt" type="button" data-season="winter">☀️ Winter (Oct–Feb)</button>
+                    </div>
+                </div>
+
+                <div class="torna-season-info">
+                    <div class="torna-season-box" id="seasonMonsoon">
+                        <h4>🌧️ Monsoon Season Highlights & Warnings</h4>
+                        <p style="color: var(--torna-text-dim); font-size: 0.95rem; line-height: 1.6;">
+                            Lush green hillsides, misty peaks, and roaring waterfalls. 
+                            <strong>Caution:</strong> Trail rock patches become very slippery. Iron railings can be gusty and wet. High-grip footwear and waterproof gear are strictly mandatory.
+                        </p>
+                    </div>
+                    <div class="torna-season-box" id="seasonWinter" style="display: none;">
+                        <h4>☀️ Winter & Post-Monsoon Highlights</h4>
+                        <p style="color: var(--torna-text-dim); font-size: 0.95rem; line-height: 1.6;">
+                            Clear blue skies, pleasant cool breeze, and razor-sharp visibility of neighboring forts (Rajgad, Sinhagad, Raigad). Ideal for photography and long ridge walks. Carry sun protection and ample water.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Gear Checklist -->
+            <div class="torna-card">
+                <span class="torna-eyebrow">Interactive Gear Checklist</span>
+                <h2 class="torna-section-title">What to Pack for Torna Fort Trek</h2>
+                <p class="torna-section-desc">
+                    Check off items as you pack. Your progress is saved automatically during your session.
+                </p>
+
+                <div class="torna-checklist-grid" id="checklistGrid">
+                    <!-- Dynamically rendered via torna-trek.js -->
+                </div>
+            </div>
+
+            <!-- Travel & Logistics -->
+            <div class="torna-card">
+                <span class="torna-eyebrow">Logistics & Local Food</span>
+                <h2 class="torna-section-title">How to Reach Velhe & Local Information</h2>
+                <div class="torna-grid-2" style="margin-top: 1.25rem;">
+                    <div>
+                        <h3 style="font-size: 1.1rem; color: var(--torna-saffron); margin-bottom: 0.5rem;">🚌 Transportation Options</h3>
+                        <ul style="color: var(--torna-text-dim); font-size: 0.95rem; line-height: 1.8; margin-left: 1.2rem;">
+                            <li><strong>From Pune:</strong> MSRTC buses run daily from Swargate Bus Stand to Velhe (~2 hours journey).</li>
+                            <li><strong>By Car / Bike:</strong> Swargate → Khadakwasla → Donje → Paban → Velhe (approx 60 km via scenic countryside).</li>
+                            <li><strong>Parking:</strong> Paid vehicle parking is available near Velhe base village temple.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.1rem; color: var(--torna-emerald); margin-bottom: 0.5rem;">🍲 Local Meals & Hospitality</h3>
+                        <ul style="color: var(--torna-text-dim); font-size: 0.95rem; line-height: 1.8; margin-left: 1.2rem;">
+                            <li><strong>Local Homestays:</strong> Local villagers in Velhe serve authentic Maharashtrian meals.</li>
+                            <li><strong>Must-Try Food:</strong> Hot Pithla Bhakri, Thecha (chilli chutney), Solkadhi, and warm tea.</li>
+                            <li><strong>Water & Shelters:</strong> Menghai Devi temple at the summit provides emergency night shelter.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: PHOTO GALLERY -->
+        <section id="galleryTab" class="torna-tab-content" role="tabpanel" aria-labelledby="tabBtnGallery">
+            <div class="torna-section-heading">
+                <span class="torna-eyebrow">Visual Tour</span>
+                <h2 class="torna-section-title">Torna Fort Trek Photo Gallery</h2>
+                <p class="torna-section-desc">
+                    Click any image tile to view full-screen lightbox details and historical captions.
+                </p>
+            </div>
+
+            <div class="torna-gallery-grid" id="galleryGrid">
+                <!-- Dynamically rendered via torna-trek.js -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Accessible Lightbox Modal -->
+    <div id="lightbox" class="torna-lightbox" hidden aria-modal="true" role="dialog" aria-labelledby="lightboxTitle">
+        <div class="torna-lightbox-dialog">
+            <button id="lightboxClose" class="torna-lightbox-close" type="button" aria-label="Close modal lightbox">✕</button>
+            <span id="lightboxEmoji" class="torna-lightbox-emoji">🏔️</span>
+            <h3 id="lightboxTitle" class="torna-lightbox-h">Prachandagad Skyline</h3>
+            <p id="lightboxCaption" class="torna-lightbox-caption">The majestic cliff faces and expansive bastions of Torna Fort.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="torna-footer">
+        <div class="torna-container">
+            <p class="torna-footer-brand">Incredible India Explorer — Heritage & Adventure Series</p>
+            <p>Torna Fort (Prachandagad) · Sahyadri Range · Pune District, Maharashtra</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="torna-data.js"></script>
+    <script src="torna-trek.js"></script>
+</body>
+</html>

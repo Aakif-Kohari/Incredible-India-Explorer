@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taj Hotels: Explore India's Hospitality Heritage</title>
+    <style>
+        :root {
+            --taj-gold: #C5A059;
+            --taj-gold-dark: #9E7B35;
+            --taj-dark: #1A1A1A;
+            --taj-charcoal: #2C2C2C;
+            --taj-cream: #FDFBF7;
+            --taj-sand: #F4EEDC;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color: var(--taj-cream);
+            color: var(--taj-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(8px);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--taj-gold);
+            letter-spacing: 2px;
+            font-family: 'Times New Roman', serif;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--taj-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 95vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 1.5rem;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--taj-gold);
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 750px;
+            margin-bottom: 2.5rem;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 300;
+        }
+
+        .btn {
+            background: var(--taj-gold);
+            color: var(--taj-dark);
+            padding: 0.9rem 2.2rem;
+            border: none;
+            border-radius: 2px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 'Segoe UI', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: white;
+            color: var(--taj-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 5rem 2rem;
+        }
+
+        section {
+            margin-bottom: 6rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--taj-dark);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: var(--taj-gold);
+            margin: 0.8rem auto 0;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            color: #4A4A4A;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* Origin & Founder Layout */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .img-wrapper {
+            width: 100%;
+            height: 400px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .img-wrapper:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Interactive Property Explorer / Map Alternative */
+        .explorer-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--taj-gold);
+            color: var(--taj-dark);
+            padding: 0.6rem 1.5rem;
+            cursor: pointer;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--taj-gold);
+            color: white;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            transition: var(--transition);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .property-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .property-img {
+            height: 240px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .property-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .property-card:hover .property-img img {
+            transform: scale(1.06);
+        }
+
+        .property-info {
+            padding: 2rem;
+        }
+
+        .property-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--taj-dark);
+        }
+
+        .property-location {
+            font-size: 0.85rem;
+            color: var(--taj-gold-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--taj-gold);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 15px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: white;
+            border: 3px solid var(--taj-gold);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-left {
+            left: 0;
+        }
+
+        .timeline-right {
+            left: 50%;
+        }
+
+        .timeline-right::after {
+            left: -8px;
+        }
+
+        .timeline-content {
+            padding: 25px 30px;
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .timeline-content h3 {
+            color: var(--taj-gold-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        /* Sources Section */
+        .sources-box {
+            background: white;
+            padding: 2.5rem;
+            border-left: 4px solid var(--taj-gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .sources-box ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .sources-box li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--taj-dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #aaa;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 15px;
+            }
+
+            .timeline-item::after {
+                left: 12px;
+            }
+
+            .timeline-right {
+                left: 0%;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo">Taj Hotels</div>
+        <nav>
+            <ul>
+                <li><a href="#origin">Origin & Founder</a></li>
+                <li><a href="#properties">Iconic Properties</a></li>
+                <li><a href="#heritage">Hospitality Heritage</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#sources">Sources</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Taj Hotels</h1>
+        <p>A century-old legacy of authentic Indian hospitality, royal palaces, and world-class luxury architecture.</p>
+        <a href="#origin" class="btn">Explore Heritage</a>
+    </section>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Origin & Founder Section -->
+        <section id="origin">
+            <h2>Origin & The Visionary Founder</h2>
+            <div class="grid-2">
+                <div>
+                    <p>The story of Taj Hotels is inextricably linked with the industrial vision of <strong>Jamsetji Nusserwanji Tata</strong>, the pioneer of modern Indian industry. Legend dictates that the inception of the brand was catalyzed by an incident of racial discrimination at Mumbai’s erstwhile Watson's Hotel, where Jamsetji was denied entry as an Indian.</p>
+                    <p>Driven by a deep sense of national pride and an ambition to give Bombay a hotel that would rival the finest establishments of Europe, he commissioned the majestic <strong>Taj Mahal Palace</strong>. Opened on December 16, 1903, it became India's first luxury hotel to feature electricity, American fans, German elevators, and Turkish baths.</p>
+                </div>
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80" alt="The Taj Mahal Palace Mumbai">
+                </div>
+            </div>
+        </section>
+
+        <!-- Iconic Properties / Interactive Explorer Section -->
+        <section id="properties">
+            <h2>Iconic Properties & Palaces</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Explore legendary landmarks that define luxury across India's most historic destinations.</p>
+            
+            <div class="explorer-controls">
+                <button class="filter-btn active" onclick="filterProperties('all')">All Properties</button>
+                <button class="filter-btn" onclick="filterProperties('palace')">Royal Palaces</button>
+                <button class="filter-btn" onclick="filterProperties('heritage')">Heritage & Coastal</button>
+            </div>
+
+            <div class="property-grid" id="propertyGrid">
+                <!-- Property 1 -->
+                <div class="property-card" data-category="palace">
+                    <div class="property-img">
+                        <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=600&q=80" alt="Taj Lake Palace">
+                    </div>
+                    <div class="property-info">
+                        <div class="property-location">Udaipur, Rajasthan</div>
+                        <h3>Taj Lake Palace</h3>
+                        <p>Floating majestically on Lake Pichola, this 18th-century marble white palace offers breathtaking 360-degree views of the Aravalli hills.</p>
+                    </div>
+                </div>
+
+                <!-- Property 2 -->
+                <div class="property-card" data-category="palace">
+                    <div class="property-img">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" alt="Rambagh Palace">
+                    </div>
+                    <div class="property-info">
+                        <div class="property-location">Jaipur, Rajasthan</div>
+                        <h3>Rambagh Palace</h3>
+                        <p>The former residence of the Maharaja of Jaipur, featuring hand-carved marble lattices, sandstone balustrades, and lush Mughal gardens.</p>
+                    </div>
+                </div>
+
+                <!-- Property 3 -->
+                <div class="property-card" data-category="heritage">
+                    <div class="property-img">
+                        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80" alt="The Taj Mahal Palace">
+                    </div>
+                    <div class="property-info">
+                        <div class="property-location">Mumbai, Maharashtra</div>
+                        <h3>The Taj Mahal Palace</h3>
+                        <p>The crown jewel of Indian hospitality, overlooking the Gateway of India with a blend of Florentine, Moorish, and Oriental architecture.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Indian Hospitality Heritage Section -->
+        <section id="heritage">
+            <h2>The Ethos of Indian Hospitality</h2>
+            <div class="grid-2">
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Traditional Indian Hospitality">
+                </div>
+                <div>
+                    <p>At the core of the Taj brand philosophy is the timeless Indian tradition of <strong>Atithi Devo Bhava</strong> ("The Guest is God"). Unlike standardized Western hotel chains, Taj hotels integrate local cultural motifs, classical music, authentic regional gastronomy, and deeply intuitive personalized service.</p>
+                    <p>From palace butlers trained in royal etiquette to sustainable conservation initiatives across heritage wildlife lodges and city sanctuaries, Taj continues to champion the preservation of India's royal and artistic heritage.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline">
+            <h2>Milestones in Evolution</h2>
+            <div class="timeline">
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <h3>1903</h3>
+                        <p>Opening of the iconic Taj Mahal Palace in Mumbai, setting a new benchmark for luxury in Asia.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <h3>1970s</h3>
+                        <p>Expansion into international markets and management of historic royal palaces like Lake Palace in Udaipur.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <h3>2000s</h3>
+                        <p>Introduction of sub-brands including Vivanta and Ginger, expanding IHCL's footprint across diverse market segments.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <h3>Present Day</h3>
+                        <p>Operating a vast global portfolio of world-class hotels, resorts, and palaces under the parent company IHCL.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sources Section -->
+        <section id="sources">
+            <h2>Sources & References</h2>
+            <div class="sources-box">
+                <ul>
+                    <li>The Indian Hotels Company Limited (IHCL) Corporate Archives & Official Brand History.</li>
+                    <li>Historical documentation on Jamsetji Nusserwanji Tata and the establishment of the Taj Mahal Palace (1903).</li>
+                    <li>Architectural surveys of royal heritage palaces in Rajasthan and Maharashtra.</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Taj Hotels Heritage Project | Incredible India Explorer.</p>
+    </footer>
+
+    <!-- Interactive Filtering Script -->
+    <script>
+        function filterProperties(category) {
+            const cards = document.querySelectorAll('.property-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+/* Tata Motors Specific Styles */
+
+:root {
+  --tata-bg: #f9f9f9;
+  --tata-text: #2c3e50;
+  --tata-primary: #004c8f; /* Tata Blue */
+  --tata-secondary: #0077c8;
+  --tata-accent: #f1c40f;
+  --tata-card-bg: #ffffff;
+  --tata-border: #e1e8ed;
+  --tata-shadow: rgba(0, 76, 143, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tata-bg: #121820;
+    --tata-text: #ecf0f1;
+    --tata-primary: #3498db; 
+    --tata-secondary: #2980b9;
+    --tata-card-bg: #1a252f;
+    --tata-border: #2c3e50;
+    --tata-shadow: rgba(0, 0, 0, 0.5);
+  }
+}
+
+body {
+  background-color: var(--tata-bg);
+  color: var(--tata-text);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.tata-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.app-header {
+  background: linear-gradient(135deg, var(--tata-primary), var(--tata-secondary));
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 10px var(--tata-shadow);
+}
+
+.back-link {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+
+.back-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.app-header h1 {
+  margin: 0 0 1rem 0;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+}
+
+.app-header .subtitle {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.tata-section {
+  margin-bottom: 4rem;
+}
+
+.tata-content {
+  background-color: var(--tata-card-bg);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px var(--tata-shadow);
+  border: 1px solid var(--tata-border);
+}
+
+.tata-section h2 {
+  color: var(--tata-primary);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.tata-section h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 60px;
+  background-color: var(--tata-accent);
+}
+
+/* Segments */
+.tata-segments {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.tata-card {
+  background-color: var(--tata-card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px var(--tata-shadow);
+  border: 1px solid var(--tata-border);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tata-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px var(--tata-shadow);
+  border-color: var(--tata-primary);
+}
+
+.tata-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.tata-card h3 {
+  color: var(--tata-primary);
+  margin-top: 0;
+}
+
+/* Timeline */
+.tata-timeline-section {
+  background-color: var(--tata-card-bg);
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px var(--tata-shadow);
+  border: 1px solid var(--tata-border);
+}
+
+.tata-timeline-desc {
+  text-align: center;
+  margin-bottom: 3rem;
+  opacity: 0.8;
+}
+
+.tata-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tata-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background-color: var(--tata-border);
+  transform: translateX(-50%);
+}
+
+.tata-timeline-item {
+  position: relative;
+  width: 50%;
+  padding-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.tata-timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Left side */
+.tata-timeline-item:nth-child(odd) {
+  left: 0;
+  padding-right: 3rem;
+  text-align: right;
+}
+
+/* Right side */
+.tata-timeline-item:nth-child(even) {
+  left: 50%;
+  padding-left: 3rem;
+  text-align: left;
+}
+
+.tata-timeline-marker {
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  background-color: var(--tata-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  z-index: 1;
+  box-shadow: 0 0 0 4px var(--tata-bg);
+}
+
+.tata-timeline-item:nth-child(odd) .tata-timeline-marker {
+  right: -30px;
+}
+
+.tata-timeline-item:nth-child(even) .tata-timeline-marker {
+  left: -30px;
+}
+
+.tata-timeline-content {
+  background-color: var(--tata-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--tata-border);
+  box-shadow: 0 2px 8px var(--tata-shadow);
+  transition: transform 0.3s ease;
+}
+
+.tata-timeline-item:hover .tata-timeline-content {
+  transform: scale(1.02);
+  border-color: var(--tata-primary);
+}
+
+.tata-timeline-content h3 {
+  margin-top: 0;
+  color: var(--tata-secondary);
+  font-size: 1.25rem;
+}
+
+.tata-timeline-content p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+/* Responsive Timeline */
+@media screen and (max-width: 768px) {
+  .tata-timeline::before {
+    left: 30px;
+  }
+  
+  .tata-timeline-item {
+    width: 100%;
+    padding-left: 80px !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+  }
+  
+  .tata-timeline-item:nth-child(odd),
+  .tata-timeline-item:nth-child(even) {
+    left: 0;
+  }
+  
+  .tata-timeline-marker {
+    left: 0 !important;
+    right: auto !important;
+  }
+}

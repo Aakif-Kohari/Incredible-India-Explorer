@@ -95,6 +95,19 @@ const ALL_COINS_DATASET = [
         coinType: "Punch-marked",
         description: "Ancient silver Karshapana punched with 5 official symbols including Sun, 6-arm symbol, and Elephant.",
         url: "../coin/coin.html"
+    },
+    {
+        id: "pandya-fish-symbol",
+        name: "Pandya Fish-Symbol Coins",
+        ruler: "Pandya Dynasty",
+        period: "Ancient to Medieval",
+        region: "Tamil Nadu",
+        metal: "Silver/Copper",
+        script: "Tamil-Brahmi",
+        symbol: "Fish",
+        coinType: "Punch-marked/Die-struck",
+        description: "Explore the evolution of the recurring fish symbol across the ancient coinage of the Pandya Dynasty.",
+        url: "../pandya-fish-coins-explorer/index.html"
     }
 ];
 

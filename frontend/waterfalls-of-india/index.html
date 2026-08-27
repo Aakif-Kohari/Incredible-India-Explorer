@@ -1,6 +1,12 @@
 <!doctype html>
 <html lang="en">
     <head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
@@ -17,14 +23,7 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-    <script>
-        (function() {
-            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
-            if (theme === 'light') {
-                document.body.classList.add('light-theme');
-            }
-        })();
-    </script>
+    
         <header class="navbar" id="navbar">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
@@ -39,6 +38,20 @@
         </button>
         <nav class="nav-menu" id="nav-menu">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+            
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                    Safety ▾
+                </button>
+                <div class="dropdown-menu">
+                    <a
+                        href="../../frontend/emergency-assistance/emergency.html"
+                        class="dropdown-item"
+                    >
+                        🚨 Emergency Assistance
+                    </a>
+                </div>
+            </div>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
@@ -58,6 +71,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -128,6 +142,21 @@
                     </div>
                 </div>
 
+                <!-- Explore by Trek Difficulty -->
+                <div class="trek-difficulty-section glass-card">
+                    <div class="trek-difficulty-header">
+                        <h2>Explore by Trek Difficulty</h2>
+                        <p>Use the interactive Trek Difficulty Map to browse waterfalls by how demanding the approach is, compare accessibility, and jump straight to the full waterfall page.</p>
+                    </div>
+                    <div class="trek-difficulty-chips" role="group" aria-label="Explore waterfalls by trek difficulty">
+                        <button class="trek-difficulty-chip" data-difficulty="easy">🟢 Easy</button>
+                        <button class="trek-difficulty-chip" data-difficulty="moderate">🟡 Moderate</button>
+                        <button class="trek-difficulty-chip" data-difficulty="challenging">🟠 Challenging</button>
+                        <button class="trek-difficulty-chip" data-difficulty="difficult">🔴 Difficult</button>
+                    </div>
+                    <a class="trek-difficulty-cta" href="../waterfall-trek-difficulty-map/index.html">Open Trek Difficulty Map →</a>
+                </div>
+
                 <!-- Masonry Gallery Container -->
                 <div class="masonry-grid" id="waterfalls-grid" aria-live="polite">
                     <!-- Waterfall cards injected via JS -->
@@ -162,6 +191,7 @@
 
         <script src="../js-modules/storage.js" defer></script>
     <script src="../app.js" defer></script>
+        <script src="waterfalls-data.js" defer></script>
         <script src="script.js" defer></script>
         <script type="module" src="../auth.js"></script>
     </body>

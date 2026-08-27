@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monuments of India — Heritage Explorer | Incredible India Explorer</title>
+<meta name="description" content="Discover India's forts, palaces, temples, caves, tombs, memorials and archaeological sites. Search and filter thousands of years of architectural heritage by state, type and era.">
+
+<!-- Fonts: Cormorant Garamond (display, inscriptional serif) + Mukta (body, Indian-designed humanist sans) + Rajdhani (utility/labels, Indian-designed) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Mukta:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   Palette drawn from the material world of Indian monuments:
+   red sandstone, white marble, brass fittings, peacock-tile teal,
+   and deep stone shadow.
+   ============================================================ */
+:root{
+  --ink:        #1C130F;   /* deep stone shadow */
+  --ink-soft:   #2B1D16;
+  --sandstone:  #A6402A;   /* red sandstone — primary accent */
+  --sandstone-deep: #7A2E1F;
+  --maroon:     #5C1F1B;   /* deep arch / hero panels */
+  --marble:     #F4EDDD;   /* marble cream — light bg */
+  --marble-dim: #EAE0C9;
+  --brass:      #C08829;   /* brass / gold accent */
+  --brass-soft: #E0B25A;
+  --teal:       #0E5C52;   /* peacock tile accent */
+  --teal-soft:  #14786B;
+  --ivory:      #FFFBF2;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Mukta', -apple-system, sans-serif;
+  --font-utility: 'Rajdhani', sans-serif;
+
+  --radius-s: 6px;
+  --radius-m: 14px;
+  --shadow-card: 0 12px 30px -14px rgba(28,19,15,0.45);
+  --container: 1180px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  background:var(--ivory);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{ display:block; max-width:100%; }
+a{ color:inherit; text-decoration:none; }
+h1,h2,h3,h4{ font-family:var(--font-display); margin:0; font-weight:600; }
+p{ margin:0; }
+ul{ margin:0; padding:0; list-style:none; }
+button{ font-family:inherit; cursor:pointer; }
+input,select{ font-family:inherit; }
+
+:focus-visible{
+  outline: 3px solid var(--brass);
+  outline-offset: 3px;
+}
+
+.container{ max-width:var(--container); margin:0 auto; padding:0 24px; }
+.eyebrow{
+  font-family:var(--font-utility);
+  font-weight:600;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  font-size:0.78rem;
+  color:var(--brass);
+}
+.section{ padding:88px 0; }
+.section-head{ max-width:680px; margin:0 0 48px; }
+.section-head h2{ font-size:clamp(2rem,4vw,2.75rem); margin-top:10px; color:var(--ink); }
+.section-head p{ margin-top:14px; font-size:1.05rem; color:#4a3a32; }
+.section--dark{ background:var(--ink); color:var(--marble); }
+.section--dark .section-head p{ color:#cdbfae; }
+.section--dark .section-head h2{ color:var(--ivory); }
+
+/* ---------- Jali lattice divider (signature ornament, SVG pattern) ---------- */
+.jali-divider{
+  height:34px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='34' viewBox='0 0 44 34'%3E%3Cg fill='none' stroke='%23C08829' stroke-width='1.1' opacity='0.55'%3E%3Cpath d='M22 2 L40 17 L22 32 L4 17 Z'/%3E%3Ccircle cx='22' cy='17' r='5'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat:repeat-x;
+  background-position:center;
+}
+
+/* ---------- Hidden SVG defs: signature pointed-arch clip-path ---------- */
+.svg-defs{ position:absolute; width:0; height:0; overflow:hidden; }
+
+.arch-frame{ clip-path:url(#archClip); }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.site-nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(28,19,15,0.94);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid rgba(192,136,41,0.25);
+}
+.nav-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 0;
+}
+.brand{ display:flex; align-items:center; gap:10px; color:var(--ivory); }
+.brand-mark{ width:34px; height:34px; flex:none; }
+.brand-text{ font-family:var(--font-display); font-size:1.3rem; font-weight:600; line-height:1.1; }
+.brand-text small{ display:block; font-family:var(--font-utility); font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass-soft); font-weight:600; }
+.nav-links{ display:flex; gap:26px; align-items:center; }
+.nav-links a{
+  font-family:var(--font-utility); font-weight:600; font-size:0.88rem;
+  letter-spacing:0.03em; color:#E7DCC8;
+  transition:color .15s ease;
+}
+.nav-links a:hover{ color:var(--brass-soft); }
+.nav-cta{
+  background:var(--brass); color:var(--ink); padding:9px 18px;
+  border-radius:999px; font-family:var(--font-utility); font-weight:700;
+  font-size:0.85rem; letter-spacing:0.02em; border:none;
+}
+.nav-toggle{ display:none; background:none; border:none; color:var(--ivory); }
+@media (max-width:860px){
+  .nav-links{ display:none; }
+  .nav-toggle{ display:block; }
+}
+
+/* ============================================================
+   HERO — the arch is the thesis
+   ============================================================ */
+.hero{
+  position:relative;
+  background:
+    radial-gradient(ellipse at 20% -10%, rgba(192,136,41,0.18), transparent 55%),
+    linear-gradient(180deg, var(--ink) 0%, var(--ink-soft) 100%);
+  color:var(--ivory);
+  overflow:hidden;
+}
+.hero-grid{
+  display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px;
+  align-items:center;
+  padding:104px 0 80px;
+}
+.hero-eyebrow{ color:var(--brass-soft); }
+.hero h1{
+  font-size:clamp(2.6rem,5.2vw,4.1rem);
+  line-height:1.05; margin-top:14px; color:var(--ivory);
+}
+.hero h1 em{ color:var(--brass-soft); font-style:italic; }
+.hero-sub{
+  margin-top:22px; font-size:1.12rem; color:#D9CBB6; max-width:520px;
+}
+.hero-actions{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:13px 26px; border-radius:999px; font-family:var(--font-utility);
+  font-weight:700; font-size:0.92rem; letter-spacing:0.02em; border:1px solid transparent;
+  transition:transform .15s ease, background .15s ease;
+}
+.btn:hover{ transform:translateY(-2px); }
+.btn-primary{ background:var(--brass); color:var(--ink); }
+.btn-primary:hover{ background:var(--brass-soft); }
+.btn-ghost{ border-color:rgba(244,237,221,0.35); color:var(--ivory); }
+.btn-ghost:hover{ border-color:var(--brass-soft); color:var(--brass-soft); }
+
+.hero-stats{ display:flex; gap:34px; margin-top:52px; flex-wrap:wrap; }
+.stat b{ display:block; font-family:var(--font-display); font-size:2.1rem; color:var(--brass-soft); }
+.stat span{ font-family:var(--font-utility); font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:#B7A990; }
+
+/* Hero arch visual */
+.hero-visual{ position:relative; }
+.hero-arch{
+  aspect-ratio:3/4; width:100%;
+  background:linear-gradient(180deg, var(--maroon) 0%, var(--sandstone-deep) 60%, var(--sandstone) 100%);
+  clip-path:url(#archClip);
+  position:relative;
+  box-shadow:var(--shadow-card);
+}
+.hero-arch svg.skyline{ position:absolute; inset:0; width:100%; height:100%; }
+.hero-arch-caption{
+  position:absolute; left:50%; bottom:26px; transform:translateX(-50%);
+  font-family:var(--font-utility); font-size:0.72rem; letter-spacing:0.16em;
+  text-transform:uppercase; color:rgba(244,237,221,0.85); text-align:center; width:80%;
+}
+@media (max-width:900px){
+  .hero-grid{ grid-template-columns:1fr; padding-top:64px; }
+  .hero-visual{ max-width:340px; margin:0 auto; }
+}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about{ background:var(--marble); }
+.about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+.about-copy p + p{ margin-top:16px; }
+.about-copy{ font-size:1.05rem; color:#3E2E26; }
+.about-pull{
+  font-family:var(--font-display); font-style:italic; font-size:1.6rem;
+  color:var(--sandstone-deep); border-left:3px solid var(--brass);
+  padding-left:22px; line-height:1.4;
+}
+.about-pull cite{ display:block; margin-top:14px; font-style:normal; font-family:var(--font-utility); font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); }
+@media (max-width:860px){ .about-grid{ grid-template-columns:1fr; gap:28px; } }
+
+/* ============================================================
+   FEATURED MONUMENTS — arch-topped cards (signature element reused)
+   ============================================================ */
+.featured-grid{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:26px;
+}
+@media (max-width:1020px){ .featured-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px){ .featured-grid{ grid-template-columns:1fr; } }
+
+.mon-card{
+  background:var(--ivory); border-radius:var(--radius-m);
+  overflow:hidden; box-shadow:var(--shadow-card);
+  display:flex; flex-direction:column;
+  border:1px solid rgba(28,19,15,0.06);
+}
+.mon-card-art{
+  aspect-ratio:4/3.1;
+  clip-path:url(#archClip);
+  position:relative;
+  background:var(--maroon);
+}
+.mon-card-art svg{ position:absolute; inset:0; width:100%; height:100%; }
+.mon-card-art img{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  transition:transform .5s ease;
+}
+.mon-card:hover .mon-card-art img{ transform:scale(1.06); }
+.mon-card-art .art-fallback{ position:absolute; inset:0; }
+.mon-card-body{ padding:20px 20px 24px; flex:1; display:flex; flex-direction:column; }
+.mon-tag{
+  font-family:var(--font-utility); font-weight:600; font-size:0.68rem;
+  letter-spacing:0.14em; text-transform:uppercase; color:var(--teal);
+}
+.mon-card-body h3{ font-size:1.35rem; margin-top:8px; color:var(--ink); }
+.mon-loc{ display:flex; align-items:center; gap:6px; margin-top:4px; font-family:var(--font-utility); font-size:0.82rem; color:var(--sandstone); font-weight:600; }
+.mon-desc{ margin-top:10px; font-size:0.93rem; color:#5A4A40; flex:1; }
+.mon-link{
+  margin-top:16px; display:inline-flex; align-items:center; gap:6px;
+  font-family:var(--font-utility); font-weight:700; font-size:0.82rem;
+  color:var(--sandstone-deep); letter-spacing:0.03em;
+}
+.mon-link:hover{ color:var(--brass); }
+
+/* ============================================================
+   EXPLORE BY STATE
+   ============================================================ */
+.state-strip{ display:flex; flex-wrap:wrap; gap:12px; }
+.state-chip{
+  background:var(--ivory); border:1px solid rgba(28,19,15,0.12);
+  padding:10px 18px; border-radius:999px; font-family:var(--font-utility);
+  font-weight:600; font-size:0.88rem; color:var(--ink);
+  display:flex; align-items:center; gap:8px;
+  transition:background .15s ease, color .15s ease, border-color .15s ease;
+}
+.state-chip .count{ color:var(--sandstone); font-weight:700; }
+.state-chip:hover, .state-chip[aria-pressed="true"]{
+  background:var(--ink); color:var(--ivory); border-color:var(--ink);
+}
+.state-chip:hover .count, .state-chip[aria-pressed="true"] .count{ color:var(--brass-soft); }
+
+/* ============================================================
+   MONUMENT TYPES
+   ============================================================ */
+.types-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+@media (max-width:900px){ .types-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:520px){ .types-grid{ grid-template-columns:1fr; } }
+.type-card{
+  background:linear-gradient(160deg, var(--ink-soft), var(--ink));
+  border:1px solid rgba(192,136,41,0.25);
+  border-radius:var(--radius-m); padding:26px 22px;
+  color:var(--ivory); text-align:left;
+  display:flex; flex-direction:column; gap:14px;
+  transition:transform .15s ease, border-color .15s ease;
+}
+.type-card:hover{ transform:translateY(-4px); border-color:var(--brass); }
+.type-card svg{ width:34px; height:34px; color:var(--brass-soft); }
+.type-card h3{ font-size:1.2rem; color:var(--ivory); }
+.type-card span{ font-family:var(--font-utility); font-size:0.78rem; color:#B7A990; letter-spacing:0.06em; text-transform:uppercase; }
+
+/* ============================================================
+   HISTORICAL ERAS — timeline (order carries real chronological info)
+   ============================================================ */
+.era-track{
+  display:grid; grid-template-columns:repeat(6,1fr); gap:0;
+  position:relative; padding-top:34px;
+}
+.era-track::before{
+  content:""; position:absolute; top:8px; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, var(--brass), var(--sandstone) 50%, var(--teal));
+  opacity:0.5;
+}
+.era-item{ position:relative; padding:0 14px 0 0; cursor:pointer; background:none; border:none; text-align:left; }
+.era-dot{
+  width:14px; height:14px; border-radius:50%; background:var(--brass);
+  border:3px solid var(--marble); position:relative; z-index:1; margin-bottom:14px;
+  box-shadow:0 0 0 1px rgba(28,19,15,0.15);
+}
+.era-item h4{ font-size:1.05rem; color:var(--ink); }
+.era-item .era-range{ font-family:var(--font-utility); font-size:0.72rem; letter-spacing:0.08em; color:var(--sandstone); font-weight:700; text-transform:uppercase; margin-top:2px; display:block; }
+.era-item p{ margin-top:8px; font-size:0.86rem; color:#5A4A40; }
+@media (max-width:960px){
+  .era-track{ grid-template-columns:1fr; gap:26px; }
+  .era-track::before{ display:none; }
+}
+
+/* ============================================================
+   MONUMENT EXPLORER — search + filter
+   ============================================================ */
+.explorer{ background:var(--marble); }
+.explorer-controls{
+  display:flex; gap:14px; flex-wrap:wrap; align-items:center;
+  background:var(--ivory); border-radius:var(--radius-m); padding:18px;
+  box-shadow:var(--shadow-card); margin-bottom:32px;
+}
+.search-field{
+  flex:1 1 240px; display:flex; align-items:center; gap:10px;
+  border:1px solid rgba(28,19,15,0.15); border-radius:999px; padding:10px 18px;
+  background:var(--ivory);
+}
+.search-field svg{ width:18px; height:18px; color:var(--sandstone); flex:none; }
+.search-field input{
+  border:none; outline:none; background:none; width:100%;
+  font-size:0.98rem; color:var(--ink);
+}
+.filter-select{
+  border:1px solid rgba(28,19,15,0.15); border-radius:999px;
+  padding:10px 16px; background:var(--ivory); color:var(--ink);
+  font-family:var(--font-utility); font-weight:600; font-size:0.86rem;
+}
+.explorer-meta{
+  font-family:var(--font-utility); font-size:0.82rem; color:#6b5a4f;
+  margin-bottom:18px; letter-spacing:0.02em;
+}
+.explorer-meta b{ color:var(--sandstone-deep); }
+.explorer-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:22px;
+}
+@media (max-width:920px){ .explorer-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:600px){ .explorer-grid{ grid-template-columns:1fr; } }
+
+.ex-card{
+  background:var(--ivory); border-radius:var(--radius-m); overflow:hidden;
+  border:1px solid rgba(28,19,15,0.08); box-shadow:0 8px 20px -14px rgba(28,19,15,0.4);
+  display:flex; gap:0;
+}
+.ex-card-icon{
+  width:88px; flex:none; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(160deg, var(--sandstone), var(--maroon));
+}
+.ex-card-icon svg{ width:34px; height:34px; color:var(--brass-soft); }
+.ex-card-body{ padding:16px 18px; flex:1; }
+.ex-card-body h4{ font-family:var(--font-display); font-size:1.12rem; color:var(--ink); }
+.ex-card-body .ex-loc{ font-family:var(--font-utility); font-size:0.76rem; color:var(--sandstone); font-weight:700; margin-top:2px; }
+.ex-card-body p{ font-size:0.86rem; color:#5A4A40; margin-top:8px; }
+.ex-card-body a{ display:inline-block; margin-top:10px; font-family:var(--font-utility); font-weight:700; font-size:0.78rem; color:var(--teal); }
+.ex-card-body a:hover{ color:var(--brass); }
+
+.no-results{
+  text-align:center; padding:60px 20px; color:#7a6a5e;
+  font-family:var(--font-utility);
+}
+
+/* ============================================================
+   CTA BAND
+   ============================================================ */
+.cta-band{
+  background:linear-gradient(120deg, var(--maroon), var(--sandstone-deep) 60%, var(--sandstone));
+  color:var(--ivory); text-align:center; padding:86px 24px;
+  position:relative; overflow:hidden;
+}
+.cta-band h2{ font-size:clamp(2rem,4.4vw,3rem); color:var(--ivory); }
+.cta-band p{ margin-top:14px; color:#F1E3CC; max-width:560px; margin-left:auto; margin-right:auto; font-size:1.05rem; }
+.cta-actions{ display:flex; justify-content:center; gap:14px; margin-top:30px; flex-wrap:wrap; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer{ background:var(--ink); color:#C9BBA6; padding:56px 0 30px; }
+.footer-grid{ display:grid; grid-template-columns:1.4fr repeat(3,1fr); gap:36px; }
+.footer-grid h5{ font-family:var(--font-utility); color:var(--brass-soft); font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:14px; }
+.footer-grid ul li + li{ margin-top:9px; }
+.footer-grid a:hover{ color:var(--brass-soft); }
+.footer-brand p{ margin-top:12px; font-size:0.9rem; max-width:280px; color:#B7A990; }
+.footer-bottom{
+  margin-top:44px; padding-top:22px; border-top:1px solid rgba(244,237,221,0.12);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  font-family:var(--font-utility); font-size:0.78rem; color:#8f7d6d;
+}
+@media (max-width:860px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:520px){ .footer-grid{ grid-template-columns:1fr; } }
+
+/* Skip link for accessibility */
+.skip-link{
+  position:absolute; left:-9999px; top:0; background:var(--brass); color:var(--ink);
+  padding:10px 16px; z-index:100; font-family:var(--font-utility); font-weight:700;
+}
+.skip-link:focus{ left:16px; top:16px; }
+
+/* Reveal-on-scroll (subtle, orchestrated) */
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.is-visible{ opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Hidden SVG: signature pointed-arch (iwan) clip path, reused across hero, cards -->
+<svg class="svg-defs" aria-hidden="true">
+  <defs>
+    <clipPath id="archClip" clipPathUnits="objectBoundingBox">
+      <path d="M0,1 L0,0.46 C0,0.24 0.14,0.045 0.5,0 C0.86,0.045 1,0.24 1,0.46 L1,1 Z"/>
+    </clipPath>
+  </defs>
+</svg>
+
+<!-- ============================================================
+     NAV — replace hrefs with the project's real routes when wiring
+     this page into the existing site header/footer include.
+     ============================================================ -->
+<header class="site-nav">
+  <div class="container nav-row">
+    <a class="brand" href="#main">
+      <svg class="brand-mark" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+        <path d="M4 30 V16 C4 9 9.5 4 17 4 C24.5 4 30 9 30 16 V30" stroke="#C08829" stroke-width="2"/>
+        <path d="M17 4 V1" stroke="#C08829" stroke-width="2"/>
+        <circle cx="17" cy="1" r="1.4" fill="#C08829"/>
+        <path d="M9 30 V19 M25 30 V19" stroke="#C08829" stroke-width="2"/>
+      </svg>
+      <span class="brand-text">Heritage Explorer<small>Incredible India Explorer</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#featured">Featured</a>
+      <a href="#states">States</a>
+      <a href="#types">Types</a>
+      <a href="#eras">Eras</a>
+      <a href="#explorer">Explorer</a>
+    </nav>
+    <a class="nav-cta" href="#explorer">Start exploring</a>
+    <button class="nav-toggle" aria-label="Open menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================================================
+     1. HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow hero-eyebrow">Monuments of India</p>
+      <h1>Six thousand years of stone, <em>told in arches.</em></h1>
+      <p class="hero-sub">From marble mausoleums to rock-cut caves, hilltop forts to temple towers — explore the monuments that trace India's history across 28 states and seven architectural traditions.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#explorer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          Search the collection
+        </a>
+        <a class="btn btn-ghost" href="#featured">Browse featured monuments</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b id="statMonuments">3,600+</b><span>Protected monuments</span></div>
+        <div class="stat"><b>43</b><span>UNESCO World Heritage Sites</span></div>
+        <div class="stat"><b>28</b><span>States &amp; union territories</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-arch">
+        <svg class="skyline" viewBox="0 0 300 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+          <rect width="300" height="400" fill="url(#heroGrad)"/>
+          <defs>
+            <linearGradient id="heroGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#5C1F1B"/>
+              <stop offset="0.6" stop-color="#7A2E1F"/>
+              <stop offset="1" stop-color="#A6402A"/>
+            </linearGradient>
+          </defs>
+          <!-- stylised skyline silhouette: dome, minarets, shikhara, minar -->
+          <g fill="none" stroke="#E0B25A" stroke-width="2" opacity="0.9">
+            <!-- ground line -->
+            <line x1="0" y1="330" x2="300" y2="330"/>
+            <!-- Taj-like dome center -->
+            <path d="M120 330 V270 Q120 235 150 235 Q180 235 180 270 V330 Z"/>
+            <path d="M150 235 V210 M144 210 h12"/>
+            <!-- minarets -->
+            <rect x="95" y="260" width="10" height="70"/>
+            <path d="M95 260 Q100 246 105 260"/>
+            <rect x="195" y="260" width="10" height="70"/>
+            <path d="M195 260 Q200 246 205 260"/>
+            <!-- temple shikhara left -->
+            <path d="M40 330 V300 L55 250 L70 300 V330 Z"/>
+            <!-- minar tower right -->
+            <path d="M240 330 V240 L250 220 L260 240 V330 Z"/>
+            <line x1="240" y1="280" x2="260" y2="280"/>
+            <line x1="240" y1="305" x2="260" y2="305"/>
+          </g>
+          <g fill="#E0B25A" opacity="0.9">
+            <circle cx="150" cy="205" r="3"/>
+          </g>
+        </svg>
+      </div>
+      <p class="hero-arch-caption">Every entry point on this page opens through the same arch — the signature of Mughal, Rajput and Deccan gateways alike.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     2. ABOUT INDIA'S MONUMENTS
+     ============================================================ -->
+<section class="about section" id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <p class="eyebrow">About the collection</p>
+      <h2>Architecture as a record of every era India has lived through</h2>
+      <div class="about-copy" style="margin-top:22px;">
+        <p>India's monuments are not a single style but a layered conversation — Buddhist rock-cut sanctuaries, Dravidian temple towers, Rajput hill forts, Indo-Islamic mausoleums, and colonial civic halls, each built on what came before.</p>
+        <p>The Archaeological Survey of India protects thousands of these sites, but only a fraction are widely known. Heritage Explorer is a starting map: browse by state, by monument type, or by the era that shaped it, then follow any card through to its full story.</p>
+      </div>
+    </div>
+    <blockquote class="about-pull reveal">
+      "A monument is a sentence the past leaves standing, so that the present has something to read."
+      <cite>— on why we protect what we build</cite>
+    </blockquote>
+  </div>
+</section>
+
+<div class="jali-divider" role="presentation"></div>
+
+<!-- ============================================================
+     3. FEATURED MONUMENTS
+     ============================================================ -->
+<section class="section" id="featured">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Featured monuments</p>
+      <h2>Eight places to start</h2>
+      <p>A curated first look at the range this collection covers — mausoleum to fort to cave temple.</p>
+    </div>
+    <div class="featured-grid" id="featuredGrid"></div>
+    <p style="margin-top:18px; font-family:var(--font-utility); font-size:0.72rem; letter-spacing:0.04em; color:#8a7a6d;">
+      Photographs via Wikimedia Commons, © their respective contributors, used under Creative Commons licences.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     4. EXPLORE BY STATE
+     ============================================================ -->
+<section class="section" id="states" style="background:var(--marble);">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Explore by region</p>
+      <h2>Every state has a heritage trail</h2>
+      <p>Pick a state to filter the full explorer below to monuments in that region.</p>
+    </div>
+    <div class="state-strip" id="stateStrip" role="group" aria-label="Filter monuments by state"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. EXPLORE BY MONUMENT TYPE
+     ============================================================ -->
+<section class="section section--dark" id="types">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Explore by type</p>
+      <h2>Seven kinds of heritage</h2>
+      <p>Forts guarded borders, temples housed gods, tombs preserved memory — each type tells a different kind of story.</p>
+    </div>
+    <div class="types-grid" id="typesGrid"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. HISTORICAL ERAS
+     ============================================================ -->
+<section class="section" id="eras">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Explore by era</p>
+      <h2>Six eras, one continuous build</h2>
+      <p>Ordered chronologically — click an era to filter the explorer to monuments built in that period.</p>
+    </div>
+    <div class="era-track" id="eraTrack"></div>
+  </div>
+</section>
+
+<div class="jali-divider" role="presentation"></div>
+
+<!-- ============================================================
+     7. MONUMENT EXPLORER — search + filter
+     ============================================================ -->
+<section class="explorer section" id="explorer">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Monument explorer</p>
+      <h2>Search the full collection</h2>
+      <p>Combine a keyword with state, type or era filters — or clear everything to browse all 24 monuments.</p>
+    </div>
+
+    <div class="explorer-controls">
+      <label class="search-field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <span class="visually-hidden" style="position:absolute;left:-9999px;">Search monuments</span>
+        <input type="search" id="searchInput" placeholder="Search by monument, city or state…" aria-label="Search monuments">
+      </label>
+      <select class="filter-select" id="categorySelect" aria-label="Filter by monument type">
+        <option value="all">All types</option>
+      </select>
+      <select class="filter-select" id="stateSelect" aria-label="Filter by state">
+        <option value="all">All states</option>
+      </select>
+      <select class="filter-select" id="eraSelect" aria-label="Filter by era">
+        <option value="all">All eras</option>
+      </select>
+      <button class="btn btn-ghost" id="clearFilters" style="color:var(--ink); border-color:rgba(28,19,15,0.25);">Clear filters</button>
+    </div>
+
+    <p class="explorer-meta" id="explorerMeta" aria-live="polite"></p>
+    <div class="explorer-grid" id="explorerGrid"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8. CALL TO EXPLORE MORE
+     ============================================================ -->
+<section class="cta-band">
+  <div class="container" style="position:relative;">
+    <p class="eyebrow" style="color:#F1D9A8;">Keep going</p>
+    <h2>There are thousands more monuments to uncover</h2>
+    <p>Every card here links through to a full monument page with history, visiting hours and photographs. This is the front door — the archive is much bigger.</p>
+    <div class="cta-actions">
+      <a class="btn btn-primary" href="#explorer">Explore all monuments</a>
+      <a class="btn btn-ghost" href="#states">Browse by state</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER — merge into the project's shared footer include
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <span class="brand-text" style="color:var(--ivory);">Heritage Explorer</span>
+      <p>Part of Incredible India Explorer — a map of the country's monuments, one region at a time.</p>
+    </div>
+    <div>
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="#featured">Featured monuments</a></li>
+        <li><a href="#states">By state</a></li>
+        <li><a href="#types">By type</a></li>
+        <li><a href="#eras">By era</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Categories</h5>
+      <ul>
+        <li><a href="#explorer" data-footer-cat="Forts">Forts</a></li>
+        <li><a href="#explorer" data-footer-cat="Temples">Temples</a></li>
+        <li><a href="#explorer" data-footer-cat="Palaces">Palaces</a></li>
+        <li><a href="#explorer" data-footer-cat="Caves">Caves</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>About</h5>
+      <ul>
+        <li><a href="#about">Our mission</a></li>
+        <li><a href="#">Contribute a monument</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© Incredible India Explorer — Heritage Explorer</span>
+    <span>Built for issue #2714</span>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   DATA
+   In the real project this should be fetched from the site's
+   monument dataset / API. Kept inline here so this page works
+   standalone; swap MONUMENTS for a fetch() call when wiring in.
+   Each monument's `url` points at the project's monument-detail
+   template — update the path pattern to match the existing routes.
+   ============================================================ */
+const CATEGORIES = ["Forts","Palaces","Temples","Caves","Memorials","Tombs","Archaeological Sites"];
+
+const ERAS = [
+  { id:"ancient", label:"Ancient & Rock-cut", range:"3rd c. BCE – 6th c. CE", blurb:"Buddhist stupas and cave sanctuaries carved under Mauryan and Satavahana patronage." },
+  { id:"early-medieval", label:"Early Medieval", range:"6th – 12th c.", blurb:"Dravidian gopurams and Kalinga temple towers reach their classical form." },
+  { id:"sultanate", label:"Delhi Sultanate", range:"1206 – 1526", blurb:"Indo-Islamic arches and minarets appear alongside existing temple traditions." },
+  { id:"mughal", label:"Mughal Empire", range:"1526 – 1857", blurb:"Marble mausoleums, red sandstone forts, and formal charbagh gardens." },
+  { id:"colonial", label:"Colonial Era", range:"1600 – 1947", blurb:"Indo-Saracenic palaces and civic memorials blend European and Indian forms." },
+  { id:"modern", label:"Independent India", range:"1947 – present", blurb:"National memorials and restored heritage sites mark the republic's own history." }
+];
+
+const MONUMENTS = [
+  { id:"taj-mahal", name:"Taj Mahal", city:"Agra", state:"Uttar Pradesh", category:"Tombs", era:"mughal", featured:true,
+    img:"Taj Mahal (Edited).jpeg",
+    desc:"An ivory-marble mausoleum built by Shah Jahan for Mumtaz Mahal, and the most recognised symbol of Mughal architecture." },
+  { id:"red-fort", name:"Red Fort", city:"Delhi", state:"Delhi", category:"Forts", era:"mughal", featured:true,
+    img:"Red Fort in Delhi 03-2016 img3.jpg",
+    desc:"The fortified red sandstone seat of Mughal power, where India's flag is raised each Independence Day." },
+  { id:"hawa-mahal", name:"Hawa Mahal", city:"Jaipur", state:"Rajasthan", category:"Palaces", era:"early-medieval", featured:true,
+    img:"Palace of Wind - Hawa Mahal - Jaipur.jpg",
+    desc:"A honeycomb façade of 953 small windows, built so the royal women could watch street life unseen." },
+  { id:"ajanta-caves", name:"Ajanta Caves", city:"Aurangabad", state:"Maharashtra", category:"Caves", era:"ancient", featured:true,
+    img:"Ajanta cave no. 9 2010.jpg",
+    desc:"Rock-cut Buddhist prayer halls and monasteries carved into a horseshoe gorge, famed for their murals." },
+  { id:"meenakshi-temple", name:"Meenakshi Temple", city:"Madurai", state:"Tamil Nadu", category:"Temples", era:"early-medieval", featured:true,
+    img:"Aerial view of Madurai Meenakshi amman temple.jpg",
+    desc:"A Dravidian temple complex with fourteen sculpted gopuram towers dedicated to Meenakshi and Sundareswarar." },
+  { id:"qutub-minar", name:"Qutub Minar", city:"Delhi", state:"Delhi", category:"Archaeological Sites", era:"sultanate", featured:true,
+    img:"Qutb Minar Tower.jpg",
+    desc:"A 73-metre fluted sandstone and marble minaret, the tallest brick minaret in the world." },
+  { id:"mysore-palace", name:"Mysore Palace", city:"Mysuru", state:"Karnataka", category:"Palaces", era:"colonial", featured:true,
+    img:"Mysore Palace Morning.jpg",
+    desc:"An Indo-Saracenic royal residence lit by nearly 100,000 bulbs during the Dasara festival." },
+  { id:"india-gate", name:"India Gate", city:"New Delhi", state:"Delhi", category:"Memorials", era:"colonial", featured:true,
+    img:"India Gate in New Delhi 03-2016.jpg",
+    desc:"A 42-metre sandstone war memorial arch honouring soldiers of the Indian Army." },
+  { id:"amber-fort", name:"Amber Fort", city:"Jaipur", state:"Rajasthan", category:"Forts", era:"early-medieval",
+    desc:"A hilltop Rajput fort-palace of pale sandstone and marble overlooking Maota Lake." },
+  { id:"golden-temple", name:"Golden Temple", city:"Amritsar", state:"Punjab", category:"Temples", era:"colonial",
+    desc:"Sikhism's holiest gurdwara, its upper floors gilded and set within a sacred pool." },
+  { id:"humayuns-tomb", name:"Humayun's Tomb", city:"Delhi", state:"Delhi", category:"Tombs", era:"mughal",
+    desc:"The garden-tomb that set the template later refined in the Taj Mahal." },
+  { id:"konark-sun-temple", name:"Konark Sun Temple", city:"Konark", state:"Odisha", category:"Temples", era:"early-medieval",
+    desc:"A 13-century temple built as a colossal stone chariot for the sun god, drawn by carved wheels and horses." },
+  { id:"gateway-of-india", name:"Gateway of India", city:"Mumbai", state:"Maharashtra", category:"Memorials", era:"colonial",
+    desc:"A basalt triumphal arch on the Mumbai waterfront, built to commemorate a royal visit in 1911." },
+  { id:"ellora-caves", name:"Ellora Caves", city:"Aurangabad", state:"Maharashtra", category:"Caves", era:"ancient",
+    desc:"34 rock-cut Buddhist, Hindu and Jain monuments, including the monolithic Kailasa temple." },
+  { id:"charminar", name:"Charminar", city:"Hyderabad", state:"Telangana", category:"Archaeological Sites", era:"sultanate",
+    desc:"A four-minaret mosque-gateway built by the Qutb Shahi dynasty at the heart of old Hyderabad." },
+  { id:"khajuraho-temples", name:"Khajuraho Temples", city:"Khajuraho", state:"Madhya Pradesh", category:"Temples", era:"early-medieval",
+    desc:"Chandela-era temples famed for their intricate sculpture, spread across a UNESCO-listed complex." },
+  { id:"city-palace-udaipur", name:"City Palace, Udaipur", city:"Udaipur", state:"Rajasthan", category:"Palaces", era:"early-medieval",
+    desc:"A cluster of courtyards, towers and terraces built over four centuries above Lake Pichola." },
+  { id:"jaisalmer-fort", name:"Jaisalmer Fort", city:"Jaisalmer", state:"Rajasthan", category:"Forts", era:"early-medieval",
+    desc:"A living fort of golden sandstone rising from the Thar Desert, still home to a resident population." },
+  { id:"victoria-memorial", name:"Victoria Memorial", city:"Kolkata", state:"West Bengal", category:"Memorials", era:"colonial",
+    desc:"A white marble memorial hall blending British and Mughal architectural elements, now a museum." },
+  { id:"sanchi-stupa", name:"Sanchi Stupa", city:"Sanchi", state:"Madhya Pradesh", category:"Archaeological Sites", era:"ancient",
+    desc:"A Mauryan-era Buddhist stupa with carved gateways, among the oldest stone structures in India." },
+  { id:"hampi", name:"Hampi", city:"Hampi", state:"Karnataka", category:"Archaeological Sites", era:"early-medieval",
+    desc:"The ruined capital of the Vijayanagara Empire, spread across a boulder-strewn landscape." },
+  { id:"fatehpur-sikri", name:"Fatehpur Sikri", city:"Agra", state:"Uttar Pradesh", category:"Forts", era:"mughal",
+    desc:"Akbar's short-lived capital, a red sandstone city of palaces, courts and the Buland Darwaza gate." },
+  { id:"rani-ki-vav", name:"Rani ki Vav", city:"Patan", state:"Gujarat", category:"Archaeological Sites", era:"early-medieval",
+    desc:"An 11th-century stepwell built as an inverted temple, seven levels deep and richly carved." },
+  { id:"jama-masjid", name:"Jama Masjid", city:"Delhi", state:"Delhi", category:"Archaeological Sites", era:"mughal",
+    desc:"One of India's largest mosques, commissioned by Shah Jahan in red sandstone and white marble." }
+];
+
+/* ---------- Icon library (category → inline SVG) ---------- */
+function categoryIcon(cat){
+  const icons = {
+    "Forts": '<path d="M4 21V10l4-3v3l4-3v3l4-3v3l4-3v11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 21h16" stroke="currentColor" stroke-width="1.8"/>',
+    "Palaces": '<path d="M12 3l2 3h-4l2-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M5 21V11l7-5 7 5v10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M5 21h14M9 21v-6h6v6" fill="none" stroke="currentColor" stroke-width="1.8"/>',
+    "Temples": '<path d="M12 2l3 4H9l3-4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M7 21V9l5-3 5 3v12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 21h16M10 21v-5h4v5" fill="none" stroke="currentColor" stroke-width="1.8"/>',
+    "Caves": '<path d="M3 21c0-7 4-12 9-12s9 5 9 12" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 21h18" stroke="currentColor" stroke-width="1.8"/>',
+    "Memorials": '<path d="M12 3v13" stroke="currentColor" stroke-width="1.8"/><path d="M7 21c0-3 2-5 5-5s5 2 5 5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 21h16" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="3" r="1.4" fill="currentColor" stroke="none"/>',
+    "Tombs": '<path d="M6 21V13a6 6 0 0112 0v8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 21h16" stroke="currentColor" stroke-width="1.8"/>',
+    "Archaeological Sites": '<path d="M4 21l3-11h10l3 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 21v-6M15 21v-6M4 21h16" stroke="currentColor" stroke-width="1.8"/>'
+  };
+  return icons[cat] || icons["Archaeological Sites"];
+}
+function iconSVG(cat, size){
+  return `<svg viewBox="0 0 24 24" width="${size}" height="${size}" aria-hidden="true">${categoryIcon(cat)}</svg>`;
+}
+
+/* Featured card art: gradient + category glyph inside the arch clip.
+   Used as the permanent background layer AND as the fallback shown
+   if the real photograph (below) fails to load. */
+function featuredArt(mon){
+  return `
+  <svg viewBox="0 0 300 230" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="grad-${mon.id}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#5C1F1B"/>
+        <stop offset="0.55" stop-color="#7A2E1F"/>
+        <stop offset="1" stop-color="#C08829"/>
+      </linearGradient>
+    </defs>
+    <rect width="300" height="230" fill="url(#grad-${mon.id})"/>
+    <g transform="translate(115,80)" stroke="#F4EDDD" stroke-width="1.6" fill="none" opacity="0.9">
+      ${categoryIcon(mon.category).replaceAll('width="1.8"','width="1.6"')}
+    </g>
+  </svg>`;
+}
+
+/* Build an optimized Wikimedia Commons thumbnail URL for a given
+   filename. Commons serves a resized JPEG/WebP via Special:FilePath
+   with a `width` query param, so the browser never downloads full-res
+   originals. Swap this for the project's own asset pipeline / CDN
+   when real monument photography is added to the repo. */
+function commonsThumb(filename, width){
+  return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(filename)}?width=${width}`;
+}
+
+/* ============================================================
+   RENDER: Featured monuments
+   ============================================================ */
+function renderFeatured(){
+  const el = document.getElementById('featuredGrid');
+  const items = MONUMENTS.filter(m => m.featured);
+  el.innerHTML = items.map(m => `
+    <article class="mon-card reveal is-visible">
+      <div class="mon-card-art arch-frame" style="transform:scale(1.12);">
+        <div class="art-fallback">${featuredArt(m)}</div>
+        ${m.img ? `<img src="${commonsThumb(m.img, 640)}" alt="${m.name}, a ${m.category.toLowerCase().replace(/s$/,'')} in ${m.city}, ${m.state}" loading="lazy" decoding="async" onerror="this.remove()">` : ''}
+      </div>
+      <div class="mon-card-body">
+        <span class="mon-tag">${m.category}</span>
+        <h3>${m.name}</h3>
+        <div class="mon-loc">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 21s7-7.2 7-12a7 7 0 10-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg>
+          ${m.city}, ${m.state}
+        </div>
+        <p class="mon-desc">${m.desc}</p>
+        <a class="mon-link" href="monument.html?id=${m.id}">
+          View monument
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </article>
+  `).join('');
+}
+
+/* ============================================================
+   RENDER: State strip
+   ============================================================ */
+function renderStates(){
+  const counts = {};
+  MONUMENTS.forEach(m => counts[m.state] = (counts[m.state]||0) + 1);
+  const states = Object.keys(counts).sort();
+  const el = document.getElementById('stateStrip');
+  el.innerHTML = states.map(s => `
+    <button class="state-chip" type="button" data-state="${s}" aria-pressed="false">
+      ${s} <span class="count">${counts[s]}</span>
+    </button>
+  `).join('');
+  el.addEventListener('click', e => {
+    const btn = e.target.closest('.state-chip');
+    if(!btn) return;
+    filters.state = btn.dataset.state;
+    document.getElementById('stateSelect').value = filters.state;
+    syncStatePressed();
+    renderExplorer();
+    document.getElementById('explorer').scrollIntoView({behavior:'smooth'});
+  });
+}
+function syncStatePressed(){
+  document.querySelectorAll('.state-chip').forEach(c => {
+    c.setAttribute('aria-pressed', c.dataset.state === filters.state ? 'true' : 'false');
+  });
+}
+
+/* ============================================================
+   RENDER: Monument types
+   ============================================================ */
+function renderTypes(){
+  const counts = {};
+  MONUMENTS.forEach(m => counts[m.category] = (counts[m.category]||0) + 1);
+  const el = document.getElementById('typesGrid');
+  el.innerHTML = CATEGORIES.map(c => `
+    <button class="type-card" type="button" data-cat="${c}">
+      ${iconSVG(c, 34)}
+      <h3>${c}</h3>
+      <span>${counts[c]||0} monuments</span>
+    </button>
+  `).join('');
+  el.addEventListener('click', e => {
+    const btn = e.target.closest('.type-card');
+    if(!btn) return;
+    filters.category = btn.dataset.cat;
+    document.getElementById('categorySelect').value = filters.category;
+    renderExplorer();
+    document.getElementById('explorer').scrollIntoView({behavior:'smooth'});
+  });
+}
+
+/* ============================================================
+   RENDER: Eras timeline
+   ============================================================ */
+function renderEras(){
+  const el = document.getElementById('eraTrack');
+  el.innerHTML = ERAS.map(era => `
+    <button class="era-item" type="button" data-era="${era.id}">
+      <span class="era-dot"></span>
+      <h4>${era.label}</h4>
+      <span class="era-range">${era.range}</span>
+      <p>${era.blurb}</p>
+    </button>
+  `).join('');
+  el.addEventListener('click', e => {
+    const btn = e.target.closest('.era-item');
+    if(!btn) return;
+    filters.era = btn.dataset.era;
+    document.getElementById('eraSelect').value = filters.era;
+    renderExplorer();
+    document.getElementById('explorer').scrollIntoView({behavior:'smooth'});
+  });
+}
+
+/* ============================================================
+   EXPLORER: filters + search
+   ============================================================ */
+const filters = { search:'', category:'all', state:'all', era:'all' };
+
+function populateSelects(){
+  const catSel = document.getElementById('categorySelect');
+  CATEGORIES.forEach(c => catSel.insertAdjacentHTML('beforeend', `<option value="${c}">${c}</option>`));
+
+  const stateSel = document.getElementById('stateSelect');
+  [...new Set(MONUMENTS.map(m=>m.state))].sort().forEach(s => stateSel.insertAdjacentHTML('beforeend', `<option value="${s}">${s}</option>`));
+
+  const eraSel = document.getElementById('eraSelect');
+  ERAS.forEach(e => eraSel.insertAdjacentHTML('beforeend', `<option value="${e.id}">${e.label}</option>`));
+}
+
+function matchesFilters(m){
+  const q = filters.search.trim().toLowerCase();
+  const searchOk = !q || [m.name, m.city, m.state, m.category].join(' ').toLowerCase().includes(q);
+  const catOk = filters.category === 'all' || m.category === filters.category;
+  const stateOk = filters.state === 'all' || m.state === filters.state;
+  const eraOk = filters.era === 'all' || m.era === filters.era;
+  return searchOk && catOk && stateOk && eraOk;
+}
+
+function renderExplorer(){
+  const results = MONUMENTS.filter(matchesFilters);
+  const grid = document.getElementById('explorerGrid');
+  const meta = document.getElementById('explorerMeta');
+
+  meta.innerHTML = `Showing <b>${results.length}</b> of ${MONUMENTS.length} monuments`;
+
+  if(results.length === 0){
+    grid.innerHTML = `<div class="no-results" style="grid-column:1/-1;">No monuments match those filters yet. Try clearing one and searching again.</div>`;
+    return;
+  }
+
+  grid.innerHTML = results.map(m => `
+    <article class="ex-card">
+      <div class="ex-card-icon">${iconSVG(m.category, 30)}</div>
+      <div class="ex-card-body">
+        <h4>${m.name}</h4>
+        <div class="ex-loc">${m.city}, ${m.state} · ${m.category}</div>
+        <p>${m.desc}</p>
+        <a href="monument.html?id=${m.id}">View details →</a>
+      </div>
+    </article>
+  `).join('');
+}
+
+/* ---------- wire up controls ---------- */
+function initExplorerControls(){
+  document.getElementById('searchInput').addEventListener('input', e => {
+    filters.search = e.target.value;
+    renderExplorer();
+  });
+  document.getElementById('categorySelect').addEventListener('change', e => {
+    filters.category = e.target.value;
+    renderExplorer();
+  });
+  document.getElementById('stateSelect').addEventListener('change', e => {
+    filters.state = e.target.value;
+    syncStatePressed();
+    renderExplorer();
+  });
+  document.getElementById('eraSelect').addEventListener('change', e => {
+    filters.era = e.target.value;
+    renderExplorer();
+  });
+  document.getElementById('clearFilters').addEventListener('click', () => {
+    filters.search = ''; filters.category = 'all'; filters.state = 'all'; filters.era = 'all';
+    document.getElementById('searchInput').value = '';
+    document.getElementById('categorySelect').value = 'all';
+    document.getElementById('stateSelect').value = 'all';
+    document.getElementById('eraSelect').value = 'all';
+    syncStatePressed();
+    renderExplorer();
+  });
+
+  document.querySelectorAll('[data-footer-cat]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      filters.category = a.dataset.footerCat;
+      document.getElementById('categorySelect').value = filters.category;
+      renderExplorer();
+      document.getElementById('explorer').scrollIntoView({behavior:'smooth'});
+    });
+  });
+}
+
+/* ---------- reveal-on-scroll ---------- */
+function initReveal(){
+  const items = document.querySelectorAll('.reveal:not(.is-visible)');
+  if(!('IntersectionObserver' in window)){
+    items.forEach(i => i.classList.add('is-visible'));
+    return;
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.15 });
+  items.forEach(i => io.observe(i));
+}
+
+/* ---------- init ---------- */
+renderFeatured();
+renderStates();
+renderTypes();
+renderEras();
+populateSelects();
+renderExplorer();
+initExplorerControls();
+initReveal();
+</script>
+</body>
+</html>

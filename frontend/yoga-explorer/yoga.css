@@ -1,0 +1,808 @@
+/* ============================================================
+   Yoga — India's Global Cultural Heritage — Stylesheet
+   Issue #2939: Y: Yoga — India's Global Cultural Heritage
+   Palette: Dark slate obsidian, saffron gold, lotus teal, and emerald
+   ============================================================ */
+
+/* ---------- Design Tokens ---------- */
+:root {
+  --yoga-bg:            #11161b;
+  --yoga-surface:       #192028;
+  --yoga-card:          #202933;
+  --yoga-card-hover:    #283340;
+  --yoga-saffron:       #e5983b;
+  --yoga-saffron-light: #f5b05c;
+  --yoga-teal:          #2e8b80;
+  --yoga-teal-light:    #4eb5a8;
+  --yoga-emerald:       #34a853;
+  --yoga-maroon:        #a23b49;
+  --yoga-border:        rgba(229, 152, 59, 0.16);
+  --yoga-border-strong: rgba(229, 152, 59, 0.38);
+  --yoga-text:          #f2f5f8;
+  --yoga-text-muted:    #9aa7b5;
+  --yoga-text-dim:      #697887;
+  --yoga-focus:         #f5b05c;
+  --yoga-shadow-sm:     0 2px 8px rgba(0, 0, 0, 0.35);
+  --yoga-shadow-md:     0 6px 20px rgba(0, 0, 0, 0.48);
+  --yoga-shadow-lg:     0 16px 48px rgba(0, 0, 0, 0.65);
+  --yoga-radius-sm:     8px;
+  --yoga-radius-md:     14px;
+  --yoga-radius-lg:     20px;
+  --yoga-transition:    0.2s ease;
+}
+
+/* ---------- Global Reset ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--yoga-bg);
+  color: var(--yoga-text);
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ---------- Skip Link ---------- */
+.yoga-skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  background: var(--yoga-saffron);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 0 0 var(--yoga-radius-sm) var(--yoga-radius-sm);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top var(--yoga-transition);
+}
+.yoga-skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--yoga-focus);
+  outline-offset: 2px;
+}
+
+/* ---------- Focus Visible ---------- */
+:focus-visible {
+  outline: 3px solid var(--yoga-focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ---------- Navbar ---------- */
+.yoga-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(17, 22, 27, 0.95);
+  border-bottom: 1px solid var(--yoga-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.yoga-nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.yoga-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--yoga-text-muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: color var(--yoga-transition);
+}
+.yoga-back-btn:hover { color: var(--yoga-saffron-light); }
+
+.yoga-brand {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.yoga-brand-saffron { color: #d9720f; }
+.yoga-brand-gold    { color: var(--yoga-saffron); }
+.yoga-brand-green   { color: #3e7d4a; }
+
+/* ---------- Container ---------- */
+.yoga-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Hero ---------- */
+.yoga-hero {
+  position: relative;
+  padding: 56px 0 48px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.yoga-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(229, 152, 59, 0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 100%, rgba(46, 139, 128, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.yoga-hero-pattern {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.yoga-pattern-strip {
+  height: 5px;
+  width: 250px;
+  border-radius: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--yoga-saffron) 0px, var(--yoga-saffron) 8px,
+    var(--yoga-teal)    8px, var(--yoga-teal)   16px,
+    var(--yoga-emerald) 16px, var(--yoga-emerald) 24px
+  );
+}
+
+.yoga-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(229, 152, 59, 0.14);
+  border: 1px solid rgba(229, 152, 59, 0.35);
+  color: var(--yoga-saffron-light);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+}
+
+.yoga-hero h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--yoga-text);
+  line-height: 1.2;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.yoga-hero-subtitle {
+  font-size: 1rem;
+  color: var(--yoga-text-muted);
+  max-width: 720px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+}
+
+/* ---------- Hero Stats ---------- */
+.yoga-hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.yoga-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.yoga-stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--yoga-saffron-light);
+  line-height: 1;
+}
+
+.yoga-stat-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--yoga-text-dim);
+  font-weight: 600;
+}
+
+/* ---------- Section Common ---------- */
+.yoga-section {
+  padding: 56px 0;
+}
+
+.yoga-section-alt {
+  background: var(--yoga-surface);
+  border-top: 1px solid var(--yoga-border);
+  border-bottom: 1px solid var(--yoga-border);
+}
+
+.yoga-section-header {
+  margin-bottom: 32px;
+}
+
+.yoga-section-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--yoga-text);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.yoga-section-sub {
+  font-size: 0.92rem;
+  color: var(--yoga-text-muted);
+  max-width: 760px;
+  line-height: 1.65;
+}
+
+/* ---------- Historical Overview ---------- */
+.yoga-history-box {
+  background: var(--yoga-card);
+  border: 1px solid var(--yoga-border-strong);
+  border-radius: var(--yoga-radius-lg);
+  padding: 32px;
+  box-shadow: var(--yoga-shadow-md);
+}
+
+.yoga-history-lead {
+  font-size: 1rem;
+  color: var(--yoga-text);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+.yoga-epochs-chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.yoga-epoch-chip {
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgba(46, 139, 128, 0.12);
+  color: var(--yoga-teal-light);
+  border: 1px solid rgba(46, 139, 128, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* ---------- Major Traditions Grid ---------- */
+.yoga-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+.yoga-tradition-card {
+  background: var(--yoga-card);
+  border: 1px solid var(--yoga-border);
+  border-radius: var(--yoga-radius-md);
+  padding: 26px 22px;
+  transition: transform var(--yoga-transition), box-shadow var(--yoga-transition), border-color var(--yoga-transition);
+  box-shadow: var(--yoga-shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.yoga-tradition-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--yoga-shadow-md);
+  border-color: var(--yoga-border-strong);
+}
+
+.yoga-tradition-icon {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  display: block;
+  line-height: 1;
+}
+
+.yoga-tradition-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--yoga-saffron-light);
+  margin-bottom: 4px;
+}
+
+.yoga-tradition-sanskrit {
+  font-size: 0.8rem;
+  color: var(--yoga-teal-light);
+  margin-bottom: 12px;
+}
+
+.yoga-tradition-period {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--yoga-text-dim);
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 10px;
+  border-radius: 10px;
+  display: inline-block;
+  align-self: flex-start;
+}
+
+.yoga-tradition-desc {
+  font-size: 0.86rem;
+  color: var(--yoga-text-muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.yoga-tradition-meta {
+  font-size: 0.78rem;
+  color: var(--yoga-text-dim);
+  border-top: 1px dashed var(--yoga-border);
+  padding-top: 10px;
+}
+
+.yoga-tradition-meta strong {
+  color: var(--yoga-text);
+}
+
+/* ---------- Philosophy Section ---------- */
+.yoga-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 22px;
+}
+
+.yoga-philosophy-card {
+  background: var(--yoga-card);
+  border: 1px solid var(--yoga-border);
+  border-radius: var(--yoga-radius-md);
+  padding: 24px 22px;
+}
+
+.yoga-concept-cat {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--yoga-saffron);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.yoga-philosophy-card h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  color: var(--yoga-text);
+  margin-bottom: 4px;
+}
+
+.yoga-concept-sanskrit {
+  font-size: 0.85rem;
+  color: var(--yoga-teal-light);
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.yoga-philosophy-card p {
+  font-size: 0.88rem;
+  color: var(--yoga-text-muted);
+  line-height: 1.65;
+}
+
+/* ---------- Traditional Practices ---------- */
+.yoga-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.yoga-practice-card {
+  background: var(--yoga-card);
+  border: 1px solid var(--yoga-border);
+  border-radius: var(--yoga-radius-md);
+  padding: 22px 18px;
+}
+
+.yoga-practice-icon {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.yoga-practice-card h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  color: var(--yoga-saffron-light);
+  margin-bottom: 4px;
+}
+
+.yoga-practice-sanskrit {
+  font-size: 0.78rem;
+  color: var(--yoga-teal-light);
+  margin-bottom: 10px;
+}
+
+.yoga-practice-card p {
+  font-size: 0.85rem;
+  color: var(--yoga-text-muted);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.yoga-practice-list {
+  list-style: none;
+  font-size: 0.78rem;
+  color: var(--yoga-text-dim);
+  border-top: 1px dashed var(--yoga-border);
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.yoga-practice-list li::before {
+  content: '• ';
+  color: var(--yoga-saffron);
+}
+
+/* ---------- Important Texts ---------- */
+.yoga-text-card {
+  background: var(--yoga-card);
+  border: 1px solid var(--yoga-border);
+  border-radius: var(--yoga-radius-md);
+  padding: 26px 22px;
+  margin-bottom: 18px;
+}
+
+.yoga-text-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.yoga-text-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem;
+  color: var(--yoga-saffron-light);
+  font-weight: 700;
+}
+
+.yoga-text-sanskrit {
+  font-size: 0.9rem;
+  color: var(--yoga-teal-light);
+  margin-left: 8px;
+  font-weight: 400;
+}
+
+.yoga-text-meta {
+  font-size: 0.75rem;
+  color: var(--yoga-text-dim);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 12px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.yoga-text-summary {
+  font-size: 0.88rem;
+  color: var(--yoga-text-muted);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.yoga-text-quote {
+  background: rgba(229, 152, 59, 0.08);
+  border-left: 3px solid var(--yoga-saffron);
+  padding: 10px 14px;
+  border-radius: 0 var(--yoga-radius-sm) var(--yoga-radius-sm) 0;
+  font-size: 0.84rem;
+  color: var(--yoga-saffron-light);
+  font-style: italic;
+}
+
+/* ---------- Timeline Section ---------- */
+.yoga-timeline-section {
+  padding: 56px 0;
+}
+
+.yoga-timeline-filter-bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.yoga-epoch-btn {
+  background: var(--yoga-card);
+  border: 1px solid var(--yoga-border);
+  color: var(--yoga-text-muted);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all var(--yoga-transition);
+}
+
+.yoga-epoch-btn:hover {
+  border-color: var(--yoga-border-strong);
+  color: var(--yoga-text);
+}
+
+.yoga-epoch-btn.is-active {
+  background: var(--yoga-saffron);
+  color: #fff;
+  border-color: var(--yoga-saffron);
+}
+
+.yoga-timeline-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 36px;
+}
+
+.yoga-timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--yoga-saffron), var(--yoga-teal), var(--yoga-emerald));
+  border-radius: 2px;
+}
+
+.yoga-timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.yoga-timeline-node {
+  position: absolute;
+  left: -36px;
+  top: 6px;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: var(--yoga-card);
+  border: 3px solid var(--yoga-saffron);
+  transition: transform var(--yoga-transition), background var(--yoga-transition);
+  cursor: pointer;
+}
+
+.yoga-timeline-item.is-selected .yoga-timeline-node {
+  background: var(--yoga-saffron);
+  transform: scale(1.2);
+  box-shadow: 0 0 12px var(--yoga-saffron-light);
+}
+
+.yoga-timeline-card {
+  background: var(--yoga-card);
+  border: 1px solid var(--yoga-border);
+  border-radius: var(--yoga-radius-md);
+  padding: 22px 20px;
+  cursor: pointer;
+  transition: transform var(--yoga-transition), border-color var(--yoga-transition), box-shadow var(--yoga-transition);
+}
+
+.yoga-timeline-card:hover {
+  transform: translateX(4px);
+  border-color: var(--yoga-border-strong);
+  box-shadow: var(--yoga-shadow-md);
+}
+
+.yoga-timeline-item.is-selected .yoga-timeline-card {
+  border-color: var(--yoga-saffron);
+  background: var(--yoga-card-hover);
+}
+
+.yoga-timeline-period {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--yoga-saffron-light);
+  margin-bottom: 4px;
+}
+
+.yoga-timeline-card h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  color: var(--yoga-text);
+  margin-bottom: 8px;
+}
+
+.yoga-timeline-desc {
+  font-size: 0.86rem;
+  color: var(--yoga-text-muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.yoga-timeline-details {
+  display: none;
+  font-size: 0.84rem;
+  color: var(--yoga-text-muted);
+  border-top: 1px dashed var(--yoga-border);
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+.yoga-timeline-item.is-selected .yoga-timeline-details {
+  display: block;
+}
+
+.yoga-timeline-source {
+  font-size: 0.74rem;
+  color: var(--yoga-text-dim);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* ---------- Modern Global Presence ---------- */
+.yoga-modern-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 22px;
+}
+
+.yoga-modern-card {
+  background: var(--yoga-card);
+  border: 1px solid var(--yoga-border);
+  border-radius: var(--yoga-radius-md);
+  padding: 26px 22px;
+}
+
+.yoga-modern-card h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  color: var(--yoga-saffron-light);
+  margin-bottom: 10px;
+}
+
+.yoga-modern-card p {
+  font-size: 0.88rem;
+  color: var(--yoga-text-muted);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.yoga-modern-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.84rem;
+  color: var(--yoga-text-muted);
+}
+
+.yoga-modern-list li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.yoga-modern-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--yoga-emerald);
+  font-weight: 700;
+}
+
+/* ---------- Sources Section ---------- */
+.yoga-sources {
+  background: var(--yoga-surface);
+  border-top: 1px solid var(--yoga-border);
+  padding: 48px 0 56px;
+}
+
+.yoga-sources-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--yoga-text);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.yoga-sources-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.yoga-source-item a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--yoga-text-muted);
+  text-decoration: none;
+  transition: color var(--yoga-transition);
+}
+.yoga-source-item a:hover { color: var(--yoga-saffron-light); }
+.yoga-source-item a i { font-size: 0.75rem; color: var(--yoga-text-dim); }
+
+/* ---------- Footer ---------- */
+.yoga-footer {
+  background: var(--yoga-bg);
+  border-top: 1px solid var(--yoga-border);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--yoga-text-dim);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .yoga-hero { padding: 40px 0 36px; }
+  .yoga-hero h1 { font-size: 1.9rem; }
+  .yoga-section { padding: 40px 0; }
+  .yoga-history-box { padding: 24px; }
+  .yoga-timeline-container { padding-left: 28px; }
+  .yoga-timeline-node { left: -28px; width: 22px; height: 22px; top: 4px; }
+}
+
+@media (max-width: 600px) {
+  .yoga-nav-inner { padding: 12px 16px; }
+  .yoga-container { padding: 0 16px; }
+  .yoga-hero h1 { font-size: 1.5rem; }
+  .yoga-hero-stats { gap: 24px; }
+  .yoga-stat-number { font-size: 1.6rem; }
+
+  .yoga-grid-3, .yoga-grid-2, .yoga-grid-4, .yoga-modern-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .yoga-text-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

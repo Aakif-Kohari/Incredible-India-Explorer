@@ -1,0 +1,1419 @@
+/* ==========================================================================
+   India Open Badminton Explorer - Stylesheet
+   Badminton palette: deep navy, court green, shuttlecock gold, crisp white.
+   ========================================================================== */
+
+:root {
+  --badminton-navy: #0a0f1a;
+  --badminton-navy-light: #141d2e;
+  --badminton-green: #145a32;
+  --badminton-green-light: #1e8449;
+  --badminton-gold: #d4a017;
+  --badminton-gold-light: #f1c40f;
+  --badminton-silver: #bdc3c7;
+  --badminton-bronze: #cd7f32;
+  --badminton-parchment: #fdf6e3;
+  --badminton-glass: rgba(20, 29, 46, 0.7);
+  --badminton-border: rgba(20, 90, 50, 0.18);
+  --badminton-text: #ecf0f1;
+  --badminton-text-muted: #aab3bd;
+}
+
+:root.light-theme {
+  --badminton-navy: #f8f9fa;
+  --badminton-navy-light: #ffffff;
+  --badminton-text: #2c3e50;
+  --badminton-text-muted: #5d6d7e;
+  --badminton-glass: rgba(255, 255, 255, 0.85);
+  --badminton-border: rgba(20, 90, 50, 0.15);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(20, 90, 50, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(20, 90, 50, 0.5), 0 0 60px rgba(212, 160, 23, 0.3); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes ringPulse {
+  0% { transform: scale(1); border-color: var(--badminton-gold-light); }
+  50% { transform: scale(1.1); border-color: var(--badminton-green); }
+  100% { transform: scale(1); border-color: var(--badminton-gold-light); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+.animate-slide-up { animation: slideUp 0.8s ease-out forwards; }
+.animate-fade-in-left { animation: fadeInLeft 0.8s ease-out forwards; }
+.animate-fade-in-right { animation: fadeInRight 0.8s ease-out forwards; }
+.animate-scale-in { animation: scaleIn 0.6s ease-out forwards; }
+
+.badminton-main {
+  background-color: var(--badminton-navy);
+  color: var(--badminton-text);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.badminton-hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0 60px;
+  background: linear-gradient(180deg, rgba(10, 15, 26, 0.4), rgba(10, 15, 26, 0.95)),
+              radial-gradient(ellipse at 50% 50%, rgba(20, 90, 50, 0.15), transparent 70%);
+  text-align: center;
+}
+
+.badminton-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(20, 90, 50, 0.1), transparent 60%);
+  z-index: 1;
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.badminton-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(20, 90, 50, 0.03), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.badminton-hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(880px, 90%);
+}
+
+.badminton-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 6px 16px;
+  background: rgba(20, 90, 50, 0.14);
+  border: 1px solid rgba(20, 90, 50, 0.3);
+  border-radius: 100px;
+  color: var(--badminton-gold-light);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.badminton-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  margin: 0 0 20px;
+  font-weight: 700;
+  color: #ffffff;
+  animation: fadeInUp 0.8s ease-out 100ms both;
+}
+
+.badminton-hero h1 span {
+  color: var(--badminton-gold-light);
+  background: linear-gradient(135deg, var(--badminton-gold-light), var(--badminton-gold));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+.badminton-hero p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--badminton-text-muted);
+  margin: 0 auto 30px;
+  max-width: 720px;
+  animation: fadeInUp 0.8s ease-out 200ms both;
+}
+
+.badminton-bookmark-container {
+  animation: fadeInUp 0.8s ease-out 300ms both;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.hero-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(10, 15, 26, 0.8) 100%);
+  z-index: 1;
+}
+
+.badminton-hero-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.badminton-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+  filter: grayscale(100%) contrast(1.2);
+  animation: float 8s ease-in-out infinite;
+  transform: scale(1.05);
+}
+
+/* Sections */
+.badminton-section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.badminton-section:nth-of-type(even) {
+  background-color: rgba(255, 255, 255, 0.01);
+}
+
+.badminton-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, var(--badminton-border), transparent);
+  transform: translateX(-50%);
+  opacity: 0.3;
+}
+
+.badminton-container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+.badminton-section-header {
+  margin-bottom: 60px;
+  text-align: center;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.badminton-eyebrow {
+  color: var(--badminton-gold-light);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.badminton-eyebrow::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--badminton-green), var(--badminton-gold));
+  margin: 8px auto 0;
+  border-radius: 2px;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.badminton-section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin: 0 0 16px;
+  color: #ffffff;
+  position: relative;
+}
+
+.badminton-section-header h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--badminton-gold), var(--badminton-green));
+  margin: 12px auto 0;
+  border-radius: 3px;
+}
+
+.badminton-section-header p {
+  color: var(--badminton-text-muted);
+  max-width: 650px;
+  margin: 20px auto 0;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+/* Two Column Grid */
+.badminton-grid-2col {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .badminton-grid-2col {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+.badminton-text-block p {
+  line-height: 1.75;
+  color: var(--badminton-text-muted);
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+}
+
+.badminton-text-block p:last-child {
+  margin-bottom: 0;
+}
+
+.badminton-highlight-box {
+  background: var(--badminton-glass);
+  border: 1px solid var(--badminton-border);
+  border-radius: 16px;
+  padding: 30px;
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+.badminton-highlight-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--badminton-green), var(--badminton-gold));
+}
+
+.badminton-highlight-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin: 0 0 16px;
+  color: var(--badminton-gold-light);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badminton-highlight-box ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.badminton-highlight-box li {
+  color: var(--badminton-text-muted);
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.badminton-highlight-box li:last-child {
+  margin-bottom: 0;
+}
+
+.badminton-highlight-box li strong {
+  color: var(--badminton-gold-light);
+}
+
+/* Card Grid */
+.badminton-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.badminton-card {
+  background: var(--badminton-glass);
+  border: 1px solid var(--badminton-border);
+  border-radius: 16px;
+  padding: 30px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.badminton-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--badminton-green), var(--badminton-gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-out;
+}
+
+.badminton-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--badminton-gold-light);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 60px rgba(20, 90, 50, 0.1);
+}
+
+.badminton-card:hover::before {
+  transform: scaleX(1);
+}
+
+.badminton-card-champion {
+  border-color: rgba(212, 160, 23, 0.25);
+}
+
+.badminton-card-champion:hover {
+  border-color: var(--badminton-gold-light);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 60px rgba(212, 160, 23, 0.2);
+}
+
+.badminton-card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  display: block;
+  animation: float 3s ease-in-out infinite;
+}
+
+.badminton-card h3 {
+  margin: 0 0 12px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: #ffffff;
+}
+
+.badminton-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.badminton-card li {
+  color: var(--badminton-text-muted);
+  margin-bottom: 10px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  padding-left: 18px;
+  position: relative;
+  transition: color 0.2s, padding-left 0.2s;
+}
+
+.badminton-card li::before {
+  content: '🏸';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  transition: transform 0.2s;
+}
+
+.badminton-card:hover li::before {
+  transform: translateX(4px);
+}
+
+.badminton-card:hover li {
+  padding-left: 22px;
+}
+
+.badminton-card li:last-child {
+  margin-bottom: 0;
+}
+
+.badminton-card li strong {
+  color: var(--badminton-gold-light);
+}
+
+/* Filter Bar */
+.badminton-filter-bar {
+  background: var(--badminton-glass);
+  border: 1px solid var(--badminton-border);
+  border-radius: 14px;
+  padding: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 32px;
+}
+
+.badminton-filter-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--badminton-text-muted);
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.badminton-filter-btn:hover {
+  color: var(--badminton-gold-light);
+  background: rgba(20, 90, 50, 0.1);
+  border-color: rgba(20, 90, 50, 0.2);
+}
+
+.badminton-filter-btn.active {
+  background: rgba(20, 90, 50, 0.2);
+  color: var(--badminton-gold-light);
+  border-color: var(--badminton-gold);
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(20, 90, 50, 0.15);
+}
+
+.badminton-filter-btn:active {
+  transform: scale(0.95);
+}
+
+.badminton-no-results {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--badminton-text-muted);
+  font-size: 1.1rem;
+}
+
+/* Timeline */
+.badminton-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.badminton-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, transparent, var(--badminton-gold) 20%, var(--badminton-green) 50%, var(--badminton-gold) 80%, transparent);
+  transform: translateX(-50%);
+}
+
+.badminton-timeline-step {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 50%;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.badminton-timeline-step:nth-child(even) {
+  justify-content: flex-start;
+  padding-right: 0;
+  padding-left: 50%;
+}
+
+.badminton-timeline-marker {
+  position: absolute;
+  left: 50%;
+  top: 15px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--badminton-navy);
+  border: 4px solid var(--badminton-gold-light);
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: ringPulse 2s ease-in-out infinite;
+}
+
+.badminton-timeline-step:hover .badminton-timeline-marker {
+  background: var(--badminton-green);
+  border-color: var(--badminton-green);
+  transform: translateX(-50%) scale(1.3);
+  box-shadow: 0 0 20px var(--badminton-green), 0 0 40px var(--badminton-green);
+}
+
+.badminton-timeline-card {
+  background: var(--badminton-glass);
+  border: 1px solid var(--badminton-border);
+  border-radius: 16px;
+  padding: 28px;
+  width: 85%;
+  margin-right: 40px;
+  position: relative;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.badminton-timeline-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--badminton-green), var(--badminton-gold));
+  border-radius: 16px 16px 0 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-out;
+}
+
+.badminton-timeline-step:nth-child(even) .badminton-timeline-card {
+  margin-right: 0;
+  margin-left: 40px;
+}
+
+.badminton-timeline-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--badminton-gold-light);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 40px rgba(20, 90, 50, 0.1);
+}
+
+.badminton-timeline-card:hover::before {
+  transform: scaleX(1);
+}
+
+.badminton-timeline-year {
+  color: var(--badminton-gold);
+  font-weight: 800;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.badminton-timeline-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.badminton-timeline-card p {
+  margin: 0;
+  color: var(--badminton-text-muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .badminton-timeline::before {
+    left: 20px;
+  }
+  .badminton-timeline-step {
+    justify-content: flex-start;
+    padding-left: 45px;
+    padding-right: 0;
+  }
+  .badminton-timeline-step:nth-child(even) {
+    padding-left: 45px;
+  }
+  .badminton-timeline-marker {
+    left: 20px;
+  }
+  .badminton-timeline-card {
+    width: 100%;
+    margin-right: 0;
+  }
+  .badminton-timeline-step:nth-child(even) .badminton-timeline-card {
+    margin-left: 0;
+  }
+}
+
+/* Legacy Grid */
+.badminton-legacy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.badminton-legacy-card {
+  background: var(--badminton-glass);
+  border: 1px solid var(--badminton-border);
+  border-radius: 16px;
+  padding: 30px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.badminton-legacy-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--badminton-green), var(--badminton-gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-out;
+}
+
+.badminton-legacy-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--badminton-gold-light);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 60px rgba(20, 90, 50, 0.15);
+}
+
+.badminton-legacy-card:hover::before {
+  transform: scaleX(1);
+}
+
+.badminton-legacy-year {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--badminton-gold-light);
+  background: rgba(20, 90, 50, 0.12);
+  border: 1px solid var(--badminton-border);
+  border-radius: 100px;
+  padding: 4px 14px;
+  margin-bottom: 14px;
+}
+
+.badminton-legacy-card:hover .badminton-legacy-year {
+  background: var(--badminton-gold);
+  color: var(--badminton-navy);
+}
+
+.badminton-legacy-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+  color: #ffffff;
+}
+
+.badminton-legacy-card p {
+  margin: 0;
+  color: var(--badminton-text-muted);
+  line-height: 1.65;
+  font-size: 0.95rem;
+}
+
+/* Milestone Grid */
+.badminton-milestone-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.badminton-milestone-card {
+  background: var(--badminton-glass);
+  border: 1px solid var(--badminton-border);
+  border-radius: 16px;
+  padding: 28px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.badminton-milestone-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--badminton-green), var(--badminton-gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-out;
+}
+
+.badminton-milestone-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--badminton-gold-light);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 60px rgba(20, 90, 50, 0.15);
+}
+
+.badminton-milestone-card:hover::before {
+  transform: scaleX(1);
+}
+
+.badminton-milestone-year {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--badminton-gold-light);
+  background: rgba(20, 90, 50, 0.12);
+  border: 1px solid var(--badminton-border);
+  border-radius: 100px;
+  padding: 4px 14px;
+  margin-bottom: 14px;
+}
+
+.badminton-milestone-card:hover .badminton-milestone-year {
+  background: var(--badminton-gold);
+  color: var(--badminton-navy);
+}
+
+.badminton-milestone-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+  color: #ffffff;
+}
+
+.badminton-milestone-card p {
+  margin: 0;
+  color: var(--badminton-text-muted);
+  line-height: 1.65;
+  font-size: 0.95rem;
+}
+
+/* Gallery */
+.badminton-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.badminton-gallery-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--badminton-border);
+  cursor: pointer;
+  background: var(--badminton-glass);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.badminton-gallery-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 60px rgba(20, 90, 50, 0.15);
+  border-color: var(--badminton-gold-light);
+}
+
+.badminton-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+  filter: grayscale(20%) contrast(1.1);
+}
+
+.badminton-gallery-item:hover img {
+  transform: scale(1.15);
+  filter: grayscale(0%) contrast(1.15);
+}
+
+.badminton-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(10, 15, 26, 0.95) 0%, rgba(10, 15, 26, 0.6) 40%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.4s ease, background 0.4s ease;
+}
+
+.badminton-gallery-item:hover .badminton-gallery-overlay {
+  opacity: 1;
+  background: linear-gradient(0deg, rgba(10, 15, 26, 0.98) 0%, rgba(10, 15, 26, 0.4) 50%, transparent 100%);
+}
+
+.badminton-gallery-overlay h4 {
+  margin: 0 0 6px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: 'Playfair Display', serif;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.3s ease 0.1s, opacity 0.3s ease 0.1s;
+}
+
+.badminton-gallery-item:hover .badminton-gallery-overlay h4 {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.badminton-gallery-overlay p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--badminton-gold-light);
+  line-height: 1.5;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.3s ease 0.2s, opacity 0.3s ease 0.2s;
+}
+
+.badminton-gallery-item:hover .badminton-gallery-overlay p {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.badminton-gallery-item:focus,
+.badminton-gallery-item:focus-visible {
+  outline: 3px solid var(--badminton-gold-light);
+  outline-offset: 2px;
+}
+
+/* History Images */
+.badminton-history-images,
+.badminton-milestone-images {
+  margin-top: 40px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.badminton-history-img-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.badminton-history-img-pair figure {
+  margin: 0;
+  background: var(--badminton-glass);
+  border: 1px solid var(--badminton-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.badminton-history-img-pair figure:hover {
+  transform: translateY(-8px);
+  border-color: var(--badminton-gold-light);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 60px rgba(20, 90, 50, 0.15);
+}
+
+.badminton-history-img-pair img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.badminton-history-img-pair figure:hover img {
+  transform: scale(1.1);
+}
+
+.badminton-history-img-pair figcaption {
+  padding: 16px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--badminton-text-muted);
+  font-style: italic;
+  border-top: 1px solid var(--badminton-border);
+  transition: color 0.3s;
+}
+
+.badminton-history-img-pair figure:hover figcaption {
+  color: var(--badminton-gold-light);
+}
+
+/* References */
+.badminton-references {
+  background: var(--badminton-glass);
+  border: 1px solid var(--badminton-border);
+  border-radius: 16px;
+  padding: 40px;
+}
+
+.badminton-references h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin: 0 0 20px;
+  color: #ffffff;
+}
+
+.badminton-references ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.badminton-references li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 16px;
+  line-height: 1.6;
+  color: var(--badminton-text-muted);
+  font-size: 0.98rem;
+}
+
+.badminton-references li:last-child {
+  margin-bottom: 0;
+}
+
+.badminton-references li::before {
+  content: '📖';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 0.9rem;
+}
+
+.badminton-references a {
+  color: var(--badminton-gold-light);
+  text-decoration: none;
+}
+
+.badminton-references a:hover {
+  text-decoration: underline;
+}
+
+/* Bookmark Button */
+.badminton-bookmark-btn {
+  background: var(--badminton-glass);
+  border: 1px solid var(--badminton-border);
+  color: var(--badminton-gold-light);
+  padding: 10px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.badminton-bookmark-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--badminton-gold), var(--badminton-green));
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.badminton-bookmark-btn:hover {
+  border-color: var(--badminton-gold-light);
+  color: var(--badminton-navy);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(20, 90, 50, 0.3);
+}
+
+.badminton-bookmark-btn:hover::before {
+  transform: translateX(0);
+}
+
+.badminton-bookmark-btn.is-saved {
+  background: var(--badminton-gold-light);
+  color: var(--badminton-navy);
+  border-color: var(--badminton-gold-light);
+}
+
+.badminton-bookmark-btn.is-saved::before {
+  transform: translateX(0);
+}
+
+/* Modal */
+.museum-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1600;
+  display: none;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.museum-modal.open {
+  display: grid;
+  opacity: 1;
+}
+
+.museum-modal-card {
+  position: relative;
+  width: min(680px, 96vw);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 30px;
+  border: 1px solid var(--badminton-border);
+  border-radius: 22px;
+  background: var(--badminton-navy-light);
+  color: var(--badminton-text);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+  transform: scale(0.9) translateY(20px);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+}
+
+.museum-modal.open .museum-modal-card {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.museum-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--badminton-border);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--badminton-text-muted);
+  font-size: 1.45rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.museum-modal-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--badminton-gold-light);
+  border-color: var(--badminton-gold-light);
+  transform: rotate(90deg);
+}
+
+.modal-category {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--badminton-gold-light);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  animation: fadeInLeft 0.4s ease-out;
+}
+
+.museum-modal-card h2 {
+  margin: 0 42px 7px 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  animation: fadeInUp 0.4s ease-out 100ms both;
+}
+
+.modal-location {
+  margin: 0 0 20px;
+  color: var(--badminton-text-muted);
+  font-weight: 600;
+  animation: fadeInUp 0.4s ease-out 200ms both;
+}
+
+.modal-description {
+  margin: 0;
+  color: var(--badminton-text-muted);
+  line-height: 1.75;
+  animation: fadeInUp 0.4s ease-out 300ms both;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--badminton-navy);
+  border-top: 1px solid var(--badminton-border);
+  padding: 60px 24px 30px;
+}
+
+.site-footer .footer-container {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.site-footer .footer-brand .nav-logo {
+  display: inline-flex;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+  text-decoration: none;
+}
+
+.site-footer .footer-brand .nav-logo .saffron { color: var(--primary-saffron); }
+.site-footer .footer-brand .nav-logo .gold { color: var(--primary-gold); }
+.site-footer .footer-brand .nav-logo .green { color: var(--primary-green); }
+
+.site-footer .footer-brand p {
+  color: var(--badminton-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+.site-footer .footer-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-footer .footer-links h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--badminton-gold-light);
+  margin-bottom: 16px;
+}
+
+.site-footer .footer-links a {
+  color: var(--badminton-text-muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  padding: 5px 0;
+  transition: color 0.2s ease;
+  display: block;
+}
+
+.site-footer .footer-links a:hover {
+  color: var(--badminton-gold-light);
+}
+
+.site-footer .footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid var(--badminton-border);
+  text-align: center;
+}
+
+.site-footer .footer-bottom p {
+  color: var(--badminton-text-muted);
+  font-size: 0.82rem;
+}
+
+.site-footer .footer-bottom a {
+  color: var(--badminton-gold-light);
+  text-decoration: none;
+}
+
+.site-footer .footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+body.light-theme .site-footer {
+  background: var(--badminton-navy-light);
+  border-top-color: var(--badminton-border);
+}
+
+body.light-theme .site-footer .footer-brand p,
+body.light-theme .site-footer .footer-links a {
+  color: var(--badminton-text-muted);
+}
+
+body.light-theme .site-footer .footer-links h4 {
+  color: var(--badminton-gold);
+}
+
+@media (max-width: 768px) {
+  .site-footer .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer .footer-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+/* Scroll to Top */
+.btn-scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--badminton-gold), var(--badminton-green));
+  border: none;
+  color: var(--badminton-navy);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(20, 90, 50, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.8);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1000;
+}
+
+.btn-scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.btn-scroll-top:hover {
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 8px 30px rgba(20, 90, 50, 0.5);
+}
+
+.btn-scroll-top:focus-visible {
+  outline: 3px solid var(--badminton-gold-light);
+  outline-offset: 3px;
+}
+
+/* Welcome Toast */
+.badminton-welcome-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  padding: 16px 24px;
+  background: var(--badminton-glass);
+  border: 1px solid var(--badminton-border);
+  border-radius: 12px;
+  color: var(--badminton-text);
+  font-size: 0.95rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: translateX(150%);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1000;
+}
+
+.badminton-welcome-toast.is-visible {
+  transform: translateX(0);
+}
+
+.badminton-welcome-toast strong {
+  color: var(--badminton-gold-light);
+}
+
+/* Accessibility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.badminton-bookmark-btn:focus-visible,
+.badminton-filter-btn:focus-visible,
+.museum-modal-close:focus-visible,
+#btn-scroll-top:focus-visible {
+  outline: 3px solid var(--badminton-gold-light);
+  outline-offset: 2px;
+}
+
+/* Responsive Filter Bar */
+@media (max-width: 640px) {
+  .badminton-filter-bar {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 6px;
+    gap: 4px;
+  }
+  .badminton-filter-btn {
+    white-space: nowrap;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+  }
+  .badminton-card-grid {
+    grid-template-columns: 1fr;
+  }
+  .badminton-milestone-grid {
+    grid-template-columns: 1fr;
+  }
+  .badminton-legacy-grid {
+    grid-template-columns: 1fr;
+  }
+  .badminton-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .badminton-history-img-pair img {
+    height: 200px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
