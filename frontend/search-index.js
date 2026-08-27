@@ -5,6 +5,37 @@
  */
 window.indiaSearchIndex = [
     {
+        title: 'Cyclone Remal 2024 — Field Profile & Meteorological Analysis',
+        category: 'Geology & Disasters',
+        description:
+            'Explore Severe Cyclonic Storm Remal (May 2024): 135 km/h gusts, Sagar Island to Khepupara landfall, Sundarbans mangrove buffer, 207,000+ evacuations in West Bengal, and 5-day lead-time early warning performance.',
+        url: 'frontend/cyclone-remal-2024/index.html'},
+  {
+        title: 'Cyclone Michaung 2023 — Storm Dossier & Urban Flooding Case Study',
+        category: 'Geology & Disasters',
+        description:
+            'Explore Severe Cyclonic Storm Michaung (December 2023): interactive Bay of Bengal track scrubber, Chennai extreme rainfall & urban flooding analysis, Bapatla landfall, and disaster relief response.',
+        url: 'frontend/cyclone-michaung-2023/index.html'},
+  {
+        title: 'Western Ghats — Landslide Hazard Profile & Geological Analysis',
+        title: 'The Megalithic Heritage of India — Prehistoric Stone Monuments',
+        category: 'Ancient History & Archaeology',
+        description:
+            'Explore India’s prehistoric megalithic monuments: Hirebenkal port-hole dolmens, Vidarbha stone circles, Adichanallur urn burials, Kerala topikal umbrella stones, and the living monolith tradition of Meghalaya.',
+        url: 'frontend/megalithic-heritage-explorer/index.html'},
+  {     title: 'Western Ghats — Landslide Hazard Profile & Geological Analysis',
+        category: 'Geology & Disasters',
+        description:
+            'Explore the landslide hazard of the Western Ghats: 1,600 km escarpment geology, interactive slope failure simulator, orographic monsoon rainfall, 7 chronic hotspots, and GSI early-warning networks.',
+        url: 'frontend/western-ghats-landslide-hazard/index.html'},
+  {
+        title: 'The 1999 Odisha Super Cyclone — The Storm That Rewrote Disaster Management',
+        category: 'Geology & Disasters',
+        description:
+            'Explore the 1999 Odisha Super Cyclone (BOB 06): 912 hPa barometric collapse, 260 km/h winds, 5-8m storm surge, coastal district impact map, and Odisha’s institutional turnaround in disaster resilience.',
+        url: 'frontend/odisha-super-cyclone-1999/index.html'
+    },
+    {
         title: 'Maitreyi — The Philosopher Who Chose Knowledge Over Material Wealth',
         category: 'Historical & Cultural Profiles',
         description:
@@ -82,6 +113,13 @@ window.indiaSearchIndex = [
         url: "frontend/ahmedabad-heatwave-2010/index.html"
     },
     {
+    title: "Belum Caves: Geological History",
+    category: "Geology & Natural Heritage",
+    description:
+        "Explore how Belum Caves formed through karst limestone dissolution — underground chambers, speleothems, and geological timeline.",
+    url: "frontend/belum-caves-geology/index.html"
+    },
+    {
         title: "Heatwave Hazards Across Northern India",
         category: "Natural Hazards",
         description:
@@ -106,7 +144,13 @@ window.indiaSearchIndex = [
         category: "Natural Hazards",
         description:
             "An interactive explorer of India's natural hazards — an interactive hazard map, 11 hazard categories (floods, cyclones, earthquakes, landslides, forest fires, droughts, heatwaves, lightning, avalanches, tsunamis, volcanic activity), state-wise risk profiles, a historical disaster timeline, preparedness & safety guides, and linked detailed hazard/dissaster profiles.",
-        url: "frontend/disasters-explorer/index.html"
+        url: "frontend/disasters-explorer/index.html"},
+  {
+    title: "Burzahom: The Neolithic Settlement of Kashmir",
+    category: "Prehistoric India",
+    description:
+        "Explore Burzahom's Neolithic pit dwellings, tools, pottery, burial customs, and 5,000-year chronology in the Kashmir Valley.",
+    url: "frontend/burzahom-neolithic-settlement/index.html"
     },
     {
         title: 'Brahmagiri Peak Trek (Coorg & Wayanad) Profile',
@@ -6537,5 +6581,66 @@ window.indiaSearchIndex = [
         description:
             "Explore major Mesolithic sites across India including Bhimbetka, Bagor, Sarai Nahar Rai, Langhnaj, Adamgarh and Tilwara: microlithic stone tools, settlement and burial evidence, rock art, chronology, and an interactive map of key sites.",
         url: "frontend/mesolithic-sites-india/index.html"
+    },
+    // --- feat/rama-setu-story ---
+    {
+        title: "Add Rama Setu \u2014 The Legendary Journey to Lanka",
+        category: "Culture & Literature",
+        description:
+            "Explore the story of Rama Setu \u2014 the legendary oceanic bridge constructed to Lanka by Nala, Nila, and the Vanara army with floating stones and squirrel devotion.",
+        url: "frontend/rama-setu-story/index.html"},
+    // --- feat/krishna-kaliya-story ---
+    {
+        title: "Add Krishna and Kaliya \u2014 The Serpent of the Yamuna",
+        category: "Culture & Literature",
+        description:
+            "Explore the story of Krishna and Kaliya \u2014 the dramatic encounter at Kaliya Ghat on the Yamuna, the cosmic dance upon the serpent hoods, and ecological cleansing.",
+        url: "frontend/krishna-kaliya-story/index.html"},
+    // --- feat/hanumans-leap-to-lanka ---
+    {
+        title: "Add Hanuman's Leap to Lanka \u2014 The Journey Across the Ocean",
+        category: "Culture & Literature",
+        description:
+            "Explore the story of Hanuman's Leap to Lanka \u2014 the legendary 100-yojana ocean flight, encounters with Mainaka, Surasa, and Simhika, and Sundara Kanda valor.",
+        url: "frontend/hanumans-leap-to-lanka/index.html"},
+    // --- feat/hanuman-sanjeevani-story ---
+    {
+        title: "Add Hanuman and Sanjeevani \u2014 The Search for the Life-Saving Herb",
+        category: "Culture & Literature",
+        description:
+            "Explore the legendary story of Hanuman and Sanjeevani \u2014 the desperate quest across the Himalayas to retrieve the life-saving herb and revive Lakshmana.",
+        url: "frontend/hanuman-sanjeevani-story/index.html"},
+    },
+
+    // --- Fossil Forests of India (#3814) ---
+    {
+        title: "Fossil Forests of India \u2014 Petrified Wood & Ancient Plants",
+        category: "Geology & Disasters",
+        description:
+            "Explore India's fossil forests and plant remains: Akal, Tiruvakkarai, Sathanur, Ghughua, Rajmahal, and Gondwana Glossopteris floras, with ages, ancient environments, and a site map.",
+        url: "frontend/fossil-forests-india/index.html"},
+    // --- Pundalik and Vithoba Story (#3698) ---
+    {
+        title: "Pundalik and Vithoba — The Story Behind Pandharpur",
+        category: "Culture & Literature",
+        description:
+            "Explore the traditional story of Pundalik and Vithoba: the waiting Lord on the brick, Pandharpur on the Chandrabhaga, and the Warkari pilgrimage.",
+        url: "frontend/pundalik-vithoba-story/index.html"
+    },
+
+    // --- India Before the Himalayas (#3817) ---
+    {
+        title: "India Before the Himalayas Formed \u2014 Plate Timeline",
+        category: "Geology & Disasters",
+        description:
+            "Visual geological timeline of the Indian plate: Gondwana geography, northward drift, Tethys closure, collision with Eurasia, Himalayan formation, and maps.",
+        url: "frontend/india-before-himalayas/index.html"},
+    // --- Deccan Volcanic Landscape (#3816) ---
+    {
+        title: "Deccan Volcanic Landscape \u2014 Flood Basalts & Prehistoric India",
+        category: "Geology & Disasters",
+        description:
+            "Explore the Deccan Traps: flood-basalt history, Western Ghats stratigraphy, a ~66 Ma timeline, intertrappean fossils, trap landscape, and an interactive site map.",
+        url: "frontend/deccan-volcanic-landscape/index.html"
     }
 ];

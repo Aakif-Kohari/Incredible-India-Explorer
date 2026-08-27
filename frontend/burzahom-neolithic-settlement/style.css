@@ -1,0 +1,135 @@
+/* ==========================================================================
+   Burzahom Neolithic Settlement Stylesheet
+   ========================================================================== */
+
+:root {
+    --bz-earth: #92400e;
+    --bz-slate: #475569;
+    --bz-birch: #d4a373;
+    --bz-card-bg: rgba(18, 17, 15, 0.85);
+    --bz-border: rgba(146, 64, 14, 0.28);
+}
+
+body.burzahom-page {
+    background-color: #0e0d0b;
+    color: #f2ede4;
+    font-family: var(--font-body, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+    line-height: 1.65;
+    margin: 0;
+    padding: 0;
+}
+
+body.burzahom-page.light-theme {
+    background-color: #fdfaf5;
+    color: #211c14;
+    --bz-card-bg: rgba(255, 255, 255, 0.95);
+    --bz-border: rgba(146, 64, 14, 0.22);
+}
+
+.page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+/* --- Hero --- */
+.hero-section.burzahom-hero {
+    background: linear-gradient(135deg, rgba(146, 64, 14, 0.24), rgba(71, 85, 105, 0.24)), #17140f;
+    border: 1px solid var(--bz-border);
+    border-radius: 1.25rem;
+    padding: 3.5rem 2rem 2.5rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+body.light-theme .hero-section.burzahom-hero {
+    background: linear-gradient(135deg, rgba(254, 235, 200, 0.9), rgba(226, 232, 240, 0.6)), #ffffff;
+    box-shadow: 0 10px 30px rgba(146, 64, 14, 0.1);
+}
+
+.badge-container { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem; }
+.hero-badge { display: inline-flex; align-items: center; padding: 0.35rem 0.85rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 600; }
+.badge-earth { background: rgba(146, 64, 14, 0.22); color: #fdba74; border: 1px solid rgba(146, 64, 14, 0.45); }
+.badge-slate { background: rgba(71, 85, 105, 0.28); color: #cbd5e1; border: 1px solid rgba(71, 85, 105, 0.5); }
+.badge-birch { background: rgba(212, 163, 115, 0.22); color: #f0d5b8; border: 1px solid rgba(212, 163, 115, 0.4); }
+
+.hero-content h1 { font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 800; line-height: 1.25; margin-bottom: 0.6rem; color: #fdf7ee; }
+body.light-theme .hero-content h1 { color: #211c14; }
+.hero-content .accent { color: var(--bz-earth); }
+
+.subtitle { font-size: 1.1rem; font-weight: 600; font-style: italic; color: #fdba74; margin-bottom: 1.1rem; }
+body.light-theme .subtitle { color: #92400e; }
+
+.hero-desc { font-size: 1.02rem; max-width: 900px; color: #ece2d3; }
+body.light-theme .hero-desc { color: #4b3a24; }
+
+.hero-stats-ribbon {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2.25rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--bz-border);
+}
+.stat-item { background: rgba(255, 255, 255, 0.04); padding: 1rem 1.25rem; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.06); }
+body.light-theme .stat-item { background: #ffffff; border-color: rgba(146, 64, 14, 0.16); }
+.stat-label { display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: #fdba74; margin-bottom: 0.35rem; }
+body.light-theme .stat-label { color: #92400e; }
+.stat-val { font-size: 1rem; font-weight: 700; color: var(--bz-earth); }
+
+/* --- Content --- */
+.content-grid { display: flex; flex-direction: column; gap: 2.25rem; margin-bottom: 3rem; }
+
+.info-card {
+    background: var(--bz-card-bg);
+    border: 1px solid var(--bz-border);
+    border-radius: 1.25rem;
+    padding: 2.1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+.info-card h2 { font-size: 1.6rem; margin-bottom: 1.1rem; color: #fdf7ee; border-bottom: 2px solid rgba(146, 64, 14, 0.3); padding-bottom: 0.5rem; }
+body.light-theme .info-card h2 { color: #211c14; }
+
+.grid-2col { display: grid; grid-template-columns: 1.3fr 1fr; gap: 1.75rem; align-items: start; }
+@media (max-width: 768px) { .grid-2col { grid-template-columns: 1fr; } }
+
+.callout-box { background: rgba(71, 85, 105, 0.16); border-left: 4px solid var(--bz-slate); padding: 1.35rem; border-radius: 0.5rem; }
+.callout-box h3 { margin-top: 0; margin-bottom: 0.75rem; color: var(--bz-earth); }
+body.light-theme .callout-box h3 { color: #92400e; }
+
+.feature-list { list-style: none; padding-left: 0; margin: 1rem 0 0; }
+.feature-list li { margin-bottom: 0.85rem; position: relative; padding-left: 1.6rem; }
+.feature-list li::before { content: "🏺"; position: absolute; left: 0; font-size: 0.85rem; }
+
+/* --- Hub sections (Chronology / Map) --- */
+.hub-section {
+    background: var(--bz-card-bg);
+    border: 1px solid var(--bz-border);
+    border-radius: 1.5rem;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+.hub-section h2 { font-size: 1.6rem; margin-bottom: 1.5rem; color: #fdf7ee; }
+body.light-theme .hub-section h2 { color: #211c14; }
+
+.timeline-track { position: relative; padding-left: 2rem; border-left: 3px solid var(--bz-earth); display: flex; flex-direction: column; gap: 1.75rem; }
+.timeline-item { position: relative; }
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -2.45rem;
+    top: 0.2rem;
+    width: 0.9rem;
+    height: 0.9rem;
+    background: var(--bz-earth);
+    border-radius: 50%;
+    border: 3px solid #17140f;
+}
+body.light-theme .timeline-item::before { border-color: #fdfaf5; }
+
+.timeline-year { display: inline-block; font-weight: 700; color: var(--bz-slate); margin-bottom: 0.25rem; }
+body.light-theme .timeline-year { color: #334155; }
+.timeline-item h4 { margin: 0 0 0.35rem; font-size: 1.05rem; color: #fdf7ee; }
+body.light-theme .timeline-item h4 { color: #211c14; }
+.timeline-item p { margin: 0; font-size: 0.92rem; color: #d6c9b6; }
+body.light-theme .timeline-item p { color: #57503f; }
