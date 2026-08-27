@@ -1,0 +1,612 @@
+/* Dinosaur Egg Fossils Profile Stylesheet */
+
+:root {
+  --egg-bg: #090e17;
+  --egg-surface: #111a2e;
+  --egg-surface-hover: #1b2844;
+  --egg-card-bg: rgba(17, 26, 46, 0.9);
+  --egg-border: rgba(245, 158, 11, 0.2);
+  --egg-border-hover: rgba(245, 158, 11, 0.55);
+  --egg-accent: #f59e0b;
+  --egg-gold: #fbbf24;
+  --egg-amber: #d97706;
+  --egg-text-primary: #f8fafc;
+  --egg-text-secondary: #94a3b8;
+  --egg-text-muted: #64748b;
+  --egg-tag-bg: rgba(245, 158, 11, 0.15);
+  --shadow-lg: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.light-theme {
+  --egg-bg: #f8fafc;
+  --egg-surface: #ffffff;
+  --egg-surface-hover: #f1f5f9;
+  --egg-card-bg: rgba(255, 255, 255, 0.92);
+  --egg-border: rgba(217, 119, 6, 0.25);
+  --egg-border-hover: rgba(217, 119, 6, 0.6);
+  --egg-accent: #d97706;
+  --egg-gold: #d97706;
+  --egg-amber: #b45309;
+  --egg-text-primary: #0f172a;
+  --egg-text-secondary: #334155;
+  --egg-text-muted: #64748b;
+  --egg-tag-bg: rgba(217, 119, 6, 0.12);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.egg-fossils-main {
+  background-color: var(--egg-bg);
+  color: var(--egg-text-primary);
+  min-height: 100vh;
+  font-family: 'Outfit', sans-serif;
+  padding-bottom: 4rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--egg-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: var(--egg-gold);
+  text-decoration: none;
+}
+
+/* Hero Section */
+.egg-hero {
+  padding: 3rem 0 2.5rem;
+  border-bottom: 1px solid var(--egg-border);
+  background: radial-gradient(circle at top center, rgba(245, 158, 11, 0.14), transparent 65%);
+}
+
+.hero-badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--egg-gold);
+  background: var(--egg-tag-bg);
+  border: 1px solid var(--egg-border);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+
+.hero-content-wrap h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.hero-content-wrap h1 span {
+  color: var(--egg-gold);
+}
+
+.hero-lead {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--egg-text-secondary);
+  max-width: 850px;
+  margin-bottom: 2rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  background: var(--egg-card-bg);
+  border: 1px solid var(--egg-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.stat-val {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--egg-gold);
+  line-height: 1.2;
+}
+
+.stat-lbl {
+  font-size: 0.82rem;
+  color: var(--egg-text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 0.35rem;
+}
+
+/* Tabs Navigation */
+.egg-nav-section {
+  position: sticky;
+  top: 70px;
+  z-index: 10;
+  background: var(--egg-bg);
+  border-bottom: 1px solid var(--egg-border);
+  padding: 0.75rem 0;
+  backdrop-filter: blur(8px);
+}
+
+.egg-tabs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.tab-btn {
+  background: var(--egg-surface);
+  color: var(--egg-text-secondary);
+  border: 1px solid var(--egg-border);
+  padding: 0.6rem 1.1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.tab-btn:hover {
+  background: var(--egg-surface-hover);
+  color: var(--egg-text-primary);
+}
+
+.tab-btn.active {
+  background: var(--egg-accent);
+  color: #ffffff;
+  border-color: var(--egg-gold);
+}
+
+/* Tab Content Areas */
+.tab-content-area {
+  padding: 3rem 0;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-pane h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.8rem;
+  color: var(--egg-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.subtext {
+  color: var(--egg-text-secondary);
+  margin-bottom: 1.8rem;
+  font-size: 1rem;
+}
+
+/* Location Cards */
+.location-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.loc-card {
+  background: var(--egg-surface);
+  border: 1px solid var(--egg-border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal);
+}
+
+.loc-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--egg-border-hover);
+}
+
+.loc-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--egg-gold);
+  background: var(--egg-tag-bg);
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  align-self: flex-start;
+}
+
+.loc-card h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.loc-card p {
+  font-size: 0.9rem;
+  color: var(--egg-text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+}
+
+.loc-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--egg-text-muted);
+  border-top: 1px dashed var(--egg-border);
+  padding-top: 0.75rem;
+}
+
+/* Ootaxonomy Table */
+.ootaxonomy-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--egg-border);
+  border-radius: 12px;
+  background: var(--egg-surface);
+}
+
+.ootaxonomy-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.ootaxonomy-table th, .ootaxonomy-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--egg-border);
+}
+
+.ootaxonomy-table th {
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--egg-gold);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.ootaxonomy-table tr:hover {
+  background: var(--egg-surface-hover);
+}
+
+/* Morphology Container */
+.morphology-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (max-width: 860px) {
+  .morphology-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.egg-cross-section-svg {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--egg-border);
+}
+
+.morph-insights {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.morph-card {
+  background: var(--egg-surface);
+  border: 1px solid var(--egg-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.morph-card h4 {
+  color: var(--egg-gold);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.morph-card p {
+  color: var(--egg-text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Taphonomy Steps */
+.taphonomy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.step-card {
+  background: var(--egg-surface);
+  border: 1px solid var(--egg-border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.step-num {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--egg-gold);
+  background: var(--egg-tag-bg);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.step-card h3 {
+  font-size: 1.2rem;
+  margin: 0.6rem 0 0.4rem;
+}
+
+.step-card p {
+  font-size: 0.9rem;
+  color: var(--egg-text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Significance List */
+.significance-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sig-item {
+  display: flex;
+  gap: 1.25rem;
+  background: var(--egg-surface);
+  border: 1px solid var(--egg-border);
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+
+.sig-icon {
+  font-size: 2rem;
+}
+
+.sig-item h4 {
+  font-size: 1.15rem;
+  color: var(--egg-gold);
+  margin-bottom: 0.35rem;
+}
+
+.sig-item p {
+  font-size: 0.92rem;
+  color: var(--egg-text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Museum Grid */
+.museum-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.mus-card {
+  background: var(--egg-surface);
+  border: 1px solid var(--egg-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.mus-card h4 {
+  font-size: 1.1rem;
+  color: var(--egg-gold);
+  margin-bottom: 0.5rem;
+}
+
+.mus-card p {
+  font-size: 0.9rem;
+  color: var(--egg-text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Clutch Analyzer */
+.clutch-analyzer-section {
+  margin-top: 3rem;
+}
+
+.analyzer-card {
+  background: var(--egg-surface);
+  border: 1px solid var(--egg-border);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.analyzer-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--egg-gold);
+  background: var(--egg-tag-bg);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.analyzer-header {
+  margin-bottom: 1.5rem;
+}
+
+.analyzer-header h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.6rem;
+  margin-bottom: 0.25rem;
+}
+
+.analyzer-header p {
+  color: var(--egg-text-secondary);
+  font-size: 0.95rem;
+}
+
+.analyzer-workspace {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .analyzer-workspace {
+    grid-template-columns: 1fr;
+  }
+}
+
+.clutch-visual {
+  background: #0f172a;
+  border: 1px solid var(--egg-border);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clutch-svg {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.interactive-egg {
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.interactive-egg:hover, .interactive-egg.active {
+  transform: scale(1.08);
+}
+
+.interactive-egg.active circle {
+  stroke: #ffffff;
+  stroke-width: 4;
+}
+
+.clutch-data-panel {
+  background: var(--egg-card-bg);
+  border: 1px solid var(--egg-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.clutch-data-panel h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.3rem;
+  color: var(--egg-gold);
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--egg-border);
+  padding-bottom: 0.5rem;
+}
+
+.egg-data-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.data-row strong {
+  color: var(--egg-text-primary);
+}
+
+.data-row span {
+  color: var(--egg-text-secondary);
+}
+
+/* Quiz */
+.egg-quiz-section {
+  margin-top: 3rem;
+}
+
+.quiz-box {
+  background: var(--egg-surface);
+  border: 1px solid var(--egg-border);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.quiz-opts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.q-opt-btn {
+  background: var(--egg-card-bg);
+  border: 1px solid var(--egg-border);
+  color: var(--egg-text-primary);
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.q-opt-btn:hover {
+  border-color: var(--egg-gold);
+}
+
+.feedback-msg {
+  margin-top: 1rem;
+  padding: 0.85rem;
+  border-radius: 8px;
+  font-size: 0.92rem;
+}
+
+.feedback-msg.success {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.feedback-msg.error {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
