@@ -1,113 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-theme', theme);
-        })();
-    </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>History of Indian Cinema | Incredible India Explorer</title>
-  <meta name="description" content="Explore the evolution of Indian cinema from the silent-film era to modern global blockbusters.">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../../pages-common.css">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History of Indian Cinema | Incredible India Explorer</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header class="app-header">
-    <a href="../../index.html" class="back-link" aria-label="Return to Incredible India Explorer Home">
-      <i class="fas fa-arrow-left"></i> Back to Explorer
-    </a>
-    <h1 class="page-title">Indian Cinema (Bollywood & Beyond)</h1>
-    <div class="header-badge">Interactive Module</div>
-  </header>
-
-  <main class="container">
-    <section class="hero-section">
-      <div class="hero-content">
-        <h2>A Century of Magic 🎬</h2>
-        <p>Journey through the evolution of Indian filmmaking. From the first silent frames to modern global phenomenons, discover the landmark films, influential creators, and diverse regional industries that make Indian cinema a worldwide powerhouse.</p>
-        <div class="fact-box" id="fact-box" aria-live="polite">
-          <i class="fas fa-lightbulb"></i> <strong>Did You Know?</strong> <span id="fact-text"></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Regional Cinema Explorer -->
-    <section class="regional-section">
-      <div class="section-header">
-        <h3><i class="fas fa-map-marked-alt"></i> Regional Cinema Explorer</h3>
-        <p>Indian cinema is much more than Bollywood. Explore the major film industries across the subcontinent.</p>
-      </div>
-      <div class="regional-grid" id="regional-grid">
-        <!-- Rendered via JS -->
-      </div>
-    </section>
-
-    <!-- Interactive Timeline & Filters -->
-    <section class="controls-section">
-      <div class="section-header">
-        <h3><i class="fas fa-film"></i> Landmark Films</h3>
-        <p>Explore significant films that defined eras and shaped the industry.</p>
-      </div>
-      
-      <div class="timeline-container">
-        <div class="timeline" id="era-timeline" role="tablist" aria-label="Filter by Era">
-          <!-- Rendered via JS -->
-        </div>
-      </div>
-      
-      <div class="filters-container">
-        <div class="filter-group">
-          <label for="industry-filter">Industry/Language:</label>
-          <select id="industry-filter" aria-label="Filter by Industry">
-            <option value="All">All Industries</option>
-            <option value="Hindi">Hindi</option>
-            <option value="Telugu">Telugu</option>
-            <option value="Tamil">Tamil</option>
-            <option value="Bengali">Bengali</option>
-            <option value="Malayalam">Malayalam</option>
-            <option value="Kannada">Kannada</option>
-            <option value="Marathi">Marathi</option>
-          </select>
-        </div>
-      </div>
-    </section>
-
-    <!-- Film Gallery -->
-    <section class="gallery-section">
-      <div class="film-grid" id="film-grid" aria-live="polite">
-        <!-- Rendered via JS -->
-      </div>
-      <div id="no-results" class="no-results" style="display: none;">
-        <i class="fas fa-video-slash" style="font-size: 2rem; color: var(--text-muted); margin-bottom: 1rem;"></i>
-        <p>No films found matching your criteria.</p>
-      </div>
-    </section>
-
-    <!-- Global Impact Section -->
-    <section class="global-impact-section">
-      <div class="impact-content">
-        <h3><i class="fas fa-globe"></i> Global Impact</h3>
-        <p>Indian cinema has transcended borders. From Satyajit Ray winning an Honorary Academy Award and Lagaan's historic Oscar nomination, to RRR winning Best Original Song and the global dominance of Bollywood dance sequences—India's cinematic influence is recognized at major festivals (Cannes, Venice, TIFF) and celebrated by a massive global diaspora.</p>
-      </div>
-    </section>
-
-    <!-- Modal -->
-    <div class="modal-overlay" id="film-modal" aria-hidden="true">
-      <div class="modal-content">
-        <button class="close-modal" id="close-modal" aria-label="Close Details">
-          <i class="fas fa-times"></i>
+    <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </button>
-        <div id="modal-body">
-          <!-- Rendered via JS -->
-        </div>
-      </div>
-    </div>
-  </main>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+            
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                    Safety ▾
+                </button>
+                <div class="dropdown-menu">
+                    <a
+                        href="../../frontend/emergency-assistance/emergency.html"
+                        class="dropdown-item"
+                    >
+                        🚨 Emergency Assistance
+                    </a>
+                </div>
+            </div>
 
-  <script type="module" src="script.js"></script>
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/indian-cinema-history/index.html" class="dropdown-item">Indian Cinema</a>
+                    <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                    <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
+                    <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
+                    <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
+                    <a href="../../frontend/handicrafts-showcase/index.html" class="dropdown-item">UP Handicrafts</a>
+                    <a href="../../frontend/national-days-calendar/index.html" class="dropdown-item">National Days</a>
+                    <a href="../../frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+    <main class="container cinema-main">
+        <!-- Hero Section -->
+        <section class="cinema-hero" id="hero">
+            <div class="hero-content fade-in">
+                <h1>History of Indian Cinema</h1>
+                <p class="subtitle">Bollywood & Beyond 🎬</p>
+                <p>Explore the evolution of Indian filmmaking from the silent era to modern digital productions, covering Bollywood, regional cinemas, and its growing global influence.</p>
+                <a href="#timeline" class="btn btn-primary">Begin the Journey</a>
+            </div>
+            <div class="hero-overlay"></div>
+        </section>
+
+        <!-- Interactive Timeline -->
+        <section id="timeline" class="section timeline-section">
+            <h2 class="section-title">The Eras of Indian Cinema</h2>
+            <div class="timeline-container" id="timeline-container">
+                <!-- Timeline items injected via JS -->
+            </div>
+        </section>
+
+        <!-- Landmark Films Gallery -->
+        <section id="landmark-films" class="section gallery-section">
+            <h2 class="section-title">Landmark Films</h2>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="era-filter">Filter by Era:</label>
+                    <select id="era-filter">
+                        <option value="all">All Eras</option>
+                        <!-- Injected via JS -->
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="lang-filter">Filter by Language/Industry:</label>
+                    <select id="lang-filter">
+                        <option value="all">All Languages</option>
+                        <option value="Hindi">Hindi (Bollywood)</option>
+                        <option value="Telugu">Telugu (Tollywood)</option>
+                        <option value="Tamil">Tamil (Kollywood)</option>
+                        <option value="Bengali">Bengali (Tollywood)</option>
+                        <option value="Malayalam">Malayalam (Mollywood)</option>
+                        <option value="Kannada">Kannada (Sandalwood)</option>
+                        <option value="Marathi">Marathi</option>
+                        <option value="Silent">Silent</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="film-grid" id="film-grid">
+                <!-- Film cards injected via JS -->
+            </div>
+        </section>
+
+        <!-- Regional Cinema Explorer -->
+        <section id="regional-cinema" class="section regional-section">
+            <h2 class="section-title">Regional Cinema Explorer</h2>
+            <div class="regional-grid" id="regional-grid">
+                <!-- Regional industries injected via JS -->
+            </div>
+        </section>
+
+        <!-- Influential Filmmakers -->
+        <section id="filmmakers" class="section filmmakers-section">
+            <h2 class="section-title">Influential Filmmakers</h2>
+            <div class="filmmaker-grid" id="filmmaker-grid">
+                <!-- Filmmakers injected via JS -->
+            </div>
+        </section>
+
+        <!-- Global Impact -->
+        <section id="global-impact" class="section impact-section">
+            <h2 class="section-title">Global Impact</h2>
+            <div class="impact-content">
+                <p>Indian cinema has influenced audiences worldwide through international film festivals, diaspora audiences, and the growth of streaming platforms. From Satyajit Ray's international recognition to the historic Academy Award win for RRR's "Naatu Naatu", Indian films continue to gain global acclaim.</p>
+                <div class="fact-box">
+                    <i class="fas fa-globe-asia"></i>
+                    <h3>Did You Know?</h3>
+                    <p id="random-fact">India produces between 1,500 to 2,000 films every year, making it the largest film industry in the world by output.</p>
+                    <button class="btn btn-secondary btn-sm mt-2" onclick="showRandomFact()">Next Fact</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Detailed Film View -->
+    <div id="film-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body" id="modal-body">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Global scripts -->
+    <script src="../../js-modules/storage.js"></script>
+    <script src="../../app.js" defer></script>
+    <script src="../../propagate_navbar.js" defer></script> <!-- Only for dev if needed, typically built via node -->
+    
+    <!-- Feature scripts -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
