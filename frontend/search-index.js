@@ -113,6 +113,13 @@ window.indiaSearchIndex = [
         url: "frontend/ahmedabad-heatwave-2010/index.html"
     },
     {
+    title: "Belum Caves: Geological History",
+    category: "Geology & Natural Heritage",
+    description:
+        "Explore how Belum Caves formed through karst limestone dissolution — underground chambers, speleothems, and geological timeline.",
+    url: "frontend/belum-caves-geology/index.html"
+    },
+    {
         title: "Heatwave Hazards Across Northern India",
         category: "Natural Hazards",
         description:
@@ -131,6 +138,13 @@ window.indiaSearchIndex = [
         description:
             "Explore wildfire risk in Himachal Pradesh: chir pine forest regions, the April-June fire season, contributing factors, ecological and wildlife impacts, satellite-based fire detection and response, and prevention measures.",
         url: "frontend/himachal-forest-fire-hazards/index.html"
+    },
+    {
+    title: "Burzahom: The Neolithic Settlement of Kashmir",
+    category: "Prehistoric India",
+    description:
+        "Explore Burzahom's Neolithic pit dwellings, tools, pottery, burial customs, and 5,000-year chronology in the Kashmir Valley.",
+    url: "frontend/burzahom-neolithic-settlement/index.html"
     },
     {
         title: 'Brahmagiri Peak Trek (Coorg & Wayanad) Profile',
@@ -6589,9 +6603,16 @@ window.indiaSearchIndex = [
         category: "Culture & Literature",
         description:
             "Explore the legendary story of Hanuman and Sanjeevani \u2014 the desperate quest across the Himalayas to retrieve the life-saving herb and revive Lakshmana.",
-        url: "frontend/hanuman-sanjeevani-story/index.html"
+        url: "frontend/hanuman-sanjeevani-story/index.html"},
     },
 
+    // --- Fossil Forests of India (#3814) ---
+    {
+        title: "Fossil Forests of India \u2014 Petrified Wood & Ancient Plants",
+        category: "Geology & Disasters",
+        description:
+            "Explore India's fossil forests and plant remains: Akal, Tiruvakkarai, Sathanur, Ghughua, Rajmahal, and Gondwana Glossopteris floras, with ages, ancient environments, and a site map.",
+        url: "frontend/fossil-forests-india/index.html"},
     // --- Pundalik and Vithoba Story (#3698) ---
     {
         title: "Pundalik and Vithoba — The Story Behind Pandharpur",
@@ -6607,6 +6628,13 @@ window.indiaSearchIndex = [
         category: "Geology & Disasters",
         description:
             "Visual geological timeline of the Indian plate: Gondwana geography, northward drift, Tethys closure, collision with Eurasia, Himalayan formation, and maps.",
-        url: "frontend/india-before-himalayas/index.html"
+        url: "frontend/india-before-himalayas/index.html"},
+    // --- Deccan Volcanic Landscape (#3816) ---
+    {
+        title: "Deccan Volcanic Landscape \u2014 Flood Basalts & Prehistoric India",
+        category: "Geology & Disasters",
+        description:
+            "Explore the Deccan Traps: flood-basalt history, Western Ghats stratigraphy, a ~66 Ma timeline, intertrappean fossils, trap landscape, and an interactive site map.",
+        url: "frontend/deccan-volcanic-landscape/index.html"
     }
 ];
